@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314738"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight
@@ -156,13 +156,13 @@ Jupyter Notebook można uruchomić z Azure Portal. Znajdź klaster Spark na pulp
 
 ![Pulpity nawigacyjne klastra](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Możesz również przejść do * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _, aby uzyskać dostęp do notesów Jupyter. Zastąp część CLUSTERname tego adresu URL nazwą własnego klastra. Aby uzyskać dostęp do notesów, musisz mieć hasło do konta administratora.
+Możesz również przejść do ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** okna, aby uzyskać dostęp do notesów Jupyter. Zastąp część CLUSTERname tego adresu URL nazwą własnego klastra. Aby uzyskać dostęp do notesów, musisz mieć hasło do konta administratora.
 
 ![Przeglądaj notesy Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Wybierz pozycję PySpark, aby wyświetlić katalog zawierający kilka przykładów wstępnie spakowanych notesów korzystających z interfejsu API PySpark. Notesy zawierające przykłady kodu dla tego zestawu platformy Spark są dostępne w witrynie [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Notesy można przekazać bezpośrednio z witryny [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) do serwera notesu Jupyter w klastrze Spark. Na stronie głównej Jupyter kliknij przycisk _ *Przekaż* * w prawej części ekranu. Otwiera Eksploratora plików. W tym miejscu możesz wkleić adres URL witryny GitHub (nieprzetworzona zawartość) notesu i kliknąć pozycję **Otwórz**.
+Notesy można przekazać bezpośrednio z witryny [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) do serwera notesu Jupyter w klastrze Spark. Na stronie głównej Jupyter kliknij przycisk **Przekaż** znajdujący się w prawej części ekranu. Otwiera Eksploratora plików. W tym miejscu możesz wkleić adres URL witryny GitHub (nieprzetworzona zawartość) notesu i kliknąć pozycję **Otwórz**.
 
 Na liście plików Jupyter zostanie wyświetlona nazwa pliku z przyciskiem **Przekaż** . Kliknij ten przycisk **Przekaż** . Teraz zaimportowano Notes. Powtórz te kroki, aby przekazać inne notesy z tego przewodnika.
 
@@ -175,7 +175,7 @@ Co możesz teraz zrobić:
 
 * Zobacz kod, klikając Notes.
 * Wykonaj każdą komórkę, naciskając **klawisze SHIFT-ENTER**.
-* Uruchom cały Notes, klikając pozycję przebieg **komórki**  ->  **Run**.
+* Uruchom cały Notes, klikając pozycję przebieg **komórki**  ->  .
 * Użyj automatycznej wizualizacji zapytań.
 
 > [!TIP]

@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć inne maszyny wirtualne przy użyciu sza
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fb7cb38dfb2c1664017f0e342fefecdd464df45f
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696003"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Tworzenie maszyn wirtualnych przy użyciu szablonu Azure Resource Manager 

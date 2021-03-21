@@ -11,10 +11,10 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
 ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678495"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Dostrajanie wydajności w widokach z materiałami
@@ -115,7 +115,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
 
 ```sql
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94537921"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania
@@ -23,7 +23,7 @@ W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywraca
 
 Można także zapoznać się z [przewodnikiem dotyczącym migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) , aby uzyskać szczegółowe informacje i przypadki użycia dotyczące migrowania baz danych do Azure Database for MySQL. Ten przewodnik zawiera wskazówki, które pozwolą na pomyślne planowanie i wykonywanie migracji programu MySQL na platformę Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Aby krokowo korzystać z tego przewodnika, musisz mieć:
 - [tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Narzędzie wiersza polecenia [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) zainstalowane na komputerze.

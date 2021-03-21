@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93319275"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Tworzenie serwerów i pojedynczych baz danych w programie Azure SQL Database oraz zarządzanie nimi
@@ -123,9 +123,9 @@ Aby utworzyć serwery, bazy danych i zapory w języku Transact-SQL i zarządzać
 
 | Polecenie | Opis |
 | --- | --- |
-|[UTWÓRZ BAZĘ DANYCH](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Tworzy nową pojedynczą bazę danych. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Tworzy nową pojedynczą bazę danych. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modyfikuje bazę danych lub pulę elastyczną. |
-|[USUŃ BAZĘ DANYCH](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
+|[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
 |[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usługi), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla Azure SQL Database lub dedykowanej puli SQL w usłudze Azure Synapse Analytics. Jeśli użytkownik jest zalogowany do bazy danych Master na serwerze w SQL Database, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse Analytics musisz mieć połączenie z bazą danych Master.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zwraca użycie procesora CPU, operacji we/wy i pamięci dla bazy danych w Azure SQL Database. Jeden wiersz istnieje przez co 15 sekund, nawet jeśli nie ma żadnych działań w bazie danych.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Zwraca dane użycia procesora CPU i magazynu dla bazy danych w Azure SQL Database. Dane są zbierane i agregowane w ciągu pięciu minut.|

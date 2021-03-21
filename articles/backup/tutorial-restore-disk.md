@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694714"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
@@ -72,7 +72,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
         --sku Standard_LRS
     ```
 
-2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której są przywracane dyski zarządzane, do** _.
+2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której zostaną przywrócone dyski zarządzane***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
     ```
 
     > [!WARNING]
-    > Jeśli nie podano *wartości _-Resource-Group**, dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
+    > Jeśli nie podano **grupy Target-Resource-Group** , dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
 
     ```azurecli-interactive
     az backup restore restore-disks \

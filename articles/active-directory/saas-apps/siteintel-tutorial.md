@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 0c8224bf84a2235086d941df7d02ab6f458f3f16
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92510002"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SiteIntel
@@ -77,7 +77,7 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
 1. Na [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **SiteIntel** przejdź do sekcji **Zarządzanie** , a następnie wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** obok pozycji **Podstawowa konfiguracja SAML**wybierz pozycję **Edytuj** (ikona pióra).
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** obok pozycji **Podstawowa konfiguracja SAML** wybierz pozycję **Edytuj** (ikona pióra).
 
    ![Zrzut ekranu przedstawiający okienko "Konfigurowanie logowania jednokrotnego przy użyciu języka SAML"](common/edit-urls.png)
 
@@ -148,7 +148,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka **SiteIntel** w panelu dostępu należy automatycznie zalogować się do SiteIntel, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

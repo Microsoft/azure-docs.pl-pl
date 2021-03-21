@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93316151"
 ---
 # <a name="design-for-querying"></a>Projektowanie pod kątem wykonywania zapytań
@@ -37,22 +37,22 @@ W poniższych przykładach przyjęto założenie, że usługa Table Service zapi
 
 | *Nazwa kolumny* | *Typ danych* |
 | --- | --- |
-| **PartitionKey** (Nazwa działu) |String |
-| **RowKey** (identyfikator pracownika) |String |
-| **FirstName (Imię)** |String |
-| **LastName (Nazwisko)** |String |
+| **PartitionKey** (Nazwa działu) |Ciąg |
+| **RowKey** (identyfikator pracownika) |Ciąg |
+| **FirstName (Imię)** |Ciąg |
+| **LastName (Nazwisko)** |Ciąg |
 | **Age** |Liczba całkowita |
-| **EmailAddress (Adres e-mail)** |String |
+| **EmailAddress (Adres e-mail)** |Ciąg |
 
 Artykuł [Omówienie usługi Azure Table Storage](table-storage-overview.md) zawiera opis niektórych kluczowych funkcji usługi Azure Table Service, które mają bezpośredni wpływ na projektowanie zapytań. Poniżej przedstawiono ogólne wytyczne dotyczące projektowania zapytań Table service. Należy zauważyć, że składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST Table service, aby uzyskać więcej informacji, zobacz [jednostki zapytań](/rest/api/storageservices/Query-Entities).  
 
-* Zapytanie o **punkt** * _ jest najbardziej wydajnym wyszukiwaniem do użycia i jest zalecane do użycia w odnośnikach lub wyszukiwaniach o wysokim poziomie, co wymaga najmniejszego opóźnienia. Takie zapytanie może używać indeksów, aby bardzo wydajnie lokalizować poszczególne jednostki przez określenie wartości _ *PartitionKey* * i **RowKey** . Na przykład: $filter = (PartitionKey EQ "Sales") i (RowKey EQ "2")  
-* Druga Najlepsza to **zapytanie zakresu** * _, które używa _ *PartitionKey* * i filtrów dla zakresu wartości **RowKey** , aby zwrócić więcej niż jedną jednostkę. Wartość **PartitionKey** identyfikuje konkretną partycję, a wartości **RowKey** identyfikują podzestaw jednostek w tej partycji. Na przykład: $filter = PartitionKey EQ "Sales" i RowKey GE "i RowKey lt"  
-* Trzecia Najlepsza to * **skanowanie partycji** _, które używa _ *PartitionKey* * i filtrów dla innej właściwości niebędącej kluczem i może zwrócić więcej niż jedną jednostkę. Wartość **PartitionKey** identyfikuje konkretną partycję, a wartości właściwości wybierają podzbiór jednostek w tej partycji. Na przykład: $filter = PartitionKey EQ "Sales" i LastName EQ "Kowalski"  
-* * **Skanowanie tabeli** _ nie zawiera _ *PartitionKey* * i jest bardzo wydajne, ponieważ przeszukuje wszystkie partycje, które składają się na tabelę, z uwzględnieniem dowolnych pasujących jednostek. Przeprowadzi skanowanie tabeli niezależnie od tego, czy filtr używa **RowKey**. Na przykład: $filter = LastName EQ "Nowak"  
+* Zapytanie o **punkt*** _ jest najbardziej wydajnym wyszukiwaniem do użycia i jest zalecane do użycia w odnośnikach lub wyszukiwaniach o wysokim poziomie, co wymaga najmniejszego opóźnienia. Takie zapytanie może używać indeksów, aby bardzo wydajnie lokalizować poszczególne jednostki przez określenie wartości _ *PartitionKey** i **RowKey** . Na przykład: $filter = (PartitionKey EQ "Sales") i (RowKey EQ "2")  
+* Druga Najlepsza to **zapytanie zakresu*** _, które używa _ *PartitionKey** i filtrów dla zakresu wartości **RowKey** , aby zwrócić więcej niż jedną jednostkę. Wartość **PartitionKey** identyfikuje konkretną partycję, a wartości **RowKey** identyfikują podzestaw jednostek w tej partycji. Na przykład: $filter = PartitionKey EQ "Sales" i RowKey GE "i RowKey lt"  
+* Trzecia Najlepsza to ***skanowanie partycji** _, które używa _ *PartitionKey** i filtrów dla innej właściwości niebędącej kluczem i może zwrócić więcej niż jedną jednostkę. Wartość **PartitionKey** identyfikuje konkretną partycję, a wartości właściwości wybierają podzbiór jednostek w tej partycji. Na przykład: $filter = PartitionKey EQ "Sales" i LastName EQ "Kowalski"  
+* ***Skanowanie tabeli** _ nie zawiera _ *PartitionKey** i jest bardzo wydajne, ponieważ przeszukuje wszystkie partycje, które składają się na tabelę, z uwzględnieniem dowolnych pasujących jednostek. Przeprowadzi skanowanie tabeli niezależnie od tego, czy filtr używa **RowKey**. Na przykład: $filter = LastName EQ "Nowak"  
 * Zapytania zwracające wiele jednostek zwracają je posortowane w kolejności **PartitionKey** i **RowKey** . Aby uniknąć tworzenia jednostek w kliencie, wybierz **RowKey** , który definiuje najbardziej typowy porządek sortowania.  
 
-Należy zauważyć, że użycie " **lub** " do określenia filtru opartego na wartościach **RowKey** skutkuje przeskanowaniem partycji i nie jest traktowane jako zapytanie o zakres. W związku z tym należy unikać zapytań, które używają filtrów takich jak: $filter = PartitionKey EQ "Sales" i (RowKey EQ "121" lub RowKey EQ "322")  
+Należy zauważyć, że użycie "**lub**" do określenia filtru opartego na wartościach **RowKey** skutkuje przeskanowaniem partycji i nie jest traktowane jako zapytanie o zakres. W związku z tym należy unikać zapytań, które używają filtrów takich jak: $filter = PartitionKey EQ "Sales" i (RowKey EQ "121" lub RowKey EQ "322")  
 
 Aby zapoznać się z przykładami kodu po stronie klienta, które używają biblioteki klienta usługi Storage do wykonywania wydajnych zapytań, zobacz:  
 

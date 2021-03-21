@@ -4,10 +4,10 @@ description: Użyj Azure Portal i Zarządzaj zasobami platformy Azure, aby wdro�
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028679"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal
@@ -84,7 +84,7 @@ Jeśli chcesz wykonać wdrożenie, ale nie używasz żadnego z szablonów w port
 
    ![Wyszukaj wdrożenie szablonu](./media/deploy-portal/search-template.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Zobaczysz kilka opcji tworzenia szablonu:
 
     - **Kompiluj własny szablon w edytorze**: Utwórz własny szablon w edytorze szablonów portalu.
@@ -129,4 +129,4 @@ Jeśli chcesz wykonać wdrożenie, ale nie używasz żadnego z szablonów w port
 - Aby wyświetlić dzienniki inspekcji, zobacz [operacje inspekcji z Menedżer zasobów](../management/view-activity-logs.md).
 - Aby rozwiązać problemy z błędami wdrażania, zobacz [Wyświetlanie operacji wdrażania](deployment-history.md).
 - Aby wyeksportować szablon z wdrożenia lub grupy zasobów, zobacz [Eksportowanie szablonów ARM](export-template-portal.md).
-- Aby bezpiecznie wdrożyć usługę w wielu regionach, zobacz [Azure Menedżer wdrażania](deployment-manager-overview.md).
+- Aby bezpiecznie wdrożyć usługę w wielu regionach, zobacz [Azure Deployment Manager](deployment-manager-overview.md).

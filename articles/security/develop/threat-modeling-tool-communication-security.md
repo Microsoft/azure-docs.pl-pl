@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94517533"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Ramka zabezpieczeń: zabezpieczenia komunikacji | Środki zaradcze 
@@ -160,7 +160,7 @@ Ta reguła działa przez zwrócenie kodu stanu HTTP 301 (trwałe przekierowanie)
 | **Odpowiednie technologie** | Usługi SQL Azure  |
 | **Atrybuty**              | Wersja SQL — V12 |
 | **Odwołania**              | [Najlepsze rozwiązania dotyczące pisania bezpiecznych parametrów połączenia dla SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Kroki** | <p>Cała komunikacja między SQL Database i aplikacją kliencką jest szyfrowana przy użyciu Transport Layer Security (TLS), wcześniej znanej jako SSL (SSL) przez cały czas. SQL Database nie obsługuje nieszyfrowanych połączeń. Aby sprawdzić poprawność certyfikatów przy użyciu kodu lub narzędzi aplikacji, jawnie Zażądaj szyfrowanego połączenia i nie ufaj certyfikatom serwera. Jeśli kod aplikacji lub narzędzia nie zażądają zaszyfrowanego połączenia, nadal będą otrzymywać połączenia szyfrowane</p><p>Jednak mogą oni nie sprawdzać poprawności certyfikatów serwera i dlatego są podatne na ataki typu man-in-Middle. Aby sprawdzić poprawność certyfikatów przy użyciu kodu aplikacji ADO.NET, ustaw `Encrypt=True` i `TrustServerCertificate=False` w parametrach połączenia z bazą danych. Aby sprawdzić poprawność certyfikatów za pośrednictwem SQL Server Management Studio, Otwórz okno dialogowe łączenie z serwerem. Kliknij pozycję Szyfruj połączenie na karcie Właściwości połączenia</p>|
+| **Kroki** | <p>Cała komunikacja między SQL Database i aplikacją kliencką jest szyfrowana przy użyciu Transport Layer Security (TLS), wcześniej znanej jako Secure Sockets Layer (SSL) przez cały czas. SQL Database nie obsługuje nieszyfrowanych połączeń. Aby sprawdzić poprawność certyfikatów przy użyciu kodu lub narzędzi aplikacji, jawnie Zażądaj szyfrowanego połączenia i nie ufaj certyfikatom serwera. Jeśli kod aplikacji lub narzędzia nie zażądają zaszyfrowanego połączenia, nadal będą otrzymywać połączenia szyfrowane</p><p>Jednak mogą oni nie sprawdzać poprawności certyfikatów serwera i dlatego są podatne na ataki typu man-in-Middle. Aby sprawdzić poprawność certyfikatów przy użyciu kodu aplikacji ADO.NET, ustaw `Encrypt=True` i `TrustServerCertificate=False` w parametrach połączenia z bazą danych. Aby sprawdzić poprawność certyfikatów za pośrednictwem SQL Server Management Studio, Otwórz okno dialogowe łączenie z serwerem. Kliknij pozycję Szyfruj połączenie na karcie Właściwości połączenia</p>|
 
 ## <a name="force-encrypted-communication-to-sql-server"></a><a id="encrypted-sqlserver"></a>Wymuś zaszyfrowaną komunikację z programem SQL Server
 

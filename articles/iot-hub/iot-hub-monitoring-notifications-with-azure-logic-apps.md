@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490326"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie i powiadomienia w usłudze IoT przy użyciu Azure Logic Apps łączenia Centrum IoT i skrzynki pocztowej
@@ -96,7 +96,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Dodaj kolejkę usługi Service Bus do Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Wróć do okienka **Service Bus przestrzeń nazw** , w obszarze **jednostki**wybierz **kolejno pozycje kolejki**. Otwórz kolejkę Service Bus z listy, a następnie wybierz pozycję **zasady dostępu współdzielonego**  >  **+ Dodaj**.
+1. Wróć do okienka **Service Bus przestrzeń nazw** , w obszarze **jednostki** wybierz **kolejno pozycje kolejki**. Otwórz kolejkę Service Bus z listy, a następnie wybierz pozycję **zasady dostępu współdzielonego**  >  **+ Dodaj**.
 
 1. Wprowadź nazwę zasad, sprawdź pozycję **Zarządzaj**, a następnie wybierz pozycję **Utwórz**.
 
@@ -110,7 +110,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
 1. Otwórz Centrum IoT Hub. Najprostszym sposobem, aby uzyskać dostęp do usługi IoT Hub, jest wybranie **grupy zasobów** z okienka zasobów, wybranie grupy zasobów, a następnie wybranie Centrum IoT Hub z listy zasobów.
 
-1. W obszarze **Obsługa komunikatów**wybierz pozycję **routing wiadomości**. W okienku **routing wiadomości** wybierz kartę **niestandardowe punkty końcowe** , a następnie wybierz pozycję **+ Dodaj**. Z listy rozwijanej wybierz **kolejno pozycje Usługa Service Bus**.
+1. W obszarze **Obsługa komunikatów** wybierz pozycję **routing wiadomości**. W okienku **routing wiadomości** wybierz kartę **niestandardowe punkty końcowe** , a następnie wybierz pozycję **+ Dodaj**. Z listy rozwijanej wybierz **kolejno pozycje Usługa Service Bus**.
 
    ![Zrzut ekranu, który podświetla opcję kolejki usługi Service Bus.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
@@ -150,7 +150,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
 ### <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-1. Wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
+1. Wybierz pozycję **Utwórz zasób**  >    >  **aplikacja logiki**.
 
 1. Wprowadź następujące informacje:
 
@@ -176,7 +176,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
    ![Wybierz Service Bus, aby rozpocząć tworzenie aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. W obszarze **wyzwalacze**wybierz, **kiedy co najmniej jeden komunikat dociera do kolejki (Autouzupełnianie)**.
+1. W obszarze **wyzwalacze** wybierz, **kiedy co najmniej jeden komunikat dociera do kolejki (Autouzupełnianie)**.
 
    ![Wybierz wyzwalacz dla aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
@@ -199,7 +199,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
 1. Utwórz połączenie usługi SMTP.
 
-   1. Wybierz pozycję **Nowy krok**. W obszarze **Wybierz akcję**wybierz kartę **wszystkie** .
+   1. Wybierz pozycję **Nowy krok**. W obszarze **Wybierz akcję** wybierz kartę **wszystkie** .
 
    1. Wpisz `smtp` w polu wyszukiwania, w wynikach wyszukiwania wybierz usługę **SMTP** , a następnie wybierz pozycję **Wyślij wiadomość e-mail**.
 
@@ -226,11 +226,11 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
 1. Obowiązkowe Jeśli trzeba będzie wyłączyć protokół TLS w celu nawiązania połączenia z dostawcą poczty e-mail i ponownie włączyć go, wykonaj następujące kroki:
 
-   1. W okienku **aplikacja logiki** w obszarze **Narzędzia programistyczne**wybierz pozycję **połączenia interfejsu API**.
+   1. W okienku **aplikacja logiki** w obszarze **Narzędzia programistyczne** wybierz pozycję **połączenia interfejsu API**.
 
    1. Z listy połączeń interfejsu API wybierz połączenie SMTP.
 
-   1. W okienku **połączenie interfejsu API SMTP** w obszarze **Ogólne**wybierz pozycję **Edytuj połączenie z interfejsem API**.
+   1. W okienku **połączenie interfejsu API SMTP** w obszarze **Ogólne** wybierz pozycję **Edytuj połączenie z interfejsem API**.
 
    1. W okienku **Edytowanie połączenia interfejsu API** wybierz pozycję **Włącz protokół SSL?**, wprowadź ponownie hasło do konta E-mail i wybierz pozycję **Zapisz**.
 

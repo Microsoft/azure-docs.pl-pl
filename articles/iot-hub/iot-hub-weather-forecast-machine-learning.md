@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
 ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452341"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning Studio (klasyczny)
@@ -148,7 +148,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Tworzenie zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
@@ -231,7 +231,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
-W zadaniu Stream Analytics wybierz pozycję **Przegląd** w okienku po lewej stronie. Następnie wybierz pozycję **Rozpocznij**  >  **teraz**  >  **Start**. Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
+W zadaniu Stream Analytics wybierz pozycję **Przegląd** w okienku po lewej stronie. Następnie wybierz pozycję **Rozpocznij**  >  **teraz**  >  . Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
 
 ![Uruchamianie zadania usługi Stream Analytics](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860217"
 ---
 # <a name="conditional-access-programmatic-access"></a>Dostęp warunkowy: dostęp programistyczny
@@ -56,13 +56,13 @@ Ten przykład pozwala korzystać z bezpieczniejszej praktyki wdrażania przy uż
 
 - [Podnieś poziom zasad dostępu warunkowego ze środowisk testowych](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/02-test)
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Ten przykład zapewnia mechanizm do przeprowadzenia stopniowo przemieszczonych zasad dostępu warunkowego do wypełniania przez użytkownika, co pozwala na wczesne zarządzanie problemami z pomocą techniczną.
 
 - [Wdrażanie zasad dostępu warunkowego w środowiskach produkcyjnych przy użyciu przepływów pracy zatwierdzania](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitorowanie
+## <a name="monitor"></a>Monitor
 
 Ten przykład zapewnia mechanizm monitorowania zmian zasad dostępu warunkowego w czasie i może wyzwalać alerty w przypadku zmiany zasad kluczy.
 
@@ -70,7 +70,7 @@ Ten przykład zapewnia mechanizm monitorowania zmian zasad dostępu warunkowego 
 
 ## <a name="manage"></a>Zarządzanie
 
-### <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+### <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
 
 Automatyzuj wykonywanie kopii zapasowych i przywracanie zasad dostępu warunkowego za pomocą zatwierdzeń w zespołach przy użyciu tego przykładu.
 

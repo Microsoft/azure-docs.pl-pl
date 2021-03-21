@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 1cb902c4b59193c46dbeca47bb355f0695a0f2c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572801"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Samouczek: monitorowanie opublikowanych interfejsów API
 
 Za pomocą Azure Monitor można wizualizować, wykonywać zapytania, kierować, archiwizować i wykonywać akcje dotyczące metryk lub dzienników pochodzących z usługi Azure API Management.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie metryk interfejsu API 

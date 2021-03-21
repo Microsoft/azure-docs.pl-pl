@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861310"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication
@@ -231,17 +231,17 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
 ### <a name="create-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego** zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
    ![Tworzenie zasad dostępu warunkowego w celu włączenia uwierzytelniania wieloskładnikowego dla użytkowników Azure Portal w grupie pilotażowej](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Podaj opisową nazwę zasad.
 1. W obszarze **Użytkownicy i grupy**:
    * Na karcie **Dołącz** wybierz przycisk radiowy **Wszyscy użytkownicy**
    * Na karcie **Wyklucz** , zaznacz pole wyboru **Użytkownicy i grupy** , a następnie wybierz swoje konta dostępu awaryjnego.
-   * Kliknij pozycję **Gotowe**.
+   * Kliknij przycisk **Gotowe**.
 1. W obszarze **aplikacje w chmurze** wybierz przycisk radiowy **wszystkie aplikacje w chmurze** .
    * Opcjonalnie: na karcie **Wyklucz** wybierz pozycję aplikacje w chmurze, dla których Twoja organizacja nie wymaga uwierzytelniania wieloskładnikowego.
-   * Kliknij pozycję **Gotowe**.
+   * Kliknij przycisk **Gotowe**.
 1. W sekcji **warunki** :
    * Opcjonalnie: Jeśli włączono usługę Azure Identity Protection, możesz zdecydować się na ocenę ryzyka związanego z logowaniem w ramach zasad.
    * Opcjonalnie: Jeśli skonfigurowano Zaufane lokalizacje lub nazwane lokalizacje, można określić, czy te lokalizacje mają zostać dołączone lub wykluczone z zasad.
@@ -287,7 +287,7 @@ Jeśli masz już wdrożone wystąpienie serwera zasad sieciowych i używasz go, 
 
 Wybierz, co się stanie, gdy użytkownicy, którzy nie są zarejestrowani przy użyciu usługi MFA, spróbują przeprowadzić uwierzytelnianie. Aby kontrolować zachowanie funkcji, użyj ustawienia rejestru `REQUIRE_USER_MATCH` w ścieżce rejestru `HKLM\Software\Microsoft\AzureMFA` . To ustawienie ma jedną opcję konfiguracji.
 
-| Klucz | Wartość | Domyślny |
+| Klucz | Wartość | Domyślne |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 

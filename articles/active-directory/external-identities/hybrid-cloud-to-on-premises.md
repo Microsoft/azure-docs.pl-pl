@@ -12,13 +12,13 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131024"
 ---
-# <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
+# <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznawanie użytkownikom B2B dostępu do aplikacji lokalnych w usłudze Azure AD
 
 Jako organizacja, która używa funkcji współpracy B2B Azure Active Directory (Azure AD), aby zapraszać użytkowników-Gości od organizacji partnerskich do usługi Azure AD, możesz teraz udostępnić tym użytkownikom B2B dostęp do aplikacji lokalnych. Te aplikacje lokalne mogą korzystać z uwierzytelniania opartego na języku SAML lub zintegrowanego uwierzytelniania systemu Windows (IWA) przy użyciu ograniczonego delegowania protokołu Kerberos (KCD).
 
@@ -39,8 +39,8 @@ Należy wykonać obie następujące czynności:
 
 Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych przy użyciu zintegrowanego uwierzytelniania systemu Windows i ograniczonego delegowania protokołu Kerberos, potrzebne są następujące składniki:
 
-- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD** . Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym** . Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
+- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
 
    > [!NOTE]
    > Podczas konfigurowania usługi Azure serwer proxy aplikacji usługi Azure AD upewnij się, że w konfiguracji **logowania** jednokrotnego dla zintegrowanego uwierzytelniania systemu Windows jest ustawiona wartość **Nazwa główna użytkownika** (domyślnie).
@@ -64,7 +64,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
+Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Na przykład:
 
 - Można skonfigurować zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika-gościa, aby funkcja MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
 - Wszystkie sponsorzy, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkownikach w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik chmury zostanie usunięty w ramach zasad zarządzania cyklem życia, użytkownik lokalny zostanie również usunięty przez program MIM Sync lub za pomocą synchronizacji Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).

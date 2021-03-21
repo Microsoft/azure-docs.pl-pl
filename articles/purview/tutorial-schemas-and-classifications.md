@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
 ms.openlocfilehash: c74324ebeeefeed361c0557c45a280a411effa22
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693317"
 ---
 # <a name="tutorial-explore-resource-sets-details-schemas-and-classifications-in-azure-purview-preview"></a>Samouczek: Eksplorowanie zestawów zasobów, szczegółów, schematów i klasyfikacji w usłudze Azure kontrolą (wersja zapoznawcza)
@@ -23,7 +23,7 @@ W tym samouczku przedstawiono najważniejsze składniki wykazu: zestawy zasobów
 
 Ten samouczek jest *częścią 4 wieloczęściowej serii samouczków* , w której przedstawiono podstawowe informacje na temat zarządzania nadzorem danych w ramach obszaru danych przy użyciu usługi Azure kontrolą. W tym samouczku przedstawiono pracę wykonaną w [części 3: przeglądanie zasobów w usłudze Azure kontrolą (wersja zapoznawcza) i przeglądanie ich elementów](tutorial-browse-and-view-lineage.md)zależnych.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

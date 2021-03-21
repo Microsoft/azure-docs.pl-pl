@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305669"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołowych
@@ -34,13 +34,13 @@ Oto wizualna reprezentacja cyklu życia przetwarzania TDSP:
 
 
 ## <a name="goal"></a>Cel
-**Finalizowanie elementów dostarczanych projektu** : Upewnij się, że potok, model i ich wdrożenie w środowisku produkcyjnym spełniają cele klienta.
+**Finalizowanie elementów dostarczanych projektu**: Upewnij się, że potok, model i ich wdrożenie w środowisku produkcyjnym spełniają cele klienta.
 
 ## <a name="how-to-do-it"></a>Jak to zrobić
 W tym etapie są uwzględnione dwa podstawowe zadania:
 
-   * **Weryfikacja systemu** : Upewnij się, że wdrożony model i potok spełniają wymagania klienta.
-   * **Odręczny projekt** : umożliwia oddanie projektu do jednostki, która ma uruchamiać system w środowisku produkcyjnym.
+   * **Weryfikacja systemu**: Upewnij się, że wdrożony model i potok spełniają wymagania klienta.
+   * **Odręczny projekt**: umożliwia oddanie projektu do jednostki, która ma uruchamiać system w środowisku produkcyjnym.
 
 Klient powinien sprawdzić, czy system spełnia Twoje wymagania biznesowe i czy ma odpowiedzi na pytania z akceptowalną dokładnością, aby wdrożyć system w środowisku produkcyjnym do użytku przez aplikację klienta. Wszystkie dokumenty są finalizowane i analizowane. Projekt jest przekazywany do jednostki odpowiedzialnej za operacje. Ta jednostka może być na przykład zespołem ds. IT lub klientem, który jest odpowiedzialny za uruchamianie systemu w środowisku produkcyjnym. 
 

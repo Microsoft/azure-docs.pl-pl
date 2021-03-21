@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945813"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal
@@ -58,7 +58,7 @@ Na karcie **podstawowe** podaj następujące informacje:
 
 Wybierz pozycję **Dalej: >>magazynu** , aby przejść do następnej karty.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 > [!WARNING] 
 > Od 15 czerwca 2020 klienci nie będą mogli utworzyć nowej jednostki usługi za pomocą usługi HDInsight. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów](../active-directory/develop/howto-create-service-principal-portal.md) przy użyciu Azure Active Directory.

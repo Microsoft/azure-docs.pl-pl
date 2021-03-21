@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93122847"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
@@ -32,7 +32,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji**  -  [Dzienniki aprowizacji](./concept-provisioning-logs.md) umożliwiają klientom monitorowanie aktywności przy użyciu usługi aprowizacji, takiej jak tworzenie grupy w usługi ServiceNow lub użytkownik zaimportowany z produktu Workday. 
-- **Zabezpieczenia** 
+- **Bezpieczeństwo** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -177,11 +177,11 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 
 **Dostęp warunkowy** — stan zastosowanych reguł dostępu warunkowego
 
-- **Nie zastosowano** : podczas logowania nie są stosowane żadne zasady dotyczące użytkownika i aplikacji.
+- **Nie zastosowano**: podczas logowania nie są stosowane żadne zasady dotyczące użytkownika i aplikacji.
 
-- **Sukces** : co najmniej jedna zasada dostępu warunkowego stosowana do użytkownika i aplikacji (ale nie jest to inne warunki) podczas logowania. 
+- **Sukces**: co najmniej jedna zasada dostępu warunkowego stosowana do użytkownika i aplikacji (ale nie jest to inne warunki) podczas logowania. 
 
-- **Niepowodzenie** : zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
+- **Niepowodzenie**: zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
 
 
 
@@ -235,14 +235,14 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Klient
 - Lokalizacja
 - Adres IP
-- Data
+- Date (Data)
 - Wymagane uwierzytelnianie wieloskładnikowe
 - Stan logowania
 
 > [!NOTE]
 > Adresy IP są wystawiane w taki sposób, że nie istnieje ostateczne połączenie między adresem IP i lokalizacją, w której komputer z tym adresem jest fizycznie zlokalizowany. Mapowanie adresów IP jest skomplikowane przez fakt, że dostawcy urządzeń przenośnych i sieci VPN wystawiają adresy IP z pul centralnych, które często są bardzo daleko od miejsca użycia urządzenia klienckiego. Obecnie w raportach usługi Azure AD konwertowanie adresu IP na lokalizację fizyczną jest najlepszym nakładem pracy na podstawie śladów, danych rejestru, wyszukiwania wstecznego i innych informacji.
 
-Na stronie **Użytkownicy** znajduje się pełny przegląd wszystkich logowań użytkowników dostępny po kliknięciu pozycji **Logowania** w sekcji **Działanie** .
+Na stronie **Użytkownicy** znajduje się pełny przegląd wszystkich logowań użytkowników dostępny po kliknięciu pozycji **Logowania** w sekcji **Działanie**.
 
 ![Zrzut ekranu przedstawia sekcję działania, w której można wybrać opcję logowania.](./media/concept-sign-ins/08.png "Aktywność związana z logowaniem")
 
@@ -254,7 +254,7 @@ Dzięki widokowi skoncentrowanemu na aplikacji w ramach danych logowania można 
 * Co to są trzy najpopularniejsze aplikacje w organizacji?
 * Jak działa moja najnowsza aplikacja?
 
-Punkt wejścia do tych danych to trzy pierwsze aplikacje w organizacji. Dane są zawarte w raporcie z ostatnich 30 dni w sekcji **Przegląd** w obszarze **aplikacje dla przedsiębiorstw** .
+Punkt wejścia do tych danych to trzy pierwsze aplikacje w organizacji. Dane są zawarte w raporcie z ostatnich 30 dni w sekcji **Przegląd** w obszarze **aplikacje dla przedsiębiorstw**.
 
 ![Zrzut ekranu pokazuje, gdzie można wybrać pozycję przegląd.](./media/concept-sign-ins/10.png "Aktywność związana z logowaniem")
 

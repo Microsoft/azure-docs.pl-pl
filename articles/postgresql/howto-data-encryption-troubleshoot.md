@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/13/2020
 ms.openlocfilehash: c315e1df473f3d23bab7e2a78ce166f22272ee70
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242249"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Rozwiązywanie problemów z szyfrowaniem danych w Azure Database for PostgreSQL-pojedynczym serwerze
@@ -19,7 +19,7 @@ Ten artykuł ułatwia identyfikowanie i rozwiązywanie typowych problemów, któ
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Podczas konfigurowania szyfrowania danych w celu używania klucza zarządzanego przez klienta w programie Azure Key Vault serwer wymaga ciągłego dostępu do klucza. Jeśli serwer utraci dostęp do klucza zarządzanego przez klienta w Azure Key Vault, spowoduje to odmowę wszystkich połączeń, zwrócenie odpowiedniego komunikatu o błędzie i zmianę jego stanu na * **niedostępne** _ w Azure Portal.
+Podczas konfigurowania szyfrowania danych w celu używania klucza zarządzanego przez klienta w programie Azure Key Vault serwer wymaga ciągłego dostępu do klucza. Jeśli serwer utraci dostęp do klucza zarządzanego przez klienta w Azure Key Vault, spowoduje to odmowę wszystkich połączeń, zwrócenie odpowiedniego komunikatu o błędzie i zmianę jego stanu na ***niedostępny*** w Azure Portal.
 
 Jeśli serwer Azure Database for PostgreSQL nie jest już potrzebny, możesz go usunąć, aby zatrzymać ponoszenia kosztów. Żadne inne akcje na serwerze nie są dozwolone do momentu przywrócenia dostępu do magazynu kluczy i udostępnienia serwera. Nie jest również możliwe Zmiana opcji szyfrowania danych z `Yes` (zarządzane przez klienta) na `No` (zarządzana przez usługę) na niedostępnym serwerze, gdy jest on szyfrowany przy użyciu klucza zarządzanego przez klienta. Należy ponownie sprawdzić poprawność klucza przed ponownym uzyskaniem dostępu do serwera. Ta akcja jest niezbędna do ochrony danych przed nieautoryzowanym dostępem podczas odwoływania uprawnień do klucza zarządzanego przez klienta.
 
@@ -44,12 +44,12 @@ Następujące nieprawidłowe konfiguracje powodują większość problemów z sz
 #### <a name="disabled-key-vault"></a>Wyłączony Magazyn kluczy
 
 - `AzureKeyVaultKeyDisabledMessage`
-- _ * Wyjaśnienie * *: nie można ukończyć operacji na serwerze, ponieważ klucz Azure Key Vault jest wyłączony.
+- **Wyjaśnienie**: nie można ukończyć operacji na serwerze, ponieważ klucz Azure Key Vault jest wyłączony.
 
 #### <a name="missing-key-vault-permissions"></a>Brak uprawnień magazynu kluczy
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Wyjaśnienie** : serwer nie ma wymaganych uprawnień Get, otocz i unotoką do Azure Key Vault. Udziel każdemu brakującemu uprawnienia do nazwy głównej usługi o IDENTYFIKATORze.
+- **Wyjaśnienie**: serwer nie ma wymaganych uprawnień Get, otocz i unotoką do Azure Key Vault. Udziel każdemu brakującemu uprawnienia do nazwy głównej usługi o IDENTYFIKATORze.
 
 ### <a name="mitigation"></a>Ograniczanie ryzyka
 

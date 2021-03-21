@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie woluminami w macierzy wirtualnej StorSimple | Microsoft Docs
-description: W tym artykule opisano Menedżer urządzeń StorSimple i wyjaśniono, jak używać go do zarządzania woluminami w macierzy wirtualnej StorSimple.
+description: W tym artykule opisano Device Manager StorSimple i wyjaśniono, jak używać go do zarządzania woluminami w macierzy wirtualnej StorSimple.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014384"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Use StorSimple Device Manager service to manage volumes on the StorSimple Virtual Array (Zarządzanie wirtualną tablicą woluminów za pomocą usługi StorSimple Device Manager)
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wyjaśniono, jak za pomocą usługi StorSimple Menedżer urządzeń tworzyć woluminy i zarządzać nimi w macierzy wirtualnej StorSimple.
+W tym samouczku wyjaśniono, jak za pomocą usługi StorSimple Device Manager tworzyć woluminy i zarządzać nimi w macierzy wirtualnej StorSimple.
 
-Usługa StorSimple Menedżer urządzeń jest rozszerzeniem Azure Portal, które umożliwia zarządzanie rozwiązaniem StorSimple z poziomu jednego interfejsu internetowego. Oprócz zarządzania udziałami i woluminami, można użyć usługi StorSimple Menedżer urządzeń do wyświetlania i zarządzania urządzeniami, wyświetlania alertów oraz wyświetlania zasad tworzenia kopii zapasowych i wykazów kopii zapasowych oraz zarządzania nimi.
+Usługa StorSimple Device Manager jest rozszerzeniem Azure Portal, które umożliwia zarządzanie rozwiązaniem StorSimple z poziomu jednego interfejsu internetowego. Oprócz zarządzania udziałami i woluminami, można użyć usługi StorSimple Device Manager do wyświetlania i zarządzania urządzeniami, wyświetlania alertów oraz wyświetlania zasad tworzenia kopii zapasowych i wykazów kopii zapasowych oraz zarządzania nimi.
 
 ## <a name="volume-types"></a>Typy woluminów
 
@@ -39,7 +39,7 @@ StorSimple woluminy mogą być następujące:
 ### <a name="provisioned-capacity"></a>Przyobsługiwana pojemność
 Zapoznaj się z poniższą tabelą dotyczącą maksymalnej alokowanej pojemności dla każdego typu woluminu.
 
-| **Identyfikator limitu**                                       | **Limit**     |
+| **Identyfikator limitu**                                       | **Granice**     |
 |------------------------------------------------------------|---------------|
 | Minimalny rozmiar woluminu warstwowego                            | 500 GB        |
 | Maksymalny rozmiar woluminu warstwowego                            | 5 TB          |

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie kosztami dla puli SQL bezserwerowej
+title: Zarządzanie kosztami bezserwerowej puli SQL
 description: W tym dokumencie opisano, jak zarządzać kosztami puli SQL bezserwerowej i sposobem obliczania danych przetwarzanych podczas wykonywania zapytań dotyczących danych w usłudze Azure Storage.
 services: synapse analytics
 author: filippopovic
@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491588"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Zarządzanie kosztami dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
@@ -71,23 +71,23 @@ Wyobraź sobie trzy tabele.
 - Tabela population_parquet ma te same dane co tabela population_csv. Jest ona obsługiwana przez 1 TB plików Parquet. Ta tabela jest mniejsza niż poprzednia, ponieważ dane są kompresowane w formacie Parquet.
 - Very_small_csv tabeli jest obsługiwane przez 100 KB plików CSV.
 
-**Zapytanie 1** : wybór sum (populacji) z population_csv
+**Zapytanie 1**: wybór sum (populacji) z population_csv
 
 To zapytanie odczytuje i analizuje całe pliki, aby uzyskać wartości dla kolumny populacji. Węzły przetwarzają fragmenty tej tabeli i łączną populacją dla każdego fragmentu są przesyłane między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
 
 To zapytanie przetwarza 5 TB danych i niewielkie obciążenie związane z transferem sum fragmentów.
 
-**Zapytanie 2** : wybór sum (populacji) z population_parquet
+**Zapytanie 2**: wybór sum (populacji) z population_parquet
 
 Podczas wykonywania zapytań o formaty skompresowane i oparte na kolumnach, takie jak Parquet, mniejsze dane są odczytywane niż w zapytaniu 1. Zobaczysz ten wynik, ponieważ pula SQL bezserwerowa odczytuje pojedynczą skompresowaną kolumnę zamiast całego pliku. W tym przypadku jest odczytywane 0,2 TB. (Pięć kolumn o równym rozmiarze jest 0,2 TB dla każdej z nich). Węzły przetwarzają fragmenty tej tabeli i łączną populacją dla każdego fragmentu są przesyłane między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
 
 To zapytanie przetwarza 0,2 TB oraz niewielką ilość kosztów związanych z transferem sum fragmentów.
 
-**Zapytanie 3** : select * from population_parquet
+**Zapytanie 3**: select * from population_parquet
 
 To zapytanie odczytuje wszystkie kolumny i przesyła wszystkie dane w nieskompresowanym formacie. Jeśli format kompresji to 5:1, zapytanie przetwarza 6 TB, ponieważ odczytuje 1 TB i transferuje 5 TB nieskompresowanych danych.
 
-**Zapytanie 4** : wybór liczby (*) z very_small_csv
+**Zapytanie 4**: wybór liczby (*) z very_small_csv
 
 To zapytanie odczytuje całe pliki. Łączny rozmiar plików w magazynie dla tej tabeli to 100 KB. Węzły przetwarzają fragmenty tej tabeli i łączą dla każdego fragmentu są przenoszone między węzłami. Końcowa suma jest transferowana do punktu końcowego. 
 

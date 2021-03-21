@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
 ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026441"
 ---
 # <a name="distribute-and-modify-tables"></a>Rozpowszechnianie i modyfikowanie tabel
@@ -144,7 +144,7 @@ Podział niepowiązanych tabel na własne grupy wspólnej lokalizacji poprawi [f
 
 Gdy tabele są rzeczywiście powiązane (na przykład gdy zostaną dołączone), może być zrozumiałe, aby jawnie je umieścić. Zyski odpowiedniej wspólnej lokalizacji są ważniejsze niż wszelkie ponowne równoważenie obciążenia.
 
-Aby jawnie rozszukać wiele tabel, Rozpowszechnij je, a następnie umieść inne w swojej grupie wspólnej lokalizacji. Przykład:
+Aby jawnie rozszukać wiele tabel, Rozpowszechnij je, a następnie umieść inne w swojej grupie wspólnej lokalizacji. Na przykład:
 
 ```postgresql
 -- distribute stores
@@ -217,7 +217,7 @@ Klucze obce można tworzyć w takich sytuacjach:
 
 -   między dwiema lokalnymi (nierozproszonymi) tabelami
 -   między dwiema tabelami referencyjnymi,
--   między dwiema [colocated](concepts-hyperscale-colocation.md) tabelami rozproszonymi, gdy klucz zawiera kolumnę dystrybucji lub
+-   między dwiema [](concepts-hyperscale-colocation.md) tabelami rozproszonymi, gdy klucz zawiera kolumnę dystrybucji lub
 -   jako tabelę rozproszoną odwołującą się do [tabeli referencyjnej](concepts-hyperscale-nodes.md#type-2-reference-tables)
 
 Klucze obce z tabel referencyjnych w tabelach rozproszonych nie są obsługiwane.

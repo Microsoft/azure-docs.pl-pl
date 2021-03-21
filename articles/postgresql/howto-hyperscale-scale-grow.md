@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026424"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Skalowanie grupy serwerów ze skalą (Citus)
@@ -27,14 +27,14 @@ Aby dodać węzły, przejdź do karty **obliczenia + magazyn** w grupie serweró
 Kliknij przycisk **Zapisz** , aby zmiana wartości zaczęła obowiązywać.
 
 > [!NOTE]
-> Po zwiększeniu i zapisaniu liczba węzłów procesu roboczego nie może być obniżona przy użyciu suwaka.
+> Po zwiększeniu i zapisaniu liczby węzłów roboczych nie można jej zmniejszyć przy użyciu suwaka.
 
 > [!NOTE]
 > Aby skorzystać z nowo dodanych węzłów, należy ponownie [zrównoważyć rozproszoną tabelę fragmentów](howto-hyperscale-scale-rebalance.md), co oznacza przeniesienie niektórych [fragmentów](concepts-hyperscale-distributed-data.md#shards) z istniejących węzłów do nowych.
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>Zwiększ lub Zmniejsz rdzeni wirtualnych na węzłach
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Zwiększanie lub zmniejszanie liczby rdzeni wirtualnych w węzłach
 
-Oprócz dodawania nowych węzłów można zwiększyć możliwości istniejących węzłów. Dostosowanie pojemności obliczeniowej w górę i w dół może być przydatne w przypadku eksperymentów dotyczących wydajności, a także krótko-lub długoterminowych zmian w zakresie ruchu.
+Oprócz dodawania nowych węzłów można zwiększać możliwości istniejących węzłów. Dostosowanie pojemności obliczeniowej w górę i w dół może być przydatne w przypadku eksperymentów dotyczących wydajności, a także krótko-lub długoterminowych zmian w zakresie ruchu.
 
 Aby zmienić rdzeni wirtualnych dla wszystkich węzłów procesu roboczego, Dostosuj suwak **rdzeni wirtualnych** w obszarze **Konfiguracja (na węzeł procesu roboczego)**. Rdzeni wirtualnych węzła koordynatora można dostosowywać niezależnie. Dostosuj suwak **rdzeni wirtualnych** w obszarze  **Konfiguracja (węzeł koordynatora)**.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305975"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analiza wielu dzierżawców przy użyciu wyodrębnionych aplikacji z jedną dzierżawą
@@ -93,7 +93,7 @@ W poniższych krokach zostanie wdrożony magazyn analityczny o nazwie **tenantan
     - Aby użyć SQL Database z magazynem kolumn, ustaw **$DemoScenario**  =  **3**  
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt demonstracyjny (wywołujący skrypt *Deploy-TenantAnalytics \<XX> . ps1* ), który tworzy magazyn analizy dzierżawców. 
 
-Teraz, gdy aplikacja została wdrożona i uzupełniona o interesujące dane dzierżawy, [użyj SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) do połączenia serwerów **tenants1-DPT- &lt; User &gt;** i **Catalog-DPT- &lt; Users &gt;** przy użyciu funkcji login = *Developer* , Password = *P \@ ssword1*. Zobacz [samouczek wprowadzający](./saas-dbpertenant-wingtip-app-overview.md) , aby uzyskać więcej wskazówek.
+Teraz, gdy aplikacja została wdrożona i uzupełniona o interesujące dane dzierżawy, [użyj SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) do połączenia serwerów **tenants1-DPT- &lt; User &gt;** i **Catalog-DPT- &lt; Users &gt;** przy użyciu funkcji login = *Developer*, Password = *P \@ ssword1*. Zobacz [samouczek wprowadzający](./saas-dbpertenant-wingtip-app-overview.md) , aby uzyskać więcej wskazówek.
 
 ![Zrzut ekranu pokazujący informacje konieczne do nawiązania połączenia z SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -107,7 +107,7 @@ W Eksplorator obiektów wykonaj następujące czynności:
 Zobacz następujące elementy bazy danych w narzędziu SSMS Eksplorator obiektów, rozszerzając węzeł sklepu Analytics:
 
 - Tabele **TicketsRawData** i **EventsRawData** przechowują nieprzetworzone dane wyodrębnione z baz danych dzierżaw.
-- Tabele schematu gwiazdy to **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** i **dim_Dates**.
+- Tabele schematu gwiazdy to **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** i **dim_Dates**.
 - Procedura składowana służy do wypełniania tabel schematu gwiazdy z nieprzetworzonych tabel danych.
 
 ![Zrzut ekranu przedstawiający elementy bazy danych widoczne w Eksplorator obiektów SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -169,13 +169,13 @@ Dane w tabeli ze schematem gwiazdy zawierają wszystkie dane sprzedaży biletów
 Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i zaimportować utworzone wcześniej widoki:
 
 1. Uruchom Power BI pulpicie.
-2. Na Wstążce Narzędzia główne wybierz pozycję **Pobierz dane** , a następnie wybierz pozycję **więcej...** z menu.
+2. Na Wstążce Narzędzia główne wybierz pozycję **Pobierz dane**, a następnie wybierz pozycję **więcej...** z menu.
 3. W oknie **pobieranie danych** wybierz pozycję Azure SQL Database.
-4. W oknie Logowanie do bazy danych wprowadź nazwę serwera (Catalog-DPT- &lt; User &gt; . Database.Windows.NET). Wybierz pozycję **Importuj** dla **trybu łączności danych** , a następnie kliknij przycisk OK. 
+4. W oknie Logowanie do bazy danych wprowadź nazwę serwera (Catalog-DPT- &lt; User &gt; . Database.Windows.NET). Wybierz pozycję **Importuj** dla **trybu łączności danych**, a następnie kliknij przycisk OK. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper* i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Podłącz**.  
+5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper* i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Połącz**.  
 
     ![Zrzut ekranu przedstawia okno dialogowe baza danych SQL Server, w którym można wprowadzić nazwę użytkownika i hasło.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -209,7 +209,7 @@ Powyższy wykres z korytarzem z firmy Contoso wspólnie pokazuje, że Mad — sz
 
 Szczegółowe informacje na temat wzorców sprzedaży biletów mogą prowadzić do Wingtip biletów, aby zoptymalizować model biznesowy. Zamiast naliczania wszystkich dzierżawców w równym stopniu, prawdopodobnie Wingtip powinny wprowadzać warstwy usług o różnych rozmiarach obliczeniowych. Większą liczbą miejsc, które muszą sprzedawać więcej biletów dziennie, może być oferowana wyższa warstwa z wyższą umową dotyczącą poziomu usług (SLA). Te miejsca mogą mieć swoje bazy danych umieszczane w puli z wyższymi limitami zasobów dla poszczególnych baz danych. Każda warstwa usług może mieć co godzinę alokację sprzedaży przy użyciu dodatkowych opłat naliczanych za przekroczenie przydziału. Większe miejsca, w których okresowe rozbicie sprzedaży byłyby korzystne dla wyższych warstw, a bilety Wingtip mogą wydajnie Zarabiaj swoją usługę.
 
-Tymczasem niektórzy Wingtip bilety, z których klienci mogą się zapewnić, aby sprzedać wystarczającą liczbę biletów, aby uzasadnić koszt usługi. W tych informacjach można zwiększyć sprzedaż biletów w przypadku niedopełnienia miejsc. Wyższa sprzedaż mogłaby zwiększyć postrzeganą wartość usługi. Kliknij prawym przyciskiem myszy fact_Tickets i wybierz pozycję **Nowa miara**. Wprowadź następujące wyrażenie dla nowej miary o nazwie **AverageTicketsSold** :
+Tymczasem niektórzy Wingtip bilety, z których klienci mogą się zapewnić, aby sprzedać wystarczającą liczbę biletów, aby uzasadnić koszt usługi. W tych informacjach można zwiększyć sprzedaż biletów w przypadku niedopełnienia miejsc. Wyższa sprzedaż mogłaby zwiększyć postrzeganą wartość usługi. Kliknij prawym przyciskiem myszy fact_Tickets i wybierz pozycję **Nowa miara**. Wprowadź następujące wyrażenie dla nowej miary o nazwie **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )

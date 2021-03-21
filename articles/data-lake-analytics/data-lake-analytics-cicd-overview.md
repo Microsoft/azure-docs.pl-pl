@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015268"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Jak skonfigurować potok ciągłej integracji/ciągłego wdrażania dla Azure Data Lake Analytics  
@@ -462,31 +462,31 @@ Wykonaj następujące kroki, aby skonfigurować zadanie wdrażania bazy danych w
 
 | Parametr | Description | Wartość domyślna | Wymagane |
 |---------|-----------|-------------|--------|
-|Pakiet|Ścieżka pakietu wdrożeniowego bazy danych U-SQL, który ma zostać wdrożony.|wartość null|true|
+|Pakiet|Ścieżka pakietu wdrożeniowego bazy danych U-SQL, który ma zostać wdrożony.|null|true|
 |baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
-|Pliki|Ścieżka pliku do rejestrowania. Domyślnie dla standardowego (konsoli).|wartość null|fałsz|
+|Pliki|Ścieżka pliku do rejestrowania. Domyślnie dla standardowego (konsoli).|null|fałsz|
 |LogLevel|Poziom dziennika: verbose, Normal, Warning lub Error.|LogLevel. Normal|fałsz|
 
 #### <a name="parameter-for-local-deployment"></a>Parametr wdrożenia lokalnego
 
 |Parametr|Description|Wartość domyślna|Wymagane|
 |---------|-----------|-------------|--------|
-|DataRoot|Ścieżka do lokalnego folderu danych głównych.|wartość null|true|
+|DataRoot|Ścieżka do lokalnego folderu danych głównych.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametry wdrożenia Azure Data Lake Analytics
 
 |Parametr|Description|Wartość domyślna|Wymagane|
 |---------|-----------|-------------|--------|
-|Konto|Określa, które konto Azure Data Lake Analytics ma zostać wdrożone na podstawie nazwy konta.|wartość null|true|
-|ResourceGroup|Nazwa grupy zasobów platformy Azure dla konta Azure Data Lake Analytics.|wartość null|true|
-|SubscriptionId|Identyfikator subskrypcji platformy Azure dla konta Azure Data Lake Analytics.|wartość null|true|
-|Dzierżawa|Nazwa dzierżawy to nazwa domeny Azure Active Directory (Azure AD). Znajdź je na stronie zarządzania subskrypcjami w Azure Portal.|wartość null|true|
-|AzureSDKPath|Ścieżka do przeszukiwania zestawów zależnych w zestawie Azure SDK.|wartość null|true|
+|Konto|Określa, które konto Azure Data Lake Analytics ma zostać wdrożone na podstawie nazwy konta.|null|true|
+|ResourceGroup|Nazwa grupy zasobów platformy Azure dla konta Azure Data Lake Analytics.|null|true|
+|SubscriptionId|Identyfikator subskrypcji platformy Azure dla konta Azure Data Lake Analytics.|null|true|
+|Dzierżawa|Nazwa dzierżawy to nazwa domeny Azure Active Directory (Azure AD). Znajdź je na stronie zarządzania subskrypcjami w Azure Portal.|null|true|
+|AzureSDKPath|Ścieżka do przeszukiwania zestawów zależnych w zestawie Azure SDK.|null|true|
 |Interaktywne|Określa, czy do uwierzytelniania ma być używany tryb interaktywny.|fałsz|fałsz|
-|ClientId|Identyfikator aplikacji usługi Azure AD wymagany do uwierzytelniania nieinterakcyjnego.|wartość null|Wymagane na potrzeby uwierzytelniania nieinterakcyjnego.|
-|Wpis tajny|Wpis tajny lub hasło nieinterakcyjnego uwierzytelniania. Powinno być używane tylko w zaufanym i bezpiecznym środowisku.|wartość null|Wymagane na potrzeby uwierzytelniania nieinterakcyjnego lub w przeciwnym razie użyj SecreteFile.|
-|SecreteFile|Plik zapisuje tajne lub hasło dla nieinteraktywnego uwierzytelniania. Upewnij się, że jest on możliwy do odczytania tylko przez bieżącego użytkownika.|wartość null|Wymagane na potrzeby uwierzytelniania nieinterakcyjnego lub użyć klucza tajnego.|
-|CertFile|Plik zapisuje certyfikat X. 509 dla nieinteraktywnego uwierzytelniania. Wartością domyślną jest użycie uwierzytelniania tajnego klienta.|wartość null|fałsz|
+|ClientId|Identyfikator aplikacji usługi Azure AD wymagany do uwierzytelniania nieinterakcyjnego.|null|Wymagane na potrzeby uwierzytelniania nieinterakcyjnego.|
+|Wpis tajny|Wpis tajny lub hasło nieinterakcyjnego uwierzytelniania. Powinno być używane tylko w zaufanym i bezpiecznym środowisku.|null|Wymagane na potrzeby uwierzytelniania nieinterakcyjnego lub w przeciwnym razie użyj SecreteFile.|
+|SecreteFile|Plik zapisuje tajne lub hasło dla nieinteraktywnego uwierzytelniania. Upewnij się, że jest on możliwy do odczytania tylko przez bieżącego użytkownika.|null|Wymagane na potrzeby uwierzytelniania nieinterakcyjnego lub użyć klucza tajnego.|
+|CertFile|Plik zapisuje certyfikat X. 509 dla nieinteraktywnego uwierzytelniania. Wartością domyślną jest użycie uwierzytelniania tajnego klienta.|null|fałsz|
 | JobPrefix | Prefiks do wdrożenia bazy danych zadania DDL języka U-SQL. | Deploy_ + DateTime. Now | fałsz |
 
 ## <a name="next-steps"></a>Następne kroki

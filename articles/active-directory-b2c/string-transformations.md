@@ -12,10 +12,10 @@ ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452241"
 ---
 # <a name="string-claims-transformations"></a>Przekształcenia oświadczeń ciągów
@@ -198,7 +198,7 @@ Ustal, czy jedno z nich jest równe innemu. Wynik jest nowym obiektem logicznym 
 | InputParameter | ignoreCase | boolean | Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
 
-Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie jest równe innemu oświadczenia. Na przykład następujące przekształcenia oświadczeń sprawdzają, czy wartość oświadczenia **adresu e-mail** jest równa **Zweryfikowanemu oświadczenia adresu e-mail** .
+Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie jest równe innemu oświadczenia. Na przykład następująca transformacja oświadczeń sprawdza, czy wartość oświadczenia **adresu e-mail** jest równa oświadczenia **Verified.email** .
 
 ```xml
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">

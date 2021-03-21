@@ -8,17 +8,17 @@ ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
 ms.openlocfilehash: 093b962bb9f42b660fb8cc5c0584ec67ebc87e48
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789165"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Azure PowerShell
 
 W tym samouczku utworzysz wirtualne wystąpienie sieci WAN z koncentratorem wirtualnym w jednym regionie i wdrożono zaporę platformy Azure w koncentratorze wirtualnym w celu zabezpieczenia łączności. W tym przykładzie przedstawiono bezpieczną łączność między sieciami wirtualnymi. Ruch między sieciami wirtualnymi i gałęziami lokacja-lokacja, punkt-lokacja lub ExpressRoute są obsługiwane przez wirtualne Centrum zabezpieczeń.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wdróż wirtualną sieć WAN

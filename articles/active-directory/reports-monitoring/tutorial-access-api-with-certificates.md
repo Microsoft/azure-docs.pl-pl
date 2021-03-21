@@ -18,10 +18,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130055"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Samouczek: pobieranie danych przy użyciu interfejsu API raportowania Azure Active Directory z certyfikatami
@@ -34,7 +34,7 @@ W ramach tego samouczka nauczysz się używać certyfikatu testowego w celu uzys
 
 1. Aby uzyskać dostęp do danych logowania, upewnij się, że masz dzierżawę Azure Active Directory z licencją premium (P1/P2). Aby uaktualnić swoją wersję usługi Azure Active Directory, zobacz [Wprowadzenie do usługi Azure Active Directory w wersji Premium](../fundamentals/active-directory-get-started-premium.md). Pamiętaj, że jeśli przed uaktualnieniem nie istniały żadne dane działań, po przejściu na licencję premium może minąć kilka dni, zanim te dane pojawią się w raportach. 
 
-2. Utwórz lub przejdź do konta użytkownika w roli **administrator globalny** , **administrator zabezpieczeń** , **czytelnik zabezpieczeń** lub **czytelnik raportu** dla dzierżawy. 
+2. Utwórz lub przejdź do konta użytkownika w roli **administrator globalny**, **administrator zabezpieczeń**, **czytelnik zabezpieczeń** lub **czytelnik raportu** dla dzierżawy. 
 
 3. Wykonaj [wymagania wstępne, aby uzyskać dostęp do interfejsu API raportowania Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
 
@@ -45,7 +45,7 @@ W ramach tego samouczka nauczysz się używać certyfikatu testowego w celu uzys
     - Tokeny dostępu użytkownika, kluczy aplikacji i certyfikatów korzystających z bibliotek ADAL
     - Stronicowane wyniki obsługi interfejsu API programu Graph
 
-6. Jeśli po raz pierwszy używasz modułu **Install-MSCloudIdUtilsModule** , w przeciwnym razie zaimportuj go za pomocą polecenia **Import-Module** programu PowerShell. Twoja sesja powinna wyglądać podobnie do tego ekranu: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Jeśli po raz pierwszy używasz modułu **Install-MSCloudIdUtilsModule**, w przeciwnym razie zaimportuj go za pomocą polecenia **Import-Module** programu PowerShell. Twoja sesja powinna wyglądać podobnie do tego ekranu: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. Użyj polecenia **New-SelfSignedCertificate** programu PowerShell polecenia cmdlet, aby utworzyć certyfikat testowy.
 
@@ -62,11 +62,11 @@ W ramach tego samouczka nauczysz się używać certyfikatu testowego w celu uzys
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure Active Directory z certyfikatami
 
-1. Przejdź do [Azure Portal](https://portal.azure.com), wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **rejestracje aplikacji** i wybierz aplikację z listy. 
+1. Przejdź do [Azure Portal](https://portal.azure.com), wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **rejestracje aplikacji** i wybierz aplikację z listy. 
 
-2. Wybierz pozycję **certyfikaty & wpisy tajne** w sekcji **Zarządzanie** w bloku Rejestracja aplikacji i wybierz pozycję **Przekaż certyfikat** .
+2. Wybierz pozycję **certyfikaty & wpisy tajne** w sekcji **Zarządzanie** w bloku Rejestracja aplikacji i wybierz pozycję **Przekaż certyfikat**.
 
-3. Wybierz plik certyfikatu z poprzedniego kroku, a następnie wybierz pozycję **Dodaj** . 
+3. Wybierz plik certyfikatu z poprzedniego kroku, a następnie wybierz pozycję **Dodaj**. 
 
 4. Zanotuj identyfikator aplikacji i odcisk palca certyfikatu, który właśnie został zarejestrowany w aplikacji. Aby znaleźć odcisk palca, na stronie aplikacji w portalu przejdź do pozycji **certyfikaty & wpisy tajne** w sekcji **Zarządzanie** . Odcisk palca zostanie objęty listą **certyfikatów** .
 
