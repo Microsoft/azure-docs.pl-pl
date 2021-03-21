@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Samouczek: integracja Azure Active Directory z usługą TeamSeer
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TeamSeer, w
 
 1. Kliknij przycisk **Setup (Konfiguracja**).
 
-    ![Instalacja](./media/teamseer-tutorial/ic789635.png "Konfigurowanie")
+    ![Instalacja](./media/teamseer-tutorial/ic789635.png "Konfiguracja")
 
 1. Kliknij pozycję **Skonfiguruj szczegóły dostawcy SAML**.
 
@@ -148,7 +148,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TeamSeer, w
 
     ![Zrzut ekranu przedstawia konfigurację dostawcy SAML, w której można wprowadzić podane wartości.](./media/teamseer-tutorial/ic789638.png "Ustawienia SAML")
 
-    a. W polu **Testuj adresy e-mail**wpisz adres e-mail użytkownika testowego.
+    a. W polu **Testuj adresy e-mail** wpisz adres e-mail użytkownika testowego.
   
     b. W polu tekstowym **wystawca** wpisz adres URL wystawcy dostawcy usług.
   
@@ -177,7 +177,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

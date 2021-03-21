@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
 ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98541346"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Samouczek: odnajdywanie serwerów fizycznych za pomocą oceny serwera
@@ -20,7 +20,7 @@ W ramach przeprowadzonej migracji na platformę Azure można odnaleźć serwery 
 
 W tym samouczku pokazano, jak odnajdywać lokalne serwery fizyczne przy użyciu Azure Migrate: narzędzia do oceny serwera za pomocą urządzenia uproszczonego Azure Migrate. Urządzenie jest wdrażane jako serwer fizyczny w celu ciągłego odnajdywania metadanych maszyn i wydajności.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: deac4dcde51049d744706b7479f5b5f3bbb4d9c0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Samouczek: integracja Azure Active Directory z danymi Periscope
@@ -121,7 +121,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
 1. W innym oknie przeglądarki internetowej zaloguj się do aplikacji Periscope Data jako administrator.
 
-2. Otwórz menu koła zębatego w lewym dolnym rogu i otwórz menu zabezpieczenia **rozliczeń**  >  **Security** i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
+2. Otwórz menu koła zębatego w lewym dolnym rogu i otwórz menu zabezpieczenia **rozliczeń**  >   i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
 
     ![Zrzut ekranu przedstawiający okno dialogowe "zabezpieczenia" z wybranymi ustawieniami.](./media/periscope-data-tutorial/configure01.png)
 
@@ -129,9 +129,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
     b. W polu tekstowym **Logowanie jednokrotne** wybierz pozycję **Azure Active Directory**.
 
-    c. Znajdź tag **SingleSignOnService** i wklej wartość pola**Location** (Lokalizacja) w polu tekstowym **SSO URL** (Adres URL logowania jednokrotnego).
+    c. Znajdź tag **SingleSignOnService** i wklej wartość pola **Location** (Lokalizacja) w polu tekstowym **SSO URL** (Adres URL logowania jednokrotnego).
 
-    d. Znajdź tag **SingleLogoutService** i wklej wartość pola**Location** w polu tekstowym **SLO URL** (Adres URL wylogowania jednokrotnego).
+    d. Znajdź tag **SingleLogoutService** i wklej wartość pola **Location** w polu tekstowym **SLO URL** (Adres URL wylogowania jednokrotnego).
 
     e. Skopiuj wartość **identyfikatora** wystąpienia i wklej ją w polu **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -168,7 +168,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

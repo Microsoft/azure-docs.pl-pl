@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2021
 ms.author: duau
 ms.openlocfilehash: 9b916f9942b0459b41d98b952fad072ae48318b3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505441"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Samouczek: kierowanie ruchu do określonych punktów końcowych na podstawie podsieci użytkownika przy użyciu Traffic Manager
@@ -24,7 +24,7 @@ W tym artykule opisano, jak skonfigurować metodę routingu ruchu dla podsieci. 
 
 W tym samouczku za pomocą routingu podsieci, w zależności od adresu IP zapytania użytkownika, ruch jest kierowany do wewnętrznej witryny sieci Web lub produkcyjnej witryny sieci Web.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych z podstawową witryną internetową w usługach IIS
