@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955297"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598290"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu przesyłania strumieniowego na żywo
 
@@ -42,7 +42,7 @@ Przetestuj nowy sposób dostarczania zdarzeń na żywo z Media Services przed pr
 - W przypadku konieczności szybkiego uruchamiania zdarzeń na żywo Eksploruj nowe funkcje [trybu wstrzymania](live-events-outputs-concept.md#standby-mode) .
 - Jeśli chcesz transkrypcja wydarzenie na żywo w czasie, Poznaj nową funkcję [transkrypcji na żywo](live-transcription.md) .
 - Utwórz 24x7x365 zdarzenia na żywo w wersji 3, jeśli potrzebujesz dłuższego czasu trwania przesyłania strumieniowego.
-- Użyj [Event Grid](monitor-events-portal-how-to.md) do monitorowania wydarzeń na żywo.
+- Użyj [Event Grid](monitoring/monitor-events-portal-how-to.md) do monitorowania wydarzeń na żywo.
 
 Zapoznaj się z pojęciami dotyczącymi wydarzeń na żywo, samouczkami i przewodnikami poniżej, aby poznać określone kroki.
 

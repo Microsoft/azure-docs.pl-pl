@@ -131,6 +131,8 @@
           href: how-to-update-iot-edge.md
         - name: Zarządzanie certyfikatami urządzeń
           href: how-to-manage-device-certificates.md
+        - name: Konfigurowanie wirtualizacji zagnieżdżonej dla maszyn wirtualnych z systemem Windows
+          href: nested-virtualization.md
     - name: Alternatywne scenariusze urządzeń
       items:
         - name: Uruchamianie IoT Edge z kontenerami systemu Windows

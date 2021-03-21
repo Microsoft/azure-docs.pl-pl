@@ -8,12 +8,12 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a3656d6dd81132a7fd10103fc0199d55d9288df3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: f1a2b821c5fd127f8b7bcda7b3a219be34cb8abb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489615"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598528"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -136,7 +136,7 @@ Składniki IoT Edge można zainstalować lub zaktualizować osobno i są wsteczn
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-<sup>1</sup> IoT Edge 1,1 to pierwszy długi okres pomocy technicznej (LTS). Ta wersja nie wprowadziła żadnych nowych funkcji, ale otrzyma poprawki błędów i poprawki zabezpieczeń. IoT Edge 1,1 LTS używa platformy .NET Core 3,1 i będzie obsługiwana do 3 grudnia 2022 w celu dopasowania do [cyklu życia platformy .NET Core i .NET 5](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+<sup>1</sup> IoT Edge 1,1 to pierwszy długi okres pomocy technicznej (LTS). W tej wersji nie wprowadzono żadnych nowych funkcji, ale zostaną odebrane aktualizacje zabezpieczeń i poprawki dotyczące regresji. IoT Edge 1,1 LTS używa platformy .NET Core 3,1 i będzie obsługiwana do 3 grudnia 2022 w celu dopasowania do [cyklu życia platformy .NET Core i .NET 5](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 >[!IMPORTANT]
 >W przypadku korzystania z długotrwałego kanału obsługi zalecamy, aby wszyscy obecni klienci z systemem 1.0. x uaktualnili swoje urządzenia do wersji 1.1. x w celu uzyskania ciągłej pomocy technicznej.

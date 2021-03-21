@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571858"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596709"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Samouczek: przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Zdarzenia Azure Media Services
 
-Azure Media Services v3 emituje zdarzenia na [Azure Event Grid](media-services-event-schemas.md). Możesz subskrybować zdarzenia na wiele sposobów i przechowywać je w magazynach danych. W tym samouczku zasubskrybujesz Media Services zdarzeń przy użyciu [przepływu aplikacji dziennika](https://azure.microsoft.com/services/logic-apps/). Aplikacja logiki zostanie wyzwolona dla każdego zdarzenia i będzie przechowywać treść zdarzenia w usłudze Azure Log Analytics. Gdy zdarzenia znajdują się w usłudze Azure Log Analytics, możesz użyć innych usług platformy Azure, aby utworzyć pulpit nawigacyjny, monitor i alert dotyczący tych zdarzeń, ale nie będzie on omawiany w tym samouczku.
+Azure Media Services v3 emituje zdarzenia na [Azure Event Grid](monitoring/media-services-event-schemas.md). Możesz subskrybować zdarzenia na wiele sposobów i przechowywać je w magazynach danych. W tym samouczku zasubskrybujesz Media Services zdarzeń przy użyciu [przepływu aplikacji dziennika](https://azure.microsoft.com/services/logic-apps/). Aplikacja logiki zostanie wyzwolona dla każdego zdarzenia i będzie przechowywać treść zdarzenia w usłudze Azure Log Analytics. Gdy zdarzenia znajdują się w usłudze Azure Log Analytics, możesz użyć innych usług platformy Azure, aby utworzyć pulpit nawigacyjny, monitor i alert dotyczący tych zdarzeń, ale nie będzie on omawiany w tym samouczku.
 
 > [!NOTE]
 > Jest to przydatne, jeśli masz już doświadczenie z użyciem narzędzia FFmpeg jako kodera lokalnego.  Jeśli nie, to jest dobry. Poniżej znajduje się wiersz poleceń i instrukcje dotyczące przesyłania strumieniowego wideo.

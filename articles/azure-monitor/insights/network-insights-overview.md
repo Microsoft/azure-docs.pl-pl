@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db94a376112b3d715da9095acb05c0b4fd4ea02f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717472"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605804"
 ---
 # <a name="azure-monitor-for-networks"></a>Usługa Azure Monitor dla sieci
 
@@ -108,10 +108,12 @@ Zestaw narzędzi diagnostycznych zapewnia dostęp do wszystkich funkcji diagnost
 
 ![Zrzut ekranu przedstawiający kartę zestaw narzędzi diagnostycznych.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="onboarded-resources"></a>Zasoby dołączone 
+
+Zasoby dołączane mają wbudowane skoroszyty i widoki zależności. Aktualnie dołączane zasoby to wirtualne sieci WAN, Application Gateway, Load Balancer i ExpressRoute.
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów 
-
 Aby uzyskać ogólne wskazówki dotyczące rozwiązywania problemów, zobacz artykuł dotyczący [rozwiązywania problemów](troubleshoot-workbooks.md)ze szczegółowymi informacjami w skoroszycie.
-
 Ta sekcja ułatwi diagnozowanie i rozwiązywanie typowych problemów, które mogą wystąpić podczas korzystania z Azure Monitor dla sieci. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>Jak mogę rozwiązać problemy z wydajnością lub błędy?

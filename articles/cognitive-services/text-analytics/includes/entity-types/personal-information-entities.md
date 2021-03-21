@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 97167485dae155670f0eb83fc3ef9cb658952251
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750169"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599328"
 ---
 > [!NOTE]
 > Aby wykryć chronione informacje o kondycji (Fi), użyj `domain=phi` parametru i wersji modelu `2020-04-01` lub nowszej.
@@ -53,9 +53,18 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Nazwy osób. Zwracany także przez `domain=phi` .
+        Nazwy osób. 
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `Person` do `pii-categories` parametru. `Person` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+    
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
 :::row-end:::
 
 ### <a name="category-persontype"></a>Kategoria: Persontype
@@ -74,8 +83,17 @@ Ta kategoria zawiera następującą jednostkę:
         **Szczegóły**
 
         Typy zadań lub role przechowywane przez osobę.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `PersonType` do `pii-categories` parametru. `PersonType` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
 :::row-end:::
 
 ### <a name="category-phonenumber"></a>Kategoria: numer telefonu
@@ -93,8 +111,18 @@ Ta kategoria zawiera następującą jednostkę:
         **Szczegóły**
 
         Numery telefonów (tylko numery telefonów USA i UE). Zwracany także przez `domain=phi` .
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `PhoneNumber` do `pii-categories` parametru. `PhoneNumber` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
+      
+   :::column-end:::
+
 :::row-end:::
 
 
@@ -113,8 +141,18 @@ Ta kategoria zawiera następującą jednostkę:
         **Szczegóły**
 
         Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `Organization` do `pii-categories` parametru. `Organization` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+
 :::row-end:::
 
 #### <a name="subcategories"></a>Podkategorii
@@ -125,15 +163,25 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
     :::column span="":::
         **Podkategoria jednostki**
 
-        Leczniczych
+        Leczniczych    
 
     :::column-end:::
     :::column span="2":::
         **Szczegóły**
 
         Firmy medyczne i grupy.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `OrganizationMedical` do `pii-categories` parametru. `OrganizationMedical` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`   
+      
+   :::column-end:::
+
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -144,8 +192,17 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
     :::column span="2":::
 
         Giełdowe grupy wymiany. 
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `OrganizationStockExchange` do `pii-categories` parametru. `OrganizationStockExchange` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+
+      `en`   
+      
+   :::column-end:::
+
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -156,8 +213,16 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
     :::column span="2":::
 
         Organizacje dotyczące sportu.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `OrganizationSports` do `pii-categories` parametru. `OrganizationSports` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+
+      `en`   
+      
+   :::column-end:::
 
 :::row-end:::
 
@@ -177,8 +242,18 @@ Ta kategoria zawiera następującą jednostkę:
         **Szczegóły**
 
         Pełny adres wysyłkowy.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `Address` do `pii-categories` parametru. `Address` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+    :::column-end:::
+
 :::row-end:::
 
 ### <a name="category-email"></a>Kategoria: E-mail
@@ -197,8 +272,17 @@ Ta kategoria zawiera następującą jednostkę:
 
         Adresy e-mail.
       
+        Aby uzyskać tę kategorię jednostki, Dodaj `Email` do `pii-categories` parametru. `Email` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
+
+    :::column-end:::
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
     :::column-end:::
 :::row-end:::
+
 
 ### <a name="category-url"></a>Kategoria: adres URL
 
@@ -215,8 +299,18 @@ Ta kategoria zawiera następującą jednostkę:
         **Szczegóły**
 
         Adresy URL do witryn sieci Web. 
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `URL` do `pii-categories` parametru. `URL` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+    :::column-end:::
+
 :::row-end:::
 
 ### <a name="category-ip"></a>Kategoria: adres IP
@@ -234,6 +328,15 @@ Ta kategoria zawiera następującą jednostkę:
         **Szczegóły**
 
         adresy IP sieci. 
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `IP` do `pii-categories` parametru. `IP` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
+      
+    :::column-end:::
+
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
     :::column-end:::
 :::row-end:::
@@ -253,8 +356,16 @@ Ta kategoria zawiera następujące jednostki:
         **Szczegóły**
 
         Daty i godziny dnia. 
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `DateTime` do `pii-categories` parametru. `DateTime` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+:::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 
 #### <a name="subcategories"></a>Podkategorii
@@ -272,6 +383,14 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
         **Szczegóły**
 
         Daty kalendarzowe.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `Date` do `pii-categories` parametru. `Date` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+      
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
     :::column-end:::
 :::row-end:::
@@ -291,6 +410,14 @@ Ta kategoria zawiera następujące jednostki:
         **Szczegóły**
 
         Liczby i ilości liczbowe.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `Quantity` do `pii-categories` parametru. `Quantity` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
     :::column-end:::
 :::row-end:::
@@ -310,8 +437,16 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
         **Szczegóły**
 
         Ważności.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `Age` do `pii-categories` parametru. `Age` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
+    :::column span="2":::
+        **Obsługiwane języki dokumentu**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
 :::row-end:::
 
 ### <a name="azure-information"></a>Informacje o platformie Azure
@@ -329,33 +464,36 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
         **Szczegóły**
 
         Klucz autoryzacji dla serwera Azure Cosmos DB.   
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureDocumentDBAuthKey` do `pii-categories` parametru. `AzureDocumentDBAuthKey` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+      **Obsługiwane języki dokumentu**
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
 
-        Parametry połączenia z usługą Azure IAAS Database i parametry połączenia usługi Azure SQL
+        Parametry połączenia z usługą Azure IAAS Database oraz parametry połączenia usługi Azure SQL.
+        
 
     :::column-end:::
     :::column span="2":::
 
         Parametry połączenia dla bazy danych infrastruktury platformy Azure jako usługi (IaaS) i parametry połączenia SQL.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureIAASDatabaseConnectionAndSQLString` do `pii-categories` parametru. `AzureIAASDatabaseConnectionAndSQLString` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column span="":::
 
-        Parametry połączenia usługi Azure SQL
+      `en` 
 
     :::column-end:::
-    :::column span="2":::
-
-        Parametry połączenia dla bazy danych w Azure SQL Database.
-      
-    :::column-end:::
-
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -367,6 +505,13 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
 
         Parametry połączenia dla usługi Azure IoT. 
       
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureIoTConnectionString` do `pii-categories` parametru. `AzureIoTConnectionString` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
+
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -378,7 +523,14 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column span="2":::
 
         Hasło dla ustawień publikowania platformy Azure.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzurePublishSettingPassword` do `pii-categories` parametru. `AzurePublishSettingPassword` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -390,7 +542,14 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column span="2":::
 
         Parametry połączenia dla pamięci podręcznej Redis.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureRedisCacheString` do `pii-categories` parametru. `AzureRedisCacheString` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -402,7 +561,14 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column span="2":::
 
         Parametry połączenia dla oprogramowania na platformie Azure jako usługi (SaaS).
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureSAS` do `pii-categories` parametru. `AzureSAS` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -414,7 +580,14 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column span="2":::
 
         Parametry połączenia dla usługi Azure Service Bus.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureServiceBusString` do `pii-categories` parametru. `AzureServiceBusString` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -425,8 +598,15 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column-end:::
     :::column span="2":::
 
-       Klucz konta dla konta usługi Azure Storage. 
+        Klucz konta dla konta usługi Azure Storage. 
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureStorageAccountKey` do `pii-categories` parametru. `AzureStorageAccountKey` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -437,8 +617,15 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column-end:::
     :::column span="2":::
 
-       Ogólny klucz konta dla konta usługi Azure Storage.
+        Ogólny klucz konta dla konta usługi Azure Storage.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `AzureStorageAccountGeneric` do `pii-categories` parametru. `AzureStorageAccountGeneric` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -449,8 +636,15 @@ Te kategorie jednostek obejmują identyfikowalne informacje dotyczące platformy
     :::column-end:::
     :::column span="2":::
 
-       Parametry połączenia dla komputera z systemem SQL Server.
+        Parametry połączenia dla komputera z systemem SQL Server.
+
+        Aby uzyskać tę kategorię jednostki, Dodaj `SQLServerConnectionString` do `pii-categories` parametru. `SQLServerConnectionString` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 

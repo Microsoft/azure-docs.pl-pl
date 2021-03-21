@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176420"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598018"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. 
@@ -60,10 +60,6 @@ Aby dowiedzieć się więcej na temat tych funkcji, zapoznaj się z dokumentacj�
 Często podczas przeprowadzania interaktywnej analizy danych lub uczenia maszynowego może się okazać, że chcesz wypróbować nowsze pakiety lub pakiety, które nie są jeszcze dostępne w puli Apache Spark. Zamiast aktualizować konfigurację puli, użytkownicy mogą teraz używać pakietów z zakresem sesji w celu dodawania i aktualizowania zależności sesji oraz zarządzania nimi.
 
 Pakiety z zakresem sesji umożliwiają użytkownikom Definiowanie zależności pakietu na początku sesji. W przypadku instalowania pakietu z zakresem sesji tylko bieżąca sesja ma dostęp do określonych pakietów. W efekcie te pakiety z zakresem sesji nie wpłyną na inne sesje ani zadania korzystające z tej samej puli Apache Spark. Ponadto te biblioteki są instalowane w oparciu o podstawowe środowisko uruchomieniowe i pakiety poziomów puli. 
-
-Te pakiety są automatycznie dodawane do środowiska języka Python. Pakiety nie mogą być wymienione w pliku *requirements.txt* .
-
-Należy zauważyć, że ta metoda obecnie suports tylko `*.whl` pliki. Nie dodawaj żadnych `*.tar.gz` plików do kontenera.
 
 Aby dowiedzieć się więcej na temat zarządzania pakietami z zakresem sesji, odwiedź następujące przewodniki:
 

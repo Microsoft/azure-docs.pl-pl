@@ -5,29 +5,30 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 03/18/2021
+ms.openlocfilehash: a040aecbdee40832bd21256e26a140a986b65e39
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606246"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadań Azure Stream Analytics
 
-W tym artykule opisano opcję poziomu zgodności w Azure Stream Analytics. Stream Analytics to usługa zarządzana z regularnymi aktualizacjami funkcji i ulepszeniami wydajności. Większość aktualizacji środowiska uruchomieniowego usługi jest automatycznie udostępnianych użytkownikom końcowym. 
+W tym artykule opisano opcję poziomu zgodności w Azure Stream Analytics.
 
-Jednak niektóre nowe funkcje w usłudze mogą wprowadzić istotną zmianę, taką jak zmiana zachowania istniejącego zadania lub zmiana sposobu korzystania z danych w uruchomionych zadaniach. Istniejące zadania Stream Analytics można zachować bez poważniejszych zmian, pozostawiając obniżone ustawienie poziomu zgodności. Gdy wszystko będzie gotowe do najnowszych zachowań środowiska uruchomieniowego, możesz zdecydować się na zwiększenie poziomu zgodności. 
+Stream Analytics to usługa zarządzana z [regularnymi aktualizacjami funkcji i stałymi ulepszeniami wydajności](https://azure.microsoft.com/updates/?product=stream-analytics). Większość aktualizacji środowiska uruchomieniowego usługi jest automatycznie udostępnianych użytkownikom końcowym niezależnie od poziomu zgodności. Jednak w przypadku nowej funkcjonalności wprowadzono zmianę w zachowaniu istniejących zadań lub zmiany sposobu korzystania z danych w uruchomionych zadaniach wprowadzamy tę zmianę w ramach nowego poziomu zgodności. Istniejące zadania Stream Analytics można zachować bez poważniejszych zmian, pozostawiając obniżone ustawienie poziomu zgodności. Gdy wszystko będzie gotowe do najnowszych zachowań środowiska uruchomieniowego, możesz zdecydować się na zwiększenie poziomu zgodności.
+
 
 ## <a name="choose-a-compatibility-level"></a>Wybierz poziom zgodności
 
-Poziom zgodności kontroluje zachowanie zadania usługi Stream Analytics w czasie wykonywania. 
+Poziom zgodności kontroluje zachowanie zadania usługi Stream Analytics w czasie wykonywania.
 
 Azure Stream Analytics obecnie obsługuje trzy poziomy zgodności:
 
-* 1,0 — oryginalny poziom zgodności wprowadzony podczas ogólnej dostępności Azure Stream Analytics kilku lat temu.
-* 1,1 — poprzednie zachowanie
 * 1,2 — najnowsze zachowanie z najnowszymi ulepszeniami
+* 1,1 — poprzednie zachowanie
+* 1,0 — oryginalny poziom zgodności wprowadzony podczas ogólnej dostępności Azure Stream Analytics kilku lat temu. 
 
 Gdy tworzysz nowe zadanie Stream Analytics, najlepszym rozwiązaniem jest utworzenie go przy użyciu najnowszego poziomu zgodności. Rozpocznij projektowanie zadań, opierając się na najnowszych zachowaniach, aby uniknąć późniejszej zmiany i złożoności.
 

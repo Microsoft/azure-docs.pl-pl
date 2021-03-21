@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: d59a4fc2cbf52d95e6b5a5100b5ffe06c5dbed7e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ff7b2115b396bf42cdeffa9c58bffb1802e980d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565086"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721889"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>Przewodnik migracji: MySQL do Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -42,10 +42,18 @@ Za pomocą [Asystent migracji do programu SQL Server dla programu MySQL](https:/
 Aby utworzyć ocenę, wykonaj następujące czynności.
 
 1. Otwórz Asystent migracji do programu SQL Server dla programu MySQL. 
-1. Z menu wybierz pozycję **plik** , a następnie wybierz pozycję **Nowy projekt**. Podaj nazwę projektu, lokalizację do zapisania projektu.
-1. Wybierz **Azure SQL Database** jako cel migracji. 
+1. Z menu wybierz pozycję **plik** , a następnie wybierz pozycję **Nowy projekt**. Podaj nazwę projektu, lokalizację do zapisania projektu. Wybierz **Azure SQL Database** jako cel migracji. 
+
+   ![Nowy projekt](./media/mysql-to-sql-database-guide/new-project.png)
+
 1. Wybierz pozycję **Połącz z bazą danych MySQL** i podaj szczegóły połączenia w celu połączenia z serwerem MySQL. 
+
+   ![Łączenie z bazą danych MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
+
 1. Kliknij prawym przyciskiem myszy schemat MySQL w **Eksploratorze metadanych MySQL** , a następnie wybierz polecenie **Utwórz raport**. Alternatywnie możesz wybrać opcję **Utwórz raport** z paska nawigacyjnego górnego wiersza. 
+
+   ![Utwórz raport](./media/mysql-to-sql-database-guide/create-report.png)
+
 1. Przejrzyj raport HTML dotyczący statystyk konwersji, a także błędy i ostrzeżenia. Analizuj go, aby zrozumieć problemy z konwersją i rozwiązania. 
 
    Dostęp do tego raportu można również uzyskać z folderu projektów ASYSTENCIE migracji, wybranego na pierwszym ekranie. W powyższym przykładzie zlokalizuj plik report.xml z:
@@ -54,9 +62,19 @@ Aby utworzyć ocenę, wykonaj następujące czynności.
  
    Otwórz go w programie Excel, aby uzyskać spis obiektów MySQL i nakład pracy wymagany do przeprowadzenia konwersji schematu.
 
+    ![Raport konwersji](./media/mysql-to-sql-database-guide/conversion-report.png)
+
 ### <a name="validate-data-types"></a>Sprawdzanie poprawności typów danych
 
-Przed wykonaniem konwersji schematu Sprawdź poprawność domyślnych mapowań typów danych lub zmień je na podstawie wymagań. Można to zrobić, przechodząc do menu "narzędzia" i wybierając pozycję "Ustawienia projektu" lub zmienić mapowanie typu dla każdej tabeli, wybierając tabelę w "Eksploratorze metadanych MySQL".
+Sprawdź poprawność domyślnych mapowań typu danych i zmień je w zależności od wymagań, jeśli jest to konieczne. W tym celu wykonaj następujące czynności: 
+
+1. Wybierz pozycję **Narzędzia** z menu. 
+1. Wybierz pozycję **Ustawienia projektu**. 
+1. Wybierz kartę **mapowania typu** . 
+
+   ![Mapowania typów](./media/mysql-to-sql-database-guide/type-mappings.png)
+
+1. Można zmienić mapowanie typu dla każdej tabeli, wybierając tabelę w **Eksploratorze metadanych MySQL**. 
 
 ### <a name="convert-schema"></a>Konwertuj schemat 
 
@@ -64,9 +82,22 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 
 1. Obowiązkowe Aby skonwertować kwerendy dynamiczne lub ad hoc, kliknij prawym przyciskiem myszy węzeł i wybierz polecenie **Dodaj instrukcję**. 
 1. Wybierz opcję **Połącz z Azure SQL Database** z górnego paska nawigacyjnego i podaj szczegóły połączenia. Można nawiązać połączenie z istniejącą bazą danych lub podać nową nazwę, w takim przypadku na serwerze docelowym zostanie utworzona baza danych.
+
+   ![Nawiązywanie połączenia z serwerem SQL](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
+ 
 1. Kliknij prawym przyciskiem myszy schemat i wybierz polecenie **Konwertuj schemat**. 
+
+   ![Konwertuj schemat](./media/mysql-to-sql-database-guide/convert-schema.png)
+
 1. Po zakończeniu konwertowania schematu Porównaj przekonwertowany kod na oryginalny kod, aby zidentyfikować potencjalne problemy. 
 
+   Porównaj przekonwertowane obiekty z oryginalnymi obiektami: 
+
+   ![ Porównaj i przejrzyj obiekt ](./media/mysql-to-sql-database-guide/table-comparison.png)
+
+   Porównaj przekonwertowane procedury z oryginalnymi procedurami: 
+
+   ![Porównaj i Przejrzyj kod obiektu](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 
 ## <a name="migrate"></a>Migrate 
@@ -76,9 +107,25 @@ Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności
 Aby opublikować schemat i przeprowadzić migrację danych, wykonaj następujące kroki: 
 
 1. Kliknij prawym przyciskiem myszy bazę danych w **Eksploratorze metadanych Azure SQL Database** i wybierz polecenie **Synchronizuj z bazą danych**. Ta akcja powoduje opublikowanie schematu MySQL w Azure SQL Database.
+
+   ![Synchronizuj z bazą danych](./media/mysql-to-sql-database-guide/synchronize-database.png)
+
+   Przejrzyj mapowanie między projektem źródłowym a obiektem docelowym:
+
+   ![Synchronizuj z przeglądem bazy danych](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+
 1. Kliknij prawym przyciskiem myszy schemat MySQL w **Eksploratorze metadanych MySQL** , a następnie wybierz polecenie **Migruj dane**. Alternatywnie możesz wybrać opcję **Migruj dane** z nawigacji górnej linii. 
+
+   ![Migrowanie danych](./media/mysql-to-sql-database-guide/migrate-data.png)
+
 1. Po zakończeniu migracji Wyświetl raport dotyczący **migracji danych** : 
+
+   ![Raport dotyczący migracji danych](./media/mysql-to-sql-database-guide/data-migration-report.png)
+
 1.  Sprawdź poprawność migracji, przeglądając dane i schemat na Azure SQL Database przy użyciu SQL Server Management Studio (SSMS).
+
+    ![Weryfikuj w ASYSTENCIE migracji](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
+
 
 
 ## <a name="post-migration"></a>Po migracji 

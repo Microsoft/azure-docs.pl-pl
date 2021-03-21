@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d68a9539420c77cc23722e1b7b7175d08459e9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674635"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Obsługiwane źródła danych w Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Możesz publikować metadane za pomocą publicznego interfejsu API lub narzędzia do rejestracji jednokrotnej, lub ręcznie wprowadzając informacje bezpośrednio do portalu sieci Web Azure Data Catalog. W poniższej tabeli zestawiono wszystkie źródła danych, które są obecnie obsługiwane przez wykaz, oraz możliwości publikowania dla każdego z nich. Poniżej wymieniono również zewnętrzne narzędzia do obsługi danych, które mogą być uruchamiane przy użyciu tego samego źródła danych. Druga tabela zawiera bardziej techniczne specyfikacje dla każdej właściwości połączenia ze źródłem danych.
 
@@ -87,7 +89,7 @@ Możesz publikować metadane za pomocą publicznego interfejsu API lub narzędzi
       <td></td>
     </tr>
     <tr>
-      <td>Tabela programu Hive</td>
+      <td>Tabela Hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

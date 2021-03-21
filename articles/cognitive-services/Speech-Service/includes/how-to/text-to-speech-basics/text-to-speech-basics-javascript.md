@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 3fa47935721ccfccdfe18d60a66d5cc480582e7d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: bfaa9f649fd4d44e45b6d4a513e74e12e169c4f8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428227"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719627"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -30,7 +30,7 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i zasób us
 ## <a name="install-the-speech-sdk"></a>Instalowanie zestawu SDK usługi Mowa
 
 Przed wykonaniem jakichkolwiek czynności konieczne będzie zainstalowanie <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">zestawu Speech SDK dla języka JavaScript </a>. W zależności od platformy należy wykonać następujące instrukcje:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
 class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Przeglądarka sieci Web </a>
 
@@ -162,14 +162,14 @@ W przypadku wielu scenariuszy tworzenia aplikacji mowy potrzebne są wyniki dany
 * Zintegruj wynik z innymi interfejsami API lub usługami.
 * Modyfikowanie danych audio, zapisywanie niestandardowych `.wav` nagłówków itp.
 
-Jest to proste, aby wprowadzić tę zmianę z poprzedniego przykładu. Najpierw usuń `AudioConfig` blok, ponieważ będzie można ręcznie zarządzać zachowaniem danych wyjściowych od tego momentu w celu zwiększenia kontroli. Następnie Przekaż `undefined` `AudioConfig` w `SpeechSynthesizer` konstruktorze. 
+Jest to proste, aby wprowadzić tę zmianę z poprzedniego przykładu. Najpierw usuń `AudioConfig` blok, ponieważ będzie można ręcznie zarządzać zachowaniem danych wyjściowych od tego momentu w celu zwiększenia kontroli. Następnie Przekaż `undefined` `AudioConfig` w `SpeechSynthesizer` konstruktorze.
 
 > [!NOTE]
 > W `undefined` przypadku `AudioConfig` , gdy nie zostanie pominięty w powyższym przykładzie danych wyjściowych prezentera, nie będzie odtwarzany dźwięk domyślnie na bieżącym aktywnym urządzeniu wyjściowym.
 
-Tym razem można zapisać wynik w [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) zmiennej. `SpeechSynthesisResult.audioData`Właściwość zwraca `ArrayBuffer` dane wyjściowe, domyślny typ strumienia przeglądarki. W przypadku kodu serwerowego Konwertuj arrayBuffer na strumień bufora. 
+Tym razem można zapisać wynik w [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) zmiennej. `SpeechSynthesisResult.audioData`Właściwość zwraca `ArrayBuffer` dane wyjściowe, domyślny typ strumienia przeglądarki. W przypadku kodu serwerowego Konwertuj arrayBuffer na strumień bufora.
 
-Poniższy kod działa dla kodu po stronie klienta. 
+Poniższy kod działa dla kodu po stronie klienta.
 
 ```javascript
 function synthesizeSpeech() {
@@ -189,9 +189,9 @@ function synthesizeSpeech() {
 }
 ```
 
-W tym miejscu można zaimplementować dowolne zachowanie niestandardowe przy użyciu `ArrayBuffer` obiektu wyniku. ArrayBuffer jest wspólnym typem, który ma być odbierany w przeglądarce i odtwarzany w tym formacie. 
+W tym miejscu można zaimplementować dowolne zachowanie niestandardowe przy użyciu `ArrayBuffer` obiektu wyniku. ArrayBuffer jest wspólnym typem, który ma być odbierany w przeglądarce i odtwarzany w tym formacie.
 
-W przypadku dowolnego kodu opartego na serwerze, jeśli potrzebujesz pracy z danymi jako strumień zamiast ArrayBuffer, musisz przekonwertować obiekt na strumień. 
+W przypadku dowolnego kodu opartego na serwerze, jeśli potrzebujesz pracy z danymi jako strumień zamiast ArrayBuffer, musisz przekonwertować obiekt na strumień.
 
 ```javascript
 function synthesizeSpeech() {
@@ -342,3 +342,11 @@ Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji g�
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Pobierz zdarzenia ułożenia twarzy
+
+Funkcja mowy może być dobrym sposobem na przetwarzanie animacji wyrażeń twarzy.
+Często [visemes](../../../how-to-speech-synthesis-viseme.md) są używane do reprezentowania kluczowych elementów w zaobserwowanej mowę, takich jak pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem.
+Możesz subskrybować zdarzenie viseme w zestawie mowy SDK.
+Następnie można zastosować zdarzenia viseme w celu animowania kroju znaku jako odtwarzania dźwięku mowy.
+Dowiedz się [, jak uzyskać zdarzenia viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

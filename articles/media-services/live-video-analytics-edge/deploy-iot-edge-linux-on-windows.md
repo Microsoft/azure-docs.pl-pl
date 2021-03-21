@@ -4,10 +4,10 @@ description: Ten artykuł zawiera wskazówki dotyczące sposobu wdrażania progr
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.openlocfilehash: 9ec28c62ca804137ede3cd60d1980e55fbaa2807
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618138"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Wdrażanie do IoT Edge dla systemu Linux na urządzeniu z systemem Windows (EFLOW)

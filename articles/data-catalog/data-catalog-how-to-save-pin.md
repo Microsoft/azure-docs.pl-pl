@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 2d0baed53441893ec294784f0f8092fe89a347c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a8d8fcd0b9b9ee1ff918ead250c88b83f86cb7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523710"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674839"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Zapisywanie wyszukiwań i Przypinanie zasobów danych w Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Wprowadzenie
 Azure Data Catalog zapewnia możliwości odnajdowania źródeł danych. Można szybko wyszukiwać i filtrować wykaz, aby zlokalizować źródła danych i zrozumieć ich zamierzone przeznaczenie, ułatwiając znalezienie odpowiednich danych dla zadania.
 

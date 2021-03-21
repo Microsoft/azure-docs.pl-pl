@@ -10,10 +10,10 @@ ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102436536"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure Portal
@@ -127,7 +127,7 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną po utworzeniu obr
     |Parametr |Opis  |
     |---------|---------|
     |Nazwa maszyny wirtualnej     |         |
-    |Image (Obraz)     | Wybierz spośród obrazów maszyn wirtualnych dostępnych na urządzeniu.        |
+    |Obraz     | Wybierz spośród obrazów maszyn wirtualnych dostępnych na urządzeniu.        |
     |Rozmiar     | Wybieraj spośród [obsługiwanych rozmiarów maszyn wirtualnych](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Nazwa użytkownika     | Użyj domyślnej nazwy użytkownika *azureuser*.        |
     |Typ uwierzytelniania    | Wybierz opcję z klucza publicznego SSH lub hasła zdefiniowanego przez użytkownika.       |

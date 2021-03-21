@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
 ms.openlocfilehash: 3f0ec053d806208b4a3c15604714f6bdb87399e7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102613225"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Seria StorSimple 8000: rozwiązanie hybrydowego magazynu w chmurze
@@ -232,7 +232,7 @@ Następujące obciążenia nie są obsługiwane przez urządzenia z serii StorSi
 * Infrastruktura VDI
 * Oracle
 * SAP
-* Dane Big Data
+* Dane big data
 * Dystrybucja zawartości
 * Rozruch z interfejsu SCSI
 

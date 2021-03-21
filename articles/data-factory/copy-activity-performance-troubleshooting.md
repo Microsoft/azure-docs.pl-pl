@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387686"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584421"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -168,7 +168,7 @@ Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z
   - Rozważ stopniowe dopasowanie [kopii równoległych](copy-activity-performance-features.md), co oznacza, że zbyt wiele kopii równoległych może nawet obniżyć wydajność.
 
 
-## <a name="connector-and-ir-performance"></a>Wydajność łącznika i podczerwieni
+## <a name="connector-and-ir-performance"></a>Wydajność łącznika i podczerwieni 
 
 W tej sekcji omówiono niektóre przewodniki dotyczące rozwiązywania problemów z wydajnością dla określonego typu łącznika lub środowiska Integration Runtime.
 
@@ -176,9 +176,11 @@ W tej sekcji omówiono niektóre przewodniki dotyczące rozwiązywania problemó
 
 Czas wykonywania działania jest różny w zależności od tego, czy zestaw danych opiera się na różnych Integration Runtime.
 
-- **Objawy**: po prostu przełączeniu listy rozwijanej połączonej usługi w zestawie danych wykonuje te same działania potoku, ale znacząco różnią się w czasie wykonywania. Gdy zestaw danych jest oparty na zarządzanym Integration Runtime Virtual Network, do ukończenia uruchomienia trwa więcej niż 2 minuty, ale ukończenie przebiegu trwa około 20 sekund, podczas gdy na podstawie domyślnego Integration Runtime.
+- **Objawy**: po prostu przełączeniu listy rozwijanej połączonej usługi w zestawie danych wykonuje te same działania potoku, ale znacząco różnią się w czasie wykonywania. Gdy zestaw danych jest oparty na zarządzanym Integration Runtime Virtual Network, zajmie on więcej czasu niż w przypadku przebiegu domyślnego Integration Runtime.  
 
-- **Przyczyna**: sprawdzanie szczegółów uruchomień potoku, można zobaczyć, że powolny potok jest uruchomiony na zarządzanym sieci wirtualnej (Virtual Network), podczas gdy normalne działanie jest uruchomione na Azure IR. Zgodnie z projektem zarządzana Sieć wirtualna w sieci wirtualnej trwa dłużej niż Azure IR, ponieważ nie obsługujemy jednego węzła obliczeniowego na fabrykę danych, więc istnieje rozgrzewanie około 2 minut dla każdego działania kopiowania do uruchomienia i występuje przede wszystkim przy przyłączaniu do sieci wirtualnej, a nie Azure IR.
+- **Przyczyna**: sprawdzanie szczegółów uruchomień potoku, można zobaczyć, że powolny potok jest uruchomiony na zarządzanym sieci wirtualnej (Virtual Network), podczas gdy normalne działanie jest uruchomione na Azure IR. Zgodnie z projektem zarządzana Sieć wirtualna w sieci wirtualnej zajmuje dłuższy czas kolejki niż Azure IR, ponieważ nie obsługujemy jednego węzła obliczeniowego na fabrykę danych, więc istnieje rozgrzewanie dla każdego działania kopiowania do uruchomienia i występuje przede wszystkim do połączenia z siecią wirtualną, a nie Azure IR. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Niska wydajność podczas ładowania danych do Azure SQL Database
