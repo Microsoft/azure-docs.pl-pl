@@ -8,10 +8,10 @@ ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 3223a1c8e20d8b0caced5d940132c32fa0aba97c
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149095"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
@@ -109,7 +109,7 @@ Dodaj następujące pakiety do projektu:
 * [Azure. Identity](https://www.nuget.org/packages/Azure.Identity/)
 * [Microsoft. Azure. WebJobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-Zmień nazwę funkcji przykładowej *Function1.cs* wygenerowanej przez program Visual Studio z nowym projektem na *IoTHubtoTwins.cs*. Zastąp kod w pliku następującym kodem:
+Zmień nazwę funkcji przykładowej *Function1. cs* wygenerowanej przez program Visual Studio z nowym projektem na *IoTHubtoTwins. cs*. Zastąp kod w pliku następującym kodem:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 

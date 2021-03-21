@@ -15,10 +15,10 @@ ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
 ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034901"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database
@@ -422,7 +422,7 @@ Poniższa tabela mapuje typowe objawy na ich prawdopodobne przyczyny.
 * [Szybki start: zdarzenia rozszerzone w programie SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych](intelligent-insights-overview.md)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Azure SQL Database: ulepszanie dostrajania wydajności za pomocą dostrajania automatycznego](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Poprawianie wydajności Azure SQL Database przy użyciu dostrajania automatycznego](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)

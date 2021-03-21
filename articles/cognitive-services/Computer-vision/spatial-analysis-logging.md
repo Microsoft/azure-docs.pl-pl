@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98186026"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722705"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
 
@@ -60,7 +60,7 @@ Po skonfigurowaniu Azure Monitor należy utworzyć poświadczenia, które umożl
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -105,16 +105,16 @@ Po wdrożeniu modułu telegraf do raportowanych metryk można uzyskać dostęp z
 
 | Nazwa zdarzenia | Opis|
 |------|---------|
-|archon_exit    |Wysyłany, gdy użytkownik zmieni stan modułu analizy przestrzennej z *uruchomiony* na *zatrzymany*.  |
-|archon_error   |Wysyłany, gdy którykolwiek z procesów wewnątrz kontenera ulega awarii. Jest to błąd krytyczny.  |
-|InputRate  |Szybkość, z jaką Graf przetwarza dane wejściowe wideo. Raportowane co 5 minut. | 
+|archon_exit     |Wysyłany, gdy użytkownik zmieni stan modułu analizy przestrzennej z *uruchomiony* na *zatrzymany*.  |
+|archon_error     |Wysyłany, gdy którykolwiek z procesów wewnątrz kontenera ulega awarii. Jest to błąd krytyczny.  |
+|InputRate     |Szybkość, z jaką Graf przetwarza dane wejściowe wideo. Raportowane co 5 minut. | 
 |OutputRate     |Szybkość, z jaką Graf wyprowadza informacje o AI. Raportowane co 5 minut. |
 |archon_allGraphsStarted | Wysyłany po zakończeniu uruchamiania wszystkich wykresów. |
-|archon_configchange    | Wysyłany po zmianie konfiguracji grafu. |
+|archon_configchange     | Wysyłany po zmianie konfiguracji grafu. |
 |archon_graphCreationFailed     |Wysyłany, gdy nie można uruchomić grafu z zgłoszonym błędem `graphId` . |
-|archon_graphCreationSuccess    |Wysyłany, gdy wykres z raportowaniem `graphId` zostanie uruchomiony pomyślnie. |
-|archon_graphCleanup    | Wysyłany, gdy wykres z zgłoszonym `graphId` czyszczeniem i zakończeniem. |
-|archon_graphHeartbeat  |Puls wysyłany co minutę dla każdego grafu umiejętności. |
+|archon_graphCreationSuccess     |Wysyłany, gdy wykres z raportowaniem `graphId` zostanie uruchomiony pomyślnie. |
+|archon_graphCleanup     | Wysyłany, gdy wykres z zgłoszonym `graphId` czyszczeniem i zakończeniem. |
+|archon_graphHeartbeat     |Puls wysyłany co minutę dla każdego grafu umiejętności. |
 |archon_apiKeyAuthFail |Wysyłany, gdy klucz zasobu przetwarzanie obrazów nie może uwierzytelnić kontenera przez więcej niż 24 godziny, z następujących powodów: poza limitem przydziału, nieprawidłowy, w trybie offline. |
 |VideoIngesterHeartbeat     |Wysyłana co godzinę, aby wskazać, że wideo jest przesyłane strumieniowo ze źródła wideo, wraz z liczbą błędów w tej godzinie. Zgłoszone dla każdego grafu. |
 |VideoIngesterState | Raporty zostały *zatrzymane* lub *uruchomione* na potrzeby przesyłania strumieniowego wideo. Zgłoszone dla każdego grafu. |
@@ -363,7 +363,7 @@ Po utworzeniu klastra Kubernetes można użyć `kubectl` narzędzia wiersza pole
     New-HcsKubernetesUser -UserName
     ```
 
-3. Dodaj plik *konfiguracji* do folderu *polecenia* w profilu użytkownika na komputerze lokalnym.   
+3. Dodaj plik *konfiguracji* do folderu *polecenia* w profilu użytkownika na komputerze lokalnym.    
 
 4. Skojarz przestrzeń nazw z utworzonym użytkownikiem.
 
@@ -400,6 +400,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Generuje plik konfiguracji Kubernetes. Korzystając z polecenia, skopiuj informacje do pliku o nazwie *config*. Nie zapisuj pliku z rozszerzeniem pliku.        |
 | `Get-HcsApplianceInfo` | Zwraca informacje o urządzeniu. |
 | `Enable-HcsSupportAccess` | Generuje poświadczenia dostępu w celu uruchomienia sesji obsługi. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Jak plikować bilet pomocy technicznej na potrzeby analizy przestrzennej 
+
+Jeśli potrzebujesz więcej pomocy w znalezieniu rozwiązania problemu związanego z kontenerem analizy przestrzennej, wykonaj następujące kroki, aby wypełnić i przesłać bilet pomocy technicznej. Nasz zespół powróci do Ciebie z dodatkowymi wskazówkami. 
+
+### <a name="fill-out-the-basics"></a>Wypełnij podstawowe informacje 
+Utwórz nowy bilet pomocy technicznej na stronie [nowe żądanie pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) . Postępuj zgodnie z monitami, aby wypełnić następujące parametry:
+
+![Podstawowe informacje o pomocy technicznej](./media/support-ticket-page-1-final.png)
+
+1. Ustaw **typ problemu** na `Technical` .
+2. Wybierz subskrypcję, której używasz do wdrożenia kontenera analizy przestrzennej.
+3. Wybierz `My services` i wybierz `Cognitive Services` jako usługę.
+4. Wybierz zasób, którego używasz do wdrożenia kontenera analizy przestrzennej.
+5. Napisz krótki opis zawierający szczegółowe informacje o występującym problemie. 
+6. Wybierz `Spatial Analysis` typ problemu.
+7. Wybierz odpowiedni podtyp z listy rozwijanej.
+8. Wybierz pozycję **Dalej: rozwiązania** , które mają zostać przeniesione na następną stronę.
+
+### <a name="recommended-solutions"></a>Zalecane rozwiązania
+Następny etap oferuje zalecane rozwiązania dla wybranego typu problemu. Rozwiązania te rozwiązują najczęstsze problemy, ale jeśli nie są przydatne dla danego rozwiązania, wybierz pozycję **Dalej: szczegóły** , aby przejść do następnego kroku.
+
+### <a name="details"></a>Szczegóły
+Na tej stronie Dodaj kilka dodatkowych informacji o problemie, który został skierowany do Ciebie. Pamiętaj o dodaniu możliwie największej szczegółowości, ponieważ pomoże to inżynierom lepiej zawęzić ten problem. Uwzględnij preferowaną metodę kontaktu i ważność problemu, aby móc odpowiednio skontaktować się z Tobą i wybierz pozycję **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku. 
+
+### <a name="review-and-create"></a>Przegląd i tworzenie 
+Przejrzyj szczegóły żądania pomocy technicznej, aby upewnić się, że wszystko jest dokładne i reprezentuje problem efektywnie. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wysłać bilet do naszego zespołu! Po otrzymaniu biletu otrzymasz wiadomość e-mail z potwierdzeniem, a nasz zespół będzie działał jak najszybciej. Stan biletu można wyświetlić w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 

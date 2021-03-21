@@ -10,10 +10,10 @@ ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102442965"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenariusz: kierowanie do usług udostępnionych sieci wirtualnych
@@ -57,7 +57,7 @@ W związku z tym jest to ostateczny projekt:
 
 Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="workflow"></a><a name="workflow"></a>Utworzonego
+## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 Aby skonfigurować scenariusz, należy wziąć pod uwagę następujące czynności:
 

@@ -7,10 +7,10 @@ ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: f6199cb20cd56538823f7f7d0967a9cfe59f7099
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636661"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
@@ -744,7 +744,7 @@ Ukończ jeden z tych samouczków Szybki start dotyczących poszczególnych języ
 
 W tych przewodnikach szybki start utworzysz i testujesz funkcję trwałego "Hello World". Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 Poniższy klip wideo prezentuje zalety rozszerzenia Durable Functions:
 

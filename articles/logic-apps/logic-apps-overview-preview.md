@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636339"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
@@ -69,7 +69,7 @@ W tym czasie można nadal utworzyć typ aplikacji logiki z wieloma dzierżawcami
 
 W przypadku typu aplikacji logiki o pojedynczej dzierżawie można utworzyć te typy przepływów pracy w ramach tej samej aplikacji logiki:
 
-* *Stanowe*
+* *Stanowych*
 
   Twórz stanowe przepływy pracy, gdy chcesz zachować, przejrzeć lub odwołać dane z poprzednich zdarzeń. Te przepływy pracy zapisują dane wejściowe i wyjściowe dla każdej akcji i ich stanów w magazynie zewnętrznym, dzięki czemu można przeglądać szczegóły uruchamiania i historię po zakończeniu każdego przebiegu. Bezstanowe przepływy pracy zapewniają wysoką odporność w przypadku wystąpienia awarii. Po przywróceniu usług i systemów można odtworzyć przerwane uruchomienia z zapisanego stanu i ponownie uruchomić przepływy pracy w celu ukończenia. Stanowe przepływy pracy mogą być nadal wykonywane przez maksymalnie rok.
 

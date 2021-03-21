@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań V
 ms.topic: conceptual
 ms.date: 03/13/2021
 ms.openlocfilehash: d1837ae7cf01fcb9642e0cafe4e0430e403b9899
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462523"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów

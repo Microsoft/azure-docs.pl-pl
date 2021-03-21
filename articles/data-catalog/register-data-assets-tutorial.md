@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 66bacdf27b2ef9cf624b645cb6e4c123d9c3fa2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de85cad8232d76706358c36806ce19a7c1df893f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135882"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675009"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Samouczek: rejestrowanie zasobów danych w Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 W tym samouczku użyjesz narzędzia rejestracji do zarejestrowania zasobów danych z przykładowej bazy danych w wykazie. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
 
@@ -69,7 +71,7 @@ Teraz można rejestrować zasoby danych z przykładowej bazy danych przy użyciu
 
    1. W drzewie **hierarchii serwera** rozwiń przykład bazy danych, a następnie wybierz pozycję **tabeli SalesLT**.
 
-   2. Wybierz pozycję **Product**, **ProductCategory**, **ProductDescription**i **ProductModel** za pomocą kombinacji klawiszy CTRL + SELECT.
+   2. Wybierz pozycję **Product**, **ProductCategory**, **ProductDescription** i **ProductModel** za pomocą kombinacji klawiszy CTRL + SELECT.
 
    3. Wybierz **strzałkę w dół** ( **>** ). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
 
@@ -127,7 +129,7 @@ Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej je
 
    Panel **Wyszukiwania** jest wyświetlany po lewej stronie, a panel **Właściwości** — po prawej stronie. W panelu **Wyszukiwania** można zmienić kryteria wyszukiwania i wyfiltrować wyniki. W panelu **Właściwości** są wyświetlane właściwości obiektu wybranego w siatce lub na liście.
 
-4. Wybierz pozycję **Product (produkt** ) w wynikach wyszukiwania. Wybierz karty **Podgląd**, **kolumny**, **profil danych**i **Dokumentacja** , lub wybierz strzałkę, aby rozwinąć dolne okienko.  
+4. Wybierz pozycję **Product (produkt** ) w wynikach wyszukiwania. Wybierz karty **Podgląd**, **kolumny**, **profil danych** i **Dokumentacja** , lub wybierz strzałkę, aby rozwinąć dolne okienko.  
 
    ![Usługa Azure Data Catalog — dolne okienko](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
 
@@ -179,7 +181,7 @@ Operatory porównania pozwalają używać innych porównań niż równość dla 
 
 3. Naciśnij klawisz **Enter**.
 
-4. Upewnij się, że są widoczne tabele **Product**, **ProductCategory**i **ProductDescription** oraz baza danych SQL zarejestrowana w wynikach wyszukiwania.
+4. Upewnij się, że są widoczne tabele **Product**, **ProductCategory** i **ProductDescription** oraz baza danych SQL zarejestrowana w wynikach wyszukiwania.
 
    ![Usługa Azure Data Catalog — wyniki wyszukiwania z użyciem porównania](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -276,7 +278,7 @@ Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w
 
 ### <a name="take-ownership-of-data-assets-and-restrict-visibility"></a>Przejmowanie własności do zasobów danych i ograniczanie ich widoczności
 
-1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com). W polu **Wyszukiwanie** wpisz `tags:cycles` i naciśnij klawisz **ENTER**.
+1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com). W polu tekstowym **Wyszukaj** wpisz `tags:cycles` i naciśnij klawisz **Enter**.
 
 2. Wybierz element na liście wyników i wybierz pozycję **Przejmij** na pasku narzędzi.
 

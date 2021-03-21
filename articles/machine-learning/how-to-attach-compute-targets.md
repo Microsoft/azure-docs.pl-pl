@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
 ms.openlocfilehash: 9fa6a1758bc2e2a76291efc3bb239c5249a6e21e
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149345"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Skonfiguruj cele obliczeniowe dla szkolenia i wdrażania modelu
@@ -27,7 +27,7 @@ W tym artykule dowiesz się, jak skonfigurować obszar roboczy do korzystania z 
 * Komputer lokalny
 * Zdalne maszyny wirtualne
 * Azure HDInsight
-* Azure Batch
+* Usługa Azure Batch
 * Azure Databricks
 * Azure Data Lake Analytics
 * Wystąpienie kontenera platformy Azure
@@ -168,7 +168,7 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
 
 Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](how-to-set-up-training-targets.md).
 
-## <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
+## <a name="azure-batch"></a><a id="azbatch"></a>Usługa Azure Batch 
 
 Azure Batch służy do wydajnego uruchamiania aplikacji równoległych i o wysokiej wydajności obliczeniowych (HPC) w chmurze. AzureBatchStep można użyć w potoku Azure Machine Learning do przesyłania zadań do Azure Batch puli maszyn.
 

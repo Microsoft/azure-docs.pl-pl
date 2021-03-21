@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3b8b53446799eec3473d63c89672393a35f9787a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016715"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670959"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnozowanie połączeń lokalnych za pośrednictwem bram sieci VPN
 
@@ -34,11 +34,11 @@ Dzięki funkcji rozwiązywania problemów z usługą Azure Network Watcher możn
 Chcesz skonfigurować połączenie lokacja-lokacja między platformą Azure i lokalnymi przy użyciu FortiGate jako VPN Gateway lokalnych. Aby zrealizować ten scenariusz, należy potrzebować następującej konfiguracji:
 
 1. Virtual Network Gateway — VPN Gateway na platformie Azure
-1. Brama sieci lokalnej — reprezentacja [VPN Gateway lokalnego (Fortigate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) w chmurze platformy Azure
-1. Połączenie lokacja-lokacja (oparte na trasach) — [połączenie między VPN Gateway i routerem lokalnym](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
+1. Brama sieci lokalnej — reprezentacja [VPN Gateway lokalnego (Fortigate)](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway) w chmurze platformy Azure
+1. Połączenie lokacja-lokacja (oparte na trasach) — [połączenie między VPN Gateway i routerem lokalnym](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
 1. [Konfigurowanie FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Szczegółowe wskazówki krok po kroku dotyczące konfigurowania konfiguracji lokacja-lokacja można znaleźć przez odwiedzenie: [Tworzenie sieci wirtualnej z połączeniem lokacja-lokacja przy użyciu Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Szczegółowe wskazówki krok po kroku dotyczące konfigurowania konfiguracji lokacja-lokacja można znaleźć przez odwiedzenie: [Tworzenie sieci wirtualnej z połączeniem lokacja-lokacja przy użyciu Azure Portal](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 Jedną z krytycznych czynności konfiguracyjnych jest skonfigurowanie parametrów komunikacji IPsec. Każda niepoważna konfiguracja prowadzi do utraty łączności między siecią lokalną a platformą Azure. Obecnie bramy sieci VPN platformy Azure są skonfigurowane do obsługi następujących parametrów protokołu IPsec dla fazy 1. Jak widać w poniższej tabeli, algorytmy szyfrowania obsługiwane przez platformę Azure VPN Gateway to AES256, AES128 i 3DES.
 
@@ -106,7 +106,7 @@ Funkcja rozwiązywania problemów z usługą Azure Network Watcher umożliwia di
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "odłączone". |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Uwierzytelnianie | Niezgodność klucza wstępnego. | Tak|
+| Authentication | Niezgodność klucza wstępnego. | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|

@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9bb62544887e0bc0269b98cd98fbf97fc477352f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604308"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722433"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Zwracanie semantyki odpowiedzi na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT]
-> Funkcje wyszukiwania semantycznego znajdują się w publicznej wersji zapoznawczej, dostępne wyłącznie za pomocą interfejsu API REST. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), i nie mają gwarancji, że ta sama implementacja jest ogólnie dostępna. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
+> Wyszukiwanie semantyczne jest w publicznej wersji zapoznawczej, dostępne tylko za pomocą interfejsu API REST w wersji zapoznawczej. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), i nie mają gwarancji, że ta sama implementacja jest ogólnie dostępna. Te funkcje są rozliczane. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
 
 W przypadku tworzenia [zapytania semantycznego](semantic-how-to-query-request.md)można opcjonalnie wyodrębnić zawartość z najbardziej pasujących dokumentów, które są "odpowiedzi" bezpośrednio na zapytanie. Odpowiedź może zawierać jedną lub więcej odpowiedzi, którą można następnie renderować na stronie wyszukiwania, aby ulepszyć środowisko użytkownika aplikacji.
 
@@ -28,27 +28,27 @@ W tym artykule dowiesz się, jak zażądać odpowiedzi semantycznej, rozpakować
 
 Wszystkie wymagania wstępne dotyczące [zapytań semantycznych](semantic-how-to-query-request.md) dotyczą także odpowiedzi, w tym warstwy usług i regionu.
 
-+ Zapytania sformułowane przy użyciu semantycznych parametrów zapytania i zawierają parametr "Answers". Parametry wymagane zostały omówione w tym artykule.
++ Logika zapytania musi zawierać parametry kwerendy semantycznej oraz parametr "Answers". Parametry wymagane zostały omówione w tym artykule.
 
-+ Ciągi zapytań muszą być formułowane w języku, który ma charakterystykę pytania (co to jest, gdzie, w jaki sposób).
++ Ciągi zapytania wprowadzone przez użytkownika muszą być sformułowane w języku, który ma cechy pytania (co to jest, gdzie, kiedy, jak).
 
-+ Dokumenty wyszukiwania muszą zawierać tekst mający charakterystykę odpowiedzi i ten tekst musi znajdować się w jednym z pól wymienionych w "searchFields".
++ Dokumenty wyszukiwania muszą zawierać tekst mający charakterystykę odpowiedzi i ten tekst musi znajdować się w jednym z pól wymienionych w "searchFields". Na przykład, mając zapytanie "co to jest tabela skrótów", jeśli żadna z searchFields nie zawiera żadnych fragmentów, które zawierają "tablicę skrótów to...", nie będzie można zwrócić odpowiedzi.
 
 ## <a name="what-is-a-semantic-answer"></a>Czym jest odpowiedź semantyczna?
 
-Odpowiedź semantyczna to artefakt [zapytania semantycznego](semantic-how-to-query-request.md). Składa się z co najmniej jednego fragmentu Verbatim z dokumentu wyszukiwania, sformułowany jako odpowiedź na zapytanie, które wygląda jak pytanie. Aby można było zwrócić odpowiedź, frazy lub zdania muszą znajdować się w dokumencie wyszukiwania, który ma charakterystykę języka odpowiedzi, a zapytanie musi być pożądane jako pytanie.
+Odpowiedź semantyczna to podstruktura [odpowiedzi na zapytanie semantyczne](semantic-how-to-query-request.md). Składa się z co najmniej jednego fragmentu Verbatim z dokumentu wyszukiwania, sformułowany jako odpowiedź na zapytanie, które wygląda jak pytanie. Aby można było zwrócić odpowiedź, frazy lub zdania muszą znajdować się w dokumencie wyszukiwania, który ma charakterystykę języka odpowiedzi, a zapytanie musi być pożądane jako pytanie.
 
-Wyszukiwanie poznawcze używa modelu zrozumienia na potrzeby odczytywania informacji na komputerze. Model tworzy zestaw potencjalnych odpowiedzi z dostępnych dokumentów i gdy osiągnie wysoki poziom ufności, zaproponuje odpowiedź.
+W celu wybrania najlepszej odpowiedzi Wyszukiwanie poznawcze używać modelu z czytaniem informacji na komputerze. Model tworzy zestaw potencjalnych odpowiedzi z dostępnej zawartości i gdy osiągnie wysoki poziom ufności, zaproponuje odpowiedź.
 
-Odpowiedzi są zwracane jako niezależny obiekt najwyższego poziomu w ładunku odpowiedzi na zapytania, który można wybrać do renderowania na stronach wyszukiwania po stronie wyników wyszukiwania. Strukturalnie jest to element tablicy odpowiedzi, który zawiera tekst, klucz dokumentu oraz wynik pewności.
+Odpowiedzi są zwracane jako niezależny obiekt najwyższego poziomu w ładunku odpowiedzi na zapytania, który można wybrać do renderowania na stronach wyszukiwania po stronie wyników wyszukiwania. Strukturalnie jest to element Array w odpowiedzi składającej się z tekstu, klucza dokumentu i oceny zaufania.
 
 <a name="query-params"></a>
 
 ## <a name="how-to-request-semantic-answers-in-a-query"></a>Jak zażądać odpowiedzi semantycznych w zapytaniu
 
-Aby można było zwrócić semantykę odpowiedzi, zapytanie musi mieć typ kwerendy semantycznej, język, pola wyszukiwania i parametr "Answers". Określenie parametru "Answers" nie gwarantuje, że otrzymasz odpowiedź, ale żądanie musi zawierać ten parametr, jeśli przetwarzanie odpowiedzi ma być wywoływane.
+Aby można było zwrócić semantykę odpowiedzi, zapytanie musi mieć semantykę "querytype", "queryLanguage", "searchFields" i parametr "Answers". Określenie parametru "Answers" nie gwarantuje, że otrzymasz odpowiedź, ale żądanie musi zawierać ten parametr, jeśli przetwarzanie odpowiedzi ma być wywoływane.
 
-Parametr "searchFields" ma kluczowe znaczenie dla zwrócenia odpowiedzi o wysokiej jakości, zarówno w odniesieniu do zawartości, jak i kolejności. 
+Parametr "searchFields" ma kluczowe znaczenie dla zwrócenia odpowiedzi o wysokiej jakości, zarówno w przypadku zawartości, jak i kolejności (patrz poniżej). 
 
 ```json
 {
@@ -63,9 +63,9 @@ Parametr "searchFields" ma kluczowe znaczenie dla zwrócenia odpowiedzi o wysoki
 
 + Ciąg zapytania nie może mieć wartości null i powinien być sformułowany jako pytanie. W tej wersji zapoznawczej wartości "querytype" i "queryLanguage" muszą być ustawione dokładnie tak, jak pokazano w przykładzie.
 
-+ Parametr "searchFields" określa, które pola dostarczają tokeny do modelu wyodrębniania. Pamiętaj, aby ustawić ten parametr. Musisz mieć co najmniej jedno pole typu String, ale dołączyć dowolne pole ciągu, które uważasz, że jest to przydatne w przypadku udzielenia odpowiedzi. Zbiorczo dla wszystkich pól w searchFields, tylko o 8 000 tokenów na dokument są przesyłane do modelu. Uruchom listę pól ze zwięzłymi polami, a następnie postępuj według pól tekstu sformatowanego. Aby uzyskać precyzyjne wskazówki dotyczące sposobu ustawiania tego pola, zobacz [Set searchFields](semantic-how-to-query-request.md#searchfields).
++ Parametr "searchFields" określa, które pola ciągów dostarczają tokeny do modelu wyodrębniania. Te same pola, które tworzą podpisy, również generują odpowiedzi. Aby uzyskać precyzyjne wskazówki dotyczące sposobu ustawiania tego pola tak, aby działały zarówno dla napisów, jak i odpowiedzi, zobacz [Set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ W przypadku "odpowiedzi", konstrukcja podstawowego parametru to `"answers": "extractive"` , gdzie zwracana jest domyślna liczba odpowiedzi. Można zwiększyć liczbę odpowiedzi, dodając liczbę, maksymalnie pięć.  Niezależnie od tego, czy potrzebujesz więcej niż jednej odpowiedzi, zależy od środowiska użytkownika aplikacji i sposobu renderowania wyników.
++ W przypadku "odpowiedzi" konstrukcja parametru jest `"answers": "extractive"` , gdzie zwracana jest domyślna liczba odpowiedzi. Liczbę odpowiedzi można zwiększyć, dodając liczbę, jak pokazano w powyższym przykładzie, maksymalnie pięć.  Niezależnie od tego, czy potrzebujesz więcej niż jednej odpowiedzi, zależy od środowiska użytkownika aplikacji i sposobu renderowania wyników.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Dekonstrukcja odpowiedzi z odpowiedzi
 

@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
 ms.openlocfilehash: 34c7df2b0e61536c0b5f0bc1e4a97d58d0d9c6a4
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490516"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -39,13 +39,13 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 - Host
 - x-MS-Content-SHA256
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 Poniższe kroki opisują sposób konstruowania nagłówka autoryzacji.
 
 ### <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
 
-W oknie konsoli, takim jak cmd, PowerShell lub bash, użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `SignHmacTutorial` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program.cs**.
+W oknie konsoli, takim jak cmd, PowerShell lub bash, użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `SignHmacTutorial` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program. cs**.
 
 ```console
 dotnet new console -o SignHmacTutorial

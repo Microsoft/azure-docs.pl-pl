@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586373"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721532"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 
@@ -72,6 +72,8 @@ Kliknij pozycję **Dodaj źródło danych** , a następnie **Przejrzyj i Utwórz
 Ze względu na to, że opłaty są naliczone za dane zbierane w Log Analytics obszarze roboczym, należy zebrać tylko te dane, które są wymagane. Korzystając z konfiguracji podstawowej w Azure Portal, masz ograniczoną możliwość filtrowania zdarzeń do zebrania. W przypadku dzienników aplikacji i systemu jest to wszystkie dzienniki o określonej ważności. W przypadku dzienników zabezpieczeń jest to wszystkie pomyślne inspekcje lub wszystkie dzienniki błędów inspekcji.
 
 Aby określić dodatkowe filtry, należy użyć konfiguracji niestandardowej i określić wyrażenie XPath, które filtruje zdarzenia. Wpisy XPath są zapisywane w formularzu `LogName!XPathQuery` . Można na przykład zwrócić tylko zdarzenia z dziennika zdarzeń aplikacji z IDENTYFIKATORem zdarzenia 1035. XPathQuery dla tych zdarzeń `*[System[EventID=1035]]` . Ponieważ chcesz pobrać zdarzenia z dziennika zdarzeń aplikacji, wyrażenie XPath będzie `Application!*[System[EventID=1035]]`
+
+Aby uzyskać listę ograniczeń w składni XPath obsługiwanej przez dziennik zdarzeń systemu Windows, zobacz temat [ograniczenia xpath 1,0](/windows/win32/wes/consuming-events#xpath-10-limitations) .
 
 > [!TIP]
 > Użyj polecenia cmdlet programu PowerShell `Get-WinEvent` z `FilterXPath` parametrem, aby sprawdzić poprawność XPathQuery. Poniższy skrypt pokazuje przykład.

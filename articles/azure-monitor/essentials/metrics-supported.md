@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033507"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
@@ -2327,9 +2327,9 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |BytesDroppedDDoS|Tak|Bajty przychodzące opuszczone DDoS|BytesPerSecond|Maksimum|Bajty przychodzące opuszczone DDoS|Brak wymiarów|
 |BytesForwardedDDoS|Tak|Przekazane bajty przychodzące DDoS|BytesPerSecond|Maksimum|Przekazane bajty przychodzące DDoS|Brak wymiarów|
 |BytesInDDoS|Tak|Bajty przychodzące DDoS|BytesPerSecond|Maksimum|Bajty przychodzące DDoS|Brak wymiarów|
-|DDoSTriggerSYNPackets|Tak|Pakiety przychodzących SYN wyzwalające łagodzenie DDoS|CountPerSecond|Maksimum|Pakiety przychodzących SYN wyzwalające łagodzenie DDoS|Brak wymiarów|
-|DDoSTriggerTCPPackets|Tak|Przychodzące pakiety TCP do wyzwalania łagodzenia DDoS|CountPerSecond|Maksimum|Przychodzące pakiety TCP do wyzwalania łagodzenia DDoS|Brak wymiarów|
-|DDoSTriggerUDPPackets|Tak|Przychodzące pakiety UDP do wyzwalania łagodzenia DDoS|CountPerSecond|Maksimum|Przychodzące pakiety UDP do wyzwalania łagodzenia DDoS|Brak wymiarów|
+|DDoSTriggerSYNPackets|Tak|Pakiety SYN ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS|CountPerSecond|Maksimum|Pakiety SYN ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS|Brak wymiarów|
+|DDoSTriggerTCPPackets|Tak|Pakiety TCP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS|CountPerSecond|Maksimum|Pakiety TCP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS|Brak wymiarów|
+|DDoSTriggerUDPPackets|Tak|Pakiety UDP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS|CountPerSecond|Maksimum|Pakiety UDP ruchu przychodzącego do wyzwalania środków zaradczych dotyczących ataków DDoS|Brak wymiarów|
 |IfUnderDDoSAttack|Tak|W obszarze atak DDoS|Liczba|Maksimum|W obszarze atak DDoS|Brak wymiarów|
 |PacketCount|Tak|Liczba pakietów|Liczba|Łącznie|Łączna liczba pakietów wysłanych w czasie|Port, kierunek|
 |PacketsDroppedDDoS|Tak|Odrzucone pakiety przychodzące DDoS|CountPerSecond|Maksimum|Odrzucone pakiety przychodzące DDoS|Brak wymiarów|
