@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń usługi A
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 321dc4d21485af23a9cca0d42d74da0a3e121b7c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363698"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schemat zdarzeń Azure Event Grid dla usługi sygnalizującego

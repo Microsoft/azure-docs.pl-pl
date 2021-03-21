@@ -8,10 +8,10 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: bd3ba88650161bd11a24697b4ff8575d307120e9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424465"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
@@ -53,7 +53,7 @@ W katalogu projektu **Utwórz pusty projekt aplikacji konsoli .NET**. W oknie po
 dotnet new console
 ```
 
-Spowoduje to utworzenie kilku plików znajdujących się w katalogu, w tym jeden o nazwie *program.cs* , w którym będzie można napisać większość kodu.
+Spowoduje to utworzenie kilku plików znajdujących się w katalogu, w tym jednego o nazwie *program. cs* , w którym będzie można napisać większość kodu.
 
 Pozostaw otwarte okno polecenia, ponieważ będziesz nadal korzystać z niego w całym samouczku.
 
@@ -76,7 +76,7 @@ W tej sekcji rozpocznie się pisanie kodu dla nowego projektu aplikacji do pracy
 
 Istnieje również sekcja przedstawiająca kompletny kod na końcu samouczka. Można jej użyć jako odwołania do sprawdzenia programu w trakcie pracy.
 
-Aby rozpocząć, Otwórz plik *program.cs* w dowolnym edytorze kodu. Zobaczysz minimalny szablon kodu, który wygląda następująco:
+Aby rozpocząć, Otwórz plik File *. cs* w dowolnym edytorze kodu. Zobaczysz minimalny szablon kodu, który wygląda następująco:
 
 :::row:::
     :::column:::
@@ -98,7 +98,7 @@ W pierwszej kolejności aplikacja musi być uwierzytelniana w usłudze Azure Dig
 
 Aby można było przeprowadzić uwierzytelnianie, potrzebna jest *Nazwa hosta* wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-W *program.cs* wklej poniższy kod poniżej "Hello, World!" Linia wydruku w `Main` metodzie. Ustaw wartość `adtInstanceUrl` na *nazwę hosta* usługi Azure Digital bliźniaczych reprezentacji.
+W programie *program. cs* wklej następujący kod poniżej "Hello, World!" Linia wydruku w `Main` metodzie. Ustaw wartość `adtInstanceUrl` na *nazwę hosta* usługi Azure Digital bliźniaczych reprezentacji.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
@@ -130,7 +130,7 @@ W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazw
 > [!TIP] 
 > Istnieje [przykład modułu sprawdzania poprawności](/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-parse-models.md).
 
-Następnie Dodaj więcej kodu do *program.cs* , aby przekazać model, który został właśnie utworzony w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+Następnie Dodaj kod do *programu. cs* , aby przekazać model, który został właśnie utworzony w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
 Najpierw Dodaj kilka `using` instrukcji na początku pliku:
 
@@ -248,7 +248,7 @@ W oknie polecenia Uruchom program z `dotnet run` . Wszystkie bliźniaczych repre
 
 ## <a name="complete-code-example"></a>Pełny przykład kodu
 
-W tym punkcie samouczka masz kompletną aplikację kliencką, która może wykonywać podstawowe działania związane z usługą Azure Digital bliźniaczych reprezentacji. W przypadku odwołania do kodu w programie *program.cs* jest wyświetlany następujący kod:
+W tym punkcie samouczka masz kompletną aplikację kliencką, która może wykonywać podstawowe działania związane z usługą Azure Digital bliźniaczych reprezentacji. W przypadku odwołania do kodu programu w *programie w programie w programie* zostanie wyświetlony następujący kod:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 

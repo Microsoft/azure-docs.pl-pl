@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898049"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Model uprawnień chmury prywatnej CloudSimple firmy VMware vCenter
@@ -54,7 +54,7 @@ Aby udzielić indywidualnym użytkownikom uprawnień do zarządzania chmurą pry
 | **Alarmy** | Potwierdzanie alarmu <br> Utwórz alarm <br> Wyłącz akcję alarmu <br> Modyfikuj alarm <br> Usuń alarm <br> Ustawianie stanu alarmu |
 | **Uprawnienia** | Uprawnienie Modyfikuj |
 | **Biblioteka zawartości** | Dodaj element biblioteki <br> Utwórz bibliotekę lokalną <br> Utwórz subskrybowaną bibliotekę <br> Usuń element biblioteki <br> Usuń bibliotekę lokalną <br> Usuń subskrybowaną bibliotekę <br> Pobieranie plików <br> Wyklucz element biblioteki <br> Wykluczanie subskrybowanej biblioteki <br> Importuj magazyn <br> Informacje o subskrypcji sondy <br> Odczytaj magazyn <br> Synchronizuj element biblioteki <br> Synchronizuj subskrybowaną bibliotekę <br> Introspekcji typu <br> Aktualizowanie ustawień konfiguracji <br> Pliki aktualizacji <br> Biblioteka aktualizacji <br> Aktualizuj element biblioteki <br> Aktualizuj bibliotekę lokalną <br> Aktualizuj subskrybowaną bibliotekę <br> Wyświetl ustawienia konfiguracji |
-| **Operacje kryptograficzne** | Dodawanie dysku <br> Klonowanie <br> Odszyfrowywanie <br> Funkcja DirectAccess <br> Szyfrowanie <br> Szyfruj nowe <br> Zarządzanie usługą KMS <br> Zarządzanie zasadami szyfrowania <br> Zarządzanie kluczami <br> Migrate (Migracja) <br> Recrypt <br> Zarejestruj maszynę wirtualną <br> Zarejestruj hosta |
+| **Operacje kryptograficzne** | Dodawanie dysku <br> Klonowanie <br> Odszyfrowywanie <br> Funkcja DirectAccess <br> Szyfrowanie <br> Szyfruj nowe <br> Zarządzanie usługą KMS <br> Zarządzanie zasadami szyfrowania <br> Zarządzanie kluczami <br> Migrate <br> Recrypt <br> Zarejestruj maszynę wirtualną <br> Zarejestruj hosta |
 | **Grupa dvPort** | Utwórz <br> Usuń <br> Modyfikowanie <br> Operacja zasad <br> Operacja zakresu |
 | **Magazyn danych** | Przydziel miejsce <br> Przeglądaj magazyn danych <br> Konfigurowanie magazynu danych <br> Operacje na plikach niskiego poziomu <br> Przenieś magazyn danych <br> Usuń magazyn danych <br> Usuń plik <br> Zmień nazwę magazynu danych <br> Aktualizowanie plików maszyny wirtualnej <br> Aktualizowanie metadanych maszyny wirtualnej |
 | **Menedżer agentów ESX** | Config <br> Modyfikowanie <br> Widok |
@@ -71,12 +71,12 @@ Aby udzielić indywidualnym użytkownikom uprawnień do zarządzania chmurą pry
 | **Profil hosta** | Widok |
 | **Zasób** | Zastosuj zalecenie <br> Przypisywanie vApp do puli zasobów <br> Przypisz maszynę wirtualną do puli zasobów <br> Utwórz pulę zasobów <br> Migrowanie wyłączone z maszyny wirtualnej <br> Migrowanie na maszynie wirtualnej <br> Modyfikuj pulę zasobów <br> Przenieś pulę zasobów <br> VMotion zapytania <br> Usuń pulę zasobów <br> Zmień nazwę puli zasobów |
 | **Zaplanowane zadanie** | Tworzenie zadań <br> Modyfikowanie zadania <br> Usuń zadanie <br> Uruchom zadanie |
-| **Sesje** | Personifikuj użytkownika <br> Wiadomość <br> Weryfikuj sesję <br> Wyświetlanie i zatrzymywanie sesji |
+| **Sesje** | Personifikuj użytkownika <br> Komunikat <br> Weryfikuj sesję <br> Wyświetlanie i zatrzymywanie sesji |
 | **Klaster magazynu danych** | Konfigurowanie klastra magazynu danych |
 | **Magazyn oparty na profilach** | Aktualizacja magazynu opartego na profilach <br> Widok magazynu oparty na profilach |
 | **Widoki magazynu** | Konfiguruj usługę <br> Widok |
 | **Zadania** | Tworzenie zadania <br> Aktualizuj zadanie |
-| **Usługa transferu**| Zarządzanie <br> Monitorowanie |
+| **Usługa transferu**| Zarządzanie <br> Monitor |
 | **vApp** | Dodaj maszynę wirtualną <br> Przypisz pulę zasobów <br> Przypisz vApp <br> Klonowanie <br> Utwórz <br> Usuń <br> Eksportowanie <br> Importuj <br> Move <br> Wyłączanie <br> Włącz <br> Zmień nazwę <br> Wstrzymanie <br> Unregister <br> Wyświetl środowisko OVF <br> Konfiguracja aplikacji vApp <br> Konfiguracja wystąpienia vApp <br> Konfiguracja vApp zarządzane <br> Konfiguracja zasobów vApp |
 | **VRMPolicy** | VRMPolicy zapytania <br> Aktualizacja VRMPolicy |
 | **Konfiguracja > maszyny wirtualnej** | Dodaj istniejący dysk <br> Dodaj nowy dysk <br> Dodaj lub Usuń urządzenie <br> Zaawansowany <br> Zmień liczbę procesorów <br> Zmień zasób <br> Konfigurowanie zarządzane <br> Śledzenie zmian dysku <br> Dzierżawa dysku <br> Wyświetl ustawienia połączenia <br> Zwiększ dysk wirtualny <br> Urządzenie hosta USB <br> Pamięć <br> Modyfikowanie ustawień urządzenia <br> Zgodność z odpornością na uszkodzenia zapytania <br> Wykonywanie zapytań dotyczących plików nienależących do użytkownika <br> Urządzenie RAW <br> Załaduj ponownie ze ścieżki <br> Usuń dysk <br> Zmień nazwę <br> Resetowanie informacji o gościu <br> Ustaw adnotację <br> Ustawienia <br> Swapfile <br> Przełącz element nadrzędny rozwidlenia <br> Odblokuj maszynę wirtualną <br> Uaktualnij zgodność maszyny wirtualnej |

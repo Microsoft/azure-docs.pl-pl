@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577701"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582123"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Wbudowane role dla pulpitu wirtualnego systemu Windows
 
@@ -146,7 +146,7 @@ Na poniższej liście opisano uprawnienia, do których ta rola ma dostęp:
 
 ## <a name="session-host-operator"></a>Operator hosta sesji
 
-Rola współautor hosta sesji umożliwia wyświetlanie i usuwanie hostów sesji oraz tryb opróżniania. Nie mogą oni dodawać hostów sesji przy użyciu Azure Portal, ponieważ nie mają uprawnień do zapisu dla obiektów puli hostów. Jeśli token rejestracji jest prawidłowy (wygenerowany i niewygasły), można użyć tej roli do dodawania hostów sesji do puli hostów poza Azure Portal, jeśli administrator ma uprawnienia obliczeniowe za pomocą roli współautor maszyny wirtualnej.
+Rola operatora hosta sesji umożliwia wyświetlanie i usuwanie hostów sesji oraz tryb opróżniania. Nie mogą oni dodawać hostów sesji przy użyciu Azure Portal, ponieważ nie mają uprawnień do zapisu dla obiektów puli hostów. Jeśli token rejestracji jest prawidłowy (wygenerowany i niewygasły), można użyć tej roli do dodawania hostów sesji do puli hostów poza Azure Portal, jeśli administrator ma uprawnienia obliczeniowe za pomocą roli współautor maszyny wirtualnej.
 
 Na poniższej liście opisano uprawnienia, do których ta rola ma dostęp:
 

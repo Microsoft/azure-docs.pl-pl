@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199573"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
@@ -65,7 +65,7 @@ Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do łańcucha kluc
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Krok 3. Aktualizacja AppDelegate do obsługi wywołania zwrotnego
 
-Gdy MSAL.NET wywołuje brokera, Broker wywołuje z powrotem do aplikacji za pomocą `OpenUrl` metody `AppDelegate` klasy. Ponieważ MSAL czeka na odpowiedź brokera, aplikacja musi współpracować w celu wywołania MSAL.NET z powrotem. Aby włączyć tę współpracę, zaktualizuj plik *AppDelegate.cs* , aby zastąpić poniższą metodę.
+Gdy MSAL.NET wywołuje brokera, Broker wywołuje z powrotem do aplikacji za pomocą `OpenUrl` metody `AppDelegate` klasy. Ponieważ MSAL czeka na odpowiedź brokera, aplikacja musi współpracować w celu wywołania MSAL.NET z powrotem. Aby włączyć tę współpracę, zaktualizuj plik *AppDelegate. cs* , aby zastąpić poniższą metodę.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -91,23 +91,23 @@ Ta metoda jest wywoływana za każdym razem, gdy aplikacja jest uruchomiona. Jes
 
 ### <a name="step-4-set-uiviewcontroller"></a>Krok 4. Ustawianie UIViewController ()
 
-Nadal w pliku *AppDelegate.cs* Ustaw okno obiektu. Zazwyczaj nie trzeba ustawiać okna obiektu dla platformy Xamarin iOS, ale potrzebujesz okna obiektu, aby wysyłać i odbierać odpowiedzi z brokera.
+Nadal w pliku *AppDelegate. cs* Ustaw okno obiektu. Zazwyczaj nie trzeba ustawiać okna obiektu dla platformy Xamarin iOS, ale potrzebujesz okna obiektu, aby wysyłać i odbierać odpowiedzi z brokera.
 
 Aby skonfigurować okno obiektu:
 
-1. W pliku *AppDelegate.cs* ustaw wartość `App.RootViewController` Nowy `UIViewController()` . To przypisanie zapewnia, że wywołanie do brokera zawiera `UIViewController` . Jeśli to ustawienie jest przypisane nieprawidłowo, może wystąpić następujący błąd:
+1. W pliku *AppDelegate. cs* ustaw wartość `App.RootViewController` Nowy `UIViewController()` . To przypisanie zapewnia, że wywołanie do brokera zawiera `UIViewController` . Jeśli to ustawienie jest przypisane nieprawidłowo, może wystąpić następujący błąd:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. W `AcquireTokenInteractive` wywołaniu użyj, `.WithParentActivityOrWindow(App.RootViewController)` a następnie Przekaż odwołanie do okna obiektu, którego będziesz używać.
 
-    W *App.cs*:
+    W *aplikacji App. cs*:
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    W *AppDelegate.cs*:
+    W *AppDelegate. cs*:
 
     ```csharp
        LoadApplication(new App());

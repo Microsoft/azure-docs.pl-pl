@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
 ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932640"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Przewodnik programowania SCP dla Apache Storm w usłudze Azure HDInsight
@@ -434,12 +434,12 @@ SCP.NET dodał następujące funkcje, aby zdefiniować topologie transakcyjne:
 | Nowa funkcja | Parametry | Opis |
 | --- | --- | --- |
 | **TX-topolopy** |*Topologia — nazwa*<br />*elementu Spout — Mapa*<br />*Mapa błyskawicy* |Definiuje topologię transakcyjną z nazwą topologii, mapą definicji elementy Spout i obiektem mapy definicji. |
-| **SCP-TX-elementu Spout** |*exec-Name*<br />*argumentów*<br />*fields* |Definiuje transakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout. |
-| **SCP-TX-Batch** |*exec-Name*<br />*argumentów*<br />*fields* |Definiuje transakcyjny obiekt do przetwarzania wsadowego. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów.*<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
-| **SCP-TX-commit-Piorun** |*exec-Name*<br />*argumentów*<br />*fields* |Definiuje obiekt do zatwierdzeń transakcyjnych. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
+| **SCP-TX-elementu Spout** |*exec-Name*<br />*argumentów*<br />*pola* |Definiuje transakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout. |
+| **SCP-TX-Batch** |*exec-Name*<br />*argumentów*<br />*pola* |Definiuje transakcyjny obiekt do przetwarzania wsadowego. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów.*<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
+| **SCP-TX-commit-Piorun** |*exec-Name*<br />*argumentów*<br />*pola* |Definiuje obiekt do zatwierdzeń transakcyjnych. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla pioruna. |
 | **nontx — topologia** |*Topologia — nazwa*<br />*elementu Spout — Mapa*<br />*Mapa błyskawicy* |Definiuje topologię nietransakcyjną z nazwą topologii, mapą definicji elementy Spout i obiektem mapy definicji. |
-| **SCP — elementu Spout** |*exec-Name*<br />*argumentów*<br />*fields*<br />*wejściowe* |Definiuje nietransakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout.<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
-| **punkt połączenia usługi** |*exec-Name*<br />*argumentów*<br />*fields*<br />*wejściowe* |Definiuje piorun nietransakcyjny. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />Pole *parametr określa* pola wyjściowe dla pioruna<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
+| **SCP — elementu Spout** |*exec-Name*<br />*argumentów*<br />*pola*<br />*wejściowe* |Definiuje nietransakcyjny elementu Spout. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />*Pola* parametr określa pola danych wyjściowych dla elementu Spout.<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
+| **punkt połączenia usługi** |*exec-Name*<br />*argumentów*<br />*pola*<br />*wejściowe* |Definiuje piorun nietransakcyjny. Funkcja uruchamia aplikację, która jest określona przez *exec-Name* i używa *argumentów*.<br /><br />Pole *parametr określa* pola wyjściowe dla pioruna<br /><br />Parametr *Parameters* jest opcjonalny. Służy do określania parametrów, takich jak "nietransakcyjny. ACK. Enabled". |
 
 SCP.NET definiuje następujące słowa kluczowe:
 

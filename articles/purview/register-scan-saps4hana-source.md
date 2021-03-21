@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: 6d31bd0911b5cf765215e6a482a39b2458c4ba0d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101696164"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>Rejestrowanie i skanowanie źródła SAP S/4HANA (wersja zapoznawcza)
 
 W tym artykule opisano sposób rejestrowania źródła SAP S/4HANA w programie kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Źródło SAP S/4HANA obsługuje **pełne skanowanie** w celu wyodrębnienia metadanych z wystąpienia SAP S/4HANA i Pobiera elementy **powiązane między zasobami** danych.
 

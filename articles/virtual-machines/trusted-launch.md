@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 01c5d4aaa3896e05bc743be309df050471ece5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582055"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Zaufane uruchomienia dla maszyn wirtualnych platformy Azure (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ Platforma Azure oferuje zaufaną metodę uruchamiania jako bezproblemowe rozwią
 
 ## <a name="secure-boot"></a>Bezpieczny rozruch
 
-W katalogu głównym zaufanego uruchamiania jest Bezpieczny rozruch dla maszyny wirtualnej. Ten tryb, który jest implementowany w oprogramowaniu układowym platformy, chroni przed instalacją rootkits i rozruchowych opartych na złośliwym oprogramowaniu. Bezpieczny rozruch działa tak, aby umożliwić rozruch tylko podpisanych systemów operacyjnych i sterowników. Ustanawia "korzeń zaufania" dla stosu oprogramowania na maszynie wirtualnej. Po włączeniu bezpiecznego rozruchu wszystkie składniki rozruchu systemu operacyjnego (ładujący rozruchu, jądra, Sterowniki jądra) muszą być podpisane przez zaufanych wydawców. System Windows i wybrane dystrybucje systemu Linux obsługują bezpieczny rozruch. W przypadku niepowodzenia uwierzytelniania przez bezpieczny rozruch obrazu, który został podpisany przez zaufanego wydawcę, maszyna wirtualna nie będzie mogła przeprowadzić rozruchu. Więcej informacji zawiera temat [Bezpieczny rozruch](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+W katalogu głównym zaufanego uruchamiania jest Bezpieczny rozruch dla maszyny wirtualnej. Ten tryb, który jest implementowany w oprogramowaniu układowym platformy, chroni przed instalacją rootkits i rozruchowych opartych na złośliwym oprogramowaniu. Bezpieczny rozruch działa tak, aby umożliwić rozruch tylko podpisanych systemów operacyjnych i sterowników. Ustanawia "korzeń zaufania" dla stosu oprogramowania na maszynie wirtualnej. Po włączeniu bezpiecznego rozruchu wszystkie składniki rozruchu systemu operacyjnego (ładujący rozruchu, jądra, Sterowniki jądra) muszą być podpisane przez zaufanych wydawców. System Windows i wybrane dystrybucje systemu Linux obsługują bezpieczny rozruch. W przypadku niepowodzenia uwierzytelniania przez bezpieczny rozruch obrazu, który został podpisany przez zaufanego wydawcę, maszyna wirtualna nie będzie mogła przeprowadzić rozruchu. Więcej informacji zawiera temat [Bezpieczny rozruch](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## <a name="vtpm"></a>vTPM
 
@@ -87,7 +87,7 @@ Zaufane uruchomienie używa vTPM do wykonania zdalnego zaświadczania przez chmu
 
 ZASADY wymagające WYMUSZONEJ to zaawansowane środki zaradcze, które chronią procesy trybu jądra systemu Windows przed iniekcją i wykonywaniem złośliwych lub niezweryfikowanych kodów. Sprawdza sterowniki trybu jądra i pliki binarne przed ich uruchomieniem, uniemożliwiając załadowanie niepodpisanych plików do pamięci. Gwarantuje to, że ten kod wykonywalny nie może być modyfikowany, gdy będzie można go załadować. Aby uzyskać więcej informacji na temat VBS i zasady wymagające WYMUSZONEJ, zobacz [zabezpieczenia oparte na wirtualizacji (vbs) i funkcja hypervisor (zasady wymagające wymuszonej)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Za pomocą zaufanych funkcji uruchamiania i VBS można włączyć funkcję Windows Defender Credential Guard. Ta funkcja izoluje i chroni klucze tajne, tak aby tylko uprzywilejowane oprogramowanie systemowe mogły uzyskać do nich dostęp. Pomaga zapobiegać nieautoryzowanemu dostępowi do poufnych informacji i ataków kradzieży poświadczeń, takich jak ataki typu Pass-the-hash (PtH). Aby uzyskać więcej informacji, zobacz [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+Za pomocą zaufanych funkcji uruchamiania i VBS można włączyć funkcję Windows Defender Credential Guard. Ta funkcja izoluje i chroni klucze tajne, tak aby tylko uprzywilejowane oprogramowanie systemowe mogły uzyskać do nich dostęp. Pomaga zapobiegać nieautoryzowanemu dostępowi do poufnych informacji i ataków kradzieży poświadczeń, takich jak ataki typu Pass-the-hash (PtH). Aby uzyskać więcej informacji, zobacz [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## <a name="security-center-integration"></a>Integracja Security Center
@@ -134,7 +134,7 @@ W łańcuchu bezpieczny rozruch każdy krok w procesie rozruchu sprawdza podpis 
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>Co się stanie w przypadku wykrycia błędu integralności?
 
-Zaufane uruchomienia usługi Azure Virtual Machines są monitorowane w przypadku zaawansowanych zagrożeń. W przypadku wykrycia takich zagrożeń zostanie wyzwolony alert. Alerty są dostępne tylko w [warstwie standardowa](/azure/security-center/security-center-pricing) Azure Security Center.
+Zaufane uruchomienia usługi Azure Virtual Machines są monitorowane w przypadku zaawansowanych zagrożeń. W przypadku wykrycia takich zagrożeń zostanie wyzwolony alert. Alerty są dostępne tylko w [warstwie standardowa](../security-center/security-center-pricing.md) Azure Security Center.
 Azure Security Center okresowo przeprowadza zaświadczania. Jeśli zaświadczanie nie powiedzie się, zostanie wyzwolony alert o średniej ważności. Zaświadczanie o zaufaniu uruchamiania może zakończyć się niepowodzeniem z następujących powodów: 
 - Informacje zaświadczone, które obejmują dziennik zaufanej bazy danych (TCB), odbiegają od zaufanej linii bazowej (na przykład gdy włączono bezpieczny rozruch). Może to wskazywać na załadowanie niezaufanych modułów i naruszenie bezpieczeństwa systemu operacyjnego.
 - Nie można zweryfikować oferty zaświadczania z vTPM zaświadczonej maszyny wirtualnej. Może to wskazywać, że złośliwe oprogramowanie jest obecne i może przechwycić ruch do modułu TPM. 

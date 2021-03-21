@@ -3,14 +3,14 @@ title: Jak utworzyć alerty dla Azure Automation Update Management
 description: W tym artykule opisano sposób konfigurowania alertów platformy Azure w celu powiadamiania o stanie ocen lub wdrożeń aktualizacji.
 services: automation
 ms.subservice: update-management
-ms.date: 10/19/2020
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 224a7b5457a099fd763ac657349fc5497824ab76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579694"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601433"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Jak utworzyć alerty dla Update Management
 
@@ -38,51 +38,37 @@ Wykonaj poniższe kroki, aby skonfigurować alerty w celu poinformowania o stani
 
 1. Na koncie usługi Automation wybierz pozycję **alerty** w obszarze **monitorowanie**, a następnie wybierz pozycję **Nowa reguła alertu**.
 
-2. Na stronie **Tworzenie reguły alertu** konto usługi Automation zostało już wybrane jako zasób. Jeśli chcesz ją zmienić, wybierz pozycję **Edytuj zasób**.
+1. Na stronie **Tworzenie reguły alertu** konto usługi Automation zostało już wybrane jako zasób. Jeśli chcesz ją zmienić, wybierz pozycję **Edytuj zasób**.
 
-3. Na stronie wybierz zasób wybierz pozycję **konta usługi Automation** z listy rozwijanej **Filtruj według typu zasobu** .
+1. Na stronie wybierz zasób wybierz pozycję **konta usługi Automation** z listy rozwijanej **Filtruj według typu zasobu** .
 
-4. Wybierz konto usługi Automation, którego chcesz użyć, a następnie wybierz pozycję **gotowe**.
+1. Wybierz konto usługi Automation, którego chcesz użyć, a następnie wybierz pozycję **gotowe**.
 
-5. Wybierz pozycję **Dodaj warunek** , aby wybrać sygnał, który jest odpowiedni dla danego wymagania.
+1. Wybierz pozycję **Dodaj warunek** , aby wybrać sygnał, który jest odpowiedni dla danego wymagania.
 
-6. Dla wymiaru Wybierz prawidłową wartość z listy. Jeśli potrzebna wartość nie znajduje się na liście, wybierz pozycję **\+** obok wymiaru i wpisz nazwę niestandardową. Następnie wybierz wartość do wyszukania. Jeśli chcesz wybrać wszystkie wartości dla wymiaru, wybierz przycisk **Wybierz \*** . Jeśli nie wybierzesz wartości wymiaru, Update Management zignoruje ten wymiar.
+1. Dla wymiaru Wybierz prawidłową wartość z listy. Jeśli potrzebna wartość nie znajduje się na liście, wybierz pozycję **\+** obok wymiaru i wpisz nazwę niestandardową. Następnie wybierz wartość do wyszukania. Jeśli chcesz wybrać wszystkie wartości dla wymiaru, wybierz przycisk **Wybierz \*** . Jeśli nie wybierzesz wartości wymiaru, Update Management zignoruje ten wymiar.
 
     ![Konfigurowanie logiki sygnału](./media/manage-updates-for-vm/signal-logic.png)
 
-7. W obszarze **logika alertu** wprowadź wartości w polach **agregacja czasu** i **próg** , a następnie wybierz pozycję **gotowe**.
+1. W obszarze **logika alertu** wprowadź wartości w polach **agregacja czasu** i **próg** , a następnie wybierz pozycję **gotowe**.
 
-8. Na następnej stronie Wprowadź nazwę i opis alertu.
+1. Na następnej stronie Wprowadź nazwę i opis alertu.
 
-9. Ustaw wartość pola **ważność** na **informacyjną (ważność 2)** dla pomyślnego uruchomienia lub **informacyjnego (ważność 1)** dla nieudanego uruchomienia.
+1. Ustaw wartość pola **ważność** na **informacyjną (ważność 2)** dla pomyślnego uruchomienia lub **informacyjnego (ważność 1)** dla nieudanego uruchomienia.
 
     ![Zrzut ekranu przedstawia sekcję Definiowanie szczegółów alertu z wyróżnioną nazwą reguły alertu, opisem i polami ważności.](./media/manage-updates-for-vm/define-alert-details.png)
 
-10. Wybierz pozycję **tak** , aby włączyć regułę alertu.
+1. Wybierz pozycję **tak** , aby włączyć regułę alertu.
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Konfigurowanie grup akcji dla alertów
 
 Po skonfigurowaniu alertów można skonfigurować grupę akcji, która jest grupą akcji do użycia w ramach wielu alertów. Akcje mogą obejmować powiadomienia e-mail, elementy Runbook, webhook i wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../../azure-monitor/alerts/action-groups.md).
 
-1. Wybierz Alert, a następnie wybierz pozycję **Utwórz nowy** w obszarze **grupy akcji**.
+1. Wybierz Alert, a następnie wybierz pozycję **Dodaj grupy akcji** w obszarze **Akcje**. Spowoduje to wyświetlenie **grupy wybierz grupę akcji do dołączenia do tego okienka reguły alertu** .
 
-2. Wprowadź pełną nazwę i krótką nazwę grupy akcji. Update Management używa krótkiej nazwy podczas wysyłania powiadomień przy użyciu określonej grupy.
+   :::image type="content" source="./media/manage-updates-for-vm/select-an-action-group.png" alt-text="Użycie i szacowane koszty.":::
 
-3. W obszarze **Akcje** wprowadź nazwę określającą akcję, na przykład **powiadomienie e-mail**.
-
-4. W **polu Typ akcji** wybierz odpowiedni typ, na przykład **e-mail/SMS/wypychanie/głos**.
-
-5. Wybierz pozycję **Edytuj szczegóły**.
-
-6. Wypełnij okienko dla danego typu akcji. Na przykład jeśli używasz **poczty e-mail/SMS/wypychania/głosu**, wprowadź nazwę akcji, zaznacz pole wyboru adres **e-mail** , wprowadź prawidłowy adres e-mail, a następnie wybierz przycisk **OK**.
-
-    ![Konfigurowanie grupy akcji dla poczty e-mail](./media/manage-updates-for-vm/configure-email-action-group.png)
-
-7. W okienku Dodawanie grupy akcji wybierz przycisk **OK**.
-
-8. W przypadku wiadomości e-mail z alertami można dostosować temat wiadomości e-mail. Wybierz pozycję **Dostosuj akcje** w obszarze **Utwórz regułę**, a następnie wybierz pozycję **temat wiadomości e-mail**.
-
-9. Po zakończeniu wybierz pozycję **Utwórz regułę alertu**.
+1. Zaznacz pole wyboru grupy akcji do dołączenia i naciśnij przycisk Wybierz.
 
 ## <a name="next-steps"></a>Następne kroki
 

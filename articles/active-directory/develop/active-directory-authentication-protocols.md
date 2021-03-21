@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 803f52666fb09a836eae3294410584ebbd71a1b6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755892"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protokoły uwierzytelniania platformy tożsamości firmy Microsoft
@@ -34,7 +34,7 @@ Platforma tożsamości firmy Microsoft obsługuje kilka najczęściej używanych
 * [Wywołania usługi do obsługi w imieniu przepływu](v2-oauth2-on-behalf-of-flow.md) — informacje na temat używania protokołu OAuth 2,0 w imieniu usługi Flow do wywołań usługi do obsługi.
 * [Odwołanie do protokołu SAML](active-directory-saml-protocol-reference.md) — informacje o pojedynczym Sign-On i profilach SAML logowania jednokrotnego platformy tożsamości firmy Microsoft.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Microsoft Identity platform — Omówienie](v2-overview.md)
 * [Przykłady kodu Active Directory](sample-v2-code.md)

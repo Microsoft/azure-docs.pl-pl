@@ -12,10 +12,10 @@ ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424074"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Korzystanie z tokenu Insights w celu uzyskania szczegółowych informacji dotyczących obrazu
@@ -95,7 +95,7 @@ Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zob
 Aby uruchomić tę aplikację, wykonaj następujące kroki:
 
 1. Utwórz rozwiązanie konsoli w programie Visual Studio.
-2. Zastąp zawartość Program.cs kodem pokazanym w tym przewodniku Szybki Start.
+2. Zastąp zawartość programu program. cs kodem pokazanym w tym przewodniku Szybki Start.
 3. Zastąp wartość elementu `accessKey` kluczem subskrypcji.
 4. Zastąp `insightsToken` wartość tokenem Insights z odpowiedzi/images/Search.
 5. Uruchomisz program.

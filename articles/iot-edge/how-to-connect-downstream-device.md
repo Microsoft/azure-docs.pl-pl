@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199635"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge
@@ -171,7 +171,7 @@ W tej sekcji przedstawiono przykładową aplikację łączącą klienta urządze
 3. W oknie **Właściwości/launchSettings.jsw** pliku zaktualizuj zmienne **DEVICE_CONNECTION_STRING** i **CA_CERTIFICATE_PATH** . Jeśli chcesz użyć certyfikatu zainstalowanego w zaufanym magazynie certyfikatów w systemie hosta, pozostaw tę zmienną pustą.
 4. Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać instrukcje dotyczące uruchamiania przykładowego na urządzeniu.
 
-Aby programowo zainstalować zaufany certyfikat w magazynie certyfikatów za pośrednictwem aplikacji .NET, zapoznaj się z funkcją **InstallCACert ()** w pliku **EdgeDownstreamDevice/program.cs** . Ta operacja to idempotentne, więc można uruchamiać wiele razy z tymi samymi wartościami bez dodatkowych efektów.
+Aby programowo zainstalować zaufany certyfikat w magazynie certyfikatów za pośrednictwem aplikacji .NET, zapoznaj się z funkcją **InstallCACert ()** w pliku **EdgeDownstreamDevice/program. cs** . Ta operacja to idempotentne, więc można uruchamiać wiele razy z tymi samymi wartościami bez dodatkowych efektów.
 
 ### <a name="c"></a>C
 

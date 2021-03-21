@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899239"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Nawiązywanie połączenia z poziomu lokalnego z CloudSimple za pomocą ExpressRoute
@@ -21,7 +21,7 @@ Jeśli masz już połączenie z usługą Azure ExpressRoute z lokalizacji zewnę
 
 [![Połączenie lokalne ExpressRoute — Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Do ustanowienia połączenia Global Reach z lokalnego programu jest wymagany blok adresów sieciowych ( **/29** ).  Przestrzeń adresowa/29 jest używana dla sieci tranzytowej między obwodami usługi ExpressRoute.  Sieć tranzytowa nie powinna nakładać się na żadne sieci wirtualne platformy Azure, sieci lokalne ani CloudSimple sieci chmur prywatnych.
 
@@ -47,7 +47,7 @@ Aby nawiązać połączenie z usługą ExpressRoute, należy utworzyć autoryzac
 
 ### <a name="create-expressroute-authorization"></a>Utwórz autoryzację ExpressRoute
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Na górnym pasku wyszukiwania Wyszukaj pozycję **obwód usługi ExpressRoute** , a następnie kliknij pozycję **ExpressRoute obwody** w obszarze **usługi**.
     [![Obwody usługi ExpressRoute](media/azure-expressroute-transit-search.png)](media/azure-expressroute-transit-search.png)

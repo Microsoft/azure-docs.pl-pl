@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/09/2020
 ms.openlocfilehash: 8bd1e312463cf89ae30d54bc4a32a497fc7a9a78
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249656"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database słownik terminów
@@ -24,7 +24,7 @@ ms.locfileid: "98249656"
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-|Kontekst|Termin|Więcej informacji|
+|Kontekst|Okres|Więcej informacji|
 |:---|:---|:---|
 |Usługa platformy Azure|Azure SQL Database lub SQL Database|[Azure SQL Database](database/sql-database-paas-overview.md)|
 |Model zakupów|Model zakupu oparty na jednostkach DTU|[Model zakupu oparty na jednostkach DTU](database/service-tiers-dtu.md)|
@@ -41,7 +41,7 @@ ms.locfileid: "98249656"
 
 ## <a name="azure-sql-managed-instance"></a>Wystąpienie zarządzane Azure SQL
 
-|Kontekst|Termin|Więcej informacji|
+|Kontekst|Okres|Więcej informacji|
 |:---|:---|:---|
 |Usługa platformy Azure|Wystąpienie zarządzane Azure SQL|[Wystąpienie zarządzane SQL](managed-instance/sql-managed-instance-paas-overview.md)|
 |Model zakupów|Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|

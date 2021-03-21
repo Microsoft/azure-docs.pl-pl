@@ -7,10 +7,10 @@ ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539078"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
@@ -48,7 +48,7 @@ Aby rozwiązać ten problem, wystarczy zmienić przypisanie użytkowników do gr
 
 Przyczyną może być również, że dostawca CSP utworzył subskrypcję, a następnie przeniósł ją do klienta. Aby rozwiązać ten problem, należy ponownie zarejestrować dostawcę zasobów.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przejdź do **subskrypcji**, a następnie wybierz swoją subskrypcję.
 3. W menu po lewej stronie strony wybierz pozycję **dostawca zasobów**.
 4. Znajdź i wybierz pozycję **Microsoft. DesktopVirtualization**, a następnie wybierz pozycję **zarejestruj ponownie**.
