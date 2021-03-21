@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
 ms.openlocfilehash: d2ab96fcfa33301f0bd1212b23f9418fa39d0134
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102638233"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack EDGE Pro
@@ -125,7 +125,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
 
 ### <a name="update-the-module-with-custom-code"></a>Aktualizowanie modułu przy użyciu kodu niestandardowego
 
-1. W Eksploratorze VS Code Otwórz **moduł > FileCopyModule > program.cs**.
+1. W Eksploratorze VS Code Otwórz **moduł > FileCopyModule > program. cs**.
 2. W górnej części **przestrzeni nazw FileCopyModule** Dodaj następujące instrukcje using dla typów, które są używane później. **Microsoft. Azure. Devices. Client. transport. MQTT** to protokół służący do wysyłania komunikatów do centrum IoT Edge.
 
     ```
@@ -240,7 +240,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
     ```
 
 7. Zapisz ten plik.
-8. Możesz również [pobrać istniejący przykład kodu](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) dla tego projektu. Następnie można sprawdzić poprawność pliku zapisanego w pliku **program.cs** w tym przykładzie.
+8. Możesz również [pobrać istniejący przykład kodu](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) dla tego projektu. Następnie można sprawdzić poprawność pliku zapisanego w pliku **program. cs** w tym przykładzie.
 
 ## <a name="build-your-iot-edge-solution"></a>Kompilowanie rozwiązania usługi IoT Edge
 

@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
 ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389182"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Usługa Azure Private Link dla usługi Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Za pomocą linku prywatnego platformy Azure można nawiązać połączenie z różnymi platformami jako usługą (PaaS) na platformie Azure za pośrednictwem prywatnego punktu końcowego. Prywatny punkt końcowy to prywatny adres IP w ramach określonej sieci wirtualnej i podsieci. Aby zapoznać się z listą wdrożeń PaaS, które obsługują funkcję łączy prywatnych, zobacz [dokumentację linku prywatnego](../private-link/index.yml). 
+Za pomocą linku prywatnego platformy Azure można nawiązać połączenie z różnymi platformami jako usługą (PaaS) na platformie Azure za pośrednictwem prywatnego punktu końcowego. Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci wirtualnej lub podsieci. Aby zapoznać się z listą wdrożeń PaaS, które obsługują funkcję łączy prywatnych, zobacz [dokumentację linku prywatnego](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Bezpieczna komunikacja między sieciami klientów i Azure Data Factory 
-Sieć wirtualną platformy Azure można skonfigurować jako logiczną reprezentację sieci w chmurze. Zapewnia to następujące korzyści:
-* Możesz chronić zasoby platformy Azure przed atakami w sieciach publicznych.
-* Umożliwia to sieci i Data Factory bezpieczne komunikowanie się ze sobą. 
+Sieć wirtualną platformy Azure można skonfigurować tak, aby była logiczną reprezentacją Twojej sieci w chmurze. Daje to następujące korzyści:
+* Umożliwia ochronę zasobów platformy Azure przed atakami w sieciach publicznych.
+* Umożliwia bezpieczną komunikację pomiędzy sieciami a usługą Data Factory. 
 
-Możesz również połączyć sieć lokalną z siecią wirtualną, konfigurując połączenie sieci VPN zabezpieczeń protokołu internetowego (IPsec) (lokacja-lokacja) lub połączenie usługi Azure ExpressRoute (prywatna Komunikacja równorzędna). 
+Możesz również nawiązać połączenie pomiędzy siecią lokalną a siecią wirtualną, konfigurując międzylokacyjną sieć VPN zabezpieczenia protokołu internetowego lub połączenie usługi ExpressRoute (prywatną komunikację równorzędną). 
 
-Możesz również zainstalować własne środowisko Integration Runtime na maszynie lokalnej lub maszynie wirtualnej w sieci wirtualnej. Dzięki temu można:
-* Uruchom działania kopiowania między magazynem danych w chmurze i magazynem danych w sieci prywatnej.
-* Wysyłaj działania przekształcania na zasoby obliczeniowe w sieci lokalnej lub w sieci wirtualnej platformy Azure. 
+Możesz również zainstalować własne środowisko Integration Runtime na maszynie lokalnej lub maszynie wirtualnej w sieci wirtualnej. Dzięki temu możesz:
+* Uruchamiać działania kopiowania między magazynami danych w chmurze a magazynem danych w sieci prywatnej.
+* Wysyłać działania przekształcania do zasobów obliczeniowych w sieci lokalnej lub w sieci wirtualnej platformy Azure. 
 
 Między Azure Data Factory i siecią wirtualną klienta są wymagane kilka kanałów komunikacyjnych, jak pokazano w poniższej tabeli:
 

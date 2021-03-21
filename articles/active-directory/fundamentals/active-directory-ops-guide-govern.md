@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935754"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Przewodnik dotyczący referencyjnych operacji ładu Azure Active Directory
@@ -113,13 +113,13 @@ Aby zapobiec przypadkowemu zablokowaniu dzierżawy, ponieważ nie można zalogow
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Dostęp uprzywilejowany do portalu Azure EA
 
-[Portal Umowa Enterprise platformy Azure (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) umożliwia tworzenie subskrypcji platformy Azure na podstawie Umowa Enterprise głównych, które są zaawansowaną rolą w przedsiębiorstwie. Przed rozpoczęciem pracy z usługą Azure AD często uruchamiana jest ponowna próba uruchomienia tego portalu, dlatego konieczne jest użycie tożsamości usługi Azure AD w celu jego zablokowania, usunięcia kont osobistych z portalu, upewnienia się, że odpowiednie delegowanie jest stosowane i ograniczenia ryzyka blokady.
+[Portal Enterprise Agreement platformy Azure (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) umożliwia tworzenie subskrypcji platformy Azure na podstawie Enterprise Agreement głównych, które są zaawansowaną rolą w przedsiębiorstwie. Przed rozpoczęciem pracy z usługą Azure AD często uruchamiana jest ponowna próba uruchomienia tego portalu, dlatego konieczne jest użycie tożsamości usługi Azure AD w celu jego zablokowania, usunięcia kont osobistych z portalu, upewnienia się, że odpowiednie delegowanie jest stosowane i ograniczenia ryzyka blokady.
 
 Aby wyczyścić, jeśli poziom autoryzacji portalu EA jest obecnie ustawiony na wartość "tryb mieszany", należy usunąć wszystkie [konta Microsoft](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) ze wszystkich uprzywilejowanego dostępu w portalu EA i skonfigurować portal EA do korzystania tylko z kont usługi Azure AD. Jeśli delegowane role portalu EA nie są skonfigurowane, należy również znaleźć i zaimplementować delegowane role dla działów i kont.
 
 #### <a name="privileged-access-recommended-reading"></a>Zalecane odczytywanie uprzywilejowanego dostępu
 
-- [Uprawnienia ról administratorów w usłudze Azure Active Directory](../roles/permissions-reference.md)
+- [Uprawnienia roli administratora w usłudze Azure Active Directory](../roles/permissions-reference.md)
 
 ## <a name="entitlement-management"></a>Zarządzanie upoważnieniami
 

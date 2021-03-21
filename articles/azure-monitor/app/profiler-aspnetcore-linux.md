@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6ef52e946edb5db8074a9b4e3ce5e4a81ae0bde5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97561056"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilowanie ASP.NET Core aplikacji sieci Web systemu Linux Azure z Application Insights Profiler
@@ -48,7 +48,7 @@ Poniższe instrukcje dotyczą wszystkich środowisk deweloperskich dla systemów
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Włącz Application Insights w Program.cs:
+1. Włącz Application Insights w programie program. cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -57,7 +57,7 @@ Poniższe instrukcje dotyczą wszystkich środowisk deweloperskich dla systemów
             .UseStartup<Startup>();
     ```
 
-1. Włącz Profiler w Startup.cs:
+1. Włącz Profiler w programie Start. cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -67,7 +67,7 @@ Poniższe instrukcje dotyczą wszystkich środowisk deweloperskich dla systemów
     }
     ```
 
-1. Dodaj wiersz kodu w sekcji **HomeController.cs** , aby losowo opóźnić kilka sekund:
+1. Dodaj wiersz kodu w sekcji **HomeController. cs** , aby losowo opóźnić kilka sekund:
 
     ```csharp
     using System.Threading;

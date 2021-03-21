@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99053571"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurowanie żądanego stanu maszyn
@@ -147,7 +147,7 @@ Jeśli zdecydujesz się usunąć węzeł z usługi, możesz to zrobić przy uży
 > Nie wpływa to na konfigurację, która jest aktualnie stosowana do węzła.
 > Aby usunąć bieżącą konfigurację, użyj programu [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) lub Usuń lokalny plik konfiguracji (jest to jedyna opcja dla węzłów systemu Linux).
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 W obszarze Azure Automation kliknij pozycję **Konfiguracja stanu (DSC)** w spisie treści.
 Kliknij pozycję **węzły** , aby wyświetlić listę węzłów, które są zarejestrowane w usłudze.

@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 09ca05a25ce9bb02b8a3d515acf060e2e9e7e8c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731803"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Jak zatrzymać monitorowanie klastra platformy Azure i systemu Red Hat OpenShift v4

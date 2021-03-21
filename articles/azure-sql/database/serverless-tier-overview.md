@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 2/22/2021
 ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101658592"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Bezserwerowy jest warstwą obliczeniową dla pojedynczych baz danych w Azure SQL Database, która automatycznie skaluje obliczenia na podstawie zapotrzebowania na obciążenia i rachunków dla ilości użytych obliczeń na sekundę. Warstwa obliczeniowa bezserwerowa również automatycznie wstrzymuje bazy danych w trakcie okresów nieaktywnych, gdy są naliczane opłaty za magazyn i automatycznie wznawiają bazy danych po powrocie działania.
+Warstwa bezserwerowa jest warstwą obliczeniową dla pojedynczych baz danych w usłudze Azure SQL Database, która automatycznie skaluje obliczenia na podstawie zapotrzebowania na obciążenia i rachunków dla ilości używanych obliczeń na sekundę. Ponadto warstwa bezserwerowych usług obliczeniowych automatycznie wstrzymuje bazy danych w okresach nieaktywności, gdy są naliczane opłaty tylko za magazyn, oraz automatycznie wznawia bazy danych po ponownym pojawieniu się aktywności.
 
 ## <a name="serverless-compute-tier"></a>Warstwa bezserwerowych usług obliczeniowych
 

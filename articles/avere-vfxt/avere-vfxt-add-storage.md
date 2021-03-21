@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001528"
 ---
 # <a name="configure-storage"></a>Konfigurowanie magazynu
@@ -119,7 +119,7 @@ Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące k
 
    ![Azure Portal graficzny interfejs użytkownika do kopiowania klucza](media/avere-vfxt-copy-storage-key.png)
 
-1. Otwórz Panel sterowania avere dla klastra. Kliknij przycisk **Ustawienia**, a następnie otwórz pozycję **Cluster**  >  **poświadczenia w chmurze** klastra w okienku nawigacji po lewej stronie. Na stronie poświadczenia chmury kliknij pozycję **Dodaj poświadczenie**.
+1. Otwórz Panel sterowania avere dla klastra. Kliknij przycisk **Ustawienia**, a następnie otwórz pozycję   >  **poświadczenia w chmurze** klastra w okienku nawigacji po lewej stronie. Na stronie poświadczenia chmury kliknij pozycję **Dodaj poświadczenie**.
 
    ![Kliknij przycisk Dodaj poświadczenia na stronie Konfiguracja poświadczeń w chmurze](media/avere-vfxt-new-credential-button.png)
 
@@ -172,7 +172,7 @@ Więcej informacji o połączeniach można znaleźć w [sekcji przestrzeń nazw 
 
 Wykonaj następujące kroki w interfejsie avere panelu sterowania:
 
-* **VServer**  >  W lewym górnym rogu kliknij pozycję vserver **obszar nazw** .
+*   >  W lewym górnym rogu kliknij pozycję vserver **obszar nazw** .
 * Podaj ścieżkę przestrzeni nazw rozpoczynającą się od znaku/(ukośnik), na przykład ``/vfxt/data`` .
 * Wybierz podstawowy plik.
 * Wybierz eksport pliku podstawowego.

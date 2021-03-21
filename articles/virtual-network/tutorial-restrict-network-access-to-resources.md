@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
 ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368297"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Samouczek: ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi dla sieci wirtualnej z użyciem witryny Azure Portal
@@ -54,7 +54,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
    |Subskrypcja| Wybierz swoją subskrypcję|
    |Grupa zasobów | Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę *myResourceGroup*.|
    |Nazwa| Wprowadź *myVirtualNetwork* |
-   |Region| Wybierz **(US) Wschodnie stany USA** |
+   |Region (Region)| Wybierz **(US) Wschodnie stany USA** |
 
    ![Wprowadzanie podstawowych informacji o sieci wirtualnej](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -254,7 +254,7 @@ Aby przetestować dostęp sieciowy do konta magazynu, należy wdrożyć maszynę
    |Subskrypcja| Wybierz swoją subskrypcję|
    |Grupa zasobów| Wybierz pozycję * * dla zasobu, który został utworzony wcześniej.|
    |Nazwa maszyny wirtualnej| Wprowadź *myVmPublic*|
-   |Region | (USA) Wschodnie stany USA
+   |Region (Region) | (USA) Wschodnie stany USA
    |Opcje dostępności| Strefa dostępności|
    |Strefa dostępności | 1 |
    |Obraz | Windows Server 2019 Datacenter — Gen1 |

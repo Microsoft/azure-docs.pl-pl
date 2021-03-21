@@ -18,10 +18,10 @@ ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
 ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221038"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. Android przy użyciu Notification Hubs
@@ -91,7 +91,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
     1. Wybierz opcję **tak** w oknie komunikatu, aby kontynuować Zmienianie platformy docelowej.
 1. Dodaj wymagane pakiety NuGet do projektu, wykonując następujące czynności:
     1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet..**..
-    1. Przejdź do **zainstalowanej** karty, wybierz pozycję **Xamarin. Android. support. Design**, a następnie wybierz pozycję **Update (Aktualizuj** ) w okienku po prawej stronie, aby zaktualizować pakiet do najnowszej wersji.
+    1. Przejdź do **zainstalowanej** karty, wybierz pozycję **Xamarin.Android.support.Design**, a następnie w okienku po prawej stronie kliknij pozycję **Aktualizuj** , aby zaktualizować pakiet do najnowszej wersji.
     1. Przejdź do karty **przeglądanie** . Wyszukaj aplikację **Xamarin. GooglePlayServices. Base**. Na liście wyników wybierz pozycję **Xamarin.GooglePlayServices.Base**. Następnie wybierz pozycję **Zainstaluj**.
 
         ![Pakiet NuGet usług Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
