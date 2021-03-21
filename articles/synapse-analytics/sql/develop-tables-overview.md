@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674135"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585438"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Projektowanie tabel przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics
 
 Ten dokument zawiera kluczowe pojęcia dotyczące projektowania tabel z dedykowaną pulą SQL i bezserwerową pulą SQL.  
 
-[Pula SQL Bezserwerowa](on-demand-workspace-overview.md) jest usługą zapytania na danych w usłudze Data Lake. Nie ma magazynu lokalnego na potrzeby pozyskiwania danych. [Dedykowana Pula SQL](best-practices-sql-pool.md) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar dedykowanej puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
+[Pula SQL Bezserwerowa](on-demand-workspace-overview.md) jest usługą zapytania na danych w usłudze Data Lake. Nie ma magazynu lokalnego na potrzeby pozyskiwania danych. [Dedykowana Pula SQL](best-practices-dedicated-sql-pool.md) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar dedykowanej puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
 
 W poniższej tabeli wymieniono tematy istotne dla dedykowanej puli SQL i bezserwerowej puli SQL:
 

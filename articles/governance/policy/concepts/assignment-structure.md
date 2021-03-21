@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury przypisania zasad
 description: Zawiera opis definicji przypisania zasad używanej przez Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581949"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604869"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
@@ -89,6 +89,9 @@ To pole musi zawierać pełną nazwę ścieżki definicji zasad lub definicji in
 ## <a name="non-compliance-messages"></a>Komunikaty o niezgodności
 
 Aby ustawić niestandardowy komunikat opisujący, dlaczego zasób nie jest zgodny z definicją zasad lub inicjatywy, ustaw `nonComplianceMessages` w definicji przypisania. Ten węzeł jest tablicą `message` wpisów. Ten komunikat niestandardowy jest uzupełnieniem domyślnego komunikatu o błędzie dla niezgodności i jest opcjonalny.
+
+> [!IMPORTANT]
+> Komunikaty niestandardowe dla niezgodności są obsługiwane tylko w definicjach i inicjatywach, które mają definicje [trybów Menedżer zasobów](./definition-structure.md#resource-manager-modes) .
 
 ```json
 "nonComplianceMessages": [

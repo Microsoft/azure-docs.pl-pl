@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
 ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102123568"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Rejestrowanie i skanowanie wielu źródeł na platformie Azure
 
 W tym artykule opisano sposób rejestrowania wielu źródeł platformy Azure (subskrypcji platformy Azure lub grup zasobów) w programie kontrolą i konfigurowania na niej skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Usługa Azure Multiple Source obsługuje skanowanie w celu przechwytywania metadanych i schematów na większości typów zasobów platformy Azure obsługiwanych przez kontrolą. Automatycznie klasyfikuje dane w oparciu o system i niestandardowe reguły klasyfikacji.
 

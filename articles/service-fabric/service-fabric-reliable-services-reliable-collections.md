@@ -4,10 +4,10 @@ description: Service Fabric usługi stanowe udostępniają niezawodne kolekcje, 
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 7d705f81b4ad31559886e43226febcd4cf1d345d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784380"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Wprowadzenie do niezawodnych kolekcji w usłudze Azure Service Fabric stanowe usługi
@@ -50,7 +50,7 @@ Dzisiaj **firma Microsoft. servicefabric. Data. Collections** zawiera trzy Kolek
 * [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transakcje i blokady](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Zarządzanie danymi
-  * [Wykonywanie kopii zapasowych i przywracanie](service-fabric-reliable-services-backup-restore.md)
+  * [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
   * [Powiadomienia](service-fabric-reliable-services-notifications.md)
   * [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)

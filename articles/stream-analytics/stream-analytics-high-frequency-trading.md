@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020421"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593037"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Symulacja transakcji o wysokiej częstotliwości za pomocą usługi Stream Analytics
 Usługa Azure Stream Analytics umożliwia korzystanie z funkcji zdefiniowanych przez użytkownika (UDF) i agregatów zdefiniowanych przez użytkownika (UDA) napisanych w języku JavaScript. Połączenie tych możliwości z językiem SQL pozwala użytkownikom przeprowadzać zaawansowane analizy. Mogą one obejmować szkolenie i ocenianie w ramach uczenia maszynowego online oraz symulację procesów stanowych. W tym artykule opisano sposób przeprowadzania regresji liniowej w zadaniu usługi Azure Stream Analytics, które w sposób ciągły przeprowadza ocenianie i szkolenie w ramach scenariusza transakcji o wysokiej częstotliwości.
@@ -349,7 +349,7 @@ Agregacja UDA w języku JavaScript inicjuje wszystkie akumulatory w funkcji `ini
 - Sprzedawanie akcji w przypadku otrzymania sygnału sprzedaży i posiadania pakietu akcji.
 - Krótką sprzedaż w przypadku braku pakietu akcji. 
 
-W przypadku odebrania sygnału w pozycji krótkiej należy złożyć zlecenie zakupu w celu pokrycia pozycji krótkiej. W tej symulacji nigdy nie utrzymujemy 10 udziałów danej akcji ani nie przeprowadzamy dla nich transakcji sprzedaży krótkiej. Koszt transakcji jest stały i wynosi 8 USD.
+W przypadku odebrania sygnału w pozycji krótkiej należy złożyć zlecenie zakupu w celu pokrycia pozycji krótkiej. W tej symulacji utrzymujemy 10 udziałów na giełdie. Koszt transakcji jest stały i wynosi 8 USD.
 
 ```javascript
 function main() {

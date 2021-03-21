@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368850"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiowanie danych z MongoDB przy użyciu Azure Data Factory (starsza wersja)
@@ -26,7 +26,7 @@ W tym artykule opisano sposób używania działania kopiowania w Azure Data Fact
 >[!IMPORTANT]
 >Moduł ADF zwolni nowy łącznik MongoDB, który zapewnia lepszą obsługę natywnych MongoDB w porównaniu do tej implementacji opartej na ODBC, zobacz artykuł dotyczący [łącznika MongoDB](connector-mongodb.md) , aby uzyskać szczegółowe informacje. Ten starszy łącznik MongoDB jest obsługiwany jako gotowy do zapewnienia zgodności z poprzednimi wersjami, a w przypadku każdego nowego obciążenia Użyj nowego łącznika.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Dane z bazy danych MongoDB można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 

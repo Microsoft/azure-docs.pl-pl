@@ -10,16 +10,16 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 578f0d1ca742fe4445b8aeed6876d1a73fd3f79e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378122"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669512"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Przekazywanie danych użycia do Azure Monitor
 
-Okresowo można eksportować informacje o użyciu. Eksport i przekazywanie tych informacji polega na tworzeniu i aktualizowaniu zasobów grupy serwerów programu SQL Server, wystąpienia zarządzanego i PostgreSQL na platformie Azure.
+Okresowo można eksportować informacje o użyciu. Eksport i przekazanie tych informacji polega na tworzeniu i aktualizowaniu zasobów serwera SQL, wystąpienia zarządzanego i PostgreSQL na platformie Azure.
 
 > [!NOTE] 
 > W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc.
@@ -36,7 +36,7 @@ Przed kontynuowaniem upewnij się, że została utworzona wymagana jednostka us�
 * [Utwórz nazwę główną usługi](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 * [Przypisywanie ról do jednostki usługi](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
-## <a name="upload-usage-data"></a>Przekazywanie danych użycia
+## <a name="upload-usage-data"></a>Przekazywanie danych dotyczących użycia
 
 Informacje dotyczące użycia, takie jak spis i użycie zasobów, można przekazać do platformy Azure w następujący dwuetapowy sposób:
 
@@ -64,7 +64,7 @@ Informacje dotyczące użycia, takie jak spis i użycie zasobów, można przekaz
 
 Jeśli chcesz przekazać metryki i dzienniki zgodnie z harmonogramem, możesz utworzyć skrypt i uruchomić go w czasomierzu co kilka minut. Poniżej znajduje się przykład automatyzacji przekazywania przy użyciu skryptu powłoki systemu Linux.
 
-W ulubionym edytorze tekstu/kodu Dodaj następujący skrypt do pliku i Zapisz jako plik wykonywalny skryptu, taki jak. sh (Linux/Mac) lub. cmd,. bat,. ps1.
+W ulubionym edytorze tekstu/kodu Dodaj następujący skrypt do pliku i Zapisz jako plik wykonywalny skryptu, taki jak `.sh` (Linux/Mac) lub `.cmd` , `.bat` lub `.ps1` .
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

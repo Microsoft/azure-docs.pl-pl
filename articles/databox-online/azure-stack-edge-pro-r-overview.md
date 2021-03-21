@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2ff07995cab2da6e53600be9bf60b30d1896cc9d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 40fa1bc776c5cd457e57cf170f629b6cf92800fe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102664510"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585999"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Co to jest Azure Stack EDGE Pro R?
 
@@ -78,6 +78,8 @@ Azure Stack Edge urządzenie fizyczne Pro R, zasób platformy Azure i docelowe k
 - **Dostępność urządzenia** — aby zapoznać się z listą wszystkich krajów, w których dostępne jest urządzenie Azure Stack EDGE Pro r, przejdź do sekcji **dostępność** na karcie **Azure Stack EDGE Pro r** dla [Azure Stack cennika usługi Pro r](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR).
 
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure. Regiony, w których przechowywane są konta magazynu Azure Stack dane brzegowe Pro R powinny znajdować się w pobliżu lokalizacji urządzenia w celu uzyskania optymalnej wydajności. Duża odległość konta magazynu od urządzenia powoduje długie opóźnienia i mniejszą wydajność.
+
+Usługa Edge Azure Stack jest usługą nieregionalną. Aby uzyskać więcej informacji, zobacz [regiony i strefy dostępności na platformie Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Usługa Edge Azure Stack nie jest zależna od określonego regionu platformy Azure, dzięki czemu można odporna na przerwy w działaniu strefy i w całym regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

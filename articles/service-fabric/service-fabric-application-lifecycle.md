@@ -4,10 +4,10 @@ description: Opisuje tworzenie, wdrażanie, testowanie, uaktualnianie, konserwow
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: ae0c79cdaafc8fc016d463a01046f0a02121330a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785739"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric application lifecycle (Cykl życia aplikacji usługi Service Fabric)
@@ -23,7 +23,7 @@ Role modelu usługi:
 * **Administrator aplikacji**: podejmuje decyzje dotyczące konfiguracji aplikacji (wypełniając parametry szablonu konfiguracji), wdrożenie (mapowanie do dostępnych zasobów) i jakość usługi. Na przykład administrator aplikacji decyduje ustawienia regionalne języka (w języku angielskim dla Stany Zjednoczone lub japońskiego dla Japonii, na przykład) aplikacji. Inna wdrożona aplikacja może mieć inne ustawienia.
 * **Operator**: wdraża aplikacje na podstawie konfiguracji aplikacji i wymagań określonych przez administratora aplikacji. Na przykład operator inicjuje i wdraża aplikację i zapewnia jej działanie na platformie Azure. Operatory monitorują informacje o kondycji i wydajności aplikacji oraz przechowują infrastrukturę fizyczną zgodnie z wymaganiami.
 
-## <a name="develop"></a>Programowanie
+## <a name="develop"></a>Opracowywanie
 1. *Deweloper usługi* opracowuje różne typy usług przy użyciu modelu programowania [Reliable Actors](service-fabric-reliable-actors-introduction.md) lub [Reliable Services](service-fabric-reliable-services-introduction.md) .
 2. *Deweloper usługi* deklaratywnie opisuje utworzone typy usług w pliku manifestu usługi składający się z co najmniej jednego kodu, konfiguracji i pakietów danych.
 3. *Deweloper aplikacji* kompiluje aplikację przy użyciu różnych typów usług.
@@ -41,7 +41,7 @@ Zobacz Wprowadzenie do [Reliable Actors](service-fabric-reliable-actors-get-star
 
 Zobacz temat [wdrażanie aplikacji](service-fabric-deploy-remove-applications.md) na przykład.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testowanie
 1. Po wdrożeniu w lokalnym klastrze projektowym lub w klastrze testowym *Deweloper usługi* uruchamia wbudowany Scenariusz testowania trybu failover przy użyciu klas [**FailoverTestScenarioParameters**](/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) i [**FailoverTestScenario**](/dotnet/api/system.fabric.testability.scenario.failovertestscenario) lub [polecenia cmdlet **Invoke-ServiceFabricFailoverTestScenario**](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario). Scenariusz testowania trybu failover uruchamia określoną usługę za pomocą ważnych przejść i trybu failover, aby upewnić się, że jest ona nadal dostępna i działa.
 2. *Deweloper usługi* następnie uruchamia wbudowany Scenariusz testowania chaos przy użyciu klas [**ChaosTestScenarioParameters**](/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) i [**ChaosTestScenario**](/dotnet/api/system.fabric.testability.scenario.chaostestscenario) lub [polecenia cmdlet **Invoke-ServiceFabricChaosTestScenario**](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario). Scenariusz testu chaos losowo wywołuje wiele błędów węzła, pakietu kodu i repliki w klastrze.
 3. *Deweloper usług* [testuje komunikację między](service-fabric-testability-scenarios-service-communication.md) usługą, tworząc scenariusze testów, które przenoszą repliki podstawowe wokół klastra.
