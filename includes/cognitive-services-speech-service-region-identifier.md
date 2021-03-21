@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 12/10/2020
 ms.author: wolfma
 ms.openlocfilehash: 329241c2660ff7828f57fb21daeb6de20caedc43
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504461"
 ---
-| Lokalizacja geograficzna | Region | Identyfikator regionu |
+| Lokalizacja geograficzna | Region (Region) | Identyfikator regionu |
 | ----- | ----- | ----- |
 | Ameryka Północna i Południowa | Central US | `centralus` |
 | Ameryka Północna i Południowa | East US | `eastus` |
@@ -22,12 +22,12 @@ ms.locfileid: "97504461"
 | Ameryka Północna i Południowa | Zachodnie stany USA | `westus` |
 | Ameryka Północna i Południowa | Zachodnie stany USA 2 | `westus2` |
 | Ameryka Północna i Południowa | Kanada Środkowa | `canadacentral` |
-| Ameryka Północna i Południowa | Brazil South | `brazilsouth` |
+| Ameryka Północna i Południowa | Brazylia Południowa | `brazilsouth` |
 | Azja i Pacyfik | Azja Wschodnia | `eastasia` |
 | Azja i Pacyfik | Southeast Asia | `southeastasia` |
 | Azja i Pacyfik | Australia Wschodnia | `australiaeast` |
 | Azja i Pacyfik | Indie Środkowe | `centralindia` |
-| Azja i Pacyfik | Japan East | `japaneast` |
+| Azja i Pacyfik | Japonia Wschodnia | `japaneast` |
 | Azja i Pacyfik | Japonia Zachodnia | `japanwest` |
 | Azja i Pacyfik | Korea Środkowa | `koreacentral` |
 | Europa | Europa Północna | `northeurope` |

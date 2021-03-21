@@ -7,15 +7,15 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: a869531860942e5a8b2b05212e778aca2170c89b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932425"
 ---
 # <a name="versioning"></a>Przechowywanie wersji
 
-Każde żądanie klienta musi udostępniać jawną wersję interfejsu API jako parametr ciągu zapytania. Przykład: `https://{myconfig}.azconfig.io/kv?api-version=1.0`.
+Każde żądanie klienta musi udostępniać jawną wersję interfejsu API jako parametr ciągu zapytania. Na przykład: `https://{myconfig}.azconfig.io/kv?api-version=1.0`.
 
 `api-version` jest wyrażony w formacie SemVer (główny. pomocniczy). Negocjowanie zakresu lub wersji nie jest obsługiwane.
 

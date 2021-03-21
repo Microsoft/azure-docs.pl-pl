@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793249"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżawców przy użyciu wzorca aplikacji dla dzierżawców SaaS
@@ -82,14 +82,14 @@ W tym zadaniu dowiesz się, jak udostępnić katalog używany do rejestracji wsz
 * **Zainicjuj obsługę administracyjną bazy danych katalogu** przy użyciu szablonu zarządzania zasobami platformy Azure. Baza danych została zainicjowana przez zaimportowanie pliku BACPAC.
 * **Zarejestruj przykładowe wdrożone wcześniej aplikacje dzierżawców** .  Każda dzierżawa jest zarejestrowana przy użyciu klucza złożonego ze skrótu nazwy dzierżawy.  Nazwa dzierżawy jest również przechowywana w tabeli rozszerzeń w wykazie.
 
-1. W programie PowerShell ISE Otwórz *..\Learning Modules\UserConfig.PSM* i zaktualizuj **\<user\>** wartość do wartości użytej podczas wdrażania trzech przykładowych aplikacji.  **Zapisz plik** .
-1. W programie PowerShell ISE Otwórz *..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 1** . Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy.
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\UserConfig.PSM* i zaktualizuj **\<user\>** wartość do wartości użytej podczas wdrażania trzech przykładowych aplikacji.  **Zapisz plik**.
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 1**. Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy.
 
-1. Dodaj punkt przerwania, umieszczając kursor w dowolnym miejscu w wierszu, `& $PSScriptRoot\New-Catalog.ps1` a następnie naciśnij klawisz **F9** .
+1. Dodaj punkt przerwania, umieszczając kursor w dowolnym miejscu w wierszu, `& $PSScriptRoot\New-Catalog.ps1` a następnie naciśnij klawisz **F9**.
 
     ![Ustawianie punktu przerwania na potrzeby śledzenia](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Uruchom skrypt, naciskając klawisz **F5** .
+1. Uruchom skrypt, naciskając klawisz **F5**.
 1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog.ps1.
 1.  Śledź wykonywanie skryptu przy użyciu opcji menu Debuguj, F10 i F11, aby przekroczyć lub użyć funkcji o nazwie.
     *   Aby uzyskać więcej informacji na temat debugowania skryptów programu PowerShell, zobacz [porady dotyczące pracy z skryptami programu PowerShell i ich debugowania](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
@@ -99,7 +99,7 @@ Po zakończeniu działania skryptu katalog będzie istnieć i wszystkie przykła
 Teraz przyjrzyj się utworzonym zasobom.
 
 1. Otwórz [Azure Portal](https://portal.azure.com/) i przejrzyj grupy zasobów.  Otwórz grupę zasobów **Wingtip-sa-Catalog \<user\>** i zanotuj serwer wykazu i bazę danych.
-1. Otwórz bazę danych w portalu i wybierz pozycję *Eksplorator danych* z menu po lewej stronie.  Kliknij polecenie Zaloguj, a następnie wprowadź hasło = **P \@ ssword1** .
+1. Otwórz bazę danych w portalu i wybierz pozycję *Eksplorator danych* z menu po lewej stronie.  Kliknij polecenie Zaloguj, a następnie wprowadź hasło = **P \@ ssword1**.
 
 
 1. Eksploruj schemat bazy danych *tenantcatalog* .
@@ -120,13 +120,13 @@ W tym zadaniu dowiesz się, jak zainicjować obsługę administracyjną pojedync
 
 * **Utwórz nową grupę zasobów** dla dzierżawy.
 * **Zainicjuj obsługę administracyjną aplikacji i bazy danych** w nowej grupie zasobów za pomocą szablonu usługi Azure Resource Management.  Ta akcja obejmuje zainicjowanie bazy danych ze wspólnym schematem i danymi referencyjnymi przez zaimportowanie pliku BACPAC.
-* **Zainicjuj bazę danych z podstawowymi informacjami o dzierżawie** . Ta akcja obejmuje określenie typu miejsca, który określa fotografię używaną jako tło w witrynie sieci Web zdarzeń.
-* **Zarejestruj bazę danych w bazie danych wykazu** .
+* **Zainicjuj bazę danych z podstawowymi informacjami o dzierżawie**. Ta akcja obejmuje określenie typu miejsca, który określa fotografię używaną jako tło w witrynie sieci Web zdarzeń.
+* **Zarejestruj bazę danych w bazie danych wykazu**.
 
-1. W programie PowerShell ISE Otwórz polecenie *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 2** . Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy
+1. W programie PowerShell ISE Otwórz polecenie *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 2**. Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy
 
-1. Dodaj punkt przerwania w skrypcie, umieszczając kursor w dowolnym miejscu w wierszu 49, `& $PSScriptRoot\New-TenantApp.ps1` a następnie naciśnij klawisz **F9** .
-1. Uruchom skrypt, naciskając klawisz **F5** .
+1. Dodaj punkt przerwania w skrypcie, umieszczając kursor w dowolnym miejscu w wierszu 49, `& $PSScriptRoot\New-TenantApp.ps1` a następnie naciśnij klawisz **F9**.
+1. Uruchom skrypt, naciskając klawisz **F5**.
 1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog.ps1.
 1.  Śledź wykonywanie skryptu przy użyciu opcji menu Debuguj, F10 i F11, aby przekroczyć lub użyć funkcji o nazwie.
 

@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.openlocfilehash: 89309cfe427183d594a5cc2f76332ae150d4f803
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102498680"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Samouczek: uczenie modelu w języku Python za pomocą automatycznej uczenia maszynowego
@@ -22,7 +22,7 @@ Azure Machine Learning to środowisko oparte na chmurze, które umożliwia uczen
 
 W tym samouczku użyjesz [automatycznego uczenia maszynowego](../../machine-learning/concept-automated-ml.md) w Azure Machine Learning, aby utworzyć model regresji do przewidywania cen opłat za taksówkę. Ten proces dociera do najlepszego modelu przez zaakceptowanie danych szkoleniowych i ustawień konfiguracji oraz automatyczne Iterowanie za pomocą kombinacji różnych metod, modeli i ustawień parametrów.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 - Pobierz dane przy użyciu Apache Spark i otwartych zestawów danych platformy Azure.
 - Przekształcanie i czyszczenie danych przy użyciu Apache Spark ramek dataframes.
 - Uczenie modelu regresji w ramach automatycznej uczenia maszynowego.

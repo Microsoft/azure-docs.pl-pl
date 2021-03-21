@@ -12,23 +12,23 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793215"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplikacje z wieloma dzierżawcami z narzędziami Elastic Database i zabezpieczeniami na poziomie wierszy
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Narzędzia Elastic Database](elastic-scale-get-started.md) i [zabezpieczenia na poziomie wiersza][rls] współpracują, aby umożliwić skalowanie warstwy danych aplikacji wielodostępnej przy użyciu Azure SQL Database. Wspólnie te technologie pomagają tworzyć aplikacje, które mają wysoce skalowalną warstwę danych. Warstwa danych obsługuje wielodostępne fragmentów i używa **ADO.NET SqlClient** lub **Entity Framework** . Aby uzyskać więcej informacji, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS z Azure SQL Database](./saas-tenancy-app-design-patterns.md).
+[Narzędzia Elastic Database](elastic-scale-get-started.md) i [zabezpieczenia na poziomie wiersza][rls] współpracują, aby umożliwić skalowanie warstwy danych aplikacji wielodostępnej przy użyciu Azure SQL Database. Wspólnie te technologie pomagają tworzyć aplikacje, które mają wysoce skalowalną warstwę danych. Warstwa danych obsługuje wielodostępne fragmentów i używa **ADO.NET SqlClient** lub **Entity Framework**. Aby uzyskać więcej informacji, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS z Azure SQL Database](./saas-tenancy-app-design-patterns.md).
 
 - **Narzędzia Elastic Database** umożliwiają deweloperom skalowanie warstwy danych przy użyciu standardowych praktyk fragmentowania przy użyciu bibliotek .NET i szablonów usług platformy Azure. Zarządzanie fragmentów za pomocą [biblioteki klienta Elastic Database][s-d-elastic-database-client-library] pomaga zautomatyzować i usprawnić wiele zadań infrastruktury zwykle skojarzonych z fragmentowania.
 - **Zabezpieczenia na poziomie wiersza** umożliwiają deweloperom bezpieczne przechowywanie danych dla wielu dzierżawców w tej samej bazie danych. Zasady zabezpieczeń na poziomie wiersza filtrują wiersze, które nie należą do dzierżawy wykonującej zapytanie. Scentralizowanie logiki filtru wewnątrz bazy danych upraszcza konserwację i zmniejsza ryzyko wystąpienia błędu zabezpieczeń. Alternatywą jest użycie całego kodu klienta w celu wymuszenia zabezpieczeń.
 
 Korzystając z tych funkcji, aplikacja może przechowywać dane dla wielu dzierżawców w tej samej bazie danych fragmentu. Koszt IT jest krótszy dla dzierżawy, gdy dzierżawcy współużytkują bazę danych. Jednak ta sama aplikacja może również oferować dzierżawy w warstwie Premium opcję płacenia za własne dedykowane fragmentu pojedynczej dzierżawy. Jedną z korzyści związanych z izolacją pojedynczej dzierżawy są gwarancje wydajności firmy. W bazie danych z jedną dzierżawą nie ma żadnej innej konkurencyjnej dzierżawy zasobów.
 
-Celem jest użycie interfejsów API [routingu opartego na danych](elastic-scale-data-dependent-routing.md) biblioteki klienta Elastic Database do automatycznego łączenia poszczególnych dzierżawców z poprawną bazą danych fragmentu. Tylko jeden fragmentu zawiera konkretną wartość TenantId dla danej dzierżawy. TenantId jest *kluczem fragmentowania* . Po nawiązaniu połączenia zasady zabezpieczeń na poziomie wiersza w ramach bazy danych zapewniają, że dana dzierżawa będzie mogła uzyskiwać dostęp tylko do tych wierszy danych, które zawierają TenantId.
+Celem jest użycie interfejsów API [routingu opartego na danych](elastic-scale-data-dependent-routing.md) biblioteki klienta Elastic Database do automatycznego łączenia poszczególnych dzierżawców z poprawną bazą danych fragmentu. Tylko jeden fragmentu zawiera konkretną wartość TenantId dla danej dzierżawy. TenantId jest *kluczem fragmentowania*. Po nawiązaniu połączenia zasady zabezpieczeń na poziomie wiersza w ramach bazy danych zapewniają, że dana dzierżawa będzie mogła uzyskiwać dostęp tylko do tych wierszy danych, które zawierają TenantId.
 
 > [!NOTE]
 > Identyfikator dzierżawy może składać się z więcej niż jednej kolumny. W przypadku wygody tej dyskusji nie zakładamy, że TenantId pojedynczej kolumny.
@@ -42,7 +42,7 @@ Celem jest użycie interfejsów API [routingu opartego na danych](elastic-scale-
 - Korzystanie z programu Visual Studio (2012 lub nowszego)
 - Tworzenie trzech baz danych w Azure SQL Database
 - Pobierz przykładowy projekt: [Narzędzia elastycznych baz danych dla platformy Azure SQL — fragmentów z wieloma dzierżawcami](https://go.microsoft.com/?linkid=9888163)
-  - Wprowadź informacje dotyczące baz danych na początku **program.cs**
+  - Wprowadź informacje dotyczące baz danych na początku **programu program. cs**
 
 Ten projekt rozszerza sposób opisany w [narzędziu Elastic DB Tools for Azure SQL — integracja Entity Framework](elastic-scale-use-entity-framework-applications-visual-studio.md) przez dodanie obsługi wielodostępnych baz danych fragmentu. Projekt tworzy prostą aplikację konsolową do tworzenia blogów i wpisów. Projekt zawiera cztery dzierżawy oraz dwie wielodostępne bazy danych fragmentu. Ta konfiguracja jest zilustrowana na powyższym diagramie.
 
@@ -54,8 +54,8 @@ Skompiluj i uruchom aplikację. Spowoduje to uruchomienie Bootstrap Menedżera m
 
 Zwróć uwagę, że ponieważ zabezpieczenia na poziomie wiersza nie zostały jeszcze włączone w bazach danych fragmentu, każdy z tych testów ujawnia problem: dzierżawy mogą wyświetlać Blogi, które nie należą do nich, a aplikacja nie będzie mogła wstawić blogu dla niewłaściwej dzierżawy. W pozostałej części tego artykułu opisano, jak rozwiązać te problemy, wymuszając izolację dzierżawy z poziomu zabezpieczenia na poziomie wiersza. Istnieją dwa kroki:
 
-1. **Warstwa aplikacji** : Zmodyfikuj kod aplikacji w taki sposób, aby zawsze ustawił bieżącą TenantId w \_ kontekście sesji po otwarciu połączenia. Przykładowy projekt już ustawia TenantId w ten sposób.
-2. **Warstwa danych** : Utwórz zasady zabezpieczeń na poziomie wiersza w każdej bazie danych fragmentu w celu filtrowania wierszy na podstawie TenantId przechowywanych w \_ kontekście sesji. Utwórz zasady dla każdej bazy danych fragmentu, w przeciwnym razie wiersze w wielodostępnym fragmentów nie są filtrowane.
+1. **Warstwa aplikacji**: Zmodyfikuj kod aplikacji w taki sposób, aby zawsze ustawił bieżącą TenantId w \_ kontekście sesji po otwarciu połączenia. Przykładowy projekt już ustawia TenantId w ten sposób.
+2. **Warstwa danych**: Utwórz zasady zabezpieczeń na poziomie wiersza w każdej bazie danych fragmentu w celu filtrowania wierszy na podstawie TenantId przechowywanych w \_ kontekście sesji. Utwórz zasady dla każdej bazy danych fragmentu, w przeciwnym razie wiersze w wielodostępnym fragmentów nie są filtrowane.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Warstwa aplikacji: Ustaw TenantId w kontekście sesji \_
 
@@ -303,7 +303,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 > [!NOTE]
 > Jeśli używasz ograniczeń domyślnych dla projektu Entity Framework, zaleca się, aby *nie* uwzględnić kolumny TenantId w modelu danych EF. To zalecenie wynika z faktu, że Entity Framework zapytania automatycznie dostarczają wartości domyślne, które zastępują ograniczenia domyślne utworzone w języku T-SQL, który używa \_ kontekstu sesji.
-> Aby użyć ograniczeń domyślnych w projekcie przykładowym, na przykład należy usunąć TenantId z DataClasses.cs (i uruchomić Add-Migration w konsoli Menedżera pakietów) i użyć T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. W ten sposób EF automatycznie poda nieprawidłowe wartości domyślne podczas wstawiania danych.
+> Aby użyć ograniczeń domyślnych w projekcie przykładowym, na przykład należy usunąć TenantId z klas DataClasses. cs (i uruchomić Add-Migration w konsoli Menedżera pakietów) i użyć języka T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. W ten sposób EF automatycznie poda nieprawidłowe wartości domyślne podczas wstawiania danych.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>Obowiązkowe Włącz dostęp do *administratora* wszystkich wierszy
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Konserwacja
 
-- **Dodawanie nowego fragmentów** : Wykonaj skrypt T-SQL, aby włączyć zabezpieczenia na poziomie wiersza na dowolnym nowym fragmentów, w przeciwnym razie zapytania dotyczące tych fragmentów nie są filtrowane.
-- **Dodawanie nowych tabel** : Dodaj predykat Filter i Block do zasad zabezpieczeń na wszystkich fragmentów za każdym razem, gdy zostanie utworzona nowa tabela. W przeciwnym razie zapytania w nowej tabeli nie są filtrowane. To dodanie może być zautomatyzowane przy użyciu wyzwalacza DDL, zgodnie z opisem w artykule [zastosuj Row-Level zabezpieczenia automatycznie do nowo utworzonych tabel (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Dodawanie nowego fragmentów**: Wykonaj skrypt T-SQL, aby włączyć zabezpieczenia na poziomie wiersza na dowolnym nowym fragmentów, w przeciwnym razie zapytania dotyczące tych fragmentów nie są filtrowane.
+- **Dodawanie nowych tabel**: Dodaj predykat Filter i Block do zasad zabezpieczeń na wszystkich fragmentów za każdym razem, gdy zostanie utworzona nowa tabela. W przeciwnym razie zapytania w nowej tabeli nie są filtrowane. To dodanie może być zautomatyzowane przy użyciu wyzwalacza DDL, zgodnie z opisem w artykule [zastosuj Row-Level zabezpieczenia automatycznie do nowo utworzonych tabel (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Podsumowanie
 

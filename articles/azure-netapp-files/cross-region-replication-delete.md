@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
 ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95249898"
 ---
 # <a name="delete-volume-replications-or-volumes"></a>Usuwanie replikacji woluminów lub woluminów
@@ -34,10 +34,10 @@ Możesz przerwać połączenie replikacji między woluminem źródłowym a docel
     1. Wybierz wolumin *docelowy* . Kliknij pozycję **replikacja** w obszarze usługa magazynu.  
 
     2.  Przed kontynuowaniem sprawdź następujące pola:  
-        * Upewnij się, że stan dublowania pokazuje ***zdublowany** _.   
-            Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje _Uninitialized *.
-        * Upewnij się, że stan relacji pokazuje ***bezczynny** _.   
-            Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje _Transferring *.   
+        * Upewnij się, że stan dublowania pokazuje ***dublowanie***.   
+            Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje *niezainicjowany*.
+        * Upewnij się, że stan relacji jest wyświetlany jako ***bezczynny***.   
+            Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje *transfer*.   
 
         Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md). 
 

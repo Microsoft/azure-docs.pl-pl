@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 0842a2cfa021ef8ea45c19ec885c7dec371730de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512641"
 ---
-# <a name="use-user-defined-applier"></a>Użyj applier zdefiniowanych przez użytkownika 
+# <a name="use-user-defined-applier"></a>Korzystanie z aplikatora zdefiniowanego przez użytkownika 
 
 ## <a name="u-sql-udo-user-defined-applier"></a>UDO U-SQL: zdefiniowane przez użytkownika applier
 Zdefiniowany przez użytkownika applier języka U-SQL umożliwia wywoływanie niestandardowej funkcji C# dla każdego wiersza, który jest zwracany przez wyrażenie tabeli zewnętrznej zapytania. Prawidłowe dane wejściowe są oceniane dla każdego wiersza z lewej strony wejściowej, a tworzone wiersze są łączone dla końcowych danych wyjściowych. Lista kolumn, które są tworzone przez operator APPLY, jest kombinacją zestawu kolumn po lewej stronie i po prawej stronie.

@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688879"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Korzystanie z MSAL dla systemu Android z B2C
@@ -196,7 +196,7 @@ new AuthenticationCallback() {
 
 Pomyślne pozyskiwanie tokenów w `IAuthenticationResult` obiekcie. Zawiera token dostępu, oświadczenia użytkowników i metadane.
 
-### <a name="get-the-access-token-and-related-properties"></a>Pobierz token dostępu i powiązane właściwości
+### <a name="get-the-access-token-and-related-properties"></a>Pobieranie tokenu dostępu i powiązanych właściwości
 
 ```java
 // Get the raw bearer token

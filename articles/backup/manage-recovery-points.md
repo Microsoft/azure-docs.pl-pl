@@ -4,10 +4,10 @@ description: Dowiedz się, jak usługa Azure Backup zarządza punktami odzyskiwa
 ms.topic: conceptual
 ms.date: 11/08/2020
 ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94428708"
 ---
 # <a name="manage-recovery-points"></a>Zarządzanie punktami odzyskiwania
@@ -75,14 +75,14 @@ Po wygaśnięciu początkowego punktu odzyskiwania zostaje on scalony z następn
 
 ### <a name="case-2-in-between-incremental-recovery-point-expires"></a>Przypadek 2: różnica między przyrostowym punktem odzyskiwania wygasa
 
-- Jeśli *punkt odzyskiwania 2* wygaśnie przed *punktem odzyskiwania 1* , dane z *punktu odzyskiwania 2* zostaną scalone z następnym dostępnym punktem odzyskiwania: *punkt odzyskiwania 3*. Dlatego blok D3 jest scalany z *punktem odzyskiwania 3*.
+- Jeśli *punkt odzyskiwania 2* wygaśnie przed *punktem odzyskiwania 1*, dane z *punktu odzyskiwania 2* zostaną scalone z następnym dostępnym punktem odzyskiwania: *punkt odzyskiwania 3*. Dlatego blok D3 jest scalany z *punktem odzyskiwania 3*.
 - *Punkt odzyskiwania 1* to nadal pełna kopia zapasowa z blokami D1 i D2.
 
 ![Drugi przypadek](./media/manage-recovery-points/second-case.png)
 
 ### <a name="case-3-on-demand-recovery-point-expires"></a>Przypadek 3: punkt odzyskiwania na żądanie wygasa
 
-W tym przykładzie zaplanowano uruchomienie zasad harmonogramu (codziennej kopii zapasowej) z okresem przechowywania na *n* dni.  Jeśli kopia zapasowa na żądanie zostanie wyzwolona w czwartym dniu przed następną zaplanowaną kopią zapasową, a jej okres przechowywania jest określony jako 10 dni, nadal będzie to przyrostowa kopia zapasowa. Punkt odzyskiwania ( *na żądanie PO1* ) zostanie utworzony po *punkcie odzyskiwania 3* i przed *punktem odzyskiwania 4*.  Na koniec dnia 14 punkt odzyskiwania na żądanie ( *Po1 na żądanie* ) wygasa i zostanie scalony z następnym dostępnym punktem odzyskiwania. Bloki danych, które są nadal obecne na serwerze, są scalane, a bloki danych, które uległy zmianie (zastąpione lub usunięte), są usuwane z wygasłego punktu odzyskiwania.
+W tym przykładzie zaplanowano uruchomienie zasad harmonogramu (codziennej kopii zapasowej) z okresem przechowywania na *n* dni.  Jeśli kopia zapasowa na żądanie zostanie wyzwolona w czwartym dniu przed następną zaplanowaną kopią zapasową, a jej okres przechowywania jest określony jako 10 dni, nadal będzie to przyrostowa kopia zapasowa. Punkt odzyskiwania (*na żądanie PO1*) zostanie utworzony po *punkcie odzyskiwania 3* i przed *punktem odzyskiwania 4*.  Na koniec dnia 14 punkt odzyskiwania na żądanie (*Po1 na żądanie*) wygasa i zostanie scalony z następnym dostępnym punktem odzyskiwania. Bloki danych, które są nadal obecne na serwerze, są scalane, a bloki danych, które uległy zmianie (zastąpione lub usunięte), są usuwane z wygasłego punktu odzyskiwania.
 
 ![Trzecia sprawa](./media/manage-recovery-points/third-case.png)
 

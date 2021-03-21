@@ -4,10 +4,10 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95400211"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
@@ -65,7 +65,7 @@ Obecnie nie mamy możliwości skonfigurowania rozwiązania wyłącznie dla wirtu
 
 1. Zaczekaj na ukończenie aktualnie uruchomionej kopii zapasowej w wymaganej bazie danych (Sprawdź, czy w programie Studio została ukończona).
 1. Wyłącz kopie zapasowe dzienników i ustaw kopię zapasową wykazu w **systemie plików** dla żądanej bazy danych, wykonując następujące czynności:
-1. Kliknij dwukrotnie pozycję **SYSTEMDB**  ->  **Konfiguracja** SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
+1. Kliknij dwukrotnie pozycję   ->  **Konfiguracja** SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
     1. Ustaw enable_auto_log_backup na wartość **nie**.
     1. Ustaw catalog_backup_using_backint na **wartość false**.
 1. Wykonaj kopię zapasową na żądanie (pełna/różnicowa/przyrostowo) w odpowiedniej bazie danych i poczekaj na zakończenie tworzenia kopii zapasowej i wykazu.
@@ -139,7 +139,7 @@ RPO (cel punktu odzyskiwania) wskazuje, ile utraconych danych jest akceptowalnyc
 
 RTO (cel czasu odzyskiwania) wskazuje, jak szybko dane powinny zostać przywrócone do ostatniego dostępnego punktu w czasie po przypadku utraty danych. Jest to zależne od strategii odzyskiwania wykorzystywanej przez platformę HANA, która zwykle zależy od liczby plików wymaganych do przywrócenia. Ma to również wpływ na koszty, a Poniższa tabela powinna pomóc w zrozumieniu wszystkich scenariuszy i ich skutków.
 
-|Zasady tworzenia kopii zapasowej  |Cel czasu odzyskiwania  |Cost (Koszt)  |
+|Zasady tworzenia kopii zapasowej  |Cel czasu odzyskiwania  |Koszt  |
 |---------|---------|---------|
 |Dzienny pełny dziennik i dzienniki     |   Najszybciej, ponieważ potrzebujemy tylko jednej pełnej kopii i wymaganych dzienników do przywracania do punktu w czasie      |    Opcja Costliest, ponieważ pełna kopia jest wykonywana codziennie, więc więcej i więcej danych jest gromadzonych w zapleczu do czasu przechowywania   |
 |Cotygodniowe pełne + dzienne różnice i dzienniki     |   Wolniejsza niż powyższa opcja, ale szybsza niż Następna opcja, ponieważ potrzebujemy jednej pełnej kopii i jednego różnicowego kopiowania + dzienników do przywracania do punktu w czasie      |    Mniej kosztowna opcja, ponieważ dzienna różnica jest zwykle mniejsza niż pełna, a pełna kopia jest wykonywana tylko raz w tygodniu.      |

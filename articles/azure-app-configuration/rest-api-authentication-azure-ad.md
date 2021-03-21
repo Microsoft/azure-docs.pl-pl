@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: cbf05245768a663e324e9bb6e1ad422eeee3ab1a
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930521"
 ---
 # <a name="azure-active-directory-authentication"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
@@ -54,7 +54,7 @@ Urząd usługi Azure AD jest punktem końcowym używanym do uzyskiwania tokenu u
 
 ### <a name="authentication-libraries"></a>Biblioteki uwierzytelniania
 
-Platforma Azure udostępnia zestaw bibliotek o nazwie Azure Active Directory bibliotek uwierzytelniania, co upraszcza proces uzyskiwania tokenu usługi Azure AD. Platforma Azure tworzy te biblioteki dla wielu języków. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
+Platforma Azure udostępnia zestaw bibliotek o nazwie Azure Active Directory bibliotek uwierzytelniania, co upraszcza proces uzyskiwania tokenu usługi Azure AD. Platforma Azure tworzy te biblioteki dla wielu języków. Więcej informacji zawiera strona [dokumentacji](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="errors"></a>błędy
 

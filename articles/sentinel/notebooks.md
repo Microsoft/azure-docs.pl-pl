@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
 ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092197"
 ---
-# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Używanie Jupyter Notebook do wyszukiwania zagrożeń bezpieczeństwa
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Wyszukiwanie zagrożeń bezpieczeństwa za pomocą notesów Jupyter
 
 Podstawą platformy Azure jest magazyn danych; łączy ona wysoce wydajne zapytania, schemat dynamiczny i skaluje się do dużych ilości danych. Aby uzyskać dostęp do tego magazynu danych, Azure Portal i wszystkie narzędzia wskaźnikowe platformy Azure używają wspólnego interfejsu API. Ten sam interfejs API jest również dostępny dla narzędzi zewnętrznych, takich jak notesy [Jupyter](https://jupyter.org/) i Python. Chociaż wiele typowych zadań można wykonać w portalu, Jupyter rozszerza zakres tego, co można zrobić za pomocą tych danych. Łączy ona pełen programowalność z ogromną kolekcją bibliotek na potrzeby uczenia maszynowego, wizualizacji i analizy danych. Te atrybuty sprawiają, że Jupyter narzędzi do dochodzenia do zabezpieczeń i polowania.
 
@@ -66,7 +66,7 @@ Aby móc korzystać z notesów, musisz najpierw utworzyć obszar roboczy Azure M
     |Subskrypcja|Wybierz subskrypcję platformy Azure, której chcesz użyć.|
     |Grupa zasobów|Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używamy **AzureMLRG**.|
     |Nazwa obszaru roboczego|Wprowadź unikatową nazwę identyfikującą obszar roboczy. W tym przykładzie używamy **testworkspace1**. Nazwy muszą być unikatowe w ramach grupy zasobów. Użyj nazwy, która jest łatwa do odzyskania i odróżniania od obszarów roboczych utworzonych przez inne osoby.|
-    |Region|Wybierz lokalizację znajdującą się najbliżej użytkowników i zasoby danych, aby utworzyć obszar roboczy.|
+    |Region (Region)|Wybierz lokalizację znajdującą się najbliżej użytkowników i zasoby danych, aby utworzyć obszar roboczy.|
     |Wersja obszaru roboczego|W tym przykładzie wybierz pozycję **Basic** jako typ obszaru roboczego. Typ obszaru roboczego (podstawowa & Enterprise) określa funkcje, do których będziesz mieć dostęp i Cennik.|
 
     > [!div class="mx-imgBorder"]

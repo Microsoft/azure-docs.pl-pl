@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021524"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Używanie wewnętrznego Load Balancer z App Service Environment
@@ -58,17 +58,17 @@ Tworzenie środowiska ILB ASE nie różni się od tworzenia w normalnych warunka
 
 W okienku Virtual Network jest dostępna opcja konfiguracji sieci wirtualnej, która umożliwia wybranie między zewnętrznym adresem VIP lub wewnętrznym adresem VIP. Wartość domyślna to Zewnętrzny. Jeśli jest ustawiona na zewnętrzny, środowisko ASE używa adresu VIP dostępnego z Internetu. W przypadku wybrania opcji Wewnętrzny środowisko ASE jest skonfigurowane z wewnętrznym modułem równoważenia obciążenia i adresem IP w sieci wirtualnej. 
 
-Po wybraniu opcji wewnętrzna możliwość dodawania większej liczby adresów IP do środowiska ASE jest usuwana, a zamiast tego należy udostępnić poddomenę ASE. W środowisku ASE z zewnętrznym adresem VIP Nazwa środowiska ASE jest używana w poddomenie dla aplikacji utworzonych w tym środowisku ASE. Jeśli środowisko ASE ma nazwę **_contosotest_* _, a aplikacja w tym środowisku ASE nosi nazwę "Moje _*_testy_*_", poddomena ma format _*_contosotest.p.azurewebsites.NET_*_ i adres URL dla tej aplikacji to _*_mytest.contosotest.p.azurewebsites.NET_*_. Jeśli ustawisz typ adresu VIP na wewnętrzny, Nazwa środowiska ASE nie zostanie użyta w poddomenie dla środowiska ASE. Należy jawnie określić poddomenę. Jeśli poddomeną jest _*_contoso.Corp.NET_*_ , a aplikacja w tym środowisku ASE nosi nazwę _*_raportowanieczasu_*_, adres URL dla tej aplikacji to _*_timereporting.contoso.Corp.NET_*_.
+Po wybraniu opcji wewnętrzna możliwość dodawania większej liczby adresów IP do środowiska ASE jest usuwana, a zamiast tego należy udostępnić poddomenę ASE. W środowisku ASE z zewnętrznym adresem VIP Nazwa środowiska ASE jest używana w poddomenie dla aplikacji utworzonych w tym środowisku ASE. Jeśli środowisko ASE ma nazwę ***contosotest** _, a aplikacja w tym środowisku ASE nosi nazwę "Moje _*_testy_*_", poddomena ma format _*_contosotest.p.azurewebsites.NET_*_ i adres URL dla tej aplikacji to _* _mytest.contosotest.p.azurewebsites.NET_* *. Jeśli ustawisz typ adresu VIP na wewnętrzny, Nazwa środowiska ASE nie zostanie użyta w poddomenie dla środowiska ASE. Należy jawnie określić poddomenę. Jeśli poddomeną jest ***contoso.Corp.NET**_ i utworzysz aplikację w tym środowisku ASE o nazwie _*_raportowanieczasu_*_, adres URL dla tej aplikacji to _ *_timereporting.contoso.Corp.NET_* *.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplikacje w środowisku ILB ASE
 Tworzenie aplikacji w środowisku ILB ASE jest takie samo jak w przypadku normalnego tworzenia aplikacji w środowisku ASE. 
 
-1. W Azure Portal wybierz pozycję _ *Utwórz zasób > sieć Web + aplikacje mobilne-> Web** lub **Mobile** lub **aplikacja interfejsu API**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób > Sieć Web + aplikacje mobilne > aplikacji sieci Web** lub **mobilnej** lub **interfejsu API**.
 2. Wprowadź nazwę aplikacji.
 3. Wybierz subskrypcję.
 4. Wybierz lub utwórz grupę zasobów.
 5. Wybierz lub Utwórz plan App Service (ASP). W przypadku tworzenia nowego środowiska ASP Wybierz środowisko ASE jako lokalizację i wybierz pulę procesów roboczych, w której ma zostać utworzona wartość ASP. Podczas tworzenia środowiska ASP należy wybrać środowisko ASE jako lokalizację i pulę procesów roboczych. Po określeniu nazwy aplikacji zobaczysz, że poddomena w ramach nazwy aplikacji jest zastępowana poddomeną dla środowiska ASE. 
-6. Wybierz pozycję **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
+6. Wybierz przycisk **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
 
 ![Pokazuje, jak utworzyć aplikację w ILB ASE w Azure Portal.][2]
 

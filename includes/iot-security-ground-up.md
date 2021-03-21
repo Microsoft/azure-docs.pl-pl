@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 234407e6973657ba3ad0d78189e7cb1d363c15e2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95556525"
 ---
 Internet rzeczy (IoT) stanowi unikatowe wyzwania w zakresie zabezpieczeń, prywatności i zgodności dla firm na całym świecie. W przeciwieństwie do tradycyjnej technologii cybernetycznymi, w której te problemy są nanoszone wokół oprogramowania i sposobu ich implementacji, IoT ma wpływ na to, co się dzieje w przypadku zbieżności cybernetycznymi i fizycznych rozwiązań. Ochrona rozwiązań IoT wymaga zapewnienia bezpiecznego aprowizacji urządzeń, bezpiecznej łączności między tymi urządzeniami i chmurą oraz zapewnienia bezpiecznej ochrony danych w chmurze podczas przetwarzania i przechowywania. Korzystanie z tych funkcji jest jednak urządzeniami z ograniczeniami zasobów, dystrybucją geograficzną wdrożeń i dużą liczbą urządzeń w ramach rozwiązania.
@@ -91,7 +91,7 @@ Gdy dane znajdują się w chmurze, mogą być przetwarzane i przechowywane w dow
 
 Wszystkie klucze używane przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przejęcia kluczy przypadków należy ponownie zainicjować obsługę administracyjną. Dane mogą być przechowywane w [Azure Cosmos DB](../articles/cosmos-db/introduction.md) lub w [SQL Database](../articles/azure-sql/database/sql-database-paas-overview.md), co pozwala na zdefiniowanie żądanego poziomu zabezpieczeń. Ponadto platforma Azure umożliwia monitorowanie i inspekcję całego dostępu do danych w taki sposób, aby ostrzegał o wszelkich włamaniach lub nieautoryzowanym dostępie.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Internet rzeczy rozpoczyna się od Twoich rzeczy — rzeczy, które najlepiej odpowiadają firmom. IoT może dostarczać niezwykłe wartości do firmy przez redukcję kosztów, wzrost przychodu i transformowanie firmy. Pomyślne przekształcenie jest w dużym stopniu zależne od wyboru odpowiedniego oprogramowania i dostawcy usług IoT. Oznacza to znalezienie dostawcy, który nie tylko catalyzes tę transformację, przez zrozumienie potrzeb i wymagań firmy, ale także udostępnia usługi i oprogramowanie stworzone z myślą o bezpieczeństwie, prywatności, przezroczystości i zgodności w ramach głównych zagadnień projektowych. Firma Microsoft oferuje rozległe doświadczenia związane z tworzeniem i wdrażaniem bezpiecznego oprogramowania i usług i nadal jest liderem w tym nowym wieku Internet rzeczy.
 

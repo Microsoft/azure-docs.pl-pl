@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021881"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Samouczek: Dodawanie węzłów klastra do klastra plików usługi Azure FXT Edge
@@ -69,7 +69,7 @@ Kolumna **Akcje** zawiera przyciski umożliwiające dodanie węzła do klastra l
 
 Wszystkie węzły w klastrze muszą korzystać z tej samej wersji systemu operacyjnego, ale nie trzeba aktualizować oprogramowania przed dodaniem węzła. Po kliknięciu przycisku **Zezwól na przyłączenie** proces dołączania do klastra automatycznie sprawdza i instaluje oprogramowanie systemu operacyjnego zgodne z wersją w klastrze.
 
-Aby dowiedzieć się więcej na temat opcji na tej stronie, Przeczytaj [ **Cluster**  >  **węzeł FXT** klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) w podręczniku konfiguracji klastra.
+Aby dowiedzieć się więcej na temat opcji na tej stronie, Przeczytaj [   >  **węzeł FXT** klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) w podręczniku konfiguracji klastra.
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. kliknij przycisk "Zezwól na przyłączenie"
 

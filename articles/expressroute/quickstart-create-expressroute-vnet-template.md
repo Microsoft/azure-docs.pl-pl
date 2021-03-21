@@ -10,10 +10,10 @@ ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789730"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Szybki Start: Tworzenie obwodu usługi ExpressRoute z prywatną usługą komunikacji równorzędnej przy użyciu szablonu usługi ARM
@@ -22,7 +22,7 @@ W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Man
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-W tym przewodniku szybki start utworzysz obwód usługi ExpressRoute z *Equinix* jako usługodawcą. Obwód będzie używać *jednostki SKU w warstwie Premium* z przepustowością *50 MB/s* i lokalizacją komunikacji równorzędnej w *Waszyngton* . Prywatna Komunikacja równorzędna zostanie włączona z podstawową i pomocniczą podsiecią odpowiednio *192.168.10.16/30* i *192.168.10.20/30* . Sieć wirtualna zostanie również utworzona wraz z *bramą ExpressRoute HighPerformance* .
+W tym przewodniku szybki start utworzysz obwód usługi ExpressRoute z *Equinix* jako usługodawcą. Obwód będzie używać *jednostki SKU w warstwie Premium* z przepustowością *50 MB/s* i lokalizacją komunikacji równorzędnej w *Waszyngton*. Prywatna Komunikacja równorzędna zostanie włączona z podstawową i pomocniczą podsiecią odpowiednio *192.168.10.16/30* i *192.168.10.20/30* . Sieć wirtualna zostanie również utworzona wraz z *bramą ExpressRoute HighPerformance*.
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
@@ -49,7 +49,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 
 Aby znaleźć więcej szablonów związanych z usługą ExpressRoute, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
 
@@ -70,7 +70,7 @@ Aby znaleźć więcej szablonów związanych z usługą ExpressRoute, zobacz [Sz
 
 1. Wybierz pozycję **Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
 
-1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej** .
+1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej**.
 
 1. Wprowadź wartości.
 
@@ -84,7 +84,7 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
 
@@ -92,11 +92,11 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 1. Grupa zasobów powinna zawierać następujące zasoby:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell szablonu":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Grupa zasobów wdrażania ExpressRoute":::
 
-1. Wybierz obwód ExpressRoute **er-ck01** , aby sprawdzić, czy stan obwodu **jest włączony** , stan dostawcy **nie jest zainicjowany** , a prywatna Komunikacja równorzędna ma stan **aprowizacji** .
+1. Wybierz obwód ExpressRoute **er-ck01** , aby sprawdzić, czy stan obwodu **jest włączony**, stan dostawcy **nie jest zainicjowany** , a prywatna Komunikacja równorzędna ma stan **aprowizacji**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell szablonu":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Obwód wdrożenia ExpressRoute":::
 
 > [!NOTE]
 > Aby można było połączyć sieć wirtualną z obwodem, należy skontaktować się z dostawcą w celu ukończenia procesu aprowizacji.

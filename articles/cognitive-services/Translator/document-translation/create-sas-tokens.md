@@ -7,10 +7,10 @@ ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
 ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489637"
 ---
 # <a name="create-sas-tokens-for-document-translation-processing"></a>Utwórz tokeny sygnatury dostępu współdzielonego na potrzeby przetwarzania tłumaczenia dokumentów
@@ -102,7 +102,7 @@ Przejdź do [Azure Portal](https://ms.portal.azure.com/#home) i przejdź w nast�
 
 1. Aby utworzyć adres URL sygnatury dostępu współdzielonego, Dołącz token sygnatury dostępu współdzielonego (URI) do adresu URL usługi magazynu.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Programistyczne tworzenie tokenów SAS dla obiektów blob lub kontenerów](../../../storage/blobs/sas-service-create.md)
 * [Uprawnienia do katalogu, kontenera lub obiektu BLOB](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
