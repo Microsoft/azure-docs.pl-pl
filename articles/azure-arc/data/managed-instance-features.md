@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97589223"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funkcje i możliwości usługi Azure ARC z włączonym wystąpieniem zarządzanym SQL
@@ -33,7 +33,7 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS wysoka dostępność  
   
-|Cechy|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
+|Cecha|Usługa SQL Managed Instance z obsługą usługi Azure Arc|
 |-------------|----------------|
 |Wysyłanie dziennika|Tak| 
 |Kompresja kopii zapasowej|Tak|
@@ -59,7 +59,7 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS skalowalność i wydajność  
 
-| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+| Cecha | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
 |--|--|
 | Klastrowany | Tak |
 | Duże wartości binarne obiektów w klastrowanych indeksach magazynu kolumn | Tak |
@@ -81,10 +81,10 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Zabezpieczenia RDBMS
 
-| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+| Cecha | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
 |--|--|
 | Zabezpieczenia na poziomie wiersza | Tak |
-| Zawsze szyfrowane | Tak |
+| Funkcja Always Encrypted | Tak |
 | Magazyny Always Encrypted z bezpiecznymi enklawami | Nie |
 | Dynamiczne maskowanie danych | Tak |
 | Podstawowa Inspekcja | Tak |
@@ -96,7 +96,7 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> Łatwość zarządzania RDBMS  
 
-| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+| Cecha | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
 |--|--|
 | Dedykowane połączenie administratora | Tak |
 | Obsługa skryptów programu PowerShell | Tak |
@@ -114,7 +114,7 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programowania  
 
-| Cechy | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
+| Cecha | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
 |--|--|
 | JSON | Tak |
 | Magazyn zapytań | Tak |  |
@@ -157,7 +157,7 @@ Usługa Azure ARC z włączonym wystąpieniem zarządzanym SQL obsługuje różn
 
 Następujące funkcje i usługi nie są dostępne dla wystąpienia zarządzanego SQL z obsługą usługi Azure Arc. Obsługa tych funkcji będzie coraz częściej włączona.
 
-| Obszar | Nieobsługiwana funkcja lub usługa |
+| Warstwowy | Nieobsługiwana funkcja lub usługa |
 |-----|-----|
 | **Aparat bazy danych** | Replikacja scalająca |
 | &nbsp; | Rozciągana baza danych |

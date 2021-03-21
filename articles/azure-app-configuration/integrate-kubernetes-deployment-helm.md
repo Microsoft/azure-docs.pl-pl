@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
 ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979831"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
@@ -23,7 +23,7 @@ W trakcie procesu zwalniania program Helm Scala wykres z odpowiednią konfigurac
 
 Wartości przechowywane w *wartościach. YAML* można zastąpić przez udostępnienie dodatkowych YAML plików konfiguracji w wierszu polecenia podczas uruchamiania Helm. Konfiguracja aplikacji platformy Azure obsługuje eksportowanie wartości konfiguracji do plików YAML. Integracja tej możliwości eksportu z wdrożeniem umożliwia aplikacjom Kubernetes korzystanie z wartości konfiguracyjnych przechowywanych w konfiguracji aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Użyj wartości z konfiguracji aplikacji podczas wdrażania aplikacji do Kubernetes przy użyciu Helm.
 > * Utwórz wpis tajny Kubernetes na podstawie odwołania Key Vault w konfiguracji aplikacji.

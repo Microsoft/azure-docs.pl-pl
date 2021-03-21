@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 1/29/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99094196"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
@@ -104,10 +104,10 @@ Ta prosta aplikacja konsolowa języka C#/.NET wykonuje następujące zadania:
 
  Przed uruchomieniem programu Poświęć chwilę na zbadanie kodu i definicji indeksu dla tego przykładu. Odpowiedni kod znajduje się w kilku plikach:
 
-  + **Hotel.cs** i **Address.cs** zawiera schemat definiujący indeks
-  + **DataGenerator.cs** zawiera prostą klasę, aby ułatwić tworzenie dużych ilości danych hotelu
-  + **ExponentialBackoff.cs** zawiera kod umożliwiający optymalizację procesu indeksowania zgodnie z poniższym opisem
-  + **Program.cs** zawiera funkcje, które tworzą i usuwają indeks wyszukiwanie poznawcze platformy Azure, indeksuje partie danych i testuje różne rozmiary partii
+  + **Hotel. cs** i **Address. cs** zawiera schemat definiujący indeks
+  + **Datagenerator. cs** zawiera prostą klasę, aby ułatwić tworzenie dużych ilości danych hotelu
+  + **ExponentialBackoff. cs** zawiera kod umożliwiający optymalizację procesu indeksowania zgodnie z poniższym opisem
+  + **Program. cs** zawiera funkcje, które tworzą i usuwają indeks wyszukiwanie poznawcze platformy Azure, indeksuje partie danych i testuje różne rozmiary partii
 
 ### <a name="creating-the-index"></a>Tworzenie indeksu
 
@@ -115,7 +115,7 @@ Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia ind
 
 Model danych jest definiowany przez klasę hotelu, która również zawiera odwołania do klasy Address. FieldBuilder przechodzi przez wiele definicji klas w celu wygenerowania złożonej struktury danych dla indeksu. Tagi metadanych są używane do definiowania atrybutów poszczególnych pól, na przykład czy można je przeszukiwać czy sortować.
 
-Poniższe fragmenty kodu z pliku **Hotel.cs** pokazują, jak można określić jedno pole i odwołanie do innej klasy modelu danych.
+Poniższe fragmenty kodu z pliku **Hotel. cs** pokazują, jak można określić jedno pole i odwołanie do innej klasy modelu danych.
 
 ```csharp
 . . .
@@ -126,7 +126,7 @@ public Address Address { get; set; }
 . . .
 ```
 
-W pliku **program.cs** indeks jest zdefiniowany przy użyciu nazwy i kolekcji pól wygenerowanej przez `FieldBuilder.Build(typeof(Hotel))` metodę, a następnie utworzony w następujący sposób:
+W pliku **program. cs** indeks jest zdefiniowany przy użyciu nazwy i kolekcji pól wygenerowanej przez `FieldBuilder.Build(typeof(Hotel))` metodę, a następnie utworzony w następujący sposób:
 
 ```csharp
 private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
@@ -143,7 +143,7 @@ private static async Task CreateIndexAsync(string indexName, SearchIndexClient i
 
 ### <a name="generating-data"></a>Generowanie danych
 
-Prosta Klasa jest zaimplementowana w pliku **DataGenerator.cs** , aby generować dane do testowania. Jedynym celem tej klasy jest ułatwienie generowania dużej liczby dokumentów z unikatowym IDENTYFIKATORem indeksowania.
+Prosta Klasa jest zaimplementowana w pliku **Datageneratora. cs** w celu wygenerowania danych do testowania. Jedynym celem tej klasy jest ułatwienie generowania dużej liczby dokumentów z unikatowym IDENTYFIKATORem indeksowania.
 
 Aby uzyskać listę 100 000 hoteli z unikatowymi identyfikatorami, należy uruchomić następujące wiersze kodu:
 
@@ -345,7 +345,7 @@ do
 
 W tym miejscu zawijamy kod wykładniczy wycofywania do funkcji, aby można było ją łatwo wywołać.
 
-Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
+Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff. cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
 
 ```csharp
 await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
@@ -388,7 +388,7 @@ Operacja Pobierz statystyki indeksu zwraca liczbę dokumentów dla bieżącego i
 var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 W Azure Portal Otwórz stronę **Przegląd** usługi wyszukiwania i Znajdź indeks **Optymalizacja —** indeksowanie na liście **indeksów** .
 

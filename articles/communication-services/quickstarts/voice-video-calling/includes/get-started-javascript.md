@@ -3,15 +3,15 @@ title: Szybki Start — dodawanie telefonu VOIP do aplikacji internetowej przy u
 description: W ramach tego samouczka nauczysz się korzystać z biblioteki klienta wywołującego usługę Azure Communications Services dla języka JavaScript
 author: ddematheu
 ms.author: nimag
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 702efa3431ff3c9cf91aae38ac76219d900f7e85
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 8dc59250e3c00d161446e7361db0c085e12ab4cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439082"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598855"
 ---
 W tym przewodniku szybki start dowiesz się, jak zacząć wywoływanie przy użyciu biblioteki klienta wywołania usługi Azure Communication Services dla języka JavaScript.
 
@@ -106,7 +106,7 @@ callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
     call = callAgent.startCall(
-        [{ communicationUserId: userToCall }],
+        [{ id: userToCall }],
         {}
     );
     // toggle button states

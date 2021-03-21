@@ -4,10 +4,10 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwa
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587796"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
@@ -69,7 +69,7 @@ Nie, Site Recovery nie przechwytuje replikowanych danych i nie zawiera żadnych 
 
 Site Recovery jest certyfikowany dla ISO 27001:2013 i 27018, HIPAA i DPA. Jest to proces oceny SOC2 i FedRAMP JAB.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Jak mogę obliczyć przybliżone opłaty za odzyskiwanie po awarii oprogramowania VMware?
 

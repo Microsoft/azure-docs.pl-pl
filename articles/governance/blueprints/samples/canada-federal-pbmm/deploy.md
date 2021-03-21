@@ -4,10 +4,10 @@ description: Wdróż kroki dla przykładu Federalnej usługi PBMM w Kanadzie, w 
 ms.date: 02/05/2021
 ms.topic: sample
 ms.openlocfilehash: ec7b0f4bd049b8cb2ead9301ac9ddb76ae727cca
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594784"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Wdróż przykłady planu PBMM federalnego Kanady

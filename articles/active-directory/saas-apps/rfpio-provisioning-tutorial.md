@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: ff859e7d77fd19cd006cf45a6faa737297fdb9a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349643"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RFPIO na potrzeby automatycznego aprowizacji użytkowników
@@ -60,7 +60,7 @@ Przed skonfigurowaniem usługi RFPIO na potrzeby automatycznego inicjowania obs�
     
     ![Administrator RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Przejdź do Standard scim zabezpieczeń **zarządzania użytkownikami**  >  **SECURITY**  >  **SCIM**.
+3.  Przejdź do Standard scim zabezpieczeń **zarządzania użytkownikami**  >    >  .
 
     ![RFPIO Dodaj Standard scim](media/rfpio-provisioning-tutorial/scim.png)
 
@@ -159,7 +159,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * Usługa RFPIO nie obsługuje obecnie aprowizacji grup.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100520565"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
@@ -104,7 +104,7 @@ Aby wdrożyć jako klasyczną usługę sieci Web i utworzyć aplikację w celu j
 4. W **domyślnej tabeli punktów końcowych** kliknij link **wykonywania wsadowego** , aby otworzyć stronę pomocy interfejsu API.
 5. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy**  >  **projekt**  >  **Visual C#**  >  **Windows Classic**  >  **Aplikacja konsolowa (.NET Framework)**.
 6. Na stronie Pomoc interfejsu API Znajdź **przykładową sekcję kod** w dolnej części strony.
-7. Skopiuj i wklej przykładowy kod w języku C# do pliku Program.cs, a następnie usuń wszystkie odwołania do magazynu obiektów BLOB.
+7. Skopiuj i wklej przykładowy kod w języku C# do pliku program. cs i Usuń wszystkie odwołania do magazynu obiektów BLOB.
 8. Zaktualizuj wartość zmiennej *apiKey* z kluczem interfejsu API zapisanym wcześniej.
 9. Znajdź deklarację żądania i zaktualizuj wartości parametrów usługi sieci Web, które są przesyłane do modułów *Importuj dane* i *Eksportuj dane* . W takim przypadku należy użyć oryginalnego zapytania, ale zdefiniować nową nazwę tabeli.
 
@@ -134,7 +134,7 @@ Aby wdrożyć program jako nową usługę sieci Web i utworzyć aplikację do u�
 4. Na stronie **Szybki Start** **kliknij pozycję** Użyj.
 5. W sekcji **przykładowy kod** kliknij pozycję **Batch**.
 6. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy**  >  **projekt**  >  **Visual C#**  >  **Windows Classic**  >  **Aplikacja konsolowa (.NET Framework)**.
-7. Skopiuj i wklej przykładowy kod w języku C# do pliku Program.cs.
+7. Skopiuj i wklej przykładowy kod w języku C# do pliku program. cs.
 8. Zaktualizuj wartość zmiennej *apiKey* przy użyciu **klucza podstawowego** znajdującego się w sekcji **podstawowe informacje o zużyciu** .
 9. Znajdź deklarację *scoreRequest* i zaktualizuj wartości parametrów usługi sieci Web, które są przesyłane do modułów *Importuj dane* i *Eksportuj dane* . W takim przypadku należy użyć oryginalnego zapytania, ale zdefiniować nową nazwę tabeli.
 

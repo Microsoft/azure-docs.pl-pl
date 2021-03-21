@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831218"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Samouczek: łączenie modułu IoT Plug and Play (C#)
@@ -114,18 +114,18 @@ Aby otworzyć i przygotować przykładowy projekt:
 
 Aby zmodyfikować kod, który będzie działał jako moduł, a nie na urządzeniu:
 
-1. W programie Visual Studio Otwórz *Parameter.cs* i Zmodyfikuj wiersz ustawiający zmienną **PrimaryConnectionString** w następujący sposób:
+1. W programie Visual Studio Otwórz *parametr. cs* i Zmodyfikuj wiersz ustawiający zmienną **PrimaryConnectionString** w następujący sposób:
 
     ```csharp
     public string PrimaryConnectionString { get; set; } = Environment.GetEnvironmentVariable("IOTHUB_MODULE_CONNECTION_STRING");
     ```
 
-1. W programie Visual Studio Otwórz *program.cs* i Zastąp siedem wystąpień klasy klasą `DeviceClient` `ModuleClient` .
+1. W programie Visual Studio Otwórz *program programy. cs* i Zastąp siedem wystąpień klasy klasą `DeviceClient` `ModuleClient` .
 
     > [!TIP]
     > Używanie funkcji wyszukiwania i zamiany w programie Visual Studio z **wielkością liter** i **Dopasowanie całych wyrazów** z włączoną opcją Zamień na `DeviceClient` `ModuleClient` .
 
-1. W programie Visual Studio Otwórz *thermostat.cs* i Zastąp oba wystąpienia klasy klasą w `DeviceClient` `ModuleClient` następujący sposób.
+1. W programie Visual Studio Otwórz program *termostat. cs* i Zastąp oba wystąpienia klasy klasą w `DeviceClient` `ModuleClient` następujący sposób.
 
 1. Zapisz zmiany w zmodyfikowanych plikach.
 
@@ -186,13 +186,13 @@ Zestawy SDK usług umożliwiają pobranie identyfikatora modelu połączonych ur
     > [!TIP]
     > Parametry połączenia usługi IoT Hub można również znaleźć w narzędziu Azure IoT Explorer.
 
-1. Otwórz plik *program.cs* i Zmodyfikuj wiersz, który wywołuje polecenie w następujący sposób:
+1. Otwórz plik *program. cs* i Zmodyfikuj wiersz, który wywołuje polecenie w następujący sposób:
 
     ```csharp
     CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
     ```
 
-1. W pliku *program.cs* Zmodyfikuj wiersz, który pobiera sznurki urządzenia w następujący sposób:
+1. W pliku *program. cs* Zmodyfikuj wiersz, który pobiera sznurki urządzenia w następujący sposób:
 
     ```csharp
     Twin twin = await s_registryManager.GetTwinAsync(s_deviceId, "my-module");

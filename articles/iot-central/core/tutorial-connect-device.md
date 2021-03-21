@@ -12,10 +12,10 @@ ms.custom:
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
 ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99833970"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central
@@ -24,7 +24,7 @@ ms.locfileid: "99833970"
 
 W tym samouczku pokazano, jak programista urządzeń ma połączyć aplikację kliencką z aplikacją IoT Central platformy Azure. Aplikacja symuluje zachowanie urządzenia z termostatem. Gdy aplikacja nawiązuje połączenie z IoT Central, wysyła identyfikator modelu urządzenia termostatu. IoT Central korzysta z identyfikatora modelu, aby pobrać model urządzenia i utworzyć dla Ciebie szablon urządzenia. Dodano dostosowania i widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz i uruchom kod urządzenia i sprawdź, czy jest on połączony z aplikacją IoT Central.

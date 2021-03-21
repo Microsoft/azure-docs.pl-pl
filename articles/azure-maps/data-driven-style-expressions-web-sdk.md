@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680062"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)

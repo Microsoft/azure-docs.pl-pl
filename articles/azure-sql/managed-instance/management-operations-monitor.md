@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589337"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorowanie operacji zarządzania wystąpieniami zarządzanymi Azure SQL

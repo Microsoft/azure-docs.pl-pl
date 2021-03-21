@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.openlocfilehash: 9cfc48e3fdb96ba5b63b28288a801095f7b36f43
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97589890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Samouczek: integracja Azure Active Directory z usługą SpringCM
@@ -164,7 +164,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -205,7 +205,7 @@ Aby umożliwić użytkownikom Azure Active Directory logowanie się w usłudze S
 
 1. Kliknij pozycję **Przejdź** do, a następnie kliknij pozycję **książka adresowa**.
 
-    ![Utwórz użytkownika](./media/spring-cm-tutorial/ic797054.png "Utwórz użytkownika")
+    ![Tworzenie użytkownika](./media/spring-cm-tutorial/ic797054.png "Utwórz użytkownika")
 
 1. Kliknij pozycję **Create User** (Utwórz użytkownika).
 
@@ -228,7 +228,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SpringCM w panelu dostępu należy automatycznie zalogować się do SpringCM, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

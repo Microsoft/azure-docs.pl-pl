@@ -14,10 +14,10 @@ ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99981227"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Samouczek: Używanie odwołań Key Vault w aplikacji ASP.NET Core
@@ -34,7 +34,7 @@ W tym samouczku pokazano, jak zaimplementować Key Vault odwołania w kodzie. Op
 
 Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. Na przykład [Visual Studio Code](https://code.visualstudio.com/) to Międzyplatformowy Edytor kodu, który jest dostępny dla systemów operacyjnych Windows, MacOS i Linux.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w Key Vault.
@@ -162,7 +162,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     dotnet add package Azure.Identity
     ```
 
-1. Otwórz *program.cs* i Dodaj odwołania do następujących wymaganych pakietów:
+1. Otwórz *Program Package. cs* i Dodaj odwołania do następujących wymaganych pakietów:
 
     ```csharp
     using Azure.Identity;

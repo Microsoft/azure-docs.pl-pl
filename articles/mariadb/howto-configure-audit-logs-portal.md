@@ -3,14 +3,14 @@ title: Dzienniki inspekcji dostępu — Azure Portal — Azure Database for Mari
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do dzienników inspekcji w programie Azure Database for MariaDB z Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: ec0791b169f667a2828087c37ea8f01fc3351bf7
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f1f3cda4ed9cdac6f6e03e88601b0a35d5c53faf
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663149"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurowanie i dostęp do dzienników inspekcji w Azure Portal

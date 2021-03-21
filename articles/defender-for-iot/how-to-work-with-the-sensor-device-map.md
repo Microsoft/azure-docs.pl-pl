@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523842"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Badanie wykrywania czujników na mapie urządzeń
@@ -709,6 +709,6 @@ Aby wyeksportować:
 
 1. Wybierz opcję eksportowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Badanie wykrywania czujników w spisie urządzeń](how-to-investigate-sensor-detections-in-a-device-inventory.md)

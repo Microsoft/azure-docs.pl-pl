@@ -8,19 +8,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3a29c4522812b728f553bf52543ac3307f0ffbda
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2c59c67eb7b5ae5b26ac5517afba433fe8c028fa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94739941"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611750"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Tworzenie sieci wirtualnej z wykorzystaniem połączenia sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia
 
 Ten artykuł pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia połączenia bramy sieci VPN lokacja-lokacja z Twojej sieci lokalnej do sieci wirtualnej. Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:<br>
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](./tutorial-site-to-site-portal.md)
 > * [Program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Interfejs wiersza polecenia](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)

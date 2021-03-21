@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 ms.author: egeaney
 ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100524530"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker szyfrowanie danych magazynowanych
@@ -76,7 +76,7 @@ Usługa QnA Maker używa programu CMK z usługi Azure Search. Wykonaj następuj�
 
 ---
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 Klucze zarządzane przez klienta są dostępne we wszystkich regionach Azure Search.
 

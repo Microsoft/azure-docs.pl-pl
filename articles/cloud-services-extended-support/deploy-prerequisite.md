@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472308"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Wymagania wstępne dotyczące wdrażania usługi Azure Cloud Services (obsługa rozszerzona)

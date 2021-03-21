@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 3793da7fc9bbb0f8253f60d2324b48917f1aece1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737510"
 ---
 # <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Elementy języka T-SQL dla dedykowanej puli SQL w usłudze Azure Synapse Analytics 

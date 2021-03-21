@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523825"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Konfigurowanie monitorowania SNMP MIB
@@ -84,6 +84,6 @@ Aby zdefiniować monitorowanie kondycji SNMP v3:
 
 5. Wybierz pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
 [Eksportuj dzienniki rozwiązywania problemów](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
