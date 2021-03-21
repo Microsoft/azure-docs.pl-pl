@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122446"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ Gdy Programowanie aplikacji przenosi się do podejścia opartego na kontenerach,
 
 W tym artykule wprowadzono podstawowe składniki infrastruktury Kubernetes, takie jak *płaszczyzna kontroli*, *węzły* i *Pule węzłów*. Wprowadzono również zasoby obciążenia *, takie jak* *zbiory* , *wdrożenia* i zestawy, wraz z sposobem grupowania zasobów w *przestrzeni nazw*.
 
-## <a name="what-is-kubernetes"></a>Co to jest Kubernetes?
+## <a name="what-is-kubernetes"></a>Co to jest platforma Kubernetes?
 
 Kubernetes to gwałtownie rozwijający się platforma, która zarządza aplikacjami opartymi na kontenerach i skojarzonymi z nimi składnikami sieci i magazynu. Fokus dotyczy obciążeń aplikacji, a nie podstawowych składników infrastruktury. Kubernetes zapewnia deklaracyjne podejście do wdrożeń, które są obsługiwane przez niezawodny zestaw interfejsów API dla operacji zarządzania.
 

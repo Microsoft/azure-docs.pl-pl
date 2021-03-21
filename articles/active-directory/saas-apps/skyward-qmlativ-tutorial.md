@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: c57205fda785e3b925e648fee548f7e31a2322d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Samouczek: integracja Azure Active Directory z usługą skyward Qmlativ
@@ -114,7 +114,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Skyward Qm
 
 ### <a name="configure-skyward-qmlativ-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Skyward Qmlativ
 
-Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Skyward Qmlativ **, należy wysłać **adres URL metadanych federacyjnych aplikacji** do [zespołu pomocy technicznej aplikacji Skyward Qmlativ](mailto:steveb@skyward.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Skyward Qmlativ**, należy wysłać **adres URL metadanych federacyjnych aplikacji** do [zespołu pomocy technicznej aplikacji Skyward Qmlativ](mailto:steveb@skyward.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -139,13 +139,13 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z logowania jednokrotnego platformy Azure, udzielając dostępu do aplikacji Skyward Qmlativ.
 
-1. W witrynie Azure Portal wybierz pozycję **Aplikacje dla przedsiębiorstw** i **Wszystkie aplikacje**, a następnie pozycję**Skyward Qmlativ**.
+1. W witrynie Azure Portal wybierz pozycję **Aplikacje dla przedsiębiorstw** i **Wszystkie aplikacje**, a następnie pozycję **Skyward Qmlativ**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

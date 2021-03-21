@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/03/2020
-ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e2625fff802e71f797bf6970e763f2bf11c393e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573990"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584180"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce z znakami specjalnymi (łączniki, symbole wieloznaczne, wyrażenia regularne, wzorce)
 
@@ -85,7 +85,7 @@ W przypadku wybrania analizatora, który tworzy tokeny całodzienne, typowe są 
 | [analizatory języka](index-add-language-analyzers.md) | Zachowuje łączniki w wyrazach złożonych lub ciągach, mutacjach samogłosek i formularzach zleceń. Jeśli wzorce zapytań zawierają łączniki, korzystanie z analizatora języka może być wystarczające. |
 | [kodu](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Zawartość całego pola jest tokenem pojedynczym terminem. |
 | [odstępu](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Oddziela tylko odstępy. Warunki, które zawierają łączniki lub inne znaki, są traktowane jako pojedynczy token. |
-| [Analizator niestandardowy](index-add-custom-analyzers.md) | Rekomendowane Utworzenie analizatora niestandardowego pozwala określić zarówno tokenizatora, jak i filtr tokenu. Poprzednie analizatory muszą być używane jako-is. Analizator niestandardowy umożliwia wybranie filtrów tokenizatory i tokenów, które mają być używane. <br><br>Zalecaną kombinacją jest [słowo kluczowe tokenizatora](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) z [filtrem tokenu o niższym przypadku](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). We wstępnie zdefiniowanym [analizatorze słów kluczowych](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) nie jest rozróżniana wielkość liter, co może spowodować niepowodzenie zapytań. Analizator niestandardowy zapewnia mechanizm dodawania do filtru tokenów małych liter. |
+| [Analizator niestandardowy](index-add-custom-analyzers.md) | Rekomendowane Utworzenie analizatora niestandardowego pozwala określić zarówno tokenizatora, jak i filtr tokenu. Poprzednie analizatory muszą być używane jako-is. Analizator niestandardowy umożliwia wybranie filtrów tokenizatory i tokenów, które mają być używane. <br><br>Zalecaną kombinacją jest [słowo kluczowe tokenizatora](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) z [filtrem tokenu o niższym przypadku](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). W przypadku wbudowanego [analizatora słów kluczowych](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) nie są rozróżniane wielkie litery, co może spowodować niepowodzenie zapytań. Analizator niestandardowy zapewnia mechanizm dodawania do filtru tokenów małych liter. |
 
 Jeśli używasz narzędzia testowego interfejsu API sieci Web, takiego jak Poster, możesz dodać [wywołanie REST analizatora testu](/rest/api/searchservice/test-analyzer) , aby przeprowadzić inspekcję danych wyjściowych z tokenami.
 
@@ -160,9 +160,9 @@ Bez względu na to, czy oceniasz analizatory, czy przenosisz się do przodu przy
 
 ### <a name="use-built-in-analyzers"></a>Używanie wbudowanych analizatorów
 
-Wbudowane lub wstępnie zdefiniowane analizatory mogą być określone przez nazwę we `analyzer` właściwości definicji pola i nie jest wymagana żadna dodatkowa konfiguracja w indeksie. W poniższym przykładzie pokazano, jak ustawić `whitespace` Analizator dla pola. 
+Wbudowane analizatory mogą być określone przez nazwę we `analyzer` właściwości definicji pola i nie jest wymagana żadna dodatkowa konfiguracja w indeksie. W poniższym przykładzie pokazano, jak ustawić `whitespace` Analizator dla pola. 
 
-Aby uzyskać więcej scenariuszy i dowiedzieć się więcej na temat innych wbudowanych analizatorów, zobacz [Lista wstępnie zdefiniowanych analizatorów](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
+W przypadku innych scenariuszy i Dowiedz się więcej o innych wbudowanych analizatorach, zobacz [wbudowane analizatory](./index-add-custom-analyzers.md#built-in-analyzers). 
 
 ```json
     {

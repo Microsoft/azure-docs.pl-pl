@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302955"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761158"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Tworzenie potoku wydania na potrzeby ciągłego wdrażania
 
@@ -17,7 +17,7 @@ W tej sekcji utworzysz potok wydania, który jest skonfigurowany do automatyczne
 
 Utwórz nowy potok i Dodaj nowy etap:
 
-1. Na karcie **wersje** w obszarze **potoki**wybierz pozycję **+ Nowy potok**. Lub, jeśli masz już potoki wersji, wybierz przycisk **+ Nowy** i wybierz pozycję **+ Nowy potok wersji**.  
+1. Na karcie **wersje** w obszarze **potoki** wybierz pozycję **+ Nowy potok**. Lub, jeśli masz już potoki wersji, wybierz przycisk **+ Nowy** i wybierz pozycję **+ Nowy potok wersji**.  
 
     ![Dodawanie potoku wydania przy użyciu przycisku + Nowy potok](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-release-pipeline.png)
 
@@ -25,7 +25,7 @@ Utwórz nowy potok i Dodaj nowy etap:
 
     ![Zacznij od pustego zadania dla potoku wydania](./media/iot-edge-create-release-pipeline-for-continuous-deployment/start-with-empty-release-job.png)
 
-3. Nowy potok wydania jest inicjowany z jednym etapem, zwanym **etapem 1**. Zmień nazwę etapu 1 na **dev** i Traktuj ją jako potok ciągłego wdrażania dla środowiska deweloperskiego. Zwykle potoki ciągłego wdrażania mają wiele etapów, w tym **dev**, **Staging**i **prod**. Możesz użyć różnych nazw i utworzyć więcej na podstawie swojej DevOps. Zamknij okno Szczegóły etapu po jego zmianie nazwy.
+3. Nowy potok wydania jest inicjowany z jednym etapem, zwanym **etapem 1**. Zmień nazwę etapu 1 na **dev** i Traktuj ją jako potok ciągłego wdrażania dla środowiska deweloperskiego. Zwykle potoki ciągłego wdrażania mają wiele etapów, w tym **dev**, **Staging** i **prod**. Możesz użyć różnych nazw i utworzyć więcej na podstawie swojej DevOps. Zamknij okno Szczegóły etapu po jego zmianie nazwy.
 
    Możesz również zmienić nazwę potoku wydania, zaznaczając w górnej części tekst "Nowa wersja potoku".
 
@@ -33,7 +33,7 @@ Utwórz nowy potok i Dodaj nowy etap:
 
    ![Kliknij przycisk Dodaj w obszarze artefaktów interfejsu](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifacts.png)
 
-5. Na **stronie Dodawanie artefaktu**wybierz opcję **Kompiluj** jako **Typ źródła**. Wybierz projekt i utworzony potok kompilacji. Jeśli chcesz, możesz zmienić **alias źródłowy** na coś bardziej opisowego. Następnie wybierz pozycję **Dodaj**.
+5. Na **stronie Dodawanie artefaktu** wybierz opcję **Kompiluj** jako **Typ źródła**. Wybierz projekt i utworzony potok kompilacji. Jeśli chcesz, możesz zmienić **alias źródłowy** na coś bardziej opisowego. Następnie wybierz pozycję **Dodaj**.
 
    ![Na stronie Dodawanie artefaktu wybierz pozycję Dodaj, aby utworzyć artefakt](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifact.png)
 
@@ -63,8 +63,18 @@ Utwórz nowy potok i Dodaj nowy etap:
     * **ACR_PASSWORD**: hasło Azure Container Registry.
     * **ACR_USER**: Azure Container Registry nazwy użytkownika.
 
-    Jeśli w projekcie znajdują się inne zmienne, możesz określić nazwę i wartość na tej karcie. W przypadku **wygenerowania manifestu wdrożenia** można rozpoznać tylko zmienne `${VARIABLE}` . Upewnij się, że używasz tego `*.template.json` pliku w plikach.
-
+    Jeśli w projekcie znajdują się inne zmienne, możesz określić nazwę i wartość na tej karcie. Manifest dotyczący **generowania wdrożenia** może rozpoznawać tylko zmienne, które są w wersji `${VARIABLE}` . Upewnij się, że używasz tego `*.template.json` pliku w plikach.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Konfigurowanie zmiennych dla potoku wydania na karcie zmienne](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Wybierz drugie zadanie **Azure IoT Edge** i skonfiguruj je przy użyciu następujących wartości:
@@ -76,9 +86,9 @@ Utwórz nowy potok i Dodaj nowy etap:
     | Plik wdrożenia | Umieść ścieżkę `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Ta ścieżka jest plikiem manifestu wdrażania IoT Edge. |
     | Subskrypcja platformy Azure | Wybierz subskrypcję zawierającą IoT Hub.|
     | Nazwa IoT Hub | Wybierz Centrum IoT Hub.|
-    | Wybieranie jednego/wielu urządzeń | Zdecyduj, czy potok wydania ma zostać wdrożony na jednym, czy na wielu urządzeniach. W przypadku wdrażania na jednym urządzeniu wprowadź **IoT Edge identyfikator urządzenia**. W przypadku wdrażania na wielu urządzeniach należy określić **warunek docelowy**urządzenia. Warunek docelowy to filtr zgodny z zestawem IoT Edge urządzeń w IoT Hub. Jeśli chcesz używać tagów urządzenia jako warunku, musisz zaktualizować odpowiednie znaczniki urządzeń za pomocą sznurka urządzenia IoT Hub. Zaktualizuj **IoT Edge identyfikator wdrożenia** i **IoT Edge priorytet wdrożenia** w obszarze Ustawienia zaawansowane. Aby uzyskać więcej informacji na temat tworzenia wdrożenia dla wielu urządzeń, zobacz [opis IoT Edge wdrożeń automatycznych](../articles/iot-edge/module-deployment-monitoring.md). |
+    | Wybieranie jednego/wielu urządzeń | Zdecyduj, czy potok wydania ma zostać wdrożony na jednym, czy na wielu urządzeniach. W przypadku wdrażania na jednym urządzeniu wprowadź **IoT Edge identyfikator urządzenia**. W przypadku wdrażania na wielu urządzeniach należy określić **warunek docelowy** urządzenia. Warunek docelowy to filtr zgodny z zestawem IoT Edge urządzeń w IoT Hub. Jeśli chcesz używać tagów urządzenia jako warunku, musisz zaktualizować odpowiednie znaczniki urządzeń za pomocą sznurka urządzenia IoT Hub. Zaktualizuj **IoT Edge identyfikator wdrożenia** i **IoT Edge priorytet wdrożenia** w obszarze Ustawienia zaawansowane. Aby uzyskać więcej informacji na temat tworzenia wdrożenia dla wielu urządzeń, zobacz [opis IoT Edge wdrożeń automatycznych](../articles/iot-edge/module-deployment-monitoring.md). |
     | Identyfikator urządzenia lub warunek docelowy | W zależności od wcześniejszego wyboru Określ identyfikator urządzenia lub [warunek docelowy](../articles/iot-edge/module-deployment-monitoring.md#target-condition) , który ma zostać wdrożony na wielu urządzeniach. |
-    | Zaawansowane | Dla identyfikatora wdrożenia IoT Edge Określ `$(System.TeamProject)-$(Release.EnvironmentName)` . Ta zmienna mapuje projekt i nazwę wydania na identyfikator wdrożenia IoT Edge. |
+    | Zaawansowany | Dla identyfikatora wdrożenia IoT Edge Określ `$(System.TeamProject)-$(Release.EnvironmentName)` . Ta zmienna mapuje projekt i nazwę wydania na identyfikator wdrożenia IoT Edge. |
 
     ![Dodawanie Azure IoT Edge zadań dla etapu deweloperskiego](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

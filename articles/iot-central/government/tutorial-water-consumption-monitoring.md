@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587200"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania zużycia wody przy użyciu usługi Azure IoT Central
@@ -247,7 +247,7 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 1. Możesz również zmienić obrazy aplikacji, wybierając pozycję **Administracja**  >  **Ustawienia aplikacji**. Aby wybrać obraz do przekazania jako obraz aplikacji, wybierz przycisk **Wybierz obraz** .
 1. Na koniec możesz również zmienić **motyw** , wybierając ikonę **Ustawienia** w prawym górnym rogu aplikacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, usuń ją.
 

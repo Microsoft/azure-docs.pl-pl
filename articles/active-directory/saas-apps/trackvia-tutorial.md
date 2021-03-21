@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4dfce2c0bd6b7e154e35e0e7e267549dd162ecf1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Samouczek: integracja Azure Active Directory z usługą TrackVia
@@ -140,7 +140,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TrackVia, w
 
     b. Wybierz **plik** , aby przekazać plik metadanych pobrany z Azure Portal.
 
-    c. Kliknij pozycję **Zapisz**
+    c. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -164,7 +164,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

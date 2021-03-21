@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519592"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej
@@ -41,7 +41,7 @@ Następujące źródła danych obsługują Konfigurowanie połączenia indeksato
 
 * [Azure Blob Storage, Azure Data Lake Storage Gen2 (wersja zapoznawcza), Azure Table Storage](search-howto-managed-identities-storage.md)
 * [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
-* [Baza danych SQL Azure](search-howto-managed-identities-sql.md)
+* [Azure SQL Database](search-howto-managed-identities-sql.md)
 
 Następujące funkcje nie obsługują obecnie korzystania z tożsamości zarządzanych w celu skonfigurowania połączenia:
 * Magazyn wiedzy
@@ -53,4 +53,4 @@ Dowiedz się więcej na temat konfigurowania połączenia indeksatora przy użyc
 
 * [Azure Blob Storage, Azure Data Lake Storage Gen2 (wersja zapoznawcza), Azure Table Storage](search-howto-managed-identities-storage.md)
 * [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
-* [Baza danych SQL Azure](search-howto-managed-identities-sql.md)
+* [Azure SQL Database](search-howto-managed-identities-sql.md)

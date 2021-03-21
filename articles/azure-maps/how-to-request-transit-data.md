@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906033"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Żądanie danych tranzytu publicznego przy użyciu usług Azure Maps Mobility Services (wersja zapoznawcza) 
@@ -120,7 +120,7 @@ Azure Maps [pobrania usługi tranzytu w pobliżu](/rest/api/maps/mobility/getnea
 
 Aby wysłać żądanie do [procedury pobierania w pobliżu](/rest/api/maps/mobility/getnearbytransitpreview), wykonaj następujące czynności:
 
-1. W programie Poster kliknij pozycję **nowe żądanie**  |  **Pobierz żądanie** i nazwij **Get Nearby stops** ją.
+1. W programie Poster kliknij pozycję **nowe żądanie**  |  **Pobierz żądanie** i nazwij ją.
 
 2. Na karcie Konstruktor wybierz metodę **Get** http, wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
 

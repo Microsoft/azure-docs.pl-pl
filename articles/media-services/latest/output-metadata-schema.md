@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: f26905366949c2c198e52f78bc7adb734cbb7f90
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612460"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
@@ -53,7 +53,7 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wide
 | --- | --- |
 | **#C1**<br /> Wymagane |Indeks tej ścieżki wideo liczony od zera. **Uwaga:**  Ten **Identyfikator** nie musi być TrackID używany w pliku MP4. <br /><br />Przykład: `"Id": 1`|
 | **FourCC**<br />Wymagane | Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.  <br /><br />Przykład: `"FourCC": "avc1" | "hev1" | "hvc1"`|
-| **Profil** |Profil wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec)  <br /><br />Przykład: `"Profile": "High"` |
+| **Profilu** |Profil wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec)  <br /><br />Przykład: `"Profile": "High"` |
 | **Poziomie** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec).  <br /><br />Przykład: `"Level": "3.2"`|
 | **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
 | **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|

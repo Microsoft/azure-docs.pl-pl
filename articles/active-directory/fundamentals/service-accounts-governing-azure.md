@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418185"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587903"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Zarządzanie kontami usług Azure AD
 
@@ -53,7 +53,7 @@ Zalecamy stosowanie następujących zasad dotyczących uprawnień konta usługi.
 
 * Nie należy przypisywać wbudowanych ról do kont usług. Zamiast tego należy użyć [OAuth2ego modelu przydzielenia uprawnień dla Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
-* Jeśli jednostka usługi musi mieć przypisaną rolę uprzywilejowaną, należy rozważyć przypisanie [roli niestandardowej](https://docs.microsoft.com/azure/active-directory/roles/custom-create) z określonym, wymaganym uprzywilejowanym, w sposób związany z czasem.
+* Jeśli jednostka usługi musi mieć przypisaną rolę uprzywilejowaną, należy rozważyć przypisanie [roli niestandardowej](../roles/custom-create.md) z określonym, wymaganym uprzywilejowanym, w sposób związany z czasem.
 
 * Nie dołączaj kont usług jako członków grup z podwyższonym poziomem uprawnień. 
 
@@ -63,10 +63,10 @@ Zalecamy stosowanie następujących zasad dotyczących uprawnień konta usługi.
    lub użyj  
 `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Zakresy OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) umożliwiają ograniczenie funkcjonalności konta usługi do uzyskiwania dostępu do zasobu.
+* [Zakresy OAuth 2,0](../develop/v2-permissions-and-consent.md) umożliwiają ograniczenie funkcjonalności konta usługi do uzyskiwania dostępu do zasobu.
 * Jednostki usługi i zarządzane tożsamości mogą korzystać z zakresów OAuth 2,0 w delegowanym kontekście, który personifikuje zalogowanego użytkownika lub jako konto usługi w kontekście aplikacji. W kontekście aplikacji nie jest zalogowany.
 
-* Sprawdź, czy w polu Zakresy kont usługi są wymagane zasoby, aby upewnić się, że są one odpowiednie. Na przykład jeśli konto żąda plików. ReadWrite. All, Oceń, czy w rzeczywistości wymaga tylko pliku. Read. ALL. Aby uzyskać więcej informacji o uprawnieniach, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
+* Sprawdź, czy w polu Zakresy kont usługi są wymagane zasoby, aby upewnić się, że są one odpowiednie. Na przykład jeśli konto żąda plików. ReadWrite. All, Oceń, czy w rzeczywistości wymaga tylko pliku. Read. ALL. Aby uzyskać więcej informacji o uprawnieniach, zobacz [Microsoft Graph informacje o uprawnieniach](/graph/permissions-reference).
 
 * Upewnij się, że masz zaufanie do deweloperów aplikacji lub interfejsu API z dostępem żądanym do Twoich zasobów.
 
@@ -78,9 +78,9 @@ Zalecamy stosowanie następujących zasad dotyczących uprawnień konta usługi.
 
 Jeśli masz jasne zrozumienie przeznaczenia, zakresu i wymaganych uprawnień, Utwórz konto usługi. 
 
-[Tworzenie tożsamości zarządzanych i korzystanie z nich](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Tworzenie tożsamości zarządzanych i korzystanie z nich](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Tworzenie i używanie jednostek usługi](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Tworzenie i używanie jednostek usługi](../develop/howto-create-service-principal-portal.md)
 
 Jeśli jest to możliwe, użyj zarządzanej tożsamości. Jeśli nie możesz użyć tożsamości zarządzanej, użyj nazwy głównej usługi. Jeśli nie możesz użyć nazwy głównej usługi, a następnie użyj tylko konta użytkownika usługi Azure AD.
 
@@ -100,7 +100,7 @@ Aktywnie Monitoruj konta usług, aby upewnić się, że wzorce użycia konta us�
 
 * Korzystanie z dzienników Sign-In usługi Azure AD w portalu usługi Azure AD.
 
-* Eksportowanie dzienników Sign-In usługi Azure AD do [usługi Azure Storage](https://docs.microsoft.com/azure/storage/), [azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)lub [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* Eksportowanie dzienników Sign-In usługi Azure AD do [usługi Azure Storage](../../storage/index.yml), [azure Event Hubs](../../event-hubs/index.yml)lub [Azure monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Zrzut ekranu przedstawiający ekran logowania jednostki usługi.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ Ustanów proces przeglądu, aby upewnić się, że konta usług są regularnie p
 
 **Proces anulowania aprowizacji powinien obejmować następujące zadania.**
 
-1. Po cofnięciu aprowizacji skojarzonej aplikacji lub skryptu Monitoruj konta usługi [logowania](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) i dostępu do zasobów.
+1. Po cofnięciu aprowizacji skojarzonej aplikacji lub skryptu Monitoruj konta usługi [logowania](../reports-monitoring/concept-sign-ins.md#sign-ins-report) i dostępu do zasobów.
 
    * Jeśli konto nadal jest aktywne, określ, jak jest używane przed wykonaniem kolejnych kroków.
  
@@ -196,4 +196,3 @@ Aby uzyskać więcej informacji na temat zabezpieczania kont usług platformy Az
 
  
 
- 

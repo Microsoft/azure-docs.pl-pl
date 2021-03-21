@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016958"
 ---
 ## <a name="create-the-webapi-project"></a>Tworzenie projektu interfejsu WebAPI
@@ -28,7 +28,7 @@ Utwórz nowe zaplecze interfejsu WebAPI na platformie ASP.NET, wykonując nastę
 > [!IMPORTANT]
 > Jeśli używasz programu Visual Studio 2015 lub starszego, przed rozpoczęciem tego samouczka upewnij się, że masz zainstalowaną najnowszą wersję Menedżera pakietów NuGet dla programu Visual Studio.
 >
->Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** wybierz pozycję **rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** w swojej wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie używasz najnowszej wersji, odinstaluj ją i ponownie zainstaluj Menedżera pakietów NuGet.
+>Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** wybierz pozycję **Rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** w swojej wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie używasz najnowszej wersji, odinstaluj ją i ponownie zainstaluj Menedżera pakietów NuGet.
 
 ![Zrzut ekranu przedstawiający okno dialogowe rozszerzenia i aktualizacje z wyróżnionym pakietem NuGet Manage for Visual Studios.][B4]
 
@@ -392,7 +392,7 @@ Następnie wdrożysz tę aplikację w witrynie internetowej platformy Azure, aby
 
 3. W oknie **Tworzenie usługi App Service** wybierz swoje konto platformy Azure. Wybierz pozycję **Zmień typ**  >  **aplikacji sieci Web**. Zachowaj wartość domyślną w polu **Nazwa aplikacji internetowej** i wybierz wartości w polach **Subskrypcja**, **Grupa zasobów** i **Plan usługi App Service**.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Zanotuj wartość właściwości **Adres URL witryny** w sekcji **Podsumowanie**. Ten adres URL jest Twoim *punktem końcowym zaplecza* w dalszej części samouczka.
 

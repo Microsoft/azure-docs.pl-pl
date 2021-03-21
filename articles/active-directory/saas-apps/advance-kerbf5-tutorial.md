@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.openlocfilehash: db8977e484e8d1f2cf4b30427d47ba45969f2147
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101654463"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Samouczek: integracja logowania jednokrotnego (SSO) w usłudze Azure Active Directory (AD) za pomocą klawisza F5
@@ -204,7 +204,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
  
     * Session. Logon. Last. usernameUPN Expr {[mcget {Session. SAML. Last. Identity}]}
 
-    * preprezentacja tekstu Session. AD. lastactualdomain. Live
+    * Session. AD. lastactualdomain — tekst superdemo.live
 
     ![Zrzut ekranu pokazujący właściwości zapytania usługi AD.](./media/advance-kerbf5-tutorial/configure17.png)
 
@@ -262,7 +262,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 * **Krok 3: delegowanie nazwy SPN (dla konta App Service)**
 
     * Skonfiguruj odpowiednie delegowanie dla konta delegowania F5.
-    * W poniższym przykładzie konto delegowania APM jest konfigurowane do KCD for FRP-APP1. predemonstracyjne. Live App.
+    * W poniższym przykładzie konto delegowania APM jest konfigurowane dla aplikacji KCD for FRP-App1.superdemo.live.
 
         ![Zrzut ekranu przedstawiający właściwości konta Delegatio APM > kartę Delegowanie.](./media/advance-kerbf5-tutorial/configure25.png)
 

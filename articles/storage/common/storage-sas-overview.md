@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802511"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722790"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
@@ -180,7 +180,10 @@ Poniższe zalecenia dotyczące korzystania z sygnatur dostępu współdzielonego
 
 - **Informacje o tym, kiedy nie należy używać sygnatury dostępu współdzielonego.** Czasami ryzyko związane z konkretną operacją w odniesieniu do konta magazynu ma większe korzyści wynikające z użycia sygnatury dostępu współdzielonego. W przypadku takich operacji Utwórz usługę warstwy środkowej, która zapisuje dane na koncie magazynu po przeprowadzeniu weryfikacji reguły biznesowej, uwierzytelniania i inspekcji. Ponadto czasami łatwiej jest zarządzać dostępem w inny sposób. Na przykład jeśli chcesz, aby wszystkie obiekty blob w kontenerze były dostępne publicznie, możesz utworzyć kontener jako publiczny, a nie dostarczając sygnatury dostępu współdzielonego do każdego klienta, aby uzyskać dostęp.
 
-- **Użyj Azure Monitor i dzienników usługi Azure Storage do monitorowania aplikacji.** Błędy autoryzacji mogą wystąpić z powodu awarii w usłudze dostawcy SAS. Mogą one również wystąpić z przypadkowym usunięciem przechowywanych zasad dostępu. Możesz użyć rejestrowania usługi Azure Monitor i magazynu Analytics, aby obserwować wszelkie wystąpienia błędów autoryzacji tego typu. Aby uzyskać więcej informacji, zobacz [metryki usługi Azure Storage w Azure monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) i [analityka magazynu platformy Azure rejestrowania](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Użyj Azure Monitor i dzienników usługi Azure Storage do monitorowania aplikacji.** Błędy autoryzacji mogą wystąpić z powodu awarii w usłudze dostawcy SAS. Mogą one również wystąpić z przypadkowym usunięciem przechowywanych zasad dostępu. Możesz użyć rejestrowania usługi Azure Monitor i magazynu Analytics, aby obserwować wszelkie wystąpienia błędów autoryzacji tego typu. Aby uzyskać więcej informacji, zobacz [metryki usługi Azure Storage w Azure monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) i [Azure Storage Analytics rejestrowania](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE]
+> Magazyn nie śledzi liczby sygnatur dostępu współdzielonego, które zostały wygenerowane dla konta magazynu, a interfejs API nie może podawać tych informacji. Jeśli musisz znać liczbę sygnatur dostępu współdzielonego, które zostały wygenerowane dla konta magazynu, musisz ręcznie śledzić numer.
 
 ## <a name="get-started-with-sas"></a>Wprowadzenie do SAS
 
