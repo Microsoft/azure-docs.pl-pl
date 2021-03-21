@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
 ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174686"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
@@ -88,11 +88,11 @@ Poniższe kroki służą do tworzenia klasy startowej OWIN oprogramowania pośre
 > [!TIP]
 > Jeśli projekt nie ma pliku `Startup.cs` w folderze głównym:
 > 1. Kliknij prawym przyciskiem myszy folder główny projektu, a następnie wybierz pozycję **Dodaj**  >  **nowy element**  >  **Owin klasy startowej**.<br/>
-> 2. Nadaj mu nazwę **Startup.cs**.
+> 2. Nadaj jej nazwę **Startup. cs**.
 >
 >> Upewnij się, że wybrana Klasa jest klasą początkową OWIN, a nie standardową klasą języka C#. Potwierdź to, sprawdzając, czy jest widoczny komunikat [assembly: OwinStartup (typeof ({NameSpace}). Uruchamianie)] powyżej przestrzeni nazw.
 
-1. Dodaj odwołania *Owin* i *Microsoft. IdentityModel* do Startup.cs:
+1. Dodaj odwołania *Owin* i *Microsoft. IdentityModel* do Start. cs:
 
     ```csharp
     using Microsoft.Owin;

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013732"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719668"
 ---
 Ustawienia konfiguracji dla [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -100,15 +100,15 @@ Ustawienia konfiguracji dla [Durable Functions](../articles/azure-functions/dura
 Nazwy centrów zadań muszą zaczynać się literą i składać się tylko z liter i cyfr. Jeśli nie zostanie określony, domyślną nazwą centrum zadań dla aplikacji funkcji jest **DurableFunctionsHub**. Aby uzyskać więcej informacji, zobacz [centra zadań](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Właściwość  |Domyślne | Opis |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|Alternatywne nazwy [centrów zadań](../articles/azure-functions/durable/durable-functions-task-hubs.md) mogą służyć do izolowania wielu Durable Functions aplikacji od siebie, nawet jeśli używają tego samego zaplecza magazynu.|
 |controlQueueBatchSize|32|Liczba komunikatów do ściągnięcia z kolejki kontroli w danym momencie.|
-|controlQueueBufferThreshold|256|Liczba komunikatów w kolejce sterującej, które mogą być buforowane w pamięci w danym momencie, gdy Dyspozytor będzie oczekiwać przed dekolejkowanie wszelkich dodatkowych komunikatów.|
+|controlQueueBufferThreshold| **Plan zużycia**: 32 <br> **Plan dedykowany/Premium**: 256 |Liczba komunikatów w kolejce sterującej, które mogą być buforowane w pamięci w danym momencie, gdy Dyspozytor będzie oczekiwać przed dekolejkowanie wszelkich dodatkowych komunikatów.|
 |partitionCount |4|Liczba partycji dla kolejki sterującej. Może to być dodatnia liczba całkowita z zakresu od 1 do 16.|
 |controlQueueVisibilityTimeout |5 min|Przekroczenie limitu czasu widoczności komunikatów w kolejce sterującej.|
 |workItemQueueVisibilityTimeout |5 min|Przekroczenie limitu czasu widoczności komunikatów w kolejce elementów roboczych.|
-|maxConcurrentActivityFunctions |10X liczbę procesorów na bieżącym komputerze|Maksymalna liczba funkcji działania, które mogą być przetwarzane współbieżnie na jednym wystąpieniu hosta.|
-|maxConcurrentOrchestratorFunctions |10X liczbę procesorów na bieżącym komputerze|Maksymalna liczba funkcji programu Orchestrator, które mogą być przetwarzane współbieżnie na jednym wystąpieniu hosta.|
+|maxConcurrentActivityFunctions | **Plan zużycia**: 10 <br> **Plan dedykowany/Premium**: 10X liczbę procesorów na bieżącym komputerze|Maksymalna liczba funkcji działania, które mogą być przetwarzane współbieżnie na jednym wystąpieniu hosta.|
+|maxConcurrentOrchestratorFunctions | **Plan zużycia**: 5 <br> **Plan dedykowany/Premium**: 10X liczbę procesorów na bieżącym komputerze |Maksymalna liczba funkcji programu Orchestrator, które mogą być przetwarzane współbieżnie na jednym wystąpieniu hosta.|
 |maxQueuePollingInterval|30 sekund|Maksymalny interwał sondowania kolejki elementów roboczych i kontrolki w formacie *gg: mm: SS* . Wyższe wartości mogą skutkować większymi opóźnieniami przetwarzania komunikatów. Niższe wartości mogą spowodować wyższe koszty magazynowania z powodu zwiększonych transakcji magazynu.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|Nazwa ustawienia aplikacji, które zawiera parametry połączenia usługi Azure Storage używane do zarządzania bazowymi zasobami usługi Azure Storage.|
 |trackingStoreConnectionStringName||Nazwa parametrów połączenia do użycia w tabelach historia i wystąpienia. Jeśli nie zostanie określony, `connectionStringName` używane jest połączenie (trwałe 2. x) lub `azureStorageConnectionStringName` (trwałe 1. x).|

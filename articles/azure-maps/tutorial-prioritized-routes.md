@@ -10,15 +10,15 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 5e7f38e4bbc95e04bf54f8f7a2dd80e21891e8df
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215497"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie i wyświetlanie tras dla różnych trybów podróży przy użyciu Azure Maps
 
-W tym samouczku pokazano, jak używać [usługi route](/rest/api/maps/route) Azure Maps i [kontrolki mapy](./how-to-use-map-control.md) do wyświetlania kierunków tras zarówno dla pojazdów prywatnych, jak i pojazdów komercyjnych z `USHazmatClass2` typem ładunku. Ponadto przeprowadzimy Cię przez proces wizualizacji danych o ruchu w czasie rzeczywistym na mapie. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+W tym samouczku pokazano, jak używać [usługi route](/rest/api/maps/route) Azure Maps i [kontrolki mapy](./how-to-use-map-control.md) do wyświetlania kierunków tras zarówno dla pojazdów prywatnych, jak i pojazdów komercyjnych z `USHazmatClass2` typem ładunku. Ponadto przeprowadzimy Cię przez proces wizualizacji danych o ruchu w czasie rzeczywistym na mapie. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie i wyświetlanie kontrolki mapy na stronie sieci Web

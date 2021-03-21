@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów dotyczących Event Grid
 description: W tym artykule przedstawiono różne sposoby rozwiązywania problemów Azure Event Grid problemów
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 9c52ba8561c10dd94ec6ef51c78b8534c6c58e96
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d30b8464de90474ad74853cc423de700b41226a4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100417598"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720563"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Rozwiązywanie problemów dotyczących Azure Event Grid
 Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów Azure Event Grid. 
@@ -32,7 +32,7 @@ Istnieją różne przyczyny, dla których aplikacje klienckie nie mogą nawiąza
 Jeśli pojawią się komunikaty o błędach z kodami błędów, takimi jak 400, 409 i 403, zobacz [Rozwiązywanie problemów Event Grid błędów](troubleshoot-errors.md). 
 
 ## <a name="distributed-tracing-net"></a>Śledzenie rozproszone (.NET)
-Biblioteka Event Grid .NET obsługuje dystrybucję śledzenia. Aby stosować wskazówki dotyczące dystrybuowania śledzenia [CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) , biblioteka ustawia `traceparent` i `tracestate` w [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization/CloudEvent.cs#L126) , `CloudEvent` gdy włączone jest śledzenie rozproszone. Aby dowiedzieć się więcej na temat włączania rozproszonego śledzenia w aplikacji, zapoznaj się z [dokumentacją śledzenia rozproszonego](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)zestawu Azure SDK.
+Biblioteka Event Grid .NET obsługuje dystrybucję śledzenia. Aby stosować wskazówki dotyczące dystrybuowania śledzenia [CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) , biblioteka ustawia `traceparent` i `tracestate` w [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) , `CloudEvent` gdy włączone jest śledzenie rozproszone. Aby dowiedzieć się więcej na temat włączania rozproszonego śledzenia w aplikacji, zapoznaj się z [dokumentacją śledzenia rozproszonego](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)zestawu Azure SDK.
 
 ### <a name="sample"></a>Przykład
 Zobacz [przykład licznika wierszy](/samples/azure/azure-sdk-for-net/line-counter/). Ta przykładowa aplikacja ilustruje użycie usług Storage, Event Hubs i Event Grid, a także klientów z integracją ASP.NET Core, śledzeniem rozproszonym i usługami hostowanymi. Umożliwia użytkownikom przekazywanie pliku do obiektu BLOB, który wyzwala zdarzenie Event Hubs zawierające nazwę pliku. Procesor Event Hubs odbiera zdarzenie, a następnie aplikacja pobiera obiekt BLOB i zlicza liczbę wierszy w pliku. Aplikacja wyświetli link do strony zawierającej liczbę wierszy. Po kliknięciu linku CloudEvent zawierający nazwę pliku jest publikowany przy użyciu Event Grid.

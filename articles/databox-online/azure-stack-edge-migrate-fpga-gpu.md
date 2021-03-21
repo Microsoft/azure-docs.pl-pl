@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
 ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573284"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrowanie obciążeń z Azure Stack Edge FPGA z krawędzią Pro do Azure Stack
@@ -38,8 +38,8 @@ Ta sekcja zawiera porównawcze podsumowanie możliwości między urządzeniami z
 | Sprzęt       | Przyspieszenie sprzętowe: 1 lub 2 procesory GPU T4 <br> Specyfikacje obliczeniowe, pamięć, interfejs sieciowy, jednostka zasilacza i przewód zasilający są takie same jak w przypadku urządzenia z FPGA.  | Przyspieszenie sprzętowe: Intel Arria 10 FPGA <br> Specyfikacje obliczeniowe, pamięć, interfejs sieciowy, jednostka zasilacza i przewód zasilający są takie same jak w przypadku urządzenia z procesorem GPU.          |
 | Przydatny magazyn | 4,19 TB <br> Po zapewnieniu odporności na parzystość i użycia wewnętrznego | 12,5 TB <br> Po zarezerwowania miejsca do użytku wewnętrznego |
 | Zabezpieczenia       | Certyfikaty |                                                     |
-| Obciążenia      | IoT Edge obciążeń <br> Obciążenia maszyn wirtualnych <br> Obciążenia platformy Kubernetes| IoT Edge obciążeń |
-| Cennik        | [Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
+| Pakiety robocze      | IoT Edge obciążeń <br> Obciążenia maszyn wirtualnych <br> Obciążenia platformy Kubernetes| IoT Edge obciążeń |
+| Ceny        | [Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
 
 ## <a name="migration-plan"></a>Plan migracji
 

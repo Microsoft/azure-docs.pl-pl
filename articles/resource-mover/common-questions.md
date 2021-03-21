@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2021
 ms.author: raynew
 ms.openlocfilehash: e900250aea84b4a9c9112fa54632a2be8b9cb49c
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102564275"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
@@ -97,7 +97,7 @@ Po dodaniu zasobów w centrum usługi Resource Mover w portalu, uprawnienia są 
 
 Istnieje kilka powodów, dla których może nie mieć uprawnień.
 
-**Możliwa przyczyna** | **Zaleca**
+**Możliwa przyczyna** | **Zalecenie**
 --- | ---
 Nie jesteś *współautorem* i *administratorem dostępu użytkowników* (lub *właścicielem*) podczas dodawania zasobu po raz pierwszy. | Użyj konta z uprawnieniami *współautora* i *administratorem dostępu użytkowników* (lub *właścicielem*) dla subskrypcji.
 Tożsamość zarządzana przenoszenia zasobów nie ma wymaganej roli. | Dodaj role "Współautor" i "Administrator dostępu użytkowników".
