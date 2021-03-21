@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101671983"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure monitor dla rozwiązań SAP (wersja zapoznawcza)
@@ -107,7 +107,7 @@ Poniżej przedstawiono najważniejsze informacje o architekturze:
  - **Open Source** — kod źródłowy Azure monitor dla rozwiązań SAP jest dostępny w serwisie [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). Klienci mogą odwoływać się do kodu dostawcy i dowiedzieć się więcej na temat produktu, współtworzenia lub udostępniania opinii.
  - **Extensible Query Framework** — zapytania SQL służące do zbierania danych telemetrycznych są zapisywane w formacie [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Więcej zapytań SQL służących do zbierania większej ilości danych telemetrycznych można łatwo dodać. Klienci mogą zażądać, aby dane telemetryczne były dodawane do Azure Monitor dla rozwiązań SAP, pozostawiając opinię za pomocą linku na końcu tego dokumentu lub kontaktując się z zespołem kont.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Azure Monitor dla rozwiązań SAP to bezpłatny produkt (bez opłat licencyjnych). Klienci są zobowiązani do uiszczenia kosztów związanych z podstawowymi składnikami w zarządzanej grupie zasobów.
 
 ## <a name="next-steps"></a>Następne kroki

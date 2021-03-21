@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 11/05/2020
 ms.openlocfilehash: 4f243ca5be0878cde3b28f5b7a7c3eea0cf9b8d0
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94631584"
 ---
 # <a name="how-to-resell-your-offer-through-csp"></a>Jak odsprzedać ofertę za poorednictwem dostawcy usług kryptograficznych
@@ -22,9 +22,9 @@ Na stronie **odsprzedaży za pośrednictwem dostawców CSP** (wybierz z menu po 
 
 Wybierz, którzy partnerzy powinni mieć możliwość odsprzedaży oferty:
 
-- Każdy partner w programie CSP
+- Dowolnemu partnerowi w programie CSP
 - Określeni partnerzy w wybranym programie CSP
-- Brak partnerów w programie CSP
+- Żadnym partnerom w programie CSP
 
 Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty w menu po lewej stronie, na **dysku testowym**.
 

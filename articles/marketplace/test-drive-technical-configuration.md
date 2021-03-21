@@ -8,10 +8,10 @@ ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
 ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462906"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
@@ -34,7 +34,7 @@ Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udo
 
 - **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi (na przykład `https://testdrive.crm.dynamics.com` ).
 
-- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >  **Customization**  >  wystąpienia **zasobów deweloperskich**  >  **Web API (główny adres URL usługi)**, skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >    >  wystąpienia **zasobów deweloperskich**  >  **Web API (główny adres URL usługi)**, skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nazwa roli** (wymagana) — podaj nazwę roli zabezpieczeń, która została zdefiniowana w niestandardowym dysku testowym Dynamics 365, która zostanie przypisana do użytkownika podczas testu na dysku (na przykład "rola stacji testowych").
 

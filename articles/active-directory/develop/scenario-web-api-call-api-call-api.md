@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: f4dfd2c7f9dbdd111f70a5dd5a648c11eacbf7b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038547"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API
@@ -35,7 +35,7 @@ Gdy korzystasz z *Microsoft. Identity. Web*, masz trzy scenariusze użycia:
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opcja 1: Wywołaj Microsoft Graph z zestawem SDK
 
-W tym scenariuszu dodano program `.AddMicrosoftGraph()` *Startup.cs* zgodnie z [konfiguracją kodu](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)i można bezpośrednio wstrzyknąć do `GraphServiceClient` kontrolera lub konstruktora stronicowego do użycia w akcjach. Poniższa przykładowa strona Razor wyświetla zdjęcie zalogowanego użytkownika.
+W tym scenariuszu został dodany `.AddMicrosoftGraph()` w programie *Start. cs* zgodnie z [konfiguracją kodu](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), a można bezpośrednio wstrzyknąć do tego `GraphServiceClient` kontrolera lub konstruktora stronicowego w celu użycia w akcjach. Poniższa przykładowa strona Razor wyświetla zdjęcie zalogowanego użytkownika.
 
 ```CSharp
  [Authorize]
@@ -71,7 +71,7 @@ W tym scenariuszu dodano program `.AddMicrosoftGraph()` *Startup.cs* zgodnie z [
 
 #### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika
 
-W tym scenariuszu dodano program `.AddDownstreamWebApi()` *Startup.cs* zgodnie z [konfiguracją kodu](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)i można bezpośrednio wstrzyknąć `IDownstreamWebApi` usługę do kontrolera lub konstruktora stron i używać jej w akcjach:
+W tym scenariuszu dodano `.AddDownstreamWebApi()` plik *Start. cs* zgodnie z [konfiguracją kodu](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)i można bezpośrednio wstrzyknąć `IDownstreamWebApi` usługę w kontrolerze lub Konstruktorze stron i użyć jej w akcjach:
 
 ```CSharp
  [Authorize]

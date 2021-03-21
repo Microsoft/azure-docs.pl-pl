@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017206"
 ---
 # <a name="contact-microsoft-support"></a>Kontakt z pomocą techniczną firmy Microsoft
 
-StorSimple Menedżer urządzeń zapewnia możliwość **rejestrowania nowego żądania obsługi** w bloku podsumowania usługi. Jeśli wystąpią problemy z rozwiązaniem StorSimple, możesz utworzyć żądanie obsługi dla pomocy technicznej. W sesji online z inżynierem pomocy technicznej może być również konieczne rozpoczęcie sesji obsługi na urządzeniu StorSimple. W tym artykule przedstawiono następujące instrukcje:
+StorSimple Device Manager zapewnia możliwość **rejestrowania nowego żądania obsługi** w bloku podsumowania usługi. Jeśli wystąpią problemy z rozwiązaniem StorSimple, możesz utworzyć żądanie obsługi dla pomocy technicznej. W sesji online z inżynierem pomocy technicznej może być również konieczne rozpoczęcie sesji obsługi na urządzeniu StorSimple. W tym artykule przedstawiono następujące instrukcje:
 
 * Jak utworzyć żądanie obsługi.
 * Jak zarządzać cyklem życia żądania pomocy technicznej z poziomu portalu.
@@ -25,7 +25,7 @@ Przed utworzeniem Support request należy zapoznać się z [tematem umowy SLA i 
 
 ## <a name="create-a-support-request"></a>Tworzenie żądania obsługi
 
-W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/plans/)technicznej możesz utworzyć bilety dla problemu na urządzeniu z systemem StorSimple bezpośrednio z bloku podsumowania usługi StorSimple Menedżer urządzeń. Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
+W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/plans/)technicznej możesz utworzyć bilety dla problemu na urządzeniu z systemem StorSimple bezpośrednio z bloku podsumowania usługi StorSimple Device Manager. Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
 #### <a name="to-create-a-support-request"></a>Aby utworzyć żądanie pomocy technicznej
 
@@ -35,7 +35,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
    
 2. W bloku **nowe żądanie obsługi** wybierz pozycję **podstawowe**. W bloku **podstawowe** wykonaj następujące czynności:
    1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**.
-   2. Automatycznie wybierana jest bieżąca **subskrypcja**, typ **usługi** i **zasób** (Usługa StorSimple Menedżer urządzeń). 
+   2. Automatycznie wybierana jest bieżąca **subskrypcja**, typ **usługi** i **zasób** (Usługa StorSimple Device Manager). 
    3. Wybierz **Plan pomocy technicznej** z listy rozwijanej, jeśli masz wiele planów skojarzonych z Twoją subskrypcją. Potrzebujesz płatnego planu pomocy technicznej, aby umożliwić pomoc techniczną.
    4. Kliknij przycisk **Dalej**.
 
@@ -44,7 +44,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 3. W bloku **nowe żądanie obsługi** wybierz pozycję **krok 2**. W bloku **problemu** wykonaj następujące czynności:
     
     1. Wybierz **ważność**.
-    2. Określ, czy problem jest związany z urządzeniem, czy z usługą StorSimple Menedżer urządzeń.
+    2. Określ, czy problem jest związany z urządzeniem, czy z usługą StorSimple Device Manager.
     3. Wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
     4. Podaj datę i godzinę rozpoczęcia problemu.
     5. W polu **przekazywanie plików** kliknij ikonę folderu, aby przejść do pakietu pomocy technicznej.

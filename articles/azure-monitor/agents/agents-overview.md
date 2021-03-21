@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
 ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102551474"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
@@ -33,7 +33,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 | | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure<br>Inna chmura (Azure ARC)<br>Lokalna (łuk systemu Azure)  | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Magazyn lokalny | 
+| **Obsługiwane środowiska** | Azure<br>Inna chmura (Azure ARC)<br>Lokalna (łuk systemu Azure)  | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | 
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dzienniki zdarzeń<br>Wydajność | Dzienniki zdarzeń<br>zdarzenia ETW<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Dzienniki aplikacji .NET<br>Zrzuty awaryjne<br>Dzienniki diagnostyki agentów | Dzienniki zdarzeń<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Szczegółowe informacje i rozwiązania<br>Inne usługi | Zależności procesów<br>Metryki połączenia sieciowego |
 | **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki usługi Azure Monitor | Azure Storage<br>Metryki usługi Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
@@ -43,7 +43,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 | | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure<br>Inna chmura (Azure ARC)<br>Lokalna (łuk systemu Azure) | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Magazyn lokalny |
+| **Obsługiwane środowiska** | Azure<br>Inna chmura (Azure ARC)<br>Lokalna (łuk systemu Azure) | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie |
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dziennik systemu<br>Wydajność | Dziennik systemu<br>Wydajność | Wydajność | Dziennik systemu<br>Wydajność| Zależności procesów<br>Metryki połączenia sieciowego |
 | **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki usługi Azure Monitor | Azure Storage<br>Centrum zdarzeń | Metryki usługi Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |

@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
+title: Rozwiązywanie problemów z łącznikami Azure Data Factory
 description: Dowiedz się, jak rozwiązywać problemy z łącznikiem w Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
@@ -8,13 +8,13 @@ ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
 ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042440"
 ---
-# <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
+# <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -175,7 +175,7 @@ W tym artykule opisano typowe sposoby rozwiązywania problemów z łącznikami A
 
 - **Przyczyna**: problem jest spowodowany błędem limitu czasu ujścia Azure Data Lake Storage Gen2, który zwykle występuje w przypadku samodzielnej maszyny Integration Runtime (IR).
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
 
     - W tym samym regionie należy umieścić własne hostowane urządzenie IR i docelowe konto Azure Data Lake Storage Gen2, jeśli jest to możliwe. Może to pomóc uniknąć losowego limitu czasu i uzyskać lepszą wydajność.
 
@@ -525,7 +525,7 @@ W tym artykule opisano typowe sposoby rozwiązywania problemów z łącznikami A
 
 - **Przyczyna**: kolumna docelowa nie istnieje w źródle lub w mapowaniu kolumny.
 
-- **Zalecenie**:  
+- **Rekomendacja**:  
   1. Upewnij się, że źródło zawiera kolumnę docelową. 
   2. Dodaj kolumnę Target w mapowaniu kolumn. Upewnij się, że kolumna ujścia ma format *{FieldName} @EntityReference*.
 
@@ -587,7 +587,7 @@ W tym artykule opisano typowe sposoby rozwiązywania problemów z łącznikami A
 
 - **Przyczyna**: w Data Factory wartości datetime są obsługiwane w zakresie od 0001-01-01 00:00:00 do 9999-12-31 23:59:59. Jednak program Oracle obsługuje szersze wartości daty i godziny, takie jak Century BC lub min/s>59, co prowadzi do awarii w Data Factory.
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
 
     Aby sprawdzić, czy wartość w programie Oracle znajduje się w zakresie Data Factory, uruchom polecenie `select dump(<column name>)` . 
 
@@ -827,7 +827,7 @@ W tym artykule opisano typowe sposoby rozwiązywania problemów z łącznikami A
 
 - **Przyczyna**: zawartość klucza prywatnego jest pobierana z magazynu kluczy Azure lub zestawu SDK, ale nie została poprawnie zaszyfrowana.
 
-- **Zalecenie**:  
+- **Rekomendacja**:  
 
     Jeśli zawartość klucza prywatnego pochodzi z magazynu kluczy, oryginalny plik klucza może zadziałać, Jeśli przekażesz go bezpośrednio do połączonej usługi SFTP.
 
@@ -858,7 +858,7 @@ W tym artykule opisano typowe sposoby rozwiązywania problemów z łącznikami A
 
 - **Przyczyna**: wybrano nieprawidłowy format zawartości klucza.
 
-- **Zalecenie**:  
+- **Rekomendacja**:  
 
     Format PKCS # 8 SSH klucz prywatny (Rozpocznij od "-----rozpoczęcia szyfrowanego klucza prywatnego-----") nie jest obecnie obsługiwany w celu uzyskania dostępu do serwera SFTP w Data Factory. 
 
@@ -895,7 +895,7 @@ W tym artykule opisano typowe sposoby rozwiązywania problemów z łącznikami A
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera ciąg "odpowiedź serwera nie zawiera identyfikacji protokołu SSH", jedną z możliwych przyczyn jest to, że serwer SFTP ograniczy połączenie. Data Factory spowoduje utworzenie wielu połączeń do pobrania z serwera SFTP równolegle, a czasami spowoduje wystąpienie ograniczenia serwera SFTP. Zwykle różne serwery zwracają różne błędy w przypadku wystąpienia ograniczenia przepustowości.
 
-- **Zalecenie**:  
+- **Rekomendacja**:  
 
     Określ maksymalną liczbę równoczesnych połączeń zestawu danych SFTP jako 1 i ponownie uruchom działanie kopiowania. Jeśli działanie zakończy się pomyślnie, możesz mieć pewność, że ograniczenie jest przyczyną.
 

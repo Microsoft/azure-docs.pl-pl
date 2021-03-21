@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459675"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
@@ -241,7 +241,7 @@ Przypisz tylko niezbędne [uprawnienia](/sql/relational-databases/security/permi
 
 - W Azure Resource Manager:
   - Użyj wbudowanych ról, jeśli są dostępne lub role niestandardowe platformy Azure i przypisz niezbędne uprawnienia.
-    - [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
+    - [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
     - [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
 
 **Najlepsze rozwiązania**:
@@ -342,7 +342,7 @@ W przypadku czytelników, którzy chcą szczegółowe w SoD, zalecamy użycie na
   - [Procedury składowane podpisywania](/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - W przypadku usługi Azure Resource Management:
-  - [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
+  - [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
   - [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
   - [Używanie Azure AD Privileged Identity Management do uzyskiwania dostępu z podwyższonym poziomem uprawnień](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 

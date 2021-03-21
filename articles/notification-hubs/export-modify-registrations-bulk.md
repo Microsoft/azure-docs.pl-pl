@@ -15,10 +15,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 73c19b72c75d9638213f3c813a708a272cbe2a1b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452343"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Zbiorcze eksportowanie i importowanie rejestracji Notification Hubs platformy Azure
@@ -31,7 +31,7 @@ W tym artykule wyjaśniono, jak wykonać dużą liczbę operacji w centrum powia
 
 Wsparcie wsadowe jest przeznaczone do obsługi długotrwałych zadań obejmujących miliony rejestracji. Aby osiągnąć tę skalę, obsługa usługi Batch używa magazynu Azure do przechowywania informacji o zadaniu i danych wyjściowych. W przypadku operacji aktualizacji zbiorczej użytkownik musi utworzyć plik w kontenerze obiektów blob, którego zawartość jest listą operacji aktualizacji rejestracji. Podczas uruchamiania zadania użytkownik udostępnia adres URL wejściowego obiektu BLOB wraz z adresem URL do katalogu wyjściowego (również w kontenerze obiektów BLOB). Po rozpoczęciu zadania użytkownik może sprawdzić stan, badając lokalizację adresu URL podaną podczas uruchamiania zadania. Określone zadanie może wykonywać tylko operacje o określonym rodzaju (tworzenie, aktualizacje lub usuwanie). Operacje eksportowania są wykonywane analogicznie.
 
-## <a name="import"></a>Import
+## <a name="import"></a>Importuj
 
 ### <a name="set-up"></a>Konfiguruj
 

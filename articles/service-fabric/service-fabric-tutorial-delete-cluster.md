@@ -5,17 +5,17 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 60c43adddd4799a639c2d58e0293086eb1776588
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791091"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Samouczek: usuwanie klastra usługi Service Fabric uruchomionego na platformie Azure
 
 Ten samouczek jest częścią piątą serii i pokazuje, jak usunąć klaster Service Fabric uruchomiony na platformie Azure. Aby całkowicie usunąć klaster usługi Service Fabric, musisz również usunąć wszystkie zasoby używane przez klaster. Dostępne są dwie opcje: usunięcie grupy zasobów, do której należy klaster (co powoduje usunięcie zasobu klastra i wszystkich innych zasobów w grupie zasobów) lub usunięcie konkretnie zasobu klastra i jego powiązanych zasobów (lecz nie innych zasobów w grupie zasobów).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Usuwanie grupy zasobów i jej wszystkich zasobów

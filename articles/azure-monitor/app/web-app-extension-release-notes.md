@@ -6,10 +6,10 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
 ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042610"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Informacje o wersji rozszerzenia aplikacji internetowej platformy Azure dla Application Insights

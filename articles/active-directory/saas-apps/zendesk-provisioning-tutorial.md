@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 620dd8fd586352ebeaf097a8f870a606f8e06c01
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359718"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie systemu Zendesk na potrzeby automatycznego aprowizacji użytkowników
@@ -43,7 +43,7 @@ Aby dodać systemu Zendesk z portalu Marketplace, wykonaj następujące kroki.
 
     ![Ikona Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -78,7 +78,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Konfigurowanie automatycznej aprowizacji użytkowników dla systemu Zendesk w usłudze Azure AD
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **systemu Zendesk**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **systemu Zendesk**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    * W polu **domena** Wypełnij poddomenę dzierżawy systemu Zendesk. Na przykład w przypadku konta z adresem URL dzierżawy dla `https://my-tenant.zendesk.com` domeny podrzędnej jest **moja dzierżawa**.
 
-6. Token tajny dla konta usługi systemu Zendesk znajduje się w **Admin** obszarze  >  **Ustawienia interfejsu API** administratora  >  **Settings**. Upewnij się, że **dostęp do tokenu** jest ustawiony na **włączone**.
+6. Token tajny dla konta usługi systemu Zendesk znajduje się w obszarze  >  **Ustawienia interfejsu API** administratora  >  . Upewnij się, że **dostęp do tokenu** jest ustawiony na **włączone**.
 
     ![Ustawienia administratora systemu Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 

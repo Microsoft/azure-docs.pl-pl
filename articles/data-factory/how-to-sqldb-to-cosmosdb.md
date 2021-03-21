@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383946"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrowanie znormalizowanego schematu bazy danych z usługi Azure SQL Database do nieznormalizowanego kontenera usługi Azure CosmosDB
@@ -68,7 +68,7 @@ W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokume
 
 10. Kliknij kartę Podgląd danych w nowym dodanym dołączeniu, aby zobaczyć wyniki do tego momentu. Powinny być widoczne wszystkie wiersze nagłówka dołączone do wierszy szczegółów. Jest to wynik tworzenia sprzężenia z ```SalesOrderID``` . Następnie połączymy szczegóły z wspólnych wierszy do struktury Details i agregują wspólne wiersze.
 
-![Join](media/data-flow/cosmosb4.png)
+![Dołączanie](media/data-flow/cosmosb4.png)
 
 11. Przed rozpoczęciem tworzenia tablic w celu denormalizacji tych wierszy najpierw należy usunąć niepożądane kolumny i upewnić się, że wartości danych będą zgodne z typami danych CosmosDB.
 

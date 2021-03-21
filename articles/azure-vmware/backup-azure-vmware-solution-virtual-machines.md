@@ -4,10 +4,10 @@ description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby two
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618920"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 01c3f6429d2a5c8443ac128d763033dc8c53cbc7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359412"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie stada na potrzeby automatycznego aprowizacji użytkowników
@@ -75,7 +75,7 @@ Aby skonfigurować stado do automatycznej aprowizacji użytkowników w usłudze 
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Aby skonfigurować stado do automatycznej aprowizacji użytkowników w usłudze 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź wartość " **stado** ", wybierz pozycję **stado** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość " **stado**", wybierz pozycję **stado** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Stado na liście wyników](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-flock--in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi dla stada w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -120,7 +120,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do stada**.
 

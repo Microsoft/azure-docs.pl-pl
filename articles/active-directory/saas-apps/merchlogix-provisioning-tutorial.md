@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: 4d0a52f06a751fba57a00615e2d57485ff740d04
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359701"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MerchLogix na potrzeby automatycznego aprowizacji użytkowników
@@ -53,7 +53,7 @@ Przed skonfigurowaniem usługi MerchLogix do automatycznego aprowizacji użytkow
 
 4. W polu wyszukiwania wpisz **MerchLogix**.
 
-5. W panelu wyników wybierz pozycję **MerchLogix** , a następnie kliknij przycisk **Dodaj** , aby dodać MerchLogix do listy aplikacji SaaS.
+5. W panelu wyników wybierz pozycję **MerchLogix**, a następnie kliknij przycisk **Dodaj** , aby dodać MerchLogix do listy aplikacji SaaS.
 
     ![Zrzut ekranu przedstawiający dodanie z sekcji Korekta szpaltowa z polem tekstowym wprowadź nazwę o nazwie.][4]
 
@@ -100,7 +100,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 7. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do MerchLogix**.
 

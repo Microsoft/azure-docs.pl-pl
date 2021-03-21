@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324434"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Konfigurowanie danych wyjściowych elementu Runbook i strumieni komunikatów
@@ -18,7 +18,7 @@ Większość elementów Runbook Azure Automation ma pewną formę danych wyjści
 
 W poniższej tabeli krótko opisano każdy strumień z zachowaniem w Azure Portal publikowanych elementów Runbook i podczas [testowania elementu Runbook](./manage-runbooks.md). Strumień wyjściowy jest głównym strumieniem używanym do komunikacji między elementami Runbook. Inne strumienie są klasyfikowane jako strumienie komunikatów, przeznaczone do przekazywania informacji do użytkownika.
 
-| Strumień | Opis | Opublikowany | Testowanie |
+| Stream | Opis | Opublikowany | Testowanie |
 |:--- |:--- |:--- |:--- |
 | Błąd |Komunikat o błędzie przeznaczony dla użytkownika. W przeciwieństwie do wyjątku, element Runbook jest domyślnie kontynuowany po komunikacie o błędzie. |Zapisano w historii zadań |Wyświetlane w okienku danych wyjściowych testu |
 | Debugowanie |Komunikaty przeznaczone dla użytkownika interaktywnego. Nie należy używać w elementach Runbook. |Nie zapisano w historii zadań |Niewyświetlane w okienku danych wyjściowych testu |
@@ -117,9 +117,9 @@ Element Runbook zawiera typ danych wyjściowych `Microsoft.Azure.Commands.Profil
 
 Chociaż ten element Runbook jest prosty, istnieje jeden element konfiguracji do wywołania w tym miejscu. Ostatnie działanie wykonuje `Write-Output` polecenie cmdlet w celu zapisania danych profilu w zmiennej przy użyciu wyrażenia programu PowerShell dla `Inputobject` parametru. Ten parametr jest wymagany w przypadku programu `Write-Output` .
 
-Drugi element Runbook w tym przykładzie o nazwie **test-ChildOutputType** , po prostu definiuje dwie działania.<br> ![Przykład elementu Runbook podrzędnego typu wyjściowego](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+Drugi element Runbook w tym przykładzie o nazwie **test-ChildOutputType**, po prostu definiuje dwie działania.<br> ![Przykład elementu Runbook podrzędnego typu wyjściowego](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-Pierwsze działanie wywołuje element Runbook **AuthenticateTo-Azure** . Drugie działanie uruchamia `Write-Verbose` polecenie cmdlet ze **źródłem danych** ustawionym na **dane wyjściowe działania**. Ponadto **ścieżka pola** jest ustawiona na **Context. Subscription. subscriptionname** , dane wyjściowe kontekstu z elementu Runbook **AuthenticateTo-Azure** .<br> ![Zapisz — pełne źródło danych parametru polecenia cmdlet](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+Pierwsze działanie wywołuje element Runbook **AuthenticateTo-Azure** . Drugie działanie uruchamia `Write-Verbose` polecenie cmdlet ze **źródłem danych** ustawionym na **dane wyjściowe działania**. Ponadto **ścieżka pola** jest ustawiona na **Context. Subscription. subscriptionname**, dane wyjściowe kontekstu z elementu Runbook **AuthenticateTo-Azure** .<br> ![Zapisz — pełne źródło danych parametru polecenia cmdlet](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 Wynikowe dane wyjściowe to nazwa subskrypcji.<br> ![Wyniki Test-ChildOutputType elementu Runbook](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -279,7 +279,7 @@ Jednak jeśli nie są wymagane te informacje do śledzenia postępu elementu Run
 3. Na stronie elementy Runbook wybierz graficzny element Runbook z listy elementów Runbook.
 4. W obszarze **Ustawienia** kliknij pozycję **Rejestrowanie i śledzenie**.
 5. Na stronie Rejestrowanie i śledzenie w obszarze **Rejestruj pełne rekordy** **kliknij pozycję Włącz,** aby włączyć pełne rejestrowanie.
-6. W obszarze **śledzenie na poziomie działania** Zmień poziom śledzenia na **podstawowy** lub **szczegółowy** , w zależności od wymaganego poziomu śledzenia.<br>
+6. W obszarze **śledzenie na poziomie działania** Zmień poziom śledzenia na **podstawowy** lub **szczegółowy**, w zależności od wymaganego poziomu śledzenia.<br>
 
    ![Strona śledzenie i rejestrowanie tworzenia graficznego](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357627"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie TheOrgWiki na potrzeby automatycznego aprowizacji użytkowników
@@ -65,7 +65,7 @@ Przed skonfigurowaniem usługi TheOrgWiki na potrzeby automatycznego inicjowania
 
     ![Zrzut ekranu strony konta usług w konsoli administracyjnej typu wiki organizacji.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi** wybierz pozycję **oparty na tokenach**. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi** wybierz pozycję **oparty na tokenach**. Kliknij pozycję **Zapisz**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe nowe konto usługi z opcjami typ konta usługi, oparte na tokenach i Zapisz.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -81,7 +81,7 @@ Aby skonfigurować TheOrgWiki automatycznej aprowizacji użytkowników w usłudz
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -89,7 +89,7 @@ Aby skonfigurować TheOrgWiki automatycznej aprowizacji użytkowników w usłudz
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **TheOrgWiki** , a następnie wybierz pozycję **TheOrgWiki** w panelu wyniki. 
+4. W polu wyszukiwania wpisz **TheOrgWiki**, a następnie wybierz pozycję **TheOrgWiki** w panelu wyniki. 
 
     ![TheOrgWiki na liście wyników](common/search-new-app.png)
 
@@ -116,7 +116,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla TheOrgWiki w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -147,7 +147,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do TheOrgWiki**.
 

@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
 ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324217"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Warstwa Premium dla Azure Data Lake Storage
@@ -71,7 +71,7 @@ Na poniższej ilustracji przedstawiono to ustawienie na stronie **Tworzenie kont
 > [!div class="mx-imgBorder"]
 > ![Ustawienie hierarchicznej przestrzeni nazw](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących regionach.
 
@@ -87,7 +87,7 @@ Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących reg
 |Kanada Środkowa|LRS|
 |Kanada Wschodnia|LRS|
 |Europa Północna|LRS, ZRS|
-|Europa Zachodnia|LRS, ZRS|
+|West Europe|LRS, ZRS|
 |Południowe Zjednoczone Królestwo|LRS|
 |Zachodnie Zjednoczone Królestwo|LRS|
 |Francja Środkowa|LRS|
@@ -97,12 +97,12 @@ Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących reg
 |Indie Środkowe|LRS|
 |Indie Zachodnie|LRS|
 |Północne Zjednoczone Emiraty Arabskie|LRS|
-|Japan East|LRS|
+|Japonia Wschodnia|LRS|
 |Japonia Zachodnia|LRS|
 |Azja Południowo-Wschodnia|LRS, ZRS|
 |Australia Wschodnia|LRS, ZRS|
 |Australia Południowo-Wschodnia|LRS|
-|Brazil South|LRS|
+|Brazylia Południowa|LRS|
 
 ## <a name="next-steps"></a>Następne kroki
 

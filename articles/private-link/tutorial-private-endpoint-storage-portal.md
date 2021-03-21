@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96484825"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Samouczek: łączenie się z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure
@@ -87,7 +87,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -125,10 +125,10 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
     | Publiczny adres IP | Wybierz pozycję **Brak**. |
-    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
+    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowa**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -136,7 +136,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób magazyn zasobów**  >  **Storage**  >  **Storage account** lub Wyszukaj **konto magazynu** w polu wyszukiwania.
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób magazyn zasobów**  >    >  lub Wyszukaj **konto magazynu** w polu wyszukiwania.
 
 2. Na karcie **podstawowe** w obszarze **Tworzenie konta magazynu** wprowadź lub wybierz następujące informacje:
 
@@ -176,7 +176,7 @@ W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
 
 7. Wybierz przycisk **OK**.
 
-8. Wybierz pozycję **Przeglądanie + tworzenie**.
+8. Wybierz pozycję **Przejrzyj i utwórz**.
 
 9. Wybierz pozycję **Utwórz**.
 

@@ -6,17 +6,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942732"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Samouczek: korzystanie z systemu Apache Storm z platformą Apache Kafka w usłudze HDInsight
 
 W tym samouczku przedstawiono sposób użycia topologii systemu [Apache Storm](https://storm.apache.org/) do odczytywania i zapisywania danych przy użyciu platformy [Apache Kafka](https://kafka.apache.org/) w usłudze HDInsight. W tym samouczku pokazano także sposób utrwalania danych w magazynie zgodnym z systemem plików [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) w klastrze Storm.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * System Storm i platforma Kafka
