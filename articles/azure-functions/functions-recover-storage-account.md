@@ -3,12 +3,12 @@ title: 'Błąd rozwiązywania problemów: środowisko uruchomieniowe usługi Azu
 description: Dowiedz się, jak rozwiązywać problemy z nieprawidłowym kontem magazynu.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: a62001cedd695badc72eb76c93ea9c3cb4507403
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606977"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Błąd rozwiązywania problemów: "środowisko uruchomieniowe usługi Azure Functions jest nieosiągalny"
 
@@ -59,6 +59,7 @@ Aplikacja funkcji musi mieć dostęp do konta magazynu. Typowe problemy z zablok
 * Aplikacja funkcji jest wdrażana w App Service Environment (ASE) bez poprawnych reguł sieciowych w celu zezwalania na ruch do i z konta magazynu.
 
 * Zapora konta magazynu jest włączona i nie jest skonfigurowana w taki sposób, aby zezwalała na ruch do i z funkcji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Sprawdź, czy `allowSharedKeyAccess` ustawienie ma ustawioną `true` wartość domyślną. Aby uzyskać więcej informacji, zobacz [Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## <a name="daily-execution-quota-is-full"></a>Dzienny limit przydziału wykonywania jest pełny
 

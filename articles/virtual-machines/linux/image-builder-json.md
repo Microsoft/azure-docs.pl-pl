@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519711"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594737"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -249,7 +249,7 @@ W przypadku korzystania z `customize` :
 - Jeśli jeden z ustawień nie powiedzie się, cały składnik dostosowywania zakończy się niepowodzeniem, a raport zostanie zwrócony z powrotem.
 - Zdecydowanie zaleca się dokładne przetestowanie skryptu przed użyciem go w szablonie. Debugowanie skryptu na własnej maszynie wirtualnej będzie łatwiejsze.
 - Nie należy umieszczać poufnych danych w skryptach. 
-- Lokalizacje skryptów muszą być publicznie dostępne, chyba że używany jest plik [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
+- Lokalizacje skryptów muszą być publicznie dostępne, chyba że używany jest plik [MSI](./image-builder-user-assigned-identity.md).
 
 ```json
         "customize": [
@@ -417,7 +417,7 @@ Właściwości dostosowywania pliku:
 - **SourceUri** — dostępny punkt końcowy magazynu, może to być usługa GitHub lub Azure Storage. Można pobrać tylko jeden plik, a nie cały katalog. Jeśli konieczne jest pobranie katalogu, należy użyć skompresowanego pliku, a następnie zdekompresować go przy użyciu powłoki lub konfiguratorów programu PowerShell. 
 
 > [!NOTE]
-> Jeśli sourceUri jest kontem usługi Azure Storage, bez względu na to, czy obiekt BLOB jest oznaczony jako publiczny, nastąpi przyznanie uprawnienia do odczytu tożsamości użytkownika w odniesieniu do obiektu BLOB. Zapoznaj się z tym [przykładem](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) , aby ustawić uprawnienia do magazynu.
+> Jeśli sourceUri jest kontem usługi Azure Storage, bez względu na to, czy obiekt BLOB jest oznaczony jako publiczny, nastąpi przyznanie uprawnienia do odczytu tożsamości użytkownika w odniesieniu do obiektu BLOB. Zapoznaj się z tym [przykładem](./image-builder-user-assigned-identity.md#create-a-resource-group) , aby ustawić uprawnienia do magazynu.
 
 - **Destination** — jest to pełna ścieżka docelowa i nazwa pliku. Wszystkie ścieżki i podkatalogi, do których się odwołuje, muszą istnieć, użyj programu Shell lub konfiguratorzy programu PowerShell, aby wcześniej je skonfigurować. Możesz użyć niestandardowych konfiguratorów skryptów, aby utworzyć ścieżkę. 
 
@@ -456,7 +456,7 @@ Dostosuj właściwości:
 - **updateLimit** — opcjonalne, definiuje liczbę aktualizacji, które mogą być instalowane, domyślnie 1000.
  
 > [!NOTE]
-> Windows Update konfigurator może zakończyć się niepowodzeniem, jeśli istnieją jakiekolwiek zaległe ponowne uruchomienia systemu Windows lub instalacje aplikacji nadal działają, zazwyczaj ten błąd może pojawić się w temacie Customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Zdecydowanie zalecamy, aby rozważyć dodanie do ponownego uruchomienia systemu Windows i/lub zezwolenie aplikacjom na ukończenie instalacji przy użyciu poleceń [uśpienia](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) lub oczekiwania w poleceniach wbudowanych lub skryptach przed uruchomieniem Windows Update.
+> Windows Update konfigurator może zakończyć się niepowodzeniem, jeśli istnieją jakiekolwiek zaległe ponowne uruchomienia systemu Windows lub instalacje aplikacji nadal działają, zazwyczaj ten błąd może pojawić się w temacie Customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Zdecydowanie zalecamy, aby rozważyć dodanie do ponownego uruchomienia systemu Windows i/lub zezwolenie aplikacjom na ukończenie instalacji przy użyciu poleceń [uśpienia](/powershell/module/microsoft.powershell.utility/start-sleep) lub oczekiwania w poleceniach wbudowanych lub skryptach przed uruchomieniem Windows Update.
 
 ### <a name="generalize"></a>Generalize 
 Domyślnie program Azure Image Builder uruchomi również kod "anulowania aprowizacji" na końcu każdej fazy dostosowywania obrazu do "generalize" obrazu. Uogólnianie to proces, w którym obraz jest skonfigurowany tak, aby można go było ponownie wykorzystać do tworzenia wielu maszyn wirtualnych. W przypadku maszyn wirtualnych z systemem Windows usługa Azure Image Builder używa programu Sysprep. W przypadku systemu Linux usługa Azure Image Builder uruchamia polecenie "waagent-dezastrzeganie". 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: alkohli
 ms.openlocfilehash: 6e42fef2aa4415373ed0bac39284f36ba330a4d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730651"
 ---
 Połącz się z maszyną wirtualną z systemem Windows przy użyciu Remote Desktop Protocol (RDP) za pośrednictwem adresu IP, który został przesłany podczas tworzenia maszyny wirtualnej.

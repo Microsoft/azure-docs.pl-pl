@@ -21,7 +21,7 @@
       href: tutorial-monitor-your-data.md
     - name: Badanie zdarzeń
       href: tutorial-investigate-cases.md
-    - name: Reagowanie na zagrożenia
+    - name: Reagowanie na zagrożenia za pomocą usługi Automation
       href: tutorial-respond-threats-playbook.md
     - name: Tworzenie zapytań KQL (informacje o module)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
@@ -37,6 +37,14 @@
           href: resource-context-rbac.md
     - name: Zaawansowane wieloetapowe wykrywanie ataków
       href: fusion.md
+    - name: Automatyzacja (o)
+      items:
+        - name: O na platformie Azure — wskaźnik
+          href: automation-in-azure-sentinel.md
+        - name: Reguły automatyzacji dla obsługi zdarzeń
+          href: automate-incident-handling-with-automation-rules.md
+        - name: Zaawansowana Automatyzacja za pomocą elementy PlayBook
+          href: automate-responses-with-playbooks.md
     - name: Identyfikowanie zaawansowanych zagrożeń za pomocą analizy UEBA
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Importowanie analizy zagrożeń do usługi Azure Sentinel
@@ -279,7 +287,7 @@
           href: livestream.md
     - name: Usuwanie usługi Azure Sentinel
       href: offboard.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Najpopularniejsze skoroszyty wskaźnikowe platformy Azure
       href: top-workbooks.md

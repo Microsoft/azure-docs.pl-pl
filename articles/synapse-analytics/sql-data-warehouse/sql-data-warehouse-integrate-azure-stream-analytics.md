@@ -2,21 +2,21 @@
 title: Używanie Azure Stream Analytics w dedykowanej puli SQL
 description: Porady dotyczące używania Azure Stream Analytics z dedykowaną pulą SQL w usłudze Azure Synapse na potrzeby tworzenia rozwiązań w czasie rzeczywistym.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 9/25/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 023cf55a01f34277dd5c5707d0d123f54c1674df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "96458219"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600092"
 ---
 # <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Używanie Azure Stream Analytics z dedykowaną pulą SQL w usłudze Azure Synapse Analytics
 
@@ -52,8 +52,8 @@ Podaj następujące wartości:
 
 * *Alias wyjściowy*: wprowadź przyjazną nazwę dla tego wyjścia zadania.
 * *Subskrypcja*:
-  * Jeśli dedykowana Pula SQL znajduje się w tej samej subskrypcji co zadanie Stream Analytics, kliknij pozycję ***Wybierz pozycję Azure Synapse Analytics z subskrypcji** _.
-  Jeśli dedykowana Pula SQL znajduje się w innej subskrypcji, kliknij pozycję Podaj ręcznie ustawienia usługi Azure Synapse Analytics.
+  * Jeśli dedykowana Pula SQL znajduje się w tej samej subskrypcji co zadanie Stream Analytics, kliknij ***opcję Wybierz pozycję Azure Synapse Analytics z subskrypcji***.
+  * Jeśli dedykowana Pula SQL znajduje się w innej subskrypcji, kliknij pozycję Podaj ręcznie ustawienia usługi Azure Synapse Analytics.
 * *Baza danych*: wybierz docelową bazę danych z listy rozwijanej.
 * *Nazwa użytkownika*: Określ nazwę użytkownika konta, które ma uprawnienia do zapisu w bazie danych.
 * *Hasło*: Podaj hasło do określonego konta użytkownika.
@@ -100,23 +100,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### <a name="step-5"></a>Krok 5
 
-Na Azure Portal zadania Stream Analytics kliknij nazwę zadania.  Kliknij przycisk **_test_* _ w okienku _*_Szczegóły danych wyjściowych_*_ .
+Na Azure Portal zadania Stream Analytics kliknij nazwę zadania.  Kliknij przycisk ***test** _ w okienku _ *_Szczegóły danych wyjściowych_**.
 
 ![Przycisk Testuj na Outpout szczegóły ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) po pomyślnym nawiązaniu połączenia z bazą danych w portalu zostanie wyświetlone powiadomienie.
 
 ### <a name="step-6"></a>Krok 6
 
-Kliknij menu _*_zapytania_*_ w obszarze _*_topologia zadania_*_ i Zmień zapytanie, aby wstawić dane do utworzonego wyjścia strumienia.  Kliknij przycisk _*_Testuj wybrane zapytanie_*_ , aby przetestować zapytanie.  Kliknij przycisk _*_Zapisz zapytanie_*_ , gdy test zapytania zakończy się pomyślnie.
+Kliknij menu ***zapytanie** _ w obszarze _*_topologia zadania_*_ i Zmień zapytanie, aby wstawić dane do utworzonego wyjścia strumienia.  Kliknij przycisk _*_Testuj wybrane zapytanie_*_ , aby przetestować zapytanie.  Kliknij przycisk _ *_Zapisz zapytanie_**, gdy test zapytania zakończy się pomyślnie.
 
 ![Zapisz zapytanie](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Krok 7
 
-Uruchom zadanie Azure Stream Analytics.  Kliknij przycisk _*_Start_*_ w menu _*_Przegląd_*_ .
+Uruchom zadanie Azure Stream Analytics.  Kliknij przycisk ***Start** _ w menu _ *_Przegląd_**.
 
 ![Uruchamianie zadania usługi Stream Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-Kliknij przycisk _ *_Rozpocznij_** w okienku Rozpocznij zadanie.
+Kliknij przycisk ***Start*** w okienku Uruchom zadanie.
 
 ![Kliknij przycisk Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 

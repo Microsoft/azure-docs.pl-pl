@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201485"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607538"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Konfigurowanie uprawnień usługi Azure Image Builder przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -239,7 +239,7 @@ Zastąp następujące ustawienia symboli zastępczych:
 | \<Storage account container\> | Nazwa kontenera konta magazynu |
 | \<Subscription ID\> | Subskrypcja platformy Azure |
 
-Aby uzyskać więcej informacji przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, zobacz [Tworzenie niestandardowego obrazu, który będzie używać tożsamości zarządzanej User-Assigned platformy Azure do bezproblemowe dostępu do plików usługi Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). Przewodnik Szybki Start przedstawia sposób tworzenia i konfigurowania tożsamości zarządzanej przypisanej przez użytkownika w celu uzyskania dostępu do konta magazynu.
+Aby uzyskać więcej informacji przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, zobacz [Tworzenie niestandardowego obrazu, który będzie używać tożsamości zarządzanej User-Assigned platformy Azure do bezproblemowe dostępu do plików usługi Azure Storage](./image-builder-user-assigned-identity.md). Przewodnik Szybki Start przedstawia sposób tworzenia i konfigurowania tożsamości zarządzanej przypisanej przez użytkownika w celu uzyskania dostępu do konta magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 

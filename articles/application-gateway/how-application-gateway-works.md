@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397471"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599667"
 ---
 # <a name="how-an-application-gateway-works"></a>Jak działa Brama aplikacji
 
@@ -30,7 +30,7 @@ W tym artykule wyjaśniono, jak Brama aplikacji akceptuje żądania przychodząc
 
 4. Jeśli jest używana Zapora aplikacji sieci Web (WAF), Brama aplikacji sprawdza nagłówki żądań i treść, jeśli istnieje, względem reguł WAF. Ta akcja określa, czy żądanie jest prawidłowym żądaniem czy zagrożeniem bezpieczeństwa. Jeśli żądanie jest prawidłowe, jest kierowane do zaplecza. Jeśli żądanie jest nieprawidłowe i WAF jest w trybie zapobiegania, jest ono blokowane jako zagrożenie bezpieczeństwa. Jeśli jest w trybie wykrywania, żądanie jest oceniane i rejestrowane, ale nadal przesyłane do serwera wewnętrznej bazy danych.
 
-Usługi Azure Application Gateway można używać jako wewnętrznego modułu równoważenia obciążenia aplikacji lub jako modułu równoważenia obciążenia aplikacji dostępnego z Internetu. Brama aplikacji mających dostęp do Internetu używa publicznych adresów IP. Nazwa DNS bramy aplikacji dostępnej z Internetu jest publicznie rozpoznawalna na swój publiczny adres IP. W związku z tym internetowe bramy aplikacji mogą kierować żądania klientów do Internetu.
+Usługi Azure Application Gateway można używać jako wewnętrznego modułu równoważenia obciążenia aplikacji lub jako modułu równoważenia obciążenia aplikacji dostępnego z Internetu. Brama aplikacji mających dostęp do Internetu używa publicznych adresów IP. Nazwa DNS bramy aplikacji dostępnej z Internetu jest publicznie rozpoznawalna na swój publiczny adres IP. W związku z tym internetowe bramy aplikacji mogą kierować żądania klientów z Internetu.
 
 Wewnętrzne bramy aplikacji używają tylko prywatnych adresów IP. Jeśli używasz niestandardowej lub [prywatna strefa DNS strefy](../dns/private-dns-overview.md), nazwa domeny powinna być wewnętrznie rozpoznawalna na prywatny adres IP Application Gateway. W związku z tym wewnętrzne moduły równoważenia obciążenia mogą kierować żądania tylko od klientów mających dostęp do sieci wirtualnej dla bramy aplikacji.
 
@@ -53,8 +53,8 @@ Gdy Brama aplikacji wysyła oryginalne żądanie do serwera wewnętrznej bazy da
  >[!NOTE]
 >Jeśli pula zaplecza:
 > - **To publiczny punkt końcowy**. Brama aplikacji używa publicznego adresu IP frontonu do uzyskiwania dostępu do serwera. Jeśli nie ma publicznego adresu IP frontonu, jeden zostanie przypisany do wychodzącej łączności zewnętrznej.
-> - **Zawiera wewnętrznie rozpoznawalną nazwę FQDN lub prywatny adres IP** , Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych za pomocą prywatnych adresów IP wystąpienia.
-> - **Zawiera zewnętrzny punkt końcowy lub zewnętrznie rozpoznawalną nazwę FQDN** , Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych przy użyciu publicznego adresu IP frontonu. Rozpoznawanie nazw DNS jest oparte na prywatnej strefie DNS lub niestandardowym serwerze DNS, jeśli jest skonfigurowany lub korzysta z domyślnej usługi DNS udostępnionej przez platformę Azure. Jeśli nie ma publicznego adresu IP frontonu, jeden zostanie przypisany do wychodzącej łączności zewnętrznej.
+> - **Zawiera wewnętrznie rozpoznawalną nazwę FQDN lub prywatny adres IP**, Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych za pomocą prywatnych adresów IP wystąpienia.
+> - **Zawiera zewnętrzny punkt końcowy lub zewnętrznie rozpoznawalną nazwę FQDN**, Brama aplikacji kieruje żądanie do serwera wewnętrznej bazy danych przy użyciu publicznego adresu IP frontonu. Rozpoznawanie nazw DNS jest oparte na prywatnej strefie DNS lub niestandardowym serwerze DNS, jeśli jest skonfigurowany lub korzysta z domyślnej usługi DNS udostępnionej przez platformę Azure. Jeśli nie ma publicznego adresu IP frontonu, jeden zostanie przypisany do wychodzącej łączności zewnętrznej.
 
 ### <a name="modifications-to-the-request"></a>Modyfikacje żądania
 

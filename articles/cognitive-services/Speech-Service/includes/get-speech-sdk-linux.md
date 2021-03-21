@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 2466b9b9b812ae9fb590a6678d840661c74f47bd
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: cdcb61249f6cb8f7b60c891dd4899d2e5cedbae6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439261"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612099"
 ---
 :::row:::
     :::column span="3":::
@@ -32,7 +32,7 @@ ms.locfileid: "103439261"
 > W przypadku języka C# w systemie Linux ARM64 wymagany jest program .NET Core 3. x (pakiet dotnet-SDK-3. x).
 
 > [!NOTE]
-> Aby korzystać z zestawu Speech SDK w Alpine Linux, Utwórz środowisko Debian chroot, zgodnie z opisem w witrynie typu wiki Alpine Linux w systemie [https://wiki.alpinelinux.org/wiki/Running_glibc_programs](running glibc programs) , a następnie w tym miejscu postępuj zgodnie z instrukcjami debian.
+> Aby skorzystać z zestawu Speech SDK w Alpine Linux, Utwórz środowisko Debian chroot, jak opisano w witrynie typu wiki Alpine Linux na [Uruchamianie programów glibc](https://wiki.alpinelinux.org/wiki/Running_glibc_programs), a następnie postępuj zgodnie z instrukcjami dotyczącymi debian.
 
 ### <a name="system-requirements"></a>Wymagania systemowe
 

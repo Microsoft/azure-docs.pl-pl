@@ -10,10 +10,10 @@ ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036903"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scenariusz: kierowanie ruchu przez urządzeń WUS przy użyciu ustawień niestandardowych
@@ -92,7 +92,7 @@ Na diagramie istnieje jedno centrum. **Hub 1**.
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/architecture.png" alt-text="Diagram architektury sieci.":::
 
-## <a name="workflow"></a><a name="workflow"></a>Utworzonego
+## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/workflow.png" alt-text="Diagram przepływu pracy." lightbox="./media/routing-scenarios/nva-custom/workflow.png":::
 

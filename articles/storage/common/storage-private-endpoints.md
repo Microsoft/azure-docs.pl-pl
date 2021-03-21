@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601478"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600466"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
 
@@ -53,6 +53,16 @@ Możesz zabezpieczyć konto magazynu tak, aby akceptowało tylko połączenia z 
 
 ## <a name="creating-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
+Aby utworzyć prywatny punkt końcowy przy użyciu witryny Azure Portal, zobacz [nawiązywanie połączenia prywatnego z kontem magazynu](../../private-link/tutorial-private-endpoint-storage-portal.md)na koncie magazynu w Azure Portal.
+
+Aby utworzyć prywatny punkt końcowy przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure, zobacz jeden z tych artykułów. Obie te funkcje korzystają z aplikacji sieci Web platformy Azure jako usługi docelowej, ale kroki tworzenia prywatnego linku są takie same dla konta usługi Azure Storage.
+
+- [Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure](../../private-link/create-private-endpoint-cli.md)
+
+- [Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 Podczas tworzenia prywatnego punktu końcowego należy określić konto magazynu i usługę magazynu, z którą nawiąże połączenie. 
 
 Wymagany jest oddzielny prywatny punkt końcowy dla każdego zasobu magazynu, do którego trzeba uzyskać dostęp, czyli [obiekty blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [pliki](../files/storage-files-introduction.md), [kolejki](../queues/storage-queues-introduction.md), [tabele](../tables/table-storage-overview.md)lub [statyczne witryny sieci Web](../blobs/storage-blob-static-website.md). W prywatnym punkcie końcowym te usługi magazynu są definiowane jako **docelowe zasoby podrzędne** skojarzonego konta magazynu. 
@@ -64,13 +74,6 @@ Jeśli utworzysz prywatny punkt końcowy dla zasobu magazynu Data Lake Storage G
 > Upewnij się, że utworzono konto magazynu ogólnego przeznaczenia w wersji 2 (standardowa lub Premium).
 
 Aby uzyskać dostęp do odczytu do regionu pomocniczego z kontem magazynu skonfigurowanym dla magazynu geograficznie nadmiarowego, należy oddzielić prywatne punkty końcowe zarówno dla głównych, jak i dodatkowych wystąpień usługi. Nie musisz tworzyć prywatnego punktu końcowego dla wystąpienia dodatkowego do **pracy w trybie failover**. Prywatny punkt końcowy będzie automatycznie łączyć się z nowym wystąpieniem podstawowym po przejściu w tryb failover. Aby uzyskać więcej informacji na temat opcji nadmiarowości magazynu, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
-
-Aby uzyskać bardziej szczegółowe informacje na temat tworzenia prywatnego punktu końcowego dla konta magazynu, zapoznaj się z następującymi artykułami:
-
-- [Połącz się prywatnie z kontem magazynu z poziomu środowiska konta magazynu w Azure Portal](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Utwórz prywatny punkt końcowy przy użyciu prywatnego centrum linków w Azure Portal](../../private-link/create-private-endpoint-portal.md)
-- [Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure](../../private-link/create-private-endpoint-cli.md)
-- [Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 
@@ -139,7 +142,7 @@ Należy wziąć pod uwagę następujące znane problemy dotyczące prywatnych pu
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Ograniczenia dostępu do magazynu dla klientów w sieci wirtualnych z prywatnymi punktami końcowymi
 
-Klienci w programie sieci wirtualnych z istniejącymi prywatnymi punktami końcowymi ograniczeniami podczas uzyskiwania dostępu do innych kont magazynu, które mają prywatne punkty końcowe. Na przykład załóżmy, że sieć wirtualna N1 ma prywatny punkt końcowy dla konta magazynu a1 dla magazynu obiektów BLOB. Jeśli konto magazynu a2 ma prywatny punkt końcowy w sieci wirtualnej N2 dla usługi BLOB Storage, klienci w sieci wirtualnej N1 muszą również uzyskać dostęp do usługi BLOB Storage na koncie a2 przy użyciu prywatnego punktu końcowego. Jeśli konto magazynu a2 nie ma żadnych prywatnych punktów końcowych usługi BLOB Storage, klienci w sieci wirtualnej N1 mogą uzyskać dostęp do magazynu obiektów BLOB na tym koncie bez prywatnego punktu końcowego.
+Klienci w programie sieci wirtualnych z istniejącymi prywatnymi punktami końcowymi ograniczeniami podczas uzyskiwania dostępu do innych kont magazynu, które mają prywatne punkty końcowe. Załóżmy na przykład, że sieć wirtualna N1 ma prywatny punkt końcowy dla konta magazynu a1 dla magazynu obiektów BLOB. Jeśli konto magazynu a2 ma prywatny punkt końcowy w sieci wirtualnej N2 dla usługi BLOB Storage, klienci w sieci wirtualnej N1 muszą również uzyskać dostęp do usługi BLOB Storage na koncie a2 przy użyciu prywatnego punktu końcowego. Jeśli konto magazynu a2 nie ma żadnych prywatnych punktów końcowych usługi BLOB Storage, klienci w sieci wirtualnej N1 mogą uzyskać dostęp do magazynu obiektów BLOB na tym koncie bez prywatnego punktu końcowego.
 
 To ograniczenie jest wynikiem zmian wprowadzonych w systemie DNS, gdy konto a2 tworzy prywatny punkt końcowy.
 

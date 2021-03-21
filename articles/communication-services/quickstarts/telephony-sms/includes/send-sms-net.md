@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: peiliu
 ms.openlocfilehash: 96cdeb7c35cd1ccd503f7ce01e1098a6b83884c3
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103622016"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta SMS usług komunikacyjnych w języku C# do wysyłania wiadomości SMS.
@@ -41,7 +41,7 @@ W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kil
 
 ### <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `SmsQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program.cs**.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `SmsQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: **program. cs**.
 
 ```console
 dotnet new console -o SmsQuickstart
@@ -62,7 +62,7 @@ Mimo że w katalogu aplikacji, zainstaluj bibliotekę klienta programu SMS dla u
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
 ```
 
-Dodaj `using` dyrektywę na górze elementu **program.cs** , aby uwzględnić `Azure.Communication` przestrzeń nazw.
+Dodaj `using` dyrektywę w górnej części **programu program. cs** , aby uwzględnić `Azure.Communication` przestrzeń nazw.
 
 ```csharp
 
@@ -87,7 +87,7 @@ Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki k
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
- Otwórz **program.cs** w edytorze tekstów i Zastąp treść `Main` metody kodem, aby zainicjować `SmsClient` za pomocą parametrów połączenia. Poniższy kod pobiera parametry połączenia dla zasobu ze zmiennej środowiskowej o nazwie `COMMUNICATION_SERVICES_CONNECTION_STRING` . Dowiedz się, jak [zarządzać parametrami połączenia zasobu](../../create-communication-resource.md#store-your-connection-string).
+ Otwórz **program. cs** w edytorze tekstów i Zastąp treść `Main` metody kodem, aby zainicjować `SmsClient` za pomocą parametrów połączenia. Poniższy kod pobiera parametry połączenia dla zasobu ze zmiennej środowiskowej o nazwie `COMMUNICATION_SERVICES_CONNECTION_STRING` . Dowiedz się, jak [zarządzać parametrami połączenia zasobu](../../create-communication-resource.md#store-your-connection-string).
 
 
 ```csharp
@@ -100,7 +100,7 @@ SmsClient smsClient = new SmsClient(connectionString);
 
 ## <a name="send-a-11-sms-message"></a>Wyślij wiadomość SMS z systemem 1:1
 
-Aby wysłać wiadomość SMS do pojedynczego adresata, wywołaj `Send` funkcję lub `SendAsync` z SmsClient. Dodaj ten kod na końcu `Main` metody w **program.cs**:
+Aby wysłać wiadomość SMS do pojedynczego adresata, wywołaj `Send` funkcję lub `SendAsync` z SmsClient. Dodaj ten kod na końcu `Main` metody w **programie program. cs**:
 
 ```csharp
 SmsSendResult sendResult = smsClient.Send(

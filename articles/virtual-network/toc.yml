@@ -29,6 +29,8 @@
       href: tutorial-create-nat-gateway-portal.md
     - name: Integrowanie publicznego modułu równoważenia obciążenia bramy translatora adresów sieciowych
       href: tutorial-nat-gateway-load-balancer-public-portal.md
+    - name: Integrowanie wewnętrznego modułu równoważenia obciążenia bramy translatora adresów sieciowych
+      href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure

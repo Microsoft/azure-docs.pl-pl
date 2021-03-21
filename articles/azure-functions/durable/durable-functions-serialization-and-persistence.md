@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: azfuncdf
 ms.openlocfilehash: ea4aaa1cdbe10e2db9cf619452558d104a2293ab
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449377"
 ---
 # <a name="data-persistence-and-serialization-in-durable-functions-azure-functions"></a>Trwałość i Serializacja danych w Durable Functions (Azure Functions)
@@ -26,7 +26,7 @@ Durable Functions używa kolejek usługi Azure Storage do niezawodnego zaplanowa
 
 W ramach jednego [centrum zadań](durable-functions-task-hubs.md)Durable Functions tworzy i dodaje komunikaty do kolejki *elementów roboczych* o nazwie `<taskhub>-workitem` do planowania funkcji działania oraz co najmniej jedną *kolejkę kontroli* o nazwie `<taskhub>-control-##` do zaplanowania lub wznowienia funkcji programu Orchestrator i jednostek. Liczba kolejek sterowania jest równa liczbie partycji skonfigurowanych dla aplikacji. Więcej informacji o kolejkach i partycjach znajduje się w dokumentacji dotyczącej [wydajności i skalowalności](durable-functions-perf-and-scale.md).
 
-### <a name="tables"></a>Tabele
+### <a name="tables"></a>tabelami
 
 Po pomyślnym przeprowadzeniu przez aranżacji komunikatów procesy są utrwalane w tabeli *historii* o nazwie `<taskhub>History` . Dane wejściowe i wyjściowe aranżacji są również utrwalane w tabeli *wystąpień* o nazwie `<taskhub>Instances` .
 

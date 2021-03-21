@@ -5,10 +5,10 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787624"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
@@ -39,7 +39,7 @@ Funkcja Autokorekty jest domyślnie włączona dla wszystkich użytkowników. Je
 
 ## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Czy mogę określić liczbę współbieżnych kopii zapasowych uruchamianych na serwerze SQL?
 
-Tak. Można ograniczyć szybkość uruchamiania zasad tworzenia kopii zapasowych, aby zminimalizować wpływ na wystąpienie SQL Server. Aby zmienić ustawienie:
+Tak. Możesz ograniczyć częstotliwość uruchamiania zasad tworzenia kopii zapasowych, aby zminimalizować wpływ na wystąpienie programu SQL Server. Aby zmienić ustawienie:
 
 1. W wystąpieniu SQL Server w folderze *C:\Program Files\Azure obciążenie Backup\bin* Utwórz *ExtensionSettingsOverrides.jsna* pliku.
 2. W *ExtensionSettingsOverrides.jsna* pliku Zmień ustawienie **DefaultBackupTasksThreshold** na niższą wartość (na przykład 5). <br>

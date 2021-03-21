@@ -8,10 +8,10 @@ ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149306"
 ---
 # <a name="identify-required-appliances"></a>Identyfikowanie wymaganych urządzeń
@@ -40,7 +40,7 @@ Ta sekcja zawiera omówienie dostępnych modeli czujnika fizycznego. Można kupi
 
 | Typ wdrożenia | Firmowe | Przedsiębiorstwa | Montowanie w stojaku SMB| Protokół SMB został wzmocniony|
 |--|--|--|--|--|
-| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="Model na poziomie opartym na protokole SMB."::: |
+| Obraz | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Model na poziomie firmy."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie przedsiębiorstwa."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Model na poziomie SMB."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="Model na poziomie opartym na protokole SMB."::: |
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Monitorowanie portów | Do 15 RJ45 lub 8 OPT | Do 8 RJ45 lub 6 OPT | 4 RJ45 | Do 5 |
 | Maksymalna przepustowość [1](#anchortext) | 3 GB/s | 1 GB/s | 200 MB/s | 100 MB/s |
@@ -261,7 +261,7 @@ Ta sekcja zawiera szczegółowe informacje o dodatkowych urządzeniach certyfiko
 
 | Typ wdrożenia | Przedsiębiorstwa |
 |--|--|
-| Image (Obraz) | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Typ wdrożenia przedsiębiorstwa."::: |
+| Obraz | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Typ wdrożenia przedsiębiorstwa."::: |
 | Model | Dell PowerEdge R340 XL |
 | Monitorowanie portów | Do dziewięciu RJ45 lub sześciu OPT |
 | Maksymalna przepustowość [1](#anchortext2)| 1 GB/s |
