@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: willzhan
 ms.openlocfilehash: 576ac636f166e2daebbb9919d6666fea913a17be
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103017056"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services
@@ -89,10 +89,10 @@ Aby użyć aplikacji konsolowej:
 
 1. Zmień app.config, aby skonfigurować poświadczenia usługi AMS, poświadczenia castLabs, konfigurację usługi STS i klucz współużytkowany.
 2. Przekaż element zawartości do AMS.
-3. Pobierz identyfikator UUID z przekazanego elementu zawartości i Zmień wiersz 32 w pliku Program.cs:
+3. Pobierz identyfikator UUID z przekazanego elementu zawartości i Zmień wiersz 32 w pliku program. cs:
    
       var objIAsset = _context. Assets. WHERE (x => x.Id = = "NB: CID: UUID: dac53a5d-1500-80bd-b864-f1e4b62594cf"). FirstOrDefault ();
-4. Użyj AssetId do nazewnictwa elementów zawartości w systemie castLabs (wiersz 44 w pliku Program.cs).
+4. Użyj AssetId do nadawania nazw zasobom w systemie castLabs (wiersz 44 w pliku program. cs).
    
    Należy ustawić AssetId dla **castLabs**; musi być unikatowym ciągiem alfanumerycznym.
 5. Uruchomisz program.

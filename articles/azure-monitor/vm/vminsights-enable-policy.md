@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031960"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Włącz szczegółowe informacje o maszynie wirtualnej za pomocą Azure Policy
@@ -47,7 +47,7 @@ Na stronie **Parametry** wybierz **obszar roboczy log Analytics** , który ma by
    > [!NOTE]
    > Jeśli obszar roboczy przekracza zakres przypisania, udziel *log Analytics uprawnienia współautora* do identyfikatora podmiotu zabezpieczeń przypisania zasad. Jeśli tego nie zrobisz, może zostać wyświetlony błąd wdrażania, jak `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Obszary](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Workspace](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć szczegóły przypisania przed kliknięciem pozycji **Utwórz** , aby je utworzyć. Nie twórz w tym momencie zadania korygowania, ponieważ najprawdopodobniej potrzebujesz wielu zadań korygowania do włączania istniejących maszyn wirtualnych. Zobacz [Koryguj wyniki zgodności](#remediate-compliance-results) poniżej.
 

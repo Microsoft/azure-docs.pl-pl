@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8f57c63868d6f70094cf040a92c0124b46477758
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 9ff0cb8e2417ed08ed4c2061674cc6932b511aed
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490198"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595910"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Wprowadzenie do usługi Azure Percept audio
 
@@ -21,7 +21,12 @@ Usługa Azure Percept audio to urządzenie do akcesoriów, które dodaje możliw
 > [!div class="nextstepaction"]
 > [Kup teraz](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-:::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Urządzenie audio usługi Azure Percept.":::
+<!---
+:::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Azure Percept Audio device.":::
+--->
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
 
 ## <a name="azure-percept-audio-components"></a>Składniki audio usługi Azure Percept
 

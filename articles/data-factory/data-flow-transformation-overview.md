@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367915"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593870"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Mapowanie transformacji przepływu danych — omówienie
 
@@ -31,6 +31,7 @@ Poniżej znajduje się lista transformacji, które są obecnie obsługiwane w ma
 | [Dołącz](data-flow-join.md) | Wiele danych wejściowych/wyjściowych |  Połącz dane z dwóch źródeł lub strumieni. |
 | [Wyszukiwanie](data-flow-lookup.md) | Wiele danych wejściowych/wyjściowych | Dane referencyjne z innego źródła. |
 | [Nowa gałąź](data-flow-new-branch.md) | Wiele danych wejściowych/wyjściowych | Zastosuj wiele zestawów operacji i transformacji dla tego samego strumienia danych. |
+| [Analizuj](data-flow-new-branch.md) | EQ | Analizuj kolumny tekstowe w strumieniu danych, które są ciągami JSON, rozdzielanymi tekstem lub tekstem w formacie XML. |
 | [Przestawianie](data-flow-pivot.md) | Modyfikator schematu | Agregacja, w której co najmniej jedna kolumna grupowania ma swoje unikatowe wartości wierszy przekształcone w pojedyncze kolumny. |
 | [Ranga](data-flow-rank.md) | Modyfikator schematu | Generowanie uporządkowanej klasyfikacji na podstawie warunków sortowania |
 | [Wybierz](data-flow-select.md) | Modyfikator schematu | Kolumny aliasów i nazwy strumieni oraz upuszczanie lub zmiana kolejności kolumn |

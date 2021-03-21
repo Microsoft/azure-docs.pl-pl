@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak używać domen zdarzeń do zarządzania
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198680"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informacje o domenach zdarzeń związanych z zarządzaniem Event Grid tematy
@@ -96,7 +96,7 @@ Oto limity i przydziały związane z domenami zdarzeń:
 
 Jeśli te limity nie są odpowiednie dla Ciebie, skontaktuj się z zespołem produktu, otwierając bilet pomocy technicznej lub wysyłając wiadomość e-mail na adres [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Domeny zdarzeń używają tych samych [cen operacji](https://azure.microsoft.com/pricing/details/event-grid/) , które są używane przez wszystkie inne funkcje w Event Grid.
 
 Operacje działają tak samo w domenach zdarzeń, jak w tematach niestandardowych. Każdy ruch przychodzący zdarzenia do domeny zdarzeń jest operacją, a każda próba dostarczenia zdarzenia jest operacją.

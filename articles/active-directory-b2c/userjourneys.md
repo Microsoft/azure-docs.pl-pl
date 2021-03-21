@@ -11,17 +11,17 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174669"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Podróże użytkowników określają jawne ścieżki, za pomocą których zasady umożliwiają aplikacji jednostki uzależnionej uzyskanie żądanych oświadczeń dla użytkownika. Użytkownik otrzymuje te ścieżki, aby pobrać oświadczenia, które mają być prezentowane dla jednostki uzależnionej. Innymi słowy, Podróże użytkowników definiują logikę biznesową, przez jaką użytkownik końcowy przechodzi przez użytkownika końcowego, jako że platforma obsługi tożsamości Azure AD B2C przetwarza żądanie.
+Podróże użytkownika określają jawne ścieżki, za pośrednictwem których zasady umożliwiają aplikacji jednostki zależnej uzyskanie żądanych oświadczeń dla użytkownika. Użytkownik jest prowadzony przez te ścieżki w celu pobrania oświadczeń, które mają być prezentowane jednostce zależnej. Innymi słowy, Podróże użytkowników definiują logikę biznesową, przez jaką użytkownik końcowy przechodzi przez użytkownika końcowego, jako że platforma obsługi tożsamości Azure AD B2C przetwarza żądanie.
 
 Te podróże użytkowników mogą być uważane za szablony dostępne w celu spełnienia podstawowych potrzeb różnych jednostek uzależnionych zainteresowanych społeczności. Podróże użytkowników ułatwiają zdefiniowanie w ramach zasad jednostki uzależnionej. Zasady mogą definiować wiele podróży użytkownika. Każda podróż użytkownika to sekwencja kroków aranżacji.
 

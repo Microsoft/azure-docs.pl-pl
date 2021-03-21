@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 22be45403a7863328c5f6f2c883886296b734914
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d510fa35163a4c4a79352f5f35af9c384bf85304
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596318"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Często zadawane pytania dotyczące Linux Virtual Machines
 W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Linux utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Windows w tym temacie, zobacz [często zadawane pytania dotyczące Windows Virtual Machines](../windows/faq.md)
@@ -31,7 +31,7 @@ Konta usługi Azure Storage mogą również udostępniać magazyn dla dysku syst
 ## <a name="how-can-i-access-my-virtual-machine"></a>Jak mogę uzyskać dostęp do mojej maszyny wirtualnej?
 Nawiąż połączenie zdalne, aby zalogować się do maszyny wirtualnej przy użyciu Secure Shell (SSH). Zapoznaj się z instrukcjami dotyczącymi sposobu nawiązywania połączenia [z systemem Windows](ssh-from-windows.md) lub [z systemów Linux i Mac](mac-create-ssh-keys.md). Domyślnie protokół SSH umożliwia maksymalnie 10 równoczesnych połączeń. Możesz zwiększyć tę liczbę, edytując plik konfiguracji.
 
-Jeśli masz problemy, sprawdź [Rozwiązywanie problemów z połączeniami Secure Shell (SSH)](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+Jeśli masz problemy, sprawdź [Rozwiązywanie problemów z połączeniami Secure Shell (SSH)](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Czy można używać dysku tymczasowego (/dev/sdb1) do przechowywania danych?
 Nie używaj dysku tymczasowego (/dev/sdb1) do przechowywania danych. Tylko w przypadku magazynu tymczasowego. Ryzyko utraty danych, których nie można odzyskać.

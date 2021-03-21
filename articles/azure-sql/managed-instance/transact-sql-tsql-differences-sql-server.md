@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601376"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
@@ -281,7 +281,7 @@ Niektóre `ALTER DATABASE` instrukcje (na przykład [ustawienie zawierania](/sql
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>Program SQL Server Agent
+### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Włączanie i wyłączanie agenta SQL Server nie jest obecnie obsługiwane w wystąpieniu zarządzanym SQL. Agent SQL zawsze działa.
 - Wyzwalacz harmonogramu zadań oparty na bezczynnym procesorze CPU nie jest obsługiwany.
@@ -311,7 +311,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
 
 Aby uzyskać informacje na temat agenta programu SQL Server, zobacz [SQL Server Agent (Agent programu SQL Server)](/sql/ssms/agent/sql-server-agent).
 
-### <a name="tables"></a>Tabele
+### <a name="tables"></a>tabelami
 
 Następujące typy tabel nie są obsługiwane:
 

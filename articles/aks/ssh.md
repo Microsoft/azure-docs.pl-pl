@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć połączenie SSH z węzłami klastra us
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 7455b98348f2b8c40f2ffc125abe1297af88fbd8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4c068dc1521d19793d42b6788d0439dd11499a91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034459"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605906"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Nawiązywanie połączenia przy użyciu protokołu SSH z węzłami klastra usługi Azure Kubernetes Service w celu konserwacji lub rozwiązywania problemów
 
@@ -141,14 +141,14 @@ Aby utworzyć połączenie SSH z węzłem AKS, należy uruchomić pomocnika w kl
 1. Uruchom `debian` obraz kontenera i Dołącz do niego sesję terminalu. Tego kontenera można użyć do utworzenia sesji SSH z dowolnym węzłem w klastrze AKS:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     ```
 
     > [!TIP]
     > Jeśli używasz węzłów systemu Windows Server, Dodaj selektor węzła do polecenia w celu zaplanowania kontenera Debian w węźle z systemem Linux:
     >
     > ```console
-    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
     > ```
 
 1. Po powiązaniu sesji terminalu z kontenerem Zainstaluj klienta SSH przy użyciu polecenia `apt-get` :

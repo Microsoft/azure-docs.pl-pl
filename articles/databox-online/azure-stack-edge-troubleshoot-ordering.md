@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: e074043cb685f60027d3c09ae7ad8dc17dded0df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443407"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Rozwiązywanie problemów związanych z porządkowaniem programu Azure Stack EDGE Pro
@@ -21,7 +21,7 @@ ms.locfileid: "102443407"
 
 W tym artykule opisano sposób rozwiązywania problemów związanych z porządkowaniem programu Azure Stack EDGE Pro.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

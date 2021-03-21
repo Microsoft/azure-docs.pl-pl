@@ -3,13 +3,13 @@ title: Tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu szablonu Azure 
 description: Dowiedz się, jak utworzyć pulpit nawigacyjny Azure Portal przy użyciu szablonu Azure Resource Manager.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745729"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658333"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Szybki Start: tworzenie pulpitu nawigacyjnego w Azure Portal przy użyciu szablonu ARM
 
@@ -30,9 +30,13 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Pulpit nawigacyjny tworzony w następnej części tego przewodnika Szybki Start wymaga istniejącej maszyny wirtualnej. Utwórz maszynę wirtualną, wykonując następujące kroki.
 
-1. W Azure Portal wybierz pozycję Cloud Shell.
+1. W Azure Portal wybierz pozycję **Cloud Shell**.
 
     ![Wybieranie usługi Cloud Shell ze wstążki Azure Portal](media/quick-create-template/cloud-shell.png)
+
+1. W oknie **Cloud Shell** wybierz pozycję **PowerShell**.
+
+    ![Wybierz program PowerShell w oknie terminalu](media/quick-create-template/powershell.png)
 
 1. Skopiuj poniższe polecenie i wprowadź je w wierszu polecenia, aby utworzyć grupę zasobów.
 
@@ -85,19 +89,7 @@ Azure Portal został użyty do wdrożenia szablonu. Oprócz witryny Azure Portal
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-Sprawdź, czy pulpit nawigacyjny został utworzony pomyślnie i czy można zobaczyć dane z maszyny wirtualnej.
-
-1. W witrynie Azure Portal wybierz pozycję **Pulpit nawigacyjny**.
-
-    ![Azure Portal nawigację do pulpitu nawigacyjnego](media/quick-create-template/navigate-to-dashboards.png)
-
-1. Na stronie Pulpit nawigacyjny wybierz pozycję **prosty pulpit nawigacyjny maszyny wirtualnej**.
-
-    ![Przejdź do prostego pulpitu nawigacyjnego maszyny wirtualnej](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Przejrzyj pulpit nawigacyjny utworzony przez szablon ARM. Można zobaczyć, że część zawartości jest statyczna, ale istnieją także wykresy pokazujące wydajność utworzonej maszyny wirtualnej na początku.
-
-    ![Przejrzyj prosty pulpit nawigacyjny maszyny wirtualnej](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
