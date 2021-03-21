@@ -7,10 +7,10 @@ ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
 ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102244790"
 ---
 W poniższych sekcjach opisano Konfigurowanie terminalu i tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby skonfigurować Terminal, na którym są uruchomione polecenie interfejsu wiersza polecenia platformy Azure, można użyć Azure Cloud Shell opartej na przeglądarce lub lokalnego terminalu.

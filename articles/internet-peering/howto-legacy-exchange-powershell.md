@@ -10,10 +10,10 @@ ms.date: 12/15/2020
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: acc32f4916f5f7f8fe22eebdd1e72db297cac94c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590209"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu programu PowerShell
@@ -22,7 +22,7 @@ W tym artykule opisano sposób konwertowania istniejącej starszej komunikacji r
 
 Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu witryny Azure [Portal](howto-legacy-exchange-portal.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 * Przed rozpoczęciem konfiguracji zapoznaj się z tematem [wymagania wstępne](prerequisites.md) i [Przewodnik po komunikacji równorzędnej programu Exchange](walkthrough-exchange-all.md) .
 
 ### <a name="work-with-azure-powershell"></a>Pracuj z Azure PowerShell
@@ -92,7 +92,7 @@ Ta przykładowa odpowiedź pokazuje, kiedy kompleksowe Inicjowanie obsługi zost
     MaxPrefixesAdvertisedV6  : 2000
     ConnectionState          : Active
 ```
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 Aby uzyskać szczegółowe opisy wszystkich parametrów, należy uruchomić następujące polecenie:
 
 ```powershell

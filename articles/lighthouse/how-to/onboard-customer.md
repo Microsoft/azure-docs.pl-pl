@@ -4,10 +4,10 @@ description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, 
 ms.date: 02/16/2021
 ms.topic: how-to
 ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556113"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
@@ -117,7 +117,7 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Tworzenie szablonu Azure Resource Manager
 
-Aby dołączyć klienta, musisz utworzyć szablon [Azure Resource Manager](../../azure-resource-manager/index.yml) dla oferty z następującymi informacjami. Wartości **mspOfferName** i **mspOfferDescription** będą widoczne dla klienta na [stronie dostawcy usług](view-manage-service-providers.md) Azure Portal.
+Aby dołączyć klienta, należy utworzyć szablon usługi [Azure Resource Manager](../../azure-resource-manager/index.yml) dla oferty, zawierający następujące informacje. Wartości **mspOfferName** i **mspOfferDescription** będą widoczne dla klienta na [stronie dostawcy usług](view-manage-service-providers.md) Azure Portal.
 
 |Pole  |Definicja  |
 |---------|---------|

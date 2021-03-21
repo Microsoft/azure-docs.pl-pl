@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99221030"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu portalu i zarządzanie nim
@@ -62,7 +62,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region (Region) | Wybierz pozycję **Europa Zachodnia**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916154"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time
@@ -162,7 +162,7 @@ Można włączyć JIT na maszynie wirtualnej ze stron usługi Azure Virtual Mach
     1. Po zakończeniu edycji portów wybierz pozycję **Zapisz**.
 
 
-### <a name="powershell"></a>[**Program PowerShell**](#tab/jit-config-powershell)
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
 ### <a name="enable-jit-on-your-vms-using-powershell"></a>Włączanie funkcji JIT na maszynach wirtualnych za pomocą programu PowerShell
 
@@ -288,7 +288,7 @@ Aby zażądać dostępu z usługi Azure Virtual Machines:
 
 
 
-### <a name="powershell"></a>[**Program PowerShell**](#tab/jit-request-powershell)
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
 ### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Żądanie dostępu do maszyny wirtualnej z obsługą JIT za pomocą programu PowerShell
 

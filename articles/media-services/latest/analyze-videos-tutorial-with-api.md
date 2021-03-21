@@ -2,31 +2,24 @@
 title: Analizowanie filmów wideo z Media Services v3
 description: Dowiedz się, jak analizować wideo przy użyciu Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: ''
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 4a050d838bae9b394f5f292698781a9a824af0bf
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: a083fbbf54d6f03316a2e647d47e76cdb5db7c2c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454128"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581246"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Samouczek: analizowanie filmów wideo z Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-> [!NOTE]
-> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
-
-W tym samouczku przedstawiono sposób analizowania wideo za pomocą usługi Azure Media Services. Istnieje wiele scenariuszy, w przypadku których głęboka analiza zarejestrowanego wideo lub dźwięku może być przydatna. Na przykład organizacje mogą zamieniać mowę na tekst w celu przekształcenia nagrań rozmów działu obsługi klienta w katalog z możliwością wyszukiwania, indeksami i pulpitami nawigacyjnymi — aby dzięki jego wykorzystaniu zwiększyć zadowolenie klientów. Następnie mogą uzyskać wgląd w swoją firmę. Te informacje obejmują listę typowych zażaleń, źródeł takich zażaleń i innych przydatnych informacji.
+W tym samouczku przedstawiono sposób analizowania wideo za pomocą usługi Azure Media Services. Istnieje wiele scenariuszy, w przypadku których głęboka analiza zarejestrowanego wideo lub dźwięku może być przydatna. Na przykład organizacje mogą zamieniać mowę na tekst w celu przekształcenia nagrań rozmów działu obsługi klienta w katalog z możliwością wyszukiwania, indeksami i pulpitami nawigacyjnymi — aby dzięki jego wykorzystaniu zwiększyć zadowolenie klientów.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -39,9 +32,9 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="compliance-privacy-and-security"></a>Zgodność, ochrona prywatności i zabezpieczenia
+## <a name="compliance-privacy-and-security"></a>Zgodność, prywatność i zabezpieczenia
  
-Ważną kwestią jest przestrzeganie wszystkich obowiązujących przepisów dotyczących używania Video Indexer i nie można używać Video Indexer lub żadnej innej usługi platformy Azure w sposób naruszający prawa innych lub mogą być szkodliwe dla innych osób. Przed przekazaniem jakichkolwiek filmów wideo, w tym wszelkich danych biometrycznych, do usługi Video Indexer na potrzeby przetwarzania i przechowywania, należy dysponować wszystkimi właściwymi prawami, w tym wszystkimi odpowiednimi komunikatami o zgodzie, z poszczególnych osób w filmie wideo. Aby dowiedzieć się o zgodności, ochronie prywatności i bezpieczeństwie w Video Indexer, [warunki Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)firmy Microsoft. W celu zachowania poufności informacji firmy Microsoft i obsługi danych należy zapoznać się z zasadami [zachowania poufności informacji](https://privacy.microsoft.com/PrivacyStatement)firmy Microsoft, tematami dotyczącymi [usług online](https://www.microsoft.com/licensing/product-licensing/products) ("Ost") i [uzupełnieniem przetwarzania danych](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Dodatkowe informacje o ochronie prywatności, takie jak przechowywanie danych, usuwanie/niszczenie, są dostępne w pliku OST i [tutaj](../video-indexer/faq.md). Korzystając z Video Indexer, wyrażasz zgodę na związanie Cognitive Services warunkami, OST, DPA i zasad zachowania poufności informacji.
+Ważną kwestią jest przestrzeganie wszystkich obowiązujących przepisów w zakresie korzystania z Video Indexer. Nie należy używać Video Indexer ani żadnej innej usługi platformy Azure w sposób naruszający prawa innych. Przed przekazaniem jakichkolwiek filmów wideo, w tym wszelkich danych biometrycznych, do usługi Video Indexer na potrzeby przetwarzania i przechowywania, należy dysponować wszystkimi właściwymi prawami, w tym wszystkimi odpowiednimi komunikatami o zgodzie, od osób w filmie wideo. Aby dowiedzieć się więcej o zgodności, ochronie prywatności i bezpieczeństwie w Video Indexer, [warunki dotyczące Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)platformy Azure. W przypadku obowiązków związanych z ochroną prywatności firmy Microsoft i korzystania z danych zapoznaj się z zasadami [zachowania poufności informacji](https://privacy.microsoft.com/PrivacyStatement)firmy Microsoft, tematami dotyczącymi [usług online](https://www.microsoft.com/licensing/product-licensing/products) i [uzupełnieniem przetwarzania danych](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Więcej informacji o ochronie prywatności, takich jak przechowywanie danych, usuwanie/niszczenie, jest dostępna w pliku OST i w [tym miejscu](../video-indexer/faq.md). Korzystając z Video Indexer, wyrażasz zgodę na związanie Cognitive Services postanowieniami, OST, DPA i zasad zachowania poufności informacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -131,7 +124,7 @@ Ukończenie zadania trwa jakiś czas. Gdy tak jest, chcesz otrzymywać powiadomi
 
 Sondowanie nie jest zalecanym najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych ze względu na potencjalne opóźnienia. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid.
 
-Usługę Event Grid zaprojektowano pod kątem wysokiej dostępności, stałego poziomu wydajności i dynamicznej skalowalności. Dzięki usłudze Event Grid Twoje aplikacje mogą nasłuchiwać zdarzeń pochodzących z praktycznie wszystkich usług platformy Azure i ze źródeł niestandardowych oraz reagować na nie. Prosta, reaktywna obsługa zdarzeń oparta na protokole HTTP pomaga w tworzeniu wydajnych rozwiązań za pośrednictwem inteligentnego filtrowania i routingu zdarzeń. Aby uzyskać więcej informacji, zobacz temat [kierowanie zdarzeń do niestandardowego punktu końcowego sieci Web](job-state-events-cli-how-to.md).
+Usługę Event Grid zaprojektowano pod kątem wysokiej dostępności, stałego poziomu wydajności i dynamicznej skalowalności. Dzięki usłudze Event Grid Twoje aplikacje mogą nasłuchiwać zdarzeń pochodzących z praktycznie wszystkich usług platformy Azure i ze źródeł niestandardowych oraz reagować na nie. Prosta, reaktywna obsługa zdarzeń oparta na protokole HTTP pomaga w tworzeniu wydajnych rozwiązań za pośrednictwem inteligentnego filtrowania i routingu zdarzeń. Aby uzyskać więcej informacji, zobacz temat [kierowanie zdarzeń do niestandardowego punktu końcowego sieci Web](monitoring/job-state-events-cli-how-to.md).
 
 **Zadanie** zwykle przechodzi przez następujące stany: **Scheduled (Zaplanowane)**, **Queued (W kolejce)**, **Processing (Przetwarzane)**, **Finished (Zakończone)** (stan końcowy). Jeśli w zadaniu wystąpi błąd, zostanie wyświetlony stan **błędu** . Jeśli zadanie jest w trakcie anulowania, otrzymujesz **Anulowanie** , a następnie **anulowane** po jego zakończeniu.
 
@@ -147,11 +140,19 @@ Poniższa funkcja pobiera wyniki z wyjściowego [elementu zawartości](/rest/api
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
-### <a name="clean-up-resource-in-your-media-services-account"></a>Czyszczenie zasobów na koncie usługi Media Services
+### <a name="clean-up-resources-in-your-media-services-account"></a>Oczyszczanie zasobów na koncie usługi Media Services
+
+[!INCLUDE [clean-up-warning](includes/clean-up-warning.md)]
 
 Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zazwyczaj spowoduje to ponowne użycie przekształceń i trwałe StreamingLocators). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zasób zadania i wyjściowego:
 
+### <a name="delete-resources-with-code"></a>Usuwanie zasobów przy użyciu kodu
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
+
+Można również użyć interfejsu wiersza polecenia.
+
+[!INCLUDE [clean-up-resources-cli](includes/clean-up-resources-cli.md)]
 
 ## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
@@ -163,23 +164,10 @@ Po uruchomieniu programu zadanie tworzy miniatury dla każdej twarzy wykrytej w 
 
 Plik wyjściowy analizy wideo ma nazwę insights.json. Ten plik zawiera wyniki analiz wideo. Opis elementów znajdujących się w pliku json zawiera artykuł [Inteligentna analiza multimediów](./analyzing-video-audio-files-concept.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-Jeśli nie są już potrzebne żadne zasoby w grupie zasobów, w tym konto usługi Media Services i konta magazynu utworzone w ramach tego samouczka, usuń grupę zasobów utworzoną wcześniej.
-
-Wykonaj następujące polecenie interfejsu wiersza polecenia:
-
-```azurecli
-az group delete --name amsResourceGroup
-```
-
 ## <a name="multithreading"></a>Wielowątkowość
 
-Zestawy SDK Azure Media Services V3 nie są bezpieczne wątkowo. Podczas pracy z aplikacją wielowątkową należy wygenerować nowy obiekt AzureMediaServicesClient na wątek.
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
-
-Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
+> [!WARNING]
+> Zestawy SDK Azure Media Services V3 nie są bezpieczne wątkowo. Podczas pracy z aplikacją wielowątkową należy wygenerować nowy obiekt AzureMediaServicesClient na wątek.
 
 ## <a name="next-steps"></a>Następne kroki
 

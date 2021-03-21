@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 6e5b5c021eb6a83de9ecfb31757855065b70c290
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103196937"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Użyj programu Visual Studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge
@@ -114,7 +114,7 @@ Projekt **IotEdgeModule1** jest aplikacją konsolową programu .net Core 2,1, je
 
 ## <a name="develop-your-module"></a>Opracowywanie modułu
 
-Domyślny kod modułu, który jest dostarczany z rozwiązaniem, znajduje się w lokalizacji **IotEdgeModule1**  >  **program.cs** (dla języka C#) lub **Main. c** (c). Moduł i `deployment.template.json` plik są skonfigurowane tak, aby można było skompilować rozwiązanie, wypchnąć je do rejestru kontenerów i wdrożyć je na urządzeniu w celu uruchomienia testowania bez dotykania kodu. Moduł jest zbudowany z myślą o wejściu ze źródła (w tym przypadku modułu **SimulatedTemperatureSensor** , który symuluje dane) i potoku do IoT Hub platformy Azure.
+Domyślny kod modułu, który jest dostarczany z rozwiązaniem, znajduje się w **IotEdgeModule1**  >  **program. cs** (dla języka C#) lub **Main. C** (c). Moduł i `deployment.template.json` plik są skonfigurowane tak, aby można było skompilować rozwiązanie, wypchnąć je do rejestru kontenerów i wdrożyć je na urządzeniu w celu uruchomienia testowania bez dotykania kodu. Moduł jest zbudowany z myślą o wejściu ze źródła (w tym przypadku modułu **SimulatedTemperatureSensor** , który symuluje dane) i potoku do IoT Hub platformy Azure.
 
 Gdy wszystko jest gotowe do dostosowania szablonu modułu przy użyciu własnego kodu, użyj [zestawów sdk IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md) do kompilowania modułów, które zaspokoją kluczowe potrzeby rozwiązań IoT, takich jak zabezpieczenia, zarządzanie urządzeniami i niezawodność.
 
@@ -149,7 +149,7 @@ Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem g
 
    ![Uruchomiono moduł](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-1. W przypadku programowania w języku C# Ustaw punkt przerwania w `PipeMessage()` funkcji w **program.cs**; Jeśli używasz C, ustaw punkt przerwania w `InputQueue1Callback()` funkcji w **Main. C**. Następnie można go przetestować, wysyłając komunikat, uruchamiając następujące polecenie w powłoce **git bash** lub **WSL bash** . (Nie można uruchomić `curl` polecenia z programu PowerShell lub wiersza polecenia).
+1. W przypadku programowania w języku C# Ustaw punkt przerwania w `PipeMessage()` funkcji w **programie w programie. cs**; Jeśli używasz języka C, ustaw punkt przerwania w `InputQueue1Callback()` funkcji w **Main. C**. Następnie można go przetestować, wysyłając komunikat, uruchamiając następujące polecenie w powłoce **git bash** lub **WSL bash** . (Nie można uruchomić `curl` polecenia z programu PowerShell lub wiersza polecenia).
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages

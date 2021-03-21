@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń grupy zas
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.openlocfilehash: 4c1990909dc555e9e2a6d09538b807ba7e07ce83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363223"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Grupa zasobów platformy Azure jako źródło Event Grid

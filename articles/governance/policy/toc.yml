@@ -265,22 +265,8 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
-        - name: Zdarzenia
-          href: /rest/api/policy-insights/policyevents
-        - name: Stany
-          href: /rest/api/policy-insights/policystates
-        - name: Przypisania
-          href: /rest/api/resources/policyassignments
-        - name: Definicje zasad
-          href: /rest/api/resources/policydefinitions
-        - name: Wykluczenia zasad
-          href: /rest/api/resources/policyexemptions
-        - name: Definicje inicjatyw
-          href: /rest/api/resources/policysetdefinitions
-        - name: Zasoby śledzone przez zasady
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: Korygowania
-          href: /rest/api/policy-insights/remediations
+        - name: Zasady
+          href: /rest/api/policy/
         - name: Konfiguracja gościa
           href: /rest/api/guestconfiguration/
     - name: Szablony usługi Resource Manager

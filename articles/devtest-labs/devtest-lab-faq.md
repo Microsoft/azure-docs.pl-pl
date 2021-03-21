@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytan
 ms.topic: article
 ms.date: 07/17/2020
 ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590277"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
@@ -206,7 +206,7 @@ Tak. Usługa DevTest Labs obsługuje [obrazy generacji 2](../virtual-machines/ge
 Aby użyć obrazów systemu operacyjnego klienta systemu Windows (systemu Windows 7 lub nowszej wersji) do programowania lub testowania na platformie Azure, wykonaj jedną z następujących czynności:
 
 - [Kup subskrypcję MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
-- Jeśli masz Umowa Enterprise, Utwórz subskrypcję platformy Azure z [ofertą Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p).
+- Jeśli masz Enterprise Agreement, Utwórz subskrypcję platformy Azure z [ofertą Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p).
 
 Aby uzyskać więcej informacji na temat środków na korzystanie z platformy Azure dla każdej oferty MSDN, zobacz [comiesięczne kredyty na korzystanie z platformy Azure dla subskrybentów Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -337,7 +337,7 @@ Poniższe wpisy w blogu oferują wskazówki i informacje dotyczące korzystania 
 
 W przypadku innych/Continuous dostarczanych (ciągłej integracji) łańcuchy narzędzi można osiągnąć te same scenariusze, wdrażając [szablony Azure Resource Manager](https://azure.microsoft.com/resources/templates/) przy użyciu [poleceń cmdlet Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Możesz również używać [interfejsów API REST do DevTest Labs](https://aka.ms/dtlrestapis) , aby zintegrować je z łańcucha narzędzi.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Kiedy należy utworzyć nową sieć wirtualną dla środowiska DevTest Labs a przy użyciu istniejącej sieci wirtualnej?
 Jeśli maszyny wirtualne muszą współdziałać z istniejącą infrastrukturą, rozważ użycie istniejącej sieci wirtualnej w środowisku usługi DevTest Labs. Jeśli używasz ExpressRoute, możesz zminimalizować liczbę sieci wirtualnych/podsieci, aby nie było fragmentacji przestrzeni adresów IP, która jest przypisana do użycia w subskrypcjach.

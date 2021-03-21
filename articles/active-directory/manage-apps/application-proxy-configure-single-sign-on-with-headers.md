@@ -12,10 +12,10 @@ ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 813e360ffc6c78b52151af5b9867560ae6d58f2f
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103198238"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Logowanie jednokrotne oparte na nagłówkach dla aplikacji lokalnych z serwerem proxy aplikacja usługi Azure AD

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e302cb9da410487dbea4ec5c5b256c4cb5dd186f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a3ab3a801872cc20b4e41bbff02ad6474c3bab8c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566383"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655210"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Szybki Start: Tworzenie i Konfigurowanie serwera tras przy użyciu Azure PowerShell
 
@@ -40,8 +40,8 @@ Ten artykuł ułatwia skonfigurowanie usługi Azure Route Server do komunikacji 
 Aby można było utworzyć serwer tras platformy Azure, musisz mieć sieć wirtualną do hostowania wdrożenia. Użyj poniższego polecenia, aby utworzyć grupę zasobów i sieć wirtualną. Jeśli masz już sieć wirtualną, możesz przejść do następnej sekcji.
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name “RouteServerRG” -Location “West US”
-New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US” -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
+New-AzResourceGroup –Name "RouteServerRG” -Location “West US"
+New-AzVirtualNetwork –ResourceGroupName "RouteServerRG" -Location "West US" -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
 ```
 
 ### <a name="add-a-subnet"></a>Dodawanie podsieci
@@ -49,15 +49,15 @@ New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US�
 1. Dodaj podsieć o nazwie *RouteServerSubnet* , aby wdrożyć serwer tras platformy Azure w programie. Ta podsieć jest dedykowaną podsiecią tylko dla serwera tras platformy Azure. RouteServerSubnet musi mieć wartość/27 lub krótszy prefiks (na przykład/26,/25) lub podczas dodawania serwera usługi Azure Route zostanie wyświetlony komunikat o błędzie.
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “myVirtualNetwork” - ResourceGroupName “RouteServerRG”
-    Add-AzVirtualNetworkSubnetConfig –Name “RouteServerSubnet” -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
+    $vnet = Get-AzVirtualNetwork –Name "myVirtualNetwork" - ResourceGroupName "RouteServerRG"
+    Add-AzVirtualNetworkSubnetConfig –Name "RouteServerSubnet" -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
     $vnet | Set-AzVirtualNetwork
     ```
 
 1. Uzyskaj identyfikator RouteServerSubnet. Aby wyświetlić identyfikator zasobu wszystkich podsieci w sieci wirtualnej, użyj tego polecenia:
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “vnet_name” -ResourceGroupName “
+    $vnet = Get-AzVirtualNetwork –Name "vnet_name" -ResourceGroupName "RouteServerRG"
     $vnet.Subnets
     ```
 
@@ -70,7 +70,7 @@ Identyfikator RouteServerSubnet wygląda następująco:
 Utwórz serwer tras za pomocą tego polecenia:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US" -HostedSubnet "RouteServerSubnet_ID"
 ```
 
 Lokalizacja musi być zgodna z lokalizacją sieci wirtualnej. HostedSubnet jest IDENTYFIKATORem RouteServerSubnet uzyskanym w poprzedniej sekcji.
@@ -137,7 +137,7 @@ Jeśli serwer tras platformy Azure nie jest już potrzebny, Użyj tych poleceń,
 1. Usuń komunikację równorzędną BGP między serwerem tras platformy Azure i urządzenie WUS za pomocą tego polecenia:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
+Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Usuń serwer tras platformy Azure za pomocą tego polecenia:

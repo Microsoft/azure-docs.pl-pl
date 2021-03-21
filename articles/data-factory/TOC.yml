@@ -30,6 +30,8 @@
       href: data-flow-create.md
 - name: Samouczki
   items:
+    - name: Lista samouczków
+      href: data-factory-tutorials.md
     - name: Kopiowanie i pozyskiwanie danych
       items:
         - name: Z usługi Azure Blob Storage do usługi Azure SQL Database
@@ -694,14 +696,16 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Tworzenie wyzwalaczy
       items:
-        - name: Tworzenie wyzwalacza zdarzeń magazynu
-          href: how-to-create-event-trigger.md
         - name: Tworzenie wyzwalacza harmonogramu
           href: how-to-create-schedule-trigger.md
         - name: Tworzenie wyzwalacza okna wirowania
           href: how-to-create-tumbling-window-trigger.md
         - name: Tworzenie zależności wyzwalacza okna wirowania
           href: tumbling-window-trigger-dependency.md
+        - name: Tworzenie wyzwalacza zdarzeń magazynu
+          href: how-to-create-event-trigger.md
+        - name: Tworzenie niestandardowego wyzwalacza zdarzeń
+          href: how-to-create-custom-event-trigger.md
         - name: Odwołuje się do metadanych wyzwalacza w potoku
           href: how-to-use-trigger-parameterization.md
     - name: Wykaz danych i ład

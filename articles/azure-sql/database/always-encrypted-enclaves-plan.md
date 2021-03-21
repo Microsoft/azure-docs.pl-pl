@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
 ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98732748"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Planowanie usługi Intel SGX enclaves i zaświadczania w Azure SQL Database
@@ -61,6 +61,6 @@ W środowiskach produkcyjnych (obsługujących dane poufne) ważne jest, aby org
 
 - [Włączanie technologii Intel SGX dla usługi Azure SQL Database](always-encrypted-enclaves-enable-sgx.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Samouczek: wprowadzenie do Always Encrypted za pomocą bezpiecznego enclaves w Azure SQL Database](always-encrypted-enclaves-getting-started.md)

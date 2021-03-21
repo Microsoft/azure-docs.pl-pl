@@ -12,10 +12,10 @@ ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
 ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255631"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Korzystanie z standard scim i Microsoft Graph ze sobą w celu aprowizacji użytkowników i wzbogacania aplikacji o potrzebne dane
@@ -38,7 +38,7 @@ Usługa Azure AD zapewnia wbudowaną usługę usługi Box do aprowizacji i rozsz
 ## <a name="scenario-1-automatically-create-users-in-my-app"></a>Scenariusz 1: automatyczne tworzenie użytkowników w mojej aplikacji
 Obecnie Administratorzy IT udostępniają użytkownikom ręcznie Tworzenie kont użytkowników lub okresowe przekazywanie plików CSV do aplikacji. Ten proces jest czasochłonny dla klientów i spowalnia wdrażanie aplikacji. Wszystko, czego potrzebuję, to podstawowe informacje o użytkowniku, takie jak imię i nazwisko, adres e-mail i userPrincipalName, aby utworzyć użytkownika. 
 
-**Zalecenie**: 
+**Rekomendacja**: 
 * Jeśli klienci korzystają z różnych dostawców tożsamości i nie chcesz zachować aparatu synchronizacji do integracji z każdym z nich, obsługuj [punkt końcowy zgodny z standard scim](https://aka.ms/scimreferencecode) . Klienci będą mogli łatwo korzystać z tego punktu końcowego w celu integracji z usługą Azure AD Provisioning i automatycznego tworzenia kont użytkowników, gdy potrzebują dostępu. Punkt końcowy można skompilować raz i będzie zgodny ze wszystkimi dostawców tożsamości. Zapoznaj się z przykładowym żądaniem poniżej, aby dowiedzieć się, jak utworzyć użytkownika przy użyciu Standard scim.
 * Jeśli wymagane jest znalezienie danych użytkownika w obiekcie użytkownika w usłudze Azure AD i innych danych firmy Microsoft, należy rozważyć utworzenie punktu końcowego Standard scim na potrzeby aprowizacji użytkowników i wywołanie w Microsoft Graph, aby uzyskać resztę danych. 
 

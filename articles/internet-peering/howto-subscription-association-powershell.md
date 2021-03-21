@@ -10,10 +10,10 @@ ms.date: 12/15/2020
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3b463293899dc2586404d68145943caff3105e89
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590192"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Kojarzenie równorzędnych elementów ASN z subskrypcją platformy Azure przy użyciu programu PowerShell
@@ -108,6 +108,6 @@ Usuwanie elementu PeerASN nie jest obecnie obsługiwane. Jeśli musisz usunąć 
 * [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange](howto-exchange-powershell.md)
 * [Konwertowanie starszej komunikacji równorzędnej z punktem wymiany na zasób platformy Azure](howto-legacy-exchange-powershell.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md)

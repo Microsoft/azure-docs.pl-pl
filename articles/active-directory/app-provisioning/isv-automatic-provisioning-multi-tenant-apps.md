@@ -12,10 +12,10 @@ ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
 ms.openlocfilehash: 7bd0fc634109beb6cc674d89f56666e7035d33ef
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255699"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Włącz automatyczne Inicjowanie obsługi administracyjnej użytkowników dla aplikacji wielodostępnej

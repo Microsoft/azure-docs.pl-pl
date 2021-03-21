@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dedbcf58e76b8c969f8607db6922e87a85f08e5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97591877"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Używanie integracji kontroli źródła w programie Azure Automation — Starsza wersja
@@ -63,7 +63,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
      | **Parametr** | **Wartość** |
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
-     | `Type`  |String |
+     | `Type`  |Ciąg |
      | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
    * Zmienna **Microsoft. Azure. Automation. SourceControl. OAuthToken** zawiera bezpieczną zaszyfrowaną wartość OAuthToken.  

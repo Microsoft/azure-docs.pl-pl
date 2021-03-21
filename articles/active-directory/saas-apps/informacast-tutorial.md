@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 893cf0d55d9e2d3e60c7b4f15346362e37827230
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98732881"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-informacast"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą InformaCast

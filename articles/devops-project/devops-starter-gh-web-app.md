@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
 ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588781"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Samouczek: wdrażanie aplikacji Node.js w usłudze Azure Web App przy użyciu DevOps Starter dla akcji GitHub
@@ -32,7 +32,7 @@ W tym samouczku wykonasz następujące czynności:
 > * Badanie przepływu pracy w usłudze GitHub
 > * Zatwierdzanie zmian w usłudze GitHub i automatyczne wdrażanie ich na platformie Azure
 > * Konfigurowanie monitorowania usługi Azure Application Insights
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -148,7 +148,7 @@ Usługa Azure Application Insights umożliwia łatwe monitorowanie wydajności i
 
 1. Wprowadź nazwę testu, a następnie wybierz pozycję **Utwórz**. Zostanie utworzony prosty test ping w celu sprawdzania dostępności aplikacji. Po kilku minutach wyniki testów będą dostępne, a na pulpicie nawigacyjnym usługi Application Insights zostanie wyświetlony stan dostępności.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy maszyna wirtualna platformy Azure i powiązane zasoby utworzone w tym samouczku nie będą już potrzebne, możesz je usunąć. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter. 
 
@@ -171,7 +171,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Badanie przepływu pracy w usłudze GitHub
 > * Zatwierdzanie zmian w usłudze GitHub i automatyczne wdrażanie ich na platformie Azure
 > * Konfigurowanie monitorowania usługi Azure Application Insights
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Aby dowiedzieć się więcej o akcjach i przepływach pracy usługi GitHub, zobacz:
 

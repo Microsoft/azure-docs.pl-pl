@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: b-juche
 ms.openlocfilehash: 705b74fe1fe38e8f65fe24e88c5ffa9bf1ad6175
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102507793"
 ---
 # <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>Zestawy SDK Azure NetApp Files, narzędzia interfejsu wiersza polecenia i szablony ARM
