@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710791"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Samouczek: Uwidacznianie lokalnej usługi WCF REST na zewnętrznym kliencie przy użyciu usługi Azure WCF Relay
@@ -66,7 +66,7 @@ Kontrakt usługi określa operacje obsługiwane przez usługę. Operacje to meto
 
    Ten pakiet automatycznie dodaje odwołania do bibliotek Service Bus i programu WCF `System.ServiceModel` . [System.ServiceModel](/dotnet/api/system.servicemodel) jest przestrzenią nazw umożliwiającą programowy dostęp do podstawowych funkcji platformy WCF. Usługa Service Bus używa wielu obiektów i atrybutów usługi WCF do definiowania kontraktów usług.
 
-1. Dodaj następujące `using` instrukcje w górnej części *program.cs*:
+1. Dodaj następujące `using` instrukcje w górnej części *programu program. cs*:
 
     ```csharp
     using System.ServiceModel;
@@ -304,7 +304,7 @@ W tym samouczku użyto identyfikatora URI `sb://putServiceNamespaceHere.windows.
 
     Host usługi jest obiektem platformy WCF tworzącym wystąpienie usługi. W tym miejscu możesz przekazać typ usługi, którą chcesz utworzyć, `EchoService` Typ, a także adres, pod którym ma zostać ujawniona usługa.
 
-1. W górnej części pliku *program.cs* Dodaj odwołania do elementu [System. ServiceModel. Description](/dotnet/api/system.servicemodel.description) i [Microsoft. ServiceBus. Description](/dotnet/api/microsoft.servicebus.description).
+1. W górnej części pliku *program. cs* Dodaj odwołania do elementu [System. ServiceModel. Description](/dotnet/api/system.servicemodel.description) i [Microsoft. ServiceBus. Description](/dotnet/api/microsoft.servicebus.description).
 
     ```csharp
     using System.ServiceModel.Description;
@@ -443,7 +443,7 @@ Następnym zadaniem jest utworzenie aplikacji klienckiej i zdefiniowanie kontrak
    1. W obszarze **Dodaj nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C#, a **następnie** wybierz pozycję Dalej.
    1. Nazwij projekt *EchoClient* i wybierz pozycję **Utwórz**.
 
-1. W **Eksplorator rozwiązań** w projekcie **EchoClient** kliknij dwukrotnie pozycję **program.cs** , aby otworzyć plik w edytorze, jeśli nie jest jeszcze otwarty.
+1. W **Eksplorator rozwiązań**, w projekcie **EchoClient** , kliknij dwukrotnie pozycję **program. cs** , aby otworzyć plik w edytorze, jeśli nie jest jeszcze otwarty.
 1. Zmień nazwę przestrzeni nazw z domyślnej nazwy `EchoClient` na `Microsoft.ServiceBus.Samples`.
 1. Zainstaluj [pakiet NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus):
 
@@ -452,7 +452,7 @@ Następnym zadaniem jest utworzenie aplikacji klienckiej i zdefiniowanie kontrak
 
       ![Zainstaluj pakiet usługi Service Bus][4]
 
-1. Dodaj `using` instrukcję dla przestrzeni nazw [System. ServiceModel](/dotnet/api/system.servicemodel) w pliku *program.cs* .
+1. Dodaj `using` instrukcję dla przestrzeni nazw [System. ServiceModel](/dotnet/api/system.servicemodel) w pliku *program. cs* .
 
     ```csharp
     using System.ServiceModel;
@@ -475,7 +475,7 @@ Następnym zadaniem jest utworzenie aplikacji klienckiej i zdefiniowanie kontrak
 
 ### <a name="example-of-the-echoclient-project"></a>Przykład projektu EchoClient
 
-Poniższy kod przedstawia bieżący stan pliku *program.cs* w projekcie **EchoClient** .
+Poniższy kod przedstawia bieżący stan pliku *program. cs* w projekcie **EchoClient** .
 
 ```csharp
 using System;

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101091450"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Często zadawane pytania dotyczące korzystania z Azure Database Migration Service
@@ -54,7 +54,7 @@ Azure Migrate pomaga w migracji lokalnych maszyn wirtualnych do usługi Azure Ia
 **Pytania. Czy Database Migration Service przechowywać dane klienta?**
 Nie. Database Migration Service nie przechowuje danych klienta.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 **Pytania. Jakie są wymagania wstępne dotyczące korzystania z Azure Database Migration Service?**
 Istnieje kilka wymagań wstępnych, aby zapewnić bezproblemowy przebieg Azure Database Migration Service podczas przeprowadzania migracji baz danych. Niektóre wymagania wstępne dotyczą wszystkich scenariuszy (par Source-Target) obsługiwanych przez usługę, a inne wymagania wstępne są unikatowe dla konkretnego scenariusza.

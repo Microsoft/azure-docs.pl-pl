@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 69c83e9172a8369b7ff31116ee4db74fc33d86bb
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 115457180efab719b406c4e1e021234fa99736ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472117"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670511"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu Azure Portal
 
@@ -39,12 +39,10 @@ Zasób Wielousługowy ma nazwę **Cognitive Services** w portalu. [Utwórz zasó
 
 W tej chwili zasób Wielousługowy umożliwia dostęp do następujących Cognitive Services:
 
-* Przetwarzanie obrazów
-* Content Moderator
-* Rozpoznawanie twarzy
-* Language Understanding (LUIS)
-* Analiza tekstu
-* Translator
+* **Vision** -przetwarzanie obrazów, Custom Vision, aparat rozpoznawania formularzy, głowa
+* **Zamiana mowy** na mowę
+* Language Understanding **języka** (Luis), analiza tekstu, translator
+* **Podjęcie decyzji** , Content moderator
 
 ### <a name="single-service-resource"></a>[Zasób pojedynczego usługi](#tab/singleservice)
 
@@ -53,9 +51,10 @@ Użyj poniższych linków, aby utworzyć zasób dla dostępnych Cognitive Servic
 | Wizja                      | Mowa                  | Język                          | Decyzja             |
 |-----------------------------|-------------------------|-----------------------------------|----------------------|
 | [Przetwarzanie obrazów](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Usługi mowy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Czytnik immersyjny](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Narzędzie do wykrywania anomalii](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
-| [Usługa Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Rozpoznawanie osoby mówiącej](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
+| [Usługa Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
 | [Rozpoznawanie twarzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizacja](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-| [Rozpoznawanie pisma odręcznego](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| [Rozpoznawanie formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)        |                         | [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| | | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---
 
@@ -72,9 +71,10 @@ Użyj poniższych linków, aby utworzyć zasób dla dostępnych Cognitive Servic
 | **Nazwa** | Opisowa nazwa zasobu usług poznawczej. Na przykład *MyCognitiveServicesResource*. |
 | **Warstwa cenowa** | Koszt konta Cognitive Services zależy od wybranych opcji i użycia. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/)interfejsu API.
 
-![Ekran tworzenia zasobów zasobów na wiele usług](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+<!--![Multi-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="Ekran tworzenia zasobów na wiele usług":::
 
-Wybierz przycisk **Utwórz**.
+Przeczytaj i zaakceptuj warunki (w razie potrzeby), a następnie wybierz pozycję **Recenzja + Utwórz**.
 
 ### <a name="single-service-resource"></a>[Zasób pojedynczego usługi](#tab/singleservice)
 
@@ -86,9 +86,10 @@ Wybierz przycisk **Utwórz**.
 | **Nazwa** | Opisowa nazwa zasobu usług poznawczej. Na przykład *MyCognitiveServicesResource*. |
 | **Warstwa cenowa** | Koszt konta Cognitive Services zależy od wybranych opcji i użycia. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/)interfejsu API.
 
-![Ekran tworzenia zasobów dla jednej usługi](media/cognitive-services-apis-create-account/resource_create_screen.png)
+<!--![Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen.png" alt-text="Ekran tworzenia zasobów dla jednej usługi":::
 
-Wybierz przycisk **Utwórz**.
+Wybierz pozycję **Dalej: Virtual Network** i wybierz typ dostępu do sieci, który ma być dozwolony dla danego zasobu, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
 ---
 

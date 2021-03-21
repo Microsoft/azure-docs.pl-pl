@@ -11,13 +11,13 @@ ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: a9f9e03227bfb75d94ed79cdf858278e2efe4f31
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/17/2021
+ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440398"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594176"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database i wyszukiwanie w artykułach wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -88,7 +88,7 @@ W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których 
 | Język | Platforma | Dodatkowe zasoby | Pobierz | Rozpoczęcie pracy |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobieranie](https://www.microsoft.com/net/download/) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Pobieranie](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Pobieranie](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Sterowniki PHP SQL dla programu SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Pobieranie](/sql/connect/php/download-drivers-php-sql-server) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Sterowniki Node.js dla programu SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Instalacja](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Sterownik SQL języka Python](/sql/connect/python/python-driver-for-sql-server/) | Opcje instalacji: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
@@ -118,6 +118,7 @@ W poniższej tabeli przedstawiono przykłady struktur mapowania obiektów (ORM) 
   - [Nawiązywanie połączenia i wykonywanie zapytań przy użyciu języka Java](connect-query-java.md)
   - [Łączenie i wykonywanie zapytań przy użyciu języka Python](connect-query-python.md)
   - [Łączenie i zapytanie przy użyciu języka Ruby](connect-query-ruby.md)
+  - [Zainstaluj narzędzia sqlcmd i bcp SQL Server narzędzi wiersza polecenia w systemie Linux](/sql/linux/sql-server-linux-setup-tools) — dla użytkowników systemu Linux spróbuj połączyć się z Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL Server przy użyciu polecenia [sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Przykłady kodu logiki ponawiania próby:
   - [Odporne na połączenia z usługą ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Odporne na błędy w języku PHP][step-4-connect-resiliently-to-sql-with-php-p42h]

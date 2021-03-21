@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: d1d0da70dc1e47d0a1ddb90abbed2eaea83919cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040179"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Przewodnik dotyczący wyświetlania kafelków projektanta w Azure Monitor

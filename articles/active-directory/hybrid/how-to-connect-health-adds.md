@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0686a4dafae17bafc65a03c985a65aecba70e60c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98017021"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Używanie programu Azure AD Connect Health z usługami AD DS

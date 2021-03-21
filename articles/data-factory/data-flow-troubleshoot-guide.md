@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.date: 03/18/2021
+ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467735"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593858"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z mapowaniem przepływów danych w Azure Data Factory
 
@@ -26,12 +26,6 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 - **Komunikat**: wykonywanie operacji podglądu danych, debugowania i przepływu danych potoku nie powiodło się, ponieważ kontener nie istnieje
 - **Przyczyna**: zestaw danych zawiera kontener, który nie istnieje w magazynie.
 - **Zalecenie**: Upewnij się, że kontener, do którego odwołuje się zestaw danych, istnieje i czy można uzyskać do niego dostęp.
-
-### <a name="error-code-df-executor-systemimplicitcartesian"></a>Kod błędu: DF-wykonawca-SystemImplicitCartesian
-
-- **Komunikat**: niejawny produkt kartezjańskiego dla sprzężenia wewnętrznego nie jest obsługiwany, należy zamiast tego użyć SPRZĘŻENIa krzyżowego. Kolumny używane w sprzężeniu powinny tworzyć unikatowe klucze dla wierszy.
-- **Przyczyna**: niejawne produkty kartezjańskiego dla sprzężeń wewnętrznych między planami logicznymi nie są obsługiwane. Jeśli używasz kolumn w sprzężeniu, Utwórz unikatowy klucz z co najmniej jedną kolumną z obu stron relacji.
-- **Zalecenie**: dla sprzężeń opartych na nierównościch należy użyć niestandardowego SPRZĘŻENIa krzyżowego.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Kod błędu: DF-wykonawca-SystemInvalidJson
 
@@ -82,11 +76,6 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 - **Przyczyna**: typ danych dla zadeklarowanego typu nie jest zgodny z rzeczywistą wartością parametru.
 - **Zalecenie**: Sprawdź, czy wartości parametrów przekazane do przepływu danych pasują do zadeklarowanego typu.
 
-### <a name="error-code-df-executor-columnunavailable"></a>Kod błędu: DF-wykonawca-ColumnUnavailable
-- **Komunikat**: Nazwa kolumny używana w wyrażeniu jest niedostępna lub nieprawidłowa
-- **Przyczyna**: w wyrażeniu użyto nieprawidłowej nazwy kolumny lub jest ona niedostępna.
-- **Zalecenie**: sprawdzanie nazw kolumn w wyrażeniach.
-
 ### <a name="error-code-df-executor-parseerror"></a>Kod błędu: DF-wykonawca-ParseError
 - **Komunikat**: nie można przeanalizować wyrażenia
 - **Przyczyna**: wyrażenie wygenerowało błędy analizy z powodu niepoprawnego formatowania.
@@ -96,29 +85,6 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 - **Komunikat**: niejawny produkt kartezjańskiego dla sprzężenia wewnętrznego nie jest obsługiwany, należy zamiast tego użyć SPRZĘŻENIa krzyżowego. Kolumny używane w sprzężeniu powinny tworzyć unikatowe klucze dla wierszy.
 - **Przyczyna**: niejawne produkty kartezjańskiego dla sprzężeń wewnętrznych między planami logicznymi nie są obsługiwane. Jeśli używasz kolumn w sprzężeniu, Utwórz unikatowy klucz.
 - **Zalecenie**: dla sprzężeń opartych na nierównościch należy użyć SPRZĘŻENIa krzyżowego.
-
-### <a name="error-code-df-executor-systeminvalidjson"></a>Kod błędu: DF-wykonawca-SystemInvalidJson
-- **Message**: błąd analizy JSON, nieobsługiwane kodowanie lub wiele wierszy
-- **Przyczyna**: możliwe problemy z plikiem JSON: nieobsługiwane kodowanie, uszkodzone bajty lub źródło JSON jako pojedynczy dokument w wielu zagnieżdżonych wierszach.
-- **Zalecenie**: Sprawdź, czy kodowanie pliku JSON jest obsługiwane. Na transformacji źródłowej, która używa zestawu danych JSON, rozwiń pozycję **Ustawienia JSON** i Włącz **pojedynczy dokument**.
-
-
-
-### <a name="error-code-df-executor-conversion"></a>Kod błędu: DF-wykonawca-Conversion
-- **Komunikat**: konwertowanie na datę lub godzinę nie powiodło się z powodu nieprawidłowego znaku
-- **Przyczyna**: dane mają nieoczekiwany format.
-- **Zalecenie**: Użyj poprawnego typu danych.
-
-
-### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Kod błędu: DF-wykonawca-BlockCountExceedsLimitError
-- **Komunikat**: liczba niezatwierdzonych bloków nie może przekroczyć maksymalnego limitu 100 000 bloków. Sprawdź konfigurację obiektu BLOB.
-- **Przyczyna**: Maksymalna liczba niezatwierdzonych bloków w obiekcie blob to 100 000.
-- **Zalecenie**: Aby uzyskać więcej informacji o tym problemie, skontaktuj się z zespołem ds. produktów firmy Microsoft.
-
-### <a name="error-code-df-executor-partitiondirectoryerror"></a>Kod błędu: DF-wykonawca-PartitionDirectoryError
-- **Komunikat**: określona ścieżka źródłowa ma wiele katalogów partycjonowanych (np. *<Source Path> /<katalogu głównego partycji 1>/a = 10/b = 20, <Source Path> /<partycji katalogu głównego 2>/c = 10/d = 30*) lub partycjonowany katalog z innym plikiem lub katalogiem niepartycjonowanym (np. *<Source Path> /<katalogu głównego partycji 1>/A = 10/b = 20, <Source Path> pliki/katalog 2/plik1*), Usuń katalog główny partycji ze ścieżki źródłowej i przeczytaj go przez oddzielną transformację źródłową.
-- **Przyczyna**: ścieżka źródłowa zawiera wiele katalogów partycjonowanych lub katalog partycjonowany, który ma inny plik lub katalog niepodzielony na partycje. 
-- **Zalecenie**: Usuń partycjonowany katalog główny ze ścieżki źródłowej i przeczytaj go przez oddzielną transformację źródłową.
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Kod błędu: GetCommand OutputAsync nie powiodła się
 - **Komunikat**: podczas debugowania przepływu danych i podglądu danych: GetCommand OutputAsync nie powiodła się z...
@@ -137,22 +103,10 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 - **Przyczyna**: nazwa konta lub klucz dostępu jest niepoprawny.
 - **Zalecenie**: Upewnij się, że nazwa konta lub klucz dostępu określony w połączonej usłudze jest poprawny. 
 
-### <a name="error-code-df-executor-invalidtype"></a>Kod błędu: DF-wykonawc-nieprawidłowytype
-- **Komunikat**: Upewnij się, że typ parametrów jest zgodny z przekazaną typem wartości. Przekazywanie parametrów zmiennoprzecinkowych z potoków nie jest obecnie obsługiwane.
-- **Przyczyna**: typ danych dla zadeklarowanego typu nie jest zgodny z rzeczywistą wartością parametru. 
-- **Zalecenie**: Podaj prawidłowe typy danych.
-
 ### <a name="error-code-df-executor-columnunavailable"></a>Kod błędu: DF-wykonawca-ColumnUnavailable
 - **Komunikat**: Nazwa kolumny używana w wyrażeniu jest niedostępna lub nieprawidłowa.
 - **Przyczyna**: w wyrażeniu użyto nieprawidłowej nazwy kolumny lub jest ona niedostępna.
 - **Zalecenie**: Sprawdź nazwy kolumn używane w wyrażeniach.
-
-
-### <a name="error-code-df-executor-parseerror"></a>Kod błędu: DF-wykonawca-ParseError
-- **Komunikat**: nie można przeanalizować wyrażenia.
-- **Przyczyna**: wyrażenie wygenerowało błędy analizy z powodu niepoprawnego formatowania. 
-- **Zalecenie**: Sprawdź formatowanie w wyrażeniu.
-
 
  ### <a name="error-code-df-executor-outofdiskspaceerror"></a>Kod błędu: DF-wykonawca-OutOfDiskSpaceError
 - **Komunikat**: wewnętrzny błąd serwera

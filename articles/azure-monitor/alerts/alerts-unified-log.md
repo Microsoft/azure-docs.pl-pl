@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 786e9b472d1f900e94e5d0cfa6a00e0f85547704
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037697"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
@@ -82,7 +82,7 @@ W przypadku obszarów roboczych i Application Insights jest on wywoływany **w o
 
 Chcesz dowiedzieć się, kiedy aplikacja odpowie z kodem błędu 500 (wewnętrzny błąd serwera). Można utworzyć regułę alertu z następującymi szczegółami:
 
-- **Dotyczących** 
+- **Zapytanie:** 
 
 ```Kusto
 requests
@@ -128,7 +128,7 @@ W obszarach roboczych i Application Insights jest obsługiwana tylko w typie mia
 
 Na przykład chcesz monitorować błędy wielu maszyn wirtualnych z uruchomioną witryną sieci Web lub aplikacją w określonej grupie zasobów. Można to zrobić za pomocą reguły alertu dziennika w następujący sposób:
 
-- **Dotyczących** 
+- **Zapytanie:** 
 
     ```Kusto
     // Reported errors

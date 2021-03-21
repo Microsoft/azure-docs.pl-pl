@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102219045"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uzyskiwanie dostępu do usługi App Configuration przy użyciu tożsamości zarządzanych
@@ -96,7 +96,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
     }
     ```
 
-1. Otwórz *program.cs* i Dodaj odwołanie do `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` przestrzeni nazw i:
+1. Otwórz *program programu. cs* i Dodaj odwołanie do `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` przestrzeni nazw i:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -148,7 +148,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
     >Zgodnie z opisem w temacie [zarządzane tożsamości dla zasobów platformy Azure — często zadawane pytania](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)można ustalić, która zarządzana tożsamość jest używana. W takim przypadku Biblioteka tożsamości platformy Azure wymusza, aby określić żądaną tożsamość, aby uniknąć problemów z przekroczyła dozwoloną środowiska uruchomieniowego w przyszłości (na przykład jeśli zostanie dodana nowa tożsamość zarządzana przez użytkownika lub jest włączona tożsamość zarządzana przypisana przez system). W związku z tym należy określić clientId nawet wtedy, gdy zdefiniowana jest tylko jedna tożsamość zarządzana przypisana przez użytkownika i nie istnieje tożsamość zarządzana przypisana przez system.
 
 
-1. Aby użyć zarówno wartości konfiguracji aplikacji, jak i Key Vault odwołań, należy zaktualizować *program.cs* , jak pokazano poniżej. Ten kod wywołuje `SetCredential` w `ConfigureKeyVault` celu poinformowania dostawcę konfiguracji o poświadczeniach, które mają być używane podczas uwierzytelniania do Key Vault.
+1. Aby użyć zarówno wartości konfiguracji aplikacji, jak i odwołań Key Vault, należy zaktualizować *program. cs* , jak pokazano poniżej. Ten kod wywołuje `SetCredential` w `ConfigureKeyVault` celu poinformowania dostawcę konfiguracji o poświadczeniach, które mają być używane podczas uwierzytelniania do Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
