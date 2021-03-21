@@ -12,10 +12,10 @@ ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939853"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementowanie asystentów głosowych w systemie Windows
@@ -78,7 +78,7 @@ Aby można było korzystać z aktywacji głosowej, użytkownik musi włączyć a
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>Nasłuchiwanie dwóch sygnałów aktywacji: OnBackgroundActivated i OnSignalDetected
 
-System Windows będzie sygnalizować aplikacji po wykryciu słowa kluczowego na jeden z dwóch sposobów. Jeśli aplikacja nie jest aktywna (oznacza to, że nie masz odwołania do nieusuniętego wystąpienia `ConversationalAgentSession` ), spowoduje to uruchomienie aplikacji i wywołanie metody OnBackgroundActivated w pliku App.XAML.cs aplikacji. Jeśli pole argumenty zdarzenia jest `BackgroundActivatedEventArgs.TaskInstance.Task.Name` zgodne z ciągiem "AgentBackgroundTrigger", uruchomienie aplikacji zostało wyzwolone przez aktywację głosową. Aplikacja musi przesłonić tę metodę i pobrać wystąpienie ConversationalAgentSession, aby sygnalizować system Windows, który jest teraz aktywny. Gdy aplikacja jest aktywna, system Windows będzie sygnalizować wystąpieniem aktywacji głosowej przy użyciu `ConversationalAgentSession.OnSignalDetected` zdarzenia. Dodaj obsługę zdarzeń do tego zdarzenia zaraz po pobraniu `ConversationalAgentSession` .
+System Windows będzie sygnalizować aplikacji po wykryciu słowa kluczowego na jeden z dwóch sposobów. Jeśli aplikacja nie jest aktywna (oznacza to, że nie masz odwołania do nieusuniętego wystąpienia `ConversationalAgentSession` ), spowoduje to uruchomienie aplikacji i wywołanie metody OnBackgroundActivated w pliku App. XAML. cs aplikacji. Jeśli pole argumenty zdarzenia jest `BackgroundActivatedEventArgs.TaskInstance.Task.Name` zgodne z ciągiem "AgentBackgroundTrigger", uruchomienie aplikacji zostało wyzwolone przez aktywację głosową. Aplikacja musi przesłonić tę metodę i pobrać wystąpienie ConversationalAgentSession, aby sygnalizować system Windows, który jest teraz aktywny. Gdy aplikacja jest aktywna, system Windows będzie sygnalizować wystąpieniem aktywacji głosowej przy użyciu `ConversationalAgentSession.OnSignalDetected` zdarzenia. Dodaj obsługę zdarzeń do tego zdarzenia zaraz po pobraniu `ConversationalAgentSession` .
 
 ## <a name="keyword-verification"></a>Weryfikacja słowa kluczowego
 
@@ -122,9 +122,9 @@ Gdy aplikacja pokazuje widok powyżej blokady, jest uznawana za w trybie kiosku.
 
 ### <a name="transitioning-above-lock"></a>Przejście powyżej blokady
 
-Aktywacja powyżej blokady jest podobna do aktywacji poniżej blokady. Jeśli nie ma aktywnych wystąpień aplikacji, nowe wystąpienie zostanie uruchomione w tle, a `OnBackgroundActivated` w App.XAML.cs zostanie wywołana. Jeśli istnieje wystąpienie aplikacji, to wystąpienie otrzyma powiadomienie za pomocą `ConversationalAgentSession.SignalDetected` zdarzenia.
+Aktywacja powyżej blokady jest podobna do aktywacji poniżej blokady. Jeśli nie ma aktywnych wystąpień aplikacji, nowe wystąpienie zostanie uruchomione w tle, a `OnBackgroundActivated` w pliku App. XAML. cs zostanie wywołana. Jeśli istnieje wystąpienie aplikacji, to wystąpienie otrzyma powiadomienie za pomocą `ConversationalAgentSession.SignalDetected` zdarzenia.
 
-Jeśli aplikacja nie jest jeszcze wyświetlana powyżej blokady, musi wywołać `ConversationalAgentSession.RequestForegroundActivationAsync` . Powoduje to wyzwolenie `OnLaunched` metody w App.XAML.cs, która powinna przejść do widoku, który będzie wyświetlany powyżej blokady.
+Jeśli aplikacja nie jest jeszcze wyświetlana powyżej blokady, musi wywołać `ConversationalAgentSession.RequestForegroundActivationAsync` . Powoduje to wyzwolenie `OnLaunched` metody w App. XAML. cs, która powinna przejść do widoku, który będzie wyświetlany powyżej blokady.
 
 ### <a name="detecting-lock-screen-transitions"></a>Wykrywanie przejść ekranu blokady
 

@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098778"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586645"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami języka Python dla Apache Spark w usłudze Azure Synapse Analytics
 
@@ -68,13 +68,13 @@ Ten przykład określa zależności kanałów i Conda/PyPI.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 Aby uzyskać szczegółowe informacje na temat tworzenia środowiska z pliku Environment. yml, zobacz [Tworzenie środowiska z pliku Environment. yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -140,6 +140,11 @@ Aby dodać pakiety obszaru roboczego:
 
 ![Zrzut ekranu, który wyróżnia pakiety obszaru roboczego.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Wyświetl pakiety obszaru roboczego")
 
+>[!WARNING]
+>- W ramach usługi Azure Synapse Pula Apache Spark może korzystać z bibliotek niestandardowych, które są przekazywane jako pakiety obszaru roboczego lub przekazywane w dobrze znanej ścieżce Azure Data Lake Storage. Jednak obu tych opcji nie można używać jednocześnie w ramach tej samej puli Apache Spark. Jeśli pakiety są dostarczane przy użyciu obu metod, zostaną zainstalowane tylko pliki kółka określone na liście pakiety obszaru roboczego. 
+>
+>- Gdy pakiety obszarów roboczych (wersja zapoznawcza) są używane do instalowania pakietów w danej puli Apache Spark, istnieje ograniczenie, że nie można już określać pakietów przy użyciu ścieżki konta magazynu w tej samej puli.  
+
 ### <a name="storage-account"></a>Konto magazynu
 W puli Apache Spark można zainstalować pakiety kółka utworzone niestandardowo przez przekazanie wszystkich plików koła do konta Azure Data Lake Storage (Gen2), które jest połączone z obszarem roboczym Synapse. 
 
@@ -149,13 +154,12 @@ Pliki powinny zostać przekazane do następującej ścieżki w domyślnym konten
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-Może być konieczne dodanie ```python``` folderu w ```libraries``` folderze, jeśli jeszcze nie istnieje.
+>[!WARNING]
+> W niektórych przypadkach może być konieczne utworzenie ścieżki pliku na podstawie powyższej struktury, jeśli jeszcze nie istnieje. Na przykład może być konieczne dodanie ```python``` folderu w folderze, jeśli jeszcze ```libraries``` nie istnieje.
 
 > [!IMPORTANT]
 > Aby zainstalować biblioteki niestandardowe przy użyciu metody magazynu usługi Azure datalake, musisz mieć uprawnienia **współautora danych obiektów blob magazynu** lub **dane obiektu blob magazynu** na podstawowym koncie magazynu Gen2, które jest połączone z obszarem roboczym usługi Azure Synapse Analytics.
 
->[!WARNING]
-> Podczas udostępniania niestandardowych plików kół użytkownicy nie mogą podawać plików kółka zarówno na koncie magazynu, jak i w interfejsie biblioteki obszaru roboczego. Jeśli są podane oba te elementy, zostaną zainstalowane tylko pliki kółka określone na liście pakiety obszaru roboczego. 
 
 ## <a name="session-scoped-packages-preview"></a>Pakiety z zakresem sesji (wersja zapoznawcza)
 Oprócz pakietów poziomu puli można także określić biblioteki o zakresie sesji na początku sesji notesu.  Biblioteki o zakresie sesji umożliwiają Określanie niestandardowych środowisk Python i używanie ich w ramach sesji notesu. 

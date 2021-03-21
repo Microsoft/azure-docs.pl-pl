@@ -1,19 +1,19 @@
 ---
 title: Nawiązywanie połączenia z programem Synapse Studio przy użyciu linków prywatnych
 description: W tym artykule omówiono sposób nawiązywania połączenia z platformą Azure Synapse Studio przy użyciu linków prywatnych
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97586979"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586628"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Nawiązywanie połączenia z usługą Azure Synapse Studio przy użyciu prywatnych centrów linków platformy Azure 
 
@@ -37,7 +37,9 @@ Musisz połączyć sieć wirtualną platformy Azure z zasobem Synapse Private li
 
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Zrzut ekranu przedstawiający stronę połączeń prywatnych punktów końcowych.":::
 
-Upewnij się, że typ zasobu "Microsoft. Synapse/privateLinkHubs" jest wybrany na karcie "Resource". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="zrzut ekranu przedstawiający stronę &quot;Tworzenie prywatnego punktu końcowego&quot; z wyróżnioną pozycją &quot;typ zasobu&quot;.":::
+Upewnij się, że typ zasobu "Microsoft. Synapse/privateLinkHubs" jest wybrany na karcie "zasób".
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Zrzut ekranu pokazujący stronę &quot;Tworzenie prywatnego punktu końcowego&quot; z wyróżnioną pozycją &quot;typ zasobu&quot;.":::
 
 Na karcie "Konfiguracja" Wybierz opcję "privatelink.azuresynapse.net" dla stref Prywatna strefa DNS podczas integracji z siecią wirtualną i prywatną strefą DNS.
 

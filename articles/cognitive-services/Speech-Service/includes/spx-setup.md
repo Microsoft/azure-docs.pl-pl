@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c939c1d061f4e01a00bc2b886056e42f0b059ad5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a995a110c4f777603e5b0273b6025cd68fe55b67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510795"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102532540"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -118,7 +118,7 @@ Aby użyć `spx` polecenia zainstalowanego w kontenerze, należy zawsze wprowadz
 Na przykład w systemie Windows to polecenie ustawia klucz:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Aby uzyskać bardziej rozszerzoną interakcję z narzędziem wiersza polecenia, można uruchomić kontener z interaktywną powłoką bash, dodając parametr punktu wejścia.
@@ -171,8 +171,8 @@ Aby rozpocząć korzystanie z interfejsu wiersza polecenia mowy, należy wprowad
 Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
 
 ```console
-spx config --set @key SUBSCRIPTION-KEY
-spx config --set @region REGION
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 Twoje uwierzytelnianie subskrypcji jest teraz przechowywane dla przyszłych żądań SPX. Jeśli musisz usunąć jedną z tych przechowywanych wartości, uruchom polecenie `spx config @region --clear` lub `spx config @key --clear` .

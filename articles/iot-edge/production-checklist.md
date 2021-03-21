@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489759"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722773"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -178,7 +178,13 @@ Tag to koncepcja platformy Docker, której można użyć do rozróżnienia międ
 
 Tagi umożliwiają również Wymuszanie aktualizacji na urządzeniach IoT Edge. W przypadku wypychania zaktualizowanej wersji modułu do rejestru kontenerów, należy zwiększyć tag. Następnie należy wypchnąć nowe wdrożenie na urządzenia przy użyciu znacznika o zwiększonym obroście. Aparat kontenerów rozpozna zwiększony tag jako nową wersję i pobierze najnowszą wersję modułu do urządzenia.
 
-Aby zapoznać się z przykładem Konwencji znacznika, zobacz [aktualizacja środowiska uruchomieniowego IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) , aby dowiedzieć się, jak IoT Edge używa znaczników stopniowanych i określonych tagów do śledzenia wersji.
+#### <a name="tags-for-the-iot-edge-runtime"></a>Tagi środowiska uruchomieniowego IoT Edge
+
+Obraz IoT Edge i centrum IoT Edge są oznaczone za pomocą IoT Edge wersji, z którą są skojarzone. Istnieją dwa różne sposoby używania tagów z obrazami środowiska uruchomieniowego:
+
+* **Tagi walcowe** — Użyj tylko dwóch pierwszych wartości numeru wersji, aby uzyskać najnowszy obraz, który jest zgodny z tymi cyframi. Na przykład aktualizacja 1,1 jest aktualizowana za każdym razem, gdy istnieje nowe wydanie wskazujące najnowszą wersję 1.1. x. Jeśli środowisko uruchomieniowe kontenera na urządzeniu IoT Edge ponownie pobierze obraz, moduły środowiska uruchomieniowego zostaną zaktualizowane do najnowszej wersji. Wdrożenia z Azure Portal domyślne do stopniowego znacznika. *To podejście jest sugerowane w celach deweloperskich.*
+
+* **Określone Tagi** — Użyj wszystkich trzech wartości numeru wersji, aby jawnie ustawić wersję obrazu. Na przykład 1.1.0 nie zmieni się po początkowej wersji. W manifeście wdrożenia można zadeklarować nowy numer wersji, gdy wszystko jest gotowe do aktualizacji. *To podejście jest sugerowane w celach produkcyjnych.*
 
 ### <a name="store-runtime-containers-in-your-private-registry"></a>Przechowuj kontenery środowiska uruchomieniowego w rejestrze prywatnym
 
@@ -201,7 +207,7 @@ Następnie należy zaktualizować odwołania do obrazu w deployment.template.jsp
 
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 * **Pomaga**
   * Przejrzyj konfigurację wychodzącą/przychodzącą
