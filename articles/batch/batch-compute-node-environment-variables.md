@@ -3,12 +3,12 @@ title: Zmienne środowiskowe środowiska uruchomieniowego zadania
 description: Wskazówki dotyczące zmiennych środowiskowych środowiska uruchomieniowego zadań i informacje dotyczące analizy Azure Batch.
 ms.topic: conceptual
 ms.date: 12/30/2020
-ms.openlocfilehash: c1d9ffb3fe6775b061863656adcb7f45f8840997
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830891"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669988"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Zmienne środowiskowe środowiska uruchomieniowego Azure Batch
 
@@ -61,6 +61,8 @@ Wiersze poleceń wykonywane przez zadania w węzłach obliczeniowych nie są uru
 | AZ_BATCH_TASK_ID                | Identyfikator bieżącego zadania. | Wszystkie zadania poza uruchomieniem zadania. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Ścieżka katalogu, która jest taka sama dla zadania podstawowego i każde podzadanie zadania o [wielu wystąpieniach](batch-mpi.md). Ścieżka istnieje w każdym węźle, w którym jest uruchamiane zadanie wielowystąpienie, i ma dostęp do odczytu/zapisu dla poleceń zadań uruchomionych w tym węźle ( [polecenie koordynacyjne](batch-mpi.md#coordination-command) i [polecenie aplikacji](batch-mpi.md#application-command). Podzadania lub zadanie podstawowe wykonywane na innych węzłach nie mają dostępu zdalnego do tego katalogu (nie jest to katalog sieciowy "udostępniony"). | Podstawowe i podrzędne podzadania. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | Pełna ścieżka [katalogu roboczego zadania](files-and-directories.md) w węźle. Aktualnie uruchomione zadanie ma dostęp do odczytu/zapisu do tego katalogu. | Wszystkie zadania. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_WORKING_DIR       | Pełna ścieżka [katalogu roboczego zadania](files-and-directories.md) w węźle. Aktualnie uruchomione zadanie ma dostęp do odczytu/zapisu do tego katalogu. | Wszystkie zadania. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | Bieżący próg miejsca na dysku, na którym maszyna wirtualna zostanie oznaczona jako `DiskFull` . | Wszystkie zadania. | 1000000 |
 | CCP_NODES                       | Lista węzłów i liczba rdzeni na węzeł, które są przydzieleni do zadania o [wielu wystąpieniach](batch-mpi.md). Węzły i rdzenie są wymienione w formacie `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, gdzie po liczbie węzłów następuje jeden lub więcej adresów IP węzła i liczba rdzeni dla każdej z nich. |  Podstawowe i podrzędne podzadania. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 ## <a name="next-steps"></a>Następne kroki

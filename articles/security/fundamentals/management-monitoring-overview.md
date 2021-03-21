@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/24/2021
 ms.author: terrylan
 ms.openlocfilehash: f87ea1e1c9f43de4e9e0f94d1cd855615a0a880c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101712049"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
@@ -52,7 +52,7 @@ Więcej informacji:
 * [Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/symantec.md)
 * [Nowe opcje chroniące przed złośliwym kodem na potrzeby ochrony Virtual Machines platformy Azure](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe
 
 Usługa Azure AD Multi-Factor Authentication to metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji. Powoduje to dodanie krytycznej drugiej warstwy zabezpieczeń do logowania i transakcji użytkownika.
 

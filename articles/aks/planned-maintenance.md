@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8526d7c1c436074fbf6f838caf232e1abee06339
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201562"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670379"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Użyj planowanej konserwacji w celu zaplanowania okien obsługi dla klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
-Klaster AKS ma regularne konserwacje wykonywane automatycznie. Domyślnie to działanie może wystąpić w dowolnym momencie. Planowana konserwacja pozwala zaplanować cotygodniowe okna obsługi, które będą aktualizować płaszczyznę kontroli i zminimalizować wpływ obciążeń. Po zaplanowaniu wszystkie czynności konserwacyjne zostaną wykonane w wybranym oknie. Możesz zaplanować co najmniej jedno cotygodniowe okna w klastrze, określając dzień lub zakres czasu w określonym dniu. Okna obsługi konfiguruje się za pomocą interfejsu wiersza polecenia platformy Azure.
+Klaster AKS ma regularne konserwacje wykonywane automatycznie. Domyślnie to działanie może wystąpić w dowolnym momencie. Planowana konserwacja pozwala zaplanować cotygodniowe okna obsługi, które zaktualizują płaszczyznę kontroli, a także polecenia-systemowe wystąpienia w wystąpieniu VMSS i minimalizują wpływ obciążeń. Po zaplanowaniu wszystkie czynności konserwacyjne zostaną wykonane w wybranym oknie. Możesz zaplanować co najmniej jedno cotygodniowe okna w klastrze, określając dzień lub zakres czasu w określonym dniu. Okna obsługi konfiguruje się za pomocą interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -107,7 +107,7 @@ Można również użyć pliku JSON Utwórz okno obsługi zamiast używać parame
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T012:00:00Z"
+            "end": "2021-05-30T12:00:00Z"
           }
         ]
 }

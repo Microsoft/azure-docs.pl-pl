@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520463"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670566"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -73,6 +73,7 @@ Aby zatrzymać ochronę i usunąć dane kopii zapasowej, wykonaj następujące c
 
          ![Okienko Usuń dane kopii zapasowej.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   Ta opcja powoduje usunięcie zaplanowanych kopii zapasowych, a także usunięcie kopii zapasowych na żądanie.
 3. Sprawdź ikonę **powiadomienia** : ![ ikona powiadomienia.](./media/backup-azure-delete-vault/messages.png) Po zakończeniu procesu usługa wyświetli następujący komunikat: *Zatrzymywanie tworzenia kopii zapasowej i usuwanie danych kopii zapasowej dla elementu "* kopia zapasowa *"*. *Pomyślnie ukończono operację*.
 4. Wybierz pozycję **Odśwież** w menu **elementy kopii zapasowej** , aby upewnić się, że element kopii zapasowej został usunięty.
 

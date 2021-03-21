@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 1552dfedc4510ba22e58d166d12a356ba546c092
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 88fd6260df0039e960ac87b4b83d43ea497a58b0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103468"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658513"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Szybki start: wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 
@@ -78,6 +78,8 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
 > Twój projekt został skonfigurowany z wartościami właściwości aplikacji i jest gotowy do uruchomienia.
@@ -91,7 +93,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >
 > 1. Wyodrębnij archiwum zip do folderu lokalnego w pobliżu katalogu głównego dysku. Na przykład do **C:\Azure-Samples**.
 > 1. Otwórz projekt w programie Visual Studio. Jeśli zostanie wyświetlony monit, zainstaluj platforma uniwersalna systemu Windows obciążenie pracą **programistyczną** i wszystkie poszczególne składniki zestawu SDK.
-> 1. W *MainPage.XAML.cs* Zmień wartość `ClientId` zmiennej na **Identyfikator aplikacji (klienta)** , która została zarejestrowana wcześniej.
+> 1. W *MainPage. XAML. cs* Zmień wartość `ClientId` zmiennej na **Identyfikator aplikacji (klienta)** , która została zarejestrowana wcześniej.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";

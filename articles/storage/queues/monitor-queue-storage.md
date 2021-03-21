@@ -11,10 +11,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 8f49485d00379f5845569976e793f06d56a8967d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506824"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorowanie Queue Storage platformy Azure
@@ -75,7 +75,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 ### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Przejdź do konta magazynu.
 

@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
 ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101707183"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Szybki Start: łączenie z maszyną wirtualną bezpiecznie za pośrednictwem przeglądarki za pomocą prywatnego adresu IP
 
 Możesz nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglądarki, korzystając z Azure Portal i usługi Azure bastionu. Ten artykuł szybkiego startu pokazuje, jak skonfigurować usługę Azure bastionu na podstawie ustawień maszyny wirtualnej, a następnie połączyć się z maszyną wirtualną za pośrednictwem portalu. Maszyna wirtualna nie wymaga publicznego adresu IP, oprogramowania klienckiego, agenta ani specjalnej konfiguracji. Po aprowizacji usługi środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [co to jest Azure bastionu?](bastion-overview.md).
 
-## <a name="prerequisites"></a><a name="prereq"></a>Wymagany
+## <a name="prerequisites"></a><a name="prereq"></a>Wymagania wstępne
 
 * Konto platformy Azure z aktywną subskrypcją. Jeśli go nie masz, [Utwórz go bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Aby móc nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglądarki za pomocą bastionu, musisz mieć możliwość zalogowania się do Azure Portal.
 
@@ -100,7 +100,7 @@ Istnieje kilka różnych sposobów konfigurowania hosta bastionu. W poniższych 
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Zrzut ekranu kroku 3.":::
 1. Po zakończeniu wartości wybierz pozycję **Utwórz usługę Azure bastionu przy użyciu wartości domyślnych**. Platforma Azure weryfikuje ustawienia, a następnie tworzy hosta. Tworzenie i wdrażanie hosta i jego zasobów trwa około 5 minut.
 
-## <a name="connect"></a><a name="connect"></a>Łączone
+## <a name="connect"></a><a name="connect"></a>Nawiązywanie połączenia
 
 Po wdrożeniu bastionu w sieci wirtualnej, ekran zmieni się na stronę Połącz.
 

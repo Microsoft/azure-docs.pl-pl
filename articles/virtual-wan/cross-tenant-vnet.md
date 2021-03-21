@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: c49a85c71c9b877be7e143f5caf27dc307fe0c12
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381273"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585421"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Łączenie wielu dzierżawców sieci wirtualnych z wirtualnym koncentratorem sieci WAN
 
@@ -90,7 +90,7 @@ W poniższych krokach nastąpi przełączenie między kontekstem dwóch subskryp
 1. Podłącz sieć wirtualną do centrum.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
 1. Nowe połączenie można wyświetlić w programie PowerShell lub w Azure Portal.
@@ -98,7 +98,7 @@ W poniższych krokach nastąpi przełączenie między kontekstem dwóch subskryp
    * Program **PowerShell:** Metadane z nowo utworzonego połączenia będą wyświetlane w konsoli programu PowerShell, jeśli połączenie zostało pomyślnie utworzone.
    * **Azure Portal:** Przejdź do centrum wirtualnego, **> połączenia Virtual Network połączeń**. Możesz wyświetlić wskaźnik do połączenia. Aby wyświetlić rzeczywisty zasób, potrzebne są odpowiednie uprawnienia.
    
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Rozwiązywanie problemów z
 
 * Sprawdź, czy metadane w $remote (z poprzedniej [sekcji](#connect)) są zgodne z informacjami z Azure Portal.
 * Możesz sprawdzić uprawnienia przy użyciu ustawień usługi IAM dla zdalnej grupy zasobów dzierżawy lub za pomocą poleceń Azure PowerShell (Get-AzSubscription).

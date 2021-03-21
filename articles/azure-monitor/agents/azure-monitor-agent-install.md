@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 6bf0e8b90ca50a90f84c18981ab6accae8477b46
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b2f91f0036a86151588c8c138dac5421ad54e18e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034317"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586424"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Zainstaluj agenta Azure Monitor (wersja zapoznawcza)
 W tym artykule opisano różne opcje, które są obecnie dostępne do zainstalowania [agenta Azure monitor](azure-monitor-agent-overview.md) na maszynach wirtualnych platformy Azure i serwerach z obsługą usługi Azure ARC, a także opcje tworzenia [skojarzeń z regułami zbierania danych](data-collection-rule-azure-monitor-agent.md) , które określają, które dane mają być zbierane przez agenta.
@@ -62,11 +62,11 @@ Agenta Azure Monitor można zainstalować na maszynach wirtualnych platformy Azu
 Użyj następujących poleceń programu PowerShell, aby zainstalować agenta Azure Monitor na maszynach wirtualnych platformy Azure.
 # <a name="windows"></a>[Windows](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0
 ```
 # <a name="linux"></a>[Linux](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0
 ```
 ---
 

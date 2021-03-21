@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 869f46207b940521ee0b66b5afa9c6e2718ab04f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012480"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594482"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Zmienianie rozmiaru puli pojemności lub woluminu
 W razie potrzeby można zmienić rozmiar puli pojemności lub woluminu. 
@@ -39,6 +39,21 @@ W razie potrzeby można zmienić rozmiar woluminu. Użycie pojemności woluminu 
 1. W bloku Zarządzanie kontem usługi NetApp kliknij pozycję **woluminy**. 
 2. Kliknij prawym przyciskiem myszy nazwę woluminu, którego rozmiar chcesz zmienić, lub kliknij "..." na końcu wiersza woluminu, aby wyświetlić menu kontekstowe.
 3. Użyj opcji menu kontekstowego, aby zmienić rozmiar lub usunąć wolumin.
+
+## <a name="resize-a-cross-region-replication-destination-volume"></a>Zmiana rozmiaru woluminu docelowego replikacji między regionami 
+
+W relacji [replikacji między regionami](cross-region-replication-introduction.md) wolumin docelowy jest automatycznie zmieniany na podstawie rozmiaru woluminu źródłowego. W związku z tym nie trzeba oddzielnie zmieniać rozmiaru woluminu docelowego. To automatyczne zmianę rozmiarów jest stosowane, gdy woluminy znajdują się w aktywnej relacji replikacji lub gdy Komunikacja równorzędna replikacji zostanie przerwana z [operacją ponownej synchronizacji](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
+
+W poniższej tabeli opisano zachowanie zmiany rozmiarów woluminu docelowego na podstawie [stanu dublowania](cross-region-replication-display-health-status.md):
+
+|  Stan dublowania  | Zachowanie zmiany rozmiarów woluminu docelowego |
+|-|-|
+| *Dublowane* | Gdy wolumin docelowy został zainicjowany i jest gotowy do otrzymywania aktualizacji dublowania, zmiany rozmiaru woluminu źródłowego automatycznie zmienia rozmiar woluminów docelowych. |
+| *Praw* | W przypadku zmiany rozmiaru woluminu źródłowego i stanu dublowania wolumin *docelowy zostanie automatycznie* zmieniony z [operacją ponownej synchronizacji](cross-region-replication-manage-disaster-recovery.md#resync-replication).  |
+| *Niezainicjowane* | W przypadku zmiany rozmiaru woluminu źródłowego, gdy stan dublowany nadal jest *zainicjowany*, zmiana rozmiaru woluminu docelowego należy wykonać ręcznie. W związku z tym zaleca się zaczekanie na zakończenie inicjalizacji (to oznacza, gdy stan dublowany zostanie *zdublowany*), aby zmienić rozmiar woluminu źródłowego. | 
+
+> [!IMPORTANT]
+> Upewnij się, że masz wystarczająco dużo miejsca w pulach pojemności dla woluminów źródłowych i docelowych replikacji między regionami. Zmiana rozmiaru woluminu źródłowego powoduje automatyczne zmianę rozmiaru woluminu docelowego. Ale jeśli Pula pojemności hostującym wolumin docelowy nie ma wystarczającej wysokości, zmienianie rozmiarów woluminów źródłowych i docelowych zakończy się niepowodzeniem.
 
 ## <a name="next-steps"></a>Następne kroki
 

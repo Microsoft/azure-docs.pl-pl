@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 02/09/2021
 ms.author: memildin
 ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102439446"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
@@ -50,7 +50,7 @@ Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich
 1. Zdefiniuj adresatów powiadomień przy użyciu jednej lub obu tych opcji:
 
     - Z listy rozwijanej wybierz pozycję spośród dostępnych ról.
-    - Wprowadź określone adresy e-mail oddzielone przecinkami. Nie ma żadnego limitu liczby adresów e-mail, które można wprowadzić.
+    - Wprowadź określone adresy e-mail rozdzielone przecinkami. Nie ma żadnego limitu liczby adresów e-mail, które można wprowadzić.
 
 1. Aby zastosować informacje o kontakcie zabezpieczeń do subskrypcji, wybierz pozycję **Zapisz**.
 

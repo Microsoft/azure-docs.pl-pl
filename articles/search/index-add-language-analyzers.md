@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 555709776c88dd3003e400bbcefe2ec1cfa0f4af
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/17/2021
+ms.openlocfilehash: ac11b7bc7e53c214f872d400565d50009479afcb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934173"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604427"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie analizatorów języka do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
@@ -46,91 +46,114 @@ Indeksowanie za pomocą analizatorów firmy Microsoft jest średnio dwa do trzec
 
 ### <a name="english-analyzers"></a>Analizatory angielskie
 
-Domyślną analizatorem jest standardowa Lucene, które dobrze sprawdzają się w języku angielskim, ale być może nie jest to również program w języku angielskim lub Microsoft English Analyzer. 
- 
+Domyślną analizatorem jest standardowa Lucene, które dobrze sprawdzają się w języku angielskim, ale być może nie jest to również program w języku angielskim lub Microsoft English Analyzer.
+
 + Analizator w języku angielskim Luces rozszerza analizatora standardowego. Usuwa possessives (końcowe) z wyrazów, stosuje rdzenie zgodnie z algorytmem rdzenia Porter i usuwa słowa zatrzymywania w języku angielskim.  
 
 + Program Microsoft English Analyzer wykonuje Lematyzacja zamiast rdzeni. Oznacza to, że może obsłużyć nietypowe i nieregularne formy wyrazów znacznie lepiej, co daje bardziej odpowiednie wyniki wyszukiwania 
 
-## <a name="configuring-analyzers"></a>Konfigurowanie analizatorów
+## <a name="how-to-specify-a-language-analyzer"></a>Jak określić Analizator języka
 
-Analizatory języka są używane jako-is. Dla każdego pola w definicji indeksu można ustawić właściwość **analizatora** na nazwę analizatora, która określa język i stosy (Microsoft lub Lucene). Ten sam analizator zostanie zastosowany podczas indeksowania i wyszukiwania tego pola. Można na przykład mieć osobne pola w języku angielskim, francuskim i hiszpańskim, które znajdują się obok siebie w tym samym indeksie.
+Ustaw Analizator języka w polach "z możliwością wyszukiwania" typu EDM. String podczas definiowania pola.
 
-> [!NOTE]
-> Nie można użyć innego analizatora języka w czasie indeksowania niż w czasie zapytania dla pola. Ta możliwość jest zarezerwowana dla [analizatorów niestandardowych](index-add-custom-analyzers.md). Z tego powodu, jeśli spróbujesz ustawić właściwości **searchAnalyzer** lub **indexAnalyzer** jako nazwę analizatora języka, interfejs API REST zwróci odpowiedź na błąd. Zamiast tego należy użyć właściwości **Analizator** .
+Chociaż definicje pól mają kilka właściwości powiązanych z analizatorem, tylko właściwość "Analizator" może być używana dla analizatorów języka. Wartość "Analyzer" musi być jedną z analizatorów języka z listy analizatorów pomocy technicznej.
 
-Użyj parametru zapytania **searchFields** , aby określić, które pole specyficzne dla języka ma być wyszukiwane w zapytaniach. Przykłady zapytań, które obejmują Właściwość analizatora, można przejrzeć w [dokumentach wyszukiwania](/rest/api/searchservice/search-documents). 
+```json
+{
+  "name": "hotels-sample-index",
+  "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+    {
+      "name": "Description_fr",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "fr.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+```
 
-Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create index &#40;Azure wyszukiwanie POZNAWCZE API REST&#41;](/rest/api/searchservice/create-index). Aby uzyskać więcej informacji na temat analizy w usłudze Azure Wyszukiwanie poznawcze, zobacz [analizatory na platformie azure wyszukiwanie poznawcze](./search-analyzers.md).
+Aby uzyskać więcej informacji na temat tworzenia indeksu i ustawiania właściwości pola, zobacz [create index (REST)](/rest/api/searchservice/create-index). Aby uzyskać więcej informacji na temat analizy tekstu, zobacz [analizatory na platformie Azure wyszukiwanie poznawcze](search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
-## <a name="language-analyzer-list"></a>Lista analizatorów języka 
- Poniżej znajduje się lista obsługiwanych języków razem z nazwami Lucene i Microsoft Analyzer.  
+## <a name="supported-language-analyzers"></a>Obsługiwane analizatory języka
+
+ Poniżej znajduje się lista obsługiwanych języków z nazwami Lucene i Microsoft Analyzer.  
 
 | Język | Nazwa analizatora firmy Microsoft | Nazwa analizatora Lucene |
-|--|--|--|
-| Arabski | ar. Microsoft | ar. Lucene |
-| Armeński |  | HY. Lucene |  |
-| Języku | mld USD. Microsoft |  |  |
-| Baskijski |  | UE. Lucene |  |
-| Bułgarski | BG. Microsoft | BG. Lucene |  |
-| Kataloński | CA. Microsoft | CA. Lucene |  |
-| Chiński (uproszczony) | zh-Hans. Microsoft | zh-Hans. Lucene |  |
-| Chiński (tradycyjny) | zh-Hant. Microsoft | zh-Hant. Lucene |  |
-| Chorwacki | HR. Microsoft |  |  |
-| Czeski | cs. Microsoft | cs. Lucene |  |
-| Duński | da. Microsoft | da. Lucene |  |
-| Niderlandzki | NL. Microsoft | NL. Lucene |  |
-| Angielski | pl. Microsoft | pl. Lucene |  |
-| Estoński | et. Microsoft |  |  |
-| Fiński | Fi. Microsoft | Fi. Lucene |  |
-| Francuski | fr. Microsoft | fr. Lucene |  |
-| Galicyjski |  | GL. Lucene |  |
-| Niemiecki | de. Microsoft | de. Lucene |  |
-| Grecki | El. Microsoft | El. Lucene |  |
-| Gudżarati | gu. Microsoft |  |  |
-| Hebrajski | Firma Microsoft |  |  |
-| Hindi | Witaj. Microsoft | Witaj. Lucene |  |
-| Węgierski | HU. Microsoft | HU. Lucene |  |
-| Islandzki | jest. Microsoft |  |  |
-| Indonezyjski (Bahasa) | Identyfikator. Microsoft | Identyfikator. Lucene |  |
-| Irlandzki |  | ga. Lucene |  |
-| Włoski | IT. Microsoft | IT. Lucene |  |
-| japoński | ja. Microsoft | ja. Lucene |  |
-| Kannada | kN. Microsoft |  |  |
-| Koreański | ko. Microsoft | ko. Lucene |  |
-| Łotewski | LV. Microsoft | LV. Lucene |  |
-| Litewski | lt. Microsoft |  |  |
-| Malayalam | ml. Microsoft |  |  |
-| Malajski (łaciński) | MS. Microsoft |  |  |
-| Marathi | Mr. Microsoft |  |  |
-| Norweski | NB. Microsoft | nie. Lucene |  |
-| Perski |  | FA. Lucene |  |
-| Polski | pl. Microsoft | pl. Lucene |  |
-| Portugalski (Brazylia) | pt-br. Microsoft | pt-br. Lucene |  |
-| Portugalski (Portugalia) | pt-pt. Microsoft | pt-pt. Lucene |  |
-| Pendżabski | PA. Microsoft |  |  |
-| Rumuński | ro. Microsoft | ro. Lucene |  |
-| Rosyjski | ru. Microsoft | ru. Lucene |  |
-| Serbski (cyrylica) | SR-cyrylica. Microsoft |  |  |
-| Serbski (łaciński) | SR-Latin. Microsoft |  |  |
-| Słowacki | SK. Microsoft |  |  |
-| Słoweński | SL. Microsoft |  |  |
-| Hiszpański | es. Microsoft | es. Lucene |  |
-| Szwedzki | OHR. Microsoft | OHR. Lucene |  |
-| Tamilski | Ta. Microsoft |  |  |
-| Telugu | te. Microsoft |  |  |
-| Tajlandzki | th. Microsoft | th. Lucene |  |
-| Turecki | TR. Microsoft | TR. Lucene |  |
-| Ukraiński | Wielka Brytania. Microsoft |  |  |
-| Urdu | Twoje. Microsoft |  |  |
-| Wietnamski | VI. Microsoft |  |  |
+|----------|-------------------------|----------------------|
+| Arabski   | ar. Microsoft | ar. Lucene |
+| Armeński |           | HY. Lucene |
+| Języku   | mld USD. Microsoft |  |
+| Baskijski   |  | UE. Lucene |
+| Bułgarski | BG. Microsoft | BG. Lucene |
+| Kataloński  | CA. Microsoft | CA. Lucene |
+| Chiński (uproszczony) | zh-Hans. Microsoft | zh-Hans. Lucene |
+| Chiński (tradycyjny) | zh-Hant. Microsoft | zh-Hant. Lucene |
+| Chorwacki | HR. Microsoft |  |
+| Czeski | cs. Microsoft | cs. Lucene |
+| Duński | da. Microsoft | da. Lucene |
+| Niderlandzki | NL. Microsoft | NL. Lucene |
+| Angielski | pl. Microsoft | pl. Lucene |
+| Estoński | et. Microsoft |  |
+| Fiński | Fi. Microsoft | Fi. Lucene |
+| Francuski | fr. Microsoft | fr. Lucene |
+| Galicyjski |  | GL. Lucene |
+| Niemiecki | de. Microsoft | de. Lucene |
+| Grecki | El. Microsoft | El. Lucene |
+| Gudżarati | gu. Microsoft |  |
+| Hebrajski | Firma Microsoft |  |
+| Hindi | Witaj. Microsoft | Witaj. Lucene |
+| Węgierski | HU. Microsoft | HU. Lucene |
+| Islandzki | jest. Microsoft |  |
+| Indonezyjski (Bahasa) | Identyfikator. Microsoft | Identyfikator. Lucene |
+| Irlandzki |  | ga. Lucene |
+| Włoski | IT. Microsoft | IT. Lucene |
+| japoński | ja. Microsoft | ja. Lucene |
+| Kannada | kN. Microsoft |  |
+| Koreański | ko. Microsoft | ko. Lucene |
+| Łotewski | LV. Microsoft | LV. Lucene |
+| Litewski | lt. Microsoft |  |
+| Malayalam | ml. Microsoft |  |
+| Malajski (łaciński) | MS. Microsoft |  |
+| Marathi | Mr. Microsoft |  |
+| Norweski | NB. Microsoft | nie. Lucene |
+| Perski |  | FA. Lucene |
+| Polski | pl. Microsoft | pl. Lucene |
+| Portugalski (Brazylia) | pt-br. Microsoft | pt-br. Lucene |
+| Portugalski (Portugalia) | pt-pt. Microsoft | pt-pt. Lucene |
+| Pendżabski | PA. Microsoft |  |
+| Rumuński | ro. Microsoft | ro. Lucene |
+| Rosyjski | ru. Microsoft | ru. Lucene |
+| Serbski (cyrylica) | SR-cyrylica. Microsoft |  |
+| Serbski (łaciński) | SR-Latin. Microsoft |  |
+| Słowacki | SK. Microsoft |  |
+| Słoweński | SL. Microsoft |  |
+| Hiszpański | es. Microsoft | es. Lucene |
+| Szwedzki | OHR. Microsoft | OHR. Lucene |
+| Tamilski | Ta. Microsoft |  |
+| Telugu | te. Microsoft |  |
+| Tajlandzki | th. Microsoft | th. Lucene |
+| Turecki | TR. Microsoft | TR. Lucene |
+| Ukraiński | Wielka Brytania. Microsoft |  |
+| Urdu | Twoje. Microsoft |  |
+| Wietnamski | VI. Microsoft |  |
 
  Wszystkie analizatory z nazwami oznaczonymi jako " **Lucene** " są obsługiwane przez [analizatory języka Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Zobacz też  
 
-+ [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/create-index)  
-
-+ [Klasa LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)
++ [Tworzenie indeksu](search-what-is-an-index.md)
++ [Tworzenie indeksu w wielu językach](search-language-support.md)
++ [Tworzenie indeksu (interfejs API REST)](/rest/api/searchservice/create-index)  
++ [Klasa LexicalAnalyzerName (zestaw Azure SDK dla platformy .NET)](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f10dac4e70a1edb05f2f2c02c48b9ae16c4f6823
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177831"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Tworzenie wyzwalacza uruchamiającego potok według harmonogramu

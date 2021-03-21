@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 6e220592f53103320c3bdb586fcbd0106219bfed
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939534"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Używanie wielu klastrów usługi HDInsight z kontem Azure Data Lake Storage
@@ -86,7 +86,7 @@ Jak określono w połączonej wcześniej JIRA PRZĘDZy, podczas lokalizowania za
 
 Ustaw uprawnienia do odczytu dla **innych użytkowników** w hierarchii, na przykład, **/** **/Clusters** i **/Clusters/Finance** , jak pokazano w powyższej tabeli.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Szybki start: konfigurowanie klastrów w usłudze HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 - [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: 4075552e2070eba653fba54c7db1d021016644c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 6a712ad1924fd73926ff0e62a7d1b9684eb5b1d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369768"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583121"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Skopiuj dane z i do chmury usługi Salesforce przy użyciu Azure Data Factory
 
@@ -20,7 +20,7 @@ ms.locfileid: "100369768"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do chmury usługi Salesforce. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik chmury usługi Salesforce jest obsługiwany dla następujących działań:
 
@@ -231,6 +231,7 @@ Aby skopiować dane do chmury usługi Salesforce, w sekcji **ujścia** działani
 | externalIdFieldName | Nazwa pola identyfikatora zewnętrznego dla operacji upsert. Określone pole musi być zdefiniowane jako "pole identyfikatora zewnętrznego" w obiekcie chmury usługi Salesforce. Nie może mieć wartości NULL w odpowiednich danych wejściowych. | Tak dla "upsert" |
 | writeBatchSize | Liczba wierszy danych zapisywana w chmurze usługi Salesforce w każdej partii. | Nie (domyślnie 5 000) |
 | ignoreNullValues | Wskazuje, czy ignorować wartości NULL z danych wejściowych podczas operacji zapisu.<br/>Dozwolone wartości to **true** i **false**.<br>- **True**: pozostawienie danych w obiekcie docelowym nie zmienia się po wykonaniu operacji upsert lub Update. Wstaw zdefiniowaną wartość domyślną podczas wykonywania operacji wstawiania.<br/>- **Fałsz**: zaktualizuj dane w obiekcie docelowym do wartości null po wykonaniu operacji upsert lub Update. Wstaw wartość NULL po wykonaniu operacji wstawiania. | Nie (wartość domyślna to false) |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 
