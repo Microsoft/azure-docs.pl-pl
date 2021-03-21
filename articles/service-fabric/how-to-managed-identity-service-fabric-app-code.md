@@ -4,10 +4,10 @@ description: Jak uzyskać dostęp do usług platformy Azure za pomocą zarządza
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: e26a29020f26583f7e4aa16434c7e8647ba9a5a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98871065"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak korzystać z zarządzanej tożsamości aplikacji Service Fabric w celu uzyskiwania dostępu do usług platformy Azure

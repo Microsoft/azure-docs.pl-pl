@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018073"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal
@@ -79,12 +79,12 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -121,10 +121,10 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
     | Publiczny adres IP | Wybierz pozycję **Brak**. |
-    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
+    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowa**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -134,7 +134,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla aplikacji sieci Web utworzone
 
 1. W lewym górnym rogu ekranu w portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link** lub w polu wyszukiwania wprowadź **łącze prywatne**.
 
-2. Wybierz pozycję **Utwórz**.
+2. Wybierz przycisk **Utwórz**.
 
 3. W **prywatnym centrum połączenia** wybierz pozycję **prywatne punkty końcowe** w menu po lewej stronie.
 
@@ -178,7 +178,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla aplikacji sieci Web utworzone
     | Prywatne strefy DNS | Pozostaw wartość domyślną **(New) privatelink.azurewebsites.NET**.
     
 
-13. Wybierz pozycję **Przeglądanie + tworzenie**.
+13. Wybierz pozycję **Przejrzyj i utwórz**.
 
 14. Wybierz pozycję **Utwórz**.
 

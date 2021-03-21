@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98802363"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: V12 biblioteki klienta platformy Azure z Blob Storage platformą Xamarin
@@ -114,7 +114,7 @@ Poniższy kod deklaruje kilka zmiennych na poziomie klasy. Muszą oni komunikowa
 
 Są to oprócz parametrów połączenia dla konta magazynu ustawionych w sekcji [Konfigurowanie parametrów połączenia magazynu](#configure-your-storage-connection-string) .
 
-Dodaj ten kod jako zmienne poziomu klasy w pliku *MainPage.XAML.cs* :
+Dodaj ten kod jako zmienne poziomu klasy w pliku *MainPage. XAML. cs* :
 
 ```csharp
 string storageConnectionString = "{set in the Configure your storage connection string section}";
@@ -134,7 +134,7 @@ Określ nazwę nowego kontenera. Poniższy kod dołącza wartość identyfikator
 
 Utwórz wystąpienie klasy [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) . Następnie Wywołaj metodę [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) , aby utworzyć kontener na koncie magazynu.
 
-Dodaj ten kod do pliku *MainPage.XAML.cs* :
+Dodaj ten kod do pliku *MainPage. XAML. cs* :
 
 ```csharp
 protected async override void OnAppearing()
@@ -159,7 +159,7 @@ Następujący fragment kodu:
 1. Tworzy `MemoryStream` tekst.
 1. Przekazuje tekst do obiektu BLOB, wywołując funkcję [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) klasy [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) , przekazując ją zarówno do nazwy pliku, jak i `MemoryStream` tekstu. Jeśli obiekt blob nie istnieje, zostanie utworzony przez metodę. W przeciwnym razie zostanie zastąpiony.
 
-Dodaj ten kod do pliku *MainPage.XAML.cs* :
+Dodaj ten kod do pliku *MainPage. XAML. cs* :
 
 ```csharp
 async void Upload_Clicked(object sender, EventArgs e)
@@ -179,7 +179,7 @@ async void Upload_Clicked(object sender, EventArgs e)
 
 Utwórz listę obiektów BLOB w kontenerze, wywołując metodę [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) . W takim przypadku tylko jeden obiekt BLOB został dodany do kontenera, więc operacja tworzenia listy zwraca tylko jeden obiekt BLOB.
 
-Dodaj ten kod do pliku *MainPage.XAML.cs* :
+Dodaj ten kod do pliku *MainPage. XAML. cs* :
 
 ```csharp
 async void List_Clicked(object sender, EventArgs e)
@@ -198,7 +198,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 Pobierz utworzony wcześniej obiekt BLOB, wywołując metodę [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) . Przykładowy kod kopiuje `Stream` reprezentację obiektu BLOB najpierw do `MemoryStream` a, a następnie do, `StreamReader` Aby można było wyświetlić tekst.
 
-Dodaj ten kod do pliku *MainPage.XAML.cs* :
+Dodaj ten kod do pliku *MainPage. XAML. cs* :
 
 ```csharp
 async void Download_Clicked(object sender, EventArgs e)
@@ -227,7 +227,7 @@ Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie całego
 
 Aplikacja najpierw wyświetli prośbę o potwierdzenie przed usunięciem obiektu BLOB i kontenera. Jest to dobry szansa, aby sprawdzić, czy zasoby zostały utworzone prawidłowo, przed ich usunięciem.
 
-Dodaj ten kod do pliku *MainPage.XAML.cs* :
+Dodaj ten kod do pliku *MainPage. XAML. cs* :
 
 ```csharp
 async void Delete_Clicked(object sender, EventArgs e)

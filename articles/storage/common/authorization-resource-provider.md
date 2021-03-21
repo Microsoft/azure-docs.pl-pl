@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789679"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania
@@ -53,7 +53,7 @@ Wbudowane role, które przyznają uprawnienia do wywoływania operacji zarządza
 | **Administrator dostępu użytkowników** | Może zarządzać dostępem do konta magazynu.   | Tak, umożliwia podmiotowi zabezpieczeń przypisanie wszelkich uprawnień do siebie i innych. |
 | **Współautor maszyny wirtualnej** | Może zarządzać maszynami wirtualnymi, ale nie z konta magazynu, z którym są połączone.   | Tak, zapewnia uprawnienia do wyświetlania i ponownego generowania kluczy konta magazynu. |
 
-Trzecia kolumna w tabeli wskazuje, czy wbudowana rola obsługuje **Microsoft. Storage/storageAccounts/ListKeys/Action** . Ta akcja przyznaje uprawnienia do odczytu i ponownego wygenerowania kluczy konta magazynu. Uprawnienia dostępu do zasobów usługi Azure Storage Management nie obejmują również uprawnień dostępu do danych. Jeśli jednak użytkownik ma dostęp do kluczy konta, może używać kluczy konta do uzyskiwania dostępu do danych usługi Azure Storage za pomocą autoryzacji klucza współużytkowanego.
+Trzecia kolumna w tabeli wskazuje, czy wbudowana rola obsługuje **Microsoft. Storage/storageAccounts/ListKeys/Action**. Ta akcja przyznaje uprawnienia do odczytu i ponownego wygenerowania kluczy konta magazynu. Uprawnienia dostępu do zasobów usługi Azure Storage Management nie obejmują również uprawnień dostępu do danych. Jeśli jednak użytkownik ma dostęp do kluczy konta, może używać kluczy konta do uzyskiwania dostępu do danych usługi Azure Storage za pomocą autoryzacji klucza współużytkowanego.
 
 ### <a name="custom-roles-for-management-operations"></a>Role niestandardowe dla operacji zarządzania
 

@@ -8,10 +8,10 @@ ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101733248"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja
@@ -365,7 +365,7 @@ Do monitorowania portów można także używać agregatorów TAP. Urządzenia te
 
 Te modele zostały przetestowane pod kątem zgodności. Inni dostawcy i modele mogą również być zgodne.
 
-| Image (Obraz) | Model |
+| Obraz | Model |
 |--|--|
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Zrzut ekranu przedstawiający Garland P1GCCAS."::: | Garland P1GCCAS |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Zrzut ekranu przedstawiający IXIA TPA2-CU3."::: | IXIA TPA2 — CU3 |

@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopi
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733574"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
@@ -121,7 +121,7 @@ Podczas konfigurowania kopii zapasowych maszyn wirtualnych sugerujemy następuj�
 - Jeśli przywracasz maszyny wirtualne z jednego magazynu, zdecydowanie zalecamy użycie różnych [kont magazynu ogólnego przeznaczenia w wersji 2](../storage/common/storage-account-upgrade.md) , aby upewnić się, że docelowe konto magazynu nie zostanie ograniczone. Na przykład każda maszyna wirtualna musi mieć inne konto magazynu. Na przykład jeśli zostaną przywrócone 10 maszyn wirtualnych, użyj 10 różnych kont magazynu.
 - W przypadku tworzenia kopii zapasowych maszyn wirtualnych korzystających z usługi Premium Storage z natychmiastowym przywracaniem zalecamy alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. Ilość wolnego miejsca na 50% nie jest wymagana w przypadku kopii zapasowych po wykonaniu pierwszej kopii zapasowej
 - Limit liczby dysków na konto magazynu jest określany względem tego, w jakim stopniu aplikacje działające na maszynie wirtualnej w modelu infrastruktura jako usługa (IaaS) uzyskują dostęp do dysków. Zgodnie z ogólną praktyką, jeśli na jednym koncie magazynu znajduje się od 5 do 10 dysków lub więcej, należy zrównoważyć obciążenie przez przeniesienie niektórych dysków do oddzielnych kont magazynu.
-- Aby przywrócić maszyny wirtualne z dyskami zarządzanymi przy użyciu programu PowerShell, podaj dodatkowy parametr **_TargetResourceGroupName_* _, aby określić grupę zasobów, do której zostaną przywrócone zarządzane dyski, [Dowiedz się więcej tutaj](./backup-azure-vms-automation.md#restore-managed-disks).
+- Aby przywrócić maszyny wirtualne z dyskami zarządzanymi przy użyciu programu PowerShell, podaj dodatkowy parametr ***TargetResourceGroupName*** , aby określić grupę zasobów, do której zostaną przywrócone zarządzane dyski, [Dowiedz się więcej tutaj](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowych
 
@@ -131,7 +131,7 @@ Rozliczanie nie rozpocznie się, dopóki nie zostanie ukończona pierwsza kopia 
 
 Rozliczanie dla określonej maszyny wirtualnej zatrzymuje się tylko wtedy, gdy ochrona została zatrzymana i wszystkie dane kopii zapasowej zostaną usunięte. Po zatrzymaniu ochrony, gdy nie ma aktywnych zadań kopii zapasowej, rozmiar ostatniej pomyślnej kopii zapasowej maszyny wirtualnej to rozmiar chronionego wystąpienia użyty dla rachunku miesięcznego.
 
-Obliczanie rozmiaru chronionego wystąpienia jest zależne od _actual * rozmiaru maszyny wirtualnej. Rozmiar maszyny wirtualnej to suma wszystkich danych w maszynie wirtualnej, z wyłączeniem magazynu tymczasowego. Cennik jest oparty na rzeczywistych danych przechowywanych na dyskach danych, a nie na maksymalnym obsługiwanym rozmiarze dla każdego dysku danych dołączonego do maszyny wirtualnej.
+Obliczanie rozmiaru chronionego wystąpienia jest zależne od *rzeczywistego* rozmiaru maszyny wirtualnej. Rozmiar maszyny wirtualnej to suma wszystkich danych w maszynie wirtualnej, z wyłączeniem magazynu tymczasowego. Cennik jest oparty na rzeczywistych danych przechowywanych na dyskach danych, a nie na maksymalnym obsługiwanym rozmiarze dla każdego dysku danych dołączonego do maszyny wirtualnej.
 
 Podobnie opłata za magazyn kopii zapasowych zależy od ilości danych przechowywanych w Azure Backup, która jest sumą rzeczywistych danych w poszczególnych punktach odzyskiwania.
 

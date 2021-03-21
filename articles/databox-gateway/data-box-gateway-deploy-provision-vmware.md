@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101727621"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: aprowizowanie usługi Azure Data Box Gateway w oprogramowaniu VMware
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia

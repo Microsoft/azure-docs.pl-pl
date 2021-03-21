@@ -12,10 +12,10 @@ ms.custom:
 - device-developer
 - iot-edge
 ms.openlocfilehash: 373d144b4df818a075f0088e9cbf31cb5027e747
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724884"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Samouczek: Dodawanie urządzenia Azure IoT Edge do aplikacji IoT Central platformy Azure
@@ -24,7 +24,7 @@ ms.locfileid: "101724884"
 
 W tym samouczku pokazano, jak skonfigurować i dodać urządzenie Azure IoT Edge do aplikacji IoT Central platformy Azure. Samouczek korzysta z maszyny wirtualnej z systemem Linux z obsługą IoT Edge, aby symulować IoT Edge urządzenie. Urządzenie IoT Edge używa modułu, który generuje symulowane dane telemetryczne środowiska. Dane telemetryczne są wyświetlane na pulpicie nawigacyjnym w aplikacji IoT Central.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie szablonu urządzenia dla urządzenia IoT Edge

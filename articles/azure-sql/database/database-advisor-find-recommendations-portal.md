@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500890"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i Zastosuj zalecenia dotyczące wydajności
@@ -41,8 +41,8 @@ Zalecenia są sortowane według ich potencjalnego wpływu na wydajność na nast
 
 | Wpływ | Opis |
 |:--- |:--- |
-| Wysoki |Zalecenia o dużym wpływie powinny zapewnić najbardziej znaczący wpływ na wydajność. |
-| Średniaa |Zalecenia dotyczące średniego wpływu powinny poprawić wydajność, ale nie w znaczący sposób. |
+| Wys. |Zalecenia o dużym wpływie powinny zapewnić najbardziej znaczący wpływ na wydajność. |
+| Śred. |Zalecenia dotyczące średniego wpływu powinny poprawić wydajność, ale nie w znaczący sposób. |
 | Niski |Zalecenia dotyczące niskiego wpływu powinny zapewnić lepszą wydajność niż bez, ale ulepszenia mogą nie być znaczące. |
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Monitoruj swoje rekomendacje i Kontynuuj ich stosowanie w celu udoskonalenia wyd
 * Zobacz [zalecenia dotyczące wydajności](database-advisor-implement-performance-recommendations.md) , aby zapoznać się z omówieniem zaleceń dotyczących wydajności Azure SQL Database.
 * Zobacz [szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md) , aby dowiedzieć się więcej o wyświetlaniu wydajności najważniejszych zapytań.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Magazyn zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)

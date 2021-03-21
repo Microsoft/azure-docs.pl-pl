@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 01/07/2021
 ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98027812"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Jak monitorować znormalizowane Elementy RU/s dla kontenera usługi Azure Cosmos lub konta
@@ -22,7 +22,7 @@ Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i 
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Czego można oczekiwać, a jeśli znormalizowana RU/s jest wyższa
 
-Gdy znormalizowane użycie RU/s osiągnie 100% dla danego zakresu kluczy partycji, a klient nadal wysyła żądania w tym przedziale czasowym z 1 sekund do tego zakresu kluczy partycji, otrzymuje błąd z ograniczoną szybkością. Klient powinien przestrzegać sugerowanego czasu oczekiwania i ponowić próbę żądania. Dzięki zestawowi SDK można łatwo obsługiwać tę sytuację przez ponowną próbę skonfigurowaną w odpowiednim czasie.  Nie jest konieczne, aby zobaczyć błąd ograniczania liczby jednostek RU tylko w przypadku, gdy znormalizowany RU osiągnął 100%. Wynika to z faktu, że znormalizowany RU jest pojedynczą wartością, która reprezentuje maksymalne użycie przez wszystkie zakresy kluczy partycji, jeden zakres kluczy partycji może być zajęty, ale inne zakresy kluczy partycji mogą obsłużyć żądania bez problemów. Na przykład pojedyncza operacja, taka jak procedura składowana, która zużywa wszystkie RU/s w zakresie kluczy partycji, będzie prowadzić do krótkiego wzrostu w znormalizowanym zużyciu RU/s. W takich przypadkach nie będzie żadnych natychmiastowego ograniczania liczby błędów, jeśli częstotliwość żądań jest niska lub żądania są wysyłane do innych partycji w różnych zakresach kluczy partycji. 
+Gdy znormalizowane użycie RU/s osiągnie 100% dla danego zakresu kluczy partycji, a klient nadal wysyła żądania w tym przedziale czasowym z 1 sekund do tego zakresu kluczy partycji, otrzymuje błąd z ograniczoną szybkością. Klient powinien przestrzegać sugerowanego czasu oczekiwania i ponowić próbę żądania. Dzięki zestawowi SDK można łatwo obsługiwać tę sytuację przez ponowną próbę skonfigurowaną w odpowiednim czasie.  Nie jest konieczne, aby zobaczyć błąd ograniczania liczby jednostek RU tylko w przypadku, gdy znormalizowany RU osiągnął 100%. Wynika to z faktu, że znormalizowany RU jest pojedynczą wartością, która reprezentuje maksymalne użycie przez wszystkie zakresy kluczy partycji, jeden zakres kluczy partycji może być zajęty, ale inne zakresy kluczy partycji mogą obsłużyć żądania bez problemów. Na przykład pojedyncza operacja, taka jak procedura składowana, która zużywa wszystkie RU/s w zakresie kluczy partycji, będzie prowadzić do krótkiego wzrostu w znormalizowanym zużyciu RU/s. W takich przypadkach nie będą natychmiast wyświetlane żadne błędy dotyczące ograniczania szybkości, jeśli liczba żądań jest niska lub jeśli żądania są wykonywane względem innych partycji należących do innych zakresów kluczy partycji. 
 
 Metryki Azure Monitor ułatwiają znajdowanie operacji według kodu stanu dla interfejsu API SQL za pomocą metryk **całkowitej liczby żądań** . Później można filtrować te żądania według kodu stanu 429 i dzielić je według **typu operacji**.  
 

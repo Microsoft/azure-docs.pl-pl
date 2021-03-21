@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780958"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikacja do Azure SQL Database
@@ -55,7 +55,7 @@ Istnieją różne [typy replikacji](/sql/relational-databases/replication/types-
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
 | [**Standardowa transakcyjna**](/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak | 
-| [**Snapshot**](/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
+| [**Zdjęcie**](/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
 | [**Replikacja scalająca**](/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
 | [**Równorzędny**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
 | [**Kierunk**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
@@ -127,7 +127,7 @@ Następujące opcje nie są obsługiwane w przypadku subskrypcji Azure SQL Datab
 Utwórz publikację i subskrypcję wypychaną. Aby uzyskać więcej informacji, zobacz:
   
 - [Tworzenie publikacji](/sql/relational-databases/replication/publish/create-a-publication)
-- [Utwórz subskrypcję wypychaną](/sql/relational-databases/replication/create-a-push-subscription/) , używając nazwy serwera jako subskrybenta (na przykład **N'azuresqldbdns. Database. Windows. NET** ) i nazwy Azure SQL Database jako docelowej bazy danych (na przykład **AdventureWorks** ).  
+- [Utwórz subskrypcję wypychaną](/sql/relational-databases/replication/create-a-push-subscription/) , używając nazwy serwera jako subskrybenta (na przykład **N'azuresqldbdns. Database. Windows. NET**) i nazwy Azure SQL Database jako docelowej bazy danych (na przykład **AdventureWorks**).  
 
 ## <a name="see-also"></a>Zobacz też  
 

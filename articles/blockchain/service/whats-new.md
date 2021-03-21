@@ -1,14 +1,14 @@
 ---
-title: Co nowego? Informacje o wersji — usługa Azure łańcucha bloków
+title: Co nowego Informacje o wersji — usługa Azure łańcucha bloków
 description: Dowiedz się, co nowego w usłudze Azure łańcucha bloków Service, takich jak Najnowsze informacje o wersji, wersje, znane problemy i nadchodzące zmiany.
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94335030"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Co nowego w usłudze Azure łańcucha bloków Service?
@@ -69,7 +69,7 @@ Dwie fazy pomagają zoptymalizować scenariusze, w których element członkowski
 W 2.6.0 kworum v, wywołania funkcji *ETH. estimateGas* bez podawania dodatkowego parametru *wartości* powodują *awarię wyjątku procedury obsługi metody* . Zespół kworum został powiadomiony, a jego poprawka jest oczekiwana na koniec lipca 2020. Następujące obejścia można zastosować do momentu udostępnienia poprawki:
 
 - Należy unikać używania *ETH. estimateGas* , ponieważ może to mieć wpływ na wydajność. Aby uzyskać więcej informacji na temat problemów z wydajnością ETH. estimateGas, zobacz [wywoływanie funkcji ETH. estimateGas zmniejsza wydajność](#calling-ethestimategas-function-reduces-performance). Uwzględnij wartość gazu dla każdej transakcji. Większość bibliotek wywoła ETH. estimateGas, jeśli nie zostanie podana wartość gazu, która powoduje awarię kworum w 2.6.0.
-- Jeśli konieczne jest wywołanie *ETH. estimateGas* , zespół kworum sugeruje przekazanie dodatkowej *wartości* parametru jako " *0* " jako obejście.
+- Jeśli konieczne jest wywołanie *ETH. estimateGas*, zespół kworum sugeruje przekazanie dodatkowej *wartości* parametru jako " *0* " jako obejście.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Wyszukiwanie jest zatrzymywane w przypadku mniej niż czterech węzłów modułu sprawdzania poprawności
 

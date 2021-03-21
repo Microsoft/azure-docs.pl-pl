@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681959"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importowanie i eksportowanie ustawień konfiguracji Azure AD Connect 
@@ -77,10 +77,10 @@ Aby przeprowadzić migrację ustawień:
 
    ![Zrzut ekranu przedstawiający katalogi Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Uruchom skrypt jak pokazano poniżej i Zapisz cały katalog konfiguracji serwera niższego poziomu. Skopiuj ten katalog do nowego serwera przemieszczania. Należy skopiować cały folder **wyeksportowany-konfiguracja serwera-** _ do nowego serwera.
+1. Uruchom skrypt jak pokazano poniżej i Zapisz cały katalog konfiguracji serwera niższego poziomu. Skopiuj ten katalog do nowego serwera przemieszczania. Należy skopiować cały folder **wyeksportowany-konfiguracja serwera-*** na nowy serwer.
 
    ![Zrzut ekranu pokazujący skrypt w programie Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Zrzut ekranu pokazujący Kopiowanie folderu Export-konfiguracja serwera-_.](media/how-to-connect-import-export-config/migrate3.png)
+    ![ Zrzut ekranu pokazujący Kopiowanie folderu Export-konfiguracja serwera-*.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Rozpocznij **Azure AD Connect** przez dwukrotne kliknięcie ikony na pulpicie. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft, a następnie na następnej stronie wybierz pozycję **Dostosuj**.
 1. Zaznacz pole wyboru **Importuj ustawienia synchronizacji** . Wybierz przycisk **Przeglądaj** , aby przeglądać folder skopiowane przez eksportowany-konfiguracja serwera-*. Wybierz MigratedPolicy.js, aby zaimportować zmigrowane ustawienia.

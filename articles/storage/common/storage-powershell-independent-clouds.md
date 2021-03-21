@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783576"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Zarządzanie magazynem w chmurach niezależnych platformy Azure przy użyciu programu PowerShell
@@ -51,7 +51,7 @@ Zaloguj się do swojego konta, które ma dostęp do chmury, z którą chcesz naw
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Aby uzyskać dostęp do chmury chińskiej, użyj środowiska **AzureChinaCloud** . Aby uzyskać dostęp do chmury niemieckiej, użyj **AzureGermanCloud** .
+Aby uzyskać dostęp do chmury chińskiej, użyj środowiska **AzureChinaCloud**. Aby uzyskać dostęp do chmury niemieckiej, użyj **AzureGermanCloud**.
 
 W tym momencie, jeśli potrzebujesz listy lokalizacji do utworzenia konta magazynu lub innego zasobu, możesz wysyłać zapytania o lokalizacje dostępne dla wybranej chmury przy użyciu polecenia [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ W poniższej tabeli przedstawiono lokalizacje zwrócone dla chmury niemieckiej.
 
 ## <a name="endpoint-suffix"></a>Sufiks punktu końcowego
 
-Sufiks punktu końcowego dla każdego z tych środowisk różni się od publicznego punktu końcowego platformy Azure. Na przykład sufiks punktu końcowego obiektu BLOB dla publicznej platformy Azure to **BLOB.Core.Windows.NET** . W przypadku chmury rządowej sufiks punktu końcowego obiektu BLOB to **BLOB.Core.usgovcloudapi.NET** .
+Sufiks punktu końcowego dla każdego z tych środowisk różni się od publicznego punktu końcowego platformy Azure. Na przykład sufiks punktu końcowego obiektu BLOB dla publicznej platformy Azure to **BLOB.Core.Windows.NET**. W przypadku chmury rządowej sufiks punktu końcowego obiektu BLOB to **BLOB.Core.usgovcloudapi.NET**.
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Pobierz punkt końcowy przy użyciu Get-AzEnvironment
 

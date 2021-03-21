@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354907"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Velpic na potrzeby automatycznego aprowizacji użytkowników
@@ -66,7 +66,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
     ![Inicjowanie obsługi Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy&tajny token** Velpic. (Te wartości można znaleźć na koncie Velpic: **Zarządzaj**  >  **Integracja**  >  **Wtyczka**  >  **Standard scim** )
+5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy&tajny token** Velpic. (Te wartości można znaleźć na koncie Velpic: **Zarządzaj**  >  **Integracja**  >  **Wtyczka**  >  **Standard scim**)
 
     ![Wartości autoryzacji](./media/velpic-provisioning-tutorial/Velpic2.png)
 
@@ -74,7 +74,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 7. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji w polu **E-mail powiadomienia** , a następnie zaznacz pole wyboru poniżej.
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji mapowania wybierz pozycję **synchronizuj Azure Active Directory użytkowników do Velpic**.
 
@@ -82,7 +82,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 11. Aby włączyć usługę Azure AD Provisioning dla usługi Velpic, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-12. Kliknij przycisk **Zapisz**.
+12. Kliknij pozycję **Zapisz**.
 
 Spowoduje to rozpoczęcie synchronizacji początkowej dla wszystkich użytkowników i/lub grup przypisanych do Velpic w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacja początkowa zajmie więcej czasu niż kolejne synchronizacje, co będzie odbywać się około co 40 minut, o ile usługa jest uruchomiona. Sekcja **szczegóły synchronizacji** służy do monitorowania postępu i wykonywania linków do raportów dotyczących działań związanych z obsługą administracyjną, które opisują wszystkie akcje wykonywane przez usługę aprowizacji.
 

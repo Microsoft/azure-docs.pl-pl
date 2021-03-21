@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 89abdcf4c76c92c2ed967594527d323b2cd8be32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837893"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "96741188"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Samouczek: Konfigurowanie niestandardowych zakazanych haseł Azure Active Directory ochrony hasłem
 
@@ -72,7 +72,7 @@ Aby włączyć listę niestandardowych zakazanych haseł i dodać do niej wpisy,
 
     * Niestandardowa lista wykluczonych haseł może zawierać do 1000 warunków.
     * Niestandardowa lista wykluczonych haseł nie uwzględnia wielkości liter.
-    * Niestandardowa lista wykluczonych haseł uwzględnia wspólne podstawienie znaków, takie jak "o" i "0", lub "a" i "@".
+    * Niestandardowa lista wykluczonych haseł uwzględnia wspólne podstawienie znaków, takie jak "o" i "0", lub "a" i " \@ ".
     * Minimalna długość ciągu to cztery znaki, a maksymalna to 16 znaków.
 
     Określ własne niestandardowe hasła, aby zablokować, jak pokazano w poniższym przykładzie.
@@ -124,4 +124,4 @@ W tym samouczku włączono i skonfigurowano niestandardowe listy ochrony haseł 
 > * Testuj zmiany hasła z zakazanym hasłem
 
 > [!div class="nextstepaction"]
-> [Włączanie opartego na ryzyku Multi-Factor Authentication usługi Azure AD](./tutorial-enable-azure-mfa.md)
+> [Włączanie opartego na ryzyku uwierzytelniania wieloskładnikowego w usłudze Azure AD](./tutorial-enable-azure-mfa.md)

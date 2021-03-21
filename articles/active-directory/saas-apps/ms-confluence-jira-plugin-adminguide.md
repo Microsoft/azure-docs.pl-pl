@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359161"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian JIRA i Podręcznik administratora Confluence dla Azure Active Directory
@@ -107,59 +107,59 @@ Na poniższej ilustracji przedstawiono ekran konfiguracji zarówno w JIRA, jak i
 
 ![Ekran konfiguracji wtyczki](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-* **Adres URL metadanych** : adres URL umożliwiający uzyskiwanie metadanych Federacji z usługi Azure AD.
+* **Adres URL metadanych**: adres URL umożliwiający uzyskiwanie metadanych Federacji z usługi Azure AD.
 
-* **Identyfikatory** : adres URL, którego usługa Azure AD używa do weryfikacji źródła żądania. Mapuje do elementu **identyfikatora** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /.
+* **Identyfikatory**: adres URL, którego usługa Azure AD używa do weryfikacji źródła żądania. Mapuje do elementu **identyfikatora** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /.
 
-* **Adres URL odpowiedzi** : adres URL odpowiedzi w dostawcy tożsamości (dostawcy tożsamości), który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **adresu URL odpowiedzi** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /plugins/servlet/SAML/auth.
+* **Adres URL odpowiedzi**: adres URL odpowiedzi w dostawcy tożsamości (dostawcy tożsamości), który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **adresu URL odpowiedzi** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
-* **Adres URL logowania** : adres URL logowania w dostawcy tożsamości, który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **Sign on** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /plugins/servlet/SAML/auth.
+* **Adres URL logowania**: adres URL logowania w dostawcy tożsamości, który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **Sign on** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
-* **Identyfikator jednostki dostawcy tożsamości** : identyfikator jednostki używany przez dostawcy tożsamości. To pole jest wypełniane, gdy adres URL metadanych zostanie rozwiązany.
+* **Identyfikator jednostki dostawcy tożsamości**: identyfikator jednostki używany przez dostawcy tożsamości. To pole jest wypełniane, gdy adres URL metadanych zostanie rozwiązany.
 
-* **Adres URL logowania** : adres URL logowania z dostawcy tożsamości. To pole jest wypełniane w usłudze Azure AD, gdy adres URL metadanych zostanie rozwiązany.
+* **Adres URL logowania**: adres URL logowania z dostawcy tożsamości. To pole jest wypełniane w usłudze Azure AD, gdy adres URL metadanych zostanie rozwiązany.
 
-* **Adres URL wylogowywania** : adres URL wylogowania z dostawcy tożsamości. To pole jest wypełniane w usłudze Azure AD, gdy adres URL metadanych zostanie rozwiązany.
+* **Adres URL wylogowywania**: adres URL wylogowania z dostawcy tożsamości. To pole jest wypełniane w usłudze Azure AD, gdy adres URL metadanych zostanie rozwiązany.
 
-* **Certyfikat x. 509** : certyfikat x. 509 dostawcy tożsamości. To pole jest wypełniane w usłudze Azure AD, gdy adres URL metadanych zostanie rozwiązany.
+* **Certyfikat x. 509**: certyfikat x. 509 dostawcy tożsamości. To pole jest wypełniane w usłudze Azure AD, gdy adres URL metadanych zostanie rozwiązany.
 
-* **Nazwa przycisku logowania** : nazwa przycisku logowania, który organizacja chce, aby użytkownicy mogli zobaczyć na stronie logowania.
+* **Nazwa przycisku logowania**: nazwa przycisku logowania, który organizacja chce, aby użytkownicy mogli zobaczyć na stronie logowania.
 
-* **Lokalizacje identyfikatora użytkownika SAML** : lokalizacja, w której jest oczekiwany identyfikator użytkownika JIRA lub Confluence w odpowiedzi SAML. Może być w **NameID** lub w nazwie atrybutu niestandardowego.
+* **Lokalizacje identyfikatora użytkownika SAML**: lokalizacja, w której jest oczekiwany identyfikator użytkownika JIRA lub Confluence w odpowiedzi SAML. Może być w **NameID** lub w nazwie atrybutu niestandardowego.
 
-* **Nazwa atrybutu** : nazwa atrybutu, w którym Oczekiwano identyfikatora użytkownika.
+* **Nazwa atrybutu**: nazwa atrybutu, w którym Oczekiwano identyfikatora użytkownika.
 
-* **Włącz odnajdowanie obszaru macierzystego** : wybór, który ma być używany, jeśli firma korzysta z logowania opartego na Active Directory Federation Services (AD FS).
+* **Włącz odnajdowanie obszaru macierzystego**: wybór, który ma być używany, jeśli firma korzysta z logowania opartego na Active Directory Federation Services (AD FS).
 
-* **Nazwa domeny** : nazwa domeny, jeśli logowanie odbywa się na podstawie AD FS.
+* **Nazwa domeny**: nazwa domeny, jeśli logowanie odbywa się na podstawie AD FS.
 
-* **Włącz pojedynczy wylogowaniu** : wybór do wylogowania z usługi Azure AD, gdy użytkownik wyloguje się z JIRA lub Confluence.
+* **Włącz pojedynczy wylogowaniu**: wybór do wylogowania z usługi Azure AD, gdy użytkownik wyloguje się z JIRA lub Confluence.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* **Otrzymujesz wiele błędów certyfikatów** : Zaloguj się do usługi Azure AD i Usuń wiele certyfikatów, które są dostępne dla aplikacji. Upewnij się, że istnieje tylko jeden certyfikat.
+* **Otrzymujesz wiele błędów certyfikatów**: Zaloguj się do usługi Azure AD i Usuń wiele certyfikatów, które są dostępne dla aplikacji. Upewnij się, że istnieje tylko jeden certyfikat.
 
-* **Certyfikat niedługo wygaśnie w usłudze Azure AD** : Dodatki zadbają o automatyczne Przerzucanie certyfikatu. Gdy certyfikat wkrótce wygaśnie, należy oznaczyć nowy certyfikat jako aktywny i nieużywane certyfikaty powinny zostać usunięte. Gdy użytkownik próbuje zalogować się do JIRA w tym scenariuszu, wtyczka pobiera i zapisuje nowy certyfikat.
+* **Certyfikat niedługo wygaśnie w usłudze Azure AD**: Dodatki zadbają o automatyczne Przerzucanie certyfikatu. Gdy certyfikat wkrótce wygaśnie, należy oznaczyć nowy certyfikat jako aktywny i nieużywane certyfikaty powinny zostać usunięte. Gdy użytkownik próbuje zalogować się do JIRA w tym scenariuszu, wtyczka pobiera i zapisuje nowy certyfikat.
 
-* **Chcesz wyłączyć WebSudo (Wyłącz sesję administratora zabezpieczeń)** :
+* **Chcesz wyłączyć WebSudo (Wyłącz sesję administratora zabezpieczeń)**:
 
   * W przypadku usługi JIRA są domyślnie włączone bezpieczne sesje administratora (czyli potwierdzenie hasła przed uzyskaniem dostępu do funkcji administracyjnych). Jeśli chcesz usunąć tę możliwość w wystąpieniu programu JIRA, określ następujący wiersz w pliku JIRA-config. Properties: `jira.websudo.is.disabled = true`
 
   * W przypadku Confluence postępuj zgodnie z instrukcjami w [witrynie obsługi Confluence](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
-* **Pola, które mają zostać wypełnione przez adres URL metadanych, nie są wypełniane** :
+* **Pola, które mają zostać wypełnione przez adres URL metadanych, nie są wypełniane**:
 
   * Sprawdź, czy adres URL jest poprawny. Sprawdź, czy zamapowano prawidłowy identyfikator dzierżawy i aplikacji.
 
   * Wprowadź adres URL w przeglądarce i sprawdź, czy jest wyświetlany plik XML metadanych Federacji.
 
-* **Wystąpił wewnętrzny błąd serwera** : Zapoznaj się z dziennikami w katalogu dziennika instalacji. Jeśli wystąpi błąd podczas próby zalogowania się przy użyciu logowania jednokrotnego w usłudze Azure AD, możesz udostępnić dzienniki zespołowi pomocy technicznej.
+* **Wystąpił wewnętrzny błąd serwera**: Zapoznaj się z dziennikami w katalogu dziennika instalacji. Jeśli wystąpi błąd podczas próby zalogowania się przy użyciu logowania jednokrotnego w usłudze Azure AD, możesz udostępnić dzienniki zespołowi pomocy technicznej.
 
-* Wystąpił **błąd "nie znaleziono identyfikatora użytkownika", gdy użytkownik próbuje się zalogować** : Utwórz identyfikator użytkownika w JIRA lub Confluence.
+* Wystąpił **błąd "nie znaleziono identyfikatora użytkownika", gdy użytkownik próbuje się zalogować**: Utwórz identyfikator użytkownika w JIRA lub Confluence.
 
-* Wystąpił **błąd "nie znaleziono aplikacji" w usłudze Azure AD** : Sprawdź, czy odpowiedni adres URL jest mapowany do aplikacji w usłudze Azure AD.
+* Wystąpił **błąd "nie znaleziono aplikacji" w usłudze Azure AD**: Sprawdź, czy odpowiedni adres URL jest mapowany do aplikacji w usłudze Azure AD.
 
-* **Potrzebujesz pomocy technicznej** : skontaktuj się z [zespołem integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Zespół odpowiada za 24-48 godzin pracy.
+* **Potrzebujesz pomocy technicznej**: skontaktuj się z [zespołem integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Zespół odpowiada za 24-48 godzin pracy.
 
   Możesz również zgłosić bilet pomocy technicznej w firmie Microsoft za pośrednictwem kanału Azure Portal.
 

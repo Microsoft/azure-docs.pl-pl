@@ -11,10 +11,10 @@ ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
 ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499360"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Zalecenia dotyczące zabezpieczeń maszyn wirtualnych na platformie Azure
@@ -58,7 +58,7 @@ Aby uzyskać ogólne informacje na temat Azure Security Center, zobacz [co to je
 |-|----|--|
 | Monitoruj maszyny wirtualne. | Za pomocą [Azure monitor dla maszyn wirtualnych](../azure-monitor/vm/vminsights-overview.md) można monitorować stan maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych. Problemy z wydajnością maszyny wirtualnej mogą prowadzić do przerw w działaniu usługi, co narusza zasadę zabezpieczeń. | - |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|

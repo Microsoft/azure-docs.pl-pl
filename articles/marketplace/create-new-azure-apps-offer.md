@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 3cc5e5114b435965eee4aa096e5898538b0a56e7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370223"
 ---
 # <a name="how-to-create-an-azure-application-offer-in-the-commercial-marketplace"></a>Jak utworzyć ofertę aplikacji platformy Azure w portalu komercyjnym
@@ -25,7 +25,7 @@ Jeśli jeszcze tego nie zrobiono, przeczytaj artykuł [Planowanie oferty aplikac
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 
-1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
 
 1. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **aplikacji platformy Azure**.
 

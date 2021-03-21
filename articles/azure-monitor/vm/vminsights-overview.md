@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
 ms.openlocfilehash: 18e1fdcdee347a057c452f6170f36ec7f1f43244
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046418"
 ---
 # <a name="overview-of-vm-insights"></a>Przegląd szczegółowych informacji o maszynie wirtualnej
@@ -30,7 +30,7 @@ Usługi VM Insights przechowują swoje dane w dziennikach Azure Monitor, co pozw
 ![Perspektywa usługi Virtual Machine Insights w Azure Portal](media/vminsights-overview/vminsights-azmon-directvm.png)
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Nie ma bezpośredniego kosztu do wglądu w dane maszyn wirtualnych, ale opłaty są naliczane za działanie w obszarze roboczym Log Analytics. W oparciu o Cennik opublikowany na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/), usługi VM Insights są rozliczane za:
 
 - Dane pozyskane z agentów i przechowywane w obszarze roboczym.

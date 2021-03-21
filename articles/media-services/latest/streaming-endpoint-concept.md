@@ -49,7 +49,7 @@ Aby uzyskać informacje o umowie SLA, zobacz [Cennik i Umowa SLA](https://azure.
 
 ## <a name="comparing-streaming-types"></a>Porównywanie typów przesyłania strumieniowego
 
-Cechy|Standardowa (Standard)|Premium
+Cecha|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
@@ -151,7 +151,7 @@ Zobacz następujące artykuły:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 

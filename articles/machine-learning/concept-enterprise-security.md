@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/20/2020
 ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992033"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Zabezpieczenia i zarządzanie dla przedsiębiorstw Azure Machine Learning
@@ -97,7 +97,7 @@ Podczas wdrażania modeli jako usług sieci Web można włączyć protokół TLS
 
 ## <a name="vulnerability-scanning"></a>Skanowanie pod kątem luk w zabezpieczeniach
 
-[Azure Security Center](../security-center/security-center-introduction.md) zapewnia ujednolicone Zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami w ramach obciążeń chmury hybrydowej. W przypadku usługi Azure Machine Learning należy włączyć skanowanie zasobów [Azure Container Registry](../container-registry/container-registry-intro.md) i zasobów usługi Azure Kubernetes. Aby uzyskać więcej informacji, zobacz [Azure Container Registry skanowania obrazów przez Security Center](../security-center/defender-for-container-registries-introduction.md) i [integrację usług Azure Kubernetes Services z programem Security Center](../security-center/defender-for-kubernetes-introduction.md).
+Usługa [Azure Security Center](../security-center/security-center-introduction.md) zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. W przypadku usługi Azure Machine Learning należy włączyć skanowanie zasobów [Azure Container Registry](../container-registry/container-registry-intro.md) i zasobów usługi Azure Kubernetes. Aby uzyskać więcej informacji, zobacz [Azure Container Registry skanowania obrazów przez Security Center](../security-center/defender-for-container-registries-introduction.md) i [integrację usług Azure Kubernetes Services z programem Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="audit-and-manage-compliance"></a>Inspekcja i zarządzanie zgodnością
 

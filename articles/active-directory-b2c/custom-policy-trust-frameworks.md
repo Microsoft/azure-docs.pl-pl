@@ -11,15 +11,15 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592844"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Przegląd zasad niestandardowych Azure AD B2C
 
-Zasady niestandardowe to pliki konfiguracji, które definiują zachowanie dzierżawy Azure Active Directory B2C (Azure AD B2C). Podczas gdy [przepływy użytkowników](user-flow-overview.md) są wstępnie zdefiniowane w portalu Azure AD B2C dla najbardziej typowych zadań związanych z tożsamościami, zasady niestandardowe mogą być w pełni edytowane przez dewelopera tożsamości w celu wykonywania wielu różnych zadań.
+Zasady niestandardowe to pliki konfiguracji definiujące zachowanie Twojej dzierżawy usługi Azure Active Directory B2C (Azure AD B2C). Podczas gdy [przepływy użytkowników](user-flow-overview.md) są wstępnie zdefiniowane w portalu Azure AD B2C dla najbardziej typowych zadań związanych z tożsamościami, zasady niestandardowe mogą być w pełni edytowane przez dewelopera tożsamości w celu wykonywania wielu różnych zadań.
 
 Zasada niestandardowa jest w pełni konfigurowana i oparta na zasadach. Zasady niestandardowe organizują relację zaufania między jednostkami w standardowych formatach protokołów, takimi jak OpenID Connect Connect, OAuth, SAML i kilka niestandardowymi, na przykład wymiany oświadczeń systemu opartego na interfejsie API REST. Struktura tworzy przyjazne dla użytkownika i białe środowisko.
 

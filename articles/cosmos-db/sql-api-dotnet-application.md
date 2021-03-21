@@ -10,10 +10,10 @@ ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 528cab915a1ac3918146e428e9ae6b3c401324c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010361"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
@@ -108,9 +108,9 @@ Teraz Dodajmy modele, widoki i kontrolery do tej aplikacji MVC.
 
 1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
 
-1. W obszarze **Dodaj nowy element** nadaj nowej klasie nazwę *Item.cs* i wybierz pozycję **Dodaj**.
+1. W obszarze **Dodaj nowy element** Nadaj nazwę nowej klasie *Item. cs* i wybierz pozycję **Dodaj**.
 
-1. Zastąp zawartość klasy *Item.cs* następującym kodem:
+1. Zastąp zawartość klasy *Item. cs* następującym kodem:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
@@ -221,7 +221,7 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
 
 1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *CosmosDbService* i wybierz pozycję **Dodaj**.
 
-1. Zastąp zawartość *CosmosDbService.cs* następującym kodem:
+1. Zastąp zawartość *CosmosDbService. cs* następującym kodem:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
@@ -231,7 +231,7 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Otwórz plik *Startup.cs* w rozwiązaniu i Dodaj poniższą metodę **InitializeCosmosClientInstanceAsync**, która odczytuje konfigurację i inicjuje klienta.
+1. Otwórz plik *Start. cs* w rozwiązaniu i Dodaj następującą metodę **InitializeCosmosClientInstanceAsync**, która odczytuje konfigurację i inicjuje klienta.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
@@ -267,7 +267,7 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
 
 1. Nazwij nowy kontroler *ItemController*.
 
-1. Zastąp zawartość *ItemController.cs* następującym kodem:
+1. Zastąp zawartość *ItemController. cs* następującym kodem:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
@@ -287,7 +287,7 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Wybierz opcję **Utwórz nowe** łącze i Dodaj wartości do pól **Nazwa** i **Opis** . Pozostaw zaznaczone pole wyboru **ukończone** . W przypadku wybrania tej opcji aplikacja dodaje nowy element w stanie ukończone. Element nie jest już wyświetlany na liście początkowej.
 
-1. Wybierz pozycję **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
+1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający widok indeksu":::
   

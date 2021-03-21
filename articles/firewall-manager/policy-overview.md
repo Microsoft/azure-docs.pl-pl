@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: victorh
 ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95802023"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Omówienie zasad Menedżera zapory platformy Azure
@@ -53,10 +53,10 @@ Zapora systemu Azure obsługuje zarówno tradycyjne reguły, jak i zasady. Poni�
 |Chroni     |Wirtualne centra i sieci wirtualne|Tylko sieci wirtualne|
 |Środowisko portalu     |Centralne zarządzanie przy użyciu Menedżera zapory|Środowisko autonomicznej zapory|
 |Obsługa wielu zapór     |Zasady zapory to oddzielne zasoby, które mogą być używane przez zapory|Ręcznie Eksportuj i Importuj reguły lub przy użyciu rozwiązań do zarządzania innych firm |
-|Cennik     |Opłaty są naliczane na podstawie skojarzenia zapory. Zobacz [Cennik](#pricing).|Bezpłatna|
+|Ceny     |Opłaty są naliczane na podstawie skojarzenia zapory. Zobacz [Cennik](#pricing).|Bezpłatna|
 |Obsługiwane mechanizmy wdrażania     |Portal, interfejs API REST, szablony, Azure PowerShell i interfejs wiersza polecenia|Portal, interfejs API REST, szablony, PowerShell i interfejs wiersza polecenia. |
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Zasady są rozliczane na podstawie skojarzeń zapory. Zasady z nierównym lub jednym skojarzeniem zapory są bezpłatne. Zasady z wieloma skojarzeniami zapory są rozliczane według ustalonej stawki. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
 
