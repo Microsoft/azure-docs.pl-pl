@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742797"
 ---
 # <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Zbieranie danych użytkownika w usłudze Azure AD Multi-Factor Authentication
@@ -30,7 +30,7 @@ Serwer MFA, rozszerzenie serwera NPS oraz karta AD FS Azure AD MFA w systemie Wi
 
 Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania problemów):
 
-- Timestamp
+- Znacznik czasu
 - Nazwa użytkownika
 - Imię
 - Nazwisko
@@ -71,7 +71,7 @@ Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania prob
 Aktywacje (próba aktywowania konta w aplikacji mobilnej Microsoft Authenticator):
 - Nazwa użytkownika
 - Nazwa konta
-- Timestamp
+- Znacznik czasu
 - Pobierz wynik kodu aktywacji
 - Pomyślne aktywowanie
 - Błąd aktywacji
@@ -89,7 +89,7 @@ Bloki (używane do określania stanu zablokowanego i raportowania):
 - Kod kraju
 - Numer telefonu
 - Format numeru telefonu
-- Rozszerzenie
+- Wewnętrzny
 - Wyczyść rozszerzenie
 - Zablokowane
 - Przyczyna blokady
@@ -109,7 +109,7 @@ Pomijanie (używane na potrzeby raportowania):
 - Kod kraju
 - Numer telefonu
 - Format numeru telefonu
-- Rozszerzenie
+- Wewnętrzny
 - Wyczyść rozszerzenie
 - Przyczyna obejścia
 - Znacznik czasu ukończenia

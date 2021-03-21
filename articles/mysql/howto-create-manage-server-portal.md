@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
 ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897989"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for MySQL przy użyciu Azure Portal
@@ -90,7 +90,7 @@ Hasło roli administratora można zmienić przy użyciu Azure Portal.
  
 
 > [!IMPORTANT]
-> Resetowanie hasła administratora serwera spowoduje automatyczne zresetowanie uprawnień administratora serwera do domyślnych. Jeśli przypadkowo odwołano co najmniej jedno z uprawnień administratora serwera, należy rozważyć zresetowanie hasła administratora serwera.
+> Zresetowanie hasła administratora serwera spowoduje automatyczne zresetowanie uprawnień administratora serwera do ustawień domyślnych. Jeśli przypadkowo odwołano co najmniej jedno z uprawnień administratora serwera, należy rozważyć zresetowanie hasła administratora serwera.
    
 > [!NOTE]
 > Administrator serwera domyślnie ma następujące uprawnienia: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCEs, INDEX, ALTER, SHOW Databases, CREATE Tables Tables, LOCK TABLEs, EXECUTE, CREATE USER, EVENT, TRIGGER

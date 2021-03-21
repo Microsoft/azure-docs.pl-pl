@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: jlian
 ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234022"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Obsługa Transport Layer Security (TLS) w programie IoT Hub
@@ -119,11 +119,11 @@ Poniższe linki służą do konfigurowania protokołu TLS 1,2 i dozwolonych szyf
 
 | Język | Wersje obsługujące protokół TLS 1,2 | Dokumentacja |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 lub nowszy            | [Łącze](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Wersja 2.0.0 lub nowsza             | [Łącze](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Wersja 1.21.4 lub nowsza            | [Łącze](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Wersja 1.19.0 lub nowsza            | [Łącze](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Wersja 1.12.2 lub nowsza            | [Łącze](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 lub nowszy            | [Link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Wersja 2.0.0 lub nowsza             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Wersja 1.21.4 lub nowsza            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Wersja 1.19.0 lub nowsza            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Wersja 1.12.2 lub nowsza            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 Urządzenia IoT Edge można skonfigurować do korzystania z protokołu TLS 1,2 podczas komunikowania się z IoT Hub. W tym celu Skorzystaj ze [strony dokumentacji IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
 

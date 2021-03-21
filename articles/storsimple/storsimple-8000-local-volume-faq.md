@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002718"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple woluminy przypięte lokalnie: często zadawane pytania
@@ -52,9 +52,9 @@ Ponieważ niektóre lokalne miejsce na urządzeniu jest używane do hostowania z
 | 1 TB |176,5 TB |477,8 TB |
 | 4 TB |105,9 TB |411,1 TB |
 | 8,5 TB |0 TB |311,1 TB |
-| 10 TB |Nie dotyczy |277,8 TB |
-| 15 TB |Nie dotyczy |166,7 TB |
-| 22,5 TB |Nie dotyczy |0 TB |
+| 10 TB |NA |277,8 TB |
+| 15 TB |NA |166,7 TB |
+| 22,5 TB |NA |0 TB |
 
 **Pytania.** Dlaczego przypięty wolumin lokalnie jest czasochłonną operacją?
 
@@ -83,11 +83,11 @@ Woluminy przypięte lokalnie są alokowane elastycznie i wymagają utworzenia lo
 
 Podobnie, jeśli istniejący wolumin lokalny jest rozwinięty lub wolumin warstwowy jest konwertowany na wolumin przypięty lokalnie, tworzenie nowego przypiętego lokalnie jest umieszczane w kolejce do momentu ukończenia poprzedniego zadania. Rozszerzanie rozmiaru woluminu przypiętego lokalnie obejmuje rozszerzenie istniejącego lokalnego miejsca dla tego woluminu. Konwersja z warstwy na wolumin przypięty lokalnie obejmuje również Tworzenie lokalnego miejsca dla powstającego woluminu przypiętego lokalnie. W obu tych operacjach, tworzenie lub rozszerzanie miejsca lokalnego to długotrwałe zadanie.
 
-Te zadania można wyświetlić w bloku **zadania** usługi StorSimple Menedżer urządzeń. Zadanie, które jest aktywnie przetwarzane, jest aktualizowane w sposób ciągły, aby odzwierciedlało postęp udostępniania miejsca. Pozostałe woluminy przypięte lokalnie są oznaczane jako uruchomione, ale ich postęp jest wstrzymany i są one wybierane w kolejności, w której zostały dodane do kolejki.
+Te zadania można wyświetlić w bloku **zadania** usługi StorSimple Device Manager. Zadanie, które jest aktywnie przetwarzane, jest aktualizowane w sposób ciągły, aby odzwierciedlało postęp udostępniania miejsca. Pozostałe woluminy przypięte lokalnie są oznaczane jako uruchomione, ale ich postęp jest wstrzymany i są one wybierane w kolejności, w której zostały dodane do kolejki.
 
 **Pytania.** Został usunięty wolumin przypięty lokalnie. Dlaczego odzyskiwane miejsce nie jest widoczne w dostępnym miejscu, gdy próbuję utworzyć nowy wolumin?
 
-**Z.** Jeśli usuniesz wolumin przypięty lokalnie, miejsce dostępne dla nowych woluminów może nie zostać natychmiast zaktualizowane. Usługa StorSimple Menedżer urządzeń aktualizuje miejsce lokalne dostępne co godzinę. Zalecamy poczekanie na godzinę przed podjęciem próby utworzenia nowego woluminu.
+**Z.** Jeśli usuniesz wolumin przypięty lokalnie, miejsce dostępne dla nowych woluminów może nie zostać natychmiast zaktualizowane. Usługa StorSimple Device Manager aktualizuje miejsce lokalne dostępne co godzinę. Zalecamy poczekanie na godzinę przed podjęciem próby utworzenia nowego woluminu.
 
 **Pytania.** Czy woluminy przypięte lokalnie są obsługiwane na urządzeniu w chmurze?
 

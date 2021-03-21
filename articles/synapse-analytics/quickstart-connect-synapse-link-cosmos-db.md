@@ -10,10 +10,10 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 7462c78ecad718c30980a98ff7659a2a4d2ea020
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222160"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Szybki Start: łączenie z linkiem usługi Azure Synapse dla Azure Cosmos DB
@@ -41,16 +41,16 @@ W obszarze roboczym usługi Synapse wybierz pozycję **Uruchom Synapse Studio**.
 
 Korzystając z Eksplorator obiektów danych, możesz połączyć się bezpośrednio z bazą danych Azure Cosmos DB, wykonując następujące czynności:
 
-1. Wybierz *_+_* ikonę * _ obok danych
-2. Wybierz _ *Połącz z danymi zewnętrznymi**
+1. Wybierz ***+*** ikonę obok danych
+2. Wybierz pozycję **Połącz z danymi zewnętrznymi**
 3. Wybierz interfejs API, z którym chcesz nawiązać połączenie: SQL lub MongoDB
-4. Wybierz **_Kontynuuj_* _
+4. Wybierz przycisk ***Kontynuuj***
 5. Nazwij połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów i użyta przez Synapse Run-Times do łączenia się z bazą danych i kontenerami. Zalecamy używanie przyjaznej nazwy.
-6. Wybierz _ *Cosmos DB nazwę konta** i **nazwę bazy danych**
+6. Wybierz **nazwę konta Cosmos DB** i **nazwę bazy danych**
 7. Obowiązkowe Jeśli region nie zostanie określony, operacje czasu wykonywania Synapse będą kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można jednak ręcznie ustawić region, do którego użytkownicy mają uzyskiwać dostęp Cosmos DB do magazynu analitycznego. Wybierz opcję **dodatkowe właściwości połączenia** , a następnie pozycję **nowe**. W obszarze **Nazwa właściwości** wpisz **_PreferredRegions_*_ i ustaw wartość _*** na żądany region (przykład: WestUS2, nie ma spacji między wyrazami i liczbami).
-8. SELECT **_Create_* _
+8. Wybierz pozycję ***Utwórz***
 
-Bazy danych Azure Cosmos DB są widoczne pod kartą _ *Linked** w sekcji Azure Cosmos DB. Można odróżnić HTAP włączony kontener Azure Cosmos DB z kontenera tylko OLTP o następujących ikonach:
+Bazy danych Azure Cosmos DB są widoczne na karcie **połączonej** w sekcji Azure Cosmos DB. Można odróżnić HTAP włączony kontener Azure Cosmos DB z kontenera tylko OLTP o następujących ikonach:
 
 **Kontener Synapse**:
 

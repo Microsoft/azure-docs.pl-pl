@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c4c5c4e632943ebbe68003f663aebbeaab9ebaf
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743449"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure AD MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
@@ -178,7 +178,7 @@ Aby skonfigurować serwer RADIUS, można użyć standardowej (opartej na kreator
 
     ![Określ okno grup użytkowników, aby zezwalać na dostęp lub go odmawiać](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Wybierz pozycję **Dalej**.
+9. Wybierz opcję **Dalej**.
 
 10. W oknie **Określanie filtrów IP** wybierz pozycję **dalej**.
 

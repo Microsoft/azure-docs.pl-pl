@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: f1e84c838d310721cba604274388ae2767eb1502
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389675"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>Konfigurowanie klastrowania Redis dla pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis
@@ -82,7 +82,7 @@ Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorowa�
 > 
 > 
 
-Przykładowy kod dotyczący pracy z klastrem przy użyciu klienta StackExchange. Redis można znaleźć w części [Clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) przykładowej [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) .
+Przykładowy kod dotyczący pracy z klastrowaniem za pomocą klienta StackExchange. Redis można znaleźć w części " [cluster. cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) " przykładowej [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) .
 
 <a name="cluster-size"></a>
 
@@ -135,7 +135,7 @@ W celu uzyskania najlepszej wydajności i przepływności zalecamy równomierne 
 
 Aby uzyskać więcej informacji, zobacz temat [klucze model dystrybucji](https://redis.io/topics/cluster-spec#keys-distribution-model), [Redis klastra danych fragmentowania](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)i [klucze skrótów kluczy](https://redis.io/topics/cluster-spec#keys-hash-tags).
 
-Przykładowy kod dotyczący pracy z klastrowaniem i lokalizowanie kluczy w tym samym fragmentu za pomocą klienta StackExchange. Redis można znaleźć w części [Clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) przykładowej [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) .
+Przykładowy kod dotyczący pracy z klastrowaniem i lokalizowanie kluczy w tym samym fragmentu z klientem StackExchange. Redis zawiera część [cluster. cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) przykładu.
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>Jaki jest największy rozmiar pamięci podręcznej, którą można utworzyć?
 Największy rozmiar pamięci podręcznej Premium to 120 GB. Można utworzyć maksymalnie 10 fragmentów, co zapewnia maksymalny rozmiar 1,2 TB GB. Jeśli potrzebujesz większego rozmiaru, możesz [poprosić o więcej](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Aby uzyskać więcej informacji, zobacz [Azure cache for Redis — Cennik](https://azure.microsoft.com/pricing/details/cache/).

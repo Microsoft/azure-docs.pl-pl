@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
 ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99054063"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Samouczek: Tworzenie przepływów pracy automatyzacji opartych na harmonogramie i cyklicznych za pomocą Azure Logic Apps
 
 W tym samouczku przedstawiono sposób tworzenia przykładowej [aplikacji logiki](../logic-apps/logic-apps-overview.md) , która automatyzuje przepływ pracy uruchamiany zgodnie z cyklicznym harmonogramem. W szczególności Ta przykładowa aplikacja logiki sprawdza czas podróży, w tym ruch, między dwoma miejscami i jest uruchamiany każdego dnia tygodnia rano. Jeśli czas przekracza określony limit, aplikacja logiki wyśle wiadomość e-mail zawierającą czas podróży i dodatkowy czas wymagany do osiągnięcia w miejscu docelowym. Przepływ pracy zawiera różne kroki, które zaczynają się od wyzwalacza opartego na harmonogramie, po którym następuje akcja mapy Bing, Akcja operacji na danych, Akcja przepływu sterowania i akcja powiadomienia e-mail.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenia pustej aplikacji logiki.
@@ -151,7 +151,7 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
 
 1. W akcji Otwórz **listę Dodaj nowy parametr** i wybierz te właściwości.
 
-   * **Optymalizacja**
+   * **Zoptymalizować**
    * **Jednostka odległości**
    * **Tryb podróży**
 
@@ -165,7 +165,7 @@ Po utworzeniu wyzwalacza możesz dodać [akcję](../logic-apps/logic-apps-overvi
    |----------|----------|-------|-------------|
    | **Punkt nawigacyjny 1** | Tak | <*lokalizacja początkowa*> | Początek trasy. Ten przykład określa przykładowy adres początkowy. |
    | **Punkt nawigacyjny 2** | Tak | <*Lokalizacja końcowa*> | Miejsce docelowe trasy. Ten przykład określa przykładowy adres docelowy. |
-   | **Optymalizacja** | Nie | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz wartość parametru **timeWithTraffic**. |
+   | **Zoptymalizować** | Nie | timeWithTraffic | Parametr używany do optymalizowania trasy, na przykład odległość, czas podróży z uwzględnieniem aktualnego natężenia ruchu i tak dalej. Wybierz wartość parametru **timeWithTraffic**. |
    | **Jednostka odległości** | Nie | <*Twoje preferencje*> | Jednostka odległości trasy. W tym przykładzie **jest stosowana jednostka** . |
    | **Tryb podróży** | Nie | Jazda samochodem | Tryb podróży dla trasy. Wybierz tryb **kierowania** . |
    |||||

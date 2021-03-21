@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć funkcję go jako niestandardową proced
 ms.topic: quickstart
 ms.date: 12/4/2020
 ms.openlocfilehash: 8b53031315cce3651a2de581d71da6ef6fe909c1
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470374"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji go lub Rust na platformie Azure przy użyciu Visual Studio Code

@@ -12,10 +12,10 @@ ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101689338"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Samouczek: opracowywanie przykładowego punktu końcowego Standard scim
@@ -24,7 +24,7 @@ Nikt nie chce kompilować nowego punktu końcowego od podstaw, dlatego utworzyli
 
 W tym samouczku opisano sposób wdrażania kodu odwołania Standard scim na platformie Azure i testowania go przy użyciu programu Poster lub przez integrację z klientem Standard scim usługi Azure Active Directory (Azure AD). Ten samouczek jest przeznaczony dla deweloperów, którzy chcą zacząć korzystać z usługi Standard scim, lub osoby zainteresowane testowaniem punktu końcowego Standard scim.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -104,7 +104,7 @@ Domyślny kod sprawdzania poprawności tokenu jest skonfigurowany do korzystania
 
 Po wdrożeniu punktu końcowego Standard scim można przeprowadzić test, aby upewnić się, że jest zgodny z standard scim RFC. Ten przykład zawiera zestaw testów w programie Poster, które weryfikują operacje CRUD (tworzenie, odczytywanie, aktualizowanie i usuwanie) dla użytkowników i grup, filtrowanie, aktualizacje członkostwa w grupie i wyłączanie użytkowników.
 
-Punkty końcowe znajdują się w `{host}/scim/` katalogu i można z nich korzystać w standardowych żądaniach HTTP. Aby zmodyfikować `/scim/` trasę, zobacz *ControllerConstant.cs* in **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **controllers**.
+Punkty końcowe znajdują się w `{host}/scim/` katalogu i można z nich korzystać w standardowych żądaniach HTTP. Aby zmodyfikować `/scim/` trasę, zobacz *ControllerConstant. cs* in **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **controllers**.
 
 > [!NOTE]
 > Punktów końcowych protokołu HTTP można używać tylko dla testów lokalnych. Usługa Azure AD Provisioning wymaga, aby punkt końcowy obsługiwał protokół HTTPS.

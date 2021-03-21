@@ -4,10 +4,10 @@ description: W tym artykule opisano warunki pomocne podczas korzystania z Azure 
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502029"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup słownik

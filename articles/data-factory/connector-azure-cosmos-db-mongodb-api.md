@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 6f1e865daf9ba42126c0f8a341a54d87ac7f374a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393092"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiowanie danych do lub z interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB za pomocą usługi Azure Data Factory
@@ -23,7 +23,7 @@ W tym artykule opisano sposób używania działania kopiowania w usłudze Azure 
 >[!NOTE]
 >Ten łącznik obsługuje tylko kopiowanie danych do/z interfejsu API Azure Cosmos DB dla usługi MongoDB. Aby uzyskać informacje dotyczące interfejsu API SQL, zobacz [Łącznik usługi SQL api Cosmos DB](connector-azure-cosmos-db.md). Inne typy interfejsów API nie są obecnie obsługiwane.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Możesz skopiować dane z interfejsu API Azure Cosmos DB MongoDB do dowolnego obsługiwanego magazynu danych ujścia lub skopiować dane z dowolnego obsługiwanego źródłowego magazynu danych do interfejsu API Azure Cosmos DB dla MongoDB. Aby uzyskać listę magazynów danych obsługiwanych przez działanie kopiowania jako źródła i ujścia, zobacz [obsługiwane magazyny i formaty danych](copy-activity-overview.md#supported-data-stores-and-formats).
 

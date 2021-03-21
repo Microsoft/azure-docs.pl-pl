@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94837213"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Rozwiązywanie problemów Enterprise State Roaming ustawień w Azure Active Directory
@@ -156,7 +156,7 @@ Połącz urządzenie z siecią firmową, aby można było wznowić synchronizacj
 Jeśli użytkownik ma mieszane nazwy UPN przypadku (na przykład UserName zamiast username), a użytkownik znajduje się na urządzeniu dołączonym do usługi Azure AD, które zostało uaktualnione z systemu Windows 10 Build 10586 do 14393, nie można zsynchronizować urządzenia użytkownika. 
 
 **Zalecana akcja**  
-Użytkownik będzie musiał odłączyć urządzenie i ponownie dołączyć je do chmury. Aby to zrobić, zaloguj się jako administrator lokalny i Odłączaj urządzenie, przechodząc do **ustawień**  >  **system**  >  **About** i wybierz pozycję "Zarządzaj lub odłącz od pracy lub szkoły". Wyczyść poniższe pliki, a następnie ponownie Dołącz urządzenie do usługi Azure AD w obszarze **Ustawienia**  >  **system**  >  **About** i wybierz pozycję "Połącz z siecią firmową lub szkołą". Kontynuuj dołączanie urządzenia do Azure Active Directory i dokończ przepływ.
+Użytkownik będzie musiał odłączyć urządzenie i ponownie dołączyć je do chmury. Aby to zrobić, zaloguj się jako administrator lokalny i Odłączaj urządzenie, przechodząc do **ustawień**  >  **system**  >   i wybierz pozycję "Zarządzaj lub odłącz od pracy lub szkoły". Wyczyść poniższe pliki, a następnie ponownie Dołącz urządzenie do usługi Azure AD w obszarze **Ustawienia**  >  **system**  >   i wybierz pozycję "Połącz z siecią firmową lub szkołą". Kontynuuj dołączanie urządzenia do Azure Active Directory i dokończ przepływ.
 
 W kroku oczyszczania Oczyść następujące pliki:
 - Settings. dat w `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`

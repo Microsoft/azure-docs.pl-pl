@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: b67c3ccebefc178ddebc2b4a7fd49043bc0776b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735424"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Samouczki korzystające z usług platformy Azure z Azure Data Lake Storage Gen2

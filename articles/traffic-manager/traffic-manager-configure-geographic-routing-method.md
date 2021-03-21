@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96188670"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Samouczek: Konfigurowanie metody routingu ruchu geograficznego za pomocą Traffic Manager
 
 Metoda routingu ruchu geograficznego umożliwia kierowanie ruchu do określonych punktów końcowych na podstawie lokalizacji geograficznej, w której pochodzą żądania. W tym samouczku pokazano, jak utworzyć profil Traffic Manager przy użyciu tej metody routingu i skonfigurować punkty końcowe do odbierania ruchu z określonych lokalizacje geograficzne.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Utwórz profil Traffic Manager przy użyciu routingu geograficznego.
 > - Skonfiguruj zagnieżdżony punkt końcowy.
@@ -95,7 +95,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
     :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Przegląd Traffic Manager geograficznych":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli profil Traffic Manager nie jest już potrzebny, zlokalizuj profil i wybierz pozycję **Usuń profil**.
 

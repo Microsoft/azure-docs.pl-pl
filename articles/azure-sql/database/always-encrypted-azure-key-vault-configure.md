@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
 ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841465"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurowanie Always Encrypted przy użyciu Azure Key Vault 
@@ -146,7 +146,7 @@ GO
 
 Program SSMS zawiera kreatora, który ułatwia konfigurowanie Always Encrypted przez skonfigurowanie klucza głównego kolumny, klucza szyfrowania kolumn i zaszyfrowanych kolumn.
 
-1. Rozwiń **Databases** węzeł  >  **kliniki** baz danych  >  **Tables**.
+1. Rozwiń węzeł  >  **kliniki** baz danych  >  .
 2. Kliknij prawym przyciskiem myszy tabelę **pacjentów** i wybierz pozycję **Szyfruj kolumny** , aby otworzyć Kreatora Always Encrypted:
 
     ![Zrzut ekranu, który podświetla kolumny Szyfruj... opcja menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
@@ -193,7 +193,7 @@ Po zakończeniu działania kreatora baza danych jest skonfigurowana do Always En
 - Utworzono klucz szyfrowania kolumny i zapisany w Azure Key Vault.
 - Skonfigurowano wybrane kolumny do szyfrowania. Tabela pacjentów nie ma obecnie żadnych danych, ale wszystkie istniejące dane w wybranych kolumnach są teraz szyfrowane.
 
-Aby sprawdzić, jak utworzyć klucze w programie SSMS, można zwiększyć **Clinic**  >  **bezpieczeństwo**  >  **Always Encrypted kluczy**.
+Aby sprawdzić, jak utworzyć klucze w programie SSMS, można zwiększyć   >  **bezpieczeństwo**  >  **Always Encrypted kluczy**.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Tworzenie aplikacji klienckiej, która współpracuje z zaszyfrowanymi danymi
 
@@ -266,7 +266,7 @@ W tym przykładzie pokazano, jak:
 - Wstaw dane do zaszyfrowanych kolumn.
 - Wybierz rekord, filtrując określoną wartość w zaszyfrowanej kolumnie.
 
-Zastąp zawartość *program.cs* następującym kodem. Zastąp ciąg połączenia dla zmiennej Global connectionString w wierszu, który bezpośrednio poprzedza metodę Main prawidłowymi parametrami połączenia z Azure Portal. Jest to jedyna zmiana, którą trzeba wykonać w tym kodzie.
+Zastąp zawartość *programu program. cs* poniższym kodem. Zastąp ciąg połączenia dla zmiennej Global connectionString w wierszu, który bezpośrednio poprzedza metodę Main prawidłowymi parametrami połączenia z Azure Portal. Jest to jedyna zmiana, którą trzeba wykonać w tym kodzie.
 
 Uruchom aplikację, aby zobaczyć Always Encrypted w działaniu.
 

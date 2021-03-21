@@ -16,10 +16,10 @@ ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627637"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń zarządzania tożsamościami platformy Azure
@@ -39,7 +39,7 @@ Artykuł koncentruje się na następujących podstawowych możliwościach usług
 
 * Logowanie jednokrotne
 * Zwrotny serwer proxy
-* Multi-Factor Authentication
+* Uwierzytelnianie wieloskładnikowe
 * Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 * Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 * Zarządzanie tożsamościami i dostępem klientów
@@ -76,7 +76,7 @@ Więcej informacji:
 * [Logowanie jednokrotne przy użyciu serwera proxy aplikacji](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Praca z dostępem warunkowym](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe
 
 Usługa Azure AD Multi-Factor Authentication to metoda uwierzytelniania, która wymaga użycia więcej niż jednej metody weryfikacji i dodaje krytyczną drugą warstwę zabezpieczeń do logowania i transakcji użytkownika. Multi-Factor Authentication pomaga chronić dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostego procesu logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji: połączeń telefonicznych, wiadomości SMS lub powiadomień aplikacji mobilnej oraz kodów weryfikacyjnych i tokenów OAuth innych firm.
 

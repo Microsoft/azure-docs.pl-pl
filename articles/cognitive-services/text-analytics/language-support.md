@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: aahi
 ms.openlocfilehash: f6a109c10491ad2eabb12069157e9e6f394bc1f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736614"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
@@ -32,7 +32,7 @@ ms.locfileid: "101736614"
 | japoński              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Koreański                |     `ko`      |    ✓      |         2019-10-01         |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
-| Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
+| portugalski (Brazylia)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
 | Hiszpański               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turecki               |     `tr`      |     ✓       |         2020-07-01        |                    |
@@ -67,8 +67,8 @@ ms.locfileid: "101736614"
 | japoński              |     `ja`      |     ✓       |               2021-01-15        |                    |
 | Koreański                |     `ko`      |     ✓       |               2021-01-15        |                    |
 | Norweski (bokmål)   |     `no`      |     ✓*      |               2019-10-01        | `nb` również zaakceptowane |
-| Polski                |     `pl`      |     ✓*      |               2019-10-01        |                    |
-| Portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| polski                |     `pl`      |     ✓*      |               2019-10-01        |                    |
+| portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` również zaakceptowane |
 | Rosyjski              |     `ru`      |     ✓*       |               2019-10-01        |                    |
 | Hiszpański               |     `es`      |     ✓       |               2020-04-01        |                    |
@@ -89,8 +89,8 @@ ms.locfileid: "101736614"
 | japoński              |     `ja`      |     ✓      |                2019-10-01                 |                    |
 | Koreański                |     `ko`      |     ✓      |                2019-10-01                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` również zaakceptowane |
-| Polski                |     `pl`      |    ✓      |                2019-10-01                 |                    |
-| Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
+| polski                |     `pl`      |    ✓      |                2019-10-01                 |                    |
+| portugalski (Brazylia)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` również zaakceptowane |
 | Rosyjski               |     `ru`      |     ✓      |                2019-10-01                 |                    |
 | Hiszpański               |     `es`      |     ✓      |                2019-10-01                 |                    |
@@ -114,7 +114,7 @@ ms.locfileid: "101736614"
 | Włoski               |     `it`      |     ✓       |               2021-01-15        |                    |
 | japoński              |     `ja`      |     ✓       |               2021-01-15        |                    |
 | Koreański                |     `ko`      |     ✓       |               2021-01-15        |                    |
-| Portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` również zaakceptowane |
 | Hiszpański               |     `es`      |     ✓       |               2020-04-01        |                    |
 
@@ -201,7 +201,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Orija|`or`|✓|    |
 |Pasht|`ps`|✓|    |
 |Perski|`fa`|✓|    |
-|Polski|`pl`|✓|    |
+|polski|`pl`|✓|    |
 |Portugalski|`pt`|✓|    |
 |Pendżabski|`pa`|✓|    |
 |Queretaro Otomi|`otq`|✓|2020-09-01|
