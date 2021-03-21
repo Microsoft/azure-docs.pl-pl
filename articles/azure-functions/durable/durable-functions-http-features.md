@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027265"
 ---
 # <a name="http-features"></a>Funkcje HTTP
@@ -57,7 +57,7 @@ Zobacz artykuł dotyczący [interfejsów API protokołu HTTP](durable-functions-
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__ . PR**
+**__init__. PR**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Aby uzyskać opis wszystkich wbudowanych interfejsów API protokołu HTTP, zobac
 
 ### <a name="async-operation-tracking"></a>Śledzenie operacji asynchronicznych
 
-Wspomniana wcześniej odpowiedź HTTP została zaprojektowana w celu ułatwienia wdrożenia długotrwałych asynchronicznych interfejsów API protokołu HTTP przy użyciu Durable Functions. Ten wzorzec jest czasami nazywany *wzorcem klienta sondowania* . Przepływ klient/serwer działa w następujący sposób:
+Wspomniana wcześniej odpowiedź HTTP została zaprojektowana w celu ułatwienia wdrożenia długotrwałych asynchronicznych interfejsów API protokołu HTTP przy użyciu Durable Functions. Ten wzorzec jest czasami nazywany *wzorcem klienta sondowania*. Przepływ klient/serwer działa w następujący sposób:
 
 1. Klient wysyła żądanie HTTP w celu uruchomienia długotrwałego procesu, takiego jak funkcja programu Orchestrator.
 1. Docelowy wyzwalacz HTTP zwraca odpowiedź HTTP 202 z nagłówkiem lokalizacji, który ma wartość "statusQueryGetUri".

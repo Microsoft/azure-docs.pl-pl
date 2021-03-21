@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: ff19275270e5b6572fb7d637b88c4736a3aa6ea0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456487"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Samouczek: Integrowanie kopii zapasowych punktu końcowego Carbonite z Azure Active Directory
@@ -193,7 +193,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu przedstawia stronę Dodawanie użytkownika, na której można wykonać kroki opisane tutaj.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
-    1. Wprowadź **adres e-mail**, **imię**i nazwisko **użytkownika, a** następnie podaj wymagane uprawnienia dla użytkownika zgodnie z wymaganiami organizacji.
+    1. Wprowadź **adres e-mail**, **imię** i nazwisko **użytkownika, a** następnie podaj wymagane uprawnienia dla użytkownika zgodnie z wymaganiami organizacji.
 
     1. Kliknij pozycję **Dodaj użytkownika**.
 

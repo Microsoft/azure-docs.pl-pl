@@ -8,15 +8,15 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081148"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalowanie i konfigurowanie bramy danych lokalnych
 
-Lokalna Brama danych jest wymagana, gdy co najmniej jeden serwer Azure Analysis Services w tym samym regionie nawiązuje połączenie z lokalnymi źródłami danych.  Gdy instalowana Brama jest taka sama jak używana przez inne usługi, takie jak Power BI, aplikacje zaawansowane i Logic Apps, podczas instalowania programu Azure Analysis Services należy wykonać kilka dodatkowych kroków. Ten artykuł instalacyjny jest specyficzny dla **Azure Analysis Services** . 
+Lokalna Brama danych jest wymagana, gdy co najmniej jeden serwer Azure Analysis Services w tym samym regionie nawiązuje połączenie z lokalnymi źródłami danych.  Gdy instalowana Brama jest taka sama jak używana przez inne usługi, takie jak Power BI, aplikacje zaawansowane i Logic Apps, podczas instalowania programu Azure Analysis Services należy wykonać kilka dodatkowych kroków. Ten artykuł instalacyjny jest specyficzny dla **Azure Analysis Services**. 
 
 Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z bramą, zobacz [nawiązywanie połączenia z lokalnymi źródłami danych](analysis-services-gateway.md). Aby dowiedzieć się więcej o scenariuszach instalacji zaawansowanej i ogólnie dostępnej bramie, zobacz [dokumentację lokalnych bram danych](/data-integration/gateway/service-gateway-onprem).
 
@@ -52,11 +52,11 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 
 1. Uruchom Instalatora.
 
-2. Wybierz pozycję **lokalna Brama danych** .
+2. Wybierz pozycję **lokalna Brama danych**.
 
-   ![Wybierz](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![Wybierz pozycję](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
-2. Wybierz lokalizację, zaakceptuj warunki, a następnie kliknij przycisk **Instaluj** .
+2. Wybierz lokalizację, zaakceptuj warunki, a następnie kliknij przycisk **Instaluj**.
 
    ![Lokalizacja instalacji i postanowienia licencyjne](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
@@ -71,11 +71,11 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 
 Aby utworzyć zasób bramy na platformie Azure, musisz zarejestrować lokalne wystąpienie zainstalowane w usłudze bramy w chmurze. 
 
-1.  Wybierz pozycję **zarejestruj nową bramę na tym komputerze** .
+1.  Wybierz pozycję **zarejestruj nową bramę na tym komputerze**.
 
     ![Zrzut ekranu, który wyróżnia opcję Zarejestruj nową bramę na tym komputerze.](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Wpisz nazwę i klucz odzyskiwania dla bramy. Domyślnie brama używa domyślnego regionu subskrypcji. Jeśli musisz wybrać inny region, wybierz pozycję **Zmień region** .
+2. Wpisz nazwę i klucz odzyskiwania dla bramy. Domyślnie brama używa domyślnego regionu subskrypcji. Jeśli musisz wybrać inny region, wybierz pozycję **Zmień region**.
 
     > [!IMPORTANT]
     > Zapisz klucz odzyskiwania w bezpiecznym miejscu. Klucz odzyskiwania jest wymagany w celu przejęcia, przeprowadzenia migracji lub przywrócenia bramy. 
@@ -87,25 +87,25 @@ Aby utworzyć zasób bramy na platformie Azure, musisz zarejestrować lokalne wy
 
 Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platformie Azure. Zaloguj się do platformy Azure przy użyciu tego samego konta, które zostało użyte podczas rejestrowania bramy.
 
-1. W Azure Portal kliknij pozycję **Utwórz zasób** , a następnie wyszukaj pozycję **lokalna Brama danych** , a następnie kliknij pozycję **Utwórz** .
+1. W Azure Portal kliknij pozycję **Utwórz zasób**, a następnie wyszukaj pozycję **lokalna Brama danych**, a następnie kliknij pozycję **Utwórz**.
 
    ![Tworzenie zasobu bramy](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
 2. W obszarze **Utwórz bramę połączenia** wprowadź następujące ustawienia:
 
-   * **Nazwa** : Wprowadź nazwę zasobu bramy. 
+   * **Nazwa**: Wprowadź nazwę zasobu bramy. 
 
-   * **Subskrypcja** : wybierz subskrypcję platformy Azure, która ma zostać skojarzona z zasobem bramy. 
+   * **Subskrypcja**: wybierz subskrypcję platformy Azure, która ma zostać skojarzona z zasobem bramy. 
    
      Domyślna subskrypcja jest oparta na koncie platformy Azure użytym do zalogowania się.
 
-   * **Grupa zasobów** : utwórz grupę zasobów lub wybierz istniejącą.
+   * **Grupa zasobów**: utwórz grupę zasobów lub wybierz istniejącą.
 
-   * **Lokalizacja** : Wybierz region, w którym zarejestrowano bramę.
+   * **Lokalizacja**: Wybierz region, w którym zarejestrowano bramę.
 
-   * **Nazwa instalacji** : Jeśli instalacja bramy nie została jeszcze wybrana, wybierz bramę zainstalowaną na komputerze i zarejestrowano. 
+   * **Nazwa instalacji**: Jeśli instalacja bramy nie została jeszcze wybrana, wybierz bramę zainstalowaną na komputerze i zarejestrowano. 
 
-     Gdy skończysz, kliknij przycisk **Utwórz** .
+     Gdy skończysz, kliknij przycisk **Utwórz**.
 
 ## <a name="connect-gateway-resource-to-server"></a>Połącz zasób bramy z serwerem
 
@@ -114,23 +114,23 @@ Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platf
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Na serwerze Azure Analysis Services przegląd kliknij pozycję **lokalna Brama danych** .
+1. Na serwerze Azure Analysis Services przegląd kliknij pozycję **lokalna Brama danych**.
 
    ![Połącz serwer z bramą](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. W obszarze **Wybierz lokalną bramę danych do nawiązania połączenia** wybierz zasób bramy, a następnie kliknij pozycję **Połącz wybraną bramę** .
+2. W obszarze **Wybierz lokalną bramę danych do nawiązania połączenia** wybierz zasób bramy, a następnie kliknij pozycję **Połącz wybraną bramę**.
 
    ![Połącz serwer z zasobem bramy](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
     > Jeśli Brama nie znajduje się na liście, serwer prawdopodobnie nie znajduje się w tym samym regionie, co region określony podczas rejestrowania bramy.
 
-    Po pomyślnym nawiązaniu połączenia między serwerem a zasobem bramy zostanie wyświetlony stan **połączone** .
+    Po pomyślnym nawiązaniu połączenia między serwerem a zasobem bramy zostanie wyświetlony stan **połączone**.
 
 
     ![Pomyślne połączenie serwera z bramą](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj [Get-AzResource](/powershell/module/az.resources/get-azresource) , aby pobrać identyfikator zasobu bramy. Następnie połącz zasób bramy z istniejącym lub nowym serwerem przez określenie opcji **-GatewayResourceID** w [poleceniem Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) lub [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
 ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087489"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Jak użyć kroku profilu wykonywania do oceny zapytań aparatu Gremlin
@@ -22,7 +22,7 @@ Ten artykuł zawiera omówienie sposobu użycia kroku profilu wykonywania dla ba
 
 Aby użyć tego kroku, wystarczy dołączyć `executionProfile()` wywołanie funkcji na końcu zapytania Gremlin. **Zapytanie Gremlin zostanie wykonane** , a wynik operacji zwróci obiekt odpowiedzi JSON z profilem wykonywania zapytania.
 
-Przykład:
+Na przykład:
 
 ```java
     // Basic traversal
@@ -139,12 +139,12 @@ Poniżej znajduje się przykładowe adnotacje danych wyjściowych, które zostan
 ## <a name="execution-profile-response-objects"></a>Obiekty odpowiedzi profilu wykonywania
 
 Odpowiedź funkcji executionProfile () zwróci hierarchię obiektów JSON o następującej strukturze:
-  - **Obiekt operacji Gremlin** : reprezentuje całą operację Gremlin, która została wykonana. Zawiera następujące właściwości.
+  - **Obiekt operacji Gremlin**: reprezentuje całą operację Gremlin, która została wykonana. Zawiera następujące właściwości.
     - `gremlin`: Jawna instrukcja Gremlin, która została wykonana.
     - `totalTime`: Czas (w milisekundach) wykonywania kroku. 
     - `metrics`: Tablica zawierająca każdy Cosmos DB operatory środowiska uruchomieniowego, które zostały wykonane w celu spełnienia zapytania. Ta lista jest posortowana w kolejności wykonywania.
     
-  - **Operatory środowiska uruchomieniowego Cosmos DB** : reprezentuje każdy składnik całej operacji Gremlin. Ta lista jest posortowana w kolejności wykonywania. Każdy obiekt zawiera następujące właściwości:
+  - **Operatory środowiska uruchomieniowego Cosmos DB**: reprezentuje każdy składnik całej operacji Gremlin. Ta lista jest posortowana w kolejności wykonywania. Każdy obiekt zawiera następujące właściwości:
     - `name`: Nazwa operatora. Jest to typ kroku, który został oceniony i wykonany. Więcej informacji można znaleźć w poniższej tabeli.
     - `time`: Ilość czasu (w milisekundach), jaką zajęł dany operator.
     - `annotations`: Zawiera dodatkowe informacje specyficzne dla operatora, który został wykonany.
@@ -177,7 +177,7 @@ Poniżej przedstawiono przykłady typowych optymalizacji, które można wycofać
 
 ### <a name="blind-fan-out-query-patterns"></a>Nieniewidome wzorce zapytań
 
-Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego wykresu** :
+Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego wykresu**:
 
 ```json
 [

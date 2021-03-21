@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/30/2020
 ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147188"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Przekształcanie klucza zastępczego w mapowaniu przepływu danych 
@@ -21,7 +21,7 @@ ms.locfileid: "93147188"
 
 Użyj przekształcenia klucza dwuskładnikowego, aby dodać przyrostową wartość klucza do każdego wiersza danych. Jest to przydatne podczas projektowania tabel wymiarów w modelu danych analitycznych schematu gwiazdy. W schemacie gwiazdy każdy element członkowski w tabelach wymiarów wymaga unikatowego klucza, który jest kluczem niebiznesowym.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ![Przekształcanie klucza zastępczego](media/data-flow/surrogate.png "Przekształcanie klucza zastępczego")
 

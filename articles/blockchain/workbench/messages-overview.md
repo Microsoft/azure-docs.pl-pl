@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74324506"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integracja z usługą Azure łańcucha bloków Workbench Messaging
@@ -354,7 +354,7 @@ Jeśli użytkownik chce używać Event Grid do powiadamiania o zdarzeniach, któ
 Tematy Service Bus mogą służyć do powiadamiania użytkowników o zdarzeniach, które zachodzą w łańcucha bloków Workbench. 
 
 1. Przejdź do Service Bus w grupie zasobów Workbench.
-2. Wybierz **Tematy**.
+2. Wybierz kartę **Tematy**.
 3. Wybierz pozycję **ruch wychodzący — temat**.
 4. Utwórz nową subskrypcję w tym temacie. Uzyskaj dla niego klucz.
 5. Utwórz program, który subskrybuje zdarzenia z tej subskrypcji.
@@ -471,7 +471,7 @@ Zawiera informacje o kontrakcie. Komunikat zawiera sekcję z właściwościami k
 |--------------------|-------------|
 | workflowPropertyId | Unikatowy identyfikator właściwości przepływu pracy w usłudze Azure łańcucha bloków Workbench |
 | name | Nazwa właściwości przepływu pracy |
-| value | Wartość właściwości przepływu pracy |
+| wartość | Wartość właściwości przepływu pracy |
 
 Przykład *ContractMessage* z łańcucha bloków Workbench:
 
@@ -582,7 +582,7 @@ Zawiera informacje, gdy wywoływana jest funkcja kontraktu, taka jak nazwa funkc
 | Nazwa | Opis |
 |------|-------------|
 | name | Nazwa parametru |
-| value | Wartość parametru |
+| wartość | Wartość parametru |
 
 #### <a name="event-message-transaction-information"></a>Informacje o transakcji komunikatu o zdarzeniu
 

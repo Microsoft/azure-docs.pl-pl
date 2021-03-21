@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90705514"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B
@@ -86,7 +86,7 @@ Można umożliwić użytkownikom uwierzytelnianie w polu gościa za pomocą kont
 
    b. W polu **Identyfikator użytkownika** wprowadź wartość **User. mail** (w przypadku logowania jednokrotnego dla kont Gości).
 
-   c. W obszarze **certyfikat podpisywania SAML**kliknij pozycję **Utwórz nowy certyfikat**.
+   c. W obszarze **certyfikat podpisywania SAML** kliknij pozycję **Utwórz nowy certyfikat**.
 
    d. Aby rozpocząć konfigurowanie dzierżawy Box.com do korzystania z usługi Azure AD jako dostawcy tożsamości, Pobierz plik metadanych, a następnie zapisz go na dysku lokalnym.
 

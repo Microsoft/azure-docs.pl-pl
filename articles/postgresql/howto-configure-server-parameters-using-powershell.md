@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 24106e40a78d4b5607c352ffd49a310533760a66
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489952"
 ---
 # <a name="customize-azure-database-for-postgresql-server-parameters-using-powershell"></a>Dostosowywanie parametrów serwera Azure Database for PostgreSQL przy użyciu programu PowerShell
@@ -50,7 +50,7 @@ Aby zapoznać się z definicją każdego z wymienionych parametrów, zobacz sekc
 
 Aby wyświetlić szczegóły dotyczące określonego parametru konfiguracji dla serwera, uruchom `Get-AzPostgreSqlConfiguration` polecenie cmdlet i określ parametr **name** .
 
-W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera ** \_ \_ dziennika zapytania** dla serwera **mydemoserver** w **obszarze Grupa zasobów**.
+W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera **\_ \_ dziennika zapytania** dla serwera **mydemoserver** w **obszarze Grupa zasobów**.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver

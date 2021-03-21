@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995764"
 ---
 # <a name="create-a-new-device-template-version"></a>Utwórz nową wersję szablonu urządzenia
@@ -81,7 +81,7 @@ Aby uzyskać wersję szablonu urządzenia:
 1. Przejdź do strony **Szablony urządzeń** .
 1. Wybierz szablon urządzenia, do którego próbujesz uzyskać wersję.
 1. Wybierz przycisk **wersji** w górnej części strony i nadaj szablonowi nową nazwę. IoT Central sugeruje nową nazwę, którą można edytować.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Teraz Twój szablon urządzenia jest w trybie wersji roboczej. Twoje interfejsy są nadal zablokowane. Wersje interfejsów, które chcesz zmodyfikować.
 
 ## <a name="version-an-interface"></a>Wersja interfejsu
@@ -94,7 +94,7 @@ Aby uzyskać wersję interfejsu:
 1. Wybierz szablon urządzenia w trybie wersji roboczej.
 1. Wybierz interfejs, który znajduje się w trybie opublikowanym, który chcesz wersja i edytować.
 1. Wybierz przycisk **wersji** w górnej części strony interfejsu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Interfejs jest teraz w trybie wersji roboczej. Możesz dodawać lub edytować możliwości w interfejsie bez przerywania istniejących dostosowań i widoków.
 
 ## <a name="migrate-a-device-across-versions"></a>Migrowanie urządzenia w różnych wersjach

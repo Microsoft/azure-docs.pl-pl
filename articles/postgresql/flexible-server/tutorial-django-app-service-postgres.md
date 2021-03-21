@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: bcc9ca0175e0e03c62c2ce2b91d8ec337756a3cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490105"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Samouczek: wdrażanie aplikacji Django przy użyciu App Service i Azure Database for PostgreSQL — serwer elastyczny (wersja zapoznawcza)
@@ -161,7 +161,7 @@ Migracja baz danych Django upewnij się, że schemat w PostgreSQL w bazie danych
 
 1. W przeglądarce Otwórz adres URL *http: \/ / \<app-name> . azurewebsites.NET*. Aplikacja powinna wyświetlić komunikat "Brak dostępnych sondowań", ponieważ w bazie danych nie ma jeszcze określonych sond.
 
-1. Przejdź do *protokołu http: \/ / \<app-name> . azurewebsites.NET/admin*. Zaloguj się przy użyciu poświadczeń administratora z poprzedniej sekcji ( `root` i `postgres1` ). W obszarze **sondy**wybierz pozycję **Dodaj** obok pozycji **pytania** i Utwórz pytanie dotyczące ankiety z wybranymi opcjami.
+1. Przejdź do *protokołu http: \/ / \<app-name> . azurewebsites.NET/admin*. Zaloguj się przy użyciu poświadczeń administratora z poprzedniej sekcji ( `root` i `postgres1` ). W obszarze **sondy** wybierz pozycję **Dodaj** obok pozycji **pytania** i Utwórz pytanie dotyczące ankiety z wybranymi opcjami.
 
 1. Przejdź ponownie do *protokołu http: \/ / \<app-name> . azurewebsites.NET/* , aby potwierdzić, że pytania są teraz prezentowane użytkownikowi. Odpowiedz na pytania, na które chcesz wygenerować niektóre dane w bazie danych.
 
@@ -200,7 +200,7 @@ Przetestuj aplikację lokalnie, wykonując następujące czynności:
 
 1. Przejdź do *protokołu http: \/ /localhost: 8000* w przeglądarce, która powinna wyświetlać komunikat "Brak dostępnych sondowań".
 
-1. Przejdź do *protokołu http: \/ /localhost: 8000/admin* i zaloguj się przy użyciu utworzonego wcześniej konta administratora. W obszarze **sondy**ponownie wybierz pozycję **Dodaj** obok pozycji **pytania** i Utwórz pytanie dotyczące ankiety z wybranymi opcjami.
+1. Przejdź do *protokołu http: \/ /localhost: 8000/admin* i zaloguj się przy użyciu utworzonego wcześniej konta administratora. W obszarze **sondy** ponownie wybierz pozycję **Dodaj** obok pozycji **pytania** i Utwórz pytanie dotyczące ankiety z wybranymi opcjami.
 
 1. Przejdź ponownie do *protokołu http: \/ /localhost: 8000* i Odpowiedz na pytanie, aby przetestować aplikację.
 
@@ -270,11 +270,11 @@ Przejdź do *protokołu http: \/ / \<app-name> . azurewebsites.NET* i przetestuj
 
 W [Azure Portal](https://portal.azure.com)Wyszukaj nazwę aplikacji i wybierz aplikację w wynikach.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Przykład Django serwera deweloperskiego":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Przejdź do aplikacji w języku Python Django w Azure Portal":::
 
 Domyślnie w portalu jest wyświetlana strona **omówienia** aplikacji, która zawiera ogólny widok wydajności. W tym miejscu można również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, ponowne uruchamianie i usuwanie. Na kartach po lewej stronie strony są pokazane poszczególne strony konfiguracji, które można otworzyć.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Przykład Django serwera deweloperskiego":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Zarządzanie aplikacją Django języka Python na stronie Przegląd w Azure Portal":::
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

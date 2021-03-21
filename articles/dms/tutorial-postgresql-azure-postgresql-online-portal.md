@@ -13,17 +13,17 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
 ms.openlocfilehash: d28c45b2d0fc1a123f44020f42c4d2c59c593cb2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101709924"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie PostgreSQL do usługi Azure DB dla PostgreSQL online przy użyciu systemu DMS za pośrednictwem Azure Portal
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z lokalnego wystąpienia PostgreSQL, aby [Azure Database for PostgreSQL](../postgresql/index.yml) z minimalnym czasem przestoju aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **najmu dysku DVD** z lokalnego wystąpienia PostgreSQL 9,6 do Azure Database for PostgreSQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 > * Migruj Przykładowy schemat przy użyciu narzędzia pg_dump.

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a4c93b12ad654e54a7f3c7ee0e75507d5cb45e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907824"
 ---
 # <a name="split-data-module"></a>Moduł Split Data
@@ -30,7 +30,7 @@ Ten moduł jest przydatny, gdy trzeba podzielić dane na zestawy szkoleniowe i t
 > Przed wybraniem trybu dzielenia, Przeczytaj wszystkie opcje, aby określić typ potrzebnego podziału.
 > W przypadku zmiany trybu dzielenia wszystkie inne opcje mogą zostać zresetowane.
 
-1. Dodaj moduł **Split Data (podział danych** ) do potoku w projektancie. Ten moduł można znaleźć w obszarze **Przekształcanie danych**w kategorii **przykład i Podziel** .
+1. Dodaj moduł **Split Data (podział danych** ) do potoku w projektancie. Ten moduł można znaleźć w obszarze **Przekształcanie danych** w kategorii **przykład i Podziel** .
 
 1. **Tryb dzielenia**: Wybierz jeden z następujących trybów, w zależności od typu danych i sposobu, w jaki chcesz go podzielić. Każdy tryb dzielenia ma inne opcje.
 
@@ -48,7 +48,7 @@ Ten moduł jest przydatny, gdy trzeba podzielić dane na zestawy szkoleniowe i t
 
 1. Dodaj moduł [Split Data (podział danych](./split-data.md) ) do potoku w projektancie, a następnie połącz zestaw danych, który chcesz podzielić.
   
-1. W obszarze **tryb dzielenia**wybierz pozycję **podział wierszy**. 
+1. W obszarze **tryb dzielenia** wybierz pozycję **podział wierszy**. 
 
 1. **Ułamek wierszy w pierwszym wyjściowym zestawie danych**: Użyj tej opcji, aby określić, ile wierszy zostanie umieszczonych w pierwszych (po lewej stronie). Wszystkie pozostałe wiersze zostaną umieszczone w drugim (prawej stronie) danych wyjściowych.
 
@@ -73,7 +73,7 @@ Ten moduł jest przydatny, gdy trzeba podzielić dane na zestawy szkoleniowe i t
 
 1. Dodaj moduł [Split Data](./split-data.md) do potoku, a następnie połącz go jako dane wejściowe z zestawem danych, który chcesz podzielić.  
   
-1. W obszarze **tryb dzielenia**wybierz pozycję **podział wyrażenia regularnego**.
+1. W obszarze **tryb dzielenia** wybierz pozycję **podział wyrażenia regularnego**.
 
 1. W polu **wyrażenie regularne** wprowadź prawidłowe wyrażenie regularne. 
   
@@ -107,7 +107,7 @@ Pierwszy wynikowy zestaw danych zawiera wszystkie wiersze, w których kolumna in
 
 1. Dodaj moduł [Split Data](./split-data.md) do potoku, a następnie połącz go jako dane wejściowe z zestawem danych, który chcesz podzielić.
   
-1. W obszarze **tryb dzielenia**wybierz pozycję **wyrażenie względne**.
+1. W obszarze **tryb dzielenia** wybierz pozycję **wyrażenie względne**.
   
 1. W polu **wyrażenie relacyjne** wprowadź wyrażenie, które wykonuje operację porównania dla pojedynczej kolumny.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309603"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Tworzenie potoków ciągłej integracji/ciągłego wdrażania dla aplikacji AI przy użyciu Azure Pipelines, Docker i Kubernetes
@@ -60,7 +60,7 @@ Poniższy diagram i kroki opisują architekturę potoku CI/CD:
 10. Żądania użytkowników dla aplikacji przechodzą przez serwer DNS.
 11. Serwer DNS przekazuje żądania do modułu równoważenia obciążenia i wysyła odpowiedzi z powrotem do użytkowników.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Proces nauki o danych zespołowych (przetwarzania TDSP)](./index.yml)
 - [Azure Machine Learning (AML)](../index.yml)

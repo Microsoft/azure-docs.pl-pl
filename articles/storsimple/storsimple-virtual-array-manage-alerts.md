@@ -16,17 +16,17 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 12fcc9996697f3bbba35826d79bec238bfb0f8b3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993003"
 ---
-# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Używanie StorSimple Menedżer urządzeń do zarządzania alertami dla macierzy wirtualnej StorSimple
+# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Używanie StorSimple Device Manager do zarządzania alertami dla macierzy wirtualnej StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-Funkcja alertów w usłudze StorSimple Menedżer urządzeń umożliwia przeglądanie i czyszczenie alertów związanych z StorSimple wirtualnymi macierzy w czasie rzeczywistym. Możesz użyć alertów w bloku **Podsumowanie usługi** , aby centralnie monitorować problemy z kondycją macierzy wirtualnych StorSimple oraz ogólne rozwiązanie Microsoft Azure StorSimple.
+Funkcja alertów w usłudze StorSimple Device Manager umożliwia przeglądanie i czyszczenie alertów związanych z StorSimple wirtualnymi macierzy w czasie rzeczywistym. Możesz użyć alertów w bloku **Podsumowanie usługi** , aby centralnie monitorować problemy z kondycją macierzy wirtualnych StorSimple oraz ogólne rozwiązanie Microsoft Azure StorSimple.
 
 W tym samouczku opisano sposób konfigurowania powiadomień o alertach, typowych warunków alertów, poziomów ważności alertów oraz sposobu wyświetlania i śledzenia alertów. Oprócz tego zawiera tabele szybkich odwołań alertów, które umożliwiają szybkie lokalizowanie określonego alertu i odpowiednie reagowanie.
 
@@ -43,7 +43,7 @@ Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy po
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Aby włączyć powiadomienia e-mail dla alertów
 
-1. Przejdź do usługi StorSimple Menedżer urządzeń i w sekcji **Zarządzanie** wybierz pozycję **urządzenia**. Z wyświetlonej listy urządzeń wybierz i kliknij urządzenie.
+1. Przejdź do usługi StorSimple Device Manager i w sekcji **Zarządzanie** wybierz pozycję **urządzenia**. Z wyświetlonej listy urządzeń wybierz i kliknij urządzenie.
    
     ![Ustawienia alertu](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. Spowoduje to otwarcie bloku **Ustawienia** . W sekcji **Ustawienia urządzenia** wybierz pozycję **Ogólne**. Spowoduje to otwarcie bloku **Ustawienia ogólne** .
@@ -56,12 +56,12 @@ Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy po
    3. W polu **dodatkowi adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś \@ Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie wirtualne.
       
        ![Zrzut ekranu przedstawia szczegóły ustawień alertów z ustawieniami opisanymi w tym kroku.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
-   4. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Menedżer urządzeń będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
+   4. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Device Manager będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
       
        ![Zrzut ekranu przedstawia okno dialogowe z informacją weryfikującą testową wiadomość e-mail.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
-      > Jeśli nie można wysłać komunikatu z powiadomieniem o testach, w usłudze StorSimple Menedżer urządzeń zostanie wyświetlony odpowiedni komunikat. Kliknij przycisk **OK**, odczekaj kilka minut, a następnie spróbuj ponownie wysłać testową wiadomość e-mail.
+      > Jeśli nie można wysłać komunikatu z powiadomieniem o testach, w usłudze StorSimple Device Manager zostanie wyświetlony odpowiedni komunikat. Kliknij przycisk **OK**, odczekaj kilka minut, a następnie spróbuj ponownie wysłać testową wiadomość e-mail.
       >
       >
    5. W dolnej części strony kliknij pozycję **Zapisz** , aby zapisać konfigurację. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
@@ -72,7 +72,7 @@ Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy po
 
 Wirtualna macierz StorSimple generuje alerty w odpowiedzi na różne warunki. Poniżej przedstawiono najczęściej spotykane typy warunków alertów:
 
-* **Problemy z łącznością** — te alerty występują w przypadku trudności związanych z transferem danych. Problemy z komunikacją mogą wystąpić podczas transferu danych do i z konta usługi Azure Storage lub z powodu braku łączności między urządzeniami wirtualnymi a usługą StorSimple Menedżer urządzeń. Problemy z komunikacją są nieco trudne do rozwiązania, ponieważ istnieje wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać informacje o portach i ustawieniach zapory, przejdź do [StorSimple wirtualnej macierzy wirtualnych wymagania systemowe](storsimple-ova-system-requirements.md). Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection](./storsimple-8000-troubleshoot-deployment.md).
+* **Problemy z łącznością** — te alerty występują w przypadku trudności związanych z transferem danych. Problemy z komunikacją mogą wystąpić podczas transferu danych do i z konta usługi Azure Storage lub z powodu braku łączności między urządzeniami wirtualnymi a usługą StorSimple Device Manager. Problemy z komunikacją są nieco trudne do rozwiązania, ponieważ istnieje wiele punktów awarii. Przed kontynuowaniem bardziej zaawansowanego rozwiązywania problemów należy zawsze sprawdzić, czy łączność sieciowa i dostęp do Internetu są dostępne. Aby uzyskać informacje o portach i ustawieniach zapory, przejdź do [StorSimple wirtualnej macierzy wirtualnych wymagania systemowe](storsimple-ova-system-requirements.md). Aby uzyskać pomoc dotyczącą rozwiązywania problemów, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection](./storsimple-8000-troubleshoot-deployment.md).
 * **Problemy z wydajnością** — te alerty są generowane, gdy system nie działa optymalnie, na przykład gdy jest w dużym obciążeniu.
 
 Ponadto mogą pojawić się alerty związane z zabezpieczeniami, aktualizacjami lub niepowodzeńmi zadań.
@@ -87,7 +87,7 @@ Alerty mają różne poziomy ważności, w zależności od wpływu działania al
 
 ## <a name="view-and-track-alerts"></a>Wyświetlanie i śledzenie alertów
 
-Blok podsumowania usługi StorSimple Menedżer urządzeń zapewnia szybki przegląd liczby alertów na urządzeniach wirtualnych uporządkowanych według poziomu ważności.
+Blok podsumowania usługi StorSimple Device Manager zapewnia szybki przegląd liczby alertów na urządzeniach wirtualnych uporządkowanych według poziomu ważności.
 
 ![Pulpit nawigacyjny alertów](./media/storsimple-virtual-array-manage-alerts/alerts14.png)
 

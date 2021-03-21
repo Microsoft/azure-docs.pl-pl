@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74007862"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Samouczek: archiwizowanie dzienników usługi Azure AD na koncie usługi Azure Storage
@@ -40,7 +40,7 @@ Do korzystania z tej funkcji są potrzebne następujące elementy:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-2. Wybierz **Azure Active Directory**  >  **Activity**  >  **dzienniki inspekcji**aktywności. 
+2. Wybierz **Azure Active Directory**  >    >  **dzienniki inspekcji** aktywności. 
 
 3. Wybierz pozycję **Eksportuj ustawienia**. 
 
@@ -67,7 +67,7 @@ Do korzystania z tej funkcji są potrzebne następujące elementy:
 
 11. Wybierz pozycję **Zapisz**, aby zapisać ustawienie.
 
-    ![Ustawienia diagnostyczne](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
+    ![Ustawienia diagnostyki](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
 12. Po około 15 minutach sprawdź, czy dzienniki zostały wypchnięte na konto magazynu. Przejdź do witryny [Azure Portal](https://portal.azure.com), wybierz pozycję **Konta magazynu**, wybierz konto magazynu, które było używane wcześniej, i kliknij pozycję **Obiekty blob**. W przypadku **dzienników inspekcji** wybierz pozycję **insights-log-audit**. W przypadku **dzienników logowania** wybierz pozycję **insights-logs-signin**.
 

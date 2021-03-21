@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: alkemper
 ms.openlocfilehash: 5e4eeb37bb5efa11a656600072e4aa364fc71500
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96931796"
 ---
 # <a name="import-or-export-configuration-data"></a>Importowanie lub eksportowanie danych konfiguracji
@@ -28,7 +28,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
 1. Przejdź do magazynu konfiguracji aplikacji, a następnie wybierz pozycję **Importuj/Eksportuj** z menu **operacje** .
 
-1. Na karcie **Importowanie** wybierz pozycję plik **konfiguracji usługi źródłowej**  >  **Configuration File**.
+1. Na karcie **Importowanie** wybierz pozycję plik **konfiguracji usługi źródłowej**  >  .
 
 1. Wybierz pozycję **Język** i wybierz żądany typ danych wejściowych.
 
@@ -56,7 +56,7 @@ Eksportuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interf
 
 1. Opcjonalnie wprowadź **prefiks** i wybierz **etykietę** oraz punkt w czasie, który mają zostać wyeksportowane.
 
-1. Wybierz separator **typu pliku**  >  **Separator**.
+1. Wybierz separator **typu pliku**  >  .
 
 1. Wybierz pozycję **Zastosuj** , aby zakończyć eksport.
 

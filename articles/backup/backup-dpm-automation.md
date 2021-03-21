@@ -4,10 +4,10 @@ description: Dowiedz się, jak wdrażać Azure Backup dla Data Protection Manage
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 176cbffe5152462055c4ffdb2367cf9c0ab97c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90968293"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie kopii zapasowych serwerów Data Protection Manager (DPM) na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
@@ -183,7 +183,7 @@ Wszystkie modyfikacje są wprowadzane do tego lokalnego obiektu programu PowerSh
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Jeśli łączność maszyny programu DPM z usługą Azure Backup w Internecie odbywa się za pośrednictwem serwera proxy, należy zapewnić ustawienia serwera proxy dla udanych kopii zapasowych. W tym celu ```-ProxyServer``` należy użyć parametrów i ```-ProxyPort``` i ```-ProxyUsername``` ```ProxyPassword``` parametru z poleceniem cmdlet [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting) . W tym przykładzie nie ma serwera proxy, dlatego wszystkie informacje związane z serwerem proxy są wyraźnie wyczyszczone.
 

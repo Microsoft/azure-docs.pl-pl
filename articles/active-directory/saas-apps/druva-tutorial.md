@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
 ms.openlocfilehash: a7868d702ff3f1190d7f51e4ad7316508d453015
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Druva
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy|
     | ------------------- | -------------------- |
-    | emailAddress | User. email |
+    | emailAddress | user.email |
     | druva_auth_token | Token logowania jednokrotnego został wygenerowany z poziomu konsoli administratora o postaci DCP bez znaków cudzysłowu.  Na przykład: X-XXXXX-XXXX-S-A-M-P-L-E + TXOXKXEXNX =. Platforma Azure automatycznie dodaje znaki cudzysłowu wokół tokenu uwierzytelniania. |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.

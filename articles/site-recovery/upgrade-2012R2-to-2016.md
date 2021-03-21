@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
 ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91250073"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Uaktualnij system Windows Server Server/System Center 2012 R2 VMM do systemu Windows Server/VMM 2016 
@@ -42,10 +42,10 @@ Przed uaktualnieniem programu należy zwrócić uwagę na następujące kwestie:
 
 - Jeśli używasz programu System Center 2012 R2 VMM, 
 
-    - Sprawdź informacje o bazie danych w programie VMM: ustawienia **konsoli programu VMM**  ->  **settings**  ->  **Ogólne**  ->  **połączenie bazy danych**
+    - Sprawdź informacje o bazie danych w programie VMM: ustawienia **konsoli programu VMM**  ->    ->  **Ogólne**  ->  **połączenie bazy danych**
     - Sprawdź konta usług używane na potrzeby usługi Agent System Center Virtual Machine Manager
     - Upewnij się, że masz kopię zapasową bazy danych programu VMM.
-    - Zanotuj nazwę bazy danych serwerów programu SCVMM. Można to zrobić, przechodząc do ustawień **konsoli programu VMM**  ->  **Settings**  ->  **Ogólne**  ->  **połączenie bazy danych**
+    - Zanotuj nazwę bazy danych serwerów programu SCVMM. Można to zrobić, przechodząc do ustawień **konsoli programu VMM**  ->    ->  **Ogólne**  ->  **połączenie bazy danych**
     - Zanotuj identyfikator programu VMM zarówno z 2012R2 podstawowego, jak i serwera programu VMM odzyskiwania. Identyfikator programu VMM można znaleźć w rejestrze "HKLM: \ SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup".
     - Upewnij się, że nowe SCVMM dodawane do klastra mają takie same nazwy jak wcześniej. 
 
@@ -75,7 +75,7 @@ Przed uaktualnieniem hostów z systemem Windows Server 2012 R2 należy uaktualni
 
 1.  Odinstaluj dostawcę usługi ASR, przechodząc do panelu sterowania — > programy — > programy i funkcje — >Microsoft Azure Site Recovery, a następnie klikając pozycję Odinstaluj
 2. [Zachowaj bazę danych SCVMM i Uaktualnij system operacyjny](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#back-up-and-upgrade-the-operating-system)
-3. W obszarze **Dodaj/Usuń programy**wybierz pozycję Odinstaluj **programu VMM**  >  **Uninstall**. b. Wybierz pozycję **Usuń funkcje**, a następnie wybierz kolejno opcje**serwer zarządzania i konsola programu VMM**. c. W **opcji bazy danych**wybierz opcję **Zachowaj bazę danych**. d. Przejrzyj podsumowanie, a następnie kliknij przycisk **Odinstaluj**.
+3. W obszarze **Dodaj/Usuń programy** wybierz pozycję Odinstaluj **programu VMM**  >  . b. Wybierz pozycję **Usuń funkcje**, a następnie wybierz kolejno opcje **serwer zarządzania i konsola programu VMM**. c. W **opcji bazy danych** wybierz opcję **Zachowaj bazę danych**. d. Przejrzyj podsumowanie, a następnie kliknij przycisk **Odinstaluj**.
 
 4. [Instalowanie programu VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. Uruchom SCVMM i sprawdź stan każdego hosta na karcie sieci **szkieletowej** . Kliknij przycisk **Odśwież** , aby uzyskać najnowszy stan. Powinna zostać wyświetlona wartość status jako "wymaga uwagi". 

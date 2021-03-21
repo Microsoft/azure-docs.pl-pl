@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487691"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonu ARM
@@ -62,7 +62,7 @@ Ten szablon jest tworzony na potrzeby celów edukacyjnych. W ramach tej działal
 
 Jest to spowodowane tym, że wdrożenie próbuje utworzyć zestaw danych, zanim będzie można sfinalizować przypisanie roli platformy Azure. Mimo komunikatu o błędzie wdrożenie może się powieść. Nadal będzie można zapoznać się z [przeglądem wdrożonych zasobów](#review-deployed-resources).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon.
 
@@ -81,10 +81,10 @@ Jest to spowodowane tym, że wdrożenie próbuje utworzyć zestaw danych, zanim 
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Otwórz utworzone konto udostępniania danych.
 1. Z menu po lewej stronie wybierz pozycję **Wyślij udziały**.  Zobaczysz konto magazynu wymienione na liście.
-1. Wybierz konto magazynu.  W obszarze **szczegóły**zobaczysz ustawienie synchronizacji skonfigurowane w szablonie.
+1. Wybierz konto magazynu.  W obszarze **szczegóły** zobaczysz ustawienie synchronizacji skonfigurowane w szablonie.
 
     ![Ustawienia synchronizacji konta magazynu udziałów danych platformy Azure](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Wybierz pozycję **zaproszenia** z góry. Zobaczysz adres e-mail określony podczas wdrażania szablonu. **Stan** jest **oczekiwany**.

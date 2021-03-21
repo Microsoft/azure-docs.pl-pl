@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
 ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087829"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Zautomatyzowane zalecenia dotyczące Azure Cosmos DB
@@ -27,9 +27,9 @@ Zalecenia dotyczące Azure Cosmos DB można wyświetlić w następujący sposób
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Cosmos DB":::
 
-- Zalecenia można także znaleźć w [Azure Advisor](../advisor/advisor-overview.md) pogrupowane według różnych zasobników, takich jak koszt, zabezpieczenia, niezawodność, wydajność i doskonałości operacyjną. Można wybrać określone subskrypcje i filtrować według typu zasobu, który jest **Azure Cosmos DB kontami** .  Po wybraniu określonego zalecenia zostaną wyświetlone akcje, które można wykonać w celu skorzystania z obciążeń.
+- Zalecenia można także znaleźć w [Azure Advisor](../advisor/advisor-overview.md) pogrupowane według różnych zasobników, takich jak koszt, zabezpieczenia, niezawodność, wydajność i doskonałości operacyjną. Można wybrać określone subskrypcje i filtrować według typu zasobu, który jest **Azure Cosmos DB kontami**.  Po wybraniu określonego zalecenia zostaną wyświetlone akcje, które można wykonać w celu skorzystania z obciążeń.
 
-   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Cosmos DB":::
+   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Advisor":::
 
 Nie wszystkie zalecenia pokazane w okienku Azure Cosmos DB są dostępne na Azure Advisor i na odwrót. Dzieje się tak, ponieważ w zależności od typu zalecenia, które mieści się w okienku Azure Advisor, Azure Cosmos DB okienku lub obu tych elementów.
 

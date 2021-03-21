@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a78abea5bcc5925cb2e137d918c7217ae92b118e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044327"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure z poziomu wiersza polecenia
@@ -101,9 +101,9 @@ W tej sekcji utworzysz lokalną <abbr title="Kontener logiczny dla jednej lub ki
     
     <br/>   
     <details>  
-    <summary><strong>Opcjonalne: kod dla HttpExample.cs</strong></summary>  
+    <summary><strong>Opcjonalne: kod dla HttpExample. cs</strong></summary>  
     
-    *HttpExample.cs* zawiera `Run` metodę, która odbiera dane żądania w `req` zmiennej, jest identyfikatorem [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) , który jest uzupełniony o **HttpTriggerAttribute**, który definiuje zachowanie wyzwalacza.
+    *HttpExample. cs* zawiera `Run` metodę, która odbiera dane żądania w `req` zmiennej, jest identyfikatorem [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) , który jest uzupełniony o **HttpTriggerAttribute**, który definiuje zachowanie wyzwalacza.
 
     :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
         

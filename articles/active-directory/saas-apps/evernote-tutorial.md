@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 86a314cd5255c06a70d0f9b28d06e3ac4156fdb6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453837"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu programu Evernote
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. Wybierz opcję **podpisanie odpowiedzi SAML i potwierdzenie** dla **opcji podpisywania**.
 
-    b. Kliknij pozycję **Zapisz**
+    b. Kliknij pozycję **Zapisz**.
 
 1. W sekcji **Konfigurowanie programu Evernote** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 

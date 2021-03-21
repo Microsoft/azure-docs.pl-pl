@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
 ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87040246"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Dostęp do plików w łączniku usługi OneDrive i zarządzanie nimi za pomocą Azure Logic Apps
@@ -28,7 +28,7 @@ Aby dowiedzieć się więcej na temat Logic Apps, zobacz [co to są aplikacje lo
 
 ## <a name="connect-to-onedrive"></a>Łączenie z usługą OneDrive
 
-Zanim aplikacja logiki będzie mogła uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenie* z usługą. Połączenie zapewnia łączność między aplikacją logiki a inną usługą. Na przykład, aby połączyć się z usługą OneDrive, najpierw musisz mieć *połączenie*z usługą OneDrive. Aby utworzyć połączenie, wprowadź poświadczenia, które zwykle są używane w celu uzyskania dostępu do usługi, z którą chcesz nawiązać połączenie. Aby utworzyć połączenie, w usłudze OneDrive wprowadź poświadczenia dla konta usługi OneDrive.
+Zanim aplikacja logiki będzie mogła uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenie* z usługą. Połączenie zapewnia łączność między aplikacją logiki a inną usługą. Na przykład, aby połączyć się z usługą OneDrive, najpierw musisz mieć *połączenie* z usługą OneDrive. Aby utworzyć połączenie, wprowadź poświadczenia, które zwykle są używane w celu uzyskania dostępu do usługi, z którą chcesz nawiązać połączenie. Aby utworzyć połączenie, w usłudze OneDrive wprowadź poświadczenia dla konta usługi OneDrive.
 
 ### <a name="create-the-connection"></a>Tworzenie połączenia
 
@@ -50,7 +50,7 @@ Wyzwalacz to zdarzenie, którego można użyć do uruchomienia przepływu pracy 
 
    W tym przykładzie aplikacja logiki jest uruchamiana, gdy zostanie zaktualizowany plik w wybranym folderze. Aby wyświetlić wyniki tego wyzwalacza, Dodaj kolejną akcję, która wysyła wiadomość e-mail. Na przykład Dodaj akcję *Wyślij wiadomość e-mail* do programu Outlook w usłudze Office 365, gdy plik zostanie zaktualizowany.
 
-3. Wybierz przycisk **Edytuj** i ustaw wartości parametrów **częstotliwość** i **Interwał** . Na przykład jeśli wyzwalacz ma sondować co 15 minut, należy ustawić **częstotliwość** na **minutę**i ustawić **Interwał** na **15**. 
+3. Wybierz przycisk **Edytuj** i ustaw wartości parametrów **częstotliwość** i **Interwał** . Na przykład jeśli wyzwalacz ma sondować co 15 minut, należy ustawić **częstotliwość** na **minutę** i ustawić **Interwał** na **15**. 
 
    ![Okno dialogowe zatytułowane "Kiedy plik jest modyfikowany" pokazuje pięć pól z etykietą: "FOLDER", "częstotliwość", "interwał", "strefa CZASowa" i "godzina rozpoczęcia". Istnieją listy rozwijane dla pól "częstotliwość" i "strefa CZASowa".](./media/connectors-create-api-onedrive/trigger-properties.png)
 
@@ -60,7 +60,7 @@ Wyzwalacz to zdarzenie, którego można użyć do uruchomienia przepływu pracy 
 
 Akcja jest operacją wykonywaną przez przepływ pracy zdefiniowany w aplikacji logiki. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Wybierz znak plus. Zobaczysz kilka opcji: **Dodaj akcję**, **Dodaj warunek**lub jedną z opcji **więcej** .
+1. Wybierz znak plus. Zobaczysz kilka opcji: **Dodaj akcję**, **Dodaj warunek** lub jedną z opcji **więcej** .
 
    ![Zrzut ekranu przedstawia cztery przyciski: "+ nowy krok", "Dodaj akcję", "Dodaj warunek" i "... Więcej ".](./media/connectors-create-api-onedrive/add-action.png)
 
@@ -70,7 +70,7 @@ Akcja jest operacją wykonywaną przez przepływ pracy zdefiniowany w aplikacji 
 
    ![W oknie dialogowym zatytułowanym "Pokaż, że firma Microsoft zarządza A P" ma pole zawierające wartość "OneDrive". Poniżej znajduje się lista ośmiu akcji. Pierwszy jest "OneDrive-Create File" i jest wybrany.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
-4. W naszym przykładzie wybierz pozycję **OneDrive — Utwórz plik**. Jeśli połączenie już istnieje, wybierz **ścieżkę folderu** w celu umieszczenia pliku, wprowadź **nazwę pliku**i wybierz żądaną **zawartość pliku** :  
+4. W naszym przykładzie wybierz pozycję **OneDrive — Utwórz plik**. Jeśli połączenie już istnieje, wybierz **ścieżkę folderu** w celu umieszczenia pliku, wprowadź **nazwę pliku** i wybierz żądaną **zawartość pliku** :  
 
    ![Okno dialogowe zatytułowane "Utwórz plik" pokazuje trzy pola z etykietą "ścieżka folderu", "nazwa pliku" i "zawartość folderu". Obok pola "ścieżka folderu" znajduje się przycisk przeglądania katalogów.](./media/connectors-create-api-onedrive/sample-action.png)
 

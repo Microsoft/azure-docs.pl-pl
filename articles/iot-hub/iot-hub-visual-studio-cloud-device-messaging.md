@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74079489"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Użyj Eksploratora chmury dla programu Visual Studio, aby wysyłać i odbierać komunikaty między urządzeniem i IoT Hub
@@ -54,7 +54,7 @@ Składnik Cloud Explorer Instalator programu Visual Studio dla programu Visual S
 
 Aby uzyskać dostęp do centrum, wykonaj następujące kroki:
 
-1. W programie Visual Studio wybierz pozycję **Wyświetl**program  >  **Cloud Explorer** , aby otworzyć Eksploratora chmury.
+1. W programie Visual Studio wybierz pozycję **Wyświetl** program  >  **Cloud Explorer** , aby otworzyć Eksploratora chmury.
 
 1. Wybierz ikonę Zarządzanie kontem, aby wyświetlić subskrypcje.
 

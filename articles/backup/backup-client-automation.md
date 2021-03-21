@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak skonfigurować Azure Backup w syst
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987098"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
@@ -58,7 +58,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
 
 Użyj **Get-AzRecoveryServicesVault** , aby wyświetlić listę wszystkich magazynów w bieżącej subskrypcji. Możesz użyć tego polecenia, aby sprawdzić, czy został utworzony nowy magazyn, lub zobaczyć, które magazyny są dostępne w ramach subskrypcji.
 
-Uruchom polecenie **Get-AzRecoveryServicesVault**i wszystkie magazyny w subskrypcji zostaną wyświetlone na liście.
+Uruchom polecenie **Get-AzRecoveryServicesVault** i wszystkie magazyny w subskrypcji zostaną wyświetlone na liście.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -209,7 +209,7 @@ Server properties updated successfully.
 
 Dane kopii zapasowej wysyłane do Azure Backup są szyfrowane w celu ochrony poufności danych. Hasło szyfrowania to "hasło" do odszyfrowania danych w momencie przywracania.
 
-Należy wygenerować zabezpieczający numer PIN, wybierając pozycję **Generuj**, w obszarze właściwości **Ustawienia**  >  **Properties**  >  **zabezpieczenia numer PIN** w sekcji **Magazyn Recovery Services** w Azure Portal.
+Należy wygenerować zabezpieczający numer PIN, wybierając pozycję **Generuj**, w obszarze właściwości **Ustawienia**  >    >  **zabezpieczenia numer PIN** w sekcji **Magazyn Recovery Services** w Azure Portal.
 
 >[!NOTE]
 > KOD PIN zabezpieczeń można wygenerować tylko za pośrednictwem Azure Portal.

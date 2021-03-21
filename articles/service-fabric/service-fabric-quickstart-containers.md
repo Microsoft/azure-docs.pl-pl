@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87089621"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Szybki start: wdrażanie kontenerów systemu Windows do usługi Service Fabric
@@ -47,7 +47,7 @@ Wybierz **Service Fabric aplikację**, nadaj jej nazwę "MyFirstContainer", a na
 
 Wybierz pozycję **Kontener** z szablonów **Hostowane kontenery i aplikacje**.
 
-W polu **Nazwa obrazu**wprowadź wartość "MCR.Microsoft.com/Windows/ServerCore/IIS:windowsservercore-ltsc2016", podstawowy [obraz serwera Windows Server Core i usług IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis).
+W polu **Nazwa obrazu** wprowadź wartość "MCR.Microsoft.com/Windows/ServerCore/IIS:windowsservercore-ltsc2016", podstawowy [obraz serwera Windows Server Core i usług IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Skonfiguruj mapowanie portów kontenera typu „port do hosta” w taki sposób, aby żądania przychodzące do usługi na porcie 80 były mapowane na port 80 w kontenerze.  Ustaw wartość „80” dla pozycji **Port kontenera** i **Port hosta**.  
 

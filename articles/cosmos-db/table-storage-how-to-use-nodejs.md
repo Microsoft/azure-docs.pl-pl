@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079710"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
@@ -28,7 +28,7 @@ W tym artykule przedstawiono sposób tworzenia tabel, przechowywania danych i wy
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-**Utwórz konto usługi Azure Storage**
+**Tworzenie konta usługi Azure Storage**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
@@ -58,7 +58,7 @@ Aby użyć usługi Azure Storage lub Azure Cosmos DB, należy skorzystać z zest
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
    ```
 
-3. Możesz ręcznie uruchomić polecenie **ls** , aby sprawdzić, czy utworzono folder **node_modules** . Wewnątrz tego folderu znajduje się pakiet **azure-storage** zawierający biblioteki wymagane do uzyskiwania dostępu do magazynu.
+3. Możesz ręcznie uruchomić polecenie **ls**, aby sprawdzić, czy utworzono folder **node_modules**. Wewnątrz tego folderu znajduje się pakiet **azure-storage** zawierający biblioteki wymagane do uzyskiwania dostępu do magazynu.
 
 ### <a name="import-the-package"></a>Importowanie pakietu
 
@@ -82,7 +82,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
 
-Aby dodać połączenie Azure Cosmos DB, Utwórz `TableService` obiekt i określ nazwę konta, klucz podstawowy i punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Przykład:
+Aby dodać połączenie Azure Cosmos DB, Utwórz `TableService` obiekt i określ nazwę konta, klucz podstawowy i punkt końcowy. Można skopiować te wartości z   >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Na przykład:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -116,7 +116,7 @@ Można zastosować opcjonalne filtrowanie do operacji wykonywanych przy użyciu 
 function handle (requestOptions, next)
 ```
 
-Po zakończeniu przetwarzania wstępnego opcji żądań metoda musi wywołać element **next** , przekazując wywołanie zwrotne z następującą sygnaturą:
+Po zakończeniu przetwarzania wstępnego opcji żądań metoda musi wywołać element **next**, przekazując wywołanie zwrotne z następującą sygnaturą:
 
 ```javascript
 function (returnObject, finalCallback, next)
@@ -133,7 +133,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
 
-Aby dodać jednostkę, najpierw utwórz obiekt, który definiuje właściwości jednostki. Wszystkie jednostki muszą zawierać elementy **PartitionKey** i **RowKey** , które są unikatowymi identyfikatorami jednostki.
+Aby dodać jednostkę, najpierw utwórz obiekt, który definiuje właściwości jednostki. Wszystkie jednostki muszą zawierać elementy **PartitionKey** i **RowKey**, które są unikatowymi identyfikatorami jednostki.
 
 * **PartitionKey** — określa partycję, w której jest przechowywana jednostka.
 * **RowKey** — unikatowo identyfikuje jednostkę w partycji.
@@ -212,7 +212,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Domyślnie podczas aktualizowania jednostki nie odbywa się sprawdzenie, czy aktualizowane dane zostały wcześniej zmodyfikowane przez inny proces. Aby obsługiwać równoczesne aktualizacje:
 >
 > 1. Pobierz tag ETag aktualizowanego obiektu. Ten tag jest zwracany jako część elementu `response` dla dowolnej operacji powiązanej z jednostką i można go pobrać za pośrednictwem elementu `response['.metadata'].etag`.
-> 2. Podczas wykonywania operacji aktualizowania jednostki dodaj informacje tagu ETag wcześniej pobrane do nowej jednostki. Przykład:
+> 2. Podczas wykonywania operacji aktualizowania jednostki dodaj informacje tagu ETag wcześniej pobrane do nowej jednostki. Na przykład:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Wykonaj operację aktualizacji. Jeśli jednostka została zmodyfikowana od czasu pobrania wartości tagu ETag, takiej jak inne wystąpienie aplikacji, element `error` jest zwracany wraz z informacją o tym, że warunek aktualizacji określony w żądaniu nie został spełniony.
@@ -269,7 +269,7 @@ Operacje dodane do partii można sprawdzić, wyświetlając właściwość `oper
 
 ## <a name="retrieve-an-entity-by-key"></a>Pobieranie jednostek według klucza
 
-Aby zwrócić określoną jednostkę na podstawie elementów **PartitionKey** i **RowKey** , użyj metody **retrieveEntity** .
+Aby zwrócić określoną jednostkę na podstawie elementów **PartitionKey** i **RowKey**, użyj metody **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -300,7 +300,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Ponieważ klauzula **select** nie jest używana, są zwracane wszystkie pola. Aby wykonać zapytanie dotyczące tabeli, należy użyć elementu **queryEntities** . W poniższym przykładzie użyto tego zapytania w celu zwrócenia jednostek z tabeli „mytable”.
+Ponieważ klauzula **select** nie jest używana, są zwracane wszystkie pola. Aby wykonać zapytanie dotyczące tabeli, należy użyć elementu **queryEntities**. W poniższym przykładzie użyto tego zapytania w celu zwrócenia jednostek z tabeli „mytable”.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -315,7 +315,7 @@ W przypadku powodzenia element `result.entries` będzie zawierać tablicę jedno
 ### <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
 
 Za pomocą zapytania wykonywanego względem tabeli można pobrać tylko kilka pól z jednostki.
-Redukuje to przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Użyj klauzuli **select** i przekaż nazwy pól do zwrócenia. Na przykład poniższe zapytanie zwraca tylko wartości pól **description** i **dueDate** .
+Redukuje to przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek. Użyj klauzuli **select** i przekaż nazwy pól do zwrócenia. Na przykład poniższe zapytanie zwraca tylko wartości pól **description** i **dueDate**.
 
 ```javascript
 var query = new azure.TableQuery()
@@ -326,7 +326,7 @@ var query = new azure.TableQuery()
 
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
 
-Jednostkę można usunąć za pomocą kluczy partycji i wierszy. W tym przykładzie obiekt **task1** zawiera wartości **RowKey** i **PartitionKey** jednostki do usunięcia. Następnie obiekt jest przekazywany do metody **deleteEntity** .
+Jednostkę można usunąć za pomocą kluczy partycji i wierszy. W tym przykładzie obiekt **task1** zawiera wartości **RowKey** i **PartitionKey** jednostki do usunięcia. Następnie obiekt jest przekazywany do metody **deleteEntity**.
 
 ```javascript
 var task = {
@@ -358,7 +358,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Jeśli nie masz pewności, czy tabela istnieje, użyj metody **deleteTableIfExists** .
+Jeśli nie masz pewności, czy tabela istnieje, użyj metody **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Korzystanie z tokenów kontynuacji
 
@@ -456,7 +456,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-W poniższym przykładzie bieżąca lista ACL jest pobierana do tabeli **hometasks** , a następnie następuje dodanie nowych zasad za pomocą elementu **setTableAcl** . W przypadku takiego podejścia:
+W poniższym przykładzie bieżąca lista ACL jest pobierana do tabeli **hometasks**, a następnie następuje dodanie nowych zasad za pomocą elementu **setTableAcl**. W przypadku takiego podejścia:
 
 ```javascript
 var extend = require('extend');
