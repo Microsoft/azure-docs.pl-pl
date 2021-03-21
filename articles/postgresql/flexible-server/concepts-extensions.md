@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/17/2021
+ms.openlocfilehash: 998154376895d8bcfc7cf36665a6a36f5c43e3b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454593"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594992"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Rozszerzenia PostgreSQL na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -128,7 +128,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink i postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) i [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) umożliwiają łączenie się z jednego serwera PostgreSQL z innym lub z inną bazą danych na tym samym serwerze. Serwer wysyłający musi zezwalać na połączenia wychodzące z serwerem otrzymującym. Serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) i [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) umożliwiają łączenie się z jednego serwera PostgreSQL z innym lub z inną bazą danych na tym samym serwerze. Elastyczny serwer obsługuje połączenia przychodzące i wychodzące do dowolnego serwera PostgreSQL. Serwer wysyłający musi zezwalać na połączenia wychodzące z serwerem otrzymującym. Podobnie serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego. 
 
 Zalecamy wdrożenie serwerów z [integracją sieci wirtualnej](concepts-networking.md) , jeśli planujesz używać tych dwóch rozszerzeń. Domyślnie Integracja sieci wirtualnej umożliwia nawiązywanie połączeń między serwerami w sieci wirtualnej. Aby dostosować dostęp, można również użyć [grup zabezpieczeń sieci wirtualnej](../../virtual-network/manage-network-security-group.md) .
 

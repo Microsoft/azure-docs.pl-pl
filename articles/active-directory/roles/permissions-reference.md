@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c327154e2f4eae735e7078be3b057b1d8cf1c5
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490878"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585319"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
@@ -1415,7 +1415,7 @@ Rola [administrator zasad uwierzytelniania](#authentication-policy-administrator
 
 
 > [!IMPORTANT]
-> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) polecenia cmdlet.
+> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) polecenia cmdlet.
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |

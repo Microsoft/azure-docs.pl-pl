@@ -2,28 +2,28 @@
 title: Nawiązywanie połączenia z dedykowaną pulą SQL (dawniej SQL DW) za pomocą VSTS
 description: Wykonaj zapytanie dotyczące dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu programu Visual Studio.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/15/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b81ddedbcb254a840e85d41cf9d69c78b149bbd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0baf2396b7c5af103f0b3aa223d0bccf725babbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121400"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584146"
 ---
 # <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu programu Visual Studio i SSDT
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
-> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 

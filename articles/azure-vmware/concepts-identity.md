@@ -2,23 +2,23 @@
 title: Pojęcia — tożsamość i dostęp
 description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/18/2021
+ms.openlocfilehash: 07a7ac8093524ef4240b8f7607d649520b9439e1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364889"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586254"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
-Chmury prywatne rozwiązań VMware platformy Azure są obsługiwane za pomocą programu vCenter Server i Menedżera NSX-T. Program vCenter służy do zarządzania obciążeniami maszyny wirtualnej. Aby zwiększyć chmurę prywatną, należy użyć Menedżera NSX-T.
+Chmury prywatne rozwiązań VMware platformy Azure są obsługiwane za pomocą programu vCenter Server i Menedżera NSX-T. Program vCenter służy do zarządzania obciążeniami maszyny wirtualnej. Menedżer NSX-T służy do zarządzania i zwiększania sieci prywatnej chmury.
 
-Zarządzanie dostępem i tożsamościami używa uprawnień grupy CloudAdmin dla programu vCenter i ograniczonych uprawnień administratora dla Menedżera NSX-T. Dzięki temu platforma chmury prywatnej jest automatycznie uaktualniana z najnowszymi funkcjami i poprawkami.  Aby uzyskać więcej informacji, zobacz artykuł dotyczący [pojęć dotyczących uaktualnień w chmurze prywatnej][concepts-upgrades].
+Dostęp do programu vCenter i zarządzanie tożsamościami odbywa się przy użyciu uprawnień grupy Build CloudAdmin. Menedżer NSX-T używa ograniczonych uprawnień administratora. Ma to charakter usługi zarządzanej i zapewnia, że Twoja Platforma chmury prywatnej jest uaktualniana z najnowszymi funkcjami i poprawkami, zgodnie z oczekiwaniami.  Aby uzyskać więcej informacji, zobacz artykuł dotyczący [pojęć dotyczących uaktualnień w chmurze prywatnej][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>dostęp i tożsamość vCenter
 
-Grupa CloudAdmin zapewnia uprawnienia w programie vCenter. Zarządzasz grupą lokalnie w programie vCenter. Kolejną opcją jest integracja logowania jednokrotnego w usłudze vCenter LDAP przy użyciu Azure Active Directory. Integrację należy włączyć po wdrożeniu chmury prywatnej. 
+Grupa vCenter CloudAdmin definiuje i udostępnia uprawnienia w programie vCenter. Innym rozwiązaniem jest zapewnienie dostępu i tożsamości poprzez integrację logowania jednokrotnego usługi vCenter LDAP przy użyciu Azure Active Directory. Integrację należy włączyć po wdrożeniu chmury prywatnej. 
 
 W tabeli przedstawiono uprawnienia **CloudAdmin** i **CloudGlobalAdmin** .
 
@@ -49,7 +49,7 @@ W tabeli przedstawiono uprawnienia **CloudAdmin** i **CloudGlobalAdmin** .
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Dostęp i tożsamość menedżera NSX-T
 
-Użyj konta *administratora* , aby uzyskać dostęp do Menedżera NSX-T. Ma pełne uprawnienia i umożliwia tworzenie bram (T1), segmentów (przełączników logicznych) i wszystkich usług oraz zarządzanie nimi. Uprawnienia zapewniają dostęp do bramy NSX-T warstwy 0 (T0). Zmiana bramy "T0" może spowodować spadek wydajności sieci lub brak dostępu do chmury prywatnej. Otwórz żądanie obsługi w Azure Portal, aby zażądać wszelkich zmian w bramie "T0" NSX-T.
+Użyj konta *administratora* , aby uzyskać dostęp do Menedżera NSX-T. Ma pełne uprawnienia i umożliwia tworzenie bram (T1), segmentów (przełączników logicznych) i wszystkich usług oraz zarządzanie nimi. To konto zapewnia również dostęp do bramy NSX-T warstwy 0 (T0). Pamiętaj o wprowadzeniu takich zmian, ponieważ może to spowodować spadek wydajności sieci lub brak dostępu do chmury prywatnej. Otwórz żądanie obsługi w Azure Portal, aby zażądać wszelkich zmian w bramie "T0" NSX-T.
   
 ## <a name="next-steps"></a>Następne kroki
 

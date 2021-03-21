@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548254"
 ---
 # <a name="notification-hubs-security"></a>Zabezpieczenia Notification Hubs
@@ -64,7 +64,7 @@ Użyj zasad dostępu na poziomie przestrzeni nazw (poświadczeń) dla operacji n
 
 Aby utworzyć nowe zabezpieczenia lub wyświetlić istniejące klucze SAS, wykonaj następujące czynności:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Wybierz pozycję **Wszystkie zasoby**.
 3. Wybierz nazwę centrum powiadomień, dla którego chcesz utworzyć lub wyświetlić klucz sygnatury dostępu współdzielonego.
 4. W menu po lewej stronie wybierz pozycję **zasady dostępu**.

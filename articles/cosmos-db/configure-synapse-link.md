@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222619"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584588"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Konfigurowanie i używanie usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -23,6 +23,7 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
 * [Włącz link Synapse dla kont Azure Cosmos DB](#enable-synapse-link)
 * [Tworzenie Azure Cosmos DB kontenerów z włączonym magazynem analitycznym](#create-analytical-ttl)
+* [Opcjonalna — aktualizacja czasu wygaśnięcia dla magazynu analitycznego dla kontenera Azure Cosmos DB](#update-analytical-ttl)
 * [Łączenie bazy danych Azure Cosmos DB z obszarem roboczym Synapse](#connect-to-cosmos-database)
 * [Zbadaj magazyn analityczny za pomocą Synapse Spark](#query-analytical-store-spark)
 * [Zbadaj magazyn analityczny za pomocą puli SQL bezserwerowej](#query-analytical-store-sql-on-demand)
@@ -32,7 +33,7 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto platformy Azure](create-sql-api-dotnet.md#create-account)lub Wybierz istniejące konto Azure Cosmos DB.
 
@@ -50,6 +51,21 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
 > [!NOTE]
 > Włączenie linku Synapse nie powoduje automatycznego włączenia magazynu analitycznego. Po włączeniu linku Synapse na koncie Cosmos DB Włącz magazyn analityczny w kontenerach podczas ich tworzenia, aby rozpocząć replikację danych operacji do magazynu analitycznego. 
+
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+Następujące linki pokazują, jak włączyć link Synapse przy użyciu interfejsu wiersza polecenia platformy Azure:
+
+* [Utwórz nowe konto Azure Cosmos DB z włączonym linkiem Synapse](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters&preserve-view=true)
+* [Aktualizowanie istniejącego konta Azure Cosmos DB w celu włączenia linku Synapse](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+* [Utwórz nowe konto Azure Cosmos DB z włączonym linkiem Synapse](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description&preserve-view=true)
+* [Aktualizowanie istniejącego konta Azure Cosmos DB w celu włączenia linku Synapse](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0&preserve-view=true)
+
+
+Poniższe linki pokazują, jak włączyć link Synapse za pomocą programu PowerShell:
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Tworzenie kontenera usługi Azure Cosmos z magazynem analitycznym
 
@@ -159,11 +175,27 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Aktualizuj czas trwania magazynu analitycznego
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Po włączeniu magazynu analitycznego z określoną wartością czasu wygaśnięcia (TTL) można później zaktualizować tę wartość do innej prawidłowej wartości. Można zaktualizować tę wartość przy użyciu witryny Azure Portal lub zestawów SDK. Aby uzyskać informacje o różnych opcjach analitycznych konfiguracji czasu wygaśnięcia (TTL), zobacz artykuł [analityczne obsługiwane wartości czasu wygaśnięcia (TTL)](analytical-store-introduction.md#analytical-ttl) .
+Poniższe linki pokazują, jak utworzyć kontenery obsługujące magazyn analityczny przy użyciu interfejsu wiersza polecenia platformy Azure:
 
-#### <a name="azure-portal"></a>Azure Portal
+* [Azure Cosmos DB API dla usługi Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
+* [Azure Cosmos DB — interfejs SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+Poniższe linki pokazują, jak utworzyć kontenery obsługujące magazyn analityczny przy użyciu programu PowerShell:
+
+* [Azure Cosmos DB API dla usługi Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
+* [Azure Cosmos DB — interfejs SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+
+## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Opcjonalne — Aktualizuj czas trwania magazynu analitycznego
+
+Po włączeniu magazynu analitycznego z określoną wartością TTL można później zaktualizować go do innej prawidłowej wartości. Możesz zaktualizować wartość przy użyciu zestawów SDK Azure Portal, interfejsu wiersza polecenia platformy Azure, programu PowerShell lub Cosmos DB. Aby uzyskać informacje o różnych opcjach analitycznych konfiguracji czasu wygaśnięcia (TTL), zobacz artykuł [analityczne obsługiwane wartości czasu wygaśnięcia (TTL)](analytical-store-introduction.md#analytical-ttl) .
+
+
+### <a name="azure-portal"></a>Azure Portal
 
 Jeśli utworzono kontener z włączonym magazynem analitycznym za pomocą Azure Portal, zawiera on domyślny analityczny czas wygaśnięcia wynoszący-1. Aby zaktualizować tę wartość, wykonaj następujące kroki:
 
@@ -178,7 +210,7 @@ Jeśli utworzono kontener z włączonym magazynem analitycznym za pomocą Azure 
   * Wybierz pozycję **Włączony (brak wartości domyślnej)** lub wybierz pozycję **Włączony** i ustaw wartość TTL.
   * Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
-#### <a name="net-sdk"></a>Zestaw SDK .NET
+### <a name="net-sdk"></a>Zestaw SDK .NET
 
 Poniższy kod przedstawia sposób aktualizowania czasu wygaśnięcia dla magazynu analitycznego przy użyciu zestawu .NET SDK:
 
@@ -190,7 +222,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-#### <a name="java-v4-sdk"></a>Zestaw SDK Java v4
+### <a name="java-v4-sdk"></a>Zestaw SDK Java v4
 
 Poniższy kod przedstawia sposób aktualizowania czasu wygaśnięcia dla magazynu analitycznego za pomocą zestawu SDK języka Java v4:
 
@@ -203,6 +235,26 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 // Update container settings
 container.replace(containerProperties).block();
 ```
+
+### <a name="python-v4-sdk"></a>Zestaw SDK języka Python v4
+
+Obecnie nieobsługiwane.
+
+
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+Poniższe linki pokazują, jak aktualizować czasowo wartość TTL dla kontenerów za pomocą interfejsu wiersza polecenia platformy Azure:
+
+* [Azure Cosmos DB API dla usługi Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
+* [Azure Cosmos DB — interfejs SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+Poniższe linki pokazują, jak aktualizować analityczne wartości czasu wygaśnięcia dla kontenerów za pomocą programu PowerShell:
+
+* [Azure Cosmos DB API dla usługi Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
+* [Azure Cosmos DB — interfejs SQL API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Nawiązywanie połączenia z obszarem roboczym Synapse
 
@@ -234,7 +286,7 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Link Synapse platformy Azure dla Azure Cosmos DB.](synapse-link.md)
 
-* [Azure Cosmos DB Omówienie magazynu analitycznego.](analytical-store-introduction.md)
+* [Omówienie magazynu analitycznego usługi Azure Cosmos DB.](analytical-store-introduction.md)
 
 * [Często zadawane pytania dotyczące Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 

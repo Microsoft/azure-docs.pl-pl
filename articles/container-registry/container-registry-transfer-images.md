@@ -4,12 +4,12 @@ description: Przenoszenie kolekcji obrazów lub innych artefaktów z jednego rej
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 30e6c0fa7a33c7a83543fee297c582b15bce4c8b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935342"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606773"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
 
@@ -426,7 +426,8 @@ az resource delete \
   * Nie wszystkie artefakty, ani żadne nie są transferowane. Potwierdź pisownię artefaktów w przebiegu eksportu i nazwę obiektu BLOB w ramach przebiegów eksportu i importu. Potwierdź, że przesyłasz maksymalnie 50 artefaktów.
   * Uruchomienie potoku mogło nie zostać zakończone. Przebieg eksportu lub importu może zająć trochę czasu. 
   * W przypadku innych problemów z potokiem Podaj [Identyfikator korelacji](../azure-resource-manager/templates/deployment-history.md) wdrożenia przebiegu eksportowania lub import do zespołu Azure Container Registry.
-
+* **Problemy z pobieraniem obrazu w środowisku fizycznie izolowanym**
+  * Jeśli widzisz błędy dotyczące warstw obcych lub podjęto próbę rozwiązania mcr.microsoft.com podczas próby ściągnięcia obrazu w środowisku fizycznie izolowanym, manifest obrazu może mieć warstwy niedystrybucyjne. Ze względu na charakter środowiska izolowanego fizycznie te obrazy często nie będą ściągane. Można potwierdzić, że jest to przypadek, sprawdzając manifest obrazu dla wszelkich odwołań do rejestrów zewnętrznych. W takim przypadku konieczne będzie wypchnięcie warstw nienależących do chmury publicznej ACR przed wdrożeniem potoku eksportu — Uruchom dla tego obrazu. Aby uzyskać wskazówki na ten temat, zobacz [Jak mogę wypychania niedystrybuowanych warstw do rejestru?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## <a name="next-steps"></a>Następne kroki
 

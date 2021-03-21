@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672278"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607419"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Oszczędność kosztów dzięki dedykowanym zastrzeżeń hosta na platformie Azure
 
@@ -29,7 +29,7 @@ Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z syste
 
 Następnie sprawdź, czy jest on obsługiwany na dedykowanych hostach platformy Azure. Na stronie [cennika dedykowanych hostów platformy Azure](https://aka.ms/ADHPricing) znajduje się kompletna lista jednostek SKU dedykowanych hostów, ich informacji o procesorach i różnych opcji cenowych (w tym wystąpień zarezerwowanych).
 
-Możesz znaleźć kilka jednostek SKU obsługujących serię maszyn wirtualnych (z różnymi typami). Zidentyfikuj najlepszą jednostkę SKU, porównując pojemność hosta (liczbę procesorów wirtualnych vCPU). Należy pamiętać, że będzie można zastosować rezerwację do wielu jednostek SKU dedykowanych hostów obsługujących tę samą serię maszyn wirtualnych (na przykład DSv3_Type1 i DSv3_Type2), ale nie między różnymi seriami maszyn wirtualnych (np. DSv3 i ESv3).
+Niektóre jednostki SKU obsługujące wybraną serię maszyn wirtualnych można znaleźć (z różnymi typami). Zidentyfikuj najlepszą jednostkę SKU, porównując pojemność hosta (liczbę procesorów wirtualnych vCPU). Należy pamiętać, że będzie można zastosować rezerwację do wielu jednostek SKU dedykowanych hostów obsługujących tę samą serię maszyn wirtualnych (na przykład DSv3_Type1 i DSv3_Type2), ale nie między różnymi seriami maszyn wirtualnych (np. DSv3 i ESv3).
 
 
 

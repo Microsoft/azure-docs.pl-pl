@@ -12,10 +12,10 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2600ea3488c643bcf215b058425de42cd439dcff
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98660271"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Skonfiguruj konto i zaloguj się przy użyciu zasad niestandardowych w Azure AD B2C
@@ -24,7 +24,7 @@ Rejestracja i logowanie za pomocą telefonu w Azure Active Directory B2C (Azure 
 
 Wykonaj kroki opisane w tym artykule, aby użyć zasad niestandardowych, aby umożliwić klientom rejestrowanie się i logowanie się do aplikacji przy użyciu hasła jednorazowego wysyłanego do telefonu.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Hasła jednorazowe są wysyłane do użytkowników za pomocą wiadomości SMS i mogą być naliczone za każdy wysłany komunikat. Aby uzyskać informacje o cenach, zapoznaj się z sekcją **oddzielne opłaty** w [cenniku Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
@@ -142,7 +142,7 @@ Możesz znaleźć użytkownika według numeru telefonu (nazwy logowania), korzys
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-Przykład:
+Na przykład:
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

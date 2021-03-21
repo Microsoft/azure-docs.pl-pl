@@ -2,14 +2,14 @@
 title: Jak wyłączyć funkcje w Azure Functions
 description: Dowiedz się, jak wyłączyć i włączyć funkcje w Azure Functions.
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cbb84308507ea15f1c44c00122a9a59472f12a88
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1ad484804f66a2e2d4d0f1da4a37cf0d6c485f38
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551047"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584741"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w Azure Functions
 
@@ -20,13 +20,26 @@ Zalecanym sposobem wyłączenia funkcji jest ustawienie aplikacji w formacie `Az
 > [!NOTE]  
 > Po wyłączeniu funkcji wyzwalanej przez protokół HTTP przy użyciu metod opisanych w tym artykule punkt końcowy może nadal być dostępny, gdy działa na komputerze lokalnym.  
 
-## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+## <a name="disable-a-function"></a>Wyłączanie funkcji
 
-W interfejsie wiersza polecenia platformy Azure można użyć [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) polecenie, aby utworzyć i zmodyfikować ustawienie aplikacji. Następujące polecenie wyłącza funkcję o nazwie `QueueTrigger` przez utworzenie ustawienia aplikacji o nazwie `AzureWebJobs.QueueTrigger.Disabled` Ustaw ją na `true` . 
+# <a name="portal"></a>[Portal](#tab/portal)
+
+Użyj przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` Ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone po raz pierwszy. 
+
+![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
+
+Nawet w przypadku publikowania w aplikacji funkcji z projektu lokalnego można nadal używać portalu do wyłączania funkcji w aplikacji funkcji. 
+
+> [!NOTE]  
+> Funkcja testowania zintegrowanego z portalem ignoruje `Disabled` ustawienie. Oznacza to, że wyłączona funkcja nadal działa po uruchomieniu z okna **testowego** w portalu. 
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
+
+W interfejsie wiersza polecenia platformy Azure można użyć [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) polecenie, aby utworzyć i zmodyfikować ustawienie aplikacji. Następujące polecenie wyłącza funkcję o nazwie `QueueTrigger` przez utworzenie ustawienia aplikacji o nazwie `AzureWebJobs.QueueTrigger.Disabled` i ustawienie jej na `true` . 
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <myFunctionApp> \
---resource-group <myResourceGroup> \
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
@@ -38,16 +51,55 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=false
 ```
 
-## <a name="use-the-portal"></a>Korzystanie z portalu
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Można również użyć przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` Ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone po raz pierwszy. 
+[`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting)Polecenie dodaje lub aktualizuje ustawienie aplikacji. Następujące polecenie wyłącza funkcję o nazwie `QueueTrigger` przez utworzenie ustawienia aplikacji o nazwie `AzureWebJobs.QueueTrigger.Disabled` i ustawienie jej na `true` . 
 
-![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "true"}
+```
 
-Nawet w przypadku publikowania w aplikacji funkcji z projektu lokalnego można nadal używać portalu do wyłączania funkcji w aplikacji funkcji. 
+Aby ponownie włączyć funkcję, należy ponownie uruchomić to samo polecenie o wartości `false` .
 
-> [!NOTE]  
-> Funkcja testowania zintegrowanego z portalem ignoruje `Disabled` ustawienie. Oznacza to, że wyłączona funkcja nadal działa po uruchomieniu z okna **testowego** w portalu. 
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "false"}
+```
+---
+
+## <a name="functions-in-a-slot"></a>Funkcje w gnieździe
+
+Domyślnie ustawienia aplikacji mają zastosowanie również do aplikacji uruchamianych w miejscach wdrożenia. Można jednak zastąpić ustawienie aplikacji używane przez gniazdo, ustawiając ustawienie aplikacji specyficzne dla gniazda. Na przykład może być wymagana aktywna funkcja w środowisku produkcyjnym, ale nie podczas testowania wdrożenia, takich jak funkcja wyzwalana przez czasomierz. 
+
+Aby wyłączyć funkcję tylko w miejscu przejściowym:
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+Przejdź do wystąpienia gniazda aplikacji funkcji, wybierając pozycję miejsca **wdrożenia** w obszarze **wdrażanie**, wybierając miejsce i wybierając pozycję **funkcje** w wystąpieniu gniazda.  Wybierz funkcję, a następnie użyj przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` Ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone po raz pierwszy. 
+
+Można również bezpośrednio dodać ustawienie aplikacji o nazwie `AzureWebJobs.<FUNCTION_NAME>.Disabled` za pomocą wartości `true` w **konfiguracji** wystąpienia gniazda. Po dodaniu ustawienia aplikacji dotyczącej gniazda upewnij się, że jest zaznaczone pole **Ustawienia miejsce wdrożenia** . Pozwala to zachować wartość ustawienia w gnieździe podczas zamiany.
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+Aby ponownie włączyć funkcję, należy ponownie uruchomić to samo polecenie o wartości `false` .
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Azure PowerShell obecnie nie obsługuje tej funkcji.
+
+---
+
+Aby dowiedzieć się więcej, zobacz [Azure Functions miejsc wdrożenia](functions-deployment-slots.md).
 
 ## <a name="localsettingsjson"></a>local.settings.json
 

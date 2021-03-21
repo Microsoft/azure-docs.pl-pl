@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555237"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Konfigurowanie dostawcy tożsamości konta lokalnego
@@ -61,7 +61,7 @@ Uwierzytelnianie bez hasła jest typem uwierzytelniania, w którym użytkownik n
 
 ![Rejestrowanie lub logowanie na telefonie](./media/identity-provider-local/local-account-phone-experience.png)
 
-### <a name="pricing"></a>Cennik
+### <a name="pricing"></a>Ceny
 
 Hasła jednorazowe są wysyłane do użytkowników za pomocą wiadomości SMS. W zależności od operatora sieci komórkowej może zostać naliczona opłata za każdy wysłany komunikat. Aby uzyskać informacje o cenach, zapoznaj się z sekcją **oddzielne opłaty** w [cenniku Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 

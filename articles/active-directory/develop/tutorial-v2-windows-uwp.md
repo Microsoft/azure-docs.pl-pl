@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
 ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102652"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (platformy UWP)
@@ -105,9 +105,9 @@ Program Visual Studio tworzy *MainPage. XAML* jako część szablonu projektu. O
 
 ### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Korzystanie z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph
 
-W tej sekcji przedstawiono sposób korzystania z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph. Wprowadź zmiany w pliku *MainPage.XAML.cs* .
+W tej sekcji przedstawiono sposób korzystania z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph. Wprowadź zmiany w pliku *MainPage. XAML. cs* .
 
-1. W *MainPage.XAML.cs* Dodaj następujące odwołania:
+1. W *MainPage. XAML. cs* Dodaj następujące odwołania:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -239,7 +239,7 @@ Ostatecznie `AcquireTokenSilent` Metoda kończy się niepowodzeniem. Przyczyny n
 
 ### <a name="instantiate-the-microsoft-graph-service-client-by-obtaining-the-token-from-the-signinuserandgettokenusingmsal-method"></a>Tworzenie wystąpienia Microsoft Graph klienta usługi przez uzyskanie tokenu z metody SignInUserAndGetTokenUsingMSAL
 
-Dodaj następującą nową metodę do *MainPage.XAML.cs*:
+Dodaj następującą nową metodę do *MainPage. XAML. cs*:
 
 ```csharp
       /// <summary>
@@ -264,7 +264,7 @@ W tej przykładowej aplikacji `GetGraphServiceClient` Metoda tworzy wystąpienie
 
 ### <a name="add-a-method-to-sign-out-the-user"></a>Dodawanie metody w celu wylogowania użytkownika
 
-Aby wylogować użytkownika, Dodaj następującą metodę do *MainPage.XAML.cs*:
+Aby wylogować użytkownika, Dodaj następującą metodę do *MainPage. XAML. cs*:
 
 ```csharp
 /// <summary>
@@ -302,7 +302,7 @@ Aplikacja w tym przykładzie obsługuje jednego użytkownika. Biblioteka uwierzy
 
 ### <a name="display-basic-token-information"></a>Wyświetl podstawowe informacje o tokenie
 
-Dodaj następującą metodę do *MainPage.XAML.cs* , aby wyświetlić podstawowe informacje o tokenie:
+Dodaj następującą metodę do *MainPage. XAML. cs* , aby wyświetlić podstawowe informacje o tokenie:
 
 ```csharp
 /// <summary>
@@ -325,7 +325,7 @@ Tokeny identyfikatorów nabyte za pomocą programu **OpenID Connect Connect** r�
 
 ### <a name="display-message"></a>Wyświetl komunikat
 
-Dodaj następującą nową metodę do *MainPage.XAML.cs*:
+Dodaj następującą nową metodę do *MainPage. XAML. cs*:
 
 ```csharp
 /// <summary>
@@ -352,7 +352,7 @@ Teraz Zarejestruj aplikację:
 1. Wprowadź **nazwę** aplikacji, na przykład `UWP-App-calling-MSGraph` . Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę i można ją później zmienić.
 1. W obszarze **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**. 
 1. Wybierz pozycję **Zarejestruj**.
-1. Na stronie Przegląd Znajdź wartość **Identyfikator aplikacji (klienta)** i skopiuj ją. Wróć do programu Visual Studio, Otwórz *MainPage.XAML.cs* i Zastąp wartość `ClientId` tą wartością.
+1. Na stronie Przegląd Znajdź wartość **Identyfikator aplikacji (klienta)** i skopiuj ją. Wróć do programu Visual Studio, Otwórz *MainPage. XAML. cs* i Zastąp wartość `ClientId` tą wartością.
 
 Skonfiguruj uwierzytelnianie dla aplikacji:
 
@@ -385,7 +385,7 @@ Aby włączyć zintegrowane uwierzytelnianie systemu Windows, gdy jest on używa
 
 W bieżącym przykładzie `WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")` Metoda jest używana. Aby użyć programu `WithDefaultRedirectURI()` , wykonaj następujące kroki:
 
-1. W *MainPage.XAML.cs*, Zamień `WithRedirectUri` na `WithDefaultRedirectUri` :
+1. W *MainPage. XAML. cs* Zastąp `WithRedirectUri` ciąg `WithDefaultRedirectUri` :
 
    **Bieżący kod**
 
@@ -418,7 +418,7 @@ W bieżącym przykładzie `WithRedirectUri("https://login.microsoftonline.com/co
        .Build();
    ```
 
-2.  Znajdź identyfikator URI wywołania zwrotnego dla aplikacji, dodając `redirectURI` pole w *MainPage.XAML.cs* i ustawiając na nim punkt przerwania:
+2.  Znajdź identyfikator URI wywołania zwrotnego dla aplikacji, dodając `redirectURI` pole w *MainPage. XAML. cs* i ustawiając na nim punkt przerwania:
 
     ```csharp
 

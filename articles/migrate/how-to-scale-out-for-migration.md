@@ -6,25 +6,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612069"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607657"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Skalowanie migracji maszyn wirtualnych VMware na platformę Azure bez wykorzystania agentów
 
-Ten artykuł pomaga zrozumieć, jak korzystać z urządzenia skalowalnego w poziomie w celu migrowania dużej liczby maszyn wirtualnych VMware na platformę Azure przy użyciu funkcji migracji bez agenta narzędzia migracji serwera Azure Migrate. 
+Ten artykuł pomaga zrozumieć, jak korzystać z urządzenia skalowalnego w poziomie w celu migrowania dużej liczby maszyn wirtualnych VMware na platformę Azure przy użyciu metody bezagentowej narzędzia migracji Azure Migrate Server na potrzeby migracji maszyn wirtualnych VMware.
 
-Dzięki migracji bez wykorzystania agentów programu VMware maszyn wirtualnych narzędzia migracji serwera można:
+Korzystając z metody migracji bez agenta dla maszyn wirtualnych VMware, możesz:
 
 - Replikacja do 300 maszyn wirtualnych z jednego serwera vCenter jednocześnie przy użyciu jednego Azure Migrate urządzenia.
 - Replikacja do 500 maszyn wirtualnych z jednego serwera vCenter współbieżnie przez wdrożenie drugiego urządzenia skalowalnego w poziomie na potrzeby migracji.
 
 W tym artykule dowiesz się, jak:
 
-- Wdrażanie urządzenia skalowalnego w poziomie na potrzeby migracji oprogramowania VMware
+- Dodawanie urządzenia skalowalnego w poziomie w celu migrowania maszyn wirtualnych VMware bez agentów
 - Przeprowadź migrację do 500 maszyn wirtualnych współbieżnie przy użyciu urządzenia skalowalnego w poziomie.
 
 ##  <a name="prerequisites"></a>Wymagania wstępne
@@ -37,8 +37,9 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 > [!IMPORTANT]
 > Aby można było dodać do migracji urządzenie skalowalne w poziomie, musisz mieć co najmniej jedną replikację maszyny wirtualnej w projekcie.
 
-## <a name="deploy-a-scale-out-appliance"></a>Wdrażanie urządzenia skalowalnego w poziomie
+Aby dowiedzieć się, jak wykonać powyższe instrukcje, zapoznaj się z samouczkiem [Migrowanie maszyn wirtualnych VMware na platformę Azure przy użyciu metody migracji bez wykorzystania agentów](./tutorial-migrate-vmware.md).
 
+## <a name="deploy-a-scale-out-appliance"></a>Wdrażanie urządzenia skalowalnego w poziomie
 
 Aby dodać urządzenie skalowalne w poziomie, wykonaj czynności opisane poniżej:
 

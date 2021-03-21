@@ -3,12 +3,12 @@ title: Dostarczanie zdarzeń za pomocą usługi linku prywatnego
 description: W tym artykule opisano sposób obejścia ograniczenia nie można dostarczać zdarzeń za pomocą usługi link prywatny.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 4343740ea6c34c9ae282723b79007f7035785b04
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100548622"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722331"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Dostarczanie zdarzeń za pomocą usługi linku prywatnego
 Obecnie nie jest możliwe dostarczanie zdarzeń przy użyciu [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Oznacza to, że nie ma żadnej obsługi, jeśli masz ścisłe wymagania izolacji sieciowej, gdy ruch zdarzeń nie może opuścić prywatnego obszaru adresów IP. 
@@ -36,7 +36,7 @@ Aby dostarczyć zdarzenia do centrów zdarzeń w przestrzeni nazw Event Hubs prz
 Aby dostarczyć zdarzenia do Service Bus kolejek lub tematów w przestrzeni nazw Service Bus przy użyciu tożsamości zarządzanej, wykonaj następujące kroki:
 
 1. [Włącz tożsamość przypisaną przez system dla tematu lub domeny](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Dodawanie tożsamości do roli [nadawca danych Azure Service Bus](/service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) w przestrzeni nazw Service Bus
+1. Dodawanie tożsamości do roli [nadawca danych Azure Service Bus](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) w przestrzeni nazw Service Bus
 1. [Włącz opcję **Zezwalaj na używanie zaufanych usług firmy Microsoft do pomijania tego ustawienia zapory** w przestrzeni nazw Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Skonfiguruj subskrypcję zdarzeń](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) korzystającą z kolejki Service Bus lub tematu jako punktu końcowego do korzystania z tożsamości przypisanej do systemu.
 

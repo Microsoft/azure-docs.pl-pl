@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564392"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606909"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -51,7 +51,8 @@ W [tym miejscu](https://centralus.dev.cognitive.microsoft.com/docs/services/spee
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku
 
-Jako alternatywę dla [zestawu Speech SDK](speech-sdk.md)usługa mowy umożliwia konwertowanie zamiany mowy na tekst za pomocą interfejsu API REST. Każdy dostępny punkt końcowy jest skojarzony z regionem. Aplikacja wymaga klucza subskrypcji dla punktu końcowego, który ma być używany. Interfejs API REST dla krótkiego dźwięku jest bardzo ograniczony i powinien być używany tylko w przypadkach, gdy nie można użyć [zestawu Speech SDK](speech-sdk.md) .
+Jako alternatywę dla [zestawu Speech SDK](speech-sdk.md)usługa mowy umożliwia konwertowanie zamiany mowy na tekst za pomocą interfejsu API REST.
+Interfejs API REST dla krótkiego dźwięku jest bardzo ograniczony i powinien być używany tylko w przypadkach, gdy nie można użyć [zestawu Speech SDK](speech-sdk.md) .
 
 Przed użyciem interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku należy wziąć pod uwagę następujące kwestie:
 
@@ -341,3 +342,4 @@ Typowa odpowiedź na potrzeby rozpoznawania z oceną wymowy:
 - [Samouczek: tworzenie niestandardowego modelu akustycznego](./how-to-custom-speech-train-model.md)
 - [Samouczek: tworzenie niestandardowego modelu językowego](./how-to-custom-speech-train-model.md)
 - [Zapoznaj się z transkrypcją partii](batch-transcription.md)
+
