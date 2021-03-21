@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 7518b03e41b086d8797fad3563f681bf0072a7dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76021162"
 ---
 Aby wdrożyć zasoby na platformie Azure, musisz wcześniej zalogować się na swoje konto Azure i korzystać z modułu Azure Resource Manager. Aby dowiedzieć się, jak używać usługi Azure Resource Manager z programem Azure PowerShell lub interfejsem wiersza polecenia platformy Azure, zobacz:

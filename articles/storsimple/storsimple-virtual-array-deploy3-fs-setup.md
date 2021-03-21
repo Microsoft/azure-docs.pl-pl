@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005932"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Wdróż wirtualną macierz StorSimple — Skonfiguruj jako serwer plików za pośrednictwem Azure Portal
@@ -37,8 +37,8 @@ Proces instalacji i konfiguracji może potrwać około 10 minut. Informacje zawa
 Przed skonfigurowaniem i skonfigurowaniem macierzy wirtualnej StorSimple upewnij się, że:
 
 * Zainicjowano obsługę macierzy wirtualnej i nastąpiło do niej połączenie, zgodnie z opisem w temacie " [Inicjowanie obsługi StorSimple macierzy wirtualnej w funkcji Hyper-V"](storsimple-virtual-array-deploy2-provision-hyperv.md) lub [Inicjowanie obsługi wirtualnej macierzy StorSimple w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Masz klucz rejestracji usługi z usługi StorSimple Menedżer urządzeń, która została utworzona w celu zarządzania macierzami wirtualnymi StorSimple. Aby uzyskać więcej informacji, zobacz [krok 2. Pobieranie klucza rejestracji usługi](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) dla macierzy wirtualnej StorSimple.
-* Jeśli jest to druga lub kolejna tablica wirtualna, która jest rejestrowana w istniejącej usłudze StorSimple Menedżer urządzeń, należy mieć klucz szyfrowania danych usługi. Ten klucz został wygenerowany, gdy pierwsze urządzenie zostało pomyślnie zarejestrowane w tej usłudze. Jeśli ten klucz został utracony, zobacz [Pobierz klucz szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) dla macierzy wirtualnej StorSimple.
+* Masz klucz rejestracji usługi z usługi StorSimple Device Manager, która została utworzona w celu zarządzania macierzami wirtualnymi StorSimple. Aby uzyskać więcej informacji, zobacz [krok 2. Pobieranie klucza rejestracji usługi](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) dla macierzy wirtualnej StorSimple.
+* Jeśli jest to druga lub kolejna tablica wirtualna, która jest rejestrowana w istniejącej usłudze StorSimple Device Manager, należy mieć klucz szyfrowania danych usługi. Ten klucz został wygenerowany, gdy pierwsze urządzenie zostało pomyślnie zarejestrowane w tej usłudze. Jeśli ten klucz został utracony, zobacz [Pobierz klucz szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) dla macierzy wirtualnej StorSimple.
 
 ## <a name="step-by-step-setup"></a>Konfiguracja krok po kroku
 Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurować macierz wirtualną StorSimple.
@@ -55,7 +55,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 2. Zaloguj się do internetowego interfejsu użytkownika macierzy wirtualnej jako **StorSimpleAdmin**. Wprowadź hasło administratora urządzenia zmienione w kroku 3: Uruchom macierz wirtualną w obszarze [StorSimple macierzy wirtualnej w funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) lub w [celu udostępnienia StorSimpleej macierzy wirtualnej w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![Zrzut ekranu przedstawiający stronę logowania StorSimple. Nazwa użytkownika StorSimpleAdmin jest widoczna, a pole hasła jest wypełniane nieokreślonymi znakami.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
-3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania macierzy wirtualnej przy użyciu usługi StorSimple Menedżer urządzeń. Ustawienia **sieci**, **Ustawienia serwera proxy sieci Web** i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
+3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania macierzy wirtualnej przy użyciu usługi StorSimple Device Manager. Ustawienia **sieci**, **Ustawienia serwera proxy sieci Web** i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
    
    ![Zrzut ekranu strony głównej. Tekst wskazuje, że urządzenie nie jest skonfigurowane. Widoczne są linki do kilku różnych typów ustawień.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. Na stronie **Ustawienia sieci** w obszarze **interfejsy sieciowe** zostaną automatycznie skonfigurowane dane 0. Każdy interfejs sieciowy jest domyślnie ustawiany w celu automatycznego uzyskiwania adresu IP (DHCP). W związku z tym adres IP, podsieć i Brama są automatycznie przypisywane (dla protokołów IPv4 i IPv6).
@@ -104,19 +104,19 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
     2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną Time.Windows.com. Upewnij się, że sieć zezwala na ruch NTP z centrum danych do Internetu.
     3. Opcjonalnie można określić **pomocniczy serwer NTP** dla urządzenia.
     4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień czasu.
-11. Skonfiguruj ustawienia chmury dla urządzenia. W tym kroku zakończysz konfigurację urządzenia lokalnego, a następnie zarejestrujesz urządzenie w usłudze StorSimple Menedżer urządzeń.
+11. Skonfiguruj ustawienia chmury dla urządzenia. W tym kroku zakończysz konfigurację urządzenia lokalnego, a następnie zarejestrujesz urządzenie w usłudze StorSimple Device Manager.
     
     1. Wprowadź **klucz rejestracji usługi** , który został uzyskany w [kroku 2: Pobierz klucz rejestracji usługi](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) dla macierzy wirtualnej StorSimple.
-    2. Jeśli jest to pierwsze urządzenie zarejestrowano w usłudze, zostanie wyświetlony **klucz szyfrowania danych usługi**. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu. Ten klucz jest wymagany w przypadku klucza rejestracji usługi w celu zarejestrowania dodatkowych urządzeń w usłudze StorSimple Menedżer urządzeń. 
+    2. Jeśli jest to pierwsze urządzenie zarejestrowano w usłudze, zostanie wyświetlony **klucz szyfrowania danych usługi**. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu. Ten klucz jest wymagany w przypadku klucza rejestracji usługi w celu zarejestrowania dodatkowych urządzeń w usłudze StorSimple Device Manager. 
        
        Jeśli nie jest to pierwsze urządzenie, które jest zarejestrowana w ramach tej usługi, musisz podać klucz szyfrowania danych usługi. Aby uzyskać więcej informacji, zobacz Pobieranie [klucza szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) w lokalnym interfejsie użytkownika sieci Web.
     3. Kliknij pozycję **Zarejestruj**. Spowoduje to ponowne uruchomienie urządzenia. Przed pomyślnym zarejestrowaniem urządzenia może być konieczne odczekanie przez 2-3 minut. Po ponownym uruchomieniu urządzenia nastąpi przekierowanie do strony logowania.
        
        ![Zrzut ekranu strony ustawień chmury. Pola klucz rejestracji i klucz szyfrowania są wypełniane, ale wartości są redagowane.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
-12. Wróć do witryny Azure Portal. Przejdź do obszaru **wszystkie zasoby** i Wyszukaj usługę StorSimple Menedżer urządzeń.
+12. Wróć do witryny Azure Portal. Przejdź do obszaru **wszystkie zasoby** i Wyszukaj usługę StorSimple Device Manager.
     
-    ![Zrzut ekranu przedstawiający stronę wszystkie zasoby Azure Portal. Zostanie wyróżniona usługa Menedżer urządzeń.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
-13. Na liście filtrowane wybierz usługę StorSimple Menedżer urządzeń a następnie przejdź do opcji **zarządzanie > urządzeń**. W bloku **urządzenia** Sprawdź, czy urządzenie pomyślnie nawiązał połączenie z usługą i czy ma stan **gotowe do skonfigurowania**.
+    ![Zrzut ekranu przedstawiający stronę wszystkie zasoby Azure Portal. Zostanie wyróżniona usługa Device Manager.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+13. Na liście filtrowane wybierz usługę StorSimple Device Manager a następnie przejdź do opcji **zarządzanie > urządzeń**. W bloku **urządzenia** Sprawdź, czy urządzenie pomyślnie nawiązał połączenie z usługą i czy ma stan **gotowe do skonfigurowania**.
     
     ![Wdróż](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
@@ -124,7 +124,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby zakończyć wymaganą konfigurację urządzenia.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Aby skonfigurować urządzenie jako serwer plików
-1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie przejdź do pozycji  **zarządzanie > urządzeń**. W bloku **urządzenia** wybierz właśnie utworzone urządzenie. To urządzenie będzie widoczne jako **gotowe do skonfigurowania**.
+1. Przejdź do usługi StorSimple Device Manager, a następnie przejdź do pozycji  **zarządzanie > urządzeń**. W bloku **urządzenia** wybierz właśnie utworzone urządzenie. To urządzenie będzie widoczne jako **gotowe do skonfigurowania**.
    
    ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Kliknij urządzenie i zostanie wyświetlony komunikat transparent wskazujący, że urządzenie jest gotowe do instalacji.

@@ -8,10 +8,10 @@ author: mathapli
 ms.author: mathapli
 ms.date: 01/18/2021
 ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721161"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
@@ -253,8 +253,8 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 ||7.3|3.10.0-514.66.2|
 ||7,4|3.10.0-693.50.3|
 ||7,5|3.10.0-862.34.2|
-||7,6|3.10.0-957.21.3|
-||7,7|3.10.0-1062.1.1|
+||7.6|3.10.0-957.21.3|
+||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
 ||8.1|4.18.0-147|
 ||"7 — NIEPRZETWORZONY" (7,6)||
@@ -273,7 +273,7 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 ||SLES15SP1|4.12.14-5.30.1 (jądro — Azure)|
 |Oracle|6,10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0 — 7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK następuje po RHEL powyżej|
-||7,6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
+||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS stabilny 2079.6.0|4.19.43\*|
 ||2135.3.1 beta|4.19.50\*|
 ||2163.2.1 Alpha|4.19.50\*|

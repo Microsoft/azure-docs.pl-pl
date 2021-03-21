@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/27/2020
 ms.openlocfilehash: 6876cf1e5044246492e249d8a61060cbeac46f96
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98217961"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Automatyczne stosowanie aktualizacji zabezpieczeń do węzłów usługi Azure Kubernetes Service (AKS) przy użyciu akcji GitHub
@@ -29,7 +29,7 @@ Ten proces jest lepszy niż aktualizowanie jądra opartych na systemie Linux rę
 
 W tym artykule pokazano, jak można zautomatyzować proces aktualizacji węzłów AKS. Użyjemy akcji usługi GitHub i interfejsu wiersza polecenia platformy Azure do utworzenia zadania aktualizacji opartego na programie `cron` , które są uruchamiane automatycznie.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 

@@ -9,10 +9,10 @@ ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102616404"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN
@@ -33,7 +33,7 @@ Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
     * wszystkie operacje nabywania certyfikatów i zarządzania nimi są obsługiwane za użytkownika. 
     * Certyfikaty są automatycznie inicjowane i odnawiane przed wygaśnięciem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Włączanie protokołu HTTPS w domenie niestandardowej
 > - Używanie certyfikatu zarządzanego przez usługę CDN 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313692"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Jak skonfigurować rozsyłanie na koncentratorze wirtualnym
@@ -24,13 +24,13 @@ Aby uzyskać więcej informacji, zobacz [Informacje o routingu koncentratora wir
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Tworzenie tabeli tras
 
 1. W Azure Portal przejdź do koncentratora wirtualnego.
-2. W obszarze **łączność**wybierz pozycję **Routing**. Na stronie Routing są wyświetlane tabele tras **domyślnych** i **Brak** .
+2. W obszarze **łączność** wybierz pozycję **Routing**. Na stronie Routing są wyświetlane tabele tras **domyślnych** i **Brak** .
 
    :::image type="content" source="./media/how-to-virtual-hub-routing/routing.png" alt-text="Strona routingu":::
 3. Wybierz pozycję **+ Utwórz tabelę tras** , aby otworzyć stronę **Tworzenie tabeli tras** .
 4. Na karcie Tworzenie tabeli tras **podstawowe** wypełnij następujące pola.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Strona routingu":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Karta Podstawowe":::
 
    * **Nazwa**
    * **Trasy**
@@ -41,20 +41,20 @@ Aby uzyskać więcej informacji, zobacz [Informacje o routingu koncentratora wir
 
      W przypadku wybrania połączenia sieci wirtualnej zobaczysz pozycję **Konfiguruj trasy statyczne**. Jest to opcjonalne ustawienie konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie tras statycznych](about-virtual-hub-routing.md#static).
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Strona routingu":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Narzędzie Następny przeskok":::
 
 5. Wybierz kartę **etykiety** , aby skonfigurować nazwy etykiet. Etykiety zapewniają mechanizm logicznego grupowania tabel tras.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Strona routingu":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Konfigurowanie nazw etykiet":::
 
 6. Wybierz kartę **skojarzenia** , aby skojarzyć połączenia z tabelą tras.
-Zobaczysz **gałęzie**, **sieci wirtualne**i **bieżące ustawienia** połączeń.
+Zobaczysz **gałęzie**, **sieci wirtualne** i **bieżące ustawienia** połączeń.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Strona routingu":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Kojarzenie połączeń z tabelą tras":::
 
 7. Wybierz kartę **propagacje** , aby propagować trasy z połączeń do tabeli tras.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Strona routingu":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Propagowanie tras":::
 
 8. Wybierz pozycję **Utwórz** , aby utworzyć tabelę tras.
 
@@ -70,19 +70,19 @@ W Azure Portal zlokalizuj tabelę tras koncentratora wirtualnego. Nie można usu
 
 W Azure Portal zlokalizuj tabelę tras koncentratora wirtualnego. Kliknij przycisk **"..."** i wybierz **efektywne trasy** , aby wyświetlić trasy, które są uzyskiwane przez wybraną tabelę tras. Trasy propagowane z połączenia z tabelą tras są automatycznie wypełniane przy użyciu **efektywnych tras** tabeli tras. Aby uzyskać więcej informacji, zobacz [Informacje o obowiązujących trasach](effective-routes-virtual-hub.md).
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Strona routingu" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Wyświetl efektywne trasy" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>Aby skonfigurować konfigurację routingu dla połączenia sieci wirtualnej
 
-1. W Azure Portal przejdź do wirtualnej sieci WAN, a w obszarze **łączność**wybierz pozycję **połączenia Virtual Network**.
+1. W Azure Portal przejdź do wirtualnej sieci WAN, a w obszarze **łączność** wybierz pozycję **połączenia Virtual Network**.
 1. Wybierz pozycję **+ Dodaj połączenie**.
 1. Wybierz sieć wirtualną z listy rozwijanej.
-1. Skonfiguruj konfigurację routingu do skojarzenia z tabelą tras. W polu **Skojarz tabelę tras**wybierz tabelę tras z listy rozwijanej.
-1. Skonfiguruj konfigurację routingu do propagowania do jednej lub wielu tabel tras. W polu **Propaguj do trasy**wybierz pozycję z listy rozwijanej.
-1. W przypadku **tras statycznych**skonfiguruj trasy statyczne dla wirtualnego urządzenia sieciowego (jeśli ma to zastosowanie). Wirtualna sieć WAN obsługuje pojedynczy adres IP następnego przeskoku dla trasy statycznej w połączeniu sieci wirtualnej. Jeśli na przykład masz oddzielne urządzenie wirtualne dla przepływów ruchu przychodzącego i wychodzącego, najlepszym rozwiązaniem jest posiadanie urządzeń wirtualnych w oddzielnych sieci wirtualnych i dołączenie sieci wirtualnych do koncentratora wirtualnego.
+1. Skonfiguruj konfigurację routingu do skojarzenia z tabelą tras. W polu **Skojarz tabelę tras** wybierz tabelę tras z listy rozwijanej.
+1. Skonfiguruj konfigurację routingu do propagowania do jednej lub wielu tabel tras. W polu **Propaguj do trasy** wybierz pozycję z listy rozwijanej.
+1. W przypadku **tras statycznych** skonfiguruj trasy statyczne dla wirtualnego urządzenia sieciowego (jeśli ma to zastosowanie). Wirtualna sieć WAN obsługuje pojedynczy adres IP następnego przeskoku dla trasy statycznej w połączeniu sieci wirtualnej. Jeśli na przykład masz oddzielne urządzenie wirtualne dla przepływów ruchu przychodzącego i wychodzącego, najlepszym rozwiązaniem jest posiadanie urządzeń wirtualnych w oddzielnych sieci wirtualnych i dołączenie sieci wirtualnych do koncentratora wirtualnego.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Strona routingu" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Skonfiguruj konfigurację routingu" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88117740"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Wywołania między usługami, które korzystają z delegowanej tożsamości użytkownika w ramach przepływu w imieniu
@@ -77,7 +77,7 @@ Zarejestruj zarówno usługę warstwy środkowej, jak i aplikację kliencką w u
 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 1. Ustaw identyfikator URI przekierowania na podstawowy adres URL.
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
-1. Skonfiguruj uprawnienia dla aplikacji. W obszarze **uprawnienia interfejsu API**wybierz pozycję **Dodaj uprawnienie** , a następnie **Moje interfejsy API**.
+1. Skonfiguruj uprawnienia dla aplikacji. W obszarze **uprawnienia interfejsu API** wybierz pozycję **Dodaj uprawnienie** , a następnie **Moje interfejsy API**.
 1. W polu tekstowym wpisz nazwę usługi warstwy środkowej.
 1. Wybierz **pozycję Wybierz uprawnienia** , a następnie wybierz zakres utworzony w ostatnim kroku rejestracji warstwy środkowej.
 

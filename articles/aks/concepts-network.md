@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88243908"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące sieci dla aplikacji w usłudze Azure Kubernetes Service (AKS)
@@ -26,7 +26,7 @@ W tym artykule przedstawiono podstawowe koncepcje zapewniające obsługę sieci 
 
 Aby zezwolić na dostęp do aplikacji lub do komunikacji między składnikami aplikacji, Kubernetes zapewnia warstwę abstrakcji dla sieci wirtualnych. Węzły Kubernetes są połączone z siecią wirtualną i mogą zapewniać łączność ruchu przychodzącego i wychodzącego w przypadku zasobników. Składnik *polecenia-proxy* działa w każdym węźle, aby udostępnić te funkcje sieciowe.
 
-W programie Kubernetes *usługi* logicznie grupują elementy w celu umożliwienia bezpośredniego dostępu za pośrednictwem adresu IP lub nazwy DNS i określonego portu. Ruch można także dystrybuować przy użyciu *modułu równoważenia obciążenia*. Bardziej skomplikowany Routing ruchu aplikacji można również uzyskać za pomocą *kontrolerów*transferu danych przychodzących. Zabezpieczenia i filtrowanie ruchu sieciowego dla każdego z nich jest możliwe przy użyciu *zasad sieciowych*Kubernetes.
+W programie Kubernetes *usługi* logicznie grupują elementy w celu umożliwienia bezpośredniego dostępu za pośrednictwem adresu IP lub nazwy DNS i określonego portu. Ruch można także dystrybuować przy użyciu *modułu równoważenia obciążenia*. Bardziej skomplikowany Routing ruchu aplikacji można również uzyskać za pomocą *kontrolerów* transferu danych przychodzących. Zabezpieczenia i filtrowanie ruchu sieciowego dla każdego z nich jest możliwe przy użyciu *zasad sieciowych* Kubernetes.
 
 Platforma Azure pomaga również uprościć sieci wirtualne klastrów AKS. Podczas tworzenia modułu równoważenia obciążenia Kubernetes zostanie utworzony i skonfigurowany źródłowy zasób modułu równoważenia obciążenia platformy Azure. Podczas otwierania portów sieciowych do zasobników, są konfigurowane odpowiednie reguły grupy zabezpieczeń sieci platformy Azure. W przypadku routingu aplikacji HTTP platforma Azure może również skonfigurować *zewnętrzny system DNS* jako nowe trasy transferu danych przychodzących.
 
@@ -63,7 +63,7 @@ W usłudze AKS można wdrożyć klaster, który jest oparty na jednym z następu
 
 ### <a name="kubenet-basic-networking"></a>Sieć korzystającą wtyczki kubenet (podstawowa)
 
-Opcja sieci *korzystającą wtyczki kubenet* jest konfiguracją domyślną dla tworzenia klastra AKS. W przypadku *korzystającą wtyczki kubenet*węzły uzyskują adres IP z podsieci sieci wirtualnej platformy Azure. Zasobniki uzyskują adresy IP z przestrzeni adresowej, która jest logicznie różna od podsieci sieci wirtualnej platformy Azure, używanej przez węzły. Dzięki skonfigurowaniu translatora adresów sieciowych (NAT) zasobniki mogą uzyskać dostęp do zasobów w sieci wirtualnej platformy Azure. Źródłowy adres IP ruchu to NAT do podstawowego adresu IP węzła.
+Opcja sieci *korzystającą wtyczki kubenet* jest konfiguracją domyślną dla tworzenia klastra AKS. W przypadku *korzystającą wtyczki kubenet* węzły uzyskują adres IP z podsieci sieci wirtualnej platformy Azure. Zasobniki uzyskują adresy IP z przestrzeni adresowej, która jest logicznie różna od podsieci sieci wirtualnej platformy Azure, używanej przez węzły. Dzięki skonfigurowaniu translatora adresów sieciowych (NAT) zasobniki mogą uzyskać dostęp do zasobów w sieci wirtualnej platformy Azure. Źródłowy adres IP ruchu to NAT do podstawowego adresu IP węzła.
 
 Węzły korzystają z wtyczki [korzystającą wtyczki kubenet][kubenet] Kubernetes. Możesz zezwolić na platformę Azure, aby utworzyć i skonfigurować sieci wirtualne, lub wybrać wdrożenie klastra AKS w istniejącej podsieci sieci wirtualnej. Ponownie tylko węzły odbierają adres IP z obsługą routingu, a w przypadku korzystania z translatora adresów sieciowych w celu komunikowania się z innymi zasobami poza klastrem AKS. Takie podejście znacznie zmniejsza liczbę adresów IP, które należy zarezerwować w przestrzeni sieciowej, aby można było użyć używanych przez nią zasobników.
 
@@ -135,7 +135,7 @@ Dodatek Application Gateway transferu danych przychodzących (AGIC) umożliwia k
 
 Inną wspólną funkcją transferu danych przychodzących jest protokół SSL/TLS. W przypadku dużych aplikacji sieci Web, do których uzyskuje się dostęp za pośrednictwem protokołu HTTPS, zakończenie protokołu TLS może być obsługiwane przez zasób transferu danych przychodzących, a nie w samej aplikacji. Aby zapewnić automatyczną generację i konfigurację certyfikacji TLS, można skonfigurować zasób transferu danych przychodzących tak, aby korzystał z dostawców, takich jak szyfrowanie. Aby uzyskać więcej informacji na temat konfigurowania kontrolera NGINX ingresing z szyfrowaniem, zobacz artykuł dotyczący [protokołów przychodzących i TLS][aks-ingress-tls].
 
-Możesz również skonfigurować kontroler transferu danych przychodzących, aby zachować źródłowy adres IP klienta w przypadku żądań do kontenerów w klastrze AKS. Gdy żądanie klienta jest kierowane do kontenera w klastrze AKS za pośrednictwem kontrolera transferu danych przychodzących, oryginalny źródłowy adres IP tego żądania nie będzie dostępny dla kontenera docelowego. Po włączeniu *zachowywania źródłowego adresu IP klienta*jest dostępny źródłowy adres IP klienta w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z funkcji zachowywania źródłowych adresów IP klienta na kontrolerze transferu danych przychodzących nie można używać przekazywania protokołu TLS. Przechowywanie źródłowych adresów IP klienta i przekazywanie protokołu TLS mogą być używane z innymi usługami, takimi jak typ *modułu równoważenia obciążenia* .
+Możesz również skonfigurować kontroler transferu danych przychodzących, aby zachować źródłowy adres IP klienta w przypadku żądań do kontenerów w klastrze AKS. Gdy żądanie klienta jest kierowane do kontenera w klastrze AKS za pośrednictwem kontrolera transferu danych przychodzących, oryginalny źródłowy adres IP tego żądania nie będzie dostępny dla kontenera docelowego. Po włączeniu *zachowywania źródłowego adresu IP klienta* jest dostępny źródłowy adres IP klienta w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z funkcji zachowywania źródłowych adresów IP klienta na kontrolerze transferu danych przychodzących nie można używać przekazywania protokołu TLS. Przechowywanie źródłowych adresów IP klienta i przekazywanie protokołu TLS mogą być używane z innymi usługami, takimi jak typ *modułu równoważenia obciążenia* .
 
 ## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 

@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860647"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
@@ -315,7 +315,7 @@ Jeśli chcesz usunąć właściciela z grupy, użyj Remove-AzureADGroupOwner pol
 Po utworzeniu grupy niektóre punkty końcowe umożliwiają użytkownikowi końcowemu określenie mailNickname lub aliasu, który ma być używany jako część adresu e-mail grupy. Grupy o następujących aliasach poczty e-mail z wysokim poziomem uprawnień mogą być tworzone tylko przez administratora globalnego usługi Azure AD. 
   
 * stanowi
-* admin (administrator)
+* administrator
 * administrator
 * hostmaster
 * majordomo

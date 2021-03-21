@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Samouczek: integracja Azure Active Directory z usługą TOPdesk — Public
@@ -173,7 +173,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
     
     b. Rozwiń węzeł **RoleDescriptor**, w którym element **xsi:type** ma wartość **fed:ApplicationServiceType**.
     
-    c. Skopiuj wartość węzła**X509Certificate**.
+    c. Skopiuj wartość węzła **X509Certificate**.
     
     d. Zapisz skopiowaną wartość **X509Certificate** lokalnie na komputerze w pliku.
 
@@ -219,7 +219,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -255,9 +255,9 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do TOPdesk-Public,
 
 1. Zaloguj się do witryny firmy **TOPdesk-Public** jako administrator.
 
-2. W menu u góry kliknij pozycję **TOPdesk \> nowe \> pliki obsługi \> **.
+2. W menu u góry kliknij pozycję **TOPdesk \> nowe \> pliki obsługi \>**.
    
-    ![Osoba](./media/topdesk-public-tutorial/ic790628.png "Osoba")
+    ![Person (Osoba)](./media/topdesk-public-tutorial/ic790628.png "Person (Osoba)")
 
 3. W oknie dialogowym Nowa osoba wykonaj następujące czynności:
    
