@@ -6,16 +6,16 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 26a4692603d8e8a80a52ea77bdd56617131cea5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699695"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593904"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Oszczędność kosztów zasobów przy użyciu zarezerwowanej pojemności Azure Data Factory przepływów danych
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Oszczędność pieniędzy dzięki Azure Data Factory kosztom przepływu danych dzięki zatwierdzeniu do rezerwacji zasobów obliczeniowych w porównaniu z cenami z płatność zgodnie z rzeczywistym użyciem. Dzięki zarezerwowanej pojemności zobowiązuje się do użycia przepływu danych ADF przez okres jednego lub trzech lat w celu uzyskania znacznego rabatu w kosztach obliczeniowych. Aby zakupić zastrzeżoną pojemność, należy określić region świadczenia usługi Azure, typ obliczeń, liczbę rdzeni i termin.
 

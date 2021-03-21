@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102175078"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Zarejestruj i Skanuj źródło programu Teradata (wersja zapoznawcza)
 
 W tym artykule opisano sposób rejestrowania źródła programu Teradata w programie kontrolą i konfigurowania skanowania.
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Źródło programu Teradata obsługuje **pełne skanowanie** w celu wyodrębnienia metadanych z bazy danych programu Teradata i pobrania elementów zależnych **od zasobów** danych.
 

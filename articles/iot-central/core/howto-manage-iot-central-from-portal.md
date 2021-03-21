@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 8cf8fdfe0c8eb557946baa95d0d8beb2b388baa5
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2af97206db00d683ab409710bc71a3b5048bf6ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674450"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104658469"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Zarządzaj IoT Central z Azure Portal
 
@@ -22,6 +22,9 @@ ms.locfileid: "97674450"
 Zamiast tworzyć aplikacje IoT Central i zarządzać nimi w witrynie sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) , możesz użyć [Azure Portal](https://portal.azure.com) do zarządzania aplikacjami.
 
 ## <a name="create-iot-central-applications"></a>Tworzenie aplikacji IoT Central
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 
 Aby utworzyć aplikację, przejdź do [Azure Portal](https://ms.portal.azure.com) i wybierz pozycję **Utwórz zasób**.
 

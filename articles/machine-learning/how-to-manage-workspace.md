@@ -11,10 +11,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
 ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518929"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
@@ -159,7 +159,7 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
 
 
 
-### <a name="networking"></a>Networking  
+### <a name="networking"></a>Sieć  
 
 > [!IMPORTANT]  
 > Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcowego i sieci wirtualnej z obszarem roboczym, zobacz [izolacja sieci i ochrona prywatności](how-to-network-security-overview.md).

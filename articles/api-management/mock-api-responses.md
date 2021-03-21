@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
 ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100547272"
 ---
 # <a name="tutorial-mock-api-responses"></a>Samouczek: makieta odpowiedzi interfejsu API
@@ -23,7 +23,7 @@ Możliwość makiety odpowiedzi może być przydatna w wielu scenariuszach:
 + Kiedy najpierw projektowana jest fasada interfejsu API, a implementacja zaplecza powstaje później. Lub kiedy zaplecze jest opracowywane równolegle.
 + Gdy zaplecze tymczasowo nie działa lub nie można go przeskalować.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie testowego interfejsu API 

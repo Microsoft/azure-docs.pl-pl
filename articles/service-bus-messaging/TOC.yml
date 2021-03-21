@@ -154,14 +154,10 @@
           href: service-bus-to-event-grid-integration-concept.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Przechodzenie między regionami
-      href: move-across-regions.md
-    - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
-      href: deprecate-service-bus-management.md
-    - name: Tworzenie przestrzeni nazw
-      href: service-bus-create-namespace-portal.md
     - name: Programowanie
       items:
+        - name: Tworzenie przestrzeni nazw
+          href: service-bus-create-namespace-portal.md
         - name: Ustaw filtry i akcje subskrypcji
           href: service-bus-filter-examples.md
         - name: Obsługa komunikatów
@@ -224,6 +220,8 @@
       items:
         - name: Migrowanie z usługi ActiveMQ do usługi Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+        - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
+          href: deprecate-service-bus-management.md
     - name: Monitor
       items:
         - name: Pełne śledzenie i diagnostyka
@@ -238,6 +236,8 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: Zarządzanie
       items:
+        - name: Przechodzenie między regionami
+          href: move-across-regions.md
         - name: Automatyczne aktualizowanie jednostek obsługi komunikatów
           href: automate-update-messaging-units.md
         - name: Aprowizacja jednostek za pomocą programu Azure PowerShell

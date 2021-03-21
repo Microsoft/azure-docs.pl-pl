@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.openlocfilehash: e9897c7ba14e6190698cf10792a94acc759699d4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940179"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Tworzenie potoku uczenia maszynowego platformy Apache Spark
@@ -129,6 +129,6 @@ only showing top 20 rows
 
 `model`Obiekt może być teraz używany do prognozowania. Aby uzyskać pełny przykład tej aplikacji do uczenia maszynowego i instrukcje krok po kroku dotyczące ich uruchamiania, zobacz [Tworzenie aplikacji Apache Spark Machine Learning w usłudze Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Nauka danych przy użyciu Scala i Apache Spark na platformie Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

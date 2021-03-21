@@ -3,12 +3,12 @@ title: Przykład wdrażania planu obciążeń ISO 27001 ASE/SQL
 description: Wdróż kroki przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database, w tym szczegóły parametru artefaktu.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627486"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669648"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Wdróż przykład planu obciążenia ISO 27001 App Service Environment/SQL Database
 
@@ -133,7 +133,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Grupa zasobów Azure SQL Database|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-workload-azsql-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Azure SQL Database|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Nazwa użytkownika administratora usługi Azure SQL Server|Nazwa użytkownika dla SQL Server platformy Azure. Musi być zgodna z tą samą wartością właściwości w **szablonie Key Vault**. Wartość domyślna to _SQL-admin-User_.|
-|Szablon Azure SQL Database|Szablon usługi Resource Manager|Hasło administratora usługi Azure SQL Server (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" i Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{orgName}` parametrem " **Nazwa organizacji** ".|
+|Szablon Azure SQL Database|Szablon usługi Resource Manager|Hasło administratora usługi Azure SQL Server (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" i Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{orgName}` parametrem " **Nazwa organizacji** ".|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Hasło administratora usługi Azure SQL Server (nazwa klucza tajnego Key Vault)|Nazwa użytkownika administratora SQL Server. Musi być zgodna wartość właściwości **szablonu Key Vault** **SQL Server Nazwa użytkownika administratora platformy Azure**.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Azure SQL Database|Szablon usługi Resource Manager|Identyfikator obiektu administratora usługi AAD|Identyfikator obiektu usługi AAD, który zostanie przypisany jako administrator Active Directory. Brak wartości domyślnej i nie można jej pozostawić pustej. Aby zlokalizować tę wartość z Azure Portal, Wyszukaj i wybierz pozycję "Użytkownicy" w obszarze _usługi_. Użyj pola _Nazwa_ , aby odfiltrować nazwę konta, a następnie wybierz to konto. Na stronie _profil użytkownika_ wybierz ikonę "kliknij, aby skopiować" obok _identyfikatora obiektu_.|

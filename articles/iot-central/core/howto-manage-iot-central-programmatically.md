@@ -5,14 +5,14 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/19/2020
+ms.date: 12/23/2020
 ms.topic: how-to
-ms.openlocfilehash: 773793c7681890098fea1a37cc5b9912c0ecb75c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 2feb4d85e7be4076eef8b2796d15b622f6b17c3a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122998"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104658305"
 ---
 # <a name="manage-iot-central-programmatically"></a>Zarządzanie IoT Central programowo
 
@@ -36,6 +36,8 @@ Poniższa tabela zawiera listę repozytoriów zestawu SDK i poleceń instalacji 
 ## <a name="samples"></a>Samples
 
 Repozytorium [przykładów zestawu SDK usługi Azure IoT Central ARM](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) zawiera przykłady kodu dla wielu języków programowania, w których pokazano, jak tworzyć, aktualizować, wyświetlać i usuwać aplikacje IoT Central platformy Azure.
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

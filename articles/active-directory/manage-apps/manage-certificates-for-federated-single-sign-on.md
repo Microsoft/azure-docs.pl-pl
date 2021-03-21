@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259223"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604002"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Zarządzanie certyfikatami federacyjnego logowania jednokrotnego w Azure Active Directory
 
@@ -89,6 +89,8 @@ Usługa Azure AD wyśle wiadomość e-mail z powiadomieniem 60, 30 i 7 dni przed
 1. Powtórz poprzedni krok dla każdego adresu e-mail, który chcesz dodać.
 1. Dla każdego adresu e-mail, który chcesz usunąć, wybierz ikonę **Usuń** (można utworzyć śmieci) obok adresu e-mail.
 1. Wybierz pozycję **Zapisz**.
+
+Do listy powiadomień możesz dodać maksymalnie 5 adresów e-mail (w tym adres e-mail administratora, który dodał aplikację). Jeśli potrzebujesz więcej osób do powiadomienia, użyj wiadomości e-mail z listą dystrybucyjną.
 
 Otrzymasz wiadomość e-mail z powiadomieniem aadnotification@microsoft.com . Aby uniknąć wiadomości e-mail w lokalizacji spamu, Dodaj tę wiadomość e-mail do kontaktów.
 

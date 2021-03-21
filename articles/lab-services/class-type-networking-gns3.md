@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium przy użyciu Azure La
 ms.topic: article
 ms.date: 01/19/2021
 ms.openlocfilehash: dec5dea13d5a89536a06da45fc57d33881a9b3ad
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99500515"
 ---
 # <a name="set-up-a-lab-to-teach-a-networking-class"></a>Konfigurowanie laboratorium do uczenia klasy sieci 
@@ -20,7 +20,7 @@ Aby skonfigurować to laboratorium, musisz mieć subskrypcję platformy Azure, a
 
 Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utworzyć nowe laboratorium, a następnie Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Image (Obraz) |
+| Rozmiar maszyny wirtualnej | Obraz |
 | -------------------- | ----- | 
 | Duże (Wirtualizacja zagnieżdżona) | Windows 10 Pro, wersja 1909 |
 

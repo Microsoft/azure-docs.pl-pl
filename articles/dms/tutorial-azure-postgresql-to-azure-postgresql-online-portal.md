@@ -13,17 +13,17 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101091304"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie/uaktualnianie usługi Azure DB dla PostgreSQL — jeden serwer do usługi Azure DB dla PostgreSQL — pojedynczy serwer online przy użyciu systemu DMS za pośrednictwem Azure Portal
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia [jednego serwera Azure Database for PostgreSQLgo](../postgresql/overview.md#azure-database-for-postgresql---single-server) do tej samej lub innej wersji Azure Database for PostgreSQL-pojedynczego wystąpienia serwera lub Azure Database for PostgreSQL-elastycznego serwera o minimalnym przestoju. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **najmu dysku DVD** z Azure Database for PostgreSQL v10 do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu działania migracji online w Azure Database Migration Service.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 > * Migruj Przykładowy schemat przy użyciu narzędzia pg_dump.
