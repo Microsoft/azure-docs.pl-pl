@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
 ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382807"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
@@ -614,7 +614,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna**: zadanie zostało przesłane do klastra HDI i zakończyło się niepowodzeniem.
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
 
  1. Sprawdź interfejs użytkownika Ambari:
     1. Upewnij się, że wszystkie usługi są nadal uruchomione.
@@ -636,7 +636,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna**: zadanie zostało przesłane do klastra HDI i zakończyło się niepowodzeniem.
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
 
  1. Sprawdź interfejs użytkownika Ambari:
     1. Upewnij się, że wszystkie usługi są nadal uruchomione.
@@ -754,7 +754,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna**: podane poświadczenia są nieprawidłowe dla klastra lub wystąpił problem z konfiguracją sieci lub połączeniem albo w środowisku IR występują problemy z połączeniem z klastrem.
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
     1. Sprawdź, czy poświadczenia są poprawne, otwierając interfejs użytkownika Ambari klastra usługi HDInsight w przeglądarce.
     1. Jeśli klaster znajduje się w Virtual Network (VNet) i jest używany własny IR, adres URL HDI musi być prywatnym adresem URL w sieci wirtualnych i powinien zawierać znak "-int" wymieniony po nazwie klastra.
     
@@ -788,7 +788,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna**: moduł ADF próbował nawiązać połączenie Open Database Connectivity (ODBC) z klastrem HDI i błąd.
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
 
    1. Upewnij się, że poprawnie skonfigurowano połączenie z bazą danych ODBC/Java (JDBC).
       1. W przypadku usługi JDBC, jeśli używasz tej samej sieci wirtualnej, możesz uzyskać to połączenie z:<br>
@@ -808,7 +808,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna**: moduł ADF przesłał skrypt Hive do wykonania do klastra HDI za pośrednictwem połączenia ODBC, a skrypt zakończył się w HDI.
 
-- **Zalecenie**: 
+- **Rekomendacja**: 
 
    1. Upewnij się, że poprawnie skonfigurowano połączenie z bazą danych ODBC/Java (JDBC).
       1. W przypadku usługi JDBC, jeśli używasz tej samej sieci wirtualnej, możesz uzyskać to połączenie z:<br>

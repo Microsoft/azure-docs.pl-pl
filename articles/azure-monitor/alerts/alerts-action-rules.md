@@ -4,10 +4,10 @@ description: Informacje o regułach akcji w Azure Monitor są i sposobami ich ko
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471679"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)

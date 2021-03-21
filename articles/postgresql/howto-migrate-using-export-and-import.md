@@ -6,15 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 080f444d50dcdf17be15d940002b745624b2f6a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f1824a1e4754dddea26484c836df79e95246d5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708530"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580984"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrowanie bazy danych PostgreSQL przy użyciu funkcji eksportowania i importowania
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
+
 Za pomocą [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) można wyodrębnić bazę danych PostgreSQL do pliku skryptu i [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) do zaimportowania danych do docelowej bazy danych z tego pliku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -44,12 +45,12 @@ psql --file=<database>.sql --host=<server name> --port=5432 --username=<user> --
 ```
 Ten przykład używa narzędzia PSQL i pliku skryptu o nazwie **TestDB. SQL** z poprzedniego kroku, aby zaimportować dane do bazy danych **mypgsqldb** na serwerze docelowym **mydemoserver.Postgres.Database.Azure.com**.
 
-W przypadku **pojedynczego serwera**Użyj tego polecenia 
+W przypadku **pojedynczego serwera** Użyj tego polecenia 
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
-W przypadku **serwera elastycznego**Użyj tego polecenia  
+W przypadku **serwera elastycznego** Użyj tego polecenia  
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin --dbname=mypgsqldb
 ```

@@ -4,12 +4,12 @@ description: Przykłady użycia dostawcy usługi Azure Application Insights ILog
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 987d5b78c5fe680f43ff6a001e7a31a8ae9f6124
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e7d0bd6f7d93eac944e0d53a8e898463bf9887f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592272"
 ---
 # <a name="applicationinsightsloggerprovider-for-microsoftextensionlogging"></a>ApplicationInsightsLoggerProvider dla Microsoft. Extension. Logging
 
@@ -20,7 +20,7 @@ Aby dowiedzieć się więcej o rejestrowaniu, zobacz [Rejestrowanie w ASP.NET Co
 
 `ApplicationInsightsLoggerProvider` Program jest domyślnie włączony dla aplikacji ASP.NET Core, gdy ApplicationInsights jest skonfigurowany przy użyciu metody [Code](./asp-net-core.md) lub [Code-less](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) .
 
-Tylko *ostrzeżenia* i powyższe `ILogger` dzienniki (ze wszystkich [kategorii](/aspnet/core/fundamentals/logging/#log-category)) są domyślnie wysyłane do Application Insights. Można jednak [dostosować to zachowanie](./asp-net-core.md#how-do-i-customize-ilogger-logs-collection). Do przechwycenia dzienników ILogger z **program.cs** lub **Startup.cs**jest wymagane wykonanie dodatkowych czynności. (Zobacz [przechwytywanie dzienników ILogger z Startup.cs i program.cs w aplikacjach ASP.NET Core](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
+Tylko *ostrzeżenia* i powyższe `ILogger` dzienniki (ze wszystkich [kategorii](/aspnet/core/fundamentals/logging/#log-category)) są domyślnie wysyłane do Application Insights. Można jednak [dostosować to zachowanie](./asp-net-core.md#how-do-i-customize-ilogger-logs-collection). Do przechwycenia dzienników ILogger z **programu program. cs** lub **Start. cs** wymagane są dodatkowe czynności. (Zobacz [przechwytywanie dzienników ILogger z programów Start. cs i program. cs w aplikacjach ASP.NET Core](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)).
 
 Jeśli chcesz tylko korzystać z programu `ApplicationInsightsLoggerProvider` bez żadnych innych Application Insights monitorowania, wykonaj następujące czynności.
 
@@ -91,16 +91,16 @@ public class ValuesController : ControllerBase
 }
 ```
 
-### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Przechwytywanie dzienników ILogger z Startup.cs i Program.cs w aplikacjach ASP.NET Core
+### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Przechwytywanie dzienników ILogger z programów Start. cs i program. cs w aplikacjach ASP.NET Core
 
 > [!NOTE]
-> W ASP.NET Core 3,0 i nowszych nie jest już możliwe wprowadzanie `ILogger` w Startup.cs i program.cs. https://github.com/aspnet/Announcements/issues/353Aby uzyskać więcej informacji, zobacz.
+> W ASP.NET Core 3,0 i nowszych nie jest już możliwe wprowadzanie do `ILogger` uruchamiania. cs i programu program. cs. https://github.com/aspnet/Announcements/issues/353Aby uzyskać więcej informacji, zobacz.
 
-`ApplicationInsightsLoggerProvider` program może przechwycić dzienniki przed wczesnym uruchomieniem aplikacji. Mimo że usługa ApplicationInsightsLoggerProvider jest automatycznie włączana w Application Insights (począwszy od wersji 2.7.1), nie ma ustawionego klucza instrumentacji do późniejszego potoku. W związku z tym tylko dzienniki z klas/inne **kontrolera**będą przechwytywane. Aby przechwycić każdy dziennik zaczynający się od **program.cs** i **Startup.cs** , należy jawnie włączyć klucz Instrumentacji dla ApplicationInsightsLoggerProvider. Ponadto *TelemetryConfiguration* nie jest w pełni skonfigurowany podczas rejestrowania się z **program.cs** lub **Startup.cs** . Te dzienniki będą mieć minimalną konfigurację, która używa [InMemoryChannel](./telemetry-channels.md), bez [próbkowania](./sampling.md)ani nie ma standardowych [inicjatorów telemetrii ani procesorów](./api-filtering-sampling.md).
+`ApplicationInsightsLoggerProvider` program może przechwycić dzienniki przed wczesnym uruchomieniem aplikacji. Mimo że usługa ApplicationInsightsLoggerProvider jest automatycznie włączana w Application Insights (począwszy od wersji 2.7.1), nie ma ustawionego klucza instrumentacji do późniejszego potoku. W związku z tym tylko dzienniki z klas/inne **kontrolera** będą przechwytywane. Aby przechwycić każdy dziennik zaczynający się od **programu program. cs** i **Startup. cs** , należy jawnie włączyć klucz Instrumentacji dla ApplicationInsightsLoggerProvider. Ponadto *TelemetryConfiguration* nie jest w pełni skonfigurowany podczas rejestrowania się z **programu program. cs** lub **Start. cs** . Te dzienniki będą mieć minimalną konfigurację, która używa [InMemoryChannel](./telemetry-channels.md), bez [próbkowania](./sampling.md)ani nie ma standardowych [inicjatorów telemetrii ani procesorów](./api-filtering-sampling.md).
 
-Poniższe przykłady przedstawiają tę możliwość przy użyciu **program.cs** i **Startup.cs**.
+Poniższe przykłady przedstawiają tę możliwość przy użyciu **programu program. cs** i **Startup. cs**.
 
-#### <a name="example-programcs"></a>Przykład Program.cs
+#### <a name="example-programcs"></a>Przykładowy program. cs
 
 ```csharp
 using Microsoft.AspNetCore;
@@ -143,7 +143,7 @@ public class Program
 }
 ```
 
-#### <a name="example-startupcs"></a>Przykład Startup.cs
+#### <a name="example-startupcs"></a>Przykład Startup. cs
 
 ```csharp
 public class Startup
@@ -195,7 +195,7 @@ Nadal możesz używać starego dostawcy. (Zostanie on usunięty tylko w wersji g
 - Poprzedni dostawca nie obsługuje [zakresów dzienników](/aspnet/core/fundamentals/logging#log-scopes). W nowym dostawcy właściwości z zakresu są automatycznie dodawane jako właściwości niestandardowe do zebranych danych telemetrycznych.
 - Dzienniki można teraz przechwycić znacznie wcześniej w potoku uruchamiania aplikacji. Dzienniki z **programu** i klasy **uruchamiania** mogą teraz być przechwytywane.
 - W przypadku nowego dostawcy Filtrowanie odbywa się na poziomie platformy. Dzienniki można filtrować do dostawcy Application Insights w taki sam sposób jak w przypadku innych dostawców, w tym w przypadku dostawców wbudowanych, takich jak konsole, debugowanie i tak dalej. Można również zastosować te same filtry do wielu dostawców.
-- W ASP.NET Core (2,0 i nowszych) zalecanym sposobem  [włączania dostawców rejestrowania](https://github.com/aspnet/Announcements/issues/255) jest użycie metod rozszerzających ILoggingBuilder w **program.cs** .
+- W ASP.NET Core (2,0 i nowszych) zalecanym sposobem  [włączania dostawców rejestrowania](https://github.com/aspnet/Announcements/issues/255) jest użycie metod rozszerzających ILoggingBuilder w **programie program. cs** .
 
 > [!Note]
 > Nowy dostawca jest dostępny dla aplikacji przeznaczonych dla wersji STANDARD 2.0 lub nowszej. Od [Microsoft. ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) wersja 2.14.0, nowy dostawca jest również dostępny dla aplikacji przeznaczonych .NET Framework NET461 lub nowszych. Jeśli aplikacja jest przeznaczona dla starszych wersji programu .NET Core, takich jak .NET Core 1,1, lub jeśli jest przeznaczona dla .NET Framework mniejszej niż NET46, Kontynuuj korzystanie z starego dostawcy.
@@ -416,7 +416,7 @@ Zobacz sekcję [Kontrola poziomu rejestrowania](#control-logging-level) , aby do
 
 ### <a name="why-do-some-ilogger-logs-not-have-the-same-properties-as-others"></a>Dlaczego niektóre dzienniki ILogger mają takie same właściwości jak inne?
 
-Application Insights przechwytuje i wysyła dzienniki ILogger przy użyciu tego samego TelemetryConfiguration, który jest używany przez każdą inną telemetrię. Ale wystąpił wyjątek. Domyślnie TelemetryConfiguration nie jest w pełni skonfigurowany podczas rejestrowania z **program.cs** lub **Startup.cs**. Dzienniki z tych miejsc nie mają konfiguracji domyślnej, dlatego nie będą działać wszystkie TelemetryInitializers i TelemetryProcessors.
+Application Insights przechwytuje i wysyła dzienniki ILogger przy użyciu tego samego TelemetryConfiguration, który jest używany przez każdą inną telemetrię. Ale wystąpił wyjątek. Domyślnie TelemetryConfiguration nie jest w pełni skonfigurowany podczas rejestrowania z **programu program. cs** lub **Start. cs**. Dzienniki z tych miejsc nie mają konfiguracji domyślnej, dlatego nie będą działać wszystkie TelemetryInitializers i TelemetryProcessors.
 
 ### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-i-want-to-log-some-additional-custom-telemetry-manually-how-should-i-do-that"></a>Używam autonomicznego pakietu Microsoft. Extensions. Logging. ApplicationInsights i chcę ręcznie rejestrować kilka dodatkowych danych telemetrycznych. Jak to zrobić?
 
@@ -454,7 +454,7 @@ Rozszerzenie Application Insights na platformie Azure Web Apps używa nowego dos
 ### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Używam samodzielnego pakietu Microsoft. Extensions. Logging. ApplicationInsights i włączania dostawcy Application Insights przez wywoływanie **konstruktora. AddApplicationInsights ("iKey")**. Czy istnieje opcja pobrania klucza Instrumentacji z konfiguracji?
 
 
-Zmodyfikuj Program.cs i appsettings.jsw następujący sposób:
+Zmodyfikuj program. cs i appsettings.jsw następujący sposób:
 
    ```csharp
    public class Program
@@ -484,13 +484,13 @@ Zmodyfikuj Program.cs i appsettings.jsw następujący sposób:
    }
    ```
 
-Ten kod jest wymagany tylko w przypadku korzystania z autonomicznego dostawcy rejestrowania. Do regularnego monitorowania Application Insights klucz Instrumentacji jest ładowany automatycznie ze ścieżki konfiguracyjnej *ApplicationInsights: Instrumentationkey*. Appsettings.jspowinien wyglądać następująco:
+Ten kod jest wymagany tylko w przypadku korzystania z autonomicznego dostawcy rejestrowania. Do regularnego monitorowania Application Insights klucz Instrumentacji jest ładowany automatycznie ze ścieżki konfiguracyjnej *ApplicationInsights: InstrumentationKey*. Appsettings.jspowinien wyglądać następująco:
 
    ```json
    {
      "ApplicationInsights":
        {
-           "Instrumentationkey":"putrealikeyhere"
+           "InstrumentationKey":"putrealikeyhere"
        }
    }
    ```

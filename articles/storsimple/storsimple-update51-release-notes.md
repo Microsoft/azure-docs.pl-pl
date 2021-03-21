@@ -5,14 +5,14 @@ author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: a6a359888e782751892f2a034a8d92a014fd3a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdb971851ba678ce18f5a1c7954e5620740f3a4c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055847"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657573"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>StorSimple 8000 Series Update 5,1 — informacje o wersji
 
@@ -34,7 +34,11 @@ Przed wdrożeniem aktualizacji w rozwiązaniu StorSimple należy zapoznać się 
 
 W aktualizacji Update 5,1 wprowadzono następujące kluczowe ulepszenia i poprawki błędów:
 
-* **Tls 1,2** — ta aktualizacja StorSimple wymusza użycie protokołu TLS 1,2 na wszystkich klientach. Jest to obowiązkowa aktualizacja dla wszystkich urządzeń z serii StorSimple 8000.
+* **Tls 1,2** — ta aktualizacja StorSimple wymusza użycie protokołu TLS 1,2 na wszystkich klientach. Jest to obowiązkowa aktualizacja dla wszystkich urządzeń StorSimple z serii 8000.
+
+   Jeśli zostanie wyświetlone następujące ostrzeżenie, przed kontynuowaniem należy zaktualizować oprogramowanie na urządzeniu:
+
+   Na co najmniej jednym urządzeniu StorSimple jest uruchomiona Starsza wersja oprogramowania. Najnowsza dostępna aktualizacja protokołu TLS 1,2 jest obowiązkową aktualizacją i należy ją od razu zainstalować na tych urządzeniach. Protokół TLS 1,2 jest używany do wszystkich Azure Portal komunikacji i bez tej aktualizacji urządzenie nie będzie w stanie komunikować się z usługą StorSimple.
 
 ## <a name="known-issues-in-update-51-from-previous-releases"></a>Znane problemy z aktualizacją 5,1 z poprzednich wersji
 

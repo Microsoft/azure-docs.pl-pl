@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 9ec0ffeb930fd9285f34ad9ba9e6aa606b15b5a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493892"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593892"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Programowe tworzenie subskrypcji platformy Azure
 
@@ -36,9 +36,9 @@ Najnowsze interfejsy API:
 - [Tworzenie subskrypcji MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Tworzenie subskrypcji MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Jeśli nadal używasz [interfejsów API w wersji zapoznawczej](programmatically-create-subscription-preview.md), możesz nadal tworzyć subskrypcje za ich pomocą. 
+W tych artykułach przedstawiono również sposób tworzenia subskrypcji z szablonem Azure Resource Manager (szablon ARM). Szablon ARM pomaga zautomatyzować proces tworzenia subskrypcji.
 
-Możesz też [tworzyć subskrypcje przy użyciu szablonu usługi ARM](create-subscription-template.md). Szablon usługi ARM pomaga zautomatyzować proces tworzenia subskrypcji za pomocą interfejsów API REST. 
+Jeśli nadal używasz [wersji zapoznawczej interfejsów API](programmatically-create-subscription-preview.md), możesz nadal tworzyć subskrypcje z nimi. 
 
 ## <a name="next-steps"></a>Następne kroki
 

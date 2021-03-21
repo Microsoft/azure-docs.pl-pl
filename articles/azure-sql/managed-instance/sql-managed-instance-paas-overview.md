@@ -10,13 +10,13 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: 81d4527817d637e7b764cc83160153d974ced5c0
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 01/14/2021
+ms.openlocfilehash: dca4d699ac1253753c82949cb480d95a1dde26e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103600966"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594108"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Na poniższym diagramie przedstawiono główne funkcje wystąpienia zarządzaneg
 Wystąpienie zarządzane usługi Azure SQL jest przeznaczone dla klientów, którzy chcą migrować dużą liczbę aplikacji z środowiska lokalnego lub IaaS, samodzielnego lub niezależnego dostawcy oprogramowania do w pełni zarządzanego środowiska chmury PaaS, z możliwie jak najniższym nakładem migracji. Korzystając z w pełni zautomatyzowanej [usługi migracji danych platformy Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), klienci mogą przebudować istniejące wystąpienie SQL Server do wystąpienia zarządzanego SQL, które oferuje zgodność z SQL Server i pełną izolację wystąpień klientów dzięki natywnej obsłudze sieci wirtualnej. Aby uzyskać więcej informacji na temat opcji i narzędzi migracji, zobacz [Omówienie migracji: SQL Server do wystąpienia zarządzanego Azure SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Program Software Assurance umożliwia wymianę istniejących licencji dla obniżonych stawek w wystąpieniu zarządzanym SQL przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Wystąpienie zarządzane SQL to Najlepsza lokalizacja docelowa migracji w chmurze dla wystąpień SQL Server, które wymagają wysokiego poziomu zabezpieczeń i rozbudowanej powierzchni programistycznej.
 
 > [!TIP]
-> Jak możemy ulepszyć usługę Azure SQL? [Wypełnij ankietę](https://aka.ms/AzureSQLSurvey).
+> Jak możemy ulepszyć usługę Azure SQL? [Wypełnij ankietę](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="key-features-and-capabilities"></a>Najważniejsze funkcje i możliwości
 
@@ -79,8 +79,8 @@ W poniższej tabeli przedstawiono najważniejsze funkcje wystąpienia zarządzan
 
 W modelu rdzeń wirtualny można wybrać między generacjami sprzętu.
 
-- Logiczne procesory **obliczenia** są oparte na procesorach Intel® E5-2673 v3 (Haswell) 2,4 GHz, dołączonym SSD, rdzeniach fizycznych, 7 GB pamięci RAM na rdzeń i rozmiarach obliczeniowych od 8 do 24 rdzeni wirtualnych.
-- Logiczne procesory **5 rdzeń** są oparte na procesorach Intel® E5-2673 v4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) i Intel® 8272CL (kaskad Lake) 2,5 procesorów, szybkiego SSD interfejsu NVMe, rdzeni logicznej funkcji Hyper-Threading i rozmiarów obliczeń między 4 i 80 rdzeniami.
+- Logiczne procesory **obliczenia** są oparte na procesorach Intel &reg; E5-2673 v3 (Haswell) 2,4 GHz, dołączonym SSD, rdzeniach fizycznych, 7 GB pamięci RAM na rdzeń i rozmiarach obliczeniowych od 8 do 24 rdzeni wirtualnych.
+- Logiczne procesory **5 rdzeń** są oparte na procesorach Intel &reg; E5-2673 v4 (Broadwell) 2,3 GHz, Intel &reg; SP-8160 (Skylake) i Intel &reg; 8272CL (Kaskada Lake) 2,5 procesorów, szybkiego SSD interfejsu NVMe, rdzeniu logicznego funkcji Hyper-Threading i rozmiarów obliczeń między 4 i 80 rdzeniami.
 
 Znajdź więcej informacji na temat różnic między generacjami sprzętowymi w [limitach zasobów wystąpienia zarządzanego SQL](resource-limits.md#hardware-generation-characteristics).
 

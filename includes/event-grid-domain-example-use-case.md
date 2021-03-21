@@ -9,10 +9,10 @@ ms.date: 03/04/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 2459cf6c5055dcde83dccf37addc160aeeaa64ad
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198664"
 ---
 Domeny zdarzeń można łatwo wyjaśnić przy użyciu przykładu. Załóżmy, że uruchomiono maszyny do budowy firmy Contoso, w której są wytwarzane ciągniki, urządzenia przeszukiwanie stosów oraz inne duże maszyny. W ramach działania firmy użytkownik wysyła informacje w czasie rzeczywistym do klientów dotyczących konserwacji sprzętu, kondycji systemów i aktualizacji umów. Wszystkie te informacje znajdują się w różnych punktach końcowych, w tym aplikacji, punktach końcowych klienta i w innej infrastrukturze, którą skonfigurowali klienci.

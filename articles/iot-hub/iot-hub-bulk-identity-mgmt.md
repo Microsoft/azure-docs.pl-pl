@@ -10,10 +10,10 @@ ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536083"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Zbiorcze importowanie i eksportowanie tożsamości urządzeń usługi IoT Hub
@@ -21,7 +21,7 @@ ms.locfileid: "92536083"
 Każde Centrum IoT Hub ma rejestr tożsamości, którego można użyć do tworzenia zasobów dla urządzeń w usłudze. Rejestr tożsamości pozwala również kontrolować dostęp do punktów końcowych dostępnych dla urządzenia. W tym artykule opisano sposób importowania i eksportowania tożsamości urządzeń zbiorczo do i z rejestru tożsamości. Aby wyświetlić przykład roboczy w języku C# i dowiedzieć się, jak można użyć tej funkcji podczas klonowania koncentratora do innego regionu, zobacz [Jak sklonować IoT Hub](iot-hub-how-to-clone.md).
 
 > [!NOTE]
-> IoT Hub ostatnio dodaliśmy obsługę sieci wirtualnej w ograniczonej liczbie regionów. Ta funkcja zabezpiecza operacje importu i eksportu i eliminuje konieczność przekazywania kluczy na potrzeby uwierzytelniania.  Początkowo obsługa sieci wirtualnej jest dostępna tylko w następujących regionach: *WestUS2* , *Wschodnie* i *SouthCentralUS* . Aby dowiedzieć się więcej na temat obsługi sieci wirtualnych i wywołań interfejsu API w celu ich wdrożenia, zobacz [IoT Hub obsługa sieci wirtualnych](virtual-network-support.md).
+> IoT Hub ostatnio dodaliśmy obsługę sieci wirtualnej w ograniczonej liczbie regionów. Ta funkcja zabezpiecza operacje importu i eksportu i eliminuje konieczność przekazywania kluczy na potrzeby uwierzytelniania.  Początkowo obsługa sieci wirtualnej jest dostępna tylko w następujących regionach: *WestUS2*, *Wschodnie* i *SouthCentralUS*. Aby dowiedzieć się więcej na temat obsługi sieci wirtualnych i wywołań interfejsu API w celu ich wdrożenia, zobacz [IoT Hub obsługa sieci wirtualnych](virtual-network-support.md).
 
 Operacje importowania i eksportowania odbywają się w kontekście *zadań* , które umożliwiają wykonywanie operacji usług zbiorczych w usłudze IoT Hub.
 
@@ -61,7 +61,7 @@ Aby znaleźć parametry połączenia dla Centrum IoT Hub, w Azure Portal:
 
 - Przejdź do centrum IoT Hub.
 
-- Wybierz pozycję **zasady dostępu współdzielonego** .
+- Wybierz pozycję **zasady dostępu współdzielonego**.
 
 - Wybierz zasady, uwzględniając wymagane uprawnienia.
 
@@ -109,7 +109,7 @@ Metoda **ExportDevicesAsync** wymaga dwóch parametrów:
      | SharedAccessBlobPermissions.Delete
    ```
 
-* *Wartość logiczna* wskazująca, czy chcesz wykluczyć klucze uwierzytelniania z danych eksportu. W przypadku **wartości false** klucze uwierzytelniania są uwzględniane w danych wyjściowych eksportu. W przeciwnym razie klucze są eksportowane jako **wartości null** .
+* *Wartość logiczna* wskazująca, czy chcesz wykluczyć klucze uwierzytelniania z danych eksportu. W przypadku **wartości false** klucze uwierzytelniania są uwzględniane w danych wyjściowych eksportu. W przeciwnym razie klucze są eksportowane jako **wartości null**.
 
 Poniższy fragment kodu w języku C# pokazuje, jak zainicjować zadanie eksportu obejmujące klucze uwierzytelniania urządzenia w danych eksportu, a następnie przeprowadzić sondowanie pod kątem ukończenia:
 
@@ -134,7 +134,7 @@ while(true)
 }
 ```
 
-Zadanie przechowuje dane wyjściowe w udostępnionym kontenerze obiektów BLOB jako blokowy obiekt BLOB o nazwie **devices.txt** . Dane wyjściowe składają się z serializowanych danych w formacie JSON przy użyciu jednego urządzenia w każdym wierszu.
+Zadanie przechowuje dane wyjściowe w udostępnionym kontenerze obiektów BLOB jako blokowy obiekt BLOB o nazwie **devices.txt**. Dane wyjściowe składają się z serializowanych danych w formacie JSON przy użyciu jednego urządzenia w każdym wierszu.
 
 W poniższym przykładzie przedstawiono dane wyjściowe:
 
@@ -264,13 +264,13 @@ Użyj **opcjonalnej** właściwości ImportMode w Importuj dane serializacji dla
 
 | portmode | Opis |
 | --- | --- |
-| **Metodę createorupdate** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze** , jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, istniejące informacje są zastępowane przez podane dane wejściowe bez względu na wartość **ETag** . <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
-| **Create** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze** , jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, w pliku dziennika zostanie zapisany błąd. <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
-| **update** |Jeśli urządzenie już istnieje o określonym **identyfikatorze** , istniejące informacje są zastępowane dostarczonymi danymi wejściowymi bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
-| **updateIfMatchETag** |Jeśli urządzenie już istnieje o określonym **identyfikatorze** , istniejące informacje są zastępowane danymi wejściowymi tylko wtedy, gdy istnieje element **ETag** Match. <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. <br/>Jeśli występuje niezgodność elementu **ETag** , w pliku dziennika jest zapisywana błąd. |
-| **createOrUpdateIfMatchETag** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze** , jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, istniejące informacje są zastępowane przez podane dane wejściowe tylko wtedy, gdy istnieje element **ETag** Match. <br/>Jeśli występuje niezgodność elementu **ETag** , w pliku dziennika jest zapisywana błąd. <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
-| **delete** |Jeśli urządzenie już istnieje o określonym **identyfikatorze** , zostanie usunięte bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
-| **deleteIfMatchETag** |Jeśli istnieje już urządzenie o określonym **identyfikatorze** , jest ono usuwane tylko wtedy, gdy istnieje dopasowanie **ETag** . Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. <br/>Jeśli występuje niezgodność elementu ETag, w pliku dziennika jest zapisywana błąd. |
+| **Metodę createorupdate** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze**, jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, istniejące informacje są zastępowane przez podane dane wejściowe bez względu na wartość **ETag** . <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
+| **Create** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze**, jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, w pliku dziennika zostanie zapisany błąd. <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
+| **update** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, istniejące informacje są zastępowane dostarczonymi danymi wejściowymi bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
+| **updateIfMatchETag** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, istniejące informacje są zastępowane danymi wejściowymi tylko wtedy, gdy istnieje element **ETag** Match. <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. <br/>Jeśli występuje niezgodność elementu **ETag** , w pliku dziennika jest zapisywana błąd. |
+| **createOrUpdateIfMatchETag** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze**, jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, istniejące informacje są zastępowane przez podane dane wejściowe tylko wtedy, gdy istnieje element **ETag** Match. <br/>Jeśli występuje niezgodność elementu **ETag** , w pliku dziennika jest zapisywana błąd. <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
+| **delete** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, zostanie usunięte bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
+| **deleteIfMatchETag** |Jeśli istnieje już urządzenie o określonym **identyfikatorze**, jest ono usuwane tylko wtedy, gdy istnieje dopasowanie **ETag** . Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. <br/>Jeśli występuje niezgodność elementu ETag, w pliku dziennika jest zapisywana błąd. |
 
 > [!NOTE]
 > Jeśli dane serializacji nie definiują **jawnie flagi** ImportMode dla urządzenia, domyślnie **metodę createorupdate** podczas operacji importowania.
@@ -432,7 +432,7 @@ Artykuł klonowania zawiera skojarzony z nim przykład roboczy, który znajduje 
 
 Aby dowiedzieć się więcej na temat zarządzania usługą Azure IoT Hub, zapoznaj się z następującymi artykułami:
 
-* [Monitoruj IoT Hub](monitor-iot-hub.md)
+* [Monitorowanie usługi IoT Hub](monitor-iot-hub.md)
 
 Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 

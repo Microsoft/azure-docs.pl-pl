@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: e5aeda35ed4110807f17c11e93b31d0b3998846e
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461117"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Samouczek: przechowywanie danych na brzegu sieci przy użyciu baz danych programu SQL Server
@@ -26,7 +26,7 @@ Usługi Azure IoT Edge i programu SQL Server można używać do przechowywania d
 
 Ten artykuł zawiera instrukcje dotyczące wdrażania bazy danych programu SQL Server na urządzeniu usługi IoT Edge. Usługa Azure Functions, uruchomiona na urządzeniu usługi IoT Edge, strukturyzuje dane przychodzące, a następnie wysyła je do bazy danych. Kroki opisane w tym artykule można zastosować również do innych baz danych, które działają w kontenerach, na przykład MySQL lub PostgreSQL.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -107,7 +107,7 @@ Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązani
 
 3. Zapisz plik **sqlFunction.csproj**.
 
-4. Otwórz plik **sqlFunction.cs** .
+4. Otwórz plik **SqlFunction. cs** .
 
 5. Zastąp całą zawartość pliku następującym kodem:
 
@@ -221,7 +221,7 @@ Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązani
 
 3. W witrynie Azure IoT Edge Portal Marketplace Wyszukaj i wybierz **moduł SQL Server**.
 
-4. Zmień nazwę modułu na **SQL**, wszystkie małe litery. Ta nazwa jest zgodna z nazwą kontenera zadeklarowaną w parametrach połączenia w pliku sqlFunction.cs.
+4. Zmień nazwę modułu na **SQL**, wszystkie małe litery. Ta nazwa jest zgodna z nazwą kontenera zadeklarowaną w parametrach połączenia w pliku SqlFunction. cs.
 
 5. Wybierz pozycję **Importuj** , aby dodać moduł do rozwiązania.
 

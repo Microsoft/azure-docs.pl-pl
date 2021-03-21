@@ -789,7 +789,9 @@
         - name: Wyzwalacze potoku
           href: pipeline-trigger-troubleshoot-guide.md
         - name: Przepływy danych
-          href: data-flow-troubleshoot-guide.md
+          items:
+            - name: Przepływy danych — omówienie
+              href: data-flow-troubleshoot-guide.md
         - name: Ciągła integracja i wdrażanie
           href: ci-cd-github-troubleshoot-guide.md
         - name: Zabezpieczenia i kontrola dostępu

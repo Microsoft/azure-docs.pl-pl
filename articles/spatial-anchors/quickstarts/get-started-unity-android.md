@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3c17eadfad71f58b4557f8115a0d1d3de392b4b9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e1554b1728b120145a06124e4703065a98a4e466
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96015132"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670105"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji dla systemu Android w środowisku Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -34,7 +34,7 @@ Omawiane tematy:
 
 Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz następującymi elementami:
 
-- Maszyna z systemem Windows lub macOS z programem <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019,4 (LTS)</a>, włącznie z **obsługą kompilacji systemu Android** z **Android SDK & narzędzia NDK** i moduły **OpenJDK** .
+- Komputer z systemem Windows lub macOS z funkcją <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a>, w tym **obsługę kompilacji systemu Android** z modułami **Android SDK & NDK** i **OpenJDK** . Użyj **aparatu unity 2020 LTS** z zestawem SDK w wersji 2,9 lub nowszej (korzystającej z [struktury wtyczki XR Unity](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) lub **aparatu Unity 2019 LTS** za pomocą zestawu ASA SDK w wersji 2,8 lub starszej.
   - W przypadku korzystania z systemu Windows potrzebna jest również <a href="https://git-scm.com/download/win" target="_blank">git dla systemu Windows</a> i <a href="https://git-lfs.github.com/">narzędzia Git LFS</a>.
   - W przypadku uruchamiania w systemie macOS Pobierz narzędzie git zainstalowane za pośrednictwem usługi oprogramowania homebrew. Wprowadź następujące polecenie w jednym wierszu terminalu: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Następnie uruchom `brew install git` i `brew install git-lfs` .
 - Urządzenie z systemem Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">pracujące w trybie dewelopera</a> i <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">zgodne z platformą ARCore</a>.

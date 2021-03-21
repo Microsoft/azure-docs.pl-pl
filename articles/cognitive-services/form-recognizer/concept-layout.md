@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467021"
 ---
 # <a name="form-recognizer-layout-service"></a>Usługa układu aparatu rozpoznawania formularzy
@@ -95,7 +95,7 @@ Dane wyjściowe JSON mają dwie części:
 
 Interfejs API układu wyodrębnia tekst z dokumentów (PDF, TIFF) i obrazów (JPG, PNG, BMP) z wieloma kątami i kolorami tekstu. Akceptuje on Zdjęcia dokumentów, faksów, drukowanych i/lub odręcznych (tylko w języku angielskim) oraz tryby mieszane. Tekst jest wyodrębniany z informacjami udostępnianymi na wierszach, słowach, polach powiązanych, wynikach pewności i stylu (odręcznym lub innym). Wszystkie informacje tekstowe są zawarte w sekcji w `readResults` danych wyjściowych JSON. 
 
-### <a name="tables"></a>Tabele
+### <a name="tables"></a>tabelami
 
 Interfejs API układu wyodrębnia tabele z dokumentów (PDF, TIFF) i obrazów (JPG, PNG, BMP). Dokumenty mogą być skanowane, z grafem lub cyframi. Tabele mogą być złożone z scalonymi komórkami lub kolumnami, z obramowaniem lub bez. Wyodrębnione informacje tabeli obejmują liczbę kolumn i wierszy, zakres wierszy i zakres kolumn. Każda komórka jest wyodrębniana wraz z obwiednią i odwołaniem do tekstu wyodrębnionego w `readResults` sekcji. Informacje o tabeli znajdują się w `pageResults` sekcji danych wyjściowych JSON. 
 

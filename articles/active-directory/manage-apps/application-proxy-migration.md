@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7d089d8f57bf8ef1278d262129cc8ddfc81d581
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99257747"
 ---
 # <a name="compare-remote-access-solutions"></a>Porównywanie rozwiązań dostępu zdalnego
@@ -32,7 +32,7 @@ Serwer proxy aplikacji usługi Azure Active Directory jest jednym z dwóch rozwi
 
 Skorzystaj z tej tabeli, aby zrozumieć, jak Brama zarządzania zagrożeniami (TMG), Unified Access Gateway (UAG), serwer proxy aplikacji sieci Web (WAP) i usługa Azure serwer proxy aplikacji usługi Azure AD (AP) porównują się ze sobą.
 
-| Cechy | TMG | UAG | WAP | AP |
+| Cecha | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | Uwierzytelnianie certyfikatu | Tak | Tak | - | - |
 | Selektywne publikowanie aplikacji przeglądarki | Tak | Tak | Tak | Tak |
