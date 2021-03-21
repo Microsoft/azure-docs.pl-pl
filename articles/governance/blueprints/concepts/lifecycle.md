@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat cyklu życia, przez który przechodz�
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: 721a198b5732af01c6712e86bc0c8e8ef543b404
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918521"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Zapoznaj się z cyklem życia Azure Blueprint

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
 ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98247509"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
@@ -290,7 +290,7 @@ Azure Cosmos DB zarezerwowana pojemność umożliwia zakupienie alokowanej przep
 |**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**|**Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |East US|$0,008 |50 K|$4|$2 880 |
-|Japan East|$0,009 |50 K| $4,50 |$3 240 |
+|Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
 |Łącznie|||$8,50|$6 120 |
 
 Rozważmy, że zamiast tego zakupiono zastrzeżoną pojemność. Możesz kupić zarezerwowaną pojemność dla 100 – K RU/s w cenie $56 064 przez jeden rok (za 20% rabatu) lub $6,40 na godzinę. Zobacz cennik pojemności zarezerwowanych na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
@@ -304,7 +304,7 @@ Rzeczywiste zakupione dane to kredyt z $8 USD za godzinę dla 100 K/s, przy uży
 |**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**| **Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |East US|$0,008 |50 K|$4|$2 880 |
-|Japan East|$0,009 |50 K| $4,50 |$3 240 |
+|Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
 |||Płatność zgodnie z rzeczywistym użyciem|$8,50|$6120|
 |Zarezerwowana pojemność zakupiona|$0,0064 (20% rabatu) |100 jednostki RU/s lub $8 pojemności wstępnie kupione |-$8|-$5 760 |
 |Rachunek netto|||(0,50 USD) |$360 |

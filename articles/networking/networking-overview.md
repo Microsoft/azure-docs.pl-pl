@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
 ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234192"
 ---
 # <a name="azure-networking-services-overview"></a>Omówienie usług sieciowych platformy Azure
@@ -53,7 +53,7 @@ Na poniższym diagramie przedstawiono wiele połączeń sieci VPN typu lokacja-l
 
 Aby uzyskać więcej informacji na temat różnych typów połączeń sieci VPN, zobacz [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>Wirtualna sieć WAN
 Wirtualna sieć WAN platformy Azure to usługa sieciowa, która zapewnia zoptymalizowaną i zautomatyzowaną łączność z gałęzią z usługami i i za pośrednictwem platformy Azure. Regiony platformy Azure służą jako centra, do których można połączyć gałęzie. Korzystając ze szkieletu platformy Azure, można również łączyć gałęzie i korzystać z połączeń między sieciami wirtualnymi. Wirtualna sieć WAN platformy Azure oferuje wiele usług łączności w chmurze platformy Azure, takich jak sieci VPN typu lokacja-lokacja, Sieć VPN typu punkt-lokacja w jednym interfejsie operacyjnym. Połączenie z usługą Azure sieci wirtualnych jest nawiązywane przy użyciu połączeń sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [co to jest Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
 :::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Diagram usługi Virtual WAN":::
@@ -93,7 +93,7 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają oc
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDoS Protection":::
 
-### <a name="azure-private-link"></a><a name="privatelink"></a>Link prywatny platformy Azure
+### <a name="azure-private-link"></a><a name="privatelink"></a>Prywatny link do platformy Azure
 [Link prywatny platformy Azure](../private-link/private-link-overview.md) umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach prywatnego punktu końcowego w sieci wirtualnej.
 Ruch między siecią wirtualną a usługą porusza się w sieci szkieletowej firmy Microsoft. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne. Możesz utworzyć własną prywatną usługę linku w sieci wirtualnej i dostarczyć jej klientom.
 
@@ -113,7 +113,7 @@ Klienci mogą wybrać wdrożenie [usługi Azure WAF z Application Gateway](../we
 
 :::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Web Application Firewall":::
 
-### <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
+### <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
 Ruch sieciowy przychodzący do zasobów platformy Azure i wychodzący z nich w sieci wirtualnej platformy Azure można filtrować za pomocą grupy zabezpieczeń sieci. Aby uzyskać więcej informacji, zobacz [sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Punkty końcowe usługi

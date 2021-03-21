@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 13d0bdf82052ff2c61c5b2c6010956c8fb27574d
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 30ea75a2df63fa935314fc103fe1e7e092f655b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122451"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612056"
 ---
 Ten przewodnik Szybki Start przedstawia sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania danych telemetrycznych wysyłanych przez nią. Przykładowa aplikacja jest zapisywana w języku C# i jest uwzględniona w przykładach usługi Azure IoT dla języka C#. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
 
@@ -52,7 +52,7 @@ Teraz można skompilować przykład w programie Visual Studio i uruchomić go w 
 
 ## <a name="run-the-device-sample"></a>Uruchamianie przykładu urządzenia
 
-Aby śledzić wykonywanie kodu w programie Visual Studio w systemie Windows, Dodaj punkt przerwania do `main` funkcji w pliku program.cs.
+Aby śledzić wykonywanie kodu w programie Visual Studio w systemie Windows, Dodaj punkt przerwania do `main` funkcji w pliku program. cs.
 
 Urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do centrum. Kontynuuj działanie przykładu w przypadku wykonywania następnych kroków.
 
@@ -64,7 +64,7 @@ Po rozpoczęciu próby klienta urządzenia Użyj narzędzia Azure IoT Explorer, 
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten przykład implementuje proste urządzenie z termostatem Plug and Play. Model tego przykładowego implementuje nie korzysta ze [składników](../articles/iot-pnp/concepts-components.md)Plug and Play IoT. [Plik modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) dla urządzenia termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) definiuje dane telemetryczne, właściwości i polecenia implementowane przez urządzenie.
+Ten przykład implementuje proste urządzenie z termostatem Plug and Play. Model tego przykładowego implementuje nie korzysta ze [składników](../articles/iot-pnp/concepts-modeling-guide.md)Plug and Play IoT. [Plik modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) dla urządzenia termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) definiuje dane telemetryczne, właściwości i polecenia implementowane przez urządzenie.
 
 Kod urządzenia łączy się z Centrum IoT Hub przy użyciu standardowej `CreateFromConnectionString` metody. Urządzenie wysyła identyfikator modelu DTDL, który implementuje w żądaniu połączenia. Urządzenie, które wysyła identyfikator modelu, jest urządzeniem Plug and Play IoT:
 

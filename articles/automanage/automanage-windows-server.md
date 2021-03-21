@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
 ms.openlocfilehash: a3bb0a2877c71d19b05f424dc44e302c69577b2d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101662715"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices---windows-server"></a>Usługa Azure automanage dla najlepszych rozwiązań dotyczących maszyn wirtualnych — system Windows Server

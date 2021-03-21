@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 50fd5641c61d08939eca1f2cbafb1d077254e37d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98233274"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Współdziałanie z funkcjami łączności zaplecza platformy Azure: szczegóły konfiguracji testu
@@ -25,7 +25,7 @@ W tym artykule opisano szczegóły konfiguracji [testu][Setup]. Konfiguracja tes
 
 Na poniższej ilustracji przedstawiono szczegóły dotyczące komunikacji równorzędnej platformy Azure Virtual Network sieci wirtualnej szprychy (VNet). Aby dowiedzieć się, jak skonfigurować komunikację równorzędną między dwoma sieci wirtualnych, zobacz [Zarządzanie wirtualnymi sieciami równorzędnymi][VNet-Config]. Jeśli sieć wirtualna szprych ma używać bram, które są połączone z siecią wirtualną koncentratora, wybierz opcję **Użyj bram zdalnych**.
 
-[![1]][1]
+[![jedno]][1]
 
 Na poniższej ilustracji przedstawiono szczegółowe informacje o komunikacji równorzędnej sieci wirtualnej centrum. Jeśli chcesz, aby Sieć wirtualna z koncentratorem mogła korzystać z bram centrum, wybierz opcję **Zezwalaj na tranzyt bramy**.
 

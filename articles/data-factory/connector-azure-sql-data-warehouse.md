@@ -5,13 +5,13 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: 38306b2fb3c0a51aeedbf1ebd9079dd787783093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364294"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597525"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics przy użyciu Azure Data Factory
 
@@ -24,7 +24,7 @@ ms.locfileid: "100364294"
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do usługi Azure Synapse Analytics oraz do przekształcania danych w Azure Data Lake Storage Gen2. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
-## <a name="supported-capabilities"></a>Obsługiwane możliwości
+## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
 Ten łącznik usługi Azure Synapse Analytics jest obsługiwany dla następujących działań:
 
@@ -390,6 +390,7 @@ Aby skopiować dane do usługi Azure Synapse Analytics, ustaw typ ujścia w dzia
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w usłudze Azure Synapse Analytics w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | tableOption | Określa, czy [tabela ujścia ma być automatycznie tworzona,](copy-activity-overview.md#auto-create-sink-tables) Jeśli nie istnieje na podstawie schematu źródłowego. Dozwolone wartości to: `none` (domyślnie), `autoCreate` . |Nie |
 | disableMetricsCollection | Data Factory zbiera takie metryki jak Azure Synapse Analytics jednostek dwu na potrzeby optymalizacji wydajności kopiowania i zaleceń, które wprowadzają dodatkowy dostęp do bazy danych Master. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Przykład ujścia usługi Azure Synapse Analytics
 
@@ -520,7 +521,7 @@ Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i au
    4. `nullValue` jest pozostawiony jako domyślny lub ustawiony jako **pusty ciąg** ("") i `treatEmptyAsNull` jest pozostawiany jako domyślny lub ma ustawioną wartość true.
    5. `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
    6. `quoteChar`, `escapeChar` i `skipLineCount` nie są określone. Obsługa wielopodstawau pomija wiersz nagłówka, który można skonfigurować `firstRowAsHeader` w ramach ADF.
-   7. `compression` nie może to być **kompresja**, **gzip** ani **Wklęśnięcie**.
+   7. `compression` nie może być **kompresja**, **``GZip``** ani **korekta**.
 
 3. Jeśli źródło jest folderem, `recursive` w działaniu Kopiuj musi być ustawiona wartość true.
 
@@ -615,7 +616,7 @@ Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Blob Storage](conne
 
 ### <a name="best-practices-for-using-polybase"></a>Najlepsze rozwiązania dotyczące korzystania z bazy
 
-W poniższych sekcjach znajdują się najlepsze rozwiązania, które opisano w temacie [najlepsze rozwiązania dotyczące usługi Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+W poniższych sekcjach znajdują się najlepsze rozwiązania, które opisano w temacie [najlepsze rozwiązania dotyczące usługi Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Wymagane uprawnienie do bazy danych
 
@@ -709,7 +710,7 @@ Użycie instrukcji COPY obsługuje następującą konfigurację:
 
 2. Ustawienia formatu są następujące:
 
-   1. Dla **Parquet**: `compression` nie może być **kompresją**, **przyciągiem** ani **gzip**.
+   1. Dla **Parquet**: `compression` nie może mieć **kompresji**, **przyciągania** ani **``GZip``** .
    2. Dla **Orc**: `compression` nie może być **kompresji**, **```zlib```** ani **przyciągania**.
    3. Dla **tekstu rozdzielanego**:
       1. `rowDelimiter` jest jawnie ustawiona jako **pojedynczy znak** lub "**\r\n**", wartość domyślna nie jest obsługiwana.
@@ -717,7 +718,7 @@ Użycie instrukcji COPY obsługuje następującą konfigurację:
       3. `encodingName` jest domyślnie ustawiony na wartość **UTF-8 lub UTF-16**.
       4. `escapeChar` musi być taka sama jak `quoteChar` i nie jest pusta.
       5. `skipLineCount` jest pozostawiony jako domyślny lub ustawiony na 0.
-      6. `compression` nie może to być **kompresja** ani **gzip**.
+      6. `compression` nie może być **kompresja** ani **``GZip``** .
 
 3. Jeśli źródło jest folderem, `recursive` w działaniu kopiowania musi być ustawiona wartość true i musi `wildcardFilename` być `*` . 
 
@@ -821,7 +822,7 @@ Ustawienia specyficzne dla usługi Azure Synapse Analytics są dostępne na karc
 - Utwórz ponownie: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.
 - Obcinanie: wszystkie wiersze z tabeli docelowej zostaną usunięte.
 
-**Włącz przemieszczanie:** Określa, czy podczas zapisywania do usługi Azure Synapse Analytics ma być używana [baza Base](/sql/relational-databases/polybase/polybase-guide) . Magazyn przemieszczania jest skonfigurowany w [działaniu wykonywania przepływu danych](control-flow-execute-data-flow-activity.md). 
+**Włącz przemieszczanie:** Umożliwia to ładowanie do pul SQL usługi Azure Synapse Analytics przy użyciu polecenia copy i jest zalecane w przypadku większości ujścia Synpase. Magazyn przemieszczania jest skonfigurowany w [działaniu wykonywania przepływu danych](control-flow-execute-data-flow-activity.md). 
 
 - W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi magazynu należy odpowiednio poznać potrzebne konfiguracje [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
 - Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).

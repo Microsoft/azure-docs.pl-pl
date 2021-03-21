@@ -3,14 +3,14 @@ title: Parametry serwera — Azure Database for MariaDB
 description: Ten temat zawiera wskazówki dotyczące konfigurowania parametrów serwera w Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ca1acfd6891c9389363fceb7eccec6f460537399
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 7797ee9d20b33a25c1b51289036651c7ad9f22a1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664150"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parametry serwera w Azure Database for MariaDB

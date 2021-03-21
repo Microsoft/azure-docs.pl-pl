@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 398f11c6e55cb62e0b29c148494cf3d590200b9d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5a8d270ffdef1f9ae68814fa023284c68216d3ff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834209"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611958"
 ---
 W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play ze składnikami, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku C i jest uwzględniona w zestawie SDK urządzeń Azure IoT dla języka C. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
 
@@ -160,7 +160,7 @@ Po rozpoczęciu próby klienta urządzenia Użyj narzędzia Azure IoT Explorer, 
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten przykład implementuje urządzenie kontrolera temperatury Plug and Play IoT. Ten przykład implementuje model z [wieloma składnikami](../articles/iot-pnp/concepts-components.md). [Plik modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) dla urządzenia temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) definiuje dane telemetryczne, właściwości i polecenia implementowane przez urządzenie.
+Ten przykład implementuje urządzenie kontrolera temperatury Plug and Play IoT. Ten przykład implementuje model z [wieloma składnikami](../articles/iot-pnp/concepts-modeling-guide.md). [Plik modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) dla urządzenia temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) definiuje dane telemetryczne, właściwości i polecenia implementowane przez urządzenie.
 
 ### <a name="iot-plug-and-play-helper-functions"></a>Funkcje pomocnika Plug and Play IoT
 

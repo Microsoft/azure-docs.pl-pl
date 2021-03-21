@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249446"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Bezpieczne Przekształcanie danych przy użyciu funkcji mapowania przepływu danych
@@ -126,7 +126,7 @@ W tym kroku skonfigurujesz Data Lake Storage Gen2 jako źródło.
 
     ![Zrzut ekranu pokazujący interaktywną autorstwo.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
-1. Wybierz **Test connection**. Nie powinno się to zakończyć, ponieważ konto magazynu nie umożliwia dostępu do niego bez tworzenia i zatwierdzania prywatnego punktu końcowego. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w [tej sekcji](#create-a-managed-private-endpoint) , aby utworzyć zarządzany prywatny punkt końcowy.
+1. Wybierz pozycję **Testuj połączenie**. Nie powinno się to zakończyć, ponieważ konto magazynu nie umożliwia dostępu do niego bez tworzenia i zatwierdzania prywatnego punktu końcowego. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie prywatnego punktu końcowego, który można wykonać, aby utworzyć zarządzany prywatny punkt końcowy. Alternatywnie przejdź bezpośrednio do karty **Zarządzanie** i postępuj zgodnie z instrukcjami w [tej sekcji](#create-a-managed-private-endpoint) , aby utworzyć zarządzany prywatny punkt końcowy.
 
 1. Pozostaw otwarte okno dialogowe, a następnie przejdź do konta magazynu.
 

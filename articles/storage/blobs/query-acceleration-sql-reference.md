@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95908782"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Dokumentacja języka SQL przyspieszania zapytań
@@ -60,7 +60,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |INT      |64-bitowa liczba całkowita ze znakiem.                     |
 |FLOAT    |64-bitowa ("Podwójna precyzja") liczba zmiennoprzecinkowa.|
 |PARAMETRY   |Ciąg Unicode o zmiennej długości.            |
-|ZNACZNIK czasu|Punkt w czasie.                           |
+|TIMESTAMP|Punkt w czasie.                           |
 |TYPU  |TRUE lub FALSE.                             |
 
 Podczas odczytywania wartości z danych w formacie CSV wszystkie wartości są odczytywane jako ciągi.  Wartości ciągu mogą być konwertowane na inne typy przy użyciu wyrażeń RZUTowania.  Wartości mogą być niejawnie rzutowane na inne typy w zależności od kontekstu. Aby uzyskać więcej informacji, zobacz [pierwszeństwo typów danych (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
@@ -186,7 +186,7 @@ W tej tabeli opisano ciągi, których można użyć do określenia formatu danyc
 
 |Ciąg formatu    |Dane wyjściowe                               |
 |-----------------|-------------------------------------|
-|yy               |Rok w formacie 2-cyfrowym — 1999 jako "99"|
+|RR               |Rok w formacie 2-cyfrowym — 1999 jako "99"|
 |Y                |Rok w formacie 4-cyfrowym               |
 |yyyy             |Rok w formacie 4-cyfrowym               |
 |M                |Miesiąc roku — 1                    |

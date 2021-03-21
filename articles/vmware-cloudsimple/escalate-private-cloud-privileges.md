@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2215bd9a60fdcf76077c3a1f2a91631dc0dbe88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895826"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalacja uprawnień vCenter w chmurze prywatnej z portalu CloudSimple
@@ -47,7 +47,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
     ![Okno dialogowe eskalacji uprawnień](media/escalate-private-cloud-privilege-dialog.png)
 
-7. Kliknij pozycję **OK**.
+7. Kliknij przycisk **OK**.
 
 8. Proces eskalacji może potrwać kilka minut. Po zakończeniu kliknij przycisk **OK**.
 
@@ -81,7 +81,7 @@ Po zakończeniu zadań administracyjnych należy anulować eskalację uprawnień
 
 2. Kliknij przycisk **Anuluj eskalację**.
 
-3. Kliknij pozycję **OK**.
+3. Kliknij przycisk **OK**.
 
 > [!IMPORTANT]
 > Aby uniknąć błędów, Wyloguj się z programu vCenter i zaloguj się ponownie po usunięciu uprawnień.

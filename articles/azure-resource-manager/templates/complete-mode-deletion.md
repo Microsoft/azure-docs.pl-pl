@@ -4,10 +4,10 @@ description: Pokazuje, jak typy zasobów obsługują usuwanie w trybie pełnym w
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184029"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym
@@ -231,7 +231,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | anonymousapiusers | Nie |
 > | konfiguracja | Nie |
 > | dzienniki | Nie |
-> | reports | Nie |
+> | raporty | Nie |
 > | servicehealthmetrics | Nie |
 > | services | Nie |
 
@@ -920,7 +920,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Działy | Nie |
 > | Wymiary | Nie |
 > | EnrollmentAccounts | Nie |
-> | Eksportowanie | Nie |
+> | Eksporty | Nie |
 > | ExternalBillingAccounts | Nie |
 > | ExternalBillingAccounts/alerty | Nie |
 > | ExternalBillingAccounts/wymiary | Nie |

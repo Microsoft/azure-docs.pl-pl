@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
 ms.openlocfilehash: ded1406c47bb3f00c366da7a5b28319f3712f8a7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733760"
 ---
 # <a name="enable-intel-sgx-for-your-azure-sql-database"></a>Włącz technologię Intel SGX dla Azure SQL Database 
@@ -41,6 +41,6 @@ Aby uzyskać szczegółowe instrukcje dotyczące konfigurowania nowej lub istnie
 
 - [Konfigurowanie zaświadczania platformy Azure dla serwera usługi Azure SQL Database](always-encrypted-enclaves-configure-attestation.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Samouczek: wprowadzenie do Always Encrypted za pomocą bezpiecznego enclaves w Azure SQL Database](always-encrypted-enclaves-getting-started.md)

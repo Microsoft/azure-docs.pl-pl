@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
 ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100546639"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Samouczek: bezpieczne wprowadzanie nieprzerwanych zmian interfejsu API
@@ -24,7 +24,7 @@ Na platformie Azure API Management Użyj *poprawek* , aby wprowadzić niekrytycz
 
 W przypadku programu w tle zobacz [wersje & poprawki](https://azure.microsoft.com/blog/versions-revisions/) i [wersja interfejsu API za pomocą usługi Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie nowej poprawki

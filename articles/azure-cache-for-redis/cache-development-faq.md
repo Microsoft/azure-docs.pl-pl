@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585772"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
@@ -64,7 +64,7 @@ Zwykle wartości domyślne klienta są wystarczające. Możesz dostosować opcje
   * Użyj pojedynczego wystąpienia ConnectionMultiplexer dla aplikacji. Można użyć LazyConnection do utworzenia pojedynczego wystąpienia, które jest zwracane przez właściwość połączenia, jak pokazano w [Połącz z pamięcią podręczną przy użyciu klasy ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ustaw `ConnectionMultiplexer.ClientName` Właściwość na unikatową nazwę wystąpienia aplikacji dla celów diagnostycznych.
   * Używaj wielu `ConnectionMultiplexer` wystąpień dla obciążeń niestandardowych.
-    * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Przykład:
+    * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Na przykład:
     * Możesz mieć jeden multiplekser do celów związanych z dużymi kluczami.
     * Można mieć jeden multiplekser do obsługi małych kluczy.
     * Można ustawić różne wartości limitów czasu połączenia i logikę ponowień dla wszystkich używanych ConnectionMultiplexer.

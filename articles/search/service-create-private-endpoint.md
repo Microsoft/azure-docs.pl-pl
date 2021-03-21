@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100545534"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
@@ -125,7 +125,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region (Region) | Wybierz pozycję **zachodnie stany USA** lub region, którego używasz. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |

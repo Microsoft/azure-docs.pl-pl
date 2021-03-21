@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi 
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.openlocfilehash: e5725ece165f5716480afbcb4ef9098274c09993
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97900641"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)

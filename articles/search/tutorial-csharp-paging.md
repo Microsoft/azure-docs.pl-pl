@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785873"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Samouczek: Dodawanie stronicowania do wyników wyszukiwania przy użyciu zestawu .NET SDK
@@ -55,7 +55,7 @@ System będzie traktować przyciski o największej i największej liczbie stron 
 
 Ma otwarte rozwiązanie podstawowego strony wyszukiwania.
 
-1. Otwórz plik modelu SearchData.cs.
+1. Otwórz plik modelu SearchData. cs.
 
 1. Dodaj zmienne globalne do obsługi stronicowania. W MVC zmienne globalne są deklarowane we własnej klasie statycznej. **ResultsPerPage** ustawia liczbę wyników na stronę. **MaxPageRange** określa liczbę widocznych numerów stron w widoku. **PageRangeDelta** określa liczbę stron, które mają zostać przesunięte w lewo lub w prawo, gdy zaznaczony jest numer strony od lewej lub do prawej. Zwykle ta druga liczba jest około połowy **MaxPageRange**. Dodaj następujący kod do przestrzeni nazw.
 
@@ -223,7 +223,7 @@ Ma otwarte rozwiązanie podstawowego strony wyszukiwania.
 
 ### <a name="add-a-page-action-to-the-controller"></a>Dodawanie akcji strony do kontrolera
 
-1. Otwórz plik HomeController.cs i Dodaj akcję **PageAsync** . Ta akcja odpowiada dowolnej wybranej opcji strony.
+1. Otwórz plik HomeController. cs i Dodaj akcję **PageAsync** . Ta akcja odpowiada dowolnej wybranej opcji strony.
 
     ```csharp
     public async Task<ActionResult> PageAsync(SearchData model)
@@ -413,7 +413,7 @@ Aby zaimplementować nieskończoność przewijania, Zacznijmy od projektu przed 
 
 ### <a name="add-paging-fields-to-the-model"></a>Dodawanie pól stronicowania do modelu
 
-1. Najpierw Dodaj właściwość **stronicowania** do klasy **SearchData** (w pliku modelu SearchData.cs).
+1. Najpierw Dodaj właściwość **stronicowania** do klasy **SearchData** (w pliku modelu SearchData. cs).
 
     ```csharp
     // Record if the next page is requested.

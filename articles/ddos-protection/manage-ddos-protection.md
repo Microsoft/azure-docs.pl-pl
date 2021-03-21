@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100535244"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Szybki Start: Tworzenie i Konfigurowanie Azure DDoS Protection Standard
@@ -83,7 +83,7 @@ Te [zasady](https://aka.ms/ddosvnetpolicy) wykryją sieci wirtualne w zdefiniowa
 
 Najpierw zapoznaj się ze szczegółami planu ochrony DDoS:
 
-1. Wybierz pozycję **wszystkie usługi** u góry, po lewej stronie portalu.
+1. W lewym górnym rogu portalu wybierz pozycję **Wszystkie usługi**.
 2. Wprowadź *DDoS* w polu **Filtr** . Gdy **plany ochrony DDoS** są wyświetlane w wynikach, zaznacz je.
 3. Wybierz z listy plan ochrony DDoS.
 
