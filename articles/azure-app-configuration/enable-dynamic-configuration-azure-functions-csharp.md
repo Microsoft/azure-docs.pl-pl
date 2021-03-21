@@ -16,10 +16,10 @@ ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: add4b54adb02db09536f4e56a7f039c46245c182
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963568"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji Azure Functions
@@ -41,7 +41,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
-1. Otwórz *Startup.cs* i zaktualizuj `ConfigureAppConfiguration` metodę. 
+1. Otwórz *Start. cs* i zaktualizuj `ConfigureAppConfiguration` metodę. 
 
    `ConfigureRefresh`Metoda rejestruje ustawienie do sprawdzenia pod kątem zmian przy każdym wyzwoleniu odświeżania w aplikacji, którą wykonasz w późniejszym kroku podczas dodawania `_configurationRefresher.TryRefreshAsync()` . `refreshAll`Parametr instruuje dostawcę konfiguracji aplikacji, aby załadujeł całą konfigurację za każdym razem, gdy zostanie wykryta zmiana w zarejestrowanym ustawieniu.
 
@@ -74,7 +74,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     }
     ```
 
-3. Otwórz *Function1.cs* i Dodaj następujące przestrzenie nazw.
+3. Otwórz *Function1. cs* i Dodaj następujące przestrzenie nazw.
 
     ```csharp
     using System.Linq;

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019911"
 ---
 # <a name="troubleshoot-input-connections"></a>Rozwiązywanie problemów z połączeniami wejściowymi
@@ -44,7 +44,7 @@ Włącz dzienniki zasobów, aby wyświetlić szczegóły błędu i komunikat (ł
 
 ![Powiadomienie ostrzegawcze szczegóły wejściowe](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-W przypadkach, gdy ładunek wiadomości jest większy niż 32 KB lub jest w formacie binarnym, uruchom kod CheckMalformedEvents.cs dostępny w [repozytorium przykładów GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Ten kod odczytuje identyfikator partycji, przesunięcie i drukuje dane, które znajdują się w tym przesunięciu. 
+W przypadkach, gdy ładunek wiadomości jest większy niż 32 KB lub jest w formacie binarnym, uruchom kod CheckMalformedEvents. cs dostępny w [repozytorium przykładów GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Ten kod odczytuje identyfikator partycji, przesunięcie i drukuje dane, które znajdują się w tym przesunięciu. 
 
 ## <a name="job-exceeds-maximum-event-hub-receivers"></a>Zadanie przekracza maksymalną liczbę odbiorników centrum zdarzeń
 
@@ -70,7 +70,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następujące kroki:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Znajdź centrum zdarzeń.
 

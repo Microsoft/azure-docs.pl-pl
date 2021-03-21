@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
 ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054763"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Przegląd oceny (Migrowanie do usługi Azure SQL)
@@ -17,7 +17,7 @@ ms.locfileid: "102054763"
 Ten artykuł zawiera omówienie ocen migracji lokalnych wystąpień SQL Server ze środowiska VMware do baz danych Azure SQL lub wystąpień zarządzanych przy użyciu [narzędzia Azure Migrate do odnajdywania i oceny](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 ## <a name="whats-an-assessment"></a>Co to jest Ocena?
 Ocena narzędzia odnajdywanie i ocenianie to punkt w czasie migawki danych i miara gotowości i oszacowania efektu migracji serwerów lokalnych na platformę Azure.
@@ -93,7 +93,7 @@ Oto nowości uwzględnione we właściwościach oceny usługi Azure SQL:
 ## <a name="calculate-readiness"></a>Oblicz gotowość
 
 > [!NOTE]
-> Ocena obejmuje tylko bazy danych znajdujące się w stanie online. W przypadku, gdy baza danych znajduje się w innym stanie, ocena jest ignorowana pod kątem gotowości, wielkości i obliczeń kosztów dla takich baz danych. Jeśli chcesz ocenić te bazy danych, Zmień stan bazy danych i ponownie Oblicz ocenę w pewnym czasie.
+> Ocena obejmuje tylko bazy danych znajdujące się w stanie online. W przypadku, gdy baza danych jest w innym stanie, w ocenie ignorowane są informacje dotyczące gotowości, rozmiaru i obliczeń kosztów dla takich baz danych. Jeśli chcesz ocenić takie bazy danych, zmień stan bazy danych i ponownie oblicz ocenę po pewnym czasie.
 
 ### <a name="azure-sql-readiness"></a>Gotowość usługi Azure SQL
 
@@ -127,7 +127,7 @@ W przypadku wybrania docelowego typu wdrożenia zgodnie z **zaleceniem** we wła
 Jeśli wystąpienie programu SQL Server nie jest gotowe do Azure SQL Database i wystąpienia zarządzanego Azure SQL, zalecany typ wdrożenia zostanie oznaczony jako *potencjalnie gotowy dla maszyny wirtualnej platformy Azure*.
 - Zaleca się utworzenie oceny w Azure Migrate z typem oceny jako "maszyna wirtualna platformy Azure", aby określić, czy serwer, na którym uruchomiono wystąpienie, jest gotowy do migracji na maszynę wirtualną platformy Azure. Należy pamiętać, że:
     - Oceny maszyn wirtualnych platformy Azure w Azure Migrate są obecnie podnoszone i zmieniane i nie będą brane pod uwagę w przypadku uruchamiania wystąpień SQL i baz danych na maszynie wirtualnej platformy Azure. 
-    - Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je migrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed [przeprowadzeniem migracji zapoznaj się z zaleceniami](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dotyczącymi wydajności SQL Server w usłudze Azure Virtual Machines.
+    - Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dla programu SQL Server w usłudze Azure Virtual Machines.
 
 
 ## <a name="calculate-sizing"></a>Oblicz rozmiar
@@ -172,11 +172,11 @@ W tej tabeli przedstawiono oceny stopnia zaufania, które są zależne od warto�
 #### <a name="low-confidence-ratings"></a>Oceny o niskiej pewności
 Poniżej przedstawiono kilka powodów, dla których ocena może uzyskać klasyfikację o niskiej pewności:
 - Twoje środowisko nie było profilem przez czas, w którym tworzysz ocenę. Jeśli na przykład zostanie utworzona Ocena z czasem trwania wydajności ustawionym na jeden dzień, należy poczekać co najmniej dzień po rozpoczęciu odnajdywania dla wszystkich punktów danych do zebrania.
-- Ocena nie jest w stanie zebrać danych wydajności dla niektórych lub wszystkich serwerów w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że:
+- Ocena nie jest w stanie zbierać danych wydajności dla niektórych lub wszystkich serwerów w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że:
     - Serwery są zasilane na czas trwania oceny
     - Połączenia wychodzące na portach 443 są dozwolone
     - Jeśli Azure Migrate stan połączenia agenta programu SQL Server w Azure Migrate ma wartość "Connected" i sprawdza ostatni puls 
-    - Jeśli Azure Migrate stan połączenia dla wszystkich wystąpień SQL ma wartość "Połączono" w bloku odnalezionego wystąpienia programu SQL
+    - Czy stan połączenia usługi Azure Migrate dla wszystkich wystąpień SQL ma wartość „Połączony” w bloku odnalezionego wystąpienia SQL
 
     Użyj opcji „Oblicz ponownie”, aby uwzględnić najnowsze zmiany w ocenie ufności.
 - Niektóre bazy danych lub wystąpienia zostały utworzone w czasie, w którym Ocena została obliczona. Załóżmy na przykład, że utworzono ocenę historii wydajności w ostatnim miesiącu, ale niektóre bazy danych lub wystąpienia zostały utworzone tylko tydzień temu. W takim przypadku dane wydajności dla nowych serwerów nie będą dostępne przez cały czas, a Ocena zaufania byłaby niska.

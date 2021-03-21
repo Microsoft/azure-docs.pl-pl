@@ -9,10 +9,10 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
 ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393143"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Ciągła kopia zapasowa z funkcją przywracania do punktu w czasie (wersja zapoznawcza) w Azure Cosmos DB
@@ -80,7 +80,7 @@ e. **Przywróć konto do wcześniejszego punktu w czasie przed przypadkowym usun
 
 Azure Cosmos DB umożliwia izolowanie i ograniczanie uprawnień przywracania dla konta ciągłej kopii zapasowej do określonej roli lub podmiotu zabezpieczeń. Właściciel konta może wyzwolić przywracanie i przypisać rolę do innych podmiotów zabezpieczeń, aby wykonać operację przywracania. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [uprawnień](continuous-backup-restore-permissions.md) .
 
-## <a name="pricing"></a><a id="continuous-backup-pricing"></a>Cennik
+## <a name="pricing"></a><a id="continuous-backup-pricing"></a>Ceny
 
 Konta Azure Cosmos DB, dla których włączono ciągłą kopię zapasową, będą naliczane dodatkowe miesięczne opłaty za *przechowywanie kopii zapasowych* i *przywracanie danych*. Koszt przywrócenia jest dodawany przy każdym zainicjowaniu operacji przywracania. Jeśli skonfigurujesz konto z ciągłą kopią zapasową, ale nie przywracasz danych, na rachunku zostanie uwzględniony tylko koszt magazynu kopii zapasowej.
 

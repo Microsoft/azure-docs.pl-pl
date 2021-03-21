@@ -14,16 +14,16 @@ ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
 ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690808"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse Analytics. Zapewnia podstawowe możliwości odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych.
+Odnajdywanie i klasyfikacja danych jest wbudowane w usługi Azure SQL Database, Azure SQL Managed Instance i Azure Synapse Analytics. Funkcja zapewnia podstawowe możliwości w zakresie odnajdywania, klasyfikowania, etykietowania i raportowania danych poufnych w bazach danych.
 
 Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane osobowe. Odnajdywanie i Klasyfikowanie tych danych może odgrywać rolę przestawną w podejściu do ochrony informacji w organizacji. Może to stanowić infrastrukturę dla następujących działań:
 
@@ -134,7 +134,7 @@ Te wbudowane role mogą modyfikować klasyfikację danych bazy danych:
 
 Dowiedz się więcej na temat uprawnień opartych na rolach w [usłudze Azure RBAC](../../role-based-access-control/overview.md).
 
-## <a name="manage-classifications"></a><a id="manage-classification"></a>Zarządzaj klasyfikacjami
+## <a name="manage-classifications"></a><a id="manage-classification"></a>Klasyfikacje zarządzania
 
 Aby zarządzać klasyfikacjami, można użyć języka T-SQL, interfejsu API REST lub programu PowerShell.
 
@@ -188,7 +188,7 @@ Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i za
 ## <a name="faq---advanced-classification-capabilities"></a>Często zadawane pytania — zaawansowane funkcje klasyfikacji
 
 **Pytanie**: czy [usługa Azure kontrolą](../../purview/overview.md) zastąpi &ą klasyfikację i czy zostanie wycofana funkcja odnajdywania danych SQL & Klasyfikacja?
-**Odpowiedź**: nadal obsługujemy funkcję klasyfikacji & danych SQL i zachęcamy do wdrażania [usługi Azure kontrolą](../../purview/overview.md) , która ma bogatsze możliwości w zakresie możliwości zaawansowanej klasyfikacji i zarządzania danymi. Jeśli zdecydujesz się wycofać wszelkie usługi, funkcje, interfejsy API lub jednostki SKU, otrzymasz informacje z wyprzedzeniem, w tym migracji lub ścieżki przejścia. Więcej informacji na temat zasad cyklu życia firmy Microsoft znajdziesz tutaj.
+**Odpowiedź**: nadal obsługujemy funkcję klasyfikacji & danych SQL i zachęcamy do wdrażania [usługi Azure kontrolą](../../purview/overview.md) , która ma bogatsze możliwości w zakresie możliwości zaawansowanej klasyfikacji i zarządzania danymi. Jeśli zdecydujemy się wycofać jakąkolwiek usługę, funkcję, interfejs API lub jednostkę SKU, otrzymasz informacje z wyprzedzeniem wraz ze ścieżką migracji lub przejścia. Więcej informacji na temat zasad cyklu życia firmy Microsoft znajdziesz tutaj.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Następne kroki

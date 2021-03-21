@@ -4,10 +4,10 @@ description: Dodaj te adresy URL do obejścia serwera proxy, aby komunikować si
 ms.date: 04/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7d9c8222ee85c0c16ec1e1926335ac06e0389797
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745880"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Dodawanie adresów URL witryny Azure Portal do listy bezpiecznych adresów w zaporze lub serwerze proxy

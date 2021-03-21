@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
 ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052130"
 ---
 # <a name="vm-insights-guest-health-preview"></a>Kondycja gościa usługi VM Insights (wersja zapoznawcza)
@@ -18,7 +18,7 @@ Kondycja gościa usługi VM Insights umożliwia wyświetlanie kondycji maszyn wi
 ## <a name="enable-virtual-machine-health"></a>Włącz kondycję maszyny wirtualnej
 Aby uzyskać szczegółowe informacje na temat włączania funkcji kondycji gościa i dołączania maszyn wirtualnych, zobacz [Włącz kondycję gościa usługi VM Insights (wersja zapoznawcza)](vminsights-health-enable.md) .
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 Nie ma bezpośredniego kosztu dla funkcji kondycji gościa, ale koszt pozyskiwania i przechowywania danych stanu kondycji jest dostępny w obszarze roboczym Log Analytics. Wszystkie dane są przechowywane w tabeli *HealthStateChangeEvent* . Aby uzyskać szczegółowe informacje dotyczące modeli cenowych i kosztów, zobacz temat [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../logs/manage-cost-storage.md) .
 
 ## <a name="view-virtual-machine-health"></a>Wyświetl kondycję maszyny wirtualnej

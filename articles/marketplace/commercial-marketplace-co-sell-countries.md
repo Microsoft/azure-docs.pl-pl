@@ -8,10 +8,10 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: af110a66bc7ef5737f3d2d97a85ca07525b1d9e7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96744707"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Kody krajów i regionów wspólnej sprzedaży
@@ -123,7 +123,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Gwinea Bissau                       | GW        |
 | Gujana                              | GY        |
 | Haiti                               | HT        |
-| Wyspy Heard i McDonald   | HM        |
+| Wyspy Heard i McDonalda   | HM        |
 | Honduras                            | HN        |
 | SRA Hongkong                       | HK        |
 | Węgry                             | HU        |
@@ -177,7 +177,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Maroko                             | MA        |
 | Mozambik                          | MZ        |
 | Myanmar                             | MM        |
-| Namibia                             | Nie dotyczy        |
+| Namibia                             | NA        |
 | Nauru                               | NR        |
 | Nepal                               | NP        |
 | Holandia                         | NL        |
@@ -214,7 +214,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Saint Kitts i Nevis               | KN        |
 | Saint Lucia                         | LC        |
 | Saint-Martin                        | CZĘSTOTLIWOŚCI        |
-| Saint-Pierre i Miquelon           | PM        |
+| Saint Pierre i Miquelon           | PM        |
 | Saint Vincent i Grenadyny    | VC        |
 | Samoa                               | WS        |
 | San Marino                          | SPRZEDAŻY        |
@@ -231,7 +231,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Wyspy Salomona                     | SB        |
 | Somalia                             | SO        |
 | Republika Południowej Afryki                        | ZA        |
-| Wyspy Georgia Południowa i Sandwich Południowy | GS    |
+| Georgia Południowa i Sandwich Południowy | GS    |
 | Sudan Południowy                         | SS        |
 | Hiszpania                               | ES        |
 | Sri Lanka                           | LK        |
@@ -249,7 +249,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
 | Tokelau                             | TK        |
-| Tonga                               | DO        |
+| Tonga                               | TO        |
 | Trinidad i Tobago                 | TT        |
 | Tunezja                             | TN        |
 | Turcja                              | TR        |
@@ -262,7 +262,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Zjednoczone Królestwo                      | GB        |
 | Stany Zjednoczone                       | USA        |
 | Urugwaj                             | UY        |
-| Stany Zjednoczone — Dalekie Wyspy Mniejsze               | UM        |
+| Odległe wyspy Stanów Zjednoczonych               | UM        |
 | Wyspy Dziewicze Stanów Zjednoczonych                 | VI        |
 | Uzbekistan                          | UZ        |
 | Vanuatu                             | VU        |

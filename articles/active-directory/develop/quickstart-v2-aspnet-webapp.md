@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: eb57be94e460241e3cacbe2dd20c071504a9222a
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 87948ed04f7b50820d94993d4c4fbcf2dfd94b31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209768"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104578689"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -79,6 +79,8 @@ W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
 > Twój projekt został skonfigurowany z wartościami właściwości aplikacji.
@@ -135,7 +137,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Klasa początkowa OWIN
 
-Oprogramowanie pośredniczące OWIN używa *klasy uruchamiania* , która jest uruchamiana podczas uruchamiania procesu hostingu. W tym przewodniku szybki start plik *Startup.cs* znajduje się w folderze głównym. Poniższy kod przedstawia parametry, które są używane w tym przewodniku szybki start:
+Oprogramowanie pośredniczące OWIN używa *klasy uruchamiania* , która jest uruchamiana podczas uruchamiania procesu hostingu. W tym przewodniku szybki *Start plik Startup. cs* znajduje się w folderze głównym. Poniższy kod przedstawia parametry, które są używane w tym przewodniku szybki start:
 
 ```csharp
 public void Configuration(IAppBuilder app)

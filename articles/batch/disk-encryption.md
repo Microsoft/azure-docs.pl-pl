@@ -7,10 +7,10 @@ ms.date: 01/27/2021
 ms.author: peshultz
 ms.custom: references_regions
 ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99055318"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Tworzenie puli z włączonym szyfrowaniem dysku
@@ -39,7 +39,7 @@ Nie będzie można określić, która metoda szyfrowania ma być stosowana do w�
 > [!IMPORTANT]
 > W przypadku tworzenia puli za pomocą [obrazu niestandardowego](batch-sig-images.md)można włączyć szyfrowanie dysków tylko w przypadku korzystania z maszyn wirtualnych z systemem Windows.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 Podczas tworzenia puli zadań wsadowych w Azure Portal wybierz opcję **TemporaryDisk** lub **OsAndTemporaryDisk** w obszarze **Konfiguracja szyfrowania dysku**.
 

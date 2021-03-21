@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792436"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581834"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -68,11 +68,12 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
      | Numer portu | Zastosowanie |
      | --- | --- |
      | **80** | Pobiera listy odwołania certyfikatów (CRL) podczas weryfikacji certyfikatu TLS/SSL |
-     | **443** | Obsługuje całą komunikację wychodzącą z usługą |
-     | **8080** (opcjonalnie) | Agenci uwierzytelniania raportują swój stan co dziesięć minut w porcie 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. Port 8080 _nie_ jest używany podczas logowania użytkownika. |
+     | **443** | Obsługa komunikacji wychodzącej do usługi |
+     | **8080** (opcjonalnie) | Agenci uwierzytelniania raportują swój stan co dziesięć minut w porcie 8080, jeśli port 443 jest niedostępny. Informacje o stanie agentów są wyświetlane w portalu usługi Azure AD. Port 8080 _nie_ jest używany podczas logowania użytkownika. |
      
-     Jeśli Zapora wymusza reguły zależne od użytkowników inicjujących, należy otworzyć te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
+     Jeśli reguły zapory są stosowane w zależności od użytkowników generujących ruch, otwórz te porty dla ruchu przychodzącego z usług systemu Windows działających jako usługi sieciowe.
    - Jeśli zapora lub serwer proxy umożliwia dodawanie wpisów DNS do dozwolonych, Dodaj połączenia do **\* . msappproxy.NET** i **\* . ServiceBus.Windows.NET**. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
+   - Jeśli masz wychodzący serwer proxy HTTP, upewnij się, że ten adres URL to autologon.microsoftazuread-sso.com, listy dozwolonych. Należy jawnie określić ten adres URL, ponieważ symbol wieloznaczny nie może zostać zaakceptowany. 
    - Agenci uwierzytelniania muszą mieć dostęp do **login.Windows.NET** i **login.microsoftonline.com** na potrzeby rejestracji wstępnej. Należy również otworzyć Zaporę dla tych adresów URL.
     - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **crl3.DigiCert.com:80**, **crl4.DigiCert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-C3-CA2-2009.OCSP.d-Trust.NET:80**, **CRL.Microsoft.com:80**, **oneocsp.Microsoft.com:80** i **OCSP.msocsp.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
 

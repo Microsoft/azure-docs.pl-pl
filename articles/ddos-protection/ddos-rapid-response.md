@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 8e860bf47420f2b58c44df695da7761bcc2aa0ce
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100521785"
 ---
 # <a name="azure-ddos-rapid-response"></a>Szybka odpowiedź na platformie Azure DDoS
@@ -31,7 +31,7 @@ Podczas aktywnego dostępu Azure DDoS Protection klienci standardowi mają dost�
 DRR należy podejmować tylko wtedy, gdy: 
 
 - W trakcie ataku DDoS, jeśli okaże się, że wydajność chronionego zasobu jest poważnie obniżona, lub zasób nie jest dostępny. 
-- Podejrzewasz, że zasób jest objęty DDoS atakiem, ale usługa DDoS Protection nie ogranicza skutecznego ataku.
+- Podejrzewasz, że zasób jest w trakcie ataku DDoS, ale usługa DDoS Protection nie ogranicza skutecznie ataku.
 - Planujesz zdarzenie wirusowe, które znacząco zwiększy ruch sieciowy.
 - W przypadku ataków mających krytyczny wpływ na działalność biznesową.
 

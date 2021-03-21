@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6b039d934993d2acee630205c5b5e5d8e0f6145e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667610"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio
@@ -28,7 +28,7 @@ ms.locfileid: "101667610"
 
 Za pomocą [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse. 
 
-## <a name="connect"></a>Connect
+## <a name="connect"></a>Nawiązywanie połączenia
 
 Aby nawiązać połączenie z usługą Synapse SQL, Otwórz Azure Data Studio i wybierz pozycję **nowe połączenie**.
 

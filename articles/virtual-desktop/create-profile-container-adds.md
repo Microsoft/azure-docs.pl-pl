@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96302474"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
@@ -107,7 +107,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<share-name>` nazwę utworzonego wcześniej udziału.
     - Zamień na `<storage-account-key>` klucz konta magazynu z platformy Azure.
 
-    Przykład:
+    Na przykład:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -125,7 +125,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<mounted-drive-letter>` literę dysku, który został użyty do mapowania dysku.
     - Zamień na `<user-email>` nazwę UPN użytkownika lub grupy Active Directory, która zawiera użytkowników, którzy będą potrzebować dostępu do udziału.
 
-    Przykład:
+    Na przykład:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -142,7 +142,7 @@ Aby skonfigurować kontener profilu FSLogix:
 
 1. Zaloguj się do maszyny wirtualnej hosta sesji skonfigurowanej na początku tego artykułu, a następnie [Pobierz i Zainstaluj agenta FSLogix](/fslogix/install-ht/).
 
-2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64**  >  **Releases**, a następnie otwórz **FSLogixAppsSetup.exe**.
+2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64**  >  , a następnie otwórz **FSLogixAppsSetup.exe**.
 
 3. Po uruchomieniu Instalatora zaznacz opcję **Akceptuję warunki i postanowienia licencyjne.** Jeśli ma to zastosowanie, podaj nowy klucz.
 
@@ -206,7 +206,7 @@ Aby przypisać użytkowników:
 
     Podobnie jak w przypadku wcześniejszych poleceń cmdlet, pamiętaj, aby zastąpić `<your-wvd-tenant>` , `<wvd-pool>` i `<user-principal>` z odpowiednimi wartościami.
 
-    Przykład:
+    Na przykład:
 
      ```powershell
      $pool1 = "contoso"

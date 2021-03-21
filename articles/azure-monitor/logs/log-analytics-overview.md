@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
 ms.openlocfilehash: d83cc4045f09ed0f704a0d61c6b303406835eb44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052300"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Omówienie Log Analytics w Azure Monitor
@@ -56,7 +56,7 @@ Listy tabel w obszarze roboczym, przykładowe zapytania i opcje filtru dla bież
 
 | Tab | Opis |
 |:---|:---|
-| Tabele | Wyświetla listę tabel, które są częścią wybranego zakresu. Wybierz pozycję **Grupuj według** , aby zmienić grupowanie tabel. Umieść kursor nad nazwą tabeli, aby wyświetlić okno dialogowe z opisem tabeli i opcji, aby wyświetlić jej dokumentację i wyświetlić jej dane. Rozwiń tabelę, aby wyświetlić jej kolumny. Kliknij dwukrotnie nazwę tabeli lub kolumny, aby dodać ją do zapytania. |
+| tabelami | Wyświetla listę tabel, które są częścią wybranego zakresu. Wybierz pozycję **Grupuj według** , aby zmienić grupowanie tabel. Umieść kursor nad nazwą tabeli, aby wyświetlić okno dialogowe z opisem tabeli i opcji, aby wyświetlić jej dokumentację i wyświetlić jej dane. Rozwiń tabelę, aby wyświetlić jej kolumny. Kliknij dwukrotnie nazwę tabeli lub kolumny, aby dodać ją do zapytania. |
 | Zapytania | Lista przykładowych zapytań, które można otworzyć w oknie zapytania. Jest to ta sama lista, która jest wyświetlana po otwarciu Log Analytics. Wybierz pozycję **Grupuj według** , aby zmienić grupowanie zapytań. Kliknij dwukrotnie zapytanie, aby dodać je do okna zapytania, lub umieść wskaźnik myszy na nim, aby wyświetlić inne opcje. |
 | Filtr | Tworzy opcje filtru na podstawie wyników zapytania. Po uruchomieniu zapytania kolumny będą wyświetlane z różnymi wartościami z wyników. Wybierz co najmniej jedną wartość, a następnie kliknij przycisk **zastosuj & Uruchom** , aby dodać polecenie **WHERE** do zapytania i uruchomić je ponownie. |
 
