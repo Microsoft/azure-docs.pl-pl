@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413194"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane z usługą Azure Active Directory
@@ -52,7 +52,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | userPrincipalName |X |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | pomocnik |X |X | | |
@@ -152,7 +152,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | otherTelephone |X |X | | |
 | modułu stronicowania |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Pocztowy |X |X | | |
+| postalCode |X |X | | |
 | proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
 | pwdLastSet |X | | |Właściwość mechaniczna. Używane do sprawdzania, kiedy unieważnia już wystawione tokeny. Używany zarówno w przypadku synchronizacji haseł, jak i Federacji. |
@@ -175,7 +175,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | authOrig |X |X |X | |
@@ -233,7 +233,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | otherTelephone |X |X | | |
 | modułu stronicowania |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Pocztowy |X |X | | |
+| postalCode |X |X | | |
 | postOfficeBox |X |X | |Ten atrybut nie jest obecnie używany przez program SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
@@ -257,7 +257,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Zespoły i Skype dla firm Online
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
@@ -289,7 +289,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | objectSid |X | |X |Właściwość mechaniczna. Identyfikator użytkownika usługi AD używany do obsługi synchronizacji między usługą Azure AD i usługą AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Pocztowy |X |X | | |
+| postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |Właściwość mechaniczna. Używane do sprawdzania, kiedy unieważnia już wystawione tokeny. Używany w przypadku synchronizacji skrótów haseł, uwierzytelniania przekazywanego i Federacji. |
@@ -305,7 +305,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | CN |X | |X |Nazwa pospolita lub alias. Najczęściej jest to prefiks wartości [mail]. |
@@ -320,7 +320,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | userPrincipalName |X | | |Ta nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
@@ -357,7 +357,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | telefon komórkowy |X |X | | |
 | objectSid |X | |X |Właściwość mechaniczna. Identyfikator użytkownika usługi AD używany do obsługi synchronizacji między usługą Azure AD i usługą AD. |
 | physicalDeliveryOfficeName |X |X | | |
-| Pocztowy |X |X | | |
+| postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |Właściwość mechaniczna. Używane do sprawdzania, kiedy unieważnia już wystawione tokeny. Używany w przypadku synchronizacji skrótów haseł, uwierzytelniania przekazywanego i Federacji. |
 | sn |X |X | | |
@@ -377,7 +377,7 @@ Ta grupa jest zestawem atrybutów używanych jako minimalne atrybuty, które są
 
 Ta grupa jest zestawem atrybutów, których można użyć, jeśli katalog usługi Azure AD nie jest używany do obsługi Microsoft 365, Dynamics lub Intune. Ma niewielki zestaw atrybutów podstawowych. Należy pamiętać, że logowanie jednokrotne lub inicjowanie obsługi administracyjnej w niektórych aplikacjach innych firm wymaga skonfigurowania synchronizacji atrybutów oprócz atrybutów opisanych tutaj. Wymagania dotyczące aplikacji są opisane w [samouczku aplikacji SaaS](../saas-apps/tutorial-list.md) dla każdej aplikacji.
 
-| Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | CN |X | |X | |
@@ -422,7 +422,7 @@ Te atrybuty dla **użytkownika** są uzupełnieniem innych wybranych aplikacji.
 ## <a name="exchange-hybrid-writeback"></a>Stornowanie hybrydowe programu Exchange
 Te atrybuty są zapisywane z powrotem z usługi Azure AD do Active Directory lokalnych, gdy wybierzesz opcję włączenia **hybrydowego programu Exchange**. W zależności od wersji programu Exchange można synchronizować mniejszą liczbę atrybutów.
 
-| Nazwa atrybutu (lokalna usługi AD) | Nazwa atrybutu (interfejs użytkownika połączenia) | Użytkownik | Kontakt | Grupa | Komentarz |
+| Nazwa atrybutu (lokalna usługi AD) | Nazwa atrybutu (interfejs użytkownika połączenia) | Użytkownik | Kontakt | Group (Grupa) | Komentarz |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| MS-DS-External-Directory-Object-ID |X | | |Pochodny od cloudAnchor w usłudze Azure AD. Ten atrybut jest nowy w programie Exchange 2016 i Windows Server 2016 AD. |
 | msExchArchiveStatus| MS-ArchiveStatus — wymiany |X | | |Archiwum online: umożliwia klientom archiwizowanie poczty e-mail. |

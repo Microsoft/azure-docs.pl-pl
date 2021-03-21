@@ -12,27 +12,23 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f315f473c3ba9efd4e01f9424f01884a46011dbb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582251"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578378"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplikacja internetowa, która loguje użytkowników: Konfiguracja kodu
 
 Dowiedz się, jak skonfigurować kod dla aplikacji sieci Web, która loguje się w użytkownikach.
 
-## <a name="libraries-for-protecting-web-apps"></a>Biblioteki do ochrony aplikacji sieci Web
+## <a name="microsoft-libraries-supporting-web-apps"></a>Biblioteki firmy Microsoft obsługujące aplikacje sieci Web
 
 <!-- This section can be in an include for web app and web APIs -->
-Biblioteki używane do ochrony aplikacji sieci Web (i internetowego interfejsu API) są następujące:
+Następujące biblioteki firmy Microsoft są używane do ochrony aplikacji sieci Web (i internetowego interfejsu API):
 
-| Platforma | Biblioteka | Opis |
-|----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [Rozszerzenia modelu tożsamości dla platformy .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Używane bezpośrednio przez ASP.NET i ASP.NET Core, rozszerzenia modelu tożsamości Microsoft dla platformy .NET proponują zestaw bibliotek DLL działających na .NET Framework i .NET Core. Z aplikacji sieci Web ASP.NET lub ASP.NET Core można kontrolować sprawdzanie poprawności tokenu przy użyciu klasy **TokenValidationParameters** (w szczególności w niektórych scenariuszach partnerskich). W tej rzeczywistości złożoność jest hermetyzowana w bibliotece [Microsoft. Identity. Web](https://aka.ms/ms-identity-web) Library |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Obsługa aplikacji sieci Web w języku Java |
-| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Obsługa aplikacji sieci Web w języku Python |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Wybierz kartę odpowiadającą wybranej platformie:
 
@@ -51,6 +47,12 @@ Warto zapoznać się z tym przykładem, aby uzyskać szczegółowe informacje do
 # <a name="java"></a>[Java](#tab/java)
 
 Fragmenty kodu w tym artykule i poniższe zostały wyodrębnione z [aplikacji sieci Web Java wywołującej przykład Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp) w języku Java MSAL.
+
+Warto zapoznać się z tym przykładem, aby uzyskać szczegółowe informacje dotyczące implementacji.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Fragmenty kodu w tym artykule i poniższe zostały wyodrębnione z [Node.js użytkowników podpisywania aplikacji sieci Web w](https://github.com/Azure-Samples/ms-identity-node) przykładzie w węźle MSAL.
 
 Warto zapoznać się z tym przykładem, aby uzyskać szczegółowe informacje dotyczące implementacji.
 
@@ -177,6 +179,37 @@ aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 
 W Azure Portal identyfikatory URI odpowiedzi, które można zarejestrować na stronie **uwierzytelniania** dla aplikacji, muszą być zgodne z `redirectUri` wystąpieniami zdefiniowanymi przez aplikację. Oznacza to, że powinny być `http://localhost:8080/msal4jsample/secure/aad` i `http://localhost:8080/msal4jsample/graph/me` .
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+W tym miejscu znajdują się parametry konfiguracji. `index.js`
+
+```javascript
+
+const REDIRECT_URI = "http://localhost:3000/redirect";
+
+const config = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/",
+        clientSecret: "Enter_the_Client_Secret_Here"
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: msal.LogLevel.Verbose,
+        }
+    }
+};
+```
+
+W Azure Portal identyfikatory URI odpowiedzi, które można zarejestrować na stronie uwierzytelniania dla aplikacji, muszą być zgodne z wystąpieniami redirectUri, które definiuje aplikacja ( `http://localhost:3000/redirect` ).
+
+> [!NOTE]
+> Ten przewodnik Szybki Start proponuje przechowywanie klucza tajnego klienta w pliku konfiguracyjnym dla uproszczenia. W aplikacji produkcyjnej warto używać innych metod przechowywania danych tajnych, takich jak Magazyn kluczy lub zmienna środowiskowa.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Oto plik konfiguracyjny języka Python w [app_config. PR](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py):
@@ -207,7 +240,7 @@ Kod inicjalizacji różni się w zależności od platformy. W przypadku ASP.NET 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-W ASP.NET Core aplikacje sieci Web (i interfejsy API sieci Web) aplikacja jest chroniona, ponieważ masz `[Authorize]` atrybut na kontrolerach lub akcjach kontrolera. Ten atrybut sprawdza, czy użytkownik jest uwierzytelniony. Kod inicjujący aplikację znajduje się w pliku *Startup.cs* .
+W ASP.NET Core aplikacje sieci Web (i interfejsy API sieci Web) aplikacja jest chroniona, ponieważ masz `[Authorize]` atrybut na kontrolerach lub akcjach kontrolera. Ten atrybut sprawdza, czy użytkownik jest uwierzytelniony. Kod inicjujący aplikację znajduje się w pliku *Start. cs* .
 
 Aby dodać uwierzytelnianie za pomocą platformy tożsamości firmy Microsoft (dawniej usługi Azure AD v 2.0), należy dodać następujący kod. Komentarze w kodzie nie powinny mieć wyjaśnień.
 
@@ -246,7 +279,7 @@ Aby dodać uwierzytelnianie za pomocą platformy tożsamości firmy Microsoft (d
      }).AddMicrosoftIdentityUI();
     ```
 
-3. W `Configure` metodzie w *Startup.cs* Włącz uwierzytelnianie z wywołaniem do `app.UseAuthentication();`
+3. W `Configure` metodzie *Start. cs* Włącz uwierzytelnianie z wywołaniem do `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -319,6 +352,15 @@ Aby uzyskać szczegółowe informacje, zobacz `doFilter()` metodę w [AuthFilter
 
 Aby uzyskać szczegółowe informacje na temat przepływu kodu autoryzacji, który jest wyzwalany przez tę metodę, zobacz [przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+```javascript
+const msal = require('@azure/msal-node');
+
+// Create msal application object
+const cca = new msal.ConfidentialClientApplication(config);
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Przykład języka Python używa kolby. Inicjalizacja kolb i MSAL Python jest wykonywana w [App. PR # L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
@@ -354,6 +396,10 @@ Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się i Wyloguj](./
 # <a name="java"></a>[Java](#tab/java)
 
 Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się i Wyloguj](./scenario-web-app-sign-user-sign-in.md?tabs=java)się.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Przejdź do następnego artykułu w tym scenariuszu, [Zaloguj się](./scenario-web-app-sign-user-sign-in.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

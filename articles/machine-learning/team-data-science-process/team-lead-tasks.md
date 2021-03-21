@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000032"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Zadania dla zespołu liderzy zespołu ds. procesów naukowych
@@ -91,7 +91,7 @@ Aby utworzyć oddzielny projekt dla zespołu:
    
 1. W oknie dialogowym **Tworzenie projektu** wprowadź nazwę zespołu, na przykład *Webteam*, w obszarze **Nazwa projektu**, a następnie wybierz pozycję **Zaawansowane**. 
    
-1. W obszarze **Kontrola wersji** wybierz pozycję **git** i w obszarze **proces elementu pracy** wybierz pozycję **Agile**. Następnie wybierz przycisk **Utwórz**. 
+1. W obszarze **Kontrola wersji** wybierz pozycję **git** i w obszarze **proces elementu pracy** wybierz pozycję **Agile**. Następnie wybierz pozycję **Utwórz**. 
    
    ![Tworzenie projektu](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> Jeśli po raz pierwszy zatwierdzisz repozytorium git, może być konieczne skonfigurowanie parametrów globalnych *User.Name* i *User. email* przed uruchomieniem `git commit` polecenia. Uruchom następujące dwa polecenia:
+> Jeśli po raz pierwszy zatwierdzisz repozytorium git, przed uruchomieniem polecenia może być konieczne skonfigurowanie parametrów globalnych *User.Name* i *User.email* `git commit` . Uruchom następujące dwa polecenia:
 > 
 > `git config --global user.name <your name>`
 > 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3aa7ab2fd3217377e9c56c8c71a1c1acc959bcd9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 1dd2768c7541312b68e2a44a35fc4260d67c5655
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472267"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587002"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Część czwarta: Instalowanie udziału plików z maszyny wirtualnej przyłączonej do domeny
 
@@ -28,7 +28,7 @@ Zaloguj się do klienta przy użyciu poświadczeń, do których udzielono uprawn
 
 Przed zainstalowaniem udziału plików upewnij się, że zostały utracone następujące wymagania wstępne:
 
-- Jeśli udział plików jest instalowany z klienta, który wcześniej zainstalował udział plików przy użyciu klucza konta magazynu, należy się upewnić, że udział został odłączony, usunięty z poświadczeń trwałych klucza konta magazynu i obecnie jest używany AD DS poświadczenia na potrzeby uwierzytelniania. Aby uzyskać instrukcje dotyczące usuwania zainstalowanego udziału z kluczem konta magazynu, zapoznaj się ze [stroną często zadawanych pytań](https://docs.microsoft.com/azure/storage/files/storage-files-faq#ad-ds--azure-ad-ds-authentication).
+- Jeśli udział plików jest instalowany z klienta, który wcześniej zainstalował udział plików przy użyciu klucza konta magazynu, należy się upewnić, że udział został odłączony, usunięty z poświadczeń trwałych klucza konta magazynu i obecnie jest używany AD DS poświadczenia na potrzeby uwierzytelniania. Aby uzyskać instrukcje dotyczące usuwania zainstalowanego udziału z kluczem konta magazynu, zapoznaj się ze [stroną często zadawanych pytań](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Twój klient musi mieć linię wglądu w AD DS. Jeśli maszyna lub maszyna wirtualna jest poza siecią zarządzaną przez AD DS, musisz włączyć sieć VPN, aby uzyskać dostęp do AD DS na potrzeby uwierzytelniania.
 
 Zastąp wartości zastępcze własnymi wartościami, a następnie użyj następującego polecenia, aby zainstalować udział plików platformy Azure. Zawsze należy zainstalować przy użyciu ścieżki pokazanej poniżej. Używanie rekordu CNAME na potrzeby instalacji plików nie jest obsługiwane w przypadku uwierzytelniania opartego na tożsamościach (AD DS lub Azure AD DS).

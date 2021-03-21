@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: b50aadfa16ed95bacb5247187c15489a1b017d39
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98676577"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Samouczek: przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage
@@ -246,7 +246,7 @@ Wybierz region **Przekaż Zdjęcia** , aby określić i przekazać plik, lub prz
 
 ![Przekazywanie zdjęć w programie .NET](media/storage-upload-process-images/figure1.png)
 
-W przykładowym kodzie `UploadFileToStorage` zadanie w pliku *Storagehelper.cs* służy do przekazywania obrazów do kontenera *obrazów* na koncie magazynu przy użyciu metody [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) . Poniższy przykładowy kod zawiera zadanie `UploadFileToStorage`.
+W przykładowym kodzie `UploadFileToStorage` zadanie w pliku *Storagehelper. cs* służy do przekazywania obrazów do kontenera *obrazów* na koncie magazynu przy użyciu metody [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) . Poniższy przykładowy kod zawiera zadanie `UploadFileToStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName,

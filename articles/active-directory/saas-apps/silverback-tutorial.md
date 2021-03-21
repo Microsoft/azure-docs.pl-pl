@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a70b6bb50b397429af1af41869bbe9ecf7e8bad9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Samouczek: integracja Azure Active Directory z usługą Silverback
@@ -118,7 +118,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Silverback,
 
 1. W innej przeglądarce internetowej Zaloguj się do serwera Silverback jako administrator.
 
-2. Przejdź do **Admin**  >  **dostawcy uwierzytelniania** administratora.
+2. Przejdź do   >  **dostawcy uwierzytelniania** administratora.
 
 3. Na stronie **Ustawienia dostawcy uwierzytelniania** wykonaj następujące czynności:
 
@@ -222,7 +222,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Silverb
     przykład Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
-> Jeśli nie chcesz tworzyć każdego użytkownika ręcznie, zaznacz pole wyboru **dynamiczne tworzenie użytkownika** w obszarze **Admin**  >  **dostawca uwierzytelniania** administratora.
+> Jeśli nie chcesz tworzyć każdego użytkownika ręcznie, zaznacz pole wyboru **dynamiczne tworzenie użytkownika** w obszarze   >  **dostawca uwierzytelniania** administratora.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

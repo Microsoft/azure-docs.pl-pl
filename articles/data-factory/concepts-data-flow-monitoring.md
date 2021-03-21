@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/22/2020
 ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004883"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
@@ -47,7 +47,7 @@ Gdy przepływ danych jest wykonywany w platformie Spark, Azure Data Factory okre
 
 * Po wybraniu poszczególnych przekształceń otrzymujesz dodatkową opinię na temat panelu po prawej stronie, w którym znajdują się statystyki partycji, liczby kolumn, skośność (jak równomiernie są dystrybuowane dane między partycjami) i kurtoza (jak są to dane).
 
-* Po wybraniu ujścia w widoku węzła można zobaczyć elementy powiązane kolumny. Istnieją trzy różne metody, w których kolumny są gromadzone w całym przepływie danych pod kątem terenu. Oto one:
+* Po wybraniu ujścia w widoku węzła można zobaczyć elementy powiązane kolumny. Istnieją trzy różne metody, w których kolumny są gromadzone w całym przepływie danych pod kątem terenu. Są to:
 
   * Obliczone: używasz kolumny do przetwarzania warunkowego lub wewnątrz wyrażenia w przepływie danych, ale nie wystawić go w ujścia
   * Pochodny: kolumna jest nową kolumną wygenerowaną w przepływie, czyli nieobecną w źródle
@@ -58,7 +58,7 @@ Gdy przepływ danych jest wykonywany w platformie Spark, Azure Data Factory okre
   
 ![Zrzut ekranu przedstawia opcję odświeżania.](media/data-flow/monitornew.png "Monitorowanie przepływu danych nowe")
 
-## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Łączny czas przetwarzania ujścia w porównaniu z czasem przetwarzania transformacji
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Porównanie całkowitego czasu przetwarzania ujścia z czasem przetwarzania transformacji
 
 Każdy etap transformacji obejmuje łączny czas wykonywania tego etapu przy każdym łącznym czasie wykonania partycji. Po kliknięciu ujścia zostanie wyświetlony stan "czas przetwarzania ujścia". Ta godzina obejmuje łączny czas transformacji *oraz* czas operacji we/wy, przez jaki zajęło się zapisanie danych w magazynie docelowym. Różnica między czasem przetwarzania ujścia a łącznym przekształceniem to czas we/wy zapisu danych.
 

@@ -11,17 +11,17 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654034"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Element **ClaimsSchema** definiuje typy roszczeń, do których można odwoływać się w ramach zasad. Schemat oświadczeń to miejsce, w którym deklarujesz oświadczenia. Do żądania może być imię, nazwisko, nazwa wyświetlana, numer telefonu i inne. Element ClaimsSchema zawiera listę elementów **ClaimType** . Element **ClaimType** zawiera atrybut **ID** , który jest nazwą oświadczenia.
+Element **ClaimsSchema** definiuje typy oświadczeń, do których można odwoływać się w ramach zasad. Schemat oświadczeń to miejsce, gdzie deklarujesz oświadczenia. Do żądania może być imię, nazwisko, nazwa wyświetlana, numer telefonu i inne. Element ClaimsSchema zawiera listę elementów **ClaimType** . Element **ClaimType** zawiera atrybut **ID** , który jest nazwą oświadczenia.
 
 ```xml
 <BuildingBlocks>
@@ -69,7 +69,7 @@ Element **DataType** obsługuje następujące wartości:
 | Typ | Opis |
 | ------- | ----------- |
 |boolean|Reprezentuje wartość logiczną ( `true` lub `false` ).|
-|date| Reprezentuje chwilę w czasie, zazwyczaj wyrażoną jako dzień. Wartość daty jest zgodna z Konwencją ISO 8601.|
+|data| Reprezentuje chwilę w czasie, zazwyczaj wyrażoną jako dzień. Wartość daty jest zgodna z Konwencją ISO 8601.|
 |Data i godzina|Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wartość daty jest zgodna z Konwencją ISO 8601.|
 |czas trwania|Reprezentuje przedział czasu w latach, miesiącach, dniach, godzinach, minutach i sekundach. Format is `PnYnMnDTnHnMnS` , gdzie `P` wskazuje wartość dodatnią lub `N` ujemną. `nY` to liczba lat, po której następuje literał `Y` . `nMo` to liczba miesięcy, po której następuje literał `Mo` . `nD` to liczba dni, po której następuje literał `D` . Przykłady: `P21Y` reprezentuje 21 lat. `P1Y2Mo` reprezentuje rok i dwa miesiące. `P1Y2Mo5D` reprezentuje jeden rok, dwa miesiące i pięć dni.  `P1Y2M5DT8H5M620S` reprezentuje jeden rok, dwa miesiące, pięć dni, osiem godzin, pięć minut i dwadzieścia sekund.  |
 |phoneNumber|Reprezentuje numer telefonu. |

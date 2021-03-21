@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 2ec88e4e97d45b27c0226198491b3adec6448496
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000899"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple Virtual Array Update 1,0 — informacje o wersji
@@ -30,9 +30,9 @@ Aktualizacja 1,0 jest zgodna z wersją oprogramowania **10.0.10296.0**.
 
 ## <a name="whats-new-in-update-10"></a>Co nowego w aktualizacji Update 1,0
 
-**Aktualizacja 1,0 zawiera zmiany związane z uwierzytelnianiem usługi StorSimple Menedżer urządzeń i należy je wdrożyć najwcześniej.** Ta aktualizacja zawiera następujące ulepszenia i poprawki błędów:
+**Aktualizacja 1,0 zawiera zmiany związane z uwierzytelnianiem usługi StorSimple Device Manager i należy je wdrożyć najwcześniej.** Ta aktualizacja zawiera następujące ulepszenia i poprawki błędów:
 
- - **Korzystanie z Azure Active Directory (AAD) do uwierzytelniania za pomocą usługi StorSimple Menedżer urządzeń** — od aktualizacji 1,0, Azure Active Directory służy do uwierzytelniania za pomocą usługi StorSimple Menedżer urządzeń. Stary mechanizm uwierzytelniania będzie przestarzały w grudniu 2017. Wszyscy użytkownicy muszą zawierać nowe adresy URL uwierzytelniania w regułach zapory. Aby uzyskać więcej informacji, przejdź do adresów URL uwierzytelniania wymienionych w temacie [wymagania dotyczące sieci dla macierzy wirtualnej StorSimple](storsimple-ova-system-requirements.md).
+ - **Korzystanie z Azure Active Directory (AAD) do uwierzytelniania za pomocą usługi StorSimple Device Manager** — od aktualizacji 1,0, Azure Active Directory służy do uwierzytelniania za pomocą usługi StorSimple Device Manager. Stary mechanizm uwierzytelniania będzie przestarzały w grudniu 2017. Wszyscy użytkownicy muszą zawierać nowe adresy URL uwierzytelniania w regułach zapory. Aby uzyskać więcej informacji, przejdź do adresów URL uwierzytelniania wymienionych w temacie [wymagania dotyczące sieci dla macierzy wirtualnej StorSimple](storsimple-ova-system-requirements.md).
  
     Jeśli adres URL uwierzytelniania nie jest uwzględniony w regułach zapory, użytkownicy zobaczą alert krytyczny, że urządzenie StorSimple nie może uwierzytelnić się w usłudze. Jeśli użytkownicy zobaczą ten alert, muszą uwzględnić nowy adres URL uwierzytelniania. Aby uzyskać więcej informacji, przejdź do [StorSimple alerty sieciowe](storsimple-virtual-array-manage-alerts.md).
 
@@ -47,9 +47,9 @@ Aktualizacja 1,0 jest zgodna z wersją oprogramowania **10.0.10296.0**.
 
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Cechy | Problem |
+| Nie. | Cecha | Problem |
 | --- | --- | --- |
-| 1 |Uwierzytelnianie oparte na usłudze AAD| Ta wersja zawiera zmiany, które umożliwiają usłudze AAD uwierzytelnianie przy użyciu Menedżer urządzeń StorSimple.|
+| 1 |Uwierzytelnianie oparte na usłudze AAD| Ta wersja zawiera zmiany, które umożliwiają usłudze AAD uwierzytelnianie przy użyciu Device Manager StorSimple.|
 | 2 |Wyrzucanie elementów bezużytecznych| Ten problem został zgłoszony w witrynie klienta, w której konta urządzeń i magazynu znajdują się w różnych regionach, a klient zgłosił sporadyczne błędy sieci, co wpływa na rozliczenia. W tej wersji ten problem został rozwiązany. |
 | 3 |Wydajność| Ta wersja zawiera zmiany powodujące zwiększenie wydajności operacji przywracania/odczytu w chmurze/warstwy na poziomie.|
 | 4 |Aktualizacja| Wystąpił problem z aktualizacją we wcześniejszej wersji, co spowodowało błędy kopii zapasowej w lokacji klienta. Ten problem został rozwiązany w tej wersji.|
@@ -58,7 +58,7 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji.
 
-| Nie. | Cechy | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować macierzy wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej ogólnej wersji dostępności. |Te tablice wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku danych o określonym określonym rozmiarze i utworzeniu odpowiedniej macierzy wirtualnej StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
@@ -72,7 +72,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 | **dziesięć.** |Azure PowerShell |Nie można zarządzać macierzami wirtualnymi StorSimple za pomocą Azure PowerShell w tej wersji. |Wszystkie zarządzanie urządzeniami wirtualnymi powinno odbywać się za pomocą Azure Portal i lokalnego interfejsu użytkownika sieci Web. |
 | **11.** |Zmiana hasła |Konsola urządzenia macierzy wirtualnej akceptuje tylko dane wejściowe w formacie klawiatury en-us. | |
 | **dwunastomiesięcznych.** |CHAP |Nie można usunąć poświadczeń protokołu CHAP po utworzeniu. Ponadto w przypadku modyfikacji poświadczeń protokołu CHAP należy przełączyć woluminy do trybu offline, a następnie przełączyć je w tryb online, aby zmiany zaczęły obowiązywać. |Ten problem został rozwiązany w nowszej wersji. |
-| **trzynast.** |serwer iSCSI |"Użyty magazyn" wyświetlany dla woluminu iSCSI może się różnić w StorSimple usługi Menedżer urządzeń i hoście iSCSI. |Host iSCSI zawiera widok systemu plików.<br></br>Urządzenie widzi bloki przydzieloną, gdy wolumin był w maksymalnym rozmiarze. |
+| **trzynast.** |serwer iSCSI |"Użyty magazyn" wyświetlany dla woluminu iSCSI może się różnić w StorSimple usługi Device Manager i hoście iSCSI. |Host iSCSI zawiera widok systemu plików.<br></br>Urządzenie widzi bloki przydzieloną, gdy wolumin był w maksymalnym rozmiarze. |
 | **14,5.** |Serwer plików |Jeśli do pliku w folderze są skojarzone alternatywne strumienie danych (ADS), nie są one tworzone ani przywracane w ramach odzyskiwania po awarii, klonowania i odzyskiwania na poziomie elementu. | |
 | **15000.** |Serwer plików |Linki symboliczne nie są obsługiwane. | |
 | **16.** |Serwer plików |Pliki chronione przez system Windows system szyfrowania plików (EFS) kopiowane lub przechowywane na serwerze plików macierzy wirtualnej StorSimple powodują nieobsługiwaną konfigurację.  | |

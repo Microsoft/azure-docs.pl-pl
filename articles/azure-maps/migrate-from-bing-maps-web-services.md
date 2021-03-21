@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97679074"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Samouczek: Migrowanie usługi sieci Web z map Bing
@@ -234,12 +234,12 @@ Interfejs API routingu Azure Maps obsługuje również Routing ciężarówki w r
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **Nie dotyczy**                                    |
+| `vehicleTrailers` (`vt`)                 | **NIE DOTYCZY**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **Nie dotyczy**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **Nie dotyczy**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **Nie dotyczy**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **Nie dotyczy**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **NIE DOTYCZY**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **NIE DOTYCZY**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **NIE DOTYCZY**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **NIE DOTYCZY**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -300,12 +300,12 @@ Interfejs API routingu Azure Maps obsługuje również parametr routingu cięża
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **Nie dotyczy**                                    |
+| `vehicleTrailers` (`vt`)                | **NIE DOTYCZY**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **Nie dotyczy**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **Nie dotyczy**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **Nie dotyczy**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **Nie dotyczy**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **NIE DOTYCZY**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **NIE DOTYCZY**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **NIE DOTYCZY**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **NIE DOTYCZY**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -655,7 +655,7 @@ Oto kilka przydatnych zasobów związanych z hostingiem i wykonywaniem zapytań 
 -   [Przestrzenny Azure SQL — zapytanie najbliższe sąsiada](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
 -   [Omówienie funkcji geoprzestrzennych Azure Cosmos DB](../cosmos-db/sql-query-geospatial-intro.md)
 
-## <a name="client-libraries"></a>Biblioteki klienckie
+## <a name="client-libraries"></a>Biblioteki klienta
 
 Azure Maps udostępnia biblioteki klienckie dla następujących języków programowania;
 

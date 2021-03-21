@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659713"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Skonfiguruj laboratorium do zarządzania i programowania przy użyciu SQL Server
@@ -109,7 +109,7 @@ Teraz, gdy zainstalowano Azure Data Studio, Skonfigurujmy połączenie z Azure S
     - Ustaw **hasło** do hasła używanego do tworzenia bazy danych.
     - Zaznacz pole wyboru **Zapamiętaj hasło**.
     - W obszarze **baza danych** wybierz pozycję *classlabdb*.
-3. Kliknij przycisk **Podłącz**.
+3. Kliknij przycisk **Połącz**.
 
 ## <a name="install-sql-server-management-studio"></a>Zainstaluj SQL Server Management Studio
 
