@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
 ms.openlocfilehash: bb28c517e353af6b8c1ee0cad788ff41b971918c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460877"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Pobieranie danych pogody od partnerów pogody
@@ -151,7 +151,7 @@ Aby zbadać dane pogodowe przy użyciu interfejsu API REST FarmBeats:
 
 1. W FarmBeats Datahub [Swagger](https://yourdatahub.azurewebsites.net/swagger)przejdź do interfejsu API/WeatherDataLocation i Utwórz żądanie Get. Odpowiedź obejmuje obiekty/WeatherDataLocation utworzone dla lokalizacji (Szerokość geograficzna i Długość geograficzna), które zostały określone przez uruchomienie zadania. Zanotuj **Identyfikator** i **weatherDataModelId** obiektów.
 
-2. Utwórz żądanie GET/{ID} w interfejsie API/WeatherDataModel dla **weatherDataModelId** , tak jak wcześniej. Model danych pogody przedstawia wszystkie metadane i szczegółowe informacje o pozyskanych danych pogodowych. Na przykład, w obiekcie modelu danych pogody, miara pogody wskazuje, jakie informacje o pogodzie są obsługiwane i w jakich typach i jednostkach. Przykład:
+2. Utwórz żądanie GET/{ID} w interfejsie API/WeatherDataModel dla **weatherDataModelId** , tak jak wcześniej. Model danych pogody przedstawia wszystkie metadane i szczegółowe informacje o pozyskanych danych pogodowych. Na przykład, w obiekcie modelu danych pogody, miara pogody wskazuje, jakie informacje o pogodzie są obsługiwane i w jakich typach i jednostkach. Na przykład:
 
    ```json
    {

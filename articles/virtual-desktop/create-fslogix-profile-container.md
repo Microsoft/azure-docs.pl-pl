@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016832"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure NetApp Files i AD DS
@@ -160,7 +160,7 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 2. Rozpakuj pobrany plik.
 
-3. W pliku przejdź do wersji **x64**  >  **Releases** i uruchom **FSLogixAppsSetup.exe**. Zostanie otwarte menu instalacja.
+3. W pliku przejdź do wersji **x64**  >   i uruchom **FSLogixAppsSetup.exe**. Zostanie otwarte menu instalacja.
 
 4.  Jeśli masz klucz produktu, wprowadź go w polu tekstowym klucz produktu.
 

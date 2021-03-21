@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
 ms.openlocfilehash: c37168c5165f5402dd4f57c8557bc2b7b3603533
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101720192"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących dla nowego klastra AKS z nowym wystąpieniem Application Gateway
@@ -22,7 +22,7 @@ W tym samouczku utworzysz klaster AKS z włączonym dodatkiem AGIC. Utworzenie k
 
 Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). Oferuje również w pełni zarządzane środowisko.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz grupę zasobów. 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
 ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94330569"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Samouczek: integracja chmury Atlassian z usługą Azure Active Directory
@@ -166,7 +166,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
       ![atrybuty i oświadczenia](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Chmura Atlassian oczekuje, że **NameIdentifier** ( **unikatowy identyfikator użytkownika** ) będzie mapowany do wiadomości e-mail użytkownika ( **User. email** ). Edytuj **atrybut Source** i zmień go na **User. mail**. Zapisz zmiany w poroście.
+      b. Chmura Atlassian oczekuje, że **NameIdentifier** (**unikatowy identyfikator użytkownika**) będzie mapowany na adres e-mail użytkownika (**User.email**). Edytuj **atrybut Source** i zmień go na **User. mail**. Zapisz zmiany w poroście.
 
       ![unikatowy identyfikator użytkownika](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -180,7 +180,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
       ![obraz 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Podczas gdy platforma Azure nie wypełnia atrybutu **User. mail** dla użytkowników utworzonych w dzierżawach usługi Azure AD bez licencji Microsoft 365 i przechowuje wiadomość e-mail dla takich użytkowników w atrybucie **userPrincipalName** . Chmura Atlassian oczekuje, że **NameIdentifier** ( **unikatowy identyfikator użytkownika** ) będzie mapowany do wiadomości e-mail użytkownika ( **User. userPrincipalName** ).  Edytuj **atrybut Source**  i zmień go na **User. userPrincipalName**. Zapisz zmiany w poroście.
+      b. Podczas gdy platforma Azure nie wypełnia atrybutu **User. mail** dla użytkowników utworzonych w dzierżawach usługi Azure AD bez licencji Microsoft 365 i przechowuje wiadomość e-mail dla takich użytkowników w atrybucie **userPrincipalName** . Chmura Atlassian oczekuje, że **NameIdentifier** (**unikatowy identyfikator użytkownika**) będzie mapowany do wiadomości e-mail użytkownika (**User. userPrincipalName**).  Edytuj **atrybut Source**  i zmień go na **User. userPrincipalName**. Zapisz zmiany w poroście.
 
       ![Ustaw adres e-mail](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -192,7 +192,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
@@ -204,10 +204,10 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do chmury Atlassian.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Atlassian Cloud**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .

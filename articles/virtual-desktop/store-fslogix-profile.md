@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99526606"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows
@@ -27,7 +27,7 @@ W poniższych tabelach porównano oferty magazynów usługi Azure Storage dla sy
 |--------|-----------|------------------|---------------------|
 |Przypadek użycia|Zastosowania ogólne|Niezwykle wydajna lub migracja z NetApp lokalnego|Wiele platform|
 |Usługa platformy|Tak, rozwiązanie platformy Azure — natywne|Tak, rozwiązanie platformy Azure — natywne|Nie, samozarządzane|
-|Dostępność regionalna|Wszystkie regiony|[Wybierz regiony](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Wszystkie regiony|
+|Dostępność w regionach|Wszystkie regiony|[Wybierz regiony](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Wszystkie regiony|
 |Nadmiarowość|Lokalnie nadmiarowy/strefowo nadmiarowy/Geograficznie nadmiarowy/strefowo nadmiarowy|Lokalnie nadmiarowy|Lokalnie nadmiarowy/strefowo nadmiarowy/Geograficznie nadmiarowy|
 |Warstwy i wydajność| Standardowa (zoptymalizowana transakcja)<br>Premium<br>Maksymalnie maksymalnie 100 000 operacji we/wy na udział dzięki 10 GB/s na udział w około 3 ms opóźnienia|Standardowa (Standard)<br>Premium<br>Ultra<br>Do 320k (16 KB) operacji wejścia/wyjścia na sekundę z 4,5 GB/s|HDD w warstwie Standardowa: maksymalnie 500 limitów liczby operacji we/wy na dysku<br>SSD w warstwie Standardowa: maksymalnie 4 k limity liczby operacji we/wy na dysku<br>SSD w warstwie Premium: maksymalnie 20 000 limitów liczby operacji we/wy na dysku<br>Zalecamy używanie dysków w warstwie Premium dla Bezpośrednie miejsca do magazynowania|
 |Pojemność|100 TiB na udział, do 5 PiB na konto ogólnego przeznaczenia |100 TiB na wolumin, do 12,5 PiB na subskrypcję|Maksymalna 32 TiB na dysk|

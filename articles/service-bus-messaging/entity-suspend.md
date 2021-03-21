@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie 
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94543055"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)
@@ -21,10 +21,10 @@ Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub 
 ## <a name="queue-status"></a>Stan kolejki 
 Stany, które można ustawić dla **kolejki** , to:
 
--   **Aktywne** : kolejka jest aktywna. Można wysyłać wiadomości do i odbierać wiadomości z kolejki. 
--   **Wyłączone** : kolejka jest wstrzymana. Jest to równoznaczne z ustawieniem zarówno **SendDisabled** , jak i **ReceiveDisabled**. 
--   **SendDisabled** : nie można wysyłać komunikatów do kolejki, ale można z niej odbierać wiadomości. Jeśli spróbujesz wysyłać komunikaty do kolejki, otrzymasz wyjątek. 
--   **ReceiveDisabled** : można wysyłać komunikaty do kolejki, ale nie można odbierać z niej komunikatów. Jeśli spróbujesz odbierać komunikaty do kolejki, otrzymasz wyjątek.
+-   **Aktywne**: kolejka jest aktywna. Można wysyłać wiadomości do i odbierać wiadomości z kolejki. 
+-   **Wyłączone**: kolejka jest wstrzymana. Jest to równoznaczne z ustawieniem zarówno **SendDisabled** , jak i **ReceiveDisabled**. 
+-   **SendDisabled**: nie można wysyłać komunikatów do kolejki, ale można z niej odbierać wiadomości. Jeśli spróbujesz wysyłać komunikaty do kolejki, otrzymasz wyjątek. 
+-   **ReceiveDisabled**: można wysyłać komunikaty do kolejki, ale nie można odbierać z niej komunikatów. Jeśli spróbujesz odbierać komunikaty do kolejki, otrzymasz wyjątek.
 
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Zmień stan kolejki w Azure Portal: 
@@ -57,9 +57,9 @@ Stan tematu można zmienić w Azure Portal. Wybierz bieżący stan tematu, aby w
 :::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Zmień stan tematu":::
 
 Stany, które można ustawić dla **tematu** , to:
-- **Aktywne** : temat jest aktywny. Komunikaty można wysyłać do tematu. 
-- **Wyłączone** : temat jest zawieszony. Nie można wysyłać komunikatów do tematu. 
-- **SendDisabled** : ten sam efekt jest **wyłączony**. Nie można wysyłać komunikatów do tematu. Wystąpi wyjątek w przypadku próby wysłania komunikatów do tematu. 
+- **Aktywne**: temat jest aktywny. Komunikaty można wysyłać do tematu. 
+- **Wyłączone**: temat jest zawieszony. Nie można wysyłać komunikatów do tematu. 
+- **SendDisabled**: ten sam efekt jest **wyłączony**. Nie można wysyłać komunikatów do tematu. Wystąpi wyjątek w przypadku próby wysłania komunikatów do tematu. 
 
 ## <a name="subscription-status"></a>Stan subskrypcji
 Stan subskrypcji można zmienić w Azure Portal. Wybierz bieżący stan subskrypcji, aby wyświetlić następującą stronę, która umożliwia zmianę stanu. 
@@ -67,9 +67,9 @@ Stan subskrypcji można zmienić w Azure Portal. Wybierz bieżący stan subskryp
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Zmień stan subskrypcji":::
 
 Stany, które można ustawić dla **subskrypcji** , to:
-- **Aktywne** : subskrypcja jest aktywna. Można odbierać wiadomości FRM subskrypcję.
-- **Wyłączone** : subskrypcja jest zawieszona. Nie można odbierać wiadomości z subskrypcji. 
-- **ReceiveDisabled** : ten sam efekt jest **wyłączony**. Nie można odbierać wiadomości z subskrypcji. Jeśli spróbujesz odbierać komunikaty do subskrypcji, otrzymasz wyjątek.
+- **Aktywne**: subskrypcja jest aktywna. Można odbierać wiadomości FRM subskrypcję.
+- **Wyłączone**: subskrypcja jest zawieszona. Nie można odbierać wiadomości z subskrypcji. 
+- **ReceiveDisabled**: ten sam efekt jest **wyłączony**. Nie można odbierać wiadomości z subskrypcji. Jeśli spróbujesz odbierać komunikaty do subskrypcji, otrzymasz wyjątek.
 
 | Stan tematu | Stan subskrypcji | Zachowanie | 
 | ------------ | ------------------- | -------- | 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: a025de7bfb9db037b2008d69be7782feabb482f3
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94562325"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Przywracanie udziałów plików platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
@@ -50,8 +50,8 @@ az backup recoverypoint list --vault-name azurefilesvault --resource-group azure
 
 Możesz również uruchomić poprzednie polecenie cmdlet przy użyciu przyjaznej nazwy kontenera i elementu, podając następujące dwa dodatkowe parametry:
 
-* **--Backup-Management-Type** : *azurestorage*
-* **--Typ obciążenia** : *azurefileshare*
+* **--Backup-Management-Type**: *azurestorage*
+* **--Typ obciążenia**: *azurefileshare*
 
 ```azurecli-interactive
 az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --item-name azurefiles --workload-type azurefileshare --out table
@@ -75,8 +75,8 @@ Można użyć tej opcji przywracania, aby przywrócić pełny udział plików w 
 
 Zdefiniuj następujące parametry, aby wykonać operacje przywracania:
 
-* **--Container-Name** : nazwa konta magazynu, które hostuje kopię zapasową oryginalnego udziału plików. Aby pobrać nazwę lub przyjazną nazwę kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name** : Nazwa kopii zapasowej oryginalnego pliku, który ma być używany dla operacji przywracania. Aby pobrać nazwę lub przyjazną nazwę elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
+* **--Container-Name**: nazwa konta magazynu, które hostuje kopię zapasową oryginalnego udziału plików. Aby pobrać nazwę lub przyjazną nazwę kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name**: Nazwa kopii zapasowej oryginalnego pliku, który ma być używany dla operacji przywracania. Aby pobrać nazwę lub przyjazną nazwę elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
 
 ### <a name="restore-a-full-share-to-the-original-location"></a>Przywróć pełny udział do oryginalnej lokalizacji
 
@@ -100,10 +100,10 @@ Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest two
 
 Możesz użyć tej opcji, aby przywrócić udział plików w alternatywnej lokalizacji i zachować oryginalny udział plików jako. Określ następujące parametry odzyskiwania lokalizacji alternatywnej:
 
-* **--Target-Storage-account** : konto magazynu, do którego zostanie przywrócona zawartość kopii zapasowej. Docelowe konto magazynu musi znajdować się w tej samej lokalizacji co magazyn.
-* **--docelowy udział plików** : udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
-* **--Target-folder** : folder w udziale plików, do którego przywracane są dane. Jeśli kopia zapasowa ma zostać przywrócona do folderu głównego, nadaj wartości folderu docelowego jako pusty ciąg.
-* **--Rozwiąż konflikt** : instrukcje w przypadku konfliktu z przywróconymi danymi. Akceptuje **zastępowanie** lub **pomijanie**.
+* **--Target-Storage-account**: konto magazynu, do którego zostanie przywrócona zawartość kopii zapasowej. Docelowe konto magazynu musi znajdować się w tej samej lokalizacji co magazyn.
+* **--docelowy udział plików**: udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
+* **--Target-folder**: folder w udziale plików, do którego przywracane są dane. Jeśli kopia zapasowa ma zostać przywrócona do folderu głównego, nadaj wartości folderu docelowego jako pusty ciąg.
+* **--Rozwiąż konflikt**: instrukcje w przypadku konfliktu z przywróconymi danymi. Akceptuje **zastępowanie** lub **pomijanie**.
 
 Poniższy przykład używa [AZ Backup Restore Restore-azurefileshare](/cli/azure/backup/restore#az-backup-restore-restore-azurefileshare) z trybem przywracania jako *alternatelocation* , aby przywrócić udział plików *migracji pamięci* na koncie magazynu *afsaccount* do udziału plików *azurefiles1* na koncie magazynu *afaccount1* .
 
@@ -125,14 +125,14 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
 
 Zdefiniuj następujące parametry, aby wykonać operacje przywracania:
 
-* **--Container-Name** : nazwa konta magazynu, które hostuje kopię zapasową oryginalnego udziału plików. Aby pobrać nazwę lub przyjazną nazwę kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name** : Nazwa kopii zapasowej oryginalnego pliku, który ma być używany dla operacji przywracania. Aby pobrać nazwę lub przyjazną nazwę elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
+* **--Container-Name**: nazwa konta magazynu, które hostuje kopię zapasową oryginalnego udziału plików. Aby pobrać nazwę lub przyjazną nazwę kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name**: Nazwa kopii zapasowej oryginalnego pliku, który ma być używany dla operacji przywracania. Aby pobrać nazwę lub przyjazną nazwę elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item#az-backup-item-list) .
 
 Określ następujące parametry dla elementów, które mają zostać odzyskane:
 
-* **Sourcefilepath** : ścieżka bezwzględna pliku, która ma zostać przywrócona w udziale plików jako ciąg. Ta ścieżka jest tą samą ścieżką, która jest używana w pliku [AZ Storage File Download](/cli/azure/storage/file#az-storage-file-download) lub [AZ Storage File show](/cli/azure/storage/file#az-storage-file-show) interfejsu wiersza polecenia.
-* **SourceFileType** : Wybierz, czy wybrano katalog lub plik. Akceptuje **katalog** lub **plik**.
-* **ResolveConflict** : instrukcja, jeśli wystąpił konflikt z przywróconymi danymi. Akceptuje **zastępowanie** lub **pomijanie**.
+* **Sourcefilepath**: ścieżka bezwzględna pliku, która ma zostać przywrócona w udziale plików jako ciąg. Ta ścieżka jest tą samą ścieżką, która jest używana w pliku [AZ Storage File Download](/cli/azure/storage/file#az-storage-file-download) lub [AZ Storage File show](/cli/azure/storage/file#az-storage-file-show) interfejsu wiersza polecenia.
+* **SourceFileType**: Wybierz, czy wybrano katalog lub plik. Akceptuje **katalog** lub **plik**.
+* **ResolveConflict**: instrukcja, jeśli wystąpił konflikt z przywróconymi danymi. Akceptuje **zastępowanie** lub **pomijanie**.
 
 ### <a name="restore-individual-files-or-folders-to-the-original-location"></a>Przywróć pojedyncze pliki lub foldery do oryginalnej lokalizacji
 
@@ -156,9 +156,9 @@ Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest two
 
 Aby przywrócić określone pliki lub foldery do innej lokalizacji, użyj polecenia [AZ Backup Restore Restore-migracji pamięci](/cli/azure/backup/restore#az-backup-restore-restore-azurefiles) cmdlet z trybem przywracania ustawionym na *alternatelocation* i określ następujące parametry powiązane z elementem docelowym:
 
-* **--Target-Storage-account** : konto magazynu, do którego zostanie przywrócona zawartość kopii zapasowej. Docelowe konto magazynu musi znajdować się w tej samej lokalizacji co magazyn.
-* **--docelowy udział plików** : udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
-* **--Target-folder** : folder w udziale plików, do którego przywracane są dane. Jeśli kopia zapasowa ma zostać przywrócona do folderu głównego, nadaj jej wartość jako pusty ciąg.
+* **--Target-Storage-account**: konto magazynu, do którego zostanie przywrócona zawartość kopii zapasowej. Docelowe konto magazynu musi znajdować się w tej samej lokalizacji co magazyn.
+* **--docelowy udział plików**: udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
+* **--Target-folder**: folder w udziale plików, do którego przywracane są dane. Jeśli kopia zapasowa ma zostać przywrócona do folderu głównego, nadaj jej wartość jako pusty ciąg.
 
 Poniższy przykład przywraca plik *RestoreTest.txt* pierwotnie obecny w udziale plików *migracji pamięci* do lokalizacji alternatywnej: folder *restoredata* w udziale plików *azurefiles1* hostowanym na koncie magazynu *afaccount1* .
 

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490785"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure
@@ -148,7 +148,7 @@ To polecenie informuje azurite o przechowywaniu wszystkich danych w określonym 
 
 Ta sekcja zawiera szczegółowe informacje dotyczące przełączników wiersza polecenia dostępnych podczas uruchamiania azurite.
 
-### <a name="help"></a>Pomoc
+### <a name="help"></a>Help
 
 **Opcjonalne** — Uzyskiwanie pomocy wiersza polecenia za pomocą `-h` przełącznika lub `--help` .
 
@@ -440,7 +440,7 @@ var client = new BlobContainerClient(
   );
 ```
 
-#### <a name="azure-queue-storage"></a>Azure Queue Storage
+#### <a name="azure-queue-storage"></a>Usługa Azure Queue Storage
 
 Można również utworzyć wystąpienie QueueClient lub QueueServiceClient.
 
@@ -480,7 +480,7 @@ W Eksplorator usługi Storage Połącz się z usługą azurite, wykonując nast�
 
 #### <a name="connect-to-azurite-using-https"></a>Nawiązywanie połączenia z usługą azurite przy użyciu protokołu HTTPS
 
-Domyślnie Eksplorator usługi Storage nie otworzy punktu końcowego HTTPS, który używa certyfikatu z podpisem własnym. Jeśli korzystasz z programu azurite z protokołem HTTPS, możesz użyć certyfikatu z podpisem własnym. W Eksplorator usługi Storage zaimportuj certyfikaty SSL za pomocą okna dialogowego **Edytowanie**certyfikatów  ->  **SSL**  ->  **Importuj certyfikaty** .
+Domyślnie Eksplorator usługi Storage nie otworzy punktu końcowego HTTPS, który używa certyfikatu z podpisem własnym. Jeśli korzystasz z programu azurite z protokołem HTTPS, możesz użyć certyfikatu z podpisem własnym. W Eksplorator usługi Storage zaimportuj certyfikaty SSL za pomocą okna dialogowego **Edytowanie** certyfikatów  ->  **SSL**  ->  **Importuj certyfikaty** .
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importuj certyfikat do Eksplorator usługi Storage
 
@@ -499,7 +499,7 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 1. Wybierz **załączony & lokalny**
 1. Kliknij prawym przyciskiem myszy pozycję **konta magazynu** i wybierz pozycję **Połącz z usługą Azure Storage**.
 1. Wybierz opcję **Użyj parametrów połączenia**
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Wprowadź wartość w polu **Nazwa wyświetlana** .
 1. Wprowadź [Parametry połączenia HTTPS](#https-connection-strings) z poprzedniej sekcji tego dokumentu
 1. Wybierz pozycję **Dalej**

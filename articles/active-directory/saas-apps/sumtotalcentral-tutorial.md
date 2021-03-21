@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 929c447d1a19b85ab8e12b45198508e5f5747c12
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Samouczek: integracja Azure Active Directory z usługą SumTotalCentral

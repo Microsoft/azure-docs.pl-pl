@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure 
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95254053"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Usuwanie nietrwałe dla Azure Backup
@@ -36,7 +36,7 @@ Należy pamiętać, że po wyłączeniu usuwania nietrwałego funkcja ta jest wy
 Aby wyłączyć usuwanie nietrwałe, wykonaj następujące kroki:
 
 1. W Azure Portal przejdź do magazynu, a następnie przejdź do pozycji **Ustawienia**  ->  **Właściwości**.
-2. W okienku właściwości wybierz pozycję Aktualizacja **ustawień zabezpieczeń**  ->  **Update**.  
+2. W okienku właściwości wybierz pozycję Aktualizacja **ustawień zabezpieczeń**  ->  .  
 3. W okienku ustawienia zabezpieczeń w obszarze **usuwanie nietrwałe** wybierz pozycję **Wyłącz**.
 
 ![Wyłącz usuwanie nietrwałe](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)

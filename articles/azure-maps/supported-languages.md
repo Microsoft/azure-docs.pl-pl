@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904520"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
@@ -25,7 +25,7 @@ Azure Maps obsługuje różne języki i widoki na podstawie kraju/regionu. W tym
 Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poniższej tabeli przedstawiono obsługiwane kody języka dla każdej usługi.  
   
 
-| ID (Identyfikator)         | Name                   |  Maps | Wyszukiwanie | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
+| ID (Identyfikator)         | Nazwa                   |  Maps | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF — za      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabski                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -75,8 +75,8 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | nb-NO      | Norweski (bokmål)       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Neutralne Języki w języku prawdy dla wszystkich regionów w lokalnych skryptach, jeśli są dostępne |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | Neutralna obudowa prawdy-łacińskiego exonyms. Skrypt łaciński zostanie użyty, jeśli jest dostępny |   ✓     |        |         |         |                |        ✓         |
-| pl-PL      | Polski                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| pt-BR      | Portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
+| pl-PL      | polski                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| pt-BR      | portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
 | pt-PT      | Portugalski (Portugalia)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | PA-IN      | Pendżabski                 |       |       |         |     ✓    |                   |                |
 | ro-RO      | Rumuński               |       |    ✓    |         |     ✓    |         ✓         |                |
@@ -147,7 +147,7 @@ Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie 
 
 W poniższej tabeli przedstawiono obsługiwane widoki.
 
-| Widok         | Opis                            |  Maps | Wyszukiwanie | kontrolka mapy JS |
+| Widok         | Opis                            |  Maps | Wyszukaj | kontrolka mapy JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Zjednoczone Emiraty Arabskie (widok arabski)    |   ✓   |        |     ✓          |
 | AR           | Argentyna (widok argentyński)           |   ✓   |    ✓   |     ✓          |

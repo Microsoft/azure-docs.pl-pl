@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942695"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalowanie niestandardowych aplikacji Apache Hadoop w usłudze Azure HDInsight
@@ -72,7 +72,7 @@ Możesz zobaczyć stan aplikacji w witrynie Azure Portal, aby sprawdzić poprawn
 
 W przypadku **odcienia** można wykonać następujące czynności:
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz klaster, w którym zainstalowano aplikację.
@@ -120,7 +120,7 @@ Jeśli instalacja aplikacji nie powiodła się, można zobaczyć komunikaty o b�
 
 ## <a name="remove-hdinsight-applications"></a>Usuwanie aplikacji usługi HDInsight
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz klaster, w którym zainstalowano aplikację.

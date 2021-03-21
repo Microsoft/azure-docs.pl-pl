@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 82cec4cc448f0ec30aecf6f8a69f399e0abbdde0
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97706953"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu Azure Portal
@@ -33,7 +33,7 @@ Podczas tworzenia serwera za pomocą Azure Portal okno **warstwy cenowej** to mi
 Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [Azure Database for PostgreSQL Server — szybki start](quickstart-create-server-database-portal.md).
 
 Okres przechowywania kopii zapasowej serwera można zmienić, wykonując następujące czynności:
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 2. Wybierz serwer usługi Azure Database for PostgreSQL. Ta akcja powoduje otwarcie strony **Przegląd** .
 3. Wybierz pozycję **warstwa cenowa** z menu, w obszarze **Ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** na preferencję od 7 do 35 dni.
 Na poniższym zrzucie ekranu został zwiększony do 34 dni.

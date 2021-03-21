@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: f6b1ea00684495333ba7b04dbf146aa6104fa589
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Samouczek: integracja Azure Active Directory z platformą zarządzania kontraktami Icertis
@@ -112,7 +112,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą platformy z
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. Na stronie **Konfigurowanie platformy zarządzania kontraktami Icertis** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania**Użyj wartości z następującym wzorcem: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. Na stronie **Konfigurowanie platformy zarządzania kontraktami Icertis** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania** Użyj wartości z następującym wzorcem: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ to identyfikator dzierżawy subskrypcji usługi Azure AD.

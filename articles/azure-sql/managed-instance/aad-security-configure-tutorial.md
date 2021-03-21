@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788625"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Samouczek: zabezpieczenia w wystąpieniu zarządzanym usługi Azure SQL przy użyciu podmiotów zabezpieczeń serwera usługi Azure AD (nazwy logowania)
@@ -74,7 +74,7 @@ Zobacz następujące artykuły, aby zapoznać się z przykładami łączenia z w
 
 1. Zaloguj się do swojego wystąpienia zarządzanego przy użyciu standardowego konta logowania SQL (innego niż Azure AD), które jest `sysadmin` lub administratorem usługi Azure AD dla wystąpienia zarządzanego SQL, przy użyciu [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
-2. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
+2. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 
 3. W oknie zapytania użyj następującej składni, aby utworzyć identyfikator logowania dla lokalnego konta usługi Azure AD:
 
@@ -94,7 +94,7 @@ Zobacz następujące artykuły, aby zapoznać się z przykładami łączenia z w
     GO
     ```
 
-4. Na pasku narzędzi wybierz polecenie **Wykonaj** , aby utworzyć identyfikator logowania.
+4. Na pasku narzędzi wybierz polecenie **Wykonaj**, aby utworzyć identyfikator logowania.
 
 5. Sprawdź nowo dodany identyfikator logowania, wykonując następujące polecenie w języku T-SQL:
 
@@ -119,15 +119,15 @@ Aby utworzyć inne jednostki usługi (identyfikatory logowania) serwera Azure AD
 ### <a name="azure-ad-authentication"></a>Uwierzytelnianie w usłudze Azure AD
 
 - Aby umożliwić nowo utworzonym jednostkom usługi (identyfikatorom logowania) serwera Azure AD tworzenie identyfikatorów logowania dla innych użytkowników, grup lub aplikacji usługi Azure AD, musisz udzielić identyfikatorowi logowania roli serwera `sysadmin` lub `securityadmin`.
-- Jednostce usługi (identyfikatorowi logowania) serwera Azure AD należy udzielić przynajmniej uprawnienia **ALTER ANY LOGIN** , aby umożliwić jej tworzenie innych jednostek usługi (identyfikatorów logowania) serwera Azure AD.
-- Domyślnie standardowe uprawnienia przyznawane nowo utworzonym podmiotom zabezpieczeń serwera usługi Azure AD (Logins) w bazie danych Master to: **Connect SQL** i **View any Database** .
+- Jednostce usługi (identyfikatorowi logowania) serwera Azure AD należy udzielić przynajmniej uprawnienia **ALTER ANY LOGIN**, aby umożliwić jej tworzenie innych jednostek usługi (identyfikatorów logowania) serwera Azure AD.
+- Domyślnie standardowe uprawnienia przyznawane nowo utworzonym podmiotom zabezpieczeń serwera usługi Azure AD (Logins) w bazie danych Master to: **Connect SQL** i **View any Database**.
 - Roli serwera `sysadmin` można udzielić wielu jednostkom usługi (identyfikatorom logowania) serwera Azure AD w ramach wystąpienia zarządzanego.
 
 Aby dodać identyfikator logowania do roli serwera `sysadmin`:
 
 1. Zaloguj się ponownie do wystąpienia zarządzanego lub Użyj istniejącego połączenia z administratorem usługi Azure AD lub podmiotem zabezpieczeń SQL, który jest `sysadmin` .
 
-1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
+1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 
 1. Udziel jednostce usługi (identyfikatorowi logowania) serwera Azure AD roli serwera `sysadmin`, korzystając z następującej składni T-SQL:
 
@@ -145,7 +145,7 @@ Aby dodać identyfikator logowania do roli serwera `sysadmin`:
 
 ## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Tworzenie dodatkowych jednostek usługi (identyfikatorów logowania) serwera Azure AD przy użyciu programu SSMS
 
-Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz dodaniu do niej uprawnień `sysadmin` można za jej pomocą tworzyć dodatkowe identyfikatory logowania, używając klauzuli **FROM EXTERNAL PROVIDER** w instrukcji **CREATE LOGIN** .
+Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz dodaniu do niej uprawnień `sysadmin` można za jej pomocą tworzyć dodatkowe identyfikatory logowania, używając klauzuli **FROM EXTERNAL PROVIDER** w instrukcji **CREATE LOGIN**.
 
 1. Połącz się z wystąpieniem zarządzanym za pomocą jednostki usługi (identyfikatora logowania) serwera Azure AD, korzystając z programu SQL Server Management Studio. Wprowadź nazwę hosta wystąpienia zarządzanego SQL. Są trzy opcje uwierzytelniania w programie SMSS podczas logowania za pomocą konta usługi Azure AD:
 
@@ -157,11 +157,11 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
 
      Aby uzyskać więcej informacji, zobacz [uniwersalne uwierzytelnianie (Obsługa programu SSMS dla Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
-1. Wybierz opcję **Active Directory — uniwersalne z obsługą uwierzytelniania wieloskładnikowego** . Spowoduje to wyświetlenie okna logowania Multi-Factor Authentication. Zaloguj się przy użyciu hasła usługi Azure AD.
+1. Wybierz opcję **Active Directory — uniwersalne z obsługą uwierzytelniania wieloskładnikowego**. Spowoduje to wyświetlenie okna logowania Multi-Factor Authentication. Zaloguj się przy użyciu hasła usługi Azure AD.
 
     ![Zrzut ekranu okna logowania Multi-Factor Authentication z kursorem w polu Wprowadź hasło.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. W **Eksploratorze obiektów** programu SSMS kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
+1. W **Eksploratorze obiektów** programu SSMS kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 1. W oknie zapytania użyj następującej składni, aby utworzyć identyfikator logowania dla kolejnego konta usługi Azure AD:
 
     ```sql
@@ -183,8 +183,8 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
     ```
 
 1. Utwórz bazę danych w zarządzanym wystąpieniu przy użyciu składni [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) . Ta baza danych będzie używana do przetestowania identyfikatorów logowania użytkownika w kolejnej sekcji.
-    1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
-    1. W oknie zapytania użyj następującej składni, aby utworzyć bazę danych o nazwie **MyMITestDB** .
+    1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
+    1. W oknie zapytania użyj następującej składni, aby utworzyć bazę danych o nazwie **MyMITestDB**.
 
         ```sql
         CREATE DATABASE MyMITestDB;
@@ -195,7 +195,7 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
 
 1. Otwórz nowe okno zapytania w programie SQL Server Management Studio.
 
-    W tym przykładzie przyjęto założenie, że istnieje grupa o nazwie Moja _Grupa_ w usłudze Azure AD. Wykonaj następujące polecenie:
+    W tym przykładzie przyjęto założenie, że istnieje grupa o nazwie Moja _Grupa_ w usłudze Azure AD. Uruchom następujące polecenie:
 
     ```sql
     USE master
@@ -229,7 +229,7 @@ Aby uzyskać więcej informacji na temat udzielania uprawnień bazie danych, zob
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Tworzenie użytkownika usługi Azure AD oraz tworzenie przykładowej tabeli
 
 1. Zaloguj się do wystąpienia zarządzanego za pomocą konta `sysadmin`, korzystając z programu SQL Server Management Studio.
-1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
+1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 1. W oknie zapytania użyj następującej składni, aby utworzyć użytkownika usługi Azure AD na podstawie jednostki usługi (identyfikatora logowania) serwera Azure AD:
 
     ```sql
@@ -259,10 +259,10 @@ Aby uzyskać więcej informacji na temat udzielania uprawnień bazie danych, zob
     GO
     ```
 
-    Wszyscy użytkownicy, którzy należą do grupy *mygroup* , mogą uzyskać dostęp do bazy danych **MyMITestDB** .
+    Wszyscy użytkownicy, którzy należą do grupy *mygroup*, mogą uzyskać dostęp do bazy danych **MyMITestDB**.
 
     > [!IMPORTANT]
-    > Podczas tworzenia elementu **USER** na podstawie jednostki usługi (identyfikatora logowania) serwera Azure AD parametr user_name powinien być taki sam jak parametr login_name elementu **LOGIN** .
+    > Podczas tworzenia elementu **USER** na podstawie jednostki usługi (identyfikatora logowania) serwera Azure AD parametr user_name powinien być taki sam jak parametr login_name elementu **LOGIN**.
 
     Aby uzyskać więcej informacji, zobacz temat [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -280,7 +280,7 @@ Aby uzyskać więcej informacji na temat udzielania uprawnień bazie danych, zob
     );
     ```
 
-1. Utwórz połączenie w programie SSMS z utworzonym użytkownikiem. Zauważysz, że nie można wyświetlić tabeli **TestTable** , która została wcześniej utworzona przez konto `sysadmin`. Musimy nadać temu użytkownikowi uprawnienia odczytu danych z bazy danych.
+1. Utwórz połączenie w programie SSMS z utworzonym użytkownikiem. Zauważysz, że nie można wyświetlić tabeli **TestTable**, która została wcześniej utworzona przez konto `sysadmin`. Musimy nadać temu użytkownikowi uprawnienia odczytu danych z bazy danych.
 
 1. Możesz sprawdzić bieżące uprawnienia użytkownika, wykonując następujące polecenie:
 
@@ -295,7 +295,7 @@ Wyświetlanie danych przez użytkownika jest możliwe dopiero po przyznaniu mu o
 
 1. Zaloguj się do wystąpienia zarządzanego za pomocą konta `sysadmin`, korzystając z programu SQL Server Management Studio.
 
-1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
+1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 
 1. Nadaj użytkownikowi usługi Azure AD rolę bazy danych `db_datareader`, korzystając z następującej składni w języku T-SQL:
 
@@ -305,7 +305,7 @@ Wyświetlanie danych przez użytkownika jest możliwe dopiero po przyznaniu mu o
     GO
     ```
 
-    W poniższym przykładzie przyznano użytkownikowi bob@aadsqlmi.net oraz grupie _mygroup_ uprawnienia `db_datareader` w bazie danych **MyMITestDB** :
+    W poniższym przykładzie przyznano użytkownikowi bob@aadsqlmi.net oraz grupie _mygroup_ uprawnienia `db_datareader` w bazie danych **MyMITestDB**:
 
     ```sql
     USE MyMITestDB
@@ -324,7 +324,7 @@ Wyświetlanie danych przez użytkownika jest możliwe dopiero po przyznaniu mu o
     ```
 
 1. Utwórz nowe połączenie z wystąpieniem zarządzanym z użytkownikiem, który został dodany do roli `db_datareader`.
-1. Rozwiń bazę danych w **Eksploratorze obiektów** , aby wyświetlić tabelę.
+1. Rozwiń bazę danych w **Eksploratorze obiektów**, aby wyświetlić tabelę.
 
     ![Zrzut ekranu z Eksplorator obiektów w S S M S pokazujący strukturę folderów dla tabel w MyMITestDB. Obiekt dbo. Folder.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
@@ -347,7 +347,7 @@ Wystąpienie zarządzane SQL obsługuje personifikację podmiotów zabezpieczeń
 
 1. Zaloguj się do wystąpienia zarządzanego za pomocą konta `sysadmin`, korzystając z programu SQL Server Management Studio.
 
-1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
+1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 
 1. W oknie zapytania użyj następującego polecenia, aby utworzyć nową procedurę składowaną:
 
@@ -361,7 +361,7 @@ Wystąpienie zarządzane SQL obsługuje personifikację podmiotów zabezpieczeń
     GO
     ```
 
-1. Użyj poniższego polecenia, aby zobaczyć, że użytkownik jest personifikowany podczas wykonywania procedury składowanej, **robert \@ aadsqlmi.NET** .
+1. Użyj poniższego polecenia, aby zobaczyć, że użytkownik jest personifikowany podczas wykonywania procedury składowanej, **robert \@ aadsqlmi.NET**.
 
     ```sql
     Exec dbo.usp_Demo
@@ -388,8 +388,8 @@ Wystąpienie zarządzane SQL obsługuje personifikację podmiotów zabezpieczeń
 Funkcja wykonywania zapytań w wielu bazach danych jest obsługiwana dla kont usługi Azure AD z jednostkami usługi (identyfikatorami logowania) serwera Azure AD. Aby przetestować zapytania w wielu bazach danych w grupie usługi Azure AD, musimy utworzyć kolejną bazę danych i tabelę. Możesz pominąć tworzenie innej bazy danych i tabeli, jeśli taka już istnieje.
 
 1. Zaloguj się do wystąpienia zarządzanego za pomocą konta `sysadmin`, korzystając z programu SQL Server Management Studio.
-1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie** .
-1. W oknie zapytania użyj następującego polecenia, aby utworzyć bazę danych o nazwie **MyMITestDB2** oraz tabelę o nazwie **TestTable2** :
+1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
+1. W oknie zapytania użyj następującego polecenia, aby utworzyć bazę danych o nazwie **MyMITestDB2** oraz tabelę o nazwie **TestTable2**:
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ Funkcja wykonywania zapytań w wielu bazach danych jest obsługiwana dla kont us
     );
     ```
 
-1. W nowym oknie zapytania wykonaj następujące polecenie, aby utworzyć użytkownika _mygroup_ w nowej bazie danych **MyMITestDB2** i udziel uprawnień SELECT w tej bazie danych użytkownikowi _mygroup_ :
+1. W nowym oknie zapytania wykonaj następujące polecenie, aby utworzyć użytkownika _mygroup_ w nowej bazie danych **MyMITestDB2** i udziel uprawnień SELECT w tej bazie danych użytkownikowi _mygroup_:
 
     ```sql
     USE MyMITestDB2
@@ -424,7 +424,7 @@ Funkcja wykonywania zapytań w wielu bazach danych jest obsługiwana dla kont us
     GO
     ```
 
-    Powinny zostać wyświetlone wyniki z tabeli **TestTable2** .
+    Powinny zostać wyświetlone wyniki z tabeli **TestTable2**.
 
 ## <a name="additional-supported-scenarios"></a>Dodatkowe obsługiwane scenariusze
 

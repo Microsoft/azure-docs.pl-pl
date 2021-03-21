@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018177"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modyfikowanie obwodu usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
@@ -21,7 +21,7 @@ ms.locfileid: "96018177"
 > * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
-> * [Szablon Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
 >

@@ -8,10 +8,10 @@ keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: 5d3a714230f0279bd68b39cd02624866b9b3bacf
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102180517"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
@@ -213,7 +213,7 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 
 Azure App Service używa technologii kontenera Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych. Aby wyświetlić listę wbudowanych obrazów, uruchom polecenie interfejsu wiersza polecenia platformy Azure, ["AZ webapp list-Runtimes--Linux"](/cli/azure/webapp#az-webapp-list-runtimes). Jeśli te obrazy nie spełniają Twoich potrzeb, można skompilować i wdrożyć niestandardowy obraz.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie obrazu niestandardowego, jeśli żaden wbudowany obraz nie spełnia Twoich potrzeb

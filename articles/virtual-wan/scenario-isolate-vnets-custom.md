@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92461825"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenariusz: niestandardowa izolacja dla sieci wirtualnych
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, z
 
 ## <a name="workflow"></a><a name="architecture"></a>Przepływ pracy
 
-Na **rysunku 1**znajdują się niebieskie i czerwone połączenia sieci wirtualnej.
+Na **rysunku 1** znajdują się niebieskie i czerwone połączenia sieci wirtualnej.
 
 * Sieci wirtualnych połączone z niebieską siecią mogą się łączyć ze sobą, a także dotrzeć do wszystkich rozgałęzień (VPN/ER/P2S).
 * Czerwona sieci wirtualnych może nawiązać połączenie ze sobą, a także dotrzeć do wszystkich rozgałęzień (VPN/ER/P2S).
@@ -63,7 +63,7 @@ Na **rysunku 1**znajdują się niebieskie i czerwone połączenia sieci wirtualn
 Podczas konfigurowania routingu należy wziąć pod uwagę następujące czynności.
 
 1. Utwórz dwie niestandardowe tabele tras w Azure Portal, **RT_BLUE** i **RT_RED**.
-2. Dla **RT_BLUE**tabeli tras dla następujących ustawień:
+2. Dla **RT_BLUE** tabeli tras dla następujących ustawień:
    * **Skojarzenie**: zaznacz wszystkie niebieskie sieci wirtualnych.
    * **Propagacja**: w przypadku gałęzi, wybierz opcję dla gałęzi, co oznacza, że połączenia z gałęzią (VPN/er/P2S) będą propagowane tras do tej tabeli tras.
 3. Powtórz te same czynności dla **RT_REDj** tabeli tras dla Red sieci wirtualnych i rozgałęzień (VPN/er/P2S).

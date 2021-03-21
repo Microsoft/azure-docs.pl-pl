@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: jeedes
 ms.openlocfilehash: 8409a4d897ea9b20528a5b30273819e6962774cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184495"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Kendis — integracja z usługą Azure AD

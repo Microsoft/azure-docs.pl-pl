@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: ee122727100ec0abad0dfe93b9e5f1be0276cb8e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519503"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Ustawianie ról platformy Azure na potrzeby dostępu administracyjnego do usługi Azure Wyszukiwanie poznawcze
@@ -26,7 +26,7 @@ Platforma Azure udostępnia [globalny model autoryzacji oparty na rolach](../rol
 
 W przypadku usługi Azure Wyszukiwanie poznawcze role są skojarzone z poziomem uprawnień, które obsługują następujące zadania zarządzania:
 
-| Role | Zadanie |
+| Rola | Zadanie |
 | --- | --- |
 | Właściciel |Utwórz lub Usuń usługę lub dowolny obiekt z usługi, w tym klucze API-Keys, indeksy, indeksatory, źródła danych indeksatora i harmonogramy indeksatora.<p>Wyświetlanie stanu usługi, w tym liczby i rozmiaru magazynu.<p>Dodaj lub Usuń członkostwo w roli (tylko właściciel może zarządzać członkostwem w roli).<p>Administratorzy subskrypcji i właściciele usług mają automatyczne członkostwo w roli właściciele. |
 | Współautor | Taki sam poziom dostępu jak właściciel, bez zarządzania rolami platformy Azure. Na przykład współautor może tworzyć lub usuwać obiekty lub wyświetlać i generować ponownie [klucze API](search-security-api-keys.md), ale nie mogą modyfikować członkostw ról.<br><br>[Współautor Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor) jest równoważny z wbudowaną rolą współautora. |

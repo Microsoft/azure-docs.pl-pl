@@ -8,17 +8,17 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/19/2020
 ms.openlocfilehash: 5197b71db4f46d9908d5539c114d636b9474a870
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95759020"
 ---
 Użyj tagów HTML, aby sformatować swój opis, aby był bardziej interesujący. Większość tagów wymaga zarówno składnika otwierającego, jak i zamykającego, jak pokazano w tej tabeli.
 
 |   Wymagana czynność  |  Zastosowanie  |  Jak to  |  Aby uzyskać ten   |
 | --- | --- | --- | --- |
-|   Pogrubienie  |  `<b> & </b>`  |  `<b>`Przykład `</b>` : bezpłatna wersja próbna  |  **Przykład**: bezpłatna wersja próbna   |
+|   Pogrubiona  |  `<b> & </b>`  |  `<b>`Przykład `</b>` : bezpłatna wersja próbna  |  **Przykład**: bezpłatna wersja próbna   |
 |   Kursywa  |  `<i> & </i>`  |  Wybierz `<i>` pierwszy `</i>` wiersz.  |  Wybierz *pierwszy* wiersz.   |
 |   Nowy wiersz  |  `<br>`  |  Jest to mój pierwszy wiersz. `<br>` Jest to mój drugi wiersz.  |  Jest to mój pierwszy wiersz.<br>Jest to mój drugi wiersz.  |
 |  Litery  |  `<p> & </p>`  |  `<p>`Jest to mój pierwszy akapit.`</p>`<br>`<p>`Jest to mój drugi akapit.`</p>`   |   <p>Jest to mój pierwszy akapit.</p><p>Jest to mój drugi akapit.</p>   |

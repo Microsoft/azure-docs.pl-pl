@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94649266"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurowanie zasad protokołu IPsec/IKE dla połączeń międzylokacyjnej sieci VPN lub połączeń typu sieć wirtualna-sieć wirtualna
@@ -34,8 +34,9 @@ Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania zasad prot
 
 > [!IMPORTANT]
 > 1. Należy pamiętać, że zasady protokołu IPsec/IKE działają tylko w następujących jednostkach SKU bramy:
->    * ***VpnGw1, VpnGw2, VpnGw3** _ (oparte na trasach) _ ***Standard** _ i _*_HighPerformance_*_ (oparte na trasach)
-> 2. Można określić tylko _*_jedną_*_ kombinację zasad dla danego połączenia.
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (oparte na trasach)
+>    * ***Standard** _ i _ *_HighPerformance_** (oparte na trasach)
+> 2. Można określić tylko ***jedną*** kombinację zasad dla danego połączenia.
 > 3. Należy określić wszystkie algorytmy i parametry dla IKE (tryb główny) i IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
 > 4. Zapoznaj się z wymaganiami dostawcy urządzeń sieci VPN, aby upewnić się, że zasady są obsługiwane na lokalnych urządzeniach sieci VPN. Połączenia S2S lub VNet-Sieć wirtualna nie mogą ustalić, czy zasady są niezgodne.
 
@@ -55,7 +56,7 @@ Instrukcje zawarte w tym artykule ułatwiają konfigurowanie i Konfigurowanie za
 
 W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły klucza konfigurowalne przez klientów:
 
-| _ *IPSec/IKEv2**  | **Opcje**    |
+| **IPsec/IKEv2**  | **Opcje**    |
 | ---  | --- 
 | Szyfrowanie IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integralność IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -114,7 +115,7 @@ Ta sekcja przeprowadzi Cię przez kroki tworzenia połączenia sieci VPN S2S prz
 
 Zobacz [Tworzenie połączenia S2S VPN](vpn-gateway-create-site-to-site-rm-powershell.md) , aby uzyskać bardziej szczegółowe instrukcje krok po kroku dotyczące tworzenia połączenia sieci VPN S2S.
 
-### <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 * Zainstaluj Azure Resource Manager polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [omówienie Azure PowerShell](/powershell/azure/) .

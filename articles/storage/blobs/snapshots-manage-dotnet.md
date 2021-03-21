@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ae1d72c30fb7c45c92f24ec5132859a45c6ae953
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95543378"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią

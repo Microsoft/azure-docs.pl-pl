@@ -4,10 +4,10 @@ description: Ten przewodnik pomaga administratorom, którzy tworzą konta labora
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462477"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
@@ -167,10 +167,10 @@ Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium, mogą wybrać
 
 | Rozmiar | Specyfikacje | Seria | Sugerowane użycie |
 | ---- | ----- | ------ | ------------- |
-| Mała| <ul><li>2 &nbsp; rdzenie</li><li>Pamięć RAM 3,5 gigabajtów (GB)</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o niewielkim ruchu, małych i średnich baz danych. |
-| Średniaa | <ul><li>4 &nbsp; rdzenie</li><li>7 &nbsp; GB &nbsp; pamięci RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy. |
+| Mały| <ul><li>2 &nbsp; rdzenie</li><li>Pamięć RAM 3,5 gigabajtów (GB)</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o niewielkim ruchu, małych i średnich baz danych. |
+| Śred. | <ul><li>4 &nbsp; rdzenie</li><li>7 &nbsp; GB &nbsp; pamięci RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy. |
 | Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 &nbsp; rdzenie</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul> | [Standardowa_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy.
-| Duża | <ul><li>8 &nbsp; rdzeni</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
+| Duży | <ul><li>8 &nbsp; rdzeni</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
 | Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 &nbsp; rdzeni</li><li>32 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
 | Mały procesor GPU (wizualizacja) | <ul><li>6 &nbsp; rdzeni</li><li>56 &nbsp; GB &nbsp; pamięci RAM</li>  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Najlepiej dopasowane do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania przy użyciu platform, takich jak OpenGL i DirectX. |
 | Mały procesor GPU (obliczenia) | <ul><li>6 &nbsp; rdzeni</li><li>56 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_NC6](../virtual-machines/nc-series.md) |Najlepiej dopasowane do aplikacji intensywnie korzystających z komputerów, takich jak AI i uczenie głębokie. |
@@ -216,7 +216,7 @@ Podczas przypisywania ról pomocne są następujące porady:
    - Aby dać nauczycielom możliwość tworzenia nowych laboratoriów i zarządzania nimi, należy przypisać im tylko rolę twórcy laboratorium.
    - Aby dać wykładowcom możliwość zarządzania określonymi laboratoriami, ale *nie* możliwość tworzenia nowych laboratoriów, należy przypisać im rolę właściciel lub współautor dla każdego laboratorium, które będą zarządzane. Na przykład możesz chcieć, aby profesor i asystent nauczania mogli współistnieć z laboratorium. Aby uzyskać więcej informacji, zobacz [Dodawanie właścicieli do laboratorium](./how-to-add-user-lab-owner.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 

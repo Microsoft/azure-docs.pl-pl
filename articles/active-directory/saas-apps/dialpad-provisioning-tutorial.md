@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
 ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014520"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Dialpad na potrzeby automatycznego aprowizacji użytkowników

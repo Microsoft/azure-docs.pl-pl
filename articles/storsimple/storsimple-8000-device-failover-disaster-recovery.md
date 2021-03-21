@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017121"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Przechodzenie w tryb failover i odzyskiwanie po awarii dla urządzenia StorSimple z serii 8000
@@ -27,7 +27,7 @@ ms.locfileid: "96017121"
 
 W tym artykule opisano funkcję przełączenia urządzenia w tryb failover dla urządzeń z serii StorSimple 8000 i sposobu jej użycia w celu odzyskania urządzeń StorSimple w przypadku wystąpienia awarii. StorSimple używa trybu failover urządzenia do migrowania danych z urządzenia źródłowego w centrum danych do innego urządzenia docelowego. Wskazówki zawarte w tym artykule dotyczą urządzeń fizycznych z serii StorSimple 8000 i urządzeń w chmurze z uruchomionymi wersjami oprogramowania Update 3 i nowszymi.
 
-StorSimple używa bloku **Devices** do uruchomienia funkcji przełączania do trybu failover urządzenia w przypadku awarii. Ten blok zawiera listę wszystkich urządzeń StorSimple podłączonych do usługi StorSimple Menedżer urządzeń.
+StorSimple używa bloku **Devices** do uruchomienia funkcji przełączania do trybu failover urządzenia w przypadku awarii. Ten blok zawiera listę wszystkich urządzeń StorSimple podłączonych do usługi StorSimple Device Manager.
 
 ![Blok urządzeń](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
 
@@ -44,7 +44,7 @@ Podczas pracy w trybie failover można wybrać kontenery woluminów do migracji.
 
 ### <a name="cloud-snapshot-used-during-device-failover"></a>Migawka w chmurze używana podczas przełączania do trybu failover urządzenia
 
-Po uruchomieniu programu DR najnowsza kopia zapasowa w chmurze jest używana do przywracania danych na urządzeniu docelowym. Aby uzyskać więcej informacji na temat migawek w chmurze, zobacz [Ręczne tworzenie kopii zapasowej za pomocą usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-backup-policies-u2.md#take-a-manual-backup).
+Po uruchomieniu programu DR najnowsza kopia zapasowa w chmurze jest używana do przywracania danych na urządzeniu docelowym. Aby uzyskać więcej informacji na temat migawek w chmurze, zobacz [Ręczne tworzenie kopii zapasowej za pomocą usługi StorSimple Device Manager](storsimple-8000-manage-backup-policies-u2.md#take-a-manual-backup).
 
 W serii StorSimple 8000 zasady tworzenia kopii zapasowych są skojarzone z kopiami zapasowymi. Jeśli istnieje wiele zasad tworzenia kopii zapasowych dla tego samego woluminu, StorSimple wybiera zasady tworzenia kopii zapasowych z największą liczbą woluminów. StorSimple następnie używa najnowszej kopii zapasowej z wybranych zasad tworzenia kopii zapasowej w celu przywrócenia danych na urządzeniu docelowym.
 
@@ -53,7 +53,7 @@ Załóżmy, że istnieją dwie zasady tworzenia kopii zapasowych, *defaultPol* i
 * *defaultPol*: jeden wolumin, *vol1*, działa codziennie, zaczynając od 10:30 PM.
 * *customPol*: cztery woluminy, *vol1*, *VOL2*, *vol3*, *VOL4*, uruchamiane codziennie, zaczynając od 10:00 PM.
 
-W tym przypadku StorSimple priorytety dla spójności awaryjnej i używa *customPol* , ponieważ zawiera więcej woluminów. Najnowsza kopia zapasowa z tych zasad jest używana do przywracania danych. Aby uzyskać więcej informacji na temat tworzenia zasad tworzenia kopii zapasowych i zarządzania nimi, przejdź do, aby [zarządzać zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Menedżer urządzeń](storsimple-8000-manage-backup-policies-u2.md).
+W tym przypadku StorSimple priorytety dla spójności awaryjnej i używa *customPol* , ponieważ zawiera więcej woluminów. Najnowsza kopia zapasowa z tych zasad jest używana do przywracania danych. Aby uzyskać więcej informacji na temat tworzenia zasad tworzenia kopii zapasowych i zarządzania nimi, przejdź do, aby [zarządzać zasadami tworzenia kopii zapasowych za pomocą usługi StorSimple Device Manager](storsimple-8000-manage-backup-policies-u2.md).
 
 ## <a name="common-considerations-for-device-failover"></a>Typowe zagadnienia dotyczące trybu failover urządzenia
 
@@ -67,7 +67,7 @@ Przed przejściem do trybu failover na urządzeniu zapoznaj się z następujący
 
 #### <a name="device-failover-across-software-versions"></a>Tryb failover urządzenia w różnych wersjach oprogramowania
 
-Usługa StorSimple Menedżer urządzeń w ramach wdrożenia może mieć wiele urządzeń, zarówno fizycznych, jak i w chmurze, a wszystkie uruchomione różne wersje oprogramowania.
+Usługa StorSimple Device Manager w ramach wdrożenia może mieć wiele urządzeń, zarówno fizycznych, jak i w chmurze, a wszystkie uruchomione różne wersje oprogramowania.
 
 Skorzystaj z poniższej tabeli, aby określić, czy można przełączyć się w tryb failover lub wrócić do trybu failover na innym urządzeniu z uruchomioną inną wersją oprogramowania i jak typy woluminów zachowują się podczas odzyskiwania po awarii.
 
@@ -124,7 +124,7 @@ A.  Jeśli zadanie usuwania zakończy się niepowodzeniem, można ręcznie usun�
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Ciągłość działania — odzyskiwanie po awarii (BCDR)
 
-Scenariusz ciągłości działania odzyskiwania po awarii (BCDR) występuje, gdy całe centrum danych platformy Azure przestanie działać. Ten scenariusz może mieć wpływ na usługę StorSimple Menedżer urządzeń i skojarzone urządzenia StorSimple.
+Scenariusz ciągłości działania odzyskiwania po awarii (BCDR) występuje, gdy całe centrum danych platformy Azure przestanie działać. Ten scenariusz może mieć wpływ na usługę StorSimple Device Manager i skojarzone urządzenia StorSimple.
 
 Jeśli urządzenie StorSimple zostało zarejestrowane tuż przed wystąpieniem awarii, może być konieczne przeprowadzenie resetowania do ustawień fabrycznych. Po awarii Urządzenie StorSimple zostanie wyświetlone w Azure Portal jako offline. To urządzenie musi zostać usunięte z portalu. Zresetuj urządzenie do domyślnych ustawień fabrycznych i zarejestruj je ponownie w usłudze.
 
@@ -139,5 +139,5 @@ Jeśli wszystko jest gotowe do przełączenia urządzenia w tryb failover, aby u
 Jeśli urządzenie zostało przełączone w tryb failover, wybierz jedną z następujących opcji:
 
 * [Dezaktywuj lub Usuń urządzenie StorSimple](storsimple-8000-deactivate-and-delete-device.md).
-* [Do administrowania urządzeniem StorSimple służy Usługa StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
+* [Do administrowania urządzeniem StorSimple służy Usługa StorSimple Device Manager](storsimple-8000-manager-service-administration.md).
 

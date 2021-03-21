@@ -8,15 +8,16 @@ manager: daveba
 ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874d434e545555013812714df4d1bd23de9c8543
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95488950"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Zbiorcze usuwanie członków grupy w Azure Active Directory
@@ -34,7 +35,7 @@ Pobierz i wypełnij szablon CSV przekazywania zbiorczego, aby pomyślnie dodać 
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt;  &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki

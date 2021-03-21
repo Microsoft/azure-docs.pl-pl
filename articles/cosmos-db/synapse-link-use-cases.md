@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
 ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96463121"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Usługa Azure Synapse Link dla usługi Azure Cosmos DB: Przypadki użycia analizy prawie w czasie rzeczywistym
@@ -133,7 +133,7 @@ Poinformuj nas o tym, że CompanyXYZ firmy handlu elektronicznego z operacjami g
 
 Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
-* [Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md) 
+* [Usługa Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link.md) 
 
 * [Magazyn analityczny usługi Azure Cosmos DB](analytical-store-introduction.md)
 

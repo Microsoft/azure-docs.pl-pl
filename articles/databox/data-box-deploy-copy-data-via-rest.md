@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
 ms.openlocfilehash: cb0a90db0595c655191006969071bc5b9cceaa75
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337597"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Samouczek: Używanie interfejsów API REST do kopiowania danych do Azure Data Box magazynu obiektów BLOB  
@@ -51,7 +51,7 @@ Procedura łączenia się z usługą urządzenie Data Box BLOB Storage za pośre
 
 ## <a name="connect-via-http"></a>Nawiązywanie połączenia za pośrednictwem protokołu HTTP
 
-Aby nawiązać połączenie z interfejsami API REST magazynu obiektów blob usługi Data Box za pośrednictwem protokołu *HTTP* , należy wykonać następujące czynności:
+Aby nawiązać połączenie z interfejsami API REST magazynu obiektów blob usługi Data Box za pośrednictwem protokołu *HTTP*, należy wykonać następujące czynności:
 
 * Dodawanie adresu IP urządzenia i punktu końcowego usługi obiektów blob do hosta zdalnego
 * Konfigurowanie oprogramowania innych firm i weryfikowanie połączenia
@@ -109,11 +109,11 @@ Wykonaj następujące kroki, aby zaimportować `.cer` plik do magazynu główneg
 #### <a name="use-windows-server-ui"></a>Użyj interfejsu użytkownika systemu Windows Server
 
 1. Kliknij plik prawym przyciskiem myszy `.cer` , a następnie wybierz pozycję **Zainstaluj certyfikat**. Ta akcja powoduje uruchomienie Kreatora importowania certyfikatów.
-2. W polu **Lokalizacja magazynu** wybierz pozycję **Maszyna lokalna** , a następnie kliknij przycisk **Dalej**.
+2. W polu **Lokalizacja magazynu** wybierz pozycję **Maszyna lokalna**, a następnie kliknij przycisk **Dalej**.
 
     ![Kreator importu certyfikatów, system Windows Server](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie** , a następnie kliknij przycisk **Przeglądaj**. Przejdź do głównego magazynu hosta zdalnego, a następnie kliknij przycisk **Dalej**.
+3. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie kliknij przycisk **Przeglądaj**. Przejdź do głównego magazynu hosta zdalnego, a następnie kliknij przycisk **Dalej**.
 
     ![Kreator importu certyfikatów, magazyn certyfikatów](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
@@ -176,7 +176,7 @@ Pierwszym krokiem jest utworzenie kontenera, ponieważ obiekty blob są zawsze p
    ![Menu kontekstowe kontenerów obiektów blob, Tworzenie kontenera obiektów BLOB](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
 4. Poniżej folderu **Kontenery obiektów Blob** będzie widoczne pole tekstowe. Wprowadź nazwę kontenera obiektów blob. Informacje na temat reguł i ograniczeń dotyczących nazewnictwa kontenerów obiektów blob znajdują się w sekcji [Tworzenie kontenera i ustawianie uprawnień](../storage/blobs/storage-quickstart-blobs-dotnet.md).
-5. Po zakończeniu naciśnij klawisz **Enter** , aby utworzyć kontener obiektów blob, lub klawisz **Esc** , aby anulować. Po pomyślnym utworzeniu kontener obiektów blob zostanie wyświetlony w folderze **Kontenery obiektów blob** na wybranym koncie magazynu.
+5. Po zakończeniu naciśnij klawisz **Enter**, aby utworzyć kontener obiektów blob, lub klawisz **Esc**, aby anulować. Po pomyślnym utworzeniu kontener obiektów blob zostanie wyświetlony w folderze **Kontenery obiektów blob** na wybranym koncie magazynu.
 
    ![Utworzony kontener obiektów blob](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
 
@@ -200,7 +200,7 @@ azcopy \
 AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 ```
 
-Zastąp wartość `<key>` własnym kluczem konta. Aby znaleźć klucz konta, w witrynie Azure Portal przejdź do swojego konta magazynu. Przejdź do pozycji **Ustawienia > Klucze dostępu** , a następnie zaznacz klucz i wklej go do polecenia narzędzia AzCopy.
+Zastąp wartość `<key>` własnym kluczem konta. Aby znaleźć klucz konta, w witrynie Azure Portal przejdź do swojego konta magazynu. Przejdź do pozycji **Ustawienia > Klucze dostępu**, a następnie zaznacz klucz i wklej go do polecenia narzędzia AzCopy.
 
 Jeśli określony kontener docelowy nie istnieje, narzędzie AzCopy utworzy go i przekaże do niego plik. Zmień ścieżkę źródłową na Twój katalog danych i zastąp wartość `data-box-storage-account-name` w docelowym adresie URL nazwą konta magazynu skojarzonego z Twoją usługą Data Box.
 

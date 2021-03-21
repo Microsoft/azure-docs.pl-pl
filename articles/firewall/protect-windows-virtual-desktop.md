@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94654987"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Ochrona wdrożeń pulpitów wirtualnych systemu Windows przy użyciu usługi Azure Firewall
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Używanie usługi Azure Firewall do chronienia wdrożeń pulpitów wirtualnych systemu Windows
 
 Windows Virtual Desktop to usługa wirtualizacji pulpitu i aplikacji działająca na platformie Azure. Gdy użytkownik końcowy nawiązuje połączenie ze środowiskiem pulpitu wirtualnego systemu Windows, jego sesja jest uruchamiana przez pulę hostów. Pula hostów jest kolekcją maszyn wirtualnych platformy Azure, które są rejestrowane na pulpicie wirtualnym systemu Windows jako hosty sesji. Te maszyny wirtualne działają w sieci wirtualnej i podlegają kontrolkom zabezpieczeń sieci wirtualnej. Potrzebują one wychodzącego dostępu do Internetu do usługi pulpitów wirtualnych systemu Windows, aby działać prawidłowo i mogą również potrzebować wychodzącego dostępu do Internetu dla użytkowników końcowych. Zapora platformy Azure może pomóc w zablokowaniu środowiska i przefiltrowania ruchu wychodzącego.
 

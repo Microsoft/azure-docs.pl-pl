@@ -9,10 +9,10 @@ ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98059725"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
@@ -27,7 +27,7 @@ Nowa jednostka SKU w wersji 2 obejmuje następujące udoskonalenia:
   Nadmiarowość stref jest dostępna tylko w przypadku, gdy dostępne są strefy platformy Azure. W innych regionach obsługiwane są wszystkie inne funkcje. Aby uzyskać więcej informacji, zobacz [regiony i strefy dostępności na platformie Azure](../availability-zones/az-overview.md)
 - **Statyczny adres VIP**: jednostka SKU Application Gateway v2 obsługuje wyłącznie statyczny typ adresu VIP. Dzięki temu wirtualne adresy IP skojarzone z bramą aplikacji nie ulegają zmianie w cyklu życia wdrożenia nawet po ponownym uruchomieniu.  W wersji 1 nie ma statycznego adresu VIP, dlatego do App Services za pośrednictwem bramy aplikacji należy użyć adresu URL usługi Application Gateway zamiast adresu IP.
 - Ponowne **Zapisywanie nagłówka**: Application Gateway umożliwia dodawanie, usuwanie lub aktualizowanie nagłówków żądań i odpowiedzi HTTP z jednostką SKU v2. Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP przy użyciu Application Gateway](rewrite-http-headers.md)
-- **Integracja Key Vault**: Application Gateway v2 obsługuje integrację z Key Vault dla certyfikatów serwera, które są dołączone do odbiorników z WŁĄCZONYm protokołem HTTPS. Aby uzyskać więcej informacji, zobacz temat [zakończenie protokołu TLS z certyfikatami Key Vault](key-vault-certs.md).
+- **Integracja Key Vault**: Application Gateway v2 obsługuje integrację z Key Vault dla certyfikatów serwera, które są dołączone do odbiorników z WŁĄCZONYm protokołem HTTPS. Aby uzyskać więcej informacji, zobacz [Zakończenie szyfrowania TLS z certyfikatami usługi Key Vault](key-vault-certs.md).
 - **Kontroler usługi transferu danych w usłudze Azure Kubernetes**: kontroler transferu danych przychodzących w systemie Application Gateway v2 umożliwia korzystanie z Application Gateway platformy Azure jako ruchu przychodzącego dla usługi Azure Kubernetes Service (AKS) znanej jako klaster AKS. Aby uzyskać więcej informacji, zobacz [co to jest Application Gateway kontroler](ingress-controller-overview.md)transferu danych przychodzących?
 - **Udoskonalenia wydajności**: jednostka SKU v2 oferuje do pięciokrotną lepszej wydajności odciążania TLS w porównaniu z jednostką SKU Standard/WAF.
 - **Szybsze wdrażanie i aktualizowanie czasu** Jednostka SKU v2 zapewnia szybszy czas wdrożenia i aktualizacji w porównaniu do jednostki SKU Standard/WAF. Obejmuje to również zmiany konfiguracji WAF.
@@ -38,7 +38,7 @@ Nowa jednostka SKU w wersji 2 obejmuje następujące udoskonalenia:
 
 Jednostki SKU Standard_v2 i WAF_v2 są dostępne w następujących regionach: Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA 2, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Europa Północna, Europa Zachodnia, Azja Południowo-Wschodnia, francja środkowa, japonia Wschodnia, Japonia Południowo-Wschodnia, zachodnie Zjednoczone Królestwo Korea środkowa Azja Wschodnia , Południowe Zjednoczone Królestwo, Indie Środkowe, Indie Zachodnie, Indie Południowe.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 W przypadku jednostki SKU v2 model cenowy jest oparty na zużyciu i nie jest już dołączony do liczby wystąpień ani rozmiarów. Cennik wersji 2 jednostki SKU ma dwa składniki:
 
@@ -68,7 +68,7 @@ Jednak utworzenie nowego wystąpienia może zająć trochę czasu (około sześ�
 
 Poniższa tabela zawiera porównanie funkcji dostępnych w poszczególnych jednostkach SKU.
 
-| Cechy                                           | jednostka SKU w wersji 1   | jednostka SKU v2   |
+| Cecha                                           | jednostka SKU w wersji 1   | jednostka SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
 | Skalowanie automatyczne                                       |          | &#x2713; |
 | Nadmiarowość stref                                   |          | &#x2713; |

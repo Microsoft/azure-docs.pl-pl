@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
 ms.openlocfilehash: 8cae7ac2d3b961120cb9100f5072dc141769afff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95559789"
 ---
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
@@ -31,7 +31,7 @@ Jeśli nie masz jeszcze rejestru kontenerów, wykonaj następujące kroki, aby u
    | Lokalizacja | Wybierz bliską lokalizację. |
    | SKU | Wybierz pozycję **Podstawowa**. |
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
 4. Po utworzeniu rejestru kontenerów przejdź do niego, a następnie w okienku po lewej stronie wybierz pozycję **klucze dostępu** z menu znajdującego się w obszarze **Ustawienia**. 
 

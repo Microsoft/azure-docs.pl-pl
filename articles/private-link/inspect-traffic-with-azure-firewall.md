@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575119"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
@@ -176,7 +176,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Nazwa maszyny wirtualnej | Wprowadź **myVM**. |
     | Region (Region) | Wybierz pozycję **(USA) Południowo-środkowe stany USA**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Ubuntu Server 18,04 LTS-Gen1**. |
+    | Obraz | Wybierz pozycję **Ubuntu Server 18,04 LTS-Gen1**. |
     | Rozmiar | Wybierz **Standard_B2s**. |
     | **Konto administratora** |  |
     | Typ uwierzytelniania | Wybierz pozycję **hasło**. |

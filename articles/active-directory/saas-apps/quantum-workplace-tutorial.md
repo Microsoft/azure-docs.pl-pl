@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
 ms.openlocfilehash: dbc1c68f666fed280ef5eea0b74836d0cb9f305d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92505852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Samouczek: integracja Azure Active Directory z miejscem pracy Quantum
@@ -61,7 +61,7 @@ Aby skonfigurować integrację miejsca pracy Quantum z usługą Azure AD, musisz
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz w **obszarze roboczym Quantum**wybierz pozycję **miejsce pracy Quantum** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz w **obszarze roboczym Quantum** wybierz pozycję **miejsce pracy Quantum** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Miejsce pracy Quantum na liście wyników](common/search-new-app.png)
 
@@ -137,7 +137,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

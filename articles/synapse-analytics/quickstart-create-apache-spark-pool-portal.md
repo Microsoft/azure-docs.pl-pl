@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96461599"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark bezserwerowej przy użyciu Azure Portal
@@ -67,7 +67,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 4. Wybierz pozycję **Dalej: Tagi**. Nie dodawaj żadnych tagów.
     ![Utwórz przepływ Apache Spark puli — karta Ustawienia dodatkowe.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz**.
     ![Tworzenie przepływu Apache Spark puli — przegląd ustawień.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)

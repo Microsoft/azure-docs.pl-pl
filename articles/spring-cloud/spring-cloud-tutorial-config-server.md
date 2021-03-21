@@ -8,10 +8,10 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655202"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
@@ -57,7 +57,7 @@ Wszystkie konfigurowalne właściwości, które są używane do konfigurowania p
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Obiekt feature                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git, który jest używany jako zaplecze serwera konfiguracji, rozpoczyna się od *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu* lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -72,7 +72,7 @@ Wszystkie konfigurowalne właściwości używane do konfigurowania prywatnego re
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość                   | Wymagany | Obiekt feature                                                      |
+| Właściwość                   | Wymagany | Cecha                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label`            | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu* lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -94,7 +94,7 @@ Poniżej wymieniono wszystkie konfigurowalne właściwości używane do konfigur
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a* nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Obiekt feature                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu* lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -112,7 +112,7 @@ Poniżej znajdują się wszystkie konfigurowalne właściwości używane do konf
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a* nie *defaultLabel*.
 
-| Właściwość                           | Wymagany         | Obiekt feature                                                      |
+| Właściwość                           | Wymagany         | Cecha                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Nie             | Mapa składająca się z ustawień repozytorium git o podaną nazwę. |
 | `repos."uri"`                      | Tak na `repos` | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
@@ -201,7 +201,7 @@ Informacje z pliku YAML powinny być wyświetlane w Azure Portal. Wybierz pozycj
 
 ## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Używanie Azure Repos do konfiguracji chmury z użyciem usługi Azure wiosennej
 
-Chmura sprężynowa platformy Azure ma dostęp do repozytoriów Git, które są publiczne, zabezpieczone przez SSH lub zabezpieczone przy użyciu uwierzytelniania podstawowego protokołu HTTP. Ta ostatnia opcja zostanie użyta, ponieważ ułatwia tworzenie i zarządzanie za pomocą Azure Repos.
+Usługa Azure Spring Cloud może uzyskać dostęp do repozytoriów Git, które są publiczne, zabezpieczone za pomocą protokołu SSH lub zabezpieczone za pomocą podstawowego uwierzytelniania protokołu HTTP. Ta ostatnia opcja zostanie użyta, ponieważ ułatwia tworzenie i zarządzanie za pomocą Azure Repos.
 
 ### <a name="get-repo-url-and-credentials"></a>Pobierz adres URL i poświadczenia repozytorium
 1. W portalu Azure Repos projektu kliknij przycisk "Klonuj":
