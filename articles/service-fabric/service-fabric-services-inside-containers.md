@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e0c5f3ecf0334ad2190d8542e54388a2a25d30fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999811"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Konteneryzowanie usług Reliable Services i Reliable Actors usługi Service Fabric w systemie Windows
@@ -24,7 +24,7 @@ Ten dokument zawiera wskazówki dotyczące uruchamiania usługi w kontenerze sys
 
 1. Otwórz aplikację Service Fabric w programie Visual Studio.
 
-2. Dodaj klasę [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) do projektu. Kod w tej klasie jest pomocnikem do prawidłowego ładowania plików binarnych środowiska uruchomieniowego Service Fabric wewnątrz aplikacji podczas uruchamiania wewnątrz kontenera.
+2. Dodaj klasę [SFBinaryLoader. cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) do projektu. Kod w tej klasie jest pomocnikem do prawidłowego ładowania plików binarnych środowiska uruchomieniowego Service Fabric wewnątrz aplikacji podczas uruchamiania wewnątrz kontenera.
 
 3. Dla każdego pakietu kodu, który chcesz konteneryzowanie, zainicjuj moduł ładujący w punkcie wejścia programu. Dodaj statyczny Konstruktor przedstawiony w poniższym fragmencie kodu do pliku punktu wejścia programu.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573922"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Rozwiązania do okresowego transferu danych
@@ -42,26 +42,26 @@ W poniższej tabeli podsumowano różnice w zakresie kluczowych funkcji.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transfer danych przez skrypt/program programistyczny
 
-| Możliwość                  | Narzędzie AzCopy                                 | Interfejsy API REST usługi Azure Storage       |
+| Możliwość                  | AzCopy                                 | Interfejsy API REST usługi Azure Storage       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Współczynnik postaci                 | Narzędzie wiersza polecenia firmy Microsoft       | Klienci opracowują magazyn <br> Interfejsy API REST przy użyciu bibliotek klienckich platformy Azure |
 | Początkowa konfiguracja jednorazowa     | Minimalny                                | Umiarkowany, zmienny nakład pracy programistycznej    |
 | Format danych                 | Obiekty blob platformy Azure, Azure Files, tabele platformy Azure | Obiekty blob platformy Azure, Azure Files, tabele platformy Azure   |
 | Wydajność                 | Już zoptymalizowane                      | Optymalizuj podczas opracowywania                  |
-| Cennik                     | Bezpłatna, naliczane są opłaty za dane wychodzące      | Bezpłatna, naliczane są opłaty za dane wychodzące        |
+| Ceny                     | Bezpłatna, naliczane są opłaty za dane wychodzące      | Bezpłatna, naliczane są opłaty za dane wychodzące        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ciągłe pozyskiwanie danych za pośrednictwem sieci
 
-| Obiekt feature                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
+| Cecha                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Współczynnik postaci                                   | Urządzenie wirtualne             | Urządzenie fizyczne          | Usługa w Azure Portal, Agent lokalny                                                            |
-| Sprzęt                                      | Funkcja hypervisor            | Dostarczone przez firmę Microsoft    | Nie dotyczy                                                            |
+| Sprzęt                                      | Funkcja hypervisor            | Dostarczone przez firmę Microsoft    | NA                                                            |
 | Wstępny nakład pracy konfiguracji                          | Niska (<30 minut)            | Umiarkowane (~ kilka godzin) | Duże (~ dni)                                                 |
 | Format danych                                   | Obiekty blob platformy Azure, Azure Files   | Obiekty blob platformy Azure, Azure Files | [Obsługuje ponad 70 łączników danych dla magazynów danych i formatów](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
 | Przetwarzanie wstępne danych                           | Nie                         | Tak, za pomocą obliczeń brzegowych    | Tak                                                           |
 | Lokalna pamięć podręczna<br>(do przechowywania danych lokalnych)    | Tak                        | Tak                      | Nie                                                            |
 | Transfer z innych chmur                    | Nie                         | Nie                       | Tak                                                           |
-| Cennik                                       | [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Cennik](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
+| Ceny                                       | [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Cennik](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Następne kroki
 

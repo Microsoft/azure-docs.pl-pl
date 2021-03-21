@@ -4,10 +4,10 @@ description: Omówienie pojęć dotyczących migrowania aplikacji z Cloud Servic
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575775"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Dowiedz się więcej o różnicach między Cloud Services i Service Fabric przed migracją aplikacji.

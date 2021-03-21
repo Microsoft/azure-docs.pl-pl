@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94844867"
 ---
 # <a name="security-management-in-azure"></a>Zarządzanie zabezpieczeniami na platformie Azure
@@ -138,7 +138,7 @@ Wymuszanie zasad, które obejmuje ścisłą kontrolę dostępu, polega na stosow
 ## <a name="client-configuration"></a>Konfiguracja klientów
 Zalecamy trzy podstawowe konfiguracje stacji roboczych ze wzmocnionymi zabezpieczeniami. Najważniejsze różnice są związane z kosztem, użytecznością i dostępnością przy zachowaniu podobnego profilu zabezpieczeń dla wszystkich opcji. Poniższa tabela zawiera zwięzłe informacje umożliwiające analizę korzyści i zagrożeń związanych z poszczególnymi konfiguracjami. Określenie „komputer firmowy” oznacza standardową konfigurację komputera stacjonarnego wdrażaną dla wszystkich użytkowników w domenie niezależnie od roli.
 
-| Konfiguracja | Korzyści | Wady |
+| Konfigurowanie | Korzyści | Wady |
 | --- | --- | --- |
 | Autonomiczna stacja robocza ze wzmocnionymi zabezpieczeniami |Ściśle kontrolowana stacja robocza |Wyższy koszt dla dedykowanych komputerów stacjonarnych |
 | - | Mniejsze ryzyko wykorzystania luk w zabezpieczeniach aplikacji |Większa ilość zasobów wymaganych do zarządzania |

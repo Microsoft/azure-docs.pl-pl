@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001511"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcjonalność systemu operacyjnego na Azure App Service
@@ -45,7 +45,7 @@ Istnieją różne dyski w App Service, w tym dyski lokalne i dyski sieciowe.
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Dyski lokalne
-App Service to usługa działająca w oparciu o infrastrukturę platformy Azure PaaS (platforma jako usługa). W związku z tym dyski lokalne, które są "dołączone" do maszyny wirtualnej, są tymi samymi dyskami, które są dostępne dla każdej roli procesu roboczego działającej na platformie Azure. Możliwości obejmują:
+App Service to usługa działająca w oparciu o infrastrukturę platformy Azure PaaS (platforma jako usługa). W związku z tym dyski lokalne, które są "dołączone" do maszyny wirtualnej, są tymi samymi dyskami, które są dostępne dla każdej roli procesu roboczego działającej na platformie Azure. Obejmuje to następujące działania:
 
 - Dysk systemu operacyjnego (D:\ litera
 - Dysk aplikacji zawierający pliki cspkg pakietu platformy Azure używane wyłącznie przez App Service (i niedostępne dla klientów)

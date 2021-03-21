@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: af8ec9e0aac38240c7da92edd614892ff65712e2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96553966"
 ---
 # <a name="understand-search-features-in-azure-purview"></a>Poznaj funkcje wyszukiwania w usłudze Azure kontrolą
 
 Ten artykuł zawiera omówienie funkcji wyszukiwania w usłudze Azure kontrolą. Wyszukiwanie jest podstawową możliwością platformy kontrolą, która umożliwia odnajdywanie i wykorzystywanie danych w organizacji.
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Środowisko wyszukiwania kontrolą jest obsługiwane przez zarządzany indeks wyszukiwania. Gdy źródło danych zostanie zarejestrowane w usłudze kontrolą, jego metadane są indeksowane przez usługę wyszukiwania, aby umożliwić łatwe odnajdywanie. Indeks zapewnia możliwości związane z wyszukiwaniem i uzupełnia żądania wyszukiwania, badając miliony zasobów metadanych. Funkcja wyszukiwania ułatwia odnajdywanie, poznawanie i używanie danych w celu uzyskania największej wartości.
 

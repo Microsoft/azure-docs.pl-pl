@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216754"
 ---
-# <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
+# <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnej
 
 Wirtualne sieci równorzędne umożliwiają bezproblemowe łączenie dwóch lub większej liczby [sieci wirtualnych](virtual-networks-overview.md) na platformie Azure. Sieci wirtualne są wyświetlane jako jedna na potrzeby łączności. Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych używa infrastruktury sieci szkieletowej firmy Microsoft. Podobnie jak ruch między maszynami wirtualnymi w tej samej sieci, ruch jest kierowany przez sieć *prywatną* firmy Microsoft.
 
@@ -97,7 +97,7 @@ Aby uzyskać więcej informacji, zobacz [wymagania i ograniczenia](virtual-netwo
 
 Aby dowiedzieć się więcej o uprawnieniach wymaganych do utworzenia komunikacji równorzędnej sieci wirtualnej, zobacz [uprawnienia](virtual-network-manage-peering.md#permissions).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Jest naliczona nominalna opłata za ruch przychodzący i ruchu wyjściowego, który używa połączenia komunikacji równorzędnej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Cennik usługi Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network).
 

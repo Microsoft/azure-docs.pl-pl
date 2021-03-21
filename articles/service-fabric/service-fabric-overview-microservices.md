@@ -4,10 +4,10 @@ description: Omówienie przyczyn kompilowania aplikacji w chmurze z podejściem 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575656"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Dlaczego warto stosować podejście mikrousług do kompilowania aplikacji
@@ -42,7 +42,7 @@ Minusem mikrousług polega na tym, że trzeba zarządzać więcej osobnymi jedno
 
 Standardy sprawiają, że podejście mikrousług działa przez określenie sposobu komunikowania się i tolerowania tylko potrzebnych rzeczy od usługi, a nie sztywnych umów. Ważne jest, aby zdefiniować te kontrakty w przód w projekcie, ponieważ usługi są od siebie niezależne. Inny opis dotyczący projektowania z podejściem mikrousług jest "szczegółowo zorientowanym na usługi architekturą (SOA)".
 
-***W najprostszej strategii projektowania mikrousług jest to oddzielna Federacja usług z niezależnymi zmianami każdego i uzgodnionych standardów komunikacji.** _
+***W najprostszej strategii projektowania mikrousług jest to oddzielna Federacja usług z niezależnymi zmianami każdego i uzgodnionych standardów komunikacji.***
 
 W miarę tworzenia większej liczby aplikacji w chmurze użytkownicy wyszukali, że ta dekompozycja ogólnej aplikacji w niezależny, ukierunkowany na scenariusze usługi jest lepszym długoterminowym podejściem.
 
@@ -66,7 +66,7 @@ Korzystając z podejścia mikrousług, tworzysz swoją aplikację wielu małych 
 
 Istnieją różne definicje mikrousług. Większość z tych cech mikrousług jest ogólnie zaakceptowana:
 
-_ Należy hermetyzować klienta lub scenariusz biznesowy. Jaki problem jest rozwiązywany?
+* Hermetyzuj scenariusz klienta lub biznesowego. Jaki problem jest rozwiązywany?
 * Opracowane przez niewielki zespół inżynieryjny.
 * Zapisanie w dowolnym języku programowania przy użyciu dowolnej platformy.
 * Składają się z kodu i opcjonalnego stanu, z których oba są zależne od wersji, wdrożone i skalowane.
@@ -76,7 +76,7 @@ _ Należy hermetyzować klienta lub scenariusz biznesowy. Jaki problem jest rozw
 
 Aby zsumować sumę:
 
-***Aplikacje mikrousług składają się z małych, niezależnych pod względem wersji i skalowalnych usług ukierunkowanych na klienta, które komunikują się ze sobą za pośrednictwem standardowych protokołów ze dobrze zdefiniowanymi interfejsami.** _
+***Aplikacje mikrousług składają się z małych, niezależnych pod względem wersji i skalowalnych usług ukierunkowanych na klienta, które komunikują się ze sobą za pośrednictwem standardowych protokołów ze dobrze zdefiniowanymi interfejsami.***
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>Zapisanie w dowolnym języku programowania przy użyciu dowolnej struktury
 
@@ -94,9 +94,9 @@ Wróćmy do naszego porównania podejść litych i mikrousług przez chwilę. Te
 
 ![Magazyn Stanów Service Fabric platformy][Image2]
 
-_*_Podejście monolityczne po lewej stronie ma jedną bazę danych i warstwy określonych technologii._*_
+***Podejście monolityczne po lewej stronie ma jedną bazę danych i warstwy określonych technologii.***
 
-_*_Podejście mikrousługowe, z prawej strony, ma Graf wzajemnie połączonych mikrousług, w których stan jest zazwyczaj objęty mikrousługą i używane są różne technologie._*_
+***Podejście mikrousługowe, z prawej strony, ma Graf wzajemnie połączonych mikrousług, w których stan jest zazwyczaj objęty mikrousługą i używane są różne technologie.***
 
 W podejściu monolitycznym aplikacja zwykle używa pojedynczej bazy danych. Zalety korzystania z jednej bazy danych są takie same jak w jednej lokalizacji, co ułatwia ich wdrażanie. Każdy składnik może mieć jedną tabelę do przechowywania stanu. Zespoły muszą ściśle oddzielić stan, który jest wyzwaniem. Niewątpliwie ktoś będzie skłonny dodać kolumnę do istniejącej tabeli klienta, wykonać sprzężenie między tabelami i utworzyć zależności w warstwie magazynu. Po wykonaniu tej czynności nie można skalować pojedynczych składników.
 
@@ -136,18 +136,18 @@ Odwiedź centrum architektury platformy Azure, aby uzyskać wskazówki dotycząc
 
 Platforma Azure Service Fabric wystąpiła, gdy firma Microsoft przeszedł z dostarczania opakowanych produktów, które zazwyczaj były monolityczne, aby dostarczać usługi. Środowisko tworzenia i obsługi dużych usług, takich jak Azure SQL Database i Azure Cosmos DB, Service Fabric. Platforma powstała w miarę upływu czasu, gdy więcej usługi zostały przez niego wdrożone. Service Fabric musiał działać nie tylko na platformie Azure, ale także w autonomicznych wdrożeniach systemu Windows Server.
 
-_*_Celem Service Fabric jest rozwiązanie problemów twardych kompilowania i uruchamiania usługi oraz wydajne korzystanie z zasobów infrastruktury, dzięki czemu zespoły mogą rozwiązywać problemy biznesowe za pomocą podejścia mikrousług._*_
+***Celem Service Fabric jest rozwiązanie problemów twardych kompilowania i uruchamiania usługi oraz wydajne korzystanie z zasobów infrastruktury, dzięki czemu zespoły mogą rozwiązywać problemy biznesowe za pomocą podejścia mikrousług.***
 
 Ten krótki klip wideo zawiera wprowadzenie do usługi Service Fabric i mikrousług:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric pomaga tworzyć aplikacje korzystające z rozwiązań mikrousług, zapewniając:
 
-_ Platforma udostępniająca usługi systemowe do wdrażania, uaktualniania, wykrywania i ponownego uruchamiania usług zakończonych niepowodzeniem, odnajdywania usług, przesyłania komunikatów, zarządzania stanem i monitorowania kondycji.
+* Platforma udostępniająca usługi systemowe do wdrażania, uaktualniania, wykrywania i ponownego uruchamiania usług zakończonych niepowodzeniem, odnajdywania usług, przesyłania komunikatów, zarządzania stanem i monitorowania kondycji.
 * Możliwość wdrażania aplikacji uruchamianych w kontenerach lub jako procesy. Service Fabric jest kontenerem i koordynatorem procesów.
 * Wydajne programowanie interfejsów API, które ułatwiają tworzenie aplikacji jako mikrousług: [ASP.NET Core, Reliable Actors i Reliable Services](service-fabric-choose-framework.md). Można na przykład uzyskać informacje dotyczące kondycji i diagnostyki albo skorzystać z wbudowanej wysokiej dostępności.
 
-***Service Fabric niezależny od o sposobie tworzenia usługi i można użyć dowolnej technologii. Ale udostępnia wbudowane interfejsy API programowania, które ułatwiają tworzenie mikrousług.** _
+***Service Fabric niezależny od o sposobie tworzenia usługi i można użyć dowolnej technologii. Ale udostępnia wbudowane interfejsy API programowania, które ułatwiają tworzenie mikrousług.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrowanie istniejących aplikacji do Service Fabric
 
@@ -161,11 +161,11 @@ Service Fabric umożliwia ponowne użycie istniejącego kodu i modernizację go 
 
 ![Migracja do mikrousług][Image3]
 
-Należy pamiętać, że można _start i zatrzymywać na dowolnym z tych etapów *. Nie musisz postępować z następnym etapem. 
+Pamiętaj, że możesz *uruchomić i zatrzymać na dowolnym z tych etapów*. Nie musisz postępować z następnym etapem. 
 
 Przyjrzyjmy się przykładom dla każdego z tych etapów.
 
-**Migrate (Migracja)**  
+**Migrate**  
 Z dwóch powodów wiele firm migruje istniejące aplikacje monolityczne do kontenerów:
 
 * Obniżka kosztów — z powodu konsolidacji i usuwania istniejącego sprzętu lub w przypadku uruchamiania aplikacji z większą gęstością.
@@ -194,7 +194,7 @@ Celem Service Fabric jest zredukowanie złożoności tworzenia aplikacji mikrous
 
 * [Mikrousługi: obroty aplikacji obsługiwane przez chmurę](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 * [Centrum architektury platformy Azure: budowanie mikrousług na platformie Azure](/azure/architecture/microservices/)
-* [Najlepsze rozwiązania dotyczące aplikacji i klastrów na platformie Azure Service Fabric](service-fabric-best-practices-overview.md)
+* [Najlepsze rozwiązania dotyczące aplikacji i klastrów usługi Azure Service Fabric](service-fabric-best-practices-overview.md)
 * [Przegląd terminologii Service Fabric](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png

@@ -9,10 +9,10 @@ ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587897"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Samouczek: Tworzenie aplikacji w języku PHP (platformy laravel) i MySQL Server (wersja zapoznawcza) w Azure App Service
@@ -299,7 +299,7 @@ AZ appService plan Create--Name myAppServicePlan--Resource-Group grupy zasobów-
 
 <a name="create"></a>
 
-### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 Utwórz [aplikację internetową](../../app-service/overview.md#app-service-on-linux) w planie App Service myAppServicePlan.
 

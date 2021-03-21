@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 032db324f9dd2f0d6a5dce5c4fd5c64342fed59f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540488"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Tworzenie reguł zapory Azure Database for MySQL i zarządzanie nimi za pomocą Azure Portal
@@ -49,10 +49,10 @@ Aby umożliwić aplikacjom z platformy Azure Łączenie się z serwerem Azure Da
 
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Zarządzanie istniejącymi regułami zapory na poziomie serwera przy użyciu Azure Portal
 Powtórz kroki, aby zarządzać regułami zapory.
-* Aby dodać bieżący komputer, kliknij przycisk **+ Dodaj mój adres IP**. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
-* Aby dodać dodatkowe adresy IP, wpisz **nazwę reguły** , **początkowy adres IP** i **końcowy adres IP**. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
-* Aby zmodyfikować istniejącą regułę, kliknij dowolne pole w regule, a następnie zmodyfikuj. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
-* Aby usunąć istniejącą regułę, kliknij przycisk wielokropka [...], a następnie kliknij przycisk **Usuń**. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+* Aby dodać bieżący komputer, kliknij przycisk **+ Dodaj mój adres IP**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby dodać dodatkowe adresy IP, wpisz **nazwę reguły**, **początkowy adres IP** i **końcowy adres IP**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby zmodyfikować istniejącą regułę, kliknij dowolne pole w regule, a następnie zmodyfikuj. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby usunąć istniejącą regułę, kliknij przycisk wielokropka [...], a następnie kliknij przycisk **Usuń**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 
 ## <a name="next-steps"></a>Następne kroki

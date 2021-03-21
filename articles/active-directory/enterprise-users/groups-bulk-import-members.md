@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547750"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Zbiorcze dodawanie elementów członkowskich grupy w Azure Active Directory
@@ -35,7 +35,7 @@ Pobierz i wypełnij szablon CSV przekazywania zbiorczego, aby pomyślnie dodać 
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt;  &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki

@@ -13,12 +13,12 @@ metadata:
   ms.date: 03/03/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 323172092a6530e97de36c1cf50fea855f38da28
-  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+  ms.openlocfilehash: b7dceb243f0a85166cd1d7180198c6aac95fab7d
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/11/2021
-  ms.locfileid: "103011174"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104601061"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -1384,3 +1384,11 @@ additionalContent:
     - title: Azure w Chinach — 21Vianet
       summary: Dedykowana chmura zlokalizowana w Chinach i obsługiwana przez firmę 21Vianet.
       url: /azure/china/
+  - title: Rozwiązania partnerskie
+    items:
+    - title: Rozwiązania partnerskie platformy Azure
+      summary: Zintegrowane rozwiązania partnerskie, których można używać na platformie Azure do ulepszania infrastruktury chmurowej.
+      url: ./partner-solutions/overview.md
+    - title: Komercyjna platforma handlowa
+      summary: Rynek online aplikacji i usług od partnerów niezależnych dostawców oprogramowania (ISV).
+      url: ./marketplace/index.yml

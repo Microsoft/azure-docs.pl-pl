@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 2bfb700ac5c220b780c05c8d415a4506c7a2f871
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001197"
 ---
 `Logging`Ustawienia zarządzają obsługą rejestrowania ASP.NET Core dla kontenera. Można użyć tych samych ustawień konfiguracji i wartości dla kontenera, który jest używany dla aplikacji ASP.NET Core. 
@@ -18,7 +18,7 @@ Kontener obsługuje następujących dostawców rejestrowania:
 |Dostawca|Przeznaczenie|
 |--|--|
 |[Konsola](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|`Console`Dostawca rejestrowania ASP.NET Core. Obsługiwane są wszystkie ASP.NET Core ustawienia konfiguracji i domyślne wartości dla tego dostawcy rejestrowania.|
-|[Rozpocząć](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|`Debug`Dostawca rejestrowania ASP.NET Core. Obsługiwane są wszystkie ASP.NET Core ustawienia konfiguracji i domyślne wartości dla tego dostawcy rejestrowania.|
+|[Debugowanie](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|`Debug`Dostawca rejestrowania ASP.NET Core. Obsługiwane są wszystkie ASP.NET Core ustawienia konfiguracji i domyślne wartości dla tego dostawcy rejestrowania.|
 |[3,5](#disk-logging)|Dostawca rejestrowania JSON. Ten dostawca rejestrowania zapisuje dane dziennika do instalacji wyjściowej.|
 
 To polecenie kontenera przechowuje informacje rejestrowania w formacie JSON w instalacji wyjściowej:

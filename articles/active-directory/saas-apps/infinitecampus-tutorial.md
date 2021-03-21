@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 08cee87d94b20e99bcc46d42cbac7eb4272561bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Samouczek: integracja Azure Active Directory z nieograniczonej szkoły
@@ -120,7 +120,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z nieograniczonej s
 
     ![Administrator](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-3. Przejdź do **User Security**  >  **SAML Management**  >  **Konfiguracja dostawcy usługi SSO zarządzania usługą**SAML zabezpieczeń użytkownika.
+3. Przejdź do   >    >  **Konfiguracja dostawcy usługi SSO zarządzania usługą** SAML zabezpieczeń użytkownika.
 
     ![Element SAML](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 

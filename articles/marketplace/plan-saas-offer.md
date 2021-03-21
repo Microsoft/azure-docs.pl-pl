@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879262"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581307"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
-W tym artykule opisano różne opcje i wymagania dotyczące publikowania oferty oprogramowania jako usługi (SaaS) w portalu komercyjnym firmy Microsoft. Oferty SaaS umożliwiają klientom dostarczanie i Licencjonowanie rozwiązań oprogramowania w ramach subskrypcji online, a nie lokalnej instalacji na poszczególnych komputerach. Ten artykuł pomoże Ci w przygotowaniu oferty publikowania na rynku komercyjnym z centrum partnerskim.
+W tym artykule opisano różne opcje i wymagania dotyczące publikowania oprogramowania jako usługi (SaaS) w portalu komercyjnym firmy Microsoft. Oferty SaaS umożliwiają dostarczanie klientom i Licencjonowanie rozwiązań programowych za pośrednictwem subskrypcji online. Jako wydawca SaaS możesz zarządzać infrastrukturą wymaganą do obsługi Twojej oferty przez klientów i korzystać z niej. Ten artykuł pomoże Ci w przygotowaniu oferty publikowania na rynku komercyjnym z centrum partnerskim.
 
 ## <a name="listing-options"></a>Opcje ofert
 

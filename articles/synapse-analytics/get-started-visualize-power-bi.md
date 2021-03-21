@@ -11,10 +11,10 @@ ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 12/31/2020
 ms.openlocfilehash: 952d69cccff86d1a0119391c400a40908c62ed69
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98208968"
 ---
 # <a name="visualize-data-with-power-bi"></a>Wizualizacja danych przy użyciu usługi Power BI
@@ -43,7 +43,7 @@ Obszar roboczy Power BI można połączyć z obszarem roboczym usługi Azure Syn
 1. Wybierz pozycję **Nowy**  >  **Połącz z Power BI**.
 1. Ustaw **nazwę** na **NYCTaxiWorkspace1**.
 1. Określ **nazwę obszaru roboczego** do utworzonego powyżej obszaru roboczego Power BI, podobnie jak w przypadku **NYCTaxiWorkspace1**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-azure-synapse-workspace"></a>Tworzenie Power BI zestawu danych, który używa danych w obszarze roboczym usługi Azure Synapse
 
