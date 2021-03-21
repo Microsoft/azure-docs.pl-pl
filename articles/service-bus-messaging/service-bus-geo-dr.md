@@ -4,10 +4,10 @@ description: Jak używać regionów geograficznych do przełączania awaryjnego 
 ms.topic: article
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035398"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
@@ -50,7 +50,7 @@ W tym artykule są używane następujące terminy:
 -  *Metadane*: jednostki, takie jak kolejki, tematy i subskrypcje; i ich właściwości usługi, które są skojarzone z przestrzenią nazw. Tylko jednostki i ich ustawienia są replikowane automatycznie. Wiadomości nie są replikowane.
 -  *Tryb failover*: proces aktywowania pomocniczej przestrzeni nazw.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 Poniższa sekcja zawiera omówienie konfigurowania parowania między przestrzeniami nazw.
 

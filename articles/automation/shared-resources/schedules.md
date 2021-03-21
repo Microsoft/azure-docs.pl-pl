@@ -3,14 +3,14 @@ title: Zarządzanie harmonogramami w Azure Automation
 description: W tym artykule opisano sposób tworzenia harmonogramu i pracy z nim w Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669563"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Zarządzanie harmonogramami w Azure Automation
 
@@ -38,7 +38,7 @@ Polecenia cmdlet w poniższej tabeli tworzą harmonogramy automatyzacji i zarzą
 
 ## <a name="create-a-schedule"></a>Tworzenie harmonogramu
 
-Nowy harmonogram dla elementów Runbook można utworzyć w Azure Portal lub przy użyciu programu PowerShell. Aby uniknąć wpływu na elementy Runbook i procesy, które automatyzują, należy najpierw przetestować wszystkie elementy Runbook, które mają połączone harmonogramy z kontem usługi Automation dedykowanym do testowania. Test sprawdza, czy zaplanowane elementy Runbook nadal działają poprawnie. Jeśli zobaczysz problem, możesz rozwiązać problemy i zastosować wszelkie zmiany wymagane przed przeprowadzeniem migracji zaktualizowanej wersji elementu Runbook do środowiska produkcyjnego.
+Można utworzyć nowy harmonogram dla elementów Runbook z Azure Portal przy użyciu programu PowerShell lub szablonu Azure Resource Manager (ARM). Aby uniknąć wpływu na elementy Runbook i procesy, które automatyzują, należy najpierw przetestować wszystkie elementy Runbook, które mają połączone harmonogramy z kontem usługi Automation dedykowanym do testowania. Test sprawdza, czy zaplanowane elementy Runbook nadal działają poprawnie. Jeśli zobaczysz problem, możesz rozwiązać problemy i zastosować wszelkie zmiany wymagane przed przeprowadzeniem migracji zaktualizowanej wersji elementu Runbook do środowiska produkcyjnego.
 
 > [!NOTE]
 > Twoje konto usługi Automation nie otrzymuje automatycznie żadnych nowych wersji modułów, chyba że zostały zaktualizowane ręcznie, wybierając opcję [Aktualizuj moduły platformy Azure](../automation-update-azure-modules.md) z **modułów**. Azure Automation korzysta z najnowszych modułów na koncie usługi Automation, gdy zostanie uruchomione nowe zaplanowane zadanie. 

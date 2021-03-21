@@ -10,17 +10,17 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 85bc54402237ff8e9c82c43ab9cdbe2dc6658af1
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464109"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Samouczek: wdrażanie Azure Functions jako modułów IoT Edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Możesz użyć usługi Azure Functions, aby wdrożyć kod implementujący Twoją logikę biznesową bezpośrednio na urządzeniach usługi Azure IoT Edge. Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania funkcji platformy Azure, która filtruje dane czujników na symulowanym urządzeniu IoT Edge. Używasz symulowanego urządzenia IoT Edge utworzonego w przewodnikach Szybki Start. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Możesz użyć usługi Azure Functions, aby wdrożyć kod implementujący Twoją logikę biznesową bezpośrednio na urządzeniach usługi Azure IoT Edge. Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania funkcji platformy Azure, która filtruje dane czujników na symulowanym urządzeniu IoT Edge. Używasz symulowanego urządzenia IoT Edge utworzonego w przewodnikach Szybki Start. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -99,7 +99,7 @@ Obecnie Visual Studio Code mogą opracowywać moduły C dla urządzeń z systeme
 
 Dodajmy dodatkowy kod, aby moduł przetworzył komunikaty na brzegu przed przekazaniem ich do IoT Hub.
 
-1. W Visual Studio Code Otwórz **moduł**  >  **CSharpFunction**  >  **CSharpFunction.cs**.
+1. W Visual Studio Code Otwórz **moduły**  >  **CSharpFunction**  >  **CSharpFunction. cs**.
 
 1. Zastąp zawartość pliku **CSharpFunction.cs** następującym kodem. Ten kod odbiera dane telemetrii dotyczące temperatury otoczenia i maszyny oraz przesyła dalej komunikat do usługi IoT Hub tylko wtedy, gdy temperatura maszyny przekracza zdefiniowaną wartość progową.
 

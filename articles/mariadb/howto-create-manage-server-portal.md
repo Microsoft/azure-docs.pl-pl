@@ -3,14 +3,14 @@ title: Zarządzanie serwerem Azure Portal-Azure Database for MariaDB
 description: Dowiedz się, jak zarządzać serwerem Azure Database for MariaDB przy użyciu Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: b492e04629f23c991c1c5d69dd5e2c472676d37a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664405"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for MariaDB przy użyciu Azure Portal
@@ -90,7 +90,7 @@ Serwer można usunąć, jeśli nie jest już potrzebny.
 
 1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Usuń**.
 
-    ![usunięcie](./media/howto-create-manage-server-portal/overview-delete.png)
+    ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
 2. Wpisz nazwę serwera w polu wejściowym, aby upewnić się, że jest to serwer, który chcesz usunąć.
 

@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 68114893ed3db858d00ca7811b1a83395ff02507
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: e8efa094ef6bd888c21f71e44f1810614bc87e75
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495334"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719971"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -101,11 +101,11 @@ Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wyda
 
 ## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Tworzenie tożsamości i wystawianie tokenu dostępu w ramach tego samego żądania
 
-Użyj `create_user_with_token` metody, aby utworzyć tożsamość usługi komunikacyjnej i wydać dla niej token dostępu. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md).
+Użyj `create_user_and_token` metody, aby utworzyć tożsamość usługi komunikacyjnej i wydać dla niej token dostępu. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md).
 
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
-identity_token_result = client.create_user_with_token(["voip"])
+identity_token_result = client.create_user_and_token(["voip"])
 identity = identity_token_result[0].identifier
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')

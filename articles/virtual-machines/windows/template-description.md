@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102555996"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie usługi Azure Resource Manager

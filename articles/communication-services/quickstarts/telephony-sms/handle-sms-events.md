@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47a8f1edb4afed41587eac3d539b5ad7cb8180f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655992"
 ---
 # <a name="quickstart-handle-sms-events"></a>Szybki Start: obsługa zdarzeń programu SMS
 
@@ -27,7 +27,7 @@ Rozpocznij pracę z usługami Azure Communications Services przy użyciu Azure E
 
 ## <a name="about-azure-event-grid"></a>Informacje o Azure Event Grid
 
-[Azure Event Grid](../../../event-grid/overview.md) to oparta na chmurze usługa obsługi zdarzeń. W tym artykule dowiesz się, jak subskrybować zdarzenia dla [zdarzeń usługi komunikacyjnej](../../concepts/event-handling.md)i wyzwalać zdarzenie, aby wyświetlić wynik. Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następuje przetwarzanie danych zdarzenia i są wykonywane akcje. W tym artykule wyślemy zdarzenia do aplikacji sieci Web, która gromadzi i wyświetla komunikaty.
+[Azure Event Grid](../../../event-grid/overview.md) to oparta na chmurze usługa obsługi zdarzeń. W tym artykule dowiesz się, jak subskrybować zdarzenia dla [zdarzeń usługi komunikacyjnej](../../../event-grid/event-schema-communication-services.md)i wyzwalać zdarzenie, aby wyświetlić wynik. Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następuje przetwarzanie danych zdarzenia i są wykonywane akcje. W tym artykule wyślemy zdarzenia do aplikacji sieci Web, która gromadzi i wyświetla komunikaty.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -68,7 +68,7 @@ Możesz subskrybować określone zdarzenia, aby poinformować Event Grid, które
 
 Jeśli zostanie wyświetlony monit o podanie **nazwy tematu systemu**, możesz udostępnić unikatowy ciąg. To pole nie ma wpływu na środowisko użytkownika i służy do celów wewnętrznych telemetrii.
 
-Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](../../concepts/event-handling.md).
+Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Zrzut ekranu przedstawiający wybrane typy zdarzeń odebrane przez SMS i raport dostarczania SMS.":::
 
@@ -93,7 +93,7 @@ Aby wyświetlić wyzwalacze zdarzeń, należy wygenerować zdarzenia w pierwszej
 - `SMS Received` zdarzenia są generowane, gdy numer telefonu usług komunikacyjnych otrzymuje wiadomość SMS. Aby wyzwolić zdarzenie, po prostu wyślij wiadomość od telefonu do numeru telefonu dołączonego do zasobu usług komunikacyjnych.
 - `SMS Delivery Report Received` zdarzenia są generowane podczas wysyłania wiadomości SMS do użytkownika przy użyciu numeru telefonu usług komunikacyjnych. Aby wyzwolić zdarzenie, musisz włączyć `Delivery Report` w opcjach [wysłanych wiadomości SMS](../telephony-sms/send.md). Spróbuj wysłać komunikat do telefonu za pomocą `Delivery Report` . Wykonanie tej akcji wiąże się z niewielkim kosztem kilku USD lub mniej na koncie platformy Azure.
 
-Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](../../concepts/event-handling.md).
+Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 ### <a name="receiving-sms-events"></a>Otrzymywanie zdarzeń SMS
 
@@ -103,7 +103,7 @@ Po wykonaniu każdej akcji powyżej zobaczysz, że `SMS Received` `SMS Delivery 
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Zrzut ekranu przedstawiający schemat Event Grid dla zdarzenia raportu dostarczania SMS.":::
 
-Dowiedz się więcej o [schematach zdarzeń i innych pojęciach związanych z zdarzeniami](../../concepts/event-handling.md).
+Dowiedz się więcej o [schematach zdarzeń i innych pojęciach związanych z zdarzeniami](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -118,5 +118,5 @@ W tym przewodniku szybki start przedstawiono sposób korzystania z zdarzeń prog
 
 Możesz również chcieć:
 
- - [Informacje o pojęciach dotyczących obsługi zdarzeń](../../concepts/event-handling.md)
+ - [Informacje o pojęciach dotyczących obsługi zdarzeń](../../../event-grid/event-schema-communication-services.md)
  - [Dowiedz się więcej o Event Grid](../../../event-grid/overview.md)

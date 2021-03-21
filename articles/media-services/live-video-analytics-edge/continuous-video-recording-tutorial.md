@@ -4,10 +4,10 @@ description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: 2dde1c9d917881d7a16dbc853e4af416dffe5d7b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702423"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
@@ -126,7 +126,7 @@ Następnie przejdź do folderu src/Cloud-to-Device-Console-App. Tutaj zobaczysz 
 
 * **C2D-Console-App. csproj**: plik projektu dla Visual Studio Code.
 * **operations.js**: ten plik zawiera listę różnych operacji, które mają zostać uruchomione.
-* **Program.cs**: przykładowy kod programu, który:
+* **Program. cs**: przykładowy kod programu, który:
     * Ładuje ustawienia aplikacji.
     * Wywołuje bezpośrednie metody udostępniane przez usługę Live Video Analytics w module IoT Edge. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).
     * Wstrzymuje pracę, aby przeanalizować dane wyjściowe z programu w oknie **terminalu** oraz zdarzenia wygenerowane przez moduł w oknie **danych wyjściowych** .

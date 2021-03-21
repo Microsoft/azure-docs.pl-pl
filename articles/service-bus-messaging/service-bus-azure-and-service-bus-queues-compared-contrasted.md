@@ -4,10 +4,10 @@ description: Analizuje różnice i podobieństwa między dwoma typami kolejek of
 ms.topic: article
 ms.date: 11/04/2020
 ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928311"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Porównanie kolejek magazynu i kolejek usługi Service Bus
@@ -178,7 +178,7 @@ W tej sekcji omówiono funkcje uwierzytelniania i autoryzacji obsługiwane przez
 * Każde żądanie dotyczące każdej z technologii kolejkowania musi zostać uwierzytelnione. Kolejki publiczne z dostępem anonimowym nie są obsługiwane. Korzystając z [sygnatury dostępu współdzielonego](service-bus-sas.md), można rozwiązać ten scenariusz, publikując sygnaturę dostępu współdzielonego tylko do odczytu, czyli SAS, do której istnieje wiele SAS.
 * Schemat uwierzytelniania dostarczany przez kolejki magazynu obejmuje użycie klucza symetrycznego. Ten klucz jest oparty na skrócie kod uwierzytelniania wiadomości (HMAC), obliczony przy użyciu algorytmu SHA-256 i zakodowany jako ciąg **Base64** . Aby uzyskać więcej informacji na temat odpowiedniego protokołu, zobacz [uwierzytelnianie dla usług Azure Storage](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Kolejki Service Bus obsługują podobny model przy użyciu kluczy symetrycznych. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie sygnatury dostępu współdzielonego za pomocą Service Bus](service-bus-sas.md).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 Dzięki dokładniejszemu zrozumieniu tych dwóch technologii można podejmować bardziej świadome decyzje dotyczące technologii kolejek, która ma być używana. Podejmowanie decyzji o tym, kiedy należy używać kolejek usługi Storage lub kolejek Service Bus, zależy od wielu czynników. Te czynniki mogą zależeć od indywidualnych potrzeb aplikacji i jej architektury. 
 
 Być może wolisz wybrać kolejki magazynu z przyczyn takich jak następujące:

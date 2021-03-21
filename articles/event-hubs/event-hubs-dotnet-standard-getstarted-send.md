@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 36551a52bc095a37aa5176ab945dd5d27c640954
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504614"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
@@ -58,7 +58,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Pisanie kodu w celu wysyłania komunikatów do centrum zdarzeń
 
-1. Dodaj następujące `using` instrukcje na początku pliku **program.cs** :
+1. Dodaj następujące `using` instrukcje na początku pliku **program. cs** :
 
     ```csharp
     using System;
@@ -148,7 +148,7 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
 
 ### <a name="update-the-main-method"></a>Aktualizowanie metody Main 
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** .
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program. cs** .
 
     ```csharp
     using System;

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 279d432dbc5770cc89486c517b8fcbe6392b03d1
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/17/2021
+ms.openlocfilehash: c1e0dffafafa76e90ec57ce1a00fb8e155ff4edf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012194"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608099"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -389,7 +389,7 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 | modifiedDatetimeEnd      | Jak wyżej.                                               | Nie                                            |
 | enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
 | partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/>— Jeśli używasz prefiksu, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed ostatnią "/". <br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
-| maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie                                            |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie                                            |
 
 > [!NOTE]
 > W przypadku formatu tekstu Parquet/Unlimited typ **BlobSource** dla źródła działania Copy wymienionego w następnej sekcji jest nadal obsługiwany jako w celu zapewnienia zgodności z poprzednimi wersjami. Zalecamy użycie nowego modelu do momentu przełączenia interfejsu użytkownika Data Factory tworzenia w celu wygenerowania tych nowych typów.
@@ -449,7 +449,7 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 | typ                     | `type`Właściwość w obszarze `storeSettings` musi być ustawiona na `AzureBlobStorageWriteSettings` . | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku lub obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | blockSizeInMB | Określ rozmiar bloku (w megabajtach), który będzie używany do zapisywania danych w blokowych obiektach Blob. Dowiedz się więcej na [temat blokowych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Dozwolona wartość wynosi *od 4 MB do 100 MB*. <br/>Domyślnie Data Factory automatycznie określa rozmiar bloku na podstawie typu i danych magazynu źródłowego. W przypadku kopiowania niebinarnego do magazynu obiektów BLOB domyślny rozmiar bloku to 100 MB, co może zmieścić się w (maksymalnie) 4,95 TB danych. Nie jest to optymalne, gdy dane nie są duże, szczególnie w przypadku korzystania z własnego środowiska Integration Runtime z nieprawidłowymi połączeniami sieciowymi, które powodują problemy z upływem limitu czasu operacji lub wydajności. Można jawnie określić rozmiar bloku, dzięki czemu `blockSizeInMB*50000` jest wystarczająco duży, aby przechowywać dane. W przeciwnym razie uruchomienie działania kopiowania zakończy się niepowodzeniem. | Nie |
-| maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie       |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie       |
 
 **Przykład:**
 
@@ -681,7 +681,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 |:--- |:--- |:--- |
 | typ | `type`Właściwość źródła działania kopiowania musi być ustawiona na wartość `BlobSource` . | Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy `recursive` jest ustawiona na, `true` a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia.<br/>Dozwolone wartości to `true` (domyślne) i `false` . | Nie |
-| maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 
@@ -721,7 +721,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 |:--- |:--- |:--- |
 | typ | `type`Właściwość ujścia działania kopiowania musi być ustawiona na wartość `BlobSink` . | Tak |
 | copyBehavior | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku lub obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie |
-| maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
+| maxConcurrentConnections |Górny limit równoczesnych połączeń ustanowiony dla magazynu danych podczas uruchamiania działania. Określ wartość tylko wtedy, gdy chcesz ograniczyć połączenia współbieżne.| Nie |
 
 **Przykład:**
 

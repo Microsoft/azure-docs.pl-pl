@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564494"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Przewodnik migracji: SQL Server do wystąpienia zarządzanego SQL
@@ -130,7 +130,7 @@ Aby zapoznać się z szczegółowym samouczkiem dotyczącym tej opcji migracji, 
    
 
 
-### <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie 
+### <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej 
 
 Jedną z kluczowych możliwości wystąpienia zarządzanego usługi Azure SQL w celu umożliwienia szybkiej i łatwej migracji bazy danych jest natywne przywrócenie plików kopii zapasowej bazy danych ( `.bak` ) przechowywanych w usłudze [Azure Storage](https://azure.microsoft.com/services/storage/). Wykonywanie kopii zapasowych i przywracanie jest operacją asynchroniczną na podstawie rozmiaru bazy danych. 
 
@@ -219,7 +219,7 @@ Niektóre funkcje SQL Server są dostępne tylko wtedy, gdy [poziom zgodności b
 
 
 - Aby dowiedzieć się więcej na temat platformy i cyklu wdrażania migracji w chmurze, zobacz
-   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania związane z wyceną i ustalaniem wielkości obciążeń migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - Aby ocenić warstwę dostępu do aplikacji, zobacz [Data Access Migration Toolkit (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)

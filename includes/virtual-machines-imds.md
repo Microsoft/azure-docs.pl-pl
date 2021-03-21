@@ -9,10 +9,10 @@ ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
 ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464993"
 ---
 Usługa Azure Instance Metadata Service (IMDS) zawiera informacje o aktualnie uruchomionych wystąpieniach maszyn wirtualnych. Służy do zarządzania maszynami wirtualnymi i ich konfigurowania.
@@ -252,7 +252,7 @@ Jeśli nie określisz wersji, zostanie wyświetlony komunikat o błędzie z list
 
 Pełna Definicja struktury Swagger dla programu IMDS jest dostępna pod adresem: https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 Usługa jest **ogólnie dostępna** we wszystkich chmurach platformy Azure.
 

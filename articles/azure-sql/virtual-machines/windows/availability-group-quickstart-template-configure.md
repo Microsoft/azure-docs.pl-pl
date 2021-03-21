@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359918"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Użyj szablonów szybkiego startu platformy Azure, aby skonfigurować grupę dostępności dla SQL Server na maszynie wirtualnej platformy Azure
@@ -134,7 +134,7 @@ Wystarczy utworzyć wewnętrzny moduł równoważenia obciążenia. W kroku 4 sz
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
    | &nbsp; | &nbsp; |
 
-6. Wybierz pozycję **Utwórz**. 
+6. Wybierz przycisk **Utwórz**. 
 
 
 >[!IMPORTANT]
@@ -165,7 +165,7 @@ Aby skonfigurować wewnętrzny moduł równoważenia obciążenia i utworzyć od
    |**Istniejąca nazwa klastra trybu failover** | Nazwa klastra, do którego są przyłączone maszyny wirtualne SQL Server. |
    | **Istniejąca Grupa dostępności SQL**| Nazwa grupy dostępności, do której należy SQL Server maszyny wirtualne. |
    | **Istniejąca lista maszyn wirtualnych** | Nazwy maszyn wirtualnych SQL Server, które są częścią wspomnianej wcześniej grupy dostępności. Rozdziel nazwy przecinkami i spacjami (na przykład: *SQLVM1, SQLVM2*). |
-   | **Odbiornika** | Nazwa DNS, która ma zostać przypisana do odbiornika. Domyślnie ten szablon określa nazwę "aglistener", ale można ją zmienić. Nazwa nie powinna być dłuższa niż 15 znaków. |
+   | **Odbiornik** | Nazwa DNS, która ma zostać przypisana do odbiornika. Domyślnie ten szablon określa nazwę "aglistener", ale można ją zmienić. Nazwa nie powinna być dłuższa niż 15 znaków. |
    | **Port odbiornika** | Port, który ma być używany przez odbiornik. Zazwyczaj ten port powinien być wartością domyślną 1433. Jest to numer portu określany przez szablon. Ale jeśli port domyślny został zmieniony, port odbiornika powinien używać tej wartości zamiast tego. | 
    | **Adres IP odbiornika** | Adres IP, który ma być używany przez odbiornik. Ten adres zostanie utworzony podczas wdrażania szablonu, więc podaj taki, który nie jest jeszcze używany.  |
    | **Istniejąca podsieć** | Nazwa wewnętrznej podsieci maszyn wirtualnych SQL Server (na przykład: *Domyślna*). Możesz określić tę wartość, przechodząc do **grupy zasobów**, wybierając sieć wirtualną, wybierając **podsieci** w okienku **Ustawienia** i kopiując wartość w polu **Nazwa**. |

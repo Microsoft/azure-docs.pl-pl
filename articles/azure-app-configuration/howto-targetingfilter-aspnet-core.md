@@ -8,10 +8,10 @@ ms.author: alkemper
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929688"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Włącz etapowe wdrażanie funkcji dla docelowych odbiorców
@@ -46,7 +46,7 @@ W tym momencie można użyć flagi funkcji, aby włączyć lub wyłączyć tę `
    dotnet add package Microsoft.FeatureManagement.AspNetCore
    ```
 
-1. Dodaj plik *TestTargetingContextAccessor.cs* :
+1. Dodaj plik *TestTargetingContextAccessor. cs* :
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -91,7 +91,7 @@ W tym momencie można użyć flagi funkcji, aby włączyć lub wyłączyć tę `
     }
     ```
 
-1. W *Startup.cs* Dodaj odwołanie do przestrzeni nazw *Microsoft. FeatureManagement. FeatureFilters* :
+1. W oknie *Start. cs* Dodaj odwołanie do przestrzeni nazw *Microsoft. FeatureManagement. FeatureFilters* :
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -133,7 +133,7 @@ Cała Metoda *ConfigureServices* będzie wyglądać następująco:
 
 1. W Azure Portal przejdź do magazynu konfiguracji aplikacji i wybierz pozycję **Menedżer funkcji**.
 
-1. Wybierz menu kontekstowe dla flagi funkcji *beta* , która została utworzona w przewodniku Szybki Start. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz menu kontekstowe dla flagi funkcji *beta* , która została utworzona w przewodniku Szybki Start. Wybierz pozycję **Edytuj**.
 
     > [!div class="mx-imgBorder"]
     > ![Edytuj flagę funkcji beta](./media/edit-beta-feature-flag.png)

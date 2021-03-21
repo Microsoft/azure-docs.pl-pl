@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040604"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
@@ -80,13 +80,13 @@ Ocena serwera korzysta z uproszczonego [urządzenia Azure Migrate](migrate-appli
 - Po rozpoczęciu odnajdywania urządzenia można zbierać odnalezione maszyny w grupach i uruchamiać oceny dla każdej grupy.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://go.microsoft.com/fwlink/?linkid=2155668) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://go.microsoft.com/fwlink/?linkid=2155668) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: Narzędzie do migracji serwera
 
 Azure Migrate: Narzędzie do migracji serwera ułatwia Migrowanie do platformy Azure:
 
-**Dokonać** | **Szczegóły**
+**Migrate** | **Szczegóły**
 --- | ---
 Lokalne maszyny wirtualne VMware | Migrowanie maszyn wirtualnych na platformę Azure przy użyciu funkcji bezagentowej lub migracji opartej na agentach.<br/><br/> W przypadku migracji bez wykorzystania agentów Migracja serwera używa tego samego urządzenia Azure Migrate, które może być również używane przez ocenę serwera na potrzeby odnajdywania i oceny maszyn wirtualnych VMware.<br/><br/> W przypadku migracji na podstawie agenta Migracja serwera korzysta z urządzenia replikacji.
 Lokalne maszyny wirtualne funkcji Hyper-V | Migrowanie maszyn wirtualnych na platformę Azure.<br/><br/> Migracja serwera używa agentów dostawcy zainstalowanych na hoście funkcji Hyper-V na potrzeby migracji.

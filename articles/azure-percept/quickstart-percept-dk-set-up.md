@@ -5,208 +5,195 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
-ms.date: 02/15/2021
+ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 49bf89d38edef6a9186cbdb5bb89a763339385b4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9567ec2458a01825568cb853728f71db10228ee3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175825"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608274"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Skonfiguruj platformę Azure Percept DK i Wdróż swój pierwszy model AI
 
-Rozpocznij pracę z usługą Azure Percept DK i platformą Azure Percept Studio przy użyciu środowiska instalacji Azure Percept DK, aby połączyć urządzenie z platformą Azure i wdrożyć pierwszy model AI. Po sprawdzeniu, czy Twoje konto platformy Azure jest zgodne z usługą Azure Percept Studio, należy wykonać czynności konfiguracyjne, aby upewnić się, że usługa Azure Percept DK została skonfigurowana tak, aby utworzyć weryfikację w usłudze Edge AI.
+Ukończ działanie Instalatora platformy Azure Percept DK, aby skonfigurować zestaw deweloperski i wdrożyć pierwszy model AI. Po sprawdzeniu, czy Twoje konto platformy Azure jest zgodne z usługą Azure Percept, będziesz:
 
-W przypadku wystąpienia jakichkolwiek problemów występujących w tej Szybki start zapoznaj się z przewodnikiem [rozwiązywania problemów](./troubleshoot-dev-kit.md) , aby uzyskać informacje na temat możliwych rozwiązań.
+- Łączenie zestawu deweloperskiego z siecią Wi-Fi
+- Skonfiguruj logowanie SSH dla dostępu zdalnego do Twojego zestawu deweloperskiego
+- Utwórz nowy IoT Hub do użycia z usługą Azure Percept
+- Łączenie Twojego zestawu deweloperskiego z Twoim IoT Hub i kontem platformy Azure
+
+Jeśli wystąpią jakiekolwiek problemy w trakcie tego procesu, zapoznaj się z [przewodnikiem rozwiązywania problemów](./how-to-troubleshoot-setup.md) , aby zapoznać się z możliwymi rozwiązaniami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Azure Percept DK.
-- Komputer hosta z systemem Windows, Linux lub OS X z funkcją Wi-Fi i przeglądarką sieci Web.
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Konto platformy Azure musi mieć rolę "właściciel" lub "Współautor" w subskrypcji. Dowiedz się więcej na temat [definicji ról platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
+- Azure Percept DK (dev Kit).
+- Komputer-host oparty na systemie Windows, Linux lub OS X z możliwością Wi-Fi i przeglądarką sieci Web.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Konto platformy Azure musi mieć rolę **właściciela** lub **współautora** w ramach subskrypcji. Postępuj zgodnie z poniższymi instrukcjami, aby sprawdzić rolę konta platformy Azure. Aby uzyskać więcej informacji na temat definicji ról platformy Azure, zapoznaj się z [dokumentacją kontroli dostępu opartą na rolach na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
-### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
+    > [!CAUTION]
+    > Jeśli masz wiele kont platformy Azure, przeglądarka może buforować poświadczenia z innego konta. Aby uniknąć pomyłek, zalecane jest zamknięcie wszystkich nieużywanych okien przeglądarki i zalogowanie się do [Azure Portal](https://portal.azure.com/) przed rozpoczęciem instalacji. Zapoznaj się z [przewodnikiem rozwiązywania problemów](./how-to-troubleshoot-setup.md) , aby uzyskać dodatkowe informacje na temat zalogowania się przy użyciu odpowiedniego konta.
 
-Aby sprawdzić, czy Twoje konto platformy Azure jest kontem "właściciel" lub "Współautor" w subskrypcji, wykonaj następujące czynności.
+### <a name="check-your-azure-account-role"></a>Sprawdź rolę konta platformy Azure
 
-1. Przejdź do Azure Portal i zaloguj się przy użyciu tego samego konta platformy Azure, którego zamierzasz używać w usłudze Azure Percept Studio. 
+Aby sprawdzić, czy Twoje konto platformy Azure jest "właściciel" lub "Współautor" w ramach subskrypcji, wykonaj następujące kroki:
 
-    > [!NOTE]
-    > Jeśli masz wiele kont platformy Azure, przeglądarka może buforować poświadczenia z innego konta. Zapoznaj się z przewodnikiem rozwiązywania problemów, aby uzyskać więcej informacji na temat zalogowania się przy użyciu odpowiedniego konta.
+1. Przejdź do [Azure Portal](https://portal.azure.com/) i zaloguj się przy użyciu tego samego konta platformy Azure, które ma być używane z usługą Azure Percept.
 
-1. Rozwiń menu główne w lewym górnym rogu ekranu, a następnie kliknij pozycję "subskrypcje" lub wybierz pozycję "subskrypcje" w menu ikony na stronie głównej. 
-    <!---
-    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-01-subscription.png" alt-text="supscription icon in Azure portal.":::
-    --->
-1. Wybierz swoją subskrypcję z listy. Jeśli Twoja subskrypcja nie jest wyświetlana na liście, upewnij się, że zalogowano się przy użyciu prawidłowego konta platformy Azure. 
-    <!---
-    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-02-sub-list.png" alt-text="supscription list in Azure portal.":::
-    --->
-Jeśli chcesz utworzyć nową subskrypcję, wykonaj następujące [kroki](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+1. Kliknij ikonę **subskrypcje** (wygląda na żółtą).
 
-1. Z menu subskrypcja wybierz pozycję "kontrola dostępu (IAM)"
-1. Kliknij przycisk "Wyświetl mój dostęp".
-1. Sprawdź rolę
-    - Jeśli zostanie wyświetlona rola "czytelnik" lub jeśli zostanie wyświetlony komunikat z informacją, że nie masz uprawnień do wyświetlania ról, musisz postępować zgodnie z wymaganym procesem w organizacji, aby uzyskać podwyższoną rolę konta.
-    - Jeśli zostanie wyświetlona rola jako "właściciel" lub "Współautor", Twoje konto będzie współpracować z usługą Azure Percept Studio. 
+1. Wybierz swoją subskrypcję z listy. Jeśli Twoja subskrypcja nie jest widoczna, upewnij się, że zalogowano się przy użyciu prawidłowego konta platformy Azure. Jeśli chcesz utworzyć nową subskrypcję, wykonaj następujące [kroki](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+
+1. Z menu subskrypcja wybierz pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Wyświetl mój dostęp**.
+1. Sprawdź rolę:
+    - Jeśli Twoja rola jest wyświetlana jako **czytelnik** lub jeśli zostanie wyświetlony komunikat informujący, że nie masz uprawnień do wyświetlania ról, musisz postępować zgodnie z niezbędnym procesem w organizacji, aby podnieść rolę konta.
+    - Jeśli Twoja rola jest wymieniona jako **właściciel** lub **współautor**, Twoje konto będzie działać z usługą Azure Percept i możesz kontynuować pracę z instalacją.
 
 ## <a name="launch-the-azure-percept-dk-setup-experience"></a>Uruchom środowisko instalacji usługi Azure Percept DK
 
-<!---
-> [!NOTE]
-> Connecting over ethernet? See [this how-to guide](<link needed>) for detailed instructions.
---->
-1. Połącz komputer hosta bezpośrednio z punktem dostępu Wi-Fi zestawu deweloperskiego. Odbywa się to tak samo jak łączenie się z innymi sieciami Wi-Fi,
-    - **Nazwa sieci**: SCZ-xxxx (gdzie "XXXX" to ostatnie cztery cyfry adresu sieciowego Mac zestawu deweloperów)
-    - **hasło**: można znaleźć na karcie powitalnej, która została dostarczona z zestawem deweloperskim
+1. Podłącz komputer hosta bezpośrednio do punktu dostępu Wi-Fi zestawu deweloperskiego. Podobnie jak w przypadku łączenia się z innymi sieciami Wi-Fi, Otwórz ustawienia sieci i Internetu na komputerze, kliknij następującą sieć i wprowadź hasło sieciowe po wyświetleniu monitu:
+
+    - **Nazwa sieci**: w zależności od wersji systemu operacyjnego zestawu deweloperskiego nazwa Wi-Fi punktu dostępu to **SCZ-xxxx** lub **APD-xxxx** (gdzie "XXXX" to ostatnie cztery cyfry adresu MAC zestawu deweloperów).
+    - **Hasło**: można znaleźć na karcie powitalnej, która została dostarczona z zestawem deweloperskim
 
     > [!WARNING]
-    > Po nawiązaniu połączenia z punktem dostępu Wi-Fi w usłudze Azure Percept, komputer-host tymczasowo utraci połączenie z Internetem. Aktywne wywołania konferencji wideo, przesyłania strumieniowego sieci Web lub inne środowiska sieciowe będą przerywane do momentu zakończenia kroku 3 środowiska instalacji usługi Azure Percept.
+    > Po nawiązaniu połączenia z punktem dostępu do usługi Azure Percept Wi-Fi, komputer-host tymczasowo utraci połączenie z Internetem. Aktywne wywołania konferencji wideo, przesyłania strumieniowego sieci Web lub inne środowiska sieciowe będą przerywane.
 
-1. Po nawiązaniu połączenia z punktem dostępu Wi-Fi zestawu deweloperskiego urządzenie hosta automatycznie uruchomi środowisko instalacji Azure Percept DK w nowym oknie przeglądarki. Jeśli nie jest on automatycznie otwierany, możesz uruchomić go ręcznie, otwierając okno przeglądarki i przechodząc do [http://10.1.1.1](http://10.1.1.1) . 
-
-1. Po uruchomieniu środowiska konfiguracji usługi Azure Percept można przystąpić do wykonywania czynności konfiguracyjnych. 
-
-    > [!NOTE]
-    > Usługa sieci Web środowiska Instalatora usługi Azure Percept DK zostanie zamknięta po 30 minutach od nieużycia i po zakończeniu instalacji. W takim przypadku zaleca się ponowne uruchomienie zestawu deweloperskiego, aby uniknąć problemów z łącznością z punktem dostępu Wi-Fi w ramach zestawu dev Kit.
-
-## <a name="complete-the-azure-percept-dk-setup-experience"></a>Ukończ działanie Instalatora platformy Azure Percept DK
-
-1. Rozpocznij pracę — kliknij przycisk **dalej** na ekranie powitalnym.
+1. Po nawiązaniu połączenia z punktem dostępu Wi-Fi zestawu deweloperów komputer-host automatycznie uruchomi środowisko instalacji w nowym oknie przeglądarki z **nowym. urządzeniem/** na pasku adresu. Jeśli karta nie zostanie otwarta automatycznie, uruchom środowisko instalacji, przechodząc do programu [http://10.1.1.1](http://10.1.1.1) . Upewnij się, że Twoja przeglądarka jest zalogowana przy użyciu tych samych poświadczeń konta platformy Azure, które mają być używane z usługą Azure Percept.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-01-welcome.png" alt-text="Strona powitalna.":::
 
-1. Nawiąż połączenie z siecią Wi-Fi — na stronie połączenie sieciowe kliknij pozycję **Połącz z nową siecią Wi** -Fi, aby połączyć Devkit z siecią Wi.
+    > [!CAUTION]
+    > Usługa sieci Web środowiska konfiguracji zostanie wyłączona po 30 minutach, w których nie jest używany. W takim przypadku należy ponownie uruchomić zestaw deweloperów, aby uniknąć problemów z łącznością z punktem dostępu Wi-Fi zestawu deweloperskiego.
 
-    Jeśli ten zestaw deweloperski został wcześniej połączony z siecią Wi-Fi lub jeśli masz już połączenie z instalacją Azure Percept DK za pośrednictwem sieci Wi-Fi, kliknij link **Pomiń** .
+## <a name="complete-the-azure-percept-dk-setup-experience"></a>Ukończ działanie Instalatora platformy Azure Percept DK
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-02-connect-to-wi-fi.png" alt-text="Nawiązywanie połączenia z siecią Wi-Fi.":::
+1. Kliknij przycisk **dalej** na ekranie **powitalnym** .
 
-1. Wybierz sieć Wi-Fi z dostępnych połączeń i Połącz się. (Wymaga lokalnego hasła sieci Wi-Fi)
+1. Na stronie **połączenie sieciowe** kliknij pozycję **Połącz z nową siecią Wi-Fi**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-03-select-wi-fi.png" alt-text="Wybierz sieć Wi-Fi."::: 
+    Jeśli zestaw deweloperski został już podłączony do sieci Wi-Fi, kliknij przycisk **Pomiń**.
 
-1. Skopiuj adres IP — po pomyślnym nawiązaniu połączenia przez Devkit z wybraną siecią Zanotuj **adres IPv4** wyświetlany na stronie. **Ten adres IP będzie potrzebny w dalszej części tego przewodnika Szybki Start**. 
+1. Wybierz sieć Wi-Fi z listy dostępnych sieci i kliknij przycisk **Połącz**. Po wyświetleniu monitu wprowadź hasło sieciowe.
+
+1. Po pomyślnym nawiązaniu połączenia z wybraną siecią przez zestaw dev Kit na stronie zostanie wyświetlony adres IPv4 przypisany do Twojego zestawu deweloperskiego. **Zapisz adres IPv4 wyświetlany na stronie.** W przypadku łączenia się z zestawem deweloperskim za pośrednictwem protokołu SSH w celu rozwiązywania problemów i aktualizacji urządzeń będzie potrzebny adres IP.
+
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-04-success-wi-fi.png" alt-text="Kopiuj adres IP.":::
 
     > [!NOTE]
     > Adres IP może się zmieniać przy każdym rozruchu urządzenia.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-04-success-wi-fi.png" alt-text="Kopiuj adres IP.":::
-
-1. Przejrzyj i zaakceptuj umowę licencyjną — Przeczytaj umowę licencyjną, wybierz opcję **znam i** Akceptuję Umowę licencyjną (należy przewinąć w dół umowy), a następnie kliknij przycisk **dalej**.
+1. Zapoznaj się z umową licencyjną, wybierz opcję **znam i Akceptuję Umowę licencyjną** (przewiń w dół do umowy), a następnie kliknij przycisk **dalej**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-05-eula.png" alt-text="Zaakceptuj umowę licencyjną.":::
 
-1. Utwórz konto logowania SSH — Skonfiguruj protokół SSH dla dostępu zdalnego do Devkit. Utwórz nazwę użytkownika i hasło SSH. 
+1. Wprowadź nazwę konta SSH i hasło, a **następnie Zapisz informacje logowania do późniejszego użycia**.
 
     > [!NOTE]
-    > SSH (Secure Shell) to protokół sieciowy służący do bezpiecznej komunikacji między urządzeniem hosta a zestawem deweloperskim. Aby uzyskać więcej informacji na temat protokołu SSH, zobacz [ten artykuł](https://en.wikipedia.org/wiki/SSH_(Secure_Shell)).
+    > SSH (Secure Shell) to protokół sieciowy, który umożliwia zdalne nawiązywanie połączenia z zestawem deweloperskim za pośrednictwem komputera hosta.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-06-ssh-login.png" alt-text="Utwórz konto SSH."::: 
+1. Na następnej stronie kliknij pozycję **Konfiguracja jako nowe urządzenie** , aby utworzyć nowe urządzenie na koncie platformy Azure.
 
-1. Rozpocznij proces połączenia z programem dev Kit — na następnym ekranie kliknij pozycję **Połącz z nowym urządzeniem** , aby rozpocząć proces łączenia zestawu deweloperskiego z usługą Azure IoT Hub. 
+1. Kliknij przycisk **Kopiuj** , aby skopiować kod urządzenia. Następnie kliknij pozycję **Zaloguj się na platformie Azure**.
 
-    <!---
-    Connecting with an existing IoT Edge device connection string? See this [how-to guide](<link needed>) for reference.
-    --->
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-07-connect-device.png" alt-text="Nawiązywanie połączenia z platformą Azure."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-08-copy-code.png" alt-text="Kopiuj kod urządzenia.":::
 
-1. Skopiuj kod urządzenia — kliknij link **Kopiuj** , aby skopiować swój kod urządzenia. Następnie kliknij pozycję **Zaloguj się do platformy Azure**. 
+1. Zostanie otwarta nowa karta przeglądarki z oknem informującym o **wprowadzeniu kodu**. Wklej kod do okna i kliknij przycisk **dalej**. NIE zamykaj karty **Zapraszamy** z instalacją.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-08-copy-code.png" alt-text="Kopiuj kod urządzenia."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-09-enter-code.png" alt-text="Wprowadź kod urządzenia.":::
 
-1. Wklej kod urządzenia — zostanie otwarta nowa karta przeglądarki z oknem z prośbą o skopiowanie kodu urządzenia. Wklej kod do okna i kliknij przycisk **dalej**.
+1. Zaloguj się do usługi Azure Percept przy użyciu poświadczeń konta platformy Azure, które będą używane z Twoim zestawem deweloperskim. Pozostaw kartę przeglądarki otwarta po zakończeniu.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-09-enter-code.png" alt-text="Wprowadź kod urządzenia."::: 
-
-1. Zaloguj się do platformy Azure — następne okno wymaga zalogowania się przy użyciu konta platformy Azure, które zostało zweryfikowane na początku Szybki start. Wprowadź te poświadczenia logowania i kliknij przycisk **dalej**. 
-
-    > [!NOTE]
+    > [!CAUTION]
     > Przeglądarka może buforować inne poświadczenia. Sprawdź dokładnie, czy logujesz się przy użyciu odpowiedniego konta.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-10-azure-sign-in.png" alt-text="Zaloguj się do platformy Azure.":::
- 
-1. Nie zamykaj karty przeglądarki środowiska Instalatora w tym kroku — po zalogowaniu zostanie wyświetlony ekran z potwierdzeniem, że użytkownik zalogował się. Mimo że istnieje wiele bliskich okien, **zalecamy, aby nie zamykać żadnych okien**. 
+    Po pomyślnym zalogowaniu się do usługi Azure PERCENT na urządzeniu Wróć do karty **Zapraszamy** , aby kontynuować instalację.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-11-sign-in-success.png" alt-text="Pomyślne logowanie."::: 
+1. Gdy na karcie **Zapraszamy** zostanie wyświetlona strona **Przypisz urządzenie do usługi Azure IoT Hub** , wykonaj jedną z następujących czynności:
 
-1. Wróć do karty przeglądarki obsługującej środowisko instalacji.
-1. Wybierz opcję IoT Hub
-    - Jeśli masz już IoT Hub i znajduje się na niej na tej stronie, możesz ją zaznaczyć i **przejść do kroku 17**.
-    - Jeśli nie masz IoT Hub lub chcesz utworzyć nowy, przejdź na dół listy, a następnie kliknij pozycję **Utwórz nowy IoT Hub platformy Azure**.
+    - Jeśli masz już IoT Hub, których chcesz używać z usługą Azure Percept i znajduje się na tej stronie, wybierz ją i przejdź do kroku 15.
+    - Jeśli nie masz IoT Hub lub chcesz utworzyć nowy, kliknij pozycję **Utwórz nowy IoT Hub platformy Azure**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-13-iot-hub-select.png" alt-text="Wybierz IoT Hub."::: 
+    > [!IMPORTANT]
+    > Jeśli masz IoT Hub, ale nie jest on wyświetlany na liście, być może zarejestrowano Cię w usłudze Azure Percept przy użyciu nieprawidłowych poświadczeń. Aby uzyskać pomoc, zobacz [Przewodnik rozwiązywania problemów Instalatora](./how-to-troubleshoot-setup.md) .
 
-1. Utwórz nowe IoT Hub — Wypełnij wszystkie pola na tej stronie. 
-    - Wybierz subskrypcję platformy Azure, która będzie używana z usługą Azure Percept Studio
-    - Wybierz istniejącą grupę zasobów. Jeśli jeszcze nie istnieje, kliknij pozycję "Utwórz nowy" i postępuj zgodnie z monitami. 
-    - Wybierz region platformy Azure. 
-    - Nadaj nowemu IoT Hub nazwę
-    - Wybierz warstwę cenową (zwykle jest to zgodne z subskrypcją)
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-13-iot-hub-select.png" alt-text="Wybierz IoT Hub.":::
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-14-create-iot-hub.png" alt-text="Utwórz nowy IoT Hub."::: 
+1. Aby utworzyć nowy IoT Hub, wykonaj następujące pola:
 
-1. Poczekaj na wdrożenie IoT Hub — może to potrwać kilka minut
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-15-iot-hub-deploy.png" alt-text="Wdróż IoT Hub."::: 
-
-1. Rejestrowanie Twojego zestawu dev Kit — po zakończeniu wdrażania kliknij przycisk **zarejestruj** .
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-16-iot-hub-success.png" alt-text="Pomyślnie wdrożono IoT Hub."::: 
-
-1. Nazwij zestaw dev Kit — wprowadź nazwę urządzenia dla Twojego zestawu deweloperskiego, a następnie kliknij przycisk **dalej**.
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-17-device-name.png" alt-text="Nazwij urządzenie."::: 
-
-1. Poczekaj na pobranie domyślnych modeli AI — zajmie to kilka minut
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-18-finalize.png" alt-text="Finalizowanie instalacji."::: 
-
-1. Zobacz sekcję "Vision AI" w działaniu — Twoje Devkit zostało pomyślnie połączone z usługą Azure IoT Hub i otrzymało domyślny model wykrywania obiektów programu Vision AI. Aparat Percepti na platformie Azure umożliwia teraz wykrywanie obiektów inferencing bez połączenia z chmurą. 
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-2-preview-video-output.png" alt-text="Kliknij pozycję Podgląd danych wyjściowych wideo."::: 
-       
-    > [!NOTE]
-    > Proces dołączania i połączenie z urządzeniem w sieci Wi-Fi na komputerze hosta zostanie zamknięty w tym momencie, ale zestaw deweloperski pozostanie połączony z Internetem.   Możesz ponownie uruchomić proces dołączania przy użyciu zestawu deweloperskiego, który umożliwi przejście z powrotem przez dołączenie i ponowne połączenie urządzenia z innym centrum IOT, które jest skojarzone z tą samą lub inną subskrypcją platformy Azure.
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Ostrzeżenie dotyczące rozłączenia środowiska Instalatora."::: 
-
-1. Przejdź do Azure Portal — Wróć do okna środowisko instalacji i kliknij przycisk **Kontynuuj do Azure Portal** , aby rozpocząć tworzenie niestandardowych modeli AI w usłudze Azure Percept Studio.
+    - Wybierz subskrypcję platformy Azure, która będzie używana z usługą Azure Percept.
+    - Wybierz istniejącą grupę zasobów. Jeśli jeszcze nie istnieje, kliknij przycisk **Utwórz nowy** i postępuj zgodnie z monitami.
+    - Wybierz region platformy Azure znajdujący się najbliżej lokalizacji fizycznej.
+    - Nadaj nowemu IoT Hub nazwę.
+    - Wybierz warstwę cenową S1 (standardowa).
 
     > [!NOTE]
-    > Sprawdź, czy komputer hosta nie jest już połączony z punktem dostępu do zestawu deweloperów w ustawieniach sieci Wi-Fi i jest teraz ponownie połączony z lokalną siecią Wi-Fi.
+    > Jeśli potrzebujesz wyższej [przepływności komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) dla aplikacji systemu AI, możesz w dowolnym momencie [uaktualnić IoT Hub do wyższej warstwy Standardowa](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) w witrynie Azure Portal. Warstwy B i F nie obsługują usługi Azure Percept.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Przejdź do usługi Azure Percept Studio."::: 
+1. Wdrożenie IoT Hub może potrwać kilka minut. Po zakończeniu wdrażania kliknij pozycję **zarejestruj**.
 
-## <a name="view-your-device-in-the-azure-percept-studio-and-deploy-common-prebuilt-sample-apps"></a>Wyświetlanie urządzenia w usłudze Azure Percept Studio i wdrażanie wspólnych aplikacji przykładowych
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-16-iot-hub-success.png" alt-text="Pomyślnie wdrożono IoT Hub.":::
 
-1. Wyświetlanie listy urządzeń na stronie przeglądowej [usługi Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) . Strona omówienia usługi Azure Percept to Twój punkt uruchamiania umożliwiający uzyskanie dostępu do wielu różnych przepływów pracy zarówno na początku, jak i w zaawansowanym modelu i rozwiązaniu rozwiązań AI
+1. Wprowadź nazwę urządzenia dla Twojego zestawu deweloperskiego, a następnie kliknij przycisk **dalej**.
+
+1. Poczekaj na pobranie modułów urządzenia — zajmie to kilka minut.
+
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-18-finalize.png" alt-text="Finalizowanie instalacji.":::
+
+1. Gdy zostanie wyświetlone **zakończenie instalacji urządzenia!** Twój zestaw deweloperski został pomyślnie połączony z IoT Hub i pobrał wymagane oprogramowanie. Twój zestaw deweloperów automatycznie rozłączy się z punktem dostępu Wi-Fi w wyniku tych dwóch powiadomień:
+
+    <!---
+    > [!NOTE]
+    > The onboarding process and connection to the device Wifi access to your host computer shuts down at this point, but your dev kit will stay connected to the internet.   You can restart the onboarding experience with a dev kit reboot, which will allow you to go back through the onboarding and reconnect the device to a different IOT hub associated with the same or a different Azure Subscription..
+    --->
+
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Ostrzeżenie dotyczące rozłączenia środowiska Instalatora.":::
+
+1. Podłącz komputer hosta do sieci Wi-Fi, do której Devkit podłączony w kroku 2.
+
+1. Kliknij przycisk **Kontynuuj do Azure Portal**.
+
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Przejdź do usługi Azure Percept Studio.":::
+
+## <a name="view-your-dev-kit-video-stream-and-deploy-a-sample-model"></a>Wyświetlanie strumienia wideo zestawu dev Kit i wdrażanie przykładowego modelu
+
+1. Na [stronie Przegląd usługi Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) znajduje się punkt uruchamiania służący do uzyskiwania dostępu do wielu różnych przepływów pracy zarówno na początku, jak i na potrzeby zaawansowanego opracowywania rozwiązań. Aby rozpocząć, kliknij pozycję **urządzenia** w menu po lewej stronie.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="Wyświetl listę urządzeń.":::
-    
-1. Upewnij się, że właśnie utworzone urządzenie jest połączone i kliknij je.
+
+1. Sprawdź, czy Twój zestaw deweloperski jest wymieniony jako **połączony** i kliknij go, aby wyświetlić stronę urządzenia.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-02-select-device.png" alt-text="Wybierz urządzenie.":::
 
-1. Wyświetl strumień urządzenia, aby zobaczyć, co widzi Twoja kamera z zestawem deweloperskim. Model wykrywania obiektów domyślnych jest wdrażany poza Box i wykryje liczbę wspólnych obiektów.
+1. Kliknij pozycję **Wyświetl strumień urządzenia**. Jeśli po raz pierwszy przeglądasz strumień wideo urządzenia, zobaczysz powiadomienie o tym, że nowy model jest wdrażany w prawym górnym rogu. Może to potrwać kilka minut.
 
-    > [!NOTE]
-    > po pierwszym wykonaniu tej czynności na nowym urządzeniu otrzymasz powiadomienie, że nowy moduł jest wdrażany w prawym górnym rogu.  Gdy ta wartość zostanie nagrana, będzie można uruchomić okno ze strumieniem wideo aparatu. 
-    
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="Wyświetl strumień wideo.":::
-    
+
+    Po wdrożeniu modelu otrzymasz kolejne powiadomienie z linkiem **Wyświetl strumień** . Kliknij link, aby wyświetlić strumień wideo z aparatu usługi Azure Percept Vision w nowym oknie przeglądarki. Zestaw dev Kit jest wstępnie załadowany z modelem AI, który automatycznie wykonuje wykrywanie obiektów wielu wspólnych obiektów.
+
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-2-object-detection.png" alt-text="Zobacz wykrywanie obiektów.":::
 
-1. Poznaj wstępnie skompilowane Przykładowe modele AI.   Usługa Azure Precept Studio ma wiele popularnych wstępnie skompilowanych przykładów, które można wdrożyć za pomocą jednego kliknięcia.   Wybierz pozycję "wdróż przykładowy model", aby je wyświetlić i wdrożyć.
+1. Usługa Azure Percept Studio ma także kilka przykładowych modeli AI. Aby wdrożyć przykładowy model do zestawu deweloperskiego, przejdź z powrotem do strony urządzenia i kliknij pozycję **Wdróż przykładowy model**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Poznaj wstępnie skompilowane modele.":::
-    
-1. Wdróż nowy wstępnie utworzony przykład na podłączonym urządzeniu. Wybierz próbkę z biblioteki i kliknij pozycję "wdróż na urządzeniu".
+
+1. Wybierz przykładowy model z biblioteki, a następnie kliknij pozycję **Wdróż na urządzeniu**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Zobacz wykrywanie obiektów w akcji.":::
 
+1. Po pomyślnym wdrożeniu modelu zobaczysz powiadomienie z linkiem **Wyświetl strumień** w prawym górnym rogu ekranu. Aby wyświetlić inferencing modelu w akcji, kliknij link w obszarze powiadomień lub Wróć do strony urządzenie, a następnie kliknij pozycję **Wyświetl strumień urządzenia**. Wszystkie modele wcześniej uruchomione w zestawie deweloperskim zostaną teraz zastąpione nowym modelem.
+
+## <a name="video-walkthrough"></a>Przewodnik wideo
+
+Aby zapoznać się ze szczegółowymi krokami opisanymi powyżej, zobacz następujący film wideo (środowisko instalacyjne jest uruchamiane o godzinie 0:50):
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
+
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz postępować zgodnie z podobnym przepływem, aby wypróbować [wstępnie skompilowane modele mowy](./tutorial-no-code-speech.md).
+> [!div class="nextstepaction"]
+> [Tworzenie rozwiązania bez obsługi kodu](./tutorial-nocode-vision.md)

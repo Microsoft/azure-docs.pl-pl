@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
 ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979848"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integracja z potokiem ciągłej integracji/ciągłego wdrażania
@@ -49,7 +49,7 @@ Aby przeprowadzić kompilację w chmurze, w usłudze Azure DevOps na przykład u
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-1. Otwórz *program.cs* i zaktualizuj metodę, `CreateWebHostBuilder` Aby użyć wyeksportowanego pliku JSON przez wywołanie `config.AddJsonFile()` metody.  Dodaj `System.Reflection` również przestrzeń nazw.
+1. Otwórz plik *program. cs* i zaktualizuj `CreateWebHostBuilder` metodę, aby użyć wyeksportowanego pliku JSON przez wywołanie `config.AddJsonFile()` metody.  Dodaj `System.Reflection` również przestrzeń nazw.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932439"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
@@ -244,9 +244,9 @@ Aby utworzyć zasady przeglądu dostępu, musisz dysponować następującymi inf
 | Składnik| Wartość |
 | - | - |
 | **Zasoby do przejrzenia**| Dostęp do systemu Microsoft Dynamics |
-| **Częstotliwość przeglądu**| Co miesiąc |
+| **Częstotliwość przeglądu**| Miesięcznie |
 | **Kto wykonuje przegląd**| Menedżerowie programów grupy Dynamics Business |
-| **Zawiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
+| **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
 | **Oś czasu**| 48 godzin od powiadomienia |
 |**Akcje automatyczne**| Usuń dostęp z dowolnego konta, które nie ma interakcyjnego logowania w ciągu 90 dni, usuwając użytkownika z grupy zabezpieczeń Dynamics. <p>*Wykonaj akcje, jeśli nie zostały zrecenzowane na osi czasu.* |
 | **Akcje ręczne**| Recenzenci mogą wykonać zatwierdzenie usunięcia przed automatycznym akcją w razie potrzeby. |

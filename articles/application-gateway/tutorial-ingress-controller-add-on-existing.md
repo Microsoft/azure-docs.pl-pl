@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
 ms.openlocfilehash: bfff962f6d302f589acc437550fa25f76ec7ce35
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040429"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Samouczek: Włączanie dodatku Application Gateway transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway
 
 Możesz użyć interfejsu wiersza polecenia platformy Azure lub portalu, aby włączyć dodatek [Application Gateway AGIC (DataKubernetes Controller)](ingress-controller-overview.md) dla istniejącego klastra [usługi Azure Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . W tym samouczku dowiesz się, jak korzystać z dodatku AGIC w celu udostępnienia aplikacji Kubernetes w istniejącym klastrze AKS za pomocą istniejącego Application Gateway wdrożonego w oddzielnych sieciach wirtualnych. Zacznij od utworzenia klastra AKS w jednej sieci wirtualnej i Application Gateway w oddzielnej sieci wirtualnej, aby symulować istniejące zasoby. Następnie włącz dodatek AGIC, równorzędne dwie sieci wirtualne, a następnie wdróż przykładową aplikację, która zostanie udostępniona za pośrednictwem Application Gateway przy użyciu dodatku AGIC. Jeśli włączysz dodatek AGIC dla istniejącego Application Gateway i istniejącego klastra AKS w tej samej sieci wirtualnej, możesz pominąć krok komunikacji równorzędnej poniżej. Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą usługi Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) , a także oferuje w pełni zarządzane środowisko.  
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie grupy zasobów 

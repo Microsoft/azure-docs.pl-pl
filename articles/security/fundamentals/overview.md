@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
 ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564515"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
@@ -160,7 +160,7 @@ W przypadku wielu organizacji szyfrowanie danych w spoczynku stanowi obowiązkow
 
 Usługi Azure Storage obsługują teraz mechanizm CORS, dzięki czemu po ustawieniu reguł CORS dla usługi jest oceniane prawidłowo uwierzytelnione żądanie dotyczące usługi z innej domeny, aby określić, czy jest dozwolone zgodnie z określonymi regułami.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpieczeń sieci platformy Azure oraz informacje podsumowujące dotyczące tych możliwości.
 

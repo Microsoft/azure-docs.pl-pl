@@ -8,10 +8,10 @@ ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594059"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
@@ -226,7 +226,7 @@ Jeśli używasz programu https://resources.azure.com , wykonaj następujące kro
 
 Funkcja **upgradePreferences** jest najbardziej zrozumiała, gdy masz wiele środowisk aseów, ponieważ "wczesne" środowisk ASE zostanie uaktualnione przed "późnym" środowisk ASE. Jeśli masz wiele środowisk aseów, należy ustawić swoje programowanie i test środowisk ASE na "wczesne", a produkcyjny środowisk ASE "późno".
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Jednostka SKU cenowej o nazwie *izolowanej* jest używana tylko z środowisk ASE. Wszystkie plany App Service, które są hostowane w środowisku ASE, znajdują się w odizolowanej jednostce SKU cenowej. Stawki odizolowane dla planów App Service mogą różnić się w zależności od regionu.
 

@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 03/12/2021
 ms.author: glenga
-ms.openlocfilehash: e5213a20036385ff25373252e6670d8bd86a4b07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94bf06fac0157a0e61102d57a7e970a2791d902
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80056546"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612700"
 ---
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz współpracować z kolejnymi przewodnikami Szybki Start, samouczkami lub z dowolnymi usługami utworzonymi w ramach tego przewodnika Szybki Start, nie czyść zasobów.
 
@@ -17,16 +17,4 @@ Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli 
 
 Aby ukończyć te przewodniki Szybki start, zostały utworzone zasoby. Za te zasoby może zostać naliczona opłata — zależy to od Twojego [stanu konta](https://azure.microsoft.com/account/) i [cennika usług](https://azure.microsoft.com/pricing/). Jeśli nie potrzebujesz już tych zasobów, oto jak możesz je usunąć:
 
-1. W witrynie Azure Portal przejdź do strony **Grupa zasobów**. 
-
-   Aby uzyskać dostęp do tej strony na stronie aplikacji funkcji, wybierz kartę **Omówienie**, a następnie wybierz link w obszarze **Grupa zasobów**.
-
-   ![Wybierz grupę zasobów do usunięcia ze strony aplikacji funkcji.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
-
-   Aby uzyskać dostęp do tej strony z poziomu pulpitu nawigacyjnego, wybierz pozycję **Grupy zasobów**, a następnie wybierz grupę zasobów, która została użyta na potrzeby tego przewodnika Szybki start.
-
-2. Na stronie **Grupa zasobów** zapoznaj się z listą uwzględnionych zasobów i sprawdź, czy są one tymi, które chcesz usunąć.
- 
-3. Wybierz pozycję **Usuń grupę zasobów**, a następnie postępuj zgodnie z instrukcjami.
-
-   Usuwanie może potrwać kilka minut. Po jego zakończeniu przez kilka sekund będzie widoczne powiadomienie. Możesz również wybrać ikonę dzwonka w górnej części strony, aby wyświetlić powiadomienie.
+[!INCLUDE [functions-quickstart-cleanup-inner](functions-quickstart-cleanup-inner.md)]

@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: a713d869a754f17f4030c531999c822a2cbb76ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102039805"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
@@ -24,7 +24,7 @@ Zabezpieczanie [domeny niestandardowej](app-service-web-tutorial-custom-domain.m
 - [Dodaj prywatny certyfikat do App Service](configure-ssl-certificate.md) , który spełnia wszystkie [wymagania dotyczące certyfikatu prywatnego](configure-ssl-certificate.md#private-certificate-requirements).
 -  Utwórz powiązanie TLS z odpowiednią domeną niestandardową. Ten drugi krok jest objęty tym artykułem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uaktualnienie warstwy cenowej aplikacji

@@ -9,10 +9,10 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4dd216f4018feca8c3461104a5beb220d90fd743
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932847"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla platformy .NET (SDK v4)
@@ -36,7 +36,7 @@ Aby uzyskać więcej informacji o Key Vault i certyfikatach, zobacz:
 
 Ten przewodnik Szybki Start korzysta z narzędzia `dotnet` i interfejsu wiersza polecenia platformy Azure
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
@@ -124,7 +124,7 @@ Biblioteka klienta certyfikatu Azure Key Vault dla platformy .NET umożliwia zar
 
 ### <a name="add-directives"></a>Dodaj dyrektywy
 
-Dodaj następujące dyrektywy na początku *program.cs*:
+Dodaj następujące dyrektywy na początku *programu. cs*:
 
 ```csharp
 using System;
