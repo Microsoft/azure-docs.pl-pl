@@ -177,6 +177,8 @@
           href: cdn-http-debug-headers.md
     - name: Nagłówki HTTP specyficzne dla firmy Microsoft
       href: cdn-msft-http-debug-headers.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/cdn
     - name: Azure PowerShell
       href: /powershell/module/az.cdn
     - name: .NET

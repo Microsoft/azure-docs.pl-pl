@@ -2,13 +2,13 @@
 title: Konfigurowanie dostępu do rejestru publicznego
 description: Skonfiguruj reguły adresów IP, aby umożliwić dostęp do usługi Azure Container Registry z wybranych publicznych adresów IP lub zakresów adresów.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/08/2021
+ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89488766"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773066"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurowanie reguł sieci publicznych adresów IP
 
@@ -17,6 +17,8 @@ Usługa Azure Container Registry domyślnie akceptuje połączenia przez Interne
 Reguły sieci IP są konfigurowane w punkcie końcowym rejestru publicznego. Reguły sieci IP nie mają zastosowania do prywatnych punktów końcowych skonfigurowanych za pomocą [linku prywatnego](container-registry-private-link.md)
 
 Konfigurowanie reguł dostępu do adresów IP jest dostępne w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstw](container-registry-skus.md).
+
+Każdy rejestr obsługuje maksymalnie 100 reguł dostępu do sieci.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 

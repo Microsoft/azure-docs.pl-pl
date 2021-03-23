@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b3fd8dcd5f2e73b798f6e9529b5811b9935bc393
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e2a0859227ad790763dc9ae07cb408a72538f90
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605770"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773372"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
@@ -45,7 +45,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
 ## <a name="deploy-a-cloud-service-extended-support"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona)
 
 > [!NOTE]
-> Alternatywny sposób wdrożenia usługi w chmurze (obsługa rozszerzona) odbywa się za pośrednictwem [Azure Portal](https://portal.azure.com). Możesz [pobrać wygenerowany szablon ARM](generate-template-portal.md) za pośrednictwem portalu dla przyszłych wdrożeń
+> Łatwiejszym i szybszym sposobem generowania szablonu ARM i pliku parametrów jest za pośrednictwem [Azure Portal](https://portal.azure.com). Możesz [pobrać wygenerowany szablon ARM](generate-template-portal.md) za pośrednictwem portalu, aby utworzyć usługę w chmurze za pomocą programu PowerShell
  
 1. Utwórz sieć wirtualną. Nazwa sieci wirtualnej musi być zgodna z odwołaniami w pliku konfiguracji usługi (. cscfg). Jeśli używasz istniejącej sieci wirtualnej, Pomiń tę sekcję z szablonu ARM.
 
@@ -191,7 +191,9 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ```
 
 6. Obowiązkowe Utwórz profil rozszerzenia, aby dodać rozszerzenia do usługi w chmurze. Na potrzeby tego przykładu dodajemy rozszerzenie diagnostyki usług pulpitu zdalnego i platformy Microsoft Azure.
-    
+   > [!Note] 
+   > Hasło dla pulpitu zdalnego musi mieć długość od 8-123 znaków i musi spełniać co najmniej 3 wymagania dotyczące złożoności haseł z następujących: 1) zawiera wielkie litery 2) zawiera znak małymi literami 3), które zawiera cyfrę cyfry 4) zawiera znak specjalny 5) znaki kontrolne nie są dozwolone
+
     ```json
         "extensionProfile": {
           "extensions": [

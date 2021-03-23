@@ -144,7 +144,7 @@
               displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: Używanie licencji na zintegrowaną usługę Microsoft Defender dla punktu końcowego
-          displayName: 'ATP, mdatp, wdatp'
+          displayName: 'ATP, mdatp, wdatp, mde, mdfe'
           href: security-center-wdatp.md
         - name: Definiowanie list bezpiecznych aplikacji dla maszyn
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
@@ -282,7 +282,7 @@
         - name: Automatyzowanie odpowiedzi na alerty
           displayName: workflow
           href: workflow-automation.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Zarchiwizowane informacje o wersji (starsze niż sześć miesięcy)
       displayName: 'changelog, news'

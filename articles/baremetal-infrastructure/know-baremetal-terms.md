@@ -3,12 +3,12 @@ title: Znajomość warunków infrastruktury Azure BareMetal
 description: Poznaj warunki infrastruktury Azure BareMetal.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.openlocfilehash: fd7a39854c86f728ef152f8e7d858157e1ad26f4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b22a6cecb2647df3878cb8fd4ade93d9a7d963fd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97861916"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770890"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Poznaj warunki dotyczące infrastruktury BareMetal
 
@@ -23,4 +23,4 @@ W tym artykule omówiono niektóre ważne warunki BareMetal.
 - **Dzierżawca**: klient wdrożony w sygnaturze wystąpienia BareMetal zostaje odizolowany do *dzierżawy.* Dzierżawa jest odizolowana od sieci, magazynu i warstwy obliczeniowej od innych dzierżawców. Jednostki magazynowe i obliczeniowe przypisane do różnych dzierżawców nie są ze sobą widoczne ani nie komunikują się ze sobą na poziomie sygnatury wystąpienia BareMetal. Klient może wybrać wdrożenie w różnych dzierżawach. Nawet nie ma żadnej komunikacji między dzierżawcami na poziomie sygnatury wystąpienia BareMetal.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [infrastrukturze BareMetal](workloads/sap/baremetal-overview-architecture.md) lub sposobach [identyfikowania i współpracy z jednostkami wystąpień BareMetal](workloads/sap/baremetal-infrastructure-portal.md). 
+Dowiedz się więcej o [infrastrukturze BareMetal](concepts-baremetal-infrastructure-overview.md) lub sposobach [identyfikowania i współpracy z jednostkami wystąpień BareMetal](connect-baremetal-infrastructure.md). 

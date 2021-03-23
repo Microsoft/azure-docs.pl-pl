@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598003"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778223"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
@@ -145,7 +145,7 @@ Opisane powyżej przydziały nie są przedpłatą za usługi. W celu określenia
 
 ## <a name="requesting-a-quota-increase"></a>Żądanie zwiększenia limitu przydziału
 
-W dowolnym momencie możesz poprosić o zwiększenie limitu przydziału przez przesłanie [żądania online](https://g.microsoftonline.com/0WAEP00en/6). Aby przetworzyć żądanie, podaj następujące informacje:
+W dowolnym momencie możesz poprosić o zwiększenie limitu przydziału przez przesłanie [żądania online](https://ms.portal.azure.com/). Aby przetworzyć żądanie, podaj następujące informacje:
 
 - Konto Microsoft lub konto służbowe skojarzone z właścicielem konta Twojej subskrypcji. Jest to adres e-mail używany do logowania się w witrynie Microsoft Azure Portal w celu zarządzania subskrypcjami. Upewnij się, że jest to konto skojarzone z rejestracją w ramach umowy EA.
 - Zasoby, dla których chcesz zwiększyć limit przydziału, i ich ilość.

@@ -1,18 +1,14 @@
 ---
 title: Definiowanie globalnej kontroli dostępu użytkowników
 description: W dużych organizacjach uprawnienia użytkowników mogą być złożone i mogą być określane przez globalną strukturę organizacyjną, oprócz standardowej struktury lokacji i strefy.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522278"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784292"
 ---
 # <a name="define-global-access-control"></a>Definiowanie globalnej kontroli dostępu
 

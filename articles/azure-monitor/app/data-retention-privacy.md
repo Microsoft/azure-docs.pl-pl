@@ -4,12 +4,12 @@ description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6a7545d4d927418e6153ce3bf439fc8c3e2dc702
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579579"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774919"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w usłudze Application Insights
 
@@ -294,6 +294,10 @@ W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 
 > [!NOTE]
 > Adres IP klienta jest używany do wywnioskowania lokalizacji geograficznej, ale domyślnie dane IP nie są już przechowywane i wszystkie zera są zapisywane w skojarzonym polu. Aby dowiedzieć się więcej na temat obsługi danych osobowych, zalecamy korzystanie z tego [artykułu](../logs/personal-data-mgmt.md#application-data). Jeśli zachodzi potrzeba zapisania danych adresów IP w [artykule dotyczącym zbierania adresów IP](./ip-collection.md) , przeprowadzisz Cię przez opcje.
+
+## <a name="can-i-modify-or-update-data-after-it-has-been-collected"></a>Czy mogę modyfikować lub aktualizować dane po ich zebraniu?
+
+Nie, dane są tylko do odczytu i można je usunąć tylko za pomocą funkcji przeczyszczania. Aby dowiedzieć się więcej [, odwiedź wskazówki dotyczące danych osobowych przechowywanych w log Analytics i Application Insights](../logs/personal-data-mgmt.md#delete).
 
 ## <a name="credits"></a>Środki
 Ten produkt zawiera dane GeoLite2 utworzone przez MaxMind, dostępne z [https://www.maxmind.com](https://www.maxmind.com) .

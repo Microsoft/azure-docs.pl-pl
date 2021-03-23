@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 21576b6714c05e5a0ed703c7a1452103c2c4b355
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b435547d7cd3b0fab781cc6cf3b617b13ac1120a
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472842"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774698"
 ---
 # <a name="hbv3-series"></a>Seria HBv3
 
@@ -28,7 +28,7 @@ Wszystkie maszyny wirtualne z serii HBv3 są wyposażone w funkcję 200 GB/s w f
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszona sieć](../virtual-network/create-vm-accelerated-networking-cli.md): wkrótce<br>
 [Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
-
+<br>
 
 |Rozmiar |Procesor wirtualny |Procesor |Pamięć (GiB) |Przepustowość pamięci GB/s |Podstawowa częstotliwość procesora CPU (GHz) |Częstotliwość wszystkich rdzeni (GHz, szczyt) |Częstotliwość jednordzeniowa (GHz, szczytowa) |Wydajność RDMA (GB/s) |Obsługa MPI |Magazyn tymczasowy (GiB) |Maks. liczba dysków danych |Maksymalna vNICs sieci Ethernet |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
@@ -38,11 +38,10 @@ Wszystkie maszyny wirtualne z serii HBv3 są wyposażone w funkcję 200 GB/s w f
 |Standard_HB120 — 32rs_v3 |32  |7V13 AMD EPYC |448 |350 |2.45 |3,1 |3,675 |200 |Wszystko |2 * 960 |32 |8 |
 |Standard_HB120 — 16rs_v3 |16  |7V13 AMD EPYC |448 |350 |2.45 |3,1 |3,675 |200 |Wszystko |2 * 960 |32 |8 |
 
-
-Dowiedz się więcej na następujące tematy:
-- [Architektura bazowa i topologia maszyny wirtualnej](./workloads/hpc/hbv3-series-overview.md)
-- [Obsługiwany stos oprogramowania](./workloads/hpc/hbv3-series-overview.md#software-specifications) , w tym obsługiwane systemy operacyjne
-- Oczekiwana [wydajność](./workloads/hpc/hbv3-performance.md) maszyny wirtualnej serii HBv3.
+Dowiedz się więcej na temat:
+- [Architektura i topologia maszyny wirtualnej](./workloads/hpc/hbv3-series-overview.md),
+- obsługiwany [stos oprogramowania](./workloads/hpc/hbv3-series-overview.md#software-specifications) , w tym obsługiwane systemy operacyjne, i
+- oczekiwana [wydajność](./workloads/hpc/hbv3-performance.md) maszyny wirtualnej serii HBv3.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: bb65a53f1ba6e97a39bd0c0170c5c41da38aee8b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1406f865d60e6715b5f6a974225dc48958e8da6d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720512"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775174"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Klasyfikacja semantyczna na platformie Azure Wyszukiwanie poznawcze
 
@@ -51,7 +51,7 @@ Dane wejściowe podsumowania są długim ciągiem z fazy przygotowania. Z tego d
 
 Wyjście jest [podpisem semantycznym](semantic-how-to-query-request.md)w postaci zwykłego tekstu i z wyróżnieniami. Podpis jest krótszy niż długi ciąg, zazwyczaj mniej niż 200 słów na dokument i jest traktowany jak najbardziej reprezentatywny dokument. 
 
-[Odpowiedź semantyczna](semantic-answers.md) zostanie również zwrócona, jeśli określono parametr "odpowiedzi", jeśli kwerenda została pokazana jako pytanie i jeśli zostanie znaleziony w długim ciągu, który wygląda podobnie do odpowiedzi na pytanie.
+[Odpowiedź semantyczna](semantic-answers.md) zostanie również zwrócona, jeśli określono parametr "odpowiedzi", jeśli zapytanie zostało pożądane jako pytanie i jeśli zostanie znaleziony w długim ciągu, który może dostarczyć odpowiedzi na pytanie.
 
 ## <a name="scoring-and-ranking"></a>Ocenianie i Klasyfikacja
 

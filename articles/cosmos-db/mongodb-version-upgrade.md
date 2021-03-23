@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/19/2021
 ms.author: chrande
-ms.openlocfilehash: 1818838a68c2712336a3515b2a82b5fdd518d237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8865a16c2840b65f432de679c6dd63b285b1f760
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101661175"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771825"
 ---
 # <a name="upgrade-the-api-version-of-your-azure-cosmos-db-api-for-mongodb-account"></a>Uaktualnij wersję interfejsu API Azure Cosmos DB interfejsu API dla konta MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -67,42 +67,35 @@ Jeśli uaktualniasz program z wersji 3,2, musisz zastąpić istniejący punkt ko
 
 ## <a name="how-to-upgrade"></a>Jak przeprowadzić uaktualnianie
 
-1. Przejdź do Azure Portal i przejdź do bloku Azure Cosmos DB interfejsu API dla konta MongoDB. Sprawdź, czy bieżąca wersja serwera jest oczekiwana.
+1. Zaloguj się do [Azure Portal.](https://portal.azure.com/)
 
-    :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
+1. Przejdź do usługi Azure Cosmos DB API dla konta MongoDB. Otwórz okienko **Przegląd** i sprawdź, czy bieżąca **wersja serwera** to 3,2 lub 3,6.
 
-2. Z opcji po lewej stronie wybierz `Features` blok. Spowoduje to ujawnienie funkcji na poziomie konta, które są dostępne dla Twojego konta bazy danych.
+    :::image type="content" source="./media/mongodb-version-upgrade/check-current-version.png" alt-text="Sprawdź bieżącą wersję konta usługi MongoDB z poziomu Azure Portal." border="true":::
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal z wyróżnioną pozycją MongoDB z użyciem bloku funkcji" border="false":::
+1. W menu po lewej stronie Otwórz `Features` okienko. W tym okienku są wyświetlane funkcje poziomu konta dostępne dla Twojego konta bazy danych.
 
-3. Kliknij `Upgrade Mongo server version` wiersz. Jeśli ta opcja nie jest widoczna, Twoje konto może nie kwalifikować się do tego uaktualnienia. W takim przypadku prosimy [o zgłoszenie biletu pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
+1. Zaznacz wiersz `Upgrade MongoDB server version`. Jeśli ta opcja nie jest widoczna, Twoje konto może nie kwalifikować się do tego uaktualnienia. W takim przypadku prosimy [o zgłoszenie biletu pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Blok funkcji z opcjami." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/upgrade-server-version.png" alt-text="Otwórz blok funkcje i Uaktualnij swoje konto." border="true":::
 
-4. Przejrzyj wyświetlone informacje o uaktualnieniu. Kliknij pozycję włączone zaraz po `Enable` przygotowaniu do uruchomienia procesu.
+1. Przejrzyj wyświetlone informacje o uaktualnieniu. Wybierz `Set server version to 4.0` (lub 3,6 w zależności od bieżącej wersji).
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Rozszerzone wskazówki dotyczące uaktualniania." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/select-upgrade.png" alt-text="Przejrzyj wskazówki dotyczące uaktualniania i wybierz pozycję Uaktualnij." border="true":::
 
-5. Po uruchomieniu procesu w `Features` menu zostanie wyświetlony stan uaktualnienia. Stan zmieni się z `Pending` na `In Progress`, a następnie na `Upgraded`. Ten proces wpłynie na istniejącą funkcjonalność ani operacje konta bazy danych.
+1. Po rozpoczęciu uaktualniania menu **funkcji** jest wyszarzone i stan jest ustawiony na *oczekujące*. Uaktualnienie trwa około 15 minut. Ten proces nie ma wpływu na istniejące funkcje ani operacje na koncie bazy danych. Po zakończeniu tej czynności stan **wersji serwera aktualizacji MongoDB** zostanie wyświetlony w wersji uaktualnionej. [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/en-us/support/create-ticket/) , jeśli wystąpił problem podczas przetwarzania żądania.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Stan uaktualnienia po zainicjowaniu." border="false":::
+1. Po uaktualnieniu konta należy wziąć pod uwagę następujące zagadnienia:
 
-6. Po zakończeniu uaktualniania stan będzie wyświetlany jako `Upgraded` . Kliknij go, aby dowiedzieć się więcej o następnych krokach i akcjach, które należy wykonać, aby zakończyć proces. [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/en-us/support/create-ticket/) , jeśli wystąpił problem podczas przetwarzania żądania.
+    1. Jeśli uaktualniono z 3,2, Wróć do okienka **Przegląd** i skopiuj nowe parametry połączenia do użycia w aplikacji. Stare parametry połączenia działające w wersji 3.2 nie zostaną przerwane. Aby zapewnić spójne środowisko, wszystkie aplikacje muszą korzystać z nowego punktu końcowego.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Stan uaktualnionego konta." border="false":::
-
-7. 
-    1. Jeśli uaktualniono z 3,2, Wróć do `Overview` bloku i skopiuj nowe parametry połączenia do użycia w aplikacji. Stare parametry połączenia działające w wersji 3.2 nie zostaną przerwane. Aby zapewnić spójne środowisko, wszystkie aplikacje muszą korzystać z nowego punktu końcowego.
-    2. W przypadku uaktualnienia z wersji 3.6 istniejące parametry połączenia zostaną uaktualnione do określonej wersji i powinny być nadal używane.
-
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nowy blok przeglądu." border="false":::
-
+    1. W przypadku uaktualnienia z wersji 3.6 istniejące parametry połączenia zostaną uaktualnione do określonej wersji i powinny być nadal używane.
 
 ## <a name="how-to-downgrade"></a>Jak zmienić wersję na starszą lub mniej zaawansowaną wersję
-Możesz również obniżyć poziom konta z 4,0 do 3,6 za pośrednictwem tych samych kroków w sekcji "jak uaktualnić". 
+
+Możesz również obniżyć poziom konta z 4,0 do 3,6 za pośrednictwem tych samych kroków w sekcji "jak uaktualnić".
 
 Jeśli uaktualniono z 3,2 do (4,0 lub 3,6) i chcesz ponownie obniżyć poziom do wersji 3,2, możesz po prostu przełączyć się z powrotem do używania poprzednich parametrów połączenia (3,2) z hostem, `accountname.documents.azure.com` który pozostaje aktywnym po uaktualnieniu w wersji 3,2.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

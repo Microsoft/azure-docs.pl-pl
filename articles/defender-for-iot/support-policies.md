@@ -1,19 +1,14 @@
 ---
 title: Zasady pomocy technicznej dla usługi Azure Defender dla IoT
-titleSuffix: Azure Defender for IoT
 description: W tym artykule opisano pomoc techniczną, istotne zasady dotyczące zmian dla usługi Defender for IoT oraz wersje usług Azure Defender for IoT, które są obecnie dostępne.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/8/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 17ef357ebc78b63cbaf473cb6449cb89ccf0963e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b1a01a02155bb1443542892ed9d00d1c6b221f64
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100189"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782609"
 ---
 # <a name="versioning-and-support-for-azure-defender-for-iot"></a>Przechowywanie wersji i obsługa usługi Azure Defender dla IoT 
 

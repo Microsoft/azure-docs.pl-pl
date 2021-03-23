@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720495"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771315"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Wyszukiwanie semantyczne na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT]
 > Wyszukiwanie semantyczne jest w publicznej wersji zapoznawczej, dostępne tylko za pomocą interfejsu API REST w wersji zapoznawczej. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), i nie mają gwarancji, że ta sama implementacja jest ogólnie dostępna. Te funkcje są rozliczane. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
 
-Wyszukiwanie semantyczne to zbiór funkcji związanych z zapytaniami, które obsługują bardziej naturalne środowisko zapytań o wyższej jakości. 
+Wyszukiwanie semantyczne to zbiór funkcji związanych z zapytaniami, które dodają istotność semantyczną i interpretację języka do wyników wyszukiwania. *Klasyfikacja semantyczna* wyszukuje kontekst i powiązane z nimi warunki, podnoszenie poziomu dopasowań, które są bardziej zrozumiałe dla zapytania. Funkcja interpretacji języka umożliwia znalezienie *napisów* i *odpowiedzi* w ramach zawartości podsumowujących pasujący dokument lub odpowiedź na pytanie, które można następnie renderować na stronie wyników wyszukiwania w celu uzyskania bardziej wydajnego środowiska wyszukiwania.
 
-Te możliwości obejmują semantyczne przeklasyfikowanie wyników wyszukiwania, a także funkcję wyodrębniania podpisów i odpowiedzi, z wyróżnieniem semantyki w odniesieniu do odpowiednich terminów i fraz. Do wyodrębniania i klasyfikowania są używane najnowocześniejsze modele. Aby zachować szybką wydajność, którą użytkownicy oczekują od wyszukiwania, podsumowanie semantyczne i Klasyfikacja są stosowane do pierwszych 50 wyników, które są oceniane zgodnie z [domyślnym algorytmem oceniania podobieństwa](index-similarity-and-scoring.md#similarity-ranking-algorithms). Przy użyciu tych wyników jako dokumentu korpus, klasyfikacja semantyczna ocenia wyniki w oparciu o siłę semantyki dopasowania.
+Do podsumowania i klasyfikowania są używane najnowocześniejsze modele. Aby zachować szybką wydajność, którą użytkownicy oczekują od wyszukiwania, podsumowanie semantyczne i Klasyfikacja są stosowane do pierwszych 50 wyników, które są oceniane zgodnie z [domyślnym algorytmem oceniania podobieństwa](index-similarity-and-scoring.md#similarity-ranking-algorithms). Przy użyciu tych wyników jako dokumentu korpus, klasyfikacja semantyczna ocenia wyniki w oparciu o siłę semantyki dopasowania.
 
 Podstawową technologią jest technologia Bing i Microsoft Research oraz zintegrowana z infrastrukturą Wyszukiwanie poznawcze jako funkcją dodatkową. Aby uzyskać więcej informacji na temat analizy semantyki do tworzenia kopii zapasowych, zobacz artykuł o sposobie, w [jaki AI z usługi Bing korzysta z platformy Azure wyszukiwanie poznawcze (blog Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 

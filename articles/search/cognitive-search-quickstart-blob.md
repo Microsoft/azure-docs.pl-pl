@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/21/2021
+ms.openlocfilehash: d3e1b73789d6bd4df3dfe9a0e05048f9bbbb25bb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98179269"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770975"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Szybki Start: Tworzenie usługi Azure Wyszukiwanie poznawcze poznawcze zestawu umiejętności w Azure Portal
 
-Zestawu umiejętności to funkcja oparta na formacie AI, która korzysta z modeli uczenia głębokiego do wyodrębniania informacji i struktury z dużych plików tekstowych lub obrazów, dzięki czemu zawartość można indeksować i przeszukiwać na platformie Azure Wyszukiwanie poznawcze. 
+Ten przewodnik Szybki Start przedstawia obsługę zestawu umiejętności w portalu, pokazując sposób optycznego rozpoznawania znaków (OCR) i rozpoznawania jednostek można używać do tworzenia zawartości tekstu do przeszukiwania na podstawie obrazów i plików aplikacji.
 
-W tym przewodniku szybki start utworzysz usługi i dane w chmurze platformy Azure, aby utworzyć zestawu umiejętności. Gdy wszystko będzie na miejscu, uruchom kreatora **importowania danych** w Azure Portal, aby ściągnąć wszystkie jednocześnie. Wynik końcowy to indeks z możliwością wyszukiwania, wypełniony danymi utworzonymi przez przetwarzanie AI, które można badać w portalu ([Eksplorator wyszukiwania](search-explorer.md)).
+W celu przygotowania programu utworzysz kilka zasobów i przekaż przykładowe obrazy i pliki zawartości aplikacji. Gdy wszystko będzie na miejscu, uruchom kreatora **importowania danych** w Azure Portal, aby ściągnąć wszystkie jednocześnie. Wynik końcowy to indeks z możliwością wyszukiwania, wypełniony danymi utworzonymi przez przetwarzanie AI, które można badać w portalu ([Eksplorator wyszukiwania](search-explorer.md)).
+
+Wolisz zacząć od kodu? Zobacz [Samouczek: używanie technologii REST i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure](cognitive-search-tutorial-blob.md) lub [samouczka: zamiast tego można generować zawartość z możliwością wyszukiwania z obiektów blob platformy Azure](cognitive-search-tutorial-blob-dotnet.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,7 +46,7 @@ W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Stora
 
    + Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość. 
 
-   + Wybierz typ konta StorageV2 (ogólnego przeznaczenia w wersji 2), jeśli chcesz wypróbować funkcję magazynu wiedzy później, w innym instruktażu. W przeciwnym razie wybierz dowolny typ.
+   + Wybierz StorageV2 (ogólnego przeznaczenia w wersji 2).
 
 1. Otwórz strony usługi BLOB Services i Utwórz kontener. Można użyć domyślnego poziomu dostępu publicznego. 
 

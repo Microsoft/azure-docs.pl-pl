@@ -1,18 +1,14 @@
 ---
 title: Słownik usługi Defender for IoT
 description: Ten słownik zawiera krótki opis ważnych warunków i postanowień dotyczących platformy IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f26cea9442aa3fbbe7f475cc5d16bea792b83fb3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 191b94ca37118ed6413149dd6047f94c5ee568cd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493989"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786825"
 ---
 # <a name="defender-for-iot-glossary"></a>Słownik usługi Defender for IoT
 
@@ -25,7 +21,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="a"></a>A
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Grupa dostępu** | Obsługuj wymagania dotyczące dostępu użytkowników w dużych organizacjach, tworząc reguły grupy dostępu.<br /><br />Reguły pozwalają kontrolować dostęp do widoku i konfiguracji do usługi Defender dla lokalnej konsoli zarządzania usługi IoT dla określonych ról użytkownika w odpowiednich jednostkach, regionach, lokacjach i strefach firmy.<br /><br />Na przykład Zezwól analitykom zabezpieczeń z grupy Active Directory na dostęp do zachodnich danych motoryzacyjnych o Europie, ale uniemożliwiają dostęp do danych w Afryce. | **[Lokalna Konsola zarządzania](#o)** <br /><br />**[Jednostka biznesowa](#b)** |
 | **Tokeny dostępu** | Generuj tokeny dostępu, aby uzyskać dostęp do interfejsu API REST usługi Defender dla usługi IoT. | **[Interfejs API](#glossary-a)** |
@@ -38,21 +34,21 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="b"></a>B
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Jednostka biznesowa** | Logiczna organizacja firmy według określonych branż.<br /><br />Na przykład firma globalna, która zawiera fabryki szklane i fabryki plastikowe, może być zarządzana jako dwie różne jednostki biznesowe. Dostęp do usługi Defender dla użytkowników IoT można kontrolować w określonych jednostkach roboczych. | **[Lokalna Konsola zarządzania](#o) <br /> <br /> [Grupa dostępu](#glossary-a) <br /> <br /> [](#s) <br /> Witryna <br /> [Strefa](#z)** |
 | **Punkt odniesienia** | Zatwierdzony ruch sieciowy, protokoły, polecenia i urządzenia. Usługa Defender for IoT określa odchylenia od linii bazowej sieci. Wyświetlanie zatwierdzonego ruchu bazowego przez generowanie raportów wyszukiwania danych. | **[Wyszukiwanie danych](#d) <br /> <br /> [Tryb uczenia](#l)** |
 
 ## <a name="c"></a>C
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Poleceń interfejsu wiersza polecenia** | Opcje interfejsu wiersza polecenia (CLI) dla usługi Defender dla użytkowników administratorów IoT. Poleceń interfejsu wiersza polecenia są dostępne dla funkcji, do których nie można uzyskać dostępu za pomocą konsoli usługi Defender dla usługi IoT. | - |
 
 
 ## <a name="d"></a>D
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Wyszukiwanie danych** | Generowanie pełnych i szczegółowych raportów dotyczących urządzeń sieciowych:<br /><br />- **Odpowiedź na zdarzenia SOC**: raporty w czasie rzeczywistym, aby pomóc w rozproszeniu natychmiastowego reagowania na zdarzenia. Na przykład raport może zawierać listę urządzeń, które mogą wymagać zastosowania poprawek.<br /><br />- **Dowodowych**: raporty oparte na danych historycznych dla raportów dochodzeniowych.<br /><br />- **Integralność sieci IT**: raporty, które pomagają ulepszyć ogólne zabezpieczenia sieci. Na przykład raport może wyświetlać listę urządzeń z słabymi poświadczeniami uwierzytelniania.<br /><br />- **widoczność**: raporty, które obejmują wszystkie elementy zapytania, aby wyświetlić wszystkie parametry linii bazowej sieci.<br /><br />Zapisywanie raportów wyszukiwania danych dla użytkowników tylko do odczytu do wyświetlania. | **[Linia bazowa](#b) <br /> <br /> [Raporty](#r)** |
 | **Aparat usługi Defender dla usługi IoT** | Aparaty analizy samodzielnej w usłudze Defender for IoT eliminują konieczność aktualizowania podpisów lub definiowania reguł. Aparaty wykorzystują analizy behawioralne specyficzne dla usługi ICS, aby stale analizować ruch sieciowy pod kątem anomalii, złośliwego oprogramowania, problemów operacyjnych, naruszeń protokołu i odchyleń od aktywności sieci podstawowej.<br /><br />Gdy silnik wykryje odchylenia, zostanie wyzwolony alert. Alerty można wyświetlać i zarządzać nimi z poziomu ekranu **alertów** lub z Siem. | **[Alerty](#glossary-a)** |
@@ -65,7 +61,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="e"></a>E
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Widok przedsiębiorstwa** | Globalna mapa, która przedstawia jednostki biznesowe, Lokacje i strefy, w których są zainstalowane obrony dla czujników IoT. Wyświetlanie lokalizacji geograficznych złośliwych alertów, alertów operacyjnych i innych elementów. | **[](#b) <br /> Jednostka <br /> biznesowa [](#s) <br /> Witryna <br /> [Strefa](#z)** |
 | **Oś czasu zdarzeń** | Oś czasu działania wykryta w sieci, w tym:<br /><br />-Wyzwolone alerty.<br /><br />-Zdarzenia sieciowe (informacje).<br /><br />— Operacje użytkownika, takie jak logowanie, usuwanie użytkowników i tworzenie użytkowników oraz operacje zarządzania alertami, takie jak wyciszenie, nauka i potwierdzenie. Dostępne w konsolach czujników. | - |
@@ -73,26 +69,26 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="f"></a>F
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Reguła przekazywania** | Reguły przekazywania instruują usługę Defender for IoT, aby wysyłali informacje o alertach do dostawców lub systemów partnerskich.<br /><br />Na przykład wysyłanie informacji o alercie do serwera Splunk lub serwera dziennika systemowego. | **[Alerty](#glossary-a)** |
 
 ## <a name="g"></a>G
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Grupa** | Wstępnie zdefiniowana lub niestandardowa grupa urządzeń, które zawierają określone atrybuty, takie jak urządzenia, które przeprowadziły działania programistyczne lub urządzenia znajdujące się w określonej podsieci. Użyj grup, aby ułatwić Wyświetlanie urządzeń i analizowanie urządzeń w usłudze Defender for IoT.<br /><br />Grupy mogą być wyświetlane i tworzone na podstawie mapy urządzeń i spisu urządzeń. | **[Mapa urządzenia](#d) <br /> <br /> [Spis urządzeń](#d)** |
 
 ## <a name="h"></a>H
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Otwarte środowisko programistyczne w ramach horyzontu** | Zabezpiecz urządzenia IoT i ICS z własnymi protokołami lub protokołami niestandardowymi, które odbiegają od standardów. Użyj zestawu SDK open Development Environment (Node) w celu opracowania wtyczek do rozwinięcia, które dekodują ruch sieciowy na podstawie zdefiniowanych protokołów. Obronność usług IoT analizuje ruch, aby zapewnić pełne monitorowanie, alerty i raportowanie.<br /><br />Użyj zakresu od do:<br /><br />- **Rozwiń** widoczność i kontrolę bez potrzeby uaktualniania wersji platformy usługi IoT.<br /><br />- **Zabezpieczanie** informacji własnościowych przez Tworzenie lokacji jako wtyczki zewnętrznej.<br /><br />- **Lokalizowanie** tekstu dla alertów, zdarzeń i parametrów protokołu.<br /><br />Aby uzyskać szczegółowe informacje, skontaktuj się z przedstawicielem działu IT. | **[Obsługa protokołu](#p) <br /> <br /> [Lokalizacja](#l)** |
 | **Niestandardowy alert dotyczący horyzontu** | Podnieś poziom zarządzania alertami w przedsiębiorstwie, wyzwalając niestandardowe alerty dla dowolnego protokołu (w oparciu o sektory ruchu w strukturze horyzontu).<br /><br />Te alerty mogą służyć do przekazywania informacji:<br /><br />— Informacje o wykrywaniu ruchu w oparciu o protokoły i protokoły bazowe w ramach wtyczki własnościowego horyzontu.<br /><br />— Informacje o kombinacji pól protokołu ze wszystkich warstw protokołu. | **[Obsługa protokołu](#p)** |
 
 ## <a name="i"></a>I
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **IoT Hub** `(DB)` | Usługa zarządzana hostowana w chmurze, która pełni rolę centralnego centrum komunikatów w celu komunikacji dwukierunkowej między aplikacją IoT i zarządzanymi urządzeniami.  |   |
 | **Integracje** | Rozwiń węzeł Defender for IoT, udostępniając informacje o urządzeniach w systemach partnerskich. Organizacje mogą odesłać wcześniej silosy zabezpieczeń, NAC, zarządzanie zdarzeniami i rozwiązania do zarządzania urządzeniami, aby przyspieszyć reagowanie na całe systemy i szybciej ograniczyć ryzyko. | **[Reguła przekazywania](#f)** |
@@ -100,7 +96,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="l"></a>L
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Informacje o zdarzeniu alertu** | Poinstruuj usługę Defender for IoT, aby autoryzować ruch wykryty w zdarzeniu alertu. | **[](#glossary-a) <br /> Alert <br /> [Potwierdzenie zdarzenia](#glossary-a) <br /> <br /> alertu [Wycisz zdarzenie alertu](#m)** |
 | **Tryb uczenia** | Tryb używany podczas nauki działania sieci przez usługę Defender for IoT. To działanie jest podstawą sieci. Usługa Defender dla IoT pozostaje w trybie dla wstępnie zdefiniowanego okresu po instalacji. Działanie, które odbiega od działań uzyskanych po tym okresie, spowoduje wyzwolenie alertów usługi Defender dla usługi IoT. | **[Inteligentne uczenie IT](#s) <br /> <br /> [Linia bazowa](#b)** |
@@ -109,7 +105,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 ## <a name="m"></a>M
 
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Micro Agent**`(DB)` | Oferuje szczegółowe funkcje zabezpieczeń urządzeń IoT, w tym stan zabezpieczeń i wykrywanie zagrożeń. | |
 | **Sznurki modułu**`(DB)` | Bliźniacze reprezentacje modułu to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. | [Bliźniak urządzenia](#d) <br /> <br />[Defender-IoT-Micro-Agent](#s) |
@@ -117,27 +113,27 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="n"></a>N
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Powiadomienia** | Informacje o zmianach w sieci lub nierozpoznanych właściwościach urządzenia. Dostępne są opcje aktualizowania informacji o urządzeniu i sieci z wykrytymi nowymi danymi. Reagowanie na powiadomienia wzbogaca spis urządzeń, mapę i różne raporty. Dostępne w konsolach czujników. | **[](#glossary-a) <br /> Alert <br /> [Powiadomienia systemowe](#s)** |
 
 ## <a name="o"></a>O
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Lokalna Konsola zarządzania** | Lokalna Konsola zarządzania zapewnia scentralizowany widok i zarządzanie urządzeniami i zagrożeniami, które są wykrywane przez obrony przed wdrożeniami czujnika IoT w organizacji. | **Usługa [Defender dla platformy IoT](#d) <br /> <br /> [Czujnik](#s)** |
 | **Alert operacyjny** | Alerty, które zajmują problemy z siecią operacyjną, takie jak urządzenie podejrzane o odłączenie od sieci. | **[](#glossary-a) <br /> Alert <br /> [Alert zabezpieczeń](#s)** |
 
 ## <a name="p"></a>P
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Warstwa Purdue** | Pokazuje połączenia i wzajemnych zależności głównych składników typowego połączenia internetowego na mapie. |  |
 | **Obsługa protokołu** | Oprócz obsługi protokołu osadzonego można zabezpieczyć urządzenia IoT i ICS z własnymi i niestandardowymi protokołami lub protokoły odbiegające od dowolnego standardu, korzystając z zestawu SDK open Development Environment. | **[Otwarte środowisko programistyczne w ramach horyzontu](#h)** |
 
 ## <a name="r"></a>R
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Region** | Logiczna podział organizacji globalnej na regiony geograficzne. Przykłady to Ameryka Północna, Europa Zachodnia i Europa Wschodnia.<br /><br />Ameryka Północna mogą mieć fabryki z różnych jednostek biznesowych. | **[Grupa dostępu](#glossary-a) <br /> <br /> [](#b) <br /> Jednostka <br /> biznesowa [Lokalna Konsola zarządzania](#o) <br /> <br /> [](#s) <br /> Witryna <br /> [Strefa](#z)** |
 | **Raporty** | Raporty odzwierciedlają informacje generowane przez wyniki zapytania wyszukiwania danych. Obejmuje to domyślne wyniki wyszukiwania danych, które są dostępne w widoku **raporty** . Administratorzy i analitycy zabezpieczeń mogą również generować niestandardowe zapytania wyszukiwania danych i zapisywać je jako raporty. Te raporty będą również dostępne dla użytkowników tylko do odczytu. | **[Wyszukiwanie danych](#d)** |
@@ -145,7 +141,7 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="s"></a>S
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Alert zabezpieczeń** | Alerty, które dotyczą problemów z zabezpieczeniami, takich jak nadmierne próby logowania przy użyciu protokołu SMB lub wykrywanie złośliwego oprogramowania. | **[](#glossary-a) <br /> Alert <br /> [Alert operacyjny](#o)** |
 | **Defender-IoT-Micro-Agent**`(DB)` | Sznurek usługi Defender-IoT-Micro-Agent zawiera wszystkie informacje istotne dla zabezpieczeń urządzeń dla każdego konkretnego urządzenia w rozwiązaniu. | [Bliźniak urządzenia](#d) <br /> <br />[Sznurki modułu](#m)  |
@@ -159,6 +155,6 @@ Ten słownik zawiera krótki opis ważnych pojęć i koncepcji dotyczących plat
 
 ## <a name="z"></a>Z
 
-| Okres | Opis | Dowiedz się więcej |
+| Okres | Opis | Więcej tutaj |
 |--|--|--|
 | **Strefa** | Obszar w obrębie lokacji, w której jest zainstalowany czujnik lub czujniki. | **[](#s) <br /> Witryna <br /> [](#b) <br /> Jednostka <br /> biznesowa [Region](#r)** |

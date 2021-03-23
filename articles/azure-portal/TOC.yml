@@ -35,11 +35,11 @@
           href: azure-portal-dashboards.md
         - name: Udostępnianie pulpitu nawigacyjnego platformy Azure
           href: azure-portal-dashboard-share-access.md
+        - name: Używanie kafelka niestandardowego z kodem Markdown
+          href: azure-portal-markdown-tile.md
         - name: Programowe tworzenie pulpitu nawigacyjnego platformy Azure
           href: azure-portal-dashboards-create-programmatically.md
           displayName: 'Azure CLI, az portal dashboard, az portal'
-        - name: Używanie kafelka niestandardowego z kodem Markdown
-          href: azure-portal-markdown-tile.md
     - name: Seria instruktażowych wideo dla witryny Azure Portal
       href: azure-portal-video-series.md
     - name: Tworzenie wniosków o pomoc techniczną i zarządzanie nimi

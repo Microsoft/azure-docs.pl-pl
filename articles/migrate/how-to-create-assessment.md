@@ -1,33 +1,33 @@
 ---
-title: Tworzenie oceny maszyn wirtualnych platformy Azure za pomocą oceny serwera Azure Migrate | Microsoft Docs
-description: Opisuje sposób tworzenia oceny maszyn wirtualnych platformy Azure za pomocą narzędzia do oceny Azure Migrate Server
+title: Tworzenie oceny maszyn wirtualnych platformy Azure za pomocą narzędzia do odnajdywania i oceny Azure Migrate | Microsoft Docs
+description: Opisuje sposób tworzenia oceny maszyn wirtualnych platformy Azure za pomocą narzędzia do odnajdywania i oceny Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.openlocfilehash: 178bdca78c6f011c607de8e1f5d5eabcdbaab7d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f901fe23d2ff04e7ad9ba920dd90ebab8a39246c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98567704"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786723"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Tworzenie oceny maszyny wirtualnej platformy Azure
 
-W tym artykule opisano sposób tworzenia oceny maszyn wirtualnych platformy Azure dla lokalnych maszyn wirtualnych VMware lub maszyn wirtualnych funkcji Hyper-V z Azure Migrate: Ocena serwera.
+W tym artykule opisano sposób tworzenia oceny maszyn wirtualnych platformy Azure dla serwerów lokalnych w środowisku VMware, funkcji Hyper-V lub fizycznych/innych środowiskach chmurowych z Azure Migrate: odnajdywania i oceny.
 
 [Azure Migrate](migrate-services-overview.md) ułatwia Migrowanie do platformy Azure. Azure Migrate udostępnia scentralizowany centrum do śledzenia odnajdywania, oceny i migracji lokalnej infrastruktury, aplikacji i danych na platformę Azure. Centrum udostępnia narzędzia platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 - Upewnij się, że [utworzono](./create-manage-projects.md) projekt Azure Migrate.
-- Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera.
-- Aby utworzyć ocenę, należy skonfigurować urządzenie Azure Migrate dla oprogramowania [VMware](how-to-set-up-appliance-vmware.md) lub [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md). Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera. [Dowiedz się więcej](migrate-appliance.md).
+- Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) Azure Migrate: narzędzie odnajdywania i oceny.
+- Aby utworzyć ocenę, należy skonfigurować urządzenie Azure Migrate dla oprogramowania [VMware](how-to-set-up-appliance-vmware.md) lub [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md). Urządzenie odnajduje serwery lokalne i wysyła metadane i dane wydajności do Azure Migrate: odnajdywanie i ocenianie. [Dowiedz się więcej](migrate-appliance.md).
 
 
 ## <a name="azure-vm-assessment-overview"></a>Przegląd oceny maszyn wirtualnych platformy Azure
-Istnieją dwa typy kryteriów ustalania rozmiarów, których można użyć do utworzenia oceny maszyny wirtualnej platformy Azure przy użyciu Azure Migrate: Ocena serwera.
+Istnieją dwa typy kryteriów ustalania rozmiarów, których można użyć do tworzenia oceny maszyn wirtualnych platformy Azure przy użyciu Azure Migrate: odnajdywania i oceny.
 
 **Ocena** | **Szczegóły** | **Dane**
 --- | --- | ---
@@ -40,23 +40,23 @@ Istnieją dwa typy kryteriów ustalania rozmiarów, których można użyć do ut
 
 Uruchom ocenę w następujący sposób:
 
-1. Na stronie **serwery** > **serwery z systemami Windows i Linux** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
+1. Na stronie **przegląd** > **Windows, Linux i SQL Server** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
 
    ![Przycisk lokalizacji oceny i migracji serwerów](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Oceń**.
+2. W **Azure Migrate: odnajdywanie i ocenianie**, kliknij przycisk **Oceń** i wybierz **maszynę wirtualną platformy Azure**
 
     ![Lokalizacja przycisku oceny](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. W obszarze **ocenianie serwerów**  >  **Typ oceny** wybierz **maszynę wirtualną platformy Azure**.
+3. **Ocenianie**  >  **typu oceny** serwerów
 4. W **źródle odnajdywania**:
 
-    - W przypadku wykrycia maszyn przy użyciu urządzenia wybierz pozycję **maszyny odnalezione z urządzenia Azure Migrate**.
-    - W przypadku wykrycia maszyn przy użyciu zaimportowanego pliku CSV wybierz pozycję **zaimportowane maszyny**. 
+    - Jeśli wykryto serwery korzystające z urządzenia, wybierz pozycję **serwery odnalezione z urządzenia Azure Migrate**.
+    - W przypadku wykrycia serwerów przy użyciu zaimportowanego pliku CSV wybierz pozycję **zaimportowane serwery**. 
     
 1. Kliknij przycisk **Edytuj** , aby przejrzeć właściwości oceny.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Lokalizacja przycisku edycji służącego do przeglądania właściwości oceny":::
+    ![Lokalizacja przycisku Wyświetl wszystko, aby przejrzeć właściwości oceny](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. We właściwościach  >  **elementu docelowego** właściwości oceny:
     - W polu **Lokalizacja docelowa** Określ region platformy Azure, do którego chcesz przeprowadzić migrację.
@@ -69,7 +69,7 @@ Uruchom ocenę w następujący sposób:
         - Jeśli wybierzesz użycie zarezerwowanego wystąpienia, nie możesz określić "**rabatu (%)** ani czasu działania **maszyny wirtualnej**. 
         - [Dowiedz się więcej](https://aka.ms/azurereservedinstances).
  1. **Rozmiar maszyny wirtualnej**:
-     - W polu **kryterium ustalania wielkości** wybierz, czy chcesz oprzeć ocenę danych/metadanych konfiguracji komputera, czy też na danych opartych na wydajności. W przypadku korzystania z danych wydajności:
+     - W polu **kryterium ustalania wielkości** wybierz, czy chcesz oprzeć ocenę danych konfiguracji serwera/metadanych lub na podstawie wydajności. W przypadku korzystania z danych wydajności:
         - W obszarze **historia wydajności** wskaż czas trwania danych, dla którego chcesz oprzeć ocenę
         - W polu **użycie percentyla** Określ wartość percentylu, która ma być używana dla przykładu wydajności. 
     - W obszarze **Seria maszyn wirtualnych** Określ serię maszyn wirtualnych platformy Azure, którą chcesz uwzględnić.
@@ -83,7 +83,7 @@ Uruchom ocenę w następujący sposób:
         Pamięć | 8 GB | 16 GB
    
 1. W **cenniku**:
-    - W obszarze **Oferta** Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena serwera szacuje koszt dla tej oferty.
+    - W obszarze **Oferta** Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena szacuje koszt tej oferty.
     - W polu **Waluta** Wybierz walutę rozliczeń dla Twojego konta.
     - W polu **Rabat (%)** Dodaj wszelkie zniżki specyficzne dla subskrypcji otrzymane w oparciu o ofertę platformy Azure. Ustawienie domyślne to 0%.
     - W obszarze **czas działania maszyny wirtualnej** Określ czas trwania (dni na miesiąc/godzinę dziennie), które będą uruchamiane na maszynach wirtualnych.
@@ -99,49 +99,49 @@ Uruchom ocenę w następujący sposób:
 
 1. W obszarze **ocenianie serwerów** > kliknij przycisk **dalej**.
 
-1. W obszarze **Wybieranie maszyn do oceny**  >  **nazwy oceny** > Określ nazwę oceny. 
+1. Na stronie **Wybierz serwery do oceny**  >  **nazwy oceny** > Określ nazwę oceny. 
 
 1. W obszarze **Wybierz lub Utwórz grupę** > wybierz pozycję **Utwórz nową** i określ nazwę grupy. 
+    
+     ![Dodawanie maszyn wirtualnych do grupy](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Dodawanie maszyn wirtualnych do grupy":::
 
 1. Wybierz urządzenie i wybierz maszyny wirtualne, które chcesz dodać do grupy. Następnie kliknij przycisk **Dalej**.
 
 
 1. W obszarze **Przegląd + tworzenie oceny** Przejrzyj szczegóły oceny, a następnie kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę i uruchomić ocenę.
 
-1. Po utworzeniu oceny możesz ją wyświetlić w pozycji **Serwery** > **Azure Migrate: Server Assessment** > **Oceny**.
+1. Po utworzeniu oceny należy wyświetlić ją w obszarze **serwery**  >  **Azure Migrate: Ocena odnajdywania i oceny**  >  .
 
 1. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
     > [!NOTE]
     > W przypadku ocen opartych na wydajności zalecamy odczekanie co najmniej dnia od momentu rozpoczęcia odnajdywania przed utworzeniem oceny. Zapewnia to czas na zbieranie danych o wydajności z wyższym zaufaniem. Najlepiej po rozpoczęciu odnajdywania poczekaj na określenie czasu trwania wydajności (dzień/tydzień/miesiąc) w celu uzyskania oceny o wysokim poziomie zaufania.
 
-
 ## <a name="review-an-azure-vm-assessment"></a>Przegląd oceny maszyny wirtualnej platformy Azure
 
 Ocena maszyny wirtualnej platformy Azure opisuje:
 
-- **Gotowość platformy Azure**: czy maszyny wirtualne są odpowiednie do migracji na platformę Azure.
+- **Gotowość na platformę Azure**: Czy serwery są odpowiednie do migracji na platformę Azure.
 - **Oszacowanie kosztów miesięcznych**: szacowane miesięczne koszty obliczeniowe i magazynowe związane z uruchamianiem maszyn wirtualnych na platformie Azure.
 - **Miesięczne szacowanie kosztów magazynu**: Szacowane koszty magazynu dyskowego po migracji.
 
 ### <a name="view-an-azure-vm-assessment"></a>Wyświetlanie oceny maszyny wirtualnej platformy Azure
 
-1. W obszarze serwery **celów migracji**  >   kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
-2. W obszarze **oceny** kliknij ocenę, aby go otworzyć.
+1. W **systemach Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena** kliknij liczbę obok pozycji **Ocena maszyny wirtualnej platformy Azure**.
+2. W pozycji **Oceny** wybierz ocenę, aby ją otworzyć. Przykładowo (oszacowania i koszty tylko na przykład): 
 
     ![Podsumowanie oceny](./media/how-to-create-assessment/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Przegląd gotowości na platformę Azure
 
-1. W obszarze **gotowość platformy Azure** Sprawdź, czy maszyny wirtualne są gotowe do migracji na platformę Azure.
-2. Sprawdź stan maszyny wirtualnej:
+1. W obszarze **gotowość platformy Azure** Sprawdź, czy serwery są gotowe do migracji na platformę Azure.
+2. Sprawdź stan serwera:
     - **Gotowe na platformę Azure**: Usługa Azure Migrate zaleca oszacowanie rozmiaru maszyny wirtualnej i kosztów dla maszyn wirtualnych w ocenie.
     - **Gotowe warunki**: pokazuje problemy i sugerowane korygowanie.
     - **Nie gotowy na platformę Azure**: zawiera problemy i sugerowane korygowanie.
     - **Nieznane gotowość**: używany, gdy Azure Migrate nie może ocenić gotowości ze względu na problemy z dostępnością danych.
 
-3. Kliknij stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości maszyn wirtualnych i przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
+3. Kliknij stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości serwera i przejść do szczegółów, aby zobaczyć szczegóły serwera, w tym ustawienia obliczeń, magazynu i sieci.
 
 
 
@@ -149,14 +149,14 @@ Ocena maszyny wirtualnej platformy Azure opisuje:
 
 Ten widok przedstawia szacowane koszty zasobów obliczeniowych i magazynowych w przypadku korzystania z maszyn wirtualnych na platformie Azure.
 
-1. Zapoznać się z miesięcznymi kosztami obliczeń i magazynu. Koszty są agregowane dla wszystkich maszyn wirtualnych w ocenianej grupie.
+1. Zapoznać się z miesięcznymi kosztami obliczeń i magazynu. Koszty są agregowane dla wszystkich serwerów w ocenianej grupie.
 
-    - Oszacowania kosztów opierają się na rekomendacjach dotyczących rozmiaru maszyny i jej dysków oraz na właściwościach.
+    - Oszacowania kosztów są oparte na zaleceniach dotyczących rozmiaru serwera oraz jego dyskach i właściwościach.
     - Wyświetlane są szacowane miesięczne koszty obliczeń i magazynu.
-    - Oszacowanie kosztów służy do uruchamiania lokalnych maszyn wirtualnych jako maszyn wirtualnych IaaS. Ocena serwera Azure Migrate nie uwzględnia kosztów PaaS ani SaaS.
+    - Oszacowanie kosztów służy do uruchamiania serwerów lokalnych jako maszyn wirtualnych IaaS. Ocena maszyn wirtualnych platformy Azure nie uwzględnia kosztów PaaS ani SaaS.
 
 2. Możesz przejrzeć szacunkowe oszacowanie kosztów magazynowania. Ten widok przedstawia zagregowane koszty magazynu dla ocenianej grupy, podzielone na różne typy dysków magazynu.
-3. Możesz przejść do szczegółów, aby wyświetlić szczegóły dla określonych maszyn wirtualnych.
+3. Możesz przejść do szczegółów, aby zobaczyć szczegóły określonych serwerów.
 
 
 ### <a name="review-confidence-rating"></a>Przegląd oceny zaufania

@@ -1,31 +1,31 @@
 ---
-title: 'Odnajdź serwery działające w środowisku VMware za pomocą Azure Migrate: Ocena serwera'
-description: Informacje na temat odnajdywania lokalnych maszyn wirtualnych VMware za pomocą narzędzia do oceny Azure Migrate Server
-author: vikram1988
-ms.author: vibansa
+title: Odkryj serwery działające w środowisku VMware z Azure Migrate odnajdywania i oceny
+description: Dowiedz się, jak odnajdywać serwery lokalne działające w środowisku VMware za pomocą narzędzia do odnajdywania i oceny Azure Migrate
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 9/14/2020
+ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: 4d2b0fbb377beacdb75a1a5552855936bee2b205
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0acf83ddfb0d2a3aff0db0f3d151869bce1c710
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041315"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771740"
 ---
-# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-server-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware z Azure Migrate: Ocena serwera
+# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware przy użyciu Azure Migrate: odnajdywanie i Ocena
 
 W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia lokalne.
 
-W tym samouczku pokazano, jak odnajdywać serwery działające w środowisku VMware przy użyciu Azure Migrate: narzędzia do oceny serwera przy użyciu urządzenia z uproszczonym Azure Migrate. Urządzenie jest wdrażane jako serwer działający w vCenter Server, aby w sposób ciągły wykrywać serwery i ich metadane wydajności, aplikacje działające na serwerach, zależności serwera SQL Server i wystąpieniach i bazach danych.
+W tym samouczku pokazano, jak odnajdywać serwery działające w środowisku VMware przy użyciu Azure Migrate: narzędzia do odnajdywania i oceny przy użyciu urządzenia z uproszczonym Azure Migrate. Urządzenie jest wdrażane jako serwer działający w vCenter Server, aby w sposób ciągły wykrywać serwery i ich metadane wydajności, aplikacje działające na serwerach, zależności serwera SQL Server i wystąpieniach i bazach danych.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure.
 > * Przygotuj środowisko VMware do odnajdowania.
-> * Tworzenie projektu w usłudze Azure Migrate.
+> * Utwórz projekt.
 > * Skonfiguruj urządzenie Azure Migrate.
 > * Rozpocznij odnajdowanie ciągłe.
 
@@ -51,7 +51,7 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
-Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
+Aby utworzyć projekt i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory (AAD)
 - Właściciel lub współautor oraz uprawnienia administratora dostępu użytkowników do subskrypcji platformy Azure w celu utworzenia Key Vault używane podczas migracji serwera bez agenta
@@ -63,7 +63,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
     :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Wyszukaj w polu wyszukiwania subskrypcję platformy Azure":::
 
 
-2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt Azure Migrate.
+2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt.
 3. W subskrypcji wybierz pozycję **Kontrola dostępu (IAM)**  >  **sprawdzanie dostępu**.
 4. W obszarze **Sprawdź dostęp** Wyszukaj odpowiednie konto użytkownika.
 5. W obszarze **Dodaj przypisanie roli** kliknij pozycję **Dodaj**.
@@ -117,7 +117,7 @@ Do przeprowadzenia odnajdywania zainstalowanych aplikacji, analizy zależności 
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
-Skonfiguruj nowy projekt Azure Migrate.
+Skonfiguruj nowy projekt.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
@@ -128,14 +128,14 @@ Skonfiguruj nowy projekt Azure Migrate.
     :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Pola nazwy i regionu projektu":::
 
 7. Wybierz przycisk **Utwórz**.
-8. Zaczekaj kilka minut, aż projekt Azure Migrate zostanie wdrożony. **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
+8. Zaczekaj kilka minut, aż projekt zostanie wdrożony. **Azure Migrate: narzędzie odnajdywania i oceny** jest domyślnie dodawane do nowego projektu.
 
 > [!NOTE]
 > Jeśli projekt został już utworzony, możesz użyć tego samego projektu do zarejestrowania dodatkowych urządzeń, aby odnaleźć i ocenić więcej. serwerów. [ **Dowiedz się więcej**](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Konfigurowanie urządzenia
 
-Azure Migrate: Ocena serwera używa urządzenia uproszczonego Azure Migrate. Urządzenie wykonuje odnajdywanie serwera i wysyła metadane dotyczące konfiguracji serwera i wydajności do Azure Migrate. Urządzenie można skonfigurować przez wdrożenie szablonu komórki jajowe, który można pobrać z projektu.
+Azure Migrate: Funkcja odnajdywania i oceny wykorzystują uproszczone urządzenie Azure Migrate. Urządzenie wykonuje odnajdywanie serwera i wysyła metadane dotyczące konfiguracji serwera i wydajności do Azure Migrate. Urządzenie można skonfigurować przez wdrożenie szablonu komórki jajowe, który można pobrać z projektu.
 
 > [!NOTE]
 > Jeśli z jakiegoś powodu nie można skonfigurować urządzenia przy użyciu szablonu, można skonfigurować go za pomocą skryptu programu PowerShell na istniejącym serwerze z systemem Windows Server 2016. [**Dowiedz się więcej**](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
@@ -143,18 +143,19 @@ Azure Migrate: Ocena serwera używa urządzenia uproszczonego Azure Migrate. Urz
 ### <a name="deploy-with-ova"></a>Wdrażanie przy użyciu komórek jajowych
 
 Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
-1. Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
+
+1. Podaj nazwę urządzenia i Wygeneruj klucz projektu w portalu.
 1. Pobierz plik szablonu komórki jajowe i zaimportuj go do vCenter Server. Sprawdź, czy komórki jajowe są bezpieczne.
-1. Utwórz maszynę wirtualną z urządzeniem z pliku JAJOWE i sprawdź, czy może ona połączyć się z Azure Migrate.
-1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu Azure Migrate.
+1. Utwórz urządzenie z pliku JAJOWE i sprawdź, czy może nawiązać połączenie z Azure Migrate.
+1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Wygeneruj klucz projektu Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Generowanie klucza projektu
 
-1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
-2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
-3. W obszarze **1: generowanie klucza projektu Azure Migrate** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w środowisku programu VMware. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+1. W obszarze **cele migracji**  >  **systemy Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena** wybierz pozycję **odkryj**.
+2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
+3. W obszarze **1: generowanie klucza projektu** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w środowisku programu VMware. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywania podczas tworzenia zasobów.
-1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
+1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
 ### <a name="2-download-the-ova-template"></a>2. Pobierz szablon komórki jajowe
@@ -214,13 +215,13 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 1. W konsoli klienta vSphere kliknij prawym przyciskiem myszy serwer, a następnie wybierz polecenie **Otwórz konsolę**.
 2. Podaj język, strefę czasową i hasło dla urządzenia.
-3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z serwerem urządzeń, a następnie otwórz adres URL menedżera konfiguracji urządzenia: `https://appliance name or IP address: 44368` .
+3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z urządzeniem, a następnie otwórz adres URL menedżera konfiguracji urządzenia: `https://appliance name or IP address: 44368` .
 
    Alternatywnie można otworzyć program Configuration Manager z poziomu pulpitu serwera urządzeń, wybierając skrót do programu Configuration Manager.
 1. Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
 1. W programie Configuration Manager > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
    - **Łączność**: Urządzenie sprawdza, czy serwer ma dostęp do Internetu. Jeśli serwer używa serwera proxy:
-     - Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy `http://ProxyIPAddress` lub `http://ProxyFQDN` port nasłuchujący.
+     - Kliknij pozycję **Konfiguruj serwer proxy** , aby określić adres serwera proxy `http://ProxyIPAddress` lub `http://ProxyFQDN` port nasłuchujący.
      - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
      - Obsługiwane są tylko serwery proxy HTTP.
      - Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.
@@ -236,7 +237,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
-1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do pozycji **Ocena serwera> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
+1. Wklej **klucz projektu** skopiowany z portalu. Jeśli nie masz klucza, przejdź do **Azure Migrate: odnajdywania i oceny> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
 1. Do uwierzytelnienia w systemie Azure potrzebny będzie kod urządzenia. Kliknięcie przycisku **Zaloguj** spowoduje otwarcie modalnego kodu urządzenia, jak pokazano poniżej.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modalne wyświetlanie kodu urządzenia":::
@@ -260,16 +261,16 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane konfigur
 
 1. W **kroku 1: podaj poświadczenia vCenter Server**, kliknij pozycję **Dodaj poświadczenia** , aby określić przyjazną nazwę dla poświadczeń, Dodaj **nazwę użytkownika** i **hasło** do konta vCenter Server, które będzie używane przez urządzenie do odnajdywania serwerów z systemem w vCenter Server.
     - Należy skonfigurować konto z wymaganymi uprawnieniami, które opisano w tym artykule.
-    - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
+    - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych serwerów), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
 1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
 1. Po kliknięciu przycisku **Zapisz** Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej vCenter Server adres IP/nazwa FQDN.
-1. Przed rozpoczęciem odnajdywania można ponownie **sprawdzić poprawność** łączności, aby vCenter Server w dowolnym momencie.
+1. Możesz ponownie **sprawdzić poprawność** łączności, aby vCenter Server kiedykolwiek przed rozpoczęciem odnajdywania.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzeń dla vCenter Server Szczegóły":::
 
 ### <a name="provide-server-credentials"></a>Podaj poświadczenia serwera
 
-W **kroku 3: zapewnianie poświadczeń serwera do wykonywania spisu oprogramowania, analizy zależności bez agentów i odnajdywania SQL Server wystąpień i baz danych**, można wybrać opcję udostępnienia wielu poświadczeń serwera lub jeśli nie chcesz korzystać z tych funkcji, możesz pominąć ten krok i kontynuować odnajdywanie vCenter Server. Zamiar można zmienić w dowolnym momencie później.
+W **kroku 3: zapewnianie poświadczeń serwera do wykonywania spisu oprogramowania, analizy zależności bez agentów i odnajdywania SQL Server wystąpień i baz danych**, można wybrać opcję udostępnienia wielu poświadczeń serwera lub jeśli nie chcesz używać tych funkcji, możesz pominąć ten krok i kontynuować odnajdywanie vCenter Server. Zamiar można zmienić w dowolnym momencie później.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzenia dla szczegółów serwera":::
 
@@ -301,6 +302,7 @@ Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, 
 Jeśli podczas uruchamiania nie zainicjowano obsługi administracyjnej certyfikatu na serwerze, SQL Server generuje certyfikat z podpisem własnym, który jest używany do szyfrowania pakietów logowania. [**Dowiedz się więcej**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 Odnajdywanie działa w następujący sposób:
+
 - Aby spis odnalezionych serwerów pojawił się w portalu, zajmie około 15 minut.
 - Odnajdywanie zainstalowanych aplikacji może zająć trochę czasu. Czas trwania zależy od liczby odnalezionych serwerów. W przypadku serwerów z 500 na wykrytym magazynie w portalu Azure Migrate trwa około godziny.
 - Po zakończeniu odnajdywania serwerów można włączyć analizę zależności bez agenta na serwerach z poziomu portalu.

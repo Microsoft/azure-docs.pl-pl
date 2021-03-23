@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 14197516c0669055f756614b9559f1423703c6a8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21553adf81d5b34813785db7cd6bbe3caf71c210
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102055482"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780495"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Tworzenie oceny usługi Azure SQL
 
@@ -18,7 +18,7 @@ W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, 
 W tym artykule opisano sposób oceny odnalezionych wystąpień programu SQL w przygotowaniu do migracji do usługi Azure SQL przy użyciu narzędzia do odnajdywania i oceny Azure Migrate:.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

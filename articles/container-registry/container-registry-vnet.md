@@ -3,12 +3,12 @@ title: Ograniczanie dostępu przy użyciu punktu końcowego usługi
 description: Ograniczanie dostępu do usługi Azure Container Registry przy użyciu punktu końcowego usług w sieci wirtualnej platformy Azure. Dostęp do punktu końcowego usługi jest funkcją warstwy Premium usługi.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93026228"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773899"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 
@@ -26,7 +26,6 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 * Przyszłe Tworzenie punktów końcowych usługi dla Azure Container Registry nie jest obecnie planowane. Zalecamy używanie [prywatnych punktów końcowych](container-registry-private-link.md) .
 * Nie można użyć Azure Portal w celu skonfigurowania punktów końcowych usługi w rejestrze.
 * Tylko klaster [usługi Azure Kubernetes](../aks/intro-kubernetes.md) lub [maszyna wirtualna](../virtual-machines/linux/overview.md) platformy Azure może być używany jako host do uzyskiwania dostępu do rejestru kontenerów za pomocą punktu końcowego usługi. *Inne usługi platformy Azure, w tym Azure Container Instances nie są obsługiwane.*
-* Każdy rejestr obsługuje maksymalnie 100 reguł dostępu do sieci.
 * Punkty końcowe usługi dla Azure Container Registry nie są obsługiwane w chmurze platformy Azure dla instytucji rządowych lub platformy Azure w Chinach.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]

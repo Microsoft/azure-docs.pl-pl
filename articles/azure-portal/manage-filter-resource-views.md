@@ -2,13 +2,13 @@
 title: Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 description: Filtruj informacje i korzystaj z różnych widoków, aby lepiej zrozumieć zasoby platformy Azure.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738637"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771638"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 
@@ -48,7 +48,7 @@ Aby usunąć widok:
 
 1. Wybierz pozycję **Zarządzaj widok** , a następnie **Przeglądaj wszystkie widoki**.
 
-1. W **zapisywanych widokach okienka "wszystkie zasoby"** wybierz widok, a następnie wybierz  ikonę Usuń ![ Widok usuń ikonę ](media/manage-filter-resource-views/icon-delete.png) .
+1. W okienku **zapisane widoki** wybierz widok, a następnie wybierz ikonę **Usuń** Wyświetl ikonę ![ ](media/manage-filter-resource-views/icon-delete.png) .
 
 ## <a name="export-information-from-a-view"></a>Eksportuj informacje z widoku
 
@@ -64,7 +64,7 @@ Podczas poruszania się po portalu zobaczysz inne obszary, w których można eks
 
 ## <a name="summarize-resources-with-visuals"></a>Podsumowywanie zasobów za pomocą wizualizacji
 
-Oglądane przez nas widoki zostały uwzględnione w _widokach listy_, ale istnieją również _widoki podsumowania_ zawierające wizualizacje. Możesz zapisywać i korzystać z tych widoków tak samo jak w przypadku widoków listy. Filtry są utrwalane między dwoma typami widoków. Istnieją Standardowe widoki, takie jak widok **lokalizacji** przedstawiony poniżej, a także widoki, które są istotne dla określonych usług, takich jak widok **stanu** usługi Azure Storage.
+Oglądane przez nas widoki zostały uwzględnione w _widokach listy_, ale istnieją również _widoki podsumowania_ zawierające wizualizacje. Możesz zapisywać te widoki i używać ich w taki sam sposób, jak w przypadku widoków listy. Filtry są utrwalane między dwoma typami widoków. Istnieją Standardowe widoki, takie jak widok **lokalizacji** przedstawiony poniżej, a także widoki, które są istotne dla określonych usług, takich jak widok **stanu** usługi Azure Storage.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Podsumowanie zasobów w widoku mapy":::
 

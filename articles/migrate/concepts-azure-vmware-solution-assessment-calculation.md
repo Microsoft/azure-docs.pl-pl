@@ -6,18 +6,18 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: b3975d30fca1f7f542f27742ef8408b1feecc146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1d9918786b22faddaeb07a12f0840b36a11ffe4d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101727196"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778385"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Przegląd oceny (Migrowanie do rozwiązania Azure VMware)
 
 [Azure Migrate](migrate-services-overview.md) udostępnia centralne centrum do śledzenia odnajdywania, oceny i migracji lokalnych aplikacji i obciążeń. Śledzi również wystąpienia chmury prywatnej i publicznej na platformie Azure. Centrum oferuje Azure Migrate narzędzia do oceny i migracji, a także oferty niezależnych dostawców oprogramowania (ISV) innych firm.
 
-Ocena serwera to narzędzie w Azure Migrate, które ocenia serwery lokalne na potrzeby migracji do maszyn wirtualnych platformy Azure IaaS i rozwiązania Azure VMware (Automatyczna synchronizacja). W tym artykule znajdują się informacje o sposobie obliczania ocen rozwiązania Azure VMware (Automatyczna synchronizacja).
+Narzędzie do odnajdywania i oceny w Azure Migrate ocenia serwery lokalne pod kątem migracji do usługi Azure Virtual Machines i Azure VMware Solution (Automatyczna synchronizacja). W tym artykule znajdują się informacje o sposobie obliczania ocen rozwiązania Azure VMware (Automatyczna synchronizacja).
 
 > [!NOTE]
 > Ocenę rozwiązań VMware (Automatyczna synchronizacja) można utworzyć tylko dla maszyn wirtualnych VMware.
@@ -26,10 +26,11 @@ Ocena serwera to narzędzie w Azure Migrate, które ocenia serwery lokalne na po
 
 Oceny tworzone za pomocą Azure Migrate to migawka danych w danym momencie. Istnieją dwa typy ocen, które można utworzyć przy użyciu Azure Migrate:
 
-| **Typ oceny** | **Szczegóły** |
-| - | - |
-| **Maszyna wirtualna platformy Azure** | Oceny umożliwiające migrację serwerów lokalnych do maszyn wirtualnych platformy Azure. Można ocenić serwery lokalne działające w środowisku[VMware](how-to-set-up-appliance-vmware.md) lub [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md) oraz [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-assessment-calculation.md) |
-| **Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające Migrowanie lokalnych maszyn wirtualnych VMware lub serwerów do[ rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md).  Możesz ocenić serwery lokalne działające w środowisku [VMware](how-to-set-up-appliance-vmware.md) , aby przeprowadzić migrację do rozwiązania Azure VMware (Automatyczna synchronizacja) przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md) |
+**Typ oceny** | **Szczegóły**
+--- | --- 
+**Maszyna wirtualna platformy Azure** | Oceny umożliwiające migrację serwerów lokalnych do maszyn wirtualnych platformy Azure. Można ocenić serwery lokalne w środowisku [VMware](how-to-set-up-appliance-vmware.md) i [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md) oraz [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji do maszyn wirtualnych platformy Azure przy użyciu tego typu oceny.
+**Azure SQL** | Ocenianie migracji lokalnych serwerów SQL ze środowiska VMware do Azure SQL Database lub wystąpienia zarządzanego Azure SQL.
+**Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające migrację serwerów lokalnych do usługi [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) oferuje dwie opcje kryteriów ustalania rozmiarów:
 
@@ -42,18 +43,18 @@ Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) oferuje dwie opcje
 
 Istnieje kilka sposobów na przeprowadzenie oceny.
 
-- Ocenianie maszyn przy użyciu metadanych serwera zbieranych przez uproszczone urządzenie Azure Migrate. Urządzenie umożliwia odnalezienie maszyn lokalnych. Następnie wysyła metadane maszyn i dane wydajności do Azure Migrate. Pozwala to na większą precyzję.
-- Ocenianie maszyn przy użyciu metadanych serwera zaimportowanych w formacie wartości rozdzielanych przecinkami (CSV).
+- Oceniaj serwery za pomocą metadanych serwera zbieranych przez uproszczone urządzenie Azure Migrate. Urządzenie odnajduje serwery lokalne. Następnie wysyła metadane serwera i dane wydajności do Azure Migrate. Pozwala to na większą precyzję.
+- Ocenianie serwerów za pomocą metadanych serwera zaimportowanych w formacie wartości rozdzielanych przecinkami (CSV).
 
 ## <a name="how-do-i-assess-with-the-appliance"></a>Jak mogę oceniać z urządzeniem?
 
 Jeśli wdrażasz urządzenie Azure Migrate w celu odnajdywania serwerów lokalnych, wykonaj następujące czynności:
 
 1. Skonfiguruj platformę Azure i środowisko lokalne do pracy z Azure Migrate.
-2. W pierwszej ocenie Utwórz projekt platformy Azure i Dodaj do niego narzędzie do oceny serwera.
-3. Wdróż uproszczone urządzenie Azure Migrate. Urządzenie nieustannie odnajduje maszyny lokalne i wysyła metadane maszyn i dane wydajności do Azure Migrate. Wdróż urządzenie jako maszynę wirtualną. Nie musisz instalować żadnych elementów na maszynach, które chcesz ocenić.
+2. W pierwszej ocenie Utwórz projekt platformy Azure i Dodaj do niego narzędzie do odnajdywania i oceny.
+3. Wdróż uproszczone urządzenie Azure Migrate. Urządzenie stale odnajduje serwery lokalne i wysyła metadane serwera i dane wydajności do Azure Migrate. Wdróż urządzenie jako maszynę wirtualną. Nie musisz instalować żadnych elementów na serwerach, które chcesz ocenić.
 
-Po rozpoczęciu odnajdywania urządzenia przez urządzenie można zbierać maszyny do oceny w grupie i uruchamiać ocenę dla grupy z typem oceny **rozwiązanie Azure VMware (Automatyczna synchronizacja)**.
+Po rozpoczęciu odnajdywania przez urządzenie można zbierać serwery, które chcesz ocenić do grupy, i uruchomić ocenę dla grupy z typem oceny **rozwiązanie Azure VMware (Automatyczna synchronizacja)**.
 
 Utwórz pierwszą ocenę rozwiązania Azure VMware (Automatyczna synchronizacja), wykonując kroki opisane [tutaj](how-to-create-azure-vmware-solution-assessment.md).
 
@@ -62,7 +63,7 @@ Utwórz pierwszą ocenę rozwiązania Azure VMware (Automatyczna synchronizacja)
 Jeśli oceniasz serwery przy użyciu pliku CSV, nie potrzebujesz urządzenia. Zamiast tego wykonaj następujące czynności:
 
 1. Skonfiguruj platformę Azure do pracy z Azure Migrate.
-2. W pierwszej ocenie Utwórz projekt platformy Azure i Dodaj do niego narzędzie do oceny serwera.
+2. W pierwszej ocenie Utwórz projekt platformy Azure i Dodaj do niego narzędzie do odnajdywania i oceny.
 3. Pobierz szablon CSV i Dodaj do niego dane serwera.
 4. Zaimportuj szablon do Azure Migrate.
 5. Odnajdź serwery dodane podczas importowania, Zbierz je do grupy i uruchom ocenę dla grupy z typem oceny **rozwiązanie Azure VMware (Automatyczna synchronizacja)**.
@@ -97,7 +98,7 @@ Następujące dane dotyczące wydajności są zbierane, ale nie są używane w z
 
 ## <a name="how-are-avs-assessments-calculated"></a>Jak są obliczane oceny automatycznej synchronizacji?
 
-Ocena automatycznej synchronizacji używa danych o metadanych i wydajności maszyn lokalnych w celu obliczenia ocen. W przypadku wdrożenia urządzenia Azure Migrate oceny używa danych zbieranych przez urządzenie. Jednak w przypadku uruchomienia oceny zaimportowanej przy użyciu pliku CSV należy podać metadane dla obliczenia.
+Ocena automatycznej synchronizacji używa danych o metadanych i wydajności serwerów lokalnych w celu obliczenia ocen. W przypadku wdrożenia urządzenia Azure Migrate oceny używa danych zbieranych przez urządzenie. Jednak w przypadku uruchomienia oceny zaimportowanej przy użyciu pliku CSV należy podać metadane dla obliczenia.
 
 Obliczenia odbywają się w tych trzech etapach:
 
@@ -105,7 +106,7 @@ Obliczenia odbywają się w tych trzech etapach:
 2. **Oblicz liczbę węzłów synchronizacji i użycia między węzłami**: Szacowana liczba węzłów synchronizacji wymaganych do uruchamiania maszyn wirtualnych VMware oraz przewidywany procesor CPU, pamięć i wykorzystanie magazynu we wszystkich węzłach.
 3. **Oszacowanie kosztów miesięcznych**: szacowane miesięczne koszty wszystkich węzłów platformy Azure VMware (Automatyczna synchronizacja) z uruchomionymi lokalnymi maszynami wirtualnymi.
 
-Obliczenia są zgodne z poprzednią kolejnością. Serwer maszynowy przechodzi do późniejszego etapu tylko wtedy, gdy przekaże poprzednią. Jeśli na przykład serwer ulegnie awarii na etapie gotowości do automatycznej synchronizacji, zostanie oznaczony jako nieodpowiedni dla platformy Azure. Ustalanie wielkości i obliczeń kosztów nie jest wykonywane dla tego serwera
+Obliczenia są zgodne z poprzednią kolejnością. Serwer przechodzi do późniejszego etapu tylko wtedy, gdy przekaże poprzednią. Jeśli na przykład serwer ulegnie awarii na etapie gotowości do automatycznej synchronizacji, zostanie oznaczony jako nieodpowiedni dla platformy Azure. Ustalanie wielkości i obliczeń kosztów nie jest wykonywane dla tego serwera
 
 ## <a name="whats-in-an-azure-vmware-solution-avs-assessment"></a>Co to jest ocena rozwiązania Azure VMware (Automatyczna synchronizacja)?
 
@@ -119,9 +120,9 @@ Oto nowości zawarta w ocenie automatycznej synchronizacji:
 | **Typ węzła** | Określa [Typ węzła do automatycznej synchronizacji](../azure-vmware/concepts-private-clouds-clusters.md) używany do użycia na platformie Azure. Domyślny typ węzła to AV36. Więcej typów węzłów może być dostępnych w przyszłości.  Azure Migrate będzie wymagała wymaganej liczby węzłów do migracji maszyn wirtualnych do automatycznej synchronizacji. |
 | **Ustawienie FTT, poziom RAID** | Określa prawidłową kombinację niepowodzeń dla kombinacji wartości dopuszczalnych i RAID. W przypadku wybrania opcji FTT połączonej z poziomem RAID i wymagania dotyczące lokalnego dysku maszyny wirtualnej zostaną określone łączne magazyny sieci vSAN wymagane w ramach automatycznej synchronizacji. Łączny dostępny magazyn po obliczeniach obejmuje również miejsce zarezerwowane dla obiektów zarządzania, takich jak vCenter i b) 25% zapasu magazynu wymaganego dla operacji sieci vSAN. |
 | **Kryterium ustalania wielkości** | Ustawia kryteria do użycia w celu określenia pamięci, wymagania dotyczące procesora i magazynu dla węzłów automatycznej synchronizacji. Możesz wybrać opcję ustalania rozmiarów na *podstawie wydajności* lub *jako lokalne* , bez uwzględniania historii wydajności. Aby po prostu podnieść i przesunąć wybór jako lokalny. Aby uzyskać dostęp oparty na użyciu, wybierz pozycję wydajność na podstawie. |
-| **Historia wydajności** | Określa czas, jaki należy wziąć pod uwagę podczas oceniania danych wydajności maszyn. Ta właściwość ma zastosowanie tylko wtedy, gdy kryterium ustalania wielkości jest *oparte na wydajności*. |
+| **Historia wydajności** | Określa czas, jaki należy wziąć pod uwagę podczas oceniania danych wydajności serwerów. Ta właściwość ma zastosowanie tylko wtedy, gdy kryterium ustalania wielkości jest *oparte na wydajności*. |
 | **Użycie percentyla** | Określa wartość percentylości zestawu próbek wydajności, który ma być brany pod uwagę w przypadku zmiany wielkości liter. Ta właściwość ma zastosowanie tylko wtedy, gdy rozmiar jest oparty na wydajności. |
-| **Współczynnik komfortu** | Podczas oceny usługa Azure Migrate uwzględnia bufor (współczynnik komfortu). Ten bufor jest stosowany na podstawie danych użycia maszyny dla maszyn wirtualnych (procesor CPU, pamięć i dysk). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości. Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2 daje 4-rdzeniową maszynę wirtualną. |
+| **Współczynnik komfortu** | Podczas oceny usługa Azure Migrate uwzględnia bufor (współczynnik komfortu). Ten bufor jest stosowany na podstawie danych użycia serwera dla maszyn wirtualnych (procesor CPU, pamięć i dysk). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości. Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2 daje 4-rdzeniową maszynę wirtualną. |
 | **Oferta** | Wyświetla [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , która jest zarejestrowana. Zgodnie z tym usługa Azure Migrate odpowiednio szacuje koszty. |
 | **Waluta** | Przedstawia walutę rozliczeń dla Twojego konta. |
 | **Rabat (%)** | Wyświetla rabat związany z subskrypcją, który otrzymujesz w górnej części oferty platformy Azure. Ustawienie domyślne to 0%. |
@@ -132,39 +133,39 @@ Oto nowości zawarta w ocenie automatycznej synchronizacji:
 
 ## <a name="azure-vmware-solution-avs-suitability-analysis"></a>Analiza przydatności rozwiązań VMware na platformie Azure (Automatyczna synchronizacja)
 
-Ocena wersji zapoznaj się z oceną poszczególnych lokalnych maszyn wirtualnych w celu zapewnienia jej przydatności do automatycznej synchronizacji, przeglądając właściwości maszyny. Przypisuje także każdej ocenianej maszynie do jednej z następujących kategorii przydatności:
+Ocena wersji zapoznaj się z oceną poszczególnych lokalnych maszyn wirtualnych w celu zapewnienia jej przydatności do automatycznej synchronizacji, przeglądając właściwości serwera. Dodatkowo przypisuje każdy oceniony serwer do jednej z następujących kategorii przydatności:
 
-- **Gotowe do automatycznej synchronizacji**: maszynę można migrować na platformę Azure (Automatyczna synchronizacja) bez wprowadzania żadnych zmian. Rozpocznie się to za pomocą automatycznej synchronizacji z pełną obsługą wersji zaautomatycznej.
+- **Gotowe do automatycznej synchronizacji**: serwer można migrować na platformę Azure (Automatyczna synchronizacja) bez wprowadzania żadnych zmian. Rozpocznie się to za pomocą automatycznej synchronizacji z pełną obsługą wersji zaautomatycznej.
 - **Gotowe z warunkami**: maszyna wirtualna może mieć problemy ze zgodnością z bieżącą wersją vSphere, a także wymaganie narzędzi VMware i innych ustawień, zanim będzie można uzyskać pełną funkcjonalność z maszyny wirtualnej w ramach automatycznej synchronizacji.
 - **Nie jest gotowe do automatycznej synchronizacji**: maszyna wirtualna nie będzie uruchamiana w wersji zaautomatycznej. Jeśli na przykład lokalna maszyna wirtualna VMware ma dołączone urządzenie zewnętrzne, takie jak dysk CD-ROM, operacja VMware VMotion zakończy się niepowodzeniem (w przypadku używania VMware VMotion).
-- **Nieznane gotowość**: Azure Migrate nie mógł ustalić gotowości maszyny z powodu niewystarczających metadanych zebranych ze środowiska lokalnego.
+- **Nieznane gotowość**: Azure Migrate nie mógł ustalić gotowości serwera z powodu niewystarczających metadanych zebranych ze środowiska lokalnego.
 
-Ocenia przegląd właściwości maszyny w celu określenia gotowości platformy Azure na maszynę lokalną.
+Ocena przegląduje właściwości serwera w celu określenia gotowości platformy Azure na serwerze lokalnym.
 
-### <a name="machine-properties"></a>Właściwości maszyny
+### <a name="server-properties"></a>Właściwości serwera
 
 Ocena ocenia poniższą Właściwość lokalnej maszyny wirtualnej w celu ustalenia, czy może ona być uruchamiana w rozwiązaniu Azure VMware (Automatyczna synchronizacja).
 
 | **Właściwość** | **Szczegóły** | **Stan gotowości do automatycznej synchronizacji** |
 | - | - | - |
-| **Protokół internetowy** | Na platformie Azure obecnie nie jest obsługiwane adresowanie internetowe protokołu IPv6. Aby uzyskać wskazówki dotyczące rozwiązywania problemów w razie wykrycia protokołu IPv6 na maszynie, skontaktuj się z lokalnym zespołem MSFT AVS GBB. | Protokół internetowy gotowości warunkowej |
+| **Protokół internetowy** | Na platformie Azure obecnie nie jest obsługiwane adresowanie internetowe protokołu IPv6. Aby uzyskać wskazówki dotyczące rozwiązywania problemów, w przypadku wykrycia serwera przy użyciu protokołu IPv6 skontaktuj się z lokalnym zespołem GBB. | Protokół internetowy gotowości warunkowej |
 
 ### <a name="guest-operating-system"></a>System operacyjny gościa
 
 Obecnie oceny automatycznej synchronizacji nie sprawdzają systemu operacyjnego w ramach analizy gotowości. Wszystkie systemy operacyjne uruchomione na lokalnych maszynach wirtualnych mogą być uruchamiane na platformie Azure VMware (Automatyczna synchronizacja).
 
-Wraz z właściwościami maszyny wirtualnej Ocena jest sprawdzana w systemie operacyjnym gościa maszyn, aby określić, czy można je uruchomić na platformie Azure.
+Wraz z właściwościami maszyny wirtualnej Ocena jest sprawdzana w systemie operacyjnym gościa serwerów, aby określić, czy można uruchamiać ją na platformie Azure.
 
 ## <a name="sizing"></a>Ustalanie rozmiaru
 
-Gdy maszyna zostanie oznaczona jako gotowa do automatycznej synchronizacji, Ocena wersji zapoznaj się z zaleceniami dotyczącymi rozmiarów węzłów, które obejmują identyfikowanie odpowiednich wymagań lokalnych maszyn wirtualnych i znalezienie łącznej liczby wymaganych węzłów synchronizacji. Zalecenia te różnią się w zależności od określonych właściwości oceny.
+Gdy serwer zostanie oznaczony jako gotowy do automatycznej synchronizacji, Ocena wersji zapoznaj się z zaleceniami dotyczącymi rozmiarów węzłów, które obejmują identyfikowanie odpowiednich wymagań lokalnych maszyn wirtualnych i znalezienie łącznej liczby wymaganych węzłów synchronizacji. Zalecenia te różnią się w zależności od określonych właściwości oceny.
 
-- Jeśli Ocena korzysta z *ustalania wielkości na podstawie wydajności*, Azure Migrate traktuje historię wydajności maszyny, aby wprowadzić odpowiednie zalecenia dotyczące zmiany wielkości dla automatycznej synchronizacji. Ta metoda jest szczególnie przydatna, jeśli masz nadmiernie przydzieloną lokalną maszynę wirtualną, ale wykorzystanie jest niskie i chcesz uzyskać informacje o odpowiednim rozmiarze maszyny wirtualnej w celu zaoszczędzenia kosztów. Ta metoda pomoże zoptymalizować rozmiary podczas migracji.
-- Jeśli nie chcesz uwzględniać danych wydajności dla zmiany rozmiarów maszyn wirtualnych i chcesz przełączyć maszyny lokalne w taki sposób, aby była automatyczna synchronizacja, możesz ustawić kryteria ustalania wielkości na * jako lokalne *. Następnie Ocena zmieni rozmiar maszyn wirtualnych w oparciu o konfigurację lokalną, bez uwzględniania danych użycia.
+- Jeśli Ocena korzysta z *ustalania wielkości na podstawie wydajności*, Azure Migrate traktuje historię wydajności serwera, aby uzyskać odpowiednie zalecenia dotyczące zmiany wielkości dla automatycznej synchronizacji. Ta metoda jest szczególnie przydatna, jeśli masz nadmiernie przydzieloną lokalną maszynę wirtualną, ale wykorzystanie jest niskie i chcesz uzyskać informacje o odpowiednim rozmiarze maszyny wirtualnej w celu zaoszczędzenia kosztów. Ta metoda pomoże zoptymalizować rozmiary podczas migracji.
+- Jeśli nie chcesz uwzględniać danych wydajności dotyczących rozmiarów maszyn wirtualnych i chcesz przełączyć serwery lokalne w taki sposób, aby była automatyczna synchronizacja, możesz ustawić kryteria ustalania wielkości na * jako lokalne *. Następnie Ocena zmieni rozmiar maszyn wirtualnych w oparciu o konfigurację lokalną, bez uwzględniania danych użycia.
 
 ### <a name="ftt-sizing-parameters"></a>Parametry zmiany wielkości FTT
 
-Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-Raid:
+Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla serwerów. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-Raid:
 
 | **Tolerowana liczba niepowodzeń** | **Konfiguracja RAID** | **Minimalna wymagana liczba hostów** | **Uwagi dotyczące rozmiaru** |
 | - | - | - | - |
@@ -254,7 +255,7 @@ W zależności od wartości procentowej dostępnych punktów danych Ocena zaufan
 
 Poniżej przedstawiono kilka powodów, dla których ocena może uzyskać klasyfikację o niskiej pewności:
 
-- Twoje środowisko nie było profilem przez czas, w którym tworzysz ocenę. Jeśli na przykład zostanie utworzona Ocena z czasem trwania wydajności ustawionym na jeden dzień, należy poczekać co najmniej dzień po rozpoczęciu odnajdywania dla wszystkich punktów danych do zebrania.
+- Środowisko nie było profilowane w okresie, dla którego tworzysz ocenę. Jeśli na przykład zostanie utworzona Ocena z czasem trwania wydajności ustawionym na jeden dzień, należy poczekać co najmniej dzień po rozpoczęciu odnajdywania dla wszystkich punktów danych do zebrania.
 - Ocena nie jest w stanie zebrać danych wydajności dla niektórych lub wszystkich maszyn wirtualnych w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że:
 
   - Maszyny wirtualne są zasilane na czas trwania oceny
@@ -281,8 +282,8 @@ Zgodnie z cennikiem rozwiązania Azure VMware (Automatyczna synchronizacja) na w
 
 W raporcie dotyczącym gotowości oceny usługi Azure VMware Solution (AVS) można zobaczyć następujące sugerowane narzędzia:
 
-- **VMware HCX lub Enterprise**: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMware (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](../azure-vmware/tutorial-deploy-vmware-hcx.md).
-- **Nieznane**: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się użycie rozwiązania hybrydowego chmury VMware (HCX).
+- **VMware HCX lub Enterprise**: w przypadku serwerów VMware, rozwiązanie hybrydowe chmury VMware (HCX) to sugerowane narzędzie do migracji w celu migrowania obciążenia lokalnego do chmury prywatnej Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **Nieznane**: w przypadku serwerów zaimportowanych za pośrednictwem pliku CSV, domyślne narzędzie migracji jest nieznane. W przypadku serwerów VMware zaleca się użycie rozwiązania VMware hybryd Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Następne kroki
 

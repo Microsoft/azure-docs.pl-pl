@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 13044b8f087b403f83516a32a490d2dee8db700f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 989535d0bd6f514e63c7cea9e5fd71912f8fb08b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054786"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780161"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importowanie aktualizacji do aktualizacji urządzeń dla IoT Hub-Schema i innych informacji
 Aby zaimportować aktualizację do usługi IoT Hub, należy zapoznać się z [pojęciami](import-concepts.md) i pierwszym [przewodnikiem](import-update.md) . Jeśli interesujesz się szczegółowymi informacjami o schemacie używanym podczas konstruowania manifestu importu, a także informacjami o powiązanych obiektach, zobacz poniżej.
@@ -22,8 +22,8 @@ Aby zaimportować aktualizację do usługi IoT Hub, należy zapoznać się z [po
 | --------- | --------- | --------- | --------- |
 | UpdateId | `UpdateId` Stream | Aktualizowanie tożsamości. |
 | Typ aktualizacji | ciąg | Typ aktualizacji: <br/><br/> * Określ `microsoft/apt:1` , kiedy ma być wykonywana Aktualizacja oparta na pakiecie przy użyciu agenta odwołań.<br/> * Określ `microsoft/swupdate:1` podczas przeprowadzania aktualizacji opartej na obrazie przy użyciu agenta odwołań.<br/> * Określ, kiedy ma być `microsoft/simulator:1` używany przykładowy symulator agentów.<br/> * Określ typ niestandardowy w przypadku tworzenia niestandardowego agenta. | Format: <br/> `{provider}/{type}:{typeVersion}`<br/><br/> Łącznie z 32 znaków |
-| InstalledCriteria | ciąg | Ciąg interpretowany przez agenta w celu ustalenia, czy aktualizacja została zastosowana pomyślnie:  <br/> * Określ **wartość** SWVersion dla typu aktualizacji `microsoft/swupdate:1` .<br/> * Określ `{name}-{version}` dla typu aktualizacji `microsoft/apt:1` , która nazwa i wersja są uzyskiwane z pliku apt.<br/> * Określ skrót pliku aktualizacji dla typu aktualizacji `microsoft/simulator:1` .<br/> * Określ niestandardowy ciąg w przypadku tworzenia niestandardowego agenta.<br/> | Maksymalnie 64 znaków |
-| Zgodność | Tablica `CompatibilityInfo` obiektów | Informacje o zgodności urządzenia zgodne z tą aktualizacją. | Maksymalnie 10 elementów |
+| InstalledCriteria | ciąg | Ciąg interpretowany przez agenta w celu ustalenia, czy aktualizacja została zastosowana pomyślnie:  <br/> * Określ **wartość** SWVersion dla typu aktualizacji `microsoft/swupdate:1` .<br/> * Określ `{name}-{version}` dla typu aktualizacji `microsoft/apt:1` , która nazwa i wersja są uzyskiwane z pliku apt.<br/> * Określ niestandardowy ciąg w przypadku tworzenia niestandardowego agenta.<br/> | Maksymalnie 64 znaków |
+| Zgodność | Tablica `CompatibilityInfo` [obiektów](#compatibilityinfo-object) | Informacje o zgodności urządzenia zgodne z tą aktualizacją. | Maksymalnie 10 elementów |
 | CreatedDateTime | Data/godzina | Data i godzina utworzenia aktualizacji. | Rozdzielany format daty i godziny ISO 8601, w formacie UTC |
 | ManifestVersion | ciąg | Importuj wersję schematu manifestu. Określ `2.0` , która będzie zgodna z `urn:azureiot:AzureDeviceUpdateCore:1` interfejsem i `urn:azureiot:AzureDeviceUpdateCore:4` interfejsem. | Musi być `2.0` |
 | Pliki | Tablica `File` obiektów | Aktualizowanie plików ładunku | Maksymalnie 5 plików |

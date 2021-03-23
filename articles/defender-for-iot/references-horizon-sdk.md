@@ -1,19 +1,14 @@
 ---
 title: Horizon SDK
-titleSuffix: Azure Defender for IoT
 description: Zestaw horyzont SDK umożliwia deweloperom platformy Azure Defender projektowanie wtyczek do desektorów, które dekodują ruch sieciowy, aby można było go przetwarzać przez zautomatyzowane usługi Defender dla programów do analizy sieci IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523366"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782490"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Odsektora bezwłasnościowego protokołu
 
@@ -1624,7 +1619,7 @@ Okno **Przegląd** konsoli horyzontu zawiera informacje o dodatku, który zosta�
 | :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="Przełącznik włączony i wyłączony."::: | Włącz **lub** **Wyłącz** wtyczkę. Usługa Defender for IoT nie będzie obsługiwać ruchu protokołu zdefiniowanego w dodatku plug-in po przełączeniu wtyczki. |
 | Godzina | Godzina ostatniej analizy danych. Zaktualizowano co 5 sekund. |
 | PPS | Liczba pakietów na sekundę. |
-| Szerokość pasma | Średnia przepustowość wykryta w ciągu ostatnich 5 sekund. |
+| Przepustowość | Średnia przepustowość wykryta w ciągu ostatnich 5 sekund. |
 | Źle sformułowane | Nieprawidłowo sformułowane walidacje są używane po pozytywnym sprawdzeniu protokołu. W przypadku niepowodzenia przetwarzania pakietów na podstawie protokołu zwracana jest odpowiedź na błąd.   <br><br>Ta kolumna wskazuje liczbę wadliwych błędów w ciągu ostatnich 5 sekund. Aby uzyskać więcej informacji, zobacz [nieprawidłowo sformułowane walidacji kodu](#malformed-code-validations) , aby uzyskać szczegółowe informacje. |
 | Ostrzeżenia | Pakiety pasują do struktury i specyfikacji, ale występują nieoczekiwane zachowanie na podstawie konfiguracji ostrzegawczej wtyczki. |
 | błędy | Liczba pakietów, dla których nie powiodła się podstawowa Walidacja protokołów. Sprawdza, czy pakiet jest zgodny z definicjami protokołu. Liczba wyświetlana w tym miejscu wskazuje liczbę błędów wykrytych w ciągu ostatnich 5 sekund. Aby uzyskać więcej informacji, zobacz [Sanitye walidacji kodu](#sanity-code-validations) w celu uzyskania szczegółów. |

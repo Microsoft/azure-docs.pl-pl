@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102486662"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773049"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
 
@@ -20,7 +20,10 @@ ms.locfileid: "102486662"
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!NOTE]
-> Ogólnie rzecz biorąc, podczas tworzenia zasobu usługi poznawczej w Azure Portal można utworzyć klucz subskrypcji dla jednej usługi lub klucz subskrypcji jednousługowej. Jednak tłumaczenie dokumentów jest obecnie obsługiwane tylko w usłudze Translator (Single-Service) i **nie** jest uwzględniony w zasobie Cognitive Services (wiele usług).
+>
+> 1. Ogólnie rzecz biorąc, podczas tworzenia zasobu usługi poznawczej w Azure Portal można utworzyć klucz subskrypcji dla jednej usługi lub klucz subskrypcji jednousługowej. Jednak tłumaczenie dokumentów jest obecnie obsługiwane tylko w usłudze Translator (Single-Service) i **nie** jest uwzględniony w zasobie Cognitive Services (wiele usług).
+> 2. Tłumaczenie dokumentów jest obecnie dostępne w **standardowym planie usług S1**. _Zobacz_ [Cennik Cognitive Services — translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
 
 Aby rozpocząć, musisz:
 
@@ -29,8 +32,6 @@ Aby rozpocząć, musisz:
 * Zasób usługi [**translatora**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**nie** jest zasobem Cognitive Services).
 
 * [**Konto usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz tworzyć kontenery do przechowywania i organizowania danych obiektów BLOB na koncie magazynu.
-
-* [**Formularz tłumaczenie ukończonych dokumentów (wersja zapoznawcza)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) umożliwiający korzystanie z funkcji tłumaczenia nowych dokumentów na subskrypcję platformy Azure.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Pobierz niestandardową nazwę domeny i klucz subskrypcji
 
@@ -1259,7 +1260,7 @@ W poniższej tabeli wymieniono limity danych wysyłanych do tłumaczenia dokumen
 > [!NOTE]
 > Powyższe limity zawartości mogą ulec zmianie przed wydaniem publicznym.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Dokumentacja interfejsu API usługi Translator v3](../reference/v3-0-reference.md)
 * [Obsługa języków](../language-support.md)

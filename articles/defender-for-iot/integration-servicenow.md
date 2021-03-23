@@ -1,19 +1,14 @@
 ---
 title: Informacje o integracji usługi ServiceNow
-titleSuffix: Azure Defender for IoT
 description: Aplikacja do zarządzania usługą ICS dla usługi IoT usługi ServiceNow udostępnia analityków SOC, którzy mają wielowymiarowe wgląd w wyspecjalizowane protokoły i urządzenia IoT wdrożone w środowiskach przemysłowych, a także umożliwia szybkie wykrywanie podejrzanych lub nietypowych zachowań.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558729"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786009"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>Aplikacja do zarządzania usługą ICS dla usługi IoT usługi ServiceNow
 

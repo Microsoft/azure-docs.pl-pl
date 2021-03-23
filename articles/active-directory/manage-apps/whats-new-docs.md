@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601767"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775514"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
@@ -141,7 +141,6 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 
 ### <a name="new-articles"></a>Nowe artykuły
 - [Konfigurowanie logowania jednokrotnego opartego na języku SAML](configure-saml-single-sign-on.md)
-- [Korzystanie z usługi Azure AD dla aplikacji, które nie znajdują się na liście w galerii aplikacji](non-gallery-apps.md)
 - [Pobierz teraz aplikację z witryny Azure Marketplace](get-it-now-azure-marketplace.md)
 - [Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](add-application-portal-configure.md)
 - [Szybki Start: Konfigurowanie logowania jednokrotnego (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)

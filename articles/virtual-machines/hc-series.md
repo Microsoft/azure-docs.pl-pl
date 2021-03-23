@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6ec629629fc774ddb5423db91fe0d71a49305ca1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 43f8b6efd7c4cc510dac8fcbe84ab38f59008ed9
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566043"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773536"
 ---
 # <a name="hc-series"></a>Seria HC
 
@@ -29,14 +29,16 @@ Funkcja maszyn wirtualnych serii HC 100 GB/s Mellanox EDR InfiniBand. Te maszyny
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 [Przyspieszona sieć](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane ([Dowiedz się więcej](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) o wydajności i potencjalnych problemach)<br>
 [Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): obsługiwane <br>
-
 <br>
 
 | Rozmiar | Procesor wirtualny | Procesor | Pamięć (GiB) | Przepustowość pamięci GB/s | Podstawowa częstotliwość procesora CPU (GHz) | Częstotliwość wszystkich rdzeni (GHz, szczyt) | Częstotliwość jednordzeniowa (GHz, szczytowa) | Wydajność RDMA (GB/s) | Obsługa MPI | Magazyn tymczasowy (GiB) | Maks. liczba dysków danych | Maksymalna vNICs sieci Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Wszystko | 700 | 4 | 8 |
 
-Dowiedz się więcej o podstawowej [architekturze, topologii maszyny wirtualnej](./workloads/hpc/hc-series-overview.md) i oczekiwanej [wydajności](./workloads/hpc/hc-series-performance.md) maszyny wirtualnej z serii HC.
+Dowiedz się więcej na temat:
+- [Architektura i topologia maszyny wirtualnej](./workloads/hpc/hc-series-overview.md),
+- obsługiwany [stos oprogramowania](./workloads/hpc/hc-series-overview.md#software-specifications) , w tym obsługiwane systemy operacyjne, i
+- oczekiwana [wydajność](./workloads/hpc/hc-series-performance.md) maszyny wirtualnej z serii HC.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 
