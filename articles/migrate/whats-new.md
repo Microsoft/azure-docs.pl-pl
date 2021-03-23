@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614636"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786672"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
@@ -20,7 +20,7 @@ ms.locfileid: "102614636"
 
 ## <a name="update-march-2021"></a>Aktualizacja (marzec 2021)
 - Obsługa dostarczania wielu poświadczeń serwera na Azure Migrate urządzeniu w celu odnajdywania zainstalowanych aplikacji (spisu oprogramowania), analizy zależności bez wykorzystania agentów oraz odnajdywania wystąpień SQL Server i baz danych w środowisku programu VMware. [Dowiedz się więcej](tutorial-discover-vmware.md#provide-server-credentials)
-- Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. [Więcej informacji](concepts-azure-sql-assessment-calculation.md)<br/>Aby wypróbować tę funkcję, użyj [tego linku](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Aby rozpocząć pracę, zapoznaj się z samouczkami dotyczącymi [odnajdywania](tutorial-discover-vmware.md) i [oceny](tutorial-assess-sql.md).
+- Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. [Dowiedz się więcej](concepts-azure-sql-assessment-calculation.md) Aby rozpocząć, zapoznaj się z samouczkami [odnajdywania](tutorial-discover-vmware.md) i [oceny](tutorial-assess-sql.md) .
 - Migracja oprogramowania VMware bez agenta obsługuje teraz współbieżną replikację maszyn wirtualnych 500 na program vCenter.
 - Azure Migrate teraz automatycznie instaluje agenta maszyny wirtualnej platformy Azure na maszynach wirtualnych VMware podczas migrowania ich do platformy Azure przy użyciu metody bez agenta migracji VMware.
 

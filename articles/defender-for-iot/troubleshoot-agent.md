@@ -1,24 +1,14 @@
 ---
 title: Rozwiązywanie problemów z uruchamianiem agenta zabezpieczeń (Linux)
 description: Rozwiązywanie problemów z pracą z usługą Azure Defender for IoT Security Agents dla systemu Linux.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 7be6cf1df15d7afd7cb9447be68ff70ff7b14d03
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c9c36b822ab6acb9f9a48d4ba809ad32f6f4695
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449224"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782592"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Przewodnik rozwiązywania problemów z agentem zabezpieczeń (Linux)
 
@@ -91,19 +81,18 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 ```
 
 | Kod błędu | Kod podrzędny błędu | Szczegóły błędu | Koryguj C | Koryguj C # |
-|:-----------|:---------------|:--------|:------------|:------------|
-| Konfiguracja lokalna | Brakująca konfiguracja | Brak konfiguracji w lokalnym pliku konfiguracyjnym. Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do LocalConfiguration.js/var/w pliku, aby uzyskać szczegółowe informacje, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) .| Dodaj brakujący klucz do pliku General.config, aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
-| Konfiguracja lokalna | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie znajduje się w oczekiwanym typie lub wartość znajduje się poza zakresem. | Popraw wartość klucza w/var/LocalConfiguration.jsw pliku, aby był zgodny ze schematem LocalConfiguration, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) , aby uzyskać szczegółowe informacje. |  Popraw wartość klucza w pliku General.config, aby był zgodny ze schematem, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
-| Konfiguracja lokalna | Format pliku | Nie można przeanalizować pliku konfiguracji. | Plik konfiguracji jest uszkodzony, pobierz agenta i zainstaluj go ponownie. | |
-| Konfiguracja zdalna | Limit czasu | Agent nie może pobrać sznurka modułu azureiotsecurity w określonym limicie czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. | Agent nie może pobrać sznurka modułu azureiotsecurity w ramach limitu czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. |
-| Authentication | Plik nie istnieje | Plik w danej ścieżce nie istnieje. | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do **LocalConfiguration.jsw** pliku i Zmień konfigurację **ścieżki** . | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **Authentication.config** i Zmień konfigurację **ścieżki** .|
+|--|--|--|--|--|
+| Konfiguracja lokalna | Brakująca konfiguracja | Brak konfiguracji w lokalnym pliku konfiguracyjnym. Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do LocalConfiguration.js/var/w pliku, aby uzyskać szczegółowe informacje, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) . | Dodaj brakujący klucz do pliku General.config, aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
+| Konfiguracja lokalna | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie znajduje się w oczekiwanym typie lub wartość znajduje się poza zakresem. | Popraw wartość klucza w/var/LocalConfiguration.jsw pliku, aby był zgodny ze schematem LocalConfiguration, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) , aby uzyskać szczegółowe informacje. | Popraw wartość klucza w pliku General.config, aby był zgodny ze schematem, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje. |
+| Konfiguracja lokalna | Format pliku | Nie można przeanalizować pliku konfiguracji. | Plik konfiguracji jest uszkodzony, pobierz agenta i zainstaluj go ponownie. | - |
+| Konfiguracja zdalna | Limit czasu | Agent nie może pobrać sznurka modułu azureiotsecurity w określonym limicie czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. | Agent nie może pobrać sznurka modułu azureiotsecurity w ramach limitu czasu. Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. |
+| Authentication | Plik nie istnieje | Plik w danej ścieżce nie istnieje. | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do **LocalConfiguration.jsw** pliku i Zmień konfigurację **ścieżki** . | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **Authentication.config** i Zmień konfigurację **ścieżki** . |
 | Authentication | Uprawnienie do pliku | Agent nie ma wystarczających uprawnień, aby otworzyć plik. | Nadaj użytkownikowi **asciotagent** uprawnienia do odczytu pliku w danej ścieżce. | Upewnij się, że plik jest dostępny. |
 | Authentication | Format pliku | Dany plik ma nieprawidłowy format. | Upewnij się, że plik jest w poprawnym formacie. Obsługiwane typy plików to PFX i PEM. | Upewnij się, że plik jest prawidłowym plikiem certyfikatu. |
-| Authentication | Brak autoryzacji | Agent nie może uwierzytelnić się w odniesieniu do IoT Hub z podanym poświadczeniami. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku LocalConfiguration, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, i sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością. | Sprawdź poprawność konfiguracji uwierzytelniania w Authentication.config, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, a następnie sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością.
-| Authentication | Nie znaleziono | Znaleziono urządzenie/moduł. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |  Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |
-| Authentication | Brakująca konfiguracja | Brak konfiguracji w pliku *Authentication.config* . Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do *LocalConfiguration.js* pliku.| Dodaj brakujący klucz do pliku *Authentication.config* , aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
-| Authentication | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie jest oczekiwanego typu lub wartość znajduje się poza zakresem. |Popraw wartość klucza w **LocalConfiguration.js** pliku. |Popraw wartość klucza w pliku **Authentication.config** , aby dopasować schemat, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
-|
+| Authentication | Brak autoryzacji | Agent nie może uwierzytelnić się w odniesieniu do IoT Hub z podanym poświadczeniami. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku LocalConfiguration, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, i sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością. | Sprawdź poprawność konfiguracji uwierzytelniania w Authentication.config, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, a następnie sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością. |
+| Authentication | Nie znaleziono | Znaleziono urządzenie/moduł. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |
+| Authentication | Brakująca konfiguracja | Brak konfiguracji w pliku *Authentication.config* . Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do *LocalConfiguration.js* pliku. | Dodaj brakujący klucz do pliku *Authentication.config* , aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
+| Authentication | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie jest oczekiwanego typu lub wartość znajduje się poza zakresem. | Popraw wartość klucza w **LocalConfiguration.js** pliku. | Popraw wartość klucza w pliku **Authentication.config** , aby dopasować schemat, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
 
 ## <a name="next-steps"></a>Następne kroki
 

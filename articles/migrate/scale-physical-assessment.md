@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
-ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 232475c50ab56fe6fb7a39a3497a8de3947fe851
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96753692"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780314"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Ocenianie dużej liczby serwerów fizycznych na potrzeby migracji na platformę Azure
 
-W tym artykule opisano sposób oceny dużej liczby lokalnych serwerów fizycznych na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate.
+W tym artykule opisano sposób oceny dużej liczby lokalnych serwerów fizycznych na potrzeby migracji na platformę Azure przy użyciu narzędzia do odnajdywania i oceny Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
@@ -36,7 +36,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 Planując ocenę dużej liczby serwerów fizycznych, istnieje kilka rzeczy, które należy wziąć pod uwagę:
 
 - **Planowanie Azure Migrate projektów**: informacje na temat wdrażania projektów Azure Migrate. Na przykład jeśli centra danych znajdują się w różnych lokalizacje geograficzneach lub chcesz przechowywać metadane związane z odnajdywaniem, oceną lub migracją w innej lokalizacji geograficznej, może być konieczne przeprowadzenie wielu projektów.
-- **Planowanie urządzeń**: Azure Migrate używa lokalnego urządzenia Azure Migrate wdrożonego na komputerze z systemem Windows w celu ciągłego odnajdywania serwerów na potrzeby oceny i migracji. Urządzenie monitoruje zmiany środowiska, takie jak dodawanie maszyn wirtualnych, dysków lub kart sieciowych. Wysyła również metadane i dane dotyczące wydajności na platformie Azure. Należy ustalić liczbę urządzeń do wdrożenia.
+- **Planowanie urządzeń**: Azure Migrate używa lokalnego urządzenia Azure Migrate wdrożonego w systemie Windows Server w celu ciągłego odnajdywania serwerów na potrzeby oceny i migracji. Urządzenie monitoruje zmiany środowiska, takie jak Dodawanie serwerów, dysków lub kart sieciowych. Wysyła również metadane i dane dotyczące wydajności na platformie Azure. Należy ustalić liczbę urządzeń do wdrożenia.
 
 
 ## <a name="planning-limits"></a>Limity planowania
@@ -57,7 +57,7 @@ Użyj limitów podsumowania w tej tabeli w celu zaplanowania.
 
 ## <a name="prepare-for-assessment"></a>Przygotowanie do oceny
 
-Przygotuj platformę Azure i serwery fizyczne do oceny serwera. 
+Przygotuj platformę Azure i serwery fizyczne do wykrywania i oceny:  
 
 1. Sprawdź [wymagania i ograniczenia dotyczące obsługi serwera fizycznego](migrate-support-matrix-physical.md).
 2. Skonfiguruj uprawnienia dla Twojego konta platformy Azure, aby móc korzystać z Azure Migrate.
@@ -70,7 +70,7 @@ Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [t
 Zgodnie z wymaganiami dotyczącymi planowania wykonaj następujące czynności:
 
 1. Tworzenie projektu w usłudze Azure Migrate.
-2. Dodaj narzędzie do oceny serwera Azure Migrate do projektów.
+2. Dodaj Azure Migrate odnajdywania i oceny do projektów.
 
 [Dowiedz się więcej](./create-manage-projects.md)
 

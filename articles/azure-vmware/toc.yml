@@ -61,7 +61,7 @@
     - name: Obniżanie kosztów za pomocą wystąpienia zarezerwowanego
       href: reserved-instance.md
     - name: Ocena migracji
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+      href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
     - name: Zarządzanie protokołem DHCP
       href: manage-dhcp.md
     - name: Konfigurowanie składników sieci NSX
@@ -112,6 +112,8 @@
       items:
         - name: Rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych
           href: ecosystem-back-up-vms.md
+        - name: Rozwiązania migracji dla maszyn wirtualnych
+          href: ecosystem-migration-vms.md
 - name: Zasoby
   items:
     - name: Rozwiązywanie problemów

@@ -59,8 +59,6 @@
       items:
         - name: Wprowadzenie do integracji aplikacji
           href: plan-an-application-integration.md
-        - name: Planowanie pod kątem aplikacji spoza galerii
-          href: non-gallery-apps.md
         - name: Planowanie wdrożenia portalu Moje aplikacje
           href: my-apps-deployment-plan.md
     - name: Logowanie jednokrotne

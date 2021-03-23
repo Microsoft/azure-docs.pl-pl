@@ -13,17 +13,19 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ff61811e8b736f8f6d104a253cfe5dc5e76c428
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98600282"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771366"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.NET
-W tym artykule opisano sposób inicjowania publicznego klienta i poufnych aplikacji klienckich przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).  Aby dowiedzieć się więcej na temat typów aplikacji klienta i opcji konfiguracji aplikacji, zapoznaj się z [omówieniem](msal-client-applications.md).
+W tym artykule opisano sposób inicjowania publicznego klienta i poufnych aplikacji klienckich przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).  Aby dowiedzieć się więcej na temat typów aplikacji klienckich, zobacz [klienta publicznego i poufne aplikacje klienckie](msal-client-applications.md).
 
 W przypadku MSAL.NET 3. x zalecanym sposobem tworzenia wystąpienia aplikacji jest użycie konstruktorów aplikacji: `PublicClientApplicationBuilder` i `ConfidentialClientApplicationBuilder` . Oferują one zaawansowany mechanizm konfigurowania aplikacji zarówno z kodu, jak i pliku konfiguracji, a nawet przez mieszanie obu metod.
+
+[Dokumentacja](/dotnet/api/microsoft.identity.client)  |  interfejsu API [Pakiet w pakiecie NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/)  |  [Kod](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)  |  źródłowy biblioteki [Przykłady kodu](sample-v2-code.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed zainicjowaniem aplikacji należy najpierw [ją zarejestrować](quickstart-register-app.md) , aby można było zintegrować aplikację z platformą tożsamości firmy Microsoft.  Po zarejestrowaniu mogą być potrzebne następujące informacje (które można znaleźć w Azure Portal):

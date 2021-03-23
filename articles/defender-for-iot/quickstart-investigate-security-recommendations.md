@@ -1,24 +1,14 @@
 ---
 title: Zbadaj zalecenia dotyczące zabezpieczeń
 description: Sprawdź zalecenia dotyczące zabezpieczeń w usłudze Defender for IoT Security Service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: shhazam
-ms.openlocfilehash: 0e902db38e4145bf94ab6a235bc1210b520327a1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e7a9e8160c809fd53b681900b2283778b0023610
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99809188"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780977"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Szybki Start: Badanie zaleceń dotyczących zabezpieczeń
 

@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 03/19/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 8f84d77b5a424d5f7273c7e748c35c52882819c6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608397"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771094"
 ---
 # <a name="azure-customer-usage-attribution"></a>Przypisanie użycia klienta platformy Azure
 
@@ -30,7 +30,7 @@ Istnieją pomocnicze przypadki użycia dotyczące przypisywania użycia klienta 
 >[!IMPORTANT]
 >- Przypisanie użytkowania przez klienta nie jest przeznaczone do śledzenia pracy integratorów systemów, dostawców usług zarządzanych lub narzędzi przeznaczonych głównie do wdrażania zasobów platformy Azure i zarządzania nimi.
 >- Przypisanie użycia klienta dotyczy nowych wdrożeń i nie obsługuje śledzenia zasobów, które zostały już wdrożone.
->- Nie wszystkie usługi platformy Azure są zgodne z przyznanymi użyciem klientów. Usługi Azure Kubernetes Services (AKS) i VM Scale Sets mają znane problemy powodujące raportowanie użycia.
+>- Nie wszystkie usługi platformy Azure są zgodne z przyznanymi użyciem klientów. Usługi Azure Kubernetes Services (AKS), VM Scale Sets i Azure Batch mają znane problemy powodujące raportowanie użycia.
 
 ## <a name="commercial-marketplace-azure-apps"></a>Komercyjne aplikacje platformy Azure Marketplace
 

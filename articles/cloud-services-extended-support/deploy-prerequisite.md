@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d85aad16049dee6496cb1eaf9def5451625ab876
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472308"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773474"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Wymagania wstępne dotyczące wdrażania usługi Azure Cloud Services (obsługa rozszerzona)
 
@@ -86,6 +86,9 @@ Usuń stare ustawienia diagnostyki dla każdej roli w pliku konfiguracji usługi
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Wymagane aktualizacje pliku definicji usługi (. csdef)
 
+> [!NOTE]
+> Zmiany w pliku definicji usługi (. csdef) wymagają ponownego wygenerowania pliku pakietu (. cspkg). Skompiluj i ponownie utwórz pakiet. cspkg po wprowadzeniu następujących zmian w pliku. csdef w celu uzyskania najnowszych ustawień usługi w chmurze
+
 ### <a name="1-virtual-machine-sizes"></a>1) rozmiary maszyn wirtualnych
 Poniższe rozmiary są przestarzałe w Azure Resource Manager. Jeśli jednak chcesz kontynuować korzystanie z nich, zaktualizuj `vmsize` nazwę za pomocą skojarzonej konwencji nazewnictwa Azure Resource Manager.  
 
@@ -130,7 +133,7 @@ Wdrożenia, które używały starych wtyczek diagnostyki, wymagają ustawień us
 
 ## <a name="key-vault-creation"></a>Tworzenie Key Vault 
 
-Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołuje się do odcisków palców certyfikatu w pliku konfiguracji usługi. Należy również włączyć Key Vault dla odpowiednich uprawnień, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Magazyn kluczy można utworzyć w [Azure Portal](../key-vault/general/quick-create-portal.md) lub przy użyciu [programu PowerShell](../key-vault/general/quick-create-powershell.md). Magazyn kluczy musi być utworzony w tym samym regionie i w ramach subskrypcji co usługa w chmurze. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołuje się do odcisków palców certyfikatu w pliku konfiguracji usługi. Aby uzyskać dostęp do usługi "Azure Virtual Machines for Deployment" i "Azure Resource Manager for Template Deployment", należy również włączyć Key Vault "zasady dostępu" (w portalu), tak aby zasób Cloud Services (Extended Support) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Magazyn kluczy można utworzyć w [Azure Portal](../key-vault/general/quick-create-portal.md) lub przy użyciu [programu PowerShell](../key-vault/general/quick-create-powershell.md). Magazyn kluczy musi być utworzony w tym samym regionie i w ramach subskrypcji co usługa w chmurze. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Następne kroki 
 - Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona).

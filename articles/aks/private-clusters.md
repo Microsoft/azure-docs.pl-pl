@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 3/5/2021
-ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 21d839df04c868d2c21932f96a6b72a32b0404e5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556540"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771859"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -72,7 +72,7 @@ Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących pa
 
 - Wartość domyślna to "system". W przypadku pominięcia argumentu--Private-DNS-strefy AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
 - "Brak" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Wymaga to przeniesienia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu. 
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" wymaga utworzenia strefy Prywatna strefa DNS w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Do przechodzenia do przodu będzie potrzebny identyfikator zasobu tego Prywatna strefa DNS.  Ponadto potrzebna jest tożsamość lub jednostka usługi przypisana przez użytkownika z co najmniej `private dns zone contributor` rolą.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" wymaga utworzenia strefy Prywatna strefa DNS w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Do przechodzenia do przodu będzie potrzebny identyfikator zasobu tego Prywatna strefa DNS.  Ponadto potrzebna jest tożsamość lub jednostka usługi przypisana przez użytkownika z co najmniej `private dns zone contributor` `vnet contributor` rolą i.
 - "FQDN-subdomene" można użyć z "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" tylko w celu zapewnienia możliwości poddomeny `privatelink.<region>.azmk8s.io`
 
 ### <a name="prerequisites"></a>Wymagania wstępne

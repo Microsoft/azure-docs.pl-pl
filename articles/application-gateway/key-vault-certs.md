@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185941"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775746"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Zakończenie szyfrowania TLS z certyfikatami usługi Key Vault
 
@@ -47,10 +47,19 @@ Integracja Application Gateway z Key Vault wymaga procesu konfiguracji z trzema 
 
 1. **Konfigurowanie magazynu kluczy**
 
-   Następnie można zaimportować istniejący certyfikat lub utworzyć nowy w magazynie kluczy. Certyfikat będzie używany przez aplikacje uruchamiane za pomocą bramy aplikacji. W tym kroku można także użyć klucza tajnego magazynu kluczy, który jest przechowywany jako plik PFX o postaci mniejszej niż 64. Zalecamy używanie typu certyfikatu z powodu możliwości autoodnawiania, która jest dostępna z obiektami typu certyfikat w magazynie kluczy. Po utworzeniu certyfikatu lub wpisu tajnego należy zdefiniować zasady dostępu w magazynie kluczy, aby *umożliwić udzielenie tożsamości* dostępu do klucza tajnego.
+   Następnie można zaimportować istniejący certyfikat lub utworzyć nowy w magazynie kluczy. Certyfikat będzie używany przez aplikacje uruchamiane za pomocą bramy aplikacji. W tym kroku można również użyć Key Vault klucz tajny, który umożliwia przechowywanie plików PFX o formacie mniejszym niż 64. Zalecamy używanie typu "Certificate" z powodu możliwości autoodnawiania, która jest dostępna dla tego typu obiektów w Key Vault. Po utworzeniu certyfikatu lub wpisu tajnego należy zdefiniować zasady dostępu w Key Vault, aby zezwolić na uzyskanie dostępu do tożsamości.
    
    > [!IMPORTANT]
-   > Application Gateway obecnie wymaga Key Vault, aby zezwolić na dostęp ze wszystkich sieci w celu wykorzystania integracji. Nie obsługuje integracji Key Vault, gdy Key Vault jest ustawiona tak, aby zezwalała na prywatne punkty końcowe i wybierać dostęp do sieci. Obsługa prywatnych i wybranych sieci to w programie działa Pełna integracja Key Vault z Application Gateway. 
+   > Od 15 marca 2021 Key Vault rozpoznaje platformę Azure Application Gateway jako jedną z zaufanych usług, co pozwala na tworzenie bezpiecznej granicy sieci na platformie Azure. Dzięki temu można odmówić dostępu do ruchu ze wszystkich sieci (w tym ruchu internetowego) do Key Vault, ale nadal będzie on dostępny dla Application Gateway zasobów w ramach subskrypcji. 
+
+   > Application Gateway można skonfigurować w sieci Key Vault z ograniczeniami w następujący sposób. <br />
+   > a) w bloku sieć Key Vault <br />
+   > b) wybierz pozycję prywatny punkt końcowy i wybrane sieci w zakładce "Zapora i sieci wirtualne" <br/>
+   > c) następnie przy użyciu sieci wirtualnych Dodaj sieć wirtualną i podsieć Application Gateway. Podczas procesu Skonfiguruj również punkt końcowy usługi "Microsoft. datamagazyn", zaznaczając jego pole wyboru. <br/>
+   > d) na koniec wybierz pozycję "tak", aby umożliwić zaufanym usługom obejście zapory Key Vault. <br/>
+   > 
+   > ![Zapora Key Vault](media/key-vault-certs/key-vault-firewall.png)
+
 
    > [!NOTE]
    > W przypadku wdrożenia bramy aplikacji za pomocą szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell lub za pomocą aplikacji platformy Azure wdrożonej z Azure Portal certyfikat SSL jest przechowywany w magazynie kluczy jako plik PFX szyfrowany algorytmem Base64. Przed rozpoczęciem wdrażania należy wykonać kroki opisane w temacie [używanie Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). 

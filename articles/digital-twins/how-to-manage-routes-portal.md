@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715721"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779940"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -151,6 +151,9 @@ Można ograniczyć typy wysyłanych zdarzeń, definiując filtr bardziej specyfi
 Aby dodać filtr zdarzeń podczas tworzenia trasy zdarzeń, użyj sekcji _Dodawanie filtru trasy zdarzeń_ na stronie *Tworzenie trasy zdarzeń* . 
 
 Możesz wybrać jedną z podstawowych opcji standardowych filtrów lub użyć zaawansowanych opcji filtru, aby napisać własne filtry niestandardowe.
+
+>[!NOTE]
+> W filtrach jest **rozróżniana wielkość** liter i należy je dopasować do przypadku ładunku (co może nie być zgodne z wielkością liter w modelu).
 
 #### <a name="use-the-basic-filters"></a>Korzystanie z filtrów podstawowych
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a3b7d4f60877d1301f03aa4f015695a6a4639be
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580712"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772556"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
@@ -56,7 +56,7 @@ Użytkownikom z określonymi wymaganiami dotyczącymi zadań może być konieczn
 
 - Praca z usługą elementy PlayBook w celu zautomatyzowania odpowiedzi na zagrożenia
 
-    Wskaźnik platformy Azure używa **elementy PlayBook** do automatycznej reakcji na zagrożenia. Elementy PlayBook są oparte na **Azure Logic Apps** i są osobnym zasobem platformy Azure. Można przypisać do określonych członków zespołu ds. operacji zabezpieczeń, który może używać Logic Apps do operacji aranżacji zabezpieczeń, automatyzacji i odpowiedzi (o). Rola [współautor aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) lub rola [operatora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-operator) służy do przypisywania jawnego uprawnienia do korzystania z elementy PlayBook.
+    Wskaźnik platformy Azure używa **elementy PlayBook** do automatycznej reakcji na zagrożenia. Elementy PlayBook są oparte na **Azure Logic Apps** i są osobnym zasobem platformy Azure. Można przypisać do określonych członków zespołu ds. operacji zabezpieczeń, który może używać Logic Apps do operacji aranżacji zabezpieczeń, automatyzacji i odpowiedzi (o). Rola [współautor aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) służy do przypisywania jawnego uprawnienia do korzystania z elementy PlayBook.
 
 - Łączenie źródeł danych z platformą Azure — wskaźnikiem
 

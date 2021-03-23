@@ -1,18 +1,14 @@
 ---
 title: Identyfikowanie wymaganych urządzeń
 description: Informacje o urządzeniach sprzętowych i wirtualnych certyfikowanych usługi Defender for IoT i lokalnej konsoli zarządzania.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 242e88e92d6197fd018c56fa55a4dd8166f5d027
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149306"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782762"
 ---
 # <a name="identify-required-appliances"></a>Identyfikowanie wymaganych urządzeń
 
@@ -272,27 +268,6 @@ Ta sekcja zawiera szczegółowe informacje o dodatkowych urządzeniach certyfiko
 Po zakupie urządzenia przejdź do usługi **Defender for IoT**  >  **Network Sensors**  >  **instalacji** ISO, aby pobrać oprogramowanie.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Czujniki sieci ISO.":::
-
-## <a name="enterprise-deployment-dell-poweredge-r340-xl"></a>Wdrażanie w przedsiębiorstwie: Dell PowerEdge R340 XL
-
-| Składnik | Specyfikacje techniczne |
-|--|--|
-| Obudowa | serwer stojaków o rozmiarze 1U
-| Wymiary | 42,8 x 434,0 x 596 (mm)/1,67 "x 17,09" x 23,5 "(w) |
-| Waga | Maks 29,98 lb/13,6 kg |
-| Procesor | Intel Xeon E-2144G 3,6 GHz, pamięci podręcznej 8 M, 4C/8T, Turbo (71 W) |
-| Mikroukładu | Intel C246 |
-| Pamięć | 32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM |
-| Storage | 3 x 2-TB 7,2 K RPM SATA 6-GB/s 512n 3,5-w Hot-Plug dysk twardy — RAID 5 |
-| Kontroler sieci | Na płycie: 2 x 1 GB Broadcom BCM5720<br>Na płycie LOM: karta portu iDRAC 1 – GB Broadcom BCM5720 <br><br>Zewnętrzna: 1 x karta serwera Intel Ethernet I350 wystawcy 1 GB, niski profil |
-| Zarządzanie | iDRAC dziewięć przedsiębiorstw |
-| Dostęp do urządzenia | Dwa tylne USB 3,0 <br> Jeden z przodu USB 3,0 |
-| Zasilanie | Podwójne zasilacze gorącej wtyczki 350 W |
-| Obsługa stojaków | ReadyRails II przesuwa szyny dla montażowo bez narzędzi, w 4-i niewielowątkowych dziurach, a także narzędzia do montażu w stojakach, z obsługą opcjonalnego, bezwątkowego ramienia zarządzania kablem. |
-
-## <a name="dell-r340-bom"></a>R340 BOM firmy Dell
-
-:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="R340 BOM firmy Dell.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

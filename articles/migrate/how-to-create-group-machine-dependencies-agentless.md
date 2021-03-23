@@ -1,24 +1,24 @@
 ---
-title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure Migrate
-description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
+title: Konfigurowanie analizy zależności bez agentów w Azure Migrate
+description: Skonfiguruj analizę zależności bez agentów w Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: c3aa2aea764af8469152b007e60427724fea398a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045857"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786587"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Analizuj zależności serwera (bez agentów)
 
-W tym artykule opisano sposób konfigurowania analizy zależności bez agenta za pomocą Azure Migrate: Ocena serwera. [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować i zrozumieć zależności między serwerami w celu oceny i migracji do platformy Azure.
+W tym artykule opisano sposób konfigurowania analizy zależności bez agenta za pomocą Azure Migrate: narzędzia do odnajdywania i oceny. [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować i zrozumieć zależności między serwerami w celu oceny i migracji do platformy Azure.
 
 > [!IMPORTANT]
-> Analiza zależności bez agenta jest obecnie dostępna w wersji zapoznawczej dla serwerów działających w środowisku programu VMware, które zostały wykryte za pomocą narzędzia do oceny serwera Azure Migrate:.
+> Analiza zależności bez agenta jest obecnie dostępna w wersji zapoznawczej dla serwerów działających w środowisku programu VMware, które zostały wykryte za pomocą narzędzia do odnajdywania i oceny Azure Migrate:.
 > Ta wersja zapoznawcza jest objęta wsparciem klienta i może być używana na potrzeby obciążeń produkcyjnych.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +30,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agenta za
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Upewnij się, że [utworzono projekt Azure Migrate](./create-manage-projects.md) z Azure Migrate: Narzędzie do oceny serwera zostało dodane do niego.
+- Upewnij się, że [utworzono projekt](./create-manage-projects.md) z Azure Migrate: narzędzia odnajdywania i oceny dodane do niego.
 - Przejrzyj [wymagania programu VMware](migrate-support-matrix-vmware.md#vmware-requirements) , aby przeprowadzić analizę zależności.
 - Przejrzyj [wymagania dotyczące urządzenia](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) przed skonfigurowaniem urządzenia.
 - [Przejrzyj wymagania dotyczące analizy zależności](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) przed włączeniem analizy zależności na serwerach.
@@ -41,7 +41,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agenta za
 2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać [](migrate-appliance.md#public-cloud-urls) dostęp w [chmurach publicznych i rządowych](migrate-appliance.md#government-cloud-urls).
 3. [Przejrzyj dane](migrate-appliance.md#collected-data---vmware) zbierane przez urządzenie podczas odnajdywania i oceny.
 4. [Zwróć uwagę](migrate-support-matrix-vmware.md#port-access-requirements) na wymagania dotyczące dostępu do portów dla urządzenia.
-5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia serwera działającego w vCenter Server. Po wdrożeniu urządzenia należy zarejestrować je w projekcie Azure Migrate i skonfigurować go do inicjowania odnajdywania.
+5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia serwera działającego w vCenter Server. Po wdrożeniu urządzenia należy zarejestrować je w projekcie i skonfigurować do inicjowania odnajdywania.
 6. Podczas konfigurowania urządzenia należy określić następujące elementy w Menedżerze konfiguracji urządzenia:
     - Szczegóły vCenter Server, z którym chcesz nawiązać połączenie.
     - vCenter Server poświadczenia w zakresie odnajdywania serwerów w środowisku programu VMware.
@@ -50,7 +50,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agenta za
 ## <a name="verify-permissions"></a>Weryfikowanie uprawnień
 
 - Należy [utworzyć vCenter Server konto tylko do odczytu](./tutorial-discover-vmware.md#prepare-vmware) na potrzeby odnajdywania i oceny. Konto tylko do odczytu wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby umożliwić współdziałanie z serwerami w celu zbierania danych zależności.
-- Musisz mieć konto użytkownika, aby Ocena serwera mogła uzyskać dostęp do serwera w celu zbierania danych zależności. [Dowiedz się więcej](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) o wymaganiach dotyczących kont dla serwerów z systemami Windows i Linux.
+- Musisz mieć konto użytkownika, aby Azure Migrate uzyskać dostęp do serwera w celu zbierania danych zależności. [Dowiedz się więcej](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) o wymaganiach dotyczących kont dla serwerów z systemami Windows i Linux.
 
 ### <a name="add-credentials-and-initiate-discovery"></a>Dodawanie poświadczeń i Inicjowanie odnajdywania
 
@@ -67,7 +67,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agenta za
 
 Wybierz serwery, na których chcesz włączyć odnajdowanie zależności.
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: odnajdywanie i ocenianie** kliknij pozycję **odnalezione serwery**.
 2. Wybierz **nazwę urządzenia** , którego odnajdywanie chcesz przejrzeć.
 1. Stan sprawdzania poprawności serwerów jest widoczny w obszarze **zależności (bez agentów)** .
 1. Kliknij listę rozwijaną **analiza zależności** .
@@ -81,7 +81,7 @@ Można wizualizować zależności około sześciu godzin po włączeniu analizy 
 
 ## <a name="visualize-dependencies"></a>Wizualizacja zależności
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: odnajdywanie i ocenianie** kliknij pozycję **odnalezione serwery**.
 1. Wybierz **nazwę urządzenia** , którego odnajdywanie chcesz przejrzeć.
 1. Wyszukaj serwer, którego zależności chcesz przejrzeć.
 1. W kolumnie **zależności (bez agentów)** kliknij pozycję **Wyświetl zależności**
@@ -100,7 +100,7 @@ Można wizualizować zależności około sześciu godzin po włączeniu analizy 
 
 ## <a name="export-dependency-data"></a>Eksportuj dane zależności
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: odnajdywanie i ocenianie** kliknij pozycję **odnalezione serwery**.
 2. Kliknij listę rozwijaną **analiza zależności** .
 3. Kliknij pozycję **Eksportuj zależności aplikacji**.
 4. Na stronie **Eksportuj zależności aplikacji** wybierz nazwę urządzenia, która umożliwia odnajdywanie żądanych serwerów.
@@ -132,7 +132,7 @@ Port docelowy | Numer portu na serwerze docelowym
 
 Wybierz serwery, na których chcesz zatrzymać odnajdywanie zależności.
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: odnajdywanie i ocenianie** kliknij pozycję **odnalezione serwery**.
 1. Wybierz **nazwę urządzenia** , którego odnajdywanie chcesz przejrzeć.
 1. Kliknij listę rozwijaną **analiza zależności** .
 1. Kliknij przycisk **Usuń serwery**.
@@ -157,7 +157,7 @@ Pobierz moduł programu PowerShell z repozytorium [Azure PowerShell Samples](htt
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Wybierz subskrypcję, w której utworzono projekt Azure Migrate 
+2. Wybierz subskrypcję, w której został utworzony projekt 
 
     ```PowerShell
     select-azsubscription -subscription "Fabrikam Demo Subscription"
@@ -171,7 +171,7 @@ Pobierz moduł programu PowerShell z repozytorium [Azure PowerShell Samples](htt
 
 ### <a name="enable-or-disable-dependency-data-collection"></a>Włączanie lub wyłączanie zbierania danych zależności
 
-1. Pobierz listę odnalezionych serwerów w projekcie Azure Migrate przy użyciu następujących poleceń. W poniższym przykładzie nazwa projektu to FabrikamDemoProject, a grupa zasobów, do której należy, to FabrikamDemoRG. Lista serwerów zostanie zapisana w FabrikamDemo_VMs.csv
+1. Pobierz listę odnalezionych serwerów w projekcie przy użyciu następujących poleceń. W poniższym przykładzie nazwa projektu to FabrikamDemoProject, a grupa zasobów, do której należy, to FabrikamDemoRG. Lista serwerów zostanie zapisana w FabrikamDemo_VMs.csv
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
@@ -212,7 +212,7 @@ Azure Migrate oferuje szablon Power BI, którego można użyć do wizualizacji p
         Connect-AzAccount -EnvironmentName AzureUSGovernment
         ```
 
-    - Wybierz subskrypcję, w której utworzono projekt Azure Migrate
+    - Wybierz subskrypcję, w której został utworzony projekt
 
         ```PowerShell
         select-azsubscription -subscription "Fabrikam Demo Subscription"

@@ -1,18 +1,14 @@
 ---
 title: Praca z powiadomieniami urządzeń
 description: Powiadomienia zawierają informacje o aktywności sieciowej, które mogą wymagać uwagi, wraz z zaleceniami dotyczącymi obsługi tego działania.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523570"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781334"
 ---
 # <a name="work-with-device-notifications"></a>Praca z powiadomieniami urządzeń
 
@@ -24,11 +20,7 @@ Powiadomienia zawierają informacje o aktywności sieciowej, które mogą wymaga
 
 Reagowanie na powiadomienia ulepsza informacje zawarte w temacie Mapa urządzeń, spis urządzeń i zapytania i raporty wyszukiwania danych. Zapewnia również wgląd w wiarygodne zmiany w sieci i potencjalne konfiguracje sieci.
 
-Aby uzyskać dostęp do powiadomień:
-
-- Wybierz pozycję **Ustawienia systemowe** , a następnie wybierz pozycję **rozszerzenie danych**.
-
-## <a name="notifications-vs-alerts"></a>Powiadomienia a alerty
+**Powiadomienia a alerty**
 
 Oprócz otrzymywania powiadomień dotyczących aktywności sieciowej, mogą zostać wyświetlone *alerty*. Powiadomienia zawierają informacje o zmianach w sieci lub nierozwiązanych właściwościach urządzenia, które nie stwarzają zagrożenia. Alerty zawierają informacje o odchyleniach sieci i zmianach, które mogą stanowić zagrożenie dla sieci.
 
@@ -85,18 +77,6 @@ Aby wyświetlić powiadomienia i obsłużyć powiadomienia:
 2. Nakazuje czujnikowi zastosowanie nowo wykrytych informacji do wybranych urządzeń, wybierając pozycję **nauka**. Lub poinstruuj czujnik, aby ignorował nowo wykryte informacje, wybierając pozycję **Odrzuć**. Zostanie wyświetlona liczba powiadomień, które można jednocześnie poznać i odrzucić wraz z liczbą powiadomień, które należy obsłużyć pojedynczo.
 
 Nie można jednocześnie obsłużyć **nowych adresów IP** ani zdarzeń ze skonfigurowanymi **podsieciami** . Wymagają one potwierdzenia ręcznego.
-
-## <a name="improve-device-os-classification-data-enhancement"></a>Ulepszanie klasyfikacji systemu operacyjnego urządzeń: rozszerzanie danych 
-
-Czujnik stale odnajduje nowe urządzenia. Umożliwia ona również Autowykrywanie zmian wcześniej odnalezionych urządzeń, w tym typów systemów operacyjnych.
-
-W pewnych okolicznościach w odnalezionych systemach operacyjnych mogą zostać wykryte konflikty. Przyczyną może być wersja systemu operacyjnego odwołująca się do systemów klasycznych lub serwerów. Jeśli tak się stanie, otrzymasz powiadomienie z opcjonalnymi klasyfikacjami systemu operacyjnego.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Zwiększ dane.":::
-
-Zbadaj zalecenia w celu wzbogacania klasyfikacji systemu operacyjnego. Te informacje są wyświetlane w raportach spisu urządzeń, wyszukiwania danych i innych. Może również poprawić dokładność alertów, zagrożeń i analizy ryzyka.
-
-Po zaakceptowaniu zalecenia informacje o typie systemu operacyjnego zostaną zaktualizowane w czujniku.
 
 ## <a name="see-also"></a>Zobacz też
 

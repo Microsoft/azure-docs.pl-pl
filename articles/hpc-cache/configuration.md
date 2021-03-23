@@ -4,14 +4,14 @@ description: Zawiera opis konfigurowania dodatkowych ustawień pamięci podręcz
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563385"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773236"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
@@ -75,6 +75,8 @@ Jeśli musisz ustawić niestandardowy serwer DNS dla pamięci podręcznej, użyj
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
 
+Rozważ użycie pamięci podręcznej testów do sprawdzenia i dostosowania konfiguracji DNS przed użyciem jej w środowisku produkcyjnym.
+
 ### <a name="refresh-storage-target-dns"></a>Odśwież docelowy serwer DNS magazynu
 
 Jeśli serwer DNS aktualizuje adresy IP, skojarzone elementy docelowe magazynu NFS staną się tymczasowo niedostępne. Zapoznaj się z artykułem jak zaktualizować niestandardowe adresy IP systemu DNS w obszarze [Edytuj cele magazynu](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
@@ -94,10 +96,10 @@ Ta funkcja jest dostępna tylko dla celów usługi Azure Blob Storage, a jej kon
 
 Migawki są wykonywane co osiem godzin, przy UTC 0:00, 08:00 i 16:00.
 
-W pamięci podręcznej Azure HPC są przechowywane codziennie, cotygodniowe i comiesięczne migawki, dopóki nie zostaną one zastąpione nowymi. Limity są następujące:
+W pamięci podręcznej Azure HPC są przechowywane codziennie, cotygodniowe i comiesięczne migawki, dopóki nie zostaną one zastąpione nowymi. Limity przechowywania migawek są następujące:
 
 * Do 20 codziennych migawek
 * Do 8 cotygodniowych migawek
 * Do 3 comiesięcznych migawek
 
-Uzyskaj dostęp do migawek z `.snapshot` katalogu w przestrzeni nazw docelowego magazynu obiektów BLOB.
+Uzyskaj dostęp do migawek z `.snapshot` katalogu w katalogu głównym zainstalowanego miejsca docelowego magazynu obiektów BLOB.

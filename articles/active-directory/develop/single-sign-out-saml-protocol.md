@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 040e49ee870704107e1d4118f1484119d98a9ebf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97703419"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781215"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Pojedynczy Sign-Out protokół SAML
 
-Azure Active Directory (Azure AD) obsługuje profil rejestracji jednokrotnej w przeglądarce internetowej protokołu SAML 2,0. Aby logowanie jednokrotne działało prawidłowo, **LogoutURL** aplikacji musi być jawnie zarejestrowana w usłudze Azure AD podczas rejestracji aplikacji. Usługa Azure AD korzysta z LogoutURL, aby przekierować użytkowników po ich wylogowaniu.
+Azure Active Directory (Azure AD) obsługuje profil rejestracji jednokrotnej w przeglądarce internetowej protokołu SAML 2,0. Aby logowanie jednokrotne działało prawidłowo, **LogoutURL** aplikacji musi być jawnie zarejestrowana w usłudze Azure AD podczas rejestracji aplikacji. Jeśli aplikacja zostanie [dodana do galerii aplikacji platformy Azure,](v2-howto-app-gallery-listing.md) ta wartość może być domyślnie ustawiona. W przeciwnym razie wartość musi być określona i ustawiona przez osobę, która doda aplikację do swojej dzierżawy usługi Azure AD. Usługa Azure AD korzysta z LogoutURL, aby przekierować użytkowników po ich wylogowaniu. 
 
 Usługa Azure AD obsługuje powiązanie przekierowania (HTTP GET), a nie za pośrednictwem protokołu HTTP POST.
 

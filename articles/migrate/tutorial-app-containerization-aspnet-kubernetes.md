@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 7c9b4032346e61eb3bfd21c0c4067e2364bc28af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ffc97984a335b72a3aa8c8d8cca65a3fddf7af38
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670856"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780739"
 ---
 # <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>Konteneryzowanie ASP.NET aplikacje i Przeprowadź migrację do usługi Azure Kubernetes Service
 
@@ -59,7 +59,7 @@ Przed rozpoczęciem tego samouczka należy:
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Zidentyfikuj komputer, aby zainstalować narzędzie** | Maszyna z systemem Windows w celu zainstalowania i uruchomienia narzędzia Azure Migrate: App kontenerach. Komputer z systemem Windows może być serwerem (Windows Server 2016 lub nowszym) lub systemem operacyjnym klienta (Windows 10), co oznacza, że narzędzie można również uruchomić na pulpicie. <br/><br/> Maszyna z systemem Windows, na której działa narzędzie, powinna mieć łączność sieciową z serwerami i maszynami wirtualnymi hostującym aplikacje ASP.NET.<br/><br/> Upewnij się, że dostępne jest 6 GB miejsca na maszynie z systemem Windows, na którym uruchomiono narzędzie Azure Migrate: App kontenerach do przechowywania artefaktów aplikacji. <br/><br/> Komputer z systemem Windows powinien mieć dostęp do Internetu, bezpośrednio lub za pośrednictwem serwera proxy. <br/> <br/>Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6)
+**Zidentyfikuj komputer, aby zainstalować narzędzie** | Maszyna z systemem Windows w celu zainstalowania i uruchomienia narzędzia Azure Migrate: App kontenerach. Komputer z systemem Windows może być serwerem (Windows Server 2016 lub nowszym) lub systemem operacyjnym klienta (Windows 10), co oznacza, że narzędzie można również uruchomić na pulpicie. <br/><br/> Maszyna z systemem Windows, na której działa narzędzie, powinna mieć łączność sieciową z serwerami/maszynami wirtualnymi hostującym aplikacje ASP.NET, które mają zostać konteneryzowane.<br/><br/> Upewnij się, że dostępne jest 6 GB miejsca na maszynie z systemem Windows, na którym uruchomiono narzędzie Azure Migrate: App kontenerach do przechowywania artefaktów aplikacji. <br/><br/> Komputer z systemem Windows powinien mieć dostęp do Internetu, bezpośrednio lub za pośrednictwem serwera proxy. <br/> <br/>Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6)
 **Serwery aplikacji** | Włącz komunikację zdalną programu PowerShell na serwerach aplikacji: Zaloguj się do serwera aplikacji i postępuj zgodnie z [tymi](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) instrukcjami, aby włączyć funkcję komunikacji zdalnej programu PowerShell. <br/><br/> Jeśli na serwerze aplikacji jest uruchomiony program Windows Server 2008 R2, upewnij się, że na serwerze aplikacji jest zainstalowany program PowerShell 5,1. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure) , aby pobrać i zainstalować program PowerShell 5,1 na serwerze aplikacji. <br/><br/> Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6)
 **Aplikacja ASP.NET** | Narzędzie obsługuje obecnie <br/><br/> -ASP.NET aplikacje korzystające z Microsoft .NET Framework 3,5 lub nowszego.<br/> -Serwery aplikacji z systemem Windows Server 2008 R2 lub nowszym (serwery aplikacji powinny mieć uruchomiony program PowerShell w wersji 5,1). <br/> -Aplikacje działające w Internet Information Services (IIS) 7,5 lub nowszym. <br/><br/> Narzędzie nie obsługuje obecnie <br/><br/> -Aplikacje wymagające uwierzytelniania systemu Windows (AKS nie obsługuje obecnie gMSA). <br/> -Aplikacje, które są zależne od innych usług systemu Windows hostowanych poza usługami IIS.
 
@@ -105,7 +105,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 3. Uruchom skrypt instalacyjny przy użyciu polecenia
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>Uruchamianie narzędzia kontenerach aplikacji
@@ -152,7 +152,7 @@ Kliknij pozycję **Zaloguj** , aby zalogować się do konta platformy Azure.
 Narzędzie pomocnika kontenerach aplikacji łączy się zdalnie z serwerami aplikacji przy użyciu podanych poświadczeń i próbuje wykryć aplikacje ASP.NET hostowane na serwerach aplikacji.
 
 1. Określ **adres IP/nazwę FQDN oraz poświadczenia** serwera z uruchomioną aplikacją ASP.NET, które powinny być używane do zdalnego łączenia się z serwerem na potrzeby odnajdywania aplikacji.
-    - Podane poświadczenia muszą mieć uprawnienia administratora lokalnego (Windows) na serwerze aplikacji.
+    - Należy podać poświadczenia administratora lokalnego (Windows) na serwerze aplikacji.
     - W przypadku kont domeny (użytkownik musi być administratorem na serwerze aplikacji), poprzedź nazwę użytkownika nazwą domeny w formacie *<domena \ nazwa_użytkownika>*.
     - Odnajdywanie aplikacji można uruchomić maksymalnie pięć serwerów jednocześnie.
 

@@ -1,32 +1,32 @@
 ---
 title: Architektura urządzenia usługi Azure Migrate
-description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
-author: vikram1988
-ms.author: vibansa
+description: Zawiera omówienie urządzenia Azure Migrate używanego w odnajdywaniu serwera, ocenie i migracji.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: f3a94576ef58eabf9d747c6e6c3a6372569d4cf1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096194"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785244"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
 
-W tym artykule opisano architekturę i procesy urządzeń Azure Migrate. Urządzenie Azure Migrate jest lekkim urządzeniem wdrożonym lokalnie, aby odnajdywać maszyny wirtualne i serwery fizyczne do migracji na platformę Azure.
+W tym artykule opisano architekturę i procesy urządzeń Azure Migrate. Urządzenie Azure Migrate jest lekkim urządzeniem wdrożonym lokalnie w celu odnajdywania serwerów do migracji na platformę Azure.
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
 
 Urządzenie Azure Migrate jest używane w następujących scenariuszach.
 
-**Scenariusz** | **Narzędzie** | **Używane do** 
+**Scenariusz** | **Narzędzie** | **Używane do**
 --- | --- | ---
-**Odnajdywanie i ocenianie serwerów działających w środowisku VMware** | Azure Migrate: Ocena serwera | Odnajdź serwery działające w środowisku programu VMware<br/><br/> Wykonaj odnajdywanie zainstalowanych aplikacji, analizy zależności bez agenta i odnajdź SQL Server wystąpienia i bazy danych.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
+**Odnajdywanie i ocenianie serwerów działających w środowisku VMware** | Azure Migrate: odnajdywanie i Ocena | Odnajdź serwery działające w środowisku programu VMware<br/><br/> Należy przeprowadzić odnajdywanie zainstalowanych spisów oprogramowania, analizy zależności bez agentów oraz odnajdywania wystąpień SQL Server i baz danych.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
 **Migracja serwerów z systemem w środowisku VMware bez wykorzystania agentów** | Azure Migrate: Migracja serwera | Odnajdź serwery działające w środowisku programu VMware.<br/><br/> Replikowanie serwerów bez instalowania na nich agentów.
-**Odnajdywanie i ocenianie serwerów działających w środowisku funkcji Hyper-V** | Azure Migrate: Ocena serwera | Odnajdź serwery działające w środowisku funkcji Hyper-V.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
-**Odnajdywanie i ocenianie serwerów fizycznych lub zwirtualizowanych lokalnie** |  Azure Migrate: Ocena serwera |  Odnajdywanie serwerów fizycznych lub zwirtualizowanych lokalnie.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
+**Odnajdywanie i ocenianie serwerów działających w środowisku funkcji Hyper-V** | Azure Migrate: odnajdywanie i Ocena | Odnajdź serwery działające w środowisku funkcji Hyper-V.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
+**Odnajdywanie i ocenianie serwerów fizycznych lub zwirtualizowanych lokalnie** |  Azure Migrate: odnajdywanie i Ocena |  Odnajdywanie serwerów fizycznych lub zwirtualizowanych lokalnie.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
 
 ## <a name="deployment-methods"></a>Metody wdrażania
 
@@ -53,7 +53,6 @@ Urządzenie ma następujące usługi:
 > [!Note]
 > Ostatnie 3 usługi są dostępne tylko na urządzeniu używanym do odnajdywania i oceny serwerów działających w środowisku programu VMware.<br/> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
-
 ## <a name="discovery-and-collection-process"></a>Proces odnajdywania i kolekcjonowania
 
 :::image type="content" source="./media/migrate-appliance-architecture/architecture1.png" alt-text="Architektura urządzenia":::
@@ -64,9 +63,9 @@ Urządzenie komunikuje się ze źródłami odnajdywania przy użyciu następują
 ---|---|---|---
 **Rozpocznij odnajdowanie** | Urządzenie domyślnie komunikuje się z serwerem vCenter Server na porcie TCP 443. Jeśli serwer vCenter nasłuchuje na innym porcie, można go skonfigurować w Menedżerze konfiguracji urządzenia. | Urządzenie komunikuje się z hostami funkcji Hyper-V na porcie WinRM 5985 (HTTP). | Urządzenie komunikuje się z serwerami z systemem Windows za pośrednictwem portu WinRM 5985 (HTTP) z serwerami z systemem Linux za pośrednictwem portu 22 (TCP).
 **Zbieranie metadanych dotyczących konfiguracji i wydajności** | Urządzenie zbiera metadane serwerów działających na vCenter Server przy użyciu interfejsów API vSphere przez połączenie się z portem 443 (port domyślny) lub dowolnego innego portu, vCenter Server nasłuchuje. | Urządzenie zbiera metadane serwerów uruchomionych na hostach funkcji Hyper-V przy użyciu sesji model wspólnych informacji (CIM) z hostami na porcie 5985.| Urządzenie zbiera metadane z serwerów z systemem Windows przy użyciu sesji model wspólnych informacji (CIM) z serwerami na porcie 5985 i z serwerów z systemem Linux przy użyciu łączności SSH na porcie 22.
-**Wyślij dane odnajdywania** | Urządzenie wysyła zebrane dane do Azure Migrate: Ocena serwera i Azure Migrate: Migracja serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft). | Urządzenie wysyła zebrane dane do Azure Migrate: Ocena serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).| Urządzenie wysyła zebrane dane do Azure Migrate: Ocena serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).
+**Wyślij dane odnajdywania** | Urządzenie wysyła zebrane dane do Azure Migrate: odnajdywanie i ocenianie i Azure Migrate: Migracja serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft). | Urządzenie wysyła zebrane dane do Azure Migrate: odnajdywanie i ocenianie przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).| Urządzenie wysyła zebrane dane do Azure Migrate: odnajdywanie i ocenianie przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).
 **Częstotliwość zbierania danych** | Metadane konfiguracji są zbierane i wysyłane co 30 minut. <br/><br/> Metadane wydajności są zbierane co 20 sekund i są agregowane w celu wysyłania punktów danych do platformy Azure co 10 minut. <br/><br/> Dane spisu oprogramowania są wysyłane do platformy Azure co 12 godzin. <br/><br/> Dane zależności bez agenta są zbierane co 5 minut, agregowane na urządzeniu i wysyłane do platformy Azure co 6 godzin. <br/><br/> Dane konfiguracji SQL Server są aktualizowane co 24 godziny, a dane wydajności są przechwytywane co 30 sekund.| Metadane konfiguracji są zbierane i wysyłane co 30 minut. <br/><br/> Metadane wydajności są zbierane co 30 sekund i są agregowane w celu wysyłania punktów danych do platformy Azure co 10 minut.|  Metadane konfiguracji są zbierane i wysyłane co 30 minut. <br/><br/> Metadane wydajności są zbierane co 5 minut i są agregowane w celu wysyłania punktów danych do platformy Azure co 10 minut.
-**Ocenianie i migrowanie** | Możesz tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu Azure Migrate: narzędzia do oceny serwera.<br/><br/>Ponadto można również rozpocząć Migrowanie serwerów z systemem w środowisku VMware przy użyciu Azure Migrate: Narzędzia migracji serwera do organizowania replikacji serwera bez agentów.| Możesz tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu Azure Migrate: narzędzia do oceny serwera. | Możesz tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu Azure Migrate: narzędzia do oceny serwera.
+**Ocenianie i migrowanie** | Możesz tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu Azure Migrate: narzędzia do odnajdywania i oceny.<br/><br/>Ponadto można również rozpocząć Migrowanie serwerów z systemem w środowisku VMware przy użyciu Azure Migrate: Narzędzia migracji serwera do organizowania replikacji serwera bez agentów.| Możesz tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu Azure Migrate: narzędzia do odnajdywania i oceny. | Możesz tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu Azure Migrate: narzędzia do odnajdywania i oceny.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520782"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773117"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -91,6 +91,8 @@ weighted_accuracy|Waga ważona jest dokładnością, w której każda próbka je
 Automatyczna ML nie różni się od metryk danych binarnych i wieloklasowych. Te same metryki walidacji są raportowane niezależnie od tego, czy zestaw danych ma dwie klasy, czy więcej niż dwie klasy. Niektóre metryki są jednak przeznaczone do klasyfikacji wieloklasowej. W przypadku zastosowania do binarnego zestawu danych te metryki nie traktują żadnej klasy jako `true` klasy, ponieważ może się to spodziewać. Metryki, które są wyraźnie przeznaczone dla wieloklasowych są sufiksami z `micro` , `macro` lub `weighted` . Przykłady obejmują `average_precision_score` , `f1_score` , `precision_score` , `recall_score` , i `AUC` .
 
 Na przykład zamiast obliczać odwołanie jako `tp / (tp + fn)` , średniej klasy odwołania ( `micro` , `macro` lub) do `weighted` obu klas binarnego zestawu danych klasyfikacji. Jest to równoważne obliczaniu odwołań dla `true` klasy i `false` klasy oddzielnie, a następnie pobierając średnią z dwóch.
+
+Automatyczna ML nie oblicza metryk binarnych, które są metrykami dla binarnych zestawów danych klasyfikacji. Jednak te metryki można obliczyć ręcznie przy użyciu [matrycy](#confusion-matrix) niewidocznej, która jest generowana przez zautomatyzowany ml dla danego przebiegu. Na przykład można obliczyć precyzję, `tp / (tp + fp)` przy czym prawdziwe wartości dodatnie i fałszywie dodatnie są wyświetlane na wykresie macierzy 2x2.
 
 ## <a name="confusion-matrix"></a>Macierz pomyłek
 

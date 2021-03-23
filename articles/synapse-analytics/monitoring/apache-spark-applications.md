@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea08c82ed5772be7e3a6094f5477c4450975c1fa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584536"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775892"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Monitorowanie aplikacji Apache Spark przy użyciu programu Synapse Studio
 
@@ -157,9 +157,16 @@ Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. A
    ![Informacje o zadaniu zakończonym niepowodzeniem](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
 ## <a name="compare-apache-spark-applications"></a>Porównanie aplikacji Apache Spark
-Kliknij przycisk **PORÓWNAJ aplikacje** i wybierz aplikację, aby porównać wydajność, użytkownicy mogą intuicyjnie zobaczyć różnicę między dwiema aplikacjami.
+
+Istnieją dwa sposoby porównywania aplikacji. Możesz porównać przez wybranie aplikacji do **porównania** lub kliknąć przycisk **PORÓWNAJ w notesie** , aby wyświetlić go w notesie.
+
+### <a name="compare-by-choose-an-application"></a>Porównaj przez wybranie aplikacji
+
+Kliknij przycisk **PORÓWNAJ aplikacje** i wybierz aplikację, aby porównać wydajność, można intuicyjnie zobaczyć różnicę między dwiema aplikacjami.
 
 ![Porównywanie aplikacji](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+![Szczegóły — Porównaj aplikacje](./media/how-to-monitor-spark-applications/details-compare-applications.png)
 
 1. Za pomocą myszy umieść kursor w aplikacji, a następnie Wyświetl ikonę **PORÓWNAJ aplikacje** .
 
@@ -167,7 +174,7 @@ Kliknij przycisk **PORÓWNAJ aplikacje** i wybierz aplikację, aby porównać wy
 
 3. Kliknij przycisk **Wybierz aplikację** , aby otworzyć stronę **Wybierz aplikację do porównania** .
 
-4. Podczas wybierania aplikacji do porównania użytkownicy muszą wprowadzić adres URL aplikacji lub wybrać opcję z listy cyklicznej. Następnie kliknij przycisk **OK** . 
+4. Podczas wybierania aplikacji do porównania należy wprowadzić adres URL aplikacji lub wybrać opcję z listy cyklicznej. Następnie kliknij przycisk **OK** . 
 
    ![Wybierz aplikację do porównania](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
 
@@ -175,6 +182,15 @@ Kliknij przycisk **PORÓWNAJ aplikacje** i wybierz aplikację, aby porównać wy
 
    ![wynik porównania](./media/how-to-monitor-spark-applications/comparison-result.png)
 
+### <a name="compare-by-compare-in-notebook"></a>Porównaj przez porównanie w notesie
+
+Kliknij przycisk **PORÓWNAJ w notesie** na stronie **PORÓWNAJ aplikacje** , aby otworzyć Notes. Domyślna nazwa pliku ipynb to **cykliczne analizy aplikacji**.
+
+![Porównaj w notesie](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
+
+W notesie: cykliczny plik analizy aplikacji można uruchomić bezpośrednio po ustawieniu puli i języka platformy Spark.
+
+![rebieżąca Analiza aplikacji](./media/how-to-monitor-spark-applications/recurrent-application-analytics.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

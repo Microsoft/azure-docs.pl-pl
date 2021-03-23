@@ -4,7 +4,7 @@ description: W tym artykule opisano najlepsze rozwiązania, które należy wzią
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,15 +13,16 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548448"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782405"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
-W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
+
+W tym artykule opisano działania dotyczące zabezpieczeń i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
@@ -29,6 +30,7 @@ Następujące fazy SDL zostały omówione w tym artykule:
 - Weryfikacja
 
 ## <a name="implementation"></a>Implementacja
+
 Celem fazy implementacji jest ustanowienie najlepszych rozwiązań w zakresie wczesnego zapobiegania oraz wykrywanie i usuwanie problemów z zabezpieczeniami w kodzie.
 Załóżmy, że aplikacja zostanie użyta w sposób, który nie był używany. Pomaga to chronić przed przypadkowym lub zamierzonym nieprawidłowym użyciem aplikacji.
 
@@ -89,7 +91,7 @@ Oznacza to, że mniejsza liczba osób ma dostęp do Twoich prawdziwych danych, c
 
 Aby chronić przed rozłożeniem i zgadywaniem na podstawie słownika, należy zaimplementować zasady silnego hasła, aby upewnić się, że użytkownicy tworzą złożone hasło (na przykład 12 znaków i wymagające znaków alfanumerycznych i specjalnych).
 
-Możesz użyć struktury tożsamości do tworzenia i wymuszania zasad haseł. Azure AD B2C ułatwia zarządzanie hasłami, zapewniając [wbudowane zasady](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), samoobsługowe [resetowanie haseł](../../active-directory-b2c/user-flow-self-service-password-reset.md)i wiele innych.
+Azure Active Directory B2C ułatwia zarządzanie hasłami, zapewniając funkcję samoobsługowego [resetowania haseł](../../active-directory-b2c/add-password-reset-policy.md), [wymuszanie resetowania hasła](../../active-directory-b2c/force-password-reset.md)i nie tylko.
 
 Aby chronić przed atakami na kontach domyślnych, należy sprawdzić, czy wszystkie klucze i hasła są wymienne i czy są one generowane lub zastępowane po zainstalowaniu zasobów.
 
@@ -108,6 +110,7 @@ Ochrona przed złośliwym oprogramowaniem pomaga identyfikować i usuwać wirusy
 Nie Buforuj poufnej zawartości w przeglądarce. Przeglądarki mogą przechowywać informacje o pamięci podręcznej i historii. Buforowane pliki są przechowywane w folderze, takim jak folder Temporary Internet Files, w przypadku programu Internet Explorer. Gdy te strony są ponownie określane, przeglądarka wyświetla strony z jej pamięci podręcznej. Jeśli użytkownik wyświetli informacje poufne (adres, szczegóły karty kredytowej, numer ubezpieczenia społecznego, nazwa użytkownika), informacje mogą być przechowywane w pamięci podręcznej przeglądarki i można je pobrać, przeglądając pamięć podręczną przeglądarki lub po prostu naciskając przycisk **Wstecz** w przeglądarce.
 
 ## <a name="verification"></a>Weryfikacja
+
 Faza weryfikacji obejmuje kompleksowe wysiłki w celu upewnienia się, że kod spełnia wymagania w zakresie bezpieczeństwa i ochrony prywatności, które zostały określone w poprzednich fazach.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Znajdowanie i rozwiązywanie luk w zabezpieczeniach zależności aplikacji
@@ -151,6 +154,7 @@ Upewnienie się, że aplikacja jest zabezpieczona, jest tak ważne jak testowani
 Pakiet [Secure DevOps Kit dla platformy Azure](https://azsk.azurewebsites.net/index.html) (AzSK) zawiera SVTs dla wielu usług platformy Azure. Te SVTs są uruchamiane okresowo, aby mieć pewność, że Twoja subskrypcja platformy Azure i różne zasoby wchodzące w skład Twojej aplikacji są w stanie bezpiecznym. Możesz również zautomatyzować te testy przy użyciu funkcji rozszerzeń ciągłej integracji/ciągłego wdrażania (CI/CD) AzSK, która sprawia, że SVTs jest dostępna jako rozszerzenie programu Visual Studio.
 
 ## <a name="next-steps"></a>Następne kroki
+
 W poniższych artykułach zalecamy mechanizmy kontroli zabezpieczeń i działania, które mogą pomóc w projektowaniu i wdrażaniu bezpiecznych aplikacji.
 
 - [Projektowanie bezpiecznych aplikacji](secure-design.md)

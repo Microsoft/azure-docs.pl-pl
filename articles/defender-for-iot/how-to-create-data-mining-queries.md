@@ -1,18 +1,14 @@
 ---
 title: Tworzenie raportów wyszukiwania danych
 description: Generuj kompletne i szczegółowe informacje o urządzeniach sieciowych w różnych warstwach, takich jak protokoły, wersje oprogramowania układowego lub polecenia programistyczne.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522483"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779073"
 ---
 # <a name="sensor-data-mining-queries"></a>Zapytania wyszukiwania danych czujników
 

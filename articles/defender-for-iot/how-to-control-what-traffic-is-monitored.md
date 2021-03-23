@@ -1,18 +1,14 @@
 ---
 title: Sterowanie monitorowanym ruchem
 description: Czujniki automatycznie wykonują głębokie wykrywanie pakietów dla ruchu IT i niezwiązanych z ruchem oraz rozwiązują informacje o urządzeniach sieciowych, takich jak atrybuty urządzenia i zachowanie sieciowe. Dostępnych jest kilka narzędzi do sterowania typem ruchu wykrywanym przez poszczególne czujnika.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522397"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784445"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Sterowanie monitorowanym ruchem
 

@@ -1,25 +1,14 @@
 ---
 title: Zalecenia na podstawie agenta
-titleSuffix: Azure Defender for IoT
 description: Dowiedz się więcej na temat koncepcji zaleceń dotyczących zabezpieczeń i sposobu ich używania w przypadku urządzeń z programem Defender for IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a29957f459edad8b768daea7bc4567d77c80b165
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491269"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784989"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Zalecenia dotyczące zabezpieczeń urządzeń IoT
 
@@ -46,9 +35,9 @@ Zalecenia dotyczące działania zapewniają szczegółowe informacje i sugestie 
 
 | Ważność | Nazwa | Źródło danych | Opis |
 |--|--|--|--|
-| Niski | Agent wysyła niewykorzystywane wiadomości | Klasyczna usługa Defender-IoT-Micro-Agent| 10% lub więcej komunikatów o zabezpieczeniach było mniejsze niż 4 KB w ciągu ostatnich 24 godzin. |
-| Niski | Konfiguracja przędzy zabezpieczającej nie jest optymalna | Klasyczna usługa Defender-IoT-Micro-Agent| Konfiguracja przędzy zabezpieczeń nie jest optymalna. |
-| Niski | Konflikt konfiguracji przędzy zabezpieczającej | Klasyczna usługa Defender-IoT-Micro-Agent| Zidentyfikowano konflikty w konfiguracji dwuosiowych zabezpieczeń. |  |
+| Niski | Agent wysyła niewykorzystywane wiadomości | Klasyczna usługa Defender-IoT-Micro-Agent | 10% lub więcej komunikatów o zabezpieczeniach było mniejsze niż 4 KB w ciągu ostatnich 24 godzin. |
+| Niski | Konfiguracja przędzy zabezpieczającej nie jest optymalna | Klasyczna usługa Defender-IoT-Micro-Agent | Konfiguracja przędzy zabezpieczeń nie jest optymalna. |
+| Niski | Konflikt konfiguracji przędzy zabezpieczającej | Klasyczna usługa Defender-IoT-Micro-Agent | Zidentyfikowano konflikty w konfiguracji dwuosiowych zabezpieczeń. |
 
 ## <a name="next-steps"></a>Następne kroki
 

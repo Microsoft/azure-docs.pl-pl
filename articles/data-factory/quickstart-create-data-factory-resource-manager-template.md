@@ -5,16 +5,16 @@ ms.service: data-factory
 tags: azure-resource-manager
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan, jingwang
+ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: f3e76bf16b702adb26183209d36189a53b695c40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c579b6d723533e751e08a80a578195c03e945607
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100373848"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783340"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Szybki Start: Tworzenie Azure Data Factory przy użyciu szablonu ARM
 
@@ -108,7 +108,7 @@ Więcej przykładów szablonów Azure Data Factory można znaleźć w [galerii s
     1. Na stronie **kontenery** wybierz utworzony kontener obiektów BLOB.
         1. Nazwa kontenera obiektów BLOB jest w formacie-BLOB \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Kontener obiektów blob":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Kontener obiektów BLOB":::
 
 ### <a name="upload-a-file"></a>Przekazywanie pliku
 

@@ -3,16 +3,16 @@ title: Monitorowanie potoków i zarządzanie nimi przy użyciu Azure Portal i pr
 description: Dowiedz się, jak używać Azure Portal i Azure PowerShell do monitorowania fabryk danych platformy Azure i utworzonych potoków oraz zarządzania nimi.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0744a7d915d6bee868b160abc29964d58947dd28
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576388"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779634"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
 > [!div class="op_single_selector"]

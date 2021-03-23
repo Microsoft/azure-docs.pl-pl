@@ -1,31 +1,31 @@
 ---
-title: Odkryj wystąpienia maszyn wirtualnych GCP z oceną serwera Azure Migrate
-description: Dowiedz się, jak odnajdywać wystąpienia maszyn wirtualnych GCP za pomocą oceny serwera Azure Migrate.
+title: Odnajdywanie serwerów w wystąpieniach GCP za pomocą odnajdywania i oceny Azure Migrate
+description: Dowiedz się, jak odnajdywać serwery na GCP za pomocą odnajdywania i oceny Azure Migrate.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 079f176a741fa3423081cb96503691f0f2e2e7b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5d57705ca0d49db1fb1d67e20beb609f21b1d5b
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98541431"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771434"
 ---
-# <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Samouczek: odnajdywanie wystąpień Google Cloud Platform (GCP) z oceną serwera
+# <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie wystąpień Google Cloud Platform (GCP) z Azure Migrate: odnajdywanie i Ocena
 
 W ramach przeprowadzonej migracji na platformę Azure można odnaleźć serwery do oceny i migracji.
 
-W tym samouczku pokazano, jak odnajdywać wystąpienia Google Cloud Platform (GCP) za pomocą narzędzia do oceny serwera Azure Migrate:, korzystając z uproszczonego urządzenia Azure Migrate. Urządzenie jest wdrażane w wystąpieniu maszyny wirtualnej GCP w celu ciągłego odnajdywania metadanych maszyn i wydajności.
+W tym samouczku przedstawiono sposób odnajdywania wystąpień Google Cloud Platform (GCP) za pomocą narzędzia Azure Migrate do odnajdywania i oceny przy użyciu uproszczonego urządzenia Azure Migrate. Urządzenie można wdrożyć na serwerze GCP, aby ciągle wykrywać metadane maszyn i wydajności.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure.
-> * Przygotuj wystąpienia maszyn wirtualnych GCP do odnajdowania.
-> * Tworzenie projektu w usłudze Azure Migrate.
+> * Przygotuj serwer na GCP na potrzeby odnajdywania.
+> * Utwórz projekt.
 > * Skonfiguruj urządzenie Azure Migrate.
 > * Rozpocznij odnajdowanie ciągłe.
 
@@ -40,15 +40,16 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Wprowadzony** | Potrzebujesz wystąpienia maszyny wirtualnej GCP, na którym będzie uruchamiane urządzenie Azure Migrate. Maszyna powinna mieć następujące:<br/><br/> — Zainstalowano system Windows Server 2016.<br/> _Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane_.<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/><br/> — Statyczny lub dynamiczny adres IP, z dostępem do Internetu, bezpośrednio lub za pomocą serwera proxy.
-**Wystąpienia maszyn wirtualnych z systemem Windows** | Zezwalaj na połączenia przychodzące na porcie WinRM 5985 (HTTP), aby urządzenie mogły ściągnąć konfigurację i metadane wydajności.
-**Wystąpienia maszyn wirtualnych z systemem Linux** | Zezwalaj na połączenia przychodzące na porcie 22 (TCP).
+**Wprowadzony** | Potrzebujesz serwera GCP, na którym będzie uruchamiane urządzenie Azure Migrate. Maszyna powinna mieć następujące:<br/><br/> — Zainstalowano system Windows Server 2016.<br/> _Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane_.<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/><br/> — Statyczny lub dynamiczny adres IP, z dostępem do Internetu, bezpośrednio lub za pomocą serwera proxy.
+**Wystąpienia systemu Windows Server** | Zezwalaj na połączenia przychodzące na porcie WinRM 5985 (HTTP), aby urządzenie mogły ściągnąć konfigurację i metadane wydajności.
+**Wystąpienia serwera z systemem Linux** | Zezwalaj na połączenia przychodzące na porcie 22 (TCP).
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
-Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
-- Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
-- Uprawnienia do rejestrowania aplikacji Azure Active Directory (AAD).
+Aby utworzyć projekt i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
+
+* Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
+* Uprawnienia do rejestrowania aplikacji Azure Active Directory (AAD).
 
 Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
@@ -56,7 +57,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 
     ![Wyszukaj w polu wyszukiwania subskrypcję platformy Azure](./media/tutorial-discover-gcp/search-subscription.png)
 
-2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt Azure Migrate. 
+2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt.
 3. W subskrypcji wybierz pozycję **Kontrola dostępu (IAM)**  >  **sprawdzanie dostępu**.
 4. W obszarze **Sprawdź dostęp** Wyszukaj odpowiednie konto użytkownika.
 5. W obszarze **Dodaj przypisanie roli** kliknij pozycję **Dodaj**.
@@ -77,21 +78,21 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 
 ## <a name="prepare-gcp-instances"></a>Przygotuj wystąpienia GCP
 
-Skonfiguruj konto, za pomocą którego urządzenie może uzyskiwać dostęp do wystąpień maszyn wirtualnych GCP.
+Skonfiguruj konto, za pomocą którego urządzenie może uzyskać dostęp do serwerów w systemie GCP.
 
-- Dla **serwerów z systemem Windows**:
-    - Skonfiguruj konto użytkownika lokalnego na komputerach, które nie są przyłączone do domeny, oraz konto domeny na komputerach, które nie są przyłączone do domeny, które mają zostać uwzględnione w odnajdywaniu. Dodaj konto użytkownika do następujących grup: 
-        - Użytkownicy zarządzania zdalnego
-        - Użytkownicy monitora wydajności
-        - Użytkownicy dzienników wydajności.
-- Dla **serwerów z systemem Linux**:
-    - Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. Jeśli nie możesz podać konta głównego, zapoznaj się z instrukcjami w [macierzy pomocy technicznej](migrate-support-matrix-physical.md#physical-server-requirements) , aby uzyskać alternatywę.
-    - Azure Migrate używa uwierzytelniania hasła podczas odnajdywania wystąpień AWS. Wystąpienia AWS domyślnie nie obsługują uwierzytelniania hasła. Aby można było odnaleźć wystąpienie, należy włączyć uwierzytelnianie hasła.
+* Dla **serwerów z systemem Windows**:
+    * Skonfiguruj konto użytkownika lokalnego na serwerach przyłączonych do domeny, a konto domeny na serwerach przyłączonych do domeny, które chcesz dołączyć do odnajdywania. Dodaj konto użytkownika do następujących grup: 
+        * Użytkownicy zarządzania zdalnego
+        * Użytkownicy monitora wydajności
+        * Użytkownicy dzienników wydajności.
+* Dla **serwerów z systemem Linux**:
+    * Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. Jeśli nie możesz podać konta głównego, zapoznaj się z instrukcjami w [macierzy pomocy technicznej](migrate-support-matrix-physical.md#physical-server-requirements) , aby uzyskać alternatywę.
+    * Azure Migrate używa uwierzytelniania hasła podczas odnajdywania wystąpień AWS. Wystąpienia AWS domyślnie nie obsługują uwierzytelniania hasła. Aby można było odnaleźć wystąpienie, należy włączyć uwierzytelnianie hasła.
         1. Zaloguj się do każdej maszyny z systemem Linux.
         2. Otwórz plik sshd_config: VI/etc/ssh/sshd_config
         3. W pliku Znajdź linię **PasswordAuthentication** i zmień wartość na **tak**.
         4. Zapisz plik i zamknij go. Uruchom ponownie usługę SSH.
-    - Jeśli używasz użytkownika root do odnajdywania maszyn wirtualnych z systemem Linux, upewnij się, że na maszynach wirtualnych jest dozwolone logowanie główne.
+    * Jeśli używasz użytkownika root do odnajdywania serwerów z systemem Linux, upewnij się, że na serwerach jest dozwolone logowanie główne.
         1. Zaloguj się do każdej maszyny z systemem Linux
         2. Otwórz plik sshd_config: VI/etc/ssh/sshd_config
         3. W pliku Znajdź linię **PermitRootLogin** i zmień wartość na **tak**.
@@ -99,18 +100,18 @@ Skonfiguruj konto, za pomocą którego urządzenie może uzyskiwać dostęp do w
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
-Skonfiguruj nowy projekt Azure Migrate.
+Skonfiguruj nowy projekt.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
 3. W obszarze **Przegląd** wybierz pozycję **Utwórz projekt**.
-5. W obszarze **Utwórz projekt** wybierz swoją subskrypcję platformy Azure i grupę zasobów. Utwórz grupę zasobów, jeśli jej nie masz.
-6. W obszarze **szczegóły projektu** Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
+4. W obszarze **Utwórz projekt** wybierz swoją subskrypcję platformy Azure i grupę zasobów. Utwórz grupę zasobów, jeśli jej nie masz.
+5. W obszarze **szczegóły projektu** Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-gcp/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
-8. Zaczekaj kilka minut, aż projekt Azure Migrate zostanie wdrożony. **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
+6. Wybierz przycisk **Utwórz**.
+7. Zaczekaj kilka minut, aż projekt zostanie wdrożony. **Azure Migrate: narzędzie odnajdywania i oceny** jest domyślnie dodawane do nowego projektu.
 
 ![Zostanie wyświetlona strona narzędzia do oceny serwera, która jest domyślnie dodawana](./media/tutorial-discover-gcp/added-tool.png)
 
@@ -119,27 +120,28 @@ Skonfiguruj nowy projekt Azure Migrate.
 
 ## <a name="set-up-the-appliance"></a>Konfigurowanie urządzenia
 
-Urządzenie Azure Migrate jest lekkim urządzeniem używanym do oceny Azure Migrate Server, aby wykonać następujące czynności:
+Urządzenie Azure Migrate jest lekkim urządzeniem używanym przez Azure Migrate: odnajdywanie i ocenianie, aby wykonać następujące czynności:
 
-- Odnajdywanie serwerów lokalnych.
-- Wysyłanie metadanych i danych wydajności dla odnalezionych serwerów w celu Azure Migrate oceny serwera.
+* Odnajdywanie serwerów lokalnych.
+* Wysyłanie metadanych i danych wydajności dla odnalezionych serwerów do Azure Migrate: odnajdywania i oceny.
 
 [Dowiedz się więcej](migrate-appliance.md) o urządzeniu Azure Migrate.
 
 Aby skonfigurować urządzenie:
-1. Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
+
+1. Podaj nazwę urządzenia i Wygeneruj klucz projektu w portalu.
 1. Pobierz spakowany plik ze skryptem Instalatora Azure Migrate z Azure Portal.
 1. Wyodrębnij zawartość z pliku spakowanego. Uruchom konsolę programu PowerShell z uprawnieniami administracyjnymi.
 1. Wykonaj skrypt programu PowerShell, aby uruchomić aplikację sieci Web urządzenia.
-1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate przy użyciu klucza projektu Azure Migrate.
+1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Wygeneruj klucz projektu Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Generowanie klucza projektu
 
-1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
-2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **fizyczne lub inne (AWS, GCP, Xen itp.)**.
-3. W obszarze **1: generowanie klucza projektu Azure Migrate** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów wirtualnych GCP. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-4. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
-5. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
+1. W obszarze **cele migracji**  >  **systemy Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena** wybierz pozycję **odkryj**.
+2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz opcję **fizyczne lub inne (AWS, GCP, Xen itp.)**.
+3. W obszarze **1: generowanie klucza projektu** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów wirtualnych GCP. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+4. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie serwerów podczas tworzenia zasobów.
+5. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
 6. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
 ### <a name="2-download-the-installer-script"></a>2. Pobierz skrypt Instalatora
@@ -200,7 +202,7 @@ Jeśli występują problemy, możesz uzyskać dostęp do dzienników skryptów w
 
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że maszyna wirtualna urządzenia może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
+Upewnij się, że urządzenie może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
 
 ### <a name="4-configure-the-appliance"></a>4. Skonfiguruj urządzenie
 
@@ -217,11 +219,11 @@ Skonfiguruj urządzenie po raz pierwszy.
         - Obsługiwane są tylko serwery proxy HTTP.
         - Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.
     - **Synchronizacja czasu**: godzina została zweryfikowana. Czas na urządzeniu powinien być zsynchronizowany z czasem internetowym w celu poprawnego działania funkcji odnajdywania serwerów.
-    - **Instalowanie aktualizacji**: ocena serwera Azure Migrate sprawdza, czy na urządzeniu zainstalowano najnowsze aktualizacje. Po zakończeniu sprawdzania można kliknąć pozycję **Wyświetl usługi urządzenia** , aby zobaczyć stan i wersje składników uruchomionych na urządzeniu.
+    - **Zainstaluj aktualizacje**: Azure Migrate: Funkcja odnajdywania i oceny sprawdza, czy na urządzeniu zainstalowano najnowsze aktualizacje. Po zakończeniu sprawdzania można kliknąć pozycję **Wyświetl usługi urządzenia** , aby zobaczyć stan i wersje składników uruchomionych na urządzeniu.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
-1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do pozycji **Ocena serwera> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
+1. Wklej **klucz projektu** skopiowany z portalu. Jeśli nie masz klucza, przejdź do **Azure Migrate: odnajdywania i oceny> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
 1. Do uwierzytelnienia w systemie Azure potrzebny będzie kod urządzenia. Kliknięcie przycisku **Zaloguj** spowoduje otwarcie modalnego kodu urządzenia, jak pokazano poniżej.
 
     ![Modalne wyświetlanie kodu urządzenia](./media/tutorial-discover-vmware/device-code.png)
@@ -257,13 +259,13 @@ Teraz nawiąż połączenie z urządzeniem z serwerami GCP, które mają zostać
 4. Możesz **dodać pojedynczy element** naraz lub **dodać wiele elementów** w jednym miejscu. Istnieje również możliwość zapewnienia informacji o serwerze za poorednictwem **importowania woluminu CSV**.
 
     - Jeśli wybierzesz opcję **Dodaj pojedynczy element**, możesz wybrać typ systemu operacyjnego, określić przyjazną nazwę dla poświadczeń, dodać **adres IP/nazwę FQDN** serwera i kliknąć przycisk **Zapisz**.
-    - W przypadku wybrania opcji **Dodaj wiele elementów** można dodać wiele rekordów jednocześnie, określając **adres IP/nazwę FQDN** serwera z przyjazną nazwą poświadczenia w polu tekstowym. **Sprawdź** dodane rekordy i kliknij pozycję **Zapisz**.
+    - W przypadku wybrania opcji **Dodaj wiele elementów** można dodać wiele rekordów jednocześnie, określając **adres IP/nazwę FQDN** serwera z przyjazną nazwą poświadczenia w polu tekstowym. Sprawdź, czy dodano * * dodane rekordy, i kliknij przycisk **Zapisz**.
     - W przypadku wybrania opcji **Importuj woluminy CSV** _(wybrane domyślnie)_ można pobrać plik szablonu CSV, wypełnić plik **adresem IP serwera/nazwą FQDN** i przyjazną nazwą poświadczenia. Następnie zaimportuj plik do urządzenia, **Sprawdź** rekordy w pliku i kliknij przycisk **Zapisz**.
 
 5. Po kliknięciu przycisku Zapisz Urządzenie spróbuje sprawdzić poprawność połączenia z dodanymi serwerami i wyświetlić **stan sprawdzania poprawności** w tabeli na każdym serwerze.
     - Jeśli walidacja nie powiedzie się dla serwera, przejrzyj błąd, klikając opcję **Walidacja nie powiodła się** w kolumnie Stan tabeli. Usuń problem i ponownie sprawdź poprawność.
     - Aby usunąć serwer, kliknij przycisk **Usuń**.
-6. Możesz ponownie **sprawdzić poprawność** łączności z serwerami w dowolnym momencie przed rozpoczęciem odnajdywania.
+6. Możesz ponownie **sprawdzić poprawność** łączności z serwerami przed rozpoczęciem odnajdywania.
 7. Kliknij przycisk **Rozpocznij odnajdywanie**, aby uruchomić odnajdywanie pomyślnie zweryfikowanych serwerów. Po pomyślnym zainicjowaniu odnajdywania można sprawdzić stan odnajdywania dla każdego serwera w tabeli.
 
 
@@ -274,9 +276,9 @@ Spowoduje to uruchomienie odnajdywania. Aby metadane wykrytego serwera pojawiły
 Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w portalu.
 
 1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
-2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. W **Azure Migrate — Windows, Linux i SQL Server**  >  **Azure Migrate: Strona odnajdywania i oceny** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Oceń serwery GCP](tutorial-assess-gcp.md) na potrzeby migracji do maszyn wirtualnych platformy Azure.
-- [Przejrzyj dane](migrate-appliance.md#collected-data---physical) zbierane przez urządzenie podczas odnajdywania.
+* [Oceń serwery GCP](tutorial-assess-gcp.md) na potrzeby migracji do maszyn wirtualnych platformy Azure.
+* [Przejrzyj dane](migrate-appliance.md#collected-data---physical) zbierane przez urządzenie podczas odnajdywania.

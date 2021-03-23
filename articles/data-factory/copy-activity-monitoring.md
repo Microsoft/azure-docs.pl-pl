@@ -4,14 +4,14 @@ description: Dowiedz się więcej na temat monitorowania wykonywania działania 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100388298"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771383"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
 
@@ -59,7 +59,7 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | rowsCopied | Liczba wierszy skopiowanych do ujścia. Ta Metryka nie ma zastosowania w przypadku kopiowania plików jako-jest bez analizy, na przykład gdy źródła i ujścia danych są typu binarnego, lub innego typu formatu z identycznymi ustawieniami.  | Wartość Int64 (brak jednostki) |
 | rowsSkipped | Liczba niezgodnych wierszy, które zostały pominięte. Aby można było pominąć niezgodne wiersze, można ustawić `enableSkipIncompatibleRow` wartość true. | Wartość Int64 (brak jednostki) |
 | copyDuration | Czas trwania kopiowania. | Wartość Int32 (w sekundach) |
-| danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
+| danych | Współczynnik transferu danych obliczony przez `dataRead` podzieloną przez `copyDuration` . | Liczba zmiennoprzecinkowa w KB/s |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int32 (brak jednostki) |
 | sinkPeakConnections| Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania.| Wartość Int32 (brak jednostki) |
 | sqlDwPolyBase | Niezależnie od tego, czy baza danych jest używana, gdy dane są kopiowane do usługi Azure Synapse Analytics. | Wartość logiczna |

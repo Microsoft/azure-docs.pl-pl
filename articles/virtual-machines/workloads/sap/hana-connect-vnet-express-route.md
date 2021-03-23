@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 218862b2df959fc0a39baa3c2934fc05f252af32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 540247752be27af268a0485ea9eb68d121a25240
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101672980"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775309"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA
 
@@ -47,7 +47,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
+$myGWSku = "UltraPerformance" # Supported values for HANA large instances are: UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -63,10 +63,7 @@ New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Loc
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-W tym przykładzie użyto jednostki SKU bramy HighPerformance. Dostępne opcje to HighPerformance lub UltraPerformance jako jedyne jednostki SKU bramy, które są obsługiwane dla SAP HANA na platformie Azure (duże wystąpienia).
-
-> [!IMPORTANT]
-> W przypadku dużych wystąpień jednostek SKU klasy typu II należy użyć jednostki SKU bramy UltraPerformance.
+Jedyną obsługiwaną jednostką SKU bramy dla SAP HANA na platformie Azure (duże wystąpienia) jest **UltraPerformance**.
 
 ## <a name="link-virtual-networks"></a>Łączenie sieci wirtualnych
 
