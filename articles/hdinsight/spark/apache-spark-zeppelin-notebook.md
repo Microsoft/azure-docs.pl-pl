@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: ba58c007dc0bc3776f429366651cb79404b137b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 969dda4b57deb35d745cf7c7d263b78e6fe577d2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98928480"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867546"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze Azure HDInsight
 
@@ -32,13 +32,13 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
 2. Utwórz nowy notes. W okienku nagłówek przejdź do **notesu**  >  **Utwórz nową notatkę**.
 
-    ![Tworzenie nowego notesu Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Tworzenie nowego notesu Zeppelin")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png " alt-text="Tworzenie nowego notesu Zeppelin" border="true":::
 
     Wprowadź nazwę notesu, a następnie wybierz pozycję **Utwórz notatkę**.
 
 3. Upewnij się, że nagłówek notesu pokazuje połączony stan. Jest ona oznaczona zieloną kropką w prawym górnym rogu.
 
-    ![Stan notesu Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Stan notesu Zeppelin")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png " alt-text="Stan notesu Zeppelin" border="true":::
 
 4. Załaduj przykładowe dane do tabeli tymczasowej. Podczas tworzenia klastra Spark w usłudze HDInsight plik danych przykładowych `hvac.csv` jest kopiowany do skojarzonego konta magazynu w obszarze `\HdiSamples\SensorSampleData\hvac` .
 
@@ -70,7 +70,7 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
     Naciśnij klawisze **SHIFT + ENTER** lub wybierz przycisk **odtwarzania** dla akapitu, aby uruchomić fragment kodu. Stan w prawym górnym rogu akapitu powinien postępować od gotowy, OCZEKUJĄCy, uruchomiony na zakończony. Dane wyjściowe są wyświetlane w dolnej części tego samego akapitu. Zrzut ekranu wygląda jak na poniższym obrazie:
 
-    ![Tworzenie tabeli tymczasowej na podstawie danych pierwotnych](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Tworzenie tabeli tymczasowej na podstawie danych pierwotnych")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png " alt-text="Tworzenie tabeli tymczasowej na podstawie danych pierwotnych" border="true":::
 
     Możesz również podać tytuł w każdym akapicie. W prawym górnym rogu akapitu wybierz ikonę **ustawień** (Sprocket), a następnie wybierz pozycję **Pokaż tytuł**.  
 
@@ -88,7 +88,7 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
 6. Wybierz ikonę **wykresu słupkowego** , aby zmienić wyświetlanie.  **Ustawienia**, wyświetlane po wybraniu **wykresu słupkowego**, umożliwiają wybranie **kluczy** i **wartości**.  Poniższy zrzut ekranu przedstawia dane wyjściowe.
 
-    ![Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook1")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook1" border="true":::
 
 7. Możesz również uruchomić instrukcje Spark SQL przy użyciu zmiennych w zapytaniu. W następnym fragmencie kodu pokazano, jak zdefiniować zmienną, `Temp` w zapytaniu z możliwymi wartościami, które chcesz zbadać. Po pierwszym uruchomieniu zapytania lista rozwijana jest automatycznie wypełniana wartościami określonymi dla zmiennej.
 
@@ -106,7 +106,7 @@ Klastry HDInsight Spark obejmują notesy [Apache Zeppelin](https://zeppelin.apac
 
      Poniższy zrzut ekranu przedstawia dane wyjściowe.
 
-     ![Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook2")
+     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png " alt-text="Uruchamianie instrukcji platformy Spark języka SQL przy użyciu notebook2" border="true":::
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Jak mogę używać zewnętrznych pakietów z notesem?
 
@@ -116,15 +116,15 @@ W tym artykule przedstawiono sposób korzystania z pakietu [Spark-CSV](https://s
 
 1. Otwórz ustawienia interpretera. W prawym górnym rogu wybierz nazwę zalogowanego użytkownika, a następnie wybierz **interpreter**.
 
-    ![Uruchom interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Dane wyjściowe Hive")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="Uruchom interpreter" border="true":::
 
 2. Przewiń do **livy2**, a następnie wybierz pozycję **Edytuj**.
 
-    ![Zmień interpreter settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Zmień interpreter settings1")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png " alt-text="Zmień interpreter settings1" border="true":::
 
 3. Przejdź do klucza `livy.spark.jars.packages` i ustaw jego wartość w formacie `group:id:version` . Tak więc, jeśli chcesz użyć pakietu [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) , musisz ustawić wartość klucza na `com.databricks:spark-csv_2.10:1.4.0` .
 
-    ![Zmień interpreter settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Zmień interpreter settings2")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png " alt-text="Zmień interpreter settings2" border="true":::
 
     Wybierz pozycję **Zapisz** , a następnie kliknij przycisk **OK** , aby ponownie uruchomić interpreter usługi Livy.
 
@@ -134,7 +134,7 @@ W tym artykule przedstawiono sposób korzystania z pakietu [Spark-CSV](https://s
 
     b. W repozytorium Zbierz wartości dla **identyfikatora GroupID**, **ArtifactId** i **wersji**.
 
-    ![Użyj zewnętrznych pakietów z Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Użyj zewnętrznych pakietów z Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png " alt-text="Użyj zewnętrznych pakietów z Jupyter Notebook" border="true":::
 
     c. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 
@@ -146,7 +146,7 @@ W tym artykule przedstawiono sposób korzystania z pakietu [Spark-CSV](https://s
 
 Notesy Zeppelin są zapisywane w klastrze węzłów głównych. W związku z tym, jeśli usuniesz klaster, notesy również zostaną usunięte. Jeśli chcesz zachować swoje notesy do późniejszego użycia w innych klastrach, musisz je wyeksportować po zakończeniu wykonywania zadań. Aby wyeksportować Notes, wybierz ikonę **eksportowania** , jak pokazano na poniższej ilustracji.
 
-![Pobierz Notes](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Pobierz Notes")
+:::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png " alt-text="Pobierz Notes" border="true":::
 
 Ta akcja zapisuje Notes jako plik JSON w lokalizacji pobierania.
 
@@ -178,11 +178,11 @@ W takim przypadku należy wykonać następujące czynności, aby można było ro
 
 1. Uruchom ponownie interpreter usługi Livy z notesu Zeppelin. Aby to zrobić, Otwórz ustawienia interpretera, wybierając nazwę zalogowanego użytkownika w prawym górnym rogu, a następnie wybierz **interpreter**.
 
-    ![Uruchom interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Dane wyjściowe Hive")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="Uruchom interpreter" border="true":::
 
 2. Przewiń do **livy2**, a następnie wybierz pozycję **Uruchom ponownie**.
 
-    ![Uruchom ponownie interpreter usługi Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Uruchom ponownie interpreter Zeppelin")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png " alt-text="Uruchom ponownie interpreter usługi Livy" border="true":::
 
 3. Uruchom komórkę kodu z istniejącego notesu Zeppelin. Ten kod tworzy nową sesję usługi Livy w klastrze usługi HDInsight.
 

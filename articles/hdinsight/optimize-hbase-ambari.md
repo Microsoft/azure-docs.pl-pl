@@ -4,12 +4,12 @@ description: Użyj interfejsu użytkownika sieci Web Apache Ambari w celu skonfi
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/01/2021
-ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7e54b1347e4c67b99ba87b15c2c15d9d28244ce7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99428204"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864775"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie oprogramowania Apache HBase z usługą Apache Ambari w usłudze Azure HDInsight
 
@@ -28,7 +28,7 @@ Rozmiar sterty HBase określa maksymalną ilość sterty, która ma być używan
 
 1. Zmień wartość domyślną na 5 000 MB.
 
-    !["Apache Ambari HBase Memory heapsize"](./media/optimize-hbase-ambari/ambari-hbase-heapsize.png)
+    :::image type="content" source="./media/optimize-hbase-ambari/ambari-hbase-heapsize.png" alt-text="&quot;Apache Ambari HBase Memory heapsize&quot;" border="true":::
 
 ## <a name="optimize-read-heavy-workloads"></a>Optymalizowanie obciążeń z dużą ilością odczytu
 
@@ -40,7 +40,7 @@ Pamięć podręczna bloków jest pamięcią podręczną odczytu. Jego rozmiar je
 
 1. Aby zmodyfikować ten parametr, przejdź do karty **Ustawienia** na karcie HBase **configs (Konfiguracja** ), a następnie Znajdź **% RegionServer przydzieloną do buforów odczytu**.
 
-    ![Rozmiar pamięci podręcznej blokowania pamięci Apache HBase](./media/optimize-hbase-ambari/hbase-block-cache-size.png)
+    :::image type="content" source="./media/optimize-hbase-ambari/hbase-block-cache-size.png" alt-text="Rozmiar pamięci podręcznej blokowania pamięci Apache HBase" border="true":::
 
 1. Aby zmienić wartość, wybierz ikonę **edycji** .
 
@@ -58,7 +58,7 @@ Aby zoptymalizować odczyty losowe, można zmniejszyć górną i dolną granicę
 
 `hbase.client.scanner.caching`Ustawienie definiuje liczbę wierszy odczytanych z dysku, gdy `next` Metoda jest wywoływana na skanerze.  Wartość domyślna to 100. Im większa liczba, tym mniej wywołań zdalnych wykonanych z klienta do serwera regionów, co skutkuje szybszymi skanami. Jednak to ustawienie spowoduje również zwiększenie poziomu wykorzystania pamięci na kliencie.
 
-![Liczba pobranych wierszy Apache HBase](./media/optimize-hbase-ambari/hbase-num-rows-fetched.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-num-rows-fetched.png" alt-text="Liczba pobranych wierszy Apache HBase" border="true":::
 
 > [!IMPORTANT]  
 > Nie ustawiaj wartości w taki sposób, aby czas między wywołaniem następnej metody na skanerze był większy niż limit czasu skanera. Czas trwania skanera jest definiowany przez `hbase.regionserver.lease.period` Właściwość.
@@ -71,7 +71,7 @@ Następujące konfiguracje są ważne do poprawienia wydajności dużych obcią�
 
 HBase przechowuje dane w wewnętrznym formacie pliku o nazwie *HFile*. Właściwość `hbase.hregion.max.filesize` definiuje rozmiar pojedynczego HFile dla regionu.  Region jest podzielony na dwa regiony, jeśli suma wszystkich HFiles w regionie jest większa niż to ustawienie.
 
-!["Apache HBase HRegion max rozmiar pliku"](./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png" alt-text="&quot;Apache HBase HRegion max rozmiar pliku&quot;" border="true":::
 
 Im większy rozmiar pliku regionu, tym mniejsza jest liczba podziałów. Można zwiększyć rozmiar pliku, aby określić wartość, która powoduje maksymalną wydajność zapisu.
 
@@ -85,7 +85,7 @@ Im większy rozmiar pliku regionu, tym mniejsza jest liczba podziałów. Można 
 
     Przy domyślnych wartościach rozmiaru opróżniania i mnożnika bloku aktualizacje są blokowane, gdy magazynu jest 128 * 4 = 512 MB. Aby zmniejszyć liczbę blokowania aktualizacji, zwiększ wartość `hbase.hregion.memstore.block.multiplier` .
 
-![Mnożnik bloku regionu Apache HBase](./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png" alt-text="Mnożnik bloku regionu Apache HBase" border="true":::
 
 ## <a name="define-memstore-size"></a>Zdefiniuj rozmiar magazynu
 
@@ -95,7 +95,7 @@ Rozmiar magazynu jest definiowany przez `hbase.regionserver.global.memstore.uppe
 
 Użycie magazynu lokalnego buforu alokacji jest określane przez właściwość `hbase.hregion.memstore.mslab.enabled` . Po włączeniu tego ustawienia zapobiega fragmentacji sterty podczas ciężkiej operacji zapisu. Wartością domyślną jest true.
 
-![HBase. hregion. magazynu. mslab. Enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png" alt-text="HBase. hregion. magazynu. mslab. Enabled" border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

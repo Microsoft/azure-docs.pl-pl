@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 0e2e4beebedb93524da43c5a3fad750b0295f5cd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1f2c767d45bb08e25a057c7db1f380ceb250f607
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632910"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864911"
 ---
 # <a name="delete-using-azure-application-consistent-snapshot-tool-preview"></a>Usuń przy użyciu narzędzia do tworzenia migawek spójnych aplikacji platformy Azure (wersja zapoznawcza)
 
@@ -36,11 +36,11 @@ Istnieje możliwość usunięcia migawek woluminu i wpisów wykazu bazy danych z
 
 `-c delete`Polecenie ma następujące opcje:
 
-- `--delete hana` w przypadku użycia z opcjami `--hanasid <SID>` i `--hanabackupid <HANA backup id>` spowoduje usunięcie wpisów z wykazu kopii zapasowych SAP HANA pasujących do kryteriów.
+- `--delete hana` w przypadku użycia z opcjami `--dbsid <SID>` i `--hanabackupid <HANA backup id>` spowoduje usunięcie wpisów z wykazu kopii zapasowych SAP HANA pasujących do kryteriów.
 
 - `--delete storage` Użycie z opcją `--snapshot <snapshot name>` spowoduje usunięcie migawki z systemu magazynu zaplecza.
 
-- `--delete sync` w przypadku użycia z opcjami `--hanasid <SID>` i `--hanabackupid <HANA backup id>` Pobiera nazwę migawki magazynu z wykazu kopii zapasowych dla `<HANA backup id>` , a następnie usuwa wpis w wykazie kopii zapasowych _i_ migawkę z dowolnego woluminu zawierającego nazwaną migawkę.
+- `--delete sync` w przypadku użycia z opcjami `--dbsid <SID>` i `--hanabackupid <HANA backup id>` Pobiera nazwę migawki magazynu z wykazu kopii zapasowych dla `<HANA backup id>` , a następnie usuwa wpis w wykazie kopii zapasowych _i_ migawkę z dowolnego woluminu zawierającego nazwaną migawkę.
 
 - `--delete sync` w przypadku użycia z programem `--snapshot <snapshot name>` program sprawdzi, czy dla każdego wpisu w wykazie kopii zapasowych dla programu znajduje `<snapshot name>` się SAP HANA identyfikator kopii zapasowej, a także usunie wpis w wykazie kopii zapasowych _i_ migawkę z dowolnego woluminu zawierającego nazwaną migawkę.
 
@@ -51,7 +51,7 @@ Istnieje możliwość usunięcia migawek woluminu i wpisów wykazu bazy danych z
 ### <a name="delete-a-snapshot-using-sync-option"></a>Usuń migawkę przy użyciu `sync` opcji "
 
 ```bash
-azacsnap -c delete --delete sync --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete sync --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]
@@ -67,7 +67,7 @@ azacsnap -c delete --delete sync --snapshot hana_hourly.2020-01-22_2358
 ### <a name="delete-a-snapshot-using-hana-option"></a>Usuń migawkę przy użyciu `hana` opcji "
 
 ```bash
-azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete hana --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]

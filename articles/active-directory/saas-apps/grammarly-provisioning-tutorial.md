@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: acfe74577f58cbdc0b1fe235e7fc1f661543fd90
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609517"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864809"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie gramatyki w celu automatycznego aprowizacji użytkowników
 
@@ -85,7 +85,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu pokazujący tryb aprowizacji ustawiony na automatyczny.](common/provisioning-automatic.png)
 
-1. W sekcji **poświadczenia administratora** wprowadź informacje dotyczące gramatyki **adresu URL dzierżawy** i **tokenu tajnego** . Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z gramatyką. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto gramatyczne ma uprawnienia administratora, a następnie spróbuj ponownie.
+1. W sekcji **poświadczenia administratora** wpisz w polu wprowadź **adres URL dzierżawy** `https://sso.grammarly.com/scim/v2` , a w polu **token tajny** wprowadź token dostarczony przez gramatykę (patrz krok 2 powyżej). Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z gramatyką. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto gramatyczne ma uprawnienia administratora, i spróbuj ponownie.
 
     ![Zrzut ekranu pokazujący pola adresu URL dzierżawy i tokenu tajnego.](common/provisioning-testconnection-tenanturltoken.png)
 

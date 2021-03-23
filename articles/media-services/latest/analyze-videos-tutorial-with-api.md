@@ -6,14 +6,14 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: a083fbbf54d6f03316a2e647d47e76cdb5db7c2c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f9c52544160e52c29b2d0e53aa957b40017dc8df
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581246"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870487"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Samouczek: analizowanie filmów wideo z Media Services v3
 
@@ -66,9 +66,6 @@ Przykład wykonuje następujące czynności:
 4. Przesyła zadanie.
 5. Sprawdza stan zadania.
 6. Pobiera pliki, które powstały w wyniku uruchomienia zadania.
-
-> [!NOTE]
-> Jeśli używasz wstępnych ustawień analizatora wideo lub dźwięku, skorzystaj z witryny Azure Portal i ustaw na koncie 10 jednostek zarezerwowanych multimediów S3. Aby uzyskać więcej informacji, zobacz temat [Scale media processing (Skalowanie przetwarzania multimediów)](media-reserved-units-cli-how-to.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Rozpoczynanie korzystania z interfejsów API usługi Media Services przy użyciu zestawu .NET SDK
 

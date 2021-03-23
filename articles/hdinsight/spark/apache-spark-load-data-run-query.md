@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: d3c8a08a14b23492c4bf032dd2b722c59bdf80ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de17bf02392f0bb05820fabba3f9057e067391cf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930084"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865914"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Samouczek: ładowanie danych i uruchamianie zapytań w klastrze platformy Apache Spark w usłudze Azure HDInsight
 
@@ -33,7 +33,7 @@ Jupyter Notebook to interakcyjne środowisko notesu, które obsługuje różne j
 
 2. Na stronie sieci Web Jupyter wybierz pozycję **Nowy**  >  **PySpark** , aby utworzyć Notes.
 
-   ![Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL")
+   :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL" border="true":::
 
    Nowy Notes zostanie utworzony i otwarty z nazwą bez tytułu ( `Untitled.ipynb` ).
 
@@ -44,7 +44,7 @@ Jupyter Notebook to interakcyjne środowisko notesu, które obsługuje różne j
 
 Aplikacje mogą tworzyć ramki danych bezpośrednio z plików lub folderów w magazynie zdalnym, takich jak usługa Azure Storage lub Azure Data Lake Storage; z tabeli programu Hive; lub z innych źródeł danych obsługiwanych przez platformę Spark, takich jak Cosmos DB, Azure SQL DB, DW i tak dalej. Poniższy zrzut ekranu przedstawia migawkę pliku HVAC.csv używanego w tym samouczku. Plik csv jest zainstalowany na wszystkich klastrach HDInsight Spark. Dane dotyczą zmian temperatury w niektórych budynkach.
 
-![Migawka danych dla interakcyjnego zapytania Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Migawka danych dla interakcyjnego zapytania Spark SQL")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png " alt-text="Migawka danych dla interakcyjnego zapytania Spark SQL" border="true":::
 
 1. Wklej następujący kod do pustej komórki Jupyter Notebook, a następnie naciśnij klawisze **SHIFT + ENTER** , aby uruchomić kod. Kod importuje typy wymagane w tym scenariuszu:
 
@@ -55,7 +55,7 @@ Aplikacje mogą tworzyć ramki danych bezpośrednio z plików lub folderów w ma
 
     Podczas uruchamiania interakcyjnego zapytania w programie Jupyter w oknie przeglądarki internetowej lub w tytule karty wyświetlany jest stan **(Busy)** (Zajęty) wraz z tytułem notesu. Widoczne jest także pełne kółko obok tekstu **PySpark** w prawym górnym rogu. Po zakończeniu zadania zmienia się ono w pusty okrąg.
 
-    ![Stan interakcyjnego zapytania Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stan interakcyjnego zapytania Spark SQL")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png " alt-text="Stan interakcyjnego zapytania Spark SQL" border="true":::
 
 1. Zwróć uwagę na zwrócony identyfikator sesji. Na powyższym rysunku identyfikator sesji to 0. W razie potrzeby można pobrać szczegóły sesji, przechodząc do `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` lokalizacji gdzie ClusterName jest nazwą klastra Spark, a identyfikatorem jest numer identyfikatora sesji.
 
@@ -80,11 +80,11 @@ Po utworzeniu tabeli możesz uruchomić interakcyjne zapytanie na danych.
 
    Zostanie wyświetlona następująca tabela danych wyjściowych.
 
-     ![Wyniki tabeli danych wyjściowych interaktywnego zapytania Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Wyniki tabeli danych wyjściowych interaktywnego zapytania Spark")
+     :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png " alt-text="Wyniki tabeli danych wyjściowych interaktywnego zapytania Spark" border="true":::
 
 2. Wyniki można również przeglądać w postaci innych wizualizacji. Aby wyświetlić wykres warstwowy dla tych samych danych wyjściowych, wybierz pozycję **Area** (Obszar), a następnie ustaw inne wartości, jak pokazano poniżej.
 
-    ![Wykres warstwowy wyników interakcyjnego zapytania Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Wykres warstwowy wyników interakcyjnego zapytania Spark")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png " alt-text="Wykres warstwowy wyników interakcyjnego zapytania Spark" border="true":::
 
 3. Na pasku menu Notes przejdź do **pliku**  >  **Zapisz i Utwórz punkt kontrolny**.
 
@@ -96,7 +96,7 @@ Dzięki usłudze HDInsight Twoje notesy danych i Jupyter są przechowywane w us�
 
 Otwórz klaster w witrynie Azure Portal, a następnie wybierz pozycję **Usuń**.
 
-![Usuwanie klastra usługi HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Usuwanie klastra usługi HDInsight")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png " alt-text="Usuwanie klastra usługi HDInsight" border="true":::
 
 Dodatkowo możesz wybrać nazwę grupy zasobów, aby otworzyć stronę grupy zasobów, a następnie wybrać pozycję **Usuń grupę zasobów**. Usunięcie grupy zasobów powoduje usunięcie zarówno klastra Spark w usłudze HDInsight, jak i domyślnego konta magazynu.
 

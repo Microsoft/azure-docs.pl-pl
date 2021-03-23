@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 60f4e4998e1077ca373f47a0cdf35c9d7a064605
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946616"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866679"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Wprowadzenie do Apache Hadoop piaskownicy, emulatora na maszynie wirtualnej
 
@@ -39,7 +39,7 @@ Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze 
 1. W menu **plik** kliknij polecenie **Importuj urządzenie**, a następnie określ obraz piaskownicy Hortonworks.
 1. Wybierz piaskownicę Hortonworks, kliknij przycisk **Start**, a następnie pozycję **rozpoczęcie normalne**. Po zakończeniu procesu rozruchu maszyna wirtualna wyświetli instrukcje logowania.
 
-    ![normalne uruchomienie programu VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    :::image type="content" source="./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png" alt-text="normalne uruchomienie programu VirtualBox Manager" border="true":::
 
 1. Otwórz przeglądarkę internetową i przejdź do wyświetlanego adresu URL (zazwyczaj `http://127.0.0.1:8888` ).
 

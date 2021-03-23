@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d4607483e64e6b7daa45f576f70ce3f5eeef65ca
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801115"
+ms.locfileid: "104869093"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -265,7 +265,7 @@ Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz temat [rozwi
 1. W obszarze **Wybierz przełączniki rozproszone dla rozszerzeń sieci** wybierz przełączniki zawierające maszyny wirtualne, które mają zostać zmigrowane do rozwiązania Azure VMware w sieci rozszerzonej o warstwy 2. Następnie wybierz pozycję **Kontynuuj**.
 
    > [!NOTE]
-   > Jeśli nie migrujesz maszyn wirtualnych w sieciach rozszerzonych warstwy 2, możesz pominąć ten krok.
+   > W przypadku niemigrowania maszyn wirtualnych w sieciach rozszerzonych warstwy 2 (L2) można pominąć ten krok.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Zrzut ekranu pokazujący wybór rozproszonych przełączników wirtualnych i przycisk Kontynuuj." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -376,4 +376,4 @@ Aby uzyskać więcej informacji na temat korzystania z HCX, przejdź do dokument
 * [Dokumentacja programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [HCX wymagane porty](https://ports.vmware.com/home/VMware-HCX)
-* [Konfigurowanie pakietu proxy HCX przed zatwierdzeniem klucza licencji](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)
+* [Skonfiguruj serwer proxy HCX przed zatwierdzeniem klucza licencji](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d1e8f596ee022a59baa89e7f78648c98420eb44b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945717"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868872"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Naprawianie błędu braku pamięci Apache Hive w usłudze Azure HDInsight
 
@@ -104,7 +104,7 @@ Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku hive-site.xml zost
 
 Prawdopodobnie mapowanie jest przyczyną błędu braku pamięci sterty języka Java. Zgodnie z opisem w blogu [Ustawienia pamięci przędzy usługi Hadoop w usłudze HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), gdy używany jest aparat wykonywania tez, używany obszar sterty faktycznie należy do kontenera tez. Zapoznaj się z poniższym obrazem opisującym pamięć kontenera tez.
 
-![Diagram pamięci kontenera tez: błąd gałęzi braku pamięci](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+:::image type="content" source="./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png" alt-text="Diagram pamięci kontenera tez: błąd gałęzi braku pamięci" border="false":::
 
 Zgodnie z wpisem w blogu poniższe dwa ustawienia pamięci definiują pamięć kontenera dla sterty: **Hive. tez. Container. size** i **Hive. tez. Java.** W naszym środowisku wyjątek braku pamięci oznacza, że rozmiar kontenera jest zbyt mały. Oznacza to, że rozmiar sterty Java (Hive. tez. Java.) jest za mały. W każdym przypadku, gdy zostanie wyświetlona ilość pamięci, możesz spróbować zwiększyć **gałąź Hive. tez. Java.** W razie potrzeby może zajść konieczność zwiększenia **gałęzi Hive. tez. Container. size**. Ustawienie **Java.** monity powinno mieć rozmiar około 80% **kontenera.**
 

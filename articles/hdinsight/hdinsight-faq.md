@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 47f0ea34fa650371d39252ce6b0ee6a15f3124d6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699304"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871184"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
 
@@ -78,11 +78,11 @@ Nie, nie można uruchamiać Apache Kafka i Apache Spark w tym samym klastrze us�
 1. Otwórz interfejs użytkownika sieci Web Ambari w lokalizacji `https://CLUSTERNAME.azurehdinsight.net` , gdzie ClusterName jest nazwą klastra.
 2. W prawym górnym rogu wybierz pozycję Administrator | Ustawienia. 
 
-   ![Ustawienia Ambari](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ustawienia Ambari":::
 
 3. W oknie Ustawienia użytkownika wybierz nową strefę czasową z listy rozwijanej strefa czasowa, a następnie kliknij przycisk Zapisz.
 
-   ![Ambari ustawienia użytkownika](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari ustawienia użytkownika":::
 
 ## <a name="metastore"></a>Magazyn metadanych
 

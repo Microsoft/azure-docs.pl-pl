@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e893216eb8e2d7e44e3f272f6b965b84c6253f7f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123058"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870334"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Dodawanie obsługi protokołu IPv6 do prywatnej komunikacji równorzędnej przy użyciu Azure PowerShell (wersja zapoznawcza)
 
@@ -177,6 +177,7 @@ Gdy obsługa protokołu IPv6 jest dostępna dla połączeń z wdrożeniami w reg
 * Global Reach połączenia między obwodymi usługi ExpressRoute
 * Korzystanie z ExpressRoute z wirtualną siecią WAN
 * FastPath z obwodami bezpośrednimi innymi niż ExpressRoute
+* FastPath z obwodami w następujących lokalizacjach komunikacji równorzędnej: Dubaj
 * Współistnienie z VPN Gateway
 
 ## <a name="next-steps"></a>Następne kroki

@@ -4,12 +4,12 @@ description: Omówienie różnych składników wysokiej dostępności używanych
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945311"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863721"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
@@ -34,7 +34,7 @@ Ta infrastruktura składa się z wielu usług i składników oprogramowania, z k
 - Usługa podrzędna wysokiej dostępności
 - Główna usługa wysokiej dostępności
 
-![Infrastruktura wysokiej dostępności](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="Infrastruktura wysokiej dostępności" border="false":::
 
 Istnieją również inne usługi wysokiej dostępności, które są obsługiwane przez składniki Apache niezawodności Open Source. Te składniki są również obecne w klastrach usługi HDInsight:
 
@@ -91,7 +91,7 @@ Master-ha-Service jest uruchamiany tylko na aktywnych węzła głównegoach, a u
 
 ### <a name="the-failover-process"></a>Proces trybu failover
 
-![proces trybu failover](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="proces trybu failover" border="false":::
 
 Monitor kondycji jest uruchamiany na każdym węzła głównego wraz z głównym kontrolerem trybu failover w celu wysyłania powiadomień pulsu do dozorcy kworum. Węzła głównego jest uznawana za usługę HA w tym scenariuszu. Monitor kondycji sprawdza, czy każda usługa wysokiej dostępności jest w dobrej kondycji i czy jest gotowa do przyłączenia do wyboru lidera. Jeśli tak, ten węzła głównego będzie konkurować w wyborze. Jeśli nie, zostanie zamknięty wybór, dopóki nie zostanie ponownie przygotowana.
 

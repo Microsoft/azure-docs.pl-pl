@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 479a8fac111be6e5b1ae2c6ea21fff801ba26f83
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98878888"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863585"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Jak skonfigurować protokół BGP na bramach sieci VPN platformy Azure
 
@@ -79,13 +79,15 @@ W tym kroku utworzysz bramę sieci VPN z odpowiednimi parametrami protokołu BGP
 
    * Pole **adres IP protokołu BGP funkcji APIPA platformy Azure** jest opcjonalne. Jeśli lokalne urządzenia sieci VPN używają adresu APIPA dla protokołu BGP, należy wybrać adres z zakresu adresów APIPA zarezerwowanych na platformie Azure dla sieci VPN, który jest z **169.254.21.0** do **169.254.22.255**. W tym przykładzie używa 169.254.21.11.
 
-   * Jeśli tworzysz bramę sieci VPN w usłudze Active-Active, w sekcji BGP zostanie wyświetlony dodatkowy **adres IP protokołu BGP usługi Azure APIPA**. Określ inny adres z dozwolonego zakresu APIPA (**169.254.21.0** do **169.254.22.255**).
+   * Jeśli tworzysz bramę sieci VPN w usłudze Active-Active, w sekcji BGP zostanie wyświetlony dodatkowy **adres IP protokołu BGP usługi Azure APIPA**. W polu dozwolony zakres adresów APIPA (**169.254.21.0** do **169.254.22.255**) wybierz inny adres IP. Drugi adres IP musi być inny niż pierwszy adres.
 
    > [!IMPORTANT]
    >
    > * Domyślnie platforma Azure przypisuje prywatny adres IP z zakresu prefiksów GatewaySubnet automatycznie jako adres IP protokołu BGP platformy Azure w bramie sieci VPN platformy Azure. Niestandardowy adres BGP platformy Azure jest wymagany, gdy lokalne urządzenia sieci VPN używają adresu APIPA (od 169.254.0.1 do 169.254.255.254) jako adresu IP protokołu BGP. Usługa Azure VPN Gateway wybierze niestandardowy adres APIPA, jeśli odpowiedni zasób bramy sieci lokalnej (sieć lokalna) ma adres APIPA jako element równorzędny protokołu BGP. Jeśli Brama sieci lokalnej używa zwykłego adresu IP (nie APIPA), usługa Azure VPN Gateway powróci do prywatnego adresu IP z zakresu GatewaySubnet.
    >
    > * Adresy APIPA BGP nie mogą nakładać się na lokalne urządzenia sieci VPN i wszystkie połączone bramy sieci VPN platformy Azure.
+   >
+   > * Gdy adresy APIPA są używane w bramach sieci VPN platformy Azure, bramy nie inicjują sesji komunikacji równorzędnej BGP ze źródłowymi adresami IP. Lokalne urządzenie sieci VPN musi inicjować połączenia komunikacji równorzędnej BGP.
    >
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby uruchomić walidację. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby wdrożyć bramę sieci VPN. Aby w pełni utworzyć i wdrożyć bramę, może upłynąć do 45 minut. Stan wdrożenia można sprawdzić na stronie Przegląd dla bramy.

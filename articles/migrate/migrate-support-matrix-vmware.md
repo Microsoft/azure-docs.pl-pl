@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 943223ee99838b2b6d6de7eecb3c3b8c06d3562c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773593"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870742"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
-W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących pomocy technicznej w przypadku odnajdywania i oceniania serwerów działających w środowisku VMware na potrzeby migracji do platformy Azure za pomocą narzędzia [Azure Migrate do odnajdywania i oceny](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Aby ocenić serwery, należy utworzyć projekt, który dodaje do projektu narzędzie do odnajdywania i oceny Azure Migrate:. Po dodaniu narzędzia należy wdrożyć urządzenie Azure Migrate. Urządzenie stale odnajduje serwery lokalne i wysyła metadane konfiguracji i wydajności do platformy Azure. Po zakończeniu odnajdywania można zebrać odnalezione serwery do grup i uruchomić ocenę dla grupy.
+W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących pomocy technicznej w przypadku odnajdywania i oceniania serwerów działających w środowisku VMware na potrzeby migracji do platformy Azure za pomocą narzędzia [Azure Migrate do odnajdywania i oceny](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Aby ocenić serwery, należy utworzyć projekt, który dodaje do projektu narzędzie do odnajdywania i oceny Azure Migrate:. Po dodaniu narzędzia należy wdrożyć urządzenie Azure Migrate. Urządzenie stale odnajduje serwery lokalne i wysyła metadane konfiguracji i wydajności do platformy Azure. Po zakończeniu odnajdywania można zebrać odnalezione serwery do grup i uruchomić ocenę dla grupy.
 
 Jeśli chcesz migrować serwery VMware na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-vmware-migration.md).
 
@@ -25,7 +25,7 @@ Jeśli chcesz migrować serwery VMware na platformę Azure, zapoznaj się z [mat
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure.<br/><br/> Można odkrywać i oceniać maksymalnie 50 000 serwerów ze środowiska VMware w jednym [projekcie](migrate-support-matrix.md#azure-migrate-projects). Projekt może również obejmować serwery fizyczne i serwery ze środowiska Hyper-V, do których obowiązują limity oceny.
+**Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure.<br/><br/> Można odkrywać i oceniać maksymalnie 50 000 serwerów ze środowiska VMware w jednym [projekcie](migrate-support-matrix.md#project). Projekt może również obejmować serwery fizyczne i serwery ze środowiska Hyper-V, do których obowiązują limity oceny.
 **Odnajdywanie** | Urządzenie Azure Migrate może wykryć do 10 000 serwerów na vCenter Server.
 **Ocena** | Można dodać maksymalnie 35 000 serwerów w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 serwerów.
 
@@ -78,9 +78,6 @@ Oprócz odnajdywania serwerów, Azure Migrate: odnajdywanie i ocenianie może wy
 **Dostęp do portu** | Urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443 na hostach ESXi na serwerach, na których chcesz przeprowadzić odnajdywanie aplikacji. VCenter Server zwraca połączenie hosta ESXi, aby pobrać plik zawierający szczegóły spisu oprogramowania.
 
 ## <a name="requirements-for-discovery-of-sql-server-instances-and-databases"></a>Wymagania dotyczące odnajdywania wystąpień SQL Server i baz danych
-
-> [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 [Funkcja odnajdywania aplikacji](how-to-discover-applications.md) identyfikuje wystąpienia SQL Server. Korzystając z tych informacji, urządzenie próbuje nawiązać połączenie z odpowiednimi wystąpieniami SQL Server za pośrednictwem uwierzytelniania systemu Windows lub poświadczeń uwierzytelniania SQL Server znajdujących się na urządzeniu. Po nawiązaniu połączenia urządzenie zbiera dane dotyczące konfiguracji i wydajności SQL Server wystąpień i baz danych. Dane konfiguracji SQL Server są aktualizowane co 24 godziny, a dane wydajności są przechwytywane co 30 sekund.
 

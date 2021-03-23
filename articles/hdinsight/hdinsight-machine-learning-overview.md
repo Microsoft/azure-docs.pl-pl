@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 492663ca35ed04da09e7f0d198444a4d40178e2b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945251"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867529"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Uczenie maszynowe w usłudze HDInsight
 
@@ -26,7 +26,7 @@ Biblioteka Machine Learning firmy Microsoft dla Apache Spark jest [MMLSpark](htt
 
 [R](https://www.r-project.org/) to obecnie najpopularniejszy język programowania statystycznego na świecie. Jest to narzędzie do wizualizacji danych typu open source ze społecznością ponad 2 500 000 użytkowników i rośnie. Dzięki rozznaniom bazy użytkowników i ponad 8 000 pakietów z wkładem R jest prawdopodobnie wybór dla wielu firm, które wymagają uczenia maszynowego. Klaster usługi HDInsight można utworzyć za pomocą usług ML, gotowy do użycia z olbrzymimi zestawami danych i modelami. Ta funkcja zapewnia analitykom danych i statystyków za pomocą znanego interfejsu języka R, który umożliwia skalowanie na żądanie za pomocą usługi HDInsight, bez konieczności konfigurowania i konserwacji klastra.
 
-![Szkolenie na potrzeby przewidywania przy użyciu oprogramowania R Server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/training-for-prediction.png" alt-text="Szkolenie na potrzeby przewidywania przy użyciu oprogramowania R Server" border="false":::
 
 Węzeł brzegowy klastra zapewnia wygodne miejsce do łączenia się z klastrem i uruchamiania skryptów języka R.  Skrypty języka R można także uruchamiać w węzłach klastra przy użyciu mapy usługi Hadoop w usłudze skalowanie w celu zmniejszenia liczby lub w przypadku wystąpień obliczeniowych platformy Spark.
 
@@ -36,7 +36,7 @@ Za pomocą usługi ML w usłudze HDInsight z platformą Spark można zrównolegl
 
 Azure Machine Learning udostępnia narzędzia do modelowania analizy predykcyjnej i w pełni zarządzanej usługi, których można użyć do wdrożenia modeli predykcyjnych jako gotowych do użycia usług sieci Web. Azure Machine Learning to kompletne rozwiązanie do analizy predykcyjnej w chmurze, za pomocą którego można tworzyć, testować i operacjonalizować modele predykcyjne oraz zarządzać nimi. Wybierz jedną z wielu bibliotek algorytmów, użyj programu Studio opartego na sieci Web do tworzenia modeli i łatwo Wdrażaj model jako usługę sieci Web.
 
-![Microsoft Azure omówienie uczenia maszynowego](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/azure-machine-learning.png" alt-text="Microsoft Azure omówienie uczenia maszynowego" border="false":::
 
 Tworzenie funkcji dla danych w klastrze usługi HDInsight Hadoop przy użyciu [zapytań programu Hive](../machine-learning/team-data-science-process/create-features-hive.md). *Inżynieria funkcji* próbuje zwiększyć predykcyjne algorytmy uczenia, tworząc funkcje z danych pierwotnych, które ułatwiają proces uczenia się. Za pomocą [modułu Importuj dane](../machine-learning/classic/import-data.md)można uruchamiać zapytania HiveQL z Azure Machine Learning Studio (klasycznego) i uzyskiwać dostęp do danych przetworzonych w programie Hive i przechowywanych w usłudze BLOB Storage.
 

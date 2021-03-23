@@ -1,21 +1,21 @@
 ---
-title: Obsługa oceny serwera fizycznego w Azure Migrate
-description: Dowiedz się więcej o obsłudze oceny serwera fizycznego przy Azure Migrate odnajdywania i oceny
+title: Obsługa fizycznego odnajdowania i oceny w Azure Migrate
+description: Dowiedz się więcej o obsłudze odnajdywania fizycznego i oceny z Azure Migrate odnajdywania i oceny
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 18176c5a79eda080c72b387781e6c7c9b0c66673
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773202"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869450"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Macierz obsługi dla odnajdywania i oceny serwera fizycznego 
 
-W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących obsługi podczas oceniania serwerów fizycznych do migracji na platformę Azure przy użyciu narzędzia do [odnajdywania i oceny Azure Migrate:](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Jeśli chcesz migrować serwery fizyczne na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-physical-migration.md).
+W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących obsługi podczas oceniania serwerów fizycznych do migracji na platformę Azure przy użyciu narzędzia do [odnajdywania i oceny Azure Migrate:](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Jeśli chcesz migrować serwery fizyczne na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-physical-migration.md).
 
 Aby ocenić serwery fizyczne, należy utworzyć projekt i dodać Azure Migrate: narzędzie odnajdywania i oceny do projektu. Po dodaniu narzędzia należy wdrożyć [urządzenie Azure Migrate](migrate-appliance.md). Urządzenie stale odnajduje serwery lokalne i wysyła metadane serwerów oraz dane wydajności do platformy Azure. Po zakończeniu odnajdywania można zebrać odnalezione serwery do grup i uruchomić ocenę dla grupy.
 
@@ -23,7 +23,7 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt i dodać Azure Migrate: 
 
 **Pomoc techniczna** | **Szczegóły**
 --- | ---
-**Limity oceny** | Można odnajdywać i oceniać maksymalnie 35 000 serwerów fizycznych w jednym [projekcie](migrate-support-matrix.md#azure-migrate-projects).
+**Limity oceny** | Można odnajdywać i oceniać maksymalnie 35 000 serwerów fizycznych w jednym [projekcie](migrate-support-matrix.md#project).
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Poza serwerami fizycznymi projekt może obejmować serwery w oprogramowaniu VMware i w funkcji Hyper-V, aż do limitów oceny dla każdej z nich.
 **Odnajdywanie** | Urządzenie Azure Migrate może odnajdywać maksymalnie 1000 serwerów fizycznych.
 **Ocena** | Można dodać maksymalnie 35 000 serwerów w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 serwerów.
@@ -84,4 +84,4 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przygotuj się do oceny serwera fizycznego](./tutorial-discover-physical.md).
+[Przygotuj się do fizycznego odnajdowania i oceny](./tutorial-discover-physical.md).

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 08a8dde815a6dea5d69e5e2a385cbaa03fba681a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99832698"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865625"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu Azure PowerShell
 
@@ -88,7 +88,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Upewnij się, że włączono zasady dostępu (w portalu), aby uzyskać dostęp do usługi "Azure Virtual Machines for Deployment" i "Azure Resource Manager for Template Deployment". Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+9. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -97,6 +97,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
 10. Zaktualizuj zasady dostępu Key Vault i przyznaj uprawnienia certyfikatów do konta użytkownika. 
 
     ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -EnabledForDeployment
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 

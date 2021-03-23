@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d3c5077450dd4ec59f5ea7bc8f37879f9aa775bf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943062"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868940"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Przetwarzanie i analizowanie dokumentów JSON przy użyciu Apache Hive w usłudze Azure HDInsight
 
@@ -93,7 +93,7 @@ Instrukcja **SELECT** zwraca tylko jeden wiersz.
 
 Oto dane wyjściowe instrukcji **SELECT** :
 
-![Spłaszczanie dokumentu JSON przy użyciu usługi HDInsight](./media/using-json-in-hive/hdinsight-flatten-json.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="Spłaszczanie dokumentu JSON przy użyciu usługi HDInsight" border="true":::
 
 ## <a name="analyze-json-documents-in-hive"></a>Analizowanie dokumentów JSON w usłudze Hive
 
@@ -119,7 +119,7 @@ FROM StudentsOneLine;
 
 Oto dane wyjściowe po uruchomieniu tego zapytania w oknie konsoli:
 
-![Apache Hive pobiera funkcję UDF obiektu JSON](./media/using-json-in-hive/hdinsight-get-json-object.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive pobiera funkcję UDF obiektu JSON" border="true":::
 
 Istnieją ograniczenia dotyczące get_json_object UDF:
 
@@ -141,7 +141,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Dane wyjściowe tego skryptu w konsoli programu Hive:
 
-![Apache Hive wyniki zapytania JSON](./media/using-json-in-hive/hdinsight-json-tuple.png)
+:::image type="content" source="./media/using-json-in-hive/hdinsight-json-tuple.png" alt-text="Apache Hive wyniki zapytania JSON" border="true":::
 
 W formacie `json_tuple` UDF użyto składni [widoku bocznego](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) w gałęzi, która umożliwia \_ krotkom JSON Tworzenie tabeli wirtualnej przez zastosowanie funkcji UDT do każdego wiersza oryginalnej tabeli. Złożone dane JSON stają się zbyt nieporęczny z powodu wielokrotnego użycia **widoku bocznego**. Ponadto **JSON_TUPLE** nie może obsłużyć ZAGNIEŻDŻONych notacji JSON.
 

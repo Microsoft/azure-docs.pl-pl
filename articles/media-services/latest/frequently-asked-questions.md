@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581120"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871405"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
@@ -47,12 +47,6 @@ Zobacz [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services]
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Jak mogę strumieniowo z urządzeniami Apple iOS?
 
 Upewnij się, że masz **(format = M3U8-AAPL)** na końcu ścieżki (po części **/manifest** adresu URL), aby poinformować serwer źródłowy przesyłania strumieniowego, aby ZWRACAŁ zawartość http Live Streaming (HLS) do użycia na urządzeniach natywnych Apple iOS. Aby uzyskać szczegółowe informacje, zobacz [dostarczanie zawartości](dynamic-packaging-overview.md).
-
-### <a name="how-do-i-configure-media-reserved-units"></a>Jak mogę skonfigurować jednostki zarezerwowane multimediów?
-
-W przypadku zadań analizy audio i analizy wideo, które są wyzwalane przez Media Services v3 lub Video Indexer, zalecamy udostępnienie konta przy użyciu 10 jednostek zarezerwowanych multimediów (MRUs). Jeśli potrzebujesz więcej niż 10 MRUs S3, Otwórz bilet pomocy technicznej przy użyciu [Azure Portal](https://portal.azure.com/).
-
-Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimediów](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Jaka jest zalecana metoda przetwarzania wideo?
 

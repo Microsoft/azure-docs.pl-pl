@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943934"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864690"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Przesyłanie zadań z narzędzi R Tools for Visual Studio
 
@@ -22,7 +22,7 @@ RTVS ulepsza przepływ pracy w języku R, oferując narzędzia, takie jak [okno 
 
 1. Zainstaluj [R Tools for Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
-    ![Instalowanie RTVS w programie Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png" alt-text="Instalowanie RTVS w programie Visual Studio 2017" border="true":::
 
 2. Wybierz obciążenie analizy *danych i aplikacji analitycznych* , a następnie wybierz opcję **Obsługa języka r**, **Obsługa środowiska uruchomieniowego w środowisku r** i opcje **Microsoft R Client** .
 
@@ -38,7 +38,7 @@ RTVS ulepsza przepływ pracy w języku R, oferując narzędzia, takie jak [okno 
 
    2. Przejdź do elementu menu **Narzędzia języka R** , a następnie wybierz pozycję **nauka o danych — ustawienia...**.
 
-       ![Nauka o danych — ustawienia programu Visual Studio](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png" alt-text="Nauka o danych — ustawienia programu Visual Studio" border="true":::
 
       > [!NOTE]  
       > Korzystając z metody w kroku 1, można również zapisać i przywrócić spersonalizowany układ Analityka danych, zamiast powtarzać **nauka o danych — ustawienia** polecenie.
@@ -53,11 +53,11 @@ RTVS ulepsza przepływ pracy w języku R, oferując narzędzia, takie jak [okno 
 6. Zaczynając od góry pliku, naciśnij klawisze CTRL + ENTER, aby wysłać każdy wiersz pojedynczo do okna R Interactive. Niektóre wiersze mogą chwilę potrwać, ponieważ zainstalują pakiety.
     * Alternatywnie możesz wybrać wszystkie wiersze w pliku R (Ctrl + A), a następnie wykonać wszystkie (Ctrl + Enter) lub wybrać ikonę Execute Interactive na pasku narzędzi.
 
-        ![Program Visual Studio Execute Interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png" alt-text="Program Visual Studio Execute Interactive" border="true":::
 
 7. Po uruchomieniu wszystkich wierszy w skrypcie powinny zostać wyświetlone dane wyjściowe podobne do tego:
 
-    ![Visual Studio obszar roboczy narzędzia R Tools](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png" alt-text="Visual Studio obszar roboczy narzędzia R Tools" border="true":::
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Przesyłanie zadań do klastra usługi HDInsight ML
 
@@ -93,7 +93,7 @@ Za pomocą ML Server lub Microsoft R Client firmy Microsoft z komputera z system
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![Platforma Apache Spark — Ustawianie kontekstu](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="Platforma Apache Spark — Ustawianie kontekstu" border="true":::
 
 1. W oknie R Interactive wykonaj następujące polecenia:
 
@@ -105,22 +105,23 @@ Za pomocą ML Server lub Microsoft R Client firmy Microsoft z komputera z system
 
     Powinny pojawić się dane wyjściowe podobne do następujących:
 
-    ![Pomyślne wykonanie polecenia RX ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png" alt-text="Pomyślne wykonanie polecenia RX" border="true":::
+a
 1. Sprawdź, czy `rxHadoopCopy` pomyślnie skopiowano `people.json` plik z przykładowego folderu danych do nowo utworzonego `/user/RevoShare/newUser` folderu:
 
     1. W okienku klastra usługi HDInsight ML na platformie Azure wybierz pozycję **konta magazynu** z menu po lewej stronie.
 
-        ![Konta usługi Azure HDInsight Storage](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Konta usługi Azure HDInsight Storage" border="true":::
 
     2. Wybierz domyślne konto magazynu dla klastra, pamiętając o nazwie kontenera/katalogu.
 
     3. Wybierz pozycję **kontenery** z menu po lewej stronie w okienku konto magazynu.
 
-        ![Kontenery usługi Azure HDInsight Storage](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Kontenery usługi Azure HDInsight Storage" border="true":::
 
     4. Wybierz nazwę kontenera klastra, przejdź do folderu **User** (może być konieczne kliknięcie przycisku *Załaduj więcej* w dolnej części listy), a następnie wybierz pozycję *RevoShare*, a następnie **newUser**. `people.json`Plik powinien być wyświetlony w `newUser` folderze.
 
-        ![Lokalizacja folderu skopiowanego pliku usługi HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png" alt-text="Lokalizacja folderu skopiowanego pliku usługi HDInsight" border="true":::
 
 1. Po zakończeniu korzystania z bieżącego kontekstu Apache Spark należy go zatrzymać. Nie można uruchamiać wielu kontekstów jednocześnie.
 

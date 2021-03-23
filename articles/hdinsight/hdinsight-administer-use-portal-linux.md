@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 33171527f03b0cc386f683f55f6cf9a70913abdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101091437"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871218"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
 
@@ -36,7 +36,7 @@ Na stronie **Klastry usługi HDInsight** zostaną wystawione istniejące klastry
 
 Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters) .  Spowoduje to otwarcie widoku **przeglądu** , który wygląda podobnie do poniższego obrazu:
 
-![Azure Portal podstawowe informacje o klastrze usługi HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Azure Portal podstawowe informacje o klastrze usługi HDInsight":::
 
 **Menu górne:**  
 
@@ -58,7 +58,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     |Tagi|Pozwala ustawić pary klucz/wartość, aby zdefiniować niestandardową taksonomię usług w chmurze. Na przykład możesz utworzyć klucz o nazwie **projekt**, a następnie użyć wspólnej wartości dla wszystkich usług skojarzonych z określonym projektem.|
     |Diagnozowanie i rozwiązywanie problemów|Wyświetl informacje dotyczące rozwiązywania problemów.|
     |Szybki start|Wyświetla informacje, które ułatwiają rozpoczęcie pracy z usługą HDInsight.|
-    |Narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
+    |narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
 
   - **Menu ustawień**  
 
@@ -173,7 +173,7 @@ Na [stronie głównej klastra](#homePage):
 
 1. Wybierz **pulpity nawigacyjne klastra**.
 
-    ![Menu klastra Apache Hadoop usługi HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="Menu klastra Apache Hadoop usługi HDInsight":::
 
 1. Na nowej stronie wybierz pozycję **Ambari Home** .
 1. Wprowadź nazwę użytkownika i hasło do klastra.  Domyślną nazwą użytkownika klastra jest _administrator_.

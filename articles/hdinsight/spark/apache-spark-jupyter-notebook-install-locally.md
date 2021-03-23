@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6dc91dc07d11f195092343e657911a884d8bf475
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930413"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865999"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalowanie Jupyter Notebook na komputerze i nawiązywanie połączenia z Apache Spark w usłudze HDInsight
 
@@ -142,7 +142,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
 
     a. Utwórz nowy notes. W prawym górnym rogu wybierz pozycję **Nowy**. Powinien zostać wyświetlony domyślny jądro **Python 2** lub **Python 3** i zainstalowane jądra. Rzeczywiste wartości mogą się różnić w zależności od opcji instalacji.  Wybierz pozycję **PySpark**.
 
-    ![Dostępne jądra w Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jądra w Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Dostępne jądra w Jupyter Notebook" border="true":::
 
     > [!IMPORTANT]  
     > Po wybraniu pozycji **Nowy** Przejrzyj powłokę pod kątem błędów.  Jeśli zobaczysz błąd, `TypeError: __init__() got an unexpected keyword argument 'io_loop'` może wystąpić znany problem z niektórymi wersjami programu Tornado.  Jeśli tak, Zatrzymaj jądro, a następnie Obniż poziom instalacji Tornado przy użyciu następującego polecenia: `pip install tornado==4.5.3` .

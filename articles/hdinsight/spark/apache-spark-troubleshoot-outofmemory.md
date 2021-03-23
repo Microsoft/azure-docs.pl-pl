@@ -4,12 +4,12 @@ description: Różne wyjątki OutOfMemoryError dla klastra Apache Spark w usłud
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946343"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868668"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError wyjątki dla Apache Spark w usłudze Azure HDInsight
 
@@ -59,7 +59,7 @@ Najbardziej prawdopodobną przyczyną tego wyjątku jest brak wystarczającej il
 
 1. Upewnij się, że klaster usługi HDInsight, który ma być używany, ma wystarczającą ilość zasobów pamięci i rdzeni, aby pomieścić aplikację aparatu Spark. Można to ustalić, wyświetlając sekcję metryki klastra w interfejsie użytkownika PRZĘDZy w klastrze, aby uzyskać wartości **używanej pamięci** a **łącznie** z **rdzeni wirtualnych** i **rdzeni wirtualnych**.
 
-    ![Widok pamięci podstawowej przędzy](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="Widok pamięci podstawowej przędzy" border="true":::
 
 1. Ustaw następujące konfiguracje platformy Spark na odpowiednie wartości. Równoważyć wymagania dotyczące aplikacji z dostępnymi zasobami w klastrze. Te wartości nie powinny przekraczać 90% dostępnej pamięci i rdzeni w postaci podanej przez PRZĘDZę i powinny również spełniać minimalne wymagania dotyczące pamięci aplikacji Spark:
 
@@ -117,11 +117,11 @@ Pamięć serwera historii platformy Spark można zwiększyć, edytując `SPARK_D
 
 Można to zrobić z poziomu interfejsu użytkownika przeglądarki Ambari, wybierając sekcję Spark2/config/Advanced Spark2-ENV.
 
-![Advanced spark2 — sekcja ENV](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Advanced spark2 — sekcja ENV" border="true":::
 
 Dodaj następującą właściwość, aby zmienić pamięć serwera historii platformy Spark z 1g na 4G: `SPARK_DAEMON_MEMORY=4g` .
 
-![Właściwość platformy Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Właściwość platformy Spark" border="true":::
 
 Upewnij się, że wszystkie usługi, których to dotyczy, zostały uruchomione ponownie z Ambari.
 

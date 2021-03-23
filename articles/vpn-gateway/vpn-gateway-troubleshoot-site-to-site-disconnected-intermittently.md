@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 582077c46f5fc7176b457cf0d392af48fbe7d40b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100369343"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867257"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Troubleshooting: połączenie lokacja-lokacja w sieci VPN na platformie Azure jest sporadycznie rozłączane
 
@@ -56,9 +56,7 @@ Brama sieci wirtualnej oparta na zasadach ma limit 200 par skojarzeń zabezpiecz
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Krok 6 Sprawdź adres interfejsu zewnętrznego lokalnego urządzenia sieci VPN
 
-- Jeśli adres IP połączony z Internetem urządzenia sieci VPN zostanie uwzględniony w definicji **bramy sieci lokalnej** na platformie Azure, mogą wystąpić sporadyczne rozłączenia.
-- Interfejs zewnętrzny urządzenia musi być bezpośrednio w Internecie. Między Internetem i urządzeniem nie powinna istnieć żadna translator adresów sieciowych ani zapora.
--  W przypadku skonfigurowania klastrowania zapory w celu posiadania wirtualnego adresu IP należy przerwać klaster i uwidocznić urządzenie sieci VPN bezpośrednio do interfejsu publicznego, z którym Brama może być interfejsem.
+Jeśli adres IP połączony z Internetem urządzenia sieci VPN zostanie uwzględniony w definicji **bramy sieci lokalnej** na platformie Azure, mogą wystąpić sporadyczne rozłączenia.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Krok 7 Sprawdź, czy lokalne urządzenie sieci VPN ma włączone doskonałe utajnienie przekazywania
 

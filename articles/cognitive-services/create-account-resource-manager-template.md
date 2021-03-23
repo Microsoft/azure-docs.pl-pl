@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 161c5779926acad8814ec057f24e36f371738483
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928653"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864367"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
@@ -137,9 +137,10 @@ az group delete --name $resourceGroupName
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="see-also"></a>Zobacz też
 
-* [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](authentication.md)
-* [Co to jest platforma Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Obsługa języka naturalnego](language-support.md)
-* [Obsługa kontenerów platformy Docker](cognitive-services-container-support.md)
+* Zobacz temat **[uwierzytelnianie żądań na platformie Azure Cognitive Services](authentication.md)** , jak bezpiecznie współpracować z Cognitive Services.
+* Zobacz, **[co to jest usługa Azure Cognitive Services?](./what-are-cognitive-services.md)** , aby uzyskać listę różnych kategorii w programie Cognitive Services.
+* Zobacz **[obsługę języka naturalnego](language-support.md)** , aby wyświetlić listę języków naturalnych obsługiwanych przez Cognitive Services.
+* Zobacz **[używanie Cognitive Services jako kontenerów,](cognitive-services-container-support.md)** aby zrozumieć, jak używać Cognitive Services w Premium.
+* Zobacz **[Planowanie i zarządzanie kosztami Cognitive Services](plan-manage-costs.md)** , aby oszacować koszt korzystania z Cognitive Services.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20a7a7392070a6f888add630398516b2f872cd7d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945276"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865489"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Zarządzanie dziennikami klastra usługi HDInsight
 
@@ -76,11 +76,11 @@ Apache Ambari upraszcza zarządzanie, konfigurację i monitorowanie klastra usł
 
 Aby otworzyć listę widoków usług, wybierz okienko **widoki Ambari** na stronie Azure portal usługi HDInsight.  Ta lista różni się w zależności od zainstalowanych bibliotek.  Na przykład można zobaczyć Menedżera kolejki PRZĘDZy, widok Hive i widok tez.  Wybierz łącze do usługi, aby wyświetlić informacje o konfiguracji i usłudze.  Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usługi klastra i historii wersji usługi. Aby przejść do tej sekcji interfejsu użytkownika Ambari, wybierz menu **administrator** , a następnie kliknij **stosy i wersje**.  Wybierz kartę **wersje** , aby wyświetlić informacje o wersji usługi.
 
-![Stos i wersje administratora oprogramowania Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-log-management/ambari-stack-versions.png" alt-text="Stos i wersje administratora oprogramowania Apache Ambari":::
 
 Za pomocą interfejsu użytkownika Ambari można pobrać konfigurację dla dowolnych (lub wszystkich) usług działających na określonym hoście (lub węźle) w klastrze.  Wybierz menu **hosty** , a następnie link do hosta zainteresowania. Na stronie tego hosta wybierz przycisk **Akcje hosta** , a następnie **Pobierz konfiguracji klienta**.
 
-![Konfiguracja klienta hosta pobierania oprogramowania Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
+:::image type="content" source="./media/hdinsight-log-management/download-client-configs.png" alt-text="Konfiguracja klienta hosta pobierania oprogramowania Apache Ambari":::
 
 ### <a name="view-the-script-action-logs"></a>Wyświetlanie dzienników akcji skryptu
 
@@ -102,7 +102,7 @@ log4j.logger.alerts=DEBUG,alerts
 
 Następnym krokiem jest przejrzenie plików dziennika wykonywania zadań dla różnych usług.  Usługi mogą obejmować Apache HBase, Apache Spark i wiele innych. Klaster Hadoop tworzy dużą liczbę pełnych dzienników, dzięki czemu można określić, które dzienniki są przydatne (i które nie są).  Zrozumienie systemu rejestrowania jest ważne w przypadku kierowania zarządzania plikami dziennika.  Poniższy obraz przedstawia przykładowy plik dziennika.
 
-![Przykładowe dane wyjściowe przykładowego pliku dziennika usługi HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="Przykładowe dane wyjściowe przykładowego pliku dziennika usługi HDInsight":::
 
 ### <a name="access-the-hadoop-log-files"></a>Dostęp do plików dziennika usługi Hadoop
 
@@ -157,7 +157,7 @@ Po określeniu, które pliki dzienników można usunąć, można dostosować par
 
 W przypadku niektórych plików dziennika można użyć metody archiwizowania plików dziennika o niższej cenie. W przypadku Azure Resource Manager dzienników aktywności można eksplorować takie podejście przy użyciu Azure Portal.  Skonfiguruj archiwizowanie dzienników Menedżer zasobów, wybierając łącze **dziennika aktywności** w Azure Portal wystąpienia usługi HDInsight.  W górnej części strony Wyszukiwanie w dzienniku aktywności wybierz element menu **Eksportuj** , aby otworzyć okienko **Eksportuj dziennik aktywności** .  Wypełnij pola subskrypcja, region, czy chcesz eksportować do konta magazynu, a także liczbę dni przechowywania dzienników. W tym samym okienku można także wskazać, czy wyeksportować do centrum zdarzeń.
 
-![Azure Portal eksportowanie dziennika aktywności](./media/hdinsight-log-management/hdi-export-log-files.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Azure Portal eksportowanie dziennika aktywności":::
 
 Alternatywnie można archiwizowanie dzienników skryptów przy użyciu programu PowerShell.  Przykładowy skrypt programu PowerShell znajduje się w temacie [Archiwizowanie dzienników Azure Automation na platformie Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 

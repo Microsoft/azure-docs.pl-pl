@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 458f4d3f29cb08a94095167ed45133f5cd70f5f4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737171"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869195"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Zainstaluj narzędzie do tworzenia migawek spójnych w aplikacji Azure (wersja zapoznawcza)
 
@@ -239,71 +239,6 @@ Baza danych, zmiana adresu IP, nazw użytkowników i haseł w odpowiedni sposób
     ENV : <IP_address_of_host>:
     USER: AZACSNAP
     ```
-
-### <a name="additional-instructions-for-using-the-log-trimmer-sap-hana-20-and-later"></a>Dodatkowe instrukcje dotyczące korzystania z funkcji dostosowującej do dziennika (SAP HANA 2,0 i nowsze)
-
-W przypadku używania elementu dostosowującego dziennik następujące przykładowe polecenia skonfigurują użytkownika (AZACSNAP) w bazie danych DZIERŻAWy w systemie bazy danych SAP HANA 2,0. Pamiętaj, aby zmienić adres IP, nazwy użytkowników i hasła w odpowiedni sposób:
-
-1. Nawiąż połączenie z bazą danych DZIERŻAWy, aby utworzyć użytkownika, szczegółowe informacje specyficzne dla dzierżawy to `<IP_address_of_host>` i `<SYSTEM_USER_PASSWORD>` .  Należy również zwrócić uwagę na port ( `30015` ) wymagany do komunikacji z bazą danych dzierżawcy.
-
-    ```bash
-    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-    ```
-
-    ```output  
-    Welcome to the SAP HANA Database interactive terminal.
-
-    Type: \h for help with commands
-    \q to quit
-
-    hdbsql TENANTDB=>
-    ```
-
-1. Utwórz użytkownika
-
-    Ten przykład tworzy użytkownika AZACSNAP w SYSTEMDB.
-
-    ```sql
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
-    ```
-
-1. Przyznaj uprawnienia użytkownikowi
-
-    Ten przykład ustawia uprawnienie dla użytkownika AZACSNAP, aby umożliwić wykonywanie migawek magazynu spójnego z bazą danych.
-
-    ```sql
-    hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
-
-1. *Opcjonalne* — Zapobiegaj wygaśnięciu hasła użytkownika
-
-    > [!NOTE]
-    > Przed wprowadzeniem tej zmiany Sprawdź zasady firmowe.
-
-   Ten przykład powoduje wyłączenie wygaśnięcia hasła dla użytkownika AZACSNAP bez zmiany hasła użytkownika wygaśnie, aby migawki zostały wykonane prawidłowo.  
-
-   ```sql
-   hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
-   ```
-
-> [!NOTE]  
-> Powtórz te kroki dla wszystkich baz danych dzierżawy. Można pobrać szczegóły połączenia dla wszystkich dzierżawców, używając następującego zapytania SQL względem SYSTEMDB.
-
-```sql
-SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
-```
-
-Zobacz następujące przykładowe zapytanie i dane wyjściowe.
-
-```bash
-hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
-```
-
-```output
-sapprdhdb80,30013,SYSTEMDB
-sapprdhdb80,30015,H81
-sapprdhdb80,30041,H82
-```
 
 ### <a name="using-ssl-for-communication-with-sap-hana"></a>Używanie protokołu SSL na potrzeby komunikacji z usługą SAP HANA
 

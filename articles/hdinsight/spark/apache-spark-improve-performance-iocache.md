@@ -4,12 +4,12 @@ description: Informacje o pamięci podręcznej we/wy usługi Azure HDInsight i s
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940125"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866305"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Poprawianie wydajności Apache Spark obciążeń przy użyciu pamięci podręcznej we/wy usługi Azure HDInsight
 
@@ -37,7 +37,7 @@ Pamięć podręczna we/wy usługi HDInsight Azure jest domyślnie zdezaktywowana
 
 1. Wybierz **Akcje** (**Akcje usługi** w HDI 3,6) i **Aktywuj**.
 
-    ![Włączanie usługi pamięci podręcznej we/wy w Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Włączanie usługi pamięci podręcznej we/wy w Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Włączanie usługi pamięci podręcznej we/wy w Ambari" border="true":::
 
 1. Potwierdź ponowne uruchomienie wszystkich usług, których dotyczy ten klaster.
 
@@ -52,7 +52,7 @@ Po włączeniu pamięci podręcznej we/wy może wystąpić błąd miejsca na dys
 
 1. Wybierz pozycję **konfiguracje i** karty **Zaawansowane** .
 
-    ![Edytuj zaawansowaną konfigurację systemu plików HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Edytuj zaawansowaną konfigurację systemu plików HDFS")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edytuj zaawansowaną konfigurację systemu plików HDFS" border="true":::
 
 1. Przewiń w dół i rozwiń obszar **niestandardowe Lokacje podstawowe** .
 
@@ -60,13 +60,13 @@ Po włączeniu pamięci podręcznej we/wy może wystąpić błąd miejsca na dys
 
 1. Zmień wartość w polu.
 
-    ![Edytuj procent całkowitej ilości pamięci podręcznej we/wy](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Edytuj procent całkowitej ilości pamięci podręcznej we/wy")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edytuj procent całkowitej ilości pamięci podręcznej we/wy" border="true":::
 
 1. Wybierz pozycję **Zapisz** w prawym górnym rogu.
 
 1. Wybierz pozycję **Uruchom ponownie**  >  **ponownie wszystkie uwzględnione**.
 
-    ![Wszystkie uwzględnione ponowne uruchomienia Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Uruchom ponownie wszystkie uwzględnione")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Wszystkie uwzględnione ponowne uruchomienia Apache Ambari" border="true":::
 
 1. Wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich**.
 

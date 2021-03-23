@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/12/2021
-ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103420038"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870198"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -690,10 +690,10 @@ addProperty(<object>, '<property>', <value>)
 | <*zaktualizowany obiekt*> | Obiekt | Zaktualizowany obiekt JSON z określoną właściwością. |
 ||||
 
-Aby dodać właściwość podrzędną do istniejącej właściwości, użyj następującej składni:
+Aby dodać właściwość nadrzędną do istniejącej właściwości, użyj `setProperty()` funkcji, a nie `addProperty()` funkcji. W przeciwnym razie funkcja zwraca tylko obiekt podrzędny jako dane wyjściowe.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parametr | Wymagane | Typ | Opis |
@@ -741,7 +741,7 @@ Oto zaktualizowany obiekt JSON:
 Ten przykład dodaje `middleName` Właściwość podrzędną do istniejącej `customerName` właściwości w obiekcie JSON, który jest konwertowany z ciągu na notację JSON przy użyciu funkcji [JSON ()](#json) . Funkcja przypisuje określoną wartość do nowej właściwości i zwraca zaktualizowany obiekt:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 Oto bieżący obiekt JSON:

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1e2a0859227ad790763dc9ae07cb408a72538f90
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773372"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865591"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
@@ -141,7 +141,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ```
  
 
-4. Dodaj odwołanie do magazynu kluczy w  `OsProfile`   sekcji szablonu ARM. Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołując się do odcisków palców certyfikatu w pliku konfiguracji usługi (cscfg). Należy również włączyć Key Vault dla odpowiednich uprawnień, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Magazyn kluczy musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów z Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+4. Dodaj odwołanie do magazynu kluczy w  `OsProfile`   sekcji szablonu ARM. Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołując się do odcisków palców certyfikatu w pliku konfiguracji usługi (cscfg). Należy również włączyć zasady dostępu Key Vault "dla usługi" Azure Virtual Machines for Deployment "(w portalu), aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Magazyn kluczy musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów z Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
