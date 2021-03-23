@@ -7,18 +7,20 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988726"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802900"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Jak skonfigurować indeksowanie obiektów BLOB w Wyszukiwanie poznawcze
 
-W tym artykule opisano sposób konfigurowania indeksatora obiektów BLOB służącego do indeksowania dokumentów tekstowych (takich jak pliki PDF, Microsoft Office dokumenty i inne) w usłudze Azure Wyszukiwanie poznawcze. Jeśli nie znasz pojęć indeksatora, Zacznij od [indeksatorów na platformie Azure wyszukiwanie poznawcze](search-indexer-overview.md) i [Utwórz indeksator wyszukiwania](search-howto-create-indexers.md) przed przekazaniem do indeksowania obiektów BLOB.
+Indeksator obiektów BLOB służy do pozyskiwania zawartości z usługi Azure Blob Storage do indeksu Wyszukiwanie poznawcze. Indeksatory obiektów BLOB są często używane w [wzbogacaniu AI](cognitive-search-concept-intro.md), gdzie dołączona [zestawu umiejętności](cognitive-search-working-with-skillsets.md) dodaje obrazy i przetwarzanie języka naturalnego w celu utworzenia zawartości z możliwością wyszukiwania. Można również użyć indeksatorów obiektów Blob bez wzbogacania AI, aby pozyskać zawartość z dokumentów tekstowych, takich jak pliki PDF, dokumenty Microsoft Office i formaty plików.
+
+W tym artykule opisano sposób konfigurowania indeksatora obiektów BLOB dla każdego scenariusza. Jeśli nie znasz pojęć indeksatora, Zacznij od [indeksatorów na platformie Azure wyszukiwanie poznawcze](search-indexer-overview.md) i [Utwórz indeksator wyszukiwania](search-howto-create-indexers.md) przed przekazaniem do indeksowania obiektów BLOB.
 
 <a name="SupportedFormats"></a>
 
@@ -30,7 +32,7 @@ Indeksator usługi Azure Wyszukiwanie poznawcze BLOB może wyodrębnić tekst z 
 
 ## <a name="data-source-definitions"></a>Definicje źródeł danych
 
-Różnica między indeksatorem obiektów blob i dowolnym innym indeksatorem jest definicją źródła danych, która jest przypisana do indeksatora. Źródło danych hermetyzuje wszystkie właściwości, które określają typ, połączenie i lokalizację zawartości do indeksowania.
+Podstawową różnicą między indeksatorem obiektów blob i innymi indeksatorami jest definicja źródła danych, która jest przypisana do indeksatora. Definicja źródła danych określa typ źródła danych ("Type": "azureblob"), a także inne właściwości uwierzytelniania i połączenia z zawartością do indeksowania.
 
 Definicja źródła danych obiektu BLOB wygląda podobnie do poniższego przykładu:
 
@@ -72,7 +74,7 @@ Sygnatura dostępu współdzielonego powinna mieć uprawnienia do listy i odczyt
 
 ## <a name="index-definitions"></a>Definicje indeksu
 
-Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtują środowisko wyszukiwania. Poniższy przykład tworzy prosty indeks przy użyciu [create index (interfejs API REST)](/rest/api/searchservice/create-index). 
+Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtują środowisko wyszukiwania. Wszystkie indeksatory wymagają określenia definicji indeksu wyszukiwania jako miejsca docelowego. Poniższy przykład tworzy prosty indeks przy użyciu [create index (interfejs API REST)](/rest/api/searchservice/create-index). 
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -90,7 +92,7 @@ api-key: [admin key]
 
 Definicje indeksów wymagają jednego pola w `"fields"` kolekcji, aby działały jako klucz dokumentu. Definicje indeksów powinny również zawierać pola zawartości i metadanych.
 
-**`content`** Pole jest używane do przechowywania tekstu wyodrębnionego z obiektów BLOB. Definicja tego pola może wyglądać podobnie do powyższego. Nie musisz używać tej nazwy, ale dzięki temu można korzystać z niejawnych mapowań pól. Indeksator obiektów BLOB może wysłać zawartość obiektu BLOB do pola Content EDM. String w indeksie, nie są wymagane żadne mapowania pól.
+**`content`** Pole jest wspólne dla zawartości obiektu BLOB. Zawiera tekst wyodrębniony z obiektów BLOB. Definicja tego pola może wyglądać podobnie do powyższego. Nie musisz używać tej nazwy, ale dzięki temu można korzystać z niejawnych mapowań pól. Indeksator obiektów BLOB może wysłać zawartość obiektu BLOB do pola Content EDM. String w indeksie, nie są wymagane żadne mapowania pól.
 
 Można również dodać pola dla wszystkich metadanych obiektów blob, które mają być używane w indeksie. Indeksator może odczytywać niestandardowe właściwości metadanych, [standardowe właściwości metadanych](#indexing-blob-metadata) i właściwości [metadanych właściwych dla zawartości](search-blob-metadata-properties.md) . Aby uzyskać więcej informacji na temat indeksów, zobacz [Tworzenie indeksu](search-what-is-an-index.md).
 

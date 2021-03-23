@@ -93,7 +93,7 @@
               displayName: 'custom, setting, properties'
               href: concept-baseline.md
             - name: Podstawa zabezpieczeń platformy Azure dla usługi Azure Defender dla IoT
-              displayName: 'identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance'
+              displayName: 'identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance'
               href: security-baseline.md
             - name: Agregacja zdarzeń klasycznych Defender-IoT-Micro Agent
               displayName: 'twin, default, configuration, alerts'
@@ -114,10 +114,10 @@
               href: how-to-identify-required-appliances.md
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate'
             - name: Konfigurowanie sieci
-              displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
+              displayName: 'passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
               href: how-to-set-up-your-network.md
             - name: Zainstalowanie oprogramowania
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate'
+              displayName: 'setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate'
               href: how-to-install-software.md
         - name: Przygotowywanie czujników
           items:
@@ -125,12 +125,12 @@
               displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Aktywowanie i konfigurowanie czujnika
-              displayName: 'onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: Przygotowywanie lokalnej konsoli zarządzania
           items:
             - name: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
-              displayName: 'activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
+              displayName: 'deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Konfigurowanie wysokiej dostępności
               displayName: 'primary, secondary, failover, failback fail, recovery'
@@ -166,19 +166,22 @@
               displayName: classification
             - name: Badanie wykryć czujników w spisie urządzeń
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-              displayName: 'classification, Windows registry, asset, device, firmware, import'
+              displayName: 'classification, Windows registry, device, firmware, import'
         - name: Praca z mapą urządzeń czujników
           href: how-to-work-with-the-sensor-device-map.md
           displayName: 'connections, Purdue, zoom, delete device'
         - name: Praca z alertami wykrytymi przez czujnik
           items:
-            - name: Praca z alertem czujnika
+            - name: Informacje o alertach czujników
               href: how-to-work-with-alerts-on-your-sensor.md
-            - name: Alerty widoków
+            - name: Filtrowanie alertów i zarządzanie nimi na stronie alertów
               href: how-to-view-alerts.md
-            - name: Wyświetlanie informacji podanych w alertach
+            - name: Komunikaty alertów — informacje
               href: how-to-view-information-provided-in-alerts.md
-              displayName: PCAP
+              displayName: 'PCAP, metadata, alerts, link, device map,'
+            - name: Typy alertów i opisy
+              href: alert-engine-messages.md
+              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational'
             - name: Zarządzanie zdarzeniem alertu
               href: how-to-manage-the-alert-event.md
               displayName: 'PCAP, acknowledge, learn, mute, policy'
@@ -191,6 +194,9 @@
         - name: 'Uzyskiwanie wglądu w globalne, regionalne i lokalne zagrożenia'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
+        - name: 'Kilka informacji dotyczących urządzeń, alertów i czujników na strefę'
+          href: how-to-view-information-per-zone.md
+          displayName: zones
         - name: Praca z alertami w lokalnej konsoli zarządzania
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Tworzenie raportów
@@ -300,7 +306,7 @@
         - name: Rozwiązywanie problemów z usługą Defender IoT Micro Agent (wersja zapoznawcza)
           displayName: 'service status, review logs'
           href: troubleshoot-defender-micro-agent.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Rozwiązanie bez agenta dla organizacji
       items:

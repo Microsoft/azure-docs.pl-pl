@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą serwerów z obsługą usługi Azure Arc
 description: Serwery z obsługą usługi Azure Arc mogą zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
-ms.date: 03/01/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687910"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799585"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Zarządzanie rozszerzeniami maszyn wirtualnych na serwerach z obsługą usługi Azure Arc
 
@@ -42,6 +42,9 @@ Funkcjonalność rozszerzenia maszyny wirtualnej jest dostępna tylko na liście
 W tej wersji obsługiwane są następujące rozszerzenia maszyn wirtualnych na komputerach z systemem Windows i Linux.
 
 Aby dowiedzieć się więcej na temat pakietu agenta połączonego z platformą Azure i szczegółowych informacji o składniku agenta rozszerzeń, zobacz [Omówienie agenta](agent-overview.md#agent-component-details).
+
+> [!NOTE]
+> Ostatnio obsługiwane rozszerzenie maszyny wirtualnej DSC zostało usunięte dla serwerów z włączonymi łukiem. Alternatywnie zalecamy użycie rozszerzenia niestandardowego skryptu w celu zarządzania konfiguracją po wdrożeniu serwera lub komputera.
 
 ### <a name="windows-extensions"></a>Rozszerzenia systemu Windows
 

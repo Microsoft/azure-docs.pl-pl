@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470470"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798531"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Konfigurowanie zagregowanej przestrzeni nazw
 
@@ -30,6 +30,8 @@ Można sortować kolumny tabeli, aby lepiej zrozumieć zagregowaną przestrzeń 
 ## <a name="add-or-edit-namespace-paths"></a>Dodawanie lub edytowanie ścieżek przestrzeni nazw
 
 Aby klienci mogli uzyskać dostęp do miejsca docelowego magazynu, należy utworzyć co najmniej jedną ścieżkę przestrzeni nazw. (Aby uzyskać więcej informacji o dostępie klientów, zobacz temat [Instalowanie pamięci podręcznej platformy Azure HPC](hpc-cache-mount.md) ).
+
+Jeśli ostatnio dodano docelowy magazyn lub dostosowano zasady dostępu, może upłynąć minutę lub dwie, aby można było utworzyć ścieżkę przestrzeni nazw.
 
 ### <a name="blob-namespace-paths"></a>Ścieżki przestrzeni nazw obiektów BLOB
 

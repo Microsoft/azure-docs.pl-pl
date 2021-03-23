@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506705"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800350"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Odzyskiwanie po awarii i tryb failover konta magazynu
 
@@ -23,7 +23,7 @@ Firma Microsoft dąży do zapewnienia, że usługi platformy Azure są zawsze do
 
 Usługa Azure Storage obsługuje tryb failover dla konta magazynu geograficznie nadmiarowego. Korzystając z trybu failover konta, można zainicjować proces trybu failover dla konta magazynu, jeśli podstawowy punkt końcowy stanie się niedostępny. Tryb failover aktualizuje pomocniczy punkt końcowy, aby stał się podstawowym punktem końcowym dla konta magazynu. Po zakończeniu pracy w trybie failover klienci mogą rozpocząć zapisywanie do nowego podstawowego punktu końcowego.
 
-Tryb failover konta jest dostępny dla typów kont ogólnego przeznaczenia w wersji 1, ogólnego przeznaczenia w wersji 2 i kont magazynu obiektów blob z wdrożeniami usługi Azure Resource Manager. Tryb failover konta jest obsługiwany przez wszystkie regiony publiczne, ale nie jest w tej chwili dostępna w chmurach suwerennych lub krajowych.
+Tryb failover konta jest dostępny dla typów kont ogólnego przeznaczenia w wersji 1, ogólnego przeznaczenia w wersji 2 i kont magazynu obiektów blob z wdrożeniami usługi Azure Resource Manager. Tryb failover konta jest obsługiwany przez wszystkie regiony publiczne, ale nie jest w tej chwili dostępna w chmurach suwerennych lub krajowych. Tryb failover konta nie jest obsługiwany dla kont magazynu z włączoną hierarchiczną przestrzenią nazw.
 
 W tym artykule opisano koncepcje i procesy związane z trybem failover konta oraz omówiono sposób przygotowania konta magazynu do odzyskania przy minimalnym wpływie na klienta. Aby dowiedzieć się, jak zainicjować tryb failover konta w Azure Portal lub PowerShell, zobacz [inicjowanie trybu failover konta](storage-initiate-account-failover.md).
 
@@ -67,6 +67,8 @@ Firma Microsoft zaleca również zaprojektowanie aplikacji w celu przygotowania 
 ## <a name="understand-the-account-failover-process"></a>Opis procesu przełączania do trybu failover dla konta
 
 Tryb failover konta zarządzanego przez klienta umożliwia przełączenie całego konta magazynu do regionu pomocniczego, jeśli podstawowy serwer stał się niedostępny z jakiegokolwiek powodu. Po wymuszeniu przejścia w tryb failover do regionu pomocniczego klienci mogą rozpocząć zapisywanie danych do pomocniczego punktu końcowego po zakończeniu pracy w trybie failover. Przełączenie w tryb failover trwa zwykle o godzinę.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### <a name="how-an-account-failover-works"></a>Na czym polega przełączanie konta w tryb failover
 

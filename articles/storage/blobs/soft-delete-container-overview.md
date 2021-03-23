@@ -10,16 +10,16 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211145"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800748"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
-Nietrwałe usuwanie kontenerów (wersja zapoznawcza) chroni dane przed przypadkowym lub złośliwym usunięciem. Po włączeniu usuwania nietrwałego kontenera dla konta magazynu wszystkie usunięte kontenery i ich zawartość są przechowywane w usłudze Azure Storage przez określony okres. W okresie przechowywania można przywrócić wcześniej usunięte kontenery. Przywrócenie kontenera przywraca wszystkie obiekty blob w tym kontenerze, gdy zostały usunięte.
+Nietrwałe usuwanie kontenerów (wersja zapoznawcza) chroni dane przed przypadkowym lub złośliwym usunięciem. Po włączeniu usuwania nietrwałego kontenerów dla konta magazynu wszystkie usunięte kontenery i ich zawartość są przechowywane w usłudze Azure Storage przez określony przez Ciebie okres. W okresie przechowywania można przywrócić wcześniej usunięte kontenery. Przywrócenie kontenera przywraca wszystkie obiekty blob znajdujące się w tym kontenerze w momencie jego usunięcia.
 
 Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie następujących funkcji ochrony danych:
 
@@ -35,6 +35,9 @@ Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie
 Po włączeniu usuwania nietrwałego kontenera można określić okres przechowywania usuniętych kontenerów z przedziału od 1 do 365 dni. Domyślny okres przechowywania wynosi 7 dni. W okresie przechowywania można odzyskać usunięty kontener, wywołując operację **przywracania kontenera** .
 
 Podczas przywracania kontenera są również przywracane obiekty blob kontenera i wszystkie wersje obiektów BLOB. Można jednak używać tylko nietrwałego usuwania kontenera do przywracania obiektów blob, jeśli kontener został usunięty. Aby przywrócić usunięty obiekt BLOB, gdy jego kontener nadrzędny nie został usunięty, należy użyć usuwania nietrwałego obiektu BLOB lub przechowywania wersji obiektów BLOB.
+
+> [!WARNING]
+> Usuwanie nietrwałe kontenera może przywrócić tylko całe kontenery i obiekty blob, które znajdują się w czasie usuwania. Nie można przywrócić usuniętego obiektu BLOB w kontenerze za pomocą usuwania nietrwałego kontenera.
 
 Na poniższym diagramie przedstawiono sposób przywracania usuniętego kontenera, gdy jest włączone usuwanie nietrwałe kontenera:
 

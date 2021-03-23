@@ -3,12 +3,12 @@ title: Pojęcia — magazyn
 description: Dowiedz się więcej o możliwościach magazynu kluczy w chmurach prywatnych rozwiązań platformy Azure VMware.
 ms.topic: conceptual
 ms.date: 03/13/2021
-ms.openlocfilehash: 2551b11ada8b6118fb7524d9fe36f8b4b568aca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83a4a52f8414e656b5bc688796db6e93a53d4d76
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462477"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801625"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Pojęcia dotyczące magazynu rozwiązań VMware platformy Azure
 
@@ -44,7 +44,7 @@ Usługi Azure Storage można używać w obciążeniach działających w chmurze 
 Po zapoznaniu się z pojęciami dotyczącymi magazynu rozwiązań VMware platformy Azure możesz uzyskać informacje na temat:
 
 - [Pojęcia dotyczące tożsamości w chmurze prywatnej](concepts-identity.md).
-- [vSphere kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure](concepts-role-based-access-control.md).
+- [vSphere kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure](concepts-identity.md).
 - [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).
 - [Azure NetApp Files z rozwiązaniem VMware platformy Azure](netapp-files-with-azure-vmware-solution.md)
 

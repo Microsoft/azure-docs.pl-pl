@@ -4,7 +4,7 @@ description: W tym artykule opisano opcje konfiguracji YAML na potrzeby dostosow
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 11/29/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a41a788a84770201996fd369d9b47031674afee3
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85367261"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799551"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>YAML opcje konfiguracji, aby dostosować zadania kompilacji
+
+> [!Note]
+> Od 1 marca 2022 rozszerzenie Microsoft Security code Analysis (MSCA) zostanie wycofane. Istniejący klienci MSCA będą zachować dostęp do MSCA do 1 marca 2022. Zapoznaj się z [narzędziami do analizy kodu źródłowego OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) , aby zapoznać się z alternatywnymi opcjami w usłudze Azure DevOps. W przypadku klientów mających na celu zaplanowanie migracji do usługi GitHub można sprawdzić [Zaawansowane zabezpieczenia usługi GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczególnych zadaniach kompilacji. Artykuł rozpoczyna się od zadań związanych z narzędziami do analizy kodu zabezpieczeń. Jest ona zakończona z zadaniami po przetworzeniu.
 
@@ -127,7 +130,7 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 | CredScan | boolean | AllTools = FAŁSZ | Prawda | true |  | Wyniki publikowania są generowane przez zadania kompilacji skanera poświadczeń.
 | RoslynAnalyzers | boolean | AllTools = FAŁSZ | Prawda | fałsz |  | Publikuj wyniki generowane przez zadania kompilacji analizatorów Roslyn.
 | TSLint | boolean | AllTools = FAŁSZ | Prawda | true |  | Publikuj wyniki generowane przez zadania kompilacji TSLint. Należy pamiętać, że w przypadku raportów obsługiwane są tylko dzienniki TSLint w formacie JSON. Jeśli wybrano inny format, należy odpowiednio zaktualizować zadanie kompilacji TSLint.
-| ToolLogsNotFoundAction | listy wyboru | zawsze | Prawda | Standardowa | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
+| ToolLogsNotFoundAction | listy wyboru | zawsze | Prawda | Standardowa (Standard) | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
 
 ## <a name="security-report-task"></a>Zadanie raportu zabezpieczeń
 
@@ -144,7 +147,7 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 | RoslynAnalyzersBreakOn | Listy wyboru | AllTools = true lub RoslynAnalyzers = true | Prawda | Błąd | Błąd, WarningAbove | Poziom wyników do raportowania.
 | TSLint | boolean | AllTools = FAŁSZ | Prawda | fałsz |  | Wyniki raportu generowane przez zadania kompilacji TSLint. Należy pamiętać, że w przypadku raportów obsługiwane są tylko dzienniki TSLint w formacie JSON. Jeśli wybrano inny format, należy odpowiednio zaktualizować zadanie kompilacji TSLint.
 | TSLintBreakOn | Listy wyboru | AllTools = true lub TSLint = true | Prawda | Błąd | Błąd, WarningAbove | Poziom wyników do raportowania.
-| ToolLogsNotFoundAction | listy wyboru | zawsze | Prawda | Standardowa | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
+| ToolLogsNotFoundAction | listy wyboru | zawsze | Prawda | Standardowa (Standard) | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
 | CustomLogsFolder | ciąg | zawsze | Fałsz |  |  | Folder podstawowy, w którym znajdują się Dzienniki narzędzia do analizy; poszczególne pliki dzienników będą znajdować się w podfolderach o nazwie po każdym narzędziu, pod tą ścieżką.
 
 ## <a name="post-analysis-task"></a>Zadanie po analizie
@@ -160,7 +163,7 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 | TSLint | boolean | AllTools = FAŁSZ | Prawda | fałsz |  | Przerwij kompilację w przypadku znalezienia jakichkolwiek problemów z TSLint. Należy pamiętać, że tylko dzienniki TSLint w formacie JSON są obsługiwane w przypadku analizy końcowej. Jeśli wybrano inny format, należy odpowiednio zaktualizować zadanie kompilacji TSLint.
 | TSLintBreakOn | Listy wyboru | AllTools = true lub TSLint = true | Prawda | Błąd | Błąd, WarningAbove | Poziom problemów do przerwania kompilacji.
 | VstsConsole | boolean | zawsze | Fałsz | true |  | Wyniki zapisu do konsoli potoku.
-| ToolLogsNotFoundAction | listy wyboru | zawsze | Prawda | Standardowa | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
+| ToolLogsNotFoundAction | listy wyboru | zawsze | Prawda | Standardowa (Standard) | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
 
 ## <a name="next-steps"></a>Następne kroki
 

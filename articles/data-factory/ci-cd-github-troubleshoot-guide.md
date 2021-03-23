@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z dyskami CD, DevOps i usługą GitHub w usłudze ADF
+title: Rozwiązywanie problemów z tworzeniem ciągłej integracji — CD, DevOps i GitHub w usłudze ADF
 description: Skorzystaj z różnych metod, aby rozwiązywać problemy z dyskami CD w usłudze ADF.
 author: ssabat
 ms.author: susabat
@@ -7,14 +7,14 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/12/2021
-ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418100"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802037"
 ---
-# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Rozwiązywanie problemów z dyskami CD, DevOps i usługą GitHub w usłudze ADF 
+# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Rozwiązywanie problemów z tworzeniem ciągłej integracji — CD, DevOps i GitHub w usłudze ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -101,8 +101,7 @@ Podczas próby opublikowania zmian w Data Factory pojawia się następujący kom
         "details": null
     }
 `
-
-#### <a name="symptom"></a>Objaw
+### <a name="cause"></a>Przyczyna
 
 Odłączono konfigurację narzędzia Git i skonfigurujemy ją ponownie z wybraną flagą "Importuj zasoby", która ustawia Data Factory jako "w synchronizacji". Oznacza to, że nie wprowadzono żadnych zmian do opublikowania.
 
@@ -150,11 +149,7 @@ Utworzono rolę klienta jako użytkownika, która nie ma wystarczających uprawn
 
 Aby rozwiązać ten problem, należy dodać następujące uprawnienie do roli: *Microsoft. DataFactory/factorers/queryFeaturesValue/Action*. To uprawnienie powinno być domyślnie włączone w roli "Współautor Data Factory".
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Automatyczne publikowanie dla ciągłej integracji/ciągłego wdrażania bez kliknięcia przycisku Publikuj  
-
-#### <a name="issue"></a>Problem
-
-Ręczne publikowanie za pomocą przycisku w portalu ADF nie powoduje włączenia automatycznej operacji ciągłej integracji/ciągłego wdrażania.
+###  <a name="cannot-automate-publishing-for-cicd"></a>Nie można zautomatyzować publikowania dla ciągłej integracji/ciągłego wdrażania 
 
 #### <a name="cause"></a>Przyczyna
 
@@ -178,15 +173,14 @@ Azure Resource Manager ogranicza rozmiar szablonu do 4 MB. Ogranicz rozmiar szab
 
 W przypadku małych i średnich rozwiązań łatwiej jest zrozumieć i utrzymywać jeden szablon. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone szablony umożliwiają podzielenie rozwiązania na składniki przeznaczone do realizacji. Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi [korzystania z szablonów połączonych i zagnieżdżonych](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### <a name="cannot-connect-to-git-enterprise-cloud"></a>Nie można nawiązać połączenia z chmurą usługi GIT Enterprise 
+### <a name="cannot-connect-to-git-enterprise"></a>Nie można nawiązać połączenia z przedsiębiorstwem GIT  
 
 ##### <a name="issue"></a>Problem
 
-Nie można nawiązać połączenia z chmurą usługi GIT Enterprise z powodu problemów z uprawnieniami. Zobaczysz błąd, jak **422-obiekt nieprzetwarzany.**
+Nie można nawiązać połączenia z przedsiębiorstwem GIT z powodu problemów z uprawnieniami. Zobaczysz błąd, jak **422-obiekt nieprzetwarzany.**
 
 #### <a name="cause"></a>Przyczyna
 
-* Używasz usługi git Enterprise na serwerze Premium. 
 * Nie skonfigurowano uwierzytelniania OAuth dla usługi ADF. 
 * Twój adres URL jest niepoprawnie skonfigurowany.
 
@@ -194,7 +188,7 @@ Nie można nawiązać połączenia z chmurą usługi GIT Enterprise z powodu pro
 
 Najpierw przyznano dostęp OAuth do ADF. Następnie należy użyć poprawnego adresu URL, aby nawiązać połączenie z usługą GIT Enterprise. Konfiguracja musi być ustawiona na organizacji klienta. Na przykład program ADF spróbuje ponowić próbę *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* i zakończyć się niepowodzeniem. Następnie zostanie podjęta próba *https://hostname/api/v3/orgs/ <org> / <repo> ...* i powodzenie. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>Odzyskaj z usuniętej fabryki danych
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>Nie można odzyskać z usuniętej fabryki danych
 
 #### <a name="issue"></a>Problem
 Klient usunął fabrykę danych lub grupę zasobów zawierającą Data Factory. Chcemy wiedzieć, jak przywrócić usuniętą fabrykę danych.
@@ -211,7 +205,7 @@ Aby odzyskać usunięte Data Factory z kontrolą źródła, należy wykonać pon
 
  * Utwórz nowy Azure Data Factory.
 
- * Skonfiguruj ponownie usługę git przy użyciu tych samych ustawień, ale upewnij się, że Importuj istniejące zasoby Data Factory do wybranego repozytorium, a następnie wybierz pozycję nowe rozgałęzienie.
+ * Skonfiguruj ponownie git przy użyciu tych samych ustawień, ale pamiętaj, aby zaimportować istniejące zasoby Data Factory do wybranego repozytorium, a następnie wybierz pozycję nowe rozgałęzienie.
 
  * Utwórz żądanie ściągnięcia w celu scalenia zmian w gałęzi współpracy i publikacji.
 

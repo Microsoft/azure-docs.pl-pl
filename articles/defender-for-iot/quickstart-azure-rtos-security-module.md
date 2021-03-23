@@ -2,23 +2,14 @@
 title: 'Szybki Start: Konfigurowanie i Włączanie usługi Defender-IoT-Micro-Agent dla platformy Azure RTO'
 description: Dowiedz się, jak dołączyć i włączyć usługę Defender-IoT-Micro-Agent for Azure RTO na platformie IoT Hub Azure.
 services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
-ms.openlocfilehash: 3c1af1128b99cbd3263ddffc834eb27ab9dec564
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db0fc0be3cd10bc57a46cb5a056ca5e057ae255a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489849"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781164"
 ---
 # <a name="quickstart-defender-iot-micro-agent-for-azure-rtos-preview"></a>Szybki Start: Defender-IoT-Micro-Agent for Azure RTO (wersja zapoznawcza)
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3395afbe95b2a7f35893a0ce7f60c3871597acd0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98614613"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798718"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Pilotażowa synchronizacja z chmurą dla istniejącego synchronizowanego lasu usługi AD 
 
@@ -208,20 +208,7 @@ W przypadku, gdy pilotaż nie działa zgodnie z oczekiwaniami, możesz wrócić 
 1.  Wyłącz konfigurację aprowizacji w Azure Portal. 
 2.  Wyłącz wszystkie niestandardowe reguły synchronizacji utworzone na potrzeby aprowizacji w chmurze za pomocą narzędzia Edytor reguł synchronizacji. Wyłączenie powinno spowodować pełną synchronizację wszystkich łączników.
 
-## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Konfigurowanie synchronizacji Azure AD Connect w celu wykluczenia pilotażowej jednostki organizacyjnej
-Po sprawdzeniu, czy użytkownicy z jednostki organizacyjnej pilotażowej są pomyślnie zarządzani przez synchronizację w chmurze, można ponownie skonfigurować Azure AD Connect, aby wykluczyć utworzoną powyżej jednostkę organizacyjną pilotażową.  Agent aprowizacji w chmurze będzie obsługiwał synchronizację dla tych użytkowników do przodu.  Wykonaj następujące kroki, aby uzyskać zakres Azure AD Connect.
 
- 1. Na serwerze, na którym działa Azure AD Connect, kliknij dwukrotnie ikonę Azure AD Connect.
- 2. Kliknij pozycję **Konfiguruj**.
- 3. Wybierz pozycję **Dostosuj opcje synchronizacji** , a następnie kliknij przycisk Dalej.
- 4. Zaloguj się do usługi Azure AD, a następnie kliknij przycisk **dalej**.
- 5. Na ekranie **łączenie katalogów** kliknij przycisk **dalej**.
- 6. Na ekranie **filtrowanie domeny i jednostki organizacyjnej** wybierz opcję **Synchronizuj wybrane domeny i jednostki organizacyjne**.
- 7. Rozwiń domenę i **Usuń zaznaczenie** jednostki organizacyjnej **procesorów CPU** .  Kliknij przycisk **Dalej**.
-![Scope](media/tutorial-existing-forest/scope-1.png)</br>
- 9. Na ekranie **funkcje opcjonalne** kliknij przycisk **dalej**.
- 10. Na ekranie **gotowy do skonfigurowania** kliknij pozycję **Konfiguruj**.
- 11. Po zakończeniu kliknij przycisk **Zakończ**. 
 
 ## <a name="next-steps"></a>Następne kroki 
 

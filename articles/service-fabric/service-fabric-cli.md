@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83681800"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802152"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
 
@@ -22,7 +22,7 @@ Interfejs wiersza polecenia usługi Azure Service Fabric jest narzędziem wiersz
 
 Przed instalacją upewnij się, że w środowisku zainstalowano zarówno język Python, jak i narzędzie pip. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Szybki start dotyczącą narzędzia pip](https://pip.pypa.io/en/latest/quickstart/) i oficjalną [dokumentacją dotyczącą instalowania języka Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Interfejs wiersza polecenia obsługuje środowisko Python w wersji 2,7, 3,5, 3,6 i 3,7. Zalecana wersja to Python 3. x, ponieważ środowisko Python 2,7 wkrótce osiągnie koniec wsparcia.
+Interfejs wiersza polecenia obsługuje środowisko Python w wersji 2,7 i 3.6 +, w tym zalecane środowisko Python 3. x.
 
 ### <a name="service-fabric-target-runtime"></a>Docelowe środowisko uruchomieniowe usługi Service Fabric
 

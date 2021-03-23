@@ -63,6 +63,8 @@
       href: how-to-compression.md
     - name: Włącz link prywatny
       items:
+        - name: Nawiązywanie połączenia z wewnętrznym modułem równoważenia obciążenia
+          href: how-to-enable-private-link-internal-load-balancer.md
         - name: Łączenie się z kontem magazynu
           href: how-to-enable-private-link-storage-account.md
         - name: Łączenie się z aplikacją internetową

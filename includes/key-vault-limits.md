@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010964"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104803542"
 ---
 Usługa Azure Key Vault obsługuje dwa typy zasobów: magazyny i zarządzane sprzętowych modułów zabezpieczeń. W poniższych dwóch sekcjach opisano odpowiednio limity usługi dla każdego z nich.
 
@@ -50,6 +50,17 @@ W tej sekcji opisano limity usługi dla typu zasobu `vaults` .
 Aby uzyskać informacje na temat sposobu obsługi ograniczania w przypadku przekroczenia limitów, zobacz [Azure Key Vault wskazówki dotyczące ograniczania przepustowości](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> limit całej subskrypcji dla wszystkich typów transakcji wynosi pięć razy na limit magazynu kluczy. Na przykład usługi HSM — inne transakcje na subskrypcję są ograniczone do 5 000 transakcji w ciągu 10 sekund na subskrypcję.
+
+#### <a name="backup-keys-secrets-certificates"></a>Klucze kopii zapasowych, wpisy tajne, certyfikaty
+
+Podczas tworzenia kopii zapasowej obiektu magazynu kluczy, takiego jak klucz tajny, klucz lub certyfikat, operacja tworzenia kopii zapasowej pobiera obiekt jako zaszyfrowany obiekt BLOB. Nie można odszyfrować tego obiektu blob poza platformą Azure. Aby uzyskać użyteczne dane z tego obiektu BLOB, należy przywrócić obiekt BLOB do magazynu kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji geograficznej platformy Azure
+
+| Typ transakcji | Dozwolone maksymalne wersje obiektów magazynu kluczy |
+| --- | --- |
+| Tworzenie kopii zapasowej pojedynczego klucza, wpisu tajnego, certfiicate |500 |
+
+> [!NOTE]
+> Próba utworzenia kopii zapasowej obiektu Key, Secret lub Certificate z większą liczbą wersji niż powyżej spowoduje wystąpienie błędu. Nie można usunąć poprzednich wersji klucza, wpisu tajnego ani certyfikatu. 
 
 #### <a name="azure-private-link-integration"></a>Integracja z prywatnym łączem platformy Azure
 

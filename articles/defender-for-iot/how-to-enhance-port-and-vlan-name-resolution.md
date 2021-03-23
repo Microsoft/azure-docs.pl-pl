@@ -1,20 +1,16 @@
 ---
 title: Ulepszanie rozpoznawania nazw sieci wirtualnych i portów
 description: Dostosuj nazwy portów i sieci VLAN na czujników, aby wzbogacać rozdzielczość urządzeń.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98803571"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784173"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Ulepszanie rozpoznawania nazw sieci wirtualnych i portów
+# <a name="enhance-port-vlan-and-os-resolution"></a>Zwiększenie rozdzielczości portów, sieci VLAN i systemu operacyjnego
 
 Możesz dostosować nazwy portów i sieci VLAN na czujników, aby wzbogacać rozdzielczość urządzeń.
 
@@ -72,7 +68,7 @@ Nazwy sieci VLAN mogą zawierać maksymalnie 50 znaków ASCII.
 > Nazwy sieci VLAN nie są zsynchronizowane między czujnikiem i konsolą zarządzania. Musisz również zdefiniować nazwę w konsoli zarządzania.  
 W przypadku przełączników Cisco Dodaj następujący wiersz do konfiguracji zakresu: `monitor session 1 destination interface XX/XX encapsulation dot1q` . W tym poleceniu *XX/XX* to nazwa i numer portu.
 
-Aby skonfigurować sieci VLAN:
+Aby skonfigurować nazwy sieci VLAN:
 
 1. W menu po stronie wybierz pozycję **Ustawienia systemowe**.
 
@@ -81,6 +77,21 @@ Aby skonfigurować sieci VLAN:
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Aby edytować sieci VLAN, Użyj ustawień systemowych.":::
 
 3. Dodaj unikatową nazwę obok każdego identyfikatora sieci VLAN.
+
+## <a name="improve-device-operating-system-classification-data-enhancement"></a>Ulepszanie klasyfikacji systemu operacyjnego urządzeń: rozszerzanie danych
+
+Czujniki ciągle wykrywają nowe urządzenia, a także zmiany w wcześniej odnalezionych urządzeniach, w tym typy systemów operacyjnych.
+
+W pewnych okolicznościach w odnalezionych systemach operacyjnych mogą zostać wykryte konflikty. Może się tak zdarzyć na przykład w przypadku systemów operacyjnych, które odnoszą się do komputerów stacjonarnych lub serwerów. W takim przypadku otrzymasz powiadomienie z opcjonalnymi klasyfikacjami systemów operacyjnych.
+
+:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Zwiększ dane.":::
+
+Zbadaj zalecenia w celu wzbogacania klasyfikacji systemu operacyjnego. Ta klasyfikacja pojawia się w spisie urządzeń, raportach wyszukiwania danych i innych ekranach. Zapewnienie aktualności tych informacji może poprawić dokładność alertów, zagrożeń i raportów analizy ryzyka.
+
+Aby uzyskać dostęp do zaleceń dotyczących systemu operacyjnego:
+
+1. Wybierz pozycję **Ustawienia systemowe**.
+1. Wybierz pozycję **rozszerzenie danych**.
 
 ## <a name="next-steps"></a>Następne kroki
 

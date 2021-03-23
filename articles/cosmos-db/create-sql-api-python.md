@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fee0591622c1ee07b6e954b3cadc208a300ab6a5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93078785"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798786"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu Azure Cosmos DB konta interfejsu API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQ
     * Bez aktywnej subskrypcji platformy Azure:
         * [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)w środowisku testowym trwającym przez 30 dni.
         * [Emulator usługi Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
-- [Python 2,7 lub 3.5.3 +](https://www.python.org/downloads/), z `python` plikiem wykonywalnym w `PATH` .
+- [Python 2,7 lub 3.6 +](https://www.python.org/downloads/), z `python` plikiem wykonywalnym w `PATH` .
 - [Program Visual Studio Code](https://code.visualstudio.com/)
 - [Rozszerzenie Python dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - Usługi [git](https://www.git-scm.com/downloads). 

@@ -64,7 +64,7 @@
           href: reference/v3-0-reference.md
         - name: Języki
           href: reference/v3-0-languages.md
-        - name: Dostępność regionalna
+        - name: Dostępność w regionach
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Limity żądań
           href: request-limits.md
@@ -147,7 +147,7 @@
     - name: Odwołanie
       items:
         - name: Interfejs API REST tłumaczenia dokumentów
-          href: /rest/api/cognitiveservices/translator/translation
+          href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Zasoby usługi translator
   items:
     - name: Opcje pomocy technicznej

@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 1f9169d4f3f6361e557c41a4d612cf6c439257fb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 23c5d138463a52f4ff4c52b4a919b71a87b7fd6d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722518"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802883"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurowanie połączenia z indeksatora Wyszukiwanie poznawcze platformy Azure do SQL Server na maszynie wirtualnej platformy Azure
 
@@ -87,9 +87,12 @@ Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [](../virtual-networ
 
 ### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Uwzględnij adresy IP portalu usługi Azure Wyszukiwanie poznawcze
 
-Jeśli używasz Azure Portal do tworzenia indeksatora, logika portalu usługi Azure Wyszukiwanie poznawcze wymaga również dostępu do maszyny wirtualnej usługi SQL Azure podczas jej tworzenia. Adresy IP portalu usługi Azure Wyszukiwanie poznawcze można znaleźć za pomocą polecenia ping `stamp2.search.ext.azure.com` , które jest domeną Menedżera ruchu.
+Jeśli używasz Azure Portal do tworzenia indeksatora, musisz udzielić portalu dostępu przychodzącego do maszyny wirtualnej usługi SQL Azure. Reguła ruchu przychodzącego w zaporze wymaga podania adresu IP portalu.
 
-Klastry w różnych regionach łączą się z tym usługą Traffic Manager. Polecenie ping może zwrócić adres IP i domenę `stamp2.search.ext.azure.com` , ale jeśli usługa znajduje się w innym regionie, adresy IP i domeny będą się różnić. Adres IP zwrócony z polecenia ping to właściwy dla Azure Portal w Twoim regionie.
+Aby uzyskać adres IP portalu, należy wysłać polecenie ping `stamp2.ext.search.windows.net` , który jest domeną usługi Traffic Manager. Żądanie spowoduje przekroczenie limitu czasu, ale adres IP będzie widoczny w komunikacie o stanie. Przykładowo w komunikacie "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]" adres IP to "52.252.175.48".
+
+> [!NOTE]
+> Klastry w różnych regionach łączą się z różnymi menedżerami ruchu. Niezależnie od nazwy domeny adres IP zwrócony z polecenia ping jest poprawna do użycia podczas definiowania reguły zapory dla ruchu przychodzącego dla Azure Portal w Twoim regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

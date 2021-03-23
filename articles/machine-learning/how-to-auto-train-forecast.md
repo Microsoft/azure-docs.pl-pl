@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 66fa56b45e8d3cff7a8ace300a450b9c41df9bc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 161d565aa1d2dd08434ebd8ea155ac5a92e09ac0
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588719"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802917"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
@@ -132,7 +132,7 @@ Modele| Opis | Korzyści
 ----|----|---
 Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. Aby skorzystać z tego modelu, zainstaluj go lokalnie przy użyciu `pip install fbprophet` . | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
 AutoARIMA (wersja zapoznawcza)|Funkcja autoregresywnych zintegrowanej średniej ruchomej (ARIMA) sprawdza się najlepiej, gdy dane są nieruchome. Oznacza to, że właściwości statystyczne, takie jak średnia i Wariancja, są stałe dla całego zestawu. Na przykład, jeśli przerzucasz monety, prawdopodobieństwo pobrania przez Ciebie głowice wynosi 50%, bez względu na to, czy przewracasz dzisiaj, jutro lub w następnym roku.| Świetnie dla serii univariate, ponieważ przeszłe wartości są używane do przewidywania przyszłych wartości.
-ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaprojektowany z myślą o najbardziej wymagających zadaniach prognozowania, przechwytującym nieliniowe i globalne trendy w danych, a także relacje między seriami czasowymi.|Można wykorzystać złożone trendy w danych i łatwo skalować je do największych z nich.
+ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaprojektowany w celu sprostania najbardziej wymagających zadań związanych z prognozą. Przechwytuje ona nieliniowe, lokalne i globalne trendy w danych i relacjach między seriami czasowymi.|Można wykorzystać złożone trendy w danych i łatwo skalować je do największych z nich.
 
 ### <a name="configuration-settings"></a>Ustawienia konfiguracji
 
@@ -146,11 +146,12 @@ Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zapoznaj si�
 |`forecast_horizon`|Definiuje, ile okresów ma być prognozowanie. Horyzont jest w jednostkach częstotliwości szeregów czasowych. Jednostki są oparte na przedziale czasu na dane szkoleniowe, na przykład co miesiąc, co tydzień, co Prognoza powinna przewidzieć.|✓|
 |`enable_dnn`|[Włącz prognozowanie DNNs]().||
 |`time_series_id_column_names`|Nazwy kolumn używane do unikatowego identyfikowania szeregów czasowych w danych, które mają wiele wierszy z tą samą sygnaturą czasową. Jeśli identyfikatory szeregów czasowych nie są zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową. Aby dowiedzieć się więcej o pojedynczych seriach czasowych, zobacz [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
-|`freq`| Częstotliwość zestawu danych szeregów czasowych. Ten parametr reprezentuje okres, w którym powinny wystąpić zdarzenia, takie jak codziennie, co tydzień, co rok itd. Częstotliwość musi być [aliasem offsetu Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
+|`freq`| Częstotliwość zestawu danych szeregów czasowych. Ten parametr reprezentuje okres, w którym powinny wystąpić zdarzenia, takie jak codziennie, co tydzień, co rok itd. Częstotliwość musi być [aliasem offsetu Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Dowiedz się więcej o [częstotliwość]. (#frequency--Target-agregacja danych)||
 |`target_lags`|Liczba wierszy do rozłożeniu wartości docelowych na podstawie częstotliwości danych. Opóźnienie jest reprezentowane jako lista lub jedna liczba całkowita. Zwłoki należy używać, gdy relacja między zmiennymi niezależnymi i zmienną zależną nie jest zgodna ani nie jest domyślnie skorelowana. ||
 |`feature_lags`| Funkcja zwłoki zostanie automatycznie podjęta przy użyciu zautomatyzowanej ML `target_lags` , gdy są ustawione i `feature_lags` ma ustawioną wartość `auto` . Włączenie funkcji spowolnienia może pomóc w zwiększeniu dokładności. Funkcja spowolnienia jest domyślnie wyłączona. ||
 |`target_rolling_window_size`|*n* okresy historyczne używane do generowania prognozowanych wartości, <= rozmiar zestawu szkoleniowego. W przypadku pominięcia *n* to pełny rozmiar zestawu szkoleniowego. Określ ten parametr, jeśli chcesz wziąć pod uwagę tylko określoną ilość historii podczas uczenia modelu. Dowiedz się więcej o [agregacji przedziałów okien docelowych](#target-rolling-window-aggregation).||
-|`short_series_handling_config`| Umożliwia obsługę krótkich szeregów czasowych, aby uniknąć awarii podczas szkoleń z powodu niewystarczających ilości danych. Obsługa krótkich serii jest domyślnie ustawiona na wartość `auto` . Dowiedz się więcej o [obsłudze krótkich serii](#short-series-handling).|
+|`short_series_handling_config`| Umożliwia obsługę krótkich szeregów czasowych, aby uniknąć awarii podczas szkoleń z powodu niewystarczających ilości danych. Obsługa krótkich serii jest domyślnie ustawiona na wartość `auto` . Dowiedz się więcej o [obsłudze krótkich serii](#short-series-handling).||
+|`target_aggregation_function`| Funkcja, która ma być używana do agregowania kolumny docelowej szeregów czasowych, aby była zgodna z częstotliwością określoną za pośrednictwem `freq` parametru. `freq`Parametr musi być ustawiony, aby można było użyć `target_aggregation_function` . Wartość domyślna to `None` ; w przypadku większości scenariuszy użycie `sum` jest wystarczające.<br> Dowiedz się więcej o [agregacji kolumn docelowych](#frequency--target-data-aggregation). 
 
 
 Poniższy kod, 
@@ -258,12 +259,36 @@ Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zobacz 
 
 Dodatkowe konfiguracje opcjonalne są dostępne do prognozowania zadań, takich jak Włączanie głębokiej uczenia i określanie docelowej agregacji okna. 
 
+### <a name="frequency--target-data-aggregation"></a>Agregacja danych docelowa & częstotliwości
+
+Skorzystaj z częstotliwości, `freq` , parametru, aby uniknąć awarii spowodowanych przez nieregularne dane, czyli dane, które nie są zgodne z zestawem erze, na przykład co godzinę lub codziennie. 
+
+W przypadku wysoce nieregularnych danych lub dla różnych potrzeb firmy użytkownicy mogą opcjonalnie ustawić ich żądaną częstotliwość prognozowania, `freq` a następnie określić, `target_aggregation_function` Aby agregować kolumnę Target dla szeregów czasowych. Te dwa ustawienia w `AutoMLConfig` obiekcie mogą pomóc zaoszczędzić trochę czasu na przygotowywaniu danych. 
+
+Gdy `target_aggregation_function` parametr jest używany,
+* Wartości kolumn docelowych są agregowane w oparciu o określoną operację. Zwykle `sum` jest to odpowiednie dla większości scenariuszy.
+
+* Kolumny predykcyjne liczbowe w danych są agregowane według sum, średniej, wartości minimalnej i wartości maksymalnej. W związku z tym, funkcja zautomatyzowanej sieci generuje nowe kolumny sufiksu z nazwą funkcji agregacji i stosuje wybraną operację agregowania. 
+
+* W przypadku kolumn predykcyjnych kategorii dane są agregowane według trybu, najbardziej widocznej kategorii w oknie.
+
+* Kolumny predykcyjne daty są agregowane według wartości minimalnej, maksymalnej wartości i trybu. 
+
+Obsługiwane operacje agregacji dla wartości kolumn docelowych obejmują:
+
+|Funkcja | description (opis)
+|---|---
+|`sum`| Suma wartości docelowych
+|`mean`| Średnia lub średnia wartości docelowych
+|`min`| Minimalna wartość elementu docelowego  
+|`max`| Maksymalna wartość elementu docelowego  
+
 ### <a name="enable-deep-learning"></a>Włącz uczenie głębokie
 
 > [!NOTE]
 > Obsługa DNN w przypadku prognozowania w programie zautomatyzowanym Machine Learning jest w **wersji zapoznawczej** i nie jest obsługiwana w przypadku uruchomień lokalnych.
 
-Możesz również wykorzystać głębokie uczenie w głębokiej sieci neuronowych, DNNs, aby poprawić wyniki modelu. Uczenie głębokie o rozbudowanej ML umożliwia prognozowanie danych szeregów czasowych univariate i wieloczynnikowa.
+Możesz również zastosować uczenie głębokie za pomocą głębokiej sieci neuronowych, DNNs, aby poprawić wyniki modelu. Uczenie głębokie o rozbudowanej ML umożliwia prognozowanie danych szeregów czasowych univariate i wieloczynnikowa.
 
 Modele uczenia głębokiego mają trzy możliwości wewnętrzne:
 1. Mogą uczyć się z dowolnego mapowania z danych wejściowych do wyjścia
@@ -283,10 +308,10 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Aby włączyć DNN dla eksperymentu AutoML utworzonego w Azure Machine Learning Studio, zapoznaj się z [ustawieniami typu zadania w programie Studio How to-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-Aby zapoznać się ze szczegółowym przykładem kodu korzystającego z DNNs, zobacz [Notes prognozowania produkcji napojów](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) .
+Aby zapoznać się ze szczegółowym przykładem kodu za pomocą DNNs, zobacz [Notes prognozowania produkcji napojów](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) .
 
 ### <a name="target-rolling-window-aggregation"></a>Agregacja stopniowego okna docelowego
-Często najlepszą informacją, jaką może mieć Prognoza, jest Ostatnia wartość elementu docelowego.  Agregacje przedziałów okien docelowych umożliwiają dodanie kroczącej agregacji wartości danych jako funkcji. Generowanie i używanie tych dodatkowych funkcji jako dodatkowych danych kontekstowych ułatwia dokładność modelu uczenia.
+Często najlepszą informacją, jaką może mieć Prognoza, jest Ostatnia wartość elementu docelowego.  Agregacje przedziałów okien docelowych umożliwiają dodanie kroczącej agregacji wartości danych jako funkcji. Generowanie i używanie tych funkcji jako dodatkowych danych kontekstowych ułatwia dokładność modelu uczenia.
 
 Załóżmy na przykład, że chcesz przewidzieć zapotrzebowanie na energię. Możesz chcieć dodać funkcję okna kroczącego o trzech dniach, aby móc wprowadzić zmiany termiczne z miejscami do magazynowania. W tym przykładzie Utwórz to okno przez ustawienie `target_rolling_window_size= 3` w `AutoMLConfig` konstruktorze. 
 
@@ -294,11 +319,11 @@ W tabeli przedstawiono wyniki inżynierii funkcji, która występuje, gdy stosow
 
 ![okno kroczące docelowe](./media/how-to-auto-train-forecast/target-roll.svg)
 
-Zobacz przykład kodu w języku Python, wykorzystując [funkcję agregacji przedziału](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)czasu dla docelowej.
+Zobacz przykład kodu w języku Python stosujący [funkcję agregacji przedziału](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)czasu dla docelowej.
 
 ### <a name="short-series-handling"></a>Obsługa krótkich serii
 
-Automatyczna część ML traktuje serię czasową jako **krótką serię** , jeśli nie ma wystarczającej liczby punktów danych do przeprowadzenia fazy tworzenia i weryfikacji modelu. Liczba punktów danych jest różna dla każdego eksperymentu i zależy od max_horizon, liczby podziałów wzajemnego sprawdzania poprawności oraz długości modelu lookback, który jest maksymalną historią, która jest wymagana do skonstruowania funkcji szeregów czasowych. Dokładne obliczenie można znaleźć w [dokumentacji referencyjnej short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration).
+Automatyczna część ML traktuje serię czasową jako **krótką serię** , jeśli nie ma wystarczającej liczby punktów danych do przeprowadzenia fazy tworzenia i weryfikacji modelu. Liczba punktów danych jest różna dla każdego eksperymentu i zależy od max_horizon, liczby podziałów wzajemnego sprawdzania poprawności oraz długości modelu lookback, który jest maksymalną historią, która jest wymagana do skonstruowania funkcji szeregów czasowych. Dokładne obliczenie można znaleźć w [dokumentacji dotyczącej short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration).
 
 Zautomatyzowanej ML oferuje obsługę krótkich serii domyślnie przy użyciu `short_series_handling_configuration` parametru w `ForecastingParameters` obiekcie. 
 

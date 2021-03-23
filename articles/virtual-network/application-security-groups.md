@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 4d8ffe8451b2b2a08ab30761eaf3a928b5e117b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e60d8490632a29e96dccf9cc8ff0365baf671bb6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99537632"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802628"
 ---
 # <a name="application-security-groups"></a>Grupy zabezpieczeń aplikacji
 
@@ -57,7 +57,7 @@ Reguły określające grupę zabezpieczeń aplikacji jako źródło lub obiekt d
 Grupy zabezpieczeń aplikacji mają następujące ograniczenia:
 
 -    Istnieją limity liczby grup zabezpieczeń aplikacji, które możesz mieć w ramach subskrypcji, a także inne ograniczenia dotyczące grup zabezpieczeń aplikacji. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Jako źródło i obiekt docelowy reguły zabezpieczeń można określić pojedynczą grupę zabezpieczeń aplikacji. Jako źródła lub obiektu docelowego nie można określić kilku grup zabezpieczeń aplikacji.
+- W Azure Portal można określić tylko jedną grupę zabezpieczeń aplikacji jako źródło i miejsce docelowe w regule zabezpieczeń. W interfejsie API REST (w tym programu PowerShell/interfejsu wiersza polecenia platformy Azure) można określić wiele grup zabezpieczeń aplikacji w źródle lub miejscu docelowym.
 - Wszystkie interfejsy sieciowe przypisane do grupy zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej, co pierwszy interfejs sieciowy przypisany do danej grupy zabezpieczeń aplikacji. Na przykład jeśli pierwszy interfejs sieciowy przypisany do grupy zabezpieczeń aplikacji o nazwie *AsgWeb* istnieje w sieci wirtualnej o nazwie *VNet1*, wszystkie kolejne interfejsy sieciowe przypisane do grupy *AsgWeb* muszą istnieć w sieci *VNet1*. Interfejsy sieciowe z różnych sieci wirtualnych nie mogą być dodawane do tej samej grupy zabezpieczeń aplikacji.
 - Jeśli określisz grupy zabezpieczeń aplikacji jako źródło i obiekt docelowy w regule zabezpieczeń, interfejsy sieciowe w obu grupach zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej. Na przykład jeśli grupa *AsgLogic* zawiera interfejsy sieciowe z sieci *VNet1*, a grupa *AsgDb* zawiera interfejsy sieciowe z sieci *VNet2*, nie można przypisać grupy *AsgLogic* jako źródła i grupy *AsgDb* jako obiektu docelowego w regule. Wszystkie interfejsy sieciowe dla źródłowych i docelowych grup zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej.
 

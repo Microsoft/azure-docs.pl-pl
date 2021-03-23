@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 03/22/2021
 ms.author: chrande
-ms.openlocfilehash: 806904943f4e4a20734d595f835dc9450afdded5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffe11fafa6ba217572f9d12d40324a5201b62630
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100547282"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801693"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -26,11 +26,14 @@ Ten artykuł zawiera omówienie interfejsu API usługi Azure Cosmos DB Gremlin i
 Interfejs API Gremlin Azure Cosmos DB łączy możliwości algorytmów bazy danych grafów z wysoce skalowalną, zarządzaną infrastrukturą, zapewniając unikatowe, elastyczne rozwiązanie do najbardziej typowych problemów z danymi, które są związane z brakiem elastyczności i relacyjnych metod.
 
 > [!NOTE]
-> [Tryb wydajności bezserwerowej](serverless.md) jest teraz dostępny na Azure Cosmos DB interfejsie API Gremlin.
+> Aparat grafu Azure Cosmos DB jest blisko zgodny ze specyfikacją Apache TinkerPop. Istnieją jednak pewne różnice w szczegółach implementacji, które są specyficzne dla Azure Cosmos DB. Niektóre funkcje obsługiwane przez program Apache TinkerPop nie są dostępne w Azure Cosmos DB, aby dowiedzieć się więcej o nieobsługiwanych funkcjach, zobacz [zgodność z artykułem Apache TinkerPop](gremlin-support.md) .
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Funkcje interfejsu API Gremlin Azure Cosmos DB
- 
+
 Usługa Azure Cosmos DB jest w pełni zarządzaną grafową bazą danych, która oferuje globalną dystrybucję, elastyczne skalowanie magazynu i przepływności, automatyczne indeksowanie i wykonywanie zapytań, dostosowywalne poziomy spójności oraz obsługę standardu TinkerPop.
+
+> [!NOTE]
+> [Tryb wydajności bezserwerowej](serverless.md) jest teraz dostępny na Azure Cosmos DB interfejsie API Gremlin.
 
 Poniżej przedstawiono zróżnicowane funkcje, które Azure Cosmos DB Gremlin interfejs API:
 

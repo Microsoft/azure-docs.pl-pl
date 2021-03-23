@@ -39,30 +39,30 @@
           href: migrate-v2-to-v3.md
         - name: Ocena wymowy
           href: how-to-pronunciation-assessment.md
+        - name: Dostosowywanie
+          items:
+            - name: Czym jest usługa Custom Speech?
+              href: custom-speech-overview.md
+            - name: Testowanie modelu przy użyciu plików audio w programie Speech Studio
+              href: quickstarts/speech-studio-test-model.md
+            - name: Przygotowywanie danych dla usługi Custom Speech
+              href: how-to-custom-speech-test-and-train.md
+            - name: Inspekcja danych usługi Custom Speech
+              href: how-to-custom-speech-inspect-data.md
+            - name: Ocenianie i poprawianie dokładności usługi Custom Speech
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Trenowanie i wdrażanie modelu usługi Custom Speech
+              href: how-to-custom-speech-train-model.md
+            - name: Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Tworzenie transkrypcji oznaczonych etykietą przez użytkownika
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Cykl życia modelu i punktu końcowego
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Samouczki
       items:
         - name: Zwiększanie dokładności za pomocą modeli dzierżaw
           href: tutorial-tenant-model.md
-    - name: Dostosowywanie
-      items:
-        - name: Czym jest usługa Custom Speech?
-          href: custom-speech-overview.md
-        - name: Testowanie modelu przy użyciu plików audio w programie Speech Studio
-          href: quickstarts/speech-studio-test-model.md
-        - name: Przygotowywanie danych dla usługi Custom Speech
-          href: how-to-custom-speech-test-and-train.md
-        - name: Inspekcja danych usługi Custom Speech
-          href: how-to-custom-speech-inspect-data.md
-        - name: Ocenianie i poprawianie dokładności usługi Custom Speech
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Trenowanie i wdrażanie modelu usługi Custom Speech
-          href: how-to-custom-speech-train-model.md
-        - name: Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Tworzenie transkrypcji oznaczonych etykietą przez użytkownika
-          href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Cykl życia modelu i punktu końcowego
-          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Dokumentacja
       items:
         - name: C++
@@ -116,25 +116,25 @@
           href: long-audio-api.md
         - name: Pobierz zdarzenia ułożenia twarzy dla programu lip-sync
           href: how-to-speech-synthesis-viseme.md
-    - name: Dostosowywanie
-      items:
-        - name: Portal głosu niestandardowego
+        - name: Dostosowywanie
           items:
-            - name: Co to jest niestandardowy neuronowych Voice?
-              href: custom-neural-voice.md
-            - name: Wprowadzenie do usługi Custom Voice
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Przygotowywanie danych
-              href: how-to-custom-voice-prepare-data.md
-            - name: Tworzenie i używanie modeli usługi Custom Voice
-              href: how-to-custom-voice-create-voice.md
-            - name: Nagrywanie próbek głosu
-              href: record-custom-voice-samples.md
-        - name: Tworzenie zawartości audio
-          items:
+            - name: Portal głosu niestandardowego
+              items:
+                - name: Co to jest niestandardowy neuronowych Voice?
+                  href: custom-neural-voice.md
+                - name: Wprowadzenie do usługi Custom Voice
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Przygotowywanie danych
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Tworzenie i używanie modeli usługi Custom Voice
+                  href: how-to-custom-voice-create-voice.md
+                - name: Nagrywanie próbek głosu
+                  href: record-custom-voice-samples.md
             - name: Tworzenie zawartości audio
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Tworzenie zawartości audio
+                  href: how-to-audio-content-creation.md
     - name: Odpowiedzialne użycie sztucznej inteligencji
       items:
         - name: Niestandardowy głos neuronowych

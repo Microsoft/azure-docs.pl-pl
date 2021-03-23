@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b4701260a7d8da030f9f3019060aaa83e7a3a483
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98052938"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803416"
 ---
 | Zasób | Podstawowa | Standardowa (Standard) | Premium |
 |---|---|---|---|
@@ -30,6 +30,7 @@ ms.locfileid: "98052938"
 | Zaufanie do zawartości | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwane][content-trust] |
 | Prywatny link z prywatnymi punktami końcowymi | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwane][plink] |
 | &bull; Prywatne punkty końcowe | NIE DOTYCZY | NIE DOTYCZY | 10 |
+| Reguły sieci publicznych adresów IP | NIE DOTYCZY | NIE DOTYCZY | 100 |
 | Dostęp do sieci wirtualnej punktu końcowego usługi | NIE DOTYCZY | NIE DOTYCZY | [Wersja zapoznawcza][vnet] |
 | Klucze zarządzane przez klienta | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwane][cmk] |
 | Uprawnienia w zakresie repozytorium | NIE DOTYCZY | NIE DOTYCZY | [Wersja zapoznawcza][token]|

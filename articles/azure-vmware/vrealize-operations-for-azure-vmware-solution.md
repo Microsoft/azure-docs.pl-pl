@@ -3,12 +3,12 @@ title: Skonfiguruj operacje vRealize dla rozwiązania VMware platformy Azure
 description: Dowiedz się, jak skonfigurować operacje vRealize dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738433"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802492"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Skonfiguruj operacje vRealize dla rozwiązania VMware platformy Azure
 
@@ -61,7 +61,7 @@ Po wdrożeniu wystąpienia można skonfigurować operacje vRealize do zbierania 
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-- **Cloudadmin \@ vSphere. Local** User in Azure VMware ma [ograniczone uprawnienia](concepts-role-based-access-control.md).  Maszyny wirtualne na platformie Azure VMware nie obsługują zbierania pamięci gościa przy użyciu narzędzi VMware.  Użycie aktywnego i zużytej pamięci w tym przypadku nadal działa.
+- **Cloudadmin \@ vSphere. Local** User in Azure VMware ma [ograniczone uprawnienia](concepts-identity.md).  Maszyny wirtualne na platformie Azure VMware nie obsługują zbierania pamięci gościa przy użyciu narzędzi VMware.  Użycie aktywnego i zużytej pamięci w tym przypadku nadal działa.
 - Optymalizacja obciążenia dla zamiaru biznesowego opartego na hoście nie działa, ponieważ rozwiązania VMware platformy Azure zarządzają konfiguracjami klastra, w tym ustawieniami DRS.
 - Optymalizacja obciążeń dla rozmieszczenia między klastrami w ramach SDDC przy użyciu zamiaru biznesowego opartego na klastrze jest w pełni obsługiwana w przypadku vRealize Operations Manager 8,0 i do wewnątrz. Jednak Optymalizacja obciążenia nie ma informacji o pulach zasobów i umieszcza maszyny wirtualne na poziomie klastra. Użytkownik może ręcznie rozwiązać ten problem w vCenter Server interfejsie na platformie Azure VMware.
 - Nie można zalogować się do usługi vRealize Operations Manager przy użyciu poświadczeń vCenter Server Azure VMware. 

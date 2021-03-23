@@ -180,7 +180,7 @@
     - name: Monitorowanie odwołań do danych
       href: how-to-monitor-tsi-reference.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
+      href: 'https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/'
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy

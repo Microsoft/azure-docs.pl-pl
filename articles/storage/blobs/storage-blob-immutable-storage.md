@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430942"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800724"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie danych obiektów blob kluczowych dla działalności za pomocą magazynu niezmiennego
 
@@ -63,13 +63,15 @@ Aby uzyskać więcej informacji na temat sposobu ustawiania i blokowania zasad p
 ## <a name="time-based-retention-policies"></a>Zasady przechowywania na podstawie czasu
 
 > [!IMPORTANT]
-> Zasady przechowywania oparte na czasie muszą być *zablokowane* , aby obiekt BLOB był zgodny z niezmiennym (zapisem i usuwanie chronione) dla sek. 4 (f) i innych zgodności z przepisami. Zalecamy zablokowanie zasad w rozsądnym czasie, zwykle krótszym niż 24 godziny. Początkowy stan zastosowanych zasad przechowywania oparty na czasie jest *odblokowany*, co pozwala na testowanie funkcji i wprowadzanie zmian zasad przed ich zablokowaniem. Gdy *odblokowany* stan zapewnia ochronę niezmienności, nie zalecamy używania *niezablokowanego* stanu do celów innych niż krótkoterminowe wersje próbne funkcji. 
+> Zasady przechowywania oparte na czasie muszą być *zablokowane* , aby obiekt BLOB był zgodny z niezmiennym (zapisem i usuwanie chronione) dla sek. 4 (f) i innych zgodności z przepisami. Firma Microsoft zaleca zablokowanie zasad w rozsądnym czasie, zwykle krótszym niż 24 godziny. Początkowy stan zastosowanych zasad przechowywania oparty na czasie jest *odblokowany*, co pozwala na testowanie funkcji i wprowadzanie zmian zasad przed ich zablokowaniem. Gdy *odblokowany* stan zapewnia ochronę niezmienności, użycie *niezablokowanego* stanu do jakiegokolwiek celu poza krótkoterminową próbą funkcji nie jest zalecane.
+>
+> Gdy zasady przechowywania oparte na czasie są zablokowane, nie można usunąć zasad i będzie dozwolone maksymalnie pięć zwiększenie okresu obowiązywania. Nie można obniżyć okresu przechowywania.
 
 Gdy zasady przechowywania oparte na czasie są stosowane w kontenerze, wszystkie obiekty blob w kontenerze pozostaną w niezmiennym stanie przez okres *obowiązywania obowiązującego* okresu przechowywania. Obowiązujący okres przechowywania obiektów BLOB jest równy różnicy między **czasem utworzenia** obiektu BLOB a interwałem przechowywania określonym przez użytkownika. Ponieważ użytkownicy mogą rozszerzać okres przechowywania, na potrzeby obliczania obowiązującego okresu przechowywania magazyn niezmienny korzysta z ostatniej wartości okresu przechowywania ustawionej przez użytkownika.
 
 Załóżmy na przykład, że użytkownik tworzy zasady przechowywania oparte na czasie z interwałem przechowywania równym pięciu lat. Istniejący obiekt BLOB w tym kontenerze, _testblob1_, został utworzony jeden rok temu; w związku z tym obowiązuje okres przechowywania dla _testblob1_ wynosi cztery lata. Po przekazaniu nowego obiektu BLOB _testblob2_ do kontenera obowiązuje okres przechowywania dla _testblob2_ wynosi pięć lat od momentu jego utworzenia.
 
-Odblokowanie zasad przechowywania opartych na czasie jest zalecane tylko w przypadku testowania funkcji, a zasady muszą być zablokowane, aby były zgodne z godziną 4. (f) i innymi zgodnościami z przepisami. Gdy zasady przechowywania oparte na czasie są zablokowane, nie można usunąć zasad i będzie dozwolone maksymalnie pięć zwiększenie okresu obowiązywania.
+Odblokowanie zasad przechowywania opartych na czasie jest zalecane tylko w przypadku testowania funkcji, a zasady muszą być zablokowane, aby były zgodne z godziną 4. (f) i innymi zgodnościami z przepisami.
 
 Zasady przechowywania dotyczą następujących ograniczeń:
 

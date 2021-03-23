@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 44959b2f60f9aafd7d9430c9c19baea72344293f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ccc88cabfa81e2d911546fae776f581885ed8fa6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183883"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801261"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Tworzenie połączeń Active Directory i zarządzanie nimi dla Azure NetApp Files
 
@@ -206,6 +206,18 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         ```
         
         Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
+
+     * **Użytkownicy uprawnień zabezpieczeń**   <!-- SMB CA share feature -->   
+        Można udzielić uprawnienia zabezpieczeń ( `SeSecurityPrivilege` ) użytkownikom, którzy wymagają podniesionych uprawnień, aby uzyskać dostęp do woluminów Azure NetApp Files. Określone konta użytkowników będą mogły wykonywać pewne działania na Azure NetApp Files udziały SMB, które wymagają uprawnień zabezpieczeń, które domyślnie nie są przypisane do użytkowników domeny.   
+
+        Na przykład konta użytkowników używane do instalowania SQL Server w niektórych scenariuszach muszą mieć przyznane podwyższone uprawnienia zabezpieczeń. Jeśli do zainstalowania SQL Server używasz konta administratora (domeny), a konto nie ma przypisanego uprawnienia zabezpieczeń, należy dodać do konta uprawnienia zabezpieczeń.  
+
+        > [!IMPORTANT]
+        > Konto domeny używane do zainstalowania SQL Server musi już istnieć przed dodaniem go do pola **Użytkownicy uprawnień zabezpieczeń** . Po dodaniu konta Instalatora SQL Server do **użytkowników uprawnień zabezpieczeń** usługa Azure NetApp Files może sprawdzić poprawność konta, kontaktując się z kontrolerem domeny. Polecenie może się nie powieść, jeśli nie można skontaktować się z kontrolerem domeny.  
+
+        Aby uzyskać więcej informacji na temat `SeSecurityPrivilege` i SQL Server, zobacz [SQL Server Instalacja nie powiedzie się, jeśli konto instalatora nie ma określonych praw użytkownika](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
+
+        ![Zrzut ekranu przedstawiający pole użytkownicy uprawnień zabezpieczeń okna połączenia Active Directory.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Użytkownicy zasad tworzenia kopii zapasowych**  
         Można uwzględnić dodatkowe konta, które wymagają podwyższonego poziomu uprawnień do konta komputera utworzonego do użytku z Azure NetApp Files. Określone konta będą mogły zmienić uprawnienia systemu plików NTFS na poziomie pliku lub folderu. Na przykład można określić konto usługi bez uprawnień używane do migrowania danych do udziału plików SMB w Azure NetApp Files.  

@@ -1,70 +1,148 @@
 ---
 title: Indeksowanie wielu języków dla zapytań wyszukiwania innych niż angielskie
 titleSuffix: Azure Cognitive Search
-description: Platforma Azure Wyszukiwanie poznawcze obsługuje języki 56, wykorzystując analizatory języka od firmy Microsoft i technologii przetwarzania w języku naturalnym.
+description: Utwórz indeks obsługujący zawartość w wielu językach, a następnie utwórz zapytania należące do zakresu tej zawartości.
 manager: nitinme
-author: yahnoosh
-ms.author: jlembicz
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 588de9c9cae114b5f5396db17f7ecb19bcde25c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/22/2021
+ms.openlocfilehash: 627ec77af4e492b4f22404972729cecdb1c40f06
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93423083"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801608"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Jak utworzyć indeks dla wielu języków w usłudze Azure Wyszukiwanie poznawcze
 
-Indeksy mogą zawierać pola zawierające zawartość z wielu języków, na przykład tworząc poszczególne pola dla ciągów specyficznych dla języka. W celu uzyskania najlepszych wyników podczas indeksowania i wykonywania zapytań należy przypisać Analizator języka, który zapewnia odpowiednie reguły językowe. 
+Kluczowym wymaganiem w aplikacji wyszukiwania wielojęzycznego jest możliwość wyszukiwania i pobierania wyników w języku użytkownika. Na platformie Azure Wyszukiwanie poznawcze jednym ze sposobów spełnienia wymagań językowych aplikacji wielojęzycznej jest utworzenie dedykowanych pól do przechowywania ciągów w określonym języku, a następnie ograniczenie wyszukiwania pełnotekstowego do tylko tych pól w czasie zapytania.
 
-Usługa Azure Wyszukiwanie poznawcze oferuje duży wybór analizatorów języka z zarówno Lucene, jak i firmy Microsoft, które można przypisać do poszczególnych pól przy użyciu właściwości analizatora. Możesz również określić Analizator języka w portalu, zgodnie z opisem w tym artykule.
++ W obszarze definicje pól Ustaw Analizator języka, który wywołuje reguły językowe języka docelowego. Aby wyświetlić pełną listę obsługiwanych analizatorów, zobacz [Dodawanie analizatorów języka](index-add-language-analyzers.md).
 
-## <a name="add-analyzers-to-fields"></a>Dodawanie analizatorów do pól
++ W żądaniu zapytania ustaw parametry w celu określenia zakresu wyszukiwania pełnotekstowego do określonych pól, a następnie Przytnij wyniki pól, które nie zapewniają zawartości zgodnej z funkcją wyszukiwania, którą chcesz dostarczyć.
 
-Analizator języka jest określany podczas tworzenia pola. Dodanie analizatora do istniejącej definicji pola wymaga zastąpienia (i ponownego załadowania) indeksu lub utworzenia nowego pola identycznego z oryginałem, ale z przypisaniem analizatora. Następnie można usunąć nieużywane pole ze swojej wygody.
+Sukces tej techniki zawiasuje integralność zawartości pola. Usługa Azure Wyszukiwanie poznawcze nie tłumaczy ciągów ani nie przeprowadza wykrywania języka w ramach wykonywania zapytania. Należy upewnić się, że pola zawierają ciągi, których oczekujesz.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Znajdź usługę wyszukiwania.
-1. Kliknij przycisk **Dodaj indeks** na pasku poleceń w górnej części pulpitu nawigacyjnego usługi, aby uruchomić nowy indeks, lub Otwórz istniejący indeks, aby ustawić analizator dla nowych pól dodawanych do istniejącego indeksu.
-1. Rozpocznij Definiowanie pola, podając nazwę.
-1. Wybierz typ danych EDM. String. Tylko pola ciągów są wyszukiwaniem pełnotekstowym.
-1. Ustaw atrybut z **możliwością wyszukiwania** , aby włączyć właściwość Analizator. Aby można było używać analizatora języka, pole musi być oparte na tekście.
-1. Wybierz jeden z dostępnych analizatorów. 
+## <a name="define-fields-for-content-in-different-languages"></a>Definiowanie pól dla zawartości w różnych językach
 
-![Przypisz analizatory języka podczas definiowania pola](media/search-language-support/select-analyzer.png "Przypisz analizatory języka podczas definiowania pola")
+W Wyszukiwanie poznawcze na platformie Azure zapytania mają jeden indeks docelowy. Deweloperzy, którzy chcą podawać ciągi charakterystyczne dla języka w jednym środowisku wyszukiwania, zwykle definiują dedykowane pola do przechowywania wartości: jedno pole dla ciągów w języku angielskim, jeden dla języka francuskiego itd.
 
-Domyślnie wszystkie pola z możliwością wyszukiwania korzystają ze [standardowego analizatora Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , który jest językiem niezależny od. Aby wyświetlić pełną listę obsługiwanych analizatorów, zobacz [Dodawanie analizatorów języka do indeksu wyszukiwanie poznawcze platformy Azure](index-add-language-analyzers.md).
+Właściwość "Analizator" w definicji pola służy do ustawiania [analizatora języka](index-add-language-analyzers.md). Zostanie ona użyta do indeksowania i wykonywania zapytań.
 
-Analizatory są przeznaczone do użycia w portalu. Jeśli wymagane jest dostosowanie lub określona konfiguracja filtrów i tokenizatory, należy [utworzyć Analizator niestandardowy](index-add-custom-analyzers.md) w kodzie. Portal nie obsługuje wybierania ani konfigurowania analizatorów niestandardowych.
+```JSON
+{
+  "name": "hotels-sample-index",
+  "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft"
+    },
+    {
+      "name": "Description_fr",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "fr.microsoft"
+    },
+```
 
-## <a name="query-language-specific-fields"></a>Zapytania dotyczące pól specyficznych dla języka
+## <a name="build-and-load-an-index"></a>Kompilowanie i ładowanie indeksu
 
-Po wybraniu analizatora języka dla pola będzie on używany z każdym indeksem i żądaniem wyszukiwania dla tego pola. Gdy zapytanie jest wydawane dla wielu pól przy użyciu różnych analizatorów, kwerenda zostanie przetworzona niezależnie od przypisanych analizatorów dla każdego pola.
+Krok pośredni (i prawdopodobnie oczywisty) jest konieczny do [kompilowania i wypełniania indeksu](search-get-started-dotnet.md) przed wyrażeniem zapytania. Ten krok jest tutaj omawiany w celu zapewnienia kompletności. Jednym ze sposobów określania dostępności indeksu jest sprawdzenie listy indeksów w [portalu](https://portal.azure.com).
 
-Jeśli jest znany język agenta wysyłającego zapytanie, żądanie wyszukiwania można ograniczyć do określonego pola przy użyciu parametru zapytania **searchFields** . Następujące zapytanie zostanie wygenerowane tylko w odniesieniu do opisu w Polski:
+> [!TIP]
+> Wykrywanie języka i tłumaczenie tekstu są obsługiwane podczas pozyskiwania danych przy użyciu [wzbogacania AI](cognitive-search-concept-intro.md) i [umiejętności](cognitive-search-working-with-skillsets.md). Jeśli masz źródło danych platformy Azure z zawartością w języku mieszanym, możesz wypróbować funkcje wykrywania i tłumaczenia języka za pomocą [Kreatora importu danych](cognitive-search-quickstart-blob.md).
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2020-06-30`
+## <a name="constrain-the-query-and-trim-results"></a>Ogranicz wyniki zapytania i przycinania
 
-Możesz wysyłać zapytania do indeksu z portalu przy użyciu [**Eksploratora wyszukiwania**](search-explorer.md) do wklejenia zapytania podobnego do przedstawionego powyżej.
+Parametry zapytania służą do ograniczania wyszukiwania do określonych pól, a następnie przycinania wyników wszelkich pól, które nie są przydatne dla Twojego scenariusza. 
+
+| Parametry | Przeznaczenie |
+|-----------|--------------|
+| **searchFields** | Ogranicza wyszukiwanie pełnotekstowe do listy nazwanych pól. |
+| **$select** | Przycina odpowiedź w celu uwzględnienia tylko pól, które określisz. Domyślnie zwracane są wszystkie pola do pobierania. Parametr **$SELECT** umożliwia wybranie, które z nich mają być zwracane. |
+
+Uwzględniając cel ograniczenia wyszukiwania do pól zawierających ciągi francuski, użyj **searchFields** , aby docelowa kwerenda w polach zawierających ciągi w tym języku.
+
+Określanie analizatora w żądaniu zapytania nie jest konieczne. Analizator języka w definicji pola będzie zawsze używany podczas przetwarzania zapytania. W przypadku zapytań, które określają wiele pól wywołujących różne analizatory języka, terminy lub frazy będą przetwarzane niezależnie od przypisanych analizatorów dla każdego pola.
+
+Domyślnie wyszukiwanie zwraca wszystkie pola, które są oznaczone jako możliwy do pobierania. W związku z tym możesz chcieć wykluczyć pola, które nie są zgodne ze specyficznymi dla języka interfejsem wyszukiwania, które chcesz podać. W szczególności w przypadku ograniczenia wyszukiwania do pola z ciągami francuskim prawdopodobnie warto wykluczyć z wyników pola z ciągami w języku angielskim. Za pomocą **$SELECT** parametru zapytania daje kontrolę nad tym, które pola są zwracane do aplikacji wywołującej.
+
+#### <a name="example-in-rest"></a>Przykład w REST
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "animaux acceptés",
+    "searchFields": "Tags, Description_fr",
+    "select": "HotelName, Description_fr, Address/City, Address/StateProvince, Tags",
+    "count": "true"
+}
+```
+
+#### <a name="example-in-c"></a>Przykład w języku C #
+
+```csharp
+private static void RunQueries(SearchClient srchclient)
+{
+    SearchOptions options;
+    SearchResults<Hotel> response;
+
+    options = new SearchOptions()
+    {
+        IncludeTotalCount = true,
+        Filter = "",
+        OrderBy = { "" }
+    };
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Description_fr");
+    options.SearchFields.Add("Tags");
+    options.SearchFields.Add("Description_fr");
+
+    response = srchclient.Search<Hotel>("*", options);
+    WriteDocuments(response);
+}
+```
 
 ## <a name="boost-language-specific-fields"></a>Zwiększ pola specyficzne dla języka
 
-Czasami język agenta wystawiającego zapytanie nie jest znany, w takim przypadku zapytanie można wystawić dla wszystkich pól jednocześnie. W razie potrzeby Preferencja dla wyników w określonym języku można zdefiniować za pomocą [profilów oceniania](index-add-scoring-profiles.md). W poniższym przykładzie dopasowań Znalezione w opisie w języku angielskim będą oceniane w sposób wyższy względem dopasowań w języku polskim i francuskim:
+Czasami język agenta wystawiającego zapytanie nie jest znany, w takim przypadku zapytanie można wystawić dla wszystkich pól jednocześnie. Preferencja IA dla wyników w określonym języku można zdefiniować za pomocą [profilów oceniania](index-add-scoring-profiles.md). W poniższym przykładzie wyniki Znalezione w opisie w języku angielskim będą oceniane w sposób wyższy względem dopasowań w innych językach:
 
-```http
-    "scoringProfiles": [
-      {
-        "name": "englishFirst",
-        "text": {
-          "weights": { "description_en": 2 }
-        }
+```JSON
+  "scoringProfiles": [
+    {
+      "name": "englishFirst",
+      "text": {
+        "weights": { "description": 2 }
       }
-    ]
+    }
+  ]
 ```
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
+Następnie w żądaniu Search zostanie uwzględniony profil oceniania:
+
+```http
+POST /indexes/hotels/docs/search?api-version=2020-06-30
+{
+  "search": "pets allowed",
+  "searchFields": "Tags, Description",
+  "select": "HotelName, Tags, Description",
+  "scoringProfile": "englishFirst",
+  "count": "true"
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jesteś deweloperem platformy .NET, pamiętaj, że możesz skonfigurować analizatory języka przy użyciu [zestawu Azure wyszukiwanie poznawcze .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) i właściwości [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) .
++ [Analizatory języków](index-add-language-analyzers.md)
++ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents)
++ [Przegląd wzbogacania AI](cognitive-search-concept-intro.md)
++ [Umiejętności — Omówienie](cognitive-search-working-with-skillsets.md)

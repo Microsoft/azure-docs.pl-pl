@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: e390eb62f64c9ec55605525828790f15633e5f14
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 842ab27fe02501efbbc6c06c3d36d2218c3c17b9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589535"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799245"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą AWS Single-Account Access
 
@@ -73,6 +73,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi AWS.
+
+> [!Note]
+> Role nie powinny być edytowane ręcznie w usłudze Azure AD podczas importowania ról.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
