@@ -3,16 +3,16 @@ title: Przekształcanie danych przy użyciu działania programu Hive — Azure
 description: Dowiedz się, jak używać działania programu Hive w Azure Data Factory V1, aby uruchamiać zapytania Hive na żądanie/własny klaster usługi HDInsight.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9d14ddb172546e062b62a5a8dd98b49a0a6e1c6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63e726c98922b789977a884bf747f12186707d57
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100383028"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782711"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive w Azure Data Factory 
 > [!div class="op_single_selector" title1="Działania transformacji"]

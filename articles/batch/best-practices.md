@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583279"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802356"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -31,7 +31,12 @@ W tym artykule omówiono zbiór najlepszych rozwiązań i przydatne porady dotyc
 
 - **Pule powinny mieć więcej niż jeden węzeł obliczeniowy:** Nie ma gwarancji, że poszczególne węzły są zawsze dostępne. Nietypowe błędy sprzętowe, aktualizacje systemu operacyjnego i hosta innych problemów mogą spowodować, że poszczególne węzły przestaną być w trybie offline. Jeśli obciążenie wsadowe wymaga deterministycznego, gwarantowanego postępu, należy przydzielić pule z wieloma węzłami.
 
-- **Nie używaj ponownie nazw zasobów:** Zasoby wsadowe (zadania, pule itp.) często zaczynają się i są dostępne w czasie. Można na przykład utworzyć pulę w poniedziałek, usunąć ją we wtorek, a następnie utworzyć kolejną pulę w czwartek. Każdy nowy tworzony zasób powinien mieć unikatową nazwę, która nie została wcześniej użyta. Można to zrobić przy użyciu identyfikatora GUID (jako całej nazwy zasobu lub jego części) lub osadzania czasu utworzenia zasobu w nazwie zasobu. Funkcja Batch obsługuje [Właściwość DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), która może być używana do nadawania zasobowi czytelnej nazwy, nawet jeśli rzeczywisty identyfikator zasobu to coś, co nie jest przyjazne dla człowieka. Używanie unikatowych nazw ułatwia odróżnienie określonego zasobu w dziennikach i metrykach. Powoduje również usunięcie niejednoznaczności, jeśli kiedykolwiek trzeba było korzystać z pomocy technicznej dla zasobu.
+- **Nie należy używać obrazów z nieoczekiwanymi datami zakończenia cyklu życia (EOL).**
+    Zdecydowanie zaleca się uniknięcie obrazów z nieoczekiwaną datą zakończenia okresu istnienia (EOL). Te daty można odnaleźć za pośrednictwem [ `ListSupportedImages` interfejsu API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [programu PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)lub interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Jest odpowiedzialny za okresowe odświeżanie widoku dat EOL związanych z pulami oraz Migrowanie obciążeń przed datą EOL. Jeśli używany jest obraz niestandardowy z określonym agentem węzła, należy się upewnić, że w przypadku obrazu, dla którego obraz niestandardowy jest wyprowadzany lub wyrównany, należy wykonać następujące czynności.
+
+- **Nie należy ponownie używać nazw zasobów.**
+    Zasoby wsadowe (zadania, pule itp.) często zaczynają się i są dostępne w czasie. Można na przykład utworzyć pulę w poniedziałek, usunąć ją we wtorek, a następnie utworzyć kolejną pulę w czwartek. Każdy nowy tworzony zasób powinien mieć unikatową nazwę, która nie została wcześniej użyta. Można to zrobić przy użyciu identyfikatora GUID (jako całej nazwy zasobu lub jego części) lub osadzania czasu utworzenia zasobu w nazwie zasobu. Funkcja Batch obsługuje [Właściwość DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), która może być używana do nadawania zasobowi czytelnej nazwy, nawet jeśli rzeczywisty identyfikator zasobu to coś, co nie jest przyjazne dla człowieka. Używanie unikatowych nazw ułatwia odróżnienie określonego zasobu w dziennikach i metrykach. Powoduje również usunięcie niejednoznaczności, jeśli kiedykolwiek trzeba było korzystać z pomocy technicznej dla zasobu.
+
 
 - **Ciągłość podczas konserwacji i niepowodzenia puli:** Najlepszym rozwiązaniem jest dynamiczne korzystanie z pul przez zadania. Jeśli zadania korzystają z tej samej puli dla wszystkich elementów, istnieje możliwość, że zadania nie będą działać, jeśli coś się nie dzieje z pulą. Jest to szczególnie ważne w przypadku obciążeń zależnych od czasu. Aby rozwiązać ten problem, wybierz lub Utwórz pulę dynamicznie przy zaplanowaniu każdego zadania lub aby zastąpić nazwę puli, aby można było ominąć pulę w złej kondycji.
 

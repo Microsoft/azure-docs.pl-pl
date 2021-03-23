@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97845453"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799331"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
@@ -43,8 +43,8 @@ LUIS rozumie wyrażenia długości w następujących językach:
 | *[Japoński](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Tylko fraza klucza|
 | Koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
 | Marathi | `mr-IN`|-|-|-|-|
-| portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
-| Hiszpański (Meksyk)|`es-MX` |-|-|✔|✔|
+| Portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
+| Hiszpański (Meksyk)|`es-MX` |-|✔|✔|✔|
 | hiszpański (Hiszpania) |`es-ES` |✔| ✔ |✔|✔|
 | Tamilski | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|
@@ -97,7 +97,7 @@ Aby wykonać Uczenie maszynowe, LUIS dzieli wypowiedź na [tokeny](luis-glossary
 |japoński|||✔
 |Koreański||✔||
 |Marathi|✔|||
-|portugalski (Brazylia)|✔|||
+|Portugalski (Brazylia)|✔|||
 |Hiszpański (es-ES)|✔|||
 |Hiszpański (es-MX)|✔|||
 |Tamilski|✔|||

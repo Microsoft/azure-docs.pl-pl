@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a7be682f921efdfae486e8f6545758964a941ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098863"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802441"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Wdrażanie Virtual Machines usługi Azure spot przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -33,7 +33,7 @@ Aby utworzyć Virtual Machines w miejscu na platformie Azure, musisz uruchomić 
 
 Zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login).
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -41,7 +41,7 @@ az login
 
 Ten przykład pokazuje, jak wdrożyć maszynę wirtualną platformy Azure w systemie Linux, która nie zostanie wykluczona na podstawie ceny. Zasada wykluczenia jest ustawiona na cofnięcie alokacji maszyny wirtualnej, dzięki czemu można ją uruchomić ponownie w późniejszym czasie. Jeśli chcesz usunąć maszynę wirtualną i dysk podstawowy podczas wykluczania maszyny wirtualnej, ustaw na wartość `--eviction-policy` `Delete` .
 
-```azurecli
+```azurecli-interactive
 az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
@@ -58,7 +58,7 @@ az vm create \
 
 Po utworzeniu maszyny wirtualnej można wykonać zapytanie, aby zobaczyć maksymalną cenę rozliczeniową dla wszystkich maszyn wirtualnych w grupie zasobów.
 
-```azurecli
+```azurecli-interactive
 az vm list \
    -g mySpotGroup \
    --query '[].{Name:name, MaxPrice:billingProfile.maxPrice}' \
@@ -67,21 +67,55 @@ az vm list \
 
 ## <a name="simulate-an-eviction"></a>Symulowanie wykluczenia
 
-Możesz [symulować wykluczenie](/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej platformy Azure w celu przetestowania, w jaki sposób aplikacja będzie odstawa w przypadku nagłego wykluczenia. 
+Możesz symulować wykluczenie maszyny wirtualnej platformy Azure w środowisku REST, programie PowerShell lub interfejsie wiersza polecenia, aby sprawdzić, jak dobrze aplikacja reaguje na nagłe wykluczenie.
 
-Zastąp następujące informacje następującymi informacjami: 
+W większości przypadków należy użyć interfejsu API REST [Virtual Machines — Symuluj wykluczenie](/rest/api/compute/virtualmachines/simulateeviction) , aby pomóc w zautomatyzowanym testowaniu aplikacji. W przypadku protokołu REST `Response Code: 204` oznacza to, że symulowane wykluczenie zakończyło się pomyślnie. Można połączyć symulowane wykluczenia z [zaplanowaną usługą zdarzeń](scheduled-events.md), aby zautomatyzować, w jaki sposób aplikacja będzie odpowiadać po wykluczeniu maszyny wirtualnej.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Aby zobaczyć zaplanowane zdarzenia w działaniu, Obejrzyj [piątek z platformy Azure, korzystając z usługi azure Scheduled Events w celu przygotowania do konserwacji maszyn wirtualnych](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Szybki test
+
+Aby szybko sprawdzić, jak działa symulowane wykluczenie, przejdźmy do zapytania dotyczącego usługi zdarzeń zaplanowanych, aby zobaczyć, jak wygląda, gdy symulujesz wykluczenie przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+Zaplanowana usługa zdarzeń jest włączona dla Twojej usługi podczas pierwszego żądania zdarzeń. 
+
+Zdalnie z maszyną wirtualną, a następnie otwórz wiersz polecenia. 
+
+W wierszu polecenia na maszynie wirtualnej wpisz:
+
 ```
-`Response Code: 204` oznacza, że symulowane wykluczenie zakończyło się pomyślnie. 
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
 
-**Następne kroki**
+Ta pierwsza odpowiedź może potrwać do 2 minut. Od teraz powinny być wyświetlane dane wyjściowe niemal natychmiast.
+
+Na komputerze, na którym zainstalowano interfejs wiersza polecenia platformy Azure (na przykład na komputerze lokalnym), Symuluj wykluczenie przy użyciu polecenia [AZ VM symulacja — wykluczanie](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction). Zastąp własną nazwę grupy zasobów i nazwę maszyny wirtualnej. 
+
+```azurecli-interactive
+az vm simulate-eviction --resource-group mySpotRG --name mySpot
+```
+
+Dane wyjściowe odpowiedzi będą mieć, `Status: Succeeded` Jeśli żądanie zostało wykonane pomyślnie.
+
+Szybko Wróć do zdalnego połączenia z maszyną wirtualną, a następnie ponownie wykonaj zapytanie o punkt końcowy Scheduled Events. Powtórz następujące polecenie do momentu uzyskania danych wyjściowych, które zawierają więcej informacji:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Gdy usługa zaplanowanego zdarzenia otrzymuje powiadomienie o wykluczeniu, otrzymasz odpowiedź podobną do:
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Można je zobaczyć `"EventType":"Preempt"` , a zasób jest zasobem maszyny wirtualnej `"Resources":["myspotvm"]` . 
+
+Możesz również sprawdzić, kiedy maszyna wirtualna zostanie wykluczona, sprawdzając, `"NotBefore"` czy maszyna wirtualna nie zostanie wykluczona przed upływem określonego czasu, dzięki czemu jest to okno aplikacji do bezpiecznego zamknięcia.
+
+
+## <a name="next-steps"></a>Następne kroki
 
 Możesz również utworzyć maszynę wirtualną platformy Azure w sieci za pomocą [Azure PowerShell](../windows/spot-powershell.md), [portalu](../spot-portal.md)lub [szablonu](spot-template.md).
 

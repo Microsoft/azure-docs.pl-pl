@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2020
+ms.date: 03/19/2021
 ms.author: yelevin
-ms.openlocfilehash: b8a304d523052f1fe839f94608806df51d35fdf9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 951c616961ff68b810ca135d09a6f6253cb2b7ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589926"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773559"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Samouczek: wykrywanie zagrożeń przy użyciu wbudowanych funkcji
 
@@ -57,7 +57,9 @@ Dostępne są następujące typy szablonów:
     Te szablony są oparte na własnościowych algorytmach uczenia maszynowego firmy Microsoft, dlatego nie można zobaczyć wewnętrznej logiki sposobu działania i uruchamiania programu. Ponieważ logika jest ukryta i w związku z tym nie można jej dostosowywać, możesz utworzyć tylko jedną regułę z każdym szablonem tego typu.
 
     > [!IMPORTANT]
-    > Szablony reguł analizy zachowań uczenia maszynowego są obecnie dostępne w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
+    > - Szablony reguł analizy zachowań uczenia maszynowego są obecnie dostępne w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
+    >
+    > - Dzięki utworzeniu i włączeniu wszelkich reguł opartych na szablonach analizy zachowań ML **firma Microsoft uprawnia do kopiowania pozyskanych danych poza obszar roboczy obszaru roboczego wskaźnikowego platformy Azure** zgodnie z potrzebami do przetwarzania przez aparaty i modele uczenia maszynowego.
 
 - **Zaplanowana**
 

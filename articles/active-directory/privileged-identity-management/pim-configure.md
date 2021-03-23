@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d42611705b7756ed2fd0c7a488339f0f638fb5b4
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92370189"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802169"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest usługa Azure AD Privileged Identity Management?
 
@@ -92,8 +92,8 @@ Aby lepiej zrozumieć Privileged Identity Management i dokumentację, należy za
 | aktywowano | Stan | Użytkownik, który ma przypisanie kwalifikowania się do roli, wykonał akcje w celu aktywowania roli i jest teraz aktywny.  Po aktywowaniu roli użytkownik może z niej korzystać przez wstępnie skonfigurowany czas, po którym rola będzie musiała być ponownie aktywowana. |
 | trwałe kwalifikowanie się | Czas trwania | Przypisanie roli, w którym użytkownik jest zawsze zakwalifikowany do aktywowania roli. |
 | trwałe aktywne | Czas trwania | Przypisanie roli, w którym użytkownik zawsze może używać roli bez wykonywania żadnych akcji. |
-| kwalifikowanie się z wygaśnięciem | Czas trwania | Przypisanie roli, w którym użytkownik jest zakwalifikowany do aktywowania roli w okresie określonym datą rozpoczęcia i zakończenia. |
-| aktywne z wygaśnięciem | Czas trwania | Przypisanie roli, w którym użytkownik może używać roli bez wykonywania żadnych akcji w okresie określonym datą rozpoczęcia i zakończenia. |
+| kwalifikujący się czas | Czas trwania | Przypisanie roli, do którego użytkownik może aktywować rolę tylko w datach początkowych i końcowych. |
+| powiązano czas aktywny | Czas trwania | Przypisanie roli, w którym użytkownik może używać roli tylko w datach początkowych i końcowych. |
 | dostęp just-in-time (JIT) |  | Model, w którym użytkownicy uzyskują tymczasowe uprawnienia do wykonywania uprzywilejowanych zadań, dzięki czemu złośliwi lub nieautoryzowani użytkownicy nie mogą uzyskać dostępu po wygaśnięciu uprawnienia. Dostęp jest udzielany tylko wtedy, gdy użytkownicy go potrzebują. |
 | zasada dostępu z najniższymi uprawnieniami |  | Zalecane rozwiązanie dotyczące zabezpieczeń, w którym każdy użytkownik ma minimalne uprawnienia wymagane do wykonania zadania, które mu przydzielono. Takie rozwiązanie pozwala zminimalizować liczbę administratorów globalnych i zamiast tego korzystać ze specyficznych ról administratorów dla konkretnych scenariuszy. |
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046520"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798854"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Twórz interaktywne raporty usługi VM Insights ze skoroszytami
 
@@ -27,15 +27,15 @@ Poniższa tabela zawiera podsumowanie skoroszytów uwzględnionych w usłudze VM
 
 | skoroszyt | Opis | Zakres |
 |----------|-------------|-------|
-| Wydajność | Udostępnia dostosowywalną wersję naszego górnego widoku listy i wykresów w jednym skoroszycie, który korzysta ze wszystkich Log Analytics włączonych liczników wydajności.| Na dużą skalę |
-| Liczniki wydajności | Górny widok wykresu N dla szerokiego zestawu liczników wydajności. | Na dużą skalę |
-| Połączenia | Połączenia zapewniają szczegółowy widok połączeń przychodzących i wychodzących z monitorowanych maszyn wirtualnych. | Na dużą skalę |
-| Aktywne porty | Zawiera listę procesów, które zostały powiązane z portami na monitorowanych maszynach wirtualnych i ich działania w wybranym przedziale czasu. | Na dużą skalę |
-| Otwarte porty | Zapewnia liczbę portów otwartych na monitorowanych maszynach wirtualnych oraz szczegóły dotyczące tych otwartych portów. | Na dużą skalę |
-| Połączenia zakończone niepowodzeniem | Wyświetl liczbę nieudanych połączeń na monitorowanych maszynach wirtualnych, Trend awarii i, jeśli wartość procentowa niepowodzeń rośnie wraz z upływem czasu. | Na dużą skalę |
-| Security and Audit | Analiza ruchu TCP/IP, która jest raportem dotyczącym ogólnych połączeń, złośliwych połączeń, gdzie punkty końcowe IP znajdują się globalnie.  Aby włączyć wszystkie funkcje, należy włączyć wykrywanie zabezpieczeń. | Na dużą skalę |
-| Ruch TCP | Uporządkowany raport dotyczący monitorowanych maszyn wirtualnych oraz wysyłany, odbierany i łączny ruch sieciowy w siatce i wyświetlany jako linia trendu. | Na dużą skalę |
-| Porównanie ruchu | Te skoroszyty umożliwiają porównanie trendów ruchu sieciowego dla jednej maszyny lub grupy maszyn. | Na dużą skalę |
+| Wydajność | Udostępnia dostosowywalną wersję naszego górnego widoku listy i wykresów w jednym skoroszycie, który korzysta ze wszystkich Log Analytics włączonych liczników wydajności.| Wiele maszyn wirtualnych |
+| Liczniki wydajności | Górny widok wykresu N dla szerokiego zestawu liczników wydajności. | Wiele maszyn wirtualnych |
+| Połączenia | Połączenia zapewniają szczegółowy widok połączeń przychodzących i wychodzących z monitorowanych maszyn wirtualnych. | Wiele maszyn wirtualnych |
+| Aktywne porty | Zawiera listę procesów, które zostały powiązane z portami na monitorowanych maszynach wirtualnych i ich działania w wybranym przedziale czasu. | Wiele maszyn wirtualnych |
+| Otwarte porty | Zapewnia liczbę portów otwartych na monitorowanych maszynach wirtualnych oraz szczegóły dotyczące tych otwartych portów. | Wiele maszyn wirtualnych |
+| Połączenia zakończone niepowodzeniem | Wyświetl liczbę nieudanych połączeń na monitorowanych maszynach wirtualnych, Trend awarii i, jeśli wartość procentowa niepowodzeń rośnie wraz z upływem czasu. | Wiele maszyn wirtualnych |
+| Security and Audit | Analiza ruchu TCP/IP, która jest raportem dotyczącym ogólnych połączeń, złośliwych połączeń, gdzie punkty końcowe IP znajdują się globalnie.  Aby włączyć wszystkie funkcje, należy włączyć wykrywanie zabezpieczeń. | Wiele maszyn wirtualnych |
+| Ruch TCP | Uporządkowany raport dotyczący monitorowanych maszyn wirtualnych oraz wysyłany, odbierany i łączny ruch sieciowy w siatce i wyświetlany jako linia trendu. | Wiele maszyn wirtualnych |
+| Porównanie ruchu | Te skoroszyty umożliwiają porównanie trendów ruchu sieciowego dla jednej maszyny lub grupy maszyn. | Wiele maszyn wirtualnych |
 | Wydajność | Udostępnia dostosowywalną wersję widoku wydajności, który wykorzystuje wszystkie Log Analytics liczniki wydajności, które zostały włączone. | Pojedyncza maszyna wirtualna | 
 | Połączenia | Połączenia zapewniają szczegółowy widok połączeń przychodzących i wychodzących z maszyny wirtualnej. | Pojedyncza maszyna wirtualna |
  

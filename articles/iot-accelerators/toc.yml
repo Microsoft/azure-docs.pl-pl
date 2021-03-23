@@ -7,22 +7,10 @@
     - name: AzureIoTSolutions.com
       href: iot-accelerators-permissions.md
     - name: Przemysłowy Internet rzeczy
-      href: overview-iot-industrial.md
-      items:
-        - name: Co to jest bliźniacza reprezentacja OPC
-          href: overview-opc-twin.md
-        - name: Co to jest magazyn OPC
-          href: overview-opc-vault.md
-        - name: Co to jest wydawca OPC
-          href: overview-opc-publisher.md
-        - name: Co to jest połączona fabryka
-          href: iot-accelerators-connected-factory-features.md
     - name: Symulacja urządzenia
       href: iot-accelerators-device-simulation-overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Testowanie rozwiązania połączonej fabryki
-      href: quickstart-connected-factory-deploy.md
     - name: Wdrażanie akceleratora rozwiązań do symulacji urządzeń
       href: 'https://github.com/Azure/device-simulation-dotnet/blob/master/README.md'
   expanded: true
@@ -37,47 +25,14 @@
 - name: Pojęcia
   items:
     - name: Przemysłowy Internet rzeczy
-      items:
-        - name: Architektura bliźniaczej reprezentacji OPC
-          href: overview-opc-twin-architecture.md
-        - name: Architektura magazynu OPC
-          href: overview-opc-vault-architecture.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Przemysłowy Internet rzeczy
       items:
         - name: Połączona fabryka
-          items:
-            - name: Korzystanie z pulpitu nawigacyjnego
-              href: iot-accelerators-connected-factory-dashboard.md
-            - name: Konfigurowanie akceleratora rozwiązań
-              href: iot-accelerators-connected-factory-configure.md
-            - name: Dostosowywanie akceleratora rozwiązań
-              href: iot-accelerators-connected-factory-customize.md
         - name: Bliźniacza reprezentacja OPC
-          items:
-            - name: Wdrażanie usług bliźniaczej reprezentacji OPC
-              href: howto-opc-twin-deploy-existing.md
-            - name: Wdrażanie modułu bliźniaczej reprezentacji OPC w usłudze IoT Edge
-              href: howto-opc-twin-deploy-modules.md
-            - name: Wdrażanie samych zależności bliźniaczej reprezentacji OPC
-              href: howto-opc-twin-deploy-dependencies.md
         - name: Magazyn OPC
-          items:
-            - name: Wdrażanie usługi magazynu OPC
-              href: howto-opc-vault-deploy.md
-            - name: Zarządzanie usługą magazynu OPC
-              href: howto-opc-vault-manage.md
-            - name: Zabezpieczanie komunikacji urządzenia OPC UA z magazynem OPC
-              href: howto-opc-vault-secure.md
-            - name: Bezpieczne działanie usługi magazynu OPC
-              href: howto-opc-vault-secure-ca.md
         - name: Wydawca OPC
-          items:
-            - name: Konfigurowanie wydawcy OPC
-              href: howto-opc-publisher-configure.md
-            - name: Uruchamianie wydawcy OPC
-              href: howto-opc-publisher-run.md
     - name: Symulacja urządzenia
       items:
         - name: Używanie istniejącego centrum IoT Hub
@@ -122,8 +77,6 @@
       items:
         - name: Repozytorium GitHub
           href: 'https://github.com/Azure/azure-iot-connected-factory'
-        - name: Połączona fabryka — często zadawane pytania
-          href: iot-accelerators-faq-cf.md
     - name: Symulacja urządzenia
       items:
         - name: Przewodnik informacyjny dla deweloperów

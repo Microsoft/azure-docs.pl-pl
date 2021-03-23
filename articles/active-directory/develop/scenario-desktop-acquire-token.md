@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c63ee686ae218a696069465bb8d2d1d7413a998e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99582659"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799092"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -91,20 +91,6 @@ return result;
 
 ```
 
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-result = None
-
-# Firstly, check the cache to see if this end user has signed in before
-accounts = app.get_accounts(username=config["username"])
-if accounts:
-    result = app.acquire_token_silent(config["scope"], account=accounts[0])
-
-if not result:
-    result = app.acquire_token_by_xxx(scopes=config["scope"])
-```
-
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 ### <a name="in-msal-for-ios-and-macos"></a>W MSAL dla systemów iOS i macOS
@@ -145,6 +131,83 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
     }
 }
 ```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+W węźle MSAL uzyskujesz tokeny za pośrednictwem przepływu kodu autoryzacji z kluczem testowym dla wymiany kodu (PKCE). Węzeł MSAL korzysta z pamięci podręcznej tokenów w pamięci, aby sprawdzić, czy w pamięci podręcznej znajdują się jakieś konta użytkowników. Jeśli istnieje, obiekt konta można przesłać do `acquireTokenSilent()` metody w celu pobrania buforowanego tokenu dostępu.
+
+```JavaScript
+
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+const msalTokenCache = pca.getTokenCache();
+
+let accounts = await msalTokenCache.getAllAccounts();
+
+    if (accounts.length > 0) {
+
+        const silentRequest = {
+            account: accounts[0], // Index must match the account that is trying to acquire token silently
+            scopes: ["user.read"],
+        };
+    
+        pca.acquireTokenSilent(silentRequest).then((response) => {
+            console.log("\nSuccessful silent token acquisition");
+            console.log("\nResponse: \n:", response);
+            res.sendStatus(200);
+        }).catch((error) => console.log(error));
+    } else {
+        const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+
+        const authCodeUrlParameters = {
+            scopes: ["User.Read"],
+            redirectUri: "your_redirect_uri",
+            codeChallenge: challenge, // PKCE Code Challenge
+            codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+        };
+        
+        // get url to sign user in and consent to scopes needed for application
+        pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+            console.log(response);
+        
+            const tokenRequest = {
+                code: response["authorization_code"],
+                codeVerifier: verifier // PKCE Code Verifier 
+                redirectUri: "your_redirect_uri",
+                scopes: ["User.Read"],
+            };
+            
+            // acquire a token by exchanging the code
+            pca.acquireTokenByCode(tokenRequest).then((response) => {
+                console.log("\nResponse: \n:", response);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }).catch((error) => console.log(JSON.stringify(error)));
+    }
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+result = None
+
+# Firstly, check the cache to see if this end user has signed in before
+accounts = app.get_accounts(username=config["username"])
+if accounts:
+    result = app.acquire_token_silent(config["scope"], account=accounts[0])
+
+if not result:
+    result = app.acquire_token_by_xxx(scopes=config["scope"])
+```
 ---
 
 Poniżej przedstawiono różne sposoby uzyskiwania tokenów w aplikacji klasycznej.
@@ -154,6 +217,7 @@ Poniżej przedstawiono różne sposoby uzyskiwania tokenów w aplikacji klasyczn
 Poniższy przykład pokazuje minimalny kod, aby interaktywnie uzyskać token do odczytywania profilu użytkownika przy użyciu Microsoft Graph.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
+
 ### <a name="in-msalnet"></a>W MSAL.NET
 
 ```csharp
@@ -355,25 +419,6 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
-
-MSAL Python nie zapewnia bezpośredniej metody tokenu pozyskiwania. Zamiast tego wymaga, aby aplikacja wysłała żądanie autoryzacji w ramach implementacji przepływu interakcji użytkownika w celu uzyskania kodu autoryzacji. Ten kod można następnie przesłać do `acquire_token_by_authorization_code` metody w celu uzyskania tokenu.
-
-```Python
-result = None
-
-# Firstly, check the cache to see if this end user has signed in before
-accounts = app.get_accounts(username=config["username"])
-if accounts:
-    result = app.acquire_token_silent(config["scope"], account=accounts[0])
-
-if not result:
-    result = app.acquire_token_by_authorization_code(
-         request.args['code'],
-         scopes=config["scope"])
-
-```
-
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 ### <a name="in-msal-for-ios-and-macos"></a>W MSAL dla systemów iOS i macOS
@@ -408,6 +453,70 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
     // Get access token from result
     let accessToken = authResult.accessToken
 })
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+W węźle MSAL uzyskujesz tokeny za pośrednictwem przepływu kodu autoryzacji z kluczem testowym dla wymiany kodu (PKCE). Proces ma dwa kroki: najpierw aplikacja uzyskuje adres URL, którego można użyć do wygenerowania kodu autoryzacji. Ten adres URL można otworzyć w przeglądarce, w której użytkownik może wprowadzić poświadczenia i zostanie przekierowany z powrotem do `redirectUri` (zarejestrowanego podczas rejestracji aplikacji) przy użyciu kodu autoryzacji. Następnie aplikacja przekazuje kod autoryzacji otrzymany do `acquireTokenByCode()` metody, która wymienia ją z tokenem dostępu.
+
+```JavaScript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+
+const authCodeUrlParameters = {
+    scopes: ["User.Read"],
+    redirectUri: "your_redirect_uri",
+    codeChallenge: challenge, // PKCE Code Challenge
+    codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+};
+
+// get url to sign user in and consent to scopes needed for application
+pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+    console.log(response);
+
+    const tokenRequest = {
+        code: response["authorization_code"],
+        codeVerifier: verifier // PKCE Code Verifier 
+        redirectUri: "your_redirect_uri",
+        scopes: ["User.Read"],
+    };
+    
+    // acquire a token by exchanging the code
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+    }).catch((error) => {
+        console.log(error);
+    });
+}).catch((error) => console.log(JSON.stringify(error)));
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+MSAL Python nie zapewnia bezpośredniej metody tokenu pozyskiwania. Zamiast tego wymaga, aby aplikacja wysłała żądanie autoryzacji w ramach implementacji przepływu interakcji użytkownika w celu uzyskania kodu autoryzacji. Ten kod można następnie przesłać do `acquire_token_by_authorization_code` metody w celu uzyskania tokenu.
+
+```Python
+result = None
+
+# Firstly, check the cache to see if this end user has signed in before
+accounts = app.get_accounts(username=config["username"])
+if accounts:
+    result = app.acquire_token_silent(config["scope"], account=accounts[0])
+
+if not result:
+    result = app.acquire_token_by_authorization_code(
+         request.args['code'],
+         scopes=config["scope"])
+
 ```
 ---
 
@@ -586,13 +695,17 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
-
-Ten przepływ nie jest jeszcze obsługiwany w języku Python MSAL.
-
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 Ten przepływ nie ma zastosowania do macOS.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ten przepływ nie jest jeszcze obsługiwany w węźle MSAL.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Ten przepływ nie jest jeszcze obsługiwany w języku Python MSAL.
 
 ---
 
@@ -882,6 +995,41 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 }
 ```
 
+# <a name="macos"></a>[macOS](#tab/macOS)
+
+Ten przepływ nie jest obsługiwany w MSAL dla macOS.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ten wyciąg pochodzi z [przykładów deweloperskich MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password). W poniższym fragmencie kodu nazwa użytkownika i hasło są stałe wyłącznie na potrzeby ilustracji. Należy to uniknąć w środowisku produkcyjnym. Zamiast tego zaleca się używanie podstawowego interfejsu użytkownika z monitem o podanie nazwy użytkownika/hasła. 
+
+```JavaScript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+// For testing, enter your username and password below.
+// In production, replace this with a UI prompt instead.
+const usernamePasswordRequest = {
+    scopes: ["user.read"],
+    username: "", // Add your username here
+    password: "", // Add your password here
+};
+
+pca.acquireTokenByUsernamePassword(usernamePasswordRequest).then((response) => {
+    console.log("acquired token by password grant");
+}).catch((error) => {
+    console.log(error);
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Ten wyciąg pochodzi z [przykładów deweloperskich MSAL języka Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
@@ -911,10 +1059,6 @@ if not result:
     result = app.acquire_token_by_username_password(
         config["username"], config["password"], scopes=config["scope"])
 ```
-
-# <a name="macos"></a>[macOS](#tab/macOS)
-
-Ten przepływ nie jest obsługiwany w MSAL dla macOS.
 
 ---
 
@@ -1094,6 +1238,39 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 }
 ```
 
+# <a name="macos"></a>[macOS](#tab/macOS)
+
+Ten przepływ nie ma zastosowania do macOS.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ten wyciąg pochodzi z [przykładów deweloperskich MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/device-code).
+
+```JavaScript
+const msal = require('@azure/msal-node');
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const deviceCodeRequest = {
+    deviceCodeCallback: (response) => (console.log(response.message)),
+    scopes: ["user.read"],
+    timeout: 20,
+};
+
+pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
+    console.log(JSON.stringify(response));
+}).catch((error) => {
+    console.log(JSON.stringify(error));
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Ten wyciąg pochodzi z [przykładów deweloperskich MSAL języka Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
@@ -1144,10 +1321,6 @@ if not result:
         # or you may even turn off the blocking behavior,
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
-
-# <a name="macos"></a>[macOS](#tab/macOS)
-
-Ten przepływ nie ma zastosowania do macOS.
 
 ---
 

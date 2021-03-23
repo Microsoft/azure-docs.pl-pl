@@ -46,8 +46,6 @@
       href: concepts-storage.md
     - name: Dostęp i tożsamość w chmurach prywatnych
       href: concepts-identity.md
-    - name: Kontrola dostępu na podstawie ról na platformie vSphere
-      href: concepts-role-based-access-control.md
     - name: Monitorowanie i naprawa chmur prywatnych
       href: concepts-monitor-repair-private-cloud.md
     - name: Uaktualnienia chmur prywatnych

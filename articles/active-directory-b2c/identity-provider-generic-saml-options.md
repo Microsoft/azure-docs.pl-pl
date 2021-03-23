@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488877"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798242"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Skonfiguruj opcje dostawcy tożsamości SAML za pomocą Azure Active Directory B2C
 
@@ -85,9 +85,11 @@ Poniżej znajduje się przykład usługi logowania jednokrotnego w usłudze Azur
 </IDPSSODescriptor>
 ```
 
-Odpowiedzi SAML są przesyłane do Azure AD B2C za pośrednictwem powiązań POST protokołu HTTP. Metadane zasad Azure AD B2C są ustawiane `AssertionConsumerService` dla powiązania `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` .
+### <a name="assertion-consumer-service"></a>Usługa konsumencka potwierdzenia
 
-Poniżej znajduje się przykład Assertion Consumer Service elementu metadanych zasad Azure AD B2C.
+Usługa konsumencka odbiorcy (lub ACS) to miejsce, w którym odpowiedzi SAML dostawcy tożsamości mogą być wysyłane i odbierane przez Azure AD B2C. Odpowiedzi SAML są przesyłane do Azure AD B2C za pośrednictwem powiązań POST protokołu HTTP. Lokalizacja usługi ACS wskazuje podstawowe zasady jednostki uzależnionej. Na przykład jeśli zasady dotyczące uzależnionia są *B2C_1A_signup_signin*, usługi ACS są zasadami podstawowymi *B2C_1A_signup_signin*, takimi jak *B2C_1A_TrustFrameworkBase*.
+
+Poniżej znajduje się przykład Assertion Consumer Service elementu metadanych zasad Azure AD B2C. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

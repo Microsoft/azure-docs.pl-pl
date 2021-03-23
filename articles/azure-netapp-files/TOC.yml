@@ -61,6 +61,8 @@
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
             - name: Korzyści związane z używaniem usługi Azure NetApp Files w usłudze Windows Virtual Desktop
               href: solutions-windows-virtual-desktop.md
+            - name: Zalety korzystania z Azure NetApp Files wdrożenia SQL Server
+              href: solutions-benefits-azure-netapp-files-sql-server.md
     - name: Często zadawane pytania dotyczące usługi Azure NetApp Files
       href: azure-netapp-files-faqs.md
     - name: Co to jest narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji
@@ -179,3 +181,5 @@
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Filmy wideo
       href: azure-netapp-files-videos.md
+    - name: Porównanie Azure Files i Azure NetApp Files
+      href: ../storage/files/storage-files-netapp-comparison.md

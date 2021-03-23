@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: b23afb17b9b7152e82049ca4f6127e2811913296
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3ad252520ca0cf7acdb3c84ef1da87c8076f3172
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563457"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775718"
 ---
 # <a name="understand-cache-usage-models"></a>Omówienie modeli użycia pamięci podręcznej
 
@@ -76,16 +76,6 @@ Ta tabela zawiera podsumowanie różnic między modelami użycia:
 
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
-<!-- | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Read heavy, infrequent writes | Read         | Never                 | None                     |
-| Greater than 15% writes       | Read/write   | 8 hours               | 20 minutes               |
-| Clients bypass the cache      | Read         | 30 seconds            | None                     |
-| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
-| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
-| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
-| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
--->
 Jeśli masz pytania dotyczące najlepszego modelu użycia dla przepływu pracy pamięci podręcznej platformy Azure HPC, skontaktuj się z przedstawicielem platformy Azure lub Otwórz żądanie pomocy technicznej, aby uzyskać pomoc.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,19 +1,14 @@
 ---
 title: Informacje o integracji Cisco ISE pxGrid
-titleSuffix: Azure Defender for IoT
 description: Mostkowanie możliwości usługi Defender for IoT za pomocą rozwiązania Cisco ISE pxGrid zapewnia zespołom ds. zabezpieczeń niepoprzedzające widoczność urządzeń w ekosystemie przedsiębiorstwa.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/28/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 3f1fb099aa18ebec5a7e2063740556cf806302e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00151f2e407c65d024f3bd59bdaa85a08ae677f4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558699"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784088"
 ---
 # <a name="about-the-cisco-ise-pxgrid-integration"></a>Informacje o integracji Cisco ISE pxGrid
 

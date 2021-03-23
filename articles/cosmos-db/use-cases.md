@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93073761"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799398"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Typowe przypadki użycia usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Przypadki użycia IoT często udostępniają pewne wzorce w sposobie pozyskiwani
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Architektura referencyjna Azure Cosmos DB IoT" border="false":::
 
-Duże ilości danych można pozyskać w usłudze Azure Event Hubs, ponieważ oferuje ona wysoką przepływność pozyskiwania danych z małymi opóźnieniami. Dane pozyskiwane, które muszą zostać przetworzone w celu wglądu w dane w czasie rzeczywistym, można doAzure Stream Analytics do analizy w czasie rzeczywistym. Dane można ładować do Azure Cosmos DB na potrzeby zapytań ad hoc. Gdy dane zostaną załadowane do Azure Cosmos DB, dane są gotowe do zapytania. Ponadto nowe dane i zmiany w istniejących danych mogą być odczytywane ze źródła zmian. Kanał informacyjny zmiany jest trwały, Dołącz tylko dziennik, który przechowuje zmiany w kontenerach Cosmos w kolejności sekwencyjnej. Wszystkie dane i tylko zmiany danych w Azure Cosmos DB mogą być używane jako dane referencyjne w ramach analizy w czasie rzeczywistym. Ponadto dane można dodatkowo modyfikować i przetwarzać, łącząc Azure Cosmos DB dane z usługą HDInsight na potrzeby zadań związanych z świniami, Hive lub map/zmniejszania.  Ulepszone dane są następnie ładowane z powrotem do Azure Cosmos DB na potrzeby raportowania.   
+Duże ilości danych można pozyskać w usłudze Azure Event Hubs, ponieważ oferuje ona wysoką przepływność pozyskiwania danych z małymi opóźnieniami. Dane pozyskiwane, które muszą zostać przetworzone w celu wglądu w dane w czasie rzeczywistym, można doAzure Stream Analytics do analizy w czasie rzeczywistym. Dane można ładować do Azure Cosmos DB na potrzeby zapytań ad hoc. Gdy dane zostaną załadowane do Azure Cosmos DB, dane są gotowe do zapytania. Ponadto nowe dane i zmiany w istniejących danych mogą być odczytywane ze źródła zmian. Kanał informacyjny zmiany jest trwały, Dołącz tylko dziennik, który przechowuje zmiany w kontenerach Cosmos w kolejności sekwencyjnej. Następnie wszystkie dane lub tylko zmiany danych w Azure Cosmos DB mogą być używane jako dane referencyjne w ramach analizy w czasie rzeczywistym. Ponadto dane można dodatkowo modyfikować i przetwarzać, łącząc Azure Cosmos DB dane z usługą HDInsight na potrzeby zadań związanych z świniami, Hive lub map/zmniejszania.  Ulepszone dane są następnie ładowane z powrotem do Azure Cosmos DB na potrzeby raportowania.   
 
 Przykładowe rozwiązanie IoT wykorzystujące Azure Cosmos DB, EventHubs i burzę można znaleźć w [repozytorium HDInsight-burz-Samples w witrynie GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 

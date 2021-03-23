@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: c7be10e14daf3ee769e86d51f648cc6b656a416a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5450e4846c3c49c89830ae65c50a95ee0c8d6eb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89303055"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803408"
 ---
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Weryfikuj IoT Edge ciągłej integracji/ciągłego wdrażania przy użyciu potoków kompilacja i wydanie
 
@@ -36,3 +36,5 @@ Aby wyzwolić zadanie kompilacji, można wypchnąć zatwierdzenie do repozytoriu
 6. Kliknij pozycję etap **deweloperów** , aby wyświetlić dzienniki wydań.
 
     ![Dzienniki wydań](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
+
+7. Jeśli potok kończy się niepowodzeniem, Zacznij od przejrzenia dzienników. Dzienniki można wyświetlić, przechodząc do podsumowania uruchomienia potoku i wybierając zadanie i zadanie. Jeśli określone zadanie zakończy się niepowodzeniem, Sprawdź dzienniki dla tego zadania. Aby uzyskać szczegółowe instrukcje dotyczące konfigurowania i używania dzienników, zobacz [Przeglądanie dzienników w celu diagnozowania problemów z potokiem](/azure/devops/pipelines/troubleshooting/review-logs).

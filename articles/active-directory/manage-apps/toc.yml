@@ -292,6 +292,8 @@
   items:
     - name: Serwer proxy aplikacji — często zadawane pytania
       href: application-proxy-faq.md
+    - name: Często zadawane pytania dotyczące certyfikatów zarządzania aplikacjami
+      href: application-management-certs-faq.md
     - name: Historia wersji serwera proxy aplikacji
       href: application-proxy-release-version-history.md
     - name: 'Przyczyny, dla których aplikacje są wyświetlane w obszarze Aplikacje dla przedsiębiorstw'

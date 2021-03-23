@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7accf705ee64be5ba416be9df2f92693b07e8a8c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584588"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799653"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Konfigurowanie i używanie usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -276,7 +276,7 @@ Można utworzyć bezserwerową bazę danych puli SQL i widoki dla Azure Cosmos D
 
 [Szablon Azure Resource Manager](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) tworzy łącze Synapse z włączonym kontem Azure Cosmos DB dla interfejsu API SQL. Ten szablon służy do tworzenia konta interfejsu API programu Core (SQL) w jednym regionie z kontenerem skonfigurowanym z włączoną funkcją analizy czasu wygaśnięcia (TTL) i opcją używania przepustowości ręcznej lub skalowania automatycznego. Aby wdrożyć ten szablon, kliknij pozycję **Wdróż na platformie Azure** na stronie Readme.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Wprowadzenie do usługi Azure Synpase link — przykłady
+## <a name="getting-started-with-azure-synapse-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Wprowadzenie do usługi Azure Synapse link — przykłady
 
 Możesz znaleźć przykłady umożliwiające rozpoczęcie pracy z usługą Azure Synapse w witrynie [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Są to kompleksowe rozwiązania ze scenariuszami IoT i handlu detalicznego. Możesz również znaleźć przykłady odpowiednie dla Azure Cosmos DB API for MongoDB w tym samym repozytorium, w którym znajduje się folder [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) . 
 

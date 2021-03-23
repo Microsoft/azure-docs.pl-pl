@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: e315f0f4f7bfff03a659de430e6fe182037f1b8a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cb71d70f6869cc539702426a245aa7e7cd965913
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99096410"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800554"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python
 
@@ -30,7 +30,7 @@ Więcej zasobów:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Konto usługi Azure Storage. [Utwórz konto magazynu](../common/storage-account-create.md).
-- [Python](https://www.python.org/downloads/) 2,7, 3,5 lub nowszy.
+- [Python](https://www.python.org/downloads/) 2,7 lub 3.6 +.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

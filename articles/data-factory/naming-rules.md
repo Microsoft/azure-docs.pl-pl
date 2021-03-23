@@ -3,16 +3,16 @@ title: Reguły nazewnictwa Azure Data Factory jednostek
 description: Opisuje reguły nazewnictwa dla jednostek Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: bef8706d9dcef966397dcddc64ffbd567a8431f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1a0622c0736bad5f6c205fab01f4405577ed67a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034408"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783357"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Reguły nazewnictwa Azure Data Factory
 

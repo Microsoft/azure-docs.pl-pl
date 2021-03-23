@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595981"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773083"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -186,22 +186,24 @@ Określa maksymalną liczbę procesów roboczych języka z wartością domyśln�
 |---|------------|
 |\_ \_ liczba procesów roboczych \_ funkcji|2|
 
-## <a name="python_threadpool_thread_count"></a>\_Liczba wątków puli wątków języka Python \_ \_
-
-Określa maksymalną liczbę wątków, które będą używane przez proces roboczy języka Python do wykonywania wywołań funkcji, z wartością domyślną `1` dla wersji języka Python `3.8` i poniżej. W przypadku wersji w języku Python `3.9` i nowszych wartość jest ustawiona na `None` . Należy zauważyć, że to ustawienie nie gwarantuje liczby wątków, które zostaną ustawione podczas wykonywania. Ustawienie umożliwia Python rozszerzanie liczby wątków do określonej wartości. To ustawienie dotyczy tylko aplikacji w języku Python. Ponadto to ustawienie ma zastosowanie do wywołań funkcji synchronicznych, a nie dla wspólnych procedur.
-
-|Klucz|Wartość przykładowa|Wartość maksymalna|
-|---|------------|---------|
-|\_Liczba wątków puli wątków języka Python \_ \_|2|32|
-
-
 ## <a name="functions_worker_runtime"></a>\_ \_ środowisko uruchomieniowe procesu roboczego
 
-Środowisko uruchomieniowe procesów roboczych języka do załadowania w aplikacji funkcji.  Będzie to zgodne z językiem używanym w aplikacji (na przykład "dotnet"). W przypadku funkcji w wielu językach należy opublikować je w wielu aplikacjach z odpowiednimi wartościami środowiska wykonawczego procesu roboczego.  Prawidłowe wartości to `dotnet` (C#/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) i `python` (Python).
+Środowisko uruchomieniowe procesów roboczych języka do załadowania w aplikacji funkcji.  Odnosi się to do języka używanego w aplikacji (na przykład `dotnet` ). Począwszy od wersji 2. x środowiska uruchomieniowego Azure Functions, dana aplikacja funkcji może obsługiwać tylko jeden język.   
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|\_ \_ środowisko uruchomieniowe procesu roboczego|dotnet|
+|\_ \_ środowisko uruchomieniowe procesu roboczego|węzeł|
+
+Prawidłowe wartości:
+
+| Wartość | Language |
+|---|---|
+| `dotnet` | [C# (biblioteka klas)](functions-dotnet-class-library.md)<br/>[C# (skrypt)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C# (proces izolowany)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [Program PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## <a name="pip_extra_index_url"></a>\_ \_ adres URL dodatkowego indeksu PIP \_
 
@@ -212,6 +214,14 @@ Wartość tego ustawienia wskazuje niestandardowy adres URL indeksu pakietu dla 
 |\_ \_ adres URL dodatkowego indeksu PIP \_|http://my.custom.package.repo/simple |
 
 Aby dowiedzieć się więcej, zobacz [zależności niestandardowe](functions-reference-python.md#remote-build-with-extra-index-url) w dokumentacji dewelopera języka Python.
+
+## <a name="python_threadpool_thread_count"></a>\_Liczba wątków puli wątków języka Python \_ \_
+
+Określa maksymalną liczbę wątków, które będą używane przez proces roboczy języka Python do wykonywania wywołań funkcji, z wartością domyślną `1` dla wersji języka Python `3.8` i poniżej. W przypadku wersji w języku Python `3.9` i nowszych wartość jest ustawiona na `None` . Należy zauważyć, że to ustawienie nie gwarantuje liczby wątków, które zostaną ustawione podczas wykonywania. Ustawienie umożliwia Python rozszerzanie liczby wątków do określonej wartości. To ustawienie dotyczy tylko aplikacji w języku Python. Ponadto to ustawienie ma zastosowanie do wywołań funkcji synchronicznych, a nie dla wspólnych procedur.
+
+|Klucz|Wartość przykładowa|Wartość maksymalna|
+|---|------------|---------|
+|\_Liczba wątków puli wątków języka Python \_ \_|2|32|
 
 ## <a name="scale_controller_logging_enabled"></a>\_Rejestrowanie kontrolera skalowania \_ \_ włączone
 

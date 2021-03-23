@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 03/22/2021
-  ms.openlocfilehash: 70643a698e089df87a68b93c9f264d15d3735bf5
-  ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+  ms.openlocfilehash: 30d83fe98253e9681d9c2d14c0b4081909326c44
+  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/22/2021
-  ms.locfileid: "104782082"
+  ms.lasthandoff: 03/23/2021
+  ms.locfileid: "104800248"
 landingContent:
 - title: Informacje o usłudze Azure VMware Solution
   linkLists:
@@ -36,8 +36,6 @@ landingContent:
       url: concepts-storage.md
     - text: Dostęp i tożsamość w chmurach prywatnych
       url: concepts-identity.md
-    - text: Kontrola dostępu na podstawie ról na platformie vSphere
-      url: concepts-role-based-access-control.md
     - text: Monitorowanie i naprawa chmur prywatnych
       url: concepts-monitor-repair-private-cloud.md
     - text: Uaktualnienia chmur prywatnych

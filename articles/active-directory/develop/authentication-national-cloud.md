@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96444802"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780076"
 ---
 # <a name="national-clouds"></a>Chmury narodowe
 
@@ -55,7 +55,7 @@ W poniższej tabeli przedstawiono podstawowe adresy URL dla punktów końcowych 
 |----------------|-------------------------|
 | Usługa Azure AD dla instytucji rządowych USA | `https://login.microsoftonline.us` |
 | Azure AD (Niemcy)| `https://login.microsoftonline.de` |
-| Usługa Azure AD Chiny obsługiwana przez firmę 21Vianet | `https://login.chinacloudapi.cn` |
+| Usługa Azure AD Chiny obsługiwana przez firmę 21Vianet | `https://login.partner.microsoftonline.cn/common` |
 | Azure AD (usługa globalna)| `https://login.microsoftonline.com` |
 
 Możesz tworzyć żądania do autoryzacji usługi Azure AD lub punktów końcowych tokenu przy użyciu odpowiedniego podstawowego adresu URL specyficznego dla regionu. Na przykład w przypadku platformy Azure (Niemcy):

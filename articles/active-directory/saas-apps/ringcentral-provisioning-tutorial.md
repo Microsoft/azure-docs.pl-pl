@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181630"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800773"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RingCentral na potrzeby automatycznego aprowizacji użytkowników
 
@@ -46,15 +46,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie RingCentral w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Zaloguj się do [konsoli administracyjnej RingCentral](https://login.ringcentral.com/sw.html). Przejdź do **menu narzędzia > integracja z katalogiem**.
-
-    ![Konsola administracyjna RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  Wybierz pozycję **Standard scim** w obszarze **Wybieranie dostawcy katalogów**. (W przyszłości będzie dostępna opcja o nazwie Azure Active Directory). Kliknij pozycję **Włącz usługę Standard scim**.
-
-    ![RingCentral Dodaj Standard scim](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  Skontaktuj się z zespołem pomocy technicznej RingCentral pod matthew.hunt@ringcentral.com kątem **tokenu uwierzytelniania Standard scim**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji RingCentral w Azure Portal.
+Konto administratora [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) jest wymagane do autoryzacji w sekcji poświadczenia administratora w kroku 5.
 
 > [!NOTE]
 > Aby przypisać licencje do użytkowników, w [tym miejscu](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language)Skorzystaj z linku wideo.
@@ -94,9 +86,13 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://platform.ringcentral.com/scim/v2` **adres URL dzierżawy**. Wprowadź wartość **tokenu uwierzytelniania Standard scim** pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą RingCentral. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi RingCentral ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** kliknij pozycję **Autoryzuj**. Nastąpi przekierowanie do strony logowania do RingCentral. Wprowadź adres E-mail/numer telefonu i hasło, a następnie kliknij przycisk **Zaloguj** . Kliknij przycisk **Autoryzuj** na stronie **żądania dostępu** RingCentral. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą RingCentral. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi RingCentral ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![Zrzut ekranu pól tekstowych dzierżawy i adresów URL tokenu tajnego z opcją połączenia testowego o nazwie out.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Access](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Autoryzuj](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
@@ -151,6 +147,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 ## <a name="change-log"></a>Dziennik zmian
 
 * 09/10/2020 — usunięto obsługę atrybutów "displayName" i "Manager".
+* 03/15/2021 — Zaktualizowano metodę autoryzacji z trwałego tokenu okaziciela do przepływu przydzielenia kodu OAuth.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

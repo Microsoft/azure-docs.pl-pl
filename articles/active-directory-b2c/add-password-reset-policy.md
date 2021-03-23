@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581919"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798397"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Konfigurowanie przepływu resetowania hasła w Azure Active Directory B2C
 
@@ -35,6 +35,9 @@ Dzięki [temu użytkownicy](add-sign-up-and-sign-in-policy.md) mogą zresetować
 ![Przepływ resetowania hasła](./media/add-password-reset-policy/password-reset-flow.png)
 
 Przepływ resetowania hasła dotyczy kont lokalnych w Azure AD B2C, które używają [adresu e-mail](identity-provider-local.md#email-sign-in) lub [nazwy użytkownika](identity-provider-local.md#username-sign-in) z hasłem do logowania.
+
+> [!TIP]
+> Funkcja przepływu samoobsługowego resetowania hasła umożliwia użytkownikom zmianę hasła, gdy użytkownik zapomni hasła i chce je zresetować. Rozważ skonfigurowanie [przepływu zmiany hasła](add-password-change-policy.md) do obsługi przypadków, w których użytkownik zna swoje hasło i chce go zmienić.
 
 Typowym postępowaniem po migracji użytkowników do Azure AD B2C z losowymi hasłami jest możliwość weryfikowania adresów e-mail przez użytkowników i resetowania ich haseł podczas pierwszego logowania. Często istnieje również możliwość wymuszenia resetowania hasła przez użytkownika po zmianie hasła przez administratora. Aby włączyć tę funkcję, zobacz [Wymuś Resetowanie hasła](force-password-reset.md) .
 

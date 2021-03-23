@@ -1,18 +1,14 @@
 ---
 title: Praca z interfejsami API usługi Defender for IoT
 description: Użyj zewnętrznego interfejsu API REST, aby uzyskać dostęp do danych wykrytych przez czujniki i konsole zarządzania oraz wykonywać działania z tymi danymi.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
-ms.service: azure
-ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523247"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778835"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Usługa Defender dla interfejsów API konsoli zarządzania i czujnika IoT
 

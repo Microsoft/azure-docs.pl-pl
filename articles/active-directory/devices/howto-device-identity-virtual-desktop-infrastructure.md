@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96029351"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798888"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -79,6 +79,8 @@ Administratorzy powinni zapoznać się z następującymi artykułami, na podstaw
 - [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska federacyjnego](hybrid-azuread-join-federated-domains.md)
 - [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>Nietrwały infrastruktura VDI
+
 W przypadku wdrażania nietrwałego infrastruktury VDI firma Microsoft zaleca, aby administratorzy IT implementują poniższe wskazówki. Niewykonanie tej czynności spowoduje, że katalog będzie miał wiele starych urządzeń przyłączonych do hybrydowej usługi Azure AD zarejestrowanych z nietrwałej platformy VDI, co spowodowało zwiększenie nacisku na limit przydziału dzierżawy i ryzyko przerwania działania usługi z powodu wykroczenia limitu przydziału dzierżawy.
 
 - Jeśli korzystasz z narzędzia przygotowywania systemu (sysprep.exe) i jeśli do instalacji używasz obrazu sprzed systemu Windows 10 1809, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako dołączona hybrydowa usługa Azure AD.
@@ -92,6 +94,15 @@ W przypadku wdrażania nietrwałego infrastruktury VDI firma Microsoft zaleca, a
 - Zdefiniuj i Implementuj proces [zarządzania przestarzałymi urządzeniami](manage-stale-devices.md).
    - Gdy masz strategię do identyfikowania nietrwałych hybrydowych urządzeń z usługą Azure AD (np. przy użyciu prefiksu nazwy wyświetlanej komputera), należy bardziej agresywnie wyczyścić te urządzenia, aby upewnić się, że katalog nie jest zużywany na wiele starych urządzeń.
    - W przypadku nietrwałych wdrożeń infrastruktury VDI na bieżącym i wyłączonym poziomie systemu Windows należy usunąć urządzenia, które mają **ApproximateLastLogonTimestamp** starsze niż 15 dni.
+
+### <a name="persistent-vdi"></a>Trwały infrastruktura VDI
+
+Podczas wdrażania trwałego infrastruktury VDI firma Microsoft zaleca, aby administratorzy IT implementują poniższe wskazówki. Niewykonanie tej czynności spowoduje problemy z wdrażaniem i uwierzytelnianiem. 
+
+- Jeśli korzystasz z narzędzia przygotowywania systemu (sysprep.exe) i jeśli do instalacji używasz obrazu sprzed systemu Windows 10 1809, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako dołączona hybrydowa usługa Azure AD.
+- Jeśli korzystasz z migawki maszyny wirtualnej w celu utworzenia dodatkowych maszyn wirtualnych, upewnij się, że migawka nie pochodzi z maszyny wirtualnej, która jest już zarejestrowana w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
+
+Ponadto zalecamy zaimplementowanie procesu [zarządzania przestarzałymi urządzeniami](manage-stale-devices.md). Dzięki temu katalog nie będzie używany z wieloma nieodświeżonymi urządzeniami, jeśli okresowo zresetujesz maszyny wirtualne.
  
 ## <a name="next-steps"></a>Następne kroki
 

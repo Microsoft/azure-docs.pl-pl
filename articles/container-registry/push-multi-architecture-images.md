@@ -4,12 +4,12 @@ description: Korzystanie z usługi Azure Container Registry do kompilowania, imp
 ms.topic: article
 ms.date: 02/07/2021
 ms.custom: ''
-ms.openlocfilehash: f8467cd3108ae4faea9ecb4c9d9ae339f476c311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 520518a275e0a9d191ae770e560a0e6e8278eae2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100012341"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802458"
 ---
 # <a name="multi-architecture-images-in-your-azure-container-registry"></a>Obrazy o wieloarchitekturze w usłudze Azure Container Registry
 
@@ -165,7 +165,7 @@ steps:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Użyj [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) , aby skompilować obrazy kontenerów dla różnych architektur.
+* Użyj [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) , aby skompilować obrazy kontenerów dla różnych architektur.
 * Dowiedz się więcej na temat tworzenia obrazów na wielu platformach za pomocą eksperymentalnej wtyczki [Buildx](https://docs.docker.com/buildx/working-with-buildx/) Docker.
 
 <!-- LINKS - external -->

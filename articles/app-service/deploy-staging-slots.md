@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100594236"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802968"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
@@ -214,6 +214,7 @@ Możesz również dostosować zachowanie rozgrzewania, korzystając z jednego lu
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Ścieżka do polecenia ping do rozgrzewania lokacji. Dodaj to ustawienie aplikacji, określając ścieżkę niestandardową rozpoczynającą się od ukośnika jako wartość. Może to być na przykład `/statuscheck`. Wartość domyślna to `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Prawidłowe kody odpowiedzi HTTP dla operacji rozgrzewania. Dodaj to ustawienie aplikacji z rozdzieloną przecinkami listą kodów HTTP. Przykładem jest `200,202` . Jeśli zwrócony kod stanu nie znajduje się na liście, operacje rozgrzewania i swap są zatrzymane. Domyślnie wszystkie kody odpowiedzi są prawidłowe.
+- `WEBSITE_WARMUP_PATH`: Ścieżka względna w witrynie, która ma być wysyłana za pomocą polecenia ping za każdym razem, gdy lokacja zostanie ponownie uruchomiona (nie tylko podczas zamian w gnieździe). Przykładowe wartości to `/statuscheck` lub ścieżka katalogu głównego `/` .
 
 > [!NOTE]
 > `<applicationInitialization>`Element konfiguracji jest częścią każdego uruchomienia aplikacji, podczas gdy dwa ustawienia aplikacji do rozgrzanych zachowań stosują się tylko do wymiany gniazd.

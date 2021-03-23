@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee0c673027892e6d3ee55b6ec5f67a30d88be683
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97770965"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780348"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 | Maksymalna liczba plików bazy danych na wystąpienie | Do 280, o ile nie osiągnięto rozmiaru magazynu wystąpienia lub limitu [przestrzeni dyskowej usługi Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) . | 32 767 plików na bazę danych, o ile nie osiągnięto limitu rozmiaru magazynu wystąpień. |
 | Maksymalny rozmiar pliku danych | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (maksymalnie 2 TB-8 TB) i [miejsca alokacji dysku Azure Premium Storage](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (do 1 TB – 4 TB). |
 | Maksymalny rozmiar pliku dziennika | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. |
-| Operacje we/wy danych/dziennika (przybliżone) | Do 30-40 K operacji we/wy na wystąpienie *, 500-7500 na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać więcej operacji we/wy na sekundę](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (4000 IOPS/rdzeń wirtualny)<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać lepszą wydajność operacji we/wy. |
+| Operacje we/wy danych/dziennika (przybliżone) | Do 30-40 K operacji we/wy na wystąpienie *, 500-7500 na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać więcej operacji we/wy na sekundę](#file-io-characteristics-in-general-purpose-tier)| 16 k-320 K (4000 IOPS/rdzeń wirtualny)<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać lepszą wydajność operacji we/wy. |
 | Limit przepływności zapisu dziennika (na wystąpienie) | 3 MB/s na rdzeń wirtualny<br/>Maks 120 MB/s na wystąpienie<br/>22-65 MB/s na bazę danych<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s na rdzeń wirtualny<br/>Maks 96 MB/s |
 | Przepływność danych (przybliżona) | 100 – 250 MB/s na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | Nieograniczone. |
 | Opóźnienie operacji we/wy magazynu (w przybliżeniu) | 5-10 ms | 1-2 MS |

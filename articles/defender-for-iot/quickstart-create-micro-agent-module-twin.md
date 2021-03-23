@@ -1,19 +1,14 @@
 ---
 title: Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
-titleSuffix: Azure Defender for IoT
 description: Dowiedz się, jak utworzyć poszczególne DefenderIotMicroAgent modułów bliźniaczych reprezentacji dla nowych urządzeń.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: e1c2f4e79b9f0f0ba1ec0da0c5a2a29cdc8bc6d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5036eefbd77a22d492f6ce7d3c7d15f50a081490
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489883"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781062"
 ---
 # <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
 

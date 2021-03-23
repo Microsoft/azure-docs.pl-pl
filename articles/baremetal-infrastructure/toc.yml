@@ -1,0 +1,89 @@
+- name: Azure BareMetal Infrastructure
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest infrastruktura BareMetal?
+      href: concepts-baremetal-infrastructure-overview.md
+    - name: Poznawanie warunków
+      href: know-baremetal-terms.md
+    - name: Łączenie jednostek wystąpień BareMetal na platformie Azure
+      displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
+      href: connect-baremetal-infrastructure.md
+- name: Pakiety robocze
+  items:
+    - name: Typy obciążeń BareMetal
+      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - name: Oprogramowanie SAP HANA na platformie Azure (duże wystąpienia)
+      items:
+        - name: Certyfikacja
+          href: /azure/virtual-machines/workloads/sap/hana-certification?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Dostępne jednostki SKU dla oprogramowania SAP HANA na platformie Azure — duże wystąpienia
+          href: /azure/virtual-machines/workloads/sap/hana-available-skus?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Ustalanie rozmiaru
+          href: /azure/virtual-machines/workloads/sap/hana-sizing?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Wymagania dotyczące dołączania
+          href: /azure/virtual-machines/workloads/sap/hana-onboarding-requirements?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Węzły rozszerzeń i warstwy danych na platformie SAP HANA
+          href: /azure/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Model działania i obowiązki
+          href: /azure/virtual-machines/workloads/sap/hana-operations-model?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Zgodne systemy operacyjne
+          href: /azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Obsługiwane scenariusze oprogramowania HANA — duże wystąpienia
+          href: /azure/virtual-machines/workloads/sap/hana-supported-scenario?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Architektura
+          items:
+            - name: Architektura ogólna
+              href: /azure/virtual-machines/workloads/sap/hana-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Architektura sieci
+              href: /azure/virtual-machines/workloads/sap/hana-network-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Architektura magazynu
+              href: /azure/virtual-machines/workloads/sap/hana-storage-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Infrastruktura i łączność
+          items:
+            - name: Wdrażanie funkcji HANA — duże wystąpienia
+              href: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Łączenie maszyn wirtualnych platformy Azure z funkcją HANA — duże wystąpienia
+              href: /azure/virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Łączenie sieci wirtualnej z usługą ExpressRoute funkcji HANA — duże wystąpienie
+              href: /azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Dodatkowe wymagania dotyczące sieci
+              href: /azure/virtual-machines/workloads/sap/hana-additional-network-requirements?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Instalowanie platformy SAP HANA
+          items:
+            - name: Weryfikowanie konfiguracji
+              href: /azure/virtual-machines/workloads/sap/hana-installation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Przykładowa instalacja platformy HANA
+              href: /azure/virtual-machines/workloads/sap/hana-example-installation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Wysoka dostępność i odzyskiwanie po awarii
+          items:
+            - name: Opcje i zagadnienia
+              href: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Tworzenie kopii zapasowej i przywracanie
+              href: /azure/virtual-machines/workloads/sap/hana-backup-restore?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Reguły i przygotowanie
+              href: /azure/virtual-machines/workloads/sap/hana-concept-preparation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Procedura przechodzenia w tryb failover odzyskiwania po awarii
+              href: /azure/virtual-machines/workloads/sap/hana-failover-procedure?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Rozwiązywanie problemów i monitorowanie
+          items:
+            - name: Monitorowanie funkcji HANA — duże wystąpienia
+              href: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA
+              href: /azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Instrukcje
+          items:
+            - name: Konfiguracja wysokiej dostępności za pomocą metody STONITH
+              href: /azure/virtual-machines/workloads/sap/ha-setup-with-stonith?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Kopia zapasowa systemu operacyjnego dla jednostek SKU typu II
+              href: /azure/virtual-machines/workloads/sap/os-backup-type-ii-skus?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Włączanie narzędzia Kdump dla dużych wystąpień platformy HANA
+              href: /azure/virtual-machines/workloads/sap/hana-large-instance-enable-kdump?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Uaktualnianie systemu operacyjnego dla dużych wystąpień HANA
+              href: /azure/virtual-machines/workloads/sap/os-upgrade-hana-large-instance?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Konfigurowanie serwera SMT dla serwera z systemem SUSE Linux
+              href: /azure/virtual-machines/workloads/sap/hana-setup-smt?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Migracja z funkcji HANA — duże wystąpienia na maszynę wirtualną platformy Azure
+              href: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Kupowanie rezerwacji oprogramowania SAP HANA — duże wystąpienia
+              href: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity

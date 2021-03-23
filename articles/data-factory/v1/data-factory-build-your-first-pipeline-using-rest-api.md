@@ -3,16 +3,16 @@ title: Tworzenie pierwszej fabryki danych (REST)
 description: W tym samouczku przedstawiono instrukcje tworzenia przykładowego potoku usługi Azure Data Factory przy użyciu interfejsu API REST usługi Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9aa3e7f2b5f382e1212955479d8e35f91b458bf0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: eb9ce65985521fb3f82032f04aec62538a157639
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100392021"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785466"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Samouczek: Tworzenie pierwszej fabryki danych Azure przy użyciu interfejsu API REST usługi Fabryka danych
 > [!div class="op_single_selector"]

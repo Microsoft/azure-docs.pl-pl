@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8009d98ddbfa778cf5f357248ecd943b810e06e3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761158"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803291"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Tworzenie potoku wydania na potrzeby ciągłego wdrażania
 
@@ -89,6 +89,9 @@ Utwórz nowy potok i Dodaj nowy etap:
     | Wybieranie jednego/wielu urządzeń | Zdecyduj, czy potok wydania ma zostać wdrożony na jednym, czy na wielu urządzeniach. W przypadku wdrażania na jednym urządzeniu wprowadź **IoT Edge identyfikator urządzenia**. W przypadku wdrażania na wielu urządzeniach należy określić **warunek docelowy** urządzenia. Warunek docelowy to filtr zgodny z zestawem IoT Edge urządzeń w IoT Hub. Jeśli chcesz używać tagów urządzenia jako warunku, musisz zaktualizować odpowiednie znaczniki urządzeń za pomocą sznurka urządzenia IoT Hub. Zaktualizuj **IoT Edge identyfikator wdrożenia** i **IoT Edge priorytet wdrożenia** w obszarze Ustawienia zaawansowane. Aby uzyskać więcej informacji na temat tworzenia wdrożenia dla wielu urządzeń, zobacz [opis IoT Edge wdrożeń automatycznych](../articles/iot-edge/module-deployment-monitoring.md). |
     | Identyfikator urządzenia lub warunek docelowy | W zależności od wcześniejszego wyboru Określ identyfikator urządzenia lub [warunek docelowy](../articles/iot-edge/module-deployment-monitoring.md#target-condition) , który ma zostać wdrożony na wielu urządzeniach. |
     | Zaawansowany | Dla identyfikatora wdrożenia IoT Edge Określ `$(System.TeamProject)-$(Release.EnvironmentName)` . Ta zmienna mapuje projekt i nazwę wydania na identyfikator wdrożenia IoT Edge. |
+    
+
+    Jeśli zadanie obejmuje korzystanie z obrazu, który znajduje się w prywatnym rejestrze platformy Docker, który nie jest widoczny dla chmury publicznej, można ustawić zmienną środowiskową **SKIP_MODULE_IMAGE_VALIDATION** , aby `true` pominąć sprawdzanie poprawności obrazu. 
 
     ![Dodawanie Azure IoT Edge zadań dla etapu deweloperskiego](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

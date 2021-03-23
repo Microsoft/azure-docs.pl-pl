@@ -153,6 +153,8 @@
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ochrona danych
           items:
+            - name: Omówienie
+              href: data-protection-overview.md
             - name: Usuwanie nietrwałe dla kontenerów
               href: soft-delete-container-overview.md
             - name: Obsługa wersji

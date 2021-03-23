@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 66f11b7a5124f0b9b834b79368d57443ab33e850
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578349"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798939"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji
 
@@ -50,6 +50,7 @@ Określ identyfikator URI przekierowania dla aplikacji, [konfigurując ustawieni
   > Ze względów bezpieczeństwa zaleca się jawne ustawienie `https://login.microsoftonline.com/common/oauth2/nativeclient` lub `http://localhost` jako identyfikator URI przekierowania. Niektóre biblioteki uwierzytelniania, takie jak MSAL.NET, używają wartości domyślnej `urn:ietf:wg:oauth:2.0:oob` , gdy nie określono innego identyfikatora URI przekierowania, co nie jest zalecane. Ta wartość domyślna zostanie zaktualizowana jako istotna zmiana w następnej wersji.
 
 - W przypadku tworzenia natywnej aplikacji "cel-C" lub "Swift" dla usługi macOS należy zarejestrować identyfikator URI przekierowania na podstawie identyfikatora pakietu aplikacji w następującym formacie: `msauth.<your.app.bundle.id>://auth` . Zastąp `<your.app.bundle.id>` identyfikatorem pakietu aplikacji.
+- Jeśli tworzysz aplikację Node.js elektronów, Użyj niestandardowego protokołu plików zamiast regularnego identyfikatora URI przekierowania w sieci Web (https://) w celu obsługi kroku przekierowania przepływu autoryzacji, na przykład `msal://redirect` . Niestandardowa nazwa protokołu plików nie powinna być oczywista i powinna być zgodna z sugestiami w [specyfikacji OAuth 2.0 dla aplikacji natywnych](https://tools.ietf.org/html/rfc8252#section-7.1).
 - Jeśli aplikacja używa tylko zintegrowanego uwierzytelniania systemu Windows lub nazwy użytkownika i hasła, nie trzeba rejestrować identyfikatora URI przekierowania dla aplikacji. Te przepływy umożliwiają przeprowadzenie rundy w punkcie końcowym Microsoft Identity platform v 2.0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
 - Aby rozróżnić [przepływ kodu urządzenia](scenario-desktop-acquire-token.md#device-code-flow), [zintegrowane uwierzytelnianie systemu Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)oraz [nazwę użytkownika i hasło](scenario-desktop-acquire-token.md#username-and-password) z poufnej aplikacji klienckiej przy użyciu przepływu poświadczeń klienta używanego w [aplikacjach demonów](scenario-daemon-overview.md), żadna z tych elementów nie wymaga identyfikatora URI przekierowania, skonfiguruj ją jako publiczną aplikację kliencką. Aby osiągnąć tę konfigurację:
 

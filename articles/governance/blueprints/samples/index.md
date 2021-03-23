@@ -3,12 +3,12 @@ title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: 0873de5879a40b13bea03c97e0b78d146f0d6696
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 06dc65ca601c938f6610df3ed22b4ea0f3826208
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200987"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799466"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -34,6 +34,7 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 | [Usługi udostępnione ISO 27001](./iso27001-shared/index.md) | Zawiera zestaw wzorców zgodnej infrastruktury i ochronę w postaci zasad, które ułatwiają zaświadczanie za pomocą standardu ISO 27001. |
 | [Obciążenie środowiska App Service Environment/bazy danych SQL ISO 27001](./iso27001-ase-sql-workload/index.md) | Oferuje więcej infrastruktury dla przykładu [usługi udostępnionej ISO 27001](./iso27001-shared/index.md) . |
 | [Media](./media/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem Media MPAA. |
+| [W Nowej Zelandii ISM z ograniczeniami](./new-zealand-ism.md) | Przypisuje zasady dotyczące konkretnych ręcznych kontroli zabezpieczeń informacji w Nowej Zelandii. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Zapewnia guardrails zgodności z programem NIST SP 800-53 R4. |
 | [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Zapewnia guardrails zgodności z dodatkiem NIST SP 800-171 R2. |
 | [PCI-DSS 3.2.1](./pci-dss-3.2.1/index.md) | Udostępnia zestaw zasad, które ułatwiają zachowanie zgodności ze standardem PCI-DSS 3.2.1. |

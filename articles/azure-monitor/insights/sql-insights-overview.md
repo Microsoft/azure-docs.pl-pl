@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: d01f80a803c5b0f9da067dd23ab8cdb4cc591a79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9c5db14bec87b30e51d39b1430ecc1f3cbef855
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609847"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798293"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitoruj wdrożenia SQL za pomocą usługi SQL Insights (wersja zapoznawcza)
 Usługi SQL Insights monitorują wydajność i kondycję wdrożeń SQL.  Może ona pomóc zapewnić przewidywalną wydajność i dostępność ważnych obciążeń, które zostały utworzone wokół zaplecze SQL, identyfikując wąskie gardła i problemy z wydajnością. Usługi SQL Insights przechowują swoje dane w [dziennikach Azure monitor](../logs/data-platform-logs.md), co pozwala na dostarczanie zaawansowanej agregacji i filtrowania oraz analizowanie trendów danych w miarę upływu czasu. Te Azure Monitor dane można wyświetlić w widokach, które firma Microsoft udostępnia w ramach tej oferty, i można nawiązać do nich udział bezpośrednio w danych dziennika w celu uruchamiania zapytań i analizowania trendów.
 
 Usługa SQL Insights nie instaluje żadnych elementów we wdrożeniach usługi SQL IaaS. Zamiast tego używa dedykowanych maszyn wirtualnych monitorowania do zdalnego zbierania danych dla wdrożeń SQL PaaS i SQL IaaS.  Profil monitorowania usługi SQL Insights umożliwia zarządzanie zestawami danych, które mają być zbierane na podstawie typu SQL, w tym Azure SQL DB, wystąpienia zarządzanego usługi Azure SQL i programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Nie ma bezpośredniego kosztu usługi SQL Insights, ale opłaty są naliczane za działanie w obszarze roboczym Log Analytics. W oparciu o Cennik opublikowany na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/)usługi SQL Insights są rozliczane za:
 
@@ -59,7 +59,7 @@ Zobacz temat [Włączanie usługi SQL Insights](sql-insights-enable.md) , aby uz
 
 
 ## <a name="data-collected-by-sql-insights"></a>Dane zbierane przez usługi SQL Insights
-W publicznej wersji zapoznawczej usługi SQL Insights obsługują tylko zdalną metodę monitorowania. Agent telegraf nie jest zainstalowany na SQL Server. Korzysta ona z wtyczki wejściowej SQL Server dla telegraf i używa trzech grup zapytań dla różnych typów monitorowanych przez niego usług SQL: Azure SQL DB, wystąpienia zarządzanego Azure SQL, programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. 
+W publicznej wersji zapoznawczej usługi SQL Insights obsługują tylko zdalną metodę monitorowania. [Agent telegraf](https://www.influxdata.com/time-series-platform/telegraf/) nie jest zainstalowany na SQL Server. Korzysta ona z [wtyczki wejściowej SQL Server dla telegraf](https://www.influxdata.com/integration/microsoft-sql-server/) i używa trzech grup zapytań dla różnych typów monitorowanych przez niego usług SQL: Azure SQL DB, wystąpienia zarządzanego Azure SQL, programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. 
 
 Poniższe tabele podsumowują następujące elementy:
 

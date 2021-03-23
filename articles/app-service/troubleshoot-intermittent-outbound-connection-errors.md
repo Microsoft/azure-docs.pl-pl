@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 989f47c0ff60865a8e8be15e089cdcf96ab2550c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2b4719561ad94d54267410d0af28db6ee8d82b00
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94968302"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799109"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
@@ -88,8 +88,8 @@ Poniżej przedstawiono popularne biblioteki używane do tworzenia puli połącze
 
 Buforowanie połączeń HTTP
 
-* [Zarządzanie połączeniami Apache](https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-* [PoolingHttpClientConnectionManager klasy](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.html)
+* [Zarządzanie połączeniami Apache](https://hc.apache.org/httpcomponents-client-5.0.x/)
+* [PoolingHttpClientConnectionManager klasy](https://hc.apache.org/httpcomponents-client-5.0.x/)
 
 #### <a name="php"></a>PHP
 

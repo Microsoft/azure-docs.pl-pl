@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98753726"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798956"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenariusz: aplikacja klasyczna, która wywołuje interfejsy API sieci Web
 
@@ -30,6 +30,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz swoją pierwszą aplikację, wykonują
 - [Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows](./quickstart-v2-windows-desktop.md)
 - [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji platformy UWP](./quickstart-v2-uwp.md)
 - [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z natywnej aplikacji macOS](./quickstart-v2-ios.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji Node.js & elektronów](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>Omówienie
 
@@ -39,6 +40,7 @@ Napisz aplikację klasyczną i chcesz zalogować użytkowników do aplikacji i w
 
   - Jeśli aplikacja klasyczna obsługuje kontrolki graficzne, na przykład jeśli jest to aplikacja Windows. form, aplikacja WPF lub aplikacja natywna macOS.
   - Lub, jeśli jest to aplikacja .NET Core i wyrażasz zgodę na interakcję uwierzytelniania z usługą Azure Active Directory (Azure AD) w przeglądarce systemowej.
+  - Lub, jeśli jest to Node.jsa aplikacja elektronowa, która jest uruchamiana w wystąpieniu chromu.
 
 - W przypadku aplikacji hostowanych w systemie Windows jest również możliwe, aby aplikacje działające na komputerach przyłączonych do domeny systemu Windows lub z usługą Azure AD przyłączone w trybie dyskretnym przy użyciu zintegrowanego uwierzytelniania systemu Windows.
 - Na koniec, chociaż nie jest to zalecane, możesz użyć nazwy użytkownika i hasła w publicznych aplikacjach klienckich. Nadal jest to konieczne w niektórych scenariuszach, takich jak DevOps. Użycie nakłada ograniczenia dotyczące aplikacji. Na przykład nie może zalogować użytkownika, który musi przeprowadzić [uwierzytelnianie wieloskładnikowe](../authentication/concept-mfa-howitworks.md) (dostęp warunkowy). Ponadto aplikacja nie będzie korzystać z logowania jednokrotnego (SSO).

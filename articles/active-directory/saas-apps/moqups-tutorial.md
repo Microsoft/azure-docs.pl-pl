@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: jeedes
-ms.openlocfilehash: ac31323547ec2d0b6330b0b1c13dd9f219f224e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c6db83dd46d988b5e8b4122a9e89e3c36136ad89
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104726865"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799017"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moqups"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Moqups
 
@@ -127,7 +127,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-moqups-sso"></a>Konfigurowanie logowania jednokrotnego Moqups
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Moqups** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej Moqups](mailto:support@moqups.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+1. Zaloguj się do witryny sieci Web Moqups jako administrator.
+
+1.  Przejdź do **konta** i wybierz kartę **integracja** .
+
+1. W sekcji **uwierzytelnianie SAML** wklej wartość **adresu URL metadanych federacji aplikacji** , która została skopiowana z Azure Portal.
+
+    ![Zrzut ekranu przedstawiający sekcję Konfiguracja.](./media/moqups-tutorial/saml-authentication.png)
+
+1. Kliknij przycisk **Konfiguruj** .
 
 ### <a name="create-moqups-test-user"></a>Utwórz użytkownika testowego Moqups
 

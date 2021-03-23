@@ -4,7 +4,7 @@ description: Dowiedz się, jak dołączyć i zainstalować rozszerzenie Microsof
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/24/2020
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 30d6061e15b8eb17c1450500d9e8c141a83a3e08
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c827dc81c1ef1ab03dd6c9178a609b512e59ef15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553922"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801218"
 ---
 # <a name="onboarding-and-installing"></a>Dołączanie i instalowanie
+
+> [!Note]
+> Od 1 marca 2022 rozszerzenie Microsoft Security code Analysis (MSCA) zostanie wycofane. Istniejący klienci MSCA będą zachować dostęp do MSCA do 1 marca 2022. Zapoznaj się z [narzędziami do analizy kodu źródłowego OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) , aby zapoznać się z alternatywnymi opcjami w usłudze Azure DevOps. W przypadku klientów mających na celu zaplanowanie migracji do usługi GitHub można sprawdzić [Zaawansowane zabezpieczenia usługi GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Wymagania wstępne dotyczące analizy kodu zabezpieczeń firmy Microsoft:
 

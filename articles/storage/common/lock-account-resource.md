@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9d80c0b8d4d913322c47d1ad278d6dbc033d2409
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79b88ad58a2eb95a48a140b3b98d606af495cb94
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620155"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799789"
 ---
 # <a name="apply-an-azure-resource-manager-lock-to-a-storage-account"></a>Zastosuj blokadę Azure Resource Manager do konta magazynu
 
@@ -25,8 +25,8 @@ Firma Microsoft zaleca zablokowanie wszystkich kont magazynu z blokadą Azure Re
 
 Aby uzyskać więcej informacji na temat blokad Azure Resource Manager, zobacz [blokowanie zasobów, aby zapobiec zmianom](../../azure-resource-manager/management/lock-resources.md).
 
-> [!IMPORTANT]
-> Zablokowanie konta magazynu nie chroni danych na tym koncie przed aktualizacją lub usunięciem.
+> [!CAUTION]
+> Zablokowanie konta magazynu nie chroni kontenerów ani obiektów BLOB w ramach tego konta przed usunięciem lub zastąpieniem. Aby uzyskać więcej informacji na temat ochrony danych obiektów blob, zobacz temat [Ochrona danych — omówienie](../blobs/data-protection-overview.md).
 
 ## <a name="configure-an-azure-resource-manager-lock"></a>Konfigurowanie blokady Azure Resource Manager
 
@@ -83,4 +83,5 @@ Dane w Azure Files lub Table service mogą stać się niedostępne dla klientów
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zablokuj zasoby, aby uniemożliwić zmiany](../../azure-resource-manager/management/lock-resources.md)
+- [Omówienie ochrony danych](../blobs/data-protection-overview.md)
+- [Zablokuj zasoby, aby uniemożliwić zmiany](../../azure-resource-manager/management/lock-resources.md)

@@ -2,14 +2,14 @@
 title: Kontenery bezserwerowe na platformie Azure
 description: Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchamiania wyizolowanych kontenerów na platformie Azure, bez konieczności zarządzania jakimikolwiek maszynami wirtualnymi ani korzystania z orkiestratora wyższego poziomu.
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 873f7cc51d1b369503a72501ae000000ff06f805
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c445687db7a154b6fc86e962d2c2340ad6297431
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573017"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799075"
 ---
 # <a name="what-is-azure-container-instances"></a>Co to jest usługa Azure Container Instances?
 

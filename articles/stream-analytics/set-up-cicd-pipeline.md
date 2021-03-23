@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466426"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775939"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Użyj usługi Azure DevOps, aby utworzyć potok ciągłej integracji/ciągłego wdrażania dla zadania Stream Analytics
 
@@ -20,13 +20,13 @@ W tym artykule dowiesz się, jak utworzyć potoki [kompilacji](/azure/devops/pip
 
 ## <a name="commit-your-stream-analytics-project"></a>Zatwierdzanie projektu Stream Analytics
 
-Przed rozpoczęciem należy zatwierdzić pełne Stream Analytics projekty jako pliki źródłowe w repozytorium [Azure DevOps](/azure/devops/user-guide/source-control) . Możesz odwoływać się do tego [przykładowego repozytorium](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) i [Stream Analytics kodu źródłowego projektu](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) w Azure Pipelines.
+Przed rozpoczęciem należy zatwierdzić pełne Stream Analytics projekty jako pliki źródłowe w repozytorium [Azure DevOps](/azure/devops/user-guide/source-control) . Możesz odwoływać się do tego [przykładowego repozytorium](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) i [Stream Analytics kodu źródłowego projektu](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) w Azure Pipelines.
 
 W procedurach przedstawionych w tym artykule jest używany projekt Stream Analytics Visual Studio Code. Jeśli używasz projektu programu Visual Studio, postępuj zgodnie z instrukcjami [automatyzacji kompilacji, testów i wdrożeń zadania Azure Stream Analytics przy użyciu narzędzi Ci/CD](cicd-tools.md).
 
 ## <a name="create-a-build-pipeline"></a>Tworzenie potoku kompilacji
 
-W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać się do tej przykładowej [kompilacji i potoku testowego](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) na platformie Azure DevOps.
+W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać się do tej przykładowej [kompilacji i potoku testowego](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) na platformie Azure DevOps.
 
 1. Otwórz przeglądarkę internetową i przejdź do projektu w usłudze Azure DevOps.  
 
@@ -155,7 +155,7 @@ Plik podsumowania testu i pliki szablonów Azure Resource Manager można znaleź
 
 ## <a name="release-with-azure-pipelines"></a>Wydanie z Azure Pipelines
 
-W tej sekcji dowiesz się, jak utworzyć potok wersji. Możesz odwoływać się do tego przykładowego [potoku wersji](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) w usłudze Azure DevOps.
+W tej sekcji dowiesz się, jak utworzyć potok wersji. Możesz odwoływać się do tego przykładowego [potoku wersji](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) w usłudze Azure DevOps.
 
 Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Azure Stream Analytics.
 

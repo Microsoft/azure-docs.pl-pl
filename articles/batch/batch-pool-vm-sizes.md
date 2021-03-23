@@ -2,14 +2,14 @@
 title: Wybieranie rozmiarów i obrazów maszyn wirtualnych dla pul
 description: Jak wybrać dostępne rozmiary maszyn wirtualnych i wersje systemu operacyjnego dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455199"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800486"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru i obrazu maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -35,11 +35,13 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | DC | Nieobsługiwane |
 | Dv2, DSv2 | Wszystkie rozmiary |
 | Dv3, Dsv3 | Wszystkie rozmiary |
-| Dav4, Dasv4 | Wszystkie rozmiary |
+| Dav4 | Wszystkie rozmiary |
+| Dasv4 | Wszystkie rozmiary |
 | Ddv4, Ddsv4 |  Wszystkie rozmiary |
 | Dv4, Dsv4 | Nieobsługiwane |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 |
-| Eav4, Easv4 | Wszystkie rozmiary |
+| Eav4 | Wszystkie rozmiary |
+| Easv4 | Wszystkie rozmiary |
 | Edv4, Edsv4 |  Wszystkie rozmiary |
 | Ev4, Esv4 | Nieobsługiwane |
 | F, FS | Wszystkie rozmiary |
@@ -56,7 +58,7 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | NC | Wszystkie rozmiary |
 | NCv2 | Wszystkie rozmiary |
 | Seria NCV3 | Wszystkie rozmiary |
-| NCasT4_v3 | Wszystkie rozmiary |
+| NCasT4_v3 | Brak — nie jest jeszcze dostępna |
 | ND | Wszystkie rozmiary |
 | NDv2 | Brak — nie jest jeszcze dostępna |
 | NV | Wszystkie rozmiary |
@@ -100,6 +102,8 @@ Użyj jednego z następujących interfejsów API, aby zwrócić listę obrazów 
 - Interfejs API REST usługi Batch: [Lista obsługiwanych obrazów](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Interfejs wiersza polecenia platformy Azure: [AZ Batch Pool Supported-images](/cli/azure/batch/pool/supported-images)
+
+Zdecydowanie zaleca się uniknięcie obrazów z nieoczekiwaną datą zakończenia okresu istnienia (EOL). Te daty można odnaleźć za pośrednictwem [ `ListSupportedImages` interfejsu API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [programu PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)lub interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Aby uzyskać więcej informacji na temat wyboru obrazu maszyny wirtualnej puli usługi Batch, zobacz [Przewodnik po najlepszych rozwiązaniach](best-practices.md) dotyczących usługi Batch.
 
 ## <a name="next-steps"></a>Następne kroki
 
