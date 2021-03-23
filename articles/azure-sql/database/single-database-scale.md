@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101658558"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773253"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w usłudze Azure SQL Database
 
@@ -112,7 +112,7 @@ else {
 - W przypadku obniżenia poziomu bazy danych z włączoną [replikacją geograficzną](active-geo-replication-configure-portal.md) należy zmienić jej podstawowe bazy danych na żądaną warstwę usługi i rozmiar obliczeń przed obniżeniem poziomu pomocniczej bazy danych (ogólne wskazówki dotyczące najlepszej wydajności). W przypadku zmiany wersji na starszą należy najpierw zmienić wersję podstawowej bazy danych.
 - Oferowane usługi przywracania różnią się w zależności do warstwy usługi. W przypadku obniżenia poziomu do warstwy **podstawowa** istnieje dolny okres przechowywania kopii zapasowej. Zobacz [Azure SQL Database kopii zapasowych](automated-backups-overview.md).
 - Nowe właściwości bazy danych nie są stosowane do momentu zakończenia wprowadzania zmian.
-- Gdy kopiowanie danych jest wymagane do skalowania bazy danych (zobacz [opóźnienie](#latency)) podczas zmiany warstwy usług, duże wykorzystanie zasobów współbieżne dla operacji skalowania może spowodować dłuższe czasy skalowania. Dzięki [przyspieszonemu odzyskiwaniu bazy danych (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts.md)wycofywanie długotrwałych transakcji nie jest znaczącym źródłem opóźnień, ale wysokie użycie zasobów może spowodować zmniejszenie zasobów obliczeniowych, magazynu i przepustowości sieci na potrzeby skalowania, szczególnie w przypadku mniejszych rozmiarów obliczeniowych.
+- Gdy kopiowanie danych jest wymagane do skalowania bazy danych (zobacz [opóźnienie](#latency)) podczas zmiany warstwy usług, duże wykorzystanie zasobów współbieżne dla operacji skalowania może spowodować dłuższe czasy skalowania. Dzięki [przyspieszonemu odzyskiwaniu bazy danych (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts)wycofywanie długotrwałych transakcji nie jest znaczącym źródłem opóźnień, ale wysokie użycie zasobów może spowodować zmniejszenie zasobów obliczeniowych, magazynu i przepustowości sieci na potrzeby skalowania, szczególnie w przypadku mniejszych rozmiarów obliczeniowych.
 
 ## <a name="billing"></a>Rozliczenia
 

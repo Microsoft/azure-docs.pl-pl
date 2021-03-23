@@ -1,0 +1,23 @@
+### YamlMime:Landing
+title: Dokumentacja platformy Azure Industrial IoT
+summary: Platforma Azure Industrial IoT to pakiet modułów i usług firmy Microsoft wdrożonych na platformie Azure.
+metadata:
+  description: Dowiedz się więcej na temat
+  ms.service: industrial-iot
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 12/7/2020
+  ms.openlocfilehash: 236cbb059919646910b2cacd53da3f9311225d69
+  ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104787061"
+landingContent:
+- title: Informacje o platformie Azure Industrial IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest platforma przemysłowa IoT (IIoT)?
+      url: overview-what-is-industrial-iot-platform.md

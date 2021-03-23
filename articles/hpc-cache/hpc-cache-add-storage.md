@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563258"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772726"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -164,7 +164,7 @@ Obiekt docelowy magazynu NFS ma inne ustawienia niż obiekt docelowy magazynu ob
 > Przed utworzeniem miejsca docelowego magazynu NFS upewnij się, że system magazynu jest dostępny z pamięci podręcznej platformy Azure HPC i spełnia wymagania dotyczące uprawnień. Tworzenie docelowego magazynu zakończy się niepowodzeniem, jeśli pamięć podręczna nie będzie mogła uzyskać dostępu do systemu magazynu. Aby uzyskać szczegółowe informacje, zapoznaj się z [wymaganiami dotyczącymi magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) i [Rozwiązywanie problemów z usługą konfiguracja serwera nas i docelowymi](troubleshoot-nas.md)
 
 ### <a name="choose-a-usage-model"></a>Wybierz model użycia
-<!-- referenced from GUI - update aka.ms link to point at new article when published -->
+<!-- referenced from GUI by aka.ms link -->
 
 Podczas tworzenia miejsca docelowego magazynu korzystającego z systemu plików NFS w celu uzyskania połączenia z systemem magazynu należy wybrać model użycia dla tego celu. Ten model określa, w jaki sposób dane są buforowane.
 
@@ -195,16 +195,6 @@ Aby uzyskać szczegółowe informacje na temat innych opcji, Przeczytaj [Opis mo
 Ta tabela zawiera podsumowanie różnic między wszystkimi modelami użycia:
 
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
-
-<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
-|--|--|--|--|
-| Read heavy, infrequent writes | Read | Never | None |
-| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
-| Clients bypass the cache | Read | 30 seconds | None |
-| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
-| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
-| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
-| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > Wartość **weryfikacyjna zaplecza** jest wyświetlana, gdy pamięć podręczna porównuje pliki z plikami źródłowymi w magazynie zdalnym. Można jednak wyzwolić porównanie, wysyłając żądanie klienta zawierające operację READDIRPLUS w systemie magazynu zaplecza. READDIRPLUS to standardowy interfejs API systemu plików NFS (nazywany także rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna będzie porównywać i aktualizować pliki.

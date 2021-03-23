@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 03/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438732"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773457"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Łącznik usługi Azure kontrolą dla systemu Amazon S3
 
@@ -49,29 +49,30 @@ W poniższej tabeli zawarto mapy regionów, w których dane są przechowywane w 
 | Region magazynu | Region skanowania |
 | ------------------------------- | ------------------------------------- |
 | Wschodnie stany USA (Ohio)                  | Wschodnie stany USA (Ohio)                        |
-| Wschodnie stany USA (N. Wirginia           | Wschodnie stany USA (Ohio)                        |
+| Wschodnie stany USA (N. Wirginia           | Wschodnie stany USA (Ohio) lub Wschodnie stany USA (N. Wirginia                       |
 | Zachodnie stany USA (N. Obywateli         | Wschodnie stany USA (Ohio)                        |
 | Zachodnie stany USA (Oregon)                | Wschodnie stany USA (Ohio)                        |
 | Afryka (Przylądek)              | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Hongkong SAR)        | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Mumbaj)           | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Osaka — lokalna)      | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Seul)            | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Singapur)        | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Sydney)           | Europa (Frankfurt)                    |
-| Azja i Pacyfik (Tokio)            | Europa (Frankfurt)                    |
+| Azja i Pacyfik (Hongkong SAR)        | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Mumbaj)           | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Osaka — lokalna)      | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Seul)            | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Singapur)        | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                   |
+| Azja i Pacyfik (Sydney)           | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                  |
+| Azja i Pacyfik (Tokio)            | Europa (Frankfurt) lub Azja i Pacyfik (Sydney)                 |
 | Kanada (środkowe)                | Wschodnie stany USA (Ohio)                        |
 | Chiny (Pekin)                 | Nieobsługiwane                    |
 | Chiny (Ningxia)                 | Nieobsługiwane                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
-| Europa (Irlandia)                | Europa (Frankfurt)                    |
-| Europa (Londyn)                 | Europa (Frankfurt)                    |
+| Europa (Irlandia)                | Europa (Frankfurt) lub Europa (Irlandia)                   |
+| Europa (Londyn)                 | Europa (Frankfurt) lub Europa (Irlandia)                   |
 | Europa (Mediolan)                  | Europa (Frankfurt)                    |
 | Europa (Paryż)                  | Europa (Frankfurt)                    |
 | Europa (Sztokholm)              | Europa (Frankfurt)                    |
 | Bliski Wschód (Bahrajn)           | Europa (Frankfurt)                    |
 | Ameryka Południowa (so Paulo)       | Wschodnie stany USA (Ohio)                        |
 | | |
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Upewnij się, że zostały wykonane następujące wymagania wstępne przed dodaniem zasobników usługi Amazon S3 jako kontrolą źródła danych i skanowania danych S3.

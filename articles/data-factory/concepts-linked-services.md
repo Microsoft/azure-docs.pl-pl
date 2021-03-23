@@ -3,16 +3,16 @@ title: Połączone usługi w usłudze Azure Data Factory
 description: Dowiedz się więcej o połączonych usługach w Data Factory. Połączone usługi łączą magazyny obliczeniowe z danymi do fabryki danych.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 768af9e8568a3842b642a3ebd447d9df8064e840
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100389930"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782745"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Połączone usługi w usłudze Azure Data Factory
 

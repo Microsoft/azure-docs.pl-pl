@@ -10,16 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 1318c47bcded47159006977db09604bb53674973
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487944"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104783627"
 ---
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Grupa usługi Azure Communication Services **wywołująca przykład Hero dla systemu iOS** pokazuje, w jaki sposób usługi komunikacyjne wywołujące bibliotekę klienta systemu iOS mogą być używane do tworzenia środowiska wywołującego grupę, które zawiera głos i wideo. W tym przykładowym samouczku szybki start dowiesz się, jak skonfigurować i uruchomić przykład. Przegląd przykładu jest dostępny dla kontekstu.
+
+## <a name="download-code"></a>Pobieranie kodu
+
+Znajdź końcowy kod dla tego przewodnika Szybki Start w witrynie [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
 
 ## <a name="overview"></a>Omówienie
 
@@ -29,7 +33,7 @@ Oto jak wygląda przykład:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
 
-Po naciśnięciu przycisku "Rozpocznij nowe wywołanie" aplikacja systemu iOS utworzy nowe wywołanie i przyłączy je. Aplikacja umożliwia również dołączenie istniejącego wywołania usług Azure Communications Services przez określenie identyfikatora istniejącego wywołania.
+Po naciśnięciu przycisku "Rozpocznij nowe wywołanie" aplikacja systemu iOS utworzy nowe wywołanie i przyłączy je. Aplikacja umożliwia dołączenie do istniejącego wywołania usług Azure Communications Services przez określenie istniejącego identyfikatora wywołania. Możesz również przyłączyć się do spotkania zespołów, podając link do sprzężenia znalezionego w zaproszeniu do spotkania.  (Link do sprzężenia ma następujący format: `https://teams.microsoft.com/l/meetup-join/` ). Aby uzyskać więcej informacji na temat zespołów międzyoperacyjnych, odwiedź [dokumentację dotyczącą koncepcji zespołów międzyoperacyjnych](../../concepts/teams-interop.md).
 
 Po dołączeniu wywołania zostanie wyświetlony monit o przyznanie aplikacji uprawnienia dostępu do aparatu i mikrofonu. Zostanie również wyświetlony monit o podanie nazwy wyświetlanej.
 
@@ -51,7 +55,7 @@ Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków zw
 - Konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Na komputerze Mac z systemem [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), wraz z prawidłowym certyfikatem dewelopera zainstalowanym w łańcuchu kluczy.
 - Zasób usług Azure Communications Services. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu komunikacyjnego platformy Azure](../../quickstarts/create-communication-resource.md).
-- Funkcja platformy Azure, która uruchamia [zaufaną logikę usługi](../../tutorials/trusted-service-tutorial.md) , aby pobrać tokeny dostępu.
+- Funkcja platformy Azure z uruchomionym [punktem końcowym uwierzytelniania](../../tutorials/trusted-service-tutorial.md) , aby pobrać tokeny dostępu.
 
 ## <a name="running-sample-locally"></a>Uruchamianie przykładu lokalnie
 
@@ -60,8 +64,8 @@ Przykład wywołania grupy można uruchomić lokalnie przy użyciu XCode. Dewelo
 ### <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
 
 1. Zainstaluj zależności, uruchamiając program `pod install` .
-2. Otwórz `ACSCall.xcworkspace` w Xcode.
-3. Aktualizacja `AppSettings.plist` . Ustaw wartość `acsTokenFetchUrl` klucza jako adres URL punktu końcowego uwierzytelniania.
+2. Otwórz `AzureCalling.xcworkspace` w Xcode.
+3. Aktualizacja `AppSettings.plist` . Ustaw wartość `communicationTokenFetchUrl` klucza jako adres URL punktu końcowego uwierzytelniania.
 
 ### <a name="run-sample"></a>Uruchom przykład
 
@@ -69,9 +73,9 @@ Kompiluj i uruchamiaj przykład w XCode.
 
 ## <a name="optional-securing-an-authentication-endpoint"></a>Obowiązkowe Zabezpieczanie punktu końcowego uwierzytelniania
 
-W celach demonstracyjnych ten przykład używa publicznie dostępnego punktu końcowego, aby pobrać token usług Azure Communications Services. W przypadku scenariuszy produkcyjnych zalecamy użycie własnego bezpiecznego punktu końcowego do aprowizacji własnych tokenów.
+W celach demonstracyjnych ten przykład używa publicznie dostępnego punktu końcowego, aby pobrać token dostępu usług Azure Communication Services. W przypadku scenariuszy produkcyjnych zalecamy użycie własnego bezpiecznego punktu końcowego do aprowizacji własnych tokenów.
 
-W przypadku dodatkowej konfiguracji ten przykład obsługuje łączenie się z chronionym punktem końcowym usługi **Azure Active Directory** (Azure AD), aby umożliwić aplikacji pobranie tokenu usługi Azure Communications Services. Zobacz poniższe kroki:
+W przypadku dodatkowej konfiguracji ten przykład obsługuje łączenie się z chronionym punktem końcowym usługi **Azure Active Directory** (Azure AD), aby umożliwić aplikacji pobranie tokenu dostępu do usług Azure Communication Services. Zobacz poniższe kroki:
 
 1. Włącz uwierzytelnianie Azure Active Directory w aplikacji.  
    - [Zarejestruj aplikację w obszarze Azure Active Directory (przy użyciu ustawień platformy iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
@@ -81,7 +85,7 @@ W przypadku dodatkowej konfiguracji ten przykład obsługuje łączenie się z c
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory konfigurację Azure Portal.":::
 
 3. Otwórz `AppSettings.plist` w Xcode, Dodaj następujące wartości klucza:
-   - `acsTokenFetchUrl`: Adres URL żądania tokenu usług Azure Communications Services 
+   - `communicationTokenFetchUrl`: Adres URL żądania tokenu usług Azure Communications Services 
    - `isAADAuthEnabled`: Wartość logiczna określająca, czy wymagane jest uwierzytelnianie tokenu usługi Azure Communications Services
    - `aadClientId`: Identyfikator aplikacji (klienta)
    - `aadTenantId`: Identyfikator Twojego katalogu (dzierżawy)
@@ -94,6 +98,9 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 
 ## <a name="next-steps"></a>Następne kroki
 
+>[!div class="nextstepaction"]
+>[Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
+
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - Zapoznaj się z [pomocą biblioteki klienta wywołującego](../../quickstarts/voice-video-calling/calling-client-samples.md)
@@ -101,4 +108,6 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 ### <a name="additional-reading"></a>Materiały uzupełniające
 
+- [Azure Communication GitHub](https://github.com/Azure/communication) — Znajdź więcej przykładów i informacji na oficjalnej stronie GitHub
 - [Przykłady](./../overview.md) — więcej przykładów i przykładów znajdziesz na naszej stronie Przegląd przykładów.
+- [Funkcje wywoływania komunikacji z platformą Azure](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) — aby dowiedzieć się więcej o WYWOŁYWANIU zestawu SDK wywoływania systemu iOS —[Azure Communication iOS](https://github.com/Azure/Communication/releases/)

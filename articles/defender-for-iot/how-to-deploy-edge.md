@@ -1,24 +1,14 @@
 ---
 title: Wdrażanie IoT Edge Defender-IoT-Micro-Agent
 description: Dowiedz się więcej o sposobie wdrażania agenta zabezpieczeń usługi Defender for IoT na IoT Edge.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/30/2020
-ms.author: mlottner
-ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495117"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784224"
 ---
 # <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Wdrażanie programu Defender-IoT-Micro-Agent na urządzeniu IoT Edge
 

@@ -1,18 +1,14 @@
 ---
 title: Wymagania wstępne systemu
 description: Pobierz wymagania wstępne systemu wymagane do uruchomienia usługi Azure Defender dla IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 4b5db049e6d1cfe76bdd0d5cd6d7360e0b98bad0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489815"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780943"
 ---
 # <a name="system-prerequisites"></a>Wymagania wstępne systemu
 W tym artykule wymieniono wymagania wstępne dotyczące uruchamiania usługi Azure Defender for IoT.

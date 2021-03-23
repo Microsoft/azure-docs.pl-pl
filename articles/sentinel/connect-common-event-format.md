@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54fd6c0c085c0055f3114fde606f8f7d2f2e055e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98747495"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772063"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Łączenie rozwiązania zewnętrznego przy użyciu typowego formatu zdarzeń
 
@@ -99,5 +99,7 @@ W tym dokumencie przedstawiono sposób zbierania dzienników CEF z rozwiązań i
 - Krok 3. [Weryfikowanie łączności](connect-cef-verify.md)
 
 Aby dowiedzieć się więcej na temat tego, co należy zrobić z danymi zebranymi na platformie Azure, zobacz następujące artykuły:
+
+- Dowiedz się więcej na temat [mapowania pól CEF i CommonSecurityLog](cef-name-mapping.md).
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](./tutorial-detect-threats-built-in.md).

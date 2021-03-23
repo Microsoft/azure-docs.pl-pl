@@ -1,21 +1,21 @@
 ---
-title: Odnajdywanie aplikacji na serwerach lokalnych przy użyciu Azure Migrate
-description: Informacje na temat odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu narzędzia do oceny Azure Migrate Server.
-author: vikram1988
-ms.author: vibansa
+title: Odnajdywanie spisu oprogramowania na serwerach lokalnych przy użyciu Azure Migrate
+description: Informacje na temat odnajdywania spisu oprogramowania na serwerach lokalnych z Azure Migrate odnajdywania i oceny.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: 47ea06fa2143f9a5dc5808ccb98fc80c87fefd93
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048084"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786706"
 ---
-# <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Odkryj zainstalowane aplikacje, role i funkcje (Spis oprogramowania) oraz SQL Server wystąpienia i bazy danych
+# <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Odkrywanie zainstalowanego spisu oprogramowania i SQL Server wystąpień i baz danych
 
-W tym artykule opisano, jak odnajdywać zainstalowane aplikacje, role i funkcje (Spis oprogramowania) oraz SQL Server wystąpienia i bazy danych na serwerach działających w środowisku VMware przy użyciu Azure Migrate: narzędzia do oceny serwera.
+W tym artykule opisano sposób odnajdywania spisu oprogramowania zainstalowanego oraz SQL Server wystąpień i baz danych na serwerach działających w środowisku VMware przy użyciu Azure Migrate: narzędzia odnajdywania i oceny.
 
 Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki migracji do platformy Azure dla obciążeń. Spis oprogramowania korzysta z urządzenia Azure Migrate, aby przeprowadzić odnajdywanie przy użyciu poświadczeń serwera. Jest całkowicie niezależny od agenta — na serwerach nie są zainstalowane żadne agenci, aby zebrać te dane.
 
@@ -24,7 +24,7 @@ Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Upewnij się, że [utworzono projekt Azure Migrate](./create-manage-projects.md) z Azure Migrate: Narzędzie do oceny serwera zostało dodane do niego.
+- Upewnij się, że [utworzono projekt](./create-manage-projects.md) z Azure Migrate: narzędzia odnajdywania i oceny dodane do niego.
 - Zapoznaj się z [wymaganiami programu VMware](migrate-support-matrix-vmware.md#vmware-requirements) w celu przeprowadzenia spisu oprogramowania.
 - Przejrzyj [wymagania dotyczące urządzenia](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) przed skonfigurowaniem urządzenia.
 - Przejrzyj [wymagania dotyczące odnajdywania aplikacji](migrate-support-matrix-vmware.md#application-discovery-requirements) przed zainicjowaniem spisu oprogramowania na serwerach.
@@ -35,7 +35,7 @@ Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki 
 2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać [](migrate-appliance.md#public-cloud-urls) dostęp w [chmurach publicznych i rządowych](migrate-appliance.md#government-cloud-urls).
 3. [Przejrzyj dane](migrate-appliance.md#collected-data---vmware) zbierane przez urządzenie podczas odnajdywania i oceny.
 4. [Zwróć uwagę](migrate-support-matrix-vmware.md#port-access-requirements) na wymagania dotyczące dostępu do portów dla urządzenia.
-5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia serwera działającego w vCenter Server. Po wdrożeniu urządzenia należy zarejestrować je w projekcie Azure Migrate i skonfigurować go do inicjowania odnajdywania.
+5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia serwera działającego w vCenter Server. Po wdrożeniu urządzenia należy zarejestrować je w projekcie i skonfigurować do inicjowania odnajdywania.
 6. Podczas konfigurowania urządzenia należy określić następujące elementy w Menedżerze konfiguracji urządzenia:
     - Szczegóły vCenter Server, z którym chcesz nawiązać połączenie.
     - vCenter Server poświadczenia w zakresie odnajdywania serwerów w środowisku programu VMware.
@@ -61,19 +61,19 @@ Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki 
 
 Po zakończeniu spisu oprogramowania można przejrzeć i wyeksportować spis w Azure Portal.
 
-1. W **Azure Migrate serwery**  >  **Azure Migrate: Ocena serwera**, kliknij liczbę wyświetlaną, aby otworzyć stronę **odnalezione serwery** .
+1. W **Azure Migrate — Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena**, kliknij wyświetlaną liczbę, aby otworzyć stronę **odnalezione serwery** .
 
     > [!NOTE]
     > Na tym etapie można także włączyć analizę zależności dla odnalezionych serwerów, aby można było wizualizować zależności między serwerami, które chcesz ocenić. [Dowiedz się więcej](concepts-dependency-visualization.md) o analizie zależności.
 
-2. W kolumnie **odnalezione aplikacje** kliknij liczbę wyświetlaną, aby przejrzeć odnalezione aplikacje, role i funkcje.
+2. W kolumnie **Spis oprogramowania** kliknij liczbę wyświetlaną, aby przejrzeć odnalezione aplikacje, role i funkcje.
 4. Aby wyeksportować spis, w **odnalezionych serwerach** kliknij pozycję **Eksportuj spis aplikacji**.
 
-Spis aplikacji jest eksportowany i pobierany w formacie programu Excel. Arkusz **spisu aplikacji** zawiera wszystkie aplikacje odnalezione na wszystkich serwerach.
+Spis oprogramowania jest eksportowany i pobierany w formacie programu Excel. Arkusz **spisu oprogramowania** zawiera wszystkie aplikacje odnalezione na wszystkich serwerach.
 
 ## <a name="discover-sql-server-instances-and-databases"></a>Odnajdź SQL Server wystąpienia i bazy danych
 
-- Funkcja odnajdywania aplikacji identyfikuje również wystąpienia SQL Server uruchomione w środowisku programu VMware.
+- Spis oprogramowania identyfikuje również wystąpienia SQL Server uruchomione w środowisku programu VMware.
 - Jeśli nie podano uwierzytelniania systemu Windows lub SQL Server poświadczeń uwierzytelniania w Menedżerze konfiguracji urządzeń, należy dodać poświadczenia, aby urządzenie mogło używać ich do nawiązywania połączeń z odpowiednimi wystąpieniami SQL Server.
 
 Po nawiązaniu połączenia urządzenie zbiera dane dotyczące konfiguracji i wydajności SQL Server wystąpień i baz danych. Dane konfiguracji SQL Server są aktualizowane co 24 godziny, a dane wydajności są przechwytywane co 30 sekund. W związku z tym każda zmiana właściwości wystąpienia SQL Server i baz danych, takich jak stan bazy danych, poziom zgodności itp., może zająć do 24 godzin.

@@ -1,17 +1,17 @@
 ---
 title: Podwójne szyfrowanie infrastruktury — Azure Database for PostgreSQL Azure Portal
 description: Dowiedz się, jak skonfigurować podwójne szyfrowanie infrastruktury dla Azure Database for PostgreSQL i zarządzać nimi.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242232"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771655"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Podwójne szyfrowanie infrastruktury dla Azure Database for PostgreSQL
 
@@ -23,7 +23,7 @@ Dowiedz się, jak skonfigurować podwójne szyfrowanie infrastruktury dla Azure 
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>Tworzenie serwera Azure Database for PostgreSQL z podwójnym szyfrowaniem infrastruktury — Portal
 
-Wykonaj następujące kroki, aby utworzyć serwer Azure Database for MySQL z szyfrowaniem podwójnym infrastruktury z poziomu Azure Portal:
+Wykonaj następujące kroki, aby utworzyć serwer Azure Database for PostgreSQL z szyfrowaniem podwójnym infrastruktury z poziomu Azure Portal:
 
 1. Wybierz pozycję **Utwórz zasób** (+) w lewym górnym rogu portalu.
 
@@ -45,7 +45,7 @@ Wykonaj następujące kroki, aby utworzyć serwer Azure Database for MySQL z szy
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Tworzenie serwera Azure Database for PostgreSQL z podwójnym szyfrowaniem infrastruktury — interfejs wiersza polecenia
 
-Wykonaj następujące kroki, aby utworzyć serwer Azure Database for MySQL z szyfrowaniem podwójnym infrastruktury z poziomu interfejsu wiersza polecenia:
+Wykonaj następujące kroki, aby utworzyć serwer Azure Database for PostgreSQL z szyfrowaniem podwójnym infrastruktury z poziomu interfejsu wiersza polecenia:
 
 Ten przykład umożliwia utworzenie grupy zasobów o nazwie `myresourcegroup` w `westus` lokalizacji.
 

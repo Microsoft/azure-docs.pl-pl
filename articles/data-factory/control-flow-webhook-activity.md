@@ -3,16 +3,16 @@ title: Działanie elementu webhook w Azure Data Factory
 description: Działanie elementu webhook nie kontynuuje wykonywania potoku do momentu zweryfikowania dołączonego zestawu danych z określonymi kryteriami, które użytkownik określi.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 59aa395db27c26a7c94eebdc0e3b34d7776ee75f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592000"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785941"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Działanie elementu webhook w Azure Data Factory
 
@@ -61,7 +61,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 **adres URL** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak |
 **nagłówka** | Nagłówki wysyłane do żądania. Oto przykład, który ustawia język i typ żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak. `Content-Type` `"headers":{ "Content-Type":"application/json"}` Wymagany jest następujący nagłówek. |
 **jednostce** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowy kod JSON lub wyrażenie z wartością **ResultType** JSON. Zobacz [schemat ładunku żądania](./control-flow-web-activity.md#request-payload-schema) dla schematu ładunku żądania. | Tak |
-**uwierzytelnianie** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](./control-flow-web-activity.md#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
+**ponowne** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](./control-flow-web-activity.md#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
 **timeout** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*SS*. | Ciąg | Nie |
 **Stan raportu dla wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Wartość logiczna | Nie |
 

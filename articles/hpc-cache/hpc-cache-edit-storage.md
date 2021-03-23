@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471868"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772595"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 
@@ -76,7 +76,7 @@ Użyj strony **przestrzeni nazw** dla swojej pamięci podręcznej platformy Azur
 
 Kliknij nazwę ścieżki, którą chcesz zmienić, i Utwórz nową ścieżkę w wyświetlonym oknie edycji.
 
-![Zrzut ekranu strony przestrzeni nazw po kliknięciu ścieżki przestrzeni nazw obiektów BLOB — pola edycji są wyświetlane w okienku po prawej stronie](media/edit-namespace-blob.png)
+![Zrzut ekranu strony przestrzeni nazw po kliknięciu ścieżki przestrzeni nazw obiektów BLOB — pola edycji są wyświetlane w okienku po prawej stronie](media/update-namespace-blob.png)
 
 Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować miejsce docelowe magazynu, lub kliknij przycisk **Anuluj** , aby odrzucić zmiany.
 

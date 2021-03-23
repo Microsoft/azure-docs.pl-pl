@@ -4,12 +4,12 @@ description: Dowiedz się, jak zabezpieczyć klaster przy użyciu zakresu adres�
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98890644"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771927"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Bezpieczny dostęp do serwera interfejsu API za pomocą zakresów autoryzowanych adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub no
 
 Funkcja zakresów autoryzowanych adresów IP serwera interfejsu API ma następujące ograniczenia:
 - W przypadku klastrów utworzonych po przeniesieniu zakresów adresów IP autoryzowanych przez serwer API z wersji zapoznawczej w październiku 2019 zakresy adresów IP autoryzowanych przez serwer API są obsługiwane tylko w przypadku *standardowego* modułu równoważenia obciążenia jednostki SKU. Istniejące klastry z modułem równoważenia obciążenia *podstawowej* jednostki SKU oraz skonfigurowanymi dozwolonymi zakresami adresów IP serwera interfejsu API będą nadal działać w takiej postaci, w jakiej nie można migrować do modułu równoważenia obciążenia w *warstwie Standardowa* . Te istniejące klastry będą również nadal działały, jeśli ich wersja Kubernetes lub płaszczyzna kontroli zostaną uaktualnione. Zakresy adresów IP autoryzowanych serwerów interfejsu API nie są obsługiwane w przypadku klastrów prywatnych.
-- Ta funkcja jest niezgodna z klastrami korzystającymi z [funkcji publicznej wersji zapoznawczej pul węzłów węzła](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+- Ta funkcja jest niezgodna z klastrami korzystającymi z [publicznego adresu IP na węzeł](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Przegląd zakresów adresów IP autoryzowanych serwerów interfejsu API
 

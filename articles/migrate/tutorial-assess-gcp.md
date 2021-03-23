@@ -1,28 +1,28 @@
 ---
-title: Oceniaj wystąpienia maszyn wirtualnych GCP na potrzeby migracji na platformę Azure za pomocą oceny serwera Azure Migrate
-description: Opisuje sposób oceny wystąpień maszyn wirtualnych GCP na potrzeby migracji na platformę Azure przy użyciu funkcji oceny serwera Azure Migrate.
+title: Oceniaj wystąpienia maszyn wirtualnych GCP na potrzeby migracji na platformę Azure za pomocą Azure Migrate
+description: Opisuje sposób oceny wystąpień maszyn wirtualnych GCP na potrzeby migracji na platformę Azure przy użyciu Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: b5e6a0cd58fca954646640e43a81155822cdba04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a59400ca0d8f2e4ced899166fe6e67b5ac1d2d9
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98567006"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780688"
 ---
 # <a name="tutorial-assess-google-cloud-platform-gcp-vm-instances-for-migration-to-azure"></a>Samouczek: Ocena wystąpień maszyn wirtualnych Google Cloud Platform (GCP) na potrzeby migracji na platformę Azure
 
 W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, aby określić gotowość do chmury, zidentyfikować ryzyko i oszacować koszty i złożoność.
 
-W tym artykule opisano sposób oceny wystąpień maszyn wirtualnych Google Cloud Platform (GCP) na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate:.
+W tym artykule opisano sposób oceny wystąpień maszyn wirtualnych Google Cloud Platform (GCP) na potrzeby migracji na platformę Azure za pomocą narzędzia Azure Migrate do odnajdywania i oceny.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-- Uruchom ocenę na podstawie metadanych maszyn i informacji o konfiguracji.
+- Uruchom ocenę na podstawie metadanych serwera i informacji konfiguracyjnych.
 - Uruchom ocenę na podstawie danych wydajności.
 
 > [!NOTE]
@@ -38,30 +38,30 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="decide-which-assessment-to-run"></a>Wybór oceny do uruchomienia
 
-Zdecyduj, czy chcesz uruchomić ocenę przy użyciu kryteriów ustalania rozmiarów na podstawie danych konfiguracji komputera/metadanych zebranych jako lokalne lub oparte na danych dotyczących wydajności.
+Zdecyduj, czy chcesz uruchomić ocenę przy użyciu kryteriów ustalania rozmiarów na podstawie danych konfiguracji serwera/metadanych zebranych jako lokalne lub oparte na danych wydajności.
 
 **Ocena** | **Szczegóły** | **Zalecenie**
 --- | --- | ---
-**Zgodnie ze środowiskiem lokalnym** | Oceń dane na podstawie konfiguracji komputera/metadanych.  | Zalecany rozmiar maszyny wirtualnej platformy Azure jest oparty na rozmiarze lokalnego maszyny wirtualnej.<br/><br> Zalecany typ dysku platformy Azure jest oparty na tym, co zostało wybrane w ustawieniu typ magazynu w ocenie.
+**Zgodnie ze środowiskiem lokalnym** | Oceń dane na podstawie konfiguracji serwera/metadanych.  | Zalecany rozmiar maszyny wirtualnej platformy Azure jest oparty na rozmiarze lokalnego maszyny wirtualnej.<br/><br> Zalecany typ dysku platformy Azure jest oparty na tym, co zostało wybrane w ustawieniu typ magazynu w ocenie.
 **Na podstawie wydajności** | Ocenianie na podstawie zebranych danych wydajności. | Zalecany rozmiar maszyny wirtualnej platformy Azure jest oparty na danych użycia procesora i pamięci.<br/><br/> Zalecany typ dysku jest oparty na liczbie IOPS i przepływności dysków lokalnych.
 
 ## <a name="run-an-assessment"></a>Uruchamianie oceny
 
 Uruchom ocenę w następujący sposób:
 
-1. Na stronie **serwery** > **serwery z systemami Windows i Linux** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
+1. Na stronie **przegląd** > **Windows, Linux i SQL Server** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
 
    ![Przycisk lokalizacji oceny i migracji serwerów](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Oceń**.
+2. W **Azure Migrate: odnajdywanie i ocenianie** kliknij pozycję **Oceń**.
 
     ![Lokalizacja przycisku oceny](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. W obszarze **ocenianie serwerów**  >  **Typ oceny** wybierz **maszynę wirtualną platformy Azure**.
 4. W **źródle odnajdywania**:
 
-    - W przypadku wykrycia maszyn przy użyciu urządzenia wybierz pozycję **maszyny odnalezione z urządzenia Azure Migrate**.
-    - W przypadku wykrycia maszyn przy użyciu zaimportowanego pliku CSV wybierz pozycję **zaimportowane maszyny**. 
+    - Jeśli wykryto serwery korzystające z urządzenia, wybierz pozycję **serwery odnalezione z urządzenia Azure Migrate**.
+    - W przypadku wykrycia serwerów przy użyciu zaimportowanego pliku CSV wybierz pozycję **zaimportowane serwery**. 
     
 1. Kliknij przycisk **Edytuj** , aby przejrzeć właściwości oceny.
 
@@ -78,7 +78,7 @@ Uruchom ocenę w następujący sposób:
         - Jeśli wybierzesz użycie zarezerwowanego wystąpienia, nie możesz określić "**rabatu (%)** ani czasu działania **maszyny wirtualnej**. 
         - [Dowiedz się więcej](https://aka.ms/azurereservedinstances).
  1. **Rozmiar maszyny wirtualnej**:
-     - W polu **kryterium ustalania wielkości** wybierz, czy chcesz oprzeć ocenę danych/metadanych konfiguracji komputera, czy też na danych opartych na wydajności. W przypadku korzystania z danych wydajności:
+     - W polu **kryterium ustalania wielkości** wybierz, czy chcesz oprzeć ocenę danych konfiguracji serwera/metadanych lub na podstawie wydajności. W przypadku korzystania z danych wydajności:
         - W obszarze **historia wydajności** wskaż czas trwania danych, dla którego chcesz oprzeć ocenę
         - W polu **użycie percentyla** Określ wartość percentylu, która ma być używana dla przykładu wydajności. 
     - W obszarze **Seria maszyn wirtualnych** Określ serię maszyn wirtualnych platformy Azure, którą chcesz uwzględnić.
@@ -92,7 +92,7 @@ Uruchom ocenę w następujący sposób:
         Pamięć | 8 GB | 16 GB
    
 1. W **cenniku**:
-    - W obszarze **Oferta** Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena serwera szacuje koszt dla tej oferty.
+    - W obszarze **Oferta** Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena szacuje koszt tej oferty.
     - W polu **Waluta** Wybierz walutę rozliczeń dla Twojego konta.
     - W polu **Rabat (%)** Dodaj wszelkie zniżki specyficzne dla subskrypcji otrzymane w oparciu o ofertę platformy Azure. Ustawienie domyślne to 0%.
     - W obszarze **czas działania maszyny wirtualnej** Określ czas trwania (dni na miesiąc/godzinę dziennie), które będą uruchamiane na maszynach wirtualnych.
@@ -108,19 +108,17 @@ Uruchom ocenę w następujący sposób:
 
 1. W obszarze **ocenianie serwerów** > kliknij przycisk **dalej**.
 
-1. W obszarze **Wybieranie maszyn do oceny**  >  **nazwy oceny** > Określ nazwę oceny. 
+1. Na stronie **Wybierz serwery do oceny**  >  **nazwy oceny** > Określ nazwę oceny. 
 
 1. W obszarze **Wybierz lub Utwórz grupę** > wybierz pozycję **Utwórz nową** i określ nazwę grupy. 
     
-    :::image type="content" source="./media/tutorial-assess-physical/assess-group.png" alt-text="Dodawanie maszyn wirtualnych do grupy":::
-
 
 1. Wybierz urządzenie i wybierz maszyny wirtualne, które chcesz dodać do grupy. Następnie kliknij przycisk **Dalej**.
 
 
 1. W obszarze **Przegląd + tworzenie oceny** Przejrzyj szczegóły oceny, a następnie kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę i uruchomić ocenę.
 
-1. Po utworzeniu oceny możesz ją wyświetlić w pozycji **Serwery** > **Azure Migrate: Server Assessment** > **Oceny**.
+1. Po utworzeniu oceny należy wyświetlić ją w obszarze **serwery**  >  **Azure Migrate: Ocena odnajdywania i oceny**  >  .
 
 1. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
     > [!NOTE]
@@ -136,7 +134,7 @@ Ocena zawiera opis:
 
 Aby wyświetlić ocenę:
 
-1. W obszarze **serwery**  >  **Azure Migrate: Ocena serwera**, kliknij liczbę obok pozycji **oceny**.
+1. W **systemach Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena** kliknij liczbę obok pozycji **oceny**.
 2. W pozycji **Oceny** wybierz ocenę, aby ją otworzyć. Przykładowo (oszacowania i koszty tylko na przykład): 
 
     ![Podsumowanie oceny](./media/tutorial-assess-gcp/assessment-summary.png)
@@ -161,7 +159,7 @@ Podsumowanie oceny przedstawia szacowany koszt obliczeń i magazynu dla uruchomi
 
 1. Zapoznaj się z miesięczną sumą kosztów. Koszty są agregowane dla wszystkich maszyn wirtualnych w ocenianej grupie.
 
-    - Oszacowania kosztów są oparte na zaleceniach dotyczących rozmiaru maszyny, jej dysków i właściwości.
+    - Oszacowania kosztów są oparte na zaleceniach dotyczących rozmiaru serwera, jego dysków i jego właściwości.
     - Wyświetlane są szacowane miesięczne koszty obliczeń i magazynu.
     - Oszacowanie kosztów służy do uruchamiania lokalnych maszyn wirtualnych na maszynach wirtualnych platformy Azure. Oszacowanie nie uwzględnia kosztów PaaS ani SaaS.
 
@@ -170,7 +168,7 @@ Podsumowanie oceny przedstawia szacowany koszt obliczeń i magazynu dla uruchomi
 
 ### <a name="review-confidence-rating"></a>Przegląd oceny zaufania
 
-Ocena serwera przypisuje ocenę zaufania do ocen opartych na wydajności. Klasyfikacja jest z jednej gwiazdki (najniższej) do pięciu gwiazdek (najwyższa).
+Azure Migrate przypisuje ocenę zaufania do ocen opartych na wydajności. Klasyfikacja jest z jednej gwiazdki (najniższej) do pięciu gwiazdek (najwyższa).
 
 ![Ocena zaufania](./media/tutorial-assess-gcp/confidence-rating.png)
 
@@ -194,5 +192,5 @@ Klasyfikacje zaufania są następujące.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Znajdowanie zależności maszyn przy użyciu [mapowania zależności](concepts-dependency-visualization.md).
+- Znajdź zależności serwera przy użyciu [mapowania zależności](concepts-dependency-visualization.md).
 - Skonfiguruj mapowanie zależności [oparte na agentach](how-to-create-group-machine-dependencies.md) .

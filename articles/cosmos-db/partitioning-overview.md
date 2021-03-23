@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/19/2021
+ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627778"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772471"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partycjonowanie i skalowanie w poziomie w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,8 +63,6 @@ Azure Cosmos DB w sposób przezroczysty i automatycznie zarządza umieszczaniem 
 Azure Cosmos DB używa partycjonowania opartego na skrócie, aby rozłożyć partycje logiczne między partycjami fizycznymi. Azure Cosmos DB skrót wartości klucza partycji elementu. Wynik zmieszany Określa partycję fizyczną. Następnie Azure Cosmos DB przydzieli kluczowe miejsce skrótów kluczy partycji równomiernie między partycjami fizycznymi.
 
 Transakcje (w procedurach składowanych lub wyzwalaczach) są dozwolone tylko dla elementów w pojedynczej partycji logicznej.
-
-Aby dowiedzieć się więcej o tym, [jak Azure Cosmos DB zarządza partycjami](partitioning-overview.md). (Nie trzeba zrozumieć wewnętrznych szczegółów, aby kompilować lub uruchamiać aplikacje, ale dodano je do czytnika chcesz wiedzieć).
 
 ## <a name="replica-sets"></a>Zestawy replik
 
