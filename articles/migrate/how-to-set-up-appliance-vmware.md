@@ -1,30 +1,30 @@
 ---
 title: Konfigurowanie urządzenia Azure Migrate dla oprogramowania VMware
-description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania maszyn wirtualnych VMware.
+description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania serwerów w środowisku VMware.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: bac82b2939e5b6a674c75be2cd330dd0fa4b8487
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1217b51ea91758d25b76394b27d3b21b2e9808b3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035808"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780875"
 ---
-# <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
+# <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Konfigurowanie urządzenia dla serwerów w środowisku VMware
 
-Postępuj zgodnie z tym artykułem, aby skonfigurować urządzenie Azure Migrate na potrzeby oceny za pomocą narzędzia do [oceny serwera Azure Migrate](migrate-services-overview.md#azure-migrate-server-assessment-tool) i dla migracji bez agentów przy użyciu narzędzia [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) Tool.
+Postępuj zgodnie z tym artykułem, aby skonfigurować Azure Migrate urządzenie do oceny Azure Migrate za pomocą narzędzia do [odnajdywania i oceny](migrate-services-overview.md#azure-migrate-server-assessment-tool) oraz dla migracji bez agentów przy użyciu narzędzia [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) Tool.
 
-[Urządzenie Azure Migrate](migrate-appliance.md) jest lekkim urządzeniem używanym przez Azure Migrate: oceny serwera i migracji serwera, aby odnajdywać serwery działające w vCenter Server, wysyłać metadane konfiguracji serwera i wydajności na platformę Azure oraz replikację serwerów za pomocą migracji bez wykorzystania agentów.
+[Urządzenie Azure Migrate](migrate-appliance.md) jest lekkim urządzeniem używanym przez Azure Migrate: odnajdywanie i ocenianie oraz Migracja serwera w celu odnajdywania serwerów z systemem w vCenter Server, wysyłania metadanych konfiguracji serwera i wydajności do platformy Azure oraz do replikacji serwerów za pomocą migracji bez wykorzystania agentów.
 
 Urządzenie można wdrożyć przy użyciu kilku metod:
 
 - Utwórz serwer na vCenter Server przy użyciu pobranego szablonu komórki jajowe. Jest to metoda opisana w tym artykule.
 - Skonfiguruj urządzenie na istniejącym serwerze przy użyciu skryptu Instalatora programu PowerShell. [Tej metody](deploy-appliance-script.md) należy użyć, jeśli nie można użyć szablonu komórki jajowe lub jeśli jesteś w Azure Government.
 
-Po utworzeniu urządzenia można sprawdzić, czy może nawiązać połączenie z Azure Migrate: Ocena serwera, zarejestrować ją w projekcie Azure Migrate i skonfigurować urządzenie w celu rozpoczęcia odnajdywania.
+Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Migrate: odnajdywanie i ocenianie, rejestrowanie go w projekcie Azure Migrate i Konfigurowanie urządzenia w celu rozpoczęcia odnajdywania.
 
 ## <a name="deploy-with-ova"></a>Wdrażanie przy użyciu komórek jajowych
 
@@ -36,8 +36,8 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 
 ### <a name="1-generate-the-azure-migrate-project-key"></a>1. Wygeneruj klucz projektu Azure Migrate
 
-1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
-2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
+1. W obszarze serwery **celów migracji**  >    >  **Azure Migrate: odnajdywanie i ocenianie** wybierz pozycję **odkryj**.
+2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
 3. W obszarze **1: generowanie klucza projektu Azure Migrate** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w środowisku programu VMware. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywania podczas tworzenia zasobów.
 1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
@@ -95,7 +95,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 1. W konsoli klienta vSphere kliknij prawym przyciskiem myszy serwer, a następnie wybierz polecenie **Otwórz konsolę**.
 2. Podaj język, strefę czasową i hasło dla urządzenia.
-3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z serwerem urządzeń, a następnie otwórz adres URL menedżera konfiguracji urządzenia: `https://appliance name or IP address: 44368` .
+3. Otwórz przeglądarkę na dowolnym serwerze, który może nawiązać połączenie z serwerem urządzeń, a następnie otwórz adres URL menedżera konfiguracji urządzenia: `https://appliance name or IP address: 44368` .
 
    Alternatywnie można otworzyć program Configuration Manager z poziomu pulpitu serwera urządzeń, wybierając skrót do programu Configuration Manager.
 1. Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
@@ -117,7 +117,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
-1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do pozycji **Ocena serwera> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
+1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do obszaru **odnajdywanie i ocena> odkryj> Zarządzaj istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
 1. Do uwierzytelnienia w systemie Azure potrzebny będzie kod urządzenia. Kliknięcie przycisku **Zaloguj** spowoduje otwarcie modalnego kodu urządzenia, jak pokazano poniżej.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modalne wyświetlanie kodu urządzenia":::
@@ -141,7 +141,7 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane konfigur
 
 1. W **kroku 1: podaj poświadczenia vCenter Server**, kliknij pozycję **Dodaj poświadczenia** , aby określić przyjazną nazwę dla poświadczeń, Dodaj **nazwę użytkownika** i **hasło** do konta vCenter Server, które będzie używane przez urządzenie do odnajdywania serwerów z systemem w vCenter Server.
     - Należy skonfigurować konto z wymaganymi uprawnieniami, które opisano w tym artykule.
-    - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
+    - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych serwerów), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
 1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
 1. Po kliknięciu przycisku **Zapisz** Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej vCenter Server adres IP/nazwa FQDN.
 1. Przed rozpoczęciem odnajdywania można ponownie **sprawdzić poprawność** łączności, aby vCenter Server w dowolnym momencie.

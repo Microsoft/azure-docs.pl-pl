@@ -1,31 +1,31 @@
 ---
-title: Odnajdywanie maszyn wirtualnych funkcji Hyper-V za pomocą oceny serwera Azure Migrate
-description: Dowiedz się, jak odnajdywać lokalne maszyny wirtualne funkcji Hyper-V za pomocą narzędzia do oceny Azure Migrate Server.
+title: Odnajdywanie serwerów w funkcji Hyper-V z Azure Migrate odnajdywania i oceny
+description: Informacje na temat odnajdywania serwerów lokalnych w funkcji Hyper-V za pomocą narzędzia do odnajdywania i oceny Azure Migrate.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/10/2021
 ms.custom: mvc
-ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ff83b488a6e3193eee8cb12af7de0a60b42e4c75
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99092520"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771400"
 ---
-# <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych funkcji Hyper-V z oceną serwera
+# <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów z funkcją Hyper-V z Azure Migrate: odnajdywanie i Ocena
 
 W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia lokalne. 
 
-W tym samouczku pokazano, jak odnajdywać lokalne maszyny wirtualne funkcji Hyper-V za pomocą narzędzia do oceny serwera Azure Migrate, korzystającego z uproszczonego urządzenia Azure Migrate. Urządzenie można wdrożyć jako maszynę wirtualną funkcji Hyper-V w celu ciągłego odnajdywania metadanych maszyn i wydajności.
+W tym samouczku przedstawiono sposób odnajdywania serwerów lokalnych na hostach funkcji Hyper-V za pomocą narzędzia do odnajdywania i oceny Azure Migrate: przy użyciu urządzenia z uproszczonym Azure Migrate. Urządzenie jest wdrażane jako serwer na hoście funkcji Hyper-V w celu ciągłego odnajdywania metadanych maszyn i wydajności.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure
 > * Przygotuj środowisko funkcji Hyper-V do odnajdowania.
-> * Tworzenie projektu w usłudze Azure Migrate.
+> * Utwórz projekt.
 > * Skonfiguruj urządzenie Azure Migrate.
 > * Rozpocznij odnajdowanie ciągłe.
 
@@ -38,27 +38,25 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 
-
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Host funkcji Hyper-V** | Hosty funkcji Hyper-V, na których znajdują się maszyny wirtualne, mogą być autonomiczne lub w klastrze.<br/><br/> Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło nawiązać połączenie w celu ściągnięcia metadanych maszyny wirtualnej i danych wydajności przy użyciu sesji model wspólnych informacji (CIM).
-**Wdrażanie urządzenia** | Host funkcji Hyper-V wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU i około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny i dostęp do Internetu na maszynie wirtualnej urządzenia, bezpośrednio lub za pośrednictwem serwera proxy.
-**Maszyny wirtualne** | Na maszynach wirtualnych może działać dowolny system operacyjny Windows lub Linux. 
+**Host funkcji Hyper-V** | Hosty funkcji Hyper-V, na których znajdują się serwery mogą być autonomiczne lub w klastrze.<br/><br/> Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło łączyć się z metadanymi serwera ściągania i danymi wydajności przy użyciu sesji model wspólnych informacji (CIM).
+**Wdrażanie urządzenia** | Host funkcji Hyper-V wymaga zasobów do przydzielenia serwera dla urządzenia:<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU i około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny i dostęp do Internetu na urządzeniu, bezpośrednio lub za pośrednictwem serwera proxy.
+**Serwery** | Na serwerach może działać dowolny system operacyjny Windows lub Linux. 
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
-Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
+Aby utworzyć projekt i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory (AAD).
 
 Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
-
 1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi** wybierz pozycję **subskrypcje**.
 
     ![Wyszukaj w polu wyszukiwania subskrypcję platformy Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt Azure Migrate. 
+2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt. 
 3. W subskrypcji wybierz pozycję **Kontrola dostępu (IAM)**  >  **sprawdzanie dostępu**.
 4. W obszarze **Sprawdź dostęp** Wyszukaj odpowiednie konto użytkownika.
 5. W obszarze **Dodaj przypisanie roli** kliknij pozycję **Dodaj**.
@@ -83,12 +81,12 @@ Hosty funkcji Hyper-V można przygotować ręcznie lub za pomocą skryptu. Kroki
 
 **Krok** | **Skrypt** | **Ręczne**
 --- | --- | ---
-Weryfikuj wymagania dotyczące hosta | Sprawdza, czy na hoście jest uruchomiona obsługiwana wersja funkcji Hyper-V i rola funkcji Hyper-V.<br/><br/>Włącza usługę WinRM i otwiera porty 5985 (HTTP) i 5986 (HTTPS) na hoście (wymaganym do zbierania metadanych). | Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło nawiązać połączenie w celu ściągnięcia metadanych maszyny wirtualnej i danych wydajności przy użyciu sesji model wspólnych informacji (CIM).<br/><br/> Skrypt nie jest obecnie obsługiwany na hostach z ustawieniami regionalnymi innymi niż angielski.  
+Weryfikuj wymagania dotyczące hosta | Sprawdza, czy na hoście jest uruchomiona obsługiwana wersja funkcji Hyper-V i rola funkcji Hyper-V.<br/><br/>Włącza usługę WinRM i otwiera porty 5985 (HTTP) i 5986 (HTTPS) na hoście (wymaganym do zbierania metadanych). | Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło łączyć się z metadanymi serwera ściągania i danymi wydajności przy użyciu sesji model wspólnych informacji (CIM).<br/><br/> Skrypt nie jest obecnie obsługiwany na hostach z ustawieniami regionalnymi innymi niż angielski.  
 Weryfikuj wersję programu PowerShell | Sprawdza, czy skrypt jest uruchamiany w obsługiwanej wersji programu PowerShell. | Sprawdź, czy na hoście funkcji Hyper-V jest uruchomiony program PowerShell w wersji 4,0 lub nowszej.
 Tworzenie konta | Sprawdza, czy masz odpowiednie uprawnienia na hoście funkcji Hyper-V.<br/><br/> Umożliwia utworzenie konta użytkownika lokalnego z odpowiednimi uprawnieniami. | Opcja 1: Przygotuj konto z dostępem administratora do komputera hosta funkcji Hyper-V.<br/><br/> Opcja 2: przygotowywanie konta administratora lokalnego lub konta administratora domeny i Dodawanie konta do tych grup: Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności.
 Włącz obsługę zdalną programu PowerShell | Włącza obsługę zdalną programu PowerShell na hoście, dzięki czemu urządzenie Azure Migrate może uruchamiać polecenia programu PowerShell na hoście przy użyciu połączenia usługi WinRM. | Aby skonfigurować program, na każdym hoście Otwórz konsolę programu PowerShell jako administrator i uruchom następujące polecenie: ``` powershell Enable-PSRemoting -force ```
-Konfigurowanie usług integracji funkcji Hyper-V | Sprawdza, czy usługi integracji funkcji Hyper-V są włączone na wszystkich maszynach wirtualnych zarządzanych przez hosta. | [Włącz usługi integracji funkcji Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) na każdej maszynie wirtualnej.<br/><br/> Jeśli korzystasz z systemu Windows Server 2003, [postępuj zgodnie z tymi instrukcjami](prepare-windows-server-2003-migration.md).
-Delegowanie poświadczeń, jeśli dyski maszyny wirtualnej znajdują się na zdalnych udziałach SMB | Delegowanie poświadczeń | Uruchom to polecenie, aby umożliwić dostawcy CredSSP Delegowanie poświadczeń na hostach z uruchomionymi maszynami wirtualnymi funkcji Hyper-V z dyskami w udziałach SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> To polecenie można uruchomić zdalnie na wszystkich hostach funkcji Hyper-V.<br/><br/> Jeśli dodasz nowe węzły hosta do klastra, są one automatycznie dodawane do odnajdowania, ale musisz włączyć dostawcę CredSSP ręcznie.<br/><br/> Po skonfigurowaniu urządzenia należy zakończyć konfigurowanie dostawcy CredSSP, [włączając je na urządzeniu](#delegate-credentials-for-smb-vhds). 
+Konfigurowanie usług integracji funkcji Hyper-V | Sprawdza, czy usługi integracji funkcji Hyper-V są włączone na wszystkich serwerach zarządzanych przez hosta. | [Włącz usługi integracji funkcji Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) na każdym serwerze.<br/><br/> Jeśli korzystasz z systemu Windows Server 2003, [postępuj zgodnie z tymi instrukcjami](prepare-windows-server-2003-migration.md).
+Delegowanie poświadczeń, jeśli dyski serwera znajdują się na zdalnych udziałach SMB | Delegowanie poświadczeń | Uruchom to polecenie, aby umożliwić dostawcy CredSSP w celu delegowania poświadczeń na hostach, na których działają serwery z dyskami w udziałach SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> To polecenie można uruchomić zdalnie na wszystkich hostach funkcji Hyper-V.<br/><br/> Jeśli dodasz nowe węzły hosta do klastra, są one automatycznie dodawane do odnajdowania, ale musisz włączyć dostawcę CredSSP ręcznie.<br/><br/> Po skonfigurowaniu urządzenia należy zakończyć konfigurowanie dostawcy CredSSP, [włączając je na urządzeniu](#delegate-credentials-for-smb-vhds). 
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
@@ -117,7 +115,7 @@ SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
-Skonfiguruj nowy projekt Azure Migrate.
+Skonfiguruj nowy projekt.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
@@ -128,34 +126,34 @@ Skonfiguruj nowy projekt Azure Migrate.
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Wybierz przycisk **Utwórz**.
-8. Zaczekaj kilka minut, aż projekt Azure Migrate zostanie wdrożony. **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
+8. Zaczekaj kilka minut, aż projekt zostanie wdrożony. **Azure Migrate: narzędzie odnajdywania i oceny** jest domyślnie dodawane do nowego projektu.
 
-![Zostanie wyświetlona strona narzędzia do oceny serwera, która jest domyślnie dodawana](./media/tutorial-discover-hyper-v/added-tool.png)
+![Strona przedstawiająca Azure Migrate: narzędzie odnajdywania i oceny dodane domyślnie](./media/tutorial-discover-hyper-v/added-tool.png)
 
 > [!NOTE]
-> Jeśli projekt został już utworzony, możesz użyć tego samego projektu do zarejestrowania dodatkowych urządzeń w celu odnalezienia i oceny większej liczby maszyn wirtualnych.[Dowiedz się więcej](create-manage-projects.md#find-a-project)
+> Jeśli projekt został już utworzony, można użyć tego samego projektu do zarejestrowania dodatkowych urządzeń w celu odnalezienia i oceny większej liczby serwerów. [Dowiedz się więcej](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Konfigurowanie urządzenia
 
-Azure Migrate: Ocena serwera używa urządzenia uproszczonego Azure Migrate. Urządzenie wykonuje odnajdywanie maszyn wirtualnych i wysyła do Azure Migrate metadane dotyczące konfiguracji maszyny wirtualnej i wydajności. Urządzenie można skonfigurować przez wdrożenie pliku VHD, który można pobrać z projektu Azure Migrate.
+Azure Migrate używa urządzenia uproszczonego Azure Migrate. Urządzenie wykonuje odnajdywanie serwera i wysyła metadane dotyczące konfiguracji serwera i wydajności do Azure Migrate. Urządzenie można skonfigurować przez wdrożenie pliku VHD, który można pobrać z projektu.
 
 > [!NOTE]
 > Jeśli z jakiegoś powodu nie można skonfigurować urządzenia przy użyciu szablonu, można skonfigurować go za pomocą skryptu programu PowerShell na istniejącym serwerze z systemem Windows Server 2016. [Dowiedz się więcej](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
 
-Ten samouczek konfiguruje urządzenie na maszynie wirtualnej funkcji Hyper-V w następujący sposób:
+Ten samouczek konfiguruje urządzenie na serwerze z systemem w środowisku funkcji Hyper-V w następujący sposób:
 
-1. Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
+1. Podaj nazwę urządzenia i Wygeneruj klucz projektu w portalu.
 1. Pobierz skompresowany wirtualny dysk twardy funkcji Hyper-V z Azure Portal.
-1. Utwórz urządzenie i sprawdź, czy może nawiązać połączenie z oceną serwera Azure Migrate.
-1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate przy użyciu klucza projektu Azure Migrate.
+1. Utwórz urządzenie i sprawdź, czy może nawiązać połączenie z Azure Migrate: odnajdywania i oceny.
+1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Wygeneruj klucz projektu Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Generowanie klucza projektu
 
-1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
-2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
-3. W **1: Wygeneruj klucz projektu Azure Migrate**, podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych funkcji Hyper-V. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
-1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
+1. W obszarze serwery **celów migracji**  >    >  **Azure Migrate: odnajdywanie i ocenianie** wybierz pozycję **odkryj**.
+2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz opcję **tak, używając funkcji Hyper-V**.
+3. W obszarze **1: generowanie klucza projektu** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane na potrzeby odnajdywania serwerów. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony Odnajdywanie serwera podczas tworzenia zasobów.
+1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
 ### <a name="2-download-the-vhd"></a>2. Pobierz dysk VHD
@@ -186,11 +184,11 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
         --- | --- | ---
         Funkcja Hyper-V (85,8 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### <a name="3-create-the-appliance-vm"></a>3. Utwórz maszynę wirtualną urządzenia
+### <a name="3-create-an-appliance"></a>3. Utwórz urządzenie
 
-Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
+Zaimportuj pobrany plik i Utwórz urządzenie.
 
-1. Wyodrębnij plik skompresowanego dysku VHD do folderu na hoście funkcji Hyper-V, który będzie obsługiwał maszynę wirtualną urządzenia. Trzy foldery są wyodrębniane.
+1. Wyodrębnij plik skompresowanego dysku VHD do folderu na hoście funkcji Hyper-V, który będzie hostować urządzenie. Trzy foldery są wyodrębniane.
 2. Otwórz Menedżera funkcji Hyper-V. W obszarze **Akcje** kliknij pozycję **Importuj maszynę wirtualną**.
 2. Po **rozpoczęciu pracy** Kreatora importu maszyny wirtualnej > kliknij przycisk **dalej**.
 3. W obszarze **lokalizowanie folderu** określ folder zawierający wyodrębniony wirtualny dysk twardy. Następnie kliknij przycisk **Dalej**.
@@ -198,14 +196,13 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 2. W obszarze **Wybierz typ importu** kliknij pozycję **Kopiuj maszynę wirtualną (Utwórz nowy unikatowy identyfikator)**. Następnie kliknij przycisk **Dalej**.
 3. W obszarze **Wybierz lokalizację docelową** pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
 4. W obszarze **foldery magazynu** pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
-5. W obszarze **Wybierz sieć** Określ przełącznik wirtualny, który będzie używany przez maszynę wirtualną. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure.
+5. W obszarze **Wybierz sieć** Określ przełącznik wirtualny, który będzie używany przez urządzenie. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure.
 6. W obszarze **Podsumowanie** przejrzyj ustawienia. Następnie kliknij przycisk **Zakończ**.
-7. W Menedżerze funkcji Hyper-V > **Virtual Machines** Uruchom maszynę wirtualną.
-
+7. W Menedżerze funkcji Hyper-V > **Virtual Machines** Uruchom urządzenie.
 
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że maszyna wirtualna urządzenia może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
+Upewnij się, że urządzenie może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
 
 ### <a name="4-configure-the-appliance"></a>4. Skonfiguruj urządzenie
 
@@ -214,24 +211,24 @@ Skonfiguruj urządzenie po raz pierwszy.
 > [!NOTE]
 > Jeśli urządzenie zostanie skonfigurowane przy użyciu [skryptu programu PowerShell](deploy-appliance-script.md) zamiast pobranego wirtualnego dysku twardego, pierwsze dwa kroki tej procedury nie są istotne.
 
-1. W Menedżerze funkcji Hyper-V > **Virtual Machines** kliknij prawym przyciskiem myszy maszynę wirtualną > **Połącz**.
+1. W Menedżerze funkcji Hyper-V > **Virtual Machines**, kliknij prawym przyciskiem myszy urządzenie > **Połącz**.
 2. Podaj język, strefę czasową i hasło dla urządzenia.
-3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną wirtualną, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
+3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z urządzeniem, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
 
    Możesz też otworzyć aplikację na pulpicie urządzenia, klikając skrót do aplikacji.
 1. Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
-    - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
+    - **Łączność**: aplikacja sprawdza, czy urządzenie ma dostęp do Internetu. Jeśli urządzenie używa serwera proxy:
       - Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy (w postaci http://ProxyIPAddress lub na http://ProxyFQDN) porcie nasłuchu.
       - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
       - Obsługiwane są tylko serwery proxy HTTP.
       - Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.
-    - **Synchronizacja czasu**: godzina została zweryfikowana. Czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby funkcja odnajdywania maszyn wirtualnych działała prawidłowo.
-    - **Instalowanie aktualizacji**: ocena serwera Azure Migrate sprawdza, czy na urządzeniu zainstalowano najnowsze aktualizacje. Po zakończeniu sprawdzania można kliknąć pozycję **Wyświetl usługi urządzenia** , aby zobaczyć stan i wersje składników uruchomionych na urządzeniu.
+    - **Synchronizacja czasu**: godzina została zweryfikowana. Czas na urządzeniu powinien być zsynchronizowany z czasem internetowym w celu poprawnego działania funkcji odnajdywania serwerów.
+    - **Zainstaluj aktualizacje**: Azure Migrate: Funkcja odnajdywania i oceny sprawdza, czy na urządzeniu zainstalowano najnowsze aktualizacje. Po zakończeniu sprawdzania można kliknąć pozycję **Wyświetl usługi urządzenia** , aby zobaczyć stan i wersje składników uruchomionych na urządzeniu.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
-1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do pozycji **Ocena serwera> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
+1. Wklej **klucz projektu** skopiowany z portalu. Jeśli nie masz klucza, przejdź do **Azure Migrate: odnajdywania i oceny> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
 1. Do uwierzytelnienia w systemie Azure potrzebny będzie kod urządzenia. Kliknięcie przycisku **Zaloguj** spowoduje otwarcie modalnego kodu urządzenia, jak pokazano poniżej.
 
     ![Modalne wyświetlanie kodu urządzenia](./media/tutorial-discover-vmware/device-code.png)
@@ -249,7 +246,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowanie poświadczeń z urządzenia do hostów funkcji Hyper-V. W tym celu z urządzenia:
 
-1. Na maszynie wirtualnej urządzenia Uruchom to polecenie. HyperVHost1/HyperVHost2 są przykładowymi nazwami hostów.
+1. Na urządzeniu Uruchom to polecenie. HyperVHost1/HyperVHost2 są przykładowymi nazwami hostów.
 
     ```
     Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
@@ -263,13 +260,12 @@ Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowani
 
 ## <a name="start-continuous-discovery"></a>Uruchom odnajdywanie ciągłe
 
-Połącz się z urządzeniem z hostami lub klastrami funkcji Hyper-V, a następnie Uruchom odnajdywanie maszyn wirtualnych.
+Połącz się z urządzeniem z hostami lub klastrami funkcji Hyper-V, a następnie uruchom odnajdowanie serwerów.
 
-1. W **kroku 1: podaj poświadczenia hosta funkcji Hyper-V**, kliknij pozycję **Dodaj poświadczenia** , aby określić przyjazną nazwę dla poświadczeń, Dodaj **nazwę użytkownika** i **hasło** dla hosta lub klastra funkcji Hyper-v, którego urządzenie będzie używało do odnajdywania maszyn wirtualnych. Kliknij pozycję **Zapisz**.
-1. Jeśli chcesz dodać jednocześnie wiele poświadczeń, kliknij pozycję **Dodaj więcej** , aby zapisać i dodać więcej poświadczeń. Funkcja odnajdywania maszyn wirtualnych funkcji Hyper-V obsługuje wiele poświadczeń.
+1. W **kroku 1: podaj poświadczenia hosta funkcji Hyper-V**, kliknij pozycję **Dodaj poświadczenia** , aby określić przyjazną nazwę dla poświadczeń, Dodaj **nazwę użytkownika** i **hasło** dla hosta lub klastra funkcji Hyper-v, którego urządzenie będzie używało do odnajdywania serwerów. Kliknij pozycję **Zapisz**.
+1. Jeśli chcesz dodać jednocześnie wiele poświadczeń, kliknij pozycję **Dodaj więcej** , aby zapisać i dodać więcej poświadczeń. Do odnajdywania serwerów w środowisku funkcji Hyper-V są obsługiwane wiele poświadczeń.
 1. W **kroku 2: Podaj szczegóły dotyczące hosta lub klastra funkcji Hyper-v**, kliknij pozycję **Dodaj źródło odnajdowania** , aby określić hosta funkcji Hyper-v/ **adres IP/FQDN** klastra i przyjazną nazwę dla poświadczeń do nawiązania połączenia z hostem/klastrem.
 1. Możesz **dodać pojedynczy element** naraz lub **dodać wiele elementów** w jednym miejscu. Istnieje również możliwość zapewnienia szczegółowych informacji o hoście lub klastrze funkcji Hyper-V za poorednictwem **importowania woluminu CSV**.
-
 
     - W przypadku wybrania opcji **Dodaj pojedynczy element** należy określić przyjazną nazwę dla poświadczeń i hosta funkcji Hyper-V/ **adresu IP klastra/nazwy FQDN** , a następnie kliknąć przycisk **Zapisz**.
     - W przypadku wybrania opcji **Dodaj wiele elementów** _(wybrane domyślnie)_ można dodać wiele rekordów jednocześnie, określając w polu tekstowym opcję Host/klaster **/nazwa FQDN** klastra funkcji Hyper-V z przyjazną nazwą. **Sprawdź** dodane rekordy i kliknij pozycję **Zapisz**.
@@ -282,18 +278,20 @@ Połącz się z urządzeniem z hostami lub klastrami funkcji Hyper-V, a następn
     - Nie można usunąć określonego hosta z klastra. Można usunąć tylko cały klaster.
     - Można dodać klaster, nawet jeśli występują problemy z konkretnymi hostami w klastrze.
 1. Możesz ponownie **sprawdzić poprawność** łączności z hostami/klastrami przed rozpoczęciem odnajdywania.
-1. Kliknij przycisk **Rozpocznij odnajdywanie**, aby uruchomić odnajdywanie maszyn wirtualnych od pomyślnie zweryfikowanych hostów/klastrów. Po pomyślnym zainicjowaniu odnajdywania można sprawdzić stan odnajdywania dla każdego hosta/klastra w tabeli.
+1. Kliknij przycisk **Rozpocznij odnajdywanie**, aby uruchomić Odnajdywanie serwera od pomyślnie zweryfikowanych hostów/klastrów. Po pomyślnym zainicjowaniu odnajdywania można sprawdzić stan odnajdywania dla każdego hosta/klastra w tabeli.
 
 Spowoduje to uruchomienie odnajdywania. Aby metadane odnalezionych serwerów były wyświetlane w Azure Portal, zajmie około 2 minut na każdy host.
 
-## <a name="verify-vms-in-the-portal"></a>Weryfikowanie maszyn wirtualnych w portalu
+## <a name="verify-servers-in-the-portal"></a>Weryfikowanie serwerów w portalu
 
-Po zakończeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są widoczne w portalu.
+Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w portalu.
 
 1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
-2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. W **Azure Migrate serwerów**  >  **Azure Migrate: strony odnajdywania i oceny** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Oceń maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md) do migracji na maszyny wirtualne platformy Azure.
+- [Oceniaj serwery w środowisku funkcji Hyper-V](tutorial-assess-hyper-v.md) na potrzeby migracji do maszyn wirtualnych platformy Azure.
 - [Przejrzyj dane](migrate-appliance.md#collected-data---hyper-v) zbierane przez urządzenie podczas odnajdywania.
+
+

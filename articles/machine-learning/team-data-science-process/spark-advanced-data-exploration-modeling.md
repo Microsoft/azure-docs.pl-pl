@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b84b7387411e7df8e092a2e810591697319f9554
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93321343"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774681"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark
 
@@ -35,7 +35,8 @@ Typowym sposobem wykonania optymalizacji parametrów jest przeszukiwanie siatki 
 
 Modele, z których korzystamy, obejmują regresję logistyczną i liniową, lasy losowe i podwyższające gradienty drzew:
 
-* [Regresja liniowa z SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) to model regresji liniowej, który używa metody stochastycznego gradientu (SGD) i optymalizacji i skalowania funkcji, aby przewidzieć płatne kwoty. 
+* [Regresja liniowa z SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
+) to model regresji liniowej, który używa metody stochastycznego gradientu (SGD) i optymalizacji i skalowania funkcji, aby przewidzieć płatne kwoty. 
 * [Regresja logistyczna przy użyciu](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) regresji LBFGS lub "neurologia" to model regresji, który może być używany, gdy zmienna zależna jest kategorii do klasyfikowania danych. LBFGS jest algorytmem optymalizacji quasi-niutonach, który przybliża algorytm Broyden – Fletcher – Goldfarb – Shanno (BFGS) przy użyciu ograniczonej ilości pamięci komputera i jest szeroko używany w uczeniu maszynowym.
 * [Losowe lasy](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) są kompletnymi drzewami decyzyjnymi.  Łączą się z wieloma drzewami decyzyjnymi, aby zmniejszyć ryzyko naruszenia. Losowe lasy są używane do regresji i klasyfikacji oraz obsługują funkcje kategorii i można je rozszerzyć do ustawienia klasyfikacji wieloklasowej. Nie wymagają one skalowania funkcji i są w stanie przechwytywać interakcje i funkcje. Losowe lasy to jeden z najbardziej pomyślnych modeli uczenia maszynowego na potrzeby klasyfikacji i regresji.
 * [Drzewa podwyższające wartości gradientu](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) są kompletnymi drzewami decyzyjnymi. GBTSe drzewa decyzyjne w sposób iteracyjny, aby zminimalizować funkcję strat. GBTS jest używany do regresji i klasyfikacji i może obsługiwać funkcje kategorii, nie wymaga skalowania funkcji, a także może przechwytywać interakcje i funkcje. Mogą być również używane w ustawieniu klasyfikacji wieloklasowej.

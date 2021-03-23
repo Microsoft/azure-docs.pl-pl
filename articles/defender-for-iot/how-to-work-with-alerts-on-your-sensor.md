@@ -1,22 +1,18 @@
 ---
-title: Pracuj z alertami na czujniku
+title: Informacje o alertach czujników
 description: Pracuj z alertami, aby zwiększyć bezpieczeństwo i działanie sieci.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523553"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781351"
 ---
-# <a name="work-with-alerts-on-your-sensor"></a>Pracuj z alertami na czujniku
+# <a name="about-sensor-alerts"></a>Informacje o alertach czujników
 
-Pracuj z alertami, aby zwiększyć bezpieczeństwo i działanie sieci. Alerty zawierają informacje o:
+Alerty ułatwiają zwiększenie bezpieczeństwa i działania sieci. Alerty zawierają informacje o:
 
 - Odchylenia od dozwolonej aktywności sieciowej
 

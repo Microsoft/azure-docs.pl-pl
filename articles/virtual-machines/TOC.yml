@@ -1258,7 +1258,7 @@
             - name: Tworzenie dysku zarządzanego na podstawie migawki
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md'
             - name: Kopiowanie dysku zarządzanego do tej samej lub innej subskrypcji
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md'
+              href: 'https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh'
             - name: Kopiowanie migawki do tej samej lub innej subskrypcji
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md'
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu

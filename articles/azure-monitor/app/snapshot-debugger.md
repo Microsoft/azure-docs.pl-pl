@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217401"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786485"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
 Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](./app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](./asp-net-exceptions.md) w portalu Application Insights.
@@ -24,7 +24,10 @@ Migawki debugowania są przechowywane przez 15 dni. Te zasady przechowywania są
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Włącz Snapshot Debugger Application Insights dla aplikacji
 Kolekcja migawek jest dostępna dla:
 * .NET Framework i aplikacje ASP.NET z systemem .NET Framework 4,5 lub nowszym.
-* Aplikacje .NET Core 2,0 i ASP.NET Core 2,0 działające w systemie Windows.
+* Aplikacje .NET Core i ASP.NET Core z uruchomionym programem .NET Core 2,1 (LTS) lub 3,1 (LTS) w systemie Windows.
+* Aplikacje .NET 5,0 w systemie Windows.
+
+Nie zalecamy korzystania z platformy .NET Core 2,0, 2,2 lub 3,0, ponieważ nie są one obsługiwane.
 
 Obsługiwane są następujące środowiska:
 

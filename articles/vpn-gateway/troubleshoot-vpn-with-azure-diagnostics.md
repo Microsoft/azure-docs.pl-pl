@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
-ms.openlocfilehash: 4e65dcd448a2ab2fad635cab12f41d858416becf
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 232e084e44696c6aa88a9dd33092c48a96e35f85
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104726105"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772007"
 ---
 # <a name="troubleshoot-azure-vpn-gateway-using-diagnostic-logs"></a>Rozwiązywanie problemów z usługą Azure VPN Gateway przy użyciu dzienników diagnostycznych
 
@@ -24,11 +24,11 @@ Następujące dzienniki są dostępne na platformie Azure:
 
 |***Nazwa** _ | _ *_Opis_** |
 |---        | ---               |
-|**GatewayDiagnosticLog** | Zawiera dzienniki diagnostyczne dla zdarzeń konfiguracji bramy, podstawowe zmiany i zdarzenia konserwacji |
-|**TunnelDiagnosticLog** | Zawiera zdarzenia zmiany stanu tunelu. Zdarzenia łączenia/rozłączania tunelu zawierają podsumowanie przyczyny zmiany stanu, jeśli ma to zastosowanie |
-|**RouteDiagnosticLog** | Rejestruje zmiany tras statycznych i zdarzeń BGP występujących w bramie |
-|**IKEDiagnosticLog** | Rejestruje komunikaty i zdarzenia kontroli IKE na bramie |
-|**P2SDiagnosticLog** | Rejestruje komunikaty i zdarzenia kontroli punkt-lokacja w bramie |
+|**GatewayDiagnosticLog** | Zawiera dzienniki diagnostyczne dla zdarzeń konfiguracji bramy, podstawowych zmian i zdarzeń konserwacji. |
+|**TunnelDiagnosticLog** | Zawiera zdarzenia zmiany stanu tunelu. Zdarzenia łączenia/rozłączania tunelu zawierają podsumowanie przyczyny zmiany stanu, jeśli ma to zastosowanie. |
+|**RouteDiagnosticLog** | Rejestruje zmiany tras statycznych i zdarzeń BGP, które występują na bramie. |
+|**IKEDiagnosticLog** | Rejestruje komunikaty i zdarzenia kontroli IKE w bramie. |
+|**P2SDiagnosticLog** | Rejestruje komunikaty i zdarzenia kontroli punkt-lokacja w bramie. |
 
 Zwróć uwagę na to, że w tych tabelach jest dostępnych kilka kolumn. W tym artykule prezentujemy tylko najbardziej odpowiednie osoby, aby ułatwić użycie dzienników.
 
@@ -38,7 +38,7 @@ Aby dowiedzieć się, jak skonfigurować zdarzenia dzienników diagnostycznych z
 
 ## <a name="gatewaydiagnosticlog"></a><a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
-Zmiany konfiguracji są poddawane inspekcji w tabeli **GatewayDiagnosticLog** . Należy pamiętać, że może upłynąć kilka minut, zanim wprowadzone zmiany zostaną odzwierciedlone w dziennikach.
+Zmiany konfiguracji są poddawane inspekcji w tabeli **GatewayDiagnosticLog** . Wprowadzenie zmian w dziennikach może potrwać kilka minut.
 
 Oto przykładowe zapytanie jako odwołanie.
 
@@ -53,13 +53,13 @@ To zapytanie w **GatewayDiagnosticLog** będzie zawierać wiele kolumn.
 
 |***Nazwa** _ | _ *_Opis_** |
 |---        | ---               |
-|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC|
-|**OperationName** |zdarzenie, które wystąpiło. Może to być jedna z *SetGatewayConfiguration, SetConnectionConfiguration, HostMaintenanceEvent, GatewayTenantPrimaryChanged, MigrateCustomerSubscription, GatewayResourceMove, ValidateGatewayConfiguration*|
+|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC.|
+|**OperationName** |zdarzenie, które wystąpiło. Może to być jedna z *SetGatewayConfiguration, SetConnectionConfiguration, HostMaintenanceEvent, GatewayTenantPrimaryChanged, MigrateCustomerSubscription, GatewayResourceMove, ValidateGatewayConfiguration*.|
 |**Wiadomość** | Szczegóły wykonywanej operacji oraz listę wyników zakończonych powodzeniem lub niepowodzeniem.|
 
 W poniższym przykładzie pokazano działanie zarejestrowane w przypadku zastosowania nowej konfiguracji:
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-26-set-gateway.png" alt-text="Ustaw przykład operacji bramy.":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-26-set-gateway.png" alt-text="Przykład operacji set Gateway zaobserwowanej w GatewayDiagnosticLog.":::
 
 
 Należy zauważyć, że SetGatewayConfiguration będzie rejestrowane za każdym razem, gdy konfiguracja zostanie zmodyfikowana zarówno w VPN Gateway, jak i w bramie sieci lokalnej.
@@ -83,16 +83,16 @@ To zapytanie w **TunnelDiagnosticLog** będzie zawierać wiele kolumn.
 
 |***Nazwa** _ | _ *_Opis_** |
 |---        | ---               |
-|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC|
+|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC.|
 |**OperationName** | zdarzenie, które wystąpiło. Może to być *TunnelConnected* lub *TunnelDisconnected*.|
-| **Wystąpienie \_ s** | wystąpienie roli bramy, które wyzwoliło zdarzenie. Może być to GatewayTenantWorker \_ w \_ 0 lub GatewayTenantWorker \_ w 1, \_ które są nazwami dwóch wystąpień bramy.|
+| **Wystąpienie \_ s** | wystąpienie roli bramy, które wyzwoliło zdarzenie. Może być to GatewayTenantWorker \_ w \_ 0 lub GatewayTenantWorker \_ w \_ 1, które są nazwami dwóch wystąpień bramy.|
 | **Zasób** | wskazuje nazwę bramy sieci VPN. |
 | **ResourceGroup** | wskazuje grupę zasobów, w której znajduje się brama.|
 
 
 Przykładowe dane wyjściowe:
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-16-tunnel-connected.png" alt-text="Przykład zdarzenia połączonego z tunelowaniem.":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-16-tunnel-connected.png" alt-text="Przykład zdarzenia połączonego z tunelowaniem w TunnelDiagnosticLog.":::
 
 
 **TunnelDiagnosticLog** jest bardzo przydatne do rozwiązywania problemów z poprzednimi zdarzeniami dotyczącymi nieoczekiwanych odniesień sieci VPN. Jego lekki charakter oferuje możliwość przeanalizowania dużych przedziałów czasu w ciągu kilku dni z małym nakładem pracy.
@@ -101,7 +101,7 @@ Dopiero po zidentyfikowaniu sygnatury czasowej odłączenia można przełączyć
 
 Wskazówki dotyczące rozwiązywania problemów:
 - Jeśli zobaczysz zdarzenie rozłączenia w jednym wystąpieniu bramy, a następnie zdarzenie połączenia w **innym** wystąpieniu bramy w ciągu kilku sekund, zobaczysz w trybie failover bramy. Zwykle jest to oczekiwane zachowanie spowodowane konserwacją w wystąpieniu bramy. Aby dowiedzieć się więcej na temat tego zachowania, zobacz [Informacje o nadmiarowości bramy sieci VPN platformy Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
-- Takie samo zachowanie zostanie zaobserwowane, jeśli celowo uruchomisz Reset bramy po stronie platformy Azure, co spowoduje ponowne uruchomienie wystąpienia aktywnej bramy. Aby dowiedzieć się więcej na temat tego zachowania, zobacz [resetowanie VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic)
+- Takie samo zachowanie zostanie zaobserwowane, jeśli celowo uruchomisz Reset bramy po stronie platformy Azure, co spowoduje ponowne uruchomienie wystąpienia aktywnej bramy. Aby dowiedzieć się więcej na temat tego zachowania, zobacz [resetowanie VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic).
 - Jeśli zostanie wyświetlone zdarzenie rozłączenia w jednym wystąpieniu bramy, a następnie zdarzenie połączenia w **tym samym** wystąpieniu bramy w ciągu kilku sekund, może się okazać, że wystąpi błąd sieci powodujący limit czasu DPD lub odłączenie wysyłane błędnie przez urządzenie lokalne.
 
 ## <a name="routediagnosticlog"></a><a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
@@ -120,8 +120,8 @@ To zapytanie w **RouteDiagnosticLog** będzie zawierać wiele kolumn.
 
 |***Nazwa** _ | _ *_Opis_** |
 |---        | ---               |
-|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC|
-|**OperationName** | zdarzenie, które wystąpiło. Może to być *StaticRouteUpdate, BgpRouteUpdate, BgpConnectedEvent, BgpDisconnectedEvent*|
+|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC.|
+|**OperationName** | zdarzenie, które wystąpiło. Może to być *StaticRouteUpdate, BgpRouteUpdate, BgpConnectedEvent, BgpDisconnectedEvent*.|
 | **Wiadomość** | Szczegóły wykonywanej operacji.|
 
 Dane wyjściowe będą zawierać przydatne informacje na temat elementów równorzędnych protokołu BGP połączonych/rozłączonych i wymienianych tras.
@@ -129,7 +129,7 @@ Dane wyjściowe będą zawierać przydatne informacje na temat elementów równo
 Przykład:
 
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-31-bgp-route.png" alt-text="Przykłady tras BGP.":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-31-bgp-route.png" alt-text="Przykład działania wymiany tras BGP widoczny w RouteDiagnosticLog.":::
 
 
 ## <a name="ikediagnosticlog"></a><a name="IKEDiagnosticLog"></a>IKEDiagnosticLog
@@ -153,13 +153,13 @@ To zapytanie w **IKEDiagnosticLog** będzie zawierać wiele kolumn.
 
 |***Nazwa** _ | _ *_Opis_** |
 |---        | ---               |
-|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC|
-| **RemoteIP** | adres IP lokalnego urządzenia sieci VPN. W rzeczywistych scenariuszach warto odfiltrować według adresu IP odpowiedniego urządzenia lokalnego, które zawiera więcej niż jeden |
-|**LocalIP** | adres IP VPN Gateway rozwiązywania problemów. W rzeczywistych scenariuszach warto odfiltrować adres IP odpowiedniej bramy sieci VPN w ramach subskrypcji. |
-|**Zdarzenie** | zawiera komunikat diagnostyczny przydatny do rozwiązywania problemów. Zwykle zaczynają się od słowa kluczowego i odnoszą się do akcji wykonywanych przez usługę Azure Gateway **\[ send \]** wskazuje na to, że zdarzenie spowodowane przez pakiet protokołu IPSec wysyłanego przez bramę Azure **\[ otrzymało \]** informację o tym, że zdarzenie w sekwencji z urządzenia **\[ lokalnego lokalne \]** wskazuje akcję wykonywaną lokalnie przez bramę platformy Azure |
+|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC.|
+| **RemoteIP** | adres IP lokalnego urządzenia sieci VPN. W rzeczywistych scenariuszach warto odfiltrować według adresu IP odpowiedniego urządzenia lokalnego, które zawiera więcej niż jeden. |
+|**LocalIP** | adres IP VPN Gateway rozwiązywania problemów. W rzeczywistych scenariuszach warto odfiltrować według adresu IP odpowiedniej bramy sieci VPN w ramach subskrypcji. |
+|**Zdarzenie** | zawiera komunikat diagnostyczny przydatny do rozwiązywania problemów. Zwykle zaczynają się od słowa kluczowego i zapoznaj się z akcjami wykonywanymi przez bramę platformy Azure: **\[ send \]** wskazuje zdarzenie spowodowane przez pakiet protokołu IPSec wysyłany przez bramę platformy Azure.  **\[ Odebrano \]** wskazuje zdarzenie w sekwencji w ramach pakietu otrzymanego z urządzenia lokalnego.  Wartość **\[ lokalna \]** wskazuje akcję wykonywaną lokalnie przez bramę platformy Azure. |
 
 
-Zwróć uwagę, jak kolumny RemoteIP, LocalIP i Event nie znajdują się na liście oryginalnych kolumn w bazie danych AzureDiagnostics, ale są dodawane do zapytania przez analizowanie danych wyjściowych kolumny "Message", aby uprościć ich analizę.
+Zwróć uwagę, jak kolumny RemoteIP, LocalIP i Event nie znajdują się na liście oryginalnych kolumn w bazie danych AzureDiagnostics, ale są dodawane do zapytania przez analizowanie danych wyjściowych kolumny "Message" w celu uproszczenia jej analizy.
 
 Wskazówki dotyczące rozwiązywania problemów:
 
@@ -168,12 +168,12 @@ Wskazówki dotyczące rozwiązywania problemów:
 - W przypadku niepowodzenia ustanowienia tunelu IPsec platforma Azure będzie ponawiać próbę co kilka sekund. Z tego powodu problemy związane z rozwiązywaniem problemów z siecią VPN są bardzo wygodne w IKEdiagnosticLog, ponieważ nie trzeba czekać na określony czas, aby odtworzyć problem. Ponadto niepowodzenie będzie teoretycznie zawsze takie samo przy każdej próbie, więc w dowolnym momencie można po prostu powiększyć do jednej nieprzerwanej negocjacji.
 
 - Inicjowanie skojarzenia zabezpieczeń \_ zawiera parametry protokołu IPSec, które mają być używane przez element równorzędny dla tej negocjacji protokołu IPSec. Oficjalny dokument   
-[Domyślne parametry protokołu IPSec/IKE](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec) wyświetlają parametry protokołu IPSec obsługiwane przez bramę platformy Azure z ustawieniami domyślnymi
+[Domyślne parametry protokołu IPSec/IKE](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec) wyświetlają parametry protokołu IPSec obsługiwane przez bramę platformy Azure z ustawieniami domyślnymi.
 
 
 ## <a name="p2sdiagnosticlog"></a><a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
 
-Ostatnia dostępna tabela dla diagnostyki sieci VPN to **P2SDiagnosticLog**. Spowoduje to śledzenie działania punktu do lokacji.
+Ostatnia dostępna tabela dla diagnostyki sieci VPN to **P2SDiagnosticLog**. Ta tabela śledzi aktywność punktu do lokacji.
 
 Oto przykładowe zapytanie jako odwołanie.
 
@@ -187,17 +187,17 @@ To zapytanie w **P2SDiagnosticLog** będzie zawierać wiele kolumn.
 
 |***Nazwa** _ | _ *_Opis_** |
 |---        | ---               |
-|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC|
-|**OperationName** | zdarzenie, które wystąpiło. Zostanie *P2SLogEvent*|
+|**TimeGenerated** | Sygnatura czasowa każdego zdarzenia w strefie czasowej UTC.|
+|**OperationName** | zdarzenie, które wystąpiło. Zostanie *P2SLogEvent*.|
 | **Wiadomość** | Szczegóły wykonywanej operacji.|
 
 W danych wyjściowych zostaną wyświetlone wszystkie ustawienia lokacji, które zostały zastosowane przez bramę, a także zasady protokołu IPsec.
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-28-p2s-log-event.png" alt-text="Przykład P2S dzienników.":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-28-p2s-log-event.png" alt-text="Przykład punktu do połączenia z lokacją widziany w P2SDiagnosticLog.":::
 
 Ponadto, za każdym razem, gdy klient nawiąże połączenie za pośrednictwem protokołu IKEv2 lub OpenVPN punkt z lokacją, w tabeli będzie można rejestrować aktywność pakietów, konwersacje EAP/RADIUS i udane/niepowodzenie.
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-29-eap.png" alt-text="Przykład dzienników protokołu EAP.":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-29-eap.png" alt-text="Przykład uwierzytelniania EAP widziany w P2SDiagnosticLog.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

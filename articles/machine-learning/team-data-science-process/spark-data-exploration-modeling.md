@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
-ms.openlocfilehash: 1ef6c678110037a4aed24ef40631b73a04ca6a9d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 531e5cf274d40eae19075514d50aec5a6524aeec
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028091"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775344"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Eksplorowanie i modelowanie danych za pomocą platformy Spark
 
@@ -40,7 +40,7 @@ Kroki instalacji i kod zostały przedstawione w tym przewodniku dotyczącym korz
 > [!NOTE]
 > Poniższe opisy dotyczą korzystania z platformy Spark 1,6. W przypadku wersji Spark 2,0 użyj notesów opisanych powyżej. 
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 Platforma Spark może odczytywać i zapisywać dane w Azure Storage Blob (znane również jako WASB). Wszystkie istniejące dane przechowywane w tym miejscu mogą być przetwarzane przy użyciu platformy Spark, a wyniki są przechowywane ponownie w WASB.
 
@@ -495,7 +495,8 @@ Czas wykonania powyżej komórki: 0,24 sekund
 
 ### <a name="feature-scaling"></a>Skalowanie cech
 
-Skalowanie funkcji, znane także jako Normalizacja danych, pozwala upewnić się, że funkcje o ogólnie wykorzystanych wartościach nie mają nadmiernej wagi w funkcji celu. Kod skalowania funkcji używa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) do skalowania funkcji do wariancji jednostek. Jest ona dostarczana przez MLlib do użycia w regresji liniowej z stochastycznego gradientem (SGD), popularnym algorytmem do uczenia szerokiego zakresu innych modeli uczenia maszynowego, takich jak standardowe regresje lub obsługa maszyn wektorowych (SVM).
+Skalowanie funkcji, znane także jako Normalizacja danych, pozwala upewnić się, że funkcje o ogólnie wykorzystanych wartościach nie mają nadmiernej wagi w funkcji celu. Kod skalowania funkcji używa [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS
+) do skalowania funkcji do wariancji jednostek. Jest ona dostarczana przez MLlib do użycia w regresji liniowej z stochastycznego gradientem (SGD), popularnym algorytmem do uczenia szerokiego zakresu innych modeli uczenia maszynowego, takich jak standardowe regresje lub obsługa maszyn wektorowych (SVM).
 
 > [!NOTE]
 > Znaleźliśmy algorytm LinearRegressionWithSGD do uwzględnienia w skalowaniu funkcji.

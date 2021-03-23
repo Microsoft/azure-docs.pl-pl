@@ -1,18 +1,14 @@
 ---
 title: Praca z poleceniami interfejsu wiersza polecenia usługi Defender for IoT
 description: W tym artykule opisano polecenia usługi Defender dla usługi IoT dla czujników i lokalnych konsol zarządzania.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636564"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778682"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Praca z poleceniami interfejsu wiersza polecenia usługi Defender for IoT
 
@@ -287,7 +283,7 @@ Polecenie obsługuje następujące flagi wejściowe:
 | --klucz | \*Plik. Key. Długość klucza powinna wynosić co najmniej 2 048 bitów. |
 | --łańcuch | Ścieżka do pliku łańcucha certyfikatów (opcjonalnie). |
 | --Pass | Hasło używane do szyfrowania certyfikatu (opcjonalne). |
-| --Ustawianie hasła | Wartość domyślna to **false**, **nieużywane**. <br />Ustaw **wartość true** , aby użyć poprzedniego hasła dostarczonego z poprzednim certyfikatem (opcjonalnie). |  |
+| --Ustawianie hasła | Wartość domyślna to **false**, **nieużywane**. <br />Ustaw **wartość true** , aby użyć poprzedniego hasła dostarczonego z poprzednim certyfikatem (opcjonalnie). | 
 
 Gdy używasz narzędzia:
 

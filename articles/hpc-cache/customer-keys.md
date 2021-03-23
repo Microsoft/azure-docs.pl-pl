@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: e8f1b3fffefcdf1d2ec8bd3e9b1aaea93697ca8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471965"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772709"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Korzystanie z kluczy szyfrowania zarządzanych przez klienta dla pamięci podręcznej platformy Azure HPC
 
@@ -21,8 +21,6 @@ Za pomocą Azure Key Vault można kontrolować własność kluczy używanych do 
 > Wszystkie dane przechowywane na platformie Azure, w tym na dyskach pamięci podręcznej, są szyfrowane domyślnie przy użyciu kluczy zarządzanych przez firmę Microsoft. Należy wykonać czynności opisane w tym artykule, jeśli chcesz zarządzać kluczami używanymi do szyfrowania danych.
 
 Pamięć podręczna Azure HPC jest również chroniona przez [szyfrowanie hosta maszyny wirtualnej](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) na dyskach zarządzanych, które przechowują dane w pamięci podręcznej, nawet jeśli zostanie dodany klucz klienta dla dysków pamięci podręcznej. Dodanie klucza zarządzanego przez klienta do szyfrowania podwójnego zapewnia klientom dodatkowy poziom zabezpieczeń. Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem szyfrowanie po stronie serwera w usłudze Azure Disk Storage](../virtual-machines/disk-encryption.md) .
-
-<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
 
 Należy wykonać trzy kroki, aby włączyć szyfrowanie klucza zarządzanego przez klienta dla pamięci podręcznej platformy Azure HPC:
 
@@ -69,14 +67,14 @@ Podczas tworzenia pamięci podręcznej należy określić magazyn, klucz i wersj
 Zapoznaj się z [dokumentacją Azure Key Vault](../key-vault/general/overview.md) , aby uzyskać szczegółowe informacje.
 
 > [!NOTE]
-> Azure Key Vault musi używać tej samej subskrypcji i znajdować się w tym samym regionie co pamięć podręczna platformy Azure HPC. Upewnij się, że wybrany region [obsługuje funkcję klucze zarządzane przez klienta](hpc-cache-overview.md#region-availability).
+> Azure Key Vault musi używać tej samej subskrypcji i znajdować się w tym samym regionie co pamięć podręczna platformy Azure HPC. Upewnij się, że wybrany region [obsługuje oba produkty](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. Utwórz pamięć podręczną z włączonymi kluczami zarządzanymi przez klienta
 
 Podczas tworzenia pamięci podręcznej platformy Azure HPC należy określić źródło klucza szyfrowania. Postępuj zgodnie z instrukcjami w temacie [Tworzenie pamięci podręcznej platformy Azure HPC](hpc-cache-create.md)i określ Magazyn kluczy i klucz na stronie **kluczy szyfrowania dysku** . Nowy magazyn kluczy i klucz można utworzyć podczas tworzenia pamięci podręcznej.
 
 > [!TIP]
-> Jeśli nie zostanie wyświetlona strona **klucze szyfrowania dysku** , upewnij się, że pamięć podręczna znajduje się w jednym z obsługiwanych regionów.
+> Jeśli nie zostanie wyświetlona strona **klucze szyfrowania dysku** , upewnij się, że pamięć podręczna znajduje się w jednym z [obsługiwanych regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 Użytkownik, który tworzy pamięć podręczną, musi mieć uprawnienia równe [roli współautor Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor) lub wyższą.
 

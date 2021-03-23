@@ -1,18 +1,14 @@
 ---
 title: Uzyskiwanie wglądu w globalne, regionalne i lokalne zagrożenia
 description: Uzyskaj wgląd w globalne, regionalne i lokalne zagrożenia, używając mapy witryny w lokalnej konsoli zarządzania.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: cde55f3c2a875c593c07ea05427f8075d8599196
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db3b9fbca9acd6c4ce1cfe137a4024f66d8a6292
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97843547"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784122"
 ---
 # <a name="gain-insight-into-global-regional-and-local-threats"></a>Uzyskiwanie wglądu w globalne, regionalne i lokalne zagrożenia
 

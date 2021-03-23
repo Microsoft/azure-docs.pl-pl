@@ -1,17 +1,17 @@
 ---
 title: Często zadawane pytania dotyczące urządzenia Azure Migrate
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzenia Azure Migrateowego.
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/22/2021
+ms.openlocfilehash: 74d8018ea4cb2cad5b6726b8abb6bf2f17b8e57c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043069"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778529"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania
 
@@ -24,13 +24,13 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Co to jest urządzenie Azure Migrate?
 
-Urządzenie Azure Migrate to lekkie urządzenie, za pomocą którego Azure Migrate: Narzędzie do oceny serwera służy do odnajdywania i oceniania serwerów fizycznych lub wirtualnych z poziomu lokalnego lub dowolnych chmur. Azure Migrate: Narzędzie do migracji serwera używa również urządzenia do migracji bez agentów lokalnych maszyn wirtualnych VMware.
+Urządzenie Azure Migrate to lekkie urządzenie, za pomocą którego Azure Migrate: Narzędzie do odnajdywania i oceny, które umożliwia odnajdywanie i ocenianie serwerów fizycznych lub wirtualnych z poziomu lokalnego lub dowolnych chmur. Azure Migrate: Narzędzie do migracji serwera używa również urządzenia do migracji bez agentów serwerów lokalnych działających w środowisku VMware.
 
 Poniżej przedstawiono więcej informacji o urządzeniu Azure Migrate:
 
-- Urządzenie jest wdrażane lokalnie jako maszynę wirtualną lub na komputerze fizycznym.
-- Urządzenie umożliwia odnalezienie maszyn lokalnych i ciągłe wysyłanie metadanych maszyn i danych wydajności do Azure Migrate.
-- Odnajdowanie urządzeń jest bez agentów. Nic nie jest zainstalowane na odnalezionych maszynach.
+- Urządzenie jest wdrażane lokalnie jako serwer fizyczny lub zwirtualizowany serwer.
+- Urządzenie odnajduje serwery lokalne i ciągle wysyła dane o wydajności i metadanych serwera do Azure Migrate.
+- Odnajdowanie urządzeń jest bez agentów. Nic nie jest zainstalowane na odnalezionych serwerach.
 
 [Dowiedz się więcej](migrate-appliance.md) o urządzeniu.
 
@@ -54,11 +54,11 @@ Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy u
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Czy analiza urządzenia ma wpływ na wydajność?
 
-Lokalne profile urządzeń Azure Migrate są stale do mierzenia danych wydajności. Takie Profilowanie nie ma prawie żadnego wpływu na wydajność maszyn.
+Lokalne profile urządzeń Azure Migrate są stale do mierzenia danych wydajności. To profilowania nie ma prawie wpływu na serwery profilowane.
 
-## <a name="can-i-harden-the-appliance-vm"></a>Czy mogę zabezpieczyć maszynę wirtualną urządzenia?
+## <a name="can-i-harden-the-appliance"></a>Czy mogę wzmocnić urządzenie?
 
-W przypadku użycia pobranego szablonu do utworzenia maszyny wirtualnej urządzenia można dodać do szablonu składniki (na przykład program antywirusowy), jeśli użytkownik opuści reguły komunikacji i zapory wymagane przez urządzenie Azure Migrate.
+W przypadku użycia pobranego szablonu do utworzenia urządzenia można dodać do szablonu składniki (na przykład program antywirusowy), jeśli użytkownik opuści reguły komunikacji i zapory wymagane przez urządzenie Azure Migrate.
 
 ## <a name="what-network-connectivity-is-required"></a>Jaka łączność sieciowa jest wymagana?
 
@@ -66,24 +66,24 @@ Urządzenie musi mieć dostęp do adresów URL platformy Azure. [Przejrzyj](migr
 
 ## <a name="what-data-does-the-appliance-collect"></a>Jakie dane są zbierane przez urządzenie?
 
-Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat danych zbieranych na maszynach wirtualnych przez urządzenie Azure Migrate:
+Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat danych zbieranych na serwerach przez urządzenie Azure Migrate:
 
-- **Maszyna wirtualna VMware**: [przeglądanie](migrate-appliance.md#collected-data---vmware) zebranych danych.
-- **Maszyna wirtualna funkcji Hyper-V**: [Przegląd](migrate-appliance.md#collected-data---hyper-v) zebranych danych.
+- **Serwery w środowisku VMware**: [Przejrzyj](migrate-appliance.md#collected-data---vmware) zebrane dane.
+- **Serwery w środowisku funkcji Hyper-V**: [Przejrzyj](migrate-appliance.md#collected-data---hyper-v) zebrane dane.
 - **Serwery fizyczne lub wirtualne**:[Przegląd](migrate-appliance.md#collected-data---physical) zebranych danych.
 
 ## <a name="how-is-data-stored"></a>W jaki sposób przechowywane są dane?
 
-Dane zbierane przez urządzenie Azure Migrate są przechowywane w lokalizacji platformy Azure, w której został utworzony projekt Azure Migrate.
+Dane zbierane przez urządzenie Azure Migrate są przechowywane w lokalizacji platformy Azure, w której został utworzony projekt.
 
 Poniżej przedstawiono więcej informacji na temat sposobu przechowywania danych:
 
-- Zebrane dane są bezpiecznie przechowywane w CosmosDB w ramach subskrypcji firmy Microsoft. Dane zostaną usunięte po usunięciu projektu Azure Migrate. Magazyn jest obsługiwany przez Azure Migrate. Nie można wybrać konta magazynu dla zbieranych danych.
-- Jeśli używasz [wizualizacji zależności](concepts-dependency-visualization.md), zebrane dane są przechowywane w obszarze roboczym usługi Azure log Analytics utworzonym w ramach subskrypcji platformy Azure. Dane zostaną usunięte po usunięciu obszaru roboczego Log Analytics w ramach subskrypcji. 
+- Zebrane dane są bezpiecznie przechowywane w CosmosDB w ramach subskrypcji firmy Microsoft. Dane zostaną usunięte po usunięciu projektu. Magazyn jest obsługiwany przez Azure Migrate. Nie można wybrać konta magazynu dla zbieranych danych.
+- Jeśli używasz [wizualizacji zależności](concepts-dependency-visualization.md), zebrane dane są przechowywane w obszarze roboczym usługi Azure log Analytics utworzonym w ramach subskrypcji platformy Azure. Dane zostaną usunięte po usunięciu obszaru roboczego Log Analytics w ramach subskrypcji.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Ile danych jest przekazywanych podczas ciągłego profilowania?
 
-Ilość danych wysyłanych do Azure Migrate zależy od wielu parametrów. Na przykład projekt Azure Migrate zawierający 10 maszyn (z jednym dyskiem i jedną kartą sieciową) wysyła około 50 MB danych dziennie. Ta wartość jest przybliżona; rzeczywista wartość różni się w zależności od liczby punktów danych na dyskach i w kartach sieciowych. W przypadku zwiększenia liczby maszyn, dysków lub kart sieciowych zwiększenie ilości wysyłanych danych jest nieliniowe.
+Ilość danych wysyłanych do Azure Migrate zależy od wielu parametrów. Na przykład projekt zawierający 10 serwerów (z jednym dyskiem i jedną kartą sieciową) wysyła około 50 MB danych dziennie. Ta wartość jest przybliżona; rzeczywista wartość różni się w zależności od liczby punktów danych na dyskach i w kartach sieciowych. W przypadku zwiększenia liczby serwerów, dysków lub kart sieciowych zwiększenie ilości wysyłanych danych jest nieliniowe.
 
 ## <a name="is-data-encrypted-at-rest-and-in-transit"></a>Czy dane są szyfrowane podczas przechowywania i podczas przesyłania?
 
@@ -98,39 +98,39 @@ Tak, dla obu:
 W tych krokach opisano, jak urządzenie łączy się z VMware vCenter Server:
 
 1. Urządzenie łączy się z vCenter Server (port 443) przy użyciu poświadczeń podanych podczas konfigurowania urządzenia.
-2. Urządzenie używa programu VMware PowerCLI do wykonywania zapytań vCenter Server, aby zbierać metadane dotyczące maszyn wirtualnych zarządzanych przez vCenter Server.
-3. Urządzenie zbiera dane konfiguracyjne o maszynach wirtualnych (rdzenie, pamięć, dyski, karty sieciowe) i historię wydajności każdej maszyny wirtualnej w ciągu ostatniego miesiąca.
-4. Zebrane metadane są wysyłane do Azure Migrate: narzędzia do oceny serwera (przez Internet za pośrednictwem protokołu HTTPS) do oceny.
+2. Urządzenie używa programu VMware PowerCLI do wykonywania zapytań vCenter Server, aby zbierać metadane dotyczące serwerów zarządzanych przez vCenter Server.
+3. Urządzenie zbiera dane konfiguracyjne dotyczące serwerów (rdzenie, pamięć, dyski, karty sieciowe) i historię wydajności każdego serwera w ostatnim miesiącu.
+4. Zebrane metadane są wysyłane do Azure Migrate: narzędzia do odnajdywania i oceny (przez Internet za pośrednictwem protokołu HTTPS) do oceny.
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>Czy urządzenie Azure Migrate może nawiązać połączenie z wieloma serwerami vCenter?
 
-Nie. Istnieje mapowanie jeden do jednego między [urządzeniem Azure Migrate](migrate-appliance.md) i vCenter Server. Aby odnajdywać maszyny wirtualne w wielu wystąpieniach vCenter Server, należy wdrożyć wiele urządzeń. 
+Nie. Istnieje mapowanie jeden do jednego między [urządzeniem Azure Migrate](migrate-appliance.md) i vCenter Server. Aby odnajdywać serwery w wielu wystąpieniach vCenter Server, należy wdrożyć wiele urządzeń.
 
-## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Czy projekt Azure Migrate ma wiele urządzeń?
+## <a name="can-a-project-have-multiple-appliances"></a>Czy projekt może mieć wiele urządzeń?
 
 Projekt może mieć zarejestrowane wiele urządzeń. Jednak jedno urządzenie może być zarejestrowane tylko w jednym projekcie.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Czy urządzenie Azure Migrate/urządzenie do replikacji nawiązuje połączenie z tym samym programem vCenter?
 
-Tak. Do tego samego serwera vCenter można dodać urządzenie Azure Migrate (używane do oceny i migracji VMware bez agentów) oraz urządzenie do replikacji (używane do migracji opartej na agentach maszyn wirtualnych VMware). Pamiętaj jednak, aby nie konfigurować obu urządzeń na tej samej maszynie wirtualnej, co nie jest obecnie obsługiwane.
+Tak. Do tego samego serwera vCenter można dodać urządzenie Azure Migrate (używane do oceny i migracji VMware bez agentów) oraz urządzenie do replikacji (używane w przypadku migracji na podstawie agentów serwerów działających w oprogramowaniu VMware). Pamiętaj jednak, aby nie konfigurować obu urządzeń na tym samym serwerze, co nie jest obecnie obsługiwane.
 
-## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Ile maszyn wirtualnych lub serwerów można wykryć przy użyciu urządzenia?
+## <a name="how-many-servers-can-i-discover-with-an-appliance"></a>Ile serwerów można wykryć przy użyciu urządzenia?
 
-Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych funkcji Hyper-V, a nawet do 1000 serwery fizyczne przy użyciu jednego urządzenia. Jeśli masz więcej maszyn w środowisku lokalnym, zapoznaj się z tematem [skalowanie oceny funkcji Hyper-V](scale-hyper-v-assessment.md), [skalowanie oceny oprogramowania VMware](scale-vmware-assessment.md)i [skalowanie oceny serwera fizycznego](scale-physical-assessment.md).
+Można odnajdywać maksymalnie 10 000 serwerów w środowisku VMware, do 5 000 serwerów w środowisku funkcji Hyper-V oraz do 1000 serwery fizyczne przy użyciu jednego urządzenia. Jeśli masz więcej serwerów w środowisku lokalnym, zapoznaj się z tematem [skalowanie oceny funkcji Hyper-V](scale-hyper-v-assessment.md), [skalowanie oceny oprogramowania VMware](scale-vmware-assessment.md)i [skalowanie oceny serwera fizycznego](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>Czy mogę usunąć urządzenie?
 
 Obecnie Usuwanie urządzenia z projektu nie jest obsługiwane.
 
-Jedynym sposobem usunięcia urządzenia jest usunięcie grupy zasobów zawierającej projekt Azure Migrate, który jest skojarzony z urządzeniem.
+Jedynym sposobem usunięcia urządzenia jest usunięcie grupy zasobów zawierającej projekt skojarzony z urządzeniem.
 
 Jednak usunięcie grupy zasobów powoduje również usunięcie innych zarejestrowanych urządzeń, wykrytego spisu, ocen i wszystkich innych składników platformy Azure w grupie zasobów, które są skojarzone z projektem.
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>Czy mogę użyć urządzenia z inną subskrypcją lub projektem?
 
-Aby można było użyć urządzenia z inną subskrypcją lub projektem, należy ponownie skonfigurować istniejące urządzenie, uruchamiając skrypt Instalatora programu PowerShell dla określonego scenariusza (VMware/Hyper-V/Physical) na komputerze. Skrypt będzie czyścił istniejące składniki i ustawienia urządzenia w celu wdrożenia nowego urządzenia. Przed rozpoczęciem korzystania z nowo wdrożonego programu Configuration Manager upewnij się, że pamięć podręczna przeglądarki została wyczyszczona.
+Aby użyć urządzenia z inną subskrypcją lub projektem, należy ponownie skonfigurować istniejące urządzenie, uruchamiając skrypt Instalatora programu PowerShell dla określonego scenariusza (VMware/Hyper-V/Physical) na urządzeniu. Skrypt będzie czyścił istniejące składniki i ustawienia urządzenia w celu wdrożenia nowego urządzenia. Przed rozpoczęciem korzystania z nowo wdrożonego programu Configuration Manager upewnij się, że pamięć podręczna przeglądarki została wyczyszczona.
 
-Nie można również użyć istniejącego klucza projektu Azure Migrate na urządzeniu, na którym został skonfigurowany. Upewnij się, że Wygenerowano nowy klucz z żądanej subskrypcji/projektu, aby zakończyć rejestrację urządzenia.
+Nie można też ponownie użyć istniejącego klucza projektu na urządzeniu, na którym został skonfigurowany. Upewnij się, że Wygenerowano nowy klucz z żądanej subskrypcji/projektu, aby zakończyć rejestrację urządzenia.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Czy mogę skonfigurować urządzenie na maszynie wirtualnej platformy Azure?
 
@@ -138,7 +138,7 @@ Nie. Obecnie ta opcja nie jest obsługiwana.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Czy mogę odnaleźć na hoście ESXi?
 
-Nie. Aby odnaleźć maszyny wirtualne VMware, musisz mieć vCenter Server.
+Nie. Aby odnajdywać serwery w środowisku VMware, musisz mieć vCenter Server.
 
 ## <a name="how-do-i-update-the-appliance"></a>Jak mogę zaktualizować urządzenie?
 
@@ -148,7 +148,7 @@ Te aktualizacje automatyczne są aktualizowane tylko przez urządzenie i agentó
 
 ## <a name="can-i-check-agent-health"></a>Czy mogę sprawdzić kondycję agentów?
 
-Tak. W portalu przejdź do strony **kondycja agenta** , aby uzyskać Azure Migrate: Ocena serwera lub Azure Migrate: Narzędzie migracji serwera. W tym miejscu można sprawdzić stan połączenia między platformą Azure a agentami odnajdywania i oceny na urządzeniu.
+Tak. W portalu przejdź do strony **kondycja agenta** , aby uzyskać Azure Migrate: odnajdywanie i ocenianie lub Azure Migrate: Narzędzia migracji serwera. W tym miejscu można sprawdzić stan połączenia między platformą Azure a agentami odnajdywania i oceny na urządzeniu.
 
 ## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>Czy mogę dodać wiele poświadczeń serwera na urządzeniu VMware?
 

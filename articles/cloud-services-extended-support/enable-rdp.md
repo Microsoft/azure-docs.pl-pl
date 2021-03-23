@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744418"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773406"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Stosowanie rozszerzenia Pulpit zdalny do usługi Azure Cloud Services (obsługa rozszerzona)
 
@@ -27,8 +27,9 @@ Azure Portal korzysta z rozszerzenia pulpitu zdalnego, aby włączyć pulpit zda
 2. Wybierz pozycję **Dodaj**.
 3. Wybierz role, aby włączyć pulpit zdalny dla programu.
 4. Wypełnij pola wymagane w polu Nazwa użytkownika, hasło, wygaśnięcie i certyfikat (niewymagane).
+> Korygując Hasło dla pulpitu zdalnego musi mieć długość od 8-123 znaków i musi spełniać co najmniej 3 wymagania dotyczące złożoności haseł z następujących: 1) zawiera wielkie litery 2) zawiera znak małymi literami 3), które zawiera cyfrę cyfry 4) zawiera znak specjalny 5) znaki kontrolne nie są dozwolone
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="Obraz przedstawiający wprowadzanie informacji wymaganych do nawiązania połączenia z pulpitem zdalnym.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="Obraz przedstawiający wprowadzanie informacji wymaganych do nawiązania połączenia z pulpitem zdalnym.":::
 
 5. Po zakończeniu wybierz pozycję **Zapisz**. Potrwa to chwilę, zanim wystąpienia roli będą gotowe do odbierania połączeń.
 

@@ -1,22 +1,22 @@
 ---
-title: Wprowadzenie do integrowania usługi Azure AD z aplikacjami
+title: Wprowadzenie do integrowania Azure Active Directory z aplikacjami
 description: Ten artykuł zawiera Przewodnik wprowadzający do integrowania Azure Active Directory (AD) z aplikacjami lokalnymi i aplikacjami w chmurze.
 services: active-directory
 author: kenwith
 manager: daveba
 ms.service: active-directory
+ms.subservice: app-mgmt
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2018
+ms.date: 03/19/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de06bb4f97568eaa40b0b09e9bc2b50608424aa8
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99258470"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775599"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Przewodnik po rozpoczęciu integracji Azure Active Directory z aplikacjami
 
@@ -47,7 +47,7 @@ Przed integracją aplikacji z usługą Azure AD ważne jest, aby wiedzieć, gdzi
   * Jak zorganizowane są grupy?
   * Kto jest członkiem grupy?
   * Jakie uprawnienia/przypisania ról są obecnie dostępne w grupach?
-* Czy konieczne będzie oczyszczenie baz danych użytkownika/grupy przed integracją?  (Jest to bardzo ważne pytanie. Wyrzucanie elementów bezużytecznych.
+* Czy konieczne będzie oczyszczenie baz danych użytkownika/grupy przed integracją?  (To jest ważne pytanie. Wyrzucanie elementów bezużytecznych.
 
 ### <a name="access-management-inventory"></a>Dostęp do spisu zarządzania
 * Jak obecnie zarządzasz dostępem użytkowników do aplikacji? Czy trzeba zmienić?  Czy zostały uznane za inne sposoby zarządzania dostępem, na przykład z użyciem [usługi Azure RBAC](../../role-based-access-control/role-assignments-portal.md) ?
@@ -66,8 +66,19 @@ W poniższych artykułach omówiono różne sposoby integracji aplikacji z usłu
 * [Korzystanie z aplikacji w galerii aplikacji platformy Azure](what-is-single-sign-on.md)
 * [Lista samouczków dotyczących integrowania aplikacji SaaS](../saas-apps/tutorial-list.md)
 
+## <a name="capabilities-for-apps-not-listed-in-the-azure-ad-gallery"></a>Możliwości dla aplikacji, które nie są wymienione w galerii usługi Azure AD
+
+Możesz dodać dowolną aplikację, która już istnieje w organizacji, lub dowolną aplikację innej firmy od dostawcy, który nie jest jeszcze częścią galerii usługi Azure AD. W zależności od [umowy licencyjnej](https://azure.microsoft.com/pricing/details/active-directory/)dostępne są następujące funkcje:
+
+- Samoobsługowa integracja dowolnej aplikacji, która obsługuje [SAML (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) dostawców tożsamości (zainicjowanych przez program SP lub dostawcy tożsamości)
+- Samoobsługowa integracja dowolnej aplikacji sieci Web, która ma stronę logowania opartą na języku HTML przy użyciu [logowania jednokrotnego opartego na hasłach](sso-options.md#password-based-sso)
+- Samoobsługowe połączenie aplikacji korzystających z [systemu do obsługi międzydomenowego protokołu zarządzania tożsamościami (standard scim) na potrzeby aprowizacji użytkowników](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- Możliwość dodawania linków do dowolnej aplikacji w programie [uruchamiania aplikacji pakietu Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) lub [moich aplikacjach](sso-options.md#linked-sign-on)
+
+Jeśli szukasz wskazówek dla deweloperów, jak zintegrować aplikacje niestandardowe z usługą Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../develop/authentication-vs-authorization.md). Podczas tworzenia aplikacji, która korzysta z nowoczesnego protokołu, takiego jak [OpenID Connect Connect/OAuth](../develop/active-directory-v2-protocols.md) do uwierzytelniania użytkowników, możesz zarejestrować ją na platformie tożsamości firmy Microsoft, korzystając z [Rejestracje aplikacji](../develop/quickstart-register-app.md) środowiska w Azure Portal.
+
 ### <a name="authentication-types"></a>Typy uwierzytelniania
-Każda aplikacja może mieć inne wymagania dotyczące uwierzytelniania. Za pomocą usługi Azure AD certyfikaty podpisywania mogą być używane z aplikacjami, które używają protokołów SAML 2,0, WS-Federation lub OpenID Connect Connect, a także logowania jednokrotnego hasła. Aby uzyskać więcej informacji o typach uwierzytelniania aplikacji do użycia z usługą Azure AD, zobacz [Zarządzanie certyfikatami dla federacyjnych pojedynczych Sign-On w Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) i [hasła logowania jednokrotnego](what-is-single-sign-on.md).
+Każda aplikacja może mieć inne wymagania dotyczące uwierzytelniania. Za pomocą usługi Azure AD certyfikaty podpisywania mogą być używane z aplikacjami, które korzystają z protokołu SAML 2,0, WS-Federation lub OpenID Connect łączenie protokołów i haseł logowania jednokrotnego. Aby uzyskać więcej informacji na temat typów uwierzytelniania aplikacji, zobacz [Zarządzanie certyfikatami dla federacyjnego jednego Sign-On w Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) i [hasła logowania jednokrotnego](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Włączanie logowania jednokrotnego przy użyciu serwera proxy aplikacja usługi Azure AD
 Za pomocą serwera proxy aplikacji Microsoft Azure AD można zapewnić bezpieczny dostęp do aplikacji znajdujących się w sieci prywatnej, z dowolnego miejsca i na dowolnym urządzeniu. Po zainstalowaniu łącznika serwera proxy aplikacji w środowisku można go łatwo skonfigurować przy użyciu usługi Azure AD.
@@ -85,11 +96,9 @@ W poniższych artykułach opisano sposoby zarządzania dostępem do aplikacji, k
 * [Udostępnianie kont](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać szczegółowe informacje, możesz pobrać Azure Active Directory plany wdrożenia z usługi [GitHub](../fundamentals/active-directory-deployment-plans.md). W przypadku aplikacji galerii można pobrać plany wdrożenia dotyczące logowania jednokrotnego, dostępu warunkowego i aprowizacji użytkowników za pomocą [Azure Portal](https://portal.azure.com). 
+Aby uzyskać szczegółowe informacje, możesz pobrać Azure Active Directory plany wdrożenia z usługi [GitHub](../fundamentals/active-directory-deployment-plans.md). W przypadku aplikacji galerii można pobrać plany wdrożenia dotyczące logowania jednokrotnego, dostępu warunkowego i aprowizacji użytkowników za pomocą [Azure Portal](https://portal.azure.com).
 
 Aby pobrać plan wdrożenia z Azure Portal:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz pozycję **aplikacje przedsiębiorstwa** wybierz  |    |  **plan wdrożenia** aplikacji.
-
-Przekaż opinię na temat planów wdrażania, pobierając [ankietę dotyczącą planu wdrożenia](https://aka.ms/DeploymentPlanFeedback).

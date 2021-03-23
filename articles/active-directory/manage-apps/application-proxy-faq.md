@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b76934d3f16ec5f87ed1380135d22bc5d943652c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487750"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779771"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -45,7 +45,7 @@ Może to być spowodowane nieprawidłowym działaniem usługi Aktualizator lub b
 Usługa Aktualizator jest w dobrej kondycji, jeśli jest uruchomiona i nie ma błędów zarejestrowanych w dzienniku zdarzeń (Dzienniki aplikacji i usług — > Microsoft-> AadApplicationProxy-> Aktualizator-> administrator). 
 
 > [!IMPORTANT]
-> Do autouaktualniania są udostępniane tylko wersje główne. Zalecamy ręczne aktualizowanie łącznika zgodnie z regularnym harmonogramem. Aby uzyskać więcej informacji na temat nowych wersji, typ wydania (pobieranie, Autouaktualnianie), poprawki błędów i nowe funkcje, zobacz [serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji](application-proxy-release-version-history.md).
+> Do autouaktualniania są udostępniane tylko wersje główne. Zalecamy ręczne aktualizowanie łącznika tylko wtedy, gdy jest to konieczne. Na przykład nie można czekać na wydanie główne, ponieważ należy rozwiązać znany problem lub użyć nowej funkcji. Aby uzyskać więcej informacji na temat nowych wersji, typ wydania (pobieranie, Autouaktualnianie), poprawki błędów i nowe funkcje, zobacz [serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji](application-proxy-release-version-history.md).
 
 Aby ręcznie uaktualnić łącznik:
 

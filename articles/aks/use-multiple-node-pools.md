@@ -3,13 +3,13 @@ title: Korzystanie z wielu pul węzłów w usłudze Azure Kubernetes Service (AK
 description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla klastra w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 02/11/2021
+ms.openlocfilehash: 8f18e19eca8895549f17c9f0f6822ecb4da2914b
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218489"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773508"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie wielu puli węzłów dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nimi
 
@@ -134,7 +134,7 @@ Obciążenie może wymagać dzielenia węzłów klastra na oddzielne pule na pot
 * W przypadku rozwinięcia sieci wirtualnej po utworzeniu klastra należy zaktualizować klaster (wykonać dowolną zarządzaną operację clster, ale operacje puli węzłów nie są zliczane) przed dodaniem podsieci spoza oryginalnego CIDR. AKS wykryje błąd w puli agentów, mimo że została pierwotnie przeprowadzona. Jeśli nie wiesz, jak uzgodnić plik klastra z pomocą techniczną. 
 * Zasady sieci Calico nie są obsługiwane. 
 * Zasady sieci platformy Azure nie są obsługiwane.
-* Polecenia — serwer proxy oczekuje pojedynczego ciągłego CIDR i używa go dla trzech optmizations. Zobacz ten [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) i--Cluster-CIDR [tutaj](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) , aby uzyskać szczegółowe informacje. Na platformie Azure CNI podsieć puli pierwszych węzłów zostanie przyznany do polecenia-proxy. 
+* Polecenia — serwer proxy oczekuje pojedynczego ciągłego CIDR i używa go dla trzech optmizations. Zobacz ten [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) i--Cluster-CIDR [tutaj](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) , aby uzyskać szczegółowe informacje. Na platformie Azure CNI podsieć puli pierwszych węzłów zostanie przyznany do polecenia-proxy. 
 
 Aby utworzyć pulę węzłów z dedykowaną podsiecią, należy przekazać identyfikator zasobu podsieci jako dodatkowy parametr podczas tworzenia puli węzłów.
 
@@ -716,33 +716,11 @@ az deployment group create \
 
 Zaktualizowanie klastra AKS może potrwać kilka minut, w zależności od ustawień puli węzłów i operacji zdefiniowanych w szablonie Menedżer zasobów.
 
-## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Przypisz publiczny adres IP na węzeł dla pul węzłów (wersja zapoznawcza)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools"></a>Przypisz publiczny adres IP na węzeł dla pul węzłów
 
-> [!WARNING]
-> Aby korzystać z funkcji Public IP na węzeł, należy zainstalować rozszerzenie 0.4.43 w wersji zapoznawczej interfejsu wiersza polecenia.
+Węzły AKS nie wymagają swoich własnych publicznych adresów IP do komunikacji. Jednak scenariusze mogą wymagać, aby węzły w puli węzłów otrzymywały własne dedykowane publiczne adresy IP. Typowy scenariusz dotyczy obciążeń gier, gdzie konsola programu musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze, aby zminimalizować liczbę przeskoków. Ten scenariusz można osiągnąć w witrynie AKS za pomocą publicznego adresu IP węzła.
 
-Węzły AKS nie wymagają swoich własnych publicznych adresów IP do komunikacji. Jednak scenariusze mogą wymagać, aby węzły w puli węzłów otrzymywały własne dedykowane publiczne adresy IP. Typowy scenariusz dotyczy obciążeń gier, gdzie konsola programu musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze, aby zminimalizować liczbę przeskoków. Ten scenariusz można uzyskać w witrynie AKS, rejestrując się w celu uzyskania funkcji w wersji zapoznawczej, publicznego adresu IP węzła (wersja zapoznawcza).
-
-Aby zainstalować i zaktualizować najnowsze rozszerzenie AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension update --name aks-preview
-az extension list
-```
-
-Zarejestruj się, aby uzyskać dostęp do funkcji publicznego adresu IP węzła przy użyciu następującego polecenia platformy Azure:
-
-```azurecli-interactive
-az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
-```
-Zarejestrowanie funkcji może potrwać kilka minut.  Stan można sprawdzić za pomocą następującego polecenia:
-
-```azurecli-interactive
- az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
-```
-
-Po pomyślnej rejestracji Utwórz nową grupę zasobów.
+Najpierw utwórz nową grupę zasobów.
 
 ```azurecli-interactive
 az group create --name myResourceGroup2 --location eastus
@@ -760,12 +738,9 @@ W przypadku istniejących klastrów AKS można również dodać nową pulę węz
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-> [!Important]
-> W trakcie okresu zapoznawczego usługa Azure Instance Metadata Service nie obsługuje obecnie pobierania publicznych adresów IP dla jednostki SKU maszyny wirtualnej w warstwie Standardowa. Ze względu na to ograniczenie nie można używać poleceń polecenia kubectl do wyświetlania publicznych adresów IP przypisanych do węzłów. Jednak adresy IP są przypisywane i funkcjonują zgodnie z oczekiwaniami. Publiczne adresy IP dla węzłów są dołączone do wystąpień w zestawie skalowania maszyn wirtualnych.
-
 Publiczne adresy IP dla węzłów można znaleźć na różne sposoby:
 
-* Korzystanie z interfejsu wiersza polecenia platformy Azure [AZ VMSS list-instance-Public-IP][az-list-ips]
+* Użyj interfejsu wiersza polecenia platformy Azure [AZ VMSS list-instance-Public-IP][az-list-ips].
 * Użyj [poleceń programu PowerShell lub bash][vmss-commands]. 
 * Możesz również wyświetlić publiczne adresy IP w Azure Portal, wyświetlając wystąpienia w zestawie skalowania maszyn wirtualnych.
 
@@ -818,20 +793,20 @@ Używaj [grup umieszczania w sąsiedztwie][reduce-latency-ppg] , aby ograniczyć
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_delete
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-group-create]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create
+[az-group-delete]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete
+[az-deployment-group-create]: /cli/azure/deployment/group?view=azure-cli-latest&preserve-view=true#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -844,5 +819,5 @@ Używaj [grup umieszczania w sąsiedztwie][reduce-latency-ppg] , aby ograniczyć
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md

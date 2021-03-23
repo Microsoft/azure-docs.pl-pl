@@ -4,34 +4,100 @@ summary: Dowiedz się, jak za pomocą usługi BareMetal Infrastructure tworzyć 
 metadata:
   title: Dokumentacja usługi BareMetal Infrastructure
   description: Dowiedz się, jak za pomocą usługi BareMetal Infrastructure tworzyć i wdrażać maszyny wirtualne na platformie Microsoft Azure oraz zarządzać nimi.
-  services: virtual-machines
+  services: baremetal-infrastructure
   ms.service: baremetal-infrastructure
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 12/31/2020
-  ms.openlocfilehash: 285421d12b656290ef5ddbe21136345b718e0ca1
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.date: 03/19/2021
+  ms.openlocfilehash: 9380cd3d0d3184716d980f57e8cc88ab27201b20
+  ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98730276"
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104770907"
 landingContent:
 - title: Informacje o usłudze BareMetal Infrastructure
   linkLists:
   - linkListType: overview
     links:
     - text: Co to jest usługa BareMetal Infrastructure na platformie Azure?
-      url: workloads/sap/baremetal-overview-architecture.md
+      url: concepts-baremetal-infrastructure-overview.md
     - text: Poznawanie warunków
       url: know-baremetal-terms.md
+    - text: Typy obciążeń BareMetal
+      url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Łączenie jednostek wystąpień BareMetal na platformie Azure
+      url: connect-baremetal-infrastructure.md
+- title: Oprogramowanie SAP HANA na platformie Azure (duże wystąpienia)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Certyfikacja
+      url: /azure/virtual-machines/workloads/sap/hana-certification?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Dostępne jednostki SKU dla oprogramowania SAP HANA na platformie Azure — duże wystąpienia
+      url: /azure/virtual-machines/workloads/sap/hana-available-skus?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Ustalanie rozmiaru
+      url: /azure/virtual-machines/workloads/sap/hana-sizing?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Wymagania dotyczące dołączania
+      url: /azure/virtual-machines/workloads/sap/hana-onboarding-requirements?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Węzły rozszerzeń i warstwy danych na platformie SAP HANA
+      url: /azure/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Model działania i obowiązki
+      url: /azure/virtual-machines/workloads/sap/hana-operations-model?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Zgodne systemy operacyjne
+      url: /azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Obsługiwane scenariusze oprogramowania HANA — duże wystąpienia
+      url: /azure/virtual-machines/workloads/sap/hana-supported-scenario?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+  - linkListType: architecture
+    links:
+    - text: Architektura ogólna
+      url: /azure/virtual-machines/workloads/sap/hana-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Architektura sieci
+      url: /azure/virtual-machines/workloads/sap/hana-network-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Architektura magazynu
+      url: /azure/virtual-machines/workloads/sap/hana-storage-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+  - linkListType: get-started
+    links:
+    - text: Wdrażanie funkcji HANA — duże wystąpienia
+      url: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Łączenie maszyn wirtualnych platformy Azure z funkcją HANA — duże wystąpienia
+      url: /azure/virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Łączenie sieci wirtualnej z usługą ExpressRoute funkcji HANA — duże wystąpienie
+      url: /azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Dodatkowe wymagania dotyczące sieci
+      url: /azure/virtual-machines/workloads/sap/hana-additional-network-requirements?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Weryfikowanie konfiguracji
+      url: /azure/virtual-machines/workloads/sap/hana-installation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Przykładowa instalacja platformy HANA
+      url: /azure/virtual-machines/workloads/sap/hana-example-installation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
   - linkListType: reference
     links:
-    - text: Typy obciążeń BareMetal
-      url: ../virtual-machines/workloads/sap/get-started.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-- title: Jednostki wystąpień BareMetal
-  linkLists:
+    - text: Opcje i zagadnienia
+      url: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Tworzenie kopii zapasowej i przywracanie
+      url: /azure/virtual-machines/workloads/sap/hana-backup-restore?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Reguły i przygotowanie
+      url: /azure/virtual-machines/workloads/sap/hana-concept-preparation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Procedura przechodzenia w tryb failover odzyskiwania po awarii
+      url: /azure/virtual-machines/workloads/sap/hana-failover-procedure?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Monitorowanie funkcji HANA — duże wystąpienia
+      url: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA
+      url: /azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot?context=/azure/baremetal-infrastructure/workloads/sap/context/context
   - linkListType: how-to-guide
     links:
-    - text: Zarządzanie jednostkami wystąpień BareMetal na platformie Azure
-      url: workloads/sap/baremetal-infrastructure-portal.md
+    - text: Konfiguracja wysokiej dostępności za pomocą metody STONITH
+      url: /azure/virtual-machines/workloads/sap/ha-setup-with-stonith?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Kopia zapasowa systemu operacyjnego dla jednostek SKU typu II
+      url: /azure/virtual-machines/workloads/sap/os-backup-type-ii-skus?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Włączanie narzędzia Kdump dla dużych wystąpień platformy HANA
+      url: /azure/virtual-machines/workloads/sap/hana-large-instance-enable-kdump?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Uaktualnianie systemu operacyjnego dla dużych wystąpień HANA
+      url: /azure/virtual-machines/workloads/sap/os-upgrade-hana-large-instance?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Konfigurowanie serwera SMT dla serwera z systemem SUSE Linux
+      url: /azure/virtual-machines/workloads/sap/hana-setup-smt?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Migracja z funkcji HANA — duże wystąpienia na maszynę wirtualną platformy Azure
+      url: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - text: Kupowanie rezerwacji oprogramowania SAP HANA — duże wystąpienia
+      url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity

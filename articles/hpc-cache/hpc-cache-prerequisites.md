@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562562"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775769"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -156,13 +156,6 @@ Więcej informacji znajduje się w temacie [Rozwiązywanie problemów z konfigur
     Niektóre systemy używają innych numerów portów dla tych usług — zapoznaj się z dokumentacją systemu magazynu, aby upewnić się, że.
 
   * Sprawdź ustawienia zapory, aby upewnić się, że zezwalają na ruch na wszystkich wymaganych portach. Pamiętaj, aby sprawdzić zapory używane na platformie Azure oraz zapory lokalne w centrum danych.
-
-* **Dostęp do katalogu:** Włącz `showmount` polecenie w systemie magazynu. Pamięć podręczna Azure HPC korzysta z tego polecenia, aby sprawdzić, czy konfiguracja docelowa magazynu wskazuje na prawidłowy eksport, a także upewnić się, że wiele instalacji nie uzyskuje dostępu do tych samych podkatalogów (ryzyko kolizji plików).
-
-  > [!NOTE]
-  > Jeśli system magazynu NFS używa systemu operacyjnego NetApp ONTAP 9,2, nie **należy włączać `showmount`**. [Skontaktuj się z pomocą techniczną firmy Microsoft,](hpc-cache-support-ticket.md) Aby uzyskać pomoc.
-
-  Dowiedz się więcej o dostępie do listy katalogów w [artykule dotyczącym rozwiązywania problemów](troubleshoot-nas.md#enable-export-listing)z miejscem DOCELOWYM magazynu NFS.
 
 * **Dostęp do katalogu głównego** (odczyt/zapis): pamięć podręczna łączy się z systemem zaplecza jako identyfikator użytkownika 0. Sprawdź te ustawienia w systemie magazynu:
   

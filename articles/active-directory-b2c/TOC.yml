@@ -496,6 +496,7 @@
       href: custom-policy-developer-notes.md
     - name: Wersje układu strony
       href: page-layout.md
+      displayName: Page version
     - name: Dostępność w poszczególnych regionach i rezydencja danych
       href: data-residency.md
     - name: Tworzenie pod kątem odporności

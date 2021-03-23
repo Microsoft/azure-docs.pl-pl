@@ -1,18 +1,14 @@
 ---
 title: Śledzenie działania czujnika
 description: Oś czasu zdarzeń przedstawia oś czasu aktywności wykrytych w sieci, w tym alerty i akcje zarządzania alertami, zdarzenia sieciowe i operacje użytkownika, takie jak logowanie użytkownika i usuwanie użytkownika.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523604"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781623"
 ---
 # <a name="track-sensor-activity"></a>Śledzenie działania czujnika
 

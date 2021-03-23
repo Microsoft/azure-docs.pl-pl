@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1356c896abff8c525df283251240d027123405fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216754"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778293"
 ---
 # <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnej
 
@@ -25,8 +25,8 @@ Wirtualne sieci równorzędne umożliwiają bezproblemowe łączenie dwóch lub 
 
 Platforma Azure obsługuje następujące typy komunikacji równorzędnej:
 
-* Komunikacja równorzędna sieci wirtualnych: łączenie sieci wirtualnych w tym samym regionie świadczenia usługi Azure.
-* Globalna komunikacja równorzędna sieci wirtualnych: łączenie sieci wirtualnych w różnych regionach platformy Azure.
+* **Komunikacja równorzędna sieci wirtualnych**: łączenie sieci wirtualnych w tym samym regionie świadczenia usługi Azure.
+* **Globalna komunikacja równorzędna sieci wirtualnych**: łączenie sieci wirtualnych w różnych regionach platformy Azure.
 
 Korzystanie z wirtualnych sieci równorzędnych, lokalnych lub globalnych, zapewnia m.in. następujące korzyści:
 
