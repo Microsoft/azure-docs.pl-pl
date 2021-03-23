@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eb468dba1156087bdeb6086f5bc24b214e576e18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199713"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773304"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -267,7 +267,7 @@ Odp **.:** Informacje dotyczące rozwiązywania problemów można znaleźć w na
 
 Odp **.:** Gdy użytkownicy dodają swoje konta do aplikacji na urządzeniu przyłączonym do domeny, może zostać wyświetlony monit o **dodanie konta do systemu Windows?** Jeśli w monicie wprowadzisz **wartość tak** , urządzenie zostanie zarejestrowane w usłudze Azure AD. Typ zaufania jest oznaczony jako zarejestrowany w usłudze Azure AD. Po włączeniu hybrydowego sprzężenia usługi Azure AD w organizacji urządzenie uzyskuje także przyłączoną do hybrydowej usługi Azure AD. Następnie dwa Stany urządzeń są wyświetlane dla tego samego urządzenia. 
 
-Dołączanie hybrydowej usługi Azure AD ma pierwszeństwo przed zarejestrowanym stanem usługi Azure AD. Dlatego Twoje urządzenie jest uznawane za dołączoną hybrydową usługę Azure AD na potrzeby oceny uwierzytelniania i dostępu warunkowego. Możesz bezpiecznie usunąć zarejestrowany rekord urządzenia usługi Azure AD z portalu usługi Azure AD. Zapoznaj się z tym, aby [uniknąć tego podwójnego stanu na komputerze z systemem Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
+W większości przypadków hybrydowe dołączanie usługi Azure AD ma pierwszeństwo przed zarejestrowanym stanem usługi Azure AD, co spowodowało, że urządzenie jest uznawane za dołączoną hybrydową usługę Azure AD do dowolnego uwierzytelniania i oceny dostępu warunkowego. Czasami jednak ten podwójny stan może spowodować niedeterministyczną ocenę urządzenia i spowodować problemy z dostępem. Zdecydowanie zalecamy uaktualnienie do systemu Windows 10 w wersji 1803 lub nowszej, gdzie automatycznie czyści zarejestrowany stan usługi Azure AD. Dowiedz się [, jak uniknąć lub oczyścić ten podwójny stan na komputerze z systemem Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 

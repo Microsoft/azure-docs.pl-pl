@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726840"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802203"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -32,6 +32,9 @@ Dane na koncie usługi Azure Storage są zawsze replikowane trzy razy w regionie
 
 - **Magazyn lokalnie nadmiarowy (LRS)** kopiuje dane synchronicznie trzykrotnie w jednej lokalizacji fizycznej w regionie podstawowym. LRS to najmniej kosztowna opcja replikacji, ale nie jest zalecana w przypadku aplikacji wymagających wysokiej dostępności.
 - **Magazyn strefowo nadmiarowy (ZRS)** kopiuje dane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym. W przypadku aplikacji wymagających wysokiej dostępności firma Microsoft zaleca użycie ZRS w regionie podstawowym, a także replikowanie do regionu pomocniczego.
+
+> [!NOTE]
+> Firma Microsoft zaleca używanie ZRS w regionie podstawowym dla obciążeń Azure Data Lake Storage Gen2.
 
 ### <a name="locally-redundant-storage"></a>Magazyn lokalnie nadmiarowy
 

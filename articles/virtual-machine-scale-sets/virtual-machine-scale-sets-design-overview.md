@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 04446243ed827cca4972a4b606c4930e74a2c704
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88648568"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774970"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Zagadnienia dotyczące projektowania zestawów skalowania
 W tym artykule omówiono zagadnienia dotyczące projektowania Virtual Machine Scale Sets. Aby uzyskać informacje o tym, co Virtual Machine Scale Sets, zobacz [omówienie Virtual Machine Scale Sets](./overview.md).
@@ -67,4 +67,4 @@ Zestaw skalowania skonfigurowany przy użyciu kont magazynu zarządzanych przez 
 
 Zestaw skalowania zbudowany na obrazie niestandardowym (utworzonym przez Ciebie) może mieć pojemność do 600 maszyn wirtualnych po skonfigurowaniu usługi Azure Managed Disks. Jeśli zestaw skalowania jest skonfigurowany przy użyciu kont magazynu zarządzanych przez użytkownika, należy utworzyć wszystkie dyski VHD dysków systemu operacyjnego w ramach jednego konta magazynu. W związku z tym Maksymalna zalecana liczba maszyn wirtualnych w zestawie skalowania zbudowanym na obrazie niestandardowym i zarządzanym przez użytkownika magazynem wynosi 20. Jeśli wyłączysz opcję nadmiernej aprowizacji, możesz przejść do 40.
 
-W przypadku większej liczby maszyn wirtualnych niż te limity Zezwalaj na wdrożenie wielu zestawów skalowania, jak pokazano w [tym szablonie](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
+W przypadku większej liczby maszyn wirtualnych niż te limity Zezwalaj na wdrożenie wielu zestawów skalowania, jak pokazano w [tym szablonie](https://azure.microsoft.com/resources/templates/301-custom-images-at-scale/).

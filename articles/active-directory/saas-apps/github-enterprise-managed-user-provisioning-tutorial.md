@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: ee19c69b47e68328a89a0e3ca6ee3f86a5c13c7d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cbae87a005240c15a2c3c28dcb8ab126d9957ba6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583738"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801234"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie użytkownika zarządzanego przez witrynę GitHub Enterprise dla automatycznej aprowizacji użytkowników
 
@@ -34,6 +34,10 @@ W tym samouczku opisano kroki, które należy wykonać zarówno w przypadku uży
 > * Utrzymywanie synchronizacji atrybutów użytkownika między użytkownikiem zarządzanym usługi Azure AD i GitHub Enterprise
 > * Udostępnianie grup i członkostw w grupach w usłudze GitHub Enterprise zarządzanego użytkownika
 > * Logowanie jednokrotne do użytkownika zarządzanego przez firmę GitHub Enterprise (zalecane)
+
+> [!NOTE]
+> Ten łącznik aprowizacji jest włączony tylko dla uczestników programu Enterprise Managed Users (wersja beta).
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

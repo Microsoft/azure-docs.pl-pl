@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: da869091fb1f7bf31a29ba1bc6db8c1c42254dc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618087"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802271"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
@@ -53,9 +53,11 @@ Operacja **przywracania zakresów obiektów BLOB** zwraca identyfikator przywrac
 
 Przywracanie do punktu w czasie wymaga włączenia następujących funkcji usługi Azure Storage, aby można było włączyć przywracanie do punktu w czasie:
 
-- [Usuwanie nietrwałe](./soft-delete-blob-overview.md)
+- [Usuwanie nietrwałe](soft-delete-blob-overview.md)
 - [Źródło zmian](storage-blob-change-feed.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
+
+Włączenie tych funkcji może spowodować naliczenie dodatkowych opłat. Upewnij się, że rozumiesz implikacje rozliczeń przed włączeniem przywracania do punktu w czasie i funkcji wymaganych wstępnie.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Okres przechowywania dla przywracania do punktu w czasie
 
@@ -88,6 +90,8 @@ Przywracanie do punktu w czasie dla blokowych obiektów BLOB ma następujące og
 > Jeśli przywracasz blokowe obiekty blob do punktu, który jest wcześniejszy niż 22 września, 2020, zostaną zastosowane ograniczenia dotyczące przywracania do punktu w czasie. Firma Microsoft zaleca, aby wybrać punkt przywracania o wartości równej lub nowszej niż 22 września 2020, aby korzystać z ogólnie dostępnej funkcji przywracania do punktu w czasie.
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
+
+Nie jest naliczana opłata za włączenie przywracania do punktu w czasie. Jednak włączenie przywracania do punktu w czasie umożliwia również przechowywanie wersji obiektów blob, usuwania nietrwałego i źródła zmian, z których każdy może spowodować naliczenie dodatkowych opłat.
 
 Naliczanie opłat za przywracanie do punktu w czasie zależy od ilości danych przetworzonych w celu wykonania operacji przywracania. Ilość przetwarzanych danych opiera się na liczbie zmian, które wystąpiły między punktem przywracania a obecnym chwilą. Na przykład przy założeniu, że stosunkowo stała szybkość zmiany w celu zablokowania danych obiektów BLOB na koncie magazynu, operacja przywracania, która wraca z powrotem w czasie 1 dnia, będzie kosztować 1/10 ostatnich operacji przywracania, która wraca w czasie 10 dni.
 

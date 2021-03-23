@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771094"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799194"
 ---
 # <a name="azure-customer-usage-attribution"></a>Przypisanie użycia klienta platformy Azure
 
@@ -39,7 +39,9 @@ Istnieją pomocnicze przypadki użycia dotyczące przypisywania użycia klienta 
 Jeśli używasz Azure Resource Manager interfejsów API, musisz dodać identyfikator śledzenia zgodnie z [poniższymi instrukcjami](#use-resource-manager-apis) , aby przekazać go do Azure Resource Manager, ponieważ kod wdraża zasoby. Ten identyfikator jest widoczny w centrum partnerskim na stronie konfiguracji technicznej Twojego planu. 
 
 > [!NOTE]
-> W przypadku istniejących aplikacji platformy Azure migracja jednorazowa została przeprowadzona w marcu 2021, aby zaktualizować identyfikatory śledzenia w konfiguracji technicznej każdego planu. Użycie z wcześniejszych wdrożeń tych ofert pozostanie śledzone w systemach firmy Microsoft.
+> W przypadku istniejących aplikacji platformy Azure migracja jednorazowa rozpoczęła się w marcu 2021, aby zaktualizować identyfikatory śledzenia w konfiguracji technicznej każdego planu. Użycie z wcześniejszych wdrożeń tych ofert pozostanie śledzone w systemach firmy Microsoft.
+>
+>Gdy aktualizujesz oferty, nie musisz już dodawać typu zasobu **Microsoft. resources/Deployments** do głównego pliku szablonu.
 
 ## <a name="other-use-cases"></a>Inne przypadki użycia 
 

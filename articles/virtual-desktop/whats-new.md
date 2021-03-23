@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb9b6d9d2080c63243ec4b924d07a927d6ccdfd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102499887"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774443"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -35,6 +35,15 @@ Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach 
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Sieć Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="windows-virtual-desktop-agent-updates"></a>Aktualizacje agenta pulpitu wirtualnego systemu Windows
+
+Agent pulpitu wirtualnego systemu Windows aktualizuje co najmniej raz miesięcznie.
+
+W tym miejscu nowości zmieniono w agencie pulpitu wirtualnego systemu Windows:
+
+- Wersja 1.0.2800.2800: Ta aktualizacja została wydana w marcu 2021 i rozwiązała problem z połączeniem odwrotnym.
+- Wersja 1.0.2800.2700: Ta aktualizacja została wydana w lutym 2021 i Naprawiono problem z aranżacją w przypadku odmowy dostępu.
 
 ## <a name="fslogix-updates"></a>Aktualizacje FSLogix
 

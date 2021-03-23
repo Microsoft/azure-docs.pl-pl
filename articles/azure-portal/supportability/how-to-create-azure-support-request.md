@@ -3,13 +3,13 @@ title: Jak utworzyć żądanie pomocy technicznej dla platformy Azure
 description: Klienci, którzy potrzebują pomocy, mogą korzystać z Azure Portal, aby znaleźć rozwiązania samoobsługowe i tworzyć żądania pomocy technicznej i zarządzać nimi.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100652398"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774879"
 ---
 # <a name="create-an-azure-support-request"></a>Tworzenie wniosku o pomoc techniczną platformy Azure
 
@@ -42,7 +42,7 @@ Aby utworzyć żądanie pomocy technicznej, musisz być [właścicielem](../../r
 
 Aby uruchomić żądanie pomocy technicznej z dowolnego miejsca w Azure Portal:
 
-1. Wybierz pozycję **?** w nagłówku globalnym. Następnie wybierz pozycję **Pomoc i obsługa techniczna**.
+1. Wybierz pozycję **?** w nagłówku globalnym wybierz pozycję **Pomoc i obsługa techniczna**.
 
    ![Pomoc i obsługa techniczna](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -52,7 +52,7 @@ Aby uruchomić żądanie pomocy technicznej z dowolnego miejsca w Azure Portal:
 
 ### <a name="go-to-help--support-from-a-resource-menu"></a>Przejdź do pomocy i obsługi technicznej z menu zasobów
 
-Aby uruchomić żądanie obsługi w kontekście zasobu, obecnie pracujesz z:
+Aby uruchomić żądanie obsługi w kontekście zasobu, w którym aktualnie pracujesz:
 
 1. Z menu zasób w sekcji **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **nowe żądanie obsługi**.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1abd03f517f9e0b13a2994418cbae5cfbe22454
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721174"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801874"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HBv3 
 
@@ -32,6 +32,9 @@ W związku z tym serwer jest uruchamiany z 4 domenami NUMA (2 na gniazdo) każde
 Aby zapewnić możliwość działania funkcji hypervisor platformy Azure bez zakłócania pracy z maszyną wirtualną, firma Microsoft rezerwuje 8 rdzeni fizycznych na serwer. 
 
 Należy pamiętać, że rozmiary maszyn wirtualnych z ograniczoną ilością zmniejszają tylko liczbę rdzeni fizycznych narażonych na maszynę wirtualną. Wszystkie globalne zasoby udostępnione (pamięć RAM, przepustowość pamięci, pamięć podręczna L3, GMI i xGMI łączność, InfiniBand, Sieć Ethernet platformy Azure, lokalny dysk SSD) pozostają stałe. Pozwala to klientowi na wybranie rozmiaru maszyny wirtualnej najlepiej dopasowanej do danego zestawu obciążeń lub wymagań dotyczących licencjonowania oprogramowania.
+
+Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla funkcji hypervisor platformy Azure (żółty) i maszyny wirtualnej serii HBv3 (zielony).
+![Podział rdzeni zarezerwowanych na maszyny wirtualne z serii HBv3 i Azure](./media/architecture/hbv3-segregation-cores.png)
 
 ## <a name="infiniband-networking"></a>Sieci InfiniBand
 Maszyny wirtualne HBv3 są również wyposażone w karty sieciowe NVIDIA Mellanox HDR InfiniBand (ConnectX-6) działające do 200 GB/s. Karta sieciowa jest przenoszona do maszyny wirtualnej za pośrednictwem sterownik, umożliwiając ruch sieciowy w celu obejścia funkcji hypervisor. W związku z tym klienci ładują standardowe sterowniki Mellanox OFED na maszynach wirtualnych HBv3 w miarę jak środowisko systemu operacyjnego.

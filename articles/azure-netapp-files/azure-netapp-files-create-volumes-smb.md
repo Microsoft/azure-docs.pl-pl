@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 91f4f90658281282cdcb01b091bd9c9647d8d702
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a8de9b373a14eab45df28b28bb3f94314c1d89a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100635493"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801091"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
@@ -89,8 +89,32 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie Active Directory. 
     * Wybierz opcję **SMB** jako typ protokołu dla woluminu. 
     * Wybierz połączenie **Active Directory** z listy rozwijanej.
     * Określ nazwę udostępnionego woluminu w polu  **Nazwa udziału**.
+    * Jeśli chcesz włączyć ciągłą dostępność dla woluminu SMB, wybierz opcję **Włącz ciągłą dostępność**.    
 
-    ![Określ protokół SMB](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+        > [!IMPORTANT]   
+        > Funkcja ciągłej dostępności protokołu SMB jest obecnie dostępna w publicznej wersji zapoznawczej. Musisz przesłać żądanie waitlist, aby uzyskać dostęp do funkcji za pomocą **[strony przesyłania ciągłej publicznej wersji zapoznawczej usługi SMB w Azure NetApp Files](https://aka.ms/anfsmbcasharespreviewsignup)**. Przed skorzystaniem z funkcji ciągłej dostępności poczekaj na oficjalną wiadomość e-mail z potwierdzeniem z zespołu Azure NetApp Files.   
+        > 
+        > Ciągłej dostępności należy włączyć tylko dla obciążeń SQL. Używanie udziałów ciągłej dostępności protokołu SMB dla obciążeń innych niż SQL Server *nie* jest obsługiwane. Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. SQL Server systemu Linux nie jest obecnie obsługiwana. Jeśli do zainstalowania SQL Server używasz konta innego niż administrator, upewnij się, że konto ma przypisane wymagane uprawnienia zabezpieczeń. Jeśli konto domeny nie ma wymaganego uprawnienia zabezpieczeń ( `SeSecurityPrivilege` ) i nie można ustawić uprawnienia na poziomie domeny, można udzielić uprawnienia do konta za pomocą pola **Użytkownicy uprawnień zabezpieczeń** dla połączeń Active Directory. Zobacz [Tworzenie połączenia Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
+
+    <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
+    <!-- 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+    --> 
+
+    ![Zrzut ekranu, który opisuje kartę Protokół tworzenia woluminu SMB.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
 5. Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć szczegóły woluminu.  Następnie kliknij przycisk **Utwórz** , aby utworzyć wolumin SMB.
 

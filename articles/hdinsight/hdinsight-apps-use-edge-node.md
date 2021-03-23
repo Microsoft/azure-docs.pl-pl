@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 4061df2dfcfb4cf993e2312fb3438de66863a476
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 717c3c8052c89825b161f77614d7411c5912d1cd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942676"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799908"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight
 
@@ -58,7 +58,7 @@ Po utworzeniu węzła brzegowego można nawiązać połączenie z węzłem brzeg
 > [!WARNING]
 > Składniki niestandardowe zainstalowane w węźle brzegowym otrzymują komercyjnie uzasadnioną pomoc techniczną firmy Microsoft. Może to spowodować rozwiązanie napotkanych problemów. Możesz też przystąpić do zasobów społeczności, aby uzyskać dalszą pomoc. Poniżej wymieniono niektóre z najbardziej aktywnych witryn do uzyskiwania pomocy od społeczności:
 >
-> * [Microsoft Q&stronie pytania dla usługi HDInsight] (/Answers/topics/azure-hdinsight.html
+> * [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](/answers/topics/azure-hdinsight.html)
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > W przypadku korzystania z technologii Apache można znaleźć pomoc w witrynach projektów Apache w systemie [https://apache.org](https://apache.org) , takich jak lokacja [Apache Hadoop](https://hadoop.apache.org/) .

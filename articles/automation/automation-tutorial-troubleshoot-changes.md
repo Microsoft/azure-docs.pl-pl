@@ -4,15 +4,15 @@ description: W tym artykule opisano sposób rozwiązywania problemów ze zmianam
 services: automation
 ms.subservice: change-inventory-management
 keywords: zmiany, śledzenie, śledzenie zmian, spis, Automatyzacja
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100587941"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775814"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure
 
@@ -208,15 +208,15 @@ Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, 
 
 14. W polu **Akcje** wprowadź nazwę akcji, na przykład **administratorów poczty e-mail**. 
 
-15. W obszarze **Typ akcji** wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. 
+15. W obszarze **Typ akcji** wybierz pozycję **Poczta E-mail/wiadomość SMS/wypychanie/głos**. 
 
 16. Aby uzyskać **szczegółowe informacje**, wybierz pozycję **Edytuj szczegóły**.
 
-    ![Dodawanie grupy akcji](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Użycie i szacowane koszty." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. W okienku wiadomości E-mail/SMS/wypychanie/głos wprowadź nazwę, zaznacz pole wyboru **adres e-mail** , a następnie wprowadź prawidłowy adres e-mail. Po zakończeniu kliknij przycisk **OK** w okienku, a następnie kliknij przycisk **OK** na stronie Dodaj grupę akcji.
+17. W okienku **wiadomości e-mail/SMS/wypychanie/głos** wprowadź nazwę, zaznacz pole wyboru **wiadomość e-mail** , a następnie wprowadź prawidłowy adres e-mail. Po zakończeniu kliknij przycisk **OK** w okienku, a następnie kliknij przycisk **OK** na stronie **Dodaj grupę akcji** .
 
-18. Aby dostosować temat wiadomości e-mail dotyczącej alertu, wybierz pozycję **Dostosuj akcje**. 
+18. Aby dostosować temat wiadomości e-mail dotyczącej alertu, wybierz pozycję **Dostosuj akcje**.
 
 19. W obszarze **Utwórz regułę** wybierz pozycję **temat wiadomości e-mail**, a następnie wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji. Poniższa ilustracja przedstawia przykład wiadomości e-mail otrzymanej po zatrzymaniu usługi W3SVC.
 

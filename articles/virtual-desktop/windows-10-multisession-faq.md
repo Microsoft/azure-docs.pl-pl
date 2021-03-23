@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c03d3f9769aec0736d23f18372701e08ad93dac
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631884"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802798"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
 
@@ -33,9 +33,13 @@ Wiele sesji systemu Windows 10 Enterprise to wersja wirtualna systemu Windows 10
 
 Nie można uruchomić wielu sesji systemu Windows 10 Enterprise w lokalnych środowiskach produkcyjnych, ponieważ są one zoptymalizowane pod kątem usługi pulpitu wirtualnego systemu Windows dla platformy Azure. Jest to umowa licencyjna na uruchamianie wielu sesji systemu Windows 10 Enterprise poza platformą Azure w celach produkcyjnych. Nie można aktywować wielu sesji systemu Windows 10 Enterprise w przypadku lokalnych usług zarządzania kluczami (KMS).
 
+## <a name="can-i-upgrade-a-windows-10-vm-to-windows-10-enterprise-multi-session"></a>Czy mogę uaktualnić maszynę wirtualną z systemem Windows 10 do wielu sesji systemu Windows 10 Enterprise?
+
+Nie. Obecnie nie ma możliwości uaktualnienia istniejącej maszyny wirtualnej, na której działa system Windows 10 Professional lub Enterprise do wielu sesji systemu Windows 10 Enterprise. Ponadto w przypadku wdrożenia maszyny wirtualnej z obsługą wielu sesji systemu Windows 10 Enterprise, a następnie zaktualizowania klucza produktu do innej wersji nie będzie można przełączyć maszyny wirtualnej z powrotem do wielosesyjnej usługi Windows 10 Enterprise i konieczne będzie ponowne wdrożenie maszyny wirtualnej.
+
 ## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Jak mogę dostosować obraz wielosesyjny systemu Windows 10 Enterprise dla mojej organizacji?
 
-Maszynę wirtualną (VM) można uruchomić na platformie Azure z obsługą wielu sesji dla systemu Windows 10 Enterprise i dostosować ją przez zainstalowanie aplikacji LOB, narzędzia sysprep/generalize, a następnie utworzenie obrazu przy użyciu Azure Portal.
+Można uruchomić maszynę wirtualną na platformie Azure z systemem Windows 10 Enterprise z obsługą wielu sesji i dostosować ją przez zainstalowanie aplikacji LOB, narzędzia sysprep/generalize, a następnie utworzyć obraz przy użyciu Azure Portal.
 
 Aby rozpocząć, Utwórz maszynę wirtualną na platformie Azure przy użyciu wielu sesji systemu Windows 10 Enterprise. Zamiast uruchamiać maszynę wirtualną na platformie Azure, możesz bezpośrednio pobrać dysk VHD. Następnie będzie można użyć pobranego dysku VHD, aby utworzyć nową maszynę wirtualną generacji 1 na komputerze z systemem Windows 10 z włączoną funkcją Hyper-V.
 

@@ -2,14 +2,14 @@
 title: Seria instruktażowych wideo dla witryny Azure Portal
 description: Poznaj pokazy wideo dotyczące pracy z usługami platformy Azure w portalu. Wyświetlaj i łącz się bezpośrednio z najnowszymi filmami wideo.
 keywords: ''
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aeb80f0ac9b160747d75a50acc7c21b211c9fe28
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99550445"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771519"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Seria instruktażowych wideo dla witryny Azure Portal
 
@@ -17,17 +17,17 @@ W Azure Portal seriach filmów wideo przedstawiono sposób pracy z usługami pla
 
 ## <a name="featured-video"></a>Polecane wideo
 
-W tym polecanym filmie wideo pokazano, jak używać widoków Azure Cost Management.
+W tym polecanym filmie wideo pokazano, jak tworzyć karty i alerty w skoroszytach platformy Azure.
 
-> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
+> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
 
-[Jak używać widoków Azure Cost Management](https://www.youtube.com/watch?v=VRJA5bn2VH0)
+[Jak tworzyć karty i alerty w skoroszytach platformy Azure](https://www.youtube.com/watch?v=3XY3lYgrRvA)
 
 Zapoznaj się z tymi ostatnimi filmami wideo, które mogły zostać pominięte:
 
-| [Jak używać Pills do filtrowania w Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Jak uzyskać widok wizualizacji zasobów](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Jak przypiąć zawartość do pulpitu nawigacyjnego Azure Portal](https://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [Jak łatwo zarządzać maszyną wirtualną](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [Jak używać Pills do filtrowania w Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Jak uzyskać widok wizualizacji zasobów](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![Obraz wideo w serwisie YouTube dotyczący sposobu używania Pills do filtrowania w Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Obraz wideo w serwisie YouTube dotyczący sposobu uzyskiwania widoku wizualizacji zasobów](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Obraz wideo w usłudze YouTube dotyczący sposobu przypinania zawartości do pulpitu nawigacyjnego Azure Portal](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [![Obraz przedstawiający film wideo w usłudze YouTube dotyczący łatwego zarządzania maszyną wirtualną](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Obraz wideo w serwisie YouTube dotyczący sposobu używania Pills do filtrowania w Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Obraz wideo w serwisie YouTube dotyczący sposobu uzyskiwania widoku wizualizacji zasobów](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## <a name="video-playlist"></a>Lista odtwarzania wideo
 

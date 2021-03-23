@@ -8,22 +8,22 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97516601"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801591"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Składnia zapytań Lucene w usłudze Azure Wyszukiwanie poznawcze
 
 Podczas tworzenia zapytań można wybrać składnię [analizatora zapytań Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) dla zapytań wyspecjalizowanych: symbol wieloznaczny, Wyszukiwanie rozmyte, wyszukiwanie w sąsiedztwie, wyrażenia regularne. Większość składni analizatora zapytań Lucene jest [zaimplementowana w usłudze Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md), z wyjątkiem *wyszukiwania zakresu* , które są tworzone za pomocą **`$filter`** wyrażeń. 
 
-Pełna składnia Lucene jest używana w wyrażeniach zapytań przesyłanych w **`search`** parametrach żądania [przeszukiwania dokumentów (interfejsu API REST)](/rest/api/searchservice/search-documents) , nie należy mylić z [składnią OData](query-odata-filter-orderby-syntax.md) użytą dla [**`$filter`**](search-filters.md) wyrażeń i [**`$orderby`**](search-query-odata-orderby.md) w tym samym żądaniu. Parametry OData mają różne składnie i reguły służące do konstruowania zapytań, ciągów ucieczki itd.
+Aby użyć pełnej składni Lucene, należy ustawić dla elementu querytype wartość "Full" i przekazać wyrażenie zapytania dla symboli wieloznacznych, rozmytego wyszukiwania lub jednego z innych formularzy zapytań obsługiwanych przez pełną składnię. W pozostałej części wyrażenia zapytań są udostępniane w **`search`** parametrze żądania [przeszukiwania dokumentów (interfejs API REST)](/rest/api/searchservice/search-documents) .
 
 ## <a name="example-full-syntax"></a>Przykład (Pełna składnia)
 
-Ustaw **`queryType`** parametr, aby określić pełne Lucene. Poniższy przykład wywołuje przeszukiwanie w polu i zwiększanie warunków. To zapytanie szuka hoteli, w których pole Category zawiera termin "budżet". Wszystkie dokumenty zawierające frazę "ostatnio Renovated" są bardziej klasyfikowane jak w wyniku okresu zwiększania wartości (3).  
+Poniższy przykład to żądanie wyszukiwania skonstruowane przy użyciu pełnej składni. W tym konkretnym przykładzie przedstawiono sposób wyszukiwania w polu i zwiększania warunków. Szuka hoteli, w których pole Category zawiera termin "budżet". Wszystkie dokumenty zawierające frazę "ostatnio Renovated" są bardziej klasyfikowane jak w wyniku okresu zwiększania wartości (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,9 +34,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-**`searchMode`** Parametr jest istotny w tym przykładzie. Zawsze, gdy operatory znajdują się w zapytaniu, należy ogólnie ustawić, `searchMode=all` Aby upewnić się, że *wszystkie* kryteria są zgodne.  
+Gdy nie jest określony dla żadnego typu zapytania, **`searchMode`** parametr jest istotny w tym przykładzie. Zawsze, gdy operatory znajdują się w zapytaniu, należy ogólnie ustawić, `searchMode=all` Aby upewnić się, że *wszystkie* kryteria są zgodne.  
 
-Aby uzyskać więcej przykładów, zobacz [przykłady składni zapytań Lucene](search-query-lucene-examples.md). Aby uzyskać szczegółowe informacje na temat żądania zapytania i parametrów, zobacz [Wyszukiwanie dokumentów (interfejs API REST)](/rest/api/searchservice/Search-Documents).
+Aby uzyskać więcej przykładów, zobacz [przykłady składni zapytań Lucene](search-query-lucene-examples.md). Aby uzyskać szczegółowe informacje na temat żądania zapytania i parametrów, w tym wyszukiwania, zobacz [dokumenty wyszukiwania (interfejs API REST)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Podstawy składni  
 

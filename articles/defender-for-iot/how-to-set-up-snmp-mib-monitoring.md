@@ -1,18 +1,14 @@
 ---
 title: Konfigurowanie monitorowania SNMP MIB
 description: Monitorowanie kondycji czujnika można przeprowadzić przy użyciu protokołu SNMP. Czujnik reaguje na zapytania protokołu SNMP wysyłane z autoryzowanego serwera monitorowania.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1ba52236f65c6c5daba68c67677cdc6adfb699b4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523825"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781674"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Konfigurowanie monitorowania SNMP MIB
 
@@ -36,7 +32,7 @@ Przed rozpoczęciem konfigurowania monitorowania SNMP należy otworzyć port UDP
 | Użycie pamięci | 1.3.6.1.4.1.9.9.53313.3.3 | WARTOŚĆ GAUGE32 | Oznaczenie od zera do 100 |
 | Użycie dysku | 1.3.6.1.4.1.9.9.53313.3.4 | WARTOŚĆ GAUGE32 | Oznaczenie od zera do 100 |
 | Stan usługi | 1.3.6.1.4.1.9.9.53313.5 | KLASIE | W trybie online lub offline, jeśli jeden z czterech najważniejszych składników nie działa |
-| Szerokość pasma | Poza zakresem 2,4 |  | Przepustowość odebrana na każdym interfejsie monitora w Xsense |
+| Przepustowość | Poza zakresem 2,4 |  | Przepustowość odebrana na każdym interfejsie monitora w Xsense |
 
    - Nieistniejące klucze reagują na wartość null, HTTP 200 na podstawie [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
     

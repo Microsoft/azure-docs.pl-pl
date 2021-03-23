@@ -3,12 +3,12 @@ title: Samouczek — prywatne środowiska lokalne do chmury prywatnej
 description: Dowiedz się, jak utworzyć ExpressRoute Global Reach komunikacji równorzędnej w chmurze prywatnej w rozwiązaniu VMware platformy Azure.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08a461ab7d441eb813d435086dfcea121ef4a7f1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494177"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786910"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Samouczek: środowiska lokalne w chmurze do chmury prywatnej
 
@@ -37,7 +37,7 @@ Przed włączeniem łączności między dwoma obwodami usługi ExpressRoute przy
 >[!IMPORTANT]
 >W kontekście tych wymagań wstępnych lokalny obwód usługi ExpressRoute to _obwód 1_, a obwód prywatny usługi ExpressRoute w chmurze znajduje się w innej subskrypcji i z oznaczeniem _obwodu 2_.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>Tworzenie klucza autoryzacji ExpressRoute w obwodzie lokalnym
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud-expressroute-circuit"></a>Tworzenie klucza autoryzacji ExpressRoute w obwodzie prywatnej chmury ExpressRoute
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  

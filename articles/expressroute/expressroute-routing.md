@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c65825a6d8d2d7f9059e91a1f248367fa1788e1a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721841"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799500"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -106,7 +106,7 @@ Zadbaj o to, aby adres IP i numer AS zostały zarejestrowane na Ciebie w jednym 
 
 Jeśli Twoje prefiksy i numer systemu autonomicznego nie są przypisane do Ciebie w powyższych rejestrach, musisz otworzyć zgłoszenie do pomocy technicznej w celu ręcznej weryfikacji Twoich prefiksów i numeru systemu autonomicznego. Pomoc techniczna będzie wymagać dokumentacji, takiej jak upoważnienie potwierdzające zezwolenie na korzystanie z zasobów.
 
-Prywatny numer systemu autonomicznego jest dozwolony dla komunikacji równorzędnej firmy Microsoft, ale będzie również wymagał ręcznej weryfikacji. Ponadto firma Microsoft usuwa prywatne numery AS w ścieżce AS dla odebranych prefiksów. W związku z tym nie można dołączyć prywatnych numerów AS do ścieżki AS, aby [wpłynąć na routing komunikacji równorzędnej firmy Microsoft](expressroute-optimize-routing.md). 
+Prywatny numer systemu autonomicznego jest dozwolony dla komunikacji równorzędnej firmy Microsoft, ale będzie również wymagał ręcznej weryfikacji. Ponadto firma Microsoft usuwa prywatne numery AS w ścieżce AS dla odebranych prefiksów. W związku z tym nie można dołączyć prywatnych numerów AS do ścieżki AS, aby [wpłynąć na routing komunikacji równorzędnej firmy Microsoft](expressroute-optimize-routing.md). Ponadto, ponieważ liczba 64496-64511 zarezerwowana przez organizację IANA w celach dokumentacji nie jest dozwolona w ścieżce.
 
 > [!IMPORTANT]
 > Nie należy anonsować tej samej publicznej trasy IP do publicznego Internetu i za pośrednictwem ExpressRoute. Aby zmniejszyć ryzyko niepoprawnej konfiguracji powodującej Routing asymetryczny, zdecydowanie zalecamy, aby [adresy IP translatora adresów sieciowych](expressroute-nat.md) anonsowane do firmy Microsoft przez ExpressRoute były z zakresu, który nie jest anonsowany w Internecie. Jeśli nie jest to możliwe, należy się upewnić, że anonsuje bardziej konkretny zakres od ExpressRoute niż ten, na którym nadano połączenie internetowe. Poza trasą publiczną dla translatora adresów sieciowych można także anonsować za pośrednictwem ExpressRoute publicznych adresów IP używanych przez serwery w sieci lokalnej, które komunikują się z punktami końcowymi Microsoft 365 w firmie Microsoft. 

@@ -5,7 +5,7 @@ description: W tym artykule opisano dostosowywanie zadań w rozszerzeniu Microso
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,14 +13,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad395e1b782edb28845bb7db0607d2bab5b5697c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008688"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802016"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurowanie i dostosowywanie zadań kompilacji
+
+> [!Note]
+> Od 1 marca 2022 rozszerzenie Microsoft Security code Analysis (MSCA) zostanie wycofane. Istniejący klienci MSCA będą zachować dostęp do MSCA do 1 marca 2022. Zapoznaj się z [narzędziami do analizy kodu źródłowego OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) , aby zapoznać się z alternatywnymi opcjami w usłudze Azure DevOps. W przypadku klientów mających na celu zaplanowanie migracji do usługi GitHub można sprawdzić [Zaawansowane zabezpieczenia usługi GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 W tym artykule szczegółowo opisano opcje konfiguracji dostępne w poszczególnych zadaniach kompilacji. Artykuł rozpoczyna się od zadań związanych z narzędziami do analizy kodu zabezpieczeń. Jest ona zakończona z zadaniami po przetworzeniu.
 

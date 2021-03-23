@@ -366,8 +366,6 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: Omówienie filtrów kolekcji
           href: search-query-understand-collection-filters.md
-        - name: Filtrowanie według języka
-          href: search-filters-language.md
         - name: Normalizowanie tekstu
           href: search-normalizers.md
     - name: Trafność

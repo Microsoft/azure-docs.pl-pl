@@ -1,15 +1,15 @@
 ---
 title: Korzystanie z niestandardowego kafelka promocji na pulpitach nawigacyjnych platformy Azure
 description: Dowiedz się, jak dodać kafelek z promocji do pulpitu nawigacyjnego platformy Azure w celu wyświetlenia zawartości statycznej
-ms.date: 01/08/2020
+ms.date: 03/19/2021
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8324b736565cfa353e48cf49b76e2784866f47f7
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745761"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774460"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Użyj kafelka promocji na pulpitach nawigacyjnych platformy Azure, aby pokazać zawartość niestandardową
 
@@ -21,7 +21,7 @@ Możesz dodać kafelek promocji do pulpitów nawigacyjnych platformy Azure, aby 
 
    ![Zrzut ekranu przedstawiający pasek boczny portalu](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Jeśli utworzono niestandardowe pulpity nawigacyjne, w widoku pulpitu nawigacyjnego, Użyj listy rozwijanej, aby wybrać pulpit nawigacyjny, w którym ma zostać wyświetlona niestandardowa Tabliczka promocji. Wybierz ikonę Edytuj, aby otworzyć **galerię kafelków**.
+1. W widoku pulpitu nawigacyjnego wybierz Pulpit nawigacyjny, w którym ma zostać wyświetlona niestandardowa Tabliczka promocji, a następnie wybierz pozycję **Edytuj**.
 
    ![Zrzut ekranu przedstawiający widok edycji pulpitu nawigacyjnego](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
@@ -52,9 +52,9 @@ Możesz dodać kafelek promocji do pulpitów nawigacyjnych platformy Azure, aby 
 
 Możesz użyć dowolnej kombinacji zwykłego tekstu, składni promocji i zawartości HTML na kafelku promocji. Azure Portal używa biblioteki Open Source o nazwie _oznaczonej_ do przekształcenia zawartości na HTML, która jest wyświetlana na kafelku. KOD HTML utworzony przez _program jest wstępnie przetworzony przez portal_ przed jego renderowaniem. Ten krok pomaga upewnić się, że dostosowanie nie będzie miało wpływu na zabezpieczenia ani układ portalu. Podczas tego wstępnego przetwarzania jakakolwiek część kodu HTML, która stanowi potencjalne zagrożenie, jest usuwana. Portal nie zezwala na następujące typy zawartości:
 
-* Język JavaScript — `<script>` obliczenia tagów i wbudowanych skryptów języka JavaScript zostaną usunięte.
-* iframes — `<iframe>` tagi zostaną usunięte.
-* Tagi stylów `<style>` zostaną usunięte. Atrybuty stylu wbudowanego dla elementów HTML nie są oficjalnie obsługiwane. Może się okazać, że niektóre elementy stylu wbudowanego działają dla Ciebie, ale jeśli zakłócają układ portalu, mogą przestać działać w dowolnym momencie. Kafelek promocji jest przeznaczony dla podstawowej, statycznej zawartości, która używa domyślnych stylów portalu.
+* Język JavaScript — `<script>` obliczenia tagów i wbudowanych wersji języka JavaScript są usuwane.
+* iframes — `<iframe>` Tagi są usuwane.
+* Tagi stylów `<style>` są usuwane. Atrybuty stylu wbudowanego dla elementów HTML nie są oficjalnie obsługiwane. Może się okazać, że niektóre elementy stylu wbudowanego działają dla Ciebie, ale jeśli zakłócają układ portalu, mogą przestać działać w dowolnym momencie. Kafelek promocji jest przeznaczony dla podstawowej, statycznej zawartości, która używa domyślnych stylów portalu.
 
 ## <a name="next-steps"></a>Następne kroki
 

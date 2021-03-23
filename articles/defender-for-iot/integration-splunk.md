@@ -1,19 +1,14 @@
 ---
 title: Informacje o integracji Splunk
-titleSuffix: Azure Defender for IoT
 description: Aby sprostać brakom wglądu w zabezpieczenia i odporność niektórych sieci, usługa Defender for IoT opracowała aplikację Defender for IoT, IIoT i monitorowanie zagrożeń usługi ICS dla Splunk, natywnej integracji między usługą Defender dla IoT i Splunk, która umożliwia ujednolicone podejście do niego i zabezpieczenia.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558569"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785924"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Aplikacja do monitorowania usługi Defender dla IoT i ICS dla programu Splunk
 
@@ -158,7 +153,7 @@ Aby utworzyć regułę przekazywania:
     | **Wybierz ważność** | Minimalne zdarzenie poziomu zabezpieczeń do przodu. Na przykład, jeśli wybrano opcję pomocnicze, zostaną przekazane alerty pomocnicze i alert powyżej tego poziomu ważności. |
     | **Protokoły** | Domyślnie są wybierane wszystkie protokoły. Aby wybrać określony protokół, wybierz opcję **określony** i wybierz protokół, dla którego ma zostać zastosowana ta reguła. |
     | **Silnika** | Domyślnie są wykorzystywane wszystkie silniki zabezpieczeń. Aby wybrać konkretny aparat zabezpieczeń, dla którego zostanie zastosowana ta reguła, wybierz pozycję **określone** i wybierz aparat. |
-    | **Powiadomienia systemowe** | Stan online/offline czujnika przekazujący. Ta opcja jest dostępna tylko wtedy, gdy użytkownik zalogował się do Menedżera centrali. |                                            |
+    | **Powiadomienia systemowe** | Stan online/offline czujnika przekazujący. Ta opcja jest dostępna tylko wtedy, gdy użytkownik zalogował się do Menedżera centrali. |
 
 1. Aby wydać polecenie Defender for IoT do wysyłania informacji o zasobach do Splunk, wybierz **akcję**, a następnie wybierz pozycję **Wyślij do serwera Splunk**.
 

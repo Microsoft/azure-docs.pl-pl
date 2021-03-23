@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008280"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800163"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.
@@ -79,6 +79,7 @@ Domyślnie Service Fabric stosuje rygorystyczne reguły (wszystkie elementy musz
 
 ### <a name="cluster-health-policy"></a>Zasady kondycji klastra
 [Zasady kondycji klastra](/dotnet/api/system.fabric.health.clusterhealthpolicy) służą do oszacowania stanu kondycji klastra i Stanów kondycji węzła. Zasady można definiować w manifeście klastra. Jeśli nie istnieje, zostanie użyta domyślna zasada (niedozwolone zero).
+
 Zasady dotyczące kondycji klastra obejmują:
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
@@ -87,18 +88,33 @@ Zasady dotyczące kondycji klastra obejmują:
 * [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Mapa zasad kondycji typu aplikacji może być używana podczas oceny kondycji klastra do opisywania specjalnych typów aplikacji. Domyślnie wszystkie aplikacje są umieszczane w puli i oceniane przy użyciu MaxPercentUnhealthyApplications. Jeśli niektóre typy aplikacji powinny być traktowane inaczej, mogą one zostać pobrane z puli globalnej. Zamiast tego są oceniane względem wartości procentowych skojarzonych z ich nazwą typu aplikacji na mapie. Na przykład w klastrze istnieją tysiące aplikacji różnych typów oraz kilka wystąpień aplikacji typu "Special". Aplikacje sterujące nigdy nie powinny być w ogóle błędne. Można określić globalne MaxPercentUnhealthyApplications do 20%, aby tolerować błędy, ale dla typu aplikacji "ControlApplicationType" ustawić MaxPercentUnhealthyApplications na 0. W ten sposób, jeśli niektóre z wielu aplikacji są w złej kondycji, ale poniżej globalnej wartości procentowej w złej kondycji, klaster zostanie oceniony jako ostrzegawczy. Ostrzegawczy stan kondycji nie ma wpływu na uaktualnienie klastra ani inne monitorowanie wyzwalane przez stan kondycji błędu. Jednak nawet jedna aplikacja sterująca w ramach błędu powoduje złej kondycji klastra, która wyzwala wycofywanie lub wstrzymuje uaktualnienie klastra, w zależności od konfiguracji uaktualnienia.
   W przypadku typów aplikacji zdefiniowanych na mapie wszystkie wystąpienia aplikacji są pobierane z globalnej puli aplikacji. Są one oceniane na podstawie łącznej liczby aplikacji typu aplikacji przy użyciu określonego MaxPercentUnhealthyApplications z mapy. Wszystkie pozostałe aplikacje pozostają w puli globalnej i są oceniane przy użyciu MaxPercentUnhealthyApplications.
 
-Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na mapie typu aplikacji, należy prefiksować nazwę parametru z "ApplicationTypeMaxPercentUnhealthyApplications-", po którym następuje nazwa typu aplikacji.
+  Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na mapie typu aplikacji, należy prefiksować nazwę parametru z "ApplicationTypeMaxPercentUnhealthyApplications-", po którym następuje nazwa typu aplikacji.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). Mapa zasad kondycji typu węzła może być używana podczas oceny kondycji klastra do opisywania specjalnych typów węzłów. Typy węzłów są oceniane względem wartości procentowych skojarzonych z ich nazwą typu węzła na mapie. Ustawienie tej wartości nie ma wpływu na pulę globalną węzłów używanych dla programu `MaxPercentUnhealthyNodes` . Na przykład klaster zawiera setki węzłów różnych typów i kilka typów węzłów, które obsługują ważne działania. Nie powinno być żadnych węzłów w tym typie. Możesz określić globalne `MaxPercentUnhealthyNodes` do 20%, aby tolerować błędy dla wszystkich węzłów, ale dla typu węzła `SpecialNodeType` , ustaw wartość `MaxPercentUnhealthyNodes` na 0. W ten sposób, jeśli niektóre z wielu węzłów są w złej kondycji, ale poniżej wartości procentowej w złej kondycji, klaster będzie oceniany jako w stanie kondycji ostrzegawczej. Ostrzegawczy stan kondycji nie wpływa na uaktualnienie klastra ani inne monitorowanie wyzwalane przez stan kondycji błędu. Jednak nawet jeden węzeł typu `SpecialNodeType` w stanie kondycji błędów spowodowałaby wystąpienie klastra w złej kondycji i wyzwoli wycofanie lub wstrzymanie uaktualniania klastra, w zależności od konfiguracji uaktualnienia. Z kolei ustawienie globalne `MaxPercentUnhealthyNodes` na 0 i ustawienie `SpecialNodeType` maksymalnej liczby węzłów w złej kondycji na 100 z jednym węzłem typu `SpecialNodeType` w stanie błędu nadal powoduje wystąpienie błędu, ponieważ globalne ograniczenie jest bardziej rygorystyczne w tym przypadku. 
+
+  Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na mapie typu węzła, poprzedź nazwę parametru prefiksem "NodeTypeMaxPercentUnhealthyNodes-", po którym następuje nazwa typu węzła.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>Zasady dotyczące kondycji aplikacji
 [Zasady kondycji aplikacji](/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest.xml** w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.

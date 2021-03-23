@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: ''
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98602470"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801761"
 ---
 # <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure
 
@@ -63,7 +59,7 @@ W poniższej tabeli opisano znaczenie właściwości roli.
 | Właściwość | Opis |
 | --- | --- |
 | `Name`</br>`roleName` | Nazwa wyświetlana roli. |
-| `Id`</br>`name` | Unikatowy identyfikator roli. |
+| `Id`</br>`name` | Unikatowy identyfikator roli. Role wbudowane mają taki sam identyfikator roli w chmurach. |
 | `IsCustom`</br>`roleType` | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` lub `CustomRole` dla ról niestandardowych. Ustaw dla `false` `BuiltInRole` ról wbudowanych lub. |
 | `Description`</br>`description` | Opis roli. |
 | `Actions`</br>`actions` | Tablica ciągów, która określa operacje zarządzania, które mogą być wykonywane przez rolę. |

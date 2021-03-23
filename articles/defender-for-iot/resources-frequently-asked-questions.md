@@ -1,24 +1,14 @@
 ---
 title: Usługa Defender for IoT — często zadawane pytania
 description: Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące funkcji i usługi Azure Defender dla IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/02/2021
-ms.author: rkarlin
-ms.openlocfilehash: 89da9ed378118875f0c09d3c23799349a4d093b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ce8ded3eea344d72679e0f8b805f45b00279b58
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467701"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778597"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Usługa Azure Defender dla IoT — często zadawane pytania
 

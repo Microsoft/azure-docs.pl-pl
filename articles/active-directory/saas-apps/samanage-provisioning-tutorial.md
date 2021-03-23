@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: cca46d47003a1611c861986f8df839de57500db6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d68811c5e7b92698944d7b1b1736eef864d97d20
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181488"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802305"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi SolarWinds Service Desk (wcześniej Samanage) w celu automatycznego aprowizacji użytkowników
 
@@ -57,6 +57,9 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami](../roles/permissions-reference.md) do konfigurowania aprowizacji (na przykład administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
 * [Dzierżawa usługi SolarWinds Service](https://www.samanage.com/pricing/) z pakietem Professional.
 * Konto użytkownika w SolarWinds Service Desk z uprawnieniami administratora.
+
+> [!Note]
+> Role nie powinny być edytowane ręcznie w Azure Active Directory podczas importowania ról.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
 1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](../app-provisioning/user-provisioning.md).

@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: e8424f6b5b7617b00de6dedbece3325f3c5513c8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b975b129f4384c09006a22b1ab124b1906a869d3
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622224"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104803481"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta programu SMS usługi komunikacyjnej Python w celu wysyłania wiadomości SMS.
 
@@ -28,7 +28,7 @@ W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kil
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- [Python](https://www.python.org/downloads/) 2,7, 3,5 lub nowszy.
+- [Python](https://www.python.org/downloads/) 2,7 lub 3.6 +.
 - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
 - Numer telefonu z włączoną funkcją SMS. [Pobierz numer telefonu](../get-phone-number.md).
 

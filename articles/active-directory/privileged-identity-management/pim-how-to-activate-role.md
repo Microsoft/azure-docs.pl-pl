@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/18/2020
+ms.date: 03/22/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96511343"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799432"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktywowanie ról usługi Azure AD w usłudze PIM
 
@@ -110,11 +110,7 @@ Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolny
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Nie udzielono uprawnień po aktywowaniu roli
 
-Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być natychmiast propagowana do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, Oto co należy zrobić.
-
-1. Wyloguj się z witryny Azure Portal, a następnie zaloguj się ponownie.
-
-1. W Privileged Identity Management Sprawdź, czy jesteś członkiem roli.
+Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być natychmiast propagowana do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, Wyloguj się z portalu, w którym próbujesz wykonać akcję, a następnie zaloguj się ponownie. W Azure Portal program PIM wyloguje Cię i ponownie w sposób automatyczny.
 
 # <a name="previous-version"></a>[Poprzednia wersja](#tab/previous)
 
@@ -216,13 +212,7 @@ Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolny
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Nie udzielono uprawnień po aktywowaniu roli
 
-Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być natychmiast propagowana do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, Oto co należy zrobić.
-
-1. Wyloguj się z witryny Azure Portal, a następnie zaloguj się ponownie.
-
-    Po aktywowaniu roli usługi Azure AD zobaczysz etapy aktywacji. Po zakończeniu wszystkich etapów zobaczysz link **Wyloguj**. Możesz użyć tego linku, aby się wylogować. Spowoduje to rozproszenie większości przypadków opóźnienia aktywacji.
-
-1. W Privileged Identity Management Sprawdź, czy jesteś członkiem roli.
+Po aktywowaniu roli w Privileged Identity Management aktywacja może być opóźniona w portalach administratorów innych niż Azure Portal, takich jak portal Office 365. Jeśli aktywacja jest opóźniona, Wyloguj się z portalu, w którym jesteś, a następnie zaloguj się ponownie. Następnie użyj Privileged Identity Management, aby sprawdzić, czy jesteś członkiem roli.
 
  ---
 

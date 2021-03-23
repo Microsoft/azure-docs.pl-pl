@@ -1,20 +1,16 @@
 ---
-title: Wyświetl informacje w alertach
+title: Komunikaty alertów — informacje
 description: Wybierz alert z okna alerty, aby przejrzeć szczegóły.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 3/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 804cdbd6266f2e77b5562d914bac089fce80f645
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fa2b265c7d3983ca6ae2d7507392dd37afabd27
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523587"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781487"
 ---
-# <a name="view-information-in-alerts"></a>Wyświetl informacje w alertach
+# <a name="about-alert-messages"></a>Komunikaty alertów — informacje
 
 Wybierz alert z okna **alerty** , aby przejrzeć szczegóły alertu. Szczegóły obejmują następujące informacje:
 

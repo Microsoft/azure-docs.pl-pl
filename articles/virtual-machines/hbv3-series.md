@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b435547d7cd3b0fab781cc6cf3b617b13ac1120a
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: a03eac3969e8918c8da20b90d0dcf8b60b39b8ee
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774698"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800843"
 ---
 # <a name="hbv3-series"></a>Seria HBv3
 
@@ -39,9 +39,9 @@ Wszystkie maszyny wirtualne z serii HBv3 są wyposażone w funkcję 200 GB/s w f
 |Standard_HB120 — 16rs_v3 |16  |7V13 AMD EPYC |448 |350 |2.45 |3,1 |3,675 |200 |Wszystko |2 * 960 |32 |8 |
 
 Dowiedz się więcej na temat:
-- [Architektura i topologia maszyny wirtualnej](./workloads/hpc/hbv3-series-overview.md),
-- obsługiwany [stos oprogramowania](./workloads/hpc/hbv3-series-overview.md#software-specifications) , w tym obsługiwane systemy operacyjne, i
-- oczekiwana [wydajność](./workloads/hpc/hbv3-performance.md) maszyny wirtualnej serii HBv3.
+- [Architektura architektury i topologii maszyn wirtualnych](./workloads/hpc/hbv3-series-overview.md)
+- Obsługiwany [stos oprogramowania](./workloads/hpc/hbv3-series-overview.md#software-specifications) , w tym obsługiwane systemy operacyjne
+- Oczekiwana [wydajność](./workloads/hpc/hbv3-performance.md) maszyny wirtualnej z serii HBv3
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

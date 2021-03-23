@@ -3,16 +3,16 @@ title: Przypadek użycia — profilowanie klientów
 description: Dowiedz się, jak Azure Data Factory jest używany do tworzenia przepływu pracy opartego na danych (potok) do profilowania klientów gier.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bb7f0fb6184a813dd9fd3c193bc5e3bda5628f2d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8193039edd21db5a52eabca37c1e61880e49cfe
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376721"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779753"
 ---
 # <a name="use-case---customer-profiling"></a>Przypadek użycia — profilowanie klientów
 Azure Data Factory jest jedną z wielu usług służących do implementowania Cortana Intelligence Suite akceleratorów rozwiązań.  Aby uzyskać więcej informacji na temat Cortana Intelligence, odwiedź [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). W tym dokumencie opisano prosty przypadek użycia, który pomoże Ci rozpocząć zrozumienie, jak Azure Data Factory może rozwiązać typowe problemy z analizą.

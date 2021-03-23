@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97347816"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800146"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ Domyślny poziom spójności można skonfigurować w dowolnym momencie w ramach 
 
 Azure Cosmos DB gwarantuje, że 100 procent żądań odczytu spełnia gwarancję spójności dla wybranego poziomu spójności. Precyzyjne definicje pięciu poziomów spójności w Azure Cosmos DB przy użyciu języka specyfikacji TLA + są dostępne w repozytorium GitHub [Azure-Cosmos-tla](https://github.com/Azure/azure-cosmos-tla) .
 
-Semantyka pięciu poziomów spójności została opisana tutaj:
+Semantyka pięciu poziomów spójności jest opisana w poniższych sekcjach.
 
-- **Silne**: silna spójność oferuje gwarancję linearizability. Linearizability odwołuje się do obsługi żądań współbieżnie. Odczyty są gwarantowane do zwrócenia najnowszej zatwierdzonej wersji elementu. Klient nigdy nie widzi niezatwierdzonego ani częściowego zapisu. Użytkownicy zawsze mają zagwarantowany odczyt najnowszej zatwierdzonego zapisu.
+### <a name="strong-consistency"></a>Silna spójność
+
+Silna spójność zapewnia gwarancję operacji atomowych. Linearizability odwołuje się do obsługi żądań współbieżnie. Odczyty są gwarantowane do zwrócenia najnowszej zatwierdzonej wersji elementu. Klient nigdy nie widzi niezatwierdzonego ani częściowego zapisu. Użytkownicy zawsze mają zagwarantowany odczyt najnowszej zatwierdzonego zapisu.
 
   Poniższa ilustracja ilustruje silną spójność z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" podczas odczytywania danych z innych regionów otrzymujesz najnowszą wartość:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Ilustracja przedstawiająca wysoki poziom spójności":::
 
-- **Powiązana nieaktualność**: odczyty są gwarantowane do przestrzegania gwarancji o spójnym prefiksie. Odczyty mogą być opóźnione w stosunku do zapisu o większości *"K"* wersjach (czyli "aktualizacje") elementu lub interwału czasu *"T"* , w zależności od tego, który zostanie osiągnięty jako pierwszy. Innymi słowy, w przypadku wybrania ograniczonej nieodświeżoności, "nieaktualność" można skonfigurować na dwa sposoby:
+### <a name="bounded-staleness-consistency"></a>Powiązana nieaktualność
+
+Ze względu na nieaktualność, odczyty są gwarantowane do przestrzegania gwarancji o spójnym prefiksie. Odczyty mogą być opóźnione w stosunku do zapisu o większości *"K"* wersjach (czyli "aktualizacje") elementu lub interwału czasu *"T"* , w zależności od tego, który zostanie osiągnięty jako pierwszy. Innymi słowy, w przypadku wybrania ograniczonej nieodświeżoności, "nieaktualność" można skonfigurować na dwa sposoby:
 
 - Liczba wersji (*K*) elementu
 - Odczyty interwału czasu (*T*) mogą być opóźnieniami za zapisem
@@ -79,7 +83,9 @@ W oknie nieodświeżone, powiązana nieaktualność zapewnia następujące gwara
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Ilustracja przedstawiająca ograniczony poziom spójności niezgodności":::
 
-- **Sesja**: w ramach jednej sesji klienta zagwarantowane jest przestrzeganie spójnego prefiksu, odczytów monotoniczny, zapisów monotoniczny, odczytów i zapisów, a ponadto gwarantuje zapis w ramach funkcji odczytu. Przyjęto założenie pojedynczej sesji "składnika zapisywania" lub udostępnienie tokenu sesji dla wielu modułów zapisujących.
+### <a name="session-consistency"></a>Spójność sesji
+
+W ramach spójności sesji w ramach jednej sesji klienta zagwarantowane jest przestrzeganie spójnego prefiksu, odczytów monotoniczny, zapisów monotoniczny, odczytów i zapisów oraz zapisywanych w wyniku zapisów. Przyjęto założenie pojedynczej sesji "składnika zapisywania" lub udostępnienie tokenu sesji dla wielu modułów zapisujących.
 
 Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące gwarancje:
 
@@ -92,7 +98,9 @@ Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące g
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Ilustracja poziomu spójności sesji":::
 
-- **Spójny prefiks**: zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
+### <a name="consistent-prefix-consistency"></a>Spójny prefiks
+
+W przypadku opcji spójnego prefiksu aktualizacje, które są zwracane, zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
 
 Jeśli operacje zapisu zostały wykonane w podanej kolejności `A, B, C` , klient zobaczy `A` , `A,B` , lub `A,B,C` , ale nigdy nie z kolejności permutacji, takich jak `A,C` lub `B,A,C` . Spójny prefiks zapewnia opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej spójności ostatecznej, ale również zapewnia gwarancję zamówienia, która odpowiada potrzebom scenariuszy, w których kolejność jest ważna.
 
@@ -107,7 +115,9 @@ Poniższa ilustracja ilustruje spójność prefiksu spójności z notatkami muzy
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Ilustracja przedstawiająca spójny prefiks":::
 
-- **Ostateczne**: nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
+### <a name="eventual-consistency"></a>Spójność ostateczna
+
+W przypadku spójności ostatecznej nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
 Spójność ostateczna to najsłaba forma spójności, ponieważ klient może odczytać wartości starsze niż te, które były wcześniej odczytywane. Spójność ostateczna jest idealnym miejscem, w którym aplikacja nie wymaga żadnych gwarancji związanych z porządkowaniem. Przykłady obejmują liczbę ponownych tweetów, polubień lub komentarzy niewielowątkowych. Na poniższej ilustracji przedstawiono spójność ostateczną z notatkami muzycznymi.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration spójności ostatecznej":::

@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/22/2021
+ms.openlocfilehash: f33490e273104105502ecc8f4f255c354a2d2f3b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98611036"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800027"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -137,7 +137,7 @@ W zależności od używanego interfejsu API kontener usługi Azure Cosmos może 
 | --- | --- |
 | Maksymalna długość nazwy bazy danych lub kontenera | 255 |
 | Maksymalna liczba procedur składowanych na kontener | 100 <sup>*</sup>|
-| Maksymalna UDF na kontener | 6,25 <sup>*</sup>|
+| Maksymalna UDF na kontener | 50 <sup>*</sup>|
 | Maksymalna liczba ścieżek w zasadach indeksowania| 100 <sup>*</sup>|
 | Maksymalna liczba unikatowych kluczy na kontener|dziesięć <sup>*</sup>|
 | Maksymalna liczba ścieżek na ograniczenie unikatowego klucza|16 <sup>*</sup>|

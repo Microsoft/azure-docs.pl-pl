@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041148"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799296"
 ---
 # <a name="log-analytics-tutorial"></a>Samouczek usługi Log Analytics
 Log Analytics to narzędzie w Azure Portal do edytowania i uruchamiania zapytań dzienników z danych zebranych przez dzienniki Azure Monitor i interaktywnie analizować ich wyniki. Za pomocą zapytań Log Analytics można pobierać rekordy spełniające określone kryteria, identyfikować trendy, analizować wzorce i udostępniać różnorodne informacje w danych. 
@@ -72,7 +72,7 @@ Instrukcja **WHERE** jest dodawana do zapytania z wybraną wartością. Wyniki z
 ## <a name="time-range"></a>Przedział czasu
 Wszystkie tabele w Log Analytics obszarze roboczym mają kolumnę o nazwie **TimeGenerated** , czyli godzinę utworzenia rekordu. Wszystkie zapytania mają zakres czasu, który ogranicza wyniki do rekordów z wartością **TimeGenerated** w tym zakresie. Zakres czasu można ustawić w zapytaniu lub za pomocą selektora w górnej części ekranu.
 
-Domyślnie zapytanie zwróci rekordy z ostatnich 24 godzin. Wybierz listę rozwijaną **zakres czasu** i zmień ją na **7 dni**. Kliknij przycisk **Uruchom** ponownie, aby zwrócić wyniki. Można zobaczyć, że wyniki są zwracane, ale mamy komunikat informujący o tym, że nie widzimy wszystkich wyników. Dzieje się tak, ponieważ Log Analytics może zwrócić maksymalnie 10 000 rekordów, a zapytanie zwróciło więcej rekordów niż to. 
+Domyślnie zapytanie zwróci rekordy z ostatnich 24 godzin. Wybierz listę rozwijaną **zakres czasu** i zmień ją na **7 dni**. Kliknij przycisk **Uruchom** ponownie, aby zwrócić wyniki. Można zobaczyć, że wyniki są zwracane, ale mamy komunikat informujący o tym, że nie widzimy wszystkich wyników. Dzieje się tak, ponieważ Log Analytics może zwrócić maksymalnie 30 000 rekordów, a zapytanie zwróciło więcej rekordów niż to. 
 
 [![Zakres czasu](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201330"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801829"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Znajdź koszt jednostkowy żądania dla operacji wykonywanych w interfejsie API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,13 +34,17 @@ Opłata za RU jest udostępniana przez niestandardowe [polecenie bazy danych](ht
 
 1. Przejdź do okienka **Eksplorator danych** , a następnie wybierz kontener, w którym chcesz rozpocząć pracę.
 
-1. Wybierz pozycję **Nowe zapytanie**.
+1. Wybierz pozycję **...** obok nazwy kontenera i wybierz pozycję **nowe zapytanie**.
 
 1. Wprowadź prawidłowe zapytanie, a następnie wybierz pozycję **wykonaj zapytanie**.
 
-1. Wybierz pozycję **Statystyka zapytania** , aby wyświetlić rzeczywistą opłatę za żądanie dla wykonywanego żądania.
+1. Wybierz pozycję **Statystyka zapytania** , aby wyświetlić rzeczywistą opłatę za żądanie dla wykonywanego żądania. Ten Edytor zapytań pozwala uruchamiać i wyświetlać opłaty jednostkowe żądania tylko w przypadku predykatów zapytań. Tego edytora nie można używać do wykonywania poleceń manipulowania danymi, takich jak instrukcje INSERT.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Zrzut ekranu przedstawiający opłaty za żądanie zapytania MongoDB w Azure Portal":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Zrzut ekranu przedstawiający opłaty za żądanie zapytania MongoDB w Azure Portal":::
+
+1. Aby uzyskać opłaty za żądania dotyczące manipulowania danymi, uruchom `getLastRequestStatistics` polecenie z interfejsu użytkownika opartego na powłokze, takiego jak Mongo Shell, [Robo 3T](mongodb-robomongo.md), [MongoDB kompas](mongodb-compass.md)lub rozszerzenia vs Code z obsługą skryptów powłoki.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Korzystanie ze sterownika MongoDB .NET
 

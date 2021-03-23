@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d45ce3a782d7ee145f769283b82e34647c78f26e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91876101"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799874"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Develop for Azure Files with Python (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python)
 
@@ -37,11 +37,11 @@ Poznaj podstawy używania języka Python do tworzenia aplikacji lub usług, któ
 
 # <a name="python-v12"></a>[V12 Python](#tab/python)
 
-[Biblioteka klienta usługi Azure File Storage V12. x dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) wymaga języka Python 2,7 lub 3,5.
+[Biblioteka klienta usługi Azure File Storage V12. x dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) wymaga języka Python 2,7 lub 3.6 +.
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-[Zestaw SDK usługi Azure Storage dla języka Python](https://github.com/azure/azure-storage-python) wymaga języka Python 2,7, 3,3, 3,4, 3,5 lub 3,6.
+[Zestaw SDK usługi Azure Storage dla języka Python](https://github.com/azure/azure-storage-python) wymaga języka Python 2,7 lub 3.6 +.
 
 ---
 

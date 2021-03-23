@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 84213832e59c50c85d9731ced39bbce6264df47e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f4019a28e98e06ad4a115e57b2cc9d3fb6f0a807
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590912"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802934"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w Azure NetApp Files
 
 Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowanie dotyczące najnowszych nowych funkcji i ulepszeń. 
 
-## <a name="march-2021"></a>Marzec 2021 
+## <a name="march-2021"></a>Marzec 2021
+
+* Udziały ciągłej dostępności protokołu SMB (wersja zapoznawcza)  
+
+    Funkcja nieprzezroczystego trybu failover protokołu SMB umożliwia wykonywanie operacji konserwacyjnych w usłudze Azure NetApp Files bez przerywania łączności z aplikacjami serwera przechowującymi dane na woluminach SMB i uzyskiwania do nich dostępu. Aby obsłużyć nieprzezroczystą pracę w trybie failover protokołu SMB, Azure NetApp Files obsługuje teraz opcję udziały ciągłej dostępności protokołu SMB dla SQL Server aplikacji przy użyciu protokołu SMB działającego na maszynach wirtualnych platformy Azure Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. SQL Server systemu Linux nie jest obecnie obsługiwana. Włączenie tej funkcji zapewnia znaczący wzrost wydajności SQL Server i skalowalność oraz obniżenie kosztów dla [pojedynczego wystąpienia, Always-On wystąpienia klastra trybu failover i Always-On wdrożeń grup dostępności](azure-netapp-files-solution-architectures.md#sql-server). Zobacz [zalety korzystania z Azure NetApp Files wdrożenia SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).
 
 * [Automatyczne zmienianie rozmiarów woluminu docelowego replikacji między regionami](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 
@@ -33,7 +37,7 @@ Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowa
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
-* [Narzędzie do tworzenia migawek spójnych aplikacji Azure](azacsnap-introduction.md) (publiczna wersja zapoznawcza)    
+* [Narzędzie do tworzenia migawek spójnych w aplikacji Azure](azacsnap-introduction.md) (wersja zapoznawcza)    
 
     Narzędzie do tworzenia migawek spójnych w aplikacji Azure (AzAcSnap) to narzędzie wiersza polecenia, które umożliwia uproszczenie ochrony danych dla baz danych innych firm (SAP HANA) w środowiskach systemu Linux (na przykład SUSE i RHEL).   
 
@@ -53,7 +57,7 @@ Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowa
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
-* [Azure NetApp Files replikacji między regionami](cross-region-replication-introduction.md) (publiczna wersja zapoznawcza)
+* [Azure NetApp Files replikację między regionami](cross-region-replication-introduction.md) (wersja zapoznawcza)
 
   Azure NetApp Files obsługuje teraz replikację między regionami. Dzięki tej nowej możliwości odzyskiwania po awarii możesz replikować Azure NetApp Files z jednego regionu platformy Azure do innego w szybki i ekonomiczny sposób, chroniąc dane przed nieprzewidywalnymi awariami regionalnymi. Azure NetApp Files replikacja między regionami korzysta z technologii NetApp SnapMirror® tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Ta technologia własnościowa minimalizuje ilość danych wymaganych do replikacji w regionach, co pozwala zaoszczędzić koszty transferu danych. Skraca również czas replikacji, dzięki czemu można osiągnąć mniejszy cel punktu przywracania (RPO).
 
