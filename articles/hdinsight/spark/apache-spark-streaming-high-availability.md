@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 3eb761a793c41c2e2cc2cb952e4fb9f241b41ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 602fa1cab71a797dd25aca263e0c6a9f2aa616bb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929700"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870232"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Tworzenie Apache Spark zadań przesyłania strumieniowego o wysokiej dostępności przy użyciu PRZĘDZy
 
@@ -18,7 +18,7 @@ ms.locfileid: "98929700"
 
 Usługa Spark Streaming tworzy długotrwałe zadania, w których można zastosować przekształcenia do danych, a następnie wypchnąć wyniki do systemów plików, baz danych, pulpitów nawigacyjnych i konsoli programu. Procesy przesyłania strumieniowego Spark przetwarzają mikropartie danych, tworząc najpierw partię zdarzeń w określonym przedziale czasu. Następnie ta partia jest wysyłana na potrzeby przetwarzania i wygenerowania danych wyjściowych. Przedziały czasu partii są zwykle zdefiniowane w częściach sekundy.
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-streaming.png" alt-text="Przesyłanie strumieniowe Spark" border="false":::
 
 ## <a name="dstreams"></a>DStreams
 
@@ -26,13 +26,13 @@ Przesyłanie strumieniowe Spark reprezentuje ciągły strumień danych przy uży
 
 Rdzeń Spark używa *rozproszonych zestawów danych* (odporne). Odporne Dystrybuuj dane między wieloma węzłami w klastrze, gdzie każdy węzeł ogólnie przechowuje swoje dane w pamięci w celu uzyskania najlepszej wydajności. Każdy RDD reprezentuje zdarzenia zbierane w ramach interwału wsadowego. Gdy upłynie interwał wsadowy, przesyłanie strumieniowe w usłudze Spark generuje nowy RDD zawierający wszystkie dane z tego interwału. Ten ciągły zestaw odporne jest zbierany w DStream. Aplikacja do przesyłania strumieniowego Spark przetwarza dane przechowywane w RDD każdej partii.
 
-![DStream platformy Spark](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-dstream.png" alt-text="DStream platformy Spark" border="false":::
 
 ## <a name="spark-structured-streaming-jobs"></a>Zadania przetwarzania strumieniowego platformy Spark
 
 Funkcja przesyłania strumieniowego platformy Spark została wprowadzona w platformie Spark 2,0 jako aparat analityczny służący do przesyłania strumieniowego danych strukturalnych. Funkcja przesyłania strumieniowego platformy Spark używa interfejsów API aparatu wsadowego SparkSQL. Podobnie jak w przypadku przesyłania strumieniowego Spark, strumień strukturalny platformy Spark uruchamia swoje obliczenia w sposób ciągły i składający się z mikropartii danych. Funkcja przesyłania strumieniowego platformy Spark reprezentuje strumień danych jako tabelę wejściową z nieograniczonymi wierszami. Oznacza to, że tabela wejściowa nadal rośnie po nadejściu nowych danych. Ta tabela wejściowa jest ciągle przetwarzana przez długotrwałe zapytanie, a wyniki są zapisywane do tabeli wyjściowej.
 
-![Strumień strukturalny platformy Spark](./media/apache-spark-streaming-high-availability/structured-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/structured-streaming.png" alt-text="Strumień strukturalny platformy Spark" border="false":::
 
 W przypadku przesyłania strumieniowego ze strukturą dane docierają do systemu i są natychmiast pozyskiwane w tabeli wejściowej. Napisz zapytania, które wykonują operacje na tej tabeli wejściowej. Dane wyjściowe zapytania dają inną tabelę o nazwie tabela wyników. Tabela wyniki zawiera wyniki zapytania, z którego dane mają być wysyłane do zewnętrznego magazynu danych, takiego jak relacyjna baza danych. *Interwał wyzwalacza* określa czas, w którym dane są przetwarzane z tabeli wejściowej. Domyślnie proces przesyłania strumieniowego przetwarza dane zaraz po nadejściu. Można jednak skonfigurować wyzwalacz do uruchamiania na dłuższym interwale, dzięki czemu dane przesyłane strumieniowo są przetwarzane w partiach opartych na czasie. Dane w tabeli wyników mogą być odświeżane za każdym razem, gdy istnieją nowe dane, tak aby zawierały wszystkie dane wyjściowe od momentu rozpoczęcia zapytania przesyłania strumieniowego (*tryb pełny*) lub może zawierać tylko dane, które są nowe od momentu ostatniego przetworzenia zapytania (*tryb Append*).
 
@@ -54,7 +54,7 @@ Aby utworzyć aplikację, która przetwarza każde zdarzenie raz (i tylko raz), 
 
 W usłudze HDInsight współpraca klastra jest koordynowana przez *inny* program. Projektowanie wysokiej dostępności dla przesyłania strumieniowego Spark obejmuje techniki przesyłania strumieniowego Spark, a także dla składników PRZĘDZy.  Poniżej przedstawiono przykładową konfigurację przy użyciu PRZĘDZy.
 
-![Architektura PRZĘDZy](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png" alt-text="Architektura PRZĘDZy" border="false":::
 
 W poniższych sekcjach opisano zagadnienia dotyczące projektowania tej konfiguracji.
 

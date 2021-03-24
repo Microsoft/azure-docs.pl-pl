@@ -4,12 +4,12 @@ description: Samouczek — informacje na temat konfigurowania zasad Apache Range
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933682"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866985"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Samouczek: konfigurowanie zasad platformy Apache Kafka w usłudze HDInsight przy użyciu pakietu Enterprise Security (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 2. Zaloguj się przy użyciu poświadczeń administratora usługi Azure Active Directory (AD). Poświadczenia administratora usługi Azure AD są inne niż poświadczenia klastra HDInsight i poświadczenia protokołu SSH węzła usługi HDInsight w systemie Linux.
 
-   ![Interfejs użytkownika administratora usługi HDInsight Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="Interfejs użytkownika administratora usługi HDInsight Apache Ranger" border="true":::
 
 ## <a name="create-domain-users"></a>Tworzenie użytkowników domeny
 
@@ -61,7 +61,7 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user** i **marketing_
    * „*” oznacza zero lub więcej wystąpień znaków.
    * „?” oznacza pojedynczy znak.
 
-   ![Interfejs użytkownika administratora Apache Ranger — tworzenie Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Interfejs użytkownika administratora Apache Ranger — tworzenie Policy1" border="true":::
 
    Zaczekaj kilka minut na zsynchronizowanie platformy Ranger z usługą Azure AD, jeśli użytkownik domeny nie zostanie automatycznie wypełniony dla ustawienia **Select User** (Wybierz użytkownika).
 
@@ -76,7 +76,7 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user** i **marketing_
    |Select User (Wybierz użytkownika)  |  marketing_user1 |
    |Uprawnienia  | publish, consume, create |
 
-   ![Interfejs użytkownika administratora Apache Ranger — tworzenie Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Interfejs użytkownika administratora Apache Ranger — tworzenie Policy2" border="true":::  
 
 6. Wybierz pozycję **Dodaj** , aby zapisać zasady.
 
@@ -177,7 +177,7 @@ W oparciu o skonfigurowane zasady platformy Ranger użytkownik **sales_user** mo
 
 8. Wyświetl zdarzenia dostępu inspekcji z poziomu interfejsu użytkownika platformy Ranger.
 
-   ![Zdarzenia dostępu inspekcji zasad interfejsu użytkownika Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Zdarzenia dostępu inspekcji zasad interfejsu użytkownika Ranger " border="true":::
    
 ## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>Tworzenie i Używanie tematów w ESP Kafka przy użyciu konsoli programu
 

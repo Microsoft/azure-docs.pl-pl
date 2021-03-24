@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149707"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954653"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -129,9 +129,7 @@ Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` 
 
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują następujące wartości:
 * `$dtId`: Identyfikator dwucyfrowego przędzy w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji
-* `$etag`: Standardowe pole HTTP przypisane przez serwer sieci Web. Ta wartość jest aktualizowana do nowej wartości za każdym razem, gdy jest ona aktualizowana, co może być przydatne do określenia, czy dane z sznurka zostały zaktualizowane na serwerze od czasu poprzedniej kontroli. Można go również używać w nagłówkach HTTP w następujący sposób:
-  - za pomocą operacji odczytu, aby uniknąć pobierania zawartości, która nie została zmieniona
-  - przy użyciu operacji zapisu do obsługi optymistycznej współbieżności
+* `$etag`: Standardowe pole HTTP przypisane przez serwer sieci Web. Ta wartość jest aktualizowana do nowej wartości za każdym razem, gdy jest ona aktualizowana, co może być przydatne do określenia, czy dane z sznurka zostały zaktualizowane na serwerze od czasu poprzedniej kontroli. Można użyć `If-Match` do wykonywania aktualizacji i usunięć, które są wykonywane tylko wtedy, gdy element ETag jest zgodny z podanym elementem ETag. Aby uzyskać więcej informacji na temat tych operacji, zobacz dokumentację [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) i [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
 * `$metadata`: Zestaw innych właściwości, w tym:
   - DTMI modelu dwuosiowy cyfrowo.
   - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 102bb1a7bf1bd3cb799d52ce13045e01a2a34297
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: acb497b2f0111d36650ec415c8f1f580d116b55e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505260"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863296"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Szybki Start: Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu Azure Portal
 
@@ -36,7 +36,7 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
 
 1. W górnym menu wybierz pozycję **+ Utwórz zasób**.
 
-    ![Azure Portal utworzyć usługi HDInsight zasobów](./media/apache-kafka-get-started/azure-portal-create-resource.png)
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-create-resource.png" alt-text="Azure Portal utworzyć usługi HDInsight zasobów" border="true":::
 
 1. Wybierz pozycję **Analiza**  >  **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
 
@@ -54,7 +54,7 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
     |Nazwa użytkownika protokołu SSH (Secure Shell) | Domyślna nazwa użytkownika to **sshuser**.  Możesz podać inną nazwę użytkownika protokołu SSH. |
     |Użyj hasła logowania do klastra dla protokołu SSH| Zaznacz to pole wyboru, aby użyć tego samego hasła dla użytkownika SSH, który został podany dla użytkownika logowania klastra.|
 
-   ![Podstawowe informacje Azure Portal tworzenia klastra](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-basics.png" alt-text="Podstawowe informacje Azure Portal tworzenia klastra" border="true":::
 
     Każdy region (lokalizacja) świadczenia usługi Azure udostępnia _domeny błędów_. Domena błędów to logiczna grupa bazowego sprzętu w centrum danych platformy Azure. Wszystkie domeny błędów korzystają ze wspólnego źródła zasilania i przełącznika sieciowego. Maszyny wirtualne i dyski zarządzane, które implementują węzły w klastrze usługi HDInsight są rozdzielone między te domeny błędów. Taka architektura ogranicza wpływ potencjalnych awarii sprzętu fizycznego.
 
@@ -71,7 +71,7 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
     |Konto magazynu podstawowego|Użyj listy rozwijanej, aby wybrać istniejące konto magazynu, lub wybierz pozycję **Utwórz nowe**. Jeśli utworzysz nowe konto, nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery|
     |Kontener|Użyj automatycznie wypełnionej wartości.|
 
-    ![Wprowadzenie do usługi HDInsight w systemie Linux zapewnia wartości magazynu klastra](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Podaj wartości magazynu na potrzeby tworzenia klastra usługi HDInsight")
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-storage.png " alt-text="Wprowadzenie do usługi HDInsight w systemie Linux zapewnia wartości magazynu klastra" border="true":::
 
     Wybierz kartę **zabezpieczenia i sieć** .
 
@@ -79,7 +79,7 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
 
    Jeśli chcesz połączyć klaster z siecią wirtualną, wybierz sieć wirtualną z listy rozwijanej **Sieć wirtualna**.
 
-   ![Dodawanie klastra do sieci wirtualnej](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png" alt-text="Dodawanie klastra do sieci wirtualnej" border="true":::
 
     Wybierz kartę **Konfiguracja i Cennik** .
 
@@ -87,13 +87,13 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
 
     Pozycja **dyski standardowe dla każdego węzła procesu roboczego** konfiguruje skalowalność Apache Kafka w usłudze HDInsight. Do przechowywania danych platforma Apache Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze. Ze względu na duże obciążenie we/wy platformy Apache Kafka używana jest funkcja [Dyski zarządzane platformy Azure](../../virtual-machines/managed-disks-overview.md), która zapewnia wysoką przepływność i więcej miejsca do magazynowania w każdym węźle. Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Typ dysku zależy od rozmiaru maszyny wirtualnej używanej przez węzły procesu roboczego (brokery platformy Apache Kafka). Dyski w warstwie Premium są używane automatycznie przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
 
-   ![Ustawianie rozmiaru klastra platformy Apache Kafka](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png" alt-text="Ustawianie rozmiaru klastra platformy Apache Kafka" border="true":::
 
     Wybierz kartę **Recenzja + tworzenie** .
 
 1. Zapoznaj się z konfiguracją klastra. Zmień ustawienia, które są nieprawidłowe. Na koniec wybierz pozycję **Utwórz** , aby utworzyć klaster.
 
-    ![Podsumowanie konfiguracji klastra Kafka](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png" alt-text="Podsumowanie konfiguracji klastra Kafka" border="true":::
 
     Tworzenie klastra może potrwać do 20 minut.
 

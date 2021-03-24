@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób korzystania z usługi SendGrid z us�
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b344c0c4b1db9159d0223c861e5d371cb225f5a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946973"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867206"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight
 
@@ -33,15 +33,15 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Na stronie Przegląd wybierz pozycję **Zarządzaj**, aby przejść do strony sieci Web SendGrid dla Twojego konta.
 
-    ![Omówienie SendGrid w witrynie Azure Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="Omówienie SendGrid w witrynie Azure Portal":::
 
 1. W menu po lewej stronie przejdź do swojej nazwy konta, a następnie **szczegóły konta**.
 
-    ![Nawigacja pulpitu nawigacyjnego SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="Nawigacja pulpitu nawigacyjnego SendGrid":::
 
 1. Na stronie **szczegóły konta** Zapisz **nazwę użytkownika**.
 
-    ![Szczegóły konta SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="Szczegóły konta SendGrid":::
 
 ## <a name="configure-ambari-e-mail-notification"></a>Konfigurowanie powiadomienia e-mail Ambari
 
@@ -51,7 +51,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz **+** ikonę.
 
-    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie powiadomieniami o alertach.](./media/apache-ambari-email/azure-portal-create-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-create-notification.png" alt-text="Zrzut ekranu przedstawia okno dialogowe Zarządzanie powiadomieniami o alertach.":::
 
 1. W oknie dialogowym **Tworzenie powiadomienia o alercie** podaj następujące informacje:
 
@@ -72,7 +72,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     |Potwierdzenie hasła|Ponownie wprowadź hasło.|
     |Uruchom protokół TLS|Zaznacz to pole wyboru|
 
-    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie powiadomienia o alertach.](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="Zrzut ekranu przedstawia okno dialogowe Tworzenie powiadomienia o alertach.":::
 
     Wybierz pozycję **Zapisz**. Powrócisz do okna **Zarządzanie powiadomieniami o alertach** .
 

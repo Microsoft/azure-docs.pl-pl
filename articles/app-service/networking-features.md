@@ -4,15 +4,15 @@ description: Dowiedz się więcej o funkcjach sieciowych w Azure App Service i D
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99593133"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889148"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
 
@@ -129,11 +129,15 @@ Niektóre przypadki użycia tej funkcji:
 ![Diagram przedstawiający korzystanie z punktów końcowych usługi z Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 Aby dowiedzieć się więcej na temat konfigurowania punktów końcowych usługi przy użyciu aplikacji, zobacz [Azure App Service ograniczenia dostępu][serviceendpoints].
-#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Reguły ograniczeń dostępu oparte na tagach usług (wersja zapoznawcza)
+
+#### <a name="access-restriction-rules-based-on-service-tags"></a>Reguły ograniczeń dostępu oparte na tagach usługi
+
 [Tagi usług platformy Azure][servicetags] są dobrze zdefiniowanymi zestawami adresów IP dla usług platformy Azure. Znaczniki usługi grupują zakresy adresów IP używane w różnych usługach platformy Azure i często są również w zasięgu w określonych regionach. Dzięki temu można filtrować ruch *przychodzący* z określonych usług platformy Azure. 
 
 Aby zapoznać się z pełną listą tagów i więcej informacji, odwiedź Link Service Tag powyżej. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [Konfigurowanie ograniczeń dostępu][iprestrictions].
-#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtrowanie nagłówków HTTP na potrzeby reguł ograniczeń dostępu (wersja zapoznawcza)
+
+#### <a name="http-header-filtering-for-access-restriction-rules"></a>Filtrowanie nagłówka HTTP dla reguł ograniczeń dostępu
+
 Dla każdej reguły ograniczeń dostępu można dodać dodatkowe filtrowanie nagłówka HTTP. Pozwala to na dalsze sprawdzenie przychodzącego żądania i filtru na podstawie określonych wartości nagłówka HTTP. Każdy nagłówek może zawierać maksymalnie 8 wartości dla każdej reguły. Następująca lista nagłówków HTTP jest obecnie obsługiwana: 
 * X-Forwarded-For
 * X-Forward-Host
@@ -143,6 +147,7 @@ Dla każdej reguły ograniczeń dostępu można dodać dodatkowe filtrowanie nag
 Niektóre przypadki użycia dotyczące filtrowania nagłówków HTTP są następujące:
 * Ograniczanie dostępu do ruchu z serwerów proxy przekazujących nazwę hosta
 * Ograniczanie dostępu do określonego wystąpienia usługi Azure front-drzwi przy użyciu reguły znacznika usługi i ograniczenia nagłówka X-FDID
+
 ### <a name="private-endpoint"></a>Prywatny punkt końcowy
 
 Prywatny punkt końcowy to interfejs sieciowy, który łączy Cię prywatnie i bezpiecznie z Twoją aplikacją internetową za pomocą prywatnego linku platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie łącząc aplikację sieci Web z siecią wirtualną. Ta funkcja jest tylko dla przepływów *przychodzących* do aplikacji sieci Web.

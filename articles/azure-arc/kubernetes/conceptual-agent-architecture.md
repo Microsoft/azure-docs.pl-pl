@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Ten artykuł zawiera omówienie architektury agentów Kubernetes włączonych przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 5e53e99c492f08deab8dea89ec95190782661012
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121902"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953072"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Architektura agenta Kubernetes z włączoną funkcją Azure Arc
 
@@ -93,5 +93,5 @@ Większość Premium centrów danych wymusza ścisłe reguły sieciowe uniemożl
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./connect-cluster.md).
+* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./quickstart-connect-cluster.md).
 * Dowiedz się więcej na temat tworzenia połączeń między klastrem a repozytorium git jako [zasobu konfiguracji z włączonym usługą Azure Arc Kubernetes](./conceptual-configurations.md).

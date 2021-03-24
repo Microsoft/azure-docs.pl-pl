@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: tilarso
+ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90705490"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952277"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Co to jest wskaźnik bezpieczeństwa tożsamości w usłudze Azure Active Directory?
 
@@ -24,7 +24,7 @@ Jak bezpieczna jest Twoja dzierżawa usługi Azure AD? Jeśli nie wiesz, jak odp
 
 ## <a name="what-is-an-identity-secure-score"></a>Co to jest wskaźnik bezpieczeństwa tożsamości?
 
-Wynikowy test tożsamości jest liczbą z przedziału od 1 do 223, która działa jako wskaźnik określający, w jaki sposób użytkownik ma zalecenia dotyczące najlepszych rozwiązań w zakresie zabezpieczeń. Każda akcja ulepszania w ramach bezpiecznego wyniku tożsamości jest dostosowywana do określonej konfiguracji.  
+Wynikowa tożsamość tożsamości jest równa wartości procentowej, która działa jako wskaźnik określający, w jaki sposób użytkownik ma zalecenia dotyczące najlepszych rozwiązań w zakresie zabezpieczeń. Każda akcja ulepszania w ramach bezpiecznego wyniku tożsamości jest dostosowywana do określonej konfiguracji.  
 
 ![Wskaźnik bezpieczeństwa](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -78,7 +78,7 @@ Wskaźnik bezpieczeństwa tożsamości może być używany przez następujące r
 
 ### <a name="how-are-controls-scored"></a>Jak są oceniane kontrolki?
 
-Kontrolki mogą być oceniane na dwa sposoby. Niektóre są oceniane w sposób binarny — otrzymasz 100% oceny, jeśli masz funkcję lub ustawienie skonfigurowane na podstawie naszego zalecenia. Inne wyniki są obliczane jako wartość procentowa całkowitej konfiguracji. Na przykład jeśli zalecenie dotyczące ulepszeń postanowi 30 punktów, jeśli chronisz wszystkich użytkowników za pomocą usługi MFA i masz tylko 5 z 100 łącznej liczby użytkowników, otrzymasz częściowy wynik wokół 2 punktów (5 chronionych/100 łącznie * 30 maksymalnych wartości = 2.
+Kontrolki mogą być oceniane na dwa sposoby. Niektóre są oceniane w sposób binarny — otrzymasz 100% oceny, jeśli masz funkcję lub ustawienie skonfigurowane na podstawie naszego zalecenia. Inne wyniki są obliczane jako wartość procentowa całkowitej konfiguracji. Na przykład jeśli zalecenie dotyczące ulepszeń będzie miało wartość maksymalnie 10,71% w przypadku ochrony wszystkich użytkowników za pomocą usługi MFA i masz tylko 5 z 100 łącznej liczby użytkowników, otrzymasz częściowy wynik około 0,53% (5 chronionych/100 łącznie * 10,71% maksimum = 0,53% wyniku częściowego).
 
 ### <a name="what-does-not-scored-mean"></a>Co oznacza informacja [Nieoceniane]?
 
@@ -98,7 +98,7 @@ W skrócie: nie. Wynik zabezpieczony nie wyraża bezwzględnej miary tego, co je
 
 ### <a name="how-should-i-interpret-my-score"></a>Jak mam zinterpretować swój wskaźnik?
 
-Punkty otrzymujesz za skonfigurowanie rekomendowanych funkcji zabezpieczeń lub wykonanie zadań związanych z zabezpieczeniami (na przykład przeczytanie raportów). Niektóre akcje są oceniane za częściowe ukończenie. Należy do nich na przykład włączenie uwierzytelniania wieloskładnikowego (MFA) dla użytkowników. Bezpieczny wynik jest bezpośrednio reprezentatywny dla używanych usług zabezpieczeń firmy Microsoft. Należy pamiętać, że zabezpieczenia muszą być zrównoważone z użytecznością. Wszystkie kontrole bezpieczeństwa wpływają na użytkowników. Kontrole o niskim wpływie na użytkowników powinny mieć niewielkie przełożenie na codzienne operacje użytkowników lub nie mieć go wcale.
+Wynik zwiększa się w celu skonfigurowania zalecanych funkcji zabezpieczeń lub wykonywania zadań związanych z zabezpieczeniami (takich jak odczytywanie raportów). Niektóre akcje są oceniane za częściowe ukończenie. Należy do nich na przykład włączenie uwierzytelniania wieloskładnikowego (MFA) dla użytkowników. Bezpieczny wynik jest bezpośrednio reprezentatywny dla używanych usług zabezpieczeń firmy Microsoft. Należy pamiętać, że zabezpieczenia muszą być zrównoważone z użytecznością. Wszystkie kontrole bezpieczeństwa wpływają na użytkowników. Kontrole o niskim wpływie na użytkowników powinny mieć niewielkie przełożenie na codzienne operacje użytkowników lub nie mieć go wcale.
 
 Aby wyświetlić historię oceny, przejdź do [Centrum zabezpieczeń Microsoft 365](https://security.microsoft.com/) i zapoznaj się z ogólnymi wynikami firmy Microsoft. Zmiany w ogólnym łącznym wyniku można przejrzeć, klikając pozycję Wyświetl historię. Wybierz konkretną datę, aby zobaczyć, które kontrole były włączone w tym dniu i jakie punkty zostały Ci przyznane za każdą z nich.
 

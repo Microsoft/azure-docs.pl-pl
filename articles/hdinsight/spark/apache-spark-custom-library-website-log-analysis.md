@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940300"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866322"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizowanie dzienników witryn sieci Web przy użyciu niestandardowej biblioteki języka Python z klastrem Apache Spark w usłudze HDInsight
 
@@ -30,11 +30,11 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
 
 1. Utwórz nowy notes. Wybierz pozycję **Nowy**, a następnie **PySpark**.
 
-    ![Utwórz nowy Jupyter Notebook Apache](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Utwórz nowy Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="Utwórz nowy Jupyter Notebook Apache" border="true"::: Notes "Border =" true ":::
 
 1. Zostanie utworzony i otwarty nowy notes o nazwie Untitled.pynb. Wybierz nazwę notesu u góry, a następnie wprowadź przyjazną nazwę.
 
-    ![Wprowadzanie nazwy notesu](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Wprowadzanie nazwy notesu")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Podaj nazwę notesu" border="true":::tebook "Border =" true ":::
 
 1. Ponieważ utworzono Notes przy użyciu jądra PySpark, nie trzeba jawnie tworzyć kontekstów. Konteksty Spark i Hive zostaną automatycznie utworzone po uruchomieniu pierwszej komórki kodu. Możesz rozpocząć od zaimportowania typów, które są wymagane dla tego scenariusza. Wklej następujący fragment kodu do pustej komórki, a następnie naciśnij klawisze **SHIFT + ENTER**.
 
@@ -173,7 +173,7 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
 
    Powinny pojawić się dane wyjściowe podobne do poniższej:
 
-   ![dane wyjściowe zapytania SQL usługi HDInsight Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Dane wyjściowe zapytania SQL")
+   dane wyjściowe zapytania SQL usługi :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="HDInsight Jupyter SQL" border="true":::w postaci yterowej
 
    Aby uzyskać więcej informacji na temat `%%sql` Magic, zobacz [Parametry obsługiwane za pomocą Magic%% SQL](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -191,7 +191,7 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
 
    Powinny pojawić się dane wyjściowe podobne do poniższej:
 
-   ![Wykres analizy dzienników sieci Web platformy Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib dane wyjściowe")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="Analiza dzienników sieci Web platformy Apache Spark" border="true":::"Border =" true "::
 
 1. Po zakończeniu działania aplikacji należy zamknąć Notes, aby zwolnić zasoby. W tym celu w menu **File** (Plik) w notesie wybierz pozycję **Close and Halt** (Zamknij i zatrzymaj). Ta akcja spowoduje zamknięcie i zamknięcie notesu.
 

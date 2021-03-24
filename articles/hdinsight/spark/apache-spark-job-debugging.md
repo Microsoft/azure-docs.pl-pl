@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: f332416a10aa86cb7e0bc7ba560537955d9f2faa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0dd250f0a8f67d7e370b8ff453e9cff4d88b7896
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930569"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866101"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Debugowanie zadań platformy Apache Spark uruchomionych w usłudze Azure HDInsight
 
@@ -28,20 +28,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Uruchom interfejs użytkownika PRZĘDZy. Wybierz pozycję **przędza** w obszarze **pulpity nawigacyjne klastra**.
 
-    ![Azure Portal uruchamiania interfejsu użytkownika PRZĘDZy](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/launch-apache-yarn-ui.png" alt-text="Azure Portal uruchamiania interfejsu użytkownika PRZĘDZy" border="true":::
 
    > [!TIP]  
    > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. Aby uruchomić interfejs użytkownika Ambari, wybierz pozycję **Ambari Home** w obszarze **pulpity nawigacyjne klastra**. W interfejsie użytkownika Ambari **Przejdź do**  >  okna **szybkie linki** do > aktywnego Menedżer zasobów > **Menedżer zasobów interfejsie użytkownika**.
 
 2. Ponieważ uruchomiono zadanie Spark przy użyciu notesów Jupyter, aplikacja ma nazwę **remotesparkmagics** (nazwa wszystkich aplikacji uruchamianych z notesów). Wybierz identyfikator aplikacji dla nazwy aplikacji, aby uzyskać więcej informacji o zadaniu. Ta akcja powoduje uruchomienie widoku aplikacji.
 
-    ![Serwer historii platformy Spark Znajdź identyfikator aplikacji platformy Spark](./media/apache-spark-job-debugging/find-application-id1.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/find-application-id1.png" alt-text="Serwer historii platformy Spark Znajdź identyfikator aplikacji platformy Spark" border="true":::
 
     W przypadku takich aplikacji, które są uruchamiane z notesów Jupyter, stan jest zawsze **uruchamiany** , dopóki nie zamkniesz notesu.
 
 3. W widoku aplikacji możesz przejść do szczegółów, aby dowiedzieć się więcej o kontenerach skojarzonych z aplikacją i dziennikach (stdout/stderr). Interfejs użytkownika Spark można również uruchomić, klikając link odpowiadający **adresowi URL śledzenia**, jak pokazano poniżej.
 
-    ![Pobieranie dzienników kontenerów z serwera historii platformy Spark](./media/apache-spark-job-debugging/download-container-logs.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/download-container-logs.png" alt-text="Pobieranie dzienników kontenerów z serwera historii platformy Spark" border="true":::
 
 ## <a name="track-an-application-in-the-spark-ui"></a>Śledzenie aplikacji w interfejsie użytkownika Spark
 
@@ -49,29 +49,29 @@ W interfejsie użytkownika platformy Spark można przechodzić do szczegółów 
 
 1. Aby uruchomić interfejs użytkownika Spark, w widoku aplikacji wybierz łącze z **adresem URL śledzenia**, jak pokazano na poniższym zrzucie ekranu. Można wyświetlić wszystkie zadania platformy Spark uruchamiane przez aplikację uruchomioną w Jupyter Notebook.
 
-    ![Karta zadań serwera historii platformy Spark](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-apache-spark-jobs.png" alt-text="Karta zadań serwera historii platformy Spark" border="true":::
 
 2. Wybierz kartę **wykonawcy** , aby wyświetlić informacje dotyczące przetwarzania i magazynowania dla każdego wykonawcy. Możesz również pobrać stos wywołań, wybierając łącze **zrzut wątku** .
 
-    ![Karta modułów wykonujących serwer historii platformy Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-executors.png" alt-text="Karta modułów wykonujących serwer historii platformy Spark" border="true":::
 
 3. Wybierz kartę **etapy** , aby wyświetlić etapy skojarzone z aplikacją.
 
-    ![Karta etapy serwera historii platformy Spark](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Wyświetl etapy platformy Spark")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-apache-spark-stages.png " alt-text="Karta etapy serwera historii platformy Spark" border="true":::
 
     Każdy etap może mieć wiele zadań, dla których można wyświetlić statystyki wykonywania, jak pokazano poniżej.
 
-    ![Szczegóły karty etapy serwera historii platformy Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png "Wyświetl szczegóły etapów platformy Spark")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-details.png " alt-text="Szczegóły karty etapy serwera historii platformy Spark" border="true":::
 
 4. Na stronie szczegóły etapu można uruchomić wizualizację DAG. Rozwiń link **wizualizacji DAG** w górnej części strony, jak pokazano poniżej.
 
-    ![Wyświetl wizualizację DAG etapów platformy Spark](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png" alt-text="Wyświetl wizualizację DAG etapów platformy Spark" border="true":::
 
     DAG lub Direct Aclyic Graph reprezentuje różne etapy aplikacji. Każde niebieskie pole na grafie reprezentuje operację Spark wywoływaną z aplikacji.
 
 5. Na stronie szczegóły etapu można również uruchomić widok oś czasu aplikacji. Rozwiń link **oś czasu zdarzeń** w górnej części strony, jak pokazano poniżej.
 
-    ![Wyświetl oś czasu zdarzeń etapów platformy Spark](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png" alt-text="Wyświetl oś czasu zdarzeń etapów platformy Spark" border="true":::
 
     Ten obraz przedstawia zdarzenia platformy Spark w formie osi czasu. Widok oś czasu jest dostępny na trzech poziomach, między zadaniami, w ramach zadania i w obrębie etapu. Powyższy obraz przechwytuje Widok osi czasu dla danego etapu.
 
@@ -92,14 +92,14 @@ Po zakończeniu zadania informacje o zadaniu są utrwalane na serwerze historii 
 
 1. Aby uruchomić serwer historii platformy Spark, na stronie **Przegląd** wybierz pozycję **serwer historii platformy Spark** w obszarze **pulpity nawigacyjne klastra**.
 
-    ![Azure Portal uruchomić serwer historii platformy Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Uruchom historię platformy Spark serwer1")
+    :::image type="content" source="./media/apache-spark-job-debugging/launch-spark-history-server.png " alt-text="Azure Portal uruchomić serwer historii platformy Spark" border="true":::
 
    > [!TIP]  
    > Alternatywnie można również uruchomić interfejs użytkownika serwera historii platformy Spark z poziomu interfejsu użytkownika Ambari. Aby uruchomić interfejs użytkownika Ambari, w bloku przegląd wybierz pozycję **Strona główna Ambari** w obszarze **pulpity nawigacyjne klastra**. W interfejsie użytkownika Ambari przejdź do strony **Spark2**  >  **szybkie linki**  >  **Spark2 interfejs użytkownika serwera historii**.
 
 2. Zobaczysz wszystkie ukończone aplikacje wymienione na liście. Wybierz identyfikator aplikacji, aby przejść do aplikacji w celu uzyskania dodatkowych informacji.
 
-    ![Zakończone aplikacje serwera historii platformy Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Uruchom historię platformy Spark Serwer2")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-completed-applications.png " alt-text="Zakończone aplikacje serwera historii platformy Spark" border="true":::
 
 ## <a name="see-also"></a>Zobacz też
 

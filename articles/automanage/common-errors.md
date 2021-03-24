@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18165ce5f39b32fe1c5af28bc88e8e1bd0e9cb62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561870"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955554"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Rozwiązywanie typowych błędów podczas dołączania
 Autozarządzanie może zakończyć się niepowodzeniem, aby dołączyć maszynę do usługi. W tym dokumencie wyjaśniono, jak rozwiązywać problemy z błędami wdrażania, udostępnia niektóre typowe przyczyny niepowodzenia wdrożeń, a także opisuje potencjalne kolejne kroki dotyczące rozwiązania problemu.
@@ -38,7 +38,11 @@ Błąd |  Ograniczanie ryzyka
 :-----|:-------------|
 Błąd autozarządzania kontem niewystarczających uprawnień | Taka sytuacja może wystąpić, jeśli ostatnio przeniesiono subskrypcję zawierającą nowe konto Autozarządzanie do nowej dzierżawy. Kroki umożliwiające rozwiązanie tego problemu znajdują się [tutaj](./repair-automanage-account.md).
 Region obszaru roboczego jest niezgodny z wymaganiami dotyczącymi mapowania regionów | Funkcja autozarządzania nie mogła dołączyć maszyny, ale obszar roboczy Log Analytics, z którym jest obecnie łączona maszyna, nie jest mapowany do obsługiwanego regionu automatyzacji. Upewnij się, że istniejący obszar roboczy Log Analytics i konto usługi Automation znajdują się w [obsługiwanym mapowaniu regionów](../automation/how-to/region-mappings.md).
-"Odmowa dostępu z powodu przypisywania Odmów z nazwą" system Odmów przypisania utworzonego przez aplikację zarządzaną "" | Utworzono [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) w Twoim zasobie, co uniemożliwiło Autozarządzanie dostępem do zasobu. Może to być spowodowane przez [Plan](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) lub [aplikację zarządzaną](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
+"Odmowa dostępu z powodu przypisywania Odmów z nazwą" system Odmów przypisania utworzonego przez aplikację zarządzaną "" | Utworzono [denyAssignment](../role-based-access-control/deny-assignments.md) w Twoim zasobie, co uniemożliwiło Autozarządzanie dostępem do zasobu. Może to być spowodowane przez [Plan](../governance/blueprints/concepts/resource-locking.md) lub [aplikację zarządzaną](../azure-resource-manager/managed-applications/overview.md).
+"Informacje o systemie operacyjnym: nazwa =" (null) ", ver =" (null) ", stan agenta =" niegotowe "." | Upewnij się, że korzystasz z [minimalnej obsługiwanej wersji agenta](/troubleshoot/azure/virtual-machines/support-extensions-agent-version), Agent jest uruchomiony[(Linux](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) i [Windows](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)) i że Agent jest aktualny ([Linux](../virtual-machines/extensions/update-linux-agent.md) i [Windows](../virtual-machines/extensions/agent-windows.md)).
+"Maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia" IaaSAntimalware "" | Upewnij się, że na maszynie wirtualnej jest już zainstalowana inna oferta ochrony przed złośliwym oprogramowaniem/oprogramowania antywirusowego. Jeśli to się nie powiedzie, skontaktuj się z pomocą techniczną.
+Obszar roboczy usługi ASC: Autozarządzanie aktualnie nie obsługuje usługi Log Analytics w _lokalizacji_. | Sprawdź, czy maszyna wirtualna znajduje się w [obsługiwanym regionie](./automanage-virtual-machines.md#supported-regions).
+Wdrożenie szablonu nie powiodło się z powodu naruszenia zasad. Aby uzyskać więcej informacji, zobacz szczegóły. | Istnieje zasada uniemożliwiająca automatyczne zarządzanie z dołączania maszyny wirtualnej. Sprawdź zasady, które są stosowane do subskrypcji lub grupy zasobów zawierającej maszynę wirtualną, którą chcesz dołączyć do autozarządzania.
 "Przypisanie nie powiodło się; Brak dostępnych dodatkowych informacji " | Otwórz sprawę z obsługą Microsoft Azure.
 
 ## <a name="next-steps"></a>Następne kroki

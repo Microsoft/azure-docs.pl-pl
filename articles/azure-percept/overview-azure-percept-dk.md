@@ -5,58 +5,62 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 74e7d1a54b1d760979dbf9833e85ec728b4e5e3a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 722beda6eddb64581be3b724a8de5235f953bc6e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595893"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953786"
 ---
 # <a name="azure-percept-dk-overview"></a>Omówienie usługi Azure Percept DK
 
-Azure Percept DK to zestaw "Edge AI i IoT Development Kit" przeznaczony do opracowywania koncepcji wzrokowych i dźwiękowych AI. W połączeniu z usługami [Azure Percept Studio](./overview-azure-percept-studio.md) i [Azure Percept audio](./overview-azure-percept-audio.md)jest to wydajna i prosta platforma służąca do tworzenia rozwiązań dla urządzeń z systemem Edge, obejmująca szeroką gamę aplikacji programistycznych lub audio AI. Jest ona dostępna do zakupu w [Sklepie Microsoft Online](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+Azure Percept DK to zestaw Development Kit zaprojektowany na potrzeby opracowywania rozwiązań obsługi i audio AI w programie [Azure Percept Studio](./overview-azure-percept-studio.md). Usługa Azure Percept DK jest dostępna do zakupu w [Sklepie Microsoft Online](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
 > [!div class="nextstepaction"]
 > [Kup teraz](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-<!---
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept DK device.":::
---->
 </br>
 
 > [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-- **Możliwość uruchamiania AI na krawędzi**. Dzięki wbudowanemu przyspieszeniu sprzętowym można uruchamiać modele Vision AI bez połączenia z chmurą.
-- **Wbudowany sprzęt główny zabezpieczeń zaufania**. Aby uzyskać więcej informacji, zobacz ten przegląd [zabezpieczeń usługi Azure Percept](./overview-percept-security.md) .
-- **Bezproblemowa integracja z [usługą Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** i innymi usługami platformy Azure. Na przykład Azure IoT Hub, Azure Cognitive Services i [Analiza filmów wideo na żywo](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
-- **Bezproblemowa integracja z opcjonalnym użyciem [usługi Azure Percept audio](./overview-azure-percept-audio.md)**
-- **Obsługa najważniejszych platform AI**. Takie jak ONNX i TensorFlow.
-- **Integracja z systemem kolei 80/20**. Łatwiejsze tworzenie prototypów w środowiskach produkcyjnych. Dowiedz się więcej o [integracji 80/20](./overview-8020-integration.md).
+- Uruchom AI na krawędzi. Dzięki wbudowanemu przyspieszeniu sprzętowym zestaw deweloperów może uruchamiać modele AI bez połączenia z chmurą.
+
+- Wbudowany sprzęt główny zabezpieczeń zaufania. Dowiedz się więcej o [zabezpieczeniach usługi Azure Percept](./overview-percept-security.md).
+
+- Bezproblemowa integracja z [usługą Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) i innymi usługami platformy Azure, takimi jak Azure IoT Hub, Azure Cognitive Services i [Analiza filmów wideo na żywo](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+
+- Jest to zgodne z funkcją [Azure Percept audio](./overview-azure-percept-audio.md)i opcjonalnym wyposażeniem do tworzenia rozwiązań audio AI.
+
+- Obsługa narzędzi AI innych firm, takich jak ONNX i TensorFlow.
+
+- Integracja z systemem kolei 80/20, który umożliwia nieskończoną konfigurację instalowania urządzeń. Dowiedz się więcej o [integracji 80/20](./overview-8020-integration.md).
 
 ## <a name="hardware-components"></a>Składniki sprzętowe
 
-- Tablica przewoźnika usługi Azure Percept DK
+- Tablica przewoźnika usługi Azure Percept DK:
     - Procesor NXP iMX8m
     - Trusted Platform Module (TPM), wersja 2,0
-    - Łączność Wi-Fi i Bluetooth
-    - Zobacz pełny [Arkusz danych](./azure-percept-dk-datasheet.md)
-- System Vision Percept na platformie Azure w module (SoM)
+    - Wi-Fi i łączność Bluetooth
+    - Aby uzyskać więcej informacji, zobacz [Arkusz danych usługi Azure PERCEPT DK](./azure-percept-dk-datasheet.md)
+
+- Azure Percept Vision system-on-module (SoM):
     - Jednostka przetwarzania wzrokowego Intel Movidius wyposażono X (MA2085) (VPU)
-    - Czujnik kamery RGB z możliwością dodania sekundy
-    - Zobacz pełny [Arkusz danych](./azure-percept-vision-datasheet.md)
+    - Czujnik aparatu RGB
+    - Aby uzyskać więcej informacji, zobacz [Arkusz danych wizji usługi Azure Percept](./azure-percept-vision-datasheet.md)
 
-## <a name="get-started-with-the-azure-percept-dk"></a>Wprowadzenie do usługi Azure Percept DK
+## <a name="getting-started-with-azure-percept-dk"></a>Wprowadzenie do korzystania z usługi Azure Percept DK
 
-- Wykonaj te Przewodniki Szybki Start
+- Skonfiguruj zestaw deweloperski:
     - [Unbox i złóż platformę Azure Percept DK](./quickstart-percept-dk-unboxing.md)
-    - [Skonfiguruj platformę Azure Percept DK i Uruchom swój pierwszy model systemu AI](./quickstart-percept-dk-set-up.md)
-- Zacznij tworzyć potwierdzenia koncepcji za pomocą tych samouczków
+    - [Ukończ działanie Instalatora platformy Azure Percept DK](./quickstart-percept-dk-set-up.md)
+
+- Zacznij tworzyć rozwiązania do obsługi rozwiązań i audio:
     - [Tworzenie rozwiązania "bez obsługi kodu" w usłudze Azure Percept Studio](./tutorial-nocode-vision.md)
-    - [Tworzenie asystenta głosowego w usłudze Azure Percept Studio](./tutorial-no-code-speech.md)
+    - [Tworzenie rozwiązania do obsługi mowy bez kodu w usłudze Azure Percept Studio](./tutorial-no-code-speech.md) (wymagane akcesoria Azure Percept audio)
 
 ## <a name="next-steps"></a>Następne kroki
 

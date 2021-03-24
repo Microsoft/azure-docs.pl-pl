@@ -8,19 +8,21 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: e8d191dfed5b33116dadaf34b17d5f6525060e13
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721211"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889828"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii H i N
 
 W tym artykule podjęto próbę wyświetlenia listy najnowszych typowych [problemów i ich](../../sizes-gpu.md) rozwiązań w przypadku korzystania z [serii H](../../sizes-hpc.md) i maszyn wirtualnych GPU.
 
 ## <a name="mofed-installation-on-ubuntu"></a>Instalacja MOFED na Ubuntu
-W systemie Ubuntu-18,04 jądro wersja 5.4.0-1041-Azure jest niezgodna z wersjami MOFED 5.2-2 i 5.2-1.0.4.0. Zalecamy przywrócenie do jądra wersji 5.4.0-1040-Azure lub użycie obrazu z witryny Marketplace ze starszymi jądrami, a nie aktualizację jądra. Ten problem powinien zostać rozwiązany przy użyciu nowszej MOFED (do opracowania później).
+W systemie Ubuntu-18,04, Mellanox OFED wykazał niezgodność z wersjami jądra `5.4.0-1039-azure #42` i nowszą, co powoduje zwiększenie czasu rozruchu maszyny wirtualnej o około 30 minut. Zostało to zgłoszone dla obu wersji programu Mellanox OFED 5.2-1.0.4.0 i 5.2-2.2.0.0.
+Rozwiązaniem tymczasowym jest użycie **kanoniczny: UbuntuServer: 18_04-LTS-Gen2:18.04.202101290** Marketplace Image lub starszej wersji, a nie aktualizacji jądra.
+Ten problem powinien zostać rozwiązany przy użyciu nowszej MOFED (do opracowania później).
 
 ## <a name="known-issues-on-hbv3"></a>Znane problemy dotyczące HBv3
 - Obecnie InfiniBand jest obsługiwany tylko na maszynie wirtualnej 120-Core (Standard_HB120rs_v3).

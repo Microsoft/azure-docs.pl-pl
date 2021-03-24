@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a1b97586eeeab1d5d1917f2d1cec9e0f71e9e329
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98665144"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867461"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Prywatny link do Azure Database for MariaDB
 
@@ -85,7 +85,8 @@ Po utworzeniu przez administratora sieci prywatnego punktu końcowego (PE) admin
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Przypadki użycia prywatnego linku do Azure Database for MariaDB
 
-Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, równorzędnej podsieci w tym samym regionie lub za pośrednictwem połączenia między sieciami wirtualnymi w różnych regionach. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
+
+Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, [równorzędnej](../virtual-network/virtual-network-peering-overview.md) podsieci w tym samym regionie lub w różnych regionach albo za pośrednictwem [połączenia](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) między różnymi regionami. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
 
 ![Wybieranie prywatnego punktu końcowego — Omówienie](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 

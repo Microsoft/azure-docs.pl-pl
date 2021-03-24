@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32ad6fa122083b40a948345e360bf5b9b0f09e96
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216534"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954857"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -121,7 +121,7 @@ Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własnoś�
 
     <details>
         <summary>Czy mogę zarządzać systemem DNS od mojego dostawcy domeny przy użyciu platformy Azure?</summary>
-        Jeśli chcesz, możesz użyć Azure DNS do zarządzania rekordami DNS dla domeny i skonfigurować niestandardową nazwę DNS dla Azure App Service. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns">Samouczek: Hostowanie domeny w Azure DNS></a>.
+        Jeśli chcesz, możesz użyć Azure DNS do zarządzania rekordami DNS dla domeny i skonfigurować niestandardową nazwę DNS dla Azure App Service. Aby uzyskać więcej informacji, zobacz <a href="/azure/dns/dns-delegate-domain-azure-dns">Samouczek: Hostowanie domeny w Azure DNS></a>.
     </details>
 
 1. Znajdź stronę służącą do zarządzania rekordami DNS. 
@@ -146,7 +146,7 @@ Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własnoś�
             <ul>
             <li>Aby zmapować domenę główną (na przykład <code>contoso.com</code> ), użyj rekordu A. Nie używaj rekordu CNAME dla rekordu głównego (Aby uzyskać informacje, zobacz <a href="https://en.wikipedia.org/wiki/CNAME_record">wpis Wikipedia</a>).</li>
             <li>Aby zmapować poddomenę (na przykład <code>www.contoso.com</code> ), użyj rekordu CNAME.</li>
-            <li>Domenę podrzędnej można mapować na adres IP aplikacji bezpośrednio z rekordem, ale można <a href="https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">zmienić adres IP</a>. Rekord CNAME jest mapowany na nazwę hosta aplikacji, co jest mniej podatne na zmianę.</li>
+            <li>Domenę podrzędnej można mapować na adres IP aplikacji bezpośrednio z rekordem, ale można <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">zmienić adres IP</a>. Rekord CNAME jest mapowany na nazwę hosta aplikacji, co jest mniej podatne na zmianę.</li>
             <li>Aby zmapować <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">domenę symboli wieloznacznych</a> (na przykład <code>*.contoso.com</code> ), użyj rekordu CNAME.</li>
             </ul>
         </div>
@@ -247,7 +247,7 @@ W przypadku symboli wieloznacznych, takich jak `*` w programie `*.contoso.com` ,
 
     <details>
         <summary>Co to jest etykieta ostrzeżenie <strong>niezabezpieczona</strong> ?</summary>
-        Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
+        Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
     </details>
 
     Jeśli pominięto krok lub wystąpił błąd w dowolnym miejscu, w dolnej części strony pojawi się komunikat o błędzie weryfikacji.
@@ -274,7 +274,7 @@ W przypadku symboli wieloznacznych, takich jak `*` w programie `*.contoso.com` ,
 
     <details>
         <summary>Co to jest etykieta ostrzeżenie <strong>niezabezpieczona</strong> ?</summary>
-        Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
+        Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
     </details>
     
     Jeśli pominięto krok lub wystąpił błąd w dowolnym miejscu, w dolnej części strony pojawi się komunikat o błędzie weryfikacji.
@@ -297,7 +297,7 @@ W przypadku symboli wieloznacznych, takich jak `*` w programie `*.contoso.com` ,
 
     <details>
         <summary>Co to jest etykieta ostrzeżenie <strong>niezabezpieczona</strong> ?</summary>
-        Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
+        Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
     </details>
 
 -----

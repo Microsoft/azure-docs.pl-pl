@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932064"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872102"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
@@ -36,7 +36,7 @@ Firma Microsoft udostępnia następujące narzędzia do skalowania klastrów:
 |[Klasyczny interfejs wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Witryna Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
 
-![Azure Portal skalowanie — opcja klastra](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure Portal skalowanie — opcja klastra":::
 
 Korzystając z dowolnej z tych metod, można skalować klaster usługi HDInsight w górę lub w dół w ciągu kilku minut.
 
@@ -82,7 +82,7 @@ Wpływ zmiany liczby węzłów danych różni się w zależności od typu klastr
 
     1. Wybierz topologię, którą chcesz ponownie zrównoważyć, a następnie wybierz przycisk **Zrównoważ** ponownie. Wprowadź opóźnienie przed wykonaniem operacji ponownego równoważenia.
 
-        ![Ponowne równoważenie skali burzy usługi HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Ponowne równoważenie skali burzy usługi HDInsight":::
 
   * Narzędzie interfejsu wiersza polecenia (CLI)
 
@@ -130,13 +130,13 @@ Aby wyświetlić listę oczekujących i uruchomionych zadań, można użyć **in
 3. Z poziomu interfejsu użytkownika Ambari wybierz pozycję **przędza** na liście usług w menu po lewej stronie.  
 4. Na stronie PRZĘDZa wybierz pozycję **szybkie linki** i umieść kursor nad aktywnym węzłem głównym, a następnie wybierz pozycję **Menedżer zasobów interfejsie użytkownika**.
 
-    ![Szybkie linki Menedżer zasobów Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Szybkie linki Menedżer zasobów Apache Ambari":::
 
 Możesz bezpośrednio uzyskać dostęp do interfejsu użytkownika Menedżer zasobów przy użyciu programu `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Zostanie wyświetlona lista zadań wraz z bieżącym stanem. Na zrzucie ekranu jest aktualnie uruchomione jedno zadanie:
 
-![Menedżer zasobów aplikacji interfejsu użytkownika](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Menedżer zasobów aplikacji interfejsu użytkownika":::
 
 Aby ręcznie skasować tę uruchomioną aplikację, wykonaj następujące polecenie w powłoce SSH:
 

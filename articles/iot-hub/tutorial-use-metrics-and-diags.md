@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98625202"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889601"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Samouczek: Konfigurowanie metryk i dzienników przy użyciu Centrum IoT Hub oraz korzystanie z nich
 
@@ -219,7 +219,7 @@ Aby skonfigurować alerty metryk:
 
 1. Najpierw skonfiguruj warunek, na którym zostanie wyzwolony alert.
 
-    1. W obszarze **warunek** wybierz pozycję **Wybierz warunek**. W okienku **Konfigurowanie logiki sygnałów** w polu wyszukiwania wpisz ciąg "Telemetria" i wybierz pozycję **wysłane komunikaty telemetryczne**.
+    1. W obszarze **warunek** wybierz pozycję **Dodaj warunek**. W okienku **Konfigurowanie logiki sygnałów** w polu wyszukiwania wpisz ciąg "Telemetria" i wybierz pozycję **wysłane komunikaty telemetryczne**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Zrzut ekranu przedstawiający Wybieranie metryki.":::
 
@@ -245,7 +245,7 @@ Aby skonfigurować alerty metryk:
 
 1. Teraz skonfiguruj akcję dla alertu.
 
-    1. Wróć do okienka **Tworzenie reguły alertu** , w obszarze **Akcje** wybierz pozycję **Wybierz grupę akcji**. W okienku **Wybierz grupę akcji do dołączenia do tej reguły alertu** wybierz pozycję **Utwórz grupę akcji**.
+    1. Wróć do okienka **Tworzenie reguły alertu** , w obszarze **Akcje** wybierz pozycję **Dodaj grupy akcji**. W okienku **Wybierz grupę akcji do dołączenia do tej reguły alertu** wybierz pozycję **Utwórz grupę akcji**.
 
     1. Na karcie **podstawy** w okienku **Tworzenie grupy akcji** nadaj grupie akcji nazwę i nazwę wyświetlaną.
 
@@ -313,7 +313,7 @@ Dzięki tym ustawieniom alert zostanie wyzwolony i otrzymasz powiadomienie e-mai
 
 ## <a name="run-the-simulated-device-app"></a>Uruchamianie aplikacji symulowanego urządzenia
 
-W sekcji [Konfigurowanie zasobów](#set-up-resources) zarejestrowano tożsamość urządzenia do użycia w celu symulowania użycia urządzenia IoT. W tej sekcji pobrano aplikację konsolową .NET, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do IoT Hub, skonfiguruje je do wysyłania tych komunikatów do centrum IoT Hub, a następnie uruchomi je. 
+W sekcji [Konfigurowanie zasobów](#set-up-resources) zarejestrowano tożsamość urządzenia do użycia w celu symulowania użycia urządzenia IoT. W tej sekcji pobrano aplikację konsolową .NET, która symuluje urządzenie wysyłające komunikaty z urządzenia do chmury do IoT Hub, skonfiguruje je do wysyłania tych komunikatów do centrum IoT Hub, a następnie uruchomi je.
 
 > [!IMPORTANT]
 >

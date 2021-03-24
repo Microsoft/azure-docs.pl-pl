@@ -1,5 +1,5 @@
 ---
-title: Jak oznakować wiele terminów słownika do listy wybranych zasobów
+title: Jak zbiorczo edytować zasoby do klasyfikacji tagów, terminologii słownika i modyfikowania kontaktów
 description: Dowiedz się więcej na temat zbiorczej edycji zasobów na platformie Azure kontrolą.
 author: nayenama
 ms.author: nayenama
@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049490"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952460"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Jak zbiorczo edytować elementy zawartości do słownika tagów
 

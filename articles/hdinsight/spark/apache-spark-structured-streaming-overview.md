@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 9f92007c271da5b6d2cb8db6c3904a62b114e7c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929501"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864605"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Przegląd Apache Spark strukturalnych przesyłania strumieniowego
 
@@ -20,7 +20,7 @@ Aplikacje do przesyłania strumieniowego ze strukturą działają w klastrach us
 
 Przesyłanie strumieniowe ze strukturą tworzy długotrwałe zapytanie, podczas którego są stosowane operacje do danych wejściowych, takie jak zaznaczenie, projekcja, agregacja, okna i dołączanie do ramki Dataframe z odwołaniami. Następnie wyprowadzasz wyniki do magazynu plików (obiekty blob usługi Azure Storage lub Data Lake Storage) lub do dowolnego magazynu danych przy użyciu kodu niestandardowego (takiego jak SQL Database lub Power BI). Przesyłanie strumieniowe ze strukturą udostępnia również dane wyjściowe do konsoli na potrzeby debugowania lokalnego oraz do tabeli w pamięci, dzięki czemu można zobaczyć dane wygenerowane na potrzeby debugowania w usłudze HDInsight.
 
-![Przetwarzanie strumieni z użyciem usługi HDInsight i przesyłania strumieniowego platformy Spark](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png" alt-text="Przetwarzanie strumieni z użyciem usługi HDInsight i przesyłania strumieniowego platformy Spark" border="false":::
 
 > [!NOTE]  
 > Proces przesyłania strumieniowego platformy Spark polega na wymianie strumienia Spark (DStreams). Dzięki temu przesyłanie strumieniowe ze strukturą będzie otrzymywać ulepszenia i konserwację, a DStreams będzie tylko w trybie konserwacji. Funkcja przesyłania strumieniowego strukturalnego nie jest obecnie jako DStreams dla źródeł i ujścia, które obsługuje, dlatego należy oszacować wymagania, aby wybrać odpowiednią opcję przetwarzania strumienia Spark.
@@ -29,7 +29,7 @@ Przesyłanie strumieniowe ze strukturą tworzy długotrwałe zapytanie, podczas 
 
 Przesyłanie strumieniowe platformy Spark reprezentuje strumień danych w postaci tabeli, która jest niezależna. oznacza to, że tabela ciągle rośnie po nadejściu nowych danych. Ta *tabela wejściowa* jest ciągle przetwarzana przez długotrwałe zapytanie i wyniki wysyłane do *tabeli wyjściowej*:
 
-![Koncepcja strukturalnego przesyłania strumieniowego](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png" alt-text="Koncepcja strukturalnego przesyłania strumieniowego" border="false":::
 
 W przypadku przesyłania strumieniowego ze strukturą dane docierają do systemu i są natychmiast pozyskiwane w tabeli wejściowej. Zapytania są zapisywane (przy użyciu Dataframe i API DataSet), które wykonują operacje na tej tabeli wejściowej. Dane wyjściowe zapytania dają inną tabelę, *tabelę wyników*. Tabela wyniki zawiera wyniki zapytania, z którego są rysowane dane dla zewnętrznego magazynu danych, takiego jak relacyjna baza danych. Czas przetwarzania danych z tabeli wejściowej jest kontrolowany przez *Interwał wyzwalacza*. Domyślnie interwał wyzwalacza wynosi zero, więc transmisja strukturalna próbuje przetworzyć dane zaraz po nadejściu. W tym przypadku oznacza to, że zaraz po wykonaniu operacji przesyłania strumieniowego ze strukturą przetwarzanie przebiegu poprzedniego zapytania rozpocznie się w wyniku kolejnego przetwarzania danych. Wyzwalacz można skonfigurować tak, aby uruchamiał się z interwałem, dzięki czemu dane przesyłane strumieniowo są przetwarzane w partiach opartych na czasie.
 
@@ -41,7 +41,7 @@ W trybie dołączania tylko wiersze dodane do tabeli wyniki od momentu ostatnieg
 
 Rozważmy scenariusz, w którym przetwarzasz dane telemetryczne z czujników temperatury, takich jak termostat. Przyjmij pierwszy wyzwalacz, który przetworzył jedno zdarzenie w czasie 00:01 dla urządzenia 1 z temperaturą odczytywania 95 stopni. W pierwszym wyzwalaczu zapytania w tabeli Results pojawia się tylko wiersz z godziną 00:01. W czasie 00:02 po nadejściu kolejnego zdarzenia jedynym nowym wierszem jest wiersz z godziną 00:02, więc tabela wyników będzie zawierać tylko jeden wiersz.
 
-![Tryb dołączania do strukturalnego przesyłania strumieniowego](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png" alt-text="Tryb dołączania do strukturalnego przesyłania strumieniowego" border="false":::
 
 W przypadku korzystania z trybu dołączania zapytanie będzie stosować projekcje (wybierając kolumny, które dba informacje), filtrowanie (pobieranie tylko wierszy, które pasują do określonych warunków) lub łączenie (rozszerzanie danych przy użyciu statycznej tabeli odnośników). Tryb dołączania ułatwia wypychanie tylko odpowiednich nowych punktów danych do magazynu zewnętrznego.
 
@@ -51,7 +51,7 @@ Rozważmy ten sam scenariusz, tym razem z trybem kompletnym. W trybie kompletnym
 
 Przyjęto założenie, że dane zostały już przetworzone przez pięć sekund, a czas na przetworzenie danych na szóstą sekundę. W tabeli wejściowej znajdują się zdarzenia dotyczące czasu 00:01 i czasu 00:03. Celem tego przykładowego zapytania jest przekazanie średniej temperatury urządzenia co pięć sekund. Implementacja tego zapytania ma zastosowanie agregacji, która pobiera wszystkie wartości, które mieszczą się w każdym oknie 5-sekundowym, oblicza średnią temperaturę i tworzy wiersz dla średniej temperatury w tym interwale. Na koniec pierwszego okna 5-sekundowego istnieją dwie krotki: (00:01, 1, 95) i (00:03, 1, 98). Dlatego w przypadku okna 00:00-00:05 agregacja tworzy spójną temperaturę z 96,5 stopniami. W następnym 5-sekundowym oknie istnieje tylko jeden punkt danych w czasie 00:06, więc wynikiem średniej temperatury jest 98 stopni. W czasie 00:10 przy użyciu trybu kompletnego tabela wyników zawiera wiersze dla systemu Windows 00:00-00:05 i 00:05-00:10, ponieważ zapytanie wyprowadza wszystkie zagregowane wiersze, a nie tylko nowe. W związku z tym tabela wyników nadal rośnie po dodaniu nowych okien.
 
-![Tryb wykonywania przesyłania strumieniowego strukturalnego](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png" alt-text="Tryb wykonywania przesyłania strumieniowego strukturalnego" border="false":::
 
 Nie wszystkie zapytania korzystające z trybu Complete spowodują, że tabela zostanie powiększona bez zakresu.  Rozważmy w poprzednim przykładzie, który zamiast średniej temperatury według przedziału czasowego, jest średni zamiast identyfikatora urządzenia. Tabela wynik zawiera ustaloną liczbę wierszy (jeden na urządzenie) ze średnią temperaturą dla urządzenia we wszystkich punktach danych odebranych z tego urządzenia. W miarę otrzymywania nowych temperatur tabela wyników zostaje zaktualizowana tak, aby średnia w tabeli była zawsze aktualna.
 
@@ -141,7 +141,7 @@ W celu zapewnienia odporności i odporności na uszkodzenia, strumieniowanie str
 
 Zazwyczaj tworzysz aplikację do przesyłania strumieniowego Spark lokalnie do pliku JAR, a następnie wdróż ją na platformie Spark w usłudze HDInsight, kopiując plik JAR do magazynu domyślnego dołączonego do klastra usługi HDInsight. Aplikację można uruchomić za pomocą interfejsów API REST usługi [Apache usługi Livy](https://livy.incubator.apache.org/) dostępnych w klastrze przy użyciu operacji post. Treść wpisu zawiera dokument JSON, który zawiera ścieżkę do pliku JAR, nazwę klasy, której Metoda Main definiuje i uruchamia aplikację przesyłania strumieniowego oraz opcjonalnie wymagania dotyczące zasobów zadania (takie jak liczba modułów wykonujących, pamięć i rdzenie) oraz ustawienia konfiguracji wymagane przez kod aplikacji.
 
-![Wdrażanie aplikacji do przesyłania strumieniowego Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Wdrażanie aplikacji do przesyłania strumieniowego Spark" border="false":::
 
 Stan wszystkich aplikacji można również sprawdzić za pomocą żądania GET w odniesieniu do punktu końcowego usługi LIVY. Na koniec możesz przerwać działającą aplikację, wydając żądanie DELETE względem punktu końcowego usługi LIVY. Aby uzyskać szczegółowe informacje o interfejsie API usługi LIVY, zobacz [zdalne zadania z Apache usługi Livy](apache-spark-livy-rest-interface.md)
 

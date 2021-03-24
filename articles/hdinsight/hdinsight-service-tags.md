@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931763"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872017"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>SIECIOWEJ grupy zabezpieczeń Tagi usług dla usługi Azure HDInsight
 
@@ -40,7 +40,7 @@ Najprostszym sposobem rozpoczęcia korzystania z tagów usług w klastrze usług
 
 1. Z listy rozwijanej **tag usługi źródłowej** wybierz pozycję **HDInsight**.
 
-    ![Dodaj tag usługi z Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Dodaj tag usługi z Azure Portal":::
 
 Ten tag zawiera adresy IP usług kondycji i zarządzania dla wszystkich regionów, w których Usługa HDInsight jest dostępna. Ten tag zapewni, że klaster będzie mógł komunikować się z niezbędnymi usługami kondycji i zarządzania niezależnie od miejsca, w którym zostały utworzone.
 

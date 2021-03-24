@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941066"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869773"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Szybki Start: wykonywanie zapytań Apache Hive w usłudze Azure HDInsight przy użyciu platformy Apache Zeppelin
 
@@ -28,7 +28,7 @@ HDInsight An interaktywny klaster zapytań. Zobacz [Tworzenie klastra](../hadoop
 
 2. Wprowadź nazwę użytkownika i hasło logowania do klastra. Na stronie Zeppelin można utworzyć nową notatkę lub otworzyć istniejące notatki. **HiveSample** zawiera przykładowe zapytania Hive.  
 
-    ![Zapytanie interaktywne Zeppelin usługi HDInsight](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="Zapytanie interaktywne Zeppelin usługi HDInsight" border="true":::
 
 3. Wybierz pozycję **Utwórz nową notatkę**.
 
@@ -46,7 +46,7 @@ HDInsight An interaktywny klaster zapytań. Zobacz [Tworzenie klastra](../hadoop
     show tables
     ```
 
-    ![Zapytanie dotyczące uruchamiania interakcyjnych zapytań usługi HDInsight Zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="Zapytanie dotyczące uruchamiania interakcyjnych zapytań usługi HDInsight Zeppelin" border="true":::
 
     Instrukcja **% JDBC (Hive)** w pierwszym wierszu instruuje Notes, aby korzystał z interpretera JDBC programu Hive.
 

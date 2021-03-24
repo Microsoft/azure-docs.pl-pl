@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/11/2021
+ms.date: 03/19/2021
 ms.author: b-juche
-ms.openlocfilehash: f4019a28e98e06ad4a115e57b2cc9d3fb6f0a807
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802934"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955240"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w Azure NetApp Files
 
@@ -27,7 +27,7 @@ Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowa
 
 ## <a name="march-2021"></a>Marzec 2021
 
-* Udziały ciągłej dostępności protokołu SMB (wersja zapoznawcza)  
+* [Udziały ciągłej dostępności protokołu SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (wersja zapoznawcza)  
 
     Funkcja nieprzezroczystego trybu failover protokołu SMB umożliwia wykonywanie operacji konserwacyjnych w usłudze Azure NetApp Files bez przerywania łączności z aplikacjami serwera przechowującymi dane na woluminach SMB i uzyskiwania do nich dostępu. Aby obsłużyć nieprzezroczystą pracę w trybie failover protokołu SMB, Azure NetApp Files obsługuje teraz opcję udziały ciągłej dostępności protokołu SMB dla SQL Server aplikacji przy użyciu protokołu SMB działającego na maszynach wirtualnych platformy Azure Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. SQL Server systemu Linux nie jest obecnie obsługiwana. Włączenie tej funkcji zapewnia znaczący wzrost wydajności SQL Server i skalowalność oraz obniżenie kosztów dla [pojedynczego wystąpienia, Always-On wystąpienia klastra trybu failover i Always-On wdrożeń grup dostępności](azure-netapp-files-solution-architectures.md#sql-server). Zobacz [zalety korzystania z Azure NetApp Files wdrożenia SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).
 

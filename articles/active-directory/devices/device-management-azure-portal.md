@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561655"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952783"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -174,7 +174,7 @@ Do wyświetlania ustawień urządzenia i zarządzania nimi w Azure Portal należ
 > - Zalecamy użycie [akcji użytkownika "Zarejestruj lub Dołącz urządzenia"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) w dostęp warunkowy w celu wymuszenia uwierzytelniania wieloskładnikowego w celu dołączenia lub zarejestrowania urządzenia. 
 > - Należy ustawić wartość **nie** , jeśli używasz zasad dostępu warunkowego, aby wymagać authencation wieloskładnikowego. 
 
-- **Maksymalna liczba urządzeń** — to ustawienie pozwala wybrać maksymalną liczbę przyłączonych do usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, które użytkownik może mieć w usłudze Azure AD. Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń, dopóki nie zostaną usunięte co najmniej jedno z istniejących urządzeń. Wartość domyślna to **50**.
+- **Maksymalna liczba urządzeń** — to ustawienie pozwala wybrać maksymalną liczbę przyłączonych do usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, które użytkownik może mieć w usłudze Azure AD. Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń, dopóki nie zostaną usunięte co najmniej jedno z istniejących urządzeń. Wartość domyślna to **50**. Można zwiększyć wartość do 100, a jeśli wprowadzisz wartość powyżej 100, usługa Azure AD ustawi ją na 100. Możesz również użyć wartości nieograniczonej, aby wymusić brak limitu przydziału poza istniejącymi limitami.
 
 > [!NOTE]
 > Ustawienie **Maksymalna liczba urządzeń** ma zastosowanie do urządzeń, które są przyłączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD. To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD.

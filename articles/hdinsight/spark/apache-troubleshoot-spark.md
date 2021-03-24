@@ -6,12 +6,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: af488cd253e8a8ebedd838aa5286185ea556f69d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b54b9d932505ada890ac21c1b8de3178ad2f0042
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942500"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867512"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą Apache Spark za pomocą usługi Azure HDInsight
 
@@ -25,49 +25,49 @@ Wartości konfiguracji platformy Spark można dostrajać w celu uniknięcia wyj�
 
 1. Przejdź do **Spark2**  >  **configs**.
 
-    ![Wybierz kartę konfiguracje](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png" alt-text="Wybierz kartę konfiguracje" border="true":::
 
 1. Na liście konfiguracji wybierz i rozwiń pozycję **Custom-spark2-Defaults**.
 
 1. Wyszukaj ustawienie wartości, które należy dostosować, takie jak **spark.executor. Memory**. W tym przypadku wartość **9728m** jest zbyt wysoka.
 
-    ![Wybierz pozycję niestandardowe-Spark-Defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png" alt-text="Wybierz pozycję niestandardowe-Spark-Defaults" border="true":::
 
 1. Ustaw wartość na zalecane ustawienie. Wartość **2048m** jest zalecana dla tego ustawienia.
 
 1. Zapisz wartość, a następnie Zapisz konfigurację. Wybierz pozycję **Zapisz**.
 
-    ![Zmień wartość na 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png" alt-text="Zmień wartość na 2048m" border="true":::
 
     Napisz uwagi dotyczące zmian konfiguracji, a następnie wybierz pozycję **Zapisz**.
 
-    ![Wprowadź adnotację dotyczącą wprowadzonych zmian](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png" alt-text="Wprowadź adnotację dotyczącą wprowadzonych zmian" border="true":::
 
     Otrzymasz powiadomienie, jeśli jakieś konfiguracje wymagają uwagi. Zanotuj elementy, a następnie wybierz pozycję **kontynuować mimo wszystko**.
 
-    ![Wybierz pozycję nadal pomimo](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png" alt-text="Wybierz pozycję nadal pomimo" border="true":::
 
 1. Po zapisaniu konfiguracji zostanie wyświetlony monit o ponowne uruchomienie usługi. Wybierz pozycję **Uruchom ponownie**.
 
-    ![Wybierz pozycję Uruchom ponownie](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png" alt-text="Wybierz pozycję Uruchom ponownie" border="true":::
 
     Potwierdź ponowne uruchomienie.
 
-    ![Wybierz pozycję Potwierdź ponowne uruchomienie wszystkich](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png" alt-text="Wybierz pozycję Potwierdź ponowne uruchomienie wszystkich" border="true":::
 
     Można przejrzeć procesy, które są uruchomione.
 
-    ![Przeglądanie uruchomionych procesów](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png" alt-text="Przeglądanie uruchomionych procesów" border="true":::
 
 1. Można dodać konfiguracje. Na liście konfiguracji wybierz pozycję **Custom-spark2-Defaults**, a następnie wybierz pozycję **Dodaj właściwość**.
 
-    ![Wybierz pozycję Dodaj właściwość](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png" alt-text="Wybierz pozycję Dodaj właściwość" border="true":::
 
 1. Zdefiniuj nową właściwość. Można zdefiniować pojedynczą właściwość przy użyciu okna dialogowego dla określonych ustawień, takich jak typ danych. Lub można zdefiniować wiele właściwości przy użyciu jednej definicji dla każdego wiersza.
 
     W tym przykładzie właściwość **Spark. Driver. Memory** jest zdefiniowana z wartością **4G**.
 
-    ![Definiuj nową właściwość](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png" alt-text="Definiuj nową właściwość" border="true":::
 
 1. Zapisz konfigurację, a następnie uruchom ponownie usługę zgodnie z opisem w sekcji kroki 6 i 7.
 
@@ -77,7 +77,7 @@ Te zmiany są w całym klastrze, ale można je zastąpić podczas przesyłania z
 
 W pierwszej komórce Jupyter Notebook po dyrektywie **konfiguracji%%** Określ konfiguracje platformy Spark w prawidłowym formacie JSON. W razie potrzeby zmień wartości rzeczywiste:
 
-![Dodawanie konfiguracji](./media/apache-troubleshoot-spark/add-configuration-cell.png)
+:::image type="content" source="./media/apache-troubleshoot-spark/add-configuration-cell.png" alt-text="Dodawanie konfiguracji" border="true":::
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Jak skonfigurować aplikację platformy Apache Spark za pomocą usługi Apache Livy w klastrach?
 

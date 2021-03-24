@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 04da5d668515fe96d50d4e6a7d0f5ff1c4c48c27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4aa25368e156ce793e969f866490352e253559fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931374"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871728"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrowanie klastra usługi HDInsight do nowszej wersji
 
@@ -24,7 +24,7 @@ Aby skorzystać z najnowszych funkcji usługi HDInsight, zalecamy regularne Migr
 ## <a name="migration-tasks"></a>Zadania migracji
 
 Przepływ pracy uaktualniania klastra usługi HDInsight jest następujący:.
-![Diagram przepływu pracy uaktualniania usługi HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="Diagram przepływu pracy uaktualniania usługi HDInsight" border="false":::
 
 1. Przeczytaj każdą z sekcji tego dokumentu, aby poznać zmiany, które mogą być wymagane podczas uaktualniania klastra usługi HDInsight.
 2. Utwórz klaster jako środowisko testu/jakości. Aby uzyskać więcej informacji na temat tworzenia klastra, zobacz [informacje na temat tworzenia klastrów usługi HDInsight opartych na systemie Linux](hdinsight-hadoop-provision-linux-clusters.md)
@@ -47,7 +47,7 @@ W poniższych dokumentach przedstawiono wskazówki dotyczące migrowania konkret
 * [Migruj Kafka](./kafka/migrate-versions.md)
 * [Migrowanie programu Hive/zapytania interaktywnego](./interactive-query/apache-hive-migrate-workloads.md)
 
-## <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
+## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 
 Aby uzyskać więcej informacji na temat kopii zapasowych i przywracania bazy danych, zobacz [odzyskiwanie bazy danych w Azure SQL Database przy użyciu zautomatyzowanych kopii zapasowych bazy danych](../azure-sql/database/recovery-using-backups.md).
 

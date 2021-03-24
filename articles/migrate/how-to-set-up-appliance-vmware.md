@@ -6,16 +6,16 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1217b51ea91758d25b76394b27d3b21b2e9808b3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780875"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865234"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Konfigurowanie urządzenia dla serwerów w środowisku VMware
 
-Postępuj zgodnie z tym artykułem, aby skonfigurować Azure Migrate urządzenie do oceny Azure Migrate za pomocą narzędzia do [odnajdywania i oceny](migrate-services-overview.md#azure-migrate-server-assessment-tool) oraz dla migracji bez agentów przy użyciu narzędzia [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) Tool.
+Postępuj zgodnie z tym artykułem, aby skonfigurować Azure Migrate urządzenie do oceny Azure Migrate za pomocą narzędzia do [odnajdywania i oceny](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) oraz dla migracji bez agentów przy użyciu narzędzia [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) Tool.
 
 [Urządzenie Azure Migrate](migrate-appliance.md) jest lekkim urządzeniem używanym przez Azure Migrate: odnajdywanie i ocenianie oraz Migracja serwera w celu odnajdywania serwerów z systemem w vCenter Server, wysyłania metadanych konfiguracji serwera i wydajności do platformy Azure oraz do replikacji serwerów za pomocą migracji bez wykorzystania agentów.
 
@@ -24,23 +24,23 @@ Urządzenie można wdrożyć przy użyciu kilku metod:
 - Utwórz serwer na vCenter Server przy użyciu pobranego szablonu komórki jajowe. Jest to metoda opisana w tym artykule.
 - Skonfiguruj urządzenie na istniejącym serwerze przy użyciu skryptu Instalatora programu PowerShell. [Tej metody](deploy-appliance-script.md) należy użyć, jeśli nie można użyć szablonu komórki jajowe lub jeśli jesteś w Azure Government.
 
-Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Migrate: odnajdywanie i ocenianie, rejestrowanie go w projekcie Azure Migrate i Konfigurowanie urządzenia w celu rozpoczęcia odnajdywania.
+Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Migrate: odnajdywanie i ocenianie, rejestrowanie go w projekcie i Konfigurowanie urządzenia w celu rozpoczęcia odnajdywania.
 
 ## <a name="deploy-with-ova"></a>Wdrażanie przy użyciu komórek jajowych
 
 Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
-1. Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
+1. Podaj nazwę urządzenia i Wygeneruj klucz projektu w portalu.
 1. Pobierz plik szablonu komórki jajowe i zaimportuj go do vCenter Server. Sprawdź, czy komórki jajowe są bezpieczne.
 1. Utwórz maszynę wirtualną z urządzeniem z pliku JAJOWE i sprawdź, czy może ona połączyć się z Azure Migrate.
-1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu Azure Migrate.
+1. Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Wygeneruj klucz projektu Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Generowanie klucza projektu
 
 1. W obszarze serwery **celów migracji**  >    >  **Azure Migrate: odnajdywanie i ocenianie** wybierz pozycję **odkryj**.
 2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
-3. W obszarze **1: generowanie klucza projektu Azure Migrate** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w środowisku programu VMware. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+3. W obszarze **1: generowanie klucza projektu** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w środowisku programu VMware. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywania podczas tworzenia zasobów.
-1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
+1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
 ### <a name="2-download-the-ova-template"></a>2. Pobierz szablon komórki jajowe
@@ -117,7 +117,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
-1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do obszaru **odnajdywanie i ocena> odkryj> Zarządzaj istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
+1. Wklej **klucz projektu** skopiowany z portalu. Jeśli nie masz klucza, przejdź do obszaru **odnajdywanie i ocena> odkryj> Zarządzaj istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
 1. Do uwierzytelnienia w systemie Azure potrzebny będzie kod urządzenia. Kliknięcie przycisku **Zaloguj** spowoduje otwarcie modalnego kodu urządzenia, jak pokazano poniżej.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modalne wyświetlanie kodu urządzenia":::
@@ -154,8 +154,6 @@ W **kroku 3: zapewnianie poświadczeń serwera do wykonywania spisu oprogramowan
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzenia dla szczegółów serwera":::
 
-> [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, wykonując poniższe kroki. Urządzenie podejmie próbę automatycznego mapowania poświadczeń do serwerów w celu wykonania funkcji odnajdywania.
 

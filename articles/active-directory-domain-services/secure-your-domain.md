@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 03/08/2021
 ms.author: justinha
-ms.openlocfilehash: a89c898e150facc9860d86e18a7acc42f5e0f441
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5fa19e23767af0e121d07872970199a2a1705ea8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96618862"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951944"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Wyłącz słabe szyfry i synchronizację skrótów haseł, aby zabezpieczyć domenę zarządzaną Azure Active Directory Domain Services
 
@@ -34,14 +34,25 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
     * W razie konieczności [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][create-azure-ad-ds-instance].
-* Zainstaluj i skonfiguruj program Azure PowerShell.
-    * W razie potrzeby postępuj zgodnie z instrukcjami, aby [zainstalować moduł Azure PowerShell i nawiązać połączenie z subskrypcją platformy Azure](/powershell/azure/install-az-ps).
-    * Upewnij się, że logujesz się do subskrypcji platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount][Connect-AzAccount] .
-* Zainstaluj i skonfiguruj program Azure AD PowerShell.
-    * W razie potrzeby postępuj zgodnie z instrukcjami, aby [zainstalować moduł Azure AD PowerShell i nawiązać połączenie z usługą Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Upewnij się, że logujesz się do dzierżawy usługi Azure AD przy użyciu polecenia cmdlet [Connect-AzureAD][Connect-AzureAD] .
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Wyłącz słabe szyfry i synchronizację skrótu hasła NTLM
+## <a name="use-security-settings-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Użyj ustawień zabezpieczeń, aby wyłączyć słabe szyfry i synchronizację skrótów haseł NTLM
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wyszukaj i wybierz **Azure AD Domain Services**.
+1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
+1. Po lewej stronie wybierz pozycję **Ustawienia zabezpieczeń**.
+1. Kliknij przycisk **Wyłącz** dla następujących ustawień:
+   - **Tryb tylko TLS 1,2**
+   - **Uwierzytelnianie NTLM**
+   - **Synchronizacja haseł NTLM z lokalnego**
+
+   ![Zrzut ekranu ustawień zabezpieczeń, aby wyłączyć słabe szyfry i synchronizację skrótów haseł NTLM](media/secure-your-domain/security-settings.png)
+
+## <a name="use-powershell-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Wyłączenie słabych szyfrów i synchronizacji skrótów haseł NTLM przy użyciu programu PowerShell
+
+W razie konieczności [Zainstaluj i skonfiguruj Azure PowerShell](/powershell/azure/install-az-ps). Upewnij się, że logujesz się do subskrypcji platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount][Connect-AzAccount] . 
+
+Również w razie konieczności [Zainstaluj i skonfiguruj program Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Upewnij się, że logujesz się do dzierżawy usługi Azure AD przy użyciu polecenia cmdlet [Connect-AzureAD][Connect-AzureAD] .
 
 Aby wyłączyć słabe mechanizmy szyfrowania i synchronizację skrótów poświadczeń NTLM, zaloguj się do konta platformy Azure, a następnie Pobierz zasób Azure AD DS przy użyciu polecenia cmdlet [Get-AzResource][Get-AzResource] :
 

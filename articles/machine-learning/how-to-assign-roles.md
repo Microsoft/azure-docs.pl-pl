@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bdd59c80408910bf8ca51bf787c8ff15dc2a4893
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98624544"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889760"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -464,7 +464,7 @@ Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypa
 - Jeśli istnieją dwa przypisania ról do tego samego Azure Active Directory użytkownika, które powodują konflikt z sekcjami akcji/nienaruszonych, operacje wymienione w zaistnieniu z jednej roli mogą nie zostać zastosowane, jeśli są również wyświetlane jako akcje w innej roli. Aby dowiedzieć się więcej o tym, jak platforma Azure analizuje przypisania ról, Przeczytaj, w [jaki sposób kontrola RBAC na platformie Azure określa, czy użytkownik ma dostęp do zasobu](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - Aby wdrożyć zasoby obliczeniowe w sieci wirtualnej, należy jawnie mieć uprawnienia do następujących akcji:
-    - `Microsoft.Network/virtualNetworks/join/action` w ramach zasobu sieci wirtualnej.
+    - `Microsoft.Network/virtualNetworks/*/read` w obszarze Zasoby sieci wirtualnej.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` w zasobie podsieci.
     
     Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](../role-based-access-control/built-in-roles.md#networking).

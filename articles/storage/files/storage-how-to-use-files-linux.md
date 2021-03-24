@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4ace5620bf98b06956c294a12b6b08881422e718
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98673691"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952341"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
@@ -94,7 +94,7 @@ uname -r
     Jeśli nie możesz otworzyć portu 445 w sieci firmowej lub jest on blokowany przez usługodawcę internetowego, możesz użyć połączenia sieci VPN lub ExpressRoute, aby obejść port 445. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące sieci w przypadku bezpośredniego dostępu do udziału plików platformy Azure](storage-files-networking-overview.md).
 
 ## <a name="mounting-azure-file-share"></a>Instalowanie udziału plików platformy Azure
-Aby używać udziału plików platformy Azure z dystrybucją systemu Linux, należy utworzyć katalog, który będzie służyć jako punkt instalacji dla udziału plików platformy Azure. Punkt instalacji można utworzyć w dowolnym miejscu w systemie Linux, ale jest to typowa Konwencja do utworzenia tego elementu w ramach/mnt. Po punkcie instalacji należy użyć `mount` polecenia, aby uzyskać dostęp do udziału plików platformy Azure.
+Aby używać udziału plików platformy Azure z dystrybucją systemu Linux, należy utworzyć katalog, który będzie służyć jako punkt instalacji dla udziału plików platformy Azure. Punkt instalacji można utworzyć w dowolnym miejscu w systemie Linux, ale jest to typowa Konwencja do utworzenia tego elementu w ramach/Mount. Po punkcie instalacji należy użyć `mount` polecenia, aby uzyskać dostęp do udziału plików platformy Azure.
 
 W razie potrzeby można zainstalować ten sam udział plików platformy Azure w wielu punktach instalacji.
 
@@ -106,7 +106,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -135,14 +135,14 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
 Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `sudo umount $mntPath` programu do odinstalowania udziału.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Utwórz trwały punkt instalacji dla udziału plików platformy Azure `/etc/fstab`
-1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/Mount. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```

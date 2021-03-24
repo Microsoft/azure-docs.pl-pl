@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101095844"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951474"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Udostępnianie i wdrażanie mikrousług na platformie Azure
 Ten samouczek pokazuje, jak zainicjować i wdrożyć aplikację składającą się z [mikrousług](https://en.wikipedia.org/wiki/Microservices) w [Azure App Service](https://azure.microsoft.com/services/app-service/) jako pojedynczą jednostkę i w sposób przewidywalny przy użyciu szablonów grup zasobów JSON i skryptów programu PowerShell. 
@@ -45,7 +45,7 @@ Aby uzyskać więcej informacji, zobacz [używanie Azure PowerShell z Azure Reso
 To [Narzędzie do podglądu](https://resources.azure.com) umożliwia zapoznanie się z definicjami JSON wszystkich grup zasobów w ramach subskrypcji i poszczególnych zasobów. W narzędziu można edytować definicje JSON zasobu, usuwać całą hierarchię zasobów i tworzyć nowe zasoby.  Informacje, które są łatwo dostępne w tym narzędziu, są bardzo przydatne w przypadku tworzenia szablonów, ponieważ pokazują, jakie właściwości należy ustawić dla określonego typu zasobu, prawidłowych wartości itd. Możesz nawet utworzyć grupę zasobów w [witrynie Azure Portal](https://portal.azure.com/), a następnie sprawdzić jej definicje JSON w narzędziu Eksplorator, aby ułatwić templatize grupy zasobów.
 
 ### <a name="deploy-to-azure-button"></a>Przycisk Wdróż na platformie Azure
-Jeśli używasz usługi GitHub do kontroli źródła, możesz umieścić [przycisk Wdróż na platformie Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) w pliku Readme. MD, który umożliwia interfejs użytkownika wdrożenia z kluczem na platformie Azure. Można to zrobić dla dowolnej prostej aplikacji, która pozwala na wdrożenie całej grupy zasobów przez umieszczenie azuredeploy.jsw pliku w katalogu głównym repozytorium. Ten plik JSON, który zawiera szablon grupy zasobów, będzie używany przez przycisk Wdróż na platformie Azure w celu utworzenia grupy zasobów. Aby zapoznać się z przykładem, zobacz [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) przykład, który będzie używany w tym samouczku.
+Jeśli używasz usługi GitHub do kontroli źródła, możesz umieścić [przycisk Wdróż na platformie Azure](../azure-resource-manager/templates/deploy-to-azure-button.md) w pliku Readme. MD, który umożliwia interfejs użytkownika wdrożenia z kluczem na platformie Azure. Można to zrobić dla dowolnej prostej aplikacji, która pozwala na wdrożenie całej grupy zasobów przez umieszczenie azuredeploy.jsw pliku w katalogu głównym repozytorium. Ten plik JSON, który zawiera szablon grupy zasobów, będzie używany przez przycisk Wdróż na platformie Azure w celu utworzenia grupy zasobów. Aby zapoznać się z przykładem, zobacz [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) przykład, który będzie używany w tym samouczku.
 
 ## <a name="get-the-sample-resource-group-template"></a>Pobierz szablon przykładowej grupy zasobów
 Teraz przyjrzyjmy się do niego.

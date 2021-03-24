@@ -145,24 +145,20 @@
           href: event-hubs-amqp-troubleshoot.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie rejestru schematów
-      href: create-schema-registry.md
-    - name: Move
-      items:
-        - name: Przenoszenie przestrzeni nazw do innego regionu
-          href: move-across-regions.md
-        - name: Przenoszenie dedykowanego klastra do innego regionu
-          href: move-cluster-across-regions.md
-    - name: Dynamiczne dodawanie partycji
-      href: dynamically-add-partitions.md
-    - name: Użycie usługi Blob Storage jako magazynu punktów kontrolnych w usłudze Azure Stack Hub
-      href: use-blob-storage-checkpoint-store-azure-stack-hub.md
-    - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
-      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Programowanie
       items:
         - name: Pobieranie parametrów połączenia usługi Event Hubs
           href: event-hubs-get-connection-string.md
+        - name: Dodawanie niestandardowych danych do zdarzeń
+          href: add-custom-data-event.md
+        - name: Tworzenie rejestru schematów
+          href: create-schema-registry.md
+        - name: Dynamiczne dodawanie partycji
+          href: dynamically-add-partitions.md
+        - name: Użycie usługi Blob Storage jako magazynu punktów kontrolnych w usłudze Azure Stack Hub
+          href: use-blob-storage-checkpoint-store-azure-stack-hub.md
+        - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
+          href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
         - name: Zdarzenia wymiany między aplikacjami przy użyciu różnych protokołów
           href: event-hubs-exchange-events-different-protocols.md
         - name: Przewodniki programowania
@@ -247,6 +243,12 @@
           href: event-hubs-messaging-exceptions.md
         - name: Wyjątki usługi Resource Manager
           href: resource-manager-exceptions.md
+    - name: Move
+      items:
+        - name: Przenoszenie przestrzeni nazw do innego regionu
+          href: move-across-regions.md
+        - name: Przenoszenie dedykowanego klastra do innego regionu
+          href: move-cluster-across-regions.md
 - name: Dokumentacja
   items:
     - name: Zestawy SDK

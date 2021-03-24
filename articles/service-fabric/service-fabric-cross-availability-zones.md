@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 95ee4e5f326dd9b76645d22ff735bc36437c72fb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714956"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870124"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -35,7 +35,19 @@ Zalecana topologia dla typu węzła podstawowego wymaga opisanych poniżej zasob
 >[!NOTE]
 > Właściwość pojedynczej grupy położenia zestawu skalowania maszyn wirtualnych musi być ustawiona na wartość true, ponieważ Service Fabric nie obsługuje pojedynczego zestawu skalowania maszyn wirtualnych obejmującego strefy.
 
- ![Diagram przedstawiający architekturę strefy dostępności Service Fabric platformy Azure.][sf-architecture]
+Diagram przedstawiający diagram architektury strefy dostępności Service Fabric platformy Azure ![ , który pokazuje architekturę strefy dostępności Service Fabric platformy Azure.][sf-architecture]
+
+Przykładowa lista węzłów, która przedstawia formaty FD/UD w strefach obejmujących zestaw skalowania maszyn wirtualnych
+
+ ![Przykładowa lista węzłów, która przedstawia formaty FD/UD w strefach obejmujących zestaw skalowania maszyn wirtualnych.][sf-multi-az-nodes]
+
+**Dystrybucja replik usług między strefami**: gdy usługa jest wdrażana w elementów NodeType, które obejmują strefy obejmujące obszary, repliki są umieszczane w celu zapewnienia, że są one umieszczone w oddzielnych strefach. Jest to wymagane, ponieważ domena błędów w węzłach obecnych w każdej z tych elementów NodeType są skonfigurowane przy użyciu informacji o strefie (tj. FD = FD:/strefie 1/1 itp..). Na przykład: dla 5 replik lub wystąpień usługi dystrybucja będzie 2-2-1, a środowisko uruchomieniowe podejmie próbę zapewnienia równości dystrybucji w AZs.
+
+**Konfiguracja repliki usługi użytkownika**: stanowe usługi użytkownika wdrożone w strefie dostępności elementów NodeType powinny być skonfigurowane przy użyciu tej konfiguracji: liczba replik z elementem Target = 9, minimum = 5. Ta konfiguracja pomoże działać przez usługę nawet wtedy, gdy jedna strefa ulegnie awarii, ponieważ 6 replik będzie nadal znajdować się w pozostałych dwóch strefach. Uaktualnienie aplikacji w tym scenariuszu spowoduje również przejście przez program.
+
+**ReliabilityLevel klastra**: definiuje liczbę węzłów inicjatora w klastrze, a także rozmiar repliki usług systemowych. Jako że konfiguracja strefy o wysokiej dostępności obejmuje większą liczbę węzłów, które są rozmieszczone w różnych strefach w celu włączenia odporności strefy, wyższa wartość niezawodności zapewni węzłom więcej węzłów inicjatora i repliki usługi systemowej, które są równomiernie dystrybuowane między strefami, dzięki czemu w przypadku awarii strefy klaster i usługi systemowe pozostaną niezmienione. "ReliabilityLevel = Platinum" zapewnia, że 9 węzłów inicjatora rozciąga się między strefami w klastrze z 3 nasionami w każdej strefie, dlatego jest to zalecane w przypadku konfiguracji strefy Cross Availability.
+
+**Scenariusz w strefie**: gdy strefa ulegnie awarii, wszystkie węzły w tej strefie będą wyświetlane w dół. Repliki usług w tych węzłach również zostaną wyłączone. Ze względu na to, że w innych strefach znajdują się repliki, usługa nadal jest w dalszym ciągu odpowiadać na strefy, które działają. Usługi będą wyświetlane w stanie ostrzegawczym, ponieważ docelowa liczba replik nie została jeszcze osiągnięta i ponieważ liczba maszyn wirtualnych jest nadal większa niż minimalna wielkość repliki docelowej. Następnie Service Fabric moduł równoważenia obciążenia przekaże repliki w strefach roboczych, aby odpowiadały skonfigurowanej liczbie docelowych replik. W tym momencie usługi będą wyświetlane w dobrej kondycji. Gdy strefa, w której wystąpiła kopia zapasowa, połączy się z równoważeniem obciążenia, będzie ponownie rozłożyć wszystkie repliki usługi równomiernie we wszystkich strefach.
 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
 ### <a name="public-ip-and-load-balancer-resource"></a>Publiczny adres IP i zasób Load Balancer
@@ -345,7 +357,7 @@ Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzglę
 
 * Pierwsza wartość to właściwość **Zones** , która określa strefy dostępności obecną w zestawie skalowania maszyn wirtualnych.
 * Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true. **Zestaw skalowania, który został przełączony w 3 AZs, może skalować do 300 maszyn wirtualnych nawet przy użyciu "singlePlacementGroup = true".**
-* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy. Powinno to mieć wartość "true", aby uniknąć niezrównoważonej dystrybucji maszyn wirtualnych w różnych strefach. Klaster z niezrównoważoną dystrybucją maszyn wirtualnych w różnych strefach może obsłużyć scenatio strefy w dół. Przeczytaj o [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy. Powinna to być wartość "true". Gwarantuje to, że dystrybucje maszyn wirtualnych między strefami nie są niezrównoważone, upewniając się, że po przekroczeniu jednej z tych stref pozostałe dwie strefy mają wystarczającą liczbę maszyn wirtualnych, aby upewnić się, że klaster utrzymuje nieprzerwane działanie. Klaster z niezrównoważoną dystrybucją maszyn wirtualnych może nie przetrwać scenariusza strefy w dół, ponieważ ta strefa może mieć większość maszyn wirtualnych. Niezrównoważona Dystrybucja maszyn wirtualnych między strefami również prowadzi do problemów związanych z umieszczaniem usługi, & aktualizacje infrastruktury są zablokowane. Przeczytaj o [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Zastąpień FaultDomain i UpgradeDomain nie są wymagane do skonfigurowania.
 
 ```json
@@ -363,7 +375,7 @@ Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzglę
 ```
 
 >[!NOTE]
-> * **Klastry SF powinny mieć co najmniej jedną główną nodeType. DurabilityLevel podstawowego elementów NodeType powinna być większa niż Silver.**
+> * **Klastry Service Fabric powinny mieć co najmniej jedną główną nodeType. DurabilityLevel podstawowego elementów NodeType powinna być większa niż Silver.**
 > * AZ Łączenie zestawu skalowania maszyn wirtualnych powinno być skonfigurowane z co najmniej 3 strefami dostępności niezależnie od durabilityLevel.
 > * AZ łączenia zestawu skalowania maszyn wirtualnych z trwałością Silver (lub wyższą) powinna mieć co najmniej 15 maszyn wirtualnych.
 > * AZ łączenia zestawu skalowania maszyn wirtualnych z trwałością Bronze powinno mieć co najmniej 6 maszyn wirtualnych.
@@ -373,13 +385,13 @@ Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fa
 
 * Pierwsza wartość to **multipleAvailabilityZones** , która powinna być ustawiona na wartość true dla NodeType.
 * Druga wartość to **sfZonalUpgradeMode** i jest opcjonalna. Nie można zmodyfikować tej właściwości, jeśli element NodeType o wielu elementach AZ jest już obecny w klastrze.
-      Właściwość kontroluje logiczne grupowanie maszyn wirtualnych w domenach uaktualnienia.
-          Jeśli wartość jest ustawiona na "Parallel": maszyny wirtualne znajdujące się w NodeType zostaną pogrupowane w celu zignorowania informacji o strefie w 5.
-          Jeśli wartość zostanie pominięta lub ustawiona na "hierarchiczny": maszyny wirtualne zostaną pogrupowane w celu odzwierciedlenia rozkładu strefowego do 15. Każda z 3 stref będzie miała 5.
-          Ta właściwość definiuje tylko zachowanie uaktualnienia dla aplikacji servicefabric i uaktualnień kodu. Uaktualnienia podstawowego zestawu skalowania maszyn wirtualnych będą nadal równoległe we wszystkich AZ.
-      Ta właściwość nie ma żadnego wpływu na dystrybucję UD dla typów węzłów, dla których nie włączono wielu stref.
+  Właściwość kontroluje logiczne grupowanie maszyn wirtualnych w domenach uaktualnienia.
+  **Jeśli wartość jest równa "Parallel":** Maszyny wirtualne znajdujące się w NodeType zostaną pogrupowane w celu zignorowania informacji o strefie w 5. Spowoduje to, że wszystkie strefy zostaną uaktualnione w tym samym czasie. Ten tryb wdrożenia jest szybszy w przypadku uaktualnień, ale nie jest zalecany, ponieważ przechodzi do wytycznych SDP, co oznacza, że aktualizacje powinny być stosowane tylko do jednej strefy w danym momencie.
+  **Jeśli wartość jest pominięta lub ustawiona na "hierarchiczny":** Maszyny wirtualne zostaną pogrupowane w celu odzwierciedlenia rozkładu strefowego do 15. Każda z 3 stref będzie miała 5. Pozwala to zagwarantować, że aktualizacje zostaną nałożone na strefę, przechodząc do następnej strefy dopiero po zakończeniu 5.3. w pierwszej strefie, wolno powoli na 15.
+  Ta właściwość definiuje tylko zachowanie uaktualnienia dla aplikacji servicefabric i uaktualnień kodu. Uaktualnienia podstawowego zestawu skalowania maszyn wirtualnych będą nadal równoległe we wszystkich AZ.
+  Ta właściwość nie ma żadnego wpływu na dystrybucję UD dla typów węzłów, dla których nie włączono wielu stref.
 * Trzecia wartość to **vmssZonalUpgradeMode = Parallel**. Jest to właściwość *obowiązkowa* , która ma zostać skonfigurowana w klastrze, jeśli zostanie dodany NodeType z wieloma AZs. Ta właściwość definiuje tryb uaktualniania dla aktualizacji zestawu skalowania maszyn wirtualnych, które będą wykonywane równolegle we wszystkich AZ jednocześnie.
-      Teraz dla tej właściwości można ustawić tylko wartość Parallel.
+  Teraz dla tej właściwości można ustawić tylko wartość Parallel.
 * ApiVersion zasobów klastra Service Fabric powinien mieć wartość "2020-12-01 — wersja zapoznawcza" lub nowszą.
 * Wersja kodu klastra powinna mieć wartość "7.2.445" lub wyższą.
 
@@ -408,7 +420,7 @@ Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fa
 >[!NOTE]
 > * Publiczny adres IP i zasoby Load Balancer powinny używać standardowej jednostki SKU, jak opisano wcześniej w artykule.
 > * Właściwość "multipleAvailabilityZones" w nodeType może być zdefiniowana tylko w czasie tworzenia nodeType i nie można jej później modyfikować. W związku z tym nie można skonfigurować istniejącej elementów NodeType z tą właściwością.
-> * Gdy wartość "sfZonalUpgradeMode" jest pomijana lub ustawiona na "hierarchiczny", wdrożenia klastra i aplikacji będą wolniejsze, ponieważ w klastrze znajdują się więcej domen uaktualnienia. Ważne jest, aby poprawnie dostosować limity czasu zasad uaktualniania, aby uwzględnić czas uaktualnienia dla 15 domen uaktualnienia.
+> * Gdy wartość "sfZonalUpgradeMode" jest pomijana lub ustawiona na "hierarchiczny", wdrożenia klastra i aplikacji będą wolniejsze, ponieważ w klastrze znajdują się więcej domen uaktualnienia. Ważne jest, aby poprawnie dostosować limity czasu zasad uaktualniania, aby uwzględnić czas uaktualnienia dla 15 domen uaktualnienia. Należy zaktualizować zasady uaktualniania dla aplikacji i klastra, aby upewnić się, że wdrożenie nie przekracza limitów czasu wdrożenia Serbice zasobów platformy Azure 12hours. Oznacza to, że wdrożenie nie powinno trwać więcej niż 12hours dla 15UDs nie może trwać więcej niż 40 min/UD.
 > * Ustaw klaster **reliabilityLevel = Platinum** , aby upewnić się, że klaster przeżyje ten scenariusz w dół.
 
 >[!NOTE]
@@ -426,3 +438,4 @@ W [tym artykule przedstawiono](./service-fabric-scale-up-primary-node-type.md) s
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
+[sf-multi-az-nodes]: ./media/service-fabric-cross-availability-zones/sf-multi-az-nodes.png

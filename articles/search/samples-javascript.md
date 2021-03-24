@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955024"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955945"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Przykłady kodu JavaScript dla Wyszukiwanie poznawcze platformy Azure
 
@@ -39,7 +39,6 @@ Przykłady kodu z zespołu deweloperskiego zestawu Azure SDK przedstawiają uży
 | [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać i usuwać [indeksatory](search-indexer-overview.md)oraz z nich korzystać.|
 | [Zestawu umiejętności](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [umiejętności](cognitive-search-working-with-skillsets.md) , które są dołączonymi indeksatorami i które wykonują wzbogacanie oparte na AI podczas indeksowania. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [mapy synonimów](search-synonyms.md).  |
-| [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
 
 ### <a name="typescript-samples"></a>Przykłady języka TypeScript
 
@@ -50,7 +49,6 @@ Przykłady kodu z zespołu deweloperskiego zestawu Azure SDK przedstawiają uży
 | [indeksatorów](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Pokazuje, jak tworzyć, aktualizować, pobierać i usuwać [indeksatory](search-indexer-overview.md)oraz z nich korzystać.|
 | [Zestawu umiejętności](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [umiejętności](cognitive-search-working-with-skillsets.md) , które są dołączonymi indeksatorami i które wykonują wzbogacanie oparte na AI podczas indeksowania. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Pokazuje, jak tworzyć, aktualizować, pobierać, wyświetlać i usuwać [mapy synonimów](search-synonyms.md).  |
-| [Zapytania](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Ilustruje wykonywanie zapytania względem publicznego indeksu tylko do odczytu hostowanego przez firmę Microsoft.  |
 
 ## <a name="doc-samples"></a>Przykłady doc
 

@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: a4cc898744109475bc119f37350d1b689c550f58
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d36b2c2178c7205246cd7c59aefedef3358e473
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102209564"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951746"
 ---
 # <a name="managed-hsm-role-management"></a>Zarządzanie rolami zarządzanego modułu HSM
 
@@ -33,7 +33,7 @@ Aby zapoznać się z listą wszystkich zarządzanych wbudowanych ról modułu HS
 Aby korzystać z poleceń interfejsu wiersza polecenia platformy Azure w tym artykule, należy dysponować następującymi elementami:
 
 * Subskrypcja platformy Microsoft Azure. Jeśli go nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial).
-* Interfejs wiersza polecenia platformy Azure w wersji 2.12.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+* Interfejs wiersza polecenia platformy Azure w wersji 2.21.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 * Zarządzany moduł HSM w ramach subskrypcji. Zobacz [Szybki Start: udostępnianie i aktywowanie zarządzanego modułu HSM przy użyciu interfejsu wiersza polecenia platformy Azure](quick-create-cli.md) w celu aprowizacji i aktywowania zarządzanego modułu HSM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -113,6 +113,70 @@ Użyj `az keyvault role definition list` polecenia, aby wyświetlić listę wszy
 ```azurecli-interactive
 az keyvault role definition list --hsm-name ContosoMHSM
 ```
+
+## <a name="create-a-new-role-definition"></a>Utwórz nową definicję roli
+
+Zarządzany moduł HSM ma kilka wbudowanych (wstępnie zdefiniowanych) ról, które są przydatne w przypadku większości typowych scenariuszy użycia. Można zdefiniować własną rolę z listą określonych akcji, które może wykonywać rola. Następnie można przypisać tę rolę do podmiotów zabezpieczeń, aby przyznać im uprawnienia do określonych akcji. 
+
+Użyj `az keyvault role definition create` polecenia do roli o nazwie **moja rola niestandardowa** przy użyciu ciągu JSON.
+```azurecli-interactive
+az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
+    "roleName": "My Custom Role",
+    "description": "The description of the custom rule.",
+    "actions": [],
+    "notActions": [],
+    "dataActions": [
+        "Microsoft.KeyVault/managedHsm/keys/read/action"
+    ],
+    "notDataActions": []
+}'
+```
+
+Użyj `az keyvault role definition create` polecenia do roli z pliku o nazwie **my-custom-role-definition.jsna** zawierający ciąg JSON dla definicji roli. Zobacz przykład powyżej.
+```azurecli-interactive
+az keyvault role definition create --hsm-name ContosoMHSM --role-definition @my-custom-role-definition.json
+```
+
+## <a name="show-details-of-a-role-definition"></a>Pokaż szczegóły definicji roli
+
+Użyj `az keyvault role definition show` polecenia, aby wyświetlić szczegóły konkretnej definicji roli przy użyciu nazwy (GUID).
+
+```azurecli-interactive
+az keyvault role definition show --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+## <a name="update-a-custom-role-definition"></a>Aktualizowanie definicji roli niestandardowej
+
+Użyj `az keyvault role definition update` polecenia, aby zaktualizować rolę o nazwie **moja rola niestandardowa** przy użyciu ciągu JSON.
+```azurecli-interactive
+az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
+            "roleName": "My Custom Role",
+            "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "id": "Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/xxxxxxxx-
+        xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "description": "The description of the custom rule.",
+            "actions": [],
+            "notActions": [],
+            "dataActions": [
+                "Microsoft.KeyVault/managedHsm/keys/read/action",
+                "Microsoft.KeyVault/managedHsm/keys/write/action",
+                "Microsoft.KeyVault/managedHsm/keys/backup/action",
+                "Microsoft.KeyVault/managedHsm/keys/create"
+            ],
+            "notDataActions": []
+        }'
+```
+
+## <a name="delete-custom-role-definition"></a>Usuń definicję roli niestandardowej
+
+Użyj `az keyvault role definition delete` polecenia, aby wyświetlić szczegóły konkretnej definicji roli przy użyciu nazwy (GUID). 
+```azurecli-interactive
+az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+> [!NOTE]
+> Nie można usunąć ról wbudowanych. Po usunięciu ról niestandardowych wszystkie przypisania ról używające tej roli niestandardowej stają się unieczynnione.
+
 
 ## <a name="next-steps"></a>Następne kroki
 
