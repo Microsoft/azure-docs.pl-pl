@@ -5,24 +5,24 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bcdb87e04d90aeb3d807e43c53e74d74299091b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 754b82cb0473e13ee7fb0649ef68c70ab5abe900
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040009"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868736"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Co to jest platforma Apache Spark w usłudze Azure HDInsight
 
 Apache Spark jest platformą przetwarzania równoległego, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Platforma Apache Spark w usłudze Azure HDInsight to implementacja firmy Microsoft usługi Apache Spark w chmurze. Usługa HDInsight ułatwia tworzenie i konfigurowanie klastra Spark na platformie Azure. Klastry Spark w usłudze HDInsight są zgodne z [usługą Azure Blob Storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md)lub [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md). Pozwala to wykorzystywać klastry HDInsight Spark do przetwarzania danych przechowywanych na platformie Azure. Aby uzyskać informacje na temat wersji i składników, zobacz [Wersje i składniki usługi Apache Hadoop w usłudze Azure HDInsight](../hdinsight-component-versioning.md).
 
-![Platforma Spark: ujednolicona struktura](./media/apache-spark-overview/hdinsight-spark-overview.png)
+:::image type="content" source="./media/apache-spark-overview/hdinsight-spark-overview.png" alt-text="Platforma Spark: ujednolicona struktura" border="false":::
 
 ## <a name="what-is-apache-spark"></a>Co to jest Apache Spark?
 
 Platforma Spark udostępnia typom pierwotnym możliwość używania klastrów obliczeniowych korzystających z funkcji przetwarzania w pamięci. Zadanie Spark może ładować i buforować dane w pamięci, a następnie wielokrotnie wykonywać zapytania względem tych danych. Przetwarzanie w pamięci jest znacznie szybsze niż w przypadku aplikacji opartych na operacjach dyskowych, takich jak usługa Hadoop, która udostępnia dane za pomocą rozproszonego systemu plików usługi Hadoop (HDFS). Platforma Spark obsługuje również integrację z językiem programowania Scala, co pozwala manipulować rozproszonymi zestawami danych jak kolekcjami lokalnymi. Nie ma potrzeby, aby wszystkie elementy były obejmowane strukturami operacji mapowania i redukcji.
 
-![Tradycyjny MapReduce a Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
+:::image type="content" source="./media/apache-spark-overview/map-reduce-vs-spark1.png" alt-text="Tradycyjny MapReduce a Spark" border="false":::
 
 Klastry Spark w usłudze HDInsight oferują w pełni zarządzaną usługę Spark. Poniżej przedstawiono korzyści związane z utworzeniem klastra Spark w usłudze HDInsight.
 
@@ -54,7 +54,7 @@ Klastry HDInsight Spark są [sterownikiem ODBC](/sql/connect/odbc/download-odbc-
 
 ## <a name="spark-cluster-architecture"></a>Architektura klastra Spark
 
-![Architektura platformy Spark w usłudze HDInsight](./media/apache-spark-overview/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-overview/hdi-spark-architecture.png" alt-text="Architektura platformy Spark w usłudze HDInsight" border="false":::
 
 Można łatwo zrozumieć składniki platformy Spark, zrozumieć, jak działa platforma Spark w klastrach usługi HDInsight.
 

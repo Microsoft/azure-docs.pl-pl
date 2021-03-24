@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694494"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952409"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Tworzenie, importowanie i eksportowanie terminów słownika
 
@@ -80,6 +80,9 @@ Zauważ, że w nazwach terminów jest rozróżniana wielkość liter. Na przykł
 4. Po zakończeniu wypełniania pliku CSV wybierz plik do zaimportowania, a następnie wybierz przycisk **OK**.
 
 5. System przekaże plik i doda wszystkie warunki do wykazu.
+ 
+   > [!Important]
+   > Adres e-mail Stewards i ekspertów powinien być adresem podstawowym użytkownika z grupy usługi AAD. Alternatywny adres e-mail, główna nazwa użytkownika i wiadomości e-mail spoza usługi AAD nie są jeszcze obsługiwane. 
 
 ## <a name="export-terms-from-glossary-with-custom-attributes"></a>Eksportuj terminy z słownika z atrybutami niestandardowymi
 

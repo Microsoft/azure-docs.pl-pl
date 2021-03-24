@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97964437"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956258"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Jak utworzyć plany dla oferty maszyny wirtualnej
 
@@ -221,6 +221,8 @@ Dyski danych (wybierz opcję **Dodaj dysk danych (maksymalnie 16)**) to równie�
 Niezależnie od używanego systemu operacyjnego, należy dodać tylko minimalną liczbę dysków z danymi wymaganą przez rozwiązanie. Podczas wdrażania klienci nie mogą usunąć dysków, które są częścią obrazu, ale zawsze mogą dodawać dyski w trakcie wdrażania lub po nim.
 
 Wybierz pozycję **Zapisz wersję roboczą**, a następnie wybierz pozycję **Przegląd planu ←** w lewym górnym rogu, aby zobaczyć właśnie utworzony plan.
+
+Po opublikowaniu obrazu maszyny wirtualnej można go usunąć z usługi Azure Storage.
 
 ## <a name="next-steps"></a>Następne kroki
 

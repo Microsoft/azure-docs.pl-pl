@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 57a3d76f24c33984a883e926a8d4c68736e9f121
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99594438"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869892"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -23,7 +23,7 @@ Apache Hive oferuje obsługę transakcji bazy danych, które są niepodzielne, s
 
 Apache Spark ma interfejs API przesyłania strumieniowego ze strukturą, który zapewnia funkcje przesyłania strumieniowego, które nie są dostępne w Apache Hive. Począwszy od usługi HDInsight 4,0, Apache Spark 2.3.1 i Apache Hive 3.1.0 mają oddzielne magazyny. Osobne magazyny metadanych mogą utrudniać współdziałanie. Łącznik magazynu Hive ułatwia korzystanie z platformy Spark i Hive. Biblioteka obsługiwane ładuje dane z demonów LLAP do równoległych modułów wykonujących testy. Ten proces sprawia, że jest bardziej wydajny i dostosowywalny niż standardowe połączenie JDBC z platformy Spark do Hive.
 
-![Architektura łącznika magazynu Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="Architektura łącznika magazynu Hive" border="true":::
 
 Niektóre operacje obsługiwane przez łącznik magazynu Hive są następujące:
 
@@ -72,7 +72,7 @@ Należy pamiętać, że można wyświetlić plany zasobów WLM z obu klastrów, 
 
 1. Rozwiń węzeł **niestandardowe spark2 — ustawienia domyślne**.
 
-    ![Konfiguracja oprogramowania Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Konfiguracja oprogramowania Apache Ambari Spark2" border="true":::
 
 1. Wybierz pozycję **Dodaj właściwość...** , aby dodać następujące konfiguracje:
 
@@ -103,11 +103,11 @@ Poza konfiguracjami wymienionymi w poprzedniej sekcji Dodaj następującą konfi
     
     * W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` lokalizacji, gdzie ClusterName jest nazwą klastra interakcyjnych zapytań. Kliknij pozycję **serwera hiveserver2 Interactive**. Zostanie wyświetlona w pełni kwalifikowana nazwa domeny (FQDN) węzła głównego, na którym działa LLAP, jak pokazano na zrzucie ekranu. Zamień `<llap-headnode>` na tę wartość.
 
-        ![Węzeł główny łącznika magazynu Hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Węzeł główny łącznika magazynu Hive" border="true":::
 
     * Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem interakcyjnych zapytań. Wyszukaj `default_realm` parametr w `/etc/krb5.conf` pliku. Zamień `<AAD-DOMAIN>` na tę wartość jako ciąg pisany wielkimi literami, w przeciwnym razie nie znaleziono poświadczeń.
 
-        ![Domena usługi AAD magazynu usługi Hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Domena usługi AAD magazynu usługi Hive" border="true":::
 
     * Na przykład `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
     
@@ -211,21 +211,21 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    ![tabela demonstracyjna przed zastosowaniem zasad Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="tabela demonstracyjna przed zastosowaniem zasad Ranger" border="true":::
 
 1. Zastosuj zasady maskowania kolumn, które wyświetlają tylko ostatnie cztery znaki kolumny.  
     1. Przejdź do interfejsu użytkownika administratora Ranger pod adresem `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/` .
     1. Kliknij usługę Hive dla klastra w obszarze **Hive**.
-        ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="Ranger Service Manager" border="true":::
     1. Kliknij kartę **maskowanie** , a następnie **Dodaj nowe zasady**
 
-        ![Lista zasad Hive Ranger łącznika magazynu Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="Lista zasad Hive Ranger łącznika magazynu Hive" border="true":::
 
     1. Podaj żądaną nazwę zasad. Wybierz bazę danych **: default**, tabela programu Hive: **Demonstracja**, kolumna Hive: **name**, User: **rsadmin2**, typy dostępu: **SELECT** i **maska częściowa: Pokaż ostatnie 4** z menu **opcji wybierz maskowanie** . Kliknij pozycję **Dodaj**.
-                ![Utwórz zasady](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="Utwórz zasady" border="true":::
 1. Ponownie Wyświetl zawartość tabeli. Po zastosowaniu zasad Ranger można zobaczyć tylko cztery ostatnie znaki w kolumnie.
 
-    ![tabela demonstracyjna po zastosowaniu zasad Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="tabela demonstracyjna po zastosowaniu zasad Ranger" border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

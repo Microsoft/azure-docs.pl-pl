@@ -3,17 +3,17 @@ title: Hotpatch for Windows Server Azure Edition (wersja zapoznawcza)
 description: Dowiedz się, w jaki sposób program hotpatch for Windows Server Azure Edition działa i jak go włączyć
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687570"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953395"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch dla nowych maszyn wirtualnych (wersja zapoznawcza)
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Instalacja poprawki
 
-W trakcie okresu zapoznawczego [Automatyczna poprawka gościa maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) jest włączana automatycznie dla wszystkich maszyn wirtualnych utworzonych przy użyciu _systemu Windows Server 2019 Datacenter: Azure Edition_. Z włączoną automatyczną poprawką gościa maszyny wirtualnej:
+W trakcie okresu zapoznawczego [Automatyczna poprawka gościa maszyny wirtualnej](../virtual-machines/automatic-vm-guest-patching.md) jest włączana automatycznie dla wszystkich maszyn wirtualnych utworzonych przy użyciu _systemu Windows Server 2019 Datacenter: Azure Edition_. Z włączoną automatyczną poprawką gościa maszyny wirtualnej:
 * Poprawki sklasyfikowane jako krytyczne lub zabezpieczenia są automatycznie pobierane i stosowane na maszynie wirtualnej.
 * Poprawki są stosowane w godzinach poza godzinami szczytu w strefie czasowej maszyny wirtualnej.
-* Aranżacja poprawek jest zarządzana przez platformę Azure, a poprawki są stosowane po [pierwszej zasadzie dostępności](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching).
+* Aranżacja poprawek jest zarządzana przez platformę Azure, a poprawki są stosowane po [pierwszej zasadzie dostępności](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
 * Kondycja maszyny wirtualnej określona za pośrednictwem sygnałów kondycji platformy jest monitorowana w celu wykrywania niepowodzeń poprawek.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>Jak działa automatyczna poprawka gościa maszyny wirtualnej?
 
-Gdy na maszynie wirtualnej jest włączone [Automatyczne stosowanie poprawek gościa maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) , dostępne są automatycznie pobierane i stosowane poprawki krytyczne i zabezpieczenia. Ten proces jest automatycznie rozpoczynany w każdym miesiącu, gdy zostaną wydane nowe poprawki. Ocena poprawek i instalacja jest automatyczna, a proces obejmuje ponowne uruchomienie maszyny wirtualnej zgodnie z wymaganiami.
+Gdy na maszynie wirtualnej jest włączone [Automatyczne stosowanie poprawek gościa maszyny wirtualnej](../virtual-machines/automatic-vm-guest-patching.md) , dostępne są automatycznie pobierane i stosowane poprawki krytyczne i zabezpieczenia. Ten proces jest automatycznie rozpoczynany w każdym miesiącu, gdy zostaną wydane nowe poprawki. Ocena poprawek i instalacja jest automatyczna, a proces obejmuje ponowne uruchomienie maszyny wirtualnej zgodnie z wymaganiami.
 
 Funkcja hotpatch włączona w _systemie Windows Server 2019 Datacenter: maszyny wirtualne platformy Azure_ , większość comiesięcznych aktualizacji zabezpieczeń jest dostarczanych jako hotpatches, które nie wymagają ponownego uruchomienia. Najnowsze aktualizacje zbiorcze wysyłane na planowanych lub nieplanowanych miesiącach bazowych są wymagane do ponownego uruchomienia maszyny wirtualnej. Dodatkowe poprawki krytyczne lub zabezpieczeń mogą być również okresowo dostępne, co może wymagać ponownego uruchomienia maszyny wirtualnej.
 
 Maszyna wirtualna jest szacowana automatycznie co kilka dni i wiele razy w ciągu 30-dniowego okresu, aby określić odpowiednie poprawki dla tej maszyny wirtualnej. Ta automatyczna ocena gwarantuje, że wszystkie brakujące poprawki zostaną odnalezione w najwcześniejszym możliwym momencie.
 
-Poprawki są instalowane w ciągu 30 dni od comiesięcznych wersji poprawek, zgodnie z [zasadami pierwszej dostępności](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Poprawki są instalowane tylko poza godzinami szczytu maszyny wirtualnej, w zależności od strefy czasowej maszyny wirtualnej. Maszyna wirtualna musi być uruchomiona w godzinach poza godzinami szczytu, aby poprawki były instalowane automatycznie. Jeśli maszyna wirtualna jest wyłączona podczas okresowej oceny, maszyna wirtualna zostanie oceniona, a odpowiednie poprawki zostaną zainstalowane automatycznie podczas kolejnej oceny okresowej, gdy maszyna wirtualna jest włączona. Kolejna okresowa Ocena odbywa się zwykle w ciągu kilku dni.
+Poprawki są instalowane w ciągu 30 dni od comiesięcznych wersji poprawek, zgodnie z [zasadami pierwszej dostępności](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Poprawki są instalowane tylko poza godzinami szczytu maszyny wirtualnej, w zależności od strefy czasowej maszyny wirtualnej. Maszyna wirtualna musi być uruchomiona w godzinach poza godzinami szczytu, aby poprawki były instalowane automatycznie. Jeśli maszyna wirtualna jest wyłączona podczas okresowej oceny, maszyna wirtualna zostanie oceniona, a odpowiednie poprawki zostaną zainstalowane automatycznie podczas kolejnej oceny okresowej, gdy maszyna wirtualna jest włączona. Kolejna okresowa Ocena odbywa się zwykle w ciągu kilku dni.
 
 Aktualizacje definicji i inne poprawki niesklasyfikowane jako krytyczne lub zabezpieczenia nie zostaną zainstalowane za poorednictwem automatycznej poprawki gościa maszyny wirtualnej.
 
@@ -151,7 +151,7 @@ Aktualizacje definicji i inne poprawki niesklasyfikowane jako krytyczne lub zabe
 
 Aby wyświetlić stan poprawki dla maszyny wirtualnej, przejdź do sekcji " **gość + aktualizacje hosta** " dla maszyny wirtualnej w Azure Portal. W sekcji **aktualizacje systemu operacyjnego gościa** kliknij pozycję "przejdź do hotpatch (wersja zapoznawcza)", aby wyświetlić najnowszy stan poprawki dla maszyny wirtualnej.
 
-Na tym ekranie zobaczysz stan hotpatch dla maszyny wirtualnej. Możesz również sprawdzić, czy istnieją dostępne poprawki dla maszyny wirtualnej, które nie zostały zainstalowane. Zgodnie z opisem w powyższej sekcji "instalacja poprawki" wszystkie aktualizacje zabezpieczeń i krytyczne zostaną automatycznie zainstalowane na maszynie wirtualnej przy użyciu [automatycznej poprawki gościa maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) i nie są wymagane żadne dodatkowe akcje. Poprawki z innymi klasyfikacjami aktualizacji nie są instalowane automatycznie. Zamiast tego są one widoczne na liście dostępnych poprawek na karcie "zgodność aktualizacji". Historię wdrożeń aktualizacji na maszynie wirtualnej można także wyświetlić za pomocą "Historia aktualizacji". Zostanie wyświetlona Historia aktualizacji z ostatnich 30 dni wraz ze szczegółami instalacji poprawki.
+Na tym ekranie zobaczysz stan hotpatch dla maszyny wirtualnej. Możesz również sprawdzić, czy istnieją dostępne poprawki dla maszyny wirtualnej, które nie zostały zainstalowane. Zgodnie z opisem w powyższej sekcji "instalacja poprawki" wszystkie aktualizacje zabezpieczeń i krytyczne zostaną automatycznie zainstalowane na maszynie wirtualnej przy użyciu [automatycznej poprawki gościa maszyny wirtualnej](../virtual-machines/automatic-vm-guest-patching.md) i nie są wymagane żadne dodatkowe akcje. Poprawki z innymi klasyfikacjami aktualizacji nie są instalowane automatycznie. Zamiast tego są one widoczne na liście dostępnych poprawek na karcie "zgodność aktualizacji". Historię wdrożeń aktualizacji na maszynie wirtualnej można także wyświetlić za pomocą "Historia aktualizacji". Zostanie wyświetlona Historia aktualizacji z ostatnich 30 dni wraz ze szczegółami instalacji poprawki.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
@@ -225,5 +225,5 @@ Istnieją pewne ważne zagadnienia dotyczące uruchamiania maszyny wirtualnej z 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o platformie Azure Update Management [tym miejscu](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Dowiedz się więcej na temat automatycznego stosowania [](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) poprawek gościa maszyny wirtualnej
+* Dowiedz się więcej o platformie Azure Update Management [tym miejscu](../automation/update-management/overview.md).
+* Dowiedz się więcej na temat automatycznego stosowania [](../virtual-machines/automatic-vm-guest-patching.md) poprawek gościa maszyny wirtualnej

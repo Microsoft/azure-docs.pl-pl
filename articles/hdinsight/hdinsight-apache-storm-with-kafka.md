@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2078ba177d68cfaa0a91b79611d92e5c68e4e245
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942732"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868421"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Samouczek: korzystanie z systemu Apache Storm z platformą Apache Kafka w usłudze HDInsight
 
@@ -377,7 +377,7 @@ Platforma Apache Kafka w usłudze HDInsight nie zapewnia dostępu do brokerów K
 
 Na poniższym diagramie przedstawiono przepływ komunikacji między systemem Storm i platformą Kafka:
 
-![Diagram przedstawiający klastry Storm i Kafka w sieci wirtualnej platformy Azure](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagram przedstawiający klastry Storm i Kafka w sieci wirtualnej platformy Azure":::
 
 > [!NOTE]  
 > Inne usługi w klastrze, takie jak SSH i [Apache Ambari](https://ambari.apache.org/), są dostępne przez Internet. Aby uzyskać więcej informacji o publicznych portach dostępnych z usługą HDInsight, zobacz [Ports and URIs used by HDInsight (Porty i identyfikatory URI używane przez usługę HDInsight)](hdinsight-hadoop-port-settings-for-services.md).
@@ -415,7 +415,7 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
       | Nazwa użytkownika SSH | Użytkownik SSH tworzony na potrzeby obsługi klastrów. |
       | Hasło SSH | Hasło użytkownika SSH. |
    
-      ![Obraz parametrów szablonu](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Obraz parametrów szablonu":::
 
 3. Przeczytaj **Warunki i postanowienia**, a następnie wybierz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**.
 

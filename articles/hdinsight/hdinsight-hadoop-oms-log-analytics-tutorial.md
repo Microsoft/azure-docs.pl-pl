@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0dfa89f50dedad41394cb77f1cca9b2dd3a65308
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590831"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865540"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
@@ -58,7 +58,7 @@ W tej sekcji skonfigurujesz istniejący klaster usługi HDInsight Hadoop do uży
 
 1. Wybierz pozycję **Zapisz**.  Zapisanie tego ustawienia trwa kilka chwil.
 
-    ![Włącz monitorowanie klastrów usługi HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Włącz monitorowanie klastrów usługi HDInsight")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Włącz monitorowanie klastrów usługi HDInsight":::
 
 ## <a name="enable-azure-monitor-using-azure-powershell"></a>Włącz Azure Monitor przy użyciu Azure PowerShell
 
@@ -138,7 +138,7 @@ Dostępne rozwiązania usługi HDInsight:
 
 Aby uzyskać instrukcje dotyczące rozwiązania do zarządzania, zobacz [rozwiązania do zarządzania na platformie Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Aby eksperymentować, Zainstaluj rozwiązanie do monitorowania usługi HDInsight Hadoop. Gdy wszystko będzie gotowe, zobaczysz kafelek **HDInsightHadoop** na liście **Podsumowanie**. Wybierz kafelek **HDInsightHadoop** . Rozwiązanie HDInsightHadoop wygląda następująco:
 
-![Widok rozwiązania do monitorowania usługi HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="Widok rozwiązania do monitorowania usługi HDInsight":::
 
 Ponieważ klaster jest zupełnie nowym klastrem, raport nie zawiera żadnych działań.
 

@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: bdd8fd336da12b5549875cf53f9e221cc431c2b9
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 8531d0b2252e6ddff75509046b5a4576b99d339f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773219"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870793"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
-W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących obsługi w przypadku odnajdywania i oceniania serwerów lokalnych działających w środowisku funkcji Hyper-V na potrzeby migracji na platformę Azure przy użyciu narzędzia do [odnajdywania i oceny Azure Migrate:](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Aby przeprowadzić migrację serwerów z funkcją Hyper-V na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-hyper-v-migration.md).
+W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących obsługi w przypadku odnajdywania i oceniania serwerów lokalnych działających w środowisku funkcji Hyper-V na potrzeby migracji na platformę Azure przy użyciu narzędzia do [odnajdywania i oceny Azure Migrate:](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Aby przeprowadzić migrację serwerów z funkcją Hyper-V na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-hyper-v-migration.md).
 
 Aby skonfigurować odnajdywanie i ocenianie serwerów z funkcją Hyper-V, należy utworzyć projekt i dodać Azure Migrate: narzędzie odnajdywania i oceny do projektu. Po dodaniu narzędzia należy wdrożyć [urządzenie Azure Migrate](migrate-appliance.md). Urządzenie stale odnajduje serwery lokalne i wysyła metadane serwera oraz dane wydajności do platformy Azure. Po zakończeniu odnajdywania można zebrać odnalezione serwery do grup i uruchomić ocenę dla grupy.
 
@@ -23,7 +23,7 @@ Aby skonfigurować odnajdywanie i ocenianie serwerów z funkcją Hyper-V, należ
 
 **Pomoc techniczna** | **Szczegóły**
 --- | ---
-**Limity oceny** | Można odkrywać i oceniać maksymalnie 35 000 serwerów w jednym [projekcie](migrate-support-matrix.md#azure-migrate-projects).
+**Limity oceny** | Można odkrywać i oceniać maksymalnie 35 000 serwerów w jednym [projekcie](migrate-support-matrix.md#project).
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz serwerów w funkcji Hyper-V projekt może obejmować serwery w oprogramowaniu VMware i serwerach fizycznych, a także limity oceny dla każdego z nich.
 **Odnajdywanie** | Urządzenie Azure Migrate może wykryć do 5000 serwerów z uruchomioną funkcją Hyper-V.<br/><br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
 **Ocena** | Można dodać maksymalnie 35 000 serwerów w jednej grupie.<br/><br/> Można ocenić do 35 000 serwerów w pojedynczej ocenie dla grupy.

@@ -3,7 +3,7 @@ title: Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (AD
 description: Uruchamiaj środowisko deweloperskie i testowe środowiska (zD&T) na platformie Azure Virtual Machines.
 services: virtual-machines
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: d390cca483444dadd278d783c5f93e09a1bf1ff8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fda59cc041cc540b95ababa6d56df6e69b0a8970
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549451"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956166"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1
 
@@ -187,7 +187,7 @@ Obraz można teraz wdrożyć i będzie gotowy do zainstalowania przez emulator t
 
 Gratulacje! Teraz działa środowisko mainframe firmy IBM na platformie Azure.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Migracja komputera mainframe: mitów i fakty](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale na platformie Azure](ibm-db2-purescale-azure.md)

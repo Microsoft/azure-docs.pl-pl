@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941169"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871558"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie platformy Apache Zeppelin z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -97,11 +97,11 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
     * W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` lokalizacji, gdzie ClusterName jest nazwą klastra interakcyjnych zapytań. Kliknij pozycję **serwera hiveserver2 Interactive**. Zostanie wyświetlona w pełni kwalifikowana nazwa domeny (FQDN) węzła głównego, na którym działa LLAP, jak pokazano na zrzucie ekranu. Zamień `<llap-headnode>` na tę wartość.
 
-        ![Węzeł główny łącznika magazynu Hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Węzeł główny łącznika magazynu Hive" border="true":::
 
     * Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem interakcyjnych zapytań. Wyszukaj `default_realm` parametr w `/etc/krb5.conf` pliku. Zamień `<AAD-DOMAIN>` na tę wartość jako ciąg pisany wielkimi literami, w przeciwnym razie nie znaleziono poświadczeń.
 
-        ![Domena usługi AAD magazynu usługi Hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Domena usługi AAD magazynu usługi Hive" border="true":::
 
     * Na przykład `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100378710"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864044"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
 
@@ -258,10 +258,10 @@ Jeśli bezpośredni dostęp do usług REST Azure Maps, Zmień domenę adresu URL
 
 W przypadku opracowywania przy użyciu struktury JavaScript jeden z następujących projektów typu "open source" może być przydatny:
 
-- [ng-Azure-Maps](https://github.com/arnaudleclerc/ng-azure-maps) — otoka o pokątowym 10 wokół usługi Azure Maps.
-- [AzureMapsControl. Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) — składnik Blazor Azure Maps.
-- [Azure Maps reaguje składnik](https://github.com/WiredSolutions/react-azure-maps) — otoka reaguje na Azure Maps kontrolkę.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) — składnik Azure Maps dla aplikacji Vue.
+* [ng-Azure-Maps](https://github.com/arnaudleclerc/ng-azure-maps) — otoka o pokątowym 10 wokół usługi Azure Maps.
+* [AzureMapsControl. Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) — składnik Blazor Azure Maps.
+* [Azure Maps reaguje składnik](https://github.com/WiredSolutions/react-azure-maps) — otoka reaguje na Azure Maps kontrolkę.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) — składnik Azure Maps dla aplikacji Vue.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -275,10 +275,10 @@ Dowiedz się, jak stylować mapę:
 > [!div class="nextstepaction"]
 > [Wybieranie stylu mapy](choose-map-style.md)
 
-Aby dodać więcej danych do mapy:
+Zapoznaj się z najlepszymi rozwiązaniami i zobacz Przykłady:
 
 > [!div class="nextstepaction"]
-> [Tworzenie mapy](map-create.md)
+> [Najlepsze praktyki](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [Przykłady kodu](/samples/browse/?products=azure-maps)

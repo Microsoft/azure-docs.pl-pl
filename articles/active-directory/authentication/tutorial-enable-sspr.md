@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198493"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887771"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
@@ -138,6 +138,22 @@ Jeśli nie chcesz już używać funkcji SSPR skonfigurowanych w ramach tego samo
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Resetowanie hasła** w menu po lewej stronie.
 1. Na stronie **Właściwości** w obszarze opcja samoobsługowe *Resetowanie hasła* wybierz pozycję **Brak**.
 1. Aby zastosować zmianę SSPR, wybierz pozycję **Zapisz**.
+
+## <a name="faqs"></a>Często zadawane pytania
+
+W tej sekcji objaśniono typowe pytania administratorów i użytkowników końcowych, którzy próbują SSPR:
+
+- Dlaczego użytkownicy federacyjny czekają na 2 minuty, gdy hasło zostało **zresetowane** , zanim będą mogły korzystać z haseł synchronizowanych lokalnie?
+
+  W przypadku użytkowników federacyjnych, których hasła są synchronizowane, Źródło uprawnień dla haseł jest lokalne. W związku z tym SSPR aktualizuje tylko lokalne hasła. Synchronizacja skrótów haseł z powrotem do usługi Azure AD jest zaplanowana na co 2 minuty.
+
+- Gdy nowo utworzony użytkownik, który jest wstępnie wypełniony danymi SSPR, takimi jak telefon i poczta e-mail, na stronie rejestracji SSPR **nie utraci dostępu do konta** . pojawia się jako tytuł strony. Dlaczego inni użytkownicy, którzy nie mają wstępnie wypełnionych danych SSPR, zobaczą ten komunikat?
+
+  Użytkownik, który **nie utraci dostępu do Twojego konta!** jest członkiem SSPR/połączonych grup rejestracji skonfigurowanych dla dzierżawcy. Użytkownicy, którzy nie zobaczą, **nie tracą dostępu do Twojego konta** . nie są częścią SSPR/połączonej grupy rejestracji.
+
+- Gdy niektórzy użytkownicy przechodzą przez proces SSPR i zresetują swoje hasło, dlaczego nie widzą wskaźnika siły hasła?
+
+  Użytkownicy, którzy nie widzą mocnej/silnej siły hasła, mają włączone zsynchronizowane zapisywanie zwrotne haseł. Ponieważ SSPR nie może ustalić zasad haseł środowiska lokalnego klienta, nie może sprawdzić poprawności siły lub słabego hasła. 
 
 ## <a name="next-steps"></a>Następne kroki
 

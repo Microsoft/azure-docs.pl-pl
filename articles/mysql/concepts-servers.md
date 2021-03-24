@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100517981"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869433"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Pojęcia dotyczące serwerów w Azure Database for MySQL
 
@@ -62,7 +62,13 @@ Gdy serwer czasu zostanie zatrzymany, na serwerze nie można wykonać żadnych o
 
 ## <a name="how-do-i-manage-a-server"></a>Jak mogę zarządzać serwerem?
 
-Serwerami Azure Database for MySQL można zarządzać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
+Za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure można zarządzać tworzeniem, usuwaniem, konfiguracją parametrów serwera (My. cnf), skalowaniem, siecią, zabezpieczeniami, wysoką dostępnością, tworzeniem kopii zapasowej & przywracaniem, monitorowaniem serwerów Azure Database for MySQL. Ponadto następujące procedury składowane są dostępne w Azure Database for MySQL do wykonywania pewnych zadań administracyjnych bazy danych wymaganych, ponieważ uprawnienia administratora nie są obsługiwane na serwerze.
+
+|**Nazwa procedury składowanej**|**Parametry wejściowe**|**Parametry wyjściowe**|**Uwaga dotycząca użycia**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|Nie dotyczy|Równoważne [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Nastąpi przerwanie połączenia skojarzonego z podanym processlist_id po zakończeniu wszelkich instrukcji wykonywanych przez połączenie.|
+|*mysql.az_kill_query*|processlist_id|Nie dotyczy|Równoważne [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Zakończy instrukcję, że połączenie jest aktualnie wykonywane. Opuszcza połączenie.|
+|*mysql.az_load_timezone*|NIE DOTYCZY|NIE DOTYCZY|Ładuje [tabele strefy czasowej](howto-server-parameters.md#working-with-the-time-zone-parameter) , aby zezwolić na `time_zone` ustawienie wartości nazwanych (np. "USA/Pacyfik").|
 
 ## <a name="next-steps"></a>Następne kroki
 

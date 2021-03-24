@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502692"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889904"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurowanie ograniczeń dostępu Azure App Service
 
@@ -97,26 +97,25 @@ Za pomocą punktów końcowych usługi można skonfigurować aplikację przy uż
 > [!NOTE]
 > - Punkty końcowe usługi nie są obecnie obsługiwane w przypadku aplikacji sieci Web, które używają wirtualnego adresu IP (VIP) protokołu IP Secure Sockets Layer (SSL).
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>Ustawianie reguły opartej na tagach usługi (wersja zapoznawcza)
+#### <a name="set-a-service-tag-based-rule"></a>Ustawianie reguły opartej na tagu usługi
 
-* W kroku 4, z listy rozwijanej **Typ** wybierz pozycję **tag usługi (wersja zapoznawcza)**.
+* W kroku 4, z listy rozwijanej **Typ** wybierz pozycję **tag usługi**.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Dodaj ograniczenie&quot; z wybranym typem tagu usługi.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Zrzut ekranu przedstawiający okienko &quot;Dodaj ograniczenie&quot; z wybranym typem tagu usługi.":::
 
 Każdy tag usługi reprezentuje listę zakresów adresów IP z usług platformy Azure. Listę tych usług i linki do określonych zakresów można znaleźć w [dokumentacji znacznika usługi][servicetags].
 
-Następująca lista tagów usługi jest obsługiwana w regułach ograniczeń dostępu w fazie zapoznawczej:
+Wszystkie dostępne Tagi usług są obsługiwane w regułach ograniczeń dostępu. Dla uproszczenia tylko lista najpopularniejszych tagów jest dostępna za pomocą Azure Portal. Użyj szablonów Azure Resource Manager lub skryptów, aby skonfigurować bardziej zaawansowane reguły, takie jak regionalne reguły o określonym zakresie. Oto Tagi dostępne za pomocą Azure Portal:
+
 * ActionGroup
+* ApplicationInsightsAvailability
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor. zaplecza
 * AzureMachineLearning
-* AzureSignalR
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Edytowanie reguły
 
@@ -137,6 +136,31 @@ Aby usunąć regułę, na stronie **ograniczenia dostępu** wybierz wielokropek 
 
 ## <a name="access-restriction-advanced-scenarios"></a>Zaawansowane scenariusze ograniczeń dostępu
 W poniższych sekcjach opisano niektóre zaawansowane scenariusze korzystające z ograniczeń dostępu.
+
+### <a name="filter-by-http-header"></a>Filtruj według nagłówka http
+
+W ramach każdej reguły można dodać dodatkowe filtry nagłówka HTTP. Obsługiwane są następujące nazwy nagłówków http:
+* X-Forwarded-For
+* X-Forward-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Dla każdej nazwy nagłówka można dodać maksymalnie 8 wartości rozdzielonych przecinkami. Filtry nagłówka HTTP są oceniane po samej regule, a oba warunki muszą mieć wartość true, aby można było zastosować regułę.
+
+### <a name="multi-source-rules"></a>Reguły dla wiele źródeł
+
+Reguły wieloźródła umożliwiają połączenie maksymalnie 8 zakresów adresów IP lub 8 tagów usługi w jednej regule. Można tego użyć, jeśli masz więcej niż 512 zakresów IP lub chcesz utworzyć reguły logiczne, w których wiele zakresów adresów IP jest połączonych z pojedynczym filtrem nagłówka HTTP.
+
+Reguły dla wielu źródeł są zdefiniowane w taki sam sposób, w jaki definiuje się reguły pojedynczego źródła, ale z każdym zakresem oddzielonym przecinkami.
+
+Przykład programu PowerShell:
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>Blokuj pojedynczy adres IP
 
 Po dodaniu pierwszej reguły ograniczeń dostępu do usługi dodawana jest jawna *odmowa* reguły o priorytecie 2147483647. W przypadku jawnej reguły *Odrzuć wszystkie* jest ostatnią regułą, która ma zostać wykonana, i blokuje dostęp do dowolnego adresu IP, który nie jest jawnie dozwolony przez regułę *zezwalania* .
@@ -151,17 +175,20 @@ Oprócz możliwości kontrolowania dostępu do aplikacji można ograniczyć dost
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Zrzut ekranu strony &quot;ograniczenia dostępu&quot; w Azure Portal, informujący, że nie ustawiono żadnych ograniczeń dostępu dla witryny SCM lub aplikacji.":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Ograniczanie dostępu do określonego wystąpienia platformy Azure (wersja zapoznawcza)
-Ruch z usług frontonu platformy Azure do aplikacji pochodzi z dobrze znanego zestawu zakresów adresów IP zdefiniowanych w tagu usługi AzureFrontDoor. zaplecza. Korzystając z reguły ograniczeń tagu usługi, można ograniczyć ruch do programu pochodzącego tylko z usług frontonu platformy Azure. Aby zapewnić, że ruch pochodzi tylko z określonego wystąpienia, należy dodatkowo filtrować przychodzące żądania na podstawie unikatowego nagłówka HTTP, który wysyła z przodu z platformy Azure. W wersji zapoznawczej można to osiągnąć przy użyciu programu PowerShell lub REST/ARM. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Ograniczanie dostępu do określonego wystąpienia usługi Azure front-drzwi
+Ruch z usług frontonu platformy Azure do aplikacji pochodzi z dobrze znanego zestawu zakresów adresów IP zdefiniowanych w tagu usługi AzureFrontDoor. zaplecza. Korzystając z reguły ograniczeń tagu usługi, można ograniczyć ruch do programu pochodzącego tylko z usług frontonu platformy Azure. Aby zapewnić, że ruch pochodzi tylko z określonego wystąpienia, należy dodatkowo filtrować przychodzące żądania na podstawie unikatowego nagłówka HTTP, który wysyła z przodu z platformy Azure.
 
-* Przykład programu PowerShell (identyfikator drzwi przednich można znaleźć w Azure Portal):
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Zrzut ekranu strony &quot;ograniczenia dostępu&quot; w Azure Portal, w którym pokazano, jak dodać ograniczenie dotyczące drzwi platformy Azure.":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+Przykład programu PowerShell:
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>Programistyczne zarządzanie regułami ograniczeń dostępu
 
 Ograniczenia dostępu można dodać programowo, wykonując jedną z następujących czynności: 
@@ -181,7 +208,7 @@ Ograniczenia dostępu można dodać programowo, wykonując jedną z następując
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Praca z tagami usług, nagłówkami HTTP lub regułami wieloźródłowymi wymaga co najmniej wersji 5.1.0. Wersję zainstalowanego modułu można sprawdzić za pomocą: **Get-InstalledModule-Name AZ**
+   > Praca z tagami usług, nagłówkami HTTP lub regułami wieloźródłowymi wymaga co najmniej wersji 5.7.0. Wersję zainstalowanego modułu można sprawdzić za pomocą: **Get-InstalledModule-Name AZ**
 
 Możesz również ustawić wartości ręcznie, wykonując jedną z następujących czynności:
 

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 34ee7eb25b1d106ea8bb53197d69ca5a9d528773
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941367"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871609"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Samouczek: zapytanie Apache Hive z ODBC i programu PowerShell
 
@@ -42,7 +42,7 @@ Poniższe kroki przedstawiają sposób tworzenia źródła danych Apache Hive OD
 
 1. W systemie Windows przejdź do   >  **menu Start Narzędzia administracyjne systemu Windows**  >  **źródła danych ODBC (32-bitowe)/(64-bitowe)**.  Otworzy się okno **Administrator źródła danych ODBC** .
 
-    ![Administrator źródła danych OBDC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Konfigurowanie DSN przy użyciu administratora źródła danych ODBC")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="Administrator źródła danych OBDC" border="true":::
 
 1. Na karcie **DSN użytkownika** wybierz pozycję **Dodaj** , aby otworzyć okno **Utwórz nowe źródło danych** .
 
@@ -68,7 +68,7 @@ Poniższe kroki przedstawiają sposób tworzenia źródła danych Apache Hive OD
    |  Liczba pobranych wierszy na blok |Podczas pobierania dużej liczby rekordów dostrajanie tego parametru może być wymagane w celu zapewnienia optymalnej wydajności. |
    |  Domyślna długość kolumny ciągu, długość kolumny binarnej, skala kolumn dziesiętnych |Długości i precyzji typu danych mogą mieć wpływ na sposób zwracania danych. Powodują one zwrócenie nieprawidłowych informacji ze względu na utratę dokładności i obcinanie. |
 
-    ![Zaawansowane opcje konfiguracji DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Zaawansowane opcje konfiguracji DSN")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="Zaawansowane opcje konfiguracji DSN" border="true":::
 
 1. Wybierz **test** , aby przetestować źródło danych. Gdy źródło danych jest prawidłowo skonfigurowane, wynik testu pokazuje **powodzenie**.  
 

@@ -12,22 +12,18 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tłumaczenie mowy
-ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95015209"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954964"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Ten przegląd zawiera informacje o zaletach i możliwościach usługi tłumaczenia mowy, które umożliwiają korzystanie z funkcji zamiany mowy na wiele języków w czasie rzeczywistym oraz Tłumaczenie mowy na mowę i zamianę tekstu na tekst strumieni audio. Za pomocą zestawu Speech SDK aplikacje, narzędzia i urządzenia mają dostęp do transkrypcji źródłowych i danych wyjściowych tłumaczenia dla podanego dźwięku. Tymczasowe transkrypcja i wyniki tłumaczenia są zwracane, gdy wykryto mowę, a końcowe wyniki można przekonwertować na mowę.
-
-Aparat tłumaczenia firmy Microsoft jest obsługiwany przez dwa różne podejścia: tłumaczenia maszyn statystycznych (SMT) i neuronowych Machine Translation (NMT). SMT stosuje zaawansowaną analizę statystyczną do oszacowania najlepszych możliwych tłumaczeń z uwzględnieniem kontekstu kilku wyrazów. Dzięki NMT sieci neuronowych są używane do zapewniania dokładniejszych, naturalnych tłumaczeń przy użyciu pełnego kontekstu zdań do tłumaczenia wyrazów.
-
-Obecnie firma Microsoft używa usługi NMT do tłumaczenia na najpopularniejsze języki. Wszystkie [Języki dostępne dla tłumaczenia mowy na mowę](language-support.md#speech-translation) są obsługiwane przez NMT. Tłumaczenie zamiany mowy na tekst może używać wartości SMT lub NMT w zależności od pary językowej. Gdy język docelowy jest obsługiwany przez NMT, pełne tłumaczenie jest NMTe. Gdy język docelowy nie jest obsługiwany przez NMT, tłumaczenie jest hybrydą NMT i SMT przy użyciu języka angielskiego jako "Pivot" między tymi dwoma językami.
+Ten przegląd zawiera informacje o zaletach i możliwościach usługi tłumaczenia mowy, które umożliwiają korzystanie z funkcji [zamiany mowy na wiele języków](language-support.md#speech-translation) w czasie rzeczywistym oraz Tłumaczenie mowy na mowę i zamianę tekstu na tekst strumieni audio. Za pomocą zestawu Speech SDK aplikacje, narzędzia i urządzenia mają dostęp do transkrypcji źródłowych i danych wyjściowych tłumaczenia dla podanego dźwięku. Tymczasowe transkrypcja i wyniki tłumaczenia są zwracane, gdy wykryto mowę, a końcowe wyniki można przekonwertować na mowę.
 
 ## <a name="core-features"></a>Podstawowe funkcje
 

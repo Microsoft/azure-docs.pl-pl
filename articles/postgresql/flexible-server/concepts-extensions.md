@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 998154376895d8bcfc7cf36665a6a36f5c43e3b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b6ae6c003284b93390bb4f53345d3ba0f8d35e21
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594992"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952562"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Rozszerzenia PostgreSQL na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -53,7 +53,6 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | Typ danych dla struktur hierarchicznych, takich jak drzewa|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | Sprawdzanie zawartości stron bazy danych na niskim poziomie|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | Sprawdzanie udostępnionej pamięci podręcznej buforu|
-> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Harmonogram zadań dla PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | Obejrzyj mapę wolnego miejsca (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | dane relacji przedgrzanej|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | Śledź statystyki wykonywania wszystkich wykonanych instrukcji SQL|
@@ -103,7 +102,6 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Typ danych dla struktur hierarchicznych, takich jak drzewa|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | Sprawdzanie zawartości stron bazy danych na niskim poziomie|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | Sprawdzanie udostępnionej pamięci podręcznej buforu|
-> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Harmonogram zadań dla PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | Obejrzyj mapę wolnego miejsca (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dane relacji przedgrzanej|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | Śledź statystyki wykonywania wszystkich wykonanych instrukcji SQL|
@@ -131,28 +129,6 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) i [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) umożliwiają łączenie się z jednego serwera PostgreSQL z innym lub z inną bazą danych na tym samym serwerze. Elastyczny serwer obsługuje połączenia przychodzące i wychodzące do dowolnego serwera PostgreSQL. Serwer wysyłający musi zezwalać na połączenia wychodzące z serwerem otrzymującym. Podobnie serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego. 
 
 Zalecamy wdrożenie serwerów z [integracją sieci wirtualnej](concepts-networking.md) , jeśli planujesz używać tych dwóch rozszerzeń. Domyślnie Integracja sieci wirtualnej umożliwia nawiązywanie połączeń między serwerami w sieci wirtualnej. Aby dostosować dostęp, można również użyć [grup zabezpieczeń sieci wirtualnej](../../virtual-network/manage-network-security-group.md) .
-
-## <a name="pg_cron"></a>pg_cron
-
-[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) to prosty, oparty na języku CRONUS harmonogram zadań dla PostgreSQL, który działa w bazie danych jako rozszerzenie. Za pomocą rozszerzenia pg_cron można uruchamiać zaplanowane zadania konserwacji w ramach bazy danych PostgreSQL. Na przykład można uruchamiać okresowe Próżnie tabeli lub usuwać stare zadania dotyczące danych.
-
-`pg_cron` program może uruchamiać wiele zadań równolegle, ale jednocześnie wykonuje co najmniej jedno wystąpienie zadania. Jeśli uruchomienie drugiego przebiegu rozpocznie się przed pierwszym zakończeniem, drugi przebieg zostanie umieszczony w kolejce i uruchomione zaraz po zakończeniu pierwszego uruchomienia. Pozwala to zagwarantować, że zadania będą uruchamiane dokładnie tyle razy, ile zaplanowano, i nie są uruchamiane współbieżnie.
-
-Oto niektóre przykłady:
-
-Aby usunąć stare dane w sobotę o godzinie 3:10:30 (GMT)
-```
-SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
-```
-Aby uruchamiać próżni codziennie o 10:10:00 (GMT)
-```
-SELECT cron.schedule('0 10 * * *', 'VACUUM');
-```
-
-Aby odzaplanować wszystkie zadania z pg_cron
-```
-SELECT cron.unschedule(jobid) FROM cron.job;
-```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

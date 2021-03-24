@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 5de98f5bf57626a408dd5bec8575856074f434c7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50216b83475e92cbabb5ed78c3836264ceff4600
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705674"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866611"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
 
@@ -64,11 +64,11 @@ Protokół SSH umożliwia połączenie z klastrami HBase, a następnie korzystan
 
 Dla większości użytkowników dane są wyświetlane w formacie tabelarycznym:
 
-![Dane tabelaryczne usługi HDInsight Apache HBase](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="Dane tabelaryczne usługi HDInsight Apache HBase" border="false":::
 
 W HBase (implementacja BigTable w [chmurze](https://cloud.google.com/bigtable/)) te same dane wyglądają następująco:
 
-![Dane usługi HDInsight Apache HBase BigTable](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="Dane usługi HDInsight Apache HBase BigTable" border="false":::
 
 **Korzystanie z powłoki HBase**
 
@@ -111,7 +111,7 @@ W HBase (implementacja BigTable w [chmurze](https://cloud.google.com/bigtable/))
     scan 'Contacts'
     ```
 
-    ![Usługa HDInsight Apache Hadoop HBase Shell](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="Usługa HDInsight Apache Hadoop HBase Shell" border="false":::
 
 1. Użyj `get` polecenia, aby pobrać zawartość wiersza. Wprowadź następujące polecenie:
 
@@ -331,7 +331,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 
 1. W górnej części strony wybierz pozycję **szybkie linki** , wskaż pozycję Active Node dozorcy link, a następnie wybierz pozycję **interfejs użytkownika HBase Master**.  Interfejs użytkownika zostanie otwarty w innej karcie przeglądarki:
 
-   ![Interfejs użytkownika usługi HDInsight Apache HBase serwera hmaster](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="Interfejs użytkownika usługi HDInsight Apache HBase serwera hmaster" border="false":::
 
    Główny interfejs użytkownika HBase zawiera następujące sekcje:
 

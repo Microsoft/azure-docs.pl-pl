@@ -398,16 +398,16 @@
         - name: Tworzenie wielu wystąpień
           items:
             - name: Zasoby
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-resources.md
             - name: Właściwości
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-properties.md
             - name: Zmienne
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-variables.md
             - name: Dane wyjściowe
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-outputs.md
     - name: Wdrażanie szablonów
       items:

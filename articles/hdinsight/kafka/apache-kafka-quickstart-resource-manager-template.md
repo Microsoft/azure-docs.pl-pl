@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: bdab80725f66814b9bf6bfa9429e3eff96fbc908
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 72a468057cef5c8616cb3f88063204509aaf7fe0
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505107"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863330"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Szybki Start: Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu szablonu ARM
 
@@ -22,7 +22,7 @@ Dostęp do interfejsu API platformy Kafka mogą uzyskać tylko zasoby będące w
 
 Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-[![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
+[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 1. Wybierz przycisk **Wdróż na platformie Azure** poniżej, aby zalogować się do platformy Azure i otworzyć szablon ARM.
 
-   [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
+   [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
 1. Wprowadź lub wybierz poniższe wartości:
 
@@ -58,7 +58,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
     |Nazwa użytkownika SSH|Podaj nazwę użytkownika, wartość domyślna to **sshuser**|
     |Hasło ssh|Podaj hasło.|
 
-    ![Zrzut ekranu przedstawiający właściwości szablonu](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
+    :::image type="content" source="./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png" alt-text="Zrzut ekranu przedstawiający właściwości szablonu" border="false":::
 
 1. Przejrzyj **warunki i postanowienia**. Następnie wybierz opcję **Zgadzam się na powyższe warunki i** postanowienia, a następnie **Kup**. Otrzymasz powiadomienie, że wdrożenie jest w toku. Utworzenie klastra trwa około 20 minut.
 
@@ -221,7 +221,7 @@ Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzię
 
 W Azure Portal przejdź do klastra, a następnie wybierz pozycję **Usuń**.
 
-![HBase szablonu Menedżer zasobów](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
+:::image type="content" source="./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png" alt-text="HBase szablonu Menedżer zasobów" border="false":::
 
 Dodatkowo możesz wybrać nazwę grupy zasobów, aby otworzyć stronę grupy zasobów, a następnie wybrać pozycję **Usuń grupę zasobów**. Usuwając grupę zasobów, należy usunąć zarówno klaster usługi HDInsight, jak i domyślne konto magazynu.
 

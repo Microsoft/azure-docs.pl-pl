@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cadf5b7d92e26e561e570f824295e69ca421e16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 34aaafcd03e737b1e59529f8001e0c008bd39b70
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644524"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888876"
 ---
 # <a name="integrate-with-sharepoint-saml"></a>Integracja z programem SharePoint (SAML)
 
@@ -68,8 +68,8 @@ W tym kroku utworzysz aplikację w dzierżawie usługi Azure AD, która używa s
 
  1. Utwórz nową aplikację serwer proxy aplikacji usługi Azure AD platformy Azure z domeną niestandardową. Aby uzyskać instrukcje krok po kroku, zobacz [domeny niestandardowe na platformie Azure serwer proxy aplikacji usługi Azure AD](./application-proxy-configure-custom-domain.md).
 
-    - Wewnętrzny adres URL: https://portal.contoso.com/
-    - Zewnętrzny adres URL: https://portal.contoso.com/
+    - Wewnętrzny adres URL: " https://portal.contoso.com/ "
+    - Zewnętrzny adres URL: " https://portal.contoso.com/ "
     - Uwierzytelnianie wstępne: Azure Active Directory
     - Tłumaczenie adresów URL w nagłówkach: nie
     - Tłumaczenie adresów URL w treści aplikacji: nie
@@ -84,4 +84,4 @@ W tym kroku utworzysz aplikację w dzierżawie usługi Azure AD, która używa s
  
 ## <a name="step-3-test-your-application"></a>Krok 3. Testowanie aplikacji
 
-Korzystając z przeglądarki z komputera w sieci zewnętrznej, przejdź do adresu URL ( https://portal.contoso.com/) który został skonfigurowany podczas kroku Publikuj. Upewnij się, że możesz zalogować się przy użyciu skonfigurowanego konta testowego.
+Korzystając z przeglądarki z komputera w sieci zewnętrznej, przejdź do linku skonfigurowanego podczas kroku Publikuj. Upewnij się, że możesz zalogować się przy użyciu skonfigurowanego konta testowego.

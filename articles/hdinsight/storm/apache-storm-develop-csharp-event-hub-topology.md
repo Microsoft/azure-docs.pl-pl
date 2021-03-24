@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee483872535c58bde521cf0a751058fdc2fecd40
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929194"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871456"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Przetwarzanie zdarzeń z usługi Azure Event Hubs przy użyciu Apache Storm w usłudze HDInsight (C#)
 
@@ -126,7 +126,7 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
    | Usługa |Wysyłanie |
    | czytnika |Nasłuchiwanie |
 
-    ![Zrzut ekranu przedstawiający okno zasady dostępu do udziału](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png" alt-text="Zrzut ekranu przedstawiający okno zasady dostępu do udziału" border="true":::
 
 2. Wybierz zasady **czytnika** i **składnika zapisywania** . Skopiuj i Zapisz wartość klucza podstawowego dla obu zasad, ponieważ te wartości są używane później.
 
@@ -168,15 +168,15 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **EventHubReader** , a następnie wybierz pozycję **Prześlij do burzy w usłudze HDInsight**.
 
-    ![Zrzut ekranu przedstawiający Eksplorator rozwiązań, z opcją Prześlij do burzy w usłudze HDInsight](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png" alt-text="Zrzut ekranu przedstawiający Eksplorator rozwiązań, z opcją Prześlij do burzy w usłudze HDInsight" border="true":::
 
 2. W oknie dialogowym **przesyłanie topologii** wybierz **klaster burzy**. Rozwiń węzeł **dodatkowe konfiguracje**, wybierz pozycję **ścieżki plików w języku Java**, wybierz pozycję **...**, a następnie wybierz katalog zawierający pobrany wcześniej plik JAR. Na koniec kliknij przycisk **Prześlij**.
 
-    ![Zrzut ekranu przedstawiający okno dialogowe topologia przesyłania](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe topologia przesyłania" border="true":::
 
 3. Po przesłaniu topologii pojawia się **Podgląd topologii burzy** . Aby wyświetlić informacje o topologii, wybierz topologię **EventHubReader** w lewym okienku.
 
-    ![Zrzut ekranu przedstawiający przeglądarkę topologii burzy](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę topologii burzy" border="true":::
 
 4. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **EventHubWriter** , a następnie wybierz pozycję **Prześlij do burzy w usłudze HDInsight**.
 
@@ -200,7 +200,7 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 Aby zatrzymać topologie, zaznacz każdą topologię w **przeglądarce topologii burzy**, a następnie kliknij przycisk **Kill**.
 
-![Zrzut ekranu przedstawiający przeglądarkę topologii burzy z wyróżnionym przyciskiem Kill](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę topologii burzy z wyróżnionym przyciskiem Kill" border="true":::
 
 ## <a name="delete-your-cluster"></a>Usuwanie klastra
 

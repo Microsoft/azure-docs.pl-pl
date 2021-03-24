@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: ac71d8d7830f1d740d0156886a364b1d53ab247f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d78b106464bfbd3c86b9899a5c3543eed5dc0924
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100519562"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888961"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Uczenie maszynowe i narzędzia do nauki o danych w usłudze Azure Data Learning Virtual Machines
 Usługa Azure Data Learning Virtual Machines (DSVMs) oferuje bogaty zestaw narzędzi i bibliotek do uczenia maszynowego dostępnych w popularnych językach, takich jak Python, R i Julia.
@@ -99,7 +99,7 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | Obsługiwane wersje     | Windows, Linux     |
 | Typowe zastosowania      | Ogólna Biblioteka uczenia maszynowego      |
 | Jak jest on skonfigurowany lub instalowany?      |  Zainstalowana z obsługą procesora GPU   |
-| Jak używać lub uruchamiać      | Jako biblioteka Python (2,7 i 3,5), pakiet języka R i narzędzie wiersza polecenia on-Path ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` dla systemów Windows i `/dsvm/tools/xgboost/xgboost` Linux)    |
+| Jak używać lub uruchamiać      | Jako biblioteka Python (2,7 i 3.6 +), pakiet języka R i narzędzie wiersza polecenia on-Path ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` dla systemów Windows i `/dsvm/tools/xgboost/xgboost` Linux)    |
 | Linki do przykładów      | Przykłady znajdują się na maszynie wirtualnej, w `/dsvm/tools/xgboost/demo` systemie Linux i `C:\dsvm\tools\xgboost\demo` w systemie Windows.   |
 | Narzędzia pokrewne      | LightGBM, MXNet   |
 

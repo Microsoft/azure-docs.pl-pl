@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, Azure Content moderator, moderator online, oprogramowanie do filtrowania zawartości, usługa moderowania treści, moderowanie zawartości
-ms.openlocfilehash: 57a390a1da1e3a10b9fda4b531a83ee48e91125b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560377"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867274"
 ---
 # <a name="what-is-azure-content-moderator"></a>Czym jest usługa Azure Content Moderator?
 
@@ -26,6 +26,13 @@ ms.locfileid: "97560377"
 Azure Content Moderator to usługa AI, która umożliwia obsługę zawartości potencjalnie obraźliwej, ryzykownej lub niepożądanej. Obejmuje ona usługę moderowania zawartości, która skanuje tekst, obrazy i wideo oraz automatycznie stosuje flagi zawartości, a także narzędzie do przeglądu, środowisko moderatora online dla zespołu recenzentów ludzkich.
 
 Możesz chcieć utworzyć oprogramowanie do filtrowania zawartości w aplikacji, aby zachować zgodność z przepisami lub zachować zamierzone środowisko dla użytkowników.
+
+Ta dokumentacja zawiera następujące typy artykułów:  
+
+* Przewodniki [**Szybki Start**](client-libraries.md) to instrukcje umożliwiające wykonywanie żądań do usługi.  
+* [**Przewodniki z**](try-text-api.md) instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.  
+* [**Koncepcje**](text-moderation-api.md) zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.  
+* [**Samouczki**](ecommerce-retail-catalog-moderation.md) są więcej przewodnikami, które pokazują, jak korzystać z usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.  
 
 ## <a name="where-its-used"></a>Miejsce użycia
 

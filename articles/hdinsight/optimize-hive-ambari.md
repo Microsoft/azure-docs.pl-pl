@@ -4,12 +4,12 @@ description: Za pomocą interfejsu użytkownika sieci Web Apache Ambari można k
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 69a4e769677b6f0200f4157305a3a125f82ee76d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939246"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864821"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie Apache Hive w usłudze Apache Ambari w usłudze Azure HDInsight
 
@@ -26,11 +26,11 @@ Program Hive oferuje dwa aparaty wykonywania: Apache Hadoop MapReduce i Apache T
 
 1. Na **karcie konfiguracje** programu Hive wpisz **aparat wykonywania** w polu Filtr.
 
-    ![Aparat wykonywania wyszukiwania Apache Ambari](./media/optimize-hive-ambari/ambari-search-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-search-execution.png" alt-text="Aparat wykonywania wyszukiwania Apache Ambari" border="true":::
 
 1. Wartość domyślna właściwości **optymalizacji** to **tez**.
 
-    ![Optymalizacja — aparat Apache Tez](./media/optimize-hive-ambari/optimization-apache-tez.png)
+    :::image type="content" source="./media/optimize-hive-ambari/optimization-apache-tez.png" alt-text="Optymalizacja — aparat Apache Tez" border="true":::
 
 ## <a name="tune-mappers"></a>Dostrajaj mapowania
 
@@ -47,7 +47,7 @@ Na przykład, aby ustawić cztery zadania mapowania dla rozmiaru danych 128 MB, 
 
 1. Ustaw oba parametry na **33 554 432** bajtów (32 MB).
 
-    ![Rozmiary grupowania Apache Ambari tez](./media/optimize-hive-ambari/apache-tez-grouping-size.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-tez-grouping-size.png" alt-text="Rozmiary grupowania Apache Ambari tez" border="true":::
 
 Te zmiany wpływają na wszystkie zadania tez na serwerze. Aby uzyskać optymalny wynik, wybierz odpowiednie wartości parametrów.
 
@@ -63,11 +63,11 @@ W przypadku ustawień domyślnych ten przykład ma cztery zmniejszenia.
 
 1. Aby zmodyfikować parametr, przejdź **do karty konfiguracje** programu Hive i Znajdź na stronie Ustawienia parametr **dane dla ograniczenia** .
 
-    ![Dane Apache Ambari na zmniejszenie](./media/optimize-hive-ambari/ambari-data-per-reducer.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-data-per-reducer.png" alt-text="Dane Apache Ambari na zmniejszenie" border="true":::
 
 1. Wybierz pozycję **Edytuj** , aby zmodyfikować wartość na 128 MB (134 217 728 bajtów), a następnie naciśnij klawisz **Enter** , aby zapisać.
 
-    ![Ambari danych na mniejszą liczbę modyfikacji](./media/optimize-hive-ambari/data-per-reducer-edited.png)
+    :::image type="content" source="./media/optimize-hive-ambari/data-per-reducer-edited.png" alt-text="Ambari danych na mniejszą liczbę modyfikacji" border="true":::
   
     Mając rozmiar danych wejściowych wynoszący 1 024 MB, z 128 MB na mniejszą liczbę obniżek (1024/128).
 
@@ -81,7 +81,7 @@ Zapytanie programu Hive jest wykonywane w jednym lub kilku etapach. Jeśli nieza
 
 1. Aby ograniczyć liczbę zadań, które mają być uruchamiane równolegle, należy zmodyfikować `hive.exec.parallel.thread.number` Właściwość. Wartość domyślna to 8.
 
-    ![Wyświetlanie równoległe Apache Hive exec](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-hive-exec-parallel.png" alt-text="Wyświetlanie równoległe Apache Hive exec" border="true":::
 
 ## <a name="enable-vectorization"></a>Włącz wektoryzacji
 
@@ -91,7 +91,7 @@ Program Hive przetwarza wiersz danych według wiersza. Wektoryzacji kieruje gał
 
 1. Aby włączyć wykonywanie wektorowe dla strony ze zmniejszeniem zapytania, ustaw dla `hive.vectorized.execution.reduce.enabled` parametru wartość true. Wartość domyślna to false.
 
-    ![Apache Hive wykonywanie wektorowe](./media/optimize-hive-ambari/hive-vectorized-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-vectorized-execution.png" alt-text="Apache Hive wykonywanie wektorowe" border="true":::
 
 ## <a name="enable-cost-based-optimization-cbo"></a>Włącz optymalizację opartą na kosztach (CBO)
 
@@ -99,7 +99,7 @@ Domyślnie gałąź jest zgodna z zestawem reguł, aby znaleźć jeden optymalny
 
 Aby włączyć program CBO, przejdź do  >  **ustawień konfiguracji** programu Hive  >   i Znajdź pozycję **Włącz Optymalizator oparty na kosztach**, a następnie Przełącz przycisk przełączania na pozycję **włączone**.
 
-![Optymalizator oparty na kosztach usługi HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
+:::image type="content" source="./media/optimize-hive-ambari/hdinsight-cbo-config.png" alt-text="Optymalizator oparty na kosztach usługi HDInsight" border="true":::
 
 Następujące dodatkowe parametry konfiguracji zwiększają wydajność zapytań Hive, gdy jest włączony CBO:
 
@@ -107,19 +107,19 @@ Następujące dodatkowe parametry konfiguracji zwiększają wydajność zapytań
 
     Po ustawieniu na wartość true, funkcja Hive używa statystyk przechowywanych w magazynie metadanych do odpowiedzi prostych zapytań, takich jak `count(*)` .
 
-    ![Apache Hive kwerendy obliczeniowej przy użyciu statystyk](./media/optimize-hive-ambari/hive-compute-query-using-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-compute-query-using-stats.png" alt-text="Apache Hive kwerendy obliczeniowej przy użyciu statystyk" border="true":::
 
 * `hive.stats.fetch.column.stats`
 
     Statystyki kolumn są tworzone, gdy funkcja CBO jest włączona. Program Hive używa statystyk kolumn, które są przechowywane w magazynie metadanych w celu optymalizowania zapytań. Pobieranie statystyk kolumn dla każdej kolumny trwa dłużej, gdy liczba kolumn jest wysoka. Po ustawieniu na wartość false to ustawienie wyłącza Pobieranie statystyk kolumn z magazynu metadanych.
 
-    ![Statystyka kolumny zestawu statystyk Apache Hive](./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png" alt-text="Statystyka kolumny zestawu statystyk Apache Hive" border="true":::
 
 * `hive.stats.fetch.partition.stats`
 
     Podstawowe statystyki partycji, takie jak liczba wierszy, rozmiar danych i rozmiar pliku, są przechowywane w magazynie metadanych. W przypadku ustawienia wartości true statystyki partycji są pobierane z magazynu metadanych. W przypadku wartości false rozmiar pliku jest pobierany z systemu plików. I liczba wierszy pobieranych z schematu wierszy.
 
-    ![Statystyka partycji zestawu statystyk Hive](./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png" alt-text="Statystyka partycji zestawu statystyk Hive" border="true":::
 
 ## <a name="enable-intermediate-compression"></a>Włącz kompresję pośrednią
 
@@ -140,7 +140,7 @@ Ogólną zasadą jest, że podział metody kompresji jest istotny, w przeciwnym 
 
 1. Aby włączyć kompresję pośrednią, przejdź do **karty konfiguracje** programu Hive, a następnie ustaw `hive.exec.compress.intermediate` parametr na wartość true. Wartość domyślna to false.
 
-    !["Hive exec Kompresuj pośredni"](./media/optimize-hive-ambari/hive-exec-compress-intermediate.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-exec-compress-intermediate.png" alt-text="&quot;Hive exec Kompresuj pośredni&quot;" border="true":::
 
     > [!NOTE]  
     > Aby skompresować pliki pośrednie, wybierz koder-dekoder kompresji z niższym kosztem procesora, nawet jeśli koder-dekoder nie ma danych wyjściowych o dużej kompresji.
@@ -157,7 +157,7 @@ Ogólną zasadą jest, że podział metody kompresji jest istotny, w przeciwnym 
 
     d. Wybierz pozycję **Dodaj**.
 
-    !["Apache Hive dodanie właściwości niestandardowej"](./media/optimize-hive-ambari/hive-custom-property.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property.png" alt-text="&quot;Apache Hive dodanie właściwości niestandardowej&quot;" border="true":::
 
     To ustawienie kompresuje plik pośredni przy użyciu kompresji przyciągania. Po dodaniu właściwości zostanie ona wyświetlona w okienku niestandardowe gałęzie — lokacja.
 
@@ -172,7 +172,7 @@ Ostateczne dane wyjściowe programu Hive mogą być również skompresowane.
 
 1. Aby wybrać koder-dekoder kompresji wyjściowej, należy dodać `mapred.output.compression.codec` właściwość niestandardową do niestandardowego okienka programu Hive, zgodnie z opisem w poprzedniej sekcji Krok 3.
 
-    ![Apache Hive właściwości niestandardowej ADD2](./media/optimize-hive-ambari/hive-custom-property2.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property2.png" alt-text="Apache Hive właściwości niestandardowej ADD2" border="true":::
 
 ## <a name="enable-speculative-execution"></a>Włącz wykonywanie spekulacyjne
 
@@ -182,7 +182,7 @@ Wykonanie spekulacyjne nie powinno być włączone dla długotrwałych zadań Ma
 
 * Aby włączyć wykonywanie spekulacyjne, przejdź **do karty konfiguracje** programu Hive, a następnie ustaw `hive.mapred.reduce.tasks.speculative.execution` dla parametru wartość true. Wartość domyślna to false.
 
-    !["Hive mapred Redukuj zadania spekulacyjne wykonywanie"](./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png" alt-text="&quot;Hive mapred Redukuj zadania spekulacyjne wykonywanie&quot;" border="true":::
 
 ## <a name="tune-dynamic-partitions"></a>Dostrajanie partycji dynamicznych
 
@@ -202,7 +202,7 @@ Tryb lokalny umożliwia usłudze Hive wykonywanie wszystkich zadań zadania na p
 
 Aby włączyć tryb lokalny, należy dodać `hive.exec.mode.local.auto` parametr do niestandardowego panelu programu Hive, jak wyjaśniono w kroku 3 w sekcji [Włączanie kompresji pośredniej](#enable-intermediate-compression) .
 
-![Lokalne Autokonfiguracja trybu Apache Hive exec](./media/optimize-hive-ambari/hive-exec-mode-local-auto.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-exec-mode-local-auto.png" alt-text="Lokalne Autokonfiguracja trybu Apache Hive exec" border="true":::
 
 ## <a name="set-single-mapreduce-multigroup-by"></a>Ustaw pojedyncze MapReduce wielogrupuj według
 
@@ -210,7 +210,7 @@ Gdy ta właściwość ma wartość true, kwerenda wielogrupowanie według wspól
 
 Aby włączyć to zachowanie, należy dodać `hive.multigroupby.singlereducer` parametr do okienka niestandardowe gałęzie witryny, jak wyjaśniono w kroku 3 w sekcji [Włączanie kompresji pośredniej](#enable-intermediate-compression) .
 
-![Zestaw Hive MapReduce pojedynczej grupie](./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png" alt-text="Zestaw Hive MapReduce pojedynczej grupie" border="true":::
 
 ## <a name="additional-hive-optimizations"></a>Dodatkowe optymalizacje Hive
 

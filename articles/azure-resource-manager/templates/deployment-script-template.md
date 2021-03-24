@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/23/2021
 ms.author: jgao
-ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594246"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889386"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -131,6 +131,9 @@ Poniższy kod JSON jest przykładem. Aby uzyskać więcej informacji, zobacz naj
 > [!NOTE]
 > Przykład jest przeznaczony do celów demonstracyjnych. Właściwości `scriptContent` i `primaryScriptUri` nie mogą współistnieć w szablonie.
 
+> [!NOTE]
+> _ScriptContent_ przedstawia skrypt z wieloma wierszami.  Potok Azure Portal i usługa Azure DevOps nie mogą przeanalizować skryptu wdrożenia z wieloma wierszami. Można utworzyć łańcuch poleceń programu PowerShell (za pomocą średników lub _\\ r \\ n_ lub _\\ n_) w jeden wiersz lub użyć `primaryScriptUri` właściwości z zewnętrznym plikiem skryptu. Dostępnych jest wiele bezpłatnych narzędzi ucieczki i nieucieczki ciągów JSON. Przykładowy adres URL to [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Szczegóły wartości właściwości:
 
 - `identity`: W przypadku interfejsu API skryptu wdrożenia w wersji 2020-10-01 lub nowszej tożsamość zarządzana przez użytkownika jest opcjonalna, o ile nie trzeba wykonywać żadnych akcji specyficznych dla platformy Azure w skrypcie.  W przypadku interfejsu API w wersji 2019-10-01-Preview wymagana jest tożsamość zarządzana, ponieważ usługa skryptu wdrażania używa jej do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
@@ -159,9 +162,6 @@ Szczegóły wartości właściwości:
 
 - `environmentVariables`: Określ zmienne środowiskowe, które mają zostać przekazane do skryptu. Aby uzyskać więcej informacji, zobacz temat [programowanie skryptów wdrażania](#develop-deployment-scripts).
 - `scriptContent`: Określ zawartość skryptu. Aby uruchomić zewnętrzny skrypt, należy `primaryScriptUri` zamiast tego użyć. Aby zapoznać się z przykładami, zobacz [używanie skryptu wbudowanego](#use-inline-scripts) i [używanie skryptu zewnętrznego](#use-external-scripts).
-  > [!NOTE]
-  > Azure Portal nie może przeanalizować skryptu wdrożenia z wieloma wierszami. Aby wdrożyć szablon ze skryptem wdrażania z Azure Portal, można połączyć polecenia programu PowerShell za pomocą średników w jeden wiersz lub użyć `primaryScriptUri` właściwości z zewnętrznym plikiem skryptu.
-
 - `primaryScriptUri`: Określ publicznie dostępny adres URL dla podstawowego skryptu wdrożenia z obsługiwanymi rozszerzeniami plików. Aby uzyskać więcej informacji, zobacz [Korzystanie ze skryptów zewnętrznych](#use-external-scripts).
 - `supportingScriptUris`: Określ tablicę dostępnych publicznie adresów URL do obsługi plików, które są wywoływane w `scriptContent` lub `primaryScriptUri` . Aby uzyskać więcej informacji, zobacz [Korzystanie ze skryptów zewnętrznych](#use-external-scripts).
 - `timeout`: Określ maksymalny dozwolony czas wykonywania skryptu określony w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Wartość domyślna to **P1D**.

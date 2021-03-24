@@ -7,12 +7,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
-ms.openlocfilehash: 6c32570c8ebea3c1d127fc26b0d78287dbeb817f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f22a847be5fc750cb3a3d9e6736d08940f30e4fe
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729287"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954466"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure przy użyciu Visual Studio Code
 
@@ -117,8 +117,10 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
+Użyto [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) , aby utworzyć aplikację funkcji z prostą funkcją wyzwalaną przez protokół http. W następnym artykule można rozszerzyć tę funkcję, łącząc się z usługą Azure Cosmos DB lub Azure Storage. Aby dowiedzieć się więcej na temat nawiązywania połączenia z innymi usługami platformy Azure, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
 
+> [!div class="nextstepaction"]
+> [Łączenie z bazą danych](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
 

@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: deaa414a17240e8cdbdad7f4ba9b3e596b4f191f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780331"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889131"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie magazynu
 
@@ -43,10 +43,10 @@ W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Fa
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Zrzut ekranu przedstawiający stronę autor, aby utworzyć nowy wyzwalacz zdarzeń magazynu w Data Factory interfejsie użytkownika.":::
 
-1. Wybierz konto magazynu z listy rozwijanej subskrypcja platformy Azure lub ręcznie przy użyciu identyfikatora zasobu konta magazynu. Wybierz kontener, w którym mają być wykonywane zdarzenia. Wybór kontenera jest opcjonalny, ale pamiętaj, że wybranie wszystkich kontenerów może prowadzić do dużej liczby zdarzeń.
+1. Wybierz konto magazynu z listy rozwijanej subskrypcja platformy Azure lub ręcznie przy użyciu identyfikatora zasobu konta magazynu. Wybierz kontener, w którym mają być wykonywane zdarzenia. Wybór kontenera jest wymagany, ale pamiętaj, że wybranie wszystkich kontenerów może prowadzić do dużej liczby zdarzeń.
 
    > [!NOTE]
-   > Wyzwalacz zdarzenia magazynu obsługuje obecnie tylko konta magazynu Azure Data Lake Storage Gen2 i ogólnego przeznaczenia w wersji 2. Ze względu na ograniczenie Azure Event Grid Azure Data Factory obsługuje maksymalnie 500 wyzwalaczy zdarzeń magazynu na konto magazynu.
+   > Wyzwalacz zdarzenia magazynu obsługuje obecnie tylko konta magazynu Azure Data Lake Storage Gen2 i ogólnego przeznaczenia w wersji 2. Ze względu na ograniczenie Azure Event Grid Azure Data Factory obsługuje maksymalnie 500 wyzwalaczy zdarzeń magazynu na konto magazynu. Jeśli osiągnięto limit, skontaktuj się z pomocą techniczną w celu uzyskania zaleceń i zwiększ limit na ocenę przez Event Grid zespół. 
 
    > [!NOTE]
    > Aby utworzyć nowy lub zmodyfikować istniejący wyzwalacz zdarzeń magazynu, konto platformy Azure używane do logowania się do Data Factory i publikowania wyzwalacza zdarzenia magazynu musi mieć odpowiednie uprawnienie kontroli dostępu opartej na rolach (RBAC na platformie Azure) na koncie magazynu. Nie są wymagane żadne dodatkowe uprawnienia: Nazwa główna usługi dla Azure Data Factory _nie wymaga specjalnego_ uprawnienia do konta magazynu lub Event Grid. Aby uzyskać więcej informacji na temat kontroli dostępu, zobacz sekcję [Kontrola dostępu oparta na rolach](#role-based-access-control) .
@@ -54,7 +54,7 @@ W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Fa
 1. **Ścieżka obiektu BLOB rozpoczyna się od** , a **Ścieżka obiektu BLOB zostanie zakończona z** właściwościami, co pozwala na określenie kontenerów, folderów i nazw obiektów blob, dla których mają być odbierane zdarzenia. Wyzwalacz zdarzenia magazynu wymaga zdefiniowania co najmniej jednej z tych właściwości. Można użyć różnych wzorców dla **ścieżki obiektu BLOB zaczyna** się od, a **Ścieżka obiektu BLOB zostanie zakończona z** właściwościami, jak pokazano w przykładach w dalszej części tego artykułu.
 
     * **Ścieżka obiektu BLOB zaczyna się od:** Ścieżka obiektu BLOB musi rozpoczynać się od ścieżki folderu. Prawidłowe wartości to include `2018/` i `2018/april/shoes.csv` . Nie można wybrać tego pola, jeśli nie wybrano kontenera.
-    * **Ścieżka obiektu BLOB zostanie zakończona z:** Ścieżka obiektu BLOB musi kończyć się nazwą pliku lub rozszerzeniem. Prawidłowe wartości to include `shoes.csv` i `.csv` . Nazwy kontenerów i folderów są opcjonalne, ale jeśli są określone, muszą być oddzielone `/blobs/` segmentami. Na przykład kontener o nazwie Orders może mieć wartość `/orders/blobs/2018/april/shoes.csv` . Aby określić folder w dowolnym kontenerze, Pomiń wiodący znak "/". Na przykład program `april/shoes.csv` wyzwoli zdarzenie na dowolnym pliku o nazwie `shoes.csv` w folderze a o nazwie "Kwiecień" w dowolnym kontenerze.
+    * **Ścieżka obiektu BLOB zostanie zakończona z:** Ścieżka obiektu BLOB musi kończyć się nazwą pliku lub rozszerzeniem. Prawidłowe wartości to include `shoes.csv` i `.csv` . Nazwy kontenerów i folderów, gdy są określone, muszą być oddzielone `/blobs/` segmentem. Na przykład kontener o nazwie Orders może mieć wartość `/orders/blobs/2018/april/shoes.csv` . Aby określić folder w dowolnym kontenerze, Pomiń wiodący znak "/". Na przykład program `april/shoes.csv` wyzwoli zdarzenie na dowolnym pliku o nazwie `shoes.csv` w folderze a o nazwie "Kwiecień" w dowolnym kontenerze.
     * Należy pamiętać, że ścieżka obiektu BLOB **zaczyna** się od i ma wartość **kończącą** się na są jedynymi dopasowaniem do wzorca w wyzwalaczu zdarzenia magazynu. Inne typy dopasowania z symbolami wieloznacznymi nie są obsługiwane dla typu wyzwalacza.
 
 1. Wybierz, czy wyzwalacz będzie reagować na zdarzenie **utworzone przez obiekt BLOB** , **usunięte zdarzenie obiektu BLOB** lub oba te elementy. W określonej lokalizacji przechowywania każde zdarzenie wywoła potoki Data Factory skojarzone z wyzwalaczem.

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7879b233bf94442de2cad83de8adfe54b6b81e0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100365518"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952630"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory często zadawane pytania dotyczące współpracy B2B
 
@@ -83,6 +83,7 @@ Tak. Usługa Azure AD B2B obsługuje funkcje uwierzytelniania wieloskładnikoweg
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Czy jest obsługiwane resetowanie haseł dla użytkowników współpracy B2B usługi Azure AD?
 Jeśli Twoja dzierżawa usługi Azure AD jest katalogiem macierzystym dla użytkownika, możesz [zresetować hasło użytkownika](../fundamentals/active-directory-users-reset-password-azure-portal.md) z Azure Portal. Ale nie można bezpośrednio zresetować hasła dla użytkownika-gościa, który loguje się przy użyciu konta, które jest zarządzane przez innego katalogu usługi Azure AD lub zewnętrzny dostawca tożsamości. Hasło może zresetować tylko użytkownik-Gość lub administrator w katalogu macierzystym użytkownika. Poniżej przedstawiono kilka przykładów działania resetowania haseł dla użytkowników-Gości:
  
+* Użytkownicy-Goście w dzierżawie usługi Azure AD, którzy są oznaczeni jako "Gość" (UserType = gość), nie mogą zarejestrować się w celu SSPR za pomocą [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Ten typ gościa może wykonywać tylko SSPR przez [https://aka.ms/sspr](https://aka.ms/sspr) . 
 * Użytkownicy-Goście, którzy logują się za pomocą konto Microsoft (na przykład guestuser@live.com ) mogą zresetować swoje hasła przy użyciu funkcji konto Microsoft samoobsługowego resetowania hasła (SSPR). Zobacz [jak zresetować hasło konto Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Użytkownicy-Goście, którzy logują się za pomocą konta Google lub innego dostawcy tożsamości zewnętrznych, mogą resetować swoje hasła przy użyciu metody SSPR dostawcy tożsamości. Na przykład użytkownik-Gość z kontem Google guestuser@gmail.com może zresetować swoje hasło, postępując zgodnie z instrukcjami w temacie [zmiana lub Resetowanie hasła](https://support.google.com/accounts/answer/41078).
 * Jeśli dzierżawa tożsamości jest dzierżawą just-in-Time (JIT) lub "wirusowym" (co oznacza, że jest to oddzielna, niezarządzana dzierżawa platformy Azure), tylko użytkownik-Gość może zresetować swoje hasło. Czasami organizacja zajmie się [zarządzaniem wirusami](../enterprise-users/domains-admin-takeover.md) , które są tworzone, gdy pracownicy używają służbowych adresów e-mail do rejestracji w usłudze. Gdy organizacja zajmie się wirusową dzierżawą, tylko administrator w tej organizacji może zresetować hasło użytkownika lub włączyć SSPR. Jeśli to konieczne, jako zapraszana organizacja możesz usunąć konto użytkownika-gościa z katalogu i ponownie wysłać zaproszenie.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bf036ff413f720f54deef1a62b502668d1d8ac6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931704"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872000"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Przesyłanie strumieniowe na dużą skalę w usłudze HDInsight
 
@@ -18,7 +18,7 @@ Rozwiązania do obsługi dużych ilości danych w czasie rzeczywistym działają
 
 W aplikacji przesyłania strumieniowego co najmniej jedno źródło danych generuje zdarzenia (czasami w milionach na sekundę), które należy szybko pozyskiwać bez porzucania jakichkolwiek użytecznych informacji. Zdarzenia przychodzące są obsługiwane za pomocą *buforowania strumienia*, nazywanego również *kolejką zdarzeń*, przez usługę, taką jak [Apache Kafka](kafka/apache-kafka-introduction.md) lub [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Po zebraniu zdarzeń można analizować dane przy użyciu systemu analizy w czasie rzeczywistym w ramach warstwy *przetwarzania strumienia* , takiej jak [Apache Storm](storm/apache-storm-overview.md) lub [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Przetworzone dane mogą być przechowywane w systemach przechowywania długoterminowego, takich jak [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)i wyświetlane w czasie rzeczywistym na pulpicie nawigacyjnym analizy biznesowej, takim jak [Power BI](https://powerbi.microsoft.com), Tableau lub niestandardowa strona sieci Web.
 
-![Wzorce przesyłania strumieniowego usługi Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png" alt-text="Wzorce przesyłania strumieniowego usługi Azure HDInsight":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

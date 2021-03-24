@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1c2be47060004d464003c00cbbddb3b58a136e3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96753862"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871150"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
 
@@ -31,33 +31,33 @@ Odpowiedź na zmiany zgodności z przepisami | Przygotowanie do nowych możliwo�
 Nowe wymagania dotyczące suwerenności danych | Skalowanie w celu spełnienia wymagań dotyczących rynku
 Zmniejszenie przerw w działaniu i ulepszenia stabilności IT | Skalowanie w celu spełnienia wymagań geograficznych
 
-Zidentyfikowanie motywacji pomoże Ci w przypięciu strategicznych celów migracji. Następnym krokiem jest zidentyfikowanie i zaplanowanie ścieżki migracji dopasowanej do obciążeń. [Azure Migrate: Narzędzie do oceny serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool) ułatwia ocenę obciążeń lokalnych i udostępnia wskazówki i narzędzia ułatwiające Migrowanie.
+Zidentyfikowanie motywacji pomoże Ci w przypięciu strategicznych celów migracji. Następnym krokiem jest zidentyfikowanie i zaplanowanie ścieżki migracji dopasowanej do obciążeń. [Azure Migrate: narzędzia do odnajdywania i oceny](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) ułatwiają ocenę obciążeń lokalnych i udostępniają wskazówki i narzędzia ułatwiające Migrowanie.
 
 ## <a name="understand-your-digital-estate"></a>Zapoznaj się z cyfrą
 
-Zacznij od zidentyfikowania lokalnej infrastruktury, aplikacji i zależności. Pomaga to identyfikować obciążenia na potrzeby migracji na platformę Azure oraz zbierać zoptymalizowane projekcje kosztów. Narzędzie do oceny serwera ułatwia identyfikowanie obciążeń, które są używane, zależności między obciążeniami i optymalizacją obciążeń.
+Zacznij od zidentyfikowania lokalnej infrastruktury, aplikacji i zależności. Pomaga to identyfikować obciążenia na potrzeby migracji na platformę Azure oraz zbierać zoptymalizowane projekcje kosztów. Narzędzie do odnajdywania i oceny ułatwia identyfikowanie obciążeń, które są używane, zależności między obciążeniami i optymalizacją obciążeń.
 
 ### <a name="workloads-in-use"></a>Obciążenia w użyciu
 
-Azure Migrate używa uproszczonego urządzenia Azure Migrate do wykrywania agentów lokalnych maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V, innych maszyn zwirtualizowanych i serwerów fizycznych. Funkcja ciągłego odnajdowania zbiera informacje o konfiguracji komputera i metadane wydajności, a także dane aplikacji. Oto, co urządzenie zbiera z maszyn lokalnych: 
+Azure Migrate używa uproszczonego urządzenia Azure Migrate do wykrywania agentów lokalnych maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V, innych serwerów zwirtualizowanych i serwerów fizycznych. Funkcja ciągłego odnajdowania zbiera informacje o konfiguracji serwera i metadane wydajności, a także dane aplikacji. Oto, co urządzenie zbiera z serwerów lokalnych: 
 
-- Metadane maszyny, dysku i karty sieciowej.
+- Metadane serwera, dysku i karty sieciowej.
 
 - Zainstalowane aplikacje, role i funkcje.
 
 - Dane dotyczące wydajności, w tym wykorzystanie procesora i pamięci, operacje we/wy na dysku i przepływność.
 
-Po zebraniu danych można wyeksportować listę spisu aplikacji, aby znaleźć aplikacje i SQL Server wystąpienia uruchomione na maszynach. Aby zrozumieć gotowość SQL Server, można użyć narzędzia do oceny bazy danych Azure Migrate:.
+Po zebraniu danych można wyeksportować listę spisu aplikacji, aby znaleźć aplikacje i SQL Server wystąpienia uruchomione na serwerach. Aby zrozumieć gotowość SQL Server, można użyć narzędzia do oceny bazy danych Azure Migrate:.
 
  ![Spis aplikacji w portalu](./media/concepts-migration-planning/application-inventory-portal.png)
 
  ![Eksport spisu aplikacji](./media/concepts-migration-planning/application-inventory-export.png)
 
-Wraz z danymi wykrytymi za pomocą narzędzia do oceny serwera, można użyć danych bazy danych zarządzania konfiguracją (CMDB) do utworzenia widoku dotyczącego serwera i bazy danych, a także zrozumieć, jak serwery są dystrybuowane między jednostkami biznesowymi, właścicielami aplikacji, lokalizacje geograficzne itp. Ułatwia to decydowanie o obciążeniach, które mają być priorytetowe dla migracji. 
+Wraz z danymi wykrytymi przy użyciu narzędzia do odnajdywania i oceny można użyć danych bazy danych zarządzania konfiguracją (CMDB) do utworzenia widoku dotyczącego serwera i bazy danych oraz zrozumieć, jak serwery są dystrybuowane między jednostkami biznesowymi, właścicielami aplikacji, lokalizacje geograficzne itp. Ułatwia to decydowanie o obciążeniach, które mają być priorytetowe dla migracji. 
 
 ### <a name="dependencies-between-workloads"></a>Zależności między obciążeniami
 
-Po odnajdywaniu serwera można [analizować zależności](concepts-dependency-visualization.md), wizualizować i identyfikować zależności między serwerami oraz strategie optymalizacji dotyczące przenoszenia serwerów zależnych na platformę Azure. Wizualizacja pomaga zrozumieć, czy niektóre maszyny są używane, czy mogą zostać zlikwidowane, a nie migrowane.  Analizowanie zależności pomaga upewnić się, że nic nie zostanie pozostawione i nie będzie miało przerwy podczas migracji. Dzięki wykonaniu spisu aplikacji i analizie zależności można utworzyć grupy serwerów o wysokim poziomie pewności i zacząć oceniać je.
+Po odnajdywaniu serwera można [analizować zależności](concepts-dependency-visualization.md), wizualizować i identyfikować zależności między serwerami oraz strategie optymalizacji dotyczące przenoszenia serwerów zależnych na platformę Azure. Wizualizacja pomaga zrozumieć, czy niektóre serwery są używane, czy mogą zostać zlikwidowane, a nie migrowane.  Analizowanie zależności pomaga upewnić się, że nic nie zostanie pozostawione i nie będzie miało przerwy podczas migracji. Dzięki wykonaniu spisu aplikacji i analizie zależności można utworzyć grupy serwerów o wysokim poziomie pewności i zacząć oceniać je.
 
  ![Mapowanie zależności](./media/concepts-migration-planning/expand-client-group.png)
 
@@ -72,10 +72,10 @@ System Azure zapewnia elastyczność zmiany rozmiaru chmury w miarę upływu cza
 
 Możesz wyeksportować raport oceny i odfiltrować te kategorie, aby zrozumieć gotowość platformy Azure:
 
-- **Gotowe do użycia na platformie Azure**: maszyny można migrować na platformę Azure bez wprowadzania żadnych zmian. 
-- **Warunkowo gotowy na platformę Azure**: maszyny można migrować do platformy Azure, ale wymaga to drobnych zmian, zgodnie z wskazówki dotyczące korygowania zawarte w ocenie.
-- **Nie gotowy na platformie Azure**: nie można migrować maszyn na platformę Azure jako-is. Przed migracją należy naprawić problemy zgodnie z zaleceniami dotyczącymi korygowania. 
-- **Nieznane gotowość**: Azure Migrate nie może określić gotowości maszyny z powodu niewystarczających metadanych.
+- **Gotowe do użycia na platformie Azure**: serwery można migrować na platformę Azure bez wprowadzania żadnych zmian. 
+- **Warunkowo gotowy na platformę Azure**: serwery można migrować do platformy Azure, ale wymaga to drobnych zmian, zgodnie z wskazówkami dotyczącymi korygowania uzyskanymi w ocenie.
+- **Nie gotowy na platformie Azure**: nie można migrować serwerów na platformę Azure jako-is. Przed migracją należy naprawić problemy zgodnie z zaleceniami dotyczącymi korygowania. 
+- **Nieznane gotowość**: Azure Migrate nie może ustalić gotowości serwera z powodu niewystarczających metadanych.
 
 Korzystając z ocen baz danych, można ocenić gotowość SQL Server danych na potrzeby migracji do Azure SQL Database lub wystąpień zarządzanych usługi Azure SQL. Ocena przedstawia wartość procentową stanu gotowości do migracji dla każdego wystąpienia programu SQL Server. Ponadto dla każdego wystąpienia można zobaczyć zalecaną wartość docelową na platformie Azure, potencjalne bloki migracji, liczbę istotnych zmian, gotowość do usługi Azure SQL DB lub maszynę wirtualną Azure SQL oraz poziom zgodności. Można Dig bardziej szczegółowo zrozumieć wpływ blokowania migracji oraz Zalecenia dotyczące ich rozwiązania.
 
@@ -83,7 +83,7 @@ Korzystając z ocen baz danych, można ocenić gotowość SQL Server danych na p
 
 ### <a name="sizing-recommendations"></a>Zalecenia dotyczące ustalania wielkości
 
-Po oznaczeniu maszyny jako gotowej na platformie Azure Ocena serwera udostępnia zalecenia dotyczące zmiany rozmiarów, które identyfikują jednostkę SKU i typ dysku maszyny wirtualnej platformy Azure dla maszyn. Zalecenia dotyczące ustalania rozmiarów można uzyskać na podstawie historii wydajności (w celu zoptymalizowania zasobów podczas migracji) lub na podstawie ustawień maszyny lokalnej bez historii wydajności. W ocenie bazy danych można zobaczyć zalecenia dotyczące jednostki SKU bazy danych, warstwy cenowej i poziomu obliczeniowego.  
+Gdy serwer zostanie oznaczony jako gotowy na platformie Azure, funkcja odnajdywania i oceny ustala zaleceń, które identyfikują jednostkę SKU i typ dysku maszyny wirtualnej platformy Azure dla serwerów. Zalecenia dotyczące ustalania rozmiarów można uzyskać na podstawie historii wydajności (w celu zoptymalizowania zasobów podczas migracji) lub na podstawie ustawień serwera lokalnego bez historii wydajności. W ocenie bazy danych można zobaczyć zalecenia dotyczące jednostki SKU bazy danych, warstwy cenowej i poziomu obliczeniowego.  
 
 ### <a name="get-compute-costs"></a>Pobierz koszty obliczeń
 
@@ -93,18 +93,18 @@ Opcja ustalania rozmiaru na podstawie wydajności w Azure Migrate oceny pomaga w
 - **Korzyść użycia hybrydowego platformy Azure**: za pomocą [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)można przenieść licencje na system Windows Server z aktywnym programem Software Assurance lub z subskrypcją systemu Linux na platformę Azure oraz łączyć z opcjami wystąpień zarezerwowanych.
 - **Enterprise Agreement**: [umowy Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) platformy Azure mogą oferować oszczędności dla subskrypcji i usług platformy Azure.
 - **Oferty**: istnieje wiele [ofert platformy Azure](https://azure.microsoft.com/support/legal/offer-details/). Na przykład [płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie](https://azure.microsoft.com/pricing/dev-test/)lub [Enterprise — tworzenie i testowanie oferty](https://azure.microsoft.com/offers/ms-azr-0148p/), aby zapewnić niższe stawki za tworzenie i testowanie maszyn wirtualnych
-- **Czas działania maszyny wirtualnej**: możesz przejrzeć dni miesięcznie i godziny dziennie, w których działają maszyny wirtualne platformy Azure. Wyłączenie maszyn, gdy nie są używane, może obniżyć koszty (nie dotyczy to usług RIs).
+- **Czas działania maszyny wirtualnej**: możesz przejrzeć dni miesięcznie i godziny dziennie, w których działają maszyny wirtualne platformy Azure. Wyłączenie serwerów, gdy nie są używane, może obniżyć koszty (nie dotyczy to usług RIs).
 - **Region docelowy**: można tworzyć oceny w różnych regionach, aby ustalić, czy migracja do określonego regionu może być bardziej opłacalna. 
 
 ### <a name="visualize-data"></a>Wizualizowanie danych
 
-Raporty dotyczące oceny serwera można wyświetlać (z informacjami o gotowości platformy Azure i rozkładem kosztów miesięcznych) w portalu. Możesz również wyeksportować ocenę i wzbogacić plan migracji z dodatkowymi wizualizacjami. Można utworzyć wiele ocen z różnymi kombinacjami właściwości i wybrać zestaw właściwości, które najlepiej sprawdzają się w firmie.  
+Można wyświetlać raporty odnajdywania i oceny (z informacjami o gotowości platformy Azure i rozkładem kosztów miesięcznych) w portalu. Możesz również wyeksportować ocenę i wzbogacić plan migracji z dodatkowymi wizualizacjami. Można utworzyć wiele ocen z różnymi kombinacjami właściwości i wybrać zestaw właściwości, które najlepiej sprawdzają się w firmie.  
 
  ![Omówienie ocen](./media/concepts-migration-planning/assessment-summary.png)
 
 ### <a name="evaluate-gapsblockers"></a>Oceń przerwy/blokować
 
-Po ustaleniu aplikacji i obciążeń, które chcesz zmigrować, zidentyfikuj dla nich ograniczenia przestoju i poszukaj wszelkich zależności operacyjnych między aplikacjami a podstawową infrastrukturą. Ta analiza ułatwia planowanie migracji, które spełniają cel czasu odzyskiwania (RTO) i zapewnia minimalną utratę danych. Przed przeprowadzeniem migracji zalecamy przejrzenie i rozwiązanie wszelkich problemów ze zgodnością lub nieobsługiwanych funkcji, które mogą blokować migrację serwera/bazy danych SQL. W tym celu można uzyskać pomoc dotyczącą raportu oceny serwera Azure Migrate i oceny Azure Migrate Database. 
+Po ustaleniu aplikacji i obciążeń, które chcesz zmigrować, zidentyfikuj dla nich ograniczenia przestoju i poszukaj wszelkich zależności operacyjnych między aplikacjami a podstawową infrastrukturą. Ta analiza ułatwia planowanie migracji, które spełniają cel czasu odzyskiwania (RTO) i zapewnia minimalną utratę danych. Przed przeprowadzeniem migracji zalecamy przejrzenie i rozwiązanie wszelkich problemów ze zgodnością lub nieobsługiwanych funkcji, które mogą blokować migrację serwera/bazy danych SQL. W tym celu można uzyskać pomoc dotyczącą Azure Migrate odnajdywania i oceny oraz oceny Azure Migrate Database. 
 
 ### <a name="prioritize-workloads"></a>Określanie priorytetów obciążeń
 
@@ -118,12 +118,12 @@ Kilka zaleceń:
 
     **Stan** | **Akcja**
     --- | ---
-    **Gotowe maszyny wirtualne platformy Azure** | Wyeksportuj raport oceny i przefiltruj wszystkie maszyny z stanem *gotowe na platformę Azure*. Może to być pierwsza grupa maszyn, które zostały podniesione i przesunięte na platformę Azure przy użyciu narzędzia do [migracji Azure Migrate: Server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
-    **Końcowe systemy operacyjne** | Wyeksportuj raport oceny i odfiltruj wszystkie maszyny z systemem Windows Server 2008 R2/Windows Server 2008. Te systemy operacyjne mają na celu zakończenie obsługi, a tylko platforma Azure oferuje bezpłatne trzy lata aktualizacji zabezpieczeń podczas migracji na platformę Azure. W przypadku łączenia Korzyść użycia hybrydowego platformy Azure i używania usług RIs oszczędności mogą być znacznie wyższe.
+    **Gotowe maszyny wirtualne platformy Azure** | Wyeksportuj raport oceny i przefiltruj wszystkie serwery o stanie *gotowe na platformę Azure*. Może to być pierwsza grupa serwerów, które zostały podniesione i przesunięte na platformę Azure, za pomocą narzędzia do [migracji Azure Migrate: serwer](migrate-services-overview.md#azure-migrate-server-migration-tool) .
+    **Końcowe systemy operacyjne** | Wyeksportuj raport oceny i przefiltruj wszystkie serwery z systemem Windows Server 2008 R2/Windows Server 2008. Te systemy operacyjne mają na celu zakończenie obsługi, a tylko platforma Azure oferuje bezpłatne trzy lata aktualizacji zabezpieczeń podczas migracji na platformę Azure. W przypadku łączenia Korzyść użycia hybrydowego platformy Azure i używania usług RIs oszczędności mogą być znacznie wyższe.
     **Migracja SQL Server** | Zalecenia dotyczące oceny bazy danych służą do migrowania baz danych, które są gotowe do Azure SQL Database przy użyciu narzędzia Azure Migrate do migracji bazy danych. Przygotuj bazy danych do maszyny wirtualnej Azure SQL za pomocą narzędzia do migracji Azure Migrate: Server.
     **Oprogramowanie końcowe dla pomocy technicznej** | Wyeksportuj spis aplikacji i odfiltruj każde oprogramowanie/rozszerzenia, które mogą dotrzeć do końca wsparcia. Określ priorytet tych aplikacji do migracji.
-    **Maszyny z obsługą administracyjną** | Wyeksportuj raport oceny i odfiltruj dla maszyn z niskim użyciem procesora CPU (%) i użycie pamięci (%).  Przeprowadź migrację na maszynę wirtualną platformy Azure o odpowiednim rozmiarze i oszczędzaj koszty dotyczące nieużywanych zasobów.
-    **Maszyny z nadmierną obsługą administracyjną** | Eksportowanie raportu oceny i filtru dla maszyn o wysokim poziomie użycia procesora CPU (%) i użycie pamięci (%).  Rozwiąż ograniczenia pojemności, Zapobiegaj dzieleniu maszyn z ograniczoną ilością i zwiększaj wydajność dzięki migracji tych maszyn na platformę Azure. Na platformie Azure Użyj funkcji skalowania automatycznego w celu spełnienia wymagań.<br/><br/> Analizuj raporty oceny, aby zbadać ograniczenia magazynu. Analizuj liczbę operacji we/wy dysku i przepływność oraz zalecany typ dysku.
+    **Nieobsługiwane serwery** | Wyeksportuj raport oceny i odfiltruj serwery z niskim użyciem procesora CPU (%) i użycie pamięci (%).  Przeprowadź migrację na maszynę wirtualną platformy Azure o odpowiednim rozmiarze i oszczędzaj koszty dotyczące nieużywanych zasobów.
+    **Serwery o nadmiernej aprowizacji** | Wyeksportuj raport oceny i odfiltruj serwery o wysokim poziomie użycia procesora CPU (%) i użycie pamięci (%).  Rozwiązuj ograniczenia pojemności, Zapobiegaj dzieleniu serwerów z nadmiernym ograniczeniami i zwiększaj wydajność przez Migrowanie tych serwerów na platformę Azure. Na platformie Azure Użyj funkcji skalowania automatycznego w celu spełnienia wymagań.<br/><br/> Analizuj raporty oceny, aby zbadać ograniczenia magazynu. Analizuj liczbę operacji we/wy dysku i przepływność oraz zalecany typ dysku.
 
 - **Zacznij od początku, a następnie wybierz pozycję Big (** Rozpocznij), przenosząc aplikacje i obciążenia, które składają się na minimalne ryzyko i złożoność, aby stworzyć zaufanie do strategii migracji. Analizuj zalecenia dotyczące oceny Azure Migrate wraz z repozytorium CMDB, aby znaleźć i zmigrować obciążenia deweloperskie/testowe, które mogą być kandydatami do migracji pilotażowych. Opinie i informacje o migracjach pilotażowych mogą być przydatne, gdy rozpoczniesz Migrowanie obciążeń produkcyjnych.  
 - **Zgodność**: platforma Azure utrzymuje największy portfel zgodności w branży, pod względem szerokiej i szczegółowej oferty. Wymagania dotyczące zgodności umożliwiają określanie priorytetów migracji, dzięki czemu aplikacje i obciążenia są zgodne z krajowymi, regionalnymi i branżowymi standardami i przepisami obowiązującymi w branży. Jest to szczególnie prawdziwe w przypadku organizacji, które zajmują się procesem o krytycznym znaczeniu dla działalności firmy, przechowują informacje poufne lub są w mocno regulowanej branży. W tych rodzajach organizacji, normach i przepisach Abound i często zmieniają się, trudno jest zachować.  

@@ -4,12 +4,12 @@ description: Samouczek — informacje na temat konfigurowania zasad Apache Range
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933713"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867002"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Samouczek: Konfigurowanie zasad Apache HBase w usłudze HDInsight przy użyciu pakiet Enterprise Security
 
@@ -86,7 +86,7 @@ Protokół SSH umożliwia połączenie z klastrami HBase, a następnie korzystan
     scan 'Customers'
     ```
 
-    ![Dane wyjściowe powłoki HBase usługi HDInsight Hadoop](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="Dane wyjściowe powłoki HBase usługi HDInsight Hadoop" border="true":::
 
 ## <a name="create-ranger-policies"></a>Tworzenie zasad platformy Ranger
 
@@ -94,11 +94,11 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing
 
 1. Otwórz **interfejs użytkownika administratora platformy Ranger**. Kliknij **\<ClusterName> _hbase** w obszarze **HBase**.
 
-   ![Interfejs użytkownika administratora usługi HDInsight Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="Interfejs użytkownika administratora usługi HDInsight Apache Ranger" border="true":::
 
 2. Na ekranie **Lista zasad** zostaną wyświetlone wszystkie zasady platformy Ranger utworzone dla tego klastra. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady. Kliknij pozycję **Dodaj nowe zasady**.
 
-    ![Lista zasad HBase Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Lista zasad HBase Apache Ranger" border="true":::
 
 3. Na ekranie **Tworzenie zasad** wprowadź następujące wartości:
 
@@ -117,7 +117,7 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing
    * `*` oznacza zero lub więcej wystąpień znaków.
    * `?` oznacza pojedynczy znak.
 
-   ![Tworzenie sprzedaży przez zasady Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Tworzenie sprzedaży przez zasady Apache Ranger" border="true":::
 
    >[!NOTE]
    >Zaczekaj kilka minut na zsynchronizowanie platformy Ranger z usługą Azure AD, jeśli użytkownik domeny nie zostanie automatycznie wypełniony dla ustawienia **Select User** (Wybierz użytkownika).
@@ -136,7 +136,7 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing
    |Select User (Wybierz użytkownika)  | marketing_user1 |
    |Uprawnienia  | Odczyt |
 
-   ![Tworzenie marketingowe zasad w usłudze Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="Tworzenie marketingowe zasad w usłudze Apache Ranger" border="true":::  
 
 6. Kliknij pozycję **Add** (Dodaj), aby zapisać zasady.
 
@@ -226,7 +226,7 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
 
 1. Wyświetl zdarzenia dostępu inspekcji z poziomu interfejsu użytkownika platformy Ranger.
 
-   ![Inspekcja zasad interfejsu użytkownika usługi HDInsight Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="Inspekcja zasad interfejsu użytkownika usługi HDInsight Ranger" border="true":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

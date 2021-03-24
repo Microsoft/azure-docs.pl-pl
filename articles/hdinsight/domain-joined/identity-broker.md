@@ -4,12 +4,12 @@ description: Dowiedz się więcej o usłudze Azure HDInsight ID Broker, aby upro
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 47ba11260c3b58566963e5a3ffac80ca461a8a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946826"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863194"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker identyfikatorów usługi Azure HDInsight (HIB)
 
@@ -34,7 +34,7 @@ Skorzystaj z poniższej tabeli, aby określić najlepszą opcję uwierzytelniani
 
 Na poniższym diagramie przedstawiono nowoczesne przepływy uwierzytelniania opartego na protokole OAuth dla wszystkich użytkowników, w tym użytkowników federacyjnych, po włączeniu brokera identyfikatora usługi HDInsight:
 
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagram przedstawiający przepływ uwierzytelniania przy użyciu brokera identyfikatora usługi HDInsight.":::
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagram przedstawiający przepływ uwierzytelniania przy użyciu brokera identyfikatora usługi HDInsight." border="false":::
 
 Na tym diagramie klient (czyli przeglądarka lub aplikacja) musi najpierw uzyskać token uwierzytelniania OAuth. Następnie przedstawia token bramy w żądaniu HTTP. Jeśli zalogowano się już do innych usług platformy Azure, takich jak Azure Portal, możesz zalogować się do klastra usługi HDInsight przy użyciu logowania jednokrotnego.
 
@@ -42,8 +42,7 @@ Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzy
 
 Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](../../active-directory/develop/v2-oauth-ropc.md). W przypadku braku skrótów haseł synchronizowanych z usługą Azure AD powracanie do odnajdywania punktu końcowego AD FS i kończenia uwierzytelniania przez uzyskanie dostępu do punktu końcowego AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram przedstawiający architekturę z uwierzytelnianiem podstawowym.":::
-
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram przedstawiający architekturę z uwierzytelnianiem podstawowym." border="false":::
 
 ## <a name="enable-hdinsight-id-broker"></a>Włącz brokera identyfikatorów usługi HDInsight
 
@@ -55,7 +54,7 @@ Aby utworzyć klaster pakiet Enterprise Security z włączonym brokerem identyfi
 
 Funkcja brokera identyfikatorów usługi HDInsight dodaje do klastra jedną dodatkową maszynę wirtualną. Ta maszyna wirtualna jest węzłem brokera identyfikatora usługi HDInsight i obejmuje składniki serwera do obsługi uwierzytelniania. Węzeł brokera identyfikatorów HDInsight jest przyłączony do domeny AD DS platformy Azure.
 
-![Diagram przedstawiający opcję włączenia brokera identyfikatora usługi HDInsight.](./media/identity-broker/identity-broker-enable.png)
+:::image type="content" source="./media/identity-broker/identity-broker-enable.png" alt-text="Diagram przedstawiający opcję włączenia brokera identyfikatora usługi HDInsight." border="true":::
 
 ### <a name="use-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
 

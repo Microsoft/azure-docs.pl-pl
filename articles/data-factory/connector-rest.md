@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 45e71b636d43633d5b157db2815ddd19c31395b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608133"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951848"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -494,7 +494,7 @@ Szablon definiuje dwa parametry:
 5. Wybierz aktywność **sieci Web** . W obszarze **Ustawienia** Określ odpowiedni **adres URL**, **metodę**, **nagłówki** i **treść** , aby pobrać token okaziciela OAuth z interfejsu API logowania usługi, z której chcesz skopiować dane. Symbol zastępczy w szablonie prezentuje przykład Azure Active Directory (AAD) OAuth. Uwaga uwierzytelnianie w usłudze AAD jest natywnie obsługiwane przez łącznik REST. Oto przykład dla przepływu OAuth. 
 
     | Właściwość | Opis |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | Adres URL |Określ adres URL, z którego ma zostać pobrany token okaziciela OAuth. Przykładowo w przykładzie jest to https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metoda | Metoda HTTP. Dozwolone wartości to **post** i **Get**. | 
     | Nagłówki | Nagłówek jest zdefiniowany przez użytkownika, który odwołuje się do jednej nazwy nagłówka w żądaniu HTTP. | 
@@ -505,7 +505,7 @@ Szablon definiuje dwa parametry:
 6. W obszarze **Kopiowanie danych** , wybierz kartę *Źródło* , zobaczysz, że token okaziciela (access_token) pobrany z poprzedniego kroku zostałby przekazaną do działania Kopiuj dane jako **autoryzacja** w dodatkowych nagłówkach. Przed rozpoczęciem przebiegu potoku Potwierdź ustawienia następujących właściwości.
 
     | Właściwość | Opis |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Metoda żądania | Metoda HTTP. Dozwolone wartości to **Get** (default) i **post**. | 
     | Dodatkowe nagłówki | Dodatkowe nagłówki żądań HTTP.| 
 
