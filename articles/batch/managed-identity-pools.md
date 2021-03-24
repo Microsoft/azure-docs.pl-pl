@@ -2,14 +2,14 @@
 title: Konfigurowanie tożsamości zarządzanych w pulach wsadowym
 description: Dowiedz się, jak włączyć zarządzane tożsamości przypisane przez użytkownika w pulach partii i jak używać zarządzanych tożsamości w węzłach.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100417621"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950165"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Konfigurowanie tożsamości zarządzanych w pulach wsadowym
 
@@ -100,3 +100,4 @@ Aby uzyskać więcej informacji, zobacz [jak używać zarządzanych tożsamości
 
 - Dowiedz się więcej o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 - Dowiedz się, jak używać [kluczy zarządzanych przez klienta z tożsamościami zarządzanymi przez użytkownika](batch-customer-managed-key.md).
+- Dowiedz się, jak [włączyć automatyczne obracanie certyfikatów w puli wsadowej](automatic-certificate-rotation.md).

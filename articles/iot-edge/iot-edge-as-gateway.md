@@ -4,19 +4,19 @@ description: Użyj Azure IoT Edge, aby utworzyć urządzenie nieprzezroczyste lu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492714"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027350"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Jak używać urządzenia usługi IoT Edge jako bramy
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492714"
 
 Urządzenia IoT Edge mogą działać jako bramy, zapewniając połączenie między innymi urządzeniami w sieci i IoT Hub.
 
-Moduł IoT Edge Hub działa jak IoT Hub, dlatego może obsługiwać połączenia z dowolnego urządzenia, które ma tożsamość z IoT Hub, w tym inne urządzenia IoT Edge. Ten typ wzorca bramy jest wywoływany jako *przezroczysty* , ponieważ komunikaty mogą być przekazywane z urządzeń podrzędnych do IoT Hub tak, jakby nie istniały bramy między nimi.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-Począwszy od wersji 1,2 IoT Edge, niewidoczne bramy mogą obsługiwać połączenia podrzędne z innych IoT Edge urządzeń.
-::: moniker-end
+Moduł IoT Edge Hub działa jak IoT Hub, dlatego może obsługiwać połączenia z innych urządzeń, które mają tożsamość z tym samym centrum IoT. Ten typ wzorca bramy jest wywoływany jako *przezroczysty* , ponieważ komunikaty mogą być przekazywane z urządzeń podrzędnych do IoT Hub tak, jakby nie istniały bramy między nimi.
 
 W przypadku urządzeń, które nie łączą się ze IoT Hub, IoT Edge bramy mogą zapewnić to połączenie. Ten typ wzorca bramy nazywa się *translacją* , ponieważ urządzenie IoT Edge musi wykonać przetwarzanie na przychodzących komunikatach urządzenia podrzędnego przed przekazaniem ich do IoT Hub. Te scenariusze wymagają dodatkowych modułów w bramie IoT Edge, aby obsłużyć kroki przetwarzania.
 
@@ -51,17 +46,19 @@ Aby uzyskać więcej informacji na temat sposobu, w jaki usługa IoT Edge Hub za
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-Urządzenia IoT Edge nie mogą należeć do IoT Edge bramy.
-
 ![Diagram — przezroczysty wzorzec bramy](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>W IoT Edge w wersji 1,1 i starszej urządzenia IoT Edge nie mogą być niższe niż IoT Edge Gateway.
+>
+>Począwszy od wersji 1,2 IoT Edge, niewidoczne bramy mogą obsługiwać połączenia z podrzędnych IoT Edge urządzeń. Aby uzyskać więcej informacji, przejdź do wersji [IoT Edge 1,2](?view=iotedge-2020-11&preserve-view=true) tego artykułu.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-Począwszy od wersji 1.2.0 IoT Edge, urządzenia mogą łączyć się za poorednictwem przezroczystych bram.
+Począwszy od wersji 1,2 IoT Edge, niewidoczne bramy mogą obsługiwać połączenia z podrzędnych IoT Edge urządzeń.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

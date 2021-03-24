@@ -2,25 +2,20 @@
 title: Wybieranie rozmiarów i obrazów maszyn wirtualnych dla pul
 description: Jak wybrać dostępne rozmiary maszyn wirtualnych i wersje systemu operacyjnego dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800486"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027384"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru i obrazu maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
 Po wybraniu rozmiaru węzła dla puli Azure Batch można wybrać spośród niemal wszystkich rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje różne rozmiary maszyn wirtualnych z systemem Linux i Windows dla różnych obciążeń.
 
 ## <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
-
-Istnieje kilka wyjątków i ograniczeń umożliwiających wybranie rozmiaru maszyny wirtualnej dla puli usługi Batch:
-
-- Niektóre maszyny wirtualne lub rozmiary maszyn wirtualnych nie są obsługiwane w usłudze Batch.
-- Niektóre rozmiary maszyn wirtualnych są ograniczone i należy je włączyć przed przystąpieniem do przydzielenia.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pule w konfiguracji maszyny wirtualnej
 
@@ -32,16 +27,14 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | A | Wszystkie rozmiary *z wyjątkiem* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Wszystkie rozmiary |
 | B | Nieobsługiwane |
-| DC | Nieobsługiwane |
+| DCsv2 | Wszystkie rozmiary |
 | Dv2, DSv2 | Wszystkie rozmiary |
 | Dv3, Dsv3 | Wszystkie rozmiary |
-| Dav4 | Wszystkie rozmiary |
-| Dasv4 | Wszystkie rozmiary |
+| Dav4, Dasv4 | Wszystkie rozmiary |
 | Ddv4, Ddsv4 |  Wszystkie rozmiary |
 | Dv4, Dsv4 | Nieobsługiwane |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 |
-| Eav4 | Wszystkie rozmiary |
-| Easv4 | Wszystkie rozmiary |
+| Eav4, Easv4 | Wszystkie rozmiary |
 | Edv4, Edsv4 |  Wszystkie rozmiary |
 | Ev4, Esv4 | Nieobsługiwane |
 | F, FS | Wszystkie rozmiary |
@@ -50,6 +43,7 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | H | Wszystkie rozmiary |
 | HB | Wszystkie rozmiary |
 | HBv2 | Wszystkie rozmiary |
+| HBv3 | Standard_HB120rs_v3 (inne rozmiary nie są jeszcze dostępne) |
 | WĘGLOWODOR | Wszystkie rozmiary |
 | Ls | Wszystkie rozmiary |
 | Lsv2 | Wszystkie rozmiary |
@@ -58,7 +52,7 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | NC | Wszystkie rozmiary |
 | NCv2 | Wszystkie rozmiary |
 | Seria NCV3 | Wszystkie rozmiary |
-| NCasT4_v3 | Brak — nie jest jeszcze dostępna |
+| NCasT4_v3 | Wszystkie rozmiary |
 | ND | Wszystkie rozmiary |
 | NDv2 | Brak — nie jest jeszcze dostępna |
 | NV | Wszystkie rozmiary |

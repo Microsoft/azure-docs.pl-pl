@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 444639d9e36b67f25ed9b82bd68102273c66ae00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561929"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951236"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Szybki Start: Integrowanie konta usługi Azure Storage z usługą Azure CDN
 
@@ -118,4 +118,4 @@ W poprzednich krokach utworzono profil i punkt końcowy usługi CDN w grupie zas
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Używanie sieci CDN do statycznej zawartości serwera z poziomu aplikacji internetowej](cdn-add-to-web-app.md)
+> [Samouczek: używanie usługi CDN do obsługi zawartości statycznej z poziomu aplikacji sieci Web](cdn-add-to-web-app.md)

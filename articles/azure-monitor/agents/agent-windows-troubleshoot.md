@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ab67602ebba2ae5446ecc0052ef4b03bba1e1bf
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100613519"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952987"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Windows 
 
@@ -19,7 +19,7 @@ Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów dotyczą
 Jeśli żadna z tych kroków nie zadziałała, dostępne są również następujące kanały pomocy technicznej:
 
 * Klienci korzystający z usług Premier Premium mogą otworzyć żądanie pomocy technicznej w wersji [Premium.](https://premier.microsoft.com/)
-* Klienci z umowami pomocy technicznej systemu Azure mogą otworzyć żądanie pomocy technicznej [w Azure Portal](https://manage.windowsazure.com/?getsupport=true).
+* Klienci z umowami pomocy technicznej systemu Azure mogą otworzyć żądanie pomocy technicznej [w Azure Portal](https://azure.microsoft.com/support/options/).
 * Odwiedź stronę Log Analytics opinię, aby przejrzeć przesłane pomysły i usterki [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) albo plik nowy. 
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Narzędzie do rozwiązywania problemów Log Analytics
@@ -89,7 +89,7 @@ Istnieje kilka sposobów, aby sprawdzić, czy Agent pomyślnie komunikuje się z
 
     Jeśli komputer pomyślnie komunikuje się z usługą, zapytanie powinno zwrócić wynik. Jeśli zapytanie nie zwróciło wyniku, najpierw sprawdź, czy Agent jest skonfigurowany do raportowania do prawidłowego obszaru roboczego. Jeśli jest prawidłowo skonfigurowany, przejdź do kroku 3 i Przeszukaj dziennik zdarzeń systemu Windows, aby ustalić, czy Agent rejestruje, jakiego problemu może uniemożliwiać komunikację z Azure Monitor.
 
-- Inną metodą identyfikacji problemu z łącznością jest uruchomienie narzędzia **TestCloudConnectivity** . Narzędzie jest instalowane domyślnie z agentem w folderze *%systemroot%\Program Files\Microsoft monitoring Agent\Agent*. W wierszu polecenia z podwyższonym poziomem uprawnień przejdź do folderu i uruchom narzędzie. Narzędzie zwraca wyniki i wyróżnia, w których teście nie powiodło się (na przykład jeśli zostało ono powiązane z określonym portem/adresem URL, który został zablokowany). 
+- Inną metodą identyfikacji problemu z łącznością jest uruchomienie narzędzia **TestCloudConnectivity** . Narzędzie jest instalowane domyślnie z agentem w folderze *%systemroot%\Program Files\Microsoft monitoring Agent\Agent*. W wierszu polecenia z podwyższonym poziomem uprawnień przejdź do tego folderu i uruchom narzędzie. Narzędzie zwraca wyniki i wyróżnia, w których teście nie powiodło się (na przykład jeśli zostało ono powiązane z określonym portem/adresem URL, który został zablokowany). 
 
     ![Wyniki wykonywania narzędzia TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 

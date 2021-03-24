@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bwren
-ms.openlocfilehash: 89264bc17180aaf47611aef73c9fd20427bce104
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4d546401baa7edc7725e3fdb23065009895f9c1e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772284"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027435"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -93,7 +93,7 @@ Aby zmienić warstwę cenową Log Analytics w obszarze roboczym,
     
 3. Po przejrzeniu szacowanych kosztów na podstawie ostatnich 31 dni użytkowania, jeśli zdecydujesz się zmienić warstwę cenową, kliknij pozycję **Wybierz**.  
 
-Możesz również [ustawić warstwę cenową za pośrednictwem Azure Resource Manager](../samples/resource-manager-workspace.md) przy użyciu `sku` parametru ( `pricingTier` w szablonie Azure Resource Manager). 
+Możesz również [ustawić warstwę cenową za pośrednictwem Azure Resource Manager](./resource-manager-workspace.md) przy użyciu `sku` parametru ( `pricingTier` w szablonie Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Starsze warstwy cenowe
 
@@ -145,7 +145,7 @@ Aby ustawić domyślne przechowywanie dla obszaru roboczego,
 
 W przypadku obniżenia poziomu przechowywania istnieje kilka okresów prolongaty przed usunięciem danych starszych niż nowe ustawienie przechowywania. 
 
-Strona **przechowywania danych** umożliwia ustawienia przechowywania wynoszące 30, 31, 60, 90, 120, 180, 270, 365, 550 i 730. Jeśli jest wymagane inne ustawienie, które można skonfigurować za pomocą [Azure Resource Manager](../samples/resource-manager-workspace.md) przy użyciu `retentionInDays` parametru. Po ustawieniu przechowywania danych na 30 dni można wyzwolić natychmiastowe przeczyszczanie starszych danych przy użyciu `immediatePurgeDataOn30Days` parametru (eliminując okres prolongaty kilku dni). Może to być przydatne w scenariuszach związanych ze zgodnością, w których bezpośrednie usuwanie danych jest konieczne. Ta funkcja natychmiastowego przeczyszczania jest dostępna tylko za pośrednictwem Azure Resource Manager. 
+Strona **przechowywania danych** umożliwia ustawienia przechowywania wynoszące 30, 31, 60, 90, 120, 180, 270, 365, 550 i 730. Jeśli jest wymagane inne ustawienie, które można skonfigurować za pomocą [Azure Resource Manager](./resource-manager-workspace.md) przy użyciu `retentionInDays` parametru. Po ustawieniu przechowywania danych na 30 dni można wyzwolić natychmiastowe przeczyszczanie starszych danych przy użyciu `immediatePurgeDataOn30Days` parametru (eliminując okres prolongaty kilku dni). Może to być przydatne w scenariuszach związanych ze zgodnością, w których bezpośrednie usuwanie danych jest konieczne. Ta funkcja natychmiastowego przeczyszczania jest dostępna tylko za pośrednictwem Azure Resource Manager. 
 
 Obszary robocze z 30-dniowym przechowywaniem mogą faktycznie zachować dane przez 31 dni. Jeśli jest to konieczne, aby dane były przechowywane przez 30 dni, użyj Azure Resource Manager, aby ustawić przechowywanie na 30 dni i z `immediatePurgeDataOn30Days` parametrem.  
 
@@ -322,7 +322,7 @@ Liczba jednostek na rachunku znajduje się w jednostkach węzła * miesiące, kt
 
 
 > [!TIP]
-> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](../log-query/query-optimization.md#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia (patrz poniżej).
+> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](./query-optimization.md#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia (patrz poniżej).
 
 ## <a name="understanding-ingested-data-volume"></a>Zrozumienie ilości pozyskiwanych danych
 
@@ -406,7 +406,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](../log-query/query-optimization.md#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia.
+> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](./query-optimization.md#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Ilość danych według zasobu platformy Azure, grupy zasobów lub subskrypcji
 
@@ -445,7 +445,7 @@ Możesz również przeanalizować `_ResourceId` bardziej szczegółowo, jeśli j
 ```
 
 > [!TIP]
-> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](../log-query/query-optimization.md#query-performance-pane) . Jeśli nie potrzebujesz wyników na subskrypcję, grupę zasobów lub nazwę zasobu, a następnie wykonaj zapytanie dotyczące typu danych użycia.
+> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](./query-optimization.md#query-performance-pane) . Jeśli nie potrzebujesz wyników na subskrypcję, grupę zasobów lub nazwę zasobu, a następnie wykonaj zapytanie dotyczące typu danych użycia.
 
 > [!WARNING]
 > Niektóre pola typu danych użycia, ale nadal w schemacie, są przestarzałe i ich wartości nie będą już wypełnione. Są to **komputery** , a także pola związane z pozyskiwaniem (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** i **AverageProcessingTimeMs**.
@@ -479,7 +479,7 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 
 | Źródło dużego woluminu danych | Jak zmniejszyć wolumin danych |
 | -------------------------- | ------------------------- |
-| Analizy kontenerów         | [Skonfiguruj usługi Container Insights](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost) , aby zbierać tylko wymagane dane. |
+| Analizy kontenerów         | [Skonfiguruj usługi Container Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) , aby zbierać tylko wymagane dane. |
 | Zdarzenia zabezpieczeń            | Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](../../security-center/security-center-enable-data-collection.md#data-collection-tier). <br> Zmień zasady inspekcji zabezpieczeń w celu zbierania tylko potrzebnych zdarzeń. W szczególności zastanów się nad koniecznością zbierania następujących zdarzeń: <br> - [inspekcja platformy filtrowania](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [inspekcja rejestru](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [inspekcja systemu plików](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [inspekcja obiektu jądra](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [inspekcja manipulowania dojściem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> Inspekcja magazynu wymiennego |
 | Liczniki wydajności       | Zmień [konfigurację licznika wydajności](../agents/data-sources-performance-counters.md) w następujący sposób: <br> — Zmniejsz częstotliwość gromadzenia <br> — Zmniejsz liczbę liczników wydajności |
 | Dzienniki zdarzeń                 | Zmień [konfigurację dziennika zdarzeń](../agents/data-sources-windows-events.md) w następujący sposób: <br> — Zmniejsz liczbę gromadzonych danych dzienników zdarzeń <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje*. |
@@ -487,8 +487,8 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 | AzureDiagnostics           | Zmień [kolekcję dzienników zasobów](../essentials/diagnostic-settings.md#create-in-azure-portal) na: <br> — zmniejszyć liczbę dzienników zasobów wysyłanych do usługi Log Analytics, <br> — zbierać tylko wymagane dzienniki. |
 | Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../insights/solution-targeting.md) , aby zbierać dane tylko z wymaganych grup komputerów. |
 | Application Insights | Przejrzyj opcje [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [Analiza SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Użyj [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) , aby dostosować ustawienia inspekcji. |
-| Usługa Azure Sentinel | Przejrzyj wszystkie [źródła danych wskaźnikowych](https://docs.microsoft.com/azure/sentinel/connect-data-sources) , które były ostatnio włączone jako źródła dodatkowego woluminu danych. |
+| [Analiza SQL](../insights/azure-sql.md) | Użyj [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) , aby dostosować ustawienia inspekcji. |
+| Usługa Azure Sentinel | Przejrzyj wszystkie [źródła danych wskaźnikowych](../../sentinel/connect-data-sources.md) , które były ostatnio włączone jako źródła dodatkowego woluminu danych. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Pobieranie węzłów jako rozliczane w warstwie cenowej na węzeł
 
