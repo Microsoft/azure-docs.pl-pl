@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720158"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950573"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Przykłady zasad zaświadczania
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Aby uzyskać więcej informacji na temat oświadczeń przychodzących wygenerowanych przez zaświadczanie platformy Azure, zobacz [zestawy oświadczeń](/azure/attestation/claim-sets). Oświadczenia przychodzące mogą być używane przez autorów zasad do definiowania reguł autoryzacji w niestandardowych zasadach. 
+Aby uzyskać więcej informacji na temat oświadczeń przychodzących wygenerowanych przez zaświadczanie platformy Azure, zobacz [zestawy oświadczeń](./claim-sets.md). Oświadczenia przychodzące mogą być używane przez autorów zasad do definiowania reguł autoryzacji w niestandardowych zasadach. 
 
-Sekcja reguł wystawiania nie jest obowiązkowa. Ta sekcja może być używana przez użytkowników w celu wygenerowania dodatkowych oświadczeń wychodzących w tokenie zaświadczania z nazwami niestandardowymi. Aby uzyskać więcej informacji na temat oświadczeń wychodzących wygenerowanych przez usługę w tokenie zaświadczania, zobacz [zestawy oświadczeń](/azure/attestation/claim-sets).
+Sekcja reguł wystawiania nie jest obowiązkowa. Ta sekcja może być używana przez użytkowników w celu wygenerowania dodatkowych oświadczeń wychodzących w tokenie zaświadczania z nazwami niestandardowymi. Aby uzyskać więcej informacji na temat oświadczeń wychodzących wygenerowanych przez usługę w tokenie zaświadczania, zobacz [zestawy oświadczeń](./claim-sets.md).
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>Zasady domyślne dla elementu SGX enklawy
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-Oświadczenia używane w zasadach domyślnych są uznawane za przestarzałe, ale są w pełni obsługiwane i nadal będą uwzględniane w przyszłości. Zaleca się użycie nieprzestarzałych nazw zgłoszeń. Aby uzyskać więcej informacji na temat zalecanych nazw zgłoszeń, zobacz [zestawy roszczeń](/azure/attestation/claim-sets). 
+Oświadczenia używane w zasadach domyślnych są uznawane za przestarzałe, ale są w pełni obsługiwane i nadal będą uwzględniane w przyszłości. Zaleca się użycie nieprzestarzałych nazw zgłoszeń. Aby uzyskać więcej informacji na temat zalecanych nazw zgłoszeń, zobacz [zestawy roszczeń](./claim-sets.md). 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Przykładowe zasady niestandardowe do obsługi wielu SGX enclaves
 

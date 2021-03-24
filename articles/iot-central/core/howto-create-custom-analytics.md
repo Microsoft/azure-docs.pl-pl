@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 0cee343e6769c815ecfb4b9c791783bd246caaac
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 458c93fd3e13a958137c762a0979af918a70d930
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953905"
+ms.locfileid: "105023056"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzając IoT Central platformy Azure z analizą niestandardową przy użyciu Azure Databricks
 
@@ -91,7 +91,7 @@ Można skonfigurować aplikację IoT Central, aby ciągle eksportować dane tele
 1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i wybierz pozycję **+ centrum zdarzeń**.
 1. Nazwij centrum zdarzeń **centralexport**.
 1. Na liście centrów zdarzeń w przestrzeni nazw wybierz pozycję **centralexport**. Następnie wybierz pozycję **zasady dostępu współdzielonego**.
-1. Wybierz pozycję **+ Dodaj**. Utwórz zasady o nazwie **Nasłuchuj** przy użyciu roszczeń **nasłuchujących** .
+1. Wybierz pozycję **+ Dodaj**. Utwórz zasady o nazwie **SendListen** przy użyciu oświadczeń **wysyłania** i **nasłuchiwania** .
 1. Gdy zasady są gotowe, wybierz je z listy, a następnie skopiuj **Parametry połączenia — wartość klucza podstawowego** .
 1. Zanotuj te parametry połączenia, które są używane później podczas konfigurowania notesu datakostki do odczytu z centrum zdarzeń.
 
@@ -99,42 +99,46 @@ Przestrzeń nazw Event Hubs wygląda następująco:
 
 :::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="obraz przestrzeni nazw Event Hubs.":::
 
-## <a name="configure-export-in-iot-central-and-create-a-new-destination"></a>Skonfiguruj eksport w IoT Central i Utwórz nowe miejsce docelowe
+## <a name="configure-export-in-iot-central"></a>Konfigurowanie eksportu w IoT Central
 
-W witrynie sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) przejdź do aplikacji IoT Central utworzonej na podstawie szablonu contoso. W tej sekcji skonfigurujesz aplikację do przesyłania strumieniowego danych telemetrycznych z symulowanych urządzeń do centrum zdarzeń. Aby skonfigurować eksport:
+W tej sekcji można skonfigurować aplikację do przesyłania strumieniowego danych telemetrycznych z symulowanych urządzeń do centrum zdarzeń.
 
-1. Przejdź do strony **eksport danych** , a następnie wybierz pozycję **+ Nowy eksport**.
-1. Przed zakończeniem pierwszego okna, wybierz opcję **Utwórz miejsce docelowe**.
+W witrynie sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) przejdź do utworzonej wcześniej aplikacji IoT Central. Aby skonfigurować eksport, najpierw utwórz miejsce docelowe:
 
-Okno będzie wyglądać jak poniżej.  
+1. Przejdź do strony **eksport danych** , a następnie wybierz pozycję **miejsca docelowe**.
+1. Wybierz pozycję **+ nowe miejsce docelowe**.
+1. Użyj wartości z poniższej tabeli, aby utworzyć miejsce docelowe:
 
-:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="obraz konfiguracji docelowej eksportowania danych.":::
+    | Ustawienie | Wartość |
+    | ----- | ----- |
+    | Nazwa miejsca docelowego | Centrum zdarzeń telemetrii |
+    | Typ docelowy | Azure Event Hubs |
+    | Parametry połączenia | Parametry połączenia centrum zdarzeń, dla których wykonano adnotację wcześniej |
 
-3. Wprowadź następujące wartości:
+    **Centrum zdarzeń** jest wyświetlane jako **centralexport**.
 
-| Ustawienie | Wartość |
-| ------- | ----- |
-| Nazwa miejsca docelowego | Nazwa miejsca docelowego |
-| Typ docelowy | Azure Event Hubs |
-| Parametry połączenia| Parametry połączenia centrum zdarzeń, które zostały wcześniej wykonane. | 
-| Centrum zdarzeń| Nazwa centrum zdarzeń|
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Zrzut ekranu przedstawiający miejsce docelowe eksportu danych":::
 
-4. Kliknij przycisk **Utwórz** , aby zakończyć.
+1. Wybierz pozycję **Zapisz**.
 
-5. Użyj następujących ustawień, aby skonfigurować eksport:
+Aby utworzyć definicję eksportu:
+
+1. Przejdź do strony **eksport danych** i wybierz pozycję **+ Nowy eksport**.
+
+1. Użyj wartości z poniższej tabeli, aby skonfigurować eksportowanie:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Wprowadź nazwę eksportu | eventhubexport |
+    | Nazwa eksportu | Eksport centrum zdarzeń |
     | Enabled (Włączony) | Włączone |
-    | Dane| Wybierz telemetrię | 
-    | Miejsca docelowe| Utwórz miejsce docelowe, jak pokazano poniżej, dla eksportu, a następnie wybierz je w menu rozwijanym miejsce docelowe. |
+    | Typ danych do wyeksportowania | Telemetria |
+    | Miejsca docelowe | Wybierz pozycję **+ miejsce docelowe**, a następnie wybierz pozycję **centrum zdarzeń telemetrii** |
 
-:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Zrzut ekranu konfiguracji docelowej eksportu danych.":::
+1. Wybierz pozycję **Zapisz**.
 
-6. Po zakończeniu wybierz pozycję **Zapisz**.
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Zrzut ekranu przedstawiający definicję eksportu danych":::
 
-Przed kontynuowaniem Zaczekaj, aż stan eksportu zostanie **uruchomiony** .
+Przed kontynuowaniem Zaczekaj, aż stan eksportu będzie w **dobrej kondycji** na stronie **eksportowania danych** .
 
 ## <a name="configure-databricks-workspace"></a>Skonfiguruj obszar roboczy datakosteks
 

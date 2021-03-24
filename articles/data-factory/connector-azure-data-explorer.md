@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100379985"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027401"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Eksplorator danych przy użyciu Azure Data Factory
 
@@ -52,7 +52,14 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-Łącznik usługi Azure Eksplorator danych używa uwierzytelniania jednostki usługi. Wykonaj następujące kroki, aby uzyskać nazwę główną usługi i udzielić uprawnień:
+Łącznik usługi Azure Eksplorator danych obsługuje następujące typy uwierzytelniania. Szczegółowe informacje znajdują się w odpowiednich sekcjach:
+
+- [Uwierzytelnianie jednostki usługi](#service-principal-authentication)
+- [Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure](#managed-identity)
+
+### <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
+
+Aby użyć uwierzytelniania jednostki usługi, wykonaj następujące kroki, aby uzyskać nazwę główną usługi i udzielić uprawnień:
 
 1. Zarejestruj jednostkę aplikacji w Azure Active Directory, wykonując czynności opisane w temacie [Rejestrowanie aplikacji za pomocą dzierżawy usługi Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Należy zwrócić uwagę na następujące wartości, których można użyć do zdefiniowania połączonej usługi:
 
@@ -66,7 +73,7 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
     - **Jako ujścia**, Przydziel co najmniej rolę pozyskiwania **bazy danych** do bazy danych
 
 >[!NOTE]
->Korzystając z interfejsu użytkownika Data Factory do tworzenia, konto użytkownika logowania służy do wyświetlania listy klastrów Eksplorator danych, baz danych i tabel platformy Azure. Ręcznie wprowadź nazwę, jeśli nie masz uprawnień do tych operacji.
+>Korzystając z interfejsu użytkownika Data Factory do tworzenia, domyślnie konto użytkownika logowania służy do wyświetlania listy klastrów Eksplorator danych, baz danych i tabel platformy Azure. Możesz wybrać listę obiektów przy użyciu jednostki usługi, klikając listę rozwijaną obok przycisku Odśwież lub ręcznie wprowadzić nazwę, jeśli nie masz uprawnień do tych operacji.
 
 Dla połączonej usługi Azure Eksplorator danych są obsługiwane następujące właściwości:
 
@@ -78,8 +85,9 @@ Dla połączonej usługi Azure Eksplorator danych są obsługiwane następujące
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Jest on znany jako "Identyfikator urzędu" w [parametrach połączenia Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Pobierz go, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. Jest to nazywane "IDENTYFIKATORem klienta aplikacji usługi AAD" w [parametrach połączenia Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Tak |
 | servicePrincipalKey | Określ klucz aplikacji. Jest to tzw. "klucz aplikacji usługi AAD" w [parametrach połączenia Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do zabezpieczonych danych przechowywanych w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli magazyn danych znajduje się w sieci prywatnej, możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna usługa Azure Integration Runtime. |Nie |
 
-**Przykład właściwości połączonej usługi:**
+**Przykład: używanie uwierzytelniania klucza jednostki usługi**
 
 ```json
 {
@@ -95,6 +103,44 @@ Dla połączonej usługi Azure Eksplorator danych są obsługiwane następujące
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure
+
+Aby używać tożsamości zarządzanych do uwierzytelniania zasobów platformy Azure, wykonaj następujące kroki, aby udzielić uprawnień:
+
+1. [Pobierz Data Factory Informacje o tożsamości zarządzane](data-factory-service-identity.md#retrieve-managed-identity) przez skopiowanie wartości **identyfikatora obiektu tożsamości zarządzanej** , który został wygenerowany wraz z fabryką.
+
+2. Nadaj zarządzanej tożsamości odpowiednie uprawnienia w usłudze Azure Eksplorator danych. Aby uzyskać szczegółowe informacje na temat ról i uprawnień oraz zarządzania uprawnieniami, zobacz [Zarządzanie uprawnieniami usługi Azure Eksplorator danych Database](/azure/data-explorer/manage-database-permissions) . Ogólnie rzecz biorąc, należy:
+
+    - **Jako źródło** Udziel co najmniej roli **przeglądarki bazy** danych do bazy danych
+    - **Jako ujścia**, Przydziel co najmniej rolę pozyskiwania **bazy danych** do bazy danych
+
+>[!NOTE]
+>Korzystając z interfejsu użytkownika Data Factory do tworzenia, konto użytkownika logowania służy do wyświetlania listy klastrów Eksplorator danych, baz danych i tabel platformy Azure. Ręcznie wprowadź nazwę, jeśli nie masz uprawnień do tych operacji.
+
+Dla połączonej usługi Azure Eksplorator danych są obsługiwane następujące właściwości:
+
+| Właściwość | Opis | Wymagane |
+|:--- |:--- |:--- |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureDataExplorer**. | Tak |
+| endpoint | Adres URL punktu końcowego klastra Eksplorator danych platformy Azure z formatem jako `https://<clusterName>.<regionName>.kusto.windows.net` . | Tak |
+| database | Nazwa bazy danych. | Tak |
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli magazyn danych znajduje się w sieci prywatnej, możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna usługa Azure Integration Runtime. |Nie |
+
+**Przykład: używanie uwierzytelniania tożsamości zarządzanej**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }
