@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880105"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953480"
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
 
@@ -20,11 +20,15 @@ ms.locfileid: "98880105"
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Czy można połączyć sieci wirtualne z różnych regionów świadczenia usługi Azure?
 
-Tak. Nie ma żadnych ograniczeń dotyczących regionów. Jedna sieć wirtualna może nawiązać połączenie z inną siecią wirtualną w tym samym lub w innym regionie świadczenia usługi Azure. 
+Tak. Nie ma żadnych ograniczeń dotyczących regionów. Jedna sieć wirtualna może nawiązać połączenie z inną siecią wirtualną w tym samym lub w innym regionie świadczenia usługi Azure.
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Czy można połączyć sieci wirtualne należące do różnych subskrypcji?
 
 Tak.
+
+### <a name="can-i-specify-private-dns-servers-in-my-vnet-when-configuring-vpn-gateway"></a>Czy można określić prywatne serwery DNS w mojej sieci wirtualnej podczas konfigurowania VPN Gateway?
+
+Jeśli podczas tworzenia sieci wirtualnej został określony serwer DNS lub serwery, VPN Gateway będą używać określonych serwerów DNS. Jeśli określisz serwer DNS, sprawdź, czy serwer DNS może rozpoznać nazwy domen potrzebne do platformy Azure.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>Czy można łączyć się z wieloma lokalizacjami z jednej sieci wirtualnej?
 
@@ -32,7 +36,7 @@ Można nawiązać połączenie z wieloma lokalizacjami za pomocą programu Windo
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Czy istnieje dodatkowy koszt konfigurowania bramy sieci VPN jako aktywne-aktywne?
 
-Nie. 
+Nie.
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Jakie są dostępne możliwości połączeń obejmujących wiele lokalizacji?
 
@@ -48,7 +52,7 @@ Aby uzyskać więcej informacji na temat połączeń bramy sieci VPN, zobacz art
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Jaka jest różnica między połączeniem typu lokacja-lokacja i połączeniem typu punkt-lokacja?
 
-Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu i uprawnień. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. Aby utworzyć połączenie tego typu, musisz mieć adres IPv4 dostępny zewnętrznie.
+Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu i uprawnień. Jest to świetna opcja dla zawsze dostępnych połączeń między różnymi lokalizacjami, która jest odpowiednia dla konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. Aby utworzyć połączenie tego typu, musisz mieć adres IPv4 dostępny zewnętrznie.
 
 Konfiguracje **punkt-lokacja** (VPN z protokołem SSTP) umożliwiają połączenie się z pojedynczego komputera znajdującego się w dowolnym miejscu z innym dowolnym miejscem w sieci wirtualnej. Korzystają z wewnętrznego klienta VPN systemu Windows. W ramach konfiguracji typu punkt-lokacja należy zainstalować certyfikat i pakiet konfiguracji klienta VPN, który zawiera ustawienia umożliwiające komputerowi połączenie się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej. Doskonale sprawdzają się podczas nawiązywania połączenia z siecią wirtualną spoza obszaru organizacji. To także dobra opcja w sytuacji braku dostępu do sprzętu VPN lub adresu IPv4 dostępnego z zewnątrz, które są wymagane w przypadku połączeń typu lokacja-lokacja.
 
@@ -66,17 +70,20 @@ Bramy oparte na zasadach wdrażają sieci VPN oparte na zasadach. Sieci VPN opar
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>Co to jest brama oparta na trasach (o routingu dynamicznym)?
 
-Bramy oparte na trasach wdrażają sieci VPN oparte na trasach. Sieci VPN oparte na trasach używają „tras” w funkcji przesyłania dalej IP lub tabeli routingu do kierowania pakietów do odpowiednich interfejsów tuneli. W dalszej kolejności interfejsy tuneli szyfrują lub odszyfrowują pakiety wchodzące do tuneli lub wychodzące z nich. Zasady lub selektor ruchu dla sieci VPN opartych na trasach są skonfigurowane jako każdy z każdym (lub symbole wieloznaczne).
+Bramy oparte na trasach wdrażają sieci VPN oparte na trasach. Sieci VPN oparte na trasach używają „tras” w funkcji przesyłania dalej IP lub tabeli routingu do kierowania pakietów do odpowiednich interfejsów tuneli. W dalszej kolejności interfejsy tuneli szyfrują lub odszyfrowują pakiety wchodzące do tuneli lub wychodzące z nich. Selektory zasad lub ruchu dla sieci VPN opartych na trasach są skonfigurowane jako dowolne (lub symbole wieloznaczne).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Czy mogę zaktualizować bramę sieci VPN opartą na zasadach, aby była oparta na trasach?
 
-Nie. Nie można zmienić typu bramy sieci wirtualnej platformy Azure z opartej na zasadach na opartą na trasach ani w inny sposób. Bramę należy usunąć i utworzyć ponownie. Cały taki proces zajmie około 60 minut. Adres IP bramy ani klucz wstępny (PSK) nie zostaną zachowane.
-1. Usuń wszystkie połączenia skojarzone z bramą do usunięcia.
-1. Usuń bramę:
-   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell — klasyczny](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Utwórz nową bramę żądanego typu i Ukończ konfigurację sieci VPN](./tutorial-site-to-site-portal.md#VNetGateway).
+Nie. Nie można zmienić typu bramy z opartej na trasach lub z tras opartych na zasadach. Aby zmienić typ bramy, należy usunąć i ponownie utworzyć bramę. Ten proces trwa około 60 minut. Podczas tworzenia nowej bramy nie można zachować adresu IP oryginalnej bramy.
+
+1. Usuń wszystkie połączenia skojarzone z bramą.
+
+1. Usuń bramę przy użyciu jednego z następujących artykułów:
+
+   * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell — klasyczny](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Utwórz nową bramę przy użyciu żądanego typu bramy, a następnie ukończ konfigurację sieci VPN. Kroki można znaleźć w [samouczku lokacja-lokacja](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Czy potrzebuję podsieci „GatewaySubnet”?
 
@@ -102,7 +109,7 @@ W przypadku bram nadmiarowych i niestrefowych (jednostki SKU bramy, które _nie_
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>W jaki sposób następuje uwierzytelnienie tunelu VPN?
 
-Sieć VPN platformy Azure używa uwierzytelniania PSK (klucza wstępnego). Podczas tworzenia tunelu VPN generowany jest klucz wstępny (PSK). Wygenerowany automatycznie klucz wstępny można zmienić na własny klucz przy użyciu polecenia cmdlet Set Pre-Shared Key lub interfejsu API REST programu PowerShell.
+Sieć VPN platformy Azure używa uwierzytelniania PSK (klucza wstępnego). Podczas tworzenia tunelu VPN generowany jest klucz wstępny (PSK). Automatycznie wygenerowany klucz PSK można zmienić za pomocą polecenia cmdlet Set Pre-Shared Key PowerShell lub interfejsu API REST.
 
 ### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-static-routing-gateway-vpn"></a>Czy za pomocą interfejsu API i polecenia cmdlet Set Pre-Shared Key można skonfigurować własną bramę sieci VPN opartą na zasadach (o routingu statycznym)?
 
@@ -121,11 +128,7 @@ Metody uwierzytelniania ograniczają się do stosowania kluczy wstępnych (PSK).
 
 #### <a name="classic-deployment-model"></a>Klasyczny model wdrażania
 
-* Witryna Azure Portal: przejdź do klasycznej sieci wirtualnej > Połączenia sieci VPN > Połączenia sieci VPN typu lokacja-lokacja > Nazwy lokacji lokalnej > Lokacja lokalna > Przestrzeń adresowa klienta. 
-
-### <a name="can-i-configure-force-tunneling"></a>Czy mogę skonfigurować wymuszone tunelowanie?
-
-Tak. Zobacz [Configure force tunneling](vpn-gateway-about-forced-tunneling.md) (Konfigurowanie wymuszonego tunelowania).
+* Witryna Azure Portal: przejdź do klasycznej sieci wirtualnej > Połączenia sieci VPN > Połączenia sieci VPN typu lokacja-lokacja > Nazwy lokacji lokalnej > Lokacja lokalna > Przestrzeń adresowa klienta.
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Czy mogę użyć translatora adresów sieciowych dla połączeń sieci VPN?
 
@@ -225,10 +228,13 @@ Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zoba
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp-and-routing"></a><a name="bgp"></a>Protokół BGP i Routing
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### <a name="can-i-configure-forced-tunneling"></a>Czy można skonfigurować Wymuszone tunelowanie?
+
+Tak. Zobacz artykuł [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Konfiguracja wymuszonego tunelowania).
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Łączność między środowiskami lokalnymi i maszyny wirtualne
 
@@ -245,7 +251,6 @@ Nie. Przez bramę sieci wirtualnej przechodzi tylko ruch, którego docelowy adre
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Jak rozwiązywać problemy z połączeniem RDP z maszyną wirtualną
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Virtual Network często zadawane pytania
 

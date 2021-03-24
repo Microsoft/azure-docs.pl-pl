@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 6361a9c337f5d3897cf15d4739b0410d3e820e57
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 94c3917b0912835799818597f94f3880ea3a7639
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600942"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889539"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalowanie i aprowizacja usługi IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
@@ -52,7 +52,9 @@ W tym artykule przedstawiono procedurę konfigurowania IoT Edge na urządzeniu z
 
    1. Pobierz [Instalatora centrum administracyjnego systemu Windows](https://aka.ms/wacdownload).
 
-   1. Uruchom pobrany Instalator i postępuj zgodnie z monitami Kreatora instalacji, aby zainstalować centrum administracyjne systemu Windows. Po zainstalowaniu programu Otwórz Centrum administracyjne systemu Windows.
+   1. Uruchom pobrany Instalator i postępuj zgodnie z monitami Kreatora instalacji, aby zainstalować centrum administracyjne systemu Windows. 
+
+   1. Po zainstalowaniu programu Użyj obsługiwanej przeglądarki, aby otworzyć Centrum administracyjne systemu Windows. Obsługiwane przeglądarki to Microsoft Edge (system Windows 10, wersja 1709 lub nowsza), Google Chrome i Microsoft Edge.
 
    1. Przy pierwszym użyciu Centrum administracyjnego systemu Windows zostanie wyświetlony monit o wybranie certyfikatu do użycia. Wybierz pozycję **Klient centrum administracyjnego systemu Windows** jako certyfikat.
 
@@ -61,12 +63,6 @@ W tym artykule przedstawiono procedurę konfigurowania IoT Edge na urządzeniu z
       ![Wybierz ikonę koła zębatego w prawym górnym rogu pulpitu nawigacyjnego, aby uzyskać dostęp do ustawień.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
    1. W menu **Ustawienia** w obszarze **brama** wybierz pozycję **rozszerzenia**.
-
-   1. Wybierz kartę **źródła danych** , a następnie wybierz pozycję **Dodaj**.
-
-   1. Wprowadź https://aka.ms/wac-insiders-feed tekst w polu tekstowym, a następnie wybierz pozycję **Dodaj**.
-
-   1. Po dodaniu kanału informacyjnego przejdź do karty **dostępne rozszerzenia** . Aktualizacja listy rozszerzeń może chwilę potrwać.
 
    1. Na karcie **dostępne rozszerzenia** Znajdź **Azure IoT Edge** na liście rozszerzeń. Wybierz go, a następnie wybierz polecenie **Zainstaluj** wiersz powyżej listy rozszerzeń.
 
@@ -346,6 +342,9 @@ Sprawdź, czy IoT Edge dla systemu Linux w systemie Windows zostały pomyślnie 
    ```azurepowershell-interactive
    Ssh-EflowVm
    ```
+
+   >[!NOTE]
+   >Jedynym kontem dozwolonym dla protokołu SSH do maszyny wirtualnej jest użytkownik, który go utworzył.
 
 1. Po zalogowaniu możesz sprawdzić listę uruchomionych modułów IoT Edge za pomocą następującego polecenia systemu Linux:
 

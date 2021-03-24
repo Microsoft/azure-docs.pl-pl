@@ -236,8 +236,6 @@
               href: application-proxy-qlik.md
     - name: Rozwiązywanie problemów
       items:
-        - name: Rozwiązywanie problemów z dodawaniem aplikacji
-          href: troubleshoot-adding-apps.md
         - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach
           href: troubleshoot-password-based-sso.md
         - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML
