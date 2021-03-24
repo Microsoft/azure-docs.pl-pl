@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 00ddc7cd806a9275de7b4ec579bdef62bdf8062d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5e2ab0b9d7f61539a16fc685134bef6c9047229d
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102603389"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104987734"
 ---
 W zależności od systemu operacyjnego klienta procedury zdalnego łączenia się z urządzeniem są różne.
 
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby zdalnie nawiązać połączenie z klientem NFS.
  
 2. Aby nawiązać połączenie przy użyciu klienta zdalnego, wpisz:
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL`
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
     Po wyświetleniu monitu podaj hasło używane do logowania się do urządzenia.
  
