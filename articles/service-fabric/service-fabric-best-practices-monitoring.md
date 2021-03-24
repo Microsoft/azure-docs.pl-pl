@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0eb9ce24f9ead44b7ba5a4d28d24177e62cb7757
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86529254"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950522"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Najlepsze rozwiązania dotyczące monitorowania i diagnostyki dla Service Fabric platformy Azure
 
@@ -34,7 +34,7 @@ W przypadku klastrów systemu Linux dzienniki Azure Monitor są również Zaleca
 
 ## <a name="watchdogs"></a>Licznik alarmy
 
-Ogólnie rzecz biorąc, licznik alarm jest oddzielną usługą, która obserwuje kondycję i obciążenie między usługami, wysyła pakiety ping do punktów końcowych i zgłasza nieoczekiwane zdarzenia kondycji w klastrze. Może to pomóc zapobiec błędom, które mogą nie zostać wykryte na podstawie wydajności pojedynczej usługi. Licznik alarmy jest również dobrym miejscem do kodu hosta, który wykonuje czynności zaradcze, które nie wymagają interakcji z użytkownikiem, np. Czyszczenie plików dziennika w magazynie w określonych przedziałach czasowych. Zapoznaj się z przykładową implementacją usługi strażnika w  [Service Fabric zdarzenia klastra systemu Linux w dzienniku](https://github.com/Azure-Samples/service-fabric-watchdog-service)systemowym.
+Ogólnie rzecz biorąc, licznik alarm jest oddzielną usługą, która obserwuje kondycję i obciążenie między usługami, wysyła pakiety ping do punktów końcowych i zgłasza nieoczekiwane zdarzenia kondycji w klastrze. Może to pomóc zapobiec błędom, które mogą nie zostać wykryte na podstawie wydajności pojedynczej usługi. Licznik alarmy jest również dobrym miejscem do kodu hosta, który wykonuje akcje zaradcze, które nie wymagają interakcji z użytkownikiem, takie jak czyszczenie plików dziennika w magazynie w określonych przedziałach czasowych. Jeśli chcesz, aby w pełni zaimplementowano usługę licznika alarmowego typu "open source", która zawiera łatwy w użyciu model rozszerzalności licznika alarmowego, który działa w klastrach z systemem Windows i Linux, zobacz projekt [FabricObserver](https://aka.ms/sf/FabricObserver) . FabricObserver to oprogramowanie gotowe do produkcji. Zachęcamy do wdrażania FabricObserver w klastrach testowych i produkcyjnych oraz poszerzania ich w celu zaspokajania potrzeb użytkownika za pomocą swojego modelu wtyczki lub przez rozwidlenie i tworzenie własnych wbudowanych obserwatorów. Pierwsze (wtyczki) jest zalecanym podejściem.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181452"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949995"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -73,6 +73,7 @@ Podczas tworzenia klastra z określonymi atrybutami są niezbędne następujące
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Wymagane w przypadku używania podsieci w innej grupie zasobów, takiej jak niestandardowa Sieć wirtualna. |
 | Microsoft. Network/routeTables/Routes/Read <br/> Microsoft. Network/routeTables/Routes/write | Wymagany, jeśli używana jest podsieć skojarzona z tabelą tras w innej grupie zasobów, takiej jak niestandardowa Sieć wirtualna z niestandardową tabelą tras. Wymagane, aby sprawdzić, czy podsieć już istnieje dla podsieci w innej grupie zasobów. |
 | Microsoft.Network/virtualNetworks/subnets/read | Wymagane w przypadku korzystania z wewnętrznego modułu równoważenia obciążenia w innej grupie zasobów. Wymagane, aby sprawdzić, czy podsieć już istnieje dla wewnętrznego modułu równoważenia obciążenia w grupie zasobów. |
+| Microsoft. Network/privatednszones/* | Wymagane w przypadku używania prywatnej strefy DNS w innej grupie zasobów, takiej jak niestandardowy privateDNSZone. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC)
 
