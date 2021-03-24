@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608150"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023082"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Rozwiązywanie problemów z platformą Azure Percept DK (dev Kit)
 
@@ -45,7 +45,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 ```[local host file path]``` odwołuje się do lokalizacji na komputerze hosta, do której chcesz skopiować plik txt. ```[remote username]``` jest nazwą użytkownika SSH wybraną podczas [instalacji](./quickstart-percept-dk-set-up.md). Jeśli nie skonfigurowano logowania SSH w trakcie OOBE, zdalna nazwa użytkownika to ```root``` .
 
-Dodatkowe informacje na temat poleceń Azure IoT Edge można znaleźć w [dokumentacji dotyczącej rozwiązywania problemów z urządzeniem Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Dodatkowe informacje na temat poleceń Azure IoT Edge można znaleźć w [dokumentacji dotyczącej rozwiązywania problemów z urządzeniem Azure IoT Edge](../iot-edge/troubleshoot.md).
 
 |Kategoria:         |Dotyczące                    |Funkcyjn                  |
 |------------------|----------------------------|---------------------------|
@@ -105,5 +105,3 @@ Istnieją trzy małe diody LED na górze obudowy tablicy nośnej. Ikona w chmurz
 |Dioda LED 2 (Wi-Fi)   |Szybka migotanie |Uwierzytelnianie zakończyło się pomyślnie, skojarzenie urządzenia jest w toku. |
 |Dioda LED 2 (Wi-Fi)   |Włączony (pełny) |Uwierzytelnianie i kojarzenie zakończyło się pomyślnie; urządzenie jest połączone z siecią Wi-Fi. |
 |DIODA LED 3           |NA         |Dioda LED nie jest używana. |
-
-

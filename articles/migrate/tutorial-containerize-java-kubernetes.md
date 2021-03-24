@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ecc31019ccedc21683eed1a3186cec91d4c5c567
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea7cdfbd30cf698cecbb14a1d70916764ad3247a
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466596"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023116"
 ---
-# <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Konteneryzowanie aplikacje sieci Web Java i Migruj do usługi Azure Kubernetes Service
+# <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Aplikacja internetowa języka Java kontenerach i migracja do usługi Azure Kubernetes Service
 
 W tym artykule dowiesz się, jak konteneryzowanie aplikacje sieci Web Java (uruchomione w Apache Tomcat) i migrować je do [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) przy użyciu narzędzia Azure Migrate: App kontenerach. Proces kontenerach nie wymaga dostępu do bazy kodu i zapewnia łatwy sposób konteneryzowanie istniejących aplikacji. Narzędzie działa przy użyciu stanu uruchomienia aplikacji na serwerze w celu określenia składników aplikacji i ułatwia ich spakowanie w obrazie kontenera. Aplikację kontenerową można następnie wdrożyć w usłudze Azure Kubernetes Service (AKS).
 
@@ -59,7 +59,7 @@ Przed rozpoczęciem tego samouczka należy:
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Zidentyfikuj komputer, aby zainstalować narzędzie** | Maszyna z systemem Windows w celu zainstalowania i uruchomienia narzędzia Azure Migrate: App kontenerach. Komputer z systemem Windows może być serwerem (Windows Server 2016 lub nowszym) lub systemem operacyjnym klienta (Windows 10), co oznacza, że narzędzie można również uruchomić na pulpicie. <br/><br/> Maszyna z systemem Windows, na której działa narzędzie, powinna mieć łączność sieciową z serwerami i maszynami wirtualnymi hostującym aplikacje ASP.NET.<br/><br/> Upewnij się, że dostępne jest 6 GB miejsca na maszynie z systemem Windows, na którym uruchomiono narzędzie Azure Migrate: App kontenerach do przechowywania artefaktów aplikacji. <br/><br/> Komputer z systemem Windows powinien mieć dostęp do Internetu, bezpośrednio lub za pośrednictwem serwera proxy. <br/> <br/>Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6)
+**Zidentyfikuj komputer, aby zainstalować narzędzie** | Maszyna z systemem Windows w celu zainstalowania i uruchomienia narzędzia Azure Migrate: App kontenerach. Komputer z systemem Windows może być serwerem (Windows Server 2016 lub nowszym) lub systemem operacyjnym klienta (Windows 10), co oznacza, że narzędzie można również uruchomić na pulpicie. <br/><br/> Maszyna z systemem Windows, na której działa narzędzie, powinna mieć łączność sieciową z serwerami/maszynami wirtualnymi hostującym aplikacje ASP.NET, które mają zostać konteneryzowane.<br/><br/> Upewnij się, że dostępne jest 6 GB miejsca na maszynie z systemem Windows, na którym uruchomiono narzędzie Azure Migrate: App kontenerach do przechowywania artefaktów aplikacji. <br/><br/> Komputer z systemem Windows powinien mieć dostęp do Internetu, bezpośrednio lub za pośrednictwem serwera proxy. <br/> <br/>Zainstaluj narzędzie Web Deploy firmy Microsoft na komputerze, na którym działa narzędzie pomocnika kontenerach aplikacji i serwer aplikacji, jeśli nie zostały jeszcze zainstalowane. Możesz pobrać narzędzie z tego [miejsca](https://aka.ms/webdeploy3.6)
 **Serwery aplikacji** | -Włącz połączenie Secure Shell (SSH) na porcie 22 na serwerach z uruchomionymi aplikacjami Java do kontenerów. <br/>
 **Aplikacja internetowa Java** | Narzędzie obsługuje obecnie <br/><br/> -Aplikacje działające w Tomcat 8 lub nowszym.<br/> -Serwery aplikacji na Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> — Aplikacje korzystające z języka Java w wersji 7 lub nowszej.  <br/><br/> Narzędzie nie obsługuje obecnie <br/><br/> -Aplikacje serwerów z wieloma wystąpieniami Tomcat <br/>  
 
@@ -104,7 +104,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 3. Uruchom skrypt instalacyjny przy użyciu polecenia
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>Uruchamianie narzędzia kontenerach aplikacji

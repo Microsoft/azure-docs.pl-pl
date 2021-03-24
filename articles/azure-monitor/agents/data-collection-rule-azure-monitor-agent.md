@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721532"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022980"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 
@@ -92,7 +92,7 @@ W poniższej tabeli przedstawiono przykłady filtrowania zdarzeń przy użyciu n
 | Opis |  XPath |
 |:---|:---|
 | Zbieraj tylko zdarzenia systemowe z IDENTYFIKATORem zdarzenia = 4648 |  `System!*[System[EventID=4648]]`
-| Zbieraj tylko zdarzenia systemowe z IDENTYFIKATORem zdarzenia = 4648 i nazwą procesu consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Zbieraj tylko zdarzenia systemowe z IDENTYFIKATORem zdarzenia = 4648 i nazwą procesu consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
 | Zbierz wszystkie zdarzenia krytyczne, błędu, ostrzeżenia i informacji z dziennika zdarzeń systemu, z wyjątkiem zdarzenia o IDENTYFIKATORze 6 (załadowany sterownik) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
 | Zbierz wszystkie zdarzenia związane z zabezpieczeniami zakończonymi sukcesem i niepowodzeniem z wyjątkiem zdarzenia o IDENTYFIKATORze 4624 (Pomyślne logowanie) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
 

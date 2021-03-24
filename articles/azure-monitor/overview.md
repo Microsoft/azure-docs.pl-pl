@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fe8714f38c6a04b311a748f3eb081be82eb86635
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047166"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024136"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
@@ -144,7 +144,7 @@ Wiele interfejsów API jest dostępnych do odczytu i zapisu metryk i dzienników
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na następujące tematy:
 
-* [Metryki i dzienniki](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) dla danych zbieranych przez Azure monitor.
+* [Metryki i dzienniki](./data-platform.md#metrics) dla danych zbieranych przez Azure monitor.
 * [Źródła danych](agents/data-sources.md) , dla których różne składniki aplikacji wysyłają dane telemetryczne.
 * [Zapytania dzienników](logs/log-query-overview.md) do analizowania zebranych danych.
 * [Najlepsze rozwiązania](/azure/architecture/best-practices/monitoring) dotyczące monitorowania aplikacji i usług w chmurze.

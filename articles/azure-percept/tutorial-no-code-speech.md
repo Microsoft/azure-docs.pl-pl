@@ -7,18 +7,18 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 76333e11916641be71c72ce6142cd59b496a17e9
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098030"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023167"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Tworzenie asystenta głosowego za pomocą usługi Azure Percept DK i usługi Azure Percept audio
 
 W tym samouczku utworzysz asystenta głosowego na podstawie szablonu, który ma być używany z funkcjami Azure Percept DK i Azure Percept. Pokaz asystenta głosowego jest uruchamiany w ramach [usługi Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) i zawiera wybrane obiekty wirtualne sterowane głosami. Aby kontrolować obiekt, należy powiedzieć słowo kluczowe, czyli słowo lub krótka fraza, która wznawia urządzenie, a następnie polecenie. Każdy szablon odpowiada zestawowi konkretnych poleceń.
 
-Ten przewodnik przeprowadzi Cię przez proces konfigurowania urządzeń, tworzenia asystenta głosowego i niezbędnych zasobów [usług mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview) , testowania asystenta głosowego, konfigurowania słowa kluczowego i tworzenia niestandardowych słów kluczowych.
+Ten przewodnik przeprowadzi Cię przez proces konfigurowania urządzeń, tworzenia asystenta głosowego i niezbędnych zasobów [usług mowy](../cognitive-services/speech-service/overview.md) , testowania asystenta głosowego, konfigurowania słowa kluczowego i tworzenia niestandardowych słów kluczowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -172,7 +172,7 @@ Po utworzeniu polecenia niestandardowego musisz przejść do programu [Speech St
 
     :::image type="content" source="./media/tutorial-no-code-speech/speech-studio.png" alt-text="Zrzut ekranu przedstawiający ekran główny programu Speech Studio.":::
 
-Więcej informacji na temat opracowywania poleceń niestandardowych można znaleźć w [dokumentacji usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands).
+Więcej informacji na temat opracowywania poleceń niestandardowych można znaleźć w [dokumentacji usługi mowy](../cognitive-services/speech-service/custom-commands.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

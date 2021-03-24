@@ -3,12 +3,12 @@ title: Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMwar
 description: W tym artykule wyjaśniono, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 794e24e531d464adf58d5a06b5a411ada18c4a60
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99581384"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023660"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 
@@ -47,6 +47,9 @@ Serwer sieci Web otrzymuje żądanie i odpowiedzi z żądanymi informacjami lub 
 
 ## <a name="test-case"></a>Przypadek testowy
 W tym scenariuszu opublikujesz serwer sieci webiis w Internecie. Aby opublikować witrynę sieci Web na publicznym adresie IP, użyj funkcji Public IP w rozwiązaniu VMware platformy Azure.  Należy również skonfigurować reguły NAT w zaporze i uzyskać dostęp do zasobu rozwiązania Azure VMware (maszyn wirtualnych z serwerem sieci Web) za pomocą publicznego adresu IP.
+
+>[!TIP]
+>Aby włączyć ruch wychodzący, należy ustawić konfigurację zabezpieczeń > ruchu internetowego do **zapory platformy Azure**.
 
 ## <a name="deploy-virtual-wan"></a>Wdrożyć usługę Virtual WAN
 
@@ -152,7 +155,7 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
 
 ## <a name="limitations"></a>Ograniczenia
 
-Możesz mieć 100 publicznych adresów IP na SDDCs.
+Możesz mieć 100 publicznych adresów IP na chmurę prywatną.
 
 ## <a name="next-steps"></a>Następne kroki
 

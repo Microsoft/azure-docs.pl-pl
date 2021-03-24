@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bcf28fbc0d2f4ec9eeac5bcb8f0b2c9b65a62b6b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 876564934b1ccbffa19c318a2d2c8393e5dca54e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775043"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023983"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Konfigurowanie serwera proxy protokołu Kerberos centrum dystrybucji kluczy (wersja zapoznawcza)
 
@@ -70,6 +70,6 @@ Aby skonfigurować serwer proxy centrum dystrybucji kluczy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak zarządzać Usługi pulpitu zdalnego stronie serwera proxy centrum dystrybucji kluczy i przypisać rolę bramy usług pulpitu zdalnego, zobacz [Wdrażanie roli bramy usług pulpitu zdalnego](/windows-server/remote/rd-gateway-role).
+Aby dowiedzieć się, jak zarządzać Usługi pulpitu zdalnego stronie serwera proxy centrum dystrybucji kluczy i przypisać rolę bramy usług pulpitu zdalnego, zobacz [Wdrażanie roli bramy usług pulpitu zdalnego](rd-gateway-role.md).
 
 Jeśli interesuje Cię skalowanie serwerów proxy centrum dystrybucji kluczy, Dowiedz się, jak skonfigurować wysoką dostępność serwera proxy centrum dystrybucji kluczy, [dodając wysoką dostępność do frontonu sieci Web i bramy usług pulpitu zdalnego](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).

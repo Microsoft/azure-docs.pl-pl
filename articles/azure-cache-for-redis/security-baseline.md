@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 516a66ef64512cbe4fa4c3589e651c14ddf18550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38b6251c4b464214d66f7240dab9d5d23812f946
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101647629"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023218"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Podstawa zabezpieczeń platformy Azure dla usługi Azure cache for Redis
 
@@ -34,7 +34,7 @@ Możesz również określić reguły zapory z zakresem adresów IP początkowy i
 
 - [Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-vnet.md)
 
-- [Jak skonfigurować usługę Azure cache for Redis reguły zapory](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
+- [Jak skonfigurować usługę Azure cache for Redis reguły zapory](./cache-configure.md#firewall)
 
 **Odpowiedzialność**: Klient
 
@@ -68,7 +68,7 @@ Włącz DDoS Protection Standard na sieci wirtualnych skojarzonym z pamięcią p
 
 - [Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-vnet.md)
 
-- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](/azure/virtual-network/manage-ddos-protection)
+- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](../ddos-protection/manage-ddos-protection.md)
 
 **Odpowiedzialność**: Klient
 
@@ -118,7 +118,7 @@ Możesz również użyć grup zabezpieczeń aplikacji (ASG), aby uprościć zło
 
 - [Tagi usługi sieci wirtualnej](../virtual-network/service-tags-overview.md)
 
-- [Grupy zabezpieczeń aplikacji](/azure/virtual-network/security-overview#application-security-groups)
+- [Grupy zabezpieczeń aplikacji](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Odpowiedzialność**: Klient
 
@@ -145,7 +145,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 **Wskazówki**: Użyj tagów dla zasobów sieciowych skojarzonych z pamięcią podręczną platformy Azure w celu wdrożenia Redis, aby logicznie zorganizować je w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -155,9 +155,9 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z pamięcią podręczną platformy Azure dla wystąpień Redis. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -171,7 +171,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla każdej operacji zapisu (PUT, POST, DELETE) wykonanej na poziomie płaszczyzny kontroli dla pamięci podręcznej platformy Azure dla wystąpień Redis.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -183,7 +183,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 Chociaż metryki są dostępne przez włączenie ustawień diagnostycznych, rejestrowanie inspekcji w płaszczyźnie danych nie jest jeszcze dostępne dla usługi Azure cache for Redis.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -195,7 +195,7 @@ Chociaż metryki są dostępne przez włączenie ustawień diagnostycznych, reje
 
 Należy zauważyć, że rejestrowanie inspekcji w płaszczyźnie danych nie jest jeszcze dostępne dla usługi Azure cache for Redis.
 
-- [Jak ustawić parametry przechowywania dziennika](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Odpowiedzialność**: Klient
 
@@ -207,9 +207,9 @@ Należy zauważyć, że rejestrowanie inspekcji w płaszczyźnie danych nie jest
 
 Należy zauważyć, że rejestrowanie inspekcji w płaszczyźnie danych nie jest jeszcze dostępne dla usługi Azure cache for Redis.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
+- [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -221,7 +221,7 @@ Należy zauważyć, że rejestrowanie inspekcji w płaszczyźnie danych nie jest
 
 Chociaż metryki są dostępne przez włączenie ustawień diagnostycznych, rejestrowanie inspekcji w płaszczyźnie danych nie jest jeszcze dostępne dla usługi Azure cache for Redis.
 
-- [Jak skonfigurować alerty dla usługi Azure cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts)
+- [Jak skonfigurować alerty dla usługi Azure cache for Redis](./cache-how-to-monitor.md#alerts)
 
 **Odpowiedzialność**: Klient
 
@@ -235,9 +235,9 @@ Chociaż metryki są dostępne przez włączenie ustawień diagnostycznych, reje
 
 **Wskazówki**: Azure Active Directory (Azure AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Odpowiedzialność**: Klient
 
@@ -251,7 +251,7 @@ Dostęp za pomocą płaszczyzny danych do usługi Azure cache for Redis jest kon
 
 Nie zaleca się tworzenia domyślnych haseł do aplikacji. Zamiast tego można przechowywać hasła w Azure Key Vault a następnie pobierać je za pomocą usługi Azure AD.
 
-- [Jak wygenerować ponownie pamięć podręczną platformy Azure dla kluczy dostępu Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
+- [Jak wygenerować ponownie pamięć podręczną platformy Azure dla kluczy dostępu Redis](./cache-configure.md#settings)
 
 **Odpowiedzialność**: Współużytkowane
 
@@ -323,7 +323,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Jak wdrożyć Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Omówienie wykrywania ryzyka usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Omówienie wykrywania ryzyka usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Odpowiedzialność**: Klient
 
@@ -353,7 +353,7 @@ Uwierzytelniania usługi Azure AD nie można używać do bezpośredniego dostęp
 
 **Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -367,7 +367,7 @@ Uwierzytelniania usługi Azure AD nie można używać do bezpośredniego dostęp
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty dzienników można skonfigurować w ramach Log Analytics.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: w przypadku odróżnienia zachowania logowania do konta na płaszczyźnie kontroli użyj funkcji Azure Active Directory (Azure AD) Identity Protection i wykrywania ryzyka, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
-- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -397,7 +397,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -407,15 +407,15 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Pamięć podręczna Azure dla wystąpień Redis powinna być oddzielona przez sieć wirtualną/podsieć i odpowiednio oznakowane. Opcjonalnie użyj usługi Azure cache for Redis, aby zdefiniować reguły, tak aby tylko połączenia klienckie z określonych zakresów adresów IP mogły łączyć się z pamięcią podręczną.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 - [Jak wdrożyć usługę Azure cache for Redis w sieci wirtualnej](cache-how-to-premium-vnet.md)
 
-- [Jak skonfigurować usługę Azure cache for Redis reguły zapory](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
+- [Jak skonfigurować usługę Azure cache for Redis reguły zapory](./cache-configure.md#firewall)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -439,7 +439,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla usługi Azure cache fo
 
 - [Informacje o szyfrowaniu podczas przesyłania dla usługi Azure cache for Redis](cache-best-practices.md)
 
-- [Zrozumienie wymaganych portów używanych w scenariuszach pamięci podręcznej sieci wirtualnej](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#outbound-port-requirements)
+- [Zrozumienie wymaganych portów używanych w scenariuszach pamięci podręcznej sieci wirtualnej](./cache-how-to-premium-vnet.md#outbound-port-requirements)
 
 **Odpowiedzialność**: Współużytkowane
 
@@ -493,7 +493,7 @@ Dane w usłudze Azure Storage są szyfrowane i odszyfrowywane w sposób niewidoc
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty, kiedy zmiany są wprowadzane do wystąpień produkcyjnych usługi Azure cache for Redis i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -527,7 +527,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -539,7 +539,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -557,11 +557,11 @@ Ponadto należy używać Azure Policy do umieszczania ograniczeń dotyczących t
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Tworzenie grup zarządzania](/azure/governance/management-groups/create)
+- [Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Jak utworzyć i używać tagów zasobów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Jak utworzyć i używać tagów zasobów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -596,7 +596,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Odpowiedzialność**: Klient
 
@@ -624,7 +624,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -648,9 +648,9 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy lub szablonów Azure Resource Manager dla pamięci podręcznej platformy Azure dla wystąpień Redis i powiązanych zasobów, użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Odpowiedzialność**: Klient
 
@@ -684,7 +684,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 - [Jak utworzyć Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [Jak przeprowadzić uwierzytelnianie w Key Vault](/azure/key-vault/managed-identity)
+- [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Odpowiedzialność**: Klient
 
@@ -772,7 +772,7 @@ Okresowe testowanie przywracania danych tajnych Azure Key Vault.
 
 - [Jak używać usługi Azure cache do importowania Redis](cache-how-to-import-export-data.md)
 
-- [Jak przywrócić Key Vault wpisy tajne](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak przywrócić Key Vault wpisy tajne](/powershell/module/az.keyvault/restore-azkeyvaultsecret?preserve-view=true&view=azps-4.8.0)
 
 **Odpowiedzialność**: Klient
 
@@ -868,5 +868,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

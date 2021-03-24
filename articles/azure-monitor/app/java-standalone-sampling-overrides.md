@@ -6,23 +6,22 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 03d3093f14d97b2cc64d91e0d1b7adf34204a021
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962602"
+ms.locfileid: "105024151"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Przesłaniania próbek (wersja zapoznawcza) — Azure Monitor Application Insights dla środowiska Java
 
 > [!NOTE]
-> Funkcja zastąpień próbkowania jest dostępna w wersji zapoznawczej.
+> Funkcja zastąpień próbkowania jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3-BETA. 2.
 
-Poniżej przedstawiono niektóre przypadki użycia dla zastąpień próbkowania:
- * Pomiń zbieranie danych telemetrycznych na potrzeby kontroli kondycji.
- * Pomiń zbieranie danych telemetrycznych dla wywołań zależności dla szumów.
- * Zmniejszenie szumu z kontroli kondycji lub zakłóceń zależności bez pomijania ich całkowicie.
- * Zbieraj 100% danych telemetrycznych dla ważnego typu żądania (np. `/login` ), mimo że domyślne próbkowanie jest skonfigurowane jako mniejsze.
+Przesłaniania próbek umożliwiają przesłonięcie [domyślnego procentu próbkowania](./java-standalone-config.md#sampling), na przykład:
+ * Ustaw wartość procent próbkowania na 0 (lub niewielką wartość), aby sprawdzić kondycję.
+ * Ustaw wartość procent próbkowania na 0 (lub niewielką wartość) dla wywołań zależności.
+ * Ustaw wartość procentową próbkowania na 100 dla ważnego typu żądania (np.), mimo że `/login` domyślne próbkowanie jest skonfigurowane jako mniejsze.
 
 ## <a name="terminology"></a>Terminologia
 
@@ -79,7 +78,7 @@ Używane jest tylko pierwsze przesłonięcie próbkowania, które jest zgodne.
 
 Jeśli próbkowanie nie zastępuje żadnego dopasowania:
 
-* Jeśli jest to pierwszy zakres śledzenia, zostanie użyta [wartość procent normalnego próbkowania](./java-standalone-config.md#sampling) .
+* Jeśli jest to pierwszy zakres śledzenia, zostanie użyta [Domyślna wartość procentowa próbkowania](./java-standalone-config.md#sampling) .
 * Jeśli nie jest to pierwszy zakres śledzenia, zostanie użyta decyzja dotycząca próbkowania nadrzędnego.
 
 > [!IMPORTANT]

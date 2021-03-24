@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3d5e25df68bbf793535b22602ad581db24a1426f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008726"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022912"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -53,13 +53,22 @@ Uwierzytelnianie podstawowe protokołu HTTP jest zdefiniowane w [dokumencie RFC 
 > [!IMPORTANT]
 > Ta funkcja jest dostępna w wersji zapoznawczej i jest oferowana bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Uwierzytelnianie za pomocą certyfikatu klienta jest wzajemnym uwierzytelnianiem opartym na certyfikatach, w którym klient dostarcza do serwera certyfikat klienta w celu potwierdzenia jego tożsamości. W takim przypadku Azure Active Directory będzie używać certyfikatu przekazanego w ramach konfiguracji łącznika interfejsu API. Dzieje się tak w ramach uzgadniania protokołu SSL. Usługi API mogą uzyskiwać dostęp tylko do usług, które mają odpowiednie certyfikaty. Certyfikat klienta jest certyfikatem cyfrowym X. 509. W środowiskach produkcyjnych powinna być podpisana przez urząd certyfikacji. 
+Uwierzytelnianie za pomocą certyfikatu klienta to wzajemna Metoda uwierzytelniania oparta na certyfikatach, w której klient udostępnia certyfikat klienta serwerowi, aby potwierdzić jego tożsamość. W takim przypadku Azure Active Directory będzie używać certyfikatu przekazanego w ramach konfiguracji łącznika interfejsu API. Dzieje się tak w ramach uzgadniania protokołu SSL. Usługa API może następnie ograniczyć dostęp tylko do usług, które mają odpowiednie certyfikaty. Certyfikat klienta to certyfikat cyfrowy PKCS12 (PFX) X. 509. W środowiskach produkcyjnych powinna być podpisana przez urząd certyfikacji. 
 
-Aby utworzyć certyfikat, można użyć [Azure Key Vault](../../key-vault/certificates/create-certificate.md), który zawiera opcje dla certyfikatów z podpisem własnym i integracji z dostawcami wystawcy certyfikatów dla podpisanych certyfikatów. Następnie można [wyeksportować certyfikat](../../key-vault/certificates/how-to-export-certificate.md) i przekazać go do użytku w konfiguracji łączników interfejsu API. Należy pamiętać, że hasło jest wymagane tylko w przypadku plików certyfikatów chronionych hasłem. Możesz również użyć [polecenia cmdlet New-SelfSignedCertificate](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) programu PowerShell, aby wygenerować certyfikat z podpisem własnym.
+Aby utworzyć certyfikat, można użyć [Azure Key Vault](../../key-vault/certificates/create-certificate.md), który zawiera opcje dla certyfikatów z podpisem własnym i integracji z dostawcami wystawcy certyfikatów dla podpisanych certyfikatów. Zalecane ustawienia obejmują:
+- **Temat**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Typ zawartości**: `PKCS #12`
+- **Typ Acton okresu istnienia**: `Email all contacts at a given percentage lifetime` lub `Email all contacts a given number of days before expiry`
+- **Eksportowany klucz prywatny**: `Yes` (aby można było eksportować plik PFX)
 
-Aby uzyskać Azure App Service i Azure Functions, zobacz [Konfigurowanie wzajemnego uwierzytelniania TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) , aby dowiedzieć się, jak włączyć i zweryfikować certyfikat z punktu końcowego interfejsu API.
+Następnie można [wyeksportować certyfikat](../../key-vault/certificates/how-to-export-certificate.md). Możesz również użyć [polecenia cmdlet New-SelfSignedCertificate](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) programu PowerShell, aby wygenerować certyfikat z podpisem własnym.
 
-Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Wszystkie łączniki interfejsu API** i kliknij przycisk **Przekaż nowy certyfikat**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie użyty automatycznie przez Azure Active Directory.
+Po uzyskaniu certyfikatu można przekazać go w ramach konfiguracji łącznika interfejsu API. Należy pamiętać, że hasło jest wymagane tylko w przypadku plików certyfikatów chronionych hasłem.
+
+Interfejs API musi implementować autoryzację na podstawie wysłanych certyfikatów klienta, aby chronić punkty końcowe interfejsu API. Aby uzyskać Azure App Service i Azure Functions, zobacz [Konfigurowanie wzajemnego uwierzytelniania TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) , aby dowiedzieć się, jak włączyć i *zweryfikować certyfikat z kodu interfejsu API*.  Za pomocą usługi Azure API Management można również chronić interfejs API i [sprawdzać właściwości certyfikatu klienta](
+../../api-management/api-management-howto-mutual-certificates-for-clients.md) pod kątem żądanych wartości przy użyciu wyrażeń zasad.
+ 
+Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Konieczne będzie wygenerowanie nowego certyfikatu i powtórzenie powyższych kroków. Usługa interfejsu API może tymczasowo nadal akceptować stare i nowe certyfikaty podczas wdrażania nowego certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Wszystkie łączniki interfejsu API** i kliknij przycisk **Przekaż nowy certyfikat**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie automatycznie użyty przez Azure Active Directory.
 
 ### <a name="api-key"></a>Klucz interfejsu API
 Niektóre usługi używają mechanizmu "klucz interfejsu API", aby zasłaniać dostęp do punktów końcowych HTTP podczas opracowywania. Aby uzyskać [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), można to zrobić, dołączając `code` jako parametr zapytania w **adresie URL punktu końcowego**. Na przykład, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
