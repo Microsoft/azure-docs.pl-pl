@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5360057ec2dfbd2b40c6f086f5e910103c544b62
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929163"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865455"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii języka C# dla Apache Storm przy użyciu narzędzi Data Lake Tools for Visual Studio
 
@@ -128,7 +128,7 @@ Aby utworzyć projekt topologii języka C# w programie Visual Studio:
 
 1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *WORDCOUNT*, przejdź do lub Utwórz ścieżkę katalogu **lokalizacji** dla projektu, a następnie wybierz pozycję **Utwórz**.
 
-    ![Aplikacja burza, Konfigurowanie nowego projektu, okno dialogowe, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="Aplikacja burza, Konfigurowanie nowego projektu, okno dialogowe, Visual Studio" border="true":::
 
 Po utworzeniu projektu należy mieć następujące pliki:
 
@@ -333,7 +333,7 @@ Teraz Utwórz dwa piorunów burzy w tym przykładzie:
 
 Elementy Spout i pioruny są rozmieszczone na grafie, który definiuje sposób przepływu danych między składnikami. W przypadku tej topologii wykres jest następujący:
 
-![Diagramy rozmieszczenia składników elementu Spout i piorunów, topologia burzy](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Diagramy rozmieszczenia składników elementu Spout i piorunów, topologia burzy" border="false":::
 
 Elementu Spout emituje zdania, które są dystrybuowane do wystąpień pioruna rozdzielacza. Piorun rozdzielacza dzieli zdania na wyrazy, które są dystrybuowane do błyskawicy licznika.
 
@@ -413,7 +413,7 @@ Teraz można przystąpić do przesyłania topologii do klastra usługi HDInsight
 
     Po pomyślnym przesłaniu topologii należy **wyświetlić okno widok topologii burzy** dla tego klastra. Wybierz topologię **WORDCOUNT** z listy, aby wyświetlić informacje o uruchomionej topologii.
 
-    ![Okno widoku topologii burzy, klaster usługi HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="Okno widoku topologii burzy, klaster usługi HDInsight, Visual Studio" border="true":::
 
     > [!NOTE]  
     > Można również wyświetlić **topologie burzy** w **Eksplorator serwera**. Rozwiń węzeł **Azure**  >  **HDInsight**, kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz polecenie **Wyświetl topologie burzy**.
@@ -567,7 +567,7 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
 
 1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Właściwości**. We właściwościach projektu. Następnie zmień **Typ danych wyjściowych** na **aplikację konsolową**.
 
-   ![Aplikacja burzowa usługi HDInsight, właściwości projektu, typ danych wyjściowych](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="Aplikacja burzowa usługi HDInsight, właściwości projektu, typ danych wyjściowych" border="true":::
 
    > [!NOTE]
    > Pamiętaj, aby zmienić **Typ danych wyjściowych** z powrotem na **bibliotekę klas** przed wdrożeniem topologii w klastrze.

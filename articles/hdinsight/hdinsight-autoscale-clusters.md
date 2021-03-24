@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942641"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863772"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -91,7 +91,7 @@ Aby włączyć funkcję automatycznego skalowania z skalowaniem opartym na obci�
     * **Minimalna** liczba węzłów procesu roboczego.
     * **Maksymalna** liczba węzłów procesu roboczego.
 
-    ![Włącz automatyczne skalowanie w węźle procesu roboczego](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png" alt-text="Włącz automatyczne skalowanie w węźle procesu roboczego":::
 
 Początkowa liczba węzłów procesu roboczego musi należeć do zakresu od minimum do maksimum włącznie. Ta wartość definiuje początkowy rozmiar klastra podczas jego tworzenia. Minimalna liczba węzłów procesu roboczego powinna być ustawiona na trzy lub więcej. Skalowanie klastra do mniej niż trzech węzłów może spowodować zatrzymanie trybu awaryjnego z powodu niewystarczającej replikacji plików.  Aby uzyskać więcej informacji, zobacz [Uruchamianie w trybie awaryjnym](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
@@ -108,7 +108,7 @@ Aby włączyć funkcję automatycznego skalowania z skalowaniem opartym na harmo
 1. Edytuj czas, w którym warunek powinien obowiązywać, oraz liczbę węzłów, do których należy przeskalować klaster.
 1. W razie konieczności Dodaj więcej warunków.
 
-    ![Włączanie tworzenia opartego na harmonogramie węzłów procesu roboczego](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png" alt-text="Włączanie tworzenia opartego na harmonogramie węzłów procesu roboczego":::
 
 Liczba węzłów musi zawierać się w przedziale od 3 do maksymalnej liczby wprowadzonych węzłów procesu roboczego przed dodaniem warunków.
 
@@ -116,7 +116,7 @@ Liczba węzłów musi zawierać się w przedziale od 3 do maksymalnej liczby wpr
 
 Wybierz typ maszyny wirtualnej dla węzłów procesu roboczego, wybierając maszynę wirtualną z listy rozwijanej w obszarze **rozmiar węzła**. Po wybraniu typu maszyny wirtualnej dla każdego typu węzła można zobaczyć szacowany zakres kosztów dla całego klastra. Dostosuj typy maszyn wirtualnych tak, aby pasowały do budżetu.
 
-![Włącz rozmiar węzła skalowania automatycznego na podstawie harmonogramu węzła procesu roboczego](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png" alt-text="Włącz rozmiar węzła skalowania automatycznego na podstawie harmonogramu węzła procesu roboczego":::
 
 Twoja subskrypcja ma przydział pojemności dla każdego regionu. Łączna liczba rdzeni węzłów głównych i maksymalnych węzłów procesów roboczych nie może przekroczyć limitu przydziału pojemności. Ten limit przydziału jest jednak limitem nieelastycznym; zawsze możesz utworzyć bilet pomocy technicznej, aby ułatwić jego zwiększenie.
 
@@ -193,7 +193,7 @@ Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatyczneg
 
 Aby włączyć automatyczne skalowanie w uruchomionym klastrze, wybierz pozycję **rozmiar klastra** w obszarze **Ustawienia**. Następnie wybierz pozycję **Włącz automatyczne skalowanie**. Wybierz odpowiedni typ automatycznego skalowania i wprowadź opcje skalowania opartego na załadowaniu lub na podstawie harmonogramu. Na koniec wybierz pozycję **Zapisz**.
 
-![Włącz automatyczne skalowanie uruchomionego klastra opartego na harmonogramie węzłów procesu roboczego](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png" alt-text="Włącz automatyczne skalowanie uruchomionego klastra opartego na harmonogramie węzłów procesu roboczego":::
 
 #### <a name="using-the-rest-api"></a>Korzystanie z interfejsu API REST
 
@@ -217,7 +217,7 @@ Zobacz poprzednią sekcję na temat [włączania automatycznego skalowania na po
 
 Stan klastra wymieniony w Azure Portal może pomóc w monitorowaniu działań skalowania automatycznego.
 
-![Włącz stan klastra skalowania automatycznego na podstawie obciążenia węzła procesu roboczego](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png" alt-text="Włącz stan klastra skalowania automatycznego na podstawie obciążenia węzła procesu roboczego":::
 
 Na poniższej liście objaśniono wszystkie komunikaty o stanie klastra, które mogą zostać wyświetlone.
 
@@ -237,7 +237,7 @@ Możesz wyświetlić historię skalowania i skalowania w poziomie klastra w rama
 
 Wybierz pozycję **metryki** w obszarze **monitorowanie**. Następnie w polu listy rozwijanej **Metryka** wybierz pozycję **Dodaj metrykę** i **liczbę aktywnych procesów roboczych** . Wybierz przycisk w prawym górnym rogu, aby zmienić zakres czasu.
 
-![Włącz metrykę skalowania automatycznego opartego na harmonogramie węzłów procesu roboczego](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png" alt-text="Włącz metrykę skalowania automatycznego opartego na harmonogramie węzłów procesu roboczego":::
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 

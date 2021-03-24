@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef2bc5e00779200e5447c8829a437824657a2227
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930386"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865982"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Jądra dla Jupyter Notebook w klastrach Apache Spark w usłudze Azure HDInsight
 
@@ -32,7 +32,7 @@ Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [Twor
 
 2. W widoku **Przegląd** w polu **pulpity nawigacyjne klastra** wybierz pozycję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
 
-    ![Jupyter Notebook na Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook na platformie Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Jupyter Notebook na Apache Spark" border="true":::
   
    > [!NOTE]  
    > Możesz również uzyskać dostęp do Jupyter Notebook w klastrze Spark, otwierając następujący adres URL w przeglądarce. Zastąp ciąg **CLUSTERNAME** nazwą klastra:
@@ -41,7 +41,7 @@ Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [Twor
 
 3. Wybierz pozycję **Nowy**, a następnie wybierz opcję **Pyspark**, **PySpark3** lub **Spark** , aby utworzyć Notes. Użyj jądra Spark dla aplikacji Scala, jądra PySpark dla aplikacji python2 oraz jądra PySpark3 dla aplikacji python3.
 
-    ![Jądra dla Jupyter Notebook na platformie Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Jądra dla Jupyter Notebook na platformie Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png " alt-text="Jądra dla Jupyter Notebook na platformie Spark" border="true":::
 
 4. Zostanie otwarty Notes z wybranym jądrem.
 

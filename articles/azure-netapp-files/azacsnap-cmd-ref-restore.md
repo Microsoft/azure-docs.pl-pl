@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1c6b7ec6c4ef24ec00fbfc55a65a968e00561c2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 793b4da8fcf46ba4d5618f8ada86f9c3c8026ffd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632898"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865268"
 ---
 # <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Przywracanie za pomocą narzędzia migawek spójnej na platformie Azure (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Przywracanie woluminu z migawki odbywa się przy użyciu `azacsnap -c restore` p
 - `--restore revertvolume` Przywraca wolumin docelowy do poprzedniego stanu w oparciu o najnowszą migawkę.  Użycie tego polecenia jako części trybu failover odzyskiwania po awarii w sparowanym regionie DR. To polecenie powoduje zatrzymanie replikacji magazynu z lokacji głównej do lokacji dodatkowej i przywrócenie docelowych woluminów DR do ich najnowszej dostępnej migawki na woluminach odzyskiwania po **awarii** oraz zalecanym mountpoints systemu plików dla przywróconych woluminów Dr. To polecenie powinno być uruchamiane w systemie Azure Large instance system **w regionie** odzyskiwania po awarii (czyli w systemie docelowym w trybie failover).
     > [!NOTE]
     > Polecenie sub ( `--restore revertvolume` ) jest dostępne tylko dla dużych wystąpień platformy Azure i nie jest dostępne dla Azure NetApp Files.
-- `--hanasid <SAP HANA SID>` Czy SAP HANA identyfikator SID jest wybierany z pliku konfiguracji w celu zastosowania poleceń przywracania woluminu do programu.
+- `--dbsid <SAP HANA SID>` Czy SAP HANA identyfikator SID jest wybierany z pliku konfiguracji w celu zastosowania poleceń przywracania woluminu do programu.
 
 - `[--configfile <config filename>]` jest opcjonalnym parametrem umożliwiającym stosowanie niestandardowych nazw plików konfiguracji.
 
@@ -64,7 +64,7 @@ Plik konfiguracji (na przykład `DR.json` ) powinien zawierać tylko woluminy Dr
 ### <a name="output-of-the-azacsnap--c-restore---restore-snaptovol-command-for-single-node-scenario"></a>Dane wyjściowe `azacsnap -c restore --restore snaptovol` polecenia (dla scenariusza Single-Node)
 
 ```output
-> azacsnap --configfile DR.json -c restore --restore snaptovol --hanasid H80
+> azacsnap --configfile DR.json -c restore --restore snaptovol --dbsid H80
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.

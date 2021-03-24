@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 824ba2c3316ccb34b59a9e435b9a6e582f137090
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945914"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866594"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Włączanie zrzutów sterty dla usług Apache Hadoop w usłudze HDInsight opartej na systemie Linux
 
@@ -82,15 +82,15 @@ Aby zmodyfikować konfigurację usługi, wykonaj następujące czynności:
 
 2. Korzystając z listy po lewej stronie, wybierz obszar usługi, który chcesz zmodyfikować. Na przykład system plików **HDFS**. W środkowym obszarze **Wybierz kartę konfiguracje** .
 
-    ![Obraz przedstawiający kartę Ambari Web with HDFS configs Selected](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png" alt-text="Obraz przedstawiający kartę Ambari Web with HDFS configs Selected":::
 
 3. Korzystając z wpisu **Filter...** **, wpisz polecenie**. Wyświetlane są tylko elementy zawierające ten tekst.
 
-    ![Lista przefiltrowanych konfiguracji oprogramowania Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Lista przefiltrowanych konfiguracji oprogramowania Apache Ambari":::
 
 4. Znajdź wpis **\* \_ opcji** dla usługi, dla której chcesz włączyć Zrzuty sterty, i Dodaj opcje, które chcesz włączyć. Na poniższej ilustracji dodaliśmy `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` do wpisu **NAMENODE usługi HADOOP: \_ \_**
 
-    ![Apache Ambari Hadoop-namenode-](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari Hadoop-namenode-":::
 
    > [!NOTE]  
    > Podczas włączania zrzutów sterty dla mapy lub Zmniejsz proces podrzędny należy poszukać pól o nazwach **MapReduce. admin. map. Child. Java** . 
@@ -99,15 +99,15 @@ Aby zmodyfikować konfigurację usługi, wykonaj następujące czynności:
 
 5. Po zastosowaniu zmian ikona **wymagane ponowne uruchomienie** zostanie wyświetlona obok jednej lub kilku usług.
 
-    ![ikona wymagane ponowne uruchomienie i przycisk ponownego uruchomienia](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png" alt-text="ikona wymagane ponowne uruchomienie i przycisk ponownego uruchomienia":::
 
 6. Wybierz każdą usługę, która wymaga ponownego uruchomienia, a następnie użyj przycisku **Akcje usługi** , aby **włączyć tryb konserwacji**. Tryb konserwacji uniemożliwia generowanie alertów z usługi po jej ponownym uruchomieniu.
 
-    ![Włącz menu Tryb konserwacji HDI](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="Włącz menu Tryb konserwacji HDI":::
 
 7. Po włączeniu trybu konserwacji Użyj przycisku **Uruchom ponownie** , aby **ponownie uruchomić** usługę.
 
-    ![Apache Ambari uruchamia ponownie wszystkie uwzględnione wpisy](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari uruchamia ponownie wszystkie uwzględnione wpisy":::
 
    > [!NOTE]  
    > Wpisy dla przycisku **Uruchom ponownie** mogą się różnić w zależności od innych usług.

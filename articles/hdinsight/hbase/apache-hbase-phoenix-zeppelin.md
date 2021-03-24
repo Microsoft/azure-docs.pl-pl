@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ff963e661a2b258c1eb452ed63f41f4e7d84c6a0
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944776"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867784"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Korzystanie z programu Apache Zeppelin do uruchamiania zapytań Apache Phoenix w usłudze Apache HBase w usłudze Azure HDInsight
 
@@ -30,68 +30,68 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
 
 1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę**.
 
-    ![Zapytanie interaktywne Zeppelin usługi HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
+   :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png" alt-text="Zapytanie interaktywne Zeppelin usługi HDInsight" border="true":::
 
 1. W oknie dialogowym **Tworzenie nowej notatki** wpisz lub wybierz następujące wartości:
 
-    - Nazwa komentarza: Wprowadź nazwę notatki.
-    - Interpreter domyślny: wybierz pozycję **JDBC** z listy rozwijanej.
+   - Nazwa komentarza: Wprowadź nazwę notatki.
+   - Interpreter domyślny: wybierz pozycję **JDBC** z listy rozwijanej.
 
-    Następnie wybierz pozycję **Utwórz notatkę**.
+   Następnie wybierz pozycję **Utwórz notatkę**.
 
 1. Upewnij się, że nagłówek notesu pokazuje połączony stan. Jest ona oznaczona zieloną kropką w prawym górnym rogu.
 
-    ![Stan notesu Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stan notesu Zeppelin")
+   :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png" alt-text="Stan notesu Zeppelin" border="true":::
 
 1. Utwórz tabelę HBase. Wprowadź następujące polecenie, a następnie naciśnij klawisze **SHIFT + ENTER**:
 
-    ```sql
-    %jdbc(phoenix)
-    CREATE TABLE Company (
-        company_id INTEGER PRIMARY KEY,
-        name VARCHAR(225)
-    );
-    ```
+   ```sql
+   %jdbc(phoenix)
+   CREATE TABLE Company (
+       company_id INTEGER PRIMARY KEY,
+       name VARCHAR(225)
+   );
+   ```
 
-    Instrukcja **% JDBC (Phoenix)** w pierwszym wierszu instruuje Notes, aby korzystał z interpretera JDBC w Phoenix.
+   Instrukcja **% JDBC (Phoenix)** w pierwszym wierszu instruuje Notes, aby korzystał z interpretera JDBC w Phoenix.
 
 1. Wyświetl utworzone tabele.
 
-    ```sql
-    %jdbc(phoenix)
-    SELECT DISTINCT table_name
-    FROM SYSTEM.CATALOG
-    WHERE table_schem is null or table_schem <> 'SYSTEM';
-    ```
+   ```sql
+   %jdbc(phoenix)
+   SELECT DISTINCT table_name
+   FROM SYSTEM.CATALOG
+   WHERE table_schem is null or table_schem <> 'SYSTEM';
+   ```
 
 1. Wstaw wartości w tabeli.
 
-    ```sql
-    %jdbc(phoenix)
-    UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
-    UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
-    ```
+   ```sql
+   %jdbc(phoenix)
+   UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
+   UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
+   ```
 
 1. Zbadaj tabelę.
 
-    ```sql
-    %jdbc(phoenix)
-    SELECT * FROM dbo.Company;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   SELECT * FROM dbo.Company;
+   ```
 
 1. Usuń rekord.
 
-    ```sql
-    %jdbc(phoenix)
-    DELETE FROM dbo.Company WHERE COMPANY_ID=1;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   DELETE FROM dbo.Company WHERE COMPANY_ID=1;
+   ```
 
 1. Usuń tabelę.
 
-    ```sql
-    %jdbc(phoenix)
-    DROP TABLE dbo.Company;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   DROP TABLE dbo.Company;
+   ```
 
 ## <a name="next-steps"></a>Następne kroki
 

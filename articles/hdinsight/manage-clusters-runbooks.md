@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944044"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864792"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Samouczek: tworzenie klastrów usługi Azure HDInsight za pomocą Azure Automation
 
@@ -38,16 +38,16 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 1. W polu wpisz **AzureRM. profile** i naciśnij klawisz ENTER, aby wyszukać. Wybierz dostępny wynik wyszukiwania.
 1. Na ekranie **AzureRM. profil** wybierz pozycję **Importuj**. Zaznacz pole wyboru, aby zaktualizować moduły platformy Azure, a następnie wybierz przycisk **OK**.
 
-    ![Importuj moduł AzureRM. profile](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermprofile-module.png" alt-text="Importuj moduł AzureRM. profile" border="false":::
 
 1. Wróć do galerii modułów, wybierając pozycję **Galeria modułów** w obszarze **zasoby udostępnione**.
 1. Typ **HDInsight**. Wybierz **AzureRM. HDInsight**.
 
-    ![Przeglądaj moduły usługi HDInsight](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/browse-modules-hdinsight.png" alt-text="Przeglądaj moduły usługi HDInsight" border="true":::
 
 1. W panelu **AzureRM. HDInsight** wybierz pozycję **Importuj** i **przycisk OK**.
 
-    ![Importuj moduł AzureRM. HDInsight](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermhdinsight-module.png" alt-text="Importuj moduł AzureRM. HDInsight" border="true":::
 
 ## <a name="create-credentials"></a>Utwórz poświadczenia
 
@@ -65,7 +65,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 1. Wybierz przycisk **Utwórz**.
 1. Powtórz ten sam proces dla nowego poświadczenia `ssh-password` przy użyciu nazwy użytkownika `sshuser` i wybranego hasła. Wybierz przycisk **Utwórz**. To poświadczenie ma na celu przechowywanie hasła SSH dla klastra.
 
-    ![tworzenie poświadczenia](./media/manage-clusters-runbooks/create-credentials.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="tworzenie poświadczenia" border="true":::
 
 ## <a name="create-a-runbook-to-create-a-cluster"></a>Tworzenie elementu Runbook w celu utworzenia klastra
 
@@ -74,11 +74,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 1. W panelu **Tworzenie elementu Runbook** wprowadź nazwę elementu Runbook, na przykład `hdinsight-cluster-create` . Wybierz opcję **PowerShell** z listy rozwijanej **Typ elementu Runbook** .
 1. Wybierz przycisk **Utwórz**.
 
-    ![Utwórz element Runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="Utwórz element Runbook" border="true":::
 
 1. Wprowadź następujący kod na ekranie **Edycja elementu Runbook programu PowerShell** i wybierz pozycję **Publikuj**:
 
-    ![Publikowanie elementu Runbook](./media/manage-clusters-runbooks/publish-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/publish-runbook.png" alt-text="Publikowanie elementu Runbook" border="true":::
 
     ```powershell
     Param
@@ -154,7 +154,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 1. Wybierz pozycję **Rozpocznij** , aby natychmiast wykonać element Runbook. Można również zaplanować okresowe uruchamianie elementów Runbook. Zobacz [Planowanie elementu Runbook w Azure Automation](../automation/shared-resources/schedules.md)
 1. Wprowadź parametry wymagane dla skryptu i wybierz **przycisk OK**. Spowoduje to utworzenie nowego klastra usługi HDInsight o nazwie określonej w parametrze **ClusterName** .
 
-    ![Wykonaj Tworzenie elementu Runbook tworzenia klastra](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="Wykonaj Tworzenie elementu Runbook tworzenia klastra" border="true":::
 
 ### <a name="delete-a-cluster"></a>Usuwanie klastra
 

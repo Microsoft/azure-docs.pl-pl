@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13862e642c6a91fe6f3c635df2efde91672ecbad
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946698"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866815"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Łączenie programu Excel z Apache Hadoop przy użyciu Power Query
 
@@ -42,13 +42,13 @@ Dodatek Power Query dla programu Excel ułatwia importowanie danych z klastra us
 
      * Wybierz pozycję > **dane**  >  **Pobierz dane**  >  **z platformy Azure**  >  **z usługi Azure HDInsight (HDFS)**.
 
-       ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png" alt-text="HDI. PowerQuery. SelectHdiSource. 2016" border="true":::
 
    * Excel 2013/2010
 
      * Wybierz **Power Query**  >  **z platformy Azure**  >  **z Microsoft Azure HDInsight**.
 
-       ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png" alt-text="HDI. PowerQuery. SelectHdiSource" border="true":::
 
        **Uwaga:** Jeśli nie widzisz menu **Power Query** , przejdź do pozycji   >  **Opcje** pliku  >  **Dodatki** i wybierz opcję **Dodatki COM** w polu rozwijanym **Zarządzaj** w dolnej części strony. Wybierz przycisk **Przejdź...** i sprawdź, czy pole dla dodatku dla Power Query dla programu Excel zostało zaznaczone.
 
@@ -62,11 +62,11 @@ Dodatek Power Query dla programu Excel ułatwia importowanie danych z klastra us
 
 1. Znajdź **HiveSampleData.txt** w kolumnie **Nazwa** (ścieżka folderu to **... /Hive/Warehouse/hivesampletable/**), a następnie wybierz pozycję **Binary** po lewej stronie HiveSampleData.txt. HiveSampleData.txt jest dostarczany ze wszystkimi klastrami. Opcjonalnie możesz użyć własnego pliku.
 
-    ![Zaimportuj dane programu Excel w programie HDI](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png" alt-text="Zaimportuj dane programu Excel w programie HDI" border="true":::
 
 1. Jeśli chcesz, możesz zmienić nazwy kolumn. Gdy wszystko będzie gotowe, wybierz pozycję **zamknij & obciążenie**.  Dane zostały załadowane do skoroszytu:
 
-    ![HDI zaimportowaną tabelę programu Excel dla dodatku PowerShell](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png" alt-text="HDI zaimportowaną tabelę programu Excel dla dodatku PowerShell" border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

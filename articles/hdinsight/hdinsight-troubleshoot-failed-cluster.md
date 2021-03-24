@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: eae5b5e1430f4e9bf1db62a4413e3b7abe3744cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 660c80a471739f7dc0163e915f45e3a067e1e4b2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699321"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871966"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Rozwiązywanie problemów dotyczących wolnego działania lub niepowodzenia zadania w klastrze usługi HDInsight
 
@@ -51,7 +51,7 @@ Ważne informacje o klastrze obejmują:
 
 Azure Portal może podać następujące informacje:
 
-![Informacje dotyczące Azure Portal usługi HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png" alt-text="Informacje dotyczące Azure Portal usługi HDInsight":::
 
 Możesz również użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/):
 
@@ -77,7 +77,7 @@ Każdy klaster usługi HDInsight opiera się na różnych usługach platformy Az
 
 Usługa Apache Ambari umożliwia zarządzanie klastrem usługi HDInsight i monitorowanie go za pomocą interfejsu użytkownika sieci Web i interfejsu API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight opartych na systemie Linux. Na stronie Azure Portal HDInsight Wybierz okienko **pulpit nawigacyjny klastra** .  Wybierz okienko **pulpit nawigacyjny klastra usługi HDInsight** , aby otworzyć interfejs użytkownika Ambari, a następnie wprowadź poświadczenia logowania do klastra.  
 
-![Pulpit nawigacyjny Apache Ambari — Omówienie](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png" alt-text="Pulpit nawigacyjny Apache Ambari — Omówienie":::
 
 Aby otworzyć listę widoków usług, wybierz pozycję **widoki Ambari** na stronie Azure Portal.  Ta lista jest zależna od tego, które biblioteki są zainstalowane. Na przykład można zobaczyć Menedżera kolejki PRZĘDZy, widok Hive i widok tez.  Wybierz łącze usługi, aby wyświetlić informacje o konfiguracji i usłudze.
 
@@ -124,7 +124,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari wyświetla alert pokazujący hosty, na których nie działa usługa WebHCat. Można spróbować wykonać kopię zapasową usługi WebHCat, uruchamiając ponownie usługę na hoście.
 
-![Serwer Apache Ambari ponowne uruchomienie serwera WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png" alt-text="Serwer Apache Ambari ponowne uruchomienie serwera WebHCat":::
 
 Jeśli serwer WebHCat nadal nie działa, sprawdź dziennik operacji pod kątem komunikatów o niepowodzeniu. Aby uzyskać szczegółowe informacje, sprawdź `stderr` pliki i, `stdout` do których odwołuje się węzeł.
 
@@ -173,7 +173,7 @@ Na poziomie PRZĘDZenia istnieją dwa typy limitów czasu:
 
     Na poniższej ilustracji przedstawiono kolejkę joblauncher na 714,4% nadużycia. Jest to akceptowalne, o ile nadal trwa bezpłatna pojemność w kolejce domyślnej. Jeśli jednak klaster jest w pełni wykorzystany i pojemność pamięci PRZĘDZy wynosi o 100%, nowe zadania muszą oczekiwać, co ostatecznie powoduje przekroczenie limitu czasu.
 
-    ![Widok kolejki uruchamiania zadań usługi HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
+    :::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png" alt-text="Widok kolejki uruchamiania zadań usługi HDInsight":::
 
     Istnieją dwa sposoby rozwiązania tego problemu: Zmniejsz szybkość przesyłania nowych zadań lub Zwiększ szybkość użycia starych zadań, skalując klaster.
 
@@ -205,7 +205,7 @@ Aby zdiagnozować te problemy:
 
 Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usług klastra i historii wersji usługi.  Niepoprawna wersja biblioteki usługi Hadoop może być przyczyną awarii klastra.  W interfejsie użytkownika Ambari wybierz menu **administrator** , a następnie kliknij  **stosy i wersje**.  Wybierz kartę **wersje** na stronie, aby wyświetlić informacje o wersji usługi:
 
-![Stos i wersje oprogramowania Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png" alt-text="Stos i wersje oprogramowania Apache Ambari":::
 
 ## <a name="step-5-examine-the-log-files"></a>Krok 5. Sprawdzanie plików dziennika
 
@@ -229,7 +229,7 @@ Interfejs użytkownika usługi HDInsight Ambari zawiera kilka sekcji **szybkie �
 
 Na przykład w przypadku dzienników HDFS:
 
-![Ambari szybkie linki do plików dziennika](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png" alt-text="Ambari szybkie linki do plików dziennika":::
 
 ### <a name="view-hadoop-generated-log-files"></a>Wyświetlanie plików dzienników generowanych przez usługi Hadoop
 

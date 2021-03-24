@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 2b5c053847852cc6090ee94858a5be52275d62fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 71e02ea1265a81da7dd2e85549f6d1390a46311a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101725343"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952239"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -444,7 +444,7 @@ Tworzysz Azure Machine Learning połączonej usługi, aby połączyć obszar rob
 | mlWorkspaceName        | Nazwa obszaru roboczego Azure Machine Learning | Tak  |
 | servicePrincipalId     | Określ identyfikator klienta aplikacji.     | Nie |
 | servicePrincipalKey    | Określ klucz aplikacji.           | Nie |
-| dzierżaw                 | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Wymagane, jeśli określono właściwości updateresourceendpoint | Nie |
+| dzierżaw                 | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Wymagane, jeśli określono właściwości updateresourceendpoint |
 | Właściwością connectvia             | Integration Runtime używany do wysyłania działań do tej połączonej usługi. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics połączona usługa

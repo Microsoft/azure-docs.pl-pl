@@ -8,17 +8,17 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 7b7e29b6e2ebb3b229045df439848264540b59b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/18/2021
+ms.openlocfilehash: ec41f7503ec179cb1fa6172e94e613933f719c93
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461627"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953621"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
- Środowisko Azure Time Series Insights Gen2 może mieć do dwóch źródeł zdarzeń przesyłania strumieniowego. Jako dane wejściowe są obsługiwane dwa typy zasobów platformy Azure:
+Środowisko Azure Time Series Insights Gen2 może mieć do dwóch źródeł zdarzeń przesyłania strumieniowego. Jako dane wejściowe są obsługiwane dwa typy zasobów platformy Azure:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
@@ -27,19 +27,41 @@ Zdarzenia muszą być wysyłane jako zakodowany w formacie UTF-8 kod JSON.
 
 ## <a name="create-or-edit-event-sources"></a>Tworzenie lub edytowanie źródeł zdarzeń
 
-Zasoby źródłowe zdarzeń mogą się znajdować w tej samej subskrypcji platformy Azure co środowisko Azure Time Series Insights Gen2 lub inną subskrypcję. Możesz użyć [Azure Portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [szablonów ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)i [interfejsu API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) do tworzenia, edytowania lub usuwania źródeł zdarzeń środowiska.
+Źródłem zdarzenia jest link między centrum a Azure Time Series Insights środowiskiem Gen2 i `Time Series Insights event source` w grupie zasobów jest tworzony oddzielny zasób typu. IoT Hub lub zasoby centrum zdarzeń mogą znajdować się w tej samej subskrypcji platformy Azure co środowisko Azure Time Series Insights Gen2 lub inną subskrypcję. Jednak najlepszym rozwiązaniem jest otoczenie środowiska Azure Time Series Insights i IoT Hub lub centrum zdarzeń w tym samym regionie świadczenia usługi Azure.
 
-Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series Insights Gen2 odczytuje wszystkie zdarzenia przechowywane obecnie w usłudze IoT lub centrum zdarzeń, rozpoczynając od najstarszego zdarzenia.
+Możesz użyć [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), [szablonów Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md)i [interfejsu API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) do tworzenia, edytowania lub usuwania źródeł zdarzeń środowiska.
+
+## <a name="start-options"></a>Opcje uruchamiania
+
+Podczas tworzenia źródła zdarzeń można określić, jakie istniejące dane mają być zbierane. To ustawienie jest opcjonalne. Dostępne są następujące opcje:
+
+| Nazwa   |  Opis  |  Przykład szablonu Azure Resource Manager |
+|----------|-------------|------|
+| EarliestAvailable | Pozyskiwanie wszystkich wstępnie istniejących danych przechowywanych w usłudze IoT lub centrum zdarzeń | `"ingressStartAt": {"type": "EarliestAvailable"}` |
+| EventSourceCreationTime |  Rozpocznij pozyskiwanie danych, które docierają po utworzeniu źródła zdarzenia. Wszystkie istniejące wcześniej dane, które były przesyłane strumieniowo przed utworzeniem źródła zdarzenia, zostaną zignorowane. Jest to ustawienie domyślne w Azure Portal   |   `"ingressStartAt": {"type": "EventSourceCreationTime"}` |
+| CustomEnqueuedTime | Twoje środowisko pozyskuje dane z niestandardowego czasu w kolejce (UTC) do przodu. Wszystkie zdarzenia, które zostały dodane do kolejki IoT lub centrum zdarzeń w lub po niestandardowym czasie zapamiętania, zostaną przechowane i zapisane. Wszystkie zdarzenia, które dotarły przed czasem niestandardowego, zostaną zignorowane. Należy pamiętać, że "czas w kolejce" odnosi się do czasu (w formacie UTC), który zdarzenie dotarło do centrum IoT lub centrów zdarzeń. Różni się to od niestandardowej [Właściwości sygnatury czasowej](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp) , która znajduje się w treści zdarzenia. |     `"ingressStartAt": {"type": "CustomEnqueuedTime", "time": "2021-03-01T17:00:00.20Z"}` |
 
 > [!IMPORTANT]
 >
-> - Podczas dołączania źródła zdarzeń do środowiska Azure Time Series Insights Gen2 może wystąpić wysokie początkowe opóźnienie.
-> - Opóźnienie źródła zdarzenia zależy od liczby zdarzeń znajdujących się obecnie w IoT Hub lub centrum zdarzeń.
-> - Duże opóźnienie zostanie umieszczone po pierwszym pozyskaniu danych źródła zdarzenia. Prześlij bilet pomocy technicznej za pomocą Azure Portal, jeśli wystąpią duże opóźnienia.
+> - Jeśli wybierzesz pozycję EarliestAvailable i masz wiele istniejących danych, może wystąpić wysokie początkowe opóźnienie, ponieważ środowisko Azure Time Series Insights Gen2 przetwarza wszystkie dane.
+> - To duże opóźnienie powinno być ostatecznie umieszczone jako dane są indeksowane. Prześlij bilet pomocy technicznej za pomocą Azure Portal, jeśli wystąpią duże opóźnienia.
+
+* EarliestAvailable
+
+![Diagram EarliestAvailable](media/concepts-streaming-event-sources/event-source-earliest-available.png)
+
+* EventSourceCreationTime
+
+![Diagram EventSourceCreationTime](media/concepts-streaming-event-sources/event-source-creation-time.png)
+
+* CustomEnqueuedTime
+
+![Diagram CustomEnqueuedTime](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
+
 
 ## <a name="streaming-ingestion-best-practices"></a>Najlepsze rozwiązania pozyskiwania strumieniowego
 
-- Zawsze należy utworzyć unikatową grupę odbiorców dla środowiska Azure Time Series Insights Gen2, aby używać danych ze źródła zdarzeń. Ponowne używanie grup odbiorców może spowodować losowe odłączenie i może skutkować utratą danych.
+- Zawsze należy utworzyć unikatową grupę odbiorców dla środowiska Azure Time Series Insights Gen2, aby używać danych ze źródła zdarzeń. Ponowne użycie grup odbiorców może spowodować losowe odłączenie i może spowodować utratę danych.
 
 - Skonfiguruj środowisko Azure Time Series Insights Gen2 i IoT Hub i/lub Event Hubs w tym samym regionie świadczenia usługi Azure. Chociaż istnieje możliwość skonfigurowania źródła zdarzeń w osobnym regionie, ten scenariusz nie jest obsługiwany, a firma Microsoft nie może zagwarantować wysokiej dostępności.
 
@@ -53,11 +75,14 @@ Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series
 
 - Stosuj zasadę najniższych uprawnień podczas udostępniania parametrów połączenia źródła zdarzeń. W przypadku Event Hubs Skonfiguruj zasady dostępu współdzielonego tylko przy użyciu tylko żądania *wysyłania* , a dla IoT Hub Użyj tylko uprawnienia *usługi Connect* .
 
+> [!CAUTION] 
+> Jeśli usuniesz IoT Hub lub centrum zdarzeń i ponownie utworzysz nowy zasób o tej samej nazwie, musisz utworzyć nowe źródło zdarzenia i dołączyć nowe IoT Hub lub centrum zdarzeń. Dane nie zostaną pozyskane do momentu ukończenia tego kroku.
+
 ## <a name="production-workloads"></a>Obciążenia produkcyjne
 
 Oprócz najlepszych praktyk zaleca się wdrożenie następujących rozwiązań dla obciążeń krytycznych dla działalności biznesowej.
 
-- Zwiększ czas przechowywania danych IoT Hub lub centrum zdarzeń do maksymalnie 7 dni.
+- Zwiększ czas przechowywania danych IoT Hub lub centrum zdarzeń do maksymalnie siedmiu dni.
 
 - Utwórz alerty środowiska w Azure Portal. Alerty oparte na [metrykach](./how-to-monitor-tsi-reference.md#metrics) platformy umożliwiają Weryfikowanie kompleksowego zachowania potoku. Instrukcje dotyczące tworzenia alertów i zarządzania nimi znajdują się [tutaj](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Sugerowane warunki alertu:
 
@@ -76,7 +101,7 @@ Korzystanie z potoku przesyłania strumieniowego do importowania danych historyc
 
 ## <a name="event-source-timestamp"></a>Sygnatura czasowa źródła zdarzeń
 
-Podczas konfigurowania źródła zdarzeń zostanie wyświetlony monit o podanie właściwości identyfikatora znacznika czasu. Właściwość timestamp służy do śledzenia zdarzeń w czasie. jest to czas, który będzie używany jako $event. $ts w [interfejsach API zapytań](/rest/api/time-series-insights/dataaccessgen2/query/execute) oraz do wykreślania serii w Eksploratorze Azure Time Series Insights. Jeśli w czasie tworzenia nie podano żadnej właściwości, lub jeśli w zdarzeniu brakuje właściwości timestamp, zostanie użyta wartość domyślna "IoT Hub zdarzeń" i centra zdarzeń w kolejce. Wartości właściwości timestamp są przechowywane w formacie UTC.
+Podczas konfigurowania źródła zdarzeń zostanie wyświetlony monit o podanie właściwości identyfikatora znacznika czasu. Właściwość timestamp służy do śledzenia zdarzeń w czasie, czyli czasu, który będzie używany jako sygnatura czasowa `$ts` w [interfejsach API zapytań](/rest/api/time-series-insights/dataaccessgen2/query/execute) oraz do wykreślania serii w Eksploratorze Azure Time Series Insights. Jeśli w czasie tworzenia nie podano żadnej właściwości, lub jeśli w zdarzeniu brakuje właściwości timestamp, zostanie użyta wartość domyślna "IoT Hub zdarzeń" i centra zdarzeń w kolejce. Wartości właściwości timestamp są przechowywane w formacie UTC.
 
 Ogólnie rzecz biorąc, użytkownicy będą dostosowywać Właściwość sygnatur czasowych i używać czasu, gdy czujnik lub tag wygenerował odczyt, zamiast korzystać z domyślnego, wbudowanego czasu centrum. Jest to szczególnie konieczne, gdy urządzenia mają nieprzerwaną utratę łączności, a partia opóźnionych komunikatów jest przekazywana do Azure Time Series Insights Gen2.
 

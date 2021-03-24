@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670566"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864962"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -48,6 +48,7 @@ Aby prawidłowo usunąć magazyn, należy wykonać czynności opisane w następu
   - **Serwera usługi MAB lub serwery zarządzania programu DPM**: Przejdź do menu Pulpit nawigacyjny magazynu, > tworzenie kopii zapasowej **infrastruktury zapasowych**  >  **serwerów zarządzania**. Jeśli masz program DPM lub Azure Backup Server (serwera usługi MAB), wszystkie elementy wymienione w tym miejscu muszą zostać usunięte lub wyrejestrowane wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery zarządzania.
 
 - **Krok 4**: należy upewnić się, że wszystkie zarejestrowane konta magazynu są usuwane. Przejdź do menu pulpitu nawigacyjnego magazynu > konta magazynu **infrastruktury kopii zapasowych**  >  . Jeśli na liście znajdują się konta magazynu, należy wyrejestrować wszystkie z nich. Aby dowiedzieć się, jak wyrejestrować konto, zobacz [Wyrejestrowywanie konta magazynu](manage-afs-backup.md#unregister-a-storage-account).
+- **Krok 5**. Upewnij się, że dla magazynu nie utworzono żadnych prywatnych punktów końcowych. Przejdź do menu pulpitu nawigacyjnego magazynu > **połączeń prywatnych punktów końcowych** w obszarze "Ustawienia", > Jeśli magazyn ma utworzone lub utworzone połączenia prywatnego punktu końcowego, upewnij się, że zostały usunięte przed kontynuowaniem usuwania magazynu. 
 
 Po wykonaniu tych kroków można nadal [usunąć magazyn](#delete-the-recovery-services-vault).
 

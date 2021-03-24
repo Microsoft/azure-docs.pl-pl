@@ -4,12 +4,12 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące pracy z A
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b5b8ccbfd3e39415416cfc8fabcf9614f5934042
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0cd2571276992812327e286ba9b935fcbf6fbbaf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931407"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871813"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą YARN usługi Apache Hadoop za pomocą usługi Azure HDInsight
 
@@ -31,27 +31,27 @@ W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są 
 
 1. Wybierz ikonę **widoki Ambari** , a następnie wybierz wzorzec siatki. Następnie wybierz pozycję **Menedżer kolejki przędzy**.
 
-    ![Menedżer kolejki PRZĘDZy Ambari pulpitu nawigacyjnego Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Menedżer kolejki PRZĘDZy Ambari pulpitu nawigacyjnego Apache" border="false":::
 2. Wybierz kolejkę **domyślną** .
 
-    ![Apache Ambari — wybór kolejki domyślnej](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari — wybór kolejki domyślnej" border="false":::
 3. Dla kolejki **domyślnej** Zmień **pojemność** z 50% na 25%. W przypadku kolejki **thriftsvr** Zmień **pojemność** na 25%.
 
-    ![Zmień pojemność na 25% dla kolejek domyślnych i thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Zmień pojemność na 25% dla kolejek domyślnych i thriftsvr" border="false":::
 4. Aby utworzyć nową kolejkę, wybierz pozycję **Dodaj kolejkę**.
 
-    ![Kolejka dodawania pulpitu nawigacyjnego PRZĘDZy Ambari Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Kolejka dodawania pulpitu nawigacyjnego PRZĘDZy Ambari Apache" border="false":::
 
 5. Nazwij nową kolejkę.
 
-    ![Kolejka nazw pulpitu nawigacyjnego PRZĘDZy Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Kolejka nazw pulpitu nawigacyjnego PRZĘDZy Ambari" border="false":::  
 
 6. Pozostaw wartości **wydajności** o 50%, a następnie wybierz przycisk **Akcje** .
 
-    ![Akcja wybierania nici Ambari Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Akcja wybierania nici Ambari Apache" border="false":::  
 7. Wybierz pozycję **Zapisz i Odśwież kolejki**.
 
-    ![Wybierz kolejno pozycje Zapisz i Odśwież kolejki](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Wybierz kolejno pozycje Zapisz i Odśwież kolejki" border="false":::  
 
 Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘDZy.
 

@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Networking
+            - name: Sieć
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -270,7 +270,7 @@
           href: use-pod-security-policies.md
         - name: Definiowanie zakresów autoryzowanych adresów IP dla serwera interfejsu API
           href: api-server-authorized-ip-ranges.md
-        - name: Kontrolowanie wdrożeń za pomocą usługi Azure Policy (wersja zapoznawcza)
+        - name: Kontroluj wdrożenia za pomocą Azure Policy
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Aktualizowanie poświadczeń klastra
           href: update-credentials.md

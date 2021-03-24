@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493530"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864894"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -35,7 +35,7 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
 3. W menu pulpitu nawigacyjnego kopii zapasowej wybierz pozycję **odzyskiwanie plików**.
 
-    ![Wybierz odzyskiwanie plików](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Wybierz odzyskiwanie plików](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     Zostanie otwarte menu **odzyskiwanie plików** .
 
@@ -81,6 +81,7 @@ Zobacz wymagania dotyczące przywracania plików z kopii zapasowych maszyn wirtu
 [System operacyjny Windows](#for-backed-up-vms-with-large-disks-windows)<br>
 [System operacyjny Linux](#for-backed-up-vms-with-large-disks-linux)
 
+Po wybraniu odpowiedniej maszyny do uruchomienia skryptu ILR upewnij się, że spełnia [wymagania systemu operacyjnego](#step-3-os-requirements-to-successfully-run-the-script) i [wymagania dotyczące dostępu](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Krok 3. wymagania systemu operacyjnego umożliwiające pomyślne uruchomienie skryptu
 
@@ -126,6 +127,8 @@ Skrypt wymaga również, aby składniki Python i bash były bezpiecznie wykonywa
 | .NET | 4.6.2 i nowsze |
 | TLS | 1,2 powinna być obsługiwana  |
 
+Upewnij się również, że masz odpowiednią [maszynę do wykonania skryptu ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) i że spełnia on [wymagania dotyczące dostępu](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Krok 4: wymagania dostępu do pomyślnie uruchomionego skryptu
 
 W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij się, że masz dostęp do:
@@ -148,12 +151,13 @@ W przypadku systemu Linux skrypt wymaga składników "Open-iSCSI" i "lshw", aby 
 
 Dostęp do programu `download.microsoft.com` jest wymagany do pobierania składników używanych do tworzenia bezpiecznego kanału między komputerem, na którym skrypt jest uruchamiany, a danymi w punkcie odzyskiwania.
 
+Upewnij się również, że masz odpowiednią [maszynę do wykonania skryptu ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) i że spełnia on [wymagania systemu operacyjnego](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>Krok 5. Uruchamianie skryptu i identyfikowanie woluminów
 
 ### <a name="for-windows"></a>W przypadku systemu Windows
 
-Po spełnieniu wszystkich wymagań wymienionych w kroku 2, krok 3 i 4, skopiuj skrypt z pobranej lokalizacji (zazwyczaj folder pliki do pobrania), kliknij prawym przyciskiem myszy plik wykonywalny lub skrypt, a następnie uruchom go z poświadczeniami administratora. Po wyświetleniu monitu wpisz hasło lub wklej hasło z pamięci, a następnie naciśnij klawisz ENTER. Po wprowadzeniu prawidłowego hasła skrypt nawiązuje połączenie z punktem odzyskiwania.
+Po spełnieniu wszystkich wymagań wymienionych w [kroku 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [krok 3](#step-3-os-requirements-to-successfully-run-the-script) i [4](#step-4-access-requirements-to-successfully-run-the-script), skopiuj skrypt z pobranej lokalizacji (zazwyczaj folder pliki do pobrania), zobacz [krok 1, aby dowiedzieć się, jak wygenerować i pobrać skrypt](#step-1-generate-and-download-script-to-browse-and-recover-files). Kliknij prawym przyciskiem myszy plik wykonywalny i uruchom go z poświadczeniami administratora. Po wyświetleniu monitu wpisz hasło lub wklej hasło z pamięci, a następnie naciśnij klawisz ENTER. Po wprowadzeniu prawidłowego hasła skrypt nawiązuje połączenie z punktem odzyskiwania.
 
   ![Dane wyjściowe pliku wykonywalnego](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -180,7 +184,7 @@ Jeśli proces odzyskiwania plików zawiesza się po uruchomieniu skryptu przywra
 
 ### <a name="for-linux"></a>W przypadku systemu Linux
 
-W przypadku maszyn z systemem Linux jest generowany skrypt języka Python. Pobierz skrypt i skopiuj go do odpowiedniego/zgodnego serwera z systemem Linux. Może być konieczne zmodyfikowanie uprawnień, aby wykonać je w programie ```chmod +x <python file name>``` . Następnie uruchom plik Python przy użyciu programu ```./<python file name>``` .
+Po spełnieniu wszystkich wymagań wymienionych w [kroku 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [krok 3](#step-3-os-requirements-to-successfully-run-the-script) i [4](#step-4-access-requirements-to-successfully-run-the-script), wygeneruj skrypt języka Python dla maszyn z systemem Linux. Zobacz [krok 1, aby dowiedzieć się, jak wygenerować i pobrać skrypt](#step-1-generate-and-download-script-to-browse-and-recover-files). Pobierz skrypt i skopiuj go do odpowiedniego/zgodnego serwera z systemem Linux. Może być konieczne zmodyfikowanie uprawnień, aby wykonać je w programie ```chmod +x <python file name>``` . Następnie uruchom plik Python przy użyciu programu ```./<python file name>``` .
 
 
 W systemie Linux woluminy punktu odzyskiwania są instalowane do folderu, w którym skrypt jest uruchamiany. Odpowiednio są wyświetlane dołączone dyski, woluminy i odpowiednie ścieżki instalacji. Te ścieżki instalacji są widoczne dla użytkowników, którzy mają dostęp na poziomie głównym. Przeglądaj woluminy wymienione w danych wyjściowych skryptu.

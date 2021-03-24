@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5682ff58ad827f5a165342f11f03fb49bbe6d2d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946555"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867886"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# przy użyciu Apache Hive i Apache chlewnej na Apache Hadoop w usłudze HDInsight
 
@@ -171,7 +171,7 @@ Następnie należy przekazać aplikacje Hive i UDF do magazynu w klastrze usług
 
 1. Rozwiń klaster usługi HDInsight, do którego chcesz wdrożyć tę aplikację. Zostanie wyświetlona pozycja z tekstem **(domyślne konto magazynu)** .
 
-    ![Domyślne konto magazynu, klaster usługi HDInsight, Eksplorator serwera](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png" alt-text="Domyślne konto magazynu, klaster usługi HDInsight, Eksplorator serwera" border="true":::
 
     * Jeśli ten wpis można rozszerzyć, używasz **konta usługi Azure Storage** jako magazynu domyślnego dla klastra. Aby wyświetlić pliki w domyślnym magazynie klastra, rozwiń wpis, a następnie kliknij dwukrotnie **(kontener domyślny)**.
 
@@ -181,7 +181,7 @@ Następnie należy przekazać aplikacje Hive i UDF do magazynu w klastrze usług
 
     * Jeśli używasz **konta usługi Azure Storage**, wybierz ikonę **Przekaż obiekt BLOB** .
 
-        ![Ikona przekazywania do usługi HDInsight dla nowego projektu](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="Ikona przekazywania do usługi HDInsight dla nowego projektu" border="true":::
 
         W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku** wybierz pozycję **Przeglądaj**. W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* projektu *HiveCSharp* , a następnie wybierz plik *HiveCSharp.exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
 

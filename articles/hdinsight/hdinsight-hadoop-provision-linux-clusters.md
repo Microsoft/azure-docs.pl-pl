@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741841"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863415"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -42,7 +42,7 @@ Ten artykuł przeprowadzi Cię przez proces instalacji w [Azure Portal](https://
 
 ## <a name="basics"></a>Podstawy
 
-![Tworzenie niestandardowych opcji usługi HDInsight — szybkie](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="Tworzenie niestandardowych opcji usługi HDInsight — szybkie":::
 
 ### <a name="project-details"></a>Szczegóły projektu
 
@@ -107,7 +107,7 @@ Nazwa użytkownika SSH ma następujące ograniczenia:
 
 ## <a name="storage"></a>Storage
 
-![Ustawienia magazynu klastra: punkty końcowe zgodne z systemem HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Ustawienia magazynu klastra: punkty końcowe zgodne z systemem HDFS":::
 
 Mimo że lokalna instalacja usługi Hadoop wykorzystuje rozproszony system plików platformy Hadoop (HDFS) do magazynowania w klastrze, w chmurze używane są punkty końcowe usługi Storage połączone z klastrem. Korzystanie z magazynu w chmurze pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń przy zachowaniu danych.
 
@@ -165,7 +165,7 @@ Ambari służy do monitorowania klastrów usługi HDInsight, wprowadzania zmian 
 
 ## <a name="security--networking"></a>Bezpieczeństwo i obsługa sieci
 
-![Opcje tworzenia usługi HDInsight wybierz pozycję pakiet zabezpieczeń przedsiębiorstwa](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="Opcje tworzenia usługi HDInsight wybierz pozycję pakiet zabezpieczeń przedsiębiorstwa":::
 
 ### <a name="enterprise-security-package"></a>Pakiet zabezpieczeń przedsiębiorstwa
 
@@ -201,7 +201,7 @@ Aby uzyskać więcej informacji, zobacz [zarządzane tożsamości w usłudze Azu
 
 ## <a name="configuration--pricing"></a>Konfiguracja i Cennik
 
-![HDInsight Wybieranie rozmiaru węzła](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight Wybieranie rozmiaru węzła":::
 
 Opłaty za użycie węzłów są naliczane tak długo, jak klaster istnieje. Rozliczanie zaczyna się w momencie utworzenia klastra i zostaje zatrzymane po usunięciu klastra. Klastrów nie można cofnąć przydziału ani wstrzymać.
 
@@ -211,10 +211,10 @@ Każdy typ klastra ma własną liczbę węzłów, terminologię dla węzłów i 
 
 | Typ | Węzły | Diagram |
 | --- | --- | --- |
-| Hadoop |Węzeł główny (2), węzeł procesu roboczego (1 +) |![Węzły klastra Hadoop usługi HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Serwer głównych (2), serwer regionu (1 +), węzeł główny/dozorcy (3) |![Konfiguracja typu klastra HBase usługi HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Węzeł Nimbus (2), serwer nadzorujący (1 +), węzeł dozorcy (3) |![Konfiguracja typu klastra burzy usługi HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| platforma Spark |Węzeł główny (2), węzeł procesu roboczego (1 +), węzeł dozorcy (3) (bezpłatnie dla rozmiaru maszyny wirtualnej a1 dozorcy) |![Konfiguracja typu klastra Spark usługi HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop |Węzeł główny (2), węzeł procesu roboczego (1 +) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="Węzły klastra Hadoop usługi HDInsight" border="false"::: |
+| HBase |Serwer głównych (2), serwer regionu (1 +), węzeł główny/dozorcy (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Konfiguracja typu klastra HBase usługi HDInsight" border="false"::: |
+| Storm |Węzeł Nimbus (2), serwer nadzorujący (1 +), węzeł dozorcy (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Konfiguracja typu klastra burzy usługi HDInsight" border="false"::: |
+| platforma Spark |Węzeł główny (2), węzeł procesu roboczego (1 +), węzeł dozorcy (3) (bezpłatnie dla rozmiaru maszyny wirtualnej a1 dozorcy) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Konfiguracja typu klastra Spark usługi HDInsight" border="false"::: |
 
 Aby uzyskać więcej informacji, zobacz [domyślną konfigurację węzła i rozmiary maszyn wirtualnych dla klastrów](hdinsight-supported-node-configuration.md) w artykule "Jakie są składniki i wersje usługi Hadoop w usłudze HDInsight?".
 
@@ -222,7 +222,7 @@ Koszt klastrów usługi HDInsight jest określany przez liczbę węzłów i rozm
 
 Różne typy klastrów mają różne typy węzłów, liczby węzłów i rozmiary węzłów:
 * Typ klastra usługi Hadoop wartość domyślna:
-    * Dwa *węzły główne*  
+    * Dwa *węzły główne*
     * Cztery *węzły procesu roboczego*
 * Typ klastra burzy jest domyślny:
     * Dwa *węzły Nimbus*

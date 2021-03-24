@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 88a71eb5a8ca9a6f2bf1d17fc4eaf9780527d2cb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13e5609c965a28405804b8a993280b13755b2d3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930542"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866071"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Samouczek: Tworzenie aplikacji Apache Spark Machine Learning w usłudze Azure HDInsight
 
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Aplikacja używa przykładowych danych **HVAC.csv** , które są domyślnie dostępne we wszystkich klastrach. Plik znajduje się w lokalizacji `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Dane dotyczą temperatury docelowej i temperatury rzeczywistej niektórych budynków, wyposażonych w instalacje grzewczo-wentylacyjne (HVAC). Kolumna **System** zawiera identyfikatory systemów, a kolumna **SystemAge** — liczbę lat użytkowania instalacji grzewczo-wentylacyjnej w danym budynku. Można przewidzieć, czy kompilacja będzie hotter czy chłodna na podstawie temperatury docelowej, danego identyfikatora systemu i wieku systemu.
 
-![Migawka danych używanych na potrzeby przykładowego uczenia maszynowego Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Migawka danych używanych na potrzeby przykładowego uczenia maszynowego Spark")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Migawka danych używanych na potrzeby przykładowego uczenia maszynowego Spark" border="true":::
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Tworzenie aplikacji uczenia maszynowego platformy Spark przy użyciu biblioteki MLLib platformy Spark
 
@@ -138,7 +138,7 @@ Ta aplikacja używa [potoku Spark ml](https://spark.apache.org/docs/2.2.0/ml-pip
 
     Porównaj dane wyjściowe z nieprzetworzonymi danymi w pliku CSV. Na przykład pierwszy wiersz pliku CSV zawiera te dane:
 
-    ![Migawka danych wyjściowych dla przykładu uczenia maszynowego Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Migawka danych wyjściowych dla przykładu uczenia maszynowego Spark")
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Migawka danych wyjściowych dla przykładu uczenia maszynowego Spark" border="true":::
 
     Zwróć uwagę, że temperatura rzeczywista jest mniejsza niż temperatura docelowa, co świadczy o tym, że w budynku jest zimno. Wartość **etykiety** w pierwszym wierszu to **0,0**, co oznacza, że kompilacja nie jest gorąca.
 
@@ -199,7 +199,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster, który zosta�
 
 1. Wybierz pozycję **Usuń**. Wybierz pozycję **Tak**.
 
-![Azure Portal usuwa klaster usługi HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Usuwanie klastra usługi HDInsight")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure Portal usuwa klaster usługi HDInsight" border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

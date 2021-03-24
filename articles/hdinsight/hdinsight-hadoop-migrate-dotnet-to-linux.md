@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e626d08e7fd315ca70765477c5dae56030521c6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945604"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866407"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrowanie rozwiązań .NET dla usługi HDInsight opartej na systemie Windows do usługi HDInsight w oparciu o system Linux
 
@@ -33,7 +33,7 @@ Aby uzyskać więcej informacji na temat zgodności między programami mono i .N
 
 2. W programie Visual Studio 2015 wybierz pozycję __Analizuj__  >  __Ustawienia analizatora przenośności__ i upewnij się, że w sekcji __mono__ jest zaznaczone pole __4,5__ .
 
-    ![4,5 sprawdzono w sekcji mono dla ustawień analizatora](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4,5 sprawdzono w sekcji mono dla ustawień analizatora":::
 
     Wybierz przycisk __OK__, aby zapisać konfigurację.
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji na temat zgodności między programami mono i .N
 
 4. Po zakończeniu analizy wybierz kolejno pozycje __Analizuj__  >  __Przeglądaj raporty analizy__. W obszarze __wyniki analizy przenoszenia__ wybierz pozycję __Otwórz raport__ , aby otworzyć raport.
 
-    ![Okno dialogowe wyników analizatora przenośności](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Okno dialogowe wyników analizatora przenośności":::
 
 > [!IMPORTANT]  
 > Analizator nie może przechwytywać każdego problemu z rozwiązaniem. Na przykład ścieżka pliku `c:\temp\file.txt` jest uważana za OK, jeśli mono jest uruchomiony w systemie Windows. Ta sama ścieżka nie jest prawidłowa na platformie Linux.

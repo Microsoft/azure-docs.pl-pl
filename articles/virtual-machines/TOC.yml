@@ -101,6 +101,8 @@
       href: ./linux/tutorial-elasticsearch.md
     - name: Zmiana hosta komputera mainframe
       href: ./workloads/mainframe-rehosting/overview.md
+    - name: Dane poufne platformy Azure
+      href: ../confidential-computing/overview.md
     - name: SQL on Virtual Machines
       href: ../azure-sql/virtual-machines/index.yml
     - name: Obliczenia o wysokiej wydajności (HPC)

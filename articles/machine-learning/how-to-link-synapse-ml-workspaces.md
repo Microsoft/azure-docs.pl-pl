@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520000"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889114"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Łączenie obszarów roboczych usługi Azure Synapse Analytics i Azure Machine Learningych (wersja zapoznawcza)
 
@@ -102,12 +102,14 @@ Połącz obszar roboczy uczenia maszynowego i obszar roboczy Synapse za pomocą 
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
 1. W sekcji **Zarządzanie** w okienku po lewej stronie wybierz pozycję **połączone usługi** .
 1. Wybierz pozycję **Dodaj integrację**.
-1. W formularzu **Połącz obszar roboczy** Wypełnij pola. 
-    Pole| Opis    
-    ---|---
-    Nazwa| Podaj nazwę połączonej usługi. Ta nazwa jest używana do odwoływania się do tej konkretnej połączonej usługi.
-    Nazwa subskrypcji | Wybierz nazwę subskrypcji, która jest skojarzona z obszarem roboczym usługi Machine Learning. 
-    Obszar roboczy Synapse | Wybierz obszar roboczy Synapse, do którego chcesz utworzyć łącze.
+1. W formularzu **Połącz obszar roboczy** Wypełnij pola.
+
+    |Pole| Opis    
+    |---|---
+    |Nazwa| Podaj nazwę połączonej usługi. Ta nazwa jest używana do odwoływania się do tej konkretnej połączonej usługi.
+    |Nazwa subskrypcji | Wybierz nazwę subskrypcji, która jest skojarzona z obszarem roboczym usługi Machine Learning. 
+    |Obszar roboczy Synapse | Wybierz obszar roboczy Synapse, do którego chcesz utworzyć łącze.
+    
 1. Wybierz pozycję **dalej** , aby otworzyć formularz **Wybieranie pul platformy Spark (opcjonalnie)** . Na tym formularzu wybierz pulę Synapse Spark do dołączenia do obszaru roboczego
 
 1. Wybierz pozycję **dalej** , aby otworzyć formularz **Recenzja** i sprawdzić wybrane opcje.

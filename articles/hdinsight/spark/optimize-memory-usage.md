@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d54cf4e9025dfd75d9029dec534fc5dc5dd990a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e23c5977b2492d2ea8a7a8cc050c77c512c3e16
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944181"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868379"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Optymalizacja użycia pamięci dla Apache Spark
 
@@ -31,7 +31,7 @@ Dla odwołania, struktura pamięci platformy Spark i niektóre parametry pamięc
 
 Jeśli używasz Apache Hadoop PRZĘDZy, PRZĘDZa kontroluje pamięć używaną przez wszystkie kontenery w każdym węźle Spark.  Na poniższym diagramie przedstawiono obiekty kluczowe i ich relacje.
 
-![Zarządzanie pamięcią w ramach PRZĘDZy](./media/apache-spark-perf/apache-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-perf/apache-yarn-spark-memory.png" alt-text="Zarządzanie pamięcią w ramach PRZĘDZy" border="false":::
 
 Aby rozwiązać komunikaty o braku pamięci, spróbuj wykonać następujące działania:
 
