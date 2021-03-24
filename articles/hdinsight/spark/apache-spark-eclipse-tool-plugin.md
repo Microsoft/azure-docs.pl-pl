@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: f3acfe6f8e0a72b402d7a3401675c8aa3c94fc98
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e4f19afc0edf0f43b64548ae1c93ed5ff8dfa8a1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940585"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866577"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Tworzenie aplikacji Apache Spark dla klastra usługi HDInsight za pomocą Azure Toolkit for Eclipse
 
@@ -38,7 +38,7 @@ Instrukcje instalacji znajdują się w temacie [installing Azure Toolkit for Ecl
 
 Po otwarciu okna zaćmienie narzędzia usługi HDInsight automatycznie wykrywają, czy zainstalowano wtyczkę Scala. Wybierz **przycisk OK** , aby kontynuować, a następnie postępuj zgodnie z instrukcjami, aby zainstalować wtyczkę z portalu Marketplace. Po zakończeniu instalacji ponownie uruchom środowisko IDE.
 
-![Automatyczna instalacja wtyczki Scala](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala1.png)
+:::image type="content" source="./media/apache-spark-eclipse-tool-plugin/auto-installation-scala1.png" alt-text="Automatyczna instalacja wtyczki Scala" border="true":::
 
 ### <a name="confirm-plug-ins"></a>Potwierdź wtyczki
 
@@ -58,25 +58,25 @@ Po otwarciu okna zaćmienie narzędzia usługi HDInsight automatycznie wykrywaj�
 
 1. W oknie dialogowym **Pokaż widok** przejdź do Eksploratora **Azure** Azure  >  , a następnie wybierz pozycję **Otwórz**.
 
-   ![Apache Spark zaćmienie — Pokaż widok](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png" alt-text="Apache Spark zaćmienie — Pokaż widok" border="true":::
 
 1. W programie **Azure Explorer** kliknij prawym przyciskiem myszy węzeł **Azure** , a następnie wybierz pozycję **Zaloguj się**.
 
 1. W oknie dialogowym **Logowanie do platformy Azure** wybierz metodę uwierzytelniania, wybierz pozycję **Zaloguj** i Ukończ proces logowania.
 
-   ![Apache Spark zaćmienie na platformie Azure](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png" alt-text="Apache Spark zaćmienie na platformie Azure" border="true":::
 
 1. Po zalogowaniu się okno dialogowe **subskrypcje** zawiera listę wszystkich subskrypcji platformy Azure skojarzonych z poświadczeniami. Naciśnij przycisk **Wybierz** , aby zamknąć okno dialogowe.
 
-   ![Okno dialogowe Wybieranie subskrypcji](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png" alt-text="Okno dialogowe Wybieranie subskrypcji" border="true":::
 
 1. W **Eksploratorze Azure** przejdź do **usługi Azure**  >   **HDInsight** , aby zobaczyć klastry HDInsight Spark w ramach subskrypcji.
 
-   ![Klastry HDInsight Spark na platformie Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer3.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer3.png" alt-text="Klastry HDInsight Spark na platformie Azure Explorer3" border="true":::
 
 1. Można dodatkowo rozwinąć węzeł Nazwa klastra, aby wyświetlić zasoby (na przykład konta magazynu) skojarzone z klastrem.
 
-   ![Rozszerzanie nazwy klastra w celu wyświetlenia zasobów](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer4.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer4.png" alt-text="Rozszerzanie nazwy klastra w celu wyświetlenia zasobów" border="true":::
 
 ## <a name="link-a-cluster"></a>Łączenie klastra
 
@@ -84,25 +84,25 @@ Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytko
 
 1. W programie **Azure Explorer** kliknij prawym przyciskiem myszy pozycję **HDInsight**, a następnie wybierz pozycję **Połącz klaster**.
 
-   ![Menu klastra łącza programu Azure Explorer](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png" alt-text="Menu klastra łącza programu Azure Explorer" border="true":::
 
 1. Wprowadź **nazwę klastra**, **nazwę użytkownika** i **hasło**, a następnie wybierz przycisk **OK**. Opcjonalnie wprowadź konto magazynu, klucz magazynu, a następnie wybierz pozycję kontener magazynu dla Eksploratora usługi Storage, aby rozpocząć działanie w widoku drzewa po lewej stronie
 
-   ![Okno dialogowe łączenie nowego klastra usługi HDInsight](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png" alt-text="Okno dialogowe łączenie nowego klastra usługi HDInsight" border="true":::
 
    > [!NOTE]  
    > Jeśli klaster jest zarejestrowany w ramach subskrypcji platformy Azure i połączony z klastrem, użyjemy podanego klucza magazynu, nazwy użytkownika i hasła.
-   > ![Konta usługi Azure Explorer Storage](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png" alt-text="Konta usługi Azure Explorer Storage" border="true":::
    >
    > Tylko dla użytkownika klawiatury, gdy bieżący fokus jest w **kluczu magazynu**, należy użyć **klawiszy CTRL + TAB** , aby skoncentrować się na następnym polu w oknie dialogowym.
 
 1. Połączony klaster można zobaczyć w usłudze **HDInsight**. Teraz można przesłać aplikację do tego połączonego klastra.
 
-   ![Połączony klaster programu Azure Explorer HDI](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png" alt-text="Połączony klaster programu Azure Explorer HDI" border="true":::
 
 1. Możesz również odłączyć klaster od programu **Azure Explorer**.
 
-   ![Niepołączony klaster programu Azure Explorer](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png" alt-text="Niepołączony klaster programu Azure Explorer" border="true":::
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Konfigurowanie projektu Spark Scala dla klastra usługi HDInsight Spark
 
@@ -110,14 +110,14 @@ Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytko
 
 1. W kreatorze **nowego projektu** wybierz pozycję **projekt HDInsight**  >  **Spark w usłudze HDInsight (Scala)**. Następnie wybierz przycisk **Dalej**.
 
-   ![Wybieranie projektu platformy Spark w usłudze HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png" alt-text="Wybieranie projektu platformy Spark w usłudze HDInsight (Scala)" border="true":::
 
 1. W oknie dialogowym **Nowy projekt usługi HDInsight Scala** podaj następujące wartości, a następnie wybierz pozycję **dalej**:
    * Wprowadź nazwę dla projektu.
    * W obszarze **środowiska JRE** upewnij się, że w obszarze **środowisko wykonawcze** jest ustawiona wartość **Java-1,7** lub nowsza.
    * W obszarze **Biblioteka platformy Spark** możesz wybrać opcję **Użyj Maven do skonfigurowania opcji zestawu SDK platformy Spark** .  Nasze narzędzie integruje odpowiednią wersję zestawu Spark SDK i scala SDK. Można również wybrać opcję **Dodaj ręcznie zestaw SDK platformy Spark** , pobrać i ręcznie dodać zestaw Spark SDK.
 
-   ![Okno dialogowe Nowy projekt usługi HDInsight Scala](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png" alt-text="Okno dialogowe Nowy projekt usługi HDInsight Scala" border="true":::
 
 1. W następnym oknie dialogowym Przejrzyj szczegóły, a następnie wybierz pozycję **Zakończ**.
 
@@ -127,11 +127,11 @@ Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytko
 
 1. W oknie dialogowym **Wybierz kreatora** wybierz pozycję **Scala kreatorzy**  >  **Scala obiekt**. Następnie wybierz przycisk **Dalej**.
 
-   ![Wybieranie Kreatora tworzenia obiektu Scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png" alt-text="Wybieranie Kreatora tworzenia obiektu Scala" border="true":::
 
 1. W oknie dialogowym **Utwórz nowy plik** wprowadź nazwę obiektu, a następnie wybierz pozycję **Zakończ**. Zostanie otwarty Edytor tekstu.
 
-   ![Kreator nowego pliku — Utwórz nowy plik](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png" alt-text="Kreator nowego pliku — Utwórz nowy plik" border="true":::
 
 1. W edytorze tekstów Zastąp bieżącą zawartość następującym kodem:
 
@@ -165,11 +165,11 @@ Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytko
    * Na liście rozwijanej **Nazwa klasy głównej** Kreator wysyłania wyświetla wszystkie nazwy obiektów z projektu. Wybierz lub wprowadź jeden, który chcesz uruchomić. W przypadku wybrania artefaktu z dysku twardego należy ręcznie wprowadzić nazwę klasy głównej. 
    * Ponieważ kod aplikacji w tym przykładzie nie wymaga żadnych argumentów wiersza polecenia lub JARs odniesienia lub plików, można pozostawić pozostałe pola tekstowe puste.
 
-     ![Okno dialogowe przesyłanie Apache Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
+     :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png" alt-text="Okno dialogowe przesyłanie Apache Spark" border="true":::
 
 1. Karta **przesyłanie** na platformie Spark powinna rozpocząć wyświetlanie postępu. Możesz zatrzymać aplikację, wybierając czerwony przycisk w oknie **przesyłanie platformy Spark** . Możesz również wyświetlić dzienniki dla tego konkretnej aplikacji, wybierając ikonę globusa (oznaczaną niebieską ramką na obrazie).
 
-   ![Okno przesłania Apache Spark](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png" alt-text="Okno przesłania Apache Spark" border="true":::
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Dostęp do klastrów usługi HDInsight Spark i zarządzanie nimi przy użyciu narzędzi usługi HDInsight w Azure Toolkit for Eclipse
 
@@ -179,25 +179,25 @@ Możesz wykonywać różne operacje przy użyciu narzędzi usługi HDInsight, w 
 
 1. W **Eksploratorze Azure** rozwiń węzeł **HDInsight**, a następnie nazwę klastra Spark, a następnie wybierz pozycję **zadania**.
 
-   ![Węzeł widoku zadania w programie Azure Explorer zaćmienie](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png" alt-text="Węzeł widoku zadania w programie Azure Explorer zaćmienie" border="true":::
 
 1. Wybierz węzeł **zadania** . Jeśli wersja języka Java jest niższa niż **1,8**, narzędzia usługi HDInsight automatycznie przypomnią, że zainstalowano wtyczkę **klipu E (FX)** . Wybierz **przycisk OK** , aby kontynuować, a następnie postępuj zgodnie z instrukcjami kreatora, aby zainstalować go w witrynie zaćmienie Marketplace i ponownie uruchom program zaćmienie.
 
-   ![Zainstaluj brakujące klipy wtyczki E (FX)](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png" alt-text="Zainstaluj brakujące klipy wtyczki E (FX)" border="true":::
 
 1. Otwórz widok zadania w węźle **zadania** . W okienku po prawej stronie karta **widok zadania platformy Spark** wyświetla wszystkie aplikacje, które zostały uruchomione w klastrze. Wybierz nazwę aplikacji, dla której chcesz zobaczyć więcej szczegółów.
 
-   ![Szczegóły dzienników zadań w widoku Apache zaćmienie](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png" alt-text="Szczegóły dzienników zadań w widoku Apache zaćmienie" border="true":::
 
    Następnie można wykonać jedną z następujących czynności:
 
    * Umieść kursor na grafie zadania. Są w nim wyświetlane podstawowe informacje o uruchomionym zadaniu. Wybierz wykres zadania i możesz zobaczyć etapy i informacje, które generuje każde zadanie.
 
-     ![Informacje o etapie grafu zadania Apache Spark](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
+     :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png" alt-text="Informacje o etapie grafu zadania Apache Spark" border="true":::
 
    * Wybierz kartę **Dziennik** , aby wyświetlić często używane dzienniki, w tym **sterowniki stderr**, **Sterownik stdout** i **Informacje o katalogu**.
 
-     ![Apache Spark zaćmienie — informacje o dzienniku zadań](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
+     :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png" alt-text="Apache Spark zaćmienie — informacje o dzienniku zadań" border="true":::
 
    * Otwórz interfejs użytkownika historii platformy Spark i interfejs użytkownika Apache Hadoop PRZĘDZy (na poziomie aplikacji), zaznaczając hiperlinki w górnej części okna.
 
@@ -207,7 +207,7 @@ Możesz wykonywać różne operacje przy użyciu narzędzi usługi HDInsight, w 
 
 1. Rozwiń nazwę klastra, aby wyświetlić konto magazynu i domyślny kontener magazynu dla klastra.
 
-   ![Konto magazynu i domyślny kontener magazynu](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer5.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer5.png" alt-text="Konto magazynu i domyślny kontener magazynu" border="true":::
 
 1. Wybierz nazwę kontenera magazynu skojarzonego z klastrem. W prawym okienku kliknij dwukrotnie folder **HVACOut** . Otwórz jeden z plików **części** , aby wyświetlić dane wyjściowe aplikacji.
 
@@ -247,17 +247,17 @@ Aby rozwiązać ten problem, należy [Winutils.exe](https://github.com/steveloug
 
 1. W kreatorze **nowego projektu** wybierz pozycję **projekt HDInsight**  >  **Spark w usłudze HDInsight Local Run Sample (Scala)**. Następnie wybierz przycisk **Dalej**.
 
-   ![Nowy projekt wybierz okno dialogowe kreatora](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png" alt-text="Nowy projekt wybierz okno dialogowe kreatora" border="true":::
 
 1. Aby podać szczegóły projektu, wykonaj kroki od 3 do 6 z wcześniejszej sekcji [Konfigurowanie projektu Spark Scala dla klastra usługi HDInsight Spark](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
 
 1. Szablon dodaje przykładowy kod (**LogQuery**) w folderze **src** , który można uruchomić lokalnie na komputerze.
 
-   ![Lokalizacja aplikacji LogQuery Local Scala](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/local-scala-application.png" alt-text="Lokalizacja aplikacji LogQuery Local Scala" border="true":::
 
 1. Kliknij prawym przyciskiem myszy **LogQuery. scala** i wybierz polecenie **Uruchom jako**  >  **1 aplikację Scala**. Dane wyjściowe podobne do tego pojawiają się na karcie **konsoli** :
 
-   ![Wynik uruchomienia lokalnego aplikacji platformy Spark](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png" alt-text="Wynik uruchomienia lokalnego aplikacji platformy Spark" border="true":::
 
 ## <a name="reader-only-role"></a>Rola tylko do odczytu
 
@@ -269,16 +269,16 @@ Gdy użytkownicy przesyłają zadanie do klastra z uprawnieniami roli tylko do o
 
 2. W **Eksploratorze Azure** rozwiń węzeł **HDInsight** , aby wyświetlić klastry usługi HDInsight, które znajdują się w Twojej subskrypcji. Klastry oznaczone jako **"role: Reader"** mają uprawnienia roli tylko do odczytu.
 
-    ![Klastry HDInsight Spark w czytniku roli programu Azure Explorer](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer6.png)
+    :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer6.png" alt-text="Klastry HDInsight Spark w czytniku roli programu Azure Explorer" border="true":::
 
 3. Kliknij prawym przyciskiem myszy klaster z uprawnieniami roli tylko czytelnik. Wybierz opcję **Połącz ten klaster** z menu kontekstowego, aby połączyć klaster. Wprowadź nazwę użytkownika i hasło Ambari.
 
-    ![Linki do usługi HDInsight Spark w programie Azure Explorer](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer7.png)
+    :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer7.png" alt-text="Linki do usługi HDInsight Spark w programie Azure Explorer" border="true":::
 
 4. Jeśli klaster zostanie połączony pomyślnie, Usługa HDInsight zostanie odświeżona.
    Etap klastra zostanie połączony.
   
-    ![Klastry HDInsight Spark w programie Azure Explorer połączone](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer8.png)
+    :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer8.png" alt-text="Klastry HDInsight Spark w programie Azure Explorer połączone" border="true":::
 
 ### <a name="link-cluster-by-expanding-jobs-node"></a>Łączenie klastra przez rozwijanie węzła zadania
 
@@ -286,7 +286,7 @@ Gdy użytkownicy przesyłają zadanie do klastra z uprawnieniami roli tylko do o
 
 2. Kliknij przycisk **Połącz ten klaster** , aby dołączyć klaster.
 
-    ![Klastry HDInsight Spark na platformie Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer9.png)
+    :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer9.png" alt-text="Klastry HDInsight Spark na platformie Azure Explorer9" border="true":::
 
 ### <a name="link-cluster-from-spark-submission-window"></a>Połącz klaster z okna przekazywania platformy Spark
 
@@ -294,35 +294,35 @@ Gdy użytkownicy przesyłają zadanie do klastra z uprawnieniami roli tylko do o
 
 2. Kliknij prawym przyciskiem myszy pakiet. Następnie wybierz pozycję **Prześlij aplikację platformy Spark do usługi HDInsight**.
 
-   ![Przesyłanie klastrów usługi HDInsight Spark w Eksploratorze Azure](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer11.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer11.png" alt-text="Przesyłanie klastrów usługi HDInsight Spark w Eksploratorze Azure" border="true":::
 
 3. Wybierz klaster, który ma uprawnienia roli tylko do odczytu dla **nazwy klastra**. Komunikat ostrzegawczy jest wyświetlany. Możesz kliknąć przycisk **Połącz ten klaster** , aby połączyć klaster.
 
-   ![Klastry HDInsight Spark w programie Azure Explorer Połącz to](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer15.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer15.png" alt-text="Klastry HDInsight Spark w programie Azure Explorer Połącz to" border="true":::
 
 ### <a name="view-storage-accounts"></a>Wyświetlanie kont magazynu
 
 * W przypadku klastrów z uprawnieniem tylko do odczytu, kliknij węzeł **konta magazynu** , zostanie wystawione okno **odmowa dostępu do magazynu** .
 
-   ![Klastry usługi HDInsight Spark w usłudze Azure Explorer Storage](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer13.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer13.png" alt-text="Klastry usługi HDInsight Spark w usłudze Azure Explorer Storage" border="true":::
 
-   ![Odmówiono realizacji klastrów usługi HDInsight Spark w Eksploratorze Azure](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer12.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer12.png" alt-text="Odmówiono realizacji klastrów usługi HDInsight Spark w Eksploratorze Azure" border="true":::
 
 * W przypadku połączonych klastrów kliknij węzeł **konta magazynu** , w którym znajduje się okno **odmowa dostępu do magazynu** .
 
-   ![Klastry HDInsight Spark w Eksploratorze Azure denied2](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer14.png)
+   :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer14.png" alt-text="Klastry HDInsight Spark w Eksploratorze Azure denied2" border="true":::
 
 ## <a name="known-problems"></a>Znane problemy
 
 W przypadku korzystania z **linku klastra** zaleca się podanie poświadczeń magazynu.
 
-![Łączenie klastra z zastąpeniem poświadczeń magazynu](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
+:::image type="content" source="./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png" alt-text="Łączenie klastra z zastąpeniem poświadczeń magazynu" border="true":::
 
 Istnieją dwa tryby przesyłania zadań. Jeśli podano poświadczenie magazynu, do przesłania zadania zostanie użyty tryb wsadowy. W przeciwnym razie zostanie użyty tryb interaktywny. Jeśli klaster jest zajęty, może wystąpić błąd poniżej.
 
-![Zapoznaj się z błędem pobierania, gdy klaster jest zajęty](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "Zapoznaj się z błędem pobierania, gdy klaster jest zajęty")
+:::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png " alt-text="Zapoznaj się z błędem pobierania, gdy klaster jest zajęty" border="true":::
 
-![Zapoznaj się z błędem pobierania w przypadku, gdy klaster jest zajęty](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "Zapoznaj się z błędem pobierania w przypadku, gdy klaster jest zajęty")
+:::image type="content" source="./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png " alt-text="Zapoznaj się z błędem pobierania w przypadku, gdy klaster jest zajęty" border="true":::
 
 ## <a name="see-also"></a>Zobacz też
 

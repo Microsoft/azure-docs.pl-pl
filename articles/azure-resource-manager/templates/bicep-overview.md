@@ -3,12 +3,12 @@ title: Język Bicep dla szablonów Azure Resource Manager
 description: Opisuje język Bicep na potrzeby wdrażania infrastruktury na platformie Azure za pomocą szablonów Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 0edd0063ea08978b89c3ad3067f41ae743451df7
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889692"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955911"
 ---
 # <a name="what-is-bicep-preview"></a>Co to jest Bicep (wersja zapoznawcza)?
 
@@ -16,11 +16,15 @@ Bicep to język służący do deklaratywnego wdrażania zasobów platformy Azure
 
 Składnia JSON dla tworzenia szablonu może być pełna i wymaga wyrażenia złożonego. Bicep Ulepsza ten proces bez utraty możliwości szablonu JSON. Jest to przezroczyste streszczenie w formacie JSON dla szablonów ARM. Każdy plik Bicep kompiluje się do standardowego szablonu ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie ARM, są prawidłowe w pliku Bicep. Bieżąca wersja zawiera pewne [znane ograniczenia](#known-limitations) .
 
+Bicep jest obecnie w wersji zapoznawczej. Aby śledzić stan pracy, zobacz [repozytorium projektu Bicep](https://github.com/Azure/bicep).
+
 Aby dowiedzieć się więcej na temat Bicep, zobacz następujące wideo.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Aby rozpocząć od Bicep, [Zainstaluj narzędzia](https://github.com/Azure/bicep/blob/main/docs/installing.md).
+Aby rozpocząć od Bicep, [Zainstaluj narzędzia](bicep-install.md).
 
 Po zainstalowaniu narzędzi Wypróbuj [samouczek Bicep](./bicep-tutorial-create-first-bicep.md). Seria samouczków przeprowadzi Cię przez strukturę i możliwości Bicep. Wdrażasz pliki Bicep i konwertujesz szablon ARM na odpowiedni plik Bicep.
 

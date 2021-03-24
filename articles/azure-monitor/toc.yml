@@ -722,6 +722,8 @@
                       items:
                         - name: Metryki JMX
                           href: app/java-jmx-metrics-configuration.md
+                        - name: Zastępowanie próbek
+                          href: app/java-standalone-sampling-overrides.md
                         - name: Procesory telemetrii
                           items:
                             - name: Omówienie

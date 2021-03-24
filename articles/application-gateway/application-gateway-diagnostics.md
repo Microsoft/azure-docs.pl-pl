@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98065324"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950488"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Zapasowe dzienniki kondycji i diagnostyczne dla Application Gateway
 
@@ -306,7 +306,7 @@ Dziennik zapory jest generowany tylko wtedy, gdy włączono go dla każdej bramy
 |Element rulesetversion     | Używana wersja zestawu reguł. Dostępne wartości to 2.2.9 i 3,0.     |
 |ruleId     | Identyfikator reguły zdarzenia wyzwalającego.        |
 |message     | Przyjazny dla użytkownika komunikat dla zdarzenia wyzwalającego. Więcej szczegółowych informacji znajduje się w sekcji Szczegóły.        |
-|akcja     |  Akcja podjęta na żądaniu. Dostępne wartości są dopasowywane i blokowane.      |
+|akcja     |  Akcja podjęta na żądaniu. Dostępne wartości są blokowane i dozwolone (w przypadku reguł niestandardowych), dopasowane (gdy reguła jest zgodna z częścią żądania) i wykrywane i blokowane (są one zarówno dla reguł obowiązkowych, w zależności od tego, czy WAF jest w trybie wykrywania, jak i zapobiegania).      |
 |lokacja     | Lokacja, dla której został wygenerowany dziennik. Obecnie tylko globalne są wyświetlane, ponieważ reguły są globalne.|
 |uzyskać     | Szczegóły zdarzenia wyzwalającego.        |
 |details. Message     | Opis reguły.        |
