@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0bfdea6c0bbbe40e4c72ab9da70a1b16d4bc4d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ee0e8d8fa660313cb007d53c2bbbfc9b19feec9
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175672"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889777"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Głębokie uczenie i platformy AI dla Data Science VM platformy Azure
 Poniżej wymieniono platformy uczenia głębokiego na DSVM.
@@ -27,7 +27,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | Obsługiwane wersje | |
 | Obsługiwane wersje DSVM      | Ubuntu 16.04    |
 | Jak jest on skonfigurowany/instalowany w DSVM?  | Caffe jest zainstalowany w `/opt/caffe` .   Przykłady znajdują się w `/opt/caffe/examples` .|
-| Jak uruchomić go      | Użyj X2Go, aby zalogować się do maszyny wirtualnej, a następnie uruchomić nowy terminal, a następnie wprowadź następujące polecenie:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Zostanie otwarte nowe okno przeglądarki z przykładowymi notesami. Pliki binarne są instalowane w/opt/Caffe/Build/Install/bin.<br/><br/>Zainstalowana wersja programu Caffe wymaga języka Python 2,7 i nie będzie współdziałać z językiem Python 3,5, który jest domyślnie aktywowany. Aby przełączyć się do języka Python 2,7, uruchom polecenie, `source activate root` Aby przełączyć się do środowiska Anaconda.|    
+| Jak uruchomić go      | Użyj X2Go, aby zalogować się do maszyny wirtualnej, a następnie uruchomić nowy terminal, a następnie wprowadź następujące polecenie:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Zostanie otwarte nowe okno przeglądarki z przykładowymi notesami. Pliki binarne są instalowane w/opt/Caffe/Build/Install/bin.<br/><br/>Zainstalowana wersja programu Caffe wymaga języka Python 2,7 i nie będzie współdziałać z językiem Python 3,6, który jest domyślnie aktywowany. Aby przełączyć się do języka Python 2,7, uruchom polecenie, `source activate root` Aby przełączyć się do środowiska Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 

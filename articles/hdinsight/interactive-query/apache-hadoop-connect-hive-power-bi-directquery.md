@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: 7f249bb0e81bf3a371b8743a304ef49baffaed7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 05199968339329632c2e68e9604e3f5308e8b12b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941384"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871660"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Wizualizowanie interakcyjnych zapytań Apache Hive danych za pomocą usługi Microsoft Power BI przy użyciu zapytania bezpośredniego w usłudze HDInsight
 
 W tym artykule opisano sposób łączenia Power BI firmy Microsoft z klastrami zapytań interakcyjnych usługi Azure HDInsight i wizualizacji danych Apache Hive przy użyciu zapytania bezpośredniego. Podany przykład ładuje dane z `hivesampletable` tabeli programu Hive do Power BI. `hivesampletable`Tabela programu Hive zawiera dane użycia telefonu komórkowego. Następnie można wykreślić dane użycia na mapie światowej:
 
-![Usługa HDInsight Power BI raport mapy](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
+:::image type="content" source="./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png" alt-text="Usługa HDInsight Power BI raport mapy" border="true":::
 
 Można użyć [sterownika Apache Hive ODBC](../hadoop/apache-hadoop-connect-hive-power-bi.md) do zaimportowania za pośrednictwem uniwersalnego łącznika odbc w Power BI Desktop. Nie jest to jednak zalecane w przypadku obciążeń analizy biznesowej, które podano nieinteraktywny charakter aparatu zapytań programu Hive. Łącznik [interakcyjnych zapytań usługi HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) i [Łącznik Apache Spark usługi HDInsight](/power-bi/spark-on-hdinsight-with-direct-connect) są lepszymi opcjami dotyczącymi wydajności.
 
@@ -34,7 +34,7 @@ Przed przejściem do tego artykułu należy dysponować następującymi elementa
 
 2. Na pasku menu Przejdź do **strony głównej**  >  **Pobierz dane**  >  **więcej...**.
 
-    ![Usługa HDInsight Power BI uzyskać więcej danych](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png" alt-text="Usługa HDInsight Power BI uzyskać więcej danych" border="true":::
 
 3. W oknie **pobieranie danych** wprowadź w polu wyszukiwania pozycję **HDInsight** .  
 
@@ -50,7 +50,7 @@ Przed przejściem do tego artykułu należy dysponować następującymi elementa
     |baza danych |Wprowadź **wartość domyślną** dla tego artykułu.|
     |Tryb łączności danych |Wybierz opcję **DirectQuery** dla tego artykułu.|
 
-    ![Zapytanie interaktywne usługi HDInsight Power BI połączenia DirectQuery](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png" alt-text="Zapytanie interaktywne usługi HDInsight Power BI połączenia DirectQuery" border="true":::
 
 7. Wprowadź poświadczenia HTTP, a następnie wybierz pozycję **Połącz**. Domyślna nazwa użytkownika to **admin**.
 
@@ -58,7 +58,7 @@ Przed przejściem do tego artykułu należy dysponować następującymi elementa
 
 9. Wybierz pozycję **Załaduj** z okna głównego.
 
-    ![Zapytanie interaktywne usługi HDInsight Power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png" alt-text="Zapytanie interaktywne usługi HDInsight Power BI hivesampletable" border="true":::
 
 ## <a name="visualize-data-on-a-map"></a>Wizualizowanie danych na mapie
 
@@ -66,7 +66,7 @@ Kontynuuj z ostatniej procedury.
 
 1. W okienku wizualizacje wybierz pozycję **Mapa**, a następnie ikonę globusa. Mapa ogólna zostanie wyświetlona w oknie głównym.
 
-    ![Power BI dostosowuje Raport usługi HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png" alt-text="Power BI dostosowuje Raport usługi HDInsight" border="true":::
 
 2. W okienku pola wybierz pozycję **Country** i **devicemake**. Mapa świata z punktami danych pojawia się w oknie głównym po kilku chwilach.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cf97039983ecec44a7c3a32e178fdcf9f9c45ff
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576327"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872187"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Wykonywanie zapytań dotyczących dzienników Azure Monitor do monitorowania klastrów usługi HDInsight
 
@@ -37,13 +37,13 @@ Dowiedz się, jak szukać określonych metryk dla klastra usługi HDInsight.
     search *
     ```
 
-    ![Wyszukiwanie w usłudze Apache Ambari Analytics — wszystkie metryki](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Przeszukaj wszystkie metryki")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png" alt-text="Wyszukiwanie w usłudze Apache Ambari Analytics — wszystkie metryki":::
 
 1. Z menu po lewej stronie wybierz kartę **Filtr** .
 
 1. W obszarze **Typ** wybierz pozycję **puls**. Następnie wybierz pozycję **zastosuj & Uruchom**.
 
-    ![metryki wyszukiwania dla usługi log Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Wyszukaj określone metryki")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png" alt-text="metryki wyszukiwania dla usługi log Analytics":::
 
 1. Zwróć uwagę, że zapytanie w polu tekstowym zmieni się na:
 
@@ -54,13 +54,13 @@ Dowiedz się, jak szukać określonych metryk dla klastra usługi HDInsight.
 
 1. Możesz Dig się bardziej szczegółowo przy użyciu opcji dostępnych w menu po lewej stronie. Na przykład:
 
-    - Aby wyświetlić dzienniki z określonego węzła:
+   - Aby wyświetlić dzienniki z określonego węzła:
 
-        ![Wyszukaj określone błędy output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Wyszukaj określone błędy output1")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png" alt-text="Wyszukaj określone błędy output1":::
 
-    - Aby wyświetlić dzienniki w określonym czasie:
+   - Aby wyświetlić dzienniki w określonym czasie:
 
-        ![Wyszukaj określone błędy output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Wyszukaj określone błędy output2")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png" alt-text="Wyszukaj określone błędy output2":::
 
 1. Wybierz pozycję **zastosuj & Uruchom** i przejrzyj wyniki. Należy również pamiętać, że zapytanie zostało zaktualizowane do:
 
@@ -102,11 +102,11 @@ Pierwszym krokiem tworzenia alertu jest dotarcie do zapytania, na podstawie któ
 
 1. Wybierz pozycję **Nowa reguła alertu** w górnej części strony.
 
-    ![Wprowadź zapytanie, aby utworzyć element alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Wprowadź zapytanie, aby utworzyć element alert1")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png" alt-text="Nowa reguła alertu":::
 
 1. W oknie **Tworzenie reguły** wprowadź zapytanie i inne szczegóły, aby utworzyć alert, a następnie wybierz pozycję **Utwórz regułę alertu**.
 
-    ![Wprowadź zapytanie, aby utworzyć element Alert2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Wprowadź zapytanie, aby utworzyć element Alert2")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png" alt-text="Zdefiniuj warunek alertu.":::
 
 ### <a name="edit-or-delete-an-existing-alert"></a>Edytuj lub usuń istniejący alert
 
@@ -120,7 +120,7 @@ Pierwszym krokiem tworzenia alertu jest dotarcie do zapytania, na podstawie któ
 
 1. Dostępne są następujące opcje: **Zapisz**, **Odrzuć**, **Wyłącz** i **Usuń**.
 
-    ![Alert dziennika Azure Monitor usługi HDInsight usuwanie edycji](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png" alt-text="Alert dziennika Azure Monitor usługi HDInsight usuwanie edycji":::
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../azure-monitor/alerts/alerts-metric.md).
 

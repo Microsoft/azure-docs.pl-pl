@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100574608"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872085"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -52,7 +52,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
 
 1. Przejdź do **ustawień**  >  **reguły**  >  **aplikacja Kolekcja reguł aplikacji**  >  **+ Dodaj kolekcję reguł aplikacji**.
 
-    ![Title: Dodawanie kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Title: Dodawanie kolekcji reguł aplikacji":::
 
 1. Na ekranie **Dodawanie kolekcji reguł aplikacji** podaj następujące informacje:
 
@@ -78,7 +78,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
     | Rule_3 | * | https:443 | login.microsoftonline.com | Zezwala na działanie logowania systemu Windows |
     | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. NET | Zamień `storage_account_name` na rzeczywistą nazwę konta magazynu. Aby korzystać tylko z połączeń HTTPS, upewnij się, że na koncie magazynu jest włączone polecenie ["wymagany bezpieczny transfer"](../storage/common/storage-require-secure-transfer.md) . W przypadku korzystania z prywatnego punktu końcowego w celu uzyskania dostępu do kont magazynu ten krok nie jest wymagany, a ruch magazynu nie jest przekazywany do zapory.|
 
-   ![Title: Wprowadź szczegóły kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Wprowadź szczegóły kolekcji reguł aplikacji":::
 
 1. Wybierz pozycję **Dodaj**.
 
@@ -105,7 +105,7 @@ Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDIns
     | Rule_5 | TCP | * | SQL | 1433 | Jeśli używasz domyślnych serwerów SQL udostępnianych przez usługę HDInsight, skonfiguruj regułę sieci w sekcji Tagi usług dla programu SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. Jeśli używasz niestandardowego programu SQL Server do obsługi Ambari, Oozie, Ranger i metadanych Hive, musisz zezwolić na ruch tylko do własnych niestandardowych serwerów SQL.|
     | Rule_6 | TCP | * | Azure Monitor | * | obowiązkowe Klienci, którzy planują korzystanie z funkcji automatycznego skalowania, powinni dodać tę regułę. |
     
-   ![Title: wprowadzanie kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: wprowadzanie kolekcji reguł aplikacji":::
 
 1. Wybierz pozycję **Dodaj**.
 

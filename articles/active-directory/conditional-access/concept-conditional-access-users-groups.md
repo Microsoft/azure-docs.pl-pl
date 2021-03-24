@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b878abbead68b3268891e1f35087e5942969730c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579063"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952817"
 ---
 # <a name="conditional-access-users-and-groups"></a>Dostęp warunkowy: Użytkownicy i grupy
 
@@ -38,7 +38,7 @@ Poniższe opcje są dostępne do uwzględnienia podczas tworzenia zasad dostępu
    - Wszyscy Goście i użytkownicy zewnętrzni
       - Ten wybór obejmuje wszystkich Gości i użytkowników zewnętrznych, w tym dowolny użytkownik z `user type` atrybutem ustawionym na `guest` . Ten wybór dotyczy również wszystkich użytkowników zewnętrznych zalogowanych z innej organizacji, takiej jak dostawca rozwiązań w chmurze (CSP). 
    - Role katalogu
-      - Umożliwia administratorom wybranie określonych wbudowanych ról katalogu usługi Azure AD używanych do określania przypisania zasad. Na przykład organizacje mogą tworzyć bardziej restrykcyjne zasady dla użytkowników, którym przypisano rolę administratora globalnego. Inne typy ról nie są obsługiwane, w tym role katalogu administracyjnego z zakresem jednostki, role niestandardowe.
+      - Umożliwia administratorom wybranie określonych wbudowanych ról katalogu usługi Azure AD używanych do określania przypisania zasad. Na przykład organizacje mogą tworzyć bardziej restrykcyjne zasady dla użytkowników, którym przypisano rolę administratora globalnego. Inne typy ról nie są obsługiwane, w tym role administracyjne o zakresie jednostki i role niestandardowe.
    - Użytkownicy i grupy
       - Umożliwia kierowanie określonych zestawów użytkowników. Na przykład organizacje mogą wybrać grupę, która zawiera wszystkich członków działu kadr, gdy aplikacja usługi kadr zostanie wybrana jako aplikacja w chmurze. Grupa może być dowolnymi grupami w usłudze Azure AD, w tym dynamicznymi lub przypisanymi grupami zabezpieczeń i dystrybucji. Zasady zostaną zastosowane do zagnieżdżonych użytkowników i grup.
 

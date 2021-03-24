@@ -3,12 +3,12 @@ title: Azure Service Bus — wygaśnięcie komunikatu
 description: W tym artykule wyjaśniono, jak wygasa i czas na żywo komunikatów Azure Service Bus. Po upływie tego terminu wiadomość nie zostanie już dostarczona.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042831"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952324"
 ---
 # <a name="message-expiration-time-to-live"></a>Wygaśnięcie komunikatu (czas wygaśnięcia)
 Ładunek w wiadomości lub polecenie lub zapytanie wysyłane przez komunikat do odbiorcy jest prawie zawsze uzależnione od formy wygaśnięcia na poziomie aplikacji. Po upływie tego terminu zawartość nie jest już dostarczana lub żądana operacja nie jest już wykonywana.
@@ -46,7 +46,7 @@ Service Bus kolejkami, tematami i subskrypcjami można utworzyć jako jednostki 
  
 Automatyczne czyszczenie jest przydatne w scenariuszach deweloperskich i testowych, w których jednostki są tworzone dynamicznie i nie są czyszczone po ich użyciu z powodu przerwy w działaniu testu lub debugowania. Jest on również przydatny, gdy aplikacja tworzy jednostki dynamiczne, takie jak kolejka odpowiedzi, do odbierania odpowiedzi z powrotem do procesu serwera sieci Web lub do innego stosunkowo krótkotrwałego obiektu, w którym trudno wyczyścić te jednostki, gdy wystąpienie obiektu zniknie.
 
-Funkcja jest włączona przy użyciu właściwości **autodelete dla bezczynnej** przestrzeni nazw. Ta właściwość jest ustawiona na czas trwania, przez który jednostka musi być bezczynna (nieużywana), zanim zostanie automatycznie usunięta. Minimalna wartość tej właściwości to 5.
+Funkcja jest włączona przy użyciu właściwości **autodelete dla bezczynnej** przestrzeni nazw. Ta właściwość jest ustawiona na czas trwania, przez który jednostka musi być bezczynna (nieużywana), zanim zostanie automatycznie usunięta. Minimalna wartość tej właściwości to 5 minut.
  
 ## <a name="idleness"></a>Bezczynność
 

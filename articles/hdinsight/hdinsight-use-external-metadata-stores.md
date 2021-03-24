@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: d36c8f1f592bbe714a9e31cad8131523049f29ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a3bfcfbe59ccc15278b30470c6a060a9c1dd609c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931364"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871748"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Korzystanie z zewnętrznych magazynów metadanych w usłudze Azure HDInsight
 
@@ -18,7 +18,7 @@ Usługa HDInsight umożliwia przejęcie kontroli nad danymi i metadanymi przy u�
 
 Magazyn metadanych Apache Hive w usłudze HDInsight jest istotną częścią architektury Apache Hadoop. Magazyn metadanych jest centralnym repozytorium schematów. Magazyn metadanych jest używany przez inne narzędzia dostępu do danych Big Data, takie jak Apache Spark, Interactive Query (LLAP), Presto lub Apache świni. Usługa HDInsight używa Azure SQL Database jako magazyn metadanych Hive.
 
-![Architektura magazynu metadanych usługi HDInsight Hive](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png" alt-text="Architektura magazynu metadanych usługi HDInsight Hive" border="false":::
 
 Istnieją dwa sposoby konfigurowania magazynu metadanych dla klastrów usługi HDInsight:
 
@@ -56,7 +56,7 @@ Usługa HDInsight obsługuje również niestandardowe magazyny metadanych, któr
 
 * Klaster i zewnętrzny magazyn metadanych muszą być hostowane w tym samym regionie.
 
-![Przypadek użycia magazynu metadanych Hive usługi HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png" alt-text="Przypadek użycia magazynu metadanych Hive usługi HDInsight" border="false":::
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Tworzenie i konfiguracja Azure SQL Database dla niestandardowego magazynu metadanych
 
@@ -66,15 +66,15 @@ Podczas tworzenia klastra Usługa HDInsight musi połączyć się z zewnętrznym
 
 Prywatne punkty końcowe dla magazynów SQL są obsługiwane tylko w klastrach utworzonych za pomocą `outbound` ResourceProviderConnection. Aby dowiedzieć się więcej, zobacz tę [dokumentację](./hdinsight-private-link.md).
 
-![przycisk ustawiania zapory serwera](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="przycisk ustawiania zapory serwera":::
 
-![Zezwalaj na dostęp do usług platformy Azure](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="Zezwalaj na dostęp do usług platformy Azure":::
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Wybierz niestandardowy magazyn metadanych podczas tworzenia klastra
 
 Możesz wskazać klaster do wcześniej utworzonego Azure SQL Database w dowolnym momencie. Aby można było utworzyć klaster za pośrednictwem portalu, opcja jest określana na podstawie **ustawień magazynu > Storage**.
 
-![Magazyn metadanych Hive usługi HDInsight Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png" alt-text="Magazyn metadanych Hive usługi HDInsight Azure Portal":::
 
 ## <a name="hive-metastore-guidelines"></a>Wskazówki dotyczące magazyn metadanych Hive
 

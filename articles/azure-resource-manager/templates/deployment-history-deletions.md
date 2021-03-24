@@ -2,13 +2,13 @@
 title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91652486"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951967"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
@@ -53,6 +53,12 @@ Aby usunąć blokadę przy użyciu interfejsu wiersza polecenia platformy Azure,
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>Wymagane uprawnienia
+
+Operacje usuwania są wymagane w ramach tożsamości użytkownika, który wdrożył szablon. Aby można było usunąć wdrożenia, użytkownik musi mieć dostęp do akcji **Microsoft. resources/Deployments/Delete** . Jeśli użytkownik nie ma wymaganych uprawnień, wdrożenia nie zostaną usunięte z historii.
+
+Jeśli bieżący użytkownik nie ma wymaganych uprawnień, próba automatycznego usunięcia zostanie ponowiona podczas następnego wdrożenia.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rezygnacja z automatycznego usuwania
 

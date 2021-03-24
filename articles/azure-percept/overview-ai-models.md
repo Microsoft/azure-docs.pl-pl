@@ -5,18 +5,18 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: e31a696dfb443c20566f13f5a228eefac7af5ecc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b644adb98de5ef5e3af6e1c8d45ea1a207d05cc7
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595927"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956132"
 ---
 # <a name="azure-percept-ai-models"></a>Modele AI usługi Azure Percept
 
-Usługa Azure Percept umożliwia tworzenie i wdrażanie modeli AI bezpośrednio na platformie Azure Percept DK z [platformy Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Wdrożenie modelu wykorzystuje [IoT Hub platformy Azure](https://azure.microsoft.com/services/iot-hub/) i [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
+Usługa Azure Percept umożliwia tworzenie i wdrażanie modeli AI bezpośrednio na [platformie Azure PERCEPT DK](./overview-azure-percept-dk.md) z [platformy Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Wdrożenie modelu wykorzystuje [IoT Hub platformy Azure](https://azure.microsoft.com/services/iot-hub/) i [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 
 ## <a name="sample-ai-models"></a>Przykładowe modele AI
 
@@ -27,7 +27,7 @@ Usługa Azure Percept Studio zawiera przykładowe modele dla następujących apl
 - ogólne wykrywanie obiektów
 - Produkty — wykrywanie na półce
 
-W przypadku modeli wstępnie przeszkolonych nie jest wymagane tworzenie kodu ani zbieranie danych szkoleniowych. Po prostu Wdróż żądany model na platformie Azure Percept DK z portalu i Otwórz strumień wideo Devkit, aby zobaczyć model inferencing w działaniu. Dostęp do telemetrii inferencing modelu można także uzyskać za pomocą narzędzia [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) .
+W przypadku modeli wstępnie przeszkolonych nie jest wymagane tworzenie kodu ani zbieranie danych szkoleniowych. Po prostu [Wdróż żądany model](./how-to-deploy-model.md) na platformie Azure Percept DK z portalu i Otwórz [strumień wideo](./how-to-view-video-stream.md) Devkit, aby zobaczyć model inferencing w działaniu. Dostęp do [telemetrii Inferencing modelu](./how-to-view-telemetry.md) można także uzyskać za pomocą narzędzia [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) .
 
 ## <a name="reference-solutions"></a>Rozwiązania referencyjne
 
@@ -37,7 +37,7 @@ Dostępne są również [rozwiązania do zliczania użytkowników](https://githu
 
 ## <a name="custom-no-code-solutions"></a>Niestandardowe rozwiązania bez kodu
 
-Za pomocą usługi Azure Percept Studio można opracowywać niestandardowe rozwiązania do [obsługi](./tutorial-nocode-vision.md) i mowy, bez konieczności kodowania.
+Za pomocą usługi Azure Percept Studio można opracowywać niestandardowe rozwiązania do [obsługi](./tutorial-nocode-vision.md) i [mowy](./tutorial-no-code-speech.md) , bez konieczności kodowania.
 
 W przypadku rozwiązań niestandardowych można korzystać zarówno z wykrywania obiektów, jak i klasyfikacji modeli AI. Po prostu Przekaż i Oznacz obrazy szkoleniowe, które można wykonać bezpośrednio z modelem "Percept" platformy Azure, w razie potrzeby. W [Custom Vision](https://www.customvision.ai/), które są częścią [Cognitive Services platformy Azure](https://azure.microsoft.com/services/cognitive-services/#overview), można łatwo przeprowadzić szkolenie i ocenę modeli.
 
@@ -58,6 +58,6 @@ Wstępnie skompilowane słowa kluczowe i polecenia asystenta głosowego są dost
 
 Odwiedź witrynę [Azure PERCEPT DK Advanced Development](https://github.com/microsoft/azure-percept-advanced-development) w serwisie GitHub, aby uzyskać aktualne wskazówki, samouczki i przykłady dla następujących elementów:
 
-* Przełączanie niestandardowego modelu AI na urządzenie
-* Aktualizowanie modelu, który jest już obsługiwany przez uczenie transferu
-* I inne informacje
+- Wdrażanie niestandardowego modelu AI na platformie Azure Percept DK
+- Aktualizowanie obsługiwanego modelu z uczeniem transferu
+- I inne informacje

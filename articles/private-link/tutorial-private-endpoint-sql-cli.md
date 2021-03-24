@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a5562c5f40a321f5737fea73f6d7964b402953cb
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102554993"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889216"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Samouczek: Nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure
 
@@ -218,9 +218,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Skonfiguruj prywatną strefę DNS
 
-W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS za pomocą polecenia [AZ Network Private-DNS Zone Create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS za pomocą polecenia [AZ Network Private-DNS Zone Create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
-Aby utworzyć łącze sieci wirtualnej do strefy DNS, użyj [AZ Network Private-DNS link VNET Create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) .
+Aby utworzyć łącze sieci wirtualnej do strefy DNS, użyj [AZ Network Private-DNS link VNET Create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) .
 
 Utworzysz grupę strefy DNS za pomocą [AZ Network Private-Endpoint systemu DNS Create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
