@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596029"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871201"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorowanie wystąpień App Service przy użyciu kontroli kondycji
 
@@ -57,7 +57,7 @@ Oprócz konfigurowania opcji sprawdzania kondycji można również skonfigurowa�
 
 Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service. Jeśli te funkcje zabezpieczeń są włączone, nie są wymagane żadne dodatkowe ustawienia. Jeśli jednak używany jest własny system uwierzytelniania, ścieżka kontroli kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja jest tylko HTTP **s**, żądanie sprawdzania kondycji zostanie wysłane za pośrednictwem protokołu HTTP **S**.
 
-Duże zespoły programistyczne przedsiębiorstwa często muszą przestrzegać wymagań dotyczących zabezpieczeń dla uwidocznionych interfejsów API. Aby zabezpieczyć punkt końcowy sprawdzania kondycji, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certyfikaty klienta](app-service-ip-restrictions.md#set-an-ip-address-based-rule)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Punkt końcowy sprawdzania kondycji można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `ReadyForRequest/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie jest już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
+Duże zespoły programistyczne przedsiębiorstwa często muszą przestrzegać wymagań dotyczących zabezpieczeń dla uwidocznionych interfejsów API. Aby zabezpieczyć punkt końcowy sprawdzania kondycji, należy najpierw użyć funkcji, takich jak [Ograniczenia adresów IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certyfikaty klienta](app-service-ip-restrictions.md#set-an-ip-address-based-rule)lub Virtual Network, aby ograniczyć dostęp do aplikacji. Punkt końcowy sprawdzania kondycji można zabezpieczyć przez wymaganie `User-Agent` dopasowania żądania przychodzącego `HealthCheck/1.0` . Nie można sfałszować User-Agent, ponieważ żądanie jest już zabezpieczone przez wcześniejsze funkcje zabezpieczeń.
 
 ## <a name="monitoring"></a>Monitorowanie
 

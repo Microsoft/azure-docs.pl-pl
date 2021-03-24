@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: b9c5db14bec87b30e51d39b1430ecc1f3cbef855
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b5add466a60bc855e08917d02fecaf60a35deeb1
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798293"
+ms.locfileid: "104889573"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitoruj wdrożenia SQL za pomocą usługi SQL Insights (wersja zapoznawcza)
 Usługi SQL Insights monitorują wydajność i kondycję wdrożeń SQL.  Może ona pomóc zapewnić przewidywalną wydajność i dostępność ważnych obciążeń, które zostały utworzone wokół zaplecze SQL, identyfikując wąskie gardła i problemy z wydajnością. Usługi SQL Insights przechowują swoje dane w [dziennikach Azure monitor](../logs/data-platform-logs.md), co pozwala na dostarczanie zaawansowanej agregacji i filtrowania oraz analizowanie trendów danych w miarę upływu czasu. Te Azure Monitor dane można wyświetlić w widokach, które firma Microsoft udostępnia w ramach tej oferty, i można nawiązać do nich udział bezpośrednio w danych dziennika w celu uruchamiania zapytań i analizowania trendów.
@@ -59,7 +59,12 @@ Zobacz temat [Włączanie usługi SQL Insights](sql-insights-enable.md) , aby uz
 
 
 ## <a name="data-collected-by-sql-insights"></a>Dane zbierane przez usługi SQL Insights
-W publicznej wersji zapoznawczej usługi SQL Insights obsługują tylko zdalną metodę monitorowania. [Agent telegraf](https://www.influxdata.com/time-series-platform/telegraf/) nie jest zainstalowany na SQL Server. Korzysta ona z [wtyczki wejściowej SQL Server dla telegraf](https://www.influxdata.com/integration/microsoft-sql-server/) i używa trzech grup zapytań dla różnych typów monitorowanych przez niego usług SQL: Azure SQL DB, wystąpienia zarządzanego Azure SQL, programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. 
+
+Usługi SQL Insights obsługują tylko zdalną metodę monitorowania SQL. Nie instalujemy żadnych agentów na maszynach wirtualnych, na których jest uruchomiony SQL Server. Co najmniej jeden dedykowany maszyn wirtualnych monitorowania jest używany do zdalnego zbierania danych z zasobów SQL. 
+
+Na każdej z tych maszyn wirtualnych monitorowania jest na nich zainstalowany [agent Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) wraz z rozszerzeniem usługi obciążenia szczegółowe informacje (WLI). 
+
+Rozszerzenie WLI zawiera [agenta telegraf](https://www.influxdata.com/time-series-platform/telegraf/)Open Source.  Używamy [reguł zbierania danych](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-overview) w celu skonfigurowania [wtyczki wejściowej SqlServer](https://www.influxdata.com/integration/microsoft-sql-server/) w celu określenia danych do zebrania z usługi Azure SQL DB, wystąpienia zarządzanego usługi Azure SQL i SQL Server uruchomionego na maszynie wirtualnej platformy Azure. 
 
 Poniższe tabele podsumowują następujące elementy:
 

@@ -1,14 +1,14 @@
 ---
 title: Przykłady zapytań zaawansowanych
 description: Za pomocą usługi Azure Resource Graph można uruchamiać pewne zaawansowane zapytania, w tym pracę z kolumnami, używane Tagi list i zgodne zasoby z wyrażeniami regularnymi.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5a87d63e597622ae5c0d8c8f48bc37281d4fd530
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99560344"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949859"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Zaawansowane przykłady zapytania grafu zasobów
 
@@ -28,7 +28,6 @@ Omówimy następujące zaawansowane zapytania:
 - [Wyświetl listę wszystkich rozszerzeń zainstalowanych na maszynie wirtualnej](#join-vmextension)
 - [Znajdowanie kont magazynu z określonym tagiem w grupie zasobów](#join-findstoragetag)
 - [Łączenie wyników z dwóch zapytań w jeden wynik](#unionresults)
-- [Uwzględnij nazwy dzierżawców i subskrypcji z nazwami wyświetlanymi](#displaynames)
 - [Podsumuj maszynę wirtualną przez rozszerzoną Właściwość States](#vm-powerstate)
 - [Liczba niezgodnych przypisań konfiguracji gościa](#count-gcnoncompliant)
 - [Szczegóły zapytania dotyczącego raportów przypisywania konfiguracji gościa](#query-gcreports)
@@ -559,26 +558,6 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 - Witryna Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com</a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.us</a>
 - Portal 21Vianet platformy Azure w Chinach: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.CN</a>
-
----
-
-## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Uwzględnij nazwy dzierżawców i subskrypcji z nazwami wyświetlanymi
-
-To zapytanie używa parametru **include** z opcjami _DisplayName_ , aby dodać **subscriptionDisplayName** i **tenantDisplayName** do wyników. Ten parametr jest dostępny tylko dla interfejsu wiersza polecenia platformy Azure i Azure PowerShell.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-Alternatywą dla uzyskania nazwy subskrypcji jest użycie `join` operatora i nawiązanie połączenia z tabelą **ResourceContainers** i `Microsoft.Resources/subscriptions` typem. `join` działa w interfejsie wiersza polecenia platformy Azure, Azure PowerShell, portalu i wszystkich obsługiwanych zestawach SDK. Aby zapoznać się z przykładem, zobacz przykład [-Key magazyn z nazwą subskrypcji](#join).
-
-> [!NOTE]
-> Jeśli zapytanie nie używa **programu Project** do określenia zwracanych właściwości, **subscriptionDisplayName** i **tenantDisplayName** są automatycznie dołączane do wyników.
-> Jeśli zapytanie używa **programu Project**, każde z pól _DisplayName_ musi być jawnie dołączone do **projektu** lub nie będzie zwracane w wynikach, nawet gdy zostanie użyty parametr **include** . Parametr **include** nie działa z [tabelami](../concepts/query-language.md#resource-graph-tables).
 
 ---
 

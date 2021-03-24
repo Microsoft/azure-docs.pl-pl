@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b62e41f280d02664b3df631c3413960f1265356f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98935841"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863177"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Zwiększanie limitu przydziału dla usługi Azure HDInsight
 
@@ -34,7 +34,7 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wybierz pozycję **Pomoc i obsługa techniczna** w lewej dolnej części strony.
 
-    ![przycisk Pomoc i obsługa techniczna](./media/quota-increase-request/help-support-button.png)
+    :::image type="content" source="./media/quota-increase-request/help-support-button.png" alt-text="przycisk Pomoc i obsługa techniczna" border="true":::
 
 1. Wybierz pozycję **Nowe żądanie obsługi**.
 1. Na stronie **Nowy wniosek o pomoc techniczną** na karcie **Podstawowe** wybierz następujące opcje:
@@ -43,20 +43,20 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
    - **Subskrypcja**: subskrypcja, którą chcesz zmodyfikować
    - **Typ limitu przydziału**: **HDInsight**
 
-     ![Utwórz żądanie obsługi, aby zwiększyć limit przydziału rdzeni usługi HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
+     :::image type="content" source="./media/quota-increase-request/hdinsight-quota-support-request.png" alt-text="Utwórz żądanie obsługi, aby zwiększyć limit przydziału rdzeni usługi HDInsight" border="true":::
 
 1. Wybierz pozycję **Dalej: rozwiązania >>**.
 1. Na stronie **szczegóły** wprowadź opis problemu, wybierz ważność problemu, preferowaną metodę kontaktu i inne wymagane pola. Użyj szablonu wymienionego poniżej, aby upewnić się, że podajesz wymagane informacje. Żądania zwiększenia limitu przydziału są oceniane przez zespół pojemności platformy Azure, a nie przez zespół produktu HDInsight. Im więcej informacji podano, tym bardziej prawdopodobnie Twoje żądanie zostanie zatwierdzone.
 
-    ```
-    I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
-    
-    My current quota on this subscription is [CURRENT QUOTA AMOUNT].
-    
-    I would like to use the extra cores for [DETAIL REASON].
-    ```
+   ```text
+   I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
+   
+   My current quota on this subscription is [CURRENT QUOTA AMOUNT].
+   
+   I would like to use the extra cores for [DETAIL REASON].
+   ```
 
-    ![Szczegóły problemu](./media/quota-increase-request/problem-details.png)
+   :::image type="content" source="./media/quota-increase-request/problem-details.png" alt-text="Szczegóły problemu" border="true":::
 
 1. Wybierz kolejno pozycje **Dalej: recenzja + utwórz >>**.
 1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.

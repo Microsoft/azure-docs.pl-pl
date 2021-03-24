@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/02/2021
-ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 34d0d55ba6eb403055be96758b57b7bd0c2ab704
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622081"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104987710"
 ---
 Aby rozwiązać problemy związane z obliczeniami, użyj odpowiedzi w czasie wykonywania agenta IoT Edge. Poniżej znajduje się lista możliwych odpowiedzi:
 
@@ -66,3 +66,43 @@ W lokalnym interfejsie użytkownika sieci Web urządzenia wykonaj następujące 
 1. Wybierz przycisk **Zastosuj**. Zmieniony zakres adresów IP powinien obowiązywać od razu.
 
 Aby uzyskać więcej informacji, zobacz [Zmienianie zewnętrznych adresów IP usługi dla kontenerów](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
+
+### <a name="configure-static-ips-for-iot-edge-modules"></a>Skonfiguruj statyczne adresy IP dla modułów IoT Edge
+
+#### <a name="problem-description"></a>Opis problemu
+
+Kubernetes przypisuje dynamiczne adresy IP do każdego modułu IoT Edge na urządzeniu z systemem Azure Stack Edge. Aby skonfigurować statyczne adresy IP dla modułów, wymagana jest metoda.
+
+#### <a name="suggested-solution"></a>Sugerowane rozwiązanie
+
+Możesz określić stałe adresy IP dla modułów IoT Edge za pośrednictwem sekcji K8s-eksperymentalnej, jak opisano poniżej: 
+
+```yaml
+{
+  "k8s-experimental": {
+    "serviceOptions" : {
+      "loadBalancerIP" : "100.23.201.78",
+      "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### <a name="expose-kubernetes-service-as-cluster-ip-service-for-internal-communication"></a>Uwidacznianie usługi Kubernetes jako usługi IP klastra na potrzeby komunikacji wewnętrznej
+
+#### <a name="problem-description"></a>Opis problemu
+
+Domyślnie typem usługi IoT jest usługa równoważenia obciążenia i przypisane zewnętrznie adresy IP. Być może nie chcesz, aby dla aplikacji był używany zewnętrzny adres IP. Może być konieczne uwidocznienie zasobników w klastrze KUbernetes, aby uzyskać dostęp jako inne magazyny, a nie jako zewnętrznie uwidocznioną usługę równoważenia obciążenia. 
+
+#### <a name="suggested-solution"></a>Sugerowane rozwiązanie
+
+Możesz użyć opcji tworzenia za pośrednictwem sekcji K8s — eksperymentalne. Następująca opcja usługi powinna współpracować z powiązaniami portów.
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
+    }
+  }
+}
+```

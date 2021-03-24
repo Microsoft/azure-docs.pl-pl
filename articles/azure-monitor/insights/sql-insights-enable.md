@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 5ab51fc4ea64dfd678f5c9acfc80b5e380782153
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609874"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889624"
 ---
 # <a name="enable-sql-insights-preview"></a>Włącz funkcję SQL Insights (wersja zapoznawcza)
 W tym artykule opisano sposób włączania usługi [SQL Insights](sql-insights-overview.md) w celu monitorowania wdrożeń SQL. Monitorowanie jest wykonywane z maszyny wirtualnej platformy Azure, która nawiązuje połączenie z wdrożeniami SQL i korzysta z dynamicznych widoków zarządzania (widoków DMV) w celu zbierania danych monitorowania. Można kontrolować, które zestawy danych są zbierane, oraz częstotliwość zbierania danych przy użyciu profilu monitorowania.
@@ -92,13 +92,16 @@ Każdy typ SQL oferuje metody monitorowania maszyny wirtualnej w celu bezpieczne
 
 ### <a name="azure-sql-databases"></a>Bazy danych Azure SQL Database  
 
-[Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — Azure Portal](../../private-link/tutorial-private-endpoint-sql-portal.md) zawiera przykład konfigurowania prywatnego punktu końcowego, którego można użyć w celu uzyskania dostępu do bazy danych.  W przypadku korzystania z tej metody, należy upewnić się, że maszyny wirtualne monitorowania są w tej samej sieci wirtualnej i podsieci, która będzie używana dla prywatnego punktu końcowego.  Jeśli jeszcze tego nie zrobiono, możesz utworzyć prywatny punkt końcowy w bazie danych. 
+Usługi SQL Insights obsługują dostęp do Azure SQL Database za pośrednictwem publicznego punktu końcowego, a także z sieci wirtualnej.
 
-Jeśli używasz [Ustawienia zapory](../../azure-sql/database/firewall-configure.md) , aby zapewnić dostęp do SQL Database, musisz dodać regułę zapory, aby zapewnić dostęp z publicznego adresu IP monitorowanej maszyny wirtualnej. Dostęp do ustawień zapory można uzyskać ze strony **przegląd Azure SQL Database** w portalu. 
+Aby uzyskać dostęp za pośrednictwem publicznego punktu końcowego, należy dodać regułę na stronie **Ustawienia zapory** i w sekcji [Ustawienia zapory adresu IP](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) .  Aby określić dostęp z sieci wirtualnej, możesz ustawić [reguły zapory sieci wirtualnej](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) i ustawić [Tagi usługi wymagane przez agenta Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  W [tym artykule](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) opisano różnice między tymi dwoma typami reguł zapory.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Ustaw zaporę serwera" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Ustawienia zapory." lightbox="media/sql-insights-enable/firewall-settings.png":::
+
+> [!NOTE]
+> Usługa SQL Insights obecnie nie obsługuje prywatnego punktu końcowego platformy Azure dla Azure SQL Database.  Zalecamy używanie [tagów usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) w ustawieniach sieciowej grupy zabezpieczeń lub zapory sieci wirtualnej [obsługiwanych przez agenta Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).
 
 ### <a name="azure-sql-managed-instances"></a>Wystąpienia usługi Azure SQL Managed Instance 
 

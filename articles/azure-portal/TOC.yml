@@ -11,7 +11,7 @@
 - name: Przewodniki Szybki start
   items:
     - name: Tworzenie maszyny wirtualnej w portalu
-      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+      href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
     - name: Tworzenie pulpitu nawigacyjnego
       items:
         - name: Interfejs wiersza polecenia platformy Azure
@@ -97,3 +97,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
     - name: Wideo dotyczące platformy Azure
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'
+    - name: Platforma Azure i usługa Power BI
+      href: /power-bi/connect-data/service-azure-and-power-bi?context=/azure/azure-portal/context/context

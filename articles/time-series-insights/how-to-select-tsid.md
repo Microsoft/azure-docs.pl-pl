@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95016755"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950743"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Najlepsze rozwiązania dotyczące wybierania identyfikatora szeregu czasowego
 
@@ -24,6 +24,11 @@ W tym artykule przedstawiono podsumowanie znaczenia identyfikatora szeregów cza
 ## <a name="choose-a-time-series-id"></a>Wybieranie identyfikatora szeregów czasowych
 
 Wybór odpowiedniego identyfikatora szeregów czasowych ma krytyczne znaczenie. Wybór identyfikatora szeregów czasowych jest taki sam jak wybór klucza partycji dla bazy danych. Jest to wymagane w przypadku tworzenia środowiska Azure Time Series Insights Gen2.
+
+Obejrzyj samouczek udostępniania środowiska, aby uzyskać szczegółowy opis identyfikatora szeregów czasowych. Zobaczysz dwa różne przykłady ładunku telemetrii JSON oraz prawidłowy identyfikator szeregów czasowych dla każdego z nich.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
 
 > [!IMPORTANT]
 > Identyfikatory szeregów czasowych:

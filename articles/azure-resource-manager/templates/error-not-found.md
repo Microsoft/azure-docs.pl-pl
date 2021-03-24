@@ -2,13 +2,13 @@
 title: Błędy nieznalezienia zasobu
 description: Opisuje sposób rozwiązywania błędów, gdy nie można znaleźć zasobu. Ten błąd może wystąpić podczas wdrażania szablonu Azure Resource Manager lub podczas wykonywania akcji związanych z zarządzaniem.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
-ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99526250"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950879"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Rozpoznaj błędy nieznalezionego zasobu
 
@@ -133,3 +133,9 @@ Podczas wdrażania szablonu należy poszukać wyrażeń, które używają funkcj
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## <a name="solution-6---after-deleting-resource"></a>Rozwiązanie 6 — po usunięciu zasobu
+
+Po usunięciu zasobu może wystąpić krótki czas, po którym zasób nadal pojawia się w portalu, ale nie jest w rzeczywistości dostępny. W przypadku wybrania zasobu zostanie wyświetlony komunikat o błędzie z informacją, że nie można odnaleźć zasobu. Odśwież Portal, aby uzyskać najnowszy widok.
+
+Jeśli problem będzie się powtarzać po krótkim czasie oczekiwania, [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/options/).

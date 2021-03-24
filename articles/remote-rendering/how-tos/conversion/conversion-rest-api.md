@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: f33e5717cd5556e72d996e7e943867c16805e71b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e3db4b9c9b4a05142f1327f681b067748cb1a2f9
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705181"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951644"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Używanie interfejsu API REST konwersji modelu
 
@@ -18,9 +18,9 @@ Usługa [konwersji modelu](model-conversion.md) jest kontrolowana za pomocą [in
 
 ## <a name="rest-api-reference"></a>Dokumentacja interfejsu API REST
 
-Dokumentację referencyjną interfejsu API REST renderowania zdalnego można znaleźć [tutaj](/rest/api/mixedreality/2021-01-01preview/remoterendering)i [tutaj](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
+Dokumentację referencyjną interfejsu API REST renderowania zdalnego można znaleźć [tutaj](/rest/api/mixedreality/2021-01-01/remoterendering)i [tutaj](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 
-Udostępniamy skrypt programu PowerShell w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) w folderze *scripts* o nazwie *Conversion.ps1*, który demonstruje korzystanie z naszej usługi. Skrypt i jego konfigurację są opisane tutaj: [przykładowe skrypty programu PowerShell](../../samples/powershell-example-scripts.md). Udostępniamy również zestawy SDK dla [platform .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mixedreality/Azure.MixedReality.RemoteRendering), Java i Python.
+Udostępniamy skrypt programu PowerShell w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) w folderze *scripts* o nazwie *Conversion.ps1*, który demonstruje korzystanie z naszej usługi. Skrypt i jego konfigurację są opisane tutaj: [przykładowe skrypty programu PowerShell](../../samples/powershell-example-scripts.md). Udostępniamy również zestawy SDK dla [platformy .NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/remoterendering/Azure.MixedReality.RemoteRendering/README.md) i środowiska [Java]( https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/remoterendering/azure-mixedreality-remoterendering/README.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

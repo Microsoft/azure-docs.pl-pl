@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
-ms.openlocfilehash: 14268e58296554cedc9488e48b41719421797a57
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2146ccb0c4d7f263c3e1a69db9b172649fcd25ea
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933274"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863500"
 ---
 # <a name="optimize-clusters-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie klastrów przy użyciu platformy Apache Ambari w usłudze Azure HDInsight
 
@@ -20,7 +20,7 @@ Aby zapoznać się z wprowadzeniem do korzystania z interfejsu użytkownika siec
 
 Zaloguj się do Ambari przy `https://CLUSTERNAME.azurehdidnsight.net` użyciu poświadczeń klastra. Na ekranie początkowym zostanie wyświetlony pulpit nawigacyjny przegląd.
 
-![Wyświetlany pulpit nawigacyjny użytkownika Apache Ambari](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
+:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png" alt-text="Wyświetlany pulpit nawigacyjny użytkownika Apache Ambari":::
 
 Interfejs użytkownika sieci Web Ambari służy do zarządzania hostami, usługami, alertami, konfiguracjami i widokami. Nie można użyć Ambari do utworzenia klastra usługi HDInsight lub usług uaktualnienia. Nie można też zarządzać stosami i wersjami, likwidowaniem lub rewizją hostów ani dodawać usług do klastra.
 
@@ -28,7 +28,7 @@ Interfejs użytkownika sieci Web Ambari służy do zarządzania hostami, usługa
 
 Ustawienia konfiguracji ułatwiają dostrajanie określonej usługi. Aby zmodyfikować ustawienia konfiguracji usługi, wybierz usługę z paska bocznego **usług** (po lewej stronie). Następnie przejdź **do karty konfiguracje** na stronie Szczegóły usługi.
 
-![Pasek boczny usług Apache Ambari](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
+:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png" alt-text="Pasek boczny usług Apache Ambari":::
 
 ## <a name="modify-namenode-java-heap-size"></a>Modyfikuj rozmiar sterty Java NameNode
 
@@ -38,23 +38,23 @@ Aby zmodyfikować rozmiar sterty języka Java NameNode:
 
 1. Na pasku bocznym usługi wybierz pozycję **HDFS** i przejdź **do karty konfiguracje** .
 
-    ![Konfiguracja systemu Apache Ambari HDFS](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png" alt-text="Konfiguracja systemu Apache Ambari HDFS":::
 
 1. Znajdź ustawienie **NameNode rozmiar sterty Java**. Możesz również użyć pola tekstowego **Filtr** , aby wpisać i znaleźć określone ustawienie. Wybierz ikonę **pióra** obok nazwy ustawienia.
 
-    ![Rozmiar sterty Java Ambari NameNode](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png" alt-text="Rozmiar sterty Java Ambari NameNode":::
 
 1. Wpisz nową wartość w polu tekstowym, a następnie naciśnij klawisz **Enter** , aby zapisać zmiany.
 
-    ![Ambari Edytuj NameNode stertę Java size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png" alt-text="Ambari Edytuj NameNode stertę Java size1":::
 
 1. Rozmiar sterty Java NameNode jest zmieniany na 1 GB z 2 GB.
 
-    ![Edytowanie sterty NameNode Java Size2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png" alt-text="Edytowanie sterty NameNode Java Size2":::
 
 1. Zapisz zmiany, klikając zielony przycisk **Zapisz** znajdujący się u góry ekranu konfiguracja.
 
-    !["Ambari zapisywania konfiguracji" Apache](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png" alt-text="&quot;Ambari zapisywania konfiguracji&quot; Apache":::
 
 ## <a name="next-steps"></a>Następne kroki
 
