@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c81eb092fa59cb890093e1e9acd0511e39b5047b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939515"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864214"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacjonalizacja potoku analizy danych
 
@@ -30,7 +30,7 @@ Przykładowy potok czeka na nadejście nowych danych lotu okresu, a następnie p
 
 Poniższy diagram ilustruje przykład potoku.
 
-![Przykładowy Potok danych przykładu lotu HDI](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="Przykładowy Potok danych przykładu lotu HDI" border="false":::
 
 ## <a name="apache-oozie-solution-overview"></a>Omówienie rozwiązania Apache Oozie
 
@@ -40,7 +40,7 @@ Oozie opisuje swoje potoki pod względem *akcji*, *przepływów pracy* i *koordy
 
 Na poniższym diagramie przedstawiono ogólny projekt tego przykładowego potoku Oozie.
 
-![Potok danych przykładowego lotu Oozie](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Potok danych przykładowego lotu Oozie" border="false":::
 
 ## <a name="provision-azure-resources"></a>Udostępnianie zasobów platformy Azure
 
@@ -131,11 +131,11 @@ Przykładowe dane są teraz dostępne. Jednak potok wymaga dwóch tabel programu
 
 2. Z listy usług wybierz pozycję **Hive**.
 
-    ![Lista usług Apache Ambari Services — Wybieranie gałęzi](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png" alt-text="Lista usług Apache Ambari Services — Wybieranie gałęzi":::
 
 3. Wybierz pozycję **Przejdź do widoku** obok etykiety widok programu Hive 2,0.
 
-    ![Lista podsumowania Apache Hive Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png" alt-text="Lista podsumowania Apache Hive Ambari":::
 
 4. W obszarze tekstu zapytania Wklej następujące instrukcje, aby utworzyć `rawFlights` tabelę. `rawFlights`Tabela zawiera schemat na potrzeby odczytywania plików CSV znajdujących się w `/example/data/flights` folderze w usłudze Azure Storage.
 
@@ -164,7 +164,7 @@ Przykładowe dane są teraz dostępne. Jednak potok wymaga dwóch tabel programu
 
 5. Wybierz pozycję **Execute (wykonaj** ), aby utworzyć tabelę.
 
-    ![zapytanie Hive usługi HDI Ambari Services](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="zapytanie Hive usługi HDI Ambari Services":::
 
 6. Aby utworzyć `flights` tabelę, Zastąp tekst w obszarze tekstu zapytania poniższymi instrukcjami. `flights`Tabela jest tabelą zarządzaną przez program Hive służącą do partycjonowania danych załadowanych do nich przez rok, miesiąc i dzień miesiąca. Ta tabela będzie zawierać wszystkie historyczne dane lotu z najniższym rozdrobnieniem obecnym w danych źródłowych jednego wiersza na lot.
 
@@ -253,18 +253,18 @@ Następnie zaktualizuj wartości dla określonego środowiska. Tabela poniżej t
     INSERT OVERWRITE TABLE flights
     PARTITION (YEAR, MONTH, DAY_OF_MONTH)
     SELECT 
-        FL_DATE,
-        CARRIER,
-        FL_NUM,
-        ORIGIN,
-        DEST,
-        DEP_DELAY,
-        ARR_DELAY,
-        ACTUAL_ELAPSED_TIME,
-        DISTANCE,
+          FL_DATE,
+          CARRIER,
+          FL_NUM,
+          ORIGIN,
+          DEST,
+          DEP_DELAY,
+          ARR_DELAY,
+          ACTUAL_ELAPSED_TIME,
+          DISTANCE,
         YEAR,
-        MONTH,
-        DAY_OF_MONTH
+          MONTH,
+          DAY_OF_MONTH
     FROM rawflights
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
@@ -278,17 +278,17 @@ Następnie zaktualizuj wartości dla określonego środowiska. Tabela poniżej t
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
         YEAR INT,
-        MONTH INT,
-        DAY_OF_MONTH INT,
-        CARRIER STRING,
-        AVG_DEP_DELAY FLOAT,
-        AVG_ARR_DELAY FLOAT,
-        TOTAL_DISTANCE FLOAT
+          MONTH INT,
+          DAY_OF_MONTH INT,
+          CARRIER STRING,
+          AVG_DEP_DELAY FLOAT,
+          AVG_ARR_DELAY FLOAT,
+          TOTAL_DISTANCE FLOAT
     )
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE TABLE ${hiveTableName}
-    SELECT  year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
+    SELECT     year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
             avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
     FROM flights
     GROUP BY year, month, day_of_month, carrier 
@@ -415,7 +415,7 @@ Użyj punktu połączenia usługi z sesji bash, aby wdrożyć przepływ pracy Oo
 
 1. Obserwuj stan przy użyciu konsoli sieci Web Oozie. W programie Ambari wybierz pozycję **Oozie**, **szybkie linki** i **Oozie konsolę sieci Web**. Na karcie **zadania przepływu pracy** wybierz pozycję **wszystkie zadania**.
 
-    ![przepływy pracy konsoli sieci Web HDI Oozie](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png" alt-text="przepływy pracy konsoli sieci Web HDI Oozie":::
 
 1. Gdy stan ma wartość powodzenie, wykonaj zapytanie do tabeli SQL Database w celu wyświetlenia wstawionych wierszy. Korzystając z Azure Portal, przejdź do okienka dla SQL Database, wybierz pozycję **Narzędzia**, a następnie otwórz **Edytor zapytań**.
 
@@ -593,11 +593,11 @@ Aby uruchomić potok z koordynatorem, Kontynuuj w podobny sposób jak w przypadk
 
 5. Sprawdź stan za pomocą konsoli sieci Web Oozie, tym razem wybierając kartę **zadania koordynatora** , a następnie  **wszystkie zadania**.
 
-    ![Zadania koordynatora konsoli sieci Web Oozie](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png" alt-text="Zadania koordynatora konsoli sieci Web Oozie":::
 
 6. Wybierz wystąpienie koordynatora, aby wyświetlić listę zaplanowanych akcji. W takim przypadku powinny być widoczne cztery działania z przedziałami nominalnymi z zakresu od 1/1/2017 do 1/4/2017.
 
-    ![Zadanie koordynatora konsoli sieci Web Oozie](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png" alt-text="Zadanie koordynatora konsoli sieci Web Oozie":::
 
     Każda akcja na tej liście odpowiada wystąpieniu przepływu pracy, który przetwarza dane z jednego dnia, gdzie początek tego dnia jest wskazywany przez nominalny czas.
 

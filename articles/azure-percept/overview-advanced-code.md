@@ -5,28 +5,27 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f40d9a1285f1eb625a9e33387f2cc9fafcbc3322
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4abe8e07a8311bab9b6e98746d0fc05bd2e89395
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098404"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956115"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Zaawansowane opracowywanie przy użyciu usługi Azure Percept
-Dzięki platformie Azure Percept deweloperzy oprogramowania i analityków danych mogą korzystać z zaawansowanych przepływów pracy kodu dla zarządzania cyklem życia systemu AI. Za pomocą rosnącej biblioteki typu open source można korzystać z przykładów, aby rozpocząć pracę z przejazdem tworzenia i tworzyć gotowe rozwiązania produkcyjne.
 
-## <a name="get-started-with-the-advanced-development-tutorials"></a>Wprowadzenie do zaawansowanych samouczków programistycznych
+Dzięki platformie Azure Percept deweloperzy oprogramowania i analityków danych mogą korzystać z zaawansowanych przepływów pracy kodu dla zarządzania cyklem życia systemu AI. Za pomocą rosnącej biblioteki typu open source można korzystać z przykładów, aby rozpocząć pracę z przejazdem tworzenia zawartości AI i tworzyć rozwiązania gotowe do produkcji.
 
-Poznaj wszystkie dostępne [modele usługi Azure PERCEPT AI](./overview-ai-models.md).
+## <a name="get-started-with-advanced-development"></a>Wprowadzenie do zaawansowanego programowania
 
-Odwiedź witrynę [Azure PERCEPT DK Advanced Development](https://github.com/microsoft/azure-percept-advanced-development) w serwisie GitHub, aby uzyskać aktualne wskazówki, samouczki i przykłady dla następujących elementów:
+Zapoznaj się z artykułem [Azure PERCEPT DK Advanced Development](https://github.com/microsoft/azure-percept-advanced-development) w serwisie GitHub, aby uzyskać aktualne wskazówki, samouczki i przykłady dla następujących elementów:
 
-* Przełączanie niestandardowego modelu AI na urządzenie
-* Aktualizowanie modelu, który jest już obsługiwany przez uczenie transferu
-* I inne informacje
+- Wdrażanie niestandardowego modelu AI na platformie Azure Percept DK
+- Aktualizowanie obsługiwanego modelu z uczeniem transferu
+- I inne informacje
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj wszystkie dostępne [modele usługi Azure PERCEPT AI](./overview-ai-models.md). Jeśli żaden z tych modeli nie odpowiada Twoim potrzebom, możesz skorzystać z zaawansowanej podróży w kodzie, aby zapewnić własny model lub potoku przetwarzania komputerowego do Percept.
+Dowiedz się więcej na temat dostępnych [modeli usługi Azure PERCEPT AI](./overview-ai-models.md). Jeśli żaden z tych modeli nie odpowiada Twoim potrzebom, użyj zaawansowanej podróży kodu, aby nawiązać swój własny model lub potok wizji komputera z Percept. Jeśli masz udział, który uznasz za inny, możesz również bezproblemowo otworzyć żądanie ściągnięcia.

@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 09fbc97b84365cc1d6d40b8e1147e1b8e951cc1f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 78e54543c94cd6e8434023b61516242c2491f353
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780705"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863602"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
-Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależności przy użyciu [Azure Migrate: odnajdywania i oceny](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależności przy użyciu [Azure Migrate: odnajdywania i oceny](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 
 ## <a name="assessment-readiness-issues"></a>Problemy z gotowością do oceny
@@ -222,7 +222,7 @@ Po przeprowadzeniu migracji serwerów z funkcją wizualizacji zależności na pl
 W analizie zależności bez wykorzystania agentów nazwy procesów są przechwytywane na podstawie najlepszego wysiłku. W niektórych scenariuszach, chociaż nazwy serwera źródłowego i docelowego oraz port docelowy są przechwytywane, nie jest możliwe ustalenie nazw procesów na obu końcach zależności. W takich przypadkach proces jest oznaczony jako "nieznany proces".
 
 ## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-azure-migrate"></a>Podczas próby skonfigurowania obszaru roboczego w programie Azure Migrate obszar roboczy Log Analytics nie jest wyświetlany.
-Usługa Azure Migrate obecnie obsługuje tworzenie obszaru roboczego pakietu OMS w regionach Wschodnie stany USA, Azja Południowo-Wschodnia i Europa Zachodnia. Jeśli obszar roboczy jest tworzony poza Azure Migrate w innym regionie, nie można go skojarzyć z Azure Migrate projektem.
+Usługa Azure Migrate obecnie obsługuje tworzenie obszaru roboczego pakietu OMS w regionach Wschodnie stany USA, Azja Południowo-Wschodnia i Europa Zachodnia. Jeśli obszar roboczy jest tworzony poza Azure Migrate w innym regionie, nie można go skojarzyć z projektem.
 
 
 ## <a name="capture-network-traffic"></a>Przechwyć ruch sieciowy

@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 03/12/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e17943d7867bfd6b93d95b6ec0b6e0049a784ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5b3a94a0b1253b946239cd26113e9dfc955dd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103555792"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955962"
 ---
 # <a name="samples"></a>Samples
 
@@ -24,7 +24,7 @@ Usługa Azure Communication Services ma wiele dostępnych przykładów, których
 
 | Nazwa Przykładowa                                                                                          | Opis                                                         | Dostępne języki/platformy      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
-| [Przykładowa Grupa wywołująca Hero](./calling-hero-sample.md)                                                | Przedstawia przykład tworzenia aplikacji wywołującej grupę.          | Web, iOS                           |
+| [Przykładowa Grupa wywołująca Hero](./calling-hero-sample.md)                                                | Przedstawia przykład tworzenia aplikacji wywołującej grupę.          | Web, iOS, Android                           |
 | [Przykład wywołania sieci Web](./web-calling-sample.md)                                                        | Przewodnik krok po kroku dotyczący funkcji wywołania usług ACS w sieci Web. | Internet                                |
 | [Przykład Hero rozmowy](./chat-hero-sample.md)                                                            | Zawiera przykład tworzenia aplikacji czatu.                   | Web & C# .NET                      |
 | [Aplikacja medyczna firmy Contoso](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | Przykładowa aplikacja pokazująca przepływ lekarza pacjenta.                     | Node.js & sieci Web                      |
