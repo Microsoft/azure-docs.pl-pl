@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
-ms.openlocfilehash: 812b54d10ea3cc3c405f534e36ac66abf3466808
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: baa6a0a6995e206924d14de25b98700e450f3a0c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449292"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954925"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Ochrona zaplecza SPA przy użyciu protokołu OAuth 2,0 Azure Active Directory B2C i platformy Azure API Management
 
@@ -193,7 +193,7 @@ Otwórz blok Azure AD B2C w portalu i wykonaj następujące czynności.
 1. Wklej dobrze znany punkt końcowy konfiguracji Open-ID z pola Rejestracja i logowanie w polu adres URL wystawcy (Ta konfiguracja została wpisana wcześniej).
 1. Kliknij pozycję "Pokaż wpis tajny" i Wklej klucz tajny klienta aplikacji zaplecza do odpowiedniego pola.
 1. Wybierz przycisk OK, co spowoduje powrót do bloku/ekranu wyboru dostawcy tożsamości.
-1. Pozostaw [Magazyn tokenów](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#token-store) włączony w ustawieniach zaawansowanych (domyślnie).
+1. Pozostaw [Magazyn tokenów](../app-service/overview-authentication-authorization.md#token-store) włączony w ustawieniach zaawansowanych (domyślnie).
 1. Kliknij przycisk "Zapisz" (w lewym górnym rogu bloku).
 
    > [!IMPORTANT]

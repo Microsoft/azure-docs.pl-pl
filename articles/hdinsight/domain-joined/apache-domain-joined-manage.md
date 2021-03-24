@@ -4,12 +4,12 @@ description: Dowiedz się, jak zarządzać klastrami usługi Azure HDInsight za 
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.openlocfilehash: b0f8ba4adfa4b08c23d3f69fa4e2b01f4580bb19
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bc31c3d71590a6b8c0b324ffcb8c10129a9f8699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742215"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863245"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security
 
@@ -116,7 +116,7 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 2. Z menu po lewej stronie wybierz pozycję **role**.
 3. Wybierz niebieski znak zapytania, aby wyświetlić uprawnienia:
 
-    ![Uprawnienia ról usługi HDInsight ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="Uprawnienia ról usługi HDInsight ESP" border="true":::
 
 ## <a name="open-the-ambari-management-ui"></a>Otwórz interfejs użytkownika zarządzania Ambari
 
@@ -124,25 +124,25 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 1. Zaloguj się do Ambari przy użyciu nazwy użytkownika i hasła administratora klastra.
 1. Wybierz menu rozwijane **administratora** w prawym górnym rogu, a następnie wybierz pozycję **Zarządzaj Ambari**.
 
-    ![Usługa ESP HDInsight — zarządzanie Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="Usługa ESP HDInsight — zarządzanie Apache Ambari" border="true":::
 
     Interfejs użytkownika wygląda następująco:
 
-    ![Interfejs użytkownika funkcji ESP HDInsight Apache Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="Interfejs użytkownika funkcji ESP HDInsight Apache Ambari Management" border="true":::
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Wyświetl listę użytkowników domeny synchronizowanych z Active Directory
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
 2. Z menu po lewej stronie wybierz pozycję **Użytkownicy**. Zobaczysz wszystkich użytkowników synchronizowanych z Active Directory do klastra usługi HDInsight.
 
-    ![Lista użytkowników listy UI usługi HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="Lista użytkowników listy UI usługi HDInsight Ambari Management" border="true":::
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Wyświetl listę grup domen synchronizowanych z Active Directory
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
 2. Z menu po lewej stronie wybierz pozycję **grupy**. Zostaną wyświetlone wszystkie grupy synchronizowane z Active Directory do klastra usługi HDInsight.
 
-    ![Grupy list UI usługi HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="Grupy list UI usługi HDInsight Ambari Management" border="true":::
 
 ## <a name="configure-hive-views-permissions"></a>Konfigurowanie uprawnień do widoków Hive
 
@@ -150,12 +150,12 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 2. Z menu po lewej stronie wybierz pozycję **widoki**.
 3. Wybierz pozycję **Hive** , aby wyświetlić szczegóły.
 
-    ![Widoki programu Hive interfejsu użytkownika usługi HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="Widoki programu Hive interfejsu użytkownika usługi HDInsight Ambari Management" border="true":::
 
 4. Wybierz łącze **Widok Hive** , aby skonfigurować widoki programu Hive.
 5. Przewiń w dół do sekcji **uprawnienia** .
 
-    ![Widoki programu Hive dla interfejsu użytkownika usługi HDInsight Ambari Management Konfigurowanie uprawnień](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="Widoki programu Hive dla interfejsu użytkownika usługi HDInsight Ambari Management Konfigurowanie uprawnień" border="true":::
 
 6. Wybierz pozycję **Dodaj użytkownika** lub **Dodaj grupę**, a następnie określ użytkowników lub grupy, które mogą używać widoków Hive.
 

@@ -6,14 +6,14 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 24a8dd4d21cb6ab6edeb985db4e6e6a1349a758d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2e66b27f7f0c731e17bb9811e2376bbe09c1bc12
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90940490"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950148"
 ---
-# <a name="encrypted-connectivity-using-transport-layer-security-tls-12-in-azure-database-for-mysql---flexible-server"></a>Połączenie szyfrowane przy użyciu Transport Layer Security (TLS 1,2) w Azure Database for MySQL-elastycznym serwerze
+# <a name="connect-to-azure-database-for-mysql---flexible-server-over-tls12ssl"></a>Nawiązywanie połączenia z Azure Database for MySQL — elastyczny serwer przy użyciu protokołu TLS 1.2/SSL
 
 > [!IMPORTANT]
 > Azure Database for MySQL elastyczny serwer jest obecnie w publicznej wersji zapoznawczej
@@ -22,8 +22,10 @@ Azure Database for MySQL elastyczny serwer obsługuje łączenie aplikacji klien
 
 Azure Database for MySQL elastyczny serwer obsługuje tylko połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2) i wszystkie połączenia przychodzące z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone. W przypadku wszystkich elastycznych serwerów wymuszania połączeń TLS jest włączone i nie można wyłączyć protokołu TLS/SSL w celu nawiązania połączenia z serwerem elastycznym.
 
-## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>Aplikacje wymagające weryfikacji certyfikatu dla połączeń TLS/SSL
-W niektórych przypadkach aplikacje wymagają lokalnego pliku certyfikatu wygenerowanego na podstawie pliku certyfikatu zaufanego urzędu certyfikacji w celu bezpiecznego nawiązywania połączenia. Azure Database for MySQL elastyczny serwer używa *globalnego głównego urzędu certyfikacji DigiCert*. Pobierz ten certyfikat wymagany do komunikacji za pośrednictwem protokołu SSL z [globalnego głównego urzędu certyfikacji DigiCert](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) i Zapisz plik certyfikatu w preferowanej lokalizacji. Na przykład w tym samouczku używamy `c:\ssl` .
+## <a name="download-the-public-ssl-certificate"></a>Pobieranie publicznego certyfikatu SSL
+Aby korzystać z appliations, Pobierz [publiczny certyfikat SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
+
+Zapisz plik certyfikatu w preferowanej lokalizacji. Na przykład w tym samouczku `c:\ssl` jest używane lub `\var\www\html\bin` w środowisku lokalnym lub w środowisku klienta, w którym aplikacja jest hostowana. Dzięki temu aplikacje mogą bezpiecznie łączyć się z bazą danych za pośrednictwem protokołu SSL. 
 
 ### <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia MySQL z protokołem TLS/SSL
 
@@ -58,6 +60,16 @@ Niektóre struktury aplikacji korzystające z programu MySQL dla usług baz dany
 Parametry połączenia, które są wstępnie zdefiniowane na stronie "parametry połączenia" dostępne dla Twojego serwera w Azure Portal zawierają wymagania parametrów dla wspólnych języków do łączenia się z serwerem bazy danych przy użyciu protokołu TLS/SSL. Parametry protokołu TLS/SSL różnią się w zależności od łącznika. Na przykład "useSSL = true", "sslmode = Required" lub "ssl_verify_cert = true" oraz inne różnice.
 
 Aby nawiązać szyfrowane połączenie z elastycznym serwerem za pośrednictwem protokołu TLS/SSL z aplikacji, zapoznaj się z poniższymi przykładami kodu:
+
+### <a name="wordpress"></a>WordPress
+Pobierz [publiczny certyfikat SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) i Dodaj następujące wiersze w wp-config. php po wierszu ```// ** MySQL settings - You can get this info from your web host ** //``` .
+
+```php
+//** Connect with SSL** //
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+//** SSL CERT **//
+define('MYSQL_SSL_CERT','/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem');
+```
 
 ### <a name="php"></a>PHP
 

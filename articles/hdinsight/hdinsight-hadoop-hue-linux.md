@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945687"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865132"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie odcienia w klastrach usługi HDInsight Hadoop
 
@@ -80,17 +80,17 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
    > [!NOTE]  
    > Gdy logujesz się po raz pierwszy, zostanie wyświetlony monit o utworzenie konta w celu zalogowania się do portalu odcień. Poświadczenia określone w tym miejscu będą ograniczone do portalu i nie są powiązane z poświadczeniami administratora lub użytkownika SSH określonymi podczas aprowizacji klastra.
 
-    ![Okno logowania portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Określ poświadczenia dla portalu odcienia")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="Okno logowania portalu odcienia usługi HDInsight":::
 
 ### <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
 1. W portalu odcienia wybierz pozycję **edytory zapytań**, a następnie wybierz pozycję **Hive** , aby otworzyć Edytor Hive.
 
-    ![Portal odcienia usługi HDInsight Użyj edytora Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Korzystanie z programu Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="Portal odcienia usługi HDInsight Użyj edytora Hive":::
 
 2. Na karcie **Pomoc** w obszarze **baza danych** powinna zostać wyświetlona wartość **hivesampletable**. Jest to Przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w usłudze HDInsight. Wprowadź przykładowe zapytanie w okienku po prawej stronie i zobacz dane wyjściowe na karcie **wyniki** w okienku poniżej, jak pokazano na przechwytywaniu ekranu.
 
-    ![Zapytanie programu Hive portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Uruchom zapytanie programu Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="Zapytanie programu Hive portalu odcienia usługi HDInsight":::
 
     Możesz również użyć karty **Wykres** , aby zobaczyć wizualną reprezentację wyniku.
 
@@ -99,7 +99,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 1. W portalu odcienia wybierz pozycję **przeglądarka plików** w prawym górnym rogu paska menu.
 2. Domyślnie przeglądarka plików otwiera się w katalogu **/User/Myuser** . Wybierz ukośnik w prawo przed katalogiem użytkownika w ścieżce, aby przejść do katalogu głównego kontenera usługi Azure Storage skojarzonego z klastrem.
 
-    ![Przeglądarka plików portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Użyj przeglądarki plików")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="Przeglądarka plików portalu odcienia usługi HDInsight":::
 
 3. Kliknij prawym przyciskiem myszy plik lub folder, aby wyświetlić dostępne operacje. Użyj przycisku **Przekaż** w prawym górnym rogu, aby przekazać pliki do bieżącego katalogu. Użyj przycisku **Nowy** , aby utworzyć nowe pliki lub katalogi.
 
@@ -118,7 +118,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
 1. W przypadku klastrów systemu Linux możesz mieć scenariusz, w którym usługi działają w podstawowym węzła głównego, podczas gdy Menedżer zasobów może być uruchomiona na serwerze pomocniczym. Taki scenariusz może spowodować błędy (pokazane poniżej) podczas korzystania z odcienia, aby wyświetlić szczegóły uruchamiania zadań w klastrze. Można jednak wyświetlić szczegóły zadania, gdy zadanie zostało zakończone.
 
-   ![Przykładowy komunikat o błędzie portalu odcienia](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Błąd portalu odcienia")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Przykładowy komunikat o błędzie portalu odcienia":::
 
    Jest to spowodowane znanym problemem. W ramach tego problemu należy zmodyfikować Ambari tak, aby aktywne Menedżer zasobów również działały na podstawowym węzła głównego.
 

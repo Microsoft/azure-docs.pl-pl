@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585319"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955243"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
@@ -71,7 +71,7 @@ Najlepszym rozwiązaniem jest przypisanie tej roli do mniej niż pięciu osób w
 > | [Administrator grup](#groups-administrator) | Członkowie tej roli mogą tworzyć grupy i zarządzać nimi, tworzyć i zarządzać ustawieniami grup, takimi jak zasady nazewnictwa i wygasania oraz przeglądać działania grup i raporty inspekcji. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Zapraszający gościa](#guest-inviter) | Może zapraszać użytkowników-Gości niezależnie od ustawienia "członkowie mogą zapraszać Gości". | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Administrator pomocy technicznej](#helpdesk-administrator) | Można resetować hasła dla administratorów nie będących administratorami i pomocą techniczną. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Administrator tożsamości hybrydowej](#hybrid-identity-administrator) | Może zarządzać usługą AD w usłudze Azure AD — Inicjowanie obsługi administracyjnej i ustawienia federacyjne. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Administrator tożsamości hybrydowej](#hybrid-identity-administrator) | Może zarządzać usługą AD do aprowizacji w chmurze usługi Azure AD, Azure AD Connect i ustawień federacyjnych. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Administrator usługi Insights](#insights-administrator) | Ma dostęp administracyjny w aplikacji Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Lider biznesowy usługi Insights](#insights-business-leader) | Umożliwia wyświetlanie i udostępnianie pulpitów nawigacyjnych i szczegółowych informacji za pośrednictwem aplikacji M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrator usługi Intune](#intune-administrator) | Może zarządzać wszystkimi aspektami produktu usługi Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -997,7 +997,7 @@ Ta rola była wcześniej nazywana "administratorem haseł" w [Azure Portal](http
 
 ## <a name="hybrid-identity-administrator"></a>Administrator tożsamości hybrydowej
 
-Użytkownicy w tej roli mogą tworzyć i wdrażać ustawienia konfiguracji aprowizacji z usługi AD w usłudze Azure AD przy użyciu aprowizacji w chmurze, a także zarządzać ustawieniami federacyjnymi. Użytkownicy mogą również rozwiązywać problemy i monitorować dzienniki przy użyciu tej roli.
+Użytkownicy w tej roli mogą tworzyć i wdrażać ustawienia konfiguracji aprowizacji z usługi AD w usłudze Azure AD przy użyciu aprowizacji w chmurze, a także zarządzać ustawieniami Azure AD Connect i federacyjnymi. Użytkownicy mogą również rozwiązywać problemy i monitorować dzienniki przy użyciu tej roli.
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |

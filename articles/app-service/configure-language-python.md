@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 11b9ab8e954827cfcc73e440bee1023504e14057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577616"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953514"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -114,7 +114,7 @@ Istniejące aplikacje sieci Web można ponownie wdrożyć na platformie Azure w 
 
 1. **Uruchamianie aplikacji**: Zapoznaj się z sekcją [proces uruchamiania kontenera](#container-startup-process) w dalszej części tego artykułu, aby dowiedzieć się, jak App Service próbuje uruchomić aplikację. App Service domyślnie używa serwera sieci Web Gunicorn, który musi być w stanie znaleźć obiekt aplikacji lub folder *WSGI.py* . W razie konieczności można [dostosować polecenie uruchamiania](#customize-startup-command).
 
-1. **Ciągłe wdrażanie**: Skonfiguruj ciągłe wdrażanie, zgodnie z opisem w temacie [ciągłe wdrażanie, aby Azure App Service](deploy-continuous-deployment.md) w przypadku używania Azure Pipelines lub wdrożenia kudu, lub [Wdróż w App Service przy użyciu akcji](deploy-github-actions.md) GitHub w przypadku korzystania z akcji usługi GitHub.
+1. **Ciągłe wdrażanie**: Skonfiguruj ciągłe wdrażanie, zgodnie z opisem w temacie [ciągłe wdrażanie, aby Azure App Service](deploy-continuous-deployment.md) w przypadku używania Azure Pipelines lub wdrożenia kudu, lub [Wdróż w App Service przy użyciu akcji](./deploy-continuous-deployment.md) GitHub w przypadku korzystania z akcji usługi GitHub.
 
 1. **Akcje niestandardowe**: Aby wykonać akcje w kontenerze App Service, który hostuje aplikację, taką jak migracje bazy danych Django, można połączyć się z [kontenerem za pośrednictwem protokołu SSH](configure-linux-open-ssh-session.md). Aby zapoznać się z przykładem uruchamiania migracji bazy danych Django, zobacz [Samouczek: wdrażanie aplikacji sieci Web Django z PostgreSQL-Run Migration Database](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - W przypadku korzystania z ciągłego wdrażania można wykonać te akcje przy użyciu poleceń po kompilacji, jak opisano wcześniej w temacie [Dostosowywanie automatyzacji kompilacji](#customize-build-automation).

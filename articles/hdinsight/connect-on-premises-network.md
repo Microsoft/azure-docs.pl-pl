@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943397"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863381"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Łączenie usługi HDInsight z siecią lokalną
 
@@ -37,7 +37,7 @@ Te konfiguracje zapewniają następujące zachowanie:
 
 Na poniższym diagramie zielonymi wierszami są żądania dotyczące zasobów kończących się na sufiksie DNS sieci wirtualnej. Niebieskie linie to żądania dotyczące zasobów w sieci lokalnej lub w publicznym Internecie.
 
-![Diagram przedstawiający sposób, w jaki żądania DNS są rozwiązywane w konfiguracji](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagram przedstawiający sposób, w jaki żądania DNS są rozwiązywane w konfiguracji" border="false":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,7 +64,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
   
 1. W górnym menu wybierz pozycję **+ Utwórz zasób**.
 
-    ![Tworzenie maszyny wirtualnej Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Tworzenie maszyny wirtualnej Ubuntu":::
 
 1. Wybierz pozycję **Oblicz**  >  **maszynę wirtualną** , aby przejść do strony **Tworzenie maszyny wirtualnej** .
 
@@ -83,7 +83,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
     |Hasło lub klucz publiczny SSH | Dostępne pole jest określane przez wybór **typu uwierzytelniania**.  Wprowadź odpowiednią wartość.|
     |Publiczne porty wejściowe|Wybierz pozycję **Zezwalaj na wybrane porty**. Następnie wybierz pozycję **SSH (22)** z listy rozwijanej **Wybieranie portów przychodzących** .|
 
-    ![Podstawowa konfiguracja maszyny wirtualnej](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Podstawowa konfiguracja maszyny wirtualnej":::
 
     Pozostaw inne wpisy z wartościami domyślnymi, a następnie wybierz kartę **Sieć** .
 
@@ -95,7 +95,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
     |Podsieć | Wybierz domyślną podsieć dla utworzonej wcześniej sieci wirtualnej. __Nie__ wybieraj podsieci używanej przez bramę sieci VPN.|
     |Publiczny adres IP | Użyj autowypełnianej wartości.  |
 
-    ![Ustawienia sieci wirtualnej usługi HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="Ustawienia sieci wirtualnej usługi HDInsight":::
 
     Pozostaw inne wpisy z wartościami domyślnymi, a następnie wybierz pozycję **Recenzja + Utwórz**.
 
@@ -109,7 +109,7 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
 
 2. Zwróć uwagę na wartości dla **publicznego adresu IP/etykiety nazwy DNS** i **prywatnego adresu IP** do późniejszego użycia.
 
-   ![Publiczne i prywatne adresy IP](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Publiczne i prywatne adresy IP":::
 
 ### <a name="install-and-configure-bind-dns-software"></a>Instalowanie i Konfigurowanie powiązania (oprogramowanie DNS)
 
@@ -245,7 +245,7 @@ Aby skonfigurować sieć wirtualną do korzystania z niestandardowego serwera DN
 
 5. Wybierz pozycję __Zapisz__.  <br />  
 
-    ![Ustaw niestandardowy serwer DNS dla sieci](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Ustaw niestandardowy serwer DNS dla sieci":::
 
 ## <a name="configure-on-premises-dns-server"></a>Skonfiguruj lokalny serwer DNS
 

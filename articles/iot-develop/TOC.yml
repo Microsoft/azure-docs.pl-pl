@@ -18,7 +18,11 @@
         - name: Wyślij dane telemetryczne do IoT Hub (węzeł)
           href: quickstart-send-telemetry-cli-node.md
     - name: Wprowadzenie do projektowania osadzonego
-      href: quickstart-device-development.md
+      items:
+        - name: Przewodniki Szybki Start dotyczące projektowania urządzeń osadzonych
+          href: quickstart-device-development.md
+        - name: Połącz zestawu DEWELOPERSKIEGO AZ3166 z IoT Central
+          href: quickstart-devkit-mxchip-az3166.md
 - name: Samouczki
   items:
     - name: Bezpieczne łączenie urządzeń IoT z chmurą

@@ -3,12 +3,12 @@ title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: e5725ece165f5716480afbcb4ef9098274c09993
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97900641"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889845"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
@@ -83,7 +83,7 @@ Połączony szablon jest nazywany **linkedTemplate.json** i jest przechowywany w
         },
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "createStorage",
           "properties": {
             "mode": "Incremental",

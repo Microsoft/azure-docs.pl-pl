@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 9926102a2e6b25060c2a8840b56d690ce2868ade
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9b85caa3611c484fc17423637dc36ce20b48b823
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618798"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868481"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Dodawanie obsługi protokołu IPv6 dla prywatnej komunikacji równorzędnej przy użyciu Azure Portal (wersja zapoznawcza)
 
@@ -101,6 +101,7 @@ Gdy obsługa protokołu IPv6 jest dostępna dla połączeń z wdrożeniami w reg
 * Global Reach połączenia między obwodymi usługi ExpressRoute
 * Korzystanie z ExpressRoute z wirtualną siecią WAN
 * FastPath z obwodami bezpośrednimi innymi niż ExpressRoute
+* FastPath z obwodami w następujących lokalizacjach komunikacji równorzędnej: Dubaj
 * Współistnienie z VPN Gateway
 
 ## <a name="next-steps"></a>Następne kroki

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 10/30/2020
-ms.openlocfilehash: 15869a547ec5debee939c956d7495bfa58357555
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f478b97464cd47e9d0e04bfe83bd48a2b3bfe7c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946923"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867104"
 ---
 # <a name="configure-hdinsight-clusters-for-azure-active-directory-integration-with-enterprise-security-package"></a>Konfigurowanie klastrów usługi HDInsight na potrzeby integracji Azure Active Directory z usługą pakiet Enterprise Security
 
@@ -70,7 +70,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 Aby wyświetlić stan kondycji Azure Active Directory Domain Services, wybierz pozycję **kondycja** w kategorii **Zarządzaj** . Upewnij się, że stan AD DS platformy Azure to zielony (uruchomiony), a synchronizacja została ukończona.
 
-![Kondycja usługi Azure AD DS](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png" alt-text="Kondycja usługi Azure AD DS" border="true":::
 
 ### <a name="create-and-authorize-a-managed-identity"></a>Tworzenie i Autoryzowanie tożsamości zarządzanej
 
@@ -82,7 +82,7 @@ Aby skonfigurować klastry ESP, Utwórz tożsamość zarządzaną przypisaną pr
 
 Następnie przypisz rolę **współautor usług domenowych** w usłudze HDInsight do zarządzanej tożsamości w obszarze **kontroli dostępu** dla usługi Azure AD DS. Do przypisywania ról wymagane są uprawnienia administratora platformy Azure AD DS.
 
-![Azure Active Directory Domain Services kontroli dostępu](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png" alt-text="Azure Active Directory Domain Services kontroli dostępu" border="true":::
 
 Przypisanie roli **współautor usług domenowych** w usłudze HDInsight zapewnia, że ta tożsamość ma odpowiedni ( `on behalf of` ) dostęp do operacji usług domenowych w domenie AD DS platformy Azure. Te operacje obejmują tworzenie i usuwanie jednostek organizacyjnych.
 
@@ -90,7 +90,7 @@ Po otrzymaniu roli zarządzanej przez administratora usługi Azure AD DS adminis
 
 Na przykład administrator usługi Azure AD DS może przypisać tę rolę do grupy **MarketingTeam** dla tożsamości zarządzanej **sjmsi** . Na poniższej ilustracji przedstawiono przykład. To przypisanie gwarantuje, że odpowiednie osoby w organizacji mogą używać tożsamości zarządzanej do tworzenia klastrów ESP.
 
-![Przypisanie roli operatora tożsamości zarządzanego przez usługi HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png" alt-text="Przypisanie roli operatora tożsamości zarządzanego przez usługi HDInsight" border="true":::
 
 ### <a name="network-configuration"></a>Konfiguracja sieci
 
@@ -99,17 +99,17 @@ Na przykład administrator usługi Azure AD DS może przypisać tę rolę do gru
 
 Włącz usługę Azure AD DS. Następnie lokalny serwer DNS (Domain Name System) działa na maszynach wirtualnych Active Directory. Skonfiguruj sieć wirtualną AD DS platformy Azure tak, aby korzystała z tych niestandardowych serwerów DNS. Aby zlokalizować odpowiednie adresy IP, wybierz pozycję **Właściwości** w kategorii **Zarządzaj** i poszukaj w obszarze **adres IP w sieci wirtualnej**.
 
-![Lokalizowanie adresów IP dla lokalnych serwerów DNS](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png" alt-text="Lokalizowanie adresów IP dla lokalnych serwerów DNS" border="true":::
 
 Zmień konfigurację serwerów DNS w sieci wirtualnej AD DS platformy Azure. Aby użyć tych niestandardowych adresów IP, wybierz pozycję **serwery DNS** w kategorii **Ustawienia** . Następnie wybierz opcję **niestandardowa** , wprowadź pierwszy adres IP w polu tekstowym, a następnie wybierz pozycję **Zapisz**. Dodaj więcej adresów IP, wykonując te same czynności.
 
-![Aktualizowanie konfiguracji DNS sieci wirtualnej](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png" alt-text="Aktualizowanie konfiguracji DNS sieci wirtualnej" border="true":::
 
 Łatwiej jest umieścić zarówno wystąpienie usługi Azure AD DS, jak i klaster HDInsight w tej samej sieci wirtualnej platformy Azure. Jeśli planujesz używanie różnych sieci wirtualnych, musisz nawiązać połączenie równorzędne z tymi sieciami wirtualnymi, aby kontroler domeny był widoczny dla maszyn wirtualnych usługi HDInsight. Aby uzyskać więcej informacji, zobacz [wirtualne sieci równorzędne](../../virtual-network/virtual-network-peering-overview.md).
 
 Gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej, skonfiguruj sieć wirtualną usługi HDInsight tak, aby korzystała z niestandardowego serwera DNS. Wprowadź AD DS prywatnych adresów IP platformy Azure jako adresy serwerów DNS. Gdy obie sieci wirtualne używają tych samych serwerów DNS, niestandardowa nazwa domeny zostanie rozpoznana jako właściwy adres IP i będzie dostępna z usługi HDInsight. Na przykład jeśli nazwa domeny to `contoso.com` , po tym kroku `ping contoso.com` należy rozwiązać prawidłowy adres IP AD DS platformy Azure.
 
-![Konfigurowanie niestandardowych serwerów DNS dla równorzędnej sieci wirtualnej](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png" alt-text="Konfigurowanie niestandardowych serwerów DNS dla równorzędnej sieci wirtualnej" border="true":::
 
 Jeśli w podsieci usługi HDInsight są używane reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), należy zezwolić na [wymagane adresy IP](../hdinsight-management-ip-addresses.md) dla ruchu przychodzącego i wychodzącego.
 
@@ -126,11 +126,11 @@ Można również włączyć funkcję [brokera identyfikatora usługi HDInsight](
 > [!NOTE]  
 > Pierwsze sześć znaków nazw klastrów ESP musi być unikatowe w danym środowisku. Jeśli na przykład masz wiele klastrów ESP w różnych sieciach wirtualnych, wybierz konwencję nazewnictwa, która zapewnia unikalność pierwszych sześciu znaków w nazwach klastra.
 
-![Weryfikacja domeny dla usługi Azure HDInsight pakiet Enterprise Security](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp.png" alt-text="Weryfikacja domeny dla usługi Azure HDInsight pakiet Enterprise Security" border="true":::
 
 Po włączeniu protokołu ESP typowe błędne konfiguracje związane z platformą Azure AD DS są automatycznie wykrywane i weryfikowane. Po naprawieniu tych błędów możesz przejść do następnego kroku.
 
-![Weryfikacja domeny w usłudze Azure HDInsight pakiet Enterprise Security nie powiodła się](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp-error.png)
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp-error.png" alt-text="Weryfikacja domeny w usłudze Azure HDInsight pakiet Enterprise Security nie powiodła się" border="true":::
 
 Podczas tworzenia klastra usługi HDInsight przy użyciu protokołu ESP należy podać następujące parametry:
 
@@ -142,7 +142,7 @@ Podczas tworzenia klastra usługi HDInsight przy użyciu protokołu ESP należy 
 
 Utworzoną tożsamość zarządzaną można wybrać z listy rozwijanej **tożsamość zarządzana przez użytkownika** podczas tworzenia nowego klastra.
 
-![Tożsamość zarządzana w usłudze Azure HDInsight ESP Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
+:::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png" alt-text="Tożsamość zarządzana w usłudze Azure HDINSIGHT ESP Active Directory Domain Services" border="true":::.
 
 ## <a name="next-steps"></a>Następne kroki
 

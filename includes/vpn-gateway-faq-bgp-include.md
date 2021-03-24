@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 649c5805c600b6282be6d05fefb59cecaf249f4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3877134f8a00cd627909d7f889fd5b104ccbd8b1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92526130"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863629"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Czy protokół BGP jest obsługiwany na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
 Protokół BGP jest obsługiwany przez wszystkie jednostki SKU VPN Gateway platformy Azure z wyjątkiem podstawowej jednostki SKU.
@@ -108,3 +108,8 @@ Dodaj trasę hosta dla adresu IP elementu równorzędnego protokołu BGP platfor
 Nie. Wykrywanie dwukierunkowego przekazywania (BFD) to protokół, którego można użyć w połączeniu z protokołem BGP w celu szybszego wykrywania przestojów w przypadku korzystania ze standardowego protokołu BGP "utrzymywanie aktywności". BFD używa podsekundowych czasomierzy zaprojektowanych do pracy w środowiskach sieci LAN, ale nie między publicznymi internetowymi lub rozległymi połączeniami sieciowymi.
 
 W przypadku połączeń za pośrednictwem publicznej sieci Internet pewne pakiety opóźnione lub nawet porzucone nie są nietypowe, więc wprowadzenie tych agresywnych czasomierzy może zwiększyć stabilność. Niestabilność może spowodować, że trasy będą tłumione przez protokół BGP. Alternatywnie można skonfigurować urządzenie lokalne przy użyciu czasomierzy mniejszego niż domyślny, 60-sekundowy interwał utrzymywania aktywności i 180 sekund. Powoduje to szybszy czas zbieżności.
+
+### <a name="do-azure-vpn-gateways-initiate-bgp-peering-sessions-or-connections"></a>Czy bramy sieci VPN platformy Azure inicjują sesje lub połączenia komunikacji równorzędnej BGP?
+
+Brama będzie inicjować sesje komunikacji równorzędnej BGP z lokalnymi adresami IP elementów równorzędnych BGP określonych w zasobach bramy sieci lokalnej przy użyciu prywatnych adresów IP na bramach sieci VPN. Jest to niezależnie od tego, czy lokalne adresy IP protokołu BGP znajdują się w zakresie funkcji APIPA czy zwykłych prywatnych adresów IP. Jeśli lokalne urządzenia sieci VPN używają adresów APIPA jako adresu IP protokołu BGP, należy skonfigurować głośnik BGP do inicjowania połączeń.
+

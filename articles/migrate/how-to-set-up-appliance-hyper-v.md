@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 85ab07e0b81bf258a56956f5f0f7e80bad6a32fe
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775225"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863687"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Konfigurowanie urządzenia dla serwerów w funkcji Hyper-V
 
-Postępuj zgodnie z tym artykułem, aby skonfigurować urządzenie Azure Migrate na potrzeby odnajdywania i oceny serwerów w funkcji Hyper-V za pomocą narzędzia [Azure Migrate do odnajdywania i oceny](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
+Postępuj zgodnie z tym artykułem, aby skonfigurować urządzenie Azure Migrate na potrzeby odnajdywania i oceny serwerów w funkcji Hyper-V za pomocą narzędzia [Azure Migrate do odnajdywania i oceny](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) .
 
 [Urządzenie Azure Migrate](migrate-appliance.md) jest lekkim urządzeniem używanym przez Azure Migrate: odnajdywanie i ocenianie/Migrowanie w celu odnajdywania serwerów lokalnych w funkcji Hyper-V oraz wysyłania danych metadanych/wydajności serwera do platformy Azure.
 
@@ -24,31 +24,31 @@ Urządzenie można wdrożyć przy użyciu kilku metod:
 - Skonfiguruj serwer na serwerze funkcji Hyper-V przy użyciu pobranego wirtualnego dysku twardego. Ta metoda została opisana w tym artykule.
 - Konfiguracja na serwerze na serwerze funkcji Hyper-V lub serwera fizycznego przy użyciu skryptu Instalatora programu PowerShell. [Tej metody](deploy-appliance-script.md) należy użyć, jeśli nie można skonfigurować serwera przy użyciu dysku VHD lub jeśli jesteś w Azure Government.
 
-Po utworzeniu urządzenia możesz sprawdzić, czy może nawiązać połączenie z Azure Migrate: odnajdywanie i ocenianie, skonfigurowanie go po raz pierwszy i zarejestrowanie go w projekcie Azure Migrate.
+Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Migrate: odnajdywanie i ocenianie, Konfigurowanie po raz pierwszy i rejestrowanie go w projekcie.
 
 ## <a name="appliance-deployment-vhd"></a>Wdrażanie urządzenia (VHD)
 
 Aby skonfigurować urządzenie przy użyciu szablonu wirtualnego dysku twardego:
 
-- Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu.
+- Podaj nazwę urządzenia i Wygeneruj klucz projektu w portalu.
 - Pobierz skompresowany wirtualny dysk twardy funkcji Hyper-V z Azure Portal.
 - Utwórz urządzenie i sprawdź, czy może nawiązać połączenie z Azure Migrate: odnajdywania i oceny.
-- Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate przy użyciu klucza projektu Azure Migrate.
+- Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie przy użyciu klucza projektu.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
+### <a name="generate-the-project-key"></a>Generowanie klucza projektu
 
 1. W obszarze **cele migracji**  >  **systemy Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena** wybierz pozycję **odkryj**.
 2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz opcję **tak, używając funkcji Hyper-V**.
 3. W **1: Wygeneruj klucz projektu**, podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w funkcji Hyper-V. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie serwerów podczas tworzenia zasobów.
-1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
+1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
 ### <a name="download-the-vhd"></a>Pobierz dysk VHD
 
 W **2: Pobierz urządzenie Azure Migrate**, wybierz opcję. Plik VHD i kliknij pozycję **Pobierz**.
 
-   ![Wybory dla maszyn odnajdywania](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Wybory dla serwerów odnajdowania](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![Wybory dla klucza generowania](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)

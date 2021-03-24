@@ -3,12 +3,12 @@ title: Wdrażanie zasobów przy użyciu programu PowerShell i szablonu
 description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e1d2197064b94d428855bbb36aadbb5eb88d4032
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521632"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950862"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
 
@@ -115,7 +115,7 @@ Wdrożenie może potrwać kilka minut.
 ## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
 
 > [!NOTE]
-> Obecnie Azure PowerShell nie obsługuje wdrażania plików zdalnych Bicep. Aby wdrożyć zdalny plik Bicep, użyj Bicep interfejsu wiersza polecenia, aby najpierw skompilować plik Bicep do szablonu JSON.
+> Obecnie Azure PowerShell nie obsługuje wdrażania plików zdalnych Bicep. Użyj [interfejsu wiersza polecenia Bicep](./bicep-install.md#development-environment) , aby skompilować plik Bicep do szablonu JSON, a następnie załaduj plik JSON do lokalizacji zdalnej.
 
 Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
 

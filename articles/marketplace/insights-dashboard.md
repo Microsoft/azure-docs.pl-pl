@@ -4,15 +4,15 @@ description: Uzyskaj dostęp do podsumowania analizy sieci Web w portalu Marketp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553939"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953276"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Analiza platformy handlowej w analizie komercyjnej platformy handlowej
 
@@ -115,7 +115,9 @@ Ta tabela zawiera widok listy wizyt stron oraz wywołania akcji wybranych stron,
 | Skontaktuj się z nami | Skontaktuj się z nami | Liczba kliknięć od strony "kontakt ze mną" na stronie oferty dla konkretnej daty. | ContactMe |
 | Wersja testowa | Wersja testowa | Liczba kliknięć na stronie oferty jako "Test Drive" w określonej dacie. | TestDrive |
 | Bezpłatna wersja próbna | Bezpłatna wersja próbna | Liczba kliknięć do "bezpłatnej wersji próbnej" na stronie oferty dla konkretnej daty. | FreeTrial |
-|||||
+| Kampania | Nazwa kampanii | Możliwość zrozumienia informacji telemetrycznych sieci Web (odwiedziny stron i CTA) w odniesieniu do nazwy kampanii. | Kampania |
+| n/d | Witryna | Nazwa witryny sieci Web, z której odwiedzasz stronę lub kliknij pozycję CTA. Możliwe wartości są następujące:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Witryna |
+|
 
 ## <a name="next-steps"></a>Następne kroki
 

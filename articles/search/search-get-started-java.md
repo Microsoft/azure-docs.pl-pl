@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: f833c0539d4aa28033cd6f76c1ca7cec7f11f6b5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f52aaa0636c453c0def7cb97c203f17f0b11a221
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124571"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955299"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "102124571"
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](hhttps://github.com/Azure-Samples/azure-search-java-samples).
+Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](https://github.com/Azure-Samples/azure-search-java-samples).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

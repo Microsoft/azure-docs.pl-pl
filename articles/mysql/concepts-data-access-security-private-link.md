@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242861"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863568"
 ---
-# <a name="private-link-for-azure-database-for-mysql"></a>Prywatny link do Azure Database for MySQL
+# <a name="private-link-for-azure-database-for-mysql"></a>Usługa Private Link dla usługi Azure Database for MySQL
 
 Usługa Private Link umożliwia łączenie z różnymi usługami PaaS na platformie Azure za pośrednictwem prywatnego punktu końcowego. Usługa Azure Private Link zasadniczo łączy usługi platformy Azure z Twoją prywatną siecią wirtualną. Dostęp do zasobów PaaS można uzyskać przy użyciu prywatnego adresu IP, podobnie jak w przypadku każdego innego zasobu w sieci wirtualnej.
 
@@ -84,7 +84,7 @@ Po utworzeniu przez administratora sieci prywatnego punktu końcowego (PE) admin
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Przypadki użycia prywatnego linku do Azure Database for MySQL
 
-Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, równorzędnej podsieci w tym samym regionie lub za pośrednictwem połączenia między sieciami wirtualnymi w różnych regionach. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
+Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, [równorzędnej](../virtual-network/virtual-network-peering-overview.md) podsieci w tym samym regionie lub w różnych regionach albo za pośrednictwem [połączenia](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) między różnymi regionami. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Wybieranie prywatnego punktu końcowego — Omówienie":::
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2216eb5893b77761f4d31c5819d152ceeb985abc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933019"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869654"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Korzystanie z usługi Azure Kubernetes Service z usługą Apache Kafka w usłudze HDInsight
 
@@ -42,7 +42,7 @@ Zarówno HDInsight, jak i AKS używają Virtual Network platformy Azure jako kon
 
 Na poniższym diagramie przedstawiono topologię sieci używaną w tym dokumencie:
 
-![Usługa HDInsight w jednej sieci wirtualnej, AKS w innej, przy użyciu komunikacji równorzędnej](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="Usługa HDInsight w jednej sieci wirtualnej, AKS w innej, przy użyciu komunikacji równorzędnej" border="false":::
 
 > [!IMPORTANT]  
 > Rozpoznawanie nazw nie jest włączone między sieciami równorzędnymi, więc używane jest adresowanie IP. Domyślnie usługa Kafka w usłudze HDInsight jest skonfigurowana do zwracania nazw hostów zamiast adresów IP, gdy klienci nawiązują połączenie. Kroki opisane w tym dokumencie modyfikują Kafka do korzystania z reklam IP.
@@ -109,15 +109,15 @@ Wykonaj następujące kroki, aby skonfigurować Kafka do anonsowania adresów IP
 
 2. Aby wyświetlić informacje o Kafka, wybierz pozycję __Kafka__ z listy po lewej stronie.
 
-    ![Lista usług z wyróżnioną pozycją Kafka](./media/apache-kafka-azure-container-services/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Lista usług z wyróżnioną pozycją Kafka" border="true":::
 
 3. Aby wyświetlić konfigurację Kafka __, wybierz pozycję__ konfiguracje w górnej części.
 
-    ![Konfiguracja usług Apache Ambari Services](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Konfiguracja usług Apache Ambari Services" border="true":::
 
 4. Aby znaleźć konfigurację __Kafka-ENV__ , wprowadź `kafka-env` w polu __filtru__ w prawym górnym rogu.
 
-    ![Konfiguracja Kafka dla Kafka-ENV](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="Konfiguracja Kafka dla Kafka-ENV" border="true":::
 
 5. Aby skonfigurować Kafka do anonsowania adresów IP, Dodaj następujący tekst na dole pola __Kafka-ENV-Template__ :
 
@@ -135,15 +135,15 @@ Wykonaj następujące kroki, aby skonfigurować Kafka do anonsowania adresów IP
 
 8. Aby zapisać zmiany konfiguracji, użyj przycisku __Zapisz__ . Wprowadź wiadomość tekstową opisującą zmiany. Po zapisaniu zmian wybierz __przycisk OK__ .
 
-    ![Konfiguracja oprogramowania Apache Ambari](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Konfiguracja oprogramowania Apache Ambari" border="true":::
 
 9. Aby zapobiec błędom podczas ponownego uruchamiania Kafka, użyj przycisku __Akcje usługi__ i wybierz pozycję __Włącz tryb konserwacji__. Wybierz przycisk OK, aby ukończyć tę operację.
 
-    ![Akcje usługi z opcją Włącz konserwację](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Akcje usługi z opcją Włącz konserwację" border="true":::
 
 10. Aby ponownie uruchomić Kafka, użyj przycisku __Uruchom ponownie__ , a następnie wybierz pozycję __Uruchom ponownie wszystkie uwzględnione__. Potwierdź ponowne uruchomienie, a następnie użyj przycisku __OK__ po zakończeniu operacji.
 
-    ![Przycisk Uruchom ponownie z wyróżnionym ponownym użyciem](./media/apache-kafka-azure-container-services/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Przycisk Uruchom ponownie z wyróżnionym ponownym użyciem" border="true":::
 
 11. Aby wyłączyć tryb konserwacji, użyj przycisku __Akcje usługi__ i wybierz polecenie Wyłącz __tryb konserwacji__. Wybierz **przycisk OK** , aby ukończyć tę operację.
 
@@ -213,7 +213,7 @@ W tym momencie Kafka i usługa Azure Kubernetes są w trakcie komunikacji za pom
 
 11. Otwórz przeglądarkę internetową i wprowadź zewnętrzny adres IP dla usługi. Dotrzesz do strony podobnej do poniższej ilustracji:
 
-    ![Apache Kafka testowy obraz strony sieci Web](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Apache Kafka testowy obraz strony sieci Web" border="true":::
 
 12. Wprowadź tekst do pola, a następnie wybierz przycisk __Wyślij__ . Dane są wysyłane do Kafka. Następnie konsument Kafka w aplikacji odczytuje komunikat i dodaje go do __wiadomości z sekcji Kafka__ .
 

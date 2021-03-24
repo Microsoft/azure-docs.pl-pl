@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944013"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869478"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Klaster usług operacjonalizować ML w usłudze Azure HDInsight
 
@@ -53,31 +53,31 @@ Po użyciu klastra usług ML w usłudze HDInsight w celu ukończenia modelowania
 
 1. Zostaną wyświetlone opcje do wyboru. Wybierz pierwszą opcję, jak pokazano na poniższym zrzucie ekranu, aby **skonfigurować ml Server dla operacjonalizacji**.
 
-    ![Wybór narzędzi administracyjnych programu R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-1.png" alt-text="Wybór narzędzi administracyjnych programu R Server" border="true":::
 
 1. Zostanie wyświetlona opcja wyboru, w jaki sposób chcesz operacjonalizować ML Server. Z przedstawionych opcji wybierz pierwszy z nich, **wprowadzając.**
 
-    ![Operacjonalizować narzędzi administracyjnych programu R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-2.png" alt-text="Operacjonalizować narzędzi administracyjnych programu R Server" border="true":::
 
 1. Po wyświetleniu monitu wprowadź hasło administratora lokalnego i wprowadź je ponownie.
 
 1. Powinny zostać wyświetlone dane wyjściowe z sugestią, że operacja zakończyła się pomyślnie. Zostanie również wyświetlony monit o wybranie innej opcji z menu. Wybierz pozycję E, aby wrócić do menu głównego.
 
-    ![Powodzenie narzędzia administracyjnego programu R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-3.png" alt-text="Powodzenie narzędzia administracyjnego programu R Server" border="true":::
 
 1. Opcjonalnie można przeprowadzić kontrolę diagnostyczną, uruchamiając test diagnostyczny w następujący sposób:
 
     a. Z menu głównego wybierz **6** , aby uruchomić testy diagnostyczne.
 
-    ![Diagnostyka narzędzi administracyjnych programu R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic1.png" alt-text="Diagnostyka narzędzi administracyjnych programu R Server" border="true":::
 
     b. Z menu testy **diagnostyczne wybierz pozycję**. Po wyświetleniu monitu wprowadź hasło podane dla użytkownika administratora lokalnego.
 
-    ![Test narzędzi administracyjnych programu R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic2.png" alt-text="Test narzędzi administracyjnych programu R Server" border="true":::
 
     c. Sprawdź, czy dane wyjściowe pokazują, że ogólna kondycja jest przebiegu.
 
-    ![Przebieg narzędzia administracyjnego programu R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic3.png" alt-text="Przebieg narzędzia administracyjnego programu R Server" border="true":::
 
     d. W wyświetlonych opcjach menu Wprowadź wartość **E** , aby powrócić do menu głównego, a następnie wprowadź **8** , aby wyjść z narzędzia administracyjnego.
 
@@ -154,7 +154,7 @@ Wykonaj następujące kroki, aby zlikwidować węzły procesu roboczego:
 
 1. Kliknij kolejno pozycje **Akcje**  >  **wybrane hosty**  >    >  **Włącz tryb konserwacji**. Na przykład na poniższej ilustracji węzły wn3 i wn4 są przeznaczone do likwidacji.  
 
-   ![Apache Ambari Włącz tryb konserwacji](./media/r-server-operationalize/get-started-operationalization.png)  
+   :::image type="content" source="./media/r-server-operationalize/get-started-operationalization.png" alt-text="Apache Ambari Włącz tryb konserwacji" border="true":::  
 
 * Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **datanodes** > kliknij pozycję **likwidowanie**.
 * Wybierz pozycję **Akcje**  >  **wybrane hosty**  >  **NodeManagers** > kliknij pozycję **likwidowanie**.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 1bbf3cbffe2ab51f10e86dc3b9fe4ea6040a7911
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1fb36b30385abc72fb0966c928e0dd6f8ea80e73
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930266"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865931"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>Szybki Start: Tworzenie klastra Apache Spark w usłudze Azure HDInsight przy użyciu szablonu ARM
 
@@ -22,7 +22,7 @@ Jeśli używasz wielu klastrów razem, należy utworzyć sieć wirtualną, a je�
 
 Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-[![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json)
+[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 1. Wybierz przycisk **Wdróż na platformie Azure** poniżej, aby zalogować się do platformy Azure i otworzyć szablon ARM.
 
-    [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json)
+    [:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json)
 
 1. Wprowadź lub wybierz poniższe wartości:
 
@@ -58,7 +58,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
     |Nazwa użytkownika SSH|Podaj nazwę użytkownika, wartość domyślna to **sshuser**|
     |Hasło ssh|Podaj hasło.|
 
-    ![Tworzenie klastra Spark w usłudze HDInsight przy użyciu szablonu Azure Resource Manager](./media/apache-spark-jupyter-spark-sql/resource-manager-template-spark.png "Tworzenie klastra Spark w usłudze HDInsight przy użyciu szablonu Azure Resource Manager")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/resource-manager-template-spark.png " alt-text="Tworzenie klastra Spark w usłudze HDInsight przy użyciu szablonu Azure Resource Manager" border="true":::
 
 1. Przejrzyj **warunki i postanowienia**. Następnie wybierz opcję **Zgadzam się na powyższe warunki i** postanowienia, a następnie **Kup**. Otrzymasz powiadomienie, że wdrożenie jest w toku. Utworzenie klastra trwa około 20 minut.
 
@@ -76,15 +76,15 @@ Po utworzeniu klastra otrzymasz powiadomienie o **pomyślnym wdrożeniu** za pom
 
 2. Wybierz pozycję **Klastry usługi HDInsight**, a następnie wybierz utworzony klaster.
 
-    ![Otwórz klaster usługi HDInsight w Azure Portal](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png" alt-text="Otwórz klaster usługi HDInsight w Azure Portal" border="true":::
 
 3. W portalu w sekcji **pulpity nawigacyjne klastra** wybierz pozycję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania dla klastra.
 
-   ![Otwórz Jupyter Notebook, aby uruchomić interakcyjne zapytanie Spark SQL](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Otwórz Jupyter Notebook, aby uruchomić interakcyjne zapytanie Spark SQL")
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Otwórz Jupyter Notebook, aby uruchomić interakcyjne zapytanie Spark SQL" border="true":::
 
 4. Wybierz pozycję **New**  >  **PySpark** , aby utworzyć Notes.
 
-   ![Tworzenie pliku Jupyter Notebook w celu uruchomienia interakcyjnego zapytania Spark SQL](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL")
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Tworzenie pliku Jupyter Notebook w celu uruchomienia interakcyjnego zapytania Spark SQL" border="true":::
 
    Zostanie utworzony i otwarty nowy notes o nazwie Untitled (Untitled.pynb).
 
@@ -94,7 +94,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do p
 
 1. Sprawdź, czy jądro jest gotowe. Gotowość jądra jest sygnalizowana pustym okręgiem obok nazwy jądra w notesie. Pełne kółko oznacza, że jądro jest zajęte.
 
-    ![Stan jądra](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Stan jądra")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Stan jądra" border="true"::: Alt-text = "stan jądra" Border = "true":::
 
     Podczas pierwszego uruchamiania notesu jądro wykonuje pewne zadania w tle. Poczekaj, aż jądro będzie gotowe.
 
@@ -107,7 +107,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do p
 
     Gdy używasz pliku Jupyter Notebook z klastrem usługi HDInsight, uzyskasz wstępnie ustawioną `spark` sesję, której można użyć do uruchamiania zapytań Hive przy użyciu platformy Spark SQL. Wyrażenie `%%sql` informuje aplikację Jupyter Notebook o konieczności użycia sesji wstępnej `spark` do uruchomienia zapytania programu Hive. Zapytanie pobiera pierwszych 10 wierszy z tabeli programu Hive (**hivesampletable**), która jest dostępna domyślnie na wszystkich klastrach usługi HDInsight. Podczas pierwszego przesyłania zapytania Jupyter utworzy aplikację Spark dla notesu. Utworzenie jej zajmuje około 30 sekund. Gdy aplikacja platformy Spark będzie gotowa, zapytanie jest wykonywane w około sekundzie i tworzy wyniki. Dane wyjściowe wyglądają następująco:
 
-    ![Zapytanie Apache Hive w usłudze HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Zapytanie programu Hive w usłudze HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png " alt-text="Kwerenda Apache Hive w usłudze HDInsight" border="true":::y w usłudze HDInsight "Border =" true ":::
 
     Podczas każdego uruchomienia zapytania w programie Jupyter w tytule okna przeglądarki internetowej wyświetlany jest stan **(Busy)** (Zajęty) wraz z tytułem notesu. Widoczne jest także pełne kółko obok tekstu **PySpark** w prawym górnym rogu.
 
@@ -120,7 +120,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do p
 
     Ekran zostanie odświeżony w celu wyświetlenia wyników zapytania.
 
-    ![Dane wyjściowe zapytania programu Hive w usłudze HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Dane wyjściowe zapytania programu Hive w usłudze HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png " alt-text="Dane wyjściowe zapytania programu Hive w usłudze HDInsight" border="true"::: Insights "Border =" true ":::
 
 1. W menu **File** (Plik) w notesie wybierz pozycję **Close and Halt** (Zamknij i zatrzymaj). Zamykanie notesu zwalnia zasoby klastra, w tym aplikacje Spark.
 
@@ -130,7 +130,7 @@ Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzię
 
 W Azure Portal przejdź do klastra, a następnie wybierz pozycję **Usuń**.
 
-![Azure Portal usunąć klaster usługi HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Usuwanie klastra usługi HDInsight")
+:::image type="content" source="./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure Portal usunąć klastra usługi HDInsight Cluster" border="true":::Insights "Border =" true ":::
 
 Dodatkowo możesz wybrać nazwę grupy zasobów, aby otworzyć stronę grupy zasobów, a następnie wybrać pozycję **Usuń grupę zasobów**. Usuwając grupę zasobów, należy usunąć zarówno klaster usługi HDInsight, jak i domyślne konto magazynu.
 

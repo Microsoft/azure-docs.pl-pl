@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: cfbbc1f11a24379561df26e2fb8d9da20b249317
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46a22b78ade3d137f25b14e5cbdaff3264208228
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942746"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868396"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalowanie aplikacji Apache Hadoop innych firm w usłudze Azure HDInsight
 
@@ -53,10 +53,10 @@ Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight w is
 3. Wybierz klaster usługi HDInsight z listy.  Jeśli nie masz klastra, musisz go najpierw utworzyć.  Zobacz [Tworzenie klastrów](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. W kategorii **Ustawienia** wybierz pozycję **aplikacje**. W oknie głównym można zobaczyć listę zainstalowanych aplikacji. 
    
-    ![Aplikacje usługi HDInsight — menu portalu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png" alt-text="Aplikacje usługi HDInsight — menu portalu":::
 5. Wybierz pozycję **+ Dodaj** z menu. Zostanie wyświetlona lista dostępnych aplikacji.  Jeśli **dodatek + Add** jest wyszarzony, oznacza to, że nie ma żadnych aplikacji dla tej wersji klastra usługi HDInsight.
    
-    ![Aplikacje usługi HDInsight — dostępne aplikacje](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png" alt-text="Aplikacje usługi HDInsight — dostępne aplikacje":::
 6. Wybierz jedną z dostępnych aplikacji, a następnie postępuj zgodnie z instrukcjami, aby zaakceptować postanowienia prawne.
 
 Możesz zobaczyć stan instalacji w powiadomieniach portalu (wybierz ikonę dzwonka w górnej części portalu). Po zainstalowaniu aplikacji aplikacja zostanie wyświetlona na liście zainstalowane aplikacje.
@@ -65,7 +65,7 @@ Możesz zobaczyć stan instalacji w powiadomieniach portalu (wybierz ikonę dzwo
 
 Aplikacje usługi HDInsight możesz także zainstalować podczas tworzenia klastra. W trakcie procesu aplikacje usługi HDInsight są instalowane po utworzeniu i uruchomieniu klastra. Aby zainstalować aplikacje podczas tworzenia klastra przy użyciu Azure Portal, na karcie **Konfiguracja i Cennik** wybierz pozycję **+ Dodaj aplikację**.
 
-![Azure Portal aplikacji konfiguracyjnych klastra](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
+:::image type="content" source="./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png" alt-text="Azure Portal aplikacji konfiguracyjnych klastra":::
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Lista zainstalowanych aplikacji HDInsight i ich właściwości
 Portal zawiera listę zainstalowanych aplikacji usługi HDInsight dla klastra oraz właściwości poszczególnych zainstalowanych aplikacji.
@@ -77,7 +77,7 @@ Portal zawiera listę zainstalowanych aplikacji usługi HDInsight dla klastra or
 3. Wybierz klaster usługi HDInsight z listy.
 4. W kategorii **Ustawienia** wybierz pozycję **aplikacje**. W oknie głównym można zobaczyć listę zainstalowanych aplikacji. 
    
-    ![Aplikacje usługi HDInsight — zainstalowane aplikacje](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png" alt-text="Aplikacje usługi HDInsight — zainstalowane aplikacje":::
 5. Wybierz jedną z zainstalowanych aplikacji, aby wyświetlić właściwość. Lista właściwości:
 
     |Właściwość | Opis |

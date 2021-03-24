@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 955b541bdb4ae38066f1eb4d2f09363ec51be1d2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92895770"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864078"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Zarządzanie uwierzytelnianiem w Azure Maps
 
@@ -78,6 +78,31 @@ Zażądaj tokenu z punktu końcowego tokenu usługi Azure AD. W żądaniu usług
 | Azure Government Cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
 Aby uzyskać więcej informacji na temat żądania tokenów dostępu z usługi Azure AD dla użytkowników i jednostek usługi, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/develop/authentication-vs-authorization.md) i Wyświetl konkretne scenariusze w tabeli [scenariuszy](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+
+## <a name="manage-and-rotate-shared-keys"></a>Zarządzanie kluczami udostępnionymi i ich obracanie
+
+Klucze subskrypcji Azure Maps są podobne do hasła głównego konta usługi Azure Maps. Zawsze należy zachować ostrożność w ochronie kluczy subskrypcji. Użyj Azure Key Vault, aby bezpiecznie zarządzać kluczami i obrócić je. Należy unikać dystrybuowania kluczy dostępu do innych użytkowników, ich kodowania lub zapisywania w dowolnym miejscu w postaci zwykłego tekstu, który jest dostępny dla innych osób. Obróć klucze, jeśli uważasz, że zostały naruszone.
+
+> [!NOTE]
+> Firma Microsoft zaleca używanie Azure Active Directory (Azure AD) do autoryzowania żądań, jeśli jest to możliwe, zamiast klucza współużytkowanego. Usługa Azure AD zapewnia znakomite zabezpieczenia i łatwość użycia w porównaniu z kluczami udostępnionymi.
+
+### <a name="manually-rotate-subscription-keys"></a>Ręcznie Obróć klucze subskrypcji
+
+Firma Microsoft zaleca, aby okresowo obrócić klucze subskrypcji, aby pomóc w zabezpieczeniu konta usługi Azure Maps. Jeśli to możliwe, użyj Azure Key Vault do zarządzania kluczami dostępu. Jeśli nie używasz Key Vault, musisz ręcznie obrócić klucze.
+
+Dwa klucze subskrypcji są przypisane, aby można było obrócić klucze. Posiadanie dwóch kluczy gwarantuje, że aplikacja zachowuje dostęp do Azure Maps przez cały proces.
+
+Aby obrócić klucze subskrypcji Azure Maps w Azure Portal:
+
+1. Zaktualizuj kod aplikacji, aby odwoływać się do klucza pomocniczego konta Azure Maps i wdrożyć.
+2. Przejdź do konta Azure Maps w [Azure Portal](https://portal.azure.com/).
+3. W obszarze **Ustawienia** wybierz pozycję **uwierzytelnianie**.
+4. Aby ponownie wygenerować klucz podstawowy dla konta Azure Maps, wybierz przycisk **Wygeneruj ponownie** obok klucza podstawowego.
+5. Zaktualizuj kod aplikacji, aby odwoływać się do nowego klucza podstawowego i wdrożyć.
+6. Wygeneruj ponownie klucz pomocniczy w taki sam sposób.
+
+> [!WARNING]
+> Firma Microsoft zaleca używanie tylko jednego z kluczy we wszystkich aplikacjach w tym samym czasie. Jeśli używasz klucza 1 w niektórych miejscach i w innym miejscu niż 2, nie będziesz w stanie obrócić swoich kluczy bez konieczności utraty dostępu przez niektóre aplikacje.
 
 ## <a name="next-steps"></a>Następne kroki
 

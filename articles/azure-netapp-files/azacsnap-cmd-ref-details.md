@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 43d358f7050dcc831f9f2bf439fba6e688ee633b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1d6a5488ee761acec57e6a1030bcb17872b09258
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632905"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865302"
 ---
 # <a name="obtain-details-using-azure-application-consistent-snapshot-tool-preview"></a>Uzyskaj szczegółowe informacje za pomocą narzędzia migawek spójnej na platformie Azure (wersja zapoznawcza)
 
@@ -93,6 +93,46 @@ List snapshot details called with snapshotFilter ''
 
 > [!NOTE]
 > Ten przykład przedstawia dane wyjściowe migawek uruchamianych przy użyciu poprzedniej wersji (v 4.3), a także migawek wykonanych w najnowszej wersji (5,0).
+
+W poniższym przykładzie przedstawiono dane wyjściowe dla **Azure NetApp Files**, należy zwrócić uwagę na zredukowane informacje za pomocą tego polecenia, ponieważ informacje nie są udostępniane przez usługę.
+
+```bash
+azacsnap -c details --details snapshots
+```
+
+```output
+List snapshot details called with snapshotFilter ''
+#, Volume, SnapshotName
+#1, HANADATA_P, snapmirror.dd59bda4-d507-11ea-99fc-00a098f31b77_2155201518.2021-03-22_020000
+#2, HANADATA_P, quarter_hourly__2021-03-22T020002-3678211Z
+#3, HANADATA_P, quarter_hourly__2021-03-22T014502-0716526Z
+#4, HANADATA_P, quarter_hourly__2021-03-22T013002-4080651Z
+#5, HANADATA_P, quarter_hourly__2021-03-22T011502-8376045Z
+#6, HANADATA_P, quarter_hourly__2021-03-22T010002-8810203Z
+#7, HANADATA_P, quarter_hourly__2021-03-22T004502-5983306Z
+#8, HANADATA_P, quarter_hourly__2021-03-22T003002-1168834Z
+#9, HANADATA_P, quarter_hourly__2021-03-22T001501-9781108Z
+#10, HANADATA_P, quarter_hourly__2021-03-22T000002-0865483Z
+#1, HANASHARED_P, quarter_hourly__2021-03-22T020002-3678211Z
+#2, HANASHARED_P, quarter_hourly__2021-03-22T014502-0716526Z
+#3, HANASHARED_P, quarter_hourly__2021-03-22T013002-4080651Z
+#4, HANASHARED_P, quarter_hourly__2021-03-22T011502-8376045Z
+#5, HANASHARED_P, quarter_hourly__2021-03-22T010002-8810203Z
+#6, HANASHARED_P, quarter_hourly__2021-03-22T004502-5983306Z
+#7, HANASHARED_P, quarter_hourly__2021-03-22T003002-1168834Z
+#8, HANASHARED_P, quarter_hourly__2021-03-22T001501-9781108Z
+#9, HANASHARED_P, quarter_hourly__2021-03-22T000002-0865483Z
+#10, HANASHARED_P, quarter_hourly__2021-03-21T234502-3935816Z
+#1, HANALOGBACKUP_P, logs_5mins__2021-03-22T021002-5462356Z
+#2, HANALOGBACKUP_P, logs_5mins__2021-03-22T020502-2390356Z
+#3, HANALOGBACKUP_P, logs_5mins__2021-03-22T015502-3928726Z
+#4, HANALOGBACKUP_P, logs_5mins__2021-03-22T015001-9228768Z
+#5, HANALOGBACKUP_P, logs_5mins__2021-03-22T014002-5554548Z
+#6, HANALOGBACKUP_P, logs_5mins__2021-03-22T013502-1781392Z
+#7, HANALOGBACKUP_P, logs_5mins__2021-03-22T012502-6686004Z
+#8, HANALOGBACKUP_P, logs_5mins__2021-03-22T012002-7348198Z
+#9, HANALOGBACKUP_P, logs_5mins__2021-03-22T011002-2234413Z
+```
 
 ### <a name="output-of-the-azacsnap--c-details---details-replication-command"></a>Dane wyjściowe `azacsnap -c details --details replication` polecenia
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 25ff8611cc988c9777b52a313cfd74d4ee0a638c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929754"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870300"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurowanie ustawień platformy Apache Spark
 
@@ -18,7 +18,7 @@ Klaster Spark HDInsight An obejmuje instalację biblioteki Apache Spark.  Każdy
 
 Domyślny Klaster Apache Spark usługi HDInsight zawiera następujące węzły: trzy węzły Apache ZooKeeper, dwa węzły główne i jeden lub więcej węzłów procesu roboczego:
 
-![Architektura usługi HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
+:::image type="content" source="./media/apache-spark-settings/spark-hdinsight-arch.png" alt-text="Architektura usługi HDInsight Spark" border="false":::
 
 Liczba maszyn wirtualnych i rozmiary maszyn wirtualnych dla węzłów w klastrze usługi HDInsight może mieć wpływ na konfigurację platformy Spark. Inne niż domyślne wartości konfiguracji usługi HDInsight często wymagają niedomyślnych wartości konfiguracji platformy Spark. Podczas tworzenia klastra usługi HDInsight Spark są wyświetlane sugerowane rozmiary maszyn wirtualnych dla każdego składnika. Obecnie [zoptymalizowane pod kątem pamięci rozmiary maszyn wirtualnych z systemem Linux](../../virtual-machines/sizes-memory.md) dla platformy Azure to D12 w wersji 2 lub nowszej.
 
@@ -59,7 +59,7 @@ Zostanie wyświetlony interfejs użytkownika sieci Web Apache Ambari z pulpitem 
 
 Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji**, a następnie wybierz pozycję **Spark2**.  Wybierz kartę **konfiguracje** , a następnie wybierz `Spark` link (lub `Spark2` , w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
 
-![Konfiguracje platformy Spark](./media/apache-spark-settings/spark-configurations.png)
+:::image type="content" source="./media/apache-spark-settings/spark-configurations.png" alt-text="Konfiguracje platformy Spark" border="true":::
 
 Aby wyświetlić i zmienić poszczególne wartości konfiguracji platformy Spark, zaznacz dowolne łącze "Spark" w tytule.  Konfiguracje dla platformy Spark zawierają wartości konfiguracji niestandardowej i zaawansowane w następujących kategoriach:
 
@@ -78,7 +78,7 @@ W przypadku utworzenia niedomyślnego zestawu wartości konfiguracji Historia ak
 
 Na poniższym diagramie przedstawiono obiekty Key Spark: program sterownika i skojarzony z nim kontekst platformy Spark oraz Menedżer klastra i *węzły procesu roboczego* .  Każdy węzeł procesu roboczego obejmuje moduł wykonujący, pamięć podręczną i *n* wystąpień zadań.
 
-![Obiekty klastra](./media/apache-spark-settings/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="Obiekty klastra" border="false":::
 
 Zadania platformy Spark korzystają z zasobów procesów roboczych, szczególnie pamięci, dlatego należy dostosować wartości konfiguracji platformy Spark dla modułów wykonujących procesy robocze.
 
@@ -89,7 +89,7 @@ Trzy kluczowe parametry, które są często dostosowywane do dostrajania konfigu
 
 Innym źródłem informacji o zasobach używanych przez moduł wykonawczy platformy Spark jest interfejs użytkownika aplikacji platformy Spark.  W interfejsie użytkownika program  **wykonujący** wyświetla podsumowanie i szczegółowe widoki konfiguracji i zużytych zasobów.  Określ, czy zmienić wartości wykonawców dla całego klastra, czy też określonego zestawu wykonań zadań.
 
-![Testy platformy Spark](./media/apache-spark-settings/apache-spark-executors.png)
+:::image type="content" source="./media/apache-spark-settings/apache-spark-executors.png" alt-text="Testy platformy Spark" border="true":::
 
 Można też użyć interfejsu API REST Ambari, aby programowo sprawdzić ustawienia konfiguracji klastra usługi HDInsight i usługi Spark.  Więcej informacji można znaleźć w [dokumentacji interfejsu API Apache Ambari w witrynie GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -103,7 +103,7 @@ W zależności od obciążenia platformy Spark może się okazać, że bardziej 
 
 Oto przykład dwóch węzłów procesu roboczego z różnymi wartościami konfiguracji:
 
-![Dwie konfiguracje węzłów](./media/apache-spark-settings/executor-configuration.png)
+:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="Dwie konfiguracje węzłów" border="false":::
 
 Na poniższej liście przedstawiono parametry pamięci programu wykonującego testy.
 
@@ -116,7 +116,7 @@ Na poniższej liście przedstawiono parametry pamięci programu wykonującego te
 
 PRZĘDZa kontroluje maksymalną sumę pamięci używaną przez kontenery w każdym węźle Spark. Na poniższym diagramie przedstawiono relacje poszczególnych węzłów między obiektami konfiguracji PRZĘDZenia a obiektami Spark.
 
-![Zarządzanie pamięcią w ramach PRZĘDZy](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="Zarządzanie pamięcią w ramach PRZĘDZy" border="false":::
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Zmień parametry aplikacji uruchomionej w Jupyter Notebook
 

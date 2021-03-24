@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/09/2021
-ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556625"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889335"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w programie Azure Logic Apps
 
@@ -402,52 +402,54 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
 
      Aby uzyskać więcej informacji, zobacz [przykład: uwierzytelnianie wyzwalacza lub akcji łącznika zarządzanego przy użyciu tożsamości zarządzanej](#authenticate-managed-connector-managed-identity).
 
-     Połączenia tworzone w celu korzystania z tożsamości zarządzanej są specjalnym typem połączenia, który działa tylko z tożsamością zarządzaną. W czasie wykonywania połączenie używa zarządzanej tożsamości, która jest włączona w aplikacji logiki. Ta konfiguracja jest zapisywana w obiekcie definicji zasobu aplikacji logiki `parameters` , który zawiera `$connections` obiekt, który zawiera wskaźniki do identyfikatora zasobu połączenia wraz z identyfikatorem zasobu tożsamości, jeśli jest włączona tożsamość przypisana przez użytkownika.
+### <a name="connections-that-use-managed-identities"></a>Połączenia korzystające z tożsamości zarządzanych
 
-     Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez system:
+Połączenia korzystające z tożsamości zarządzanej są specjalnym typem połączenia, który działa tylko z tożsamością zarządzaną. W czasie wykonywania połączenie używa zarządzanej tożsamości, która jest włączona w aplikacji logiki. Ta konfiguracja jest zapisywana w obiekcie definicji zasobu aplikacji logiki `parameters` , który zawiera `$connections` obiekt, który zawiera wskaźniki do identyfikatora zasobu połączenia wraz z identyfikatorem zasobu tożsamości, jeśli jest włączona tożsamość przypisana przez użytkownika.
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez system:
 
-     Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez użytkownika:
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+ ```
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez użytkownika:
 
-     Podczas wykonywania usługa Logic Apps sprawdza, czy wszystkie wyzwalacze i akcje zarządzanego łącznika w aplikacji logiki są skonfigurowane do korzystania z tożsamości zarządzanej oraz czy wszystkie wymagane uprawnienia są skonfigurowane do używania tożsamości zarządzanej do uzyskiwania dostępu do zasobów docelowych określonych przez wyzwalacz i akcje. W przypadku powodzenia usługa Logic Apps pobiera token usługi Azure AD skojarzony z zarządzaną tożsamością i używa tej tożsamości do uwierzytelniania dostępu do zasobu docelowego i wykonywania skonfigurowanej operacji w wyzwalaczu i akcjach.
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Podczas wykonywania usługa Logic Apps sprawdza, czy wszystkie wyzwalacze i akcje zarządzanego łącznika w aplikacji logiki są skonfigurowane do korzystania z tożsamości zarządzanej oraz czy wszystkie wymagane uprawnienia są skonfigurowane do używania tożsamości zarządzanej do uzyskiwania dostępu do zasobów docelowych określonych przez wyzwalacz i akcje. W przypadku powodzenia usługa Logic Apps pobiera token usługi Azure AD skojarzony z zarządzaną tożsamością i używa tej tożsamości do uwierzytelniania dostępu do zasobu docelowego i wykonywania skonfigurowanej operacji w wyzwalaczu i akcjach.
 
 <a name="authenticate-built-in-managed-identity"></a>
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de6a94b36dab9dd5662062be99f4515d78558b5e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212454"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889658"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -102,7 +102,7 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
 
 - Poszukaj `Front Door ID` wartości w sekcji Przegląd na stronie portalu front-drzwi. Następnie można filtrować w przychodzącym nagłówku "**X-Azure-FDID**", który jest wysyłany przez tylne drzwi do zaplecza z tą wartością, aby zapewnić, że tylko Twoje własne wystąpienie typu front-drzwi jest dozwolone (ponieważ powyższe zakresy adresów IP są współdzielone z innymi wystąpieniami zewnętrznych drzwi innych klientów).
 
-- Zastosuj filtrowanie reguł na serwerze sieci Web zaplecza, aby ograniczyć ruch na podstawie otrzymanej wartości nagłówka "X-Azure-FDID". Należy pamiętać, że niektóre usługi, takie jak Azure App Service zapewniają możliwość [filtrowania na podstawie tego nagłówka](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) , bez konieczności zmiany aplikacji lub hosta.
+- Zastosuj filtrowanie reguł na serwerze sieci Web zaplecza, aby ograniczyć ruch na podstawie otrzymanej wartości nagłówka "X-Azure-FDID". Należy pamiętać, że niektóre usługi, takie jak Azure App Service zapewniają możliwość [filtrowania na podstawie tego nagłówka](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) , bez konieczności zmiany aplikacji lub hosta.
 
   Oto przykład dla [programu Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 

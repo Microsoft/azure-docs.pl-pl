@@ -3,18 +3,18 @@ title: Zwiększanie IoT Central platformy Azure przy użyciu analizy niestandard
 description: Jako deweloper rozwiązań Skonfiguruj aplikację IoT Central, aby wykonywać niestandardowe analizy i wizualizacje. To rozwiązanie używa Azure Databricks.
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0cee343e6769c815ecfb4b9c791783bd246caaac
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551321"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953905"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzając IoT Central platformy Azure z analizą niestandardową przy użyciu Azure Databricks
 
@@ -39,7 +39,7 @@ Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Applicatio
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Plan cenowy | Standardowa |
+| Plan cenowy | Standardowa (Standard) |
 | Szablon aplikacji | Analiza warunków w sklepie — monitorowanie |
 | Nazwa aplikacji | Zaakceptuj wartość domyślną lub wybierz własną nazwę |
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
@@ -78,18 +78,18 @@ Użyj [Azure Portal, aby utworzyć usługę Azure Databricks](https://portal.azu
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | IoTCentralAnalysis |
 | Lokalizacja | Wschodnie stany USA |
-| Warstwa cenowa | Standardowa |
+| Warstwa cenowa | Standardowa (Standard) |
 
 Po utworzeniu wymaganych zasobów Grupa zasobów **IoTCentralAnalysis** wygląda podobnie do poniższego zrzutu ekranu:
 
-![Grupa zasobów analizy IoT Central](media/howto-create-custom-analytics/resource-group.png)
+:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="obraz grupy zasobów analizy IoT Central.":::
 
 ## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
 Można skonfigurować aplikację IoT Central, aby ciągle eksportować dane telemetryczne do centrum zdarzeń. W tej sekcji utworzysz centrum zdarzeń, aby odbierać dane telemetryczne z aplikacji IoT Central. Centrum zdarzeń dostarcza dane telemetryczne do zadania Stream Analytics do przetworzenia.
 
 1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i wybierz pozycję **+ centrum zdarzeń**.
-1. Nazwij **centralexport** centrum zdarzeń, a następnie wybierz pozycję **Utwórz**.
+1. Nazwij centrum zdarzeń **centralexport**.
 1. Na liście centrów zdarzeń w przestrzeni nazw wybierz pozycję **centralexport**. Następnie wybierz pozycję **zasady dostępu współdzielonego**.
 1. Wybierz pozycję **+ Dodaj**. Utwórz zasady o nazwie **Nasłuchuj** przy użyciu roszczeń **nasłuchujących** .
 1. Gdy zasady są gotowe, wybierz je z listy, a następnie skopiuj **Parametry połączenia — wartość klucza podstawowego** .
@@ -97,26 +97,42 @@ Można skonfigurować aplikację IoT Central, aby ciągle eksportować dane tele
 
 Przestrzeń nazw Event Hubs wygląda następująco:
 
-![Przestrzeń nazw usługi Event Hubs](media/howto-create-custom-analytics/event-hubs-namespace.png)
+:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="obraz przestrzeni nazw Event Hubs.":::
 
-## <a name="configure-export-in-iot-central"></a>Konfigurowanie eksportu w IoT Central
+## <a name="configure-export-in-iot-central-and-create-a-new-destination"></a>Skonfiguruj eksport w IoT Central i Utwórz nowe miejsce docelowe
 
 W witrynie sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) przejdź do aplikacji IoT Central utworzonej na podstawie szablonu contoso. W tej sekcji skonfigurujesz aplikację do przesyłania strumieniowego danych telemetrycznych z symulowanych urządzeń do centrum zdarzeń. Aby skonfigurować eksport:
 
-1. Przejdź do strony **eksport danych** , wybierz pozycję **+ Nowy**, a następnie opcję **Azure Event Hubs**.
-1. Aby skonfigurować eksport, użyj następujących ustawień, a następnie wybierz pozycję **Zapisz**:
+1. Przejdź do strony **eksport danych** , a następnie wybierz pozycję **+ Nowy eksport**.
+1. Przed zakończeniem pierwszego okna, wybierz opcję **Utwórz miejsce docelowe**.
+
+Okno będzie wyglądać jak poniżej.  
+
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="obraz konfiguracji docelowej eksportowania danych.":::
+
+3. Wprowadź następujące wartości:
+
+| Ustawienie | Wartość |
+| ------- | ----- |
+| Nazwa miejsca docelowego | Nazwa miejsca docelowego |
+| Typ docelowy | Azure Event Hubs |
+| Parametry połączenia| Parametry połączenia centrum zdarzeń, które zostały wcześniej wykonane. | 
+| Centrum zdarzeń| Nazwa centrum zdarzeń|
+
+4. Kliknij przycisk **Utwórz** , aby zakończyć.
+
+5. Użyj następujących ustawień, aby skonfigurować eksport:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Nazwa wyświetlana | Eksportuj do Event Hubs |
+    | Wprowadź nazwę eksportu | eventhubexport |
     | Enabled (Włączony) | Włączone |
-    | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
-    | Centrum zdarzeń | centralexport |
-    | Miary | Włączone |
-    | Urządzenia | Wyłączone |
-    | Szablony urządzeń | Wyłączone |
+    | Dane| Wybierz telemetrię | 
+    | Miejsca docelowe| Utwórz miejsce docelowe, jak pokazano poniżej, dla eksportu, a następnie wybierz je w menu rozwijanym miejsce docelowe. |
 
-![Konfiguracja eksportu danych](media/howto-create-custom-analytics/cde-configuration.png)
+:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Zrzut ekranu konfiguracji docelowej eksportu danych.":::
+
+6. Po zakończeniu wybierz pozycję **Zapisz**.
 
 Przed kontynuowaniem Zaczekaj, aż stan eksportu zostanie **uruchomiony** .
 
@@ -133,7 +149,7 @@ Skorzystaj z informacji w poniższej tabeli, aby utworzyć klaster:
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa klastra | centralanalysis |
-| Tryb klastra | Standardowa |
+| Tryb klastra | Standardowa (Standard) |
 | Wersja Databricks Runtime | 5,5 LTS (Scala 2,11, Spark 2.4.5) |
 | Wersja języka Python | 3 |
 | Włącz Skalowanie automatyczne | Nie |
@@ -164,7 +180,7 @@ W poniższych krokach pokazano, jak zaimportować bibliotekę potrzebną w ramac
 
 1. Stan biblioteki jest teraz **zainstalowany**:
 
-    ![Zainstalowana Biblioteka](media/howto-create-custom-analytics/cluster-libraries.png)
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Zrzut ekranu z zainstalowaną biblioteką.":::
 
 ### <a name="import-a-databricks-notebook"></a>Importowanie notesu datacegły
 
@@ -178,9 +194,9 @@ Wykonaj następujące kroki, aby zaimportować Notes datacegły zawierający kod
 
 1. Wybierz **obszar roboczy** , aby wyświetlić zaimportowany Notes:
 
-    ![Zaimportowany Notes](media/howto-create-custom-analytics/import-notebook.png)
+:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Zrzut ekranu zaimportowanego notesu.":::
 
-1. Edytuj kod w pierwszej komórce w języku Python, aby dodać Event Hubs parametry połączenia, które zostały zapisane wcześniej:
+5. Edytuj kod w pierwszej komórce w języku Python, aby dodać Event Hubs parametry połączenia, które zostały zapisane wcześniej:
 
     ```python
     from pyspark.sql.functions import *
@@ -206,7 +222,7 @@ W ostatniej komórce może zostać wyświetlony błąd. Jeśli tak jest, sprawd�
 
 W notesie przewiń w dół do komórki 14, aby wyświetlić wykres średniej wartości wilgotnej według typu urządzenia. Ten wykres ciągle aktualizuje się w miarę nadejścia danych telemetrycznych przesyłania strumieniowego:
 
-![Wygładzony wykres telemetrii](media/howto-create-custom-analytics/telemetry-plot.png)
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Zrzut ekranu przedstawiający wygładzony wykres telemetrii.":::
 
 Można zmienić rozmiar wykresu w notesie.
 
@@ -214,7 +230,7 @@ Można zmienić rozmiar wykresu w notesie.
 
 W notesie przewiń w dół do komórki 20, aby zobaczyć [pola wykresów](https://en.wikipedia.org/wiki/Box_plot). Wykresy skrzynkowe są oparte na danych statycznych, więc aby je zaktualizować, należy ponownie uruchomić komórkę:
 
-![Wykresy skrzynkowe](media/howto-create-custom-analytics/box-plots.png)
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Zrzut ekranu przedstawiający wykresy skrzynkowe.":::
 
 Można zmienić rozmiar wykresów w notesie.
 

@@ -98,6 +98,6 @@
     - name: Interfejs API czujnika
       href: 'https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html'
     - name: Interfejs API śledzenia ciała
-      href: 'https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html'
+      href: 'https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.1.x/index.html'
     - name: Format pliku używany do rejestrowania
       href: record-file-format.md

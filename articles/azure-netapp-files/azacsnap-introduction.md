@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632824"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869960"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Co to jest narzędzie do tworzenia migawek spójnych w aplikacji Azure (wersja zapoznawcza)
 
-Narzędzie do tworzenia migawek spójnych w aplikacji Azure (AzAcSnap) to narzędzie wiersza polecenia, które umożliwia uproszczenie ochrony danych dla baz danych innych firm (SAP HANA) w środowiskach systemu Linux (na przykład SUSE i RHEL).  
+Narzędzie do tworzenia migawek spójnych w aplikacji Azure (AzAcSnap) to narzędzie wiersza polecenia, które umożliwia ochronę danych dla baz danych innych firm, obsługując wszystkie aranżacje wymagane do umieszczenia ich w stanie spójnym z aplikacją przed utworzeniem migawki magazynu, po czym zwraca je do stanu operacyjnego.
+
+## <a name="supported-platforms-and-os"></a>Obsługiwane platformy i system operacyjny
+
+- **Bazy danych**
+  - SAP HANA (zobacz [Macierz obsługi](azacsnap-get-started.md#snapshot-support-matrix-from-sap) , aby uzyskać szczegółowe informacje)
+
+- **Systemy operacyjne**
+  - SUSE Linux Enterprise Server 12 +
+  - Red Hat Enterprise Linux 7 +
 
 ## <a name="benefits-of-using-azacsnap"></a>Zalety korzystania z usługi AzAcSnap
 

@@ -163,6 +163,9 @@
         - name: Konfigurowanie tożsamości zarządzanych
           displayName: user-assigned
           href: managed-identity-pools.md
+        - name: Włączanie rotacji certyfikatów
+          displayName: 'key vault, keyvault, automatic'
+          href: automatic-certificate-rotation.md
         - name: Instalowanie wirtualnego systemu plików
           href: virtual-file-mount.md
         - name: Instalowanie udziału plików platformy Azure

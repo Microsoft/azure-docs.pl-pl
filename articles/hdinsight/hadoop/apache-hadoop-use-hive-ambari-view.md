@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944871"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867869"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Korzystanie z widoku programu Hive narzędzia Apache Ambari z usługą Apache Hadoop w usłudze HDInsight
 
@@ -30,11 +30,11 @@ Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usłu
 
 1. Z listy widoki wybierz pozycję __Widok Hive__.
 
-    ![Ambari wybierz widok Apache Hive Apache](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Ambari wybierz widok Apache Hive Apache" border="true":::
 
     Strona widok programu Hive jest podobna do następującej:
 
-    ![Obraz arkusza zapytania dla widoku programu Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Obraz arkusza zapytania dla widoku programu Hive" border="true":::
 
 1. Na karcie __zapytanie__ Wklej następujące instrukcje HiveQL do arkusza:
 
@@ -99,19 +99,19 @@ Aby wyświetlić interfejs użytkownika tez dla zapytania, wybierz kartę **inte
 
 Na karcie __zadania__ zostanie wyświetlona historia zapytań programu Hive.
 
-![Historia karty Apache Hive widoku zadań](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Historia karty Apache Hive widoku zadań" border="true":::
 
 ## <a name="database-tables"></a>Tabele bazy danych
 
 Karta __tabele__ służy do pracy z tabelami w bazie danych programu Hive.
 
-![Obraz karty Apache Hive tabele](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Obraz karty Apache Hive tabele" border="true":::
 
 ## <a name="saved-queries"></a>Zapisane zapytania
 
 Na karcie **zapytanie** można opcjonalnie zapisywać zapytania. Po zapisaniu zapytania można użyć go ponownie z karty __zapisane zapytania__ .
 
-![Karta Zapisane zapytania w widokach Apache Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Karta Zapisane zapytania w widokach Apache Hive" border="true":::
 
 > [!TIP]  
 > Zapisane zapytania są przechowywane w domyślnym magazynie klastra. Zapisane zapytania można znaleźć pod ścieżką `/user/<username>/hive/scripts` . Są one przechowywane jako pliki w postaci zwykłego tekstu `.hql` .
@@ -124,7 +124,7 @@ Gałąź można rozciągnąć za poorednictwem funkcji zdefiniowanych przez uży
 
 Zadeklaruj i Zapisz zestaw UDF przy użyciu karty **UDF** w górnej części widoku programu Hive. Te UDF mogą być używane z **edytorem zapytań**.
 
-![Wyświetlanie karty UDF w widoku Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Wyświetlanie karty UDF w widoku Apache Hive" border="true":::
 
 Przycisk **Wstaw UDF** pojawia się u dołu **edytora zapytań**. Ten wpis wyświetla listę rozwijaną UDF zdefiniowaną w widoku Hive. Wybranie opcji UDF dodaje do zapytania instrukcje HiveQL, aby włączyć funkcję UDF.
 

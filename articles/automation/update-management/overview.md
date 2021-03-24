@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670617"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950063"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -22,7 +22,7 @@ Update Management w Azure Automation służy do zarządzania aktualizacjami syst
 > [!NOTE]
 > W tej chwili Włączanie Update Management bezpośrednio z serwera z włączonymi Łukiemmi nie jest obsługiwane. Zapoznaj się z tematem [włączanie Update Management na koncie usługi Automation](../../automation/update-management/enable-from-automation-account.md) , aby poznać wymagania i jak włączyć serwer.
 
-Aby automatycznie pobierać i instalować dostępne poprawki *krytyczne* i *zabezpieczenia* na maszynie wirtualnej platformy Azure, przejrzyj [automatyczną poprawkę gościa maszyny wirtualnej](../../virtual-machines/windows/automatic-vm-guest-patching.md) dla maszyn wirtualnych z systemem Windows.
+Aby automatycznie pobierać i instalować dostępne poprawki *krytyczne* i *zabezpieczenia* na maszynie wirtualnej platformy Azure, przejrzyj [automatyczną poprawkę gościa maszyny wirtualnej](../../virtual-machines/automatic-vm-guest-patching.md) dla maszyn wirtualnych z systemem Windows.
 
 Przed wdrożeniem Update Management i włączeniem maszyn w celu zarządzania należy zapoznać się z informacjami w poniższych sekcjach.  
 
@@ -207,7 +207,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

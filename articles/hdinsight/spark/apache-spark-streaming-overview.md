@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8a9f771827b870f493d6b0d7590feee7fc52b20
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929516"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870249"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Omówienie Apache Spark przesyłania strumieniowego
 
 [Apache Spark](https://spark.apache.org/) Przesyłanie strumieniowe zapewnia przetwarzanie strumieni danych w klastrach usługi HDInsight Spark. Z gwarancją, że każde zdarzenie wejściowe jest przetwarzane dokładnie jeden raz, nawet jeśli wystąpi awaria węzła. Strumień Spark to długotrwałe zadanie, które odbiera dane wejściowe z wielu różnych źródeł, w tym Event Hubs platformy Azure. Ponadto: Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` , RAW TCP Sockets lub z monitorowania Apache Hadoop systemów plików przędzy. W przeciwieństwie do samego procesu sterowanego zdarzeniami, Strumień Spark przetwarza dane wejściowe w oknach czasu. Na przykład 2-sekundowy wycinek, a następnie przekształca każdą partię danych przy użyciu funkcji map, zmniejszania, przyłączania i wyodrębniania. Strumień Spark zapisuje następnie przekształcone dane do systemów plików, baz danych, pulpitów nawigacyjnych i konsoli programu.
 
-![Przetwarzanie strumieni z użyciem usługi HDInsight i usługi przesyłania strumieniowego Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Przetwarzanie strumieni z użyciem usługi HDInsight i usługi przesyłania strumieniowego Spark" border="false":::
 
 Aplikacje strumieniowe Spark muszą czekać część sekund, aby zebrać każde `micro-batch` zdarzenie przed wysłaniem tej partii na potrzeby przetwarzania. Z kolei aplikacja oparta na zdarzeniach natychmiast przetwarza każde zdarzenie. Opóźnienie przesyłania strumieniowego Spark jest zwykle w ciągu kilku sekund. Zalety metody Micro-Batch to wydajniejsze przetwarzanie danych i prostsze obliczenia zagregowane.
 
@@ -30,7 +30,7 @@ Zacznij od pojedynczego zdarzenia, zapoznaj się z odczytem temperatury ze poł�
 
 Każdy RDD reprezentuje zdarzenia zbierane przez zdefiniowany przez użytkownika czas o nazwie *Interwał partii*. Po upływie każdego interwału partii tworzony jest nowy RDD, który zawiera wszystkie dane z tego interwału. Ciągły zestaw odporne jest zbierany w DStream. Jeśli na przykład interwał wsadowy jest dłuższy niż jedna sekunda, DStream emituje wsadowe co sekundę zawierające jedną RDD, która zawiera wszystkie dane, które zostały odebrane w ciągu sekundy. Podczas przetwarzania DStream, zdarzenie temperatury pojawia się w jednej z tych partii. Aplikacja Spark Streaming przetwarza partie zawierające zdarzenia i ostatecznie działa na danych przechowywanych w każdym RDD.
 
-![Przykład DStream ze zdarzeniami temperatury](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png" alt-text="Przykład DStream ze zdarzeniami temperatury" border="false":::
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Struktura aplikacji do przesyłania strumieniowego Spark
 
@@ -168,9 +168,9 @@ Aby wykonać obliczenia zagregowane na DStream w pewnym okresie czasu, na przyk�
 
 Przesuwane okna mogą się nakładać, na przykład można zdefiniować okno o długości co najmniej dwóch sekund, które slajdy są co sekundę. Ta akcja oznacza każde przeprowadzenie obliczeń agregacji, w oknie zostaną uwzględnione dane z ostatniej sekundy poprzedniego okna. I wszystkie nowe dane w ciągu następnych sekund.
 
-![Przykładowe okno początkowe ze zdarzeniami temperatury](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png" alt-text="Przykładowe okno początkowe ze zdarzeniami temperatury" border="false":::
 
-![Przykładowe okno ze zdarzeniami temperatury po przesuwaniu](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png" alt-text="Przykładowe okno ze zdarzeniami temperatury po przesuwaniu" border="false":::
 
 Poniższy przykład aktualizuje kod, który używa DummySource, do zbierania partii do okna z jednominutowym czasem trwania i slajdem jednominutowym.
 
@@ -244,7 +244,7 @@ W celu zapewnienia odporności i odporności na uszkodzenia, funkcja przesyłani
 
 Zwykle kompilujesz aplikację Spark Streaming lokalnie do pliku JAR. Następnie wdróż go w usłudze Spark w usłudze HDInsight, kopiując plik JAR do domyślnego dołączonego magazynu. Aplikację można uruchomić za pomocą interfejsów API REST usługi LIVY dostępnych w klastrze przy użyciu operacji POST. Treść wpisu zawiera dokument JSON, który zawiera ścieżkę do pliku JAR. I nazwa klasy, której Metoda Main definiuje i uruchamia aplikację przesyłania strumieniowego oraz opcjonalnie wymagania dotyczące zasobów zadania (takie jak liczba modułów wykonujących, pamięć i rdzenie). Ponadto potrzebne są wszystkie ustawienia konfiguracji wymagane przez kod aplikacji.
 
-![Wdrażanie aplikacji do przesyłania strumieniowego Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Wdrażanie aplikacji do przesyłania strumieniowego Spark" border="false":::
 
 Stan wszystkich aplikacji można również sprawdzić za pomocą żądania GET w odniesieniu do punktu końcowego usługi LIVY. Na koniec możesz zakończyć działającą aplikację, wydając żądanie DELETE względem punktu końcowego usługi LIVY. Aby uzyskać szczegółowe informacje o interfejsie API usługi LIVY, zobacz [zdalne zadania z Apache usługi Livy](apache-spark-livy-rest-interface.md)
 

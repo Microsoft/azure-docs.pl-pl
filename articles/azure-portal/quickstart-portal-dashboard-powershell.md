@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pulpit nawigacyjny w Azure Portal przy 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 07/24/2020
-ms.openlocfilehash: 1b001c8f1ab73d23441697c93202cf1f6ea65687
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 964705207b099a6b4e2d59452a8b6880fea88bad
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104613328"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889097"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Szybki Start: tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu programu PowerShell
 
@@ -104,7 +104,7 @@ Ponieważ pulpity nawigacyjne platformy Azure to zasoby, mogą być reprezentowa
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -158,6 +158,7 @@ Aby usunąć maszynę wirtualną i skojarzony z nią pulpit nawigacyjny, Usuń g
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## <a name="next-steps"></a>Następne kroki

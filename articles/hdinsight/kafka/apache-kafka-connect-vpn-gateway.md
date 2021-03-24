@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
-ms.openlocfilehash: ad802b2bdf08a8e43179beece5f52d869513aff3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eb97e209bc7bb9bc1a15ecadc88593e4c0573b5c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933049"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870623"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Nawiązywanie połączenia z platformą Apache Kafka w usłudze HDInsight przy użyciu sieci wirtualnej platformy Azure
 
@@ -245,15 +245,15 @@ Domyślnie Apache dozorcy zwraca nazwę domeny brokerów Kafka do klientów. Ta 
 
 2. Aby wyświetlić informacje o Kafka, wybierz pozycję __Kafka__ z listy po lewej stronie.
 
-    ![Lista usług z wyróżnioną pozycją Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Lista usług z wyróżnioną pozycją Kafka" border="true":::
 
 3. Aby wyświetlić konfigurację Kafka __, wybierz pozycję__ konfiguracje w górnej części.
 
-    ![Konfiguracja usług Apache Ambari Services](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Konfiguracja usług Apache Ambari Services" border="true":::
 
 4. Aby znaleźć konfigurację __Kafka-ENV__ , wprowadź `kafka-env` w polu __filtru__ w prawym górnym rogu.
 
-    ![Konfiguracja Kafka dla Kafka-ENV](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Konfiguracja Kafka dla Kafka-ENV" border="true":::
 
 5. Aby skonfigurować Kafka do anonsowania adresów IP, Dodaj następujący tekst na dole pola __Kafka-ENV-Template__ :
 
@@ -271,15 +271,15 @@ Domyślnie Apache dozorcy zwraca nazwę domeny brokerów Kafka do klientów. Ta 
 
 8. Aby zapisać zmiany konfiguracji, użyj przycisku __Zapisz__ . Wprowadź wiadomość tekstową opisującą zmiany. Po zapisaniu zmian wybierz __przycisk OK__ .
 
-    ![Konfiguracja oprogramowania Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Konfiguracja oprogramowania Apache Ambari" border="true":::
 
 9. Aby zapobiec błędom podczas ponownego uruchamiania Kafka, użyj przycisku __Akcje usługi__ i wybierz pozycję __Włącz tryb konserwacji__. Wybierz przycisk OK, aby ukończyć tę operację.
 
-    ![Akcje usługi z opcją Włącz konserwację](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Akcje usługi z opcją Włącz konserwację" border="true":::
 
 10. Aby ponownie uruchomić Kafka, użyj przycisku __Uruchom ponownie__ , a następnie wybierz pozycję __Uruchom ponownie wszystkie uwzględnione__. Potwierdź ponowne uruchomienie, a następnie użyj przycisku __OK__ po zakończeniu operacji.
 
-    ![Przycisk Uruchom ponownie z wyróżnionym ponownym użyciem](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Przycisk Uruchom ponownie z wyróżnionym ponownym użyciem" border="true":::
 
 11. Aby wyłączyć tryb konserwacji, użyj przycisku __Akcje usługi__ i wybierz polecenie Wyłącz __tryb konserwacji__. Wybierz **przycisk OK** , aby ukończyć tę operację.
 

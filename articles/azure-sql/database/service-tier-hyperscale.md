@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 1/13/2021
-ms.openlocfilehash: 4b5020b6cf7ac2f7aec586d7e6499285c1447b68
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a167fedcb42560dec55cdbce40e36180d65e0179
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98209767"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951801"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -105,7 +105,7 @@ Usługa log przyjmuje rekordy dziennika z podstawowej repliki obliczeniowej, utr
 
 Usługa Azure Storage zawiera wszystkie pliki danych w bazie danych. Serwery stron zachowują aktualne pliki danych w usłudze Azure Storage. Ten magazyn jest używany na potrzeby tworzenia kopii zapasowych, a także do replikacji między regionami platformy Azure. Kopie zapasowe są implementowane przy użyciu migawek magazynu plików danych. Operacje przywracania przy użyciu migawek są szybkie, niezależnie od rozmiaru danych. Dane można przywrócić do dowolnego punktu w czasie w ramach okresu przechowywania kopii zapasowej bazy danych.
 
-## <a name="backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej
+## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 
 Kopie zapasowe są tworzone na podstawie migawek plików, a tym samym prawie chwilowo. Rozdzielenie magazynu i obliczeń umożliwia wypychanie operacji tworzenia kopii zapasowej/przywracania do warstwy magazynowania w celu zmniejszenia obciążenia związanego z przetwarzaniem w podstawowej replice obliczeniowej. W związku z tym kopia zapasowa bazy danych nie wpływa na wydajność podstawowego węzła obliczeniowego. Podobnie odzyskiwanie do punktu w czasie (kopie) jest wykonywane przez przywrócenie migawek plików, a w związku z tym nie jest to rozmiar operacji danych. Przywracanie bazy danych w ramach skalowania w tym samym regionie platformy Azure jest operacją o stałej godzinie, a nawet kilka baz danych z wieloma terabajtami można przywrócić w ciągu kilku minut, a nie godzin lub dni. Tworzenie nowych baz danych przez przywrócenie istniejącej kopii zapasowej obejmuje również korzystanie z tej funkcji: Tworzenie kopii bazy danych do celów deweloperskich i testowych, nawet z wieloterabajtowymi bazami danych, jest doable w ciągu kilku minut.
 
@@ -226,7 +226,7 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 | W przypadku zmiany warstwy usługi Azure SQL Database na wieloskalowanie operacja kończy się niepowodzeniem, jeśli baza danych zawiera pliki danych większe niż 1 TB | W niektórych przypadkach może być możliwe obejście tego problemu, [zmniejszając](file-space-manage.md#shrinking-data-files) rozmiar dużych plików do mniej niż 1 TB przed próbą zmiany warstwy usług w celu przeskalowania. Użyj następującego zapytania, aby określić bieżący rozmiar plików bazy danych. `SELECT file_id, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Wystąpienie zarządzane SQL | Wystąpienie zarządzane Azure SQL nie jest obecnie obsługiwane z bazami danych w skali. |
 | Pule elastyczne |  Pule elastyczne nie są obecnie obsługiwane ze skalą.|
-| Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po migracji bazy danych do funkcji wieloskalowania nie można jej migrować bezpośrednio do warstwy usługi, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal, z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](/cli/azure/sql/db#az-sql-db-export) i [AZ SQL DB import](/cli/azure/sql/db#az-sql-db-import)i from [API REST](/rest/api/sql/databases%20-%20import%20export) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
+| Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po migracji bazy danych do funkcji wieloskalowania nie można jej migrować bezpośrednio do warstwy usługi, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal, z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](/cli/azure/sql/db#az-sql-db-export) i [AZ SQL DB import](/cli/azure/sql/db#az-sql-db-import)i from [API REST](/rest/api/sql/) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
 | Migracja baz danych przy użyciu obiektów In-Memory OLTP | Funkcja skalowania obsługuje podzestaw In-Memory obiektów OLTP, w tym typów tabel zoptymalizowanych pod kątem pamięci, zmiennych tabel i modułów skompilowanych w sposób macierzysty. Jeśli jednak dowolny rodzaj In-Memory obiektów OLTP jest obecny w migrowanej bazie danych, migracja z warstw usług premium i Krytyczne dla działania firmy do skalowania nie jest obsługiwana. Aby przeprowadzić migrację takiej bazy danych do skalowania, należy porzucić wszystkie In-Memory obiekty OLTP i ich zależności. Po migracji bazy danych można odtworzyć te obiekty. Trwałe i nietrwałe tabele zoptymalizowane pod kątem pamięci nie są obecnie obsługiwane w ramach skalowania i muszą zostać zmienione na tabele dysków.|
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej na potrzeby Azure SQL Database skalowania. |
 | Kopia bazy danych | Kopia bazy danych w ramach skalowania jest teraz w publicznej wersji zapoznawczej. |
