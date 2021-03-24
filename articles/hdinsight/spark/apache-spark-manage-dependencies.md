@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: f0673523c74a0ea298e7d2d520952c3e98877e91
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c950903522d42b3c279cb89f3a6031043fd49bf3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930035"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868804"
 ---
 # <a name="manage-spark-application-dependencies"></a>Zarządzanie zależnościami aplikacji platformy Spark
 
@@ -43,7 +43,7 @@ Użyjemy Magic, `%%configure` Aby skonfigurować Notes do korzystania z pakietu 
 
 Po znalezieniu pakietu z repozytorium Maven należy zebrać wartości dla **identyfikatora GroupID**, **ArtifactId** i **Version**. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 
-   ![Połącz schemat pakietu](./media/apache-spark-manage-dependencies/spark-package-schema.png "Połącz schemat pakietu")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="Łączenie schematu pakietu" border="true":::kietu schemat "Border =" true ":::
 
 Upewnij się, że zebrane wartości są zgodne z klastrem. W takim przypadku używany jest pakiet łącznika Spark Cosmos DB dla Scala 2,11 i Spark 2,3 dla klastra usługi HDInsight 3,6 Spark. Jeśli nie masz pewności, uruchom `scala.util.Properties.versionString` w komórce kodu jądra platformy Spark, aby uzyskać wersję Scala klastra. Uruchom `sc.version` , aby pobrać wersję platformy Spark klastra.
 
@@ -70,7 +70,7 @@ import com.microsoft.azure.cosmosdb.spark._
 ### <a name="use-azure-toolkit-for-intellij"></a>Użyj Azure Toolkit for IntelliJ
 [Wtyczka Azure Toolkit for IntelliJ](./apache-spark-intellij-tool-plugin.md) udostępnia środowisko interfejsu użytkownika do przesyłania aplikacji platformy Spark Scala do klastra usługi HDInsight. Udostępnia `Referenced Jars` i `Referenced Files` właściwości do konfigurowania ścieżek libs jar podczas przesyłania aplikacji platformy Spark. Zobacz więcej szczegółowych informacji na temat [korzystania z wtyczki Azure Toolkit for IntelliJ dla usługi HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
-![Okno dialogowe przesyłanie danych platformy Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="Okno dialogowe przesyłanie danych platformy Spark" border="true":::
 
 ## <a name="jar-libs-for-cluster"></a>Libs jar dla klastra
 W niektórych przypadkach może być konieczne skonfigurowanie zależności jar na poziomie klastra, tak aby każdą aplikację można było skonfigurować domyślnie z tymi samymi zależnościami. Podejście polega na dodaniu ścieżek jar do sterownika platformy Spark i ścieżki klas programu wykonującego.
@@ -89,11 +89,11 @@ W niektórych przypadkach może być konieczne skonfigurowanie zależności jar 
     spark.executor.extraClassPath=/usr/libs/sparklibs/*
     ```
 
-   ![Zmień domyślną konfigurację platformy Spark](./media/apache-spark-manage-dependencies/change-spark-default-config.png "Zmień domyślną konfigurację platformy Spark")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/change-spark-default-config.png " alt-text="Zmień domyślną konfigurację platformy Spark" border="true":::omyślne config "Border =" true ":::
 
 3. Zapisz zmienione konfiguracje i ponownie uruchomione usługi.
 
-   ![Ponownie uruchomione usługi](./media/apache-spark-manage-dependencies/restart-impacted-services.png "Ponownie uruchomione usługi")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/restart-impacted-services.png " alt-text="Uruchom ponownie usługi" border="true":::Ted Services "Border =" true "::
 
 Możesz zautomatyzować kroki przy użyciu [akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md). Akcja skryptu służąca do [dodawania bibliotek niestandardowych Hive](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) jest dobrym odwołaniem. Podczas zmieniania konfiguracji usługi platformy Spark upewnij się, że używasz interfejsów API Ambari zamiast bezpośrednio modyfikować pliki konfiguracji. 
 

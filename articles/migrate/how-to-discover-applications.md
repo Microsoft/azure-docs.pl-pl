@@ -6,21 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: 47ea06fa2143f9a5dc5808ccb98fc80c87fefd93
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d68c3729e8a63f8342cd51b62413aec3276c6165
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786706"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871014"
 ---
 # <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Odkrywanie zainstalowanego spisu oprogramowania i SQL Server wystąpień i baz danych
 
 W tym artykule opisano sposób odnajdywania spisu oprogramowania zainstalowanego oraz SQL Server wystąpień i baz danych na serwerach działających w środowisku VMware przy użyciu Azure Migrate: narzędzia odnajdywania i oceny.
 
 Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki migracji do platformy Azure dla obciążeń. Spis oprogramowania korzysta z urządzenia Azure Migrate, aby przeprowadzić odnajdywanie przy użyciu poświadczeń serwera. Jest całkowicie niezależny od agenta — na serwerach nie są zainstalowane żadne agenci, aby zebrać te dane.
-
-> [!NOTE]
-> Spis oprogramowania jest obecnie w wersji zapoznawczej tylko w przypadku serwerów działających w środowisku VMware i jest ograniczony tylko do odnajdywania. Obecnie firma Microsoft nie oferuje oceny opartej na aplikacjach.<br/> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

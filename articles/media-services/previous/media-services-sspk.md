@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: 36e5b020241f7be33aa4cfa473222ad301d18fbe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2c66b08d399ddf53686074079665e36be9aace7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581103"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870474"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client
 
@@ -135,7 +135,6 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do p
 * Fame elektroniki z ograniczeniami
 * MIRC elektroniki
 * MOKA LIMITED
-* Nintendo co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Firma Panasonic
 * Qingdao Haier OPTRONICS co., Ltd.

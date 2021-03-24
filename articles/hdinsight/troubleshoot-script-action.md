@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7158e9f82ee01b320d448baeab51fcfd122be00d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73b958964db2d0b308dd6dfc34024d61ce5ad8af
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944688"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871439"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Rozwiązywanie problemów z akcjami skryptu w usłudze Azure HDInsight
 
@@ -26,11 +26,11 @@ Za pomocą interfejsu użytkownika sieci Web Apache Ambari można wyświetlać i
 
 1. Na pasku w górnej części strony wybierz wpis **Ops** . Na liście są wyświetlane bieżące i poprzednie operacje wykonywane w klastrze za pomocą Ambari.
 
-    ![Pasek interfejsu użytkownika sieci Web Ambari z wybranym elementem Ops](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Pasek interfejsu użytkownika sieci Web Ambari z wybranym elementem Ops" border="true":::
 
 1. Znajdź w kolumnie **operacje** wpisy z **uruchomioną \_ customscriptactioną** . Te wpisy są tworzone po uruchomieniu akcji skryptu.
 
-    ![Operacje akcji skryptu Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Operacje akcji skryptu Apache Ambari" border="true":::
 
     Aby wyświetlić dane wyjściowe **stdout** i **stderr** , wybierz wpis **run\customscriptaction** i przejdź do szczegółów przez linki. Ta wartość wyjściowa jest generowana, gdy skrypt jest uruchamiany i może mieć przydatne informacje.
 
@@ -40,7 +40,7 @@ Jeśli utworzenie klastra zakończy się niepowodzeniem z powodu błędu skryptu
 
 * Dzienniki magazynu są dostępne pod adresem `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` .
 
-    ![Dzienniki akcji skryptu](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Dzienniki akcji skryptu" border="true":::
 
     W tym katalogu dzienniki są zorganizowane osobno dla węzła **węzła głównego**, **Node-Worker** i **dozorcy**. Zobacz poniższe przykłady:
 

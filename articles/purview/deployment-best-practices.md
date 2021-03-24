@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695860"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949842"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Najlepsze rozwiązania dotyczące wdrażania usługi Azure kontrolą
 
@@ -150,7 +150,7 @@ W programie kontrolą istnieje kilka obszarów, w których administratorzy wykaz
 
 ### <a name="plan-and-implement-different-integration-points-with-purview"></a>Planowanie i implementowanie różnych punktów integracji za pomocą kontrolą
 
-Istnieje najprawdopodobniej, że w organizacji już istnieje istniejący wykaz danych. Kluczowym pytaniem jest to, czy nadal używać istniejącej technologii i synchronizować ją z kontrolą. Kontrolą umożliwia publikowanie informacji za pośrednictwem interfejsów API w Atlasie, ale naprawdę nie są one przeznaczone do obsługi tego rodzaju scenariusza. Niektóre organizacje mogą początkowo zdecydować się na wstępne użycie kontrolą przez Migrowanie istniejących zasobów danych z innych rozwiązań usługi Data Catalog. Można to zrobić za pośrednictwem interfejsów API Atlas jako podejścia jednokierunkowego. Aby synchronizować między różnymi technologiami katalogowymi, nie należy brać pod uwagę długoterminowego projektu. Zwykle w przypadku, gdy każda jednostka biznesowa może nadal korzystać z istniejących rozwiązań dla starszych zasobów danych, podczas gdy kontrolą będzie służyć do skanowania w poszukiwaniu nowszych źródeł danych.
+Istnieje najprawdopodobniej, że w organizacji już istnieje istniejący wykaz danych. Kluczowym pytaniem jest to, czy nadal używać istniejącej technologii i synchronizować ją z kontrolą. Aby obsłużyć synchronizację z istniejącymi produktami w organizacji, kontrolą udostępnia interfejsy API REST w Atlasie. Interfejsy API w języku Atlas zapewniają zaawansowany i elastyczny mechanizm obsługujący scenariusze wypychania i ściągania. Informacje mogą być publikowane w usłudze kontrolą przy użyciu interfejsów API usługi Atlas do uruchamiania lub wypychania najnowszych aktualizacji z innego systemu do kontrolą. Informacje dostępne w kontrolą mogą być również odczytywane przy użyciu interfejsów API w Atlasie, a następnie synchronizowane z powrotem do istniejących produktów. 
 
 W przypadku innych scenariuszy integracji, takich jak bilety, niestandardowy interfejs użytkownika i aranżacja, można używać interfejsów API i Kafka punktów końcowych w Atlasie. Ogólnie rzecz biorąc, istnieją cztery punkty integracji z kontrolą:
 

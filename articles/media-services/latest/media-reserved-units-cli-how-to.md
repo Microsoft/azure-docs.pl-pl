@@ -2,29 +2,27 @@
 title: Interfejs wiersza polecenia skalowania jednostek zarezerwowanych multimediów (MRUs)
 description: W tym temacie przedstawiono sposób skalowania przetwarzania multimediów przy użyciu interfejsu wiersza polecenia Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213814"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870164"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Jak skalować jednostki zarezerwowane multimediów
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym artykule przedstawiono sposób skalowania jednostek zarezerwowanych multimediów (MRSs) w celu przyspieszenia kodowania.
+
+> [!WARNING]
+> To polecenie przestanie działać w przypadku kont Media Services utworzonych za pomocą wersji 2020-05-01 interfejsu API lub nowszego. Jednostki zarezerwowane multimediów na te konta nie są już potrzebne, ponieważ system automatycznie przeskaluje się w górę i w dół na podstawie obciążenia. Jeśli nie widzisz opcji zarządzania MRUs w Azure Portal, używasz konta, które zostało utworzone za pomocą interfejsu API 2020-05-01 lub nowszego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
