@@ -5,17 +5,17 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d1b52ed0f862b544d4b90d466ddc1d2a231ca44
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008437"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023422"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
 
@@ -51,14 +51,22 @@ Uwierzytelnianie podstawowe protokołu HTTP jest zdefiniowane w [dokumencie RFC 
 > [!IMPORTANT]
 > Ta funkcja jest dostępna w wersji zapoznawczej i jest oferowana bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Uwierzytelnianie za pomocą certyfikatu klienta jest wzajemnym uwierzytelnianiem opartym na certyfikatach, w którym klient dostarcza do serwera certyfikat klienta w celu potwierdzenia jego tożsamości. W takim przypadku Azure AD B2C będzie używać certyfikatu przekazanego w ramach konfiguracji łącznika interfejsu API. Dzieje się tak w ramach uzgadniania protokołu SSL. Tylko usługi, które mają odpowiednie certyfikaty, mogą uzyskać dostęp do usługi interfejsu API REST. Certyfikat klienta jest certyfikatem cyfrowym X. 509. W środowiskach produkcyjnych powinna być podpisana przez urząd certyfikacji. 
+Uwierzytelnianie za pomocą certyfikatu klienta to wzajemna Metoda uwierzytelniania oparta na certyfikatach, w której klient udostępnia certyfikat klienta serwerowi, aby potwierdzić jego tożsamość. W takim przypadku Azure AD B2C będzie używać certyfikatu przekazanego w ramach konfiguracji łącznika interfejsu API. Dzieje się tak w ramach uzgadniania protokołu SSL. Usługa API może następnie ograniczyć dostęp tylko do usług, które mają odpowiednie certyfikaty. Certyfikat klienta to certyfikat cyfrowy PKCS12 (PFX) X. 509. W środowiskach produkcyjnych powinna być podpisana przez urząd certyfikacji. 
 
+Aby utworzyć certyfikat, można użyć [Azure Key Vault](../key-vault/certificates/create-certificate.md), który zawiera opcje dla certyfikatów z podpisem własnym i integracji z dostawcami wystawcy certyfikatów dla podpisanych certyfikatów. Zalecane ustawienia obejmują:
+- **Temat**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Typ zawartości**: `PKCS #12`
+- **Typ Acton okresu istnienia**: `Email all contacts at a given percentage lifetime` lub `Email all contacts a given number of days before expiry`
+- **Eksportowany klucz prywatny**: `Yes` (aby można było eksportować plik PFX)
 
-Aby utworzyć certyfikat, można użyć [Azure Key Vault](../key-vault/certificates/create-certificate.md), który zawiera opcje dla certyfikatów z podpisem własnym i integracji z dostawcami wystawcy certyfikatów dla podpisanych certyfikatów. Następnie można [wyeksportować certyfikat](../key-vault/certificates/how-to-export-certificate.md) i przekazać go do użytku w konfiguracji łączników interfejsu API. Należy pamiętać, że hasło jest wymagane tylko w przypadku plików certyfikatów chronionych hasłem. Możesz również użyć [polecenia cmdlet New-SelfSignedCertificate](./secure-rest-api.md#prepare-a-self-signed-certificate-optional) programu PowerShell, aby wygenerować certyfikat z podpisem własnym.
+Następnie można [wyeksportować certyfikat](../key-vault/certificates/how-to-export-certificate.md). Możesz również użyć [polecenia cmdlet New-SelfSignedCertificate](../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) programu PowerShell, aby wygenerować certyfikat z podpisem własnym.
 
-Aby uzyskać Azure App Service i Azure Functions, zobacz [Konfigurowanie wzajemnego uwierzytelniania TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) , aby dowiedzieć się, jak włączyć i zweryfikować certyfikat z punktu końcowego interfejsu API.
+Po uzyskaniu certyfikatu można przekazać go w ramach konfiguracji łącznika interfejsu API. Należy pamiętać, że hasło jest wymagane tylko w przypadku plików certyfikatów chronionych hasłem.
 
-Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Łączniki interfejsu API (wersja zapoznawcza)** i kliknij przycisk **Przekaż nowy certyfikat**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie użyty automatycznie przez Azure AD B2C.
+Interfejs API musi implementować autoryzację na podstawie wysłanych certyfikatów klienta, aby chronić punkty końcowe interfejsu API. Aby uzyskać Azure App Service i Azure Functions, zobacz [Konfigurowanie wzajemnego uwierzytelniania TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) , aby dowiedzieć się, jak włączyć i *zweryfikować certyfikat z kodu interfejsu API*.  Możesz również użyć API Management platformy Azure, aby [sprawdzić właściwości certyfikatu klienta](
+../api-management/api-management-howto-mutual-certificates-for-clients.md)  przed żądanymi wartościami przy użyciu wyrażeń zasad.
+
+Zalecane jest ustawienie alertów przypomnień dla momentu wygaśnięcia certyfikatu. Konieczne będzie wygenerowanie nowego certyfikatu i powtórzenie powyższych kroków. Usługa interfejsu API może tymczasowo nadal akceptować stare i nowe certyfikaty podczas wdrażania nowego certyfikatu. Aby przekazać nowy certyfikat do istniejącego łącznika interfejsu API, wybierz łącznik interfejsu API w obszarze **Łączniki interfejsu API** i kliknij przycisk **Przekaż nowy certyfikat**. Ostatnio przekazany certyfikat, który nie wygasł i jest późniejsza niż data rozpoczęcia, zostanie automatycznie użyty przez Azure Active Directory.
 
 ### <a name="api-key"></a>Klucz interfejsu API
 Niektóre usługi używają mechanizmu "klucz interfejsu API", aby zasłaniać dostęp do punktów końcowych HTTP podczas opracowywania. Aby uzyskać [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), można to zrobić, dołączając `code` jako parametr zapytania w **adresie URL punktu końcowego**. Na przykład, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
@@ -302,7 +310,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
 | akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
-| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| status      | Liczba całkowita/ciąg | Tak      | Musi być wartością `400` lub `"400"` dla odpowiedzi ValidationError.  |
 | userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 > [!NOTE]

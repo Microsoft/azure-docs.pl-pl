@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f22379049b74428787b738af832802081be7bf8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099016"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022895"
 ---
 # <a name="managing-your-voice-assistant"></a>Zarządzanie asystentem głosu
 
@@ -60,7 +60,7 @@ Słowo kluczowe to słowo lub krótka fraza służąca do uaktywnienia asystenta
 
 Za pomocą programu [Speech Studio](https://speech.microsoft.com/)można utworzyć niestandardowe słowo kluczowe dla asystenta głosowego. Uczenie podstawowego niestandardowego modelu słów kluczowych może potrwać do 30 minut.
 
-Postępuj zgodnie z [dokumentacją programu Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) , aby uzyskać wskazówki dotyczące tworzenia niestandardowego słowa kluczowego. Po skonfigurowaniu nowe słowo kluczowe będzie dostępne w portalu Santa Cruz do użycia z aplikacją asystenta głosowego.
+Postępuj zgodnie z [dokumentacją programu Speech Studio](../cognitive-services/speech-service/custom-keyword-basics.md) , aby uzyskać wskazówki dotyczące tworzenia niestandardowego słowa kluczowego. Po skonfigurowaniu nowe słowo kluczowe będzie dostępne w portalu Santa Cruz do użycia z aplikacją asystenta głosowego.
 
 ## <a name="commands-configuration"></a>Konfiguracja poleceń
 
@@ -88,7 +88,7 @@ Polecenia niestandardowe ułatwiają tworzenie zaawansowanych poleceń głosowyc
 
 Za pomocą programu [Speech Studio](https://speech.microsoft.com/)można utworzyć niestandardowe polecenia dla asystenta głosowego do wykonania.
 
-Postępuj zgodnie z [dokumentacją programu Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-custom-commands-application) , aby uzyskać wskazówki dotyczące tworzenia poleceń niestandardowych. Po skonfigurowaniu nowe polecenia będą dostępne w usłudze Azure Percept Studio do użycia z aplikacją asystenta głosowego.
+Postępuj zgodnie z [dokumentacją programu Speech Studio](../cognitive-services/speech-service/quickstart-custom-commands-application.md) , aby uzyskać wskazówki dotyczące tworzenia poleceń niestandardowych. Po skonfigurowaniu nowe polecenia będą dostępne w usłudze Azure Percept Studio do użycia z aplikacją asystenta głosowego.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Ten artykuł zawiera ogólne omówienie możliwości GitOps i konfiguracji na platformie Azure Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery, konfiguracja, GitOps
-ms.openlocfilehash: 88a30876b25730e4cb0b4b1e19fac94b9e556adc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a4193783a976f205b46cb8c5df29d4cef9da1d2c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121800"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022878"
 ---
 # <a name="configurations-and-gitops-with-azure-arc-enabled-kubernetes"></a>Konfiguracje i GitOps za pomocą usługi Azure Arc Kubernetes
 
@@ -50,6 +50,6 @@ To wymuszenie skalowania w poziomie zapewnia wspólną konfigurację linii bazow
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./connect-cluster.md).
-* Masz już klaster Kubernetes połączony z usługą Azure Arc? [Utwórz konfiguracje w klastrze Kubernetes z włączonym łukiem](./use-gitops-connected-cluster.md).
+* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./quickstart-connect-cluster.md).
+* Masz już klaster Kubernetes połączony z usługą Azure Arc? [Utwórz konfiguracje w klastrze Kubernetes z włączonym łukiem](./tutorial-use-gitops-connected-cluster.md).
 * Dowiedz się [, jak używać Azure Policy do stosowania konfiguracji w odpowiedniej skali](./use-azure-policy.md).

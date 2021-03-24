@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc 
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175978"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023337"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
@@ -23,7 +23,7 @@ Po połączeniu maszyny z serwerami z obsługą usługi Azure Arc umożliwia ona
 
 - Przypisanie [Azure Policy konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) przy użyciu tego samego środowiska co przypisanie zasad dla maszyn wirtualnych platformy Azure. Obecnie większość zasad konfiguracji gościa nie stosuje konfiguracji, ale tylko ustawienia inspekcji w obrębie maszyny. Aby zrozumieć koszt używania Azure Policy zasad konfiguracji Gościa z serwerami z włączoną funkcją ARC, zobacz Azure Policy [Przewodnik po cenach](https://azure.microsoft.com/pricing/details/azure-policy/).
 
-- Raport dotyczący zmian w konfiguracji dotyczących zainstalowanego oprogramowania, usług firmy Microsoft, rejestru systemu Windows i demonów Linux na monitorowanych serwerach przy użyciu Azure Automation [Change Tracking i spisu](../../automation/change-tracking/overview.md) oraz [Azure Security Center monitorowania integralności plików](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)w przypadku serwerów włączonych za pomocą [usługi Azure Defender dla serwerów](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
+- Raport dotyczący zmian w konfiguracji dotyczących zainstalowanego oprogramowania, usług firmy Microsoft, rejestru systemu Windows i demonów Linux na monitorowanych serwerach przy użyciu Azure Automation [Change Tracking i spisu](../../automation/change-tracking/overview.md) oraz [Azure Security Center monitorowania integralności plików](../../security-center/security-center-file-integrity-monitoring.md)w przypadku serwerów włączonych za pomocą [usługi Azure Defender dla serwerów](../../security-center/defender-for-servers-introduction.md).
 
 - Monitoruj wydajność systemu operacyjnego gościa połączonej maszyny i odnajduj składniki aplikacji, aby monitorować ich procesy i zależności z innymi zasobami, z którymi aplikacja komunikuje się za pomocą [Azure monitor dla maszyn wirtualnych](../../azure-monitor/vm/vminsights-overview.md).
 

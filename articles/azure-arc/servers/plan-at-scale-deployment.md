@@ -3,12 +3,12 @@ title: Planowanie i wdrażanie serwerów z obsługą usługi Azure Arc
 description: Dowiedz się, jak włączyć wiele maszyn na serwerach z obsługą usługi Azure ARC, aby uprościć konfigurację najważniejszych funkcji zabezpieczeń, zarządzania i monitorowania na platformie Azure.
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591184"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023286"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planowanie i wdrażanie serwerów z obsługą łuku
 
@@ -57,7 +57,7 @@ W tej fazie inżynierowie systemów lub Administratorzy włączają podstawowe f
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
 | [Tworzenie grupy zasobów](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Dedykowana Grupa zasobów obejmująca tylko serwery z obsługą łuku i scentralizowanego zarządzania i monitorowania tych zasobów. | Jedna godzina |
-| Zastosuj [Tagi](../../azure-resource-manager/management/tag-resources.md) , aby ułatwić organizowanie maszyn. | Oceń i opracowuj [strategię tagowania](/cloud-adoption-framework/decision-guides/resource-tagging/) dopasowaną przez dział IT, która może pomóc w zmniejszeniu złożoności zarządzania serwerami z włączonym łukiem i uproszczenia podejmowania decyzji dotyczących zarządzania. | Jeden dzień |
+| Zastosuj [Tagi](../../azure-resource-manager/management/tag-resources.md) , aby ułatwić organizowanie maszyn. | Oceń i opracowuj [strategię tagowania](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) dopasowaną przez dział IT, która może pomóc w zmniejszeniu złożoności zarządzania serwerami z włączonym łukiem i uproszczenia podejmowania decyzji dotyczących zarządzania. | Jeden dzień |
 | Projektowanie i wdrażanie [dzienników Azure monitor](../../azure-monitor/logs/data-platform-logs.md) | Oceń [zagadnienia dotyczące projektowania i wdrażania](../../azure-monitor/logs/design-logs-deployment.md) , aby określić, czy organizacja ma używać istniejącego lub zaimplementowania innego obszaru roboczego log Analytics do przechowywania zebranych danych dziennika z serwerów i maszyn hybrydowych. <sup>1</sup> | Jeden dzień |
 | [Opracowywanie planu Azure Policy](../../governance/policy/overview.md) ładu | Określ, w jaki sposób ma zostać wdrożony nadzór nad serwerami hybrydowymi i maszynami w zakresie subskrypcji lub grupy zasobów przy użyciu Azure Policy. | Jeden dzień |
 | Konfigurowanie [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) (RBAC) | Opracowywanie planu dostępu w celu kontrolowania, kto ma dostęp do zarządzania serwerami z obsługą łuku i możliwość wyświetlania ich danych z innych usług i rozwiązań platformy Azure. | Jeden dzień |
@@ -71,7 +71,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie do i wdro�
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
-| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykład w zasobach dołączania do skali:<br><br> <ul><li> [Skrypt wdrażania w warstwie Podstawowa](onboard-service-principal.md)</ul></li> <ul><li>[W przypadku dołączania VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[W przypadku dołączania VMware vSphere maszyn wirtualnych z systemem Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[W przypadku dołączania wystąpień AWS EC2 przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (tylko system Windows)</ul></li>| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
+| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykładowe zasoby dołączania w skali:<br><br> <ul><li> [Podstawowy skrypt wdrażania w skali](onboard-service-principal.md)</ul></li> <ul><li>[Dołączanie w skali VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[Dołączanie do VMware vSphere maszyn wirtualnych z systemem Linux w skali](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[AWSe wystąpienia EC2 w skali przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](./onboard-powershell.md) (tylko system Windows)</ul></li>| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
 | [Tworzenie jednostki usługi](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Utwórz nazwę główną usługi, aby połączyć maszyny w sposób nieinteraktywny przy użyciu Azure PowerShell lub z portalu.| Jedna godzina |
 | Wdróż agenta połączonej maszyny na serwerze docelowym i na maszynach docelowych |Użyj narzędzia Automation, aby wdrożyć skrypty na serwerach i połączyć je z platformą Azure.| Co najmniej jeden dzień w zależności od planu wydania i po wdrożeniu etapowym. |
 
