@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: f6199cb20cd56538823f7f7d0967a9cfe59f7099
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d99f1bd97c8199de1bda12f28f3fcb31b697946f
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102636661"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031498"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
 
@@ -673,7 +673,7 @@ Klienci mogą umieścić w kolejce *operacje* dla (zwane także "sygnalizacją")
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [DurableClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableEntityClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -744,7 +744,7 @@ Ukończ jeden z tych samouczków Szybki start dotyczących poszczególnych języ
 
 W tych przewodnikach szybki start utworzysz i testujesz funkcję trwałego "Hello World". Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 Poniższy klip wideo prezentuje zalety rozszerzenia Durable Functions:
 

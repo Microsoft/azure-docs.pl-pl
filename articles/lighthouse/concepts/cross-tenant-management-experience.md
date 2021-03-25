@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ba3cee2ecd7efcbb33c19d7ed159083e843c84a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177923"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952120"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -33,7 +33,7 @@ Usługa Azure Lighthouse zapewnia większą elastyczność zarządzania zasobami
 
 Zadania zarządzania można wykonywać w odniesieniu do zasobów delegowanych bezpośrednio w portalu lub za pomocą interfejsów API i narzędzi do zarządzania (takich jak interfejs wiersza polecenia platformy Azure i Azure PowerShell). Wszystkie istniejące interfejsy API mogą być używane podczas pracy z delegowanymi zasobami, o ile funkcjonalność jest obsługiwana w przypadku zarządzania między dzierżawcami, a użytkownik ma odpowiednie uprawnienia.
 
-Azure PowerShell [polecenie cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) wyświetla `HomeTenantId` atrybuty i `ManagedByTenantIds` dla każdej subskrypcji, co pozwala określić, czy zwrócona subskrypcja należy do zarządzanej dzierżawy, czy do dzierżawy zarządzającej.
+Azure PowerShell [polecenie cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) będzie domyślnie wyświetlać `TenantId` dla dzierżawy zarządzającej. Można użyć `HomeTenantId` `ManagedByTenantIds` atrybutów i dla każdej subskrypcji, co pozwala określić, czy zwrócona subskrypcja należy do zarządzanej dzierżawy, czy do dzierżawy zarządzającej.
 
 Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](/cli/azure/account#az-account-list) , wyświetla `homeTenantId` `managedByTenants` atrybuty i. Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
 

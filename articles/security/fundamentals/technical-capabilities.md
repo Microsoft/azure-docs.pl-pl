@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735781"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044757"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -278,7 +278,7 @@ Usługa Azure Networks obsługuje możliwość dostosowywania zachowania routing
 
 Platforma Azure obsługuje dedykowane połączenia WAN z siecią lokalną i Virtual Network platformy Azure z usługą [ExpressRoute](../../expressroute/expressroute-introduction.md). Link między platformą Azure a lokacją korzysta z dedykowanego połączenia, które nie przechodzi przez publiczny Internet. Jeśli aplikacja platformy Azure działa w wielu centrach danych, możesz użyć [usługi azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) , aby skierować żądania od użytkowników w sposób inteligentny między wystąpieniami aplikacji. Możesz również kierować ruch do usług nieuruchomionych na platformie Azure, jeśli są one dostępne z Internetu.
 
-Platforma Azure obsługuje również prywatne i bezpieczne połączenia z zasobami PaaS (na przykład Azure Storage i SQL Database) z usługi Azure Virtual Network za pomocą [prywatnego linku platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). Zasób PaaS jest mapowany na [prywatny punkt końcowy](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) w sieci wirtualnej. Link między prywatnym punktem końcowym w sieci wirtualnej a zasobem PaaS używa sieci szkieletowej firmy Microsoft i nie przechodzi przez publiczny Internet. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne. Możesz również użyć prywatnego linku platformy Azure, aby uzyskać dostęp do hostowanych usług platformy Azure należących do klienta i partnerów w sieci wirtualnej.  Ponadto łącze prywatne platformy Azure umożliwia tworzenie własnej [usługi linku prywatnego](https://docs.microsoft.com/azure/private-link/private-link-service-overview) w sieci wirtualnej i udostępnianie jej klientom prywatnie w swoich sieciach wirtualnych. Konfiguracja i użycie przy użyciu prywatnego linku platformy Azure jest spójne w ramach usług Azure PaaS, należących do klienta i współużytkowanych partnerów.
+Platforma Azure obsługuje również prywatne i bezpieczne połączenia z zasobami PaaS (na przykład Azure Storage i SQL Database) z usługi Azure Virtual Network za pomocą [prywatnego linku platformy Azure](../../private-link/private-link-overview.md). Zasób PaaS jest mapowany na [prywatny punkt końcowy](../../private-link/private-endpoint-overview.md) w sieci wirtualnej. Link między prywatnym punktem końcowym w sieci wirtualnej a zasobem PaaS używa sieci szkieletowej firmy Microsoft i nie przechodzi przez publiczny Internet. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne. Możesz również użyć prywatnego linku platformy Azure, aby uzyskać dostęp do hostowanych usług platformy Azure należących do klienta i partnerów w sieci wirtualnej.  Ponadto łącze prywatne platformy Azure umożliwia tworzenie własnej [usługi linku prywatnego](../../private-link/private-link-service-overview.md) w sieci wirtualnej i udostępnianie jej klientom prywatnie w swoich sieciach wirtualnych. Konfiguracja i użycie przy użyciu prywatnego linku platformy Azure jest spójne w ramach usług Azure PaaS, należących do klienta i współużytkowanych partnerów.
 
 ## <a name="virtual-machine-security"></a>Zabezpieczenia maszyn wirtualnych
 
