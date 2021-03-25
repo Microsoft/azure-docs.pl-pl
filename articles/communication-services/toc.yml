@@ -92,6 +92,8 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Pojęcia dotyczące głosu i wideo
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Wymagania dotyczące sieci
+          href: concepts/voice-video-calling/network-requirements.md
         - name: Przepływy połączenia
           href: concepts/call-flows.md
         - name: Topologie przepływu wywołań
@@ -123,7 +125,7 @@
       href: concepts/authentication.md
     - name: Prywatność
       href: concepts/privacy.md
-    - name: Cennik
+    - name: Ceny
       href: concepts/pricing.md
     - name: Powiadomienia wypychane
       href: concepts/notifications.md

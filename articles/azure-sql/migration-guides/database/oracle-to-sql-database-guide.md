@@ -1,5 +1,5 @@
 ---
-title: 'Oracle do SQL Database: Przewodnik migracji'
+title: 'Oracle do Azure SQL Database: Przewodnik migracji'
 description: W tym przewodniku nauczysz się migrować schemat Oracle do Azure SQL Database przy użyciu Asystent migracji do programu SQL Server for Oracle (ASYSTENCIE migracji for Oracle).
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -9,19 +9,19 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: f00740de5a327858fd250a0cb561b07c32f3b726
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9b02b0e5d9e3229aafec9b8a4ca21b14c0e596a6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655575"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022283"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Przewodnik migracji: Oracle do Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 W tym przewodniku pokazano, jak migrować schematy programu Oracle do Azure SQL Database przy użyciu Asystent migracji do programu SQL Server dla programu Oracle.
 
-W przypadku innych przewodników migracji zapoznaj się z tematem [migracja bazy danych](https://datamigration.microsoft.com/). 
+W przypadku innych przewodników migracji zapoznaj się z tematem [migracja bazy danych](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,18 +44,15 @@ Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii
 
 Użyj Asystent migracji do programu SQL Server (ASYSTENCIE migracji) dla programu Oracle do przeglądania obiektów i danych bazy danych, oceniania baz danych na potrzeby migracji, migrowania obiektów bazy danych do Azure SQL Database, a następnie na koniec migracji danych do bazy danych. 
 
-
 Aby utworzyć ocenę, wykonaj następujące kroki: 
-
 
 1. Otwórz [Asystent migracji do programu SQL Server dla programu Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Wybierz pozycję **plik** , a następnie wybierz pozycję **Nowy projekt**. 
-1. Podaj nazwę projektu, lokalizację do zapisania projektu, a następnie wybierz Azure SQL Database jako cel migracji z listy rozwijanej. Wybierz przycisk **OK**.
+1. Podaj nazwę projektu, lokalizację do zapisania projektu, a następnie wybierz Azure SQL Database jako cel migracji z listy rozwijanej. Wybierz **przycisk OK**:
 
    ![Nowy projekt](./media/oracle-to-sql-database-guide/new-project.png)
 
-
-1. Wybierz pozycję **Połącz z bazą danych Oracle**. Wprowadź wartości w polach szczegóły połączenia Oracle w oknie dialogowym **łączenie z bazą danych Oracle** .
+1. Wybierz pozycję **Połącz z bazą danych Oracle**. Wprowadź wartości w polach szczegóły połączenia Oracle w oknie dialogowym **łączenie z bazą danych Oracle** :
 
    ![Łączenie z bazą danych Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
@@ -63,7 +60,7 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
    ![Wybierz schemat Oracle](./media/oracle-to-sql-database-guide/select-schema.png)
 
-1. Kliknij prawym przyciskiem myszy schemat Oracle, który chcesz zmigrować, w **Eksploratorze metadanych Oracle**, a następnie wybierz polecenie **Utwórz raport**. Spowoduje to wygenerowanie raportu HTML. Alternatywnie możesz wybrać opcję **Utwórz raport** na pasku nawigacyjnym po wybraniu bazy danych.
+1. Kliknij prawym przyciskiem myszy schemat Oracle, który chcesz zmigrować, w **Eksploratorze metadanych Oracle**, a następnie wybierz polecenie **Utwórz raport**. Spowoduje to wygenerowanie raportu HTML. Alternatywnie możesz wybrać opcję **Utwórz raport** na pasku nawigacyjnym po wybraniu bazy danych:
 
    ![Utwórz raport](./media/oracle-to-sql-database-guide/create-report.png)
 
@@ -81,7 +78,7 @@ Sprawdź poprawność domyślnych mapowań typu danych i zmień je w zależnośc
 
 1. Wybierz pozycję **Narzędzia** z menu. 
 1. Wybierz pozycję **Ustawienia projektu**. 
-1. Wybierz kartę **mapowania typu** . 
+1. Wybierz kartę **mapowania typów** : 
 
    ![Mapowania typów](./media/oracle-to-sql-database-guide/type-mappings.png)
 
@@ -94,25 +91,27 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 1. Obowiązkowe Dodaj zapytania dynamiczne lub ad-hoc do instrukcji. Kliknij prawym przyciskiem myszy węzeł, a następnie wybierz polecenie **Dodaj instrukcje**.
 1. Wybierz pozycję **Połącz z Azure SQL Database**. 
     1. Wprowadź szczegóły połączenia, aby połączyć swoją bazę danych w Azure SQL Database.
-    1. Wybierz SQL Database docelowy z listy rozwijanej.
-    1. Wybierz pozycję **Połącz**.
+    1. Wybierz SQL Database docelowy z listy rozwijanej lub podaj nową nazwę, w takim przypadku baza danych zostanie utworzona na serwerze docelowym. 
+    1. Podaj szczegóły uwierzytelniania. 
+    1. Wybierz pozycję **Połącz**:
 
     ![Łączenie z usługą SQL Database](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
 
-1. Kliknij prawym przyciskiem myszy schemat Oracle w **Eksploratorze metadanych Oracle** , a następnie wybierz polecenie **Konwertuj schemat**. Alternatywnie możesz wybrać opcję **Konwertuj schemat** z górnego paska nawigacyjnego po zaznaczeniu schematu.
+1. Kliknij prawym przyciskiem myszy schemat Oracle w **Eksploratorze metadanych Oracle** , a następnie wybierz polecenie **Konwertuj schemat**. Alternatywnie możesz wybrać opcję **Konwertuj schemat** z górnego paska nawigacyjnego po wybraniu schematu:
 
    ![Konwertuj schemat](./media/oracle-to-sql-database-guide/convert-schema.png)
 
-1. Po zakończeniu konwersji Porównaj i przejrzyj przekonwertowane obiekty do oryginalnych obiektów, aby zidentyfikować potencjalne problemy i rozwiązać je na podstawie zaleceń.
+1. Po zakończeniu konwersji Porównaj i przejrzyj przekonwertowane obiekty do oryginalnych obiektów, aby zidentyfikować potencjalne problemy i rozwiązać je na podstawie zaleceń:
 
    ![Zapoznaj się ze schematem zaleceń](./media/oracle-to-sql-database-guide/table-mapping.png)
 
-   Porównaj przekonwertowany tekst języka Transact-SQL z oryginalnymi procedurami składowanymi i zapoznaj się z zaleceniami. 
+   Porównaj przekonwertowany tekst języka Transact-SQL z oryginalnymi procedurami składowanymi i zapoznaj się z zaleceniami:
 
    ![Zapoznaj się z zaleceniami](./media/oracle-to-sql-database-guide/procedure-comparison.png)
 
-1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** .
+1. Wybierz pozycję **przegląd wyników** w okienku dane wyjściowe i Przejrzyj błędy w okienku **Lista błędów** . 
+1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** . Dzięki temu można oszacować schematy źródłowe i docelowe w trybie offline i przeprowadzić korygowanie, zanim będzie można opublikować schemat w SQL Database.
 
 ## <a name="migrate"></a>Migrate
 
@@ -120,7 +119,7 @@ Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności
 
 Aby opublikować schemat i przeprowadzić migrację danych, wykonaj następujące kroki:
 
-1. Opublikuj schemat: kliknij prawym przyciskiem myszy bazę danych w węźle **bazy danych** w **Eksploratorze metadanych Azure SQL Database** i wybierz polecenie **Synchronizuj z bazą danych**.
+1. Opublikuj schemat: kliknij prawym przyciskiem myszy bazę danych w węźle **bazy danych** w **Eksploratorze metadanych Azure SQL Database** i wybierz polecenie **Synchronizuj z bazą danych**:
 
    ![Synchronizuj z bazą danych](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
 
@@ -129,22 +128,21 @@ Aby opublikować schemat i przeprowadzić migrację danych, wykonaj następując
    ![Synchronizuj z przeglądem bazy danych](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
 
-1. Migruj dane: kliknij prawym przyciskiem myszy schemat w **Eksploratorze metadanych Oracle** i wybierz polecenie **Migruj dane**. Alternatywnie możesz wybrać opcję **Migruj dane** z górnego paska nawigacyjnego po zaznaczeniu schematu. 
+1. Migruj dane: kliknij prawym przyciskiem myszy bazę danych lub obiekt, który chcesz zmigrować w **Eksploratorze metadanych Oracle**, a następnie wybierz polecenie **Migruj dane**. Alternatywnie możesz wybrać opcję **Migruj dane** z górnego paska nawigacyjnego. Aby migrować dane dla całej bazy danych, zaznacz pole wyboru obok nazwy bazy danych. Aby przeprowadzić migrację danych z pojedynczych tabel, rozwiń bazę danych, rozwiń węzeł tabele, a następnie zaznacz pole wyboru obok tabeli. Aby pominąć dane z poszczególnych tabel, wyczyść pole wyboru:
 
    ![Migrowanie danych](./media/oracle-to-sql-database-guide/migrate-data.png)
 
 1. Podaj szczegóły połączenia zarówno dla programu Oracle, jak i Azure SQL Database.
-1. Wyświetl **raport dotyczący migracji danych**.
+1. Po zakończeniu migracji Wyświetl **raport dotyczący migracji danych**:  
 
    ![Raport dotyczący migracji danych](./media/oracle-to-sql-database-guide/data-migration-report.png)
 
-1. Połącz się z Azure SQL Database przy użyciu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) i sprawdź poprawność migracji, przeglądając dane i schemat.
+1. Połącz się z Azure SQL Database przy użyciu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) i sprawdź poprawność migracji, przeglądając dane i schemat:
 
    ![Weryfikuj w ASYSTENCIE migracji](./media/oracle-to-sql-database-guide/validate-data.png)
 
 Możesz również użyć SQL Server Integration Services (SSIS) do przeprowadzenia migracji. Aby dowiedzieć się więcej, zobacz: 
 
-- [Asystent migracji do programu SQL Server: jak oceniać i migrować dane z platform danych innych niż firmy Microsoft do SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
 - [Wprowadzenie z SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services: SSIS na platformie Azure i hybrydowe przenoszenie danych](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
@@ -206,7 +204,7 @@ Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest spon
 
 
 - Aby dowiedzieć się więcej na temat platformy i cyklu wdrażania migracji w chmurze, zobacz
-   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania związane z wyceną i ustalaniem wielkości obciążeń migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - Aby uzyskać zawartość wideo, zobacz: 

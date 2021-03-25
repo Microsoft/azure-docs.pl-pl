@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 9567ec2458a01825568cb853728f71db10228ee3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8cecd1b57395fa51fd95c824e88885d9c3ae3f09
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608274"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023303"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Skonfiguruj platformę Azure Percept DK i Wdróż swój pierwszy model AI
 
@@ -30,7 +30,7 @@ Jeśli wystąpią jakiekolwiek problemy w trakcie tego procesu, zapoznaj się z 
 - Azure Percept DK (dev Kit).
 - Komputer-host oparty na systemie Windows, Linux lub OS X z możliwością Wi-Fi i przeglądarką sieci Web.
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Konto platformy Azure musi mieć rolę **właściciela** lub **współautora** w ramach subskrypcji. Postępuj zgodnie z poniższymi instrukcjami, aby sprawdzić rolę konta platformy Azure. Aby uzyskać więcej informacji na temat definicji ról platformy Azure, zapoznaj się z [dokumentacją kontroli dostępu opartą na rolach na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
+- Konto platformy Azure musi mieć rolę **właściciela** lub **współautora** w ramach subskrypcji. Postępuj zgodnie z poniższymi instrukcjami, aby sprawdzić rolę konta platformy Azure. Aby uzyskać więcej informacji na temat definicji ról platformy Azure, zapoznaj się z [dokumentacją kontroli dostępu opartą na rolach na platformie Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
     > [!CAUTION]
     > Jeśli masz wiele kont platformy Azure, przeglądarka może buforować poświadczenia z innego konta. Aby uniknąć pomyłek, zalecane jest zamknięcie wszystkich nieużywanych okien przeglądarki i zalogowanie się do [Azure Portal](https://portal.azure.com/) przed rozpoczęciem instalacji. Zapoznaj się z [przewodnikiem rozwiązywania problemów](./how-to-troubleshoot-setup.md) , aby uzyskać dodatkowe informacje na temat zalogowania się przy użyciu odpowiedniego konta.
@@ -43,7 +43,7 @@ Aby sprawdzić, czy Twoje konto platformy Azure jest "właściciel" lub "Współ
 
 1. Kliknij ikonę **subskrypcje** (wygląda na żółtą).
 
-1. Wybierz swoją subskrypcję z listy. Jeśli Twoja subskrypcja nie jest widoczna, upewnij się, że zalogowano się przy użyciu prawidłowego konta platformy Azure. Jeśli chcesz utworzyć nową subskrypcję, wykonaj następujące [kroki](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+1. Wybierz swoją subskrypcję z listy. Jeśli Twoja subskrypcja nie jest widoczna, upewnij się, że zalogowano się przy użyciu prawidłowego konta platformy Azure. Jeśli chcesz utworzyć nową subskrypcję, wykonaj następujące [kroki](../cost-management-billing/manage/create-subscription.md).
 
 1. Z menu subskrypcja wybierz pozycję **Kontrola dostępu (IAM)**.
 1. Kliknij pozycję **Wyświetl mój dostęp**.

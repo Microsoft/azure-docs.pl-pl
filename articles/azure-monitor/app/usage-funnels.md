@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: d0e5cb5097a2f8833b10fec16a99b67c5c109fc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c09667e0493fc39e8a2679a698f06301bab6ba45
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583455"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024952"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Dowiedz się, jak klienci korzystają z aplikacji za pomocą lejków Application Insights
 
@@ -47,6 +47,5 @@ Poprzedni zrzut ekranu zawiera pięć wyróżnionych obszarów. Są to funkcje l
   * [Użytkownicy, sesje i zdarzenia](usage-segmentation.md)
   * [Noszą](usage-retention.md)
   * [Skoroszyty](../visualize/workbooks-overview.md)
-  * [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
+  * [Dodawanie kontekstu użytkownika](./usage-overview.md)
   * [Eksportowanie do usługi Power BI](./export-power-bi.md)
-

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2092c3f6402d5c6e7a0bc8c93015d3a900b9e38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588009"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031770"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorowanie kondycji logowania aplikacji pod kątem odporności
 
@@ -100,7 +100,7 @@ Aby uzyskać więcej informacji na temat tworzenia i wyświetlania alertów dzie
 
    Zostanie otwarty dziennik zapytania.
 
-   [![Zrzut ekranu przedstawiający dziennik zapytań.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Zrzut ekranu przedstawiający dziennik zapytań.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
 2. Skopiuj jeden ze skryptów przykładowych dla nowej kwerendy Kusto.  

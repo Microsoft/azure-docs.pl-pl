@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952783"
+ms.locfileid: "105023439"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -33,6 +33,7 @@ Strona **wszystkie urządzenia** umożliwia:
 - Skonfiguruj ustawienia tożsamości urządzenia.
 - Włączać lub wyłączać Enterprise State Roaming.
 - Przeglądanie dzienników inspekcji związanych z urządzeniem
+- Pobierz urządzenia (wersja zapoznawcza)
 
 [![Widok wszystkie urządzenia w Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -144,6 +145,14 @@ Aby włączyć funkcję filtrowania wersji zapoznawczej w widoku **wszystkie urz
 1. Wybierz baner, który brzmi, **Wypróbuj ulepszenia filtrowania nowych urządzeń. Kliknij, aby włączyć podgląd.**
 
 Teraz można **dodawać filtry** do widoku **wszystkie urządzenia** .
+
+### <a name="download-devices-preview"></a>Pobierz urządzenia (wersja zapoznawcza)
+
+Administratorzy urządzeń w chmurze, Administratorzy usługi Intune i Administratorzy globalni mogą korzystać z opcji **Pobierz urządzenia (wersja zapoznawcza)** , aby wyeksportować plik CSV urządzeń na podstawie wszelkich zastosowanych filtrów. Jeśli na liście nie zastosowano żadnych filtrów, wszystkie urządzenia zostaną wyeksportowane. Eksport może być uruchomiony przez okres maksymalnie godzinę, w zależności od 
+
+Wyeksportowana lista zawiera następujące atrybuty tożsamości urządzenia:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## <a name="configure-device-settings"></a>Konfiguruj ustawienia urządzenia
 

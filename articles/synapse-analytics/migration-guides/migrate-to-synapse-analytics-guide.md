@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: aa32083d48c868435ce77114f3a036b8bec47201
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8a76a637c4862032b100308d8b02bced76af38fe
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609557"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023405"
 ---
 # <a name="migrating-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrowanie magazynu danych do dedykowanej puli SQL w usłudze Azure Synapse Analytics 
 W poniższych sekcjach zawarto informacje na temat tego, czego dotyczy Migrowanie istniejącego rozwiązania magazynu danych do dedykowanej puli SQL usługi Azure Synapse Analytics.
@@ -96,8 +96,7 @@ Aby uzyskać dodatkową pomoc dotyczącą wykonywania tego scenariusza migracji,
 | [Pobieranie rozmiarów tabel w dedykowanej puli SQL usługi Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | Jednym z najważniejszych zadań, które musi wykonać architekt, jest uzyskanie metryk dotyczących nowego środowiska po migracji: gromadzenie czasów ładowania z lokalizacji lokalnej do chmury, zbieranie podstawowych czasów ładowania itp. Z tych zadań jednym z najważniejszych jest określenie rozmiaru magazynu w SQL Data Warehouse porównaniu z bieżącą platformą klienta. |
 | [Narzędzie do przenoszenia lokalnych nazw logowania SQL Server do usługi Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Skrypt programu PowerShell, który tworzy skrypt poleceń T-SQL, aby ponownie tworzyć logowania i wybierać użytkowników bazy danych z "lokalnych" SQL Server do usługi Azure SQL PaaS. Narzędzie to umożliwia automatyczne mapowanie kont usługi Windows AD na konta usługi Azure AD lub umożliwia wyszukiwanie nazw UPN dla każdej nazwy logowania w lokalnych oknach Active Directory. Narzędzie opcjonalnie przenosi SQL Server natywnych nazw logowania. Niestandardowe role serwera i bazy danych są skryptami, a także członkostwem ról i rolą bazy danych oraz uprawnieniami użytkownika. Zawarte bazy danych nie są jeszcze obsługiwane i tylko podzbiór możliwych uprawnień SQL Server są skryptami. oznacza to, że uprawnienia udzielanie dotacji nie są obsługiwane (złożone drzewa uprawnień). Więcej szczegółów można znaleźć w dokumencie pomocy technicznej, a skrypt ma Komentarze ułatwiające zrozumienie. |
 
-> [!NOTE]
-> Powyższe zasoby zostały opracowane w ramach programu Data Migration szybko Rozpocznij pracę (DM szybko Rozpocznij pracę), który jest sponsorowany przez Zespół inżynieryjny grupy danych platformy Azure. Podstawowa karta DM szybko Rozpocznij pracę polega na odblokowaniu i przyspieszeniu złożonej modernizacji i konkurowaniu możliwości migracji platformy danych do platformy danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie DM szybko Rozpocznij pracę, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
+Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest sponsorowany przez zespół inżynierów grupy danych platformy Azure. Podstawowa karta programu SQL Data Ninja to odblokowanie i przyspieszenie złożonej modernizacji i konkurowania możliwości migracji platformy danych na platformę danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie SQL Data ninja, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
 
 ## <a name="videos"></a>Filmy wideo
 - Obejrzyj, jak [Walgreens zmigrowany system spisu sprzedaży detalicznej](https://www.youtube.com/watch?v=86dhd8N1lH4) z informacjami o 100 TB danych z Netezza do usługi Azure Synapse Analytics (dawniej SQL DW) w czasie rejestracji. 
