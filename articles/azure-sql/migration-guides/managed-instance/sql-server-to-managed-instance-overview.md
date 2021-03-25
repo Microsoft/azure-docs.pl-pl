@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server do wystąpienia zarządzanego SQL: Przegląd migracji'
+title: 'SQL Server do wystąpienia zarządzanego Azure SQL: Omówienie migracji'
 description: Dowiedz się więcej na temat różnych narzędzi i opcji dostępnych do migrowania baz danych SQL Server do wystąpienia zarządzanego usługi Azure SQL.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562014"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024901"
 ---
-# <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
+# <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Zapoznaj się z różnymi opcjami migracji i zagadnieniami dotyczącymi migracji SQL Server do wystąpienia zarządzanego Azure SQL. 
@@ -30,7 +30,7 @@ Możesz migrować SQL Server uruchomione lokalnie lub na:
 - Aparat obliczeniowy (Google Cloud Platform-GCP)  
 - SQL w chmurze dla SQL Server (Google Cloud Platform – GCP) 
 
-Inne scenariusze można znaleźć w [przewodniku po migracji bazy danych](https://datamigration.microsoft.com/). 
+W przypadku innych przewodników migracji zapoznaj się z tematem [migracja bazy danych](https://docs.microsoft.com/data-migration). 
 
 ## <a name="overview"></a>Omówienie
 
@@ -60,7 +60,7 @@ Niektóre ogólne wytyczne ułatwiające wybranie odpowiedniej warstwy usług i 
 - Użyj czasu oczekiwania operacji we/wy dla podsystemu plików, aby wybrać między Ogólnego przeznaczenia (opóźnienie większe niż 5 ms) i Krytyczne dla działania firmy (opóźnienie mniejsze niż 3 ms). 
 - Użyj przepływności linii bazowej do wstępnego przydzielenia rozmiaru plików danych i dziennika, aby osiągnąć oczekiwaną wydajność operacji we/wy. 
 
-Podczas wdrażania można wybrać zasoby obliczeniowe i magazynowe, a następnie zmienić je po użyciu [Azure Portal](../../database/scale-resources.md) bez ponoszenia przestojów aplikacji. 
+Podczas wdrażania można wybrać zasoby obliczeniowe i magazynowe, a następnie [zmienić je po użyciu Azure Portal](../../database/scale-resources.md) bez ponoszenia przestojów aplikacji. 
 
 > [!IMPORTANT]
 > Wszelkie niezgodności w [wymaganiach dotyczących sieci wirtualnej wystąpienia zarządzanego](../../managed-instance/connectivity-architecture-overview.md#network-requirements) mogą uniemożliwić tworzenie nowych wystąpień lub korzystanie z istniejących. Dowiedz się więcej na temat [tworzenia nowych](../../managed-instance/virtual-network-subnet-create-arm-template.md)   i [konfigurowania istniejących](../../managed-instance/vnet-existing-add-subnet.md)   sieci. 
@@ -100,9 +100,9 @@ Poniższa tabela zawiera listę zalecanych narzędzi migracji:
 
 W poniższej tabeli wymieniono alternatywne narzędzia migracji: 
 
-|Technologia |Opis  |
+|**Technologia** |**Opis**  |
 |---------|---------|
-|[Replikacja transakcyjna](../../managed-instance/replication-transactional-overview.md) | Replikowanie danych z tabel źródłowych SQL Server baz danych do wystąpienia zarządzanego SQL przez udostępnienie opcji migracji typu subskrybenta wydawcy podczas zachowywania spójności transakcyjnej. |  |
+|[Replikacja transakcyjna](../../managed-instance/replication-transactional-overview.md) | Replikowanie danych z tabel źródłowych SQL Server baz danych do wystąpienia zarządzanego SQL przez udostępnienie opcji migracji typu subskrybenta wydawcy podczas zachowywania spójności transakcyjnej. | 
 |[Kopiowanie zbiorcze](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Narzędzie do kopiowania masowego (bcp)](/sql/tools/bcp-utility) kopiuje dane z wystąpienia SQL Server do pliku danych. Wyeksportuj dane ze źródła przy użyciu narzędzia BCP i zaimportuj plik danych do docelowego wystąpienia zarządzanego SQL.</br></br> W przypadku dużych operacji kopiowania zbiorczego do przenoszenia danych do Azure SQL Database [Narzędzie inteligentnego kopiowania masowego](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) może służyć do maksymalizowania szybkości transferu przez wykorzystanie równoległych zadań kopiowania. | 
 |[Kreator importu eksportu/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) to plik systemu Windows z `.bacpac` rozszerzeniem, które hermetyzuje schemat i dane bazy danych. BACPAC może służyć do eksportowania danych ze źródła SQL Server i do zaimportowania pliku z powrotem do wystąpienia zarządzanego Azure SQL.  |  
 |[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| [Działanie kopiowania](../../../data-factory/copy-activity-overview.md) w programie Azure Data Factory migruje dane ze źródłowej bazy danych SQL Server do wystąpienia zarządzanego SQL przy użyciu wbudowanych łączników i [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF obsługuje szeroką gamę [łączników](../../../data-factory/connector-overview.md) służących do przenoszenia danych ze źródeł SQL Server do wystąpienia zarządzanego SQL. |
@@ -241,7 +241,7 @@ Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest spon
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć migrację SQL Server do wystąpienia zarządzanego usługi Azure SQL, zapoznaj się z [przewodnikiem migracji wystąpień zarządzanych SQL Server do bazy danych SQL](sql-server-to-managed-instance-guide.md).
+Aby rozpocząć migrację SQL Server do wystąpienia zarządzanego usługi Azure SQL, zapoznaj się z [przewodnikiem migracji wystąpienia zarządzanego usługi Azure sql SQL Server](sql-server-to-managed-instance-guide.md).
 
 - Macierz usług i narzędzi firmy Microsoft i innych firm, które są dostępne w celu ułatwienia pracy z różnymi scenariuszami bazy danych i migracji danych oraz zadaniami specjalistycznymi, można znaleźć w temacie [Usługa i narzędzia do migracji danych](../../../dms/dms-tools-matrix.md).
 

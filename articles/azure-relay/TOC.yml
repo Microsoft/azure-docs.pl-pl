@@ -37,7 +37,7 @@
         - name: Uwierzytelnianie i autoryzacja
           href: relay-authentication-and-authorization.md
         - name: Wbudowane mechanizmy zabezpieczeń
-          href: service-bus-relay-security-controls.md
+          href: ../service-bus-messaging/security-baseline.md
         - name: Bezpieczeństwo sieci
           href: network-security.md
     - name: Protokół połączeń hybrydowych

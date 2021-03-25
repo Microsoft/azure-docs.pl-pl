@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102498901"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048871"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Jak skonfigurować indeksowanie online usługi SharePoint w Wyszukiwanie poznawcze (wersja zapoznawcza)
 
@@ -147,7 +147,7 @@ api-key: [admin key]
 
 ```
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie indeksu (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Aby uzyskać więcej informacji, zobacz [Tworzenie indeksu (interfejs API REST)](/rest/api/searchservice/create-index).
 
 ### <a name="step-5-create-an-indexer"></a>Krok 5. Tworzenie indeksatora
 Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i zawiera harmonogram do automatyzowania odświeżania danych. Gdy indeks i źródło danych zostały utworzone, możesz utworzyć indeksator.
@@ -226,7 +226,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-Więcej informacji na temat stanu indeksatora można znaleźć tutaj: [pobieranie stanu indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Więcej informacji na temat stanu indeksatora można znaleźć tutaj: [pobieranie stanu indeksatora](/rest/api/searchservice/get-indexer-status).
 
 ## <a name="updating-the-data-source"></a>Aktualizowanie źródła danych
 Jeśli nie ma żadnych aktualizacji obiektu źródła danych, indeksator może być uruchamiany zgodnie z harmonogramem bez żadnej interakcji z użytkownikiem. Jednak za każdym razem, gdy obiekt źródła danych Wyszukiwanie poznawcze Azure zostanie zaktualizowany, należy ponownie zalogować się, aby indeksator mógł zostać uruchomiony. Na przykład w przypadku zmiany zapytania źródła danych należy ponownie zalogować się przy użyciu `https://microsoft.com/devicelogin` i nowego kodu.
@@ -241,7 +241,7 @@ Po zaktualizowaniu źródła danych wykonaj następujące czynności:
     api-key: [admin key]
     ```
 
-    Więcej informacji na temat żądania uruchomienia indeksatora można znaleźć tutaj: [Uruchom indeksator](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
+    Więcej informacji na temat żądania uruchomienia indeksatora można znaleźć tutaj: [Uruchom indeksator](/rest/api/searchservice/run-indexer).
 
 1.  Sprawdź stan indeksatora. Jeśli ostatni przebieg indeksatora zawiera błąd informujący o przejściu do `https://microsoft.com/devicelogin` strony, przejdź na Tę stronę i podaj nowy kod. 
 
@@ -251,7 +251,7 @@ Po zaktualizowaniu źródła danych wykonaj następujące czynności:
     api-key: [admin key]
     ```
 
-    Więcej informacji na temat stanu indeksatora można znaleźć tutaj: [pobieranie stanu indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+    Więcej informacji na temat stanu indeksatora można znaleźć tutaj: [pobieranie stanu indeksatora](/rest/api/searchservice/get-indexer-status).
 
 1.  Zaloguj się
 
@@ -359,7 +359,7 @@ W przypadku niektórych dokumentów usługa Azure Wyszukiwanie poznawcze nie mo�
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Usługa Azure Wyszukiwanie poznawcze ogranicza rozmiar indeksowanych dokumentów. Limity te są udokumentowane w [limitach usługi w usłudze Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Zbyt duże dokumenty są domyślnie traktowane jako błędy. Można jednak nadal indeksować metadane magazynu z powiększonymi dokumentami, jeśli `indexStorageMetadataOnlyForOversizedDocuments` dla parametru konfiguracji określono wartość true:
+Usługa Azure Wyszukiwanie poznawcze ogranicza rozmiar indeksowanych dokumentów. Limity te są udokumentowane w [limitach usługi w usłudze Azure wyszukiwanie poznawcze](./search-limits-quotas-capacity.md). Zbyt duże dokumenty są domyślnie traktowane jako błędy. Można jednak nadal indeksować metadane magazynu z powiększonymi dokumentami, jeśli `indexStorageMetadataOnlyForOversizedDocuments` dla parametru konfiguracji określono wartość true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }

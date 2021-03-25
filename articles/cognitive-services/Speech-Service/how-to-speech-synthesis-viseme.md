@@ -12,17 +12,17 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 15fa1dd230b7f07846653278533805fa66ed2195
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7a196ff8c80a6f92e1205f5553a54913e281b52b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870397"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025887"
 ---
 # <a name="get-facial-pose-events"></a>Pobierz zdarzenia ułożenia twarzy
 
 > [!NOTE]
-> Viseme działa tylko `en-US-AriaNeural` w przypadku głosu w regionie zachodnie stany USA ( `westus` ) dla tej pory i będzie dostępny dla wszystkich `en-US` głosów do końca kwietnia, 2021.
+> Viseme działa tylko `en-US-AriaNeural` w przypadku głosu w regionie zachodnie stany USA 2 ( `westus2` ).
 
 Viseme to wizualny opis elementu fonem w języku mówionym.
 Definiuje położenie czołowej i jamy ustnej podczas wymawiania wyrazu.

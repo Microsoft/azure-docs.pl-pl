@@ -6,12 +6,12 @@ ms.date: 03/23/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 91d27ce0d6f999ac5d13b079c877e49cdf3fcd61
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0a0c63ee54699185bcd02104b1a3f4d0070ea808
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962870"
+ms.locfileid: "105023252"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Łączenie Azure Functions z Azure Cosmos DB przy użyciu Visual Studio Code
 
@@ -20,11 +20,11 @@ ms.locfileid: "104962870"
 W tym artykule pokazano, jak za pomocą Visual Studio Code połączyć się [Azure Cosmos DB](../cosmos-db/introduction.md) z funkcją utworzoną w poprzednim artykule Szybki Start. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do dokumentu JSON przechowywanego w kontenerze Azure Cosmos DB. 
 
 ::: zone pivot="programming-language-csharp"
-Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-csharp.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.
+Przed rozpoczęciem należy wykonać kroki [przewodnika Szybki Start: Tworzenie funkcji języka C# na platformie Azure przy użyciu Visual Studio Code](create-first-function-vs-code-csharp.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-Przed rozpoczęciem należy wykonać czynności opisane w artykule [Szybki Start: Tworzenie projektu Azure Functions z poziomu wiersza polecenia](create-first-function-cli-node.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
-::: zone-end   
+Przed rozpoczęciem należy ukończyć [Przewodnik Szybki Start: Tworzenie funkcji JavaScript na platformie Azure przy użyciu Visual Studio Code](create-first-function-vs-code-node.md). Jeśli przed końcem tego artykułu zostały już wyczyszczone zasoby, wykonaj kroki ponownie, aby utworzyć aplikację funkcji i powiązane zasoby na platformie Azure.  
+::: zone-end
 
 ## <a name="configure-your-environment"></a>Konfigurowanie środowiska
 

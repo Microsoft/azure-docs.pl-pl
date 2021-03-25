@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: bd66044e0b5ac2be592d18dbadfe948793cf6062
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21b3f13691b5453abf355149f72bc2a8c1f46d83
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591228"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036201"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[W klastrach Kubernetes z obsługą usługi Azure Arc należy zainstalować rozszerzenie usługi Azure Defender](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Rozszerzenie usługi Azure Defender dla usługi Azure Arc zapewnia ochronę przed zagrożeniami dla klastrów Kubernetes z włączonym łukiem. Rozszerzenie zbiera dane ze wszystkich węzłów płaszczyzny kontroli (Master) w klastrze i wysyła je do usługi Azure Defender for Kubernetes zaplecza w chmurze w celu dalszej analizy. Dowiedz się więcej w temacie [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc) . |AuditIfNotExists, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ASC_Audit_Azure_Defender_Kubernetes_Arc_Extension.json) |
 |[Konfigurowanie klastrów Kubernetes z określoną konfiguracją GitOps przy użyciu kluczy tajnych HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6f560f4-f582-4b67-b123-a37dcd1bf7ea) |Wdróż "sourceControlConfiguration" w klastrach Kubernetes, aby upewnić się, że klastry mają swoje źródło prawdy dla obciążeń i konfiguracji ze zdefiniowanego repozytorium git. Ta definicja wymaga, aby użytkownik i klucz tajny były przechowywane w Key Vault. Aby uzyskać instrukcje, odwiedź stronę [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy) . |deployIfNotExists, auditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster-HTTPS-secrets_DINE.json) |
 |[Konfigurowanie klastrów Kubernetes z określoną konfiguracją GitOps przy użyciu brakujących wpisów tajnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Wdróż "sourceControlConfiguration" w klastrach Kubernetes, aby upewnić się, że klastry mają swoje źródło prawdy dla obciążeń i konfiguracji ze zdefiniowanego repozytorium git. Ta definicja nie wymaga wpisów tajnych. Aby uzyskać instrukcje, odwiedź stronę [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy) . |deployIfNotExists, auditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster-no-secrets_DINE.json) |
 |[Konfigurowanie klastrów Kubernetes z określoną konfiguracją GitOps przy użyciu kluczy tajnych SSH](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc050047b-b21b-4822-8a2d-c1e37c3c0c6a) |Wdróż "sourceControlConfiguration" w klastrach Kubernetes, aby upewnić się, że klastry mają swoje źródło prawdy dla obciążeń i konfiguracji ze zdefiniowanego repozytorium git. Ta definicja wymaga tajemnicy klucza prywatnego SSH w Key Vault. Aby uzyskać instrukcje, odwiedź stronę [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy) . |deployIfNotExists, auditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster-SSH-secrets_DINE.json) |
