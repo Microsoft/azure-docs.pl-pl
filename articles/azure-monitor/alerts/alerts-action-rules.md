@@ -3,16 +3,16 @@ title: Reguły akcji dla alertów Azure Monitor
 description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471679"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036785"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
-Reguły akcji ułatwiają Definiowanie lub pomijanie akcji w dowolnym zakresie Azure Resource Manager (subskrypcja platformy Azure, Grupa zasobów lub zasób docelowy). Mają różne filtry, które ułatwiają zawężenie określonego podzestawu wystąpień alertów, na których ma być wykonywane działanie.
+Reguły akcji umożliwiają dodawanie lub pomijanie grup akcji w wywołanych alertach. Pojedyncza reguła może obejmować różne zakresy zasobów docelowych, na przykład alerty dotyczące określonego zasobu (takie jak określona maszyna wirtualna) lub alertów wyzwalanych na dowolnym zasobie w ramach subskrypcji. Opcjonalnie można dodać różne filtry w celu kontrolowania, które alerty są objęte regułą, i zdefiniować dla niego harmonogram, na przykład ma on obowiązywać tylko poza godzinami pracy lub podczas planowanego okna obsługi.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -31,7 +31,7 @@ Chociaż reguły alertów ułatwiają zdefiniowanie grupy akcji, która jest wyz
 Reguły akcji ułatwiają uproszczenie tego procesu. Definiując akcje w skali, można wyzwolić grupę akcji dla dowolnego alertu, który jest generowany w skonfigurowanym zakresie. W poprzednim przykładzie zespół może zdefiniować jedną regułę akcji w programie **ContosoRG** , która będzie wyzwalać tę samą grupę akcji dla wszystkich alertów wygenerowanych w ramach tego elementu.
 
 > [!NOTE]
-> Reguły akcji nie mają obecnie zastosowania do alertów Azure Service Health.
+> Reguły akcji nie dotyczą alertów Azure Service Health.
 
 ## <a name="configuring-an-action-rule"></a>Konfigurowanie reguły akcji
 
@@ -308,7 +308,7 @@ Na [stronie Lista alertów](./alerts-managing-alert-instances.md)można wybrać 
 
 Pomijanie zawsze ma pierwszeństwo w tym samym zakresie.
 
-### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób, który jest monitorowany w dwóch oddzielnych regułach akcji? Czy otrzymuję jedną lub dwie powiadomienia? Na przykład **VM2** w następującym scenariuszu:
+### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób objęty dwoma regułami akcji? Czy otrzymuję jedną lub dwie powiadomienia? Na przykład **VM2** w następującym scenariuszu:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

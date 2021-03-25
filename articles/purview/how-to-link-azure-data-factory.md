@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449615"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026627"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -147,6 +147,11 @@ Obecnie użycie następujących funkcji działania kopiowania nie jest jeszcze o
 - Opcja odnajdywania partycji źródłowej dla magazynów opartych na plikach.
 - Kopiuj dane do ujścia opartego na plikach z ustawieniem Maksymalna liczba wierszy na plik.
 - Dodaj dodatkowe kolumny podczas kopiowania.
+
+W obszarze dodatkowe elementy do odłożenia jest raportowany schemat zasobów danych (widoczny w karcie schemat zasobów >) dla następujących łączników:
+
+- Pliki CSV i Parquet w usłudze Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2 i Amazon S3
+- Azure Eksplorator danych, Azure SQL Database, wystąpienie zarządzane Azure SQL, Azure Synapse Analytics, SQL Server, Teradata
 
 ### <a name="data-factory-data-flow-support"></a>Obsługa przepływu danych Data Factory
 

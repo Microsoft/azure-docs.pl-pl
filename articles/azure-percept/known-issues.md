@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 03/03/2021
-ms.openlocfilehash: a04e53c8444a01bc42f3ce71393fc842f3419e74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a3f44f3d0cdf024bca12b0023891f21175f52b47
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102193478"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026942"
 ---
 # <a name="known-issues"></a>Znane problemy
 
@@ -30,7 +30,7 @@ Jeśli wystąpi którykolwiek z tych problemów, otwarcie usterki nie jest konie
 | Aktualizacja urządzenia | Użytkownicy mogą otrzymać komunikat informujący, że aktualizacja nie powiodła się, nawet jeśli zakończyła się pomyślnie. | Potwierdź, że urządzenie zostało zaktualizowane, przechodząc do sznurka urządzenia urządzenia w IoT Hub. Ta wartość jest rozwiązywana po pierwszej aktualizacji. |
 | Aktualizacja urządzenia | Po pierwszej aktualizacji użytkownicy mogą utracić ustawienia połączenia Wi-Fi. | Przed aktualizacją wykonaj instrukcje dotyczące korzystania z funkcji dołączania w celu skonfigurowania połączenia Wi-Fi. Ta wartość jest rozwiązywana po pierwszej aktualizacji. |
 | Aktualizacja urządzenia | Po przeprowadzeniu aktualizacji OTA użytkownicy nie mogą logować się za pośrednictwem protokołu SSH przy użyciu wcześniej utworzonych kont użytkowników i nie można tworzyć nowych użytkowników SSH za pośrednictwem środowiska. Ten problem ma wpływ na systemy wykonujące aktualizacje OTA z następujących wstępnie zainstalowanych wersji obrazu: 2020.110.114.105 i 2020.109.101.105. | Aby odzyskać profile użytkowników, wykonaj następujące kroki po aktualizacji OTA: <br> Użyj opcji "root" jako nazwy użytkownika w [Devkit](./how-to-ssh-into-percept-dk.md) . Jeśli wyłączono Logowanie użytkownika "root" protokołu SSH za pośrednictwem środowiska, należy je włączyć ponownie. Uruchom to polecenie po pomyślnym nawiązaniu połączenia: <br> ```mkdir -p /var/custom-configs/home; chmod 755 /var/custom-configs/home``` <br> Aby odzyskać poprzednie dane główne użytkownika, uruchom następujące polecenie: <br> ```mkdir -p /tmp/prev-rootfs && mount /dev/mmcblk0p3 /tmp/prev-rootfs && [ ! -L /tmp/prev-rootfs/home ] && cp -a /tmp/prev-rootfs/home/* /var/custom-configs/home/. && echo "User home migrated!"; umount /tmp/prev-rootfs``` |
-| Aktualizacja urządzenia | Po wprowadzeniu aktualizacji OTA grupy aktualizacji zostaną utracone. | Zaktualizuj tag urządzenia, wykonując [te instrukcje](https://docs.microsoft.com/azure/azure-percept/how-to-update-over-the-air#create-a-device-update-group). |
+| Aktualizacja urządzenia | Po wprowadzeniu aktualizacji OTA grupy aktualizacji zostaną utracone. | Zaktualizuj tag urządzenia, wykonując [te instrukcje](./how-to-update-over-the-air.md#create-a-device-update-group). |
 | Instalator pakietu narzędzi deweloperskich | Opcjonalna instalacja Caffe może zakończyć się niepowodzeniem, jeśli platforma Docker nie działa prawidłowo w systemie. | Upewnij się, że platforma Docker jest zainstalowana i uruchomiona, a następnie ponów próbę instalacji Caffe. |
 | Instalator pakietu narzędzi deweloperskich | Opcjonalna instalacja CUDA kończy się niepowodzeniem w systemach niezgodnych. | Przed uruchomieniem Instalatora Sprawdź zgodność systemu z programem CUDA. |
 | Docker, Sieć, IoT Edge | Jeśli w sieci wewnętrznej używane są 172. x. x. x, kontenery platformy Docker nie będą mogły łączyć się z usługą Edge. | Dodaj specjalną sekcję BIP do/etc/Docker/daemon.jsw pliku w następujący sposób: `{    "bip": "192.168.168.1/24"}` |
