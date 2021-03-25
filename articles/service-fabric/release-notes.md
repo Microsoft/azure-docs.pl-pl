@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 38ec7949b5fc04852568e9e69f35f212b1edee5d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7f99c37cd9f029c7478d4102bd17c952ffd52f8c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201045"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044281"
 ---
 # <a name="service-fabric-releases"></a>Wersje Service Fabric
 
@@ -72,7 +72,7 @@ Opublikowano również aktualizacje dotyczące końca okresu pomocy technicznej 
       -  Obniżenie kosztów ogólnych (dyski są bezpłatne i nie wiążą się z dodatkowym kosztem magazynowania)
 - Obsługa deklaracji [**certyfikatów punktów końcowych usługi Service Fabric aplikacji według nazwy pospolitej podmiotu**](./service-fabric-service-manifest-resources.md).
 - [**Obsługa sond kondycji dla usług kontenerowych**](./probes-codepackage.md): obsługa mechanizmu sondowania na żywo dla aplikacji kontenerowych. Sonda na żywo pomaga w ogłaszaniu na żywo aplikacji kontenera i gdy nie odpowiadają one w odpowiednim czasie, spowoduje to ponowne uruchomienie. 
-- [**Obsługa pakietów kodu inicjatora**](./initializer-codepackages.md) dla [kontenerów](/azure/service-fabric/service-fabric-containers-overview) i aplikacji [wykonywalnych gościa](/azure/service-fabric/service-fabric-guest-executables-introduction) . Umożliwia to wykonywanie pakietów kodu (np. kontenerów) w określonej kolejności, aby przeprowadzić inicjalizację pakietu usług.
+- [**Obsługa pakietów kodu inicjatora**](./initializer-codepackages.md) dla [kontenerów](./service-fabric-containers-overview.md) i aplikacji [wykonywalnych gościa](./service-fabric-guest-executables-introduction.md) . Umożliwia to wykonywanie pakietów kodu (np. kontenerów) w określonej kolejności, aby przeprowadzić inicjalizację pakietu usług.
 - **FabricObserver i ClusterObserver** są aplikacjami bezstanowymi, które przechwytują Service Fabric dane telemetryczne związane z różnymi aspektami klastra SF. Obie te aplikacje są gotowe do wdrożenia w klastrach produkcyjnych systemu Windows w celu przechwytywania bogatej telemetrii z zaimplementowaną obsługą ApplicationInsights, EventSource i LogAnalytics.
     - [**FabricObserver (fo) 2,0**](https://github.com/microsoft/service-fabric-observer)-działa na wszystkich węzłach, generuje zdarzenia dotyczące kondycji, emituje dane telemetryczne po osiągnięciu progów użycia zasobów skonfigurowanych przez użytkownika. Ta wersja zawiera kilka ulepszeń między monitorowaniem, zarządzaniem danymi, szczegółami zdarzeń dotyczących kondycji, strukturalną telemetrię.
      - [**ClusterObserver (co) 1,1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) -działa na jednym węźle, przechwytuje dane telemetryczne kondycji poziomu klastra. W tej wersji ClusterObserver również monitoruje stan węzła i emituje dane telemetryczne, gdy węzeł jest wyłączony/wyłączany/wyłączony przez czas dłuższy niż określony przez użytkownika.

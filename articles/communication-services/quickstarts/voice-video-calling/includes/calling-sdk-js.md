@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 7fee393b694bf761cf052702a975239d6dff9a9c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9aaaece7d60ceead80e51bdc2a1bb342d9a4d237
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105242"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107755"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -18,12 +18,12 @@ ms.locfileid: "105105242"
 - Token dostępu użytkownika umożliwiający włączenie klienta wywołującego. Aby uzyskać więcej informacji, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](../../access-tokens.md).
 - Opcjonalnie: Ukończ przewodnik szybkiego startu, aby [dodać połączenie głosowe do aplikacji](../getting-started-with-calling.md).
 
-## <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
+## <a name="install-the-sdk"></a>Instalacja zestawu SDK
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 6 z wywołującej biblioteki klienta.
+> Ten dokument używa wersji 1.0.0-beta. 6 zestawu SDK wywoływania.
 
-Użyj `npm install` polecenia, aby zainstalować usługi komunikacyjne Azure, wywołując i Common Client librarys for JavaScript.
+Użyj `npm install` polecenia, aby zainstalować usługi Azure Communication Services wywołujące i popularne zestawy SDK dla języka JavaScript.
 Ten dokument zawiera odwołania do typów w wersji 1.0.0-beta. 5 biblioteki wywołującej.
 
 ```console
@@ -34,11 +34,11 @@ npm install @azure/communication-calling --save
 
 ## <a name="object-model"></a>Model obiektów
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta wywołującego usługi Azure Communications Services:
+Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK wywołującego usługi Azure Communications Services:
 
 | Nazwa                             | Opis                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                      | Główny punkt wejścia do biblioteki wywołującej klienta.                                                                       |
+| `CallClient`                      | Główny punkt wejścia do wywołującego zestawu SDK.                                                                       |
 | `CallAgent`                        | Służy do uruchamiania wywołań i zarządzania nimi.                                                                                            |
 | `DeviceManager`                    | Używany do zarządzania urządzeniami multimedialnymi.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implementuje `CommunicationTokenCredential` interfejs, który jest używany do tworzenia wystąpienia `callAgent` . |
@@ -63,7 +63,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-a-call"></a>Umieść wywołanie
 
-Aby utworzyć i uruchomić wywołanie, użyj jednego z interfejsów API w systemie `callAgent` i podaj użytkownika, który został utworzony za pomocą biblioteki klienta tożsamości usług komunikacyjnych.
+Aby utworzyć i uruchomić wywołanie, użyj jednego z interfejsów API w systemie `callAgent` i podaj użytkownika, który został utworzony za pomocą zestawu SDK tożsamości usług komunikacyjnych.
 
 Tworzenie i uruchamianie wywołań jest synchroniczne. Wystąpienie wywołania pozwala subskrybować zdarzenia.
 

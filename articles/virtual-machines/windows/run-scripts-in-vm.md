@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: ab7d20a83c4cb8cb7a36c4603a5b0b2e69b0662f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 24ff0d8089055f83c76156cf5fb163313faf9492
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102560671"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043482"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Uruchamianie skryptów na maszynie wirtualnej z systemem Windows
 
@@ -58,7 +58,7 @@ Funkcja [Run command](run-command.md) umożliwia zarządzanie maszynami wirtualn
 
 ## <a name="serial-console"></a>Konsola szeregowa
 
-[Konsola szeregowa](../troubleshooting/serial-console-windows.md) zapewnia bezpośredni dostęp do maszyny wirtualnej, podobnie jak przy użyciu klawiatury podłączonej do maszyny wirtualnej.
+[Konsola szeregowa](/troubleshoot/azure/virtual-machines/serial-console-windows) zapewnia bezpośredni dostęp do maszyny wirtualnej, podobnie jak przy użyciu klawiatury podłączonej do maszyny wirtualnej.
 
 * Uruchom polecenia w usłudze Azure Virtual Machines.
 * Można uruchomić za pomocą konsoli tekstowej na maszynie w Azure Portal.
@@ -72,4 +72,4 @@ Dowiedz się więcej o różnych funkcjach, które są dostępne do uruchamiania
 * [Rozszerzenie niestandardowego skryptu](../extensions/custom-script-windows.md)
 * [Uruchamianie polecenia](run-command.md)
 * [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md)
-* [Konsola szeregowa](../troubleshooting/serial-console-windows.md)
+* [Konsola szeregowa](/troubleshoot/azure/virtual-machines/serial-console-windows)

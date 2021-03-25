@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70042a5c4c27ec5d163e5f05089ae50b92140c28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011259"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036054"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak używać wtyczki Microsoft Smooth Streaming dla środowiska multimedialnego firmy Adobe typu open source
 
@@ -59,7 +59,7 @@ Wtyczki OSMF można ładować statycznie (w czasie kompilacji) lub dynamicznie (
 * Ładowanie statyczne: Aby ładować statycznie, wymagany jest plik biblioteki statycznej (SWC). Wtyczki statyczne są dodawane jako odwołanie do projektów i scalane w końcowym pliku wyjściowym w czasie kompilacji.
 * Ładowanie dynamiczne: do dynamicznego ładowania jest wymagany wstępnie skompilowany plik (SWF). Wtyczki dynamiczne są ładowane w czasie wykonywania i nie są uwzględniane w danych wyjściowych projektu. (Skompilowane dane wyjściowe) Wtyczki dynamiczne można ładować przy użyciu protokołów HTTP i plików.
 
-Aby uzyskać więcej informacji na temat ładowania statycznego i dynamicznego, zapoznaj się z oficjalną [stroną wtyczki OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Aby uzyskać więcej informacji na temat ładowania statycznego i dynamicznego, zapoznaj się z oficjalną [stroną wtyczki OSMF](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS dla statycznego ładowania OSMF
 Poniższy fragment kodu przedstawia sposób ładowania wtyczki SS dla OSMF statycznie i odtwarzania podstawowego wideo przy użyciu klasy OSMF MediaFactory. Przed dołączeniem do kodu OSMF, należy się upewnić, że odwołanie do projektu zawiera statyczną wtyczkę "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. SWC".

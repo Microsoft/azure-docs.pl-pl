@@ -4,25 +4,20 @@ description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia ko
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707221"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107282"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Macierz obsługi kopii zapasowych na dysku platformy Azure (w wersji zapoznawczej)
-
->[!IMPORTANT]
->Kopia zapasowa Azure Disk jest w wersji zapoznawczej bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
+# <a name="azure-disk-backup-support-matrix"></a>Macierz obsługi kopii zapasowych dysków na platformie Azure
 
 Aby chronić dyski platformy Azure, można użyć [Azure Backup](./backup-overview.md) . Ten artykuł podsumowuje dostępność regionów, obsługiwane scenariusze i ograniczenia.
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Kopia zapasowa Azure Disk jest dostępna w wersji zapoznawczej w następujących regionach: zachodnie stany USA, zachodnie stany USA, Wschodnie stany USA 2, Kanada środkowa, Zachodnie Zjednoczone Królestwo, Szwajcaria Północna, Szwajcaria Zachodnia, Australia Środkowa, Australia Środkowa 2, Korea środkowa, Korea Południowa, Japonia Azja Wschodnia Zachodnia 
+Kopia zapasowa dysku platformy Azure jest dostępna w następujących regionach: zachodnie stany USA, zachodnie stany USA 2, zachodnie stany USA, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe US, Północno-środkowe stany USA, Kanada środkowa, Szwajcaria Zachodnia Szwajcaria Północna Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Północna Republika Południowej Afryki Południowe Zjednoczone Emiraty Arabskie , Australia Wschodnia, Korea środkowa, Korea Południowa, Japonia Wschodnia, Japonia Zachodnia, Azja Wschodnia, Azja Południowo-Wschodnia, Indie Środkowe. 
 
 Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 1/21/2021
-ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 3/23/2021
+ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101664121"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044264"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Zaplanuj zdarzenia konserwacji platformy Azure w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,11 +27,11 @@ Dowiedz się, jak przygotować się do planowanych zdarzeń konserwacji w bazie 
 
 Aby zapewnić bezpieczne, zgodne, stabilne i wydajne usługi wystąpień zarządzanych w usłudze Azure SQL Azure SQL Database, aktualizacje są wykonywane za pomocą składników usługi niemal w sposób ciągły. Dzięki nowoczesnej i niezawodnej architekturze usług oraz innowacyjnym technologiom, takim jak [gorąca poprawka](https://aka.ms/azuresqlhotpatching), większość aktualizacji jest w pełni przejrzysta i nie ma wpływu na warunki dostępności usługi. Nadal niektóre typy aktualizacji powodują krótkie przerwania działania usługi i wymagają szczególnego traktowania. 
 
-Dla każdej bazy danych Azure SQL Database i wystąpienie zarządzane usługi Azure SQL utrzymują kworum replik baz danych, w których jedna replika jest podstawowym. Przez cały czas replika podstawowa musi być obsługą online, a co najmniej jedna replika pomocnicza musi być w dobrej kondycji. Podczas planowanej konserwacji członkowie kworum bazy danych przechodzą do trybu offline po jednej naraz, z zamiarem, że istnieje jedna replika podstawowa, a co najmniej jedna replika pomocnicza jest w trybie online, aby zapewnić brak przestojów klientów. Jeśli replika podstawowa musi zostać przełączona w tryb offline, proces ponownej konfiguracji/przełączenia w tryb failover nastąpi, gdy jedna replika pomocnicza stanie się nowym serwerem podstawowym.  
+Dla każdej bazy danych Azure SQL Database i wystąpienie zarządzane usługi Azure SQL utrzymują kworum replik baz danych, w których jedna replika jest podstawowym. Przez cały czas replika podstawowa musi być obsługą online, a co najmniej jedna replika pomocnicza musi być w dobrej kondycji. Podczas planowanej konserwacji członkowie kworum bazy danych przechodzą do trybu offline po jednej naraz, z zamiarem, że istnieje jedna replika podstawowa, a co najmniej jedna replika pomocnicza jest w trybie online, aby zapewnić brak przestojów klientów. Jeśli replika podstawowa musi zostać przełączona w tryb offline, proces ponownej konfiguracji nastąpi, w którym jedna replika pomocnicza stanie się nowym serwerem podstawowym.  
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Czego można oczekiwać podczas planowanego zdarzenia konserwacji
 
-Zdarzenie obsługi może generować pojedyncze lub wielokrotne przełączenia w tryb failover, w zależności od Constellation replik podstawowych i pomocniczych na początku zdarzenia konserwacji. Średnio 1,7 trybu failover odbywa się według zaplanowanego zdarzenia konserwacji. Ponowne konfiguracje/przełączenia w tryb failover zazwyczaj kończą się w ciągu 30 sekund. Średnia to osiem sekund. Jeśli jest już połączony, aplikacja musi ponownie nawiązać połączenie z nową repliką podstawową bazy danych. Jeśli nastąpi próba ponownego skonfigurowania nowego połączenia, aby Nowa replika podstawowa była w trybie online, zostanie wyświetlony komunikat o błędzie 40613 (baza danych jest niedostępna): *"baza danych" {DatabaseName} "na serwerze" {ServerName} "jest obecnie niedostępna. Spróbuj ponownie nawiązać połączenie później. "* Jeśli baza danych ma długotrwałe zapytanie, ta kwerenda zostanie przerwana podczas ponownej konfiguracji i będzie musiała zostać ponownie uruchomiona.
+Zdarzenie konserwacji może generować jedną lub wiele ponownych konfiguracji, w zależności od Constellation replik podstawowych i pomocniczych na początku zdarzenia konserwacji. Średnio 1,7 ponownych konfiguracji odbywa się według zaplanowanego zdarzenia konserwacji. Ponowne konfiguracje są zwykle kończone w ciągu 30 sekund. Średnia to osiem sekund. Jeśli jest już połączony, aplikacja musi ponownie nawiązać połączenie z nową repliką podstawową bazy danych. Jeśli nastąpi próba ponownego skonfigurowania nowego połączenia, aby Nowa replika podstawowa była w trybie online, zostanie wyświetlony komunikat o błędzie 40613 (baza danych jest niedostępna): *"baza danych" {DatabaseName} "na serwerze" {ServerName} "jest obecnie niedostępna. Spróbuj ponownie nawiązać połączenie później. "* Jeśli baza danych ma długotrwałe zapytanie, ta kwerenda zostanie przerwana podczas ponownej konfiguracji i będzie musiała zostać ponownie uruchomiona.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Symulowanie planowanego zdarzenia konserwacji
 
@@ -39,7 +39,7 @@ Zapewnienie odporności aplikacji klienckiej na zdarzenia konserwacyjne przed wd
 
 ## <a name="retry-logic"></a>Logika ponowień
 
-Każda aplikacja produkcyjna klienta, która nawiązuje połączenie z usługą bazy danych w chmurze, powinna implementować niezawodną [logikę ponawiania](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)połączenia. Dzięki temu przełączenie w tryb failover jest przezroczyste dla użytkowników końcowych lub co najmniej minimalizuje negatywne skutki.
+Każda aplikacja produkcyjna klienta, która nawiązuje połączenie z usługą bazy danych w chmurze, powinna implementować niezawodną [logikę ponawiania](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)połączenia. Pomoże to zmienić konfigurację niewidoczną dla użytkowników końcowych lub co najmniej zminimalizować negatywne skutki.
 
 ## <a name="resource-health"></a>Kondycja zasobów
 

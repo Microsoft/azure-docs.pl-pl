@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92371991"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043907"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformie Azure
 
@@ -78,9 +78,9 @@ Aby ręcznie zmienić typ uruchamiania sterowników dla **systemu operacyjnego g
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Nie można nawiązać połączenia/RDP/SSH z maszyną wirtualną w trybie failover ze względu na szary przycisk Połącz na maszynie wirtualnej
 
-Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem RDP można znaleźć w [naszej dokumentacji.](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem RDP można znaleźć w [naszej dokumentacji.](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
 
-Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem SSH można znaleźć w [naszej dokumentacji.](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md)
+Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem SSH można znaleźć w [naszej dokumentacji.](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
 
 Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest wyszarzony i nie masz połączenia z platformą Azure za pośrednictwem usługi Express Route lub sieci VPN typu lokacja-lokacja, a następnie
 
@@ -94,7 +94,7 @@ Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platfor
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Nie można nawiązać połączenia/RDP/SSH — przycisk połączenia z maszyną wirtualną
 
-Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest dostępny (nie jest wyszarzony), sprawdź **diagnostykę rozruchu** na maszynie wirtualnej i Sprawdź błędy wymienione w [tym artykule](../virtual-machines/troubleshooting/boot-diagnostics.md).
+Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest dostępny (nie jest wyszarzony), sprawdź **diagnostykę rozruchu** na maszynie wirtualnej i Sprawdź błędy wymienione w [tym artykule](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
 1. Jeśli maszyna wirtualna nie została uruchomiona, spróbuj przejść w tryb failover do starszego punktu odzyskiwania.
 2. Jeśli aplikacja wewnątrz maszyny wirtualnej nie działa, spróbuj przejść w tryb failover do punktu odzyskiwania spójnego na poziomie aplikacji.
@@ -182,7 +182,7 @@ W celu rozwiązania tego problemu:
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Rozwiązywanie problemów z [połączeniem RDP z maszyną wirtualną z systemem Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
-- Rozwiązywanie problemów z [połączeniem SSH z maszyną wirtualną z systemem Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
+- Rozwiązywanie problemów z [połączeniem RDP z maszyną wirtualną z systemem Windows](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Rozwiązywanie problemów z [połączeniem SSH z maszyną wirtualną z systemem Linux](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 
 Jeśli potrzebujesz więcej pomocy, Opublikuj zapytanie na [stronie pytania firmy&Microsoft w celu Site Recovery](/answers/topics/azure-site-recovery.html) lub pozostaw komentarz na końcu tego dokumentu. Mamy aktywną społeczność, która powinna być w stanie pomóc.
