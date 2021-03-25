@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e0125f14570e917b228c5f713e636335755581d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361772"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024272"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -26,12 +26,6 @@ Nasza sieć partnera niezależnego dostawcy oprogramowania rozszerza możliwośc
 >[Witryna społeczności Azure Active Directory B2C w serwisie GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) udostępnia także przykładowe zasady niestandardowe społeczności.
 
 ## <a name="identity-verification-and-proofing"></a>Weryfikacja tożsamości i sprawdzanie poprawności
-
-Dzięki Azure AD B2C partnerom klienci mogą włączyć weryfikację tożsamości i sprawdzanie ich użytkowników końcowych przed zezwoleniem na rejestrację lub dostęp do konta. Weryfikacja tożsamości i sprawdzanie poprawności mogą sprawdzić dokument, informacje oparte na wiedzy oraz ich stan.
-
-Diagram architektury wysokiego poziomu objaśnia przepływ.
-
-![Diagram przedstawia przepływ weryfikacji tożsamości](./media/partner-gallery/third-party-identity-proofing.png)
 
 Partnerzy firmy Microsoft z następującymi dostawcami oprogramowania (ISV) do weryfikacji tożsamości i sprawdzania poprawności.
 

@@ -131,8 +131,8 @@
       href: core/concepts-architecture.md
     - name: Przewodnik dla deweloperów urządzeń
       href: core/overview-iot-central-developer.md
-    - name: Przewodnik po konstruktorze rozwiązań
-      href: core/overview-iot-central-solution-builder.md
+    - name: Przewodnik administratora
+      href: core/overview-iot-central-admin.md
     - name: Podręcznik operatora
       href: core/overview-iot-central-operator.md
     - name: Co to są szablony aplikacji?

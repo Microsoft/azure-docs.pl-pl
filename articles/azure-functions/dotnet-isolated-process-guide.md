@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4da685c247427e78297df1753779ee9b5c7866b8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774936"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023201"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Przewodnik dotyczący uruchamiania funkcji na platformie .NET 5,0 na platformie Azure
 
@@ -147,15 +147,17 @@ Aby zapisać do powiązania danych wyjściowych, należy zastosować atrybut pow
 
 ### <a name="multiple-output-bindings"></a>Wiele powiązań wyjściowych
 
-Dane zapisywane w powiązaniu wyjściowym są zawsze wartością zwracaną funkcji. Jeśli zachodzi potrzeba zapisu w więcej niż jednym powiązaniu wyjściowym, należy utworzyć niestandardowy typ zwracany. Ten typ zwracany musi mieć atrybut powiązania wyjściowego zastosowany do co najmniej jednej właściwości klasy. Poniższy przykład zapisuje dane do odpowiedzi HTTP i powiązania danych wyjściowych kolejki:
+Dane zapisywane w powiązaniu wyjściowym są zawsze wartością zwracaną funkcji. Jeśli zachodzi potrzeba zapisu w więcej niż jednym powiązaniu wyjściowym, należy utworzyć niestandardowy typ zwracany. Ten typ zwracany musi mieć atrybut powiązania wyjściowego zastosowany do co najmniej jednej właściwości klasy. Poniższy przykład z wyzwalacza HTTP zapisuje zarówno do odpowiedzi HTTP, jak i do powiązania danych wyjściowych kolejki:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+
+Odpowiedź z wyzwalacza HTTP jest zawsze uznawana za dane wyjściowe, więc atrybut wartości zwracanej nie jest wymagany.
 
 ### <a name="http-trigger"></a>HTTP trigger
 
 Wyzwalacze protokołu HTTP tłumaczą przychodzące komunikaty żądania HTTP na obiekt [HttpRequestData] , który jest przesyłany do funkcji. Ten obiekt zawiera dane z żądania, w tym `Headers` ,,, `Cookies` `Identities` `URL` i opcjonalny komunikat `Body` . Ten obiekt jest reprezentacją obiektu żądania HTTP, a nie samego żądania. 
 
-Podobnie funkcja zwraca obiekt [HttpReponseData], który zapewnia dane używane do tworzenia odpowiedzi HTTP, w tym komunikat `StatusCode` , `Headers` i opcjonalnie komunikat `Body` .  
+Podobnie funkcja zwraca obiekt [HttpResponseData] , który dostarcza dane używane do tworzenia odpowiedzi HTTP, w tym komunikat `StatusCode` , `Headers` i opcjonalnie komunikat `Body` .  
 
 Następujący kod jest wyzwalaczem HTTP 
 

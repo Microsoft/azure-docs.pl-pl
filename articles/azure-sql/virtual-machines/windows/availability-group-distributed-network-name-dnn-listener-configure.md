@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c3950b1aeae2b4e90b1ae4acfb9439c2cb159ca
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026006"
+ms.locfileid: "105034711"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Konfigurowanie odbiornika DNN dla grupy dostępności
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -145,7 +145,7 @@ Wartość `1` parametru dla `is_distributed_network_name` wskazuje, że odbiorni
 
 ## <a name="update-connection-string"></a>Zaktualizuj parametry połączenia
 
-Zaktualizuj parametry połączenia dla aplikacji tak, aby łączyły się z odbiornikiem DNN. Aby zapewnić szybką łączność po przejściu w tryb failover, należy dodać `MultiSubnetFailover=True` do parametrów połączenia, jeśli jest on obsługiwany przez klienta SQL.
+Zaktualizuj parametry połączenia dla aplikacji tak, aby łączyły się z odbiornikiem DNN. Parametry połączenia dla odbiorników DNN muszą podawać numer portu DNN. Aby zapewnić szybką łączność po przejściu w tryb failover, należy dodać `MultiSubnetFailover=True` do parametrów połączenia, jeśli jest on obsługiwany przez klienta SQL.
 
 ## <a name="test-failover"></a>Testowanie pracy w trybie failover
 

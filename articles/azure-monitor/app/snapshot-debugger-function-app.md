@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48eb3cf81384446a07fea69572ac16e0b80cee38
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211944"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025632"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Włączanie Snapshot Debugger dla aplikacji .NET i .NET Core w programie Azure Functions
 
@@ -126,7 +126,7 @@ Plik hosta
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>Włącz Snapshot Debugger dla innych chmur
 
-Obecnie jedyne regiony, które wymagają modyfikacji punktów końcowych, to [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) i [Chiny platformy Azure](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Obecnie jedyne regiony, które wymagają modyfikacji punktów końcowych, to [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) i [Chiny platformy Azure](/azure/china/resources-developer-guide).
 
 Poniżej znajduje się przykład `host.json` zaktualizowanego punktu końcowego agenta chmury dla instytucji rządowych Stanów Zjednoczonych:
 ```json
