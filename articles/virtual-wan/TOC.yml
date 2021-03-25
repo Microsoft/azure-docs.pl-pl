@@ -93,6 +93,8 @@
       href: pricing-concepts.md
     - name: Informacje o urządzenie WUS w koncentratorze wirtualnym
       href: about-nva-hub.md
+    - name: Informacje o zabezpieczonych centrach wirtualnych
+      href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: Przewodniki z instrukcjami
   items:
     - name: Podwyższanie poziomu jednostki SKU wirtualnej sieci WAN

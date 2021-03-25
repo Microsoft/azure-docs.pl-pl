@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: d7a8a598ab2d0c873cf07510cf40a08c22c0f1d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608601"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048667"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Utwórz zasób czytnika immersyjny i Skonfiguruj uwierzytelnianie Azure Active Directory
 
@@ -198,7 +198,7 @@ Skrypt został zaprojektowany jako elastyczny. Najpierw szuka istniejącego czyt
 ## <a name="next-steps"></a>Następne kroki
 
 * Wyświetl [Node.js przewodnika Szybki Start](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu Node.js
-* Obejrzyj [Samouczek systemu Android](./tutorial-android.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
-* Wyświetl [Samouczek systemu iOS](./tutorial-ios.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
-* Obejrzyj [samouczek języka Python](./tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
+* Obejrzyj [Samouczek systemu Android](./how-to-launch-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
+* Wyświetl [Samouczek systemu iOS](./how-to-launch-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
+* Obejrzyj [samouczek języka Python](./how-to-launch-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
 * Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](./reference.md)

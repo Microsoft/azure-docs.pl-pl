@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 453d7e118b946d60eb3d84c6a66abdbea7db2410
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499224"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035646"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamiczne skalowanie zasobów bazy danych przy minimalnym przestoju
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,6 +60,9 @@ Wystąpienie zarządzane Azure SQL umożliwia również skalowanie:
 - [Wystąpienie zarządzane SQL](../managed-instance/sql-managed-instance-paas-overview.md) używa trybu [rdzeni wirtualnych](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) i pozwala definiować maksymalne rdzenie procesora CPU i maksymalną ilość miejsca do magazynowania przydzieloną do wystąpienia. Wszystkie bazy danych w ramach wystąpienia zarządzanego będą współużytkować zasoby przydzielono do wystąpienia.
 
 Inicjowanie działania skalowania w górę lub w dół w dowolnym z tych typów spowoduje ponowne uruchomienie procesu aparatu bazy danych i przeniesienie go do innej maszyny wirtualnej w razie potrzeby. Proces przeniesienia aparatu bazy danych do nowej maszyny wirtualnej jest w **trybie online** , w którym można kontynuować korzystanie z istniejącej usługi Azure SQL Database, gdy proces jest w toku. Gdy docelowy aparat bazy danych zostanie w pełni zainicjowany i będzie gotowy do przetwarzania zapytań, połączenia zostaną [przełączone ze źródła do docelowego aparatu bazy danych](single-database-scale.md#impact).
+
+> [!NOTE]
+> Nie zaleca się skalowania wystąpienia zarządzanego, jeśli długotrwała transakcja, taka jak Importowanie danych, zadania przetwarzania danych, Odbudowywanie indeksu itp., jest uruchomiona, lub jeśli masz aktywne połączenie w wystąpieniu. Aby uniknąć dłuższego czasu wykonywania skalowania niż zwykle, należy skalować wystąpienie po zakończeniu wszystkich długotrwałych operacji.
 
 > [!NOTE]
 > Po zakończeniu procesu skalowania w górę/w dół można oczekiwać krótkiego przerwania połączenia. Jeśli wdrożono [logikę ponowień dla standardowych błędów przejściowych](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), nie będzie można wyszukać trybu failover.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49122421f04ee6eef8828ca305cfb235aceee3fb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500431"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035697"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Czas pozyskiwania danych dziennika w usłudze Azure Monitor
 Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Często zadawane pytania dotyczące czasu potrzebnego do uzyskania danych dziennika stają się dostępne po ich zebraniu. W tym artykule wyjaśniono różne czynniki wpływające na to opóźnienie.
@@ -81,8 +81,8 @@ Czas pozyskiwania może różnić się w zależności od różnych zasobów w r�
 | Krok | Właściwość lub funkcja | Komentarze |
 |:---|:---|:---|
 | Rekord utworzony w źródle danych | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Jeśli źródło danych nie ustawi tej wartości, zostanie ona ustawiona na ten sam czas co _TimeReceived. |
-| Rekord otrzymany przez Azure Monitor punkt końcowy pozyskiwania | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
-| Rekord przechowywany w obszarze roboczym i dostępny dla zapytań | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
+| Rekord otrzymany przez Azure Monitor punkt końcowy pozyskiwania | [_TimeReceived](./log-standard-columns.md#_timereceived) | To pole nie jest zoptymalizowane pod kątem przetwarzania masowego i nie powinno być używane do filtrowania dużych zestawów danych. |
+| Rekord przechowywany w obszarze roboczym i dostępny dla zapytań | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | Zaleca się używanie ingestion_time (), jeśli istnieje potrzeba filtrowania tylko rekordów, które zostały wprowadzone w pewnym przedziale czasu. W takim przypadku zaleca się dodanie filtru TimeGenerated również z większym zakresem. |
 
 ### <a name="ingestion-latency-delays"></a>Opóźnienia w czasie przyjmowania
 Można mierzyć opóźnienie określonego rekordu, porównując wynik funkcji [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) z właściwością _TimeGenerated_ . Te dane mogą być używane z różnymi agregacjami, aby dowiedzieć się, jak działa opóźnienie pozyskiwania. Zapoznaj się z informacjami o percentylu czasu pozyskiwania, aby uzyskać szczegółowe informacje dotyczące dużej ilości danych. 

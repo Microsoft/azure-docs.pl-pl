@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108402"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047936"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Korzystanie z usługi Azure API Management z mikrousługami wdrożonymi w usłudze Azure Kubernetes Service
 
@@ -95,7 +95,7 @@ Aby uzyskać klucz subskrypcji do uzyskiwania dostępu do interfejsów API, wyma
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opcja 3: wdrażanie APIM wewnątrz sieci wirtualnej klastra
 
-W niektórych przypadkach klienci z ograniczeniami obowiązującymi lub rygorystycznymi wymaganiami dotyczącymi zabezpieczeń mogą znaleźć opcję 1 i 2 nieżywotne rozwiązania ze względu na publicznie uwidocznione punkty końcowe. W innych przypadkach klaster AKS i aplikacje korzystające z mikrousług mogą znajdować się w tej samej sieci wirtualnej, dlatego nie istnieje powód, aby udostępnić klaster publicznie, ponieważ cały ruch interfejsu API pozostanie w sieci wirtualnej. W tych scenariuszach można wdrożyć API Management w sieci wirtualnej klastra. [API Management warstwa Premium](https://aka.ms/apimpricing) obsługuje wdrożenie sieci wirtualnej. 
+W niektórych przypadkach klienci z ograniczeniami obowiązującymi lub rygorystycznymi wymaganiami dotyczącymi zabezpieczeń mogą znaleźć opcję 1 i 2 nieżywotne rozwiązania ze względu na publicznie uwidocznione punkty końcowe. W innych przypadkach klaster AKS i aplikacje korzystające z mikrousług mogą znajdować się w tej samej sieci wirtualnej, dlatego nie istnieje powód, aby udostępnić klaster publicznie, ponieważ cały ruch interfejsu API pozostanie w sieci wirtualnej. W tych scenariuszach można wdrożyć API Management w sieci wirtualnej klastra. [API Management dla deweloperów i warstwy Premium](https://aka.ms/apimpricing) obsługa wdrożenia sieci wirtualnej. 
 
 Istnieją dwa tryby [wdrażania API Management w sieci wirtualnej](./api-management-using-with-vnet.md) — zewnętrzna i wewnętrzna. 
 

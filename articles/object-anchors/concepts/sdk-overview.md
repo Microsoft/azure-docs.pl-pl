@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 551374824610c0257aaf52c45768d31849026524
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034612"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047545"
 ---
 # <a name="runtime-sdk-overview"></a>Omówienie zestawu SDK środowiska uruchomieniowego
 
@@ -25,59 +25,59 @@ Wszystkie typy opisane poniżej można znaleźć w przestrzeni nazw **Microsoft.
 
 ### <a name="objectmodel"></a>ObjectModel
 
-[ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) reprezentuje geometrię obiektu fizycznego i koduje niezbędne parametry na potrzeby wykrywania i szacowania. Należy ją utworzyć za pomocą [usługi kotwice obiektów](../quickstarts/get-started-model-conversion.md). Następnie aplikacja może załadować wygenerowany plik modelu przy użyciu interfejsu API kotwic obiektów i zbadać siatkę osadzoną w tym modelu do wizualizacji.
+[ObjectModel](/dotnet/api/microsoft.azure.objectanchors.objectmodel) reprezentuje geometrię obiektu fizycznego i koduje niezbędne parametry na potrzeby wykrywania i szacowania. Należy ją utworzyć za pomocą [usługi kotwice obiektów](../quickstarts/get-started-model-conversion.md). Następnie aplikacja może załadować wygenerowany plik modelu przy użyciu interfejsu API kotwic obiektów i zbadać siatkę osadzoną w tym modelu do wizualizacji.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
-[ObjectSearchArea](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) określa miejsce do odszukania jednego lub wielu obiektów. Jest on definiowany przez identyfikator węzła wykresu przestrzennego i granice przestrzenne w układzie współrzędnych reprezentowane przez identyfikator węzła wykresu przestrzennego. Zestawu SDK środowiska uruchomieniowego obiektów obsługuje cztery typy granic, czyli **pola widok**, **pole ograniczenia**, **sferę** i **lokalizację**.
+[ObjectSearchArea](/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) określa miejsce do odszukania jednego lub wielu obiektów. Jest on definiowany przez identyfikator węzła wykresu przestrzennego i granice przestrzenne w układzie współrzędnych reprezentowane przez identyfikator węzła wykresu przestrzennego. Zestawu SDK środowiska uruchomieniowego obiektów obsługuje cztery typy granic, czyli **pola widok**, **pole ograniczenia**, **sferę** i **lokalizację**.
 
 ### <a name="objectquery"></a>ObjectQuery
 
-[ObjectQuery](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery) informuje **obiekt obserwatora** o sposobie znajdowania obiektów danego modelu. Udostępnia następujące parametry możliwość dostosowania, których wartości domyślne można pobrać z modelu obiektów.
+[ObjectQuery](/dotnet/api/microsoft.azure.objectanchors.objectquery) informuje **obiekt obserwatora** o sposobie znajdowania obiektów danego modelu. Udostępnia następujące parametry możliwość dostosowania, których wartości domyślne można pobrać z modelu obiektów.
 
 #### <a name="minsurfacecoverage"></a>MinSurfaceCoverage
 
-Właściwość [MinSurfaceCoverage](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) wskazuje wartość, aby wziąć pod uwagę wystąpienie wykryte.
+Właściwość [MinSurfaceCoverage](/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) wskazuje wartość, aby wziąć pod uwagę wystąpienie wykryte.
 
 Dla każdego obiektu kandydującego **obserwator** oblicza stosunek nakładających się powierzchni między przekształconym modelem obiektów a sceną, a następnie raportuje tego kandydata do aplikacji tylko wtedy, gdy wskaźnik pokrycia przekracza daną wartość progową.
 
 #### <a name="isexpectedtobestandingongroundplane"></a>IsExpectedToBeStandingOnGroundPlane
 
-Właściwość [IsExpectedToBeStandingOnGroundPlane](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) wskazuje, czy obiekt docelowy ma być włączony na płaszczyźnie uziemienia.
+Właściwość [IsExpectedToBeStandingOnGroundPlane](/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) wskazuje, czy obiekt docelowy ma być włączony na płaszczyźnie uziemienia.
 
 Płaszczyzna uziemienia to najniższy poziom podłogi w obszarze wyszukiwania. Zapewnia dobre ograniczenie dla możliwych ułożenia obiektów. Włączenie tej flagi umożliwi **obserwatorowi** oszacowanie ułożenia w ograniczonym miejscu i może poprawić dokładność. Ten parametr będzie ignorowany, jeśli model nie powinien znajdować się na płaszczyźnie uziemienia.
 
 #### <a name="expectedmaxverticalorientationindegrees"></a>ExpectedMaxVerticalOrientationInDegrees
 
-Właściwość [ExpectedMaxVerticalOrientationInDegrees](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) wskazuje oczekiwany maksymalny kąt w stopniach między kierunkiem obiektu a grawitacją.
+Właściwość [ExpectedMaxVerticalOrientationInDegrees](/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) wskazuje oczekiwany maksymalny kąt w stopniach między kierunkiem obiektu a grawitacją.
 
 Ten parametr zapewnia inne ograniczenie kierunku w górę szacowanego ułożenia. Na przykład jeśli obiekt jest w górę, ten parametr może mieć wartość 0. Kotwice obiektów nie powinny wykrywać obiektów, które różnią się od modelu. Jeśli model jest w stanie up, wówczas nie zostanie wykryty po stronie wystąpienia. Nowy model będzie używany do układu podwyższego poziomu. Ta sama reguła ma zastosowanie do przegubów.
 
 #### <a name="maxscalechange"></a>MaxScaleChange
 
-Właściwość [MaxScaleChange](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) wskazuje maksymalną zmianę skali obiektu (w zakresie 0 ~ 1) w odniesieniu do mapowania przestrzennego. Szacowana Skala jest stosowana do przekształconych wierzchołków obiektów wyśrodkowanych w miejscu źródłowym i wyrównanym do osi. Szacowane skale nie mogą być rzeczywistą skalą między modelem CAD i jego fizyczną reprezentacją, ale niektóre wartości zezwalające aplikacji na renderowanie modelu obiektów blisko mapowania przestrzennego w obiekcie fizycznym.
+Właściwość [MaxScaleChange](/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) wskazuje maksymalną zmianę skali obiektu (w zakresie 0 ~ 1) w odniesieniu do mapowania przestrzennego. Szacowana Skala jest stosowana do przekształconych wierzchołków obiektów wyśrodkowanych w miejscu źródłowym i wyrównanym do osi. Szacowane skale nie mogą być rzeczywistą skalą między modelem CAD i jego fizyczną reprezentacją, ale niektóre wartości zezwalające aplikacji na renderowanie modelu obiektów blisko mapowania przestrzennego w obiekcie fizycznym.
 
 #### <a name="searchareas"></a>SearchAreas
 
-Właściwość [SearchAreas](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) wskazuje tablicę granic przestrzennych, gdzie można znaleźć obiekty.
+Właściwość [SearchAreas](/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) wskazuje tablicę granic przestrzennych, gdzie można znaleźć obiekty.
 
 **Obserwator** będzie szukać obiektów w przestrzeni Unii dla wszystkich obszarów wyszukiwania określonych w zapytaniu. W tej wersji będziemy zwracać co najwyżej jeden obiekt o najwyższej pewności, aby zmniejszyć opóźnienie.
 
 ### <a name="objectinstance"></a>Obiektu ObjectInstance
 
-[Obiektu ObjectInstance](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectinstance) reprezentuje hipotetyczną pozycję, w której wystąpienie danego modelu może znajdować się w systemie współrzędnych HoloLens. Każde wystąpienie jest dostarczane z `SurfaceCoverage` właściwością, aby wskazać, jak dobre ma być szacowane.
+[Obiektu ObjectInstance](/dotnet/api/microsoft.azure.objectanchors.objectinstance) reprezentuje hipotetyczną pozycję, w której wystąpienie danego modelu może znajdować się w systemie współrzędnych HoloLens. Każde wystąpienie jest dostarczane z `SurfaceCoverage` właściwością, aby wskazać, jak dobre ma być szacowane.
 
 Wystąpienie jest tworzone przez wywołanie `ObjectObserver.DetectAsync` metody, a następnie automatycznie aktualizowane w tle podczas aktywności. Aplikacja może nasłuchiwać zdarzenia zmiany stanu w konkretnym wystąpieniu lub zmienić tryb śledzenia, aby wstrzymać/wznowić aktualizację. Wystąpienie zostanie automatycznie usunięte ze **obserwatora** po utracie śledzenia.
 
 ### <a name="objectobserver"></a>ObjectObserver
 
-[ObjectObserver](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectobserver) ładuje modele obiektów, wykrywa ich wystąpienia i raportuje 6-DOF dla każdego wystąpienia w systemie współrzędnych HoloLens.
+[ObjectObserver](/dotnet/api/microsoft.azure.objectanchors.objectobserver) ładuje modele obiektów, wykrywa ich wystąpienia i raportuje 6-DOF dla każdego wystąpienia w systemie współrzędnych HoloLens.
 
 Chociaż każdy model obiektów lub wystąpienie jest tworzone ze **obserwatora**, ich okresy istnienia są niezależne. Aplikacja może usunąć obserwatora i nadal używać modelu obiektów lub wystąpienia.
 
 ### <a name="objectdiagnosticssession"></a>ObjectDiagnosticsSession
 
-[ObjectDiagnosticSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) rejestruje diagnostykę i zapisuje dane w archiwum.
+[ObjectDiagnosticSession](/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) rejestruje diagnostykę i zapisuje dane w archiwum.
 
 Archiwum diagnostyki obejmuje chmurę punktu sceny, stan obserwatora oraz informacje o modelach. Te informacje są przydatne do identyfikowania możliwych problemów dotyczących środowiska uruchomieniowego. Aby uzyskać więcej informacji, zobacz [często zadawane pytania](../faq.md).
 

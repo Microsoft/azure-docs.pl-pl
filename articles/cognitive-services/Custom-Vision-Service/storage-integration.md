@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 2afac0e25c394c9bf265daf1fe3ded3d763a7c61
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fd4ad1443f466a78abfc569d5f52f6bdeff2d5be
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102508507"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048888"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integrowanie usługi Azure Storage na potrzeby powiadomień i kopii zapasowych
 
@@ -29,7 +29,7 @@ W tym przewodniku pokazano, jak używać tych interfejsów API REST z zwinięcie
 
 - Zasób Custom Vision na platformie Azure. Jeśli go nie masz, przejdź do Azure Portal i [Utwórz nowy zasób Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). Ta funkcja nie obsługuje obecnie zasobu usługi poznawczej (wszystko w jednym kluczu).
 - Konto usługi Azure Storage z kontenerem obiektów BLOB. Jeśli potrzebujesz pomocy dotyczącej tego kroku, obserwuj [ćwiczenia 1 w laboratorium usługi Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) .
-* Program [PowerShell w wersji 6.0](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)lub podobnej aplikacji w wierszu polecenia.
+* Program [PowerShell w wersji 6.0](/powershell/scripting/install/installing-powershell-core-on-windows)lub podobnej aplikacji w wierszu polecenia.
 
 ## <a name="set-up-azure-storage-integration"></a>Konfigurowanie integracji usługi Azure Storage
 

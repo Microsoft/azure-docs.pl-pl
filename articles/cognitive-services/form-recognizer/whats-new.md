@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47e145c5d96ba54b02f5453ff97d16dec302eabd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81115f5a9ed802f1d07c45ec928dc4b84ea2917b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493513"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048752"
 ---
 <!-- markdownlint-disable MD024 -->
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
@@ -117,7 +117,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 * **Obsługa waluty** — wykrywanie i wyodrębnianie symboli walut globalnych.
 * **Usługa Azure gov** — aparat rozpoznawania formularzy jest teraz również dostępny na platformie Azure gov.
 * **Ulepszone funkcje zabezpieczeń**: 
-  * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
+  * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./encrypt-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
   * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](../../private-link/private-link-overview.md)
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.

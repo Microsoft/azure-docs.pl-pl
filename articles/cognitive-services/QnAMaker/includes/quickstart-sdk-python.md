@@ -3,12 +3,12 @@ title: 'Szybki Start: QnA Makera Biblioteka kliencka dla języka Python'
 description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką klienta QnA Maker dla języka Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 86d0be672b92178703b77b0f34d3d92cffdc1c19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 39eeb00ba8b59219054c7743f19f6f378d941d5d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583218"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105596"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
@@ -107,10 +107,11 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 > [!IMPORTANT]
 > Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
 
-- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . 
-- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` . Po opublikowaniu bazy wiedzy w portalu QnA Maker można znaleźć punkt końcowy środowiska uruchomieniowego, jak pokazano poniżej.
+- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do zasobu QnA Maker w Azure Portal i kliknij pozycję **klucze i punkt końcowy** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
 
-  ![Punkt końcowy QnA Maker środowiska uruchomieniowego](../media/endpoint.png)
+ ![Punkt końcowy QnA Maker tworzenia](../media/keys-endpoint.png)
+ 
+- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` .
    
 - W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](../../../key-vault/general/overview.md) Storage udostępnia bezpieczny Magazyn kluczy.
 
@@ -121,7 +122,10 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 > [!IMPORTANT]
 > Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
 
-- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . 
+- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do zasobu QnA Maker w Azure Portal i kliknij pozycję **klucze i punkt końcowy** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
+
+ ![Punkt końcowy QnA Maker tworzenia](../media/keys-endpoint.png)
+ 
 - W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](../../../key-vault/general/overview.md) Storage udostępnia bezpieczny Magazyn kluczy.
 
 [!code-python[Resource variables](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=Resourcevariables)]

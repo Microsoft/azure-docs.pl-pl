@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216652"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022266"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Zasady punktu końcowego usługi dla sieci wirtualnej dla usługi Azure Storage
 
@@ -109,6 +109,8 @@ Nie ma dostępnego centralnego rejestrowania dla zasad punktu końcowego usługi
   - Upewnij się, że konta nie są **klasycznymi kontami magazynu** z zasadami punktu końcowego usługi w podsieci.
 - Zarządzana usługa platformy Azure przestała działać po zastosowaniu zasad punktu końcowego usługi w podsieci
   - Usługi zarządzane nie są w tej chwili obsługiwane w ramach zasad punktu końcowego usługi. *Obejrzyj to miejsce na potrzeby aktualizacji*.
+- Dostęp do zarządzanych kont magazynu przestanie działać po zastosowaniu zasad punktu końcowego usługi w podsieci
+  - Zarządzane konta magazynu nie są obsługiwane w przypadku zasad punktu końcowego usługi. W przypadku skonfigurowania zasady domyślnie odblokują dostęp do wszystkich zarządzanych kont magazynu. Jeśli aplikacja wymaga dostępu do zarządzanych kont magazynu, nie należy używać zasad punktu końcowego dla tego ruchu.
 
 ## <a name="provisioning"></a>Inicjowanie obsługi
 
