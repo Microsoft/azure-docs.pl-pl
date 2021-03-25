@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb57992c8e26560061faf68443c4993801f9713d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929178"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871575"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Wdrażanie topologii Apache Storm w usłudze Azure HDInsight i zarządzanie nimi
 
@@ -43,7 +43,7 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
 
 1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
-    ![Konfigurowanie okna nowego projektu, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="Konfigurowanie okna nowego projektu, Visual Studio" border="true":::
 
 1. W **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure** i wybierz pozycję **Połącz z Microsoft Azure subskrypcją...** i Ukończ proces logowania.
 
@@ -83,7 +83,7 @@ Można programowo wdrożyć topologię przy użyciu usługi Nimbus. [https://git
 
 W przypadku przesyłania topologii przy użyciu programu Visual Studio zostanie wyświetlone okno **Widok topologia burza** . Wybierz topologię z listy, aby wyświetlić informacje o uruchomionej topologii.
 
-![Topologia monitora, okno widoku topologii burzy, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="Topologia monitora, okno widoku topologii burzy, Visual Studio" border="true":::
 
 > [!NOTE]  
 > Można również wyświetlić **topologie burzy** w **Eksplorator serwera**. Rozwiń węzeł **Azure**  >  **HDInsight**, kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz pozycję **Wyświetl topologie burzy**.
@@ -179,7 +179,7 @@ Na stronie głównej interfejsu użytkownika burzy są dostępne następujące i
 
 Strona główna interfejsu użytkownika burzy wygląda podobnie do tej strony sieci Web:
 
-![Strona główna, interfejs użytkownika burzy, topologie Apache Storm, platforma Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="Strona główna, interfejs użytkownika burzy, topologie Apache Storm, platforma Azure" border="true":::
 
 #### <a name="topology-summary"></a>Podsumowanie topologii
 
@@ -198,7 +198,7 @@ Wybranie linku z sekcji **Podsumowanie topologii** zawiera następujące informa
 
 Strona podsumowania topologii burzy wygląda podobnie do tej strony sieci Web:
 
-![Strona podsumowania topologii, interfejs użytkownika burzy, Apache Storm, platforma Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="Strona podsumowania topologii, interfejs użytkownika burzy, Apache Storm, platforma Azure" border="true":::
 
 W sekcji **Akcje topologii** można wybrać następujące przyciski, aby wykonać akcję:
 
@@ -229,7 +229,7 @@ Wybranie elementu Spout z sekcji **elementy Spout** lub **pioruns** wyświetla n
 
 Strona Podsumowanie pioruna burzy wygląda podobnie do tej strony sieci Web:
 
-![Strona podsumowania błyskawicy, interfejs użytkownika burzy, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="Strona podsumowania błyskawicy, interfejs użytkownika burzy, Apache Storm, Azure" border="true":::
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Monitorowanie topologii i zarządzanie nią przy użyciu interfejsu API REST
 

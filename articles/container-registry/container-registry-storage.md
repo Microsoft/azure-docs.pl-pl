@@ -1,15 +1,15 @@
 ---
 title: Magazyn obrazów kontenerów
 description: Szczegółowe informacje na temat sposobu przechowywania obrazów kontenera i innych artefaktów w Azure Container Registry, w tym zabezpieczeń, nadmiarowości i pojemności.
-ms.topic: article
-ms.date: 03/03/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183271"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047749"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Magazyn obrazów kontenerów w Azure Container Registry
 
@@ -21,11 +21,9 @@ Wszystkie obrazy kontenerów i inne artefakty w rejestrze są szyfrowane w stani
 
 ## <a name="regional-storage"></a>Magazyn regionalny
 
-Azure Container Registry przechowuje dane w regionie, w którym jest tworzony rejestr, aby pomóc klientom spełnić wymagania dotyczące miejsca zamieszkania i zgodności danych.
+Azure Container Registry przechowuje dane w regionie, w którym jest tworzony rejestr, aby pomóc klientom spełnić wymagania dotyczące miejsca zamieszkania i zgodności danych. We wszystkich regionach z wyjątkiem Brazylii południe i Azja Południowo-Wschodnia, platforma Azure może również przechowywać dane rejestru w sparowanym regionie w tej samej lokalizacji geograficznej. W regionach Brazylia Południowa i Południowo-Wschodnia dane rejestru są zawsze ograniczone do regionu, w celu uwzględnienia wymagań zamieszkania danych dla tych regionów.
 
-Aby pomóc w ochronie przed awarią centrum danych, niektóre regiony oferują [nadmiarowość strefy](zone-redundancy.md), w której dane są replikowane w wielu centrach w określonym regionie.
-
-Klienci, którzy chcą mieć swoje dane przechowywane w wielu regionach w celu uzyskania lepszej wydajności w różnych lokalizacje geograficzneach lub którzy chcą mieć odporność na awarie regionalne, powinny włączyć [replikację geograficzną](container-registry-geo-replication.md).
+Jeśli wystąpi awaria regionalna, dane rejestru mogą stać się niedostępne i nie są automatycznie odzyskiwane. Klienci, którzy chcą mieć swoje dane rejestru w wielu regionach w celu zapewnienia lepszej wydajności w różnych lokalizacje geograficzne lub którzy chcą odporności w przypadku awarii regionalnej, powinni włączyć [replikację geograficzną](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replikacja geograficzna
 
@@ -33,7 +31,7 @@ W przypadku scenariuszy wymagających zapewnienia wysokiej dostępności należy
 
 ## <a name="zone-redundancy"></a>Nadmiarowość stref
 
-Aby utworzyć odporny na błędy i wysoką dostępność rejestr kontenerów platformy Azure, opcjonalnie Włącz [nadmiarowość stref](zone-redundancy.md) w wybranych regionach platformy Azure. Funkcja warstwy Premium usługi, nadmiarowość stref korzysta ze [stref dostępności](../availability-zones/az-overview.md) platformy Azure w celu replikowania rejestru do co najmniej trzech oddzielnych stref w każdym z włączonych regionów. Połącz replikację geograficzną i nadmiarowość strefy, aby zwiększyć niezawodność i wydajność rejestru. 
+Aby pomóc utworzyć odporny na błędy i wysoką dostępność rejestr kontenerów platformy Azure, opcjonalnie Włącz [nadmiarowość stref](zone-redundancy.md) w wybranych regionach świadczenia usługi Azure. Funkcja warstwy Premium usługi, nadmiarowość stref korzysta ze [stref dostępności](../availability-zones/az-overview.md) platformy Azure w celu replikowania rejestru do co najmniej trzech oddzielnych stref w każdym z włączonych regionów. Połącz replikację geograficzną i nadmiarowość strefy, aby zwiększyć niezawodność i wydajność rejestru. 
 
 ## <a name="scalable-storage"></a>Skalowalny magazyn
 

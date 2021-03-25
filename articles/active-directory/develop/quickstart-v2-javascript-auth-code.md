@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224915"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022810"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania z PKCE 
 
@@ -25,7 +25,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demon
 
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
-Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. Aby skorzystać z podobnego przewodnika Szybki Start, który używa MSAL.js 1,0 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](./quickstart-v2-javascript.md).
+Ten przewodnik Szybki Start używa MSAL.js v2 z przepływem kodu autoryzacji. W przypadku podobnego przewodnika Szybki Start, który używa MSAL.js V1 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](./quickstart-v2-javascript.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

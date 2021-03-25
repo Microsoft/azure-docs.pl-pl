@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684597"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023932"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modify a virtual machine scale set (Modyfikowanie zestawu skalowania maszyn wirtualnych)
 
@@ -350,7 +350,7 @@ Niektóre właściwości można zmienić z wyjątkami w zależności od bieżąc
 
 - **singlePlacementGroup** — Jeśli singlePlacementGroup ma wartość true, może być modyfikowany na wartość false. Jeśli jednak singlePlacementGroup ma wartość false, **nie** można jej zmodyfikować na wartość true.
 - **podsieć** — podsieć zestawu skalowania może zostać zmodyfikowana, o ile oryginalna podsieć i Nowa podsieć znajdują się w tej samej sieci wirtualnej.
-- **imageReferenceSku** — jednostka SKU odwołująca się do obrazu może zostać zaktualizowana w przypadku potwierdzonych systemów [Linux dystrybucje](../virtual-machines/linux/endorsed-distros.md), Windows Server/Client images i obrazów bez [informacji o planie](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** — jednostka SKU odwołująca się do obrazu może zostać zaktualizowana w przypadku potwierdzonych systemów [Linux dystrybucje](../virtual-machines/linux/endorsed-distros.md), Windows Server/Client images i obrazów bez [informacji o planie](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Właściwości, które wymagają zmiany alokacji
 Niektóre właściwości można zmienić tylko na określone wartości, jeśli nie zostaną cofnięte alokacje maszyn wirtualnych w zestawie skalowania. Te właściwości obejmują:
@@ -417,7 +417,7 @@ Alternatywnie możesz chcieć zmienić obraz używany przez zestaw skalowania. N
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Aktualizowanie modułu równoważenia obciążenia dla zestawu skalowania
 Załóżmy, że masz zestaw skalowania z Azure Load Balancer i chcesz zamienić Azure Load Balancer na Application Gateway platformy Azure. Moduł równoważenia obciążenia i Application Gateway właściwości zestawu skalowania są częścią listy, dzięki czemu można użyć poleceń, aby usunąć lub dodać elementy listy zamiast bezpośrednio modyfikować właściwości:
 
-- Program Azure PowerShell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

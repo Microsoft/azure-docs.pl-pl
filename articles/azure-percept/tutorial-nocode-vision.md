@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608201"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023133"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Tworzenie rozwiązania "bez obsługi kodu" w usłudze Azure Percept Studio
 
@@ -106,7 +106,7 @@ Przed przeszkoleniem modelu Dodaj etykiety do obrazów.
 
 1. Po lewej stronie **Custom Vision** kliknij pozycję **nieoznakowane** w obszarze **Tagi** , aby wyświetlić obrazy, które zostały zebrane w poprzednim kroku. Wybierz co najmniej jeden nieoznakowany obraz.
 
-1. W oknie **szczegóły obrazu** kliknij obraz, aby rozpocząć tagowanie. Jeśli wybrano opcję wykrywanie obiektów jako typ projektu, należy również narysować [pole ograniczenia](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) wokół określonych obiektów, które mają być Tagi. Dostosuj pole ograniczenia zgodnie z wymaganiami. Wpisz tag obiektu i kliknij, **+** Aby zastosować tag. Jeśli na przykład tworzysz rozwiązanie do obsługi, które powiadomi Cię, gdy półka w sklepie wymaga odtworzenia, Dodaj tag "pusty półka" do obrazów pustych półek i Dodaj tag "pełen półka" do obrazów w pełni rozbudowy półek. Powtórz dla wszystkich obrazów nieoznakowanych.
+1. W oknie **szczegóły obrazu** kliknij obraz, aby rozpocząć tagowanie. Jeśli wybrano opcję wykrywanie obiektów jako typ projektu, należy również narysować [pole ograniczenia](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) wokół określonych obiektów, które mają być Tagi. Dostosuj pole ograniczenia zgodnie z wymaganiami. Wpisz tag obiektu i kliknij, **+** Aby zastosować tag. Jeśli na przykład tworzysz rozwiązanie do obsługi, które powiadomi Cię, gdy półka w sklepie wymaga odtworzenia, Dodaj tag "pusty półka" do obrazów pustych półek i Dodaj tag "pełen półka" do obrazów w pełni rozbudowy półek. Powtórz dla wszystkich obrazów nieoznakowanych.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Ekran tagowania obrazu w Custom Vision.":::
 
@@ -116,7 +116,7 @@ Przed przeszkoleniem modelu Dodaj etykiety do obrazów.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Wybór obrazu szkoleniowego z wyróżnionym przyciskiem uczenia.":::
 
-1. Po zakończeniu szkolenia na ekranie zostanie wyświetlona wydajność modelu. Więcej informacji o ocenie tych wyników można znaleźć w dokumentacji dotyczącej [oceny modelu](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector). Po przeprowadzeniu szkolenia możesz również [przetestować model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) na dodatkowych obrazach i ponownie pouczenie w razie potrzeby. Za każdym razem, gdy nauczysz model, zostanie on zapisany jako nowa iteracja. Więcej informacji o sposobach poprawy wydajności modelu można [znaleźć w dokumentacji Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) .
+1. Po zakończeniu szkolenia na ekranie zostanie wyświetlona wydajność modelu. Więcej informacji o ocenie tych wyników można znaleźć w dokumentacji dotyczącej [oceny modelu](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector). Po przeprowadzeniu szkolenia możesz również [przetestować model](../cognitive-services/custom-vision-service/test-your-model.md) na dodatkowych obrazach i ponownie pouczenie w razie potrzeby. Za każdym razem, gdy nauczysz model, zostanie on zapisany jako nowa iteracja. Więcej informacji o sposobach poprawy wydajności modelu można [znaleźć w dokumentacji Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) .
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Wyniki szkolenia modelu.":::
 
@@ -143,7 +143,7 @@ Po zamknięciu tego okna możesz wrócić i edytować projekt wizji w dowolnym m
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>Ulepszanie modelu przez skonfigurowanie ponownego szkolenia
 
-Po przeprowadzeniu szkolenia modelu i wdrożeniu go na urządzeniu można poprawić wydajność modelu przez skonfigurowanie parametrów ponownego uczenia w celu przechwycenia większej ilości danych szkoleniowych. Ta funkcja służy do ulepszania wydajności nauczonego modelu przez umożliwienie przechwytywania obrazów na podstawie zakresu prawdopodobieństwa. Na przykład można ustawić, aby urządzenie przechwycić tylko obrazy szkoleniowe, gdy prawdopodobieństwo jest niskie. Poniżej znajdują się [dodatkowe wskazówki](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) dotyczące dodawania większej liczby obrazów i równoważenia danych szkoleniowych.
+Po przeprowadzeniu szkolenia modelu i wdrożeniu go na urządzeniu można poprawić wydajność modelu przez skonfigurowanie parametrów ponownego uczenia w celu przechwycenia większej ilości danych szkoleniowych. Ta funkcja służy do ulepszania wydajności nauczonego modelu przez umożliwienie przechwytywania obrazów na podstawie zakresu prawdopodobieństwa. Na przykład można ustawić, aby urządzenie przechwycić tylko obrazy szkoleniowe, gdy prawdopodobieństwo jest niskie. Poniżej znajdują się [dodatkowe wskazówki](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) dotyczące dodawania większej liczby obrazów i równoważenia danych szkoleniowych.
 
 1. Aby skonfigurować ponowne szkolenie, Wróć do **projektu**, a następnie do **podsumowania projektu**
 1. Na karcie **Przechwytywanie obrazu** wybierz opcję **Automatyczne przechwytywanie obrazu** i **Skonfiguruj ponowne szkolenie**.

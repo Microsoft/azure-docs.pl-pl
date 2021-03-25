@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652100"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022946"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim
 
@@ -198,6 +198,7 @@ W [specyfikacji protokołu standard scim 2,0](http://www.simplecloud.info/#Speci
 |Filtr [excludedAttributes = Members](#get-group) podczas wykonywania zapytania o zasób grupy|sekcja 3.4.2.5|
 |Zaakceptuj pojedynczy token okaziciela na potrzeby uwierzytelniania i autoryzacji usługi AAD w aplikacji.||
 |Nietrwałe Usuwanie użytkownika `active=false` i przywracanie użytkownika `active=true`|Obiekt użytkownika powinien być zwracany w żądaniu niezależnie od tego, czy użytkownik jest aktywny. Jedynym czasem, gdy użytkownik nie powinien być zwracany, jest to, że jest on trwale usuwany z aplikacji.|
+|Obsługa punktu końcowego/schemas|[sekcja 7](https://tools.ietf.org/html/rfc7643#page-30) Punkt końcowy odnajdywania schematu zostanie użyty do odnalezienia dodatkowych atrybutów.|
 
 Podczas wdrażania punktu końcowego Standard scim w celu zapewnienia zgodności z usługą AAD należy użyć ogólnych wytycznych:
 
@@ -210,7 +211,12 @@ Podczas wdrażania punktu końcowego Standard scim w celu zapewnienia zgodności
 * W usłudze Microsoft AAD są wysyłane żądania pobrania losowego użytkownika i grupy, aby upewnić się, że punkt końcowy i poświadczenia są prawidłowe. Jest również wykonywana jako część przepływu **połączenia testowego** w [Azure Portal](https://portal.azure.com). 
 * Atrybut, w którym można wykonywać zapytania dotyczące zasobów, powinien być ustawiony jako pasujący atrybut w aplikacji w [Azure Portal](https://portal.azure.com), zobacz [Dostosowywanie mapowań atrybutów aprowizacji użytkowników](customize-application-attributes.md).
 * Obsługa protokołu HTTPS w punkcie końcowym Standard scim
-
+* [Odnajdywanie schematu](#schema-discovery)
+  * Funkcja odnajdywania schematu nie jest obecnie obsługiwana w aplikacji niestandardowej, ale jest używana w niektórych aplikacjach galerii. W przód funkcja odnajdywania schematu będzie używana jako podstawowa metoda dodawania dodatkowych atrybutów do łącznika. 
+  * Jeśli wartość nie jest obecna, nie wysyłaj wartości null.
+  * Wartości właściwości powinny być notacji CamelCase (np. readWrite).
+  * Musi zwracać odpowiedź na listę.
+  
 ### <a name="user-provisioning-and-deprovisioning"></a>Inicjowanie obsługi i cofanie aprowizacji użytkowników
 
 Na poniższej ilustracji przedstawiono komunikaty wysyłane przez usługę AAD do usługi Standard scim w celu zarządzania cyklem życia użytkownika w magazynie tożsamości aplikacji.  
@@ -252,6 +258,9 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
   - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ([żądanie żądania](#request-11)  /  [](#response-11))
   - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ([żądanie żądania](#request-12)  /  [](#response-12))
   - [Usuń grupę](#delete-group) ([](#request-13)  /  [odpowiedź](#response-13)na żądanie)
+
+[Odnajdywanie schematu](#schema-discovery)
+  - [Odnajdź schemat](#discover-schema) (odpowiedź na[żądanie](#request-15)  /  [](#response-15))
 
 ### <a name="user-operations"></a>Operacje użytkownika
 
@@ -749,6 +758,105 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ##### <a name="response"></a><a name="response-13"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
+
+### <a name="schema-discovery"></a>Odnajdywanie schematu
+#### <a name="discover-schema"></a>Odnajdź schemat
+
+##### <a name="request"></a><a name="request-15"></a>Żądanie
+*Pobierz/schemas* 
+##### <a name="response"></a><a name="response-15"></a>Reakcji
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },                
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name" : "Group",
+    "description" : "Group",
+    "attributes" : [
+      {
+        "name" : "displayName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "A human-readable name for the Group.
+REQUIRED.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "name" : "EnterpriseUser",
+    "description" : "Enterprise User",
+    "attributes" : [
+      {
+        "name" : "employeeNumber",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Numeric or alphanumeric identifier assigned
+to a person, typically based on order of hire or association with an
+organization.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+"/v2/Schemas/urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    }
+  }
+]
+}
+```
 
 ### <a name="security-requirements"></a>Wymagania dotyczące zabezpieczeń
 **Wersje protokołu TLS**

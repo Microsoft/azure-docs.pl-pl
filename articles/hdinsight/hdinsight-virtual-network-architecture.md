@@ -4,12 +4,12 @@ description: Informacje o zasobach dostępnych podczas tworzenia klastra usługi
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43640a9de91b6b44a236090ff029a49313ee0247
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931149"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871677"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architektura sieci wirtualnej usługi Azure HDInsight
 
@@ -43,7 +43,7 @@ Jeśli potrzebujesz tylko nazwy hosta, użyj tylko pierwszej części nazwy FQDN
 
 Na poniższym diagramie przedstawiono rozmieszczenie węzłów usługi HDInsight i zasobów sieciowych na platformie Azure.
 
-![Diagram obiektów usługi HDInsight utworzonych w niestandardowej sieci wirtualnej platformy Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagram obiektów usługi HDInsight utworzonych w niestandardowej sieci wirtualnej platformy Azure" border="false":::
 
 Domyślne zasoby na platformie Azure Virtual Network obejmują typy węzłów klastra wymienione w poprzedniej tabeli. I urządzeń sieciowych, które obsługują komunikację między siecią wirtualną i sieciami zewnętrznymi.
 
