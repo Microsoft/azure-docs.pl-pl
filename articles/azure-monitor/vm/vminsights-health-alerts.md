@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c4b15fa2a8be32aa7397ae425f28f1deaac6b71
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052266"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024612"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>Alerty dotyczące kondycji gościa usługi VM Insights (wersja zapoznawcza)
 Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. Alert można utworzyć, gdy maszyna wirtualna lub monitor zmieni stan w złej kondycji. Można wyświetlać te alerty i zarządzać nimi z [tymi utworzonymi przez reguły alertów w Azure monitor](../alerts/alerts-overview.md) i zdecydować się na ich aktywne powiadamianie o utworzeniu nowego alertu.
@@ -35,7 +35,7 @@ Dla każdej maszyny wirtualnej zostanie utworzony [alert platformy Azure](../ale
 Jeśli alert jest już w stanie **uruchomienia** , gdy stan maszyny wirtualnej ulegnie zmianie, drugi alert nie zostanie utworzony, ale ważność tego samego alertu zostanie zmieniona w celu dopasowania go do stanu maszyny wirtualnej. Na przykład jeśli maszyna wirtualna zmieni stan na **krytyczny** , jeśli alert **ostrzegawczy** był już w stanie **uruchomienia** , ważność tego alertu zostanie zmieniona na **Sev1**. Jeśli maszyna wirtualna zmieni stan na **ostrzegawczy** , gdy alert **Sev1** był już w stanie **uruchomienia** , ważność tego alertu zostanie zmieniona na **Sev2**. Jeśli maszyna wirtualna zostanie przeniesiona z powrotem do stanu **dobrej kondycji** , alert zostanie rozwiązany z ważnością zmieniono na **Sev4**.
 
 ## <a name="viewing-alerts"></a>Wyświetlanie alertów
-Wyświetlanie alertów utworzonych przez kondycję gościa usługi VM Insights z innymi [alertami w Azure Portal](../platform/alerts-overview.md#alerts-experience). Możesz wybrać **alerty** z menu **Azure monitor** , aby wyświetlić alerty dla wszystkich monitorowanych zasobów, lub wybrać **alerty** z menu maszyny wirtualnej, aby wyświetlić alerty dotyczące tylko tej maszyny wirtualnej.
+Wyświetlanie alertów utworzonych przez kondycję gościa usługi VM Insights z innymi [alertami w Azure Portal](../alerts/alerts-overview.md#alerts-experience). Możesz wybrać **alerty** z menu **Azure monitor** , aby wyświetlić alerty dla wszystkich monitorowanych zasobów, lub wybrać **alerty** z menu maszyny wirtualnej, aby wyświetlić alerty dotyczące tylko tej maszyny wirtualnej.
 
 ## <a name="alert-properties"></a>Właściwości alertu
 

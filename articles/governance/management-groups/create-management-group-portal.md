@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie grupy zarządzania przy użyciu portalu'
 description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów przy użyciu Azure Portal.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fa9b667079104fe9728ab41ecd87685c35de1b7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592436"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024724"
 ---
 # <a name="quickstart-create-a-management-group"></a>Szybki Start: Tworzenie grupy zarządzania
 
@@ -32,7 +32,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
 
 1. Wybierz pozycję **+ Dodaj grupę zarządzania**.
 
-   :::image type="content" source="./media/main.png" alt-text="Zrzut ekranu przedstawiający stronę grupy zarządzania z podrzędnymi grupami zarządzania i subskrypcjami." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Zrzut ekranu przedstawiający stronę grupy zarządzania z podrzędnymi grupami zarządzania i subskrypcjami.":::
 
 1. Pozostaw opcję **Utwórz nowe** i wypełnij pole Identyfikator grupy zarządzania.
 

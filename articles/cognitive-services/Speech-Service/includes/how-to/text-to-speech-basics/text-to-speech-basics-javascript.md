@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: bfaa9f649fd4d44e45b6d4a513e74e12e169c4f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95bc737f8a1b9b0a35b80ca2a80a7245ba407b18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719627"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105165"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -32,7 +32,7 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i zasób us
 Przed wykonaniem jakichkolwiek czynności konieczne będzie zainstalowanie <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">zestawu Speech SDK dla języka JavaScript </a>. W zależności od platformy należy wykonać następujące instrukcje:
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Przeglądarka sieci Web </a>
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Przeglądarka sieci Web </a>
 
 Ponadto, w zależności od środowiska docelowego, użyj jednego z następujących elementów:
 

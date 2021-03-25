@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e7b25315aaadffe7f34b28195c25b77a36fa5f8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705657"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872153"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
 
@@ -385,7 +385,7 @@ Tagi usług upraszczają zabezpieczenia maszyn wirtualnych platformy Azure i sie
 #### <a name="custom-ambari-db"></a>Niestandardowa baza danych Ambari
 Usługa HDInsight umożliwia teraz korzystanie z własnej bazy danych SQL dla platformy Apache Ambari. Tę niestandardową bazę danych Ambari można skonfigurować z poziomu Azure Portal lub Menedżer zasobów szablon.  Ta funkcja umożliwia wybranie odpowiedniej bazy danych SQL na potrzeby przetwarzania i pojemności. Możesz również łatwo uaktualnić, aby dopasować wymagania dotyczące rozwoju firmy. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastrów usługi HDInsight za pomocą niestandardowej bazy danych Ambari](hdinsight-custom-ambari-db.md).
 
-![Niestandardowa baza danych Ambari](./media/hdinsight-release-notes/custom-ambari-db.png)
+:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="Niestandardowa baza danych Ambari":::
 
 ### <a name="deprecation"></a>Przestarzałe
 Brak zaniecheń dla tej wersji. Aby przygotować się do nadchodzących przestarzałych, zobacz [nadchodzące zmiany](#upcoming-changes).

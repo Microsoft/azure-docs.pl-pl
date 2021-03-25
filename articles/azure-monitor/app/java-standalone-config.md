@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224660"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024170"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -122,6 +122,17 @@ Można również ustawić wartość procentową próbkowania przy użyciu zmienn
 > [!NOTE]
 > W polu procent próbkowania wybierz wartość procentową zbliżoną do 100/N, gdzie N jest liczbą całkowitą. Obecnie próbkowanie nie obsługuje innych wartości.
 
+## <a name="sampling-overrides-preview"></a>Przesłaniania próbek (wersja zapoznawcza)
+
+Ta funkcja jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3-BETA. 2.
+
+Przesłaniania próbek umożliwiają przesłonięcie [domyślnego procentu próbkowania](#sampling), na przykład:
+* Ustaw wartość procent próbkowania na 0 (lub niewielką wartość), aby sprawdzić kondycję.
+* Ustaw wartość procent próbkowania na 0 (lub niewielką wartość) dla wywołań zależności.
+* Ustaw wartość procentową próbkowania na 100 dla ważnego typu żądania (np.), mimo że `/login` domyślne próbkowanie jest skonfigurowane jako mniejsze.
+
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [zastąpień pobierania próbek](./java-standalone-sampling-overrides.md) .
+
 ## <a name="jmx-metrics"></a>Metryki JMX
 
 Jeśli chcesz zebrać pewne dodatkowe metryki JMX:
@@ -176,9 +187,13 @@ Ta funkcja jest dostępna w wersji zapoznawczej.
 Umożliwia konfigurowanie reguł, które będą stosowane do żądania, zależności i danych telemetrycznych śledzenia, na przykład:
  * Maskowanie danych poufnych
  * Warunkowe dodawanie wymiarów niestandardowych
- * Aktualizowanie nazwy telemetrii używanej do agregacji i wyświetlania
+ * Zaktualizuj nazwę zakresu, która jest używana do agregowania podobnej telemetrii w Azure Portal.
+ * Porzuć określone atrybuty zakresu, aby kontrolować koszty pozyskiwania.
 
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors.md) .
+
+> [!NOTE]
+> Jeśli chcesz porzucić konkretne (całkowite) zakresy kontroli kosztów pozyskiwania, zobacz [zastępowanie próbek](./java-standalone-sampling-overrides.md).
 
 ## <a name="auto-collected-logging"></a>Rejestrowanie z autozbieraniem
 

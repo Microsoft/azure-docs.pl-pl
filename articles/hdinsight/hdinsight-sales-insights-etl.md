@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932055"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872051"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Samouczek: Tworzenie kompleksowego potoku danych w celu uzyskania szczegółowych informacji o sprzedaży w usłudze Azure HDInsight
 
@@ -18,7 +18,7 @@ W tym samouczku utworzysz kompleksowy Potok danych, który wykonuje operacje wyo
 
 Ten potok danych łączy dane z różnych magazynów, usuwa wszelkie niechciane dane, dołącza nowe dane i ładuje je z powrotem do magazynu w celu wizualizacji szczegółowych informacji o firmie. Więcej informacji na temat potoków ETL można znaleźć w części [wyodrębnianie, przekształcanie i ładowanie (ETL) na dużą skalę](./hadoop/apache-hadoop-etl-at-scale.md).
 
-![Architektura ETL](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="Architektura ETL" border="false":::
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

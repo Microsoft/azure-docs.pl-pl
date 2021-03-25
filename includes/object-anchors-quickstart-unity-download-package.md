@@ -4,12 +4,12 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 02/18/2021
 ms.author: crtreasu
-ms.openlocfilehash: 4345810292896cf88de19baf419eee025ba5853f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ada83d6263ef033208200d810c53c5f045acc9a7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044791"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105070"
 ---
 Następnym krokiem jest pobranie pakietu zakotwiczenia obiektów platformy Azure dla aparatu Unity.
 
@@ -38,6 +38,6 @@ Pakiet kotwic obiektów platformy Azure zostanie pobrany do folderu, w którym u
 
 # <a name="install-with-mixed-reality-feature-tool-beta"></a>[Zainstaluj za pomocą narzędzia funkcji rzeczywistości mieszanej (beta)](#tab/unity-package-mixed-reality-feature-tool)
 
-Przejdź do następnego kroku. Będziesz używać <a a href="https://aka.ms/MRFeatureToolDocs" target="_blank">Narzędzia funkcji rzeczywistości mieszanej</a> w późniejszym kroku.
+Przejdź do następnego kroku. Będziesz używać <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Narzędzia funkcji rzeczywistości mieszanej</a> w późniejszym kroku.
 
 ---

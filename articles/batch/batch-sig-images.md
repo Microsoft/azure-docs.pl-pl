@@ -4,12 +4,12 @@ description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124248"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024068"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
@@ -67,7 +67,7 @@ Poniższe kroki pokazują, jak przygotować maszynę wirtualną, wykonać migawk
 Jeśli tworzysz nową maszynę wirtualną dla obrazu, Użyj obrazu z witryny Azure Marketplace w pierwszej kolejności jako obrazu podstawowego dla zarządzanego obrazu. Jako obrazu podstawowego można używać tylko obrazów pierwszej strony. Aby uzyskać pełną listę odwołań do obrazów w portalu Azure Marketplace obsługiwanych przez Azure Batch, zobacz część operacji [jednostek SKU agenta węzła listy](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
-> Nie można użyć obrazu innej firmy, który ma dodatkową licencję i warunki zakupu jako obraz podstawowy. Aby uzyskać informacje na temat tych obrazów z portalu Marketplace, zobacz Wskazówki dotyczące maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) lub [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) .
+> Nie można użyć obrazu innej firmy, który ma dodatkową licencję i warunki zakupu jako obraz podstawowy. Aby uzyskać informacje na temat tych obrazów z portalu Marketplace, zobacz Wskazówki dotyczące maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) lub [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 Postępuj zgodnie z poniższymi wskazówkami podczas tworzenia maszyn wirtualnych:
 
