@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180069"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104988242"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -62,11 +62,7 @@ Rozpoznawanie mowy z mikrofonu **nie jest obsługiwane w Node.js** i jest obsłu
 
 ## <a name="recognize-from-file"></a>Rozpoznaj z pliku 
 
-Aby rozpoznać mowę z pliku audio w Node.js, należy użyć alternatywnego wzorca projektowego używającego strumienia wypychania, ponieważ obiektu JavaScript `File` nie można używać w środowisku uruchomieniowym Node.js. Następujący kod:
-
-* Tworzy strumień wypychania przy użyciu `createPushStream()`
-* Otwiera `.wav` plik przez utworzenie strumienia odczytu i zapisanie go w strumieniu wypychania
-* Tworzy konfigurację audio przy użyciu strumienia wypychania
+Aby rozpoznać mowę z pliku audio, należy utworzyć `AudioConfig` użycie, `fromWavFileInput()` które akceptuje `Buffer` obiekt. Następnie zainicjuj [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) , przekazując `audioConfig` i `speechConfig` .
 
 ```javascript
 const fs = require('fs');
@@ -74,6 +70,31 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+## <a name="recognize-from-in-memory-stream"></a>Rozpoznawanie z strumienia w pamięci
+
+W przypadku wielu przypadków użycia prawdopodobnie dane audio będą pochodzić z magazynu obiektów blob lub w przeciwnym razie jest już w pamięci jako [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) lub podobnej strukturze danych pierwotnych. Następujący kod:
+
+* Tworzy strumień wypychania przy użyciu `createPushStream()` .
+* Odczytuje `.wav` plik przy użyciu w `fs.createReadStream` celach demonstracyjnych, ale jeśli masz już dane audio, możesz `ArrayBuffer` przejść bezpośrednio do zapisywania zawartości w strumieniu wejściowym.
+* Tworzy konfigurację audio przy użyciu strumienia wypychania.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+
+function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
 
     fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
@@ -89,7 +110,7 @@ function fromFile() {
         recognizer.close();
     });
 }
-fromFile();
+fromStream();
 ```
 
 Użycie strumienia wypychania jako danych wejściowych zakłada, że dane audio to nieprzetworzony moduł PCM, np. pomijanie wszystkich nagłówków.

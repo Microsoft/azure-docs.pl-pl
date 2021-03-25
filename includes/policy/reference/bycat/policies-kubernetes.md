@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c57db8f55eb831f2da1b839c4dc5d4a7287ac6b6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b2b9bad685bc26b0da4ba6eabe0785b112ff0a20
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605557"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105033358"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[\[Wersja zapoznawcza \] : klastry Kubernetes z obsługą usługi Azure Arc powinny mieć zainstalowane rozszerzenie usługi Azure Defender](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Rozszerzenie usługi Azure Defender dla usługi Azure Arc zapewnia ochronę przed zagrożeniami dla klastrów Kubernetes z włączonym łukiem. Rozszerzenie zbiera dane ze wszystkich węzłów płaszczyzny kontroli (Master) w klastrze i wysyła je do usługi Azure Defender for Kubernetes zaplecza w chmurze w celu dalszej analizy. Dowiedz się więcej w temacie [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc) . |AuditIfNotExists, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ASC_Audit_Azure_Defender_Kubernetes_Arc_Extension.json) |
 |[Prywatne klastry usługi Azure Kubernetes powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F040732e8-d947-40b8-95d6-854c95024bf8) |Włącz funkcję klastra prywatnego dla klastra usługi Azure Kubernetes Service, aby zapewnić ruch sieciowy między serwerem interfejsu API i pulami węzłów pozostały tylko w sieci prywatnej. Jest to typowy wymóg w wielu prawnych i branżowych standardach zgodności. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_PrivateCluster_Deny.json) |
 |[Dodatek Azure Policy dla usługi Kubernetes Service (AKS) powinien być zainstalowany i włączony w klastrach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |Dodatek Azure Policy dla usługi Kubernetes Service (AKS) rozszerza strażnik v3, element webhook kontrolera usługi Admission Control dla programu Open Policy Agent (NIEPRZEZ), aby stosować zasady wymuszania i zabezpieczenia w klastrach w scentralizowany, spójny sposób. |Inspekcja, wyłączona |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
 |[Systemy operacyjne i dyski danych w klastrach usługi Azure Kubernetes powinny być szyfrowane przez klucze zarządzane przez klienta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d7be79c-23ba-4033-84dd-45e2a5ccdd67) |Szyfrowanie dysków systemu operacyjnego i danych przy użyciu kluczy zarządzanych przez klienta zapewnia większą kontrolę i większą elastyczność zarządzania kluczami. Jest to typowy wymóg w wielu prawnych i branżowych standardach zgodności. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_CMK_Deny.json) |

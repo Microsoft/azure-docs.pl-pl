@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 28813a23b91f75f88e844b9e6b36d6ba0771569a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487874"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048089"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Szybki Start: Dodawanie 1:1 wideo dla aplikacji (JavaScript)
 
@@ -23,8 +23,8 @@ Znajdź końcowy kod dla tego przewodnika Szybki Start w witrynie [GitHub](https
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Uzyskaj konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Aktywne wersje LTS LTS i Maintenance (8.11.1 i 10.14.1)
-- Utwórz zasób aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
-- Utwórz token dostępu użytkownika, aby utworzyć wystąpienie klienta wywołania. [Dowiedz się, jak tworzyć tokeny dostępu użytkowników i zarządzać nimi](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp).
+- Utwórz zasób aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- Utwórz token dostępu użytkownika, aby utworzyć wystąpienie klienta wywołania. [Dowiedz się, jak tworzyć tokeny dostępu użytkowników i zarządzać nimi](../access-tokens.md?pivots=programming-language-csharp).
 
 ## <a name="setting-up"></a>Konfigurowanie
 ### <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
@@ -330,10 +330,10 @@ Wychodzące połączenie wideo 1:1 można wykonać, podając identyfikator użyt
 Przykładową aplikację można pobrać z witryny [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
+Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
-- Zapoznaj się z naszym [przykładem wywoływania sieci Web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Informacje o [wywoływaniu możliwości biblioteki klienta](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Dowiedz się więcej o [sposobie wywoływania programu](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+- Zapoznaj się z naszym [przykładem wywoływania sieci Web](../../samples/web-calling-sample.md)
+- Informacje o [wywoływaniu możliwości biblioteki klienta](./calling-client-samples.md?pivots=platform-web)
+- Dowiedz się więcej o [sposobie wywoływania programu](../../concepts/voice-video-calling/about-call-types.md)

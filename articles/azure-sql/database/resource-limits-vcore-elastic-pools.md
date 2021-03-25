@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/22/2021
-ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/23/2021
+ms.openlocfilehash: 22653b54e53e181d27c8abe966acb91cb8c84214
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737561"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023859"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -182,7 +182,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1536|
 |Maksymalny rozmiar dziennika (GB)|336|336|336|336|512|
-|Maksymalny rozmiar danych TempDB (GB)|333|333|333|333|333|
+|Maksymalny rozmiar danych TempDB (GB)|37|46|56|65|74|
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|2560|3200|3840|4480|5120|
@@ -215,7 +215,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|1536|1536|1536|3072|3072|4096|
 |Maksymalny rozmiar dziennika (GB)|512|512|512|1024|1024|1024|
-|Maksymalny rozmiar danych TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Maksymalny rozmiar danych TempDB (GB)|83|93|111|148|167|333|
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|5760|6400|7680|10240|11520|12800|

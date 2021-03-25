@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 13aa12be5a336363bbe3bcbf3e3fb354a8fa3074
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102617407"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048480"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Zrozumienie klasy AnchorLocateCriteria
 W tym artykule opisano różne opcje, których można użyć podczas wykonywania zapytania o kotwicę. Przejdziemy do klasy AnchorLocateCriteria, jej opcji i prawidłowych kombinacji opcji.
 
 ## <a name="anchor-locate-criteria"></a>Kryteria lokalizowania kotwicy
-[Klasa AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) ułatwia wykonywanie zapytań do usługi dla wcześniej utworzonych kotwic. Jeden obiekt AnchorLocateCriteria może być używany dla każdego obserwatora w dowolnym momencie. Każdy obiekt AnchorLocateCriteria musi zawierać **dokładnie jedną** z następujących właściwości: [Identifiers](#identifiers), [NearAnchor](#nearanchor)lub [NearDevice](#neardevice). W razie potrzeby można ustawić dodatkowe właściwości, takie jak [strategia](#strategy), [BypassCache](#bypasscache)i [RequestedCategories](#requestedcategories) . 
+[Klasa AnchorLocateCriteria](/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) ułatwia wykonywanie zapytań do usługi dla wcześniej utworzonych kotwic. Jeden obiekt AnchorLocateCriteria może być używany dla każdego obserwatora w dowolnym momencie. Każdy obiekt AnchorLocateCriteria musi zawierać **dokładnie jedną** z następujących właściwości: [Identifiers](#identifiers), [NearAnchor](#nearanchor)lub [NearDevice](#neardevice). W razie potrzeby można ustawić dodatkowe właściwości, takie jak [strategia](#strategy), [BypassCache](#bypasscache)i [RequestedCategories](#requestedcategories) . 
 
 ### <a name="properties"></a>Właściwości
 Zdefiniuj **dokładnie jedną** z następujących właściwości w monitorze:
@@ -37,7 +37,7 @@ Ta właściwość jest określana za pomocą obiektu NearAnchorCriteria.
 #### <a name="neardevice"></a>NearDevice
 *Wartość domyślna: nie ustawiono*
 
-Za pomocą NearDevice można określić, że AnchorLocateCriteria ogranicza zestaw żądanych kotwic do tych blisko fizycznej lokalizacji urządzenia. Wszystkie włączone czujniki zostaną użyte w celu ułatwienia wykrycia zakotwiczenia na urządzeniu. Aby zapewnić najlepszą szansę znajdowania kotwic, należy skonfigurować SensorCapabilities, aby zapewnić sesji dostęp do wszystkich odpowiednich czujników. Aby uzyskać więcej informacji na temat konfigurowania i używania tej właściwości, zobacz [niestandardowa relokalizacja — kotwice przestrzenne platformy Azure | Microsoft docs](https://docs.microsoft.com/azure/spatial-anchors/concepts/coarse-reloc) i *sposób tworzenia i lokalizowania kotwic przy użyciu bardzo dużej lokalizacji* w [językach C#](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [obiektyw-C](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [SWIFT](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-swift), [Java](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-java), [c++/NDK](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-ndk)i [c++/WinRT](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-winrt).
+Za pomocą NearDevice można określić, że AnchorLocateCriteria ogranicza zestaw żądanych kotwic do tych blisko fizycznej lokalizacji urządzenia. Wszystkie włączone czujniki zostaną użyte w celu ułatwienia wykrycia zakotwiczenia na urządzeniu. Aby zapewnić najlepszą szansę znajdowania kotwic, należy skonfigurować SensorCapabilities, aby zapewnić sesji dostęp do wszystkich odpowiednich czujników. Aby uzyskać więcej informacji na temat konfigurowania i używania tej właściwości, zobacz [niestandardowa relokalizacja — kotwice przestrzenne platformy Azure | Microsoft docs](./coarse-reloc.md) i *sposób tworzenia i lokalizowania kotwic przy użyciu bardzo dużej lokalizacji* w [językach C#](../how-tos/set-up-coarse-reloc-unity.md), [obiektyw-C](../how-tos/set-up-coarse-reloc-unity.md), [SWIFT](../how-tos/set-up-coarse-reloc-swift.md), [Java](../how-tos/set-up-coarse-reloc-java.md), [c++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)i [c++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md).
 Ta właściwość jest określana za pomocą obiektu NearDeviceCriteria.
 
 ### <a name="additional-properties"></a>Dodatkowe właściwości
@@ -66,7 +66,7 @@ Wartość wyliczenia LocateStrategy | Opis
 ---------------|------------
 AnyStrategy | Ta strategia umożliwia systemowi używanie kombinacji VisualInformation i strategii relacji do znajdowania kotwic. 
 VisualInformation|Ta strategia próbuje znaleźć kotwice poprzez dopasowanie informacji wizualnych z bieżącego otoczenia do elementów wizualizacji zakotwiczenia. Wizualizacja zakotwiczenia odwołuje się do informacji wizualnych aktualnie skojarzonych z zakotwiczeniem. Te informacje wizualne są zwykle, ale nie są zbierane wyłącznie podczas tworzenia kotwicy. Obecnie ta strategia jest dozwolona tylko w połączeniu z właściwościami NearDevice lub identyfikatorami.
-Relacja|Ta strategia próbuje znaleźć kotwice, wykorzystując istniejące [połączone kotwice](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors). Obecnie ta strategia jest dozwolona tylko w połączeniu z właściwościami NearAnchor lub identyfikatorami. Gdy jest używany z właściwością identyfikatory, jest wymagane, aby w tej samej sesji użytkownik miał wcześniej zlokalizowane kotwice, które mają już ustanowione relacje łączące z kotwicami, których identyfikatory zostały określone w tablicy identyfikatorów. 
+Relacja|Ta strategia próbuje znaleźć kotwice, wykorzystując istniejące [połączone kotwice](./anchor-relationships-way-finding.md#connect-anchors). Obecnie ta strategia jest dozwolona tylko w połączeniu z właściwościami NearAnchor lub identyfikatorami. Gdy jest używany z właściwością identyfikatory, jest wymagane, aby w tej samej sesji użytkownik miał wcześniej zlokalizowane kotwice, które mają już ustanowione relacje łączące z kotwicami, których identyfikatory zostały określone w tablicy identyfikatorów. 
 
 
 ### <a name="valid-combinations-of-locatestrategy-and-anchorlocatecriteria-properties"></a>Prawidłowe kombinacje właściwości LocateStrategy i AnchorLocateCriteria 
@@ -86,4 +86,4 @@ NearDevice  | &check;    |   | &check;
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [jak utworzyć i zlokalizować kotwice przy użyciu kotwic przestrzennych platformy Azure](https://docs.microsoft.com/azure/spatial-anchors/create-locate-anchors-overview) , aby uzyskać więcej przykładów przy użyciu klasy AnchorLocateCriteria.
+Zobacz [jak utworzyć i zlokalizować kotwice przy użyciu kotwic przestrzennych platformy Azure](../create-locate-anchors-overview.md) , aby uzyskać więcej przykładów przy użyciu klasy AnchorLocateCriteria.

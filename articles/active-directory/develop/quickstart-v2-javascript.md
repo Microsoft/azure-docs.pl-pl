@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: cf5b24bb55f278d9d33916d2d54d3ee5a169c3e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8e35342bd704f662d41f676f58e2cc14b54f29a8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224405"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023388"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -112,7 +112,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > - `Enter_the_Application_Id_Here` to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
 >
 >    Aby znaleźć wartość **identyfikatora aplikacji (klienta)**, przejdź do strony **przegląd** aplikacji w Azure Portal.
-> - `Enter_the_Cloud_Instance_Id_Here` jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź `https://login.microsoftonline.com` . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).
+> - `Enter_the_Cloud_Instance_Id_Here` jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź `https://login.microsoftonline.com/` . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` jest ustawiona na jedną z następujących opcji:
 >    - Jeśli aplikacja obsługuje *konta w tym katalogu organizacyjnym*, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład `contoso.microsoft.com` ).
 >
@@ -121,7 +121,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 >    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` . Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość wartością `consumers` .
 >
 >    Aby znaleźć wartość **obsługiwanych typów kont**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal.
->
+> - `Enter_the_Redirect_Uri_Here` to `http://localhost:3000/`.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
@@ -147,7 +147,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > [!div renderon="docs"]
 >
 > Gdzie:
-> - *\<Enter_the_Graph_Endpoint_Here>* jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API głównej lub globalnej Microsoft Graph, wystarczy wprowadzić polecenie `https://graph.microsoft.com` . Aby uzyskać więcej informacji, zobacz [wdrażanie w chmurze krajowej](/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API głównej lub globalnej Microsoft Graph, wystarczy wprowadzić polecenie `https://graph.microsoft.com/` . Aby uzyskać więcej informacji, zobacz [wdrażanie w chmurze krajowej](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Krok 4. uruchamianie projektu
 
@@ -177,8 +177,8 @@ Biblioteka MSAL rejestruje użytkowników i żąda tokenów, które są używane
 ```html
 <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
 ```
-> [!TIP]
-> Można zastąpić poprzednią wersję najnowszą wersją wydaną w obszarze [MSAL.js wersje](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+
+Można zastąpić poprzednią wersję najnowszą wersją wydaną w obszarze [MSAL.js wersje](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 Alternatywnie, jeśli zainstalowano Node.js, możesz pobrać najnowszą wersję za pomocą Menedżera pakietów Node.js (npm):
 
@@ -207,13 +207,13 @@ Kod szybkiego startu pokazuje również, jak zainicjować bibliotekę MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Lokalizacja  | Opis |
-> |---------|---------|
-> |`clientId`     | Identyfikator aplikacji, która jest zarejestrowana w Azure Portal.|
-> |`authority`    | Obowiązkowe Adres URL urzędu obsługujący typy kont, zgodnie z opisem wcześniej w sekcji konfiguracji. Domyślny urząd to `https://login.microsoftonline.com/common` . |
-> |`redirectUri`     | Skonfigurowana odpowiedź/redirectUri rejestracji aplikacji. W takim przypadku `http://localhost:3000/` . |
-> |`cacheLocation`  | Obowiązkowe Ustawia magazyn przeglądarki dla stanu uwierzytelniania. Wartość domyślna to sessionStorage.   |
-> |`storeAuthStateInCookie`  | Obowiązkowe Biblioteka, w której jest przechowywany stan żądania uwierzytelniania, który jest wymagany do weryfikacji przepływów uwierzytelniania w plikach cookie w przeglądarce. Ten plik cookie jest ustawiany dla przeglądarki IE i programu Edge, aby wyeliminować pewne [znane problemy](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
+|Lokalizacja  | Opis |
+|---------|---------|
+|`clientId`     | Identyfikator aplikacji, która jest zarejestrowana w Azure Portal.|
+|`authority`    | Obowiązkowe Adres URL urzędu obsługujący typy kont, zgodnie z opisem wcześniej w sekcji konfiguracji. Domyślny urząd to `https://login.microsoftonline.com/common` . |
+|`redirectUri`     | Skonfigurowana odpowiedź/redirectUri rejestracji aplikacji. W takim przypadku `http://localhost:3000/` . |
+|`cacheLocation`  | Obowiązkowe Ustawia magazyn przeglądarki dla stanu uwierzytelniania. Wartość domyślna to sessionStorage.   |
+|`storeAuthStateInCookie`  | Obowiązkowe Biblioteka, w której jest przechowywany stan żądania uwierzytelniania, który jest wymagany do weryfikacji przepływów uwierzytelniania w plikach cookie w przeglądarce. Ten plik cookie jest ustawiany dla przeglądarki IE i programu Edge, aby wyeliminować pewne [znane problemy](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
 Aby uzyskać więcej informacji na temat dostępnych opcji konfigurowalnych, zobacz [Inicjowanie aplikacji klienckich](msal-js-initializing-client-applications.md).
 
@@ -235,12 +235,11 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Lokalizacja  | Opis |
-> |---------|---------|
-> | `scopes`   | Obowiązkowe Zawiera zakresy, które są wymagane do wyrażania zgody użytkownika w czasie logowania. Na przykład `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ). |
+|Lokalizacja  | Opis |
+|---------|---------|
+| `scopes`   | Obowiązkowe Zawiera zakresy, które są wymagane do wyrażania zgody użytkownika w czasie logowania. Na przykład `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ). |
 
-> [!TIP]
-> Alternatywnie możesz chcieć użyć `loginRedirect` metody, aby przekierować bieżącą stronę do strony logowania zamiast okna podręcznego.
+Alternatywnie możesz chcieć użyć `loginRedirect` metody, aby przekierować bieżącą stronę do strony logowania zamiast okna podręcznego.
 
 ### <a name="request-tokens"></a>Żądanie tokenów
 
@@ -265,9 +264,9 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Lokalizacja  | Opis |
-> |---------|---------|
-> | `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład `[ "mail.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ).|
+|Lokalizacja  | Opis |
+|---------|---------|
+| `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład `[ "mail.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ).|
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
