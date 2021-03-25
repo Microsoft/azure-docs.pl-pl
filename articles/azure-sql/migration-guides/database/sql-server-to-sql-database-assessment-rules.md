@@ -1,5 +1,5 @@
 ---
-title: Reguły oceny dla SQL Server migracji SQL Database
+title: Reguły oceny dla SQL Server migracji Azure SQL Database
 description: Reguły oceny umożliwiające zidentyfikowanie problemów z wystąpieniem źródłowego SQL Server, które należy rozwiązać, aby przeprowadzić migrację do Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c407b62b5f0308fbb6d9ff7223a3554ca09592db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054733"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027214"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>Reguły oceny dla SQL Server migracji SQL Database
+# <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Reguły oceny dla SQL Server migracji Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Narzędzia migracji sprawdzają poprawność wystąpienia SQL Server źródłowego, uruchamiając kilka reguł oceny, aby identyfikować problemy, które należy rozwiązać przed migracją bazy danych SQL Server do Azure SQL Database. 
