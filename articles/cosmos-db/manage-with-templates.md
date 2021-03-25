@@ -5,16 +5,17 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/24/2021
 ms.author: mjbrown
-ms.openlocfilehash: 32c79360606a67cc7e85a43a226bb34c105d5b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd70e196180c68d6a498d147493411e6d1703e59
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93333396"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034048"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB Core (SQL) za pomocą szablonów usługi Azure Resource Manager
+
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule dowiesz się, jak używać szablonów Azure Resource Manager, aby ułatwić wdrażanie kont Azure Cosmos DB, baz danych i kontenerów oraz zarządzanie nimi.
@@ -69,6 +70,16 @@ Ten szablon służy do tworzenia konta usługi Azure Cosmos, bazy danych i konte
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-container-sprocs%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
+
+<a id="create-rbac"></a>
+
+## <a name="azure-cosmos-db-account-with-azure-ad-and-rbac"></a>Konto Azure Cosmos DB w usłudze Azure AD i RBAC
+
+Ten szablon spowoduje utworzenie konta usługi SQL Cosmos, natywnie utrzymywanej definicji roli oraz natywnie utrzymywanego przypisania roli dla tożsamości usługi AAD. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-rbac%2Fazuredeploy.json)
+
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-rbac/azuredeploy.json":::
 
 <a id="free-tier"></a>
 

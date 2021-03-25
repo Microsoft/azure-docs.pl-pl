@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87323506"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024748"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Rozwiązywanie problemów z narzędziami analizy zachowania użytkownika w Application Insights
 Masz pytania dotyczące [narzędzi analitycznych zachowania użytkownika w Application Insights](usage-overview.md): [Użytkownicy, sesje, zdarzenia](usage-segmentation.md), [Lejki](usage-funnels.md), [przepływy użytkownika](usage-flows.md), [przechowywanie](usage-retention.md)lub kohorty? Oto kilka odpowiedzi.
@@ -23,7 +23,7 @@ Wszystkie zdarzenia telemetrii w Application Insights mają [Identyfikator użyt
 
 W przypadku monitorowania aplikacji sieci Web najprostszym rozwiązaniem jest dodanie [Application Insights zestawu SDK języka JavaScript](./javascript.md) do aplikacji i upewnienie się, że fragment skryptu jest ładowany na każdej stronie, która ma być monitorowana. Zestaw JavaScript SDK automatycznie generuje anonimowe identyfikatory użytkowników i sesji, a następnie wypełnia zdarzenia telemetrii tymi identyfikatorami, gdy są wysyłane z aplikacji.
 
-Jeśli monitorowana jest usługa sieci Web (bez interfejsu użytkownika), należy [utworzyć inicjatora telemetrii, który wypełnia właściwości identyfikator użytkownika anonimowego i identyfikator sesji](usage-send-user-context.md) zgodnie z pojęciem unikatowych użytkowników i sesji.
+Jeśli monitorowana jest usługa sieci Web (bez interfejsu użytkownika), należy [utworzyć inicjatora telemetrii, który wypełnia właściwości identyfikator użytkownika anonimowego i identyfikator sesji](./usage-overview.md) zgodnie z pojęciem unikatowych użytkowników i sesji.
 
 Jeśli aplikacja wysyła [uwierzytelnione identyfikatory użytkowników](./api-custom-events-metrics.md#authenticated-users), możesz policzyć na podstawie identyfikatorów użytkowników uwierzytelnionych w narzędziu użytkownicy. Na liście rozwijanej "Pokaż" Wybierz pozycję "Użytkownicy uwierzytelnieni".
 
@@ -50,4 +50,3 @@ Jeśli aplikacja wysyła zbyt wiele nazw zdarzeń niestandardowych, należy zmie
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

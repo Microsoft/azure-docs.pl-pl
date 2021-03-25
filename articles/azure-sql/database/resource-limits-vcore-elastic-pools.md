@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/23/2021
-ms.openlocfilehash: 22653b54e53e181d27c8abe966acb91cb8c84214
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023859"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107860"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|2800|3200|3600|4000|6400|9600|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|42|48|48|48|48|48|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|42|48|54|60|62,5|62,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Maksymalna liczba współbieżnych logowań w puli (żądania) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -120,7 +120,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|12|24|36|48|48|48|48|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|12|24|36|48|60|62,5|62,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -152,7 +152,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup> |6 400|7 200|8000|9600|12 800|16 000|16 000|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|48|48|48|48|48|48|48|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|62,5|62,5|62,5|62,5|62,5|62,5|62,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -186,7 +186,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|2560|3200|3840|4480|5120|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|48|48|48|48|48|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|48|60|62,5|62,5|62,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|400|500|600|700|800|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|800|1000|1200|1400|1600|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
@@ -195,7 +195,6 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
-
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
 
@@ -219,7 +218,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|5760|6400|7680|10240|11520|12800|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|48|48|48|48|48|48|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|62,5|62,5|62,5|62,5|62,5|62,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -234,7 +233,6 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 <sup>2</sup> maksymalna wartość dla wielkości we/wy z zakresu od 8 kb do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
 
 <sup>3</sup> w przypadku maksymalnych współbieżnych procesów roboczych (żądań) dla każdej pojedynczej bazy danych zobacz [limity zasobów pojedynczej bazy danych](resource-limits-vcore-single-databases.md). Na przykład, jeśli Pula elastyczna korzysta z 5 rdzeń, a maksymalna rdzeń wirtualny na bazę danych jest ustawiona na 2, wartość maksymalna liczba współbieżnych procesów roboczych to 200.  Jeśli wartość maksymalna rdzeń wirtualny na bazę danych jest równa 0,5, Maksymalna liczba współbieżnych procesów roboczych wynosi 50, ponieważ na 5 rdzeń istnieje maksymalnie 100 współbieżnych procesów roboczych na rdzeń wirtualny. W przypadku innych maksymalnych ustawień rdzeń wirtualny dla bazy danych, które mają mniej niż 1 rdzeń wirtualny lub mniej, Maksymalna liczba współbieżnych procesów roboczych jest w podobnym stopniu skalowana.
-
 
 ## <a name="general-purpose---provisioned-compute---dc-series"></a>Przeznaczenie ogólne — obsługa administracyjna — Seria DC
 
@@ -252,7 +250,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|800|1600|2400|3200|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|9,4|18,8|28,1|32,8|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|12|24|36|48|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|168|336|504|672|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|168|336|504|672|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
@@ -446,12 +444,12 @@ Jeśli wszystkie rdzeni wirtualnych puli elastycznej są zajęte, każda baza da
 |Generowanie obliczeń|Seria M|Seria M|Seria M|Seria M|Seria M|
 |Rdzeni wirtualnych|20|24|32|64|128|
 |Pamięć (GB)|588,6|706,3|941,8|1883,5|3767,0|
-|Maksymalna liczba baz danych na pulę <sup>1</sup>|100|100|100|100|100|100|
+|Maksymalna liczba baz danych na pulę <sup>1</sup>|100|100|100|100|100|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|172|216|304|704|1768|
 |Maksymalny rozmiar danych (GB)|1280|1536|2048|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|427|512|683|1024|1024|
-|Maksymalny rozmiar danych TempDB (GB)|4096|2048|1024|768|640|
+|Maksymalny rozmiar danych TempDB (GB)|640|768|1024|2048|4096|
 |Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|31 248|37 497|49 996|99 993|160 000|

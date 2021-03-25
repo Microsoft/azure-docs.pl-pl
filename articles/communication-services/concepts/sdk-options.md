@@ -1,7 +1,7 @@
 ---
 title: Biblioteki klienckie i interfejsy API REST dla usług Azure Communications Services
 titleSuffix: An Azure Communication Services concept document
-description: Dowiedz się więcej na temat bibliotek klienckich usług Azure Communication Services i interfejsów API REST.
+description: Dowiedz się więcej na temat zestawów SDK usług Azure Communication Services i interfejsów API REST.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,37 +9,37 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 01a5f4a947f0b89b5881eddb3c743b9a9b184b19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: effd7658bbfe7359e1f99f9452857824c2c45c2f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495644"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107894"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Biblioteki klienta i interfejsy API REST
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane w sześć obszarów. Niektóre obszary mają w pełni otwarte biblioteki klienta. Biblioteka klienta wywołującego używa własnościowych interfejsów sieciowych i jest aktualnie ZAMKNIĘTA — źródło, a Biblioteka rozmów zawiera zależność zamkniętego źródła. Przykłady i dodatkowe szczegóły techniczne dotyczące bibliotek klienckich są publikowane w [repozytorium GitHub usług Azure Communication Services](https://github.com/Azure/communication).
+Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane w sześć obszarów. Niektóre obszary mają w pełni otwarte zestawy SDK. Zestaw SDK wywoływania używa własnościowych interfejsów sieciowych i jest obecnie zamknięty — źródło, a Biblioteka rozmów zawiera zależność zamkniętego źródła. Przykłady i dodatkowe szczegóły techniczne dotyczące zestawów SDK są publikowane w [repozytorium GitHub usługi Azure Communication Services](https://github.com/Azure/communication).
 
 ## <a name="client-libraries"></a>Biblioteki klienta
 
 | Zestaw               | Protokoły             |Otwórz a źródło zamknięte| Przestrzenie nazw                          | Możliwości                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Otwórz            | Azure. ResourceManager. Komunikacja | Udostępnianie zasobów usług komunikacyjnych i zarządzanie nimi             |
-| Wspólne                 | REST | Otwórz               | Azure. Communications. Common          | Udostępnia typy podstawowe dla innych bibliotek klienta |
+| Wspólne                 | REST | Otwórz               | Azure. Communications. Common          | Udostępnia typy podstawowe dla innych zestawów SDK |
 | Tożsamość         | REST | Otwórz               | Azure. Communications. Identity  | Zarządzanie użytkownikami, tokenami dostępu |
 | Numery telefonów         | REST | Otwórz               | Azure. Communications. unports  | Zarządzanie numerami telefonów |
 | Czat                   | Zastąp zastrzeżonym sygnalizowaniem | Otwórz z zamknąłm pakietem sygnalizującym Źródło    | Azure. Communications. Chat            | Dodawanie rozmowy na podstawie tekstu w czasie rzeczywistym do aplikacji  |
 | SMS                    | REST | Otwórz              | Azure. Communications. SMS             | Wysyłanie i odbieranie wiadomości SMS |
 | Rozmów                | Transport własnościowy | Zamknięty |Azure. komunikacja. wywoływanie         | Wykorzystywanie głosu, wideo, udostępniania ekranu i innych możliwości komunikacji danych w czasie rzeczywistym          |
 
-Należy pamiętać, że biblioteki klienta Azure Resource Manager, tożsamości i programu SMS koncentrują się na integracji usługi, a w wielu przypadkach występują problemy z bezpieczeństwem w przypadku integrowania tych funkcji w aplikacjach użytkowników końcowych. Popularne biblioteki klienta i rozmowy są odpowiednie dla aplikacji usługi i klienta. Biblioteka klienta wywołującego jest przeznaczona dla aplikacji klienckich. Biblioteka klienta ukierunkowana na scenariusze usług jest w trakcie opracowywania.
+Należy pamiętać, że zestawy SDK Azure Resource Manager, tożsamości i SMS koncentrują się na integracji usługi, a w wielu przypadkach występują problemy z bezpieczeństwem w przypadku integrowania tych funkcji w aplikacjach użytkowników końcowych. Zestawy SDK Common and Chat są odpowiednie dla aplikacji usług i klienta. Zestaw SDK wywoływania jest przeznaczony dla aplikacji klienckich. Zestaw SDK skoncentrowany na scenariuszach usług jest w trakcie opracowywania.
 
 ### <a name="languages-and-publishing-locations"></a>Języki i lokalizacje publikowania
 
-Poniżej przedstawiono szczegółowo lokalizacje publikowania poszczególnych pakietów biblioteki klienta.
+Lokalizacje publikowania poszczególnych pakietów SDK są szczegółowo opisane poniżej.
 
 | Warstwowy           | JavaScript | .NET | Python | Java SE | iOS | Android | Inne                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -60,8 +60,8 @@ Interfejsy API usług komunikacyjnych są udokumentowane wraz z innymi interfejs
 
 ### <a name="ios-and-android-support-details"></a>szczegóły pomocy technicznej dla systemów iOS i Android
 
-- Usługi komunikacyjne dla systemu iOS biblioteki klienckie dla systemu iOS w wersji 13 + i Xcode 11 +.
-- Biblioteki klienta Java dla systemu Android — docelowy poziom interfejsu API systemu Android 21 + i Android Studio 4.0 +
+- Usługi komunikacyjne dla systemu iOS zestawy SDK dla systemu iOS w wersji 13 + i Xcode 11 +.
+- Zestawy SDK Java dla systemu Android — docelowy poziom interfejsu API systemu Android 21 + i Android Studio 4.0 +
 
 ### <a name="net-support-details"></a>Szczegóły pomocy technicznej platformy .NET
 
@@ -82,9 +82,9 @@ Obsługa za pośrednictwem programu .NET Core 2,0:
 - Platforma Xamarin iOS 10,14
 - Xamarin Mac 3,8
 
-## <a name="calling-client-library-timeouts"></a>Wywoływanie limitów czasu biblioteki klienta
+## <a name="calling-sdk-timeouts"></a>Trwa wywoływanie limitów czasu zestawu SDK
 
-Następujące limity czasu dotyczą bibliotek klienta wywołującego usługi komunikacyjne:
+Następujące limity czasu dotyczą usług komunikacyjnych wywołujących zestawy SDK:
 
 | Akcja           | Limit czasu w sekundach |
 | -------------- | ---------- |
@@ -100,30 +100,30 @@ Następujące limity czasu dotyczą bibliotek klienta wywołującego usługi kom
 ## <a name="api-stability-expectations"></a>Oczekiwania dotyczące stabilności interfejsu API
 
 > [!IMPORTANT]
-> Ta sekcja zawiera wskazówki dotyczące interfejsów API REST i bibliotek klienckich oznaczonych jako **stabilne**. Interfejsy API oznaczone jako wersja wstępna, wersja zapoznawcza lub wersja beta mogą być zmieniane lub przestarzałe **bez powiadomienia**.
+> Ta sekcja zawiera wskazówki dotyczące interfejsów API REST i zestawów SDK oznaczonych jako **stabilne**. Interfejsy API oznaczone jako wersja wstępna, wersja zapoznawcza lub wersja beta mogą być zmieniane lub przestarzałe **bez powiadomienia**.
 
-W przyszłości firma Microsoft może wycofać wersje bibliotek klienckich usług komunikacyjnych, a firma Microsoft może wprowadzić istotne zmiany w interfejsach API REST i wydanych bibliotekach klienta. Usługi komunikacyjne platformy Azure będą *ogólnie* zgodne z dwoma zasadami obsługi w przypadku wycofywania wersji usługi:
+W przyszłości firma Microsoft może wycofać wersje zestawów SDK usług komunikacyjnych, a firma Microsoft może wprowadzić istotne zmiany w interfejsach API REST i wydanych zestawach SDK. Usługi komunikacyjne platformy Azure będą *ogólnie* zgodne z dwoma zasadami obsługi w przypadku wycofywania wersji usługi:
 
-- Przed koniecznością zmiany kodu z powodu zmiany interfejsu usług komunikacyjnych otrzymasz powiadomienie co najmniej trzy lata. Wszystkie udokumentowane interfejsy API REST i interfejsy API biblioteki klienta zwykle korzystają z co najmniej trzech lat ostrzeżenia przed zlikwidowaniem interfejsów.
-- Przed zaktualizowaniem zestawów bibliotek klienta do najnowszej wersji pomocniczej zostanie powiadomiony co najmniej jeden rok. Te wymagane aktualizacje nie wymagają żadnych zmian w kodzie, ponieważ znajdują się w tej samej wersji głównej. Jest to szczególnie istotne w przypadku bibliotek wywołujących i rozmów, które mają składniki czasu rzeczywistego, które często wymagają aktualizacji zabezpieczeń i wydajności. Zdecydowanie zachęcamy do utrzymania zaktualizowanych bibliotek klienta usług komunikacyjnych.
+- Przed koniecznością zmiany kodu z powodu zmiany interfejsu usług komunikacyjnych otrzymasz powiadomienie co najmniej trzy lata. Wszystkie udokumentowane interfejsy API REST i interfejsy API zestawu SDK zwykle korzystają z co najmniej trzech lat ostrzeżenia przed zlikwidowaniem interfejsów.
+- Przed zainstalowaniem zestawów SDK w najnowszej wersji pomocniczej zostanie powiadomiony co najmniej jeden rok. Te wymagane aktualizacje nie wymagają żadnych zmian w kodzie, ponieważ znajdują się w tej samej wersji głównej. Jest to szczególnie istotne w przypadku bibliotek wywołujących i rozmów, które mają składniki czasu rzeczywistego, które często wymagają aktualizacji zabezpieczeń i wydajności. Zdecydowanie zachęcamy do zachowania zaktualizowanych zestawów SDK usług komunikacyjnych.
 
-### <a name="api-and-client-library-decommissioning-examples"></a>Przykłady dotyczące likwidowania biblioteki interfejsu API i klienta
+### <a name="api-and-sdk-decommissioning-examples"></a>Przykłady dotyczące likwidowania interfejsów API i zestawu SDK
 
 **Wersja v24 interfejsu API REST usługi SMS została zintegrowana z aplikacją. Usługa Azure Communication releases V25.**
 
 Otrzymasz 3-letnie ostrzeżenie, zanim te interfejsy API przestaną działać i zostaną wymuszone do aktualizacji do V25. Ta aktualizacja może wymagać zmiany kodu.
 
-**Do aplikacji zintegrowano wersję 2.02 biblioteki klienta. Usługa Azure Communication releases w wersji 2.05.**
+**Do aplikacji zintegrowano wersję 2.02 zestawu SDK wywołania. Usługa Azure Communication releases w wersji 2.05.**
 
-Może być konieczne zaktualizowanie do wersji v 2.05 biblioteki klienta wywołującego w ciągu 12 miesięcy od wydania programu v 2.05. Powinno to być proste zastąpienie artefaktu bez konieczności zmiany kodu, ponieważ 2.05 v jest w wersji głównej v2 i nie ma żadnych istotnych zmian.
+Może być konieczne zaktualizowanie do wersji 2.05 zestawu SDK wywołującego w ciągu 12 miesięcy od wydania programu v 2.05. Powinno to być proste zastąpienie artefaktu bez konieczności zmiany kodu, ponieważ 2.05 v jest w wersji głównej v2 i nie ma żadnych istotnych zmian.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz następujące omówienia biblioteki klienta:
+Aby uzyskać więcej informacji, zobacz następujące omówienia zestawu SDK:
 
-- [Omówienie wywoływania biblioteki klienta](../concepts/voice-video-calling/calling-sdk-features.md)
-- [Omówienie biblioteki klienta rozmowy](../concepts/chat/sdk-features.md)
-- [Omówienie biblioteki klienta programu SMS](../concepts/telephony-sms/sdk-features.md)
+- [Omówienie wywoływania zestawu SDK](../concepts/voice-video-calling/calling-sdk-features.md)
+- [Omówienie zestawu SDK rozmowy](../concepts/chat/sdk-features.md)
+- [Omówienie zestawu SDK programu SMS](../concepts/telephony-sms/sdk-features.md)
 
 Aby rozpocząć pracę z usługami Azure Communications Services:
 

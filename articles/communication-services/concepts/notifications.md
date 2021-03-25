@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 21c247c2fb9e1532c4580eea894c97e2bff84f92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9bf3067737ee1f4e15deaf31677513e5ac99cbd1
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657046"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108132"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Usługa Azure Communication Services chat i wywołująca biblioteki klienckie umożliwiają utworzenie kanału obsługi komunikatów w czasie rzeczywistym, który umożliwia sygnalizowanie wiadomości do klientów podłączonych w skuteczny i niezawodny sposób. Dzięki temu można tworzyć rozbudowane funkcje komunikacji w czasie rzeczywistym w aplikacjach bez konieczności implementowania skomplikowanej logiki sondowania protokołu HTTP. Jednak w przypadku aplikacji mobilnych ten kanał sygnalizujący pozostanie połączony tylko wtedy, gdy aplikacja jest aktywna na pierwszym planie. Jeśli chcesz, aby użytkownicy odbierali wywołania przychodzące lub wiadomości czatu, gdy aplikacja jest w tle, należy używać powiadomień wypychanych.
+Czat i wywoływanie zestawów SDK usługi Azure Communication Services umożliwiają utworzenie kanału obsługi komunikatów w czasie rzeczywistym, który umożliwia wypychanie wiadomości do połączonych klientów w skuteczny i niezawodny sposób. Dzięki temu można tworzyć rozbudowane funkcje komunikacji w czasie rzeczywistym w aplikacjach bez konieczności implementowania skomplikowanej logiki sondowania protokołu HTTP. Jednak w przypadku aplikacji mobilnych ten kanał sygnalizujący pozostanie połączony tylko wtedy, gdy aplikacja jest aktywna na pierwszym planie. Jeśli chcesz, aby użytkownicy odbierali wywołania przychodzące lub wiadomości czatu, gdy aplikacja jest w tle, należy używać powiadomień wypychanych.
 
 Powiadomienia wypychane umożliwiają wysyłanie informacji z aplikacji do urządzeń przenośnych użytkowników. Możesz użyć powiadomień wypychanych, aby wyświetlić okno dialogowe, odtworzyć dźwięk lub wyświetlić interfejs użytkownika wywołania przychodzącego. Usługi Azure Communication Services oferują integrację z usługami [Azure Event Grid](../../event-grid/overview.md) i [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) , które umożliwiają dodawanie powiadomień wypychanych do aplikacji.
 

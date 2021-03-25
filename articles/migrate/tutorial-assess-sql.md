@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: d3077878dc02066b8ca5dd4441217e584f961725
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2bdb6a085bd9fa0e9967d723db63f2310a8e02db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782269"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023099"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Samouczek: ocenianie wystąpień SQL na potrzeby migracji do usługi Azure SQL
 
@@ -32,6 +32,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 - Przed skorzystaniem z tego samouczka, aby ocenić wystąpienia SQL Server w celu przeprowadzenia migracji do usługi Azure SQL, upewnij się, że wykryto wystąpienia SQL, które chcesz ocenić przy użyciu urządzenia Azure Migrate, [postępuj zgodnie z tym samouczkiem](tutorial-discover-vmware.md)
+- Jeśli chcesz wypróbować tę funkcję w istniejącym projekcie, upewnij się, że zostały spełnione [wymagania wstępne](how-to-discover-sql-existing-project.md) opisane w tym artykule.
+
 
 ## <a name="run-an-assessment"></a>Uruchamianie oceny
 Uruchom ocenę w następujący sposób:

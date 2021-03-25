@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 5b8a84b77fbde41748a2d9ef99a92cb6af1bbea6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0c9f848827db452710b4bca355aae0db99a2c95c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097588"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027367"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Azure Percept — CIEMNy arkusz danych
 
@@ -24,7 +24,7 @@ ms.locfileid: "102097588"
 |Uwzględnione w usłudze Box                 |Usługa 1x Azure Percept DK — tablica nośna  <br> [Percept wzrokowe platformy Azure](./azure-percept-vision-datasheet.md) <br> Czujnik RGB (Camera) <br> Kabel USB 1x typu C 3,0 <br> Kabel zasilania DC <br> Konwerter 1x AC/DC <br> 2 antene Wi-Fi  |
 |System operacyjny                              |[CBL — Mariner](https://github.com/microsoft/CBL-Mariner)           |
 |Płaszczyzna kontroli zarządzania        |Aktualizacja urządzenia Azure (ADU) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)          |
-|Obsługiwane oprogramowanie i usługi |Aktualizacja urządzenia platformy Azure <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) i [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [System operacyjny Azure Mariner z łącznością](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [Środowisko uruchomieniowe ONNX](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Usługa Azure Device Provisioning (DPS)](https://docs.microsoft.com/azure/iot-dps/) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
+|Obsługiwane oprogramowanie i usługi |Aktualizacja urządzenia platformy Azure <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) i [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [System operacyjny Azure Mariner z łącznością](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [Środowisko uruchomieniowe ONNX](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Usługa Azure Device Provisioning (DPS)](../iot-dps/index.yml) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
 |Procesor ogólny               |NXP iMX8m (tablica przewoźników platformy Azure Percept)        |
 |Przyspieszenie AI                 |Metoda 1x Intel Movidius wyposażono X zintegrowanego usługodawcy internetowego (Vision Azure Percept) |
 |Czujniki i wskaźniki wizualizacji   |Czujnik aparatu Sony IMX219 z soczewką 6P<br>Rozwiązanie: 8MP o 30FPS, Distance: 50cm — nieskończoność<br>FoV: 120 stopni przekątnych, kolor: szeroki zakres dynamiczny, stała ostra krocząca|

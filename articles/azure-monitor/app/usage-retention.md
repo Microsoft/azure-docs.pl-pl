@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37de27e8dc707133595b71b39e45bdec554289e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583379"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025615"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analiza przechowywania użytkowników dla aplikacji sieci Web za pomocą Application Insights
 
@@ -64,5 +64,4 @@ Lub w kodzie serwera ASP.NET:
     - [Lejki](usage-funnels.md)
     - [Przepływy użytkownika](usage-flows.md)
     - [Skoroszyty](../visualize/workbooks-overview.md)
-    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
-
+    - [Dodawanie kontekstu użytkownika](./usage-overview.md)

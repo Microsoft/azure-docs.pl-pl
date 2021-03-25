@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 127031479d7ef414298d3096ebef814df1fe9a18
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495437"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027959"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -115,6 +115,17 @@ string threadId = "<THREAD_ID>";
 ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
+## <a name="list-all-chat-threads"></a>Wyświetl wszystkie wątki rozmowy
+Służy `GetChatThreads` do pobierania wszystkich wątków rozmowy, do których należy użytkownik.
+
+```csharp
+AsyncPageable<ChatThreadItem> chatThreadItems = chatClient.GetChatThreadsAsync();
+await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
+{
+    Console.WriteLine($"{ chatThreadItem.Id}");
+}
+```
+
 ## <a name="send-a-message-to-a-chat-thread"></a>Wyślij wiadomość do wątku rozmowy
 
 Użyj `SendMessage` , aby wysłać komunikat do wątku.
@@ -125,16 +136,6 @@ Użyj `SendMessage` , aby wysłać komunikat do wątku.
 
 ```csharp
 var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
-```
-## <a name="get-a-message"></a>Pobierz komunikat
-
-Użyj `GetMessage` , aby pobrać komunikat z usługi.
-`messageId` jest unikatowym IDENTYFIKATORem komunikatu.
-
-`ChatMessage` czy odpowiedź zwrócona przez pobranie komunikatu, zawiera identyfikator, który jest unikatowym identyfikatorem komunikatu, między innymi polami. Zapoznaj się z tematem Azure. Communications. chat. ChatMessage
-
-```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Odbieranie komunikatów rozmowy z wątku rozmowy
@@ -167,25 +168,6 @@ await foreach (ChatMessage message in allMessages)
 
 Aby uzyskać więcej informacji, zobacz [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="update-a-message"></a>Aktualizowanie wiadomości
-
-Można zaktualizować komunikat, który został już wysłany przez wywołanie `UpdateMessage` `ChatThreadClient` .
-
-```csharp
-string id = "id-of-message-to-edit";
-string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
-```
-
-## <a name="deleting-a-message"></a>Usuwanie wiadomości
-
-Można usunąć komunikat, wywołując `DeleteMessage` na `ChatThreadClient` .
-
-```csharp
-string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(messageId: id);
-```
-
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Dodawanie użytkownika jako uczestnika do wątku czatu
 
 Po utworzeniu wątku można następnie dodawać i usuwać użytkowników. Dodanie użytkowników daje im możliwość dostępu do wysyłania komunikatów do wątku oraz dodawania/usuwania innego uczestnika. Przed wywołaniem `AddParticipants` upewnij się, że uzyskano nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu, aby można było zainicjować klienta rozmowy.
@@ -209,14 +191,6 @@ var participants = new[]
 
 await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
-## <a name="remove-user-from-a-chat-thread"></a>Usuwanie użytkownika z wątku rozmowy
-
-Podobnie jak w przypadku dodawania użytkownika do wątku, można usunąć użytkowników z wątku rozmowy. W tym celu należy śledzić tożsamość `CommunicationUser` dodanego uczestnika.
-
-```csharp
-var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
-```
 
 ## <a name="get-thread-participants"></a>Pobierz uczestników wątku
 
@@ -230,14 +204,6 @@ await foreach (ChatParticipant participant in allParticipants)
 }
 ```
 
-## <a name="send-typing-notification"></a>Wyślij powiadomienie o wpisaniu
-
-Użyj `SendTypingNotification` , aby wskazać, że użytkownik pisze odpowiedź w wątku.
-
-```csharp
-await chatThreadClient.SendTypingNotificationAsync();
-```
-
 ## <a name="send-read-receipt"></a>Wyślij potwierdzenie odczytania
 
 Służy `SendReadReceipt` do powiadamiania innych uczestników, że wiadomość jest odczytywana przez użytkownika.
@@ -246,17 +212,6 @@ Służy `SendReadReceipt` do powiadamiania innych uczestników, że wiadomość 
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
-## <a name="get-read-receipts"></a>Pobierz potwierdzenia odczytu
-
-Użyj `GetReadReceipts` do sprawdzenia stanu komunikatów, aby zobaczyć, które z nich są odczytywane przez innych uczestników wątku rozmowy.
-
-```csharp
-AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
-await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
-{
-    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
-}
-```
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
 Uruchom aplikację z katalogu aplikacji za pomocą `dotnet run` polecenia.

@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ffc97984a335b72a3aa8c8d8cca65a3fddf7af38
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 422a911c2c0bb6aa1252ebb649368b61aa350b6e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780739"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025581"
 ---
-# <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>Konteneryzowanie ASP.NET aplikacje i Przeprowadź migrację do usługi Azure Kubernetes Service
+# <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>ASP.NET App kontenerach i migrację do usługi Azure Kubernetes Service
 
 W tym artykule dowiesz się, jak konteneryzowanie aplikacje ASP.NET i migrować je do [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) za pomocą narzędzia Azure Migrate: App kontenerach. Proces kontenerach nie wymaga dostępu do bazy kodu i zapewnia łatwy sposób konteneryzowanie istniejących aplikacji. Narzędzie działa przy użyciu stanu uruchomienia aplikacji na serwerze w celu określenia składników aplikacji i ułatwia ich spakowanie w obrazie kontenera. Aplikację kontenerową można następnie wdrożyć w usłudze Azure Kubernetes Service (AKS).
 

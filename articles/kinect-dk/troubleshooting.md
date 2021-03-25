@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: Rozwiązywanie problemów, aktualizacja, usterka, urządzenia Kinect, opinie, odzyskiwanie, rejestrowanie, porady
-ms.openlocfilehash: 32a86deb0b6ab70e42ae3d659504256baae76202
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6b83e2952a9039a52aa3b905e376e5d3beccaf8c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654768"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026593"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Znane problemy i rozwiązywanie problemów z platformą Azure urządzenia Kinect
 
@@ -189,11 +189,17 @@ Dokumentacja zestawu SDK śledzenia treści w języku C# znajduje się [tutaj](h
 
 Zestaw SDK śledzenia treści obsługuje środowiska CPU, CUDA, DirectML (tylko system Windows) i TensorRT Execution do wnioskowania modelu szacowania ułożenia. `K4ABT_TRACKER_PROCESSING_MODE_GPU`Domyślnie cuda wykonywanie w systemach Linux i DirectML w systemie Windows. Dodano trzy dodatkowe tryby do wybierania określonych środowisk wykonywania: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA` , `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` i `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT` .
 
+> [!NOTE]  
+> Środowisko uruchomieniowe ONNX Wyświetla ostrzeżenia dla kodów operacji, które nie są przyspieszone. Można je bezpiecznie zignorować.
+
 Środowisko uruchomieniowe ONNX zawiera zmienne środowiskowe do sterowania buforowaniem modelu TensorRT. Zalecane wartości to:
-- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
-- ORT_TENSORRT_ENGINE_CACHE_PATH = "nazwa_ścieżki"
+- ORT_TENSORRT_CACHE_ENABLE = 1 
+- ORT_TENSORRT_CACHE_PATH = "nazwa_ścieżki"
 
 Przed rozpoczęciem śledzenia treści należy utworzyć folder.
+
+> [!IMPORTANT]  
+> TensorRT wstępnie przetwarza model przed wnioskami, co spowodowało wydłużenie czasu uruchamiania w porównaniu z innymi środowiskami wykonywania. Buforowanie aparatu ogranicza ten czas do pierwszego wykonania, ale jest to eksperymentalne i charakterystyczne dla modelu, wersji środowiska uruchomieniowego ONNX, wersji TensorRT i modelu GPU.
 
 Środowisko wykonawcze TensorRT obsługuje zarówno operacji FP32 (domyślne), jak i FP16. FP16 Handely ~ wzrost wydajności dla minimalnych zmniejszeń dokładności. Aby określić FP16:
 - ORT_TENSORRT_FP16_ENABLE = 1

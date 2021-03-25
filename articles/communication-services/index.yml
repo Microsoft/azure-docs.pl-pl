@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: ec491509c80f69e000a67e40288b6e298ba9fb85
-  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+  ms.openlocfilehash: b2aec44f3e80267d18844d887f5e2607192ea208
+  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104655788"
+  ms.lasthandoff: 03/25/2021
+  ms.locfileid: "105108081"
 landingContent:
 - title: Informacje o usługach Azure Communication Services
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Opcje biblioteki klienta
+    - text: Opcje zestawu SDK
       url: concepts/sdk-options.md
     - text: Współdziałanie zespołów
       url: concepts/teams-interop.md
@@ -52,13 +52,13 @@ landingContent:
     links:
     - text: Dodawanie połączenia głosowego i wideo do aplikacji
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: Używanie biblioteki klienta połączeń
+    - text: Korzystanie z wywołującego zestawu SDK
       url: quickstarts/voice-video-calling/calling-client-samples.md
   - linkListType: concept
     links:
     - text: Pojęcia dotyczące głosu i wideo
       url: concepts/voice-video-calling/about-call-types.md
-    - text: Omówienie biblioteki klienta połączeń
+    - text: Omówienie wywoływania zestawu SDK
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Przepływy połączenia
       url: concepts/call-flows.md
@@ -76,7 +76,7 @@ landingContent:
     links:
     - text: Pojęcia dotyczące wiadomości SMS
       url: concepts/telephony-sms/concepts.md
-    - text: Omówienie biblioteki klienta wiadomości SMS
+    - text: Omówienie zestawu SDK programu SMS
       url: concepts/telephony-sms/sdk-features.md
     - text: Omówienie nawiązywania połączeń
       url: concepts/voice-video-calling/calling-sdk-features.md
@@ -92,7 +92,7 @@ landingContent:
     links:
     - text: Pojęcia dotyczące czatu
       url: concepts/chat/concepts.md
-    - text: Omówienie biblioteki klienta czatu
+    - text: Omówienie zestawu SDK rozmowy
       url: concepts/chat/sdk-features.md
 - title: Samples
   linkLists:
