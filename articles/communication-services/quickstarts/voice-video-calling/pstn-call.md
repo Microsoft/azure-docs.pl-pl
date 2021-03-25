@@ -8,19 +8,19 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 65a968747e7ed12e6ee03bd5fea4b7b4af7ee10e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a861ed27414ed407d00e8e886f20fb952a8ac95e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729519"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109045"
 ---
 # <a name="quickstart-call-to-phone"></a>Szybki Start: wywołanie telefonu
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta wywołującego usługi komunikacyjne, aby dodać telefonię do aplikacji.
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK wywołania usługi komunikacyjnej, aby dodać telefonię do aplikacji.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
@@ -42,5 +42,5 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- Informacje o [wywoływaniu możliwości biblioteki klienta](./calling-client-samples.md)
+- Informacje o [wywoływaniu możliwości zestawu SDK](./calling-client-samples.md)
 - Dowiedz się więcej o [sposobie wywoływania programu](../../concepts/voice-video-calling/about-call-types.md)

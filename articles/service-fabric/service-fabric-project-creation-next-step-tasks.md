@@ -4,12 +4,12 @@ description: Dowiedz się więcej o projekcie aplikacji, który właśnie zosta�
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97760439"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044383"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Twoja aplikacja Service Fabric i następne kroki
 Aplikacja Service Fabric platformy Azure została utworzona. Ten artykuł zawiera wiele zasobów, kilka dodatkowych informacji, które mogą być interesujące, oraz potencjalne [następne kroki](#next-steps).
@@ -59,7 +59,7 @@ Aplikacja może zawierać informacje poufne, takie jak parametry połączenia ma
 Podobnie jak w przypadku innych platform, aplikacja Service Fabric zwykle przechodzi przez następujące fazy: projektowanie, programowanie, testowanie, wdrażanie, uaktualnianie, konserwacja i usuwanie. [Ten artykuł](service-fabric-application-lifecycle.md) zawiera omówienie interfejsów API i ich użycia przez różne role w fazie cyklu życia Service Fabric aplikacji.
 
 ## <a name="learn-about-best-practices"></a>Poznaj najlepsze rozwiązania
-Service Fabric zawiera kilka artykułów opisujących [najlepsze rozwiązania](./service-fabric-best-practices-overview.md). Skorzystaj z tych informacji, aby upewnić się, że klaster i aplikacja działają prawidłowo.
+Service Fabric zawiera kilka artykułów opisujących [najlepsze rozwiązania](./service-fabric-best-practices-security.md). Skorzystaj z tych informacji, aby upewnić się, że klaster i aplikacja działają prawidłowo.
 Omówione tematy obejmują:
 * [Bezpieczeństwo](./service-fabric-best-practices-security.md)
 * [Sieć](./service-fabric-best-practices-networking.md)

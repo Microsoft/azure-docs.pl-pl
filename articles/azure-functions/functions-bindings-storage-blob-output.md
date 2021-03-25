@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: eaa8a4c600864f636d49813d415621d46130fff7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 78cbf94bfc19757a4264c7884c3e47b230de5e46
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100381663"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044094"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi Azure Blob Storage dla Azure Functions
 
@@ -431,8 +431,8 @@ Dostęp do danych obiektu BLOB za pośrednictwem parametru, który odpowiada naz
 
 Parametry funkcji można zadeklarować jako następujące typy do zapisu w magazynie obiektów blob:
 
-* Ciągi jako `func.Out(str)`
-* Strumienie jako `func.Out(func.InputStream)`
+* Ciągi jako `func.Out[str]`
+* Strumienie jako `func.Out[func.InputStream]`
 
 Aby uzyskać szczegółowe informacje, zobacz [przykład danych wyjściowych](#example) .
 
@@ -440,7 +440,7 @@ Aby uzyskać szczegółowe informacje, zobacz [przykład danych wyjściowych](#e
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie |  Dokumentacja |
+| Wiązanie |  Odwołanie |
 |---|---|
 | Obiekt blob | [Kody błędów obiektów BLOB](/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Obiekt BLOB, tabela, kolejka |  [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

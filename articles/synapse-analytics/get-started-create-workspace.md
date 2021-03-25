@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ee8a192bcfe20c77e47ee9c89dfc3286a979e358
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 695ad1463bb207e9dd61d7b0147adbe15b44df37
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722297"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108064"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -33,24 +33,22 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
 
 ## <a name="basics-tab--project-details"></a>Karta podstawy > szczegóły projektu
-1. Karta **podstawy** , w obszarze **szczegóły projektu**, wypełnij następujące pola:
-      1. **Subskrypcja** — wybierz dowolną subskrypcję.
-      2. **Grupa zasobów** — Użyj dowolnej grupy zasobów.
-      3. **Grupa zasobów** — pozostaw to pole puste.
+Wypełnij następujące pola:
+    1. **Subskrypcja** — wybierz dowolną subskrypcję.
+    1. **Grupa zasobów** — Użyj dowolnej grupy zasobów.
+    1. **Grupa zasobów** — pozostaw to pole puste.
 
 
 ## <a name="basics-tab--workspace-details"></a>Karta podstawy > szczegóły obszaru roboczego
-1. Na karcie **podstawy** w obszarze **szczegóły obszaru roboczego** wypełnij następujące pola:
-      1. **Nazwa obszaru roboczego** — wybierz dowolną globalnie unikatową nazwę. W tym samouczku użyjemy **obszaru roboczego**.
-      1. **Region** — wybierz dowolny region.
-      1. **Wybieranie Data Lake Storage Gen 2**
-        1. Kliknij przycisk **z subskrypcji**.
-        1. Według **nazwy konta**, kliknij przycisk **Utwórz nowe** i Nazwij nowe konto magazynu **contosolake** lub podobną, ponieważ ta nazwa musi być unikatowa.
-        1. Według **nazwy systemu plików**, kliknij przycisk **Utwórz nowe** i nadaj nazwę **użytkownikom** IT. Spowoduje to utworzenie kontenera magazynu o nazwie **Użytkownicy**. Obszar roboczy będzie używał tego konta magazynu jako konta magazynu "podstawowe" do tabel platformy Spark i dzienników aplikacji platformy Spark.
-        1. Zaznacz pole wyboru "Przypisz samodzielnie rolę współautor danych obiektów blob magazynu" na koncie Data Lake Storage Gen2. 
+Wypełnij następujące pola: 1. **Nazwa obszaru roboczego** — wybierz dowolną globalnie unikatową nazwę. W tym samouczku użyjemy **obszaru roboczego**.
+1. **Region** — wybierz dowolny region.
+1. **Wybieranie Data Lake Storage Gen 2** jedno. Kliknij przycisk **z subskrypcji**.
+1. Według **nazwy konta**, kliknij przycisk **Utwórz nowe** i Nazwij nowe konto magazynu **contosolake** lub podobną, ponieważ ta nazwa musi być unikatowa.
+1. Według **nazwy systemu plików**, kliknij przycisk **Utwórz nowe** i nadaj nazwę **użytkownikom** IT. Spowoduje to utworzenie kontenera magazynu o nazwie **Użytkownicy**. Obszar roboczy będzie używał tego konta magazynu jako konta magazynu "podstawowe" do tabel platformy Spark i dzienników aplikacji platformy Spark.
+1. Zaznacz pole wyboru "Przypisz samodzielnie rolę współautor danych obiektów blob magazynu" na koncie Data Lake Storage Gen2. 
 
-### <a name="completing-the-process"></a>Ukończenie procesu
-5. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
+## <a name="completing-the-process"></a>Ukończenie procesu
+Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
 
 > [!NOTE]
 > Aby włączyć funkcje obszaru roboczego z istniejącej dedykowanej puli SQL (dawniej SQL DW), zapoznaj się z [tematem Włączanie obszaru roboczego dla dedykowanej puli SQL (dawniej SQL DW)](./sql-data-warehouse/workspace-connected-create.md).

@@ -1,7 +1,7 @@
 ---
-title: Omówienie wywoływania biblioteki klienta usługi Azure Communication Services
+title: Omówienie zestawu SDK wywołań usługi Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Zawiera omówienie biblioteki klienta wywołującego.
+description: Zawiera omówienie wywołania zestawu SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,25 +9,25 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 39331cb83b233f6b91344e6e299ed81f187fe9d9
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598885"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108401"
 ---
-# <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
+# <a name="calling-sdk-overview"></a>Omówienie wywoływania zestawu SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Istnieją dwie oddzielne rodziny wywołujących biblioteki klienckie dla *klientów* i *usług.* Obecnie dostępne biblioteki klienckie są przeznaczone dla środowiska użytkownika końcowego: witryny sieci Web i aplikacje natywne.
+Istnieją dwie oddzielne rodziny wywoływanych zestawów SDK dla *klientów* i *usług.* Obecnie dostępne zestawy SDK są przeznaczone dla środowiska użytkownika końcowego: witryny sieci Web i aplikacje natywne.
 
-Biblioteki klienta usługi nie są jeszcze dostępne i zapewniają dostęp do niesformatowanych płaszczyzn danych dźwiękowych i wideo, które są odpowiednie do integracji z botów i innymi usługami.
+Zestawy SDK usług nie są jeszcze dostępne i zapewniają dostęp do niesformatowanych płaszczyzn danych dźwiękowych i wideo, które są odpowiednie do integracji z botów i innymi usługami.
 
-## <a name="calling-client-library-capabilities"></a>Wywoływanie możliwości biblioteki klienta
+## <a name="calling-sdk-capabilities"></a>Wywoływanie możliwości zestawu SDK
 
-Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w bibliotekach klienta wywołujących usługi komunikacyjne Azure.
+Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w ramach zestawów SDK wywołujących usługi Azure Communications Services.
 
 | Grupa funkcji | Możliwość                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
@@ -74,7 +74,7 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 
 
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Obsługa języka JavaScript wywoływana przez system operacyjny i przeglądarkę
+## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Obsługa zestawu SDK w języku JavaScript przez system operacyjny i przeglądarkę
 
 Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek, które są obecnie dostępne. Obsługujemy najnowsze trzy wersje przeglądarki, chyba że wskazano inaczej.
 
@@ -115,8 +115,8 @@ Na przykład ten element IFRAME umożliwia dostęp do aparatu i mikrofonu:
 <iframe allow="camera *; microphone *">
 ```
 
-## <a name="calling-client-library-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego biblioteki klienta
-Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące konfiguracje przesyłania strumieniowego:
+## <a name="calling-sdk-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego SDK
+Zestaw SDK wywoływania usług komunikacyjnych obsługuje następujące konfiguracje przesyłania strumieniowego:
 
 |           |Internet | System Android/iOS|
 |-----------|----|------------|

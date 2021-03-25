@@ -3,12 +3,12 @@ title: Włączanie usługi Container Insights | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania usługi Container Insights, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708360"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109356"
 ---
 # <a name="enable-container-insights"></a>Włączanie usługi Container Insights
 
@@ -64,6 +64,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 - Aby wyświetlić dane monitorowania, należy mieć rolę [*czytnika log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym log Analytics, skonfigurowany za pomocą usługi Container Insights.
 
 - Metryki Prometheus nie są zbierane domyślnie. Przed [skonfigurowaniem agenta](container-insights-prometheus-integration.md) do zbierania metryk należy zapoznać się z [dokumentacją Prometheus](https://prometheus.io/) , aby zrozumieć, jakie dane mogą być odpadków i jakie metody są obsługiwane.
+- Klaster AKS można dołączyć do obszaru roboczego Log Analytics w innej subskrypcji platformy Azure w ramach tej samej dzierżawy usługi Azure AD. Nie można tego zrobić za pomocą witryny Azure Portal, ale można ją wykonać przy użyciu interfejsu wiersza polecenia platformy Azure lub szablonu Menedżer zasobów.
 
 ## <a name="supported-configurations"></a>Obsługiwane konfiguracje
 

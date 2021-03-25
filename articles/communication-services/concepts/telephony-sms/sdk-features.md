@@ -1,7 +1,7 @@
 ---
-title: Omówienie biblioteki klienta programu SMS dla usług Azure Communications Services
+title: Omówienie zestawu SDK programu SMS dla usług Azure Communications Services
 titleSuffix: An Azure Communication Services concept document
-description: Zawiera omówienie biblioteki klienta programu SMS i jej ofert.
+description: Zawiera omówienie zestawu SDK programu SMS i jego ofert.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,25 +9,25 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11ab634ed4b25c5fd8c0079263094c393e9dcbe6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 25a5befab6ef141b059caaac7b1784d47f2f93cf
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496596"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108115"
 ---
-# <a name="sms-client-library-overview"></a>Omówienie biblioteki klienta wiadomości SMS
+# <a name="sms-sdk-overview"></a>Omówienie zestawu SDK programu SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Za pomocą bibliotek klienckich SMS usług Azure Communication Services można dodawać wiadomości SMS do aplikacji.
+Zestawy SDK SMS usługi Azure Communication Services umożliwiają dodawanie wiadomości SMS do aplikacji.
 
-## <a name="sms-client-library-capabilities"></a>Możliwości biblioteki klienta programu SMS
+## <a name="sms-sdk-capabilities"></a>Możliwości zestawu SMS SDK
 
-Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w naszych bibliotekach klientów.
+Poniższa lista przedstawia zbiór funkcji, które są obecnie dostępne w naszych zestawach SDK.
 
 | Grupa funkcji | Możliwość                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |

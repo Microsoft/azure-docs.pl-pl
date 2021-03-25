@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: d38dc7b2bf56ba91fcf77ebdb81836c8c398a52d
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: a3cd68b610b0e0db05f60450009bc83a80c3037b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023858"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107605"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych *|3200|3840|4480|5120|
-|Maksymalny współczynnik rejestrowania (MB/s)|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|45|50|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|750|900|1050|1200|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|
 |Liczba replik|1|1|1|1|
@@ -103,7 +103,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych *|5760|6400|7680|10240|12800|
-|Maksymalny współczynnik rejestrowania (MB/s)|36|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|50|50|50|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1350|1500|1800|2400|3000|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|1|1|1|1|1|
@@ -246,7 +246,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
 |Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
 |Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes)|[Uwaga 1](#notes) |[Uwaga 1](#notes) |
-|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|8000 |16000 |24000 |32000 |
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|14000|28000|42000|44800|
 |Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |
 |Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|160|320|480|640|
@@ -308,7 +308,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)
 |Maksymalna liczba operacji we/wy danych *|2240|2560|2880|3200|5120|7680|
-|Maksymalny współczynnik rejestrowania (MB/s)|31,5|36|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|31,5|36|40,5|45|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1400|1600|1800|2000|3200|4800|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|1|1|1|1|1|1|
@@ -335,7 +335,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych *|640|1280|1920|2560|3200|3840|4480|
-|Maksymalny współczynnik rejestrowania (MB/s)|9|18|27|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|9|18|27|36|45|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|200|400|600|800|1000|1200|1400|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|1|1|1|1|1|1|1|
@@ -360,7 +360,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych *|5120|5760|6400|7680|10240|12800|12800|
-|Maksymalny współczynnik rejestrowania (MB/s)|36|36|36|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|50|50|50|50|50|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1600|1800|2000|2400|3200|4000|8000|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|1|1|1|1|1|1|1|
@@ -387,7 +387,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych *|2560|3200|3840|4480|5120|
-|Maksymalny współczynnik rejestrowania (MB/s)|36|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|36|45|50|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|400|500|600|700|800|
 |Maksymalna liczba współbieżnych logowań|800|1000|1200|1400|1600|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
@@ -413,7 +413,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych *|5760|6400|7680|10240|11520|12800|
-|Maksymalny współczynnik rejestrowania (MB/s)|36|36|36|36|36|36|
+|Maksymalny współczynnik rejestrowania (MB/s)|50|50|50|50|50|50|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|900|1000|1200|1600|1800|3600|
 |Maksymalna liczba współbieżnych logowań|1800|2000|2400|3200|3600|7200|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -635,7 +635,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|
 |Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|14000|28000|42000|56000|
+|Maksymalna liczba operacji we/wy danych *|14000|28000|42000|44800|
 |Maksymalny współczynnik rejestrowania (MB/s)|24|48|72|96|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|200|400|600|800|
 |Maksymalna liczba współbieżnych logowań|200|400|600|800|

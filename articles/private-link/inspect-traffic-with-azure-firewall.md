@@ -1,5 +1,5 @@
 ---
-title: Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
+title: Używanie zapory platformy Azure do inspekcji ruchu kierowanego do prywatnego punktu końcowego
 titleSuffix: Azure Private Link
 description: Dowiedz się, jak kontrolować ruch kierowany do prywatnego punktu końcowego za pomocą zapory platformy Azure.
 services: private-link
@@ -8,14 +8,14 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575119"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108149"
 ---
-# <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
+# <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do inspekcji ruchu kierowanego do prywatnego punktu końcowego
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku platformy Azure. Prywatne punkty końcowe umożliwiają zasobom platformy Azure wdrożonym w sieci wirtualnej komunikowanie się z prywatnymi zasobami linków.
 
@@ -25,8 +25,8 @@ Może być konieczne sprawdzenie lub zablokowanie ruchu od klientów do usług u
 
 Obowiązują następujące ograniczenia:
 
-* Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie mają zastosowania do prywatnych punktów końcowych
-* Trasy zdefiniowane przez użytkownika (UDR) nie mają zastosowania do prywatnych punktów końcowych
+* Sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) są pomijane przez ruch pochodzący z prywatnych punktów końcowych
+* Trasy zdefiniowane przez użytkownika (UDR) są pomijane przez ruch pochodzący z prywatnych punktów końcowych
 * Pojedyncza tabela tras może być dołączona do podsieci
 * Tabela tras obsługuje do 400 tras
 
@@ -35,7 +35,8 @@ Zapora platformy Azure filtruje ruch przy użyciu:
 * [Nazwa FQDN w regułach sieciowych](../firewall/fqdn-filtering-network-rules.md) dla protokołów TCP i UDP
 * [Nazwa FQDN w regułach aplikacji](../firewall/features.md#application-fqdn-filtering-rules) dla protokołów HTTP, https i MSSQL. 
 
-Większość usług narażonych na prywatne punkty końcowe korzysta z protokołu HTTPS. Użycie reguł aplikacji względem reguł sieci jest zalecane w przypadku korzystania z usługi Azure SQL.
+> [!IMPORTANT] 
+> Użycie reguł aplikacji względem reguł sieci jest zalecane podczas inspekcji ruchu przeznaczonego dla prywatnych punktów końcowych w celu utrzymania symetrii przepływów. Jeśli są używane reguły sieciowe lub urządzenie WUS jest używany zamiast zapory platformy Azure, należy skonfigurować dla niego ruch kierowany do prywatnych punktów końcowych.
 
 > [!NOTE]
 > Filtrowanie nazwy FQDN SQL jest obsługiwane tylko w [trybie proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (port 1433). Tryb **serwera proxy** może powodować większe opóźnienia w porównaniu do *przekierowania*. Jeśli chcesz kontynuować korzystanie z trybu przekierowania, który jest domyślnym ustawieniem dla klientów łączących się na platformie Azure, możesz filtrować dostęp przy użyciu nazwy FQDN w regułach sieci zapory.
@@ -46,12 +47,9 @@ Większość usług narażonych na prywatne punkty końcowe korzysta z protokoł
 
 Ten scenariusz to najbardziej rozszerzalna architektura umożliwiająca nawiązywanie połączeń prywatnych z wieloma usługami platformy Azure przy użyciu prywatnych punktów końcowych. Zostanie utworzona trasa wskazująca na przestrzeń adresową sieci, w której są wdrożone prywatne punkty końcowe. Ta konfiguracja zmniejsza obciążenie administracyjne i uniemożliwia działanie w limicie 400 tras.
 
-Połączenia z sieci wirtualnej klienta z zaporą platformy Azure w sieci wirtualnej centrum będą powodować naliczanie opłat, gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej.
+Połączenia z sieci wirtualnej klienta z zaporą platformy Azure w sieci wirtualnej centrum będą powodować naliczanie opłat, gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej. Połączenia z zapory platformy Azure w sieci wirtualnej centrum z prywatnymi punktami końcowymi w równorzędnej sieci wirtualnej nie są rozliczone.
 
 Aby uzyskać więcej informacji na temat opłat związanych z połączeniami z równorzędnymi sieciami wirtualnymi, zapoznaj się z sekcją często zadawanych pytań na stronie [Cennik](https://azure.microsoft.com/pricing/details/private-link/) .
-
->[!NOTE]
-> Ten scenariusz można zaimplementować przy użyciu dowolnych reguł sieci urządzenie WUS lub zapory platformy Azure zamiast reguł aplikacji.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenariusz 2: architektura Hub i szprych — udostępniona Sieć wirtualna dla prywatnych punktów końcowych i maszyn wirtualnych
 
@@ -69,21 +67,15 @@ Koszty administracyjne związane z utrzymywaniem tabeli tras rosną w miarę jak
 
 W zależności od ogólnej architektury można korzystać z limitu 400 tras. Zaleca się używanie scenariusza 1 wszędzie tam, gdzie to możliwe.
 
-Połączenia z sieci wirtualnej klienta z zaporą platformy Azure w sieci wirtualnej centrum będą powodować naliczanie opłat, gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej.
+Połączenia z sieci wirtualnej klienta z zaporą platformy Azure w sieci wirtualnej centrum będą powodować naliczanie opłat, gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej. Połączenia z zapory platformy Azure w sieci wirtualnej centrum z prywatnymi punktami końcowymi w równorzędnej sieci wirtualnej nie są rozliczone.
 
 Aby uzyskać więcej informacji na temat opłat związanych z połączeniami z równorzędnymi sieciami wirtualnymi, zapoznaj się z sekcją często zadawanych pytań na stronie [Cennik](https://azure.microsoft.com/pricing/details/private-link/) .
-
->[!NOTE]
-> Ten scenariusz można zaimplementować przy użyciu dowolnych reguł sieci urządzenie WUS lub zapory platformy Azure zamiast reguł aplikacji.
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenariusz 3: pojedyncza Sieć wirtualna
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Pojedyncza Sieć wirtualna" border="true":::
 
-Istnieją pewne ograniczenia dotyczące implementacji: migracja do architektury gwiazdy i szprych nie jest możliwa. Zastosowanie mają takie same zagadnienia jak w przypadku scenariusza 2. W tym scenariuszu opłaty za komunikację równorzędną sieci wirtualnych nie mają zastosowania.
-
->[!NOTE]
-> Jeśli chcesz zaimplementować ten scenariusz przy użyciu urządzenie WUS innej firmy lub zapory platformy Azure, reguły sieciowe zamiast reguł aplikacji są wymagane do ruchu w celu kierowania do prywatnych punktów końcowych. Komunikacja między maszynami wirtualnymi i prywatnymi punktami końcowymi zakończy się niepowodzeniem.
+Użyj tego wzorca, jeśli migracja do architektury Hub i szprych nie jest możliwa. Zastosowanie mają takie same zagadnienia jak w przypadku scenariusza 2. W tym scenariuszu opłaty za komunikację równorzędną sieci wirtualnych nie mają zastosowania.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenariusz 4: ruch lokalny do prywatnych punktów końcowych
 
@@ -97,9 +89,6 @@ Tę architekturę można zaimplementować, jeśli skonfigurowano łączność z 
 Jeśli wymagania dotyczące zabezpieczeń wymagają ruchu klienckiego do usług ujawnianych za pośrednictwem prywatnych punktów końcowych, należy wdrożyć ten scenariusz.
 
 Należy zastosować takie same kwestie jak w scenariuszu 2 powyżej. W tym scenariuszu nie są naliczane opłaty za komunikację równorzędną sieci wirtualnej. Aby uzyskać więcej informacji o sposobie konfigurowania serwerów DNS w celu zezwalania lokalnym obciążeniom na dostęp do prywatnych punktów końcowych, zobacz [obciążenia lokalne przy użyciu usługi przesyłania dalej DNS](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
-
->[!NOTE]
-> Jeśli chcesz zaimplementować ten scenariusz przy użyciu urządzenie WUS innej firmy lub zapory platformy Azure, reguły sieciowe zamiast reguł aplikacji są wymagane do ruchu w celu kierowania do prywatnych punktów końcowych. Komunikacja między maszynami wirtualnymi i prywatnymi punktami końcowymi zakończy się niepowodzeniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

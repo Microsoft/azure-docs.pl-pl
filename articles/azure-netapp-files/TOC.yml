@@ -147,6 +147,8 @@
       href: /azure/templates/microsoft.netapp/allversions
     - name: Narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji (AzAcSnap)
       items:
+        - name: Informacje o wersji dla AzAcSnap
+          href: azacsnap-release-notes.md
         - name: Rozpoczynanie pracy z poleceniem AzAcSnap
           href: azacsnap-get-started.md
         - name: Instalowanie polecenia AzAcSnap

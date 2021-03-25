@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5960238893ae1e4dc307db98f9dc73889a2fa5b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487835"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108897"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -30,7 +30,7 @@ ms.locfileid: "103487835"
 > [Ten przykład jest dostępny w witrynie GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-**Przykład Hero rozmowy z grupą** usług Azure Communication Services demonstruje, jak Biblioteka klienta sieci Web czatu usług komunikacyjnych może służyć do tworzenia środowiska wywołującego grupę.
+**Przykład Hero rozmowy z grupą** usług Azure Communication Services demonstruje, w jaki sposób można użyć zestawu SDK usługi komunikacyjnej w celu skompilowania środowiska wywołującego grupę.
 
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
 
@@ -111,7 +111,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - Informacje o [pojęciach związanych z rozmowami](../concepts/chat/concepts.md)
-- Zapoznaj się z naszą [biblioteką klienta czatu](../concepts/chat/sdk-features.md)
+- Zapoznaj się z naszym [zestawem SDK rozmowy](../concepts/chat/sdk-features.md)
 - Zapoznaj się z przykładem [aplikacji Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Materiały uzupełniające

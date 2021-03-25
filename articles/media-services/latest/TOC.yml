@@ -341,13 +341,15 @@
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Kopiowanie wideo bez kodowania przy użyciu interfejsu REST
           href: how-to-create-copy-video-audio-transform.md
-        - name: Tworzenie zadań
+        - name: Tworzenie zadań przy użyciu platformy .NET
           href: cli-create-jobs.md
         - name: Tworzenie danych wejściowych zadania przy użyciu pliku lokalnego i platformy .NET
           displayName: upload
           href: job-input-from-local-file-how-to.md
         - name: Zadania z wieloma danymi wyjściowymi przekształceń
           href: job-multiple-transform-outputs.md
+        - name: Łączenie dwóch lub więcej plików wideo przy użyciu platformy .NET
+          href: stitch-howto.md
     - name: Kodowanie zawartości
       items:
         - name: Adres HTTPS jako dane wejściowe zadania

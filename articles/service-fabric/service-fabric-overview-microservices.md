@@ -3,12 +3,12 @@ title: Wprowadzenie do mikrousług na platformie Azure
 description: Omówienie przyczyn kompilowania aplikacji w chmurze z podejściem mikrousług jest ważne w przypadku nowoczesnych zastosowań aplikacji oraz sposobu, w jaki usługa Azure Service Fabric zapewnia platformę do osiągnięcia tego celu.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46d4be7321057bd7a5ee19e0aca136c8c60d43bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575656"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044434"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Dlaczego warto stosować podejście mikrousług do kompilowania aplikacji
 
@@ -194,7 +194,7 @@ Celem Service Fabric jest zredukowanie złożoności tworzenia aplikacji mikrous
 
 * [Mikrousługi: obroty aplikacji obsługiwane przez chmurę](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 * [Centrum architektury platformy Azure: budowanie mikrousług na platformie Azure](/azure/architecture/microservices/)
-* [Najlepsze rozwiązania dotyczące aplikacji i klastrów usługi Azure Service Fabric](service-fabric-best-practices-overview.md)
+* [Najlepsze rozwiązania dotyczące aplikacji i klastrów usługi Azure Service Fabric](./service-fabric-best-practices-security.md)
 * [Przegląd terminologii Service Fabric](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png

@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: eea54be9d159c6aacbbc24e2fe8edf874f8e2d83
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4ecc7033007361e27908e0881b80091ac660398e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492340"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108396"
 ---
 # <a name="voice-and-video-concepts"></a>Pojęcia dotyczące głosu i wideo
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Usługi Azure Communications Services umożliwiają udostępnianie i odbieranie jednego do jednego lub grupy wywołań głosowych i wideo. Twoje wywołania mogą być nawiązywane z innymi urządzeniami połączonymi z Internetem i zwykłymi numerami telefonów. Za pomocą bibliotek klienckich usług komunikacyjnych w języku JavaScript, Android lub iOS można tworzyć aplikacje, które umożliwiają użytkownikom głosowanie na siebie w prywatnych konwersacjach lub w dyskusjach grupowych. Usługi komunikacyjne platformy Azure obsługują wywołania do i z usług lub botów.
+Usługi Azure Communications Services umożliwiają udostępnianie i odbieranie jednego do jednego lub grupy wywołań głosowych i wideo. Twoje wywołania mogą być nawiązywane z innymi urządzeniami połączonymi z Internetem i zwykłymi numerami telefonów. Korzystając z usług komunikacyjnych w języku JavaScript, Android lub iOS SDK, można tworzyć aplikacje, które umożliwiają użytkownikom głosowanie na siebie w prywatnych konwersacjach lub w dyskusjach grupowych. Usługi komunikacyjne platformy Azure obsługują wywołania do i z usług lub botów.
 
 ## <a name="call-types-in-azure-communication-services"></a>Typy wywołań w usłudze Azure Communications Services
 
@@ -37,7 +37,7 @@ Za każdym razem, gdy użytkownicy współpracują z tradycyjnym numerem telefon
 
 ### <a name="one-to-one-call"></a>Wywołanie "jeden do jednego"
 
-Wywołanie "jeden do jednego" w usłudze Azure Communications Services ma miejsce, gdy jeden z użytkowników nawiązuje połączenie z innym użytkownikiem przy użyciu jednej z naszych bibliotek klienckich. Wywołaniem może być VoIP lub PSTN.
+Wywołanie "jeden do jednego" w usłudze Azure Communications Services ma miejsce, gdy jeden z użytkowników nawiązuje połączenie z innym użytkownikiem przy użyciu jednego z naszych zestawów SDK. Wywołaniem może być VoIP lub PSTN.
 
 ### <a name="group-call"></a>Wywołanie grupy
 
@@ -61,4 +61,4 @@ W trakcie korzystania z wersji zapoznawczej można użyć identyfikatora grupy d
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - Zapoznaj się z ogólnymi [przepływami wywołań](../call-flows.md)
 - [Typy numerów telefonów](../telephony-sms/plan-solution.md)
-- Dowiedz się więcej na temat [możliwości wywoływania biblioteki klienta](../voice-video-calling/calling-sdk-features.md)
+- Dowiedz się więcej o [możliwościach wywoływania zestawu SDK](../voice-video-calling/calling-sdk-features.md)

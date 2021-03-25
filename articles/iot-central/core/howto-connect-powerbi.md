@@ -7,16 +7,18 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92123341"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109237"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Wizualizowanie i analizowanie danych IoT Central platformy Azure na pulpicie nawigacyjnym Power BI
 
 *Ten temat dotyczy administratorów i deweloperów rozwiązań.*
+
+[!Note] To rozwiązanie korzysta ze [starszych funkcji eksportu danych](./howto-export-data-legacy.md). Bądź na bieżąco z zaktualizowanymi wskazówkami dotyczącymi sposobu nawiązywania połączenia z Power BI przy użyciu najnowszego eksportu danych.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Potok rozwiązania Power BI":::
 
@@ -27,7 +29,7 @@ Użyj rozwiązania Power BI dla platformy Azure IoT Central v3, aby utworzyć za
 - Filtrowanie w dół do danych wysyłanych przez określone urządzenia
 - Wyświetlanie najnowszych danych telemetrycznych w tabeli
 
-To rozwiązanie służy do konfigurowania potoku, który odczytuje dane z konta [usługi Azure Blob](./howto-export-data.md) Storage. Potok używa Azure Functions, Azure Data Factory i Azure SQL Database, aby przetwarzać i przekształcać dane. Możesz wizualizować i analizować dane w raporcie Power BI pobranym jako plik PBIX. Wszystkie zasoby są tworzone w ramach subskrypcji platformy Azure, dzięki czemu można dostosować każdy składnik do swoich potrzeb.
+To rozwiązanie służy do konfigurowania potoku, który odczytuje dane z konta [usługi Azure Blob](./howto-export-data-legacy.md) Storage. Potok używa Azure Functions, Azure Data Factory i Azure SQL Database, aby przetwarzać i przekształcać dane. Możesz wizualizować i analizować dane w raporcie Power BI pobranym jako plik PBIX. Wszystkie zasoby są tworzone w ramach subskrypcji platformy Azure, dzięki czemu można dostosować każdy składnik do swoich potrzeb.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
