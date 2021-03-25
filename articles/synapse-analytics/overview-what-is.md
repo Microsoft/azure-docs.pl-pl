@@ -6,15 +6,15 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 03/27/2021
+ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 316a78f4725aa3c33a78b00c6de3b8419aea717e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a7dcd630b0d5987c796ebb5a02657af9130221e6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600211"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045624"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Co to jest usługa Azure Synapse Analytics?
 
@@ -46,7 +46,7 @@ Usługa Azure Synapse usuwa tradycyjne bariery technologiczne między programami
 * SQL i Spark mogą bezpośrednio eksplorować i analizować pliki Parquet, CSV, TSV i JSON przechowywane w usłudze Data Lake.
 * Szybkie skalowalne obciążenie i zwalnianie danych przechodzących między bazami danych SQL i Spark
 
-## <a name="built-in-data-integration-via-pipelines"></a>Wbudowana integracja danych za pośrednictwem potoków
+## <a name="built-in-data-integration"></a>Wbudowana integracja danych
 
 Usługa Azure Synapse zawiera ten sam aparat integracji danych i środowisko Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków ETL o dużej skali bez opuszczania usługi Azure Synapse Analytics.
 

@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: b49ee61f3ee4ea8e8a177bca6aa566a07b7ef113
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2ef5a3b162d62fa79ed01a156345070ee12b4862
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044740"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110682"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>Autoryzuj dostęp z zarządzaną tożsamością do zasobu komunikacji w środowisku programistycznym
 
-Biblioteka klienta tożsamości platformy Azure zapewnia obsługę uwierzytelniania tokenów Azure Active Directory (Azure AD) dla zestawu Azure SDK. Najnowsze wersje bibliotek klienckich usług Azure Communication Services dla platform .NET, Java, Python i JavaScript integrują się z biblioteką tożsamości platformy Azure, aby zapewnić prosty i bezpieczny sposób uzyskiwania tokenu OAuth 2,0 na potrzeby autoryzacji żądań usług Azure Communications Services.
+Zestaw SDK tożsamości platformy Azure zapewnia obsługę uwierzytelniania tokenów Azure Active Directory (Azure AD) dla zestawu Azure SDK. Najnowsze wersje zestawów SDK usług Azure Communication Services dla platform .NET, Java, Python i JavaScript integrują się z biblioteką tożsamości platformy Azure, aby zapewnić prosty i bezpieczny sposób uzyskiwania tokenu OAuth 2,0 na potrzeby autoryzacji żądań usług Azure Communication Services.
 
-Zaletą biblioteki klienta tożsamości platformy Azure jest możliwość użycia tego samego kodu do uwierzytelniania w wielu usługach, niezależnie od tego, czy aplikacja działa w środowisku programistycznym, czy na platformie Azure. Biblioteka klienta tożsamości platformy Azure uwierzytelnia podmiot zabezpieczeń. Gdy kod jest uruchomiony na platformie Azure, podmiot zabezpieczeń jest zarządzaną tożsamością dla zasobów platformy Azure. W środowisku programistycznym, zarządzana tożsamość nie istnieje, więc Biblioteka klienta uwierzytelnia użytkownika lub zarejestrowanej aplikacji do celów testowych.
+Zaletą zestawu SDK usługi Azure Identity jest możliwość użycia tego samego kodu do uwierzytelniania w wielu usługach, niezależnie od tego, czy aplikacja działa w środowisku programistycznym, czy na platformie Azure. Zestaw Azure Identity SDK uwierzytelnia podmiot zabezpieczeń. Gdy kod jest uruchomiony na platformie Azure, podmiot zabezpieczeń jest zarządzaną tożsamością dla zasobów platformy Azure. W środowisku programistycznym tożsamość zarządzana nie istnieje, więc zestaw SDK uwierzytelnia użytkownika lub zarejestrowanej aplikacji do celów testowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ Zarządzane tożsamości powinny być włączone dla zasobów platformy Azure, k
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Szablon usługi Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager biblioteki klienckie](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Zestawy SDK Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 - [Usługi App Services](../../app-service/overview-managed-identity.md)
 
 ## <a name="authenticate-a-registered-application-in-the-development-environment"></a>Uwierzytelnianie zarejestrowanej aplikacji w środowisku programistycznym
@@ -68,7 +68,7 @@ az ad sp create-for-rbac --name <application-name>
 
 #### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
-Biblioteka klienta tożsamości platformy Azure odczytuje wartości z trzech zmiennych środowiskowych w czasie wykonywania w celu uwierzytelnienia aplikacji. W poniższej tabeli opisano wartość ustawioną dla każdej zmiennej środowiskowej.
+Zestaw SDK tożsamości platformy Azure odczytuje wartości z trzech zmiennych środowiskowych w czasie wykonywania w celu uwierzytelnienia aplikacji. W poniższej tabeli opisano wartość ustawioną dla każdej zmiennej środowiskowej.
 
 |Zmienna środowiskowa|Wartość
 |-|-
