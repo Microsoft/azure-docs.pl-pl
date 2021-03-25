@@ -85,7 +85,7 @@
       href: ./policy-reference.md
 - name: Zasoby
   items:
-    - name: Harmonogram działania dla platformy Azure
+    - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/updates/'
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-portal

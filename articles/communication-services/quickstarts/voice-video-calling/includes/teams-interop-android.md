@@ -1,19 +1,19 @@
 ---
 title: Szybki Start — Dołącz do spotkania zespołów z poziomu aplikacji systemu Android
-description: W tym samouczku dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu biblioteki klienta wywołującego usługi Azure Communications Services dla systemu Android
+description: W tym samouczku dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu zestawu SDK wywołań usługi Azure Communications Services dla systemu Android
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e5361b92c2080c724b872be2ad27bc5bd4554e8d
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488011"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108201"
 ---
-W tym przewodniku szybki start dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu biblioteki klienta wywołującego usługi Azure Communications Services dla systemu Android.
+W tym przewodniku szybki start dowiesz się, jak dołączać do spotkania zespołów przy użyciu zestawu SDK wywołania usługi Azure Communication Services dla systemu Android.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
 ## <a name="get-the-teams-meeting-link"></a>Pobierz link do spotkania dla zespołów
 
 Link do spotkania zespołów można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisany w [dokumentacji programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-Biblioteka klienta wywołującego usługę komunikacyjną akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, który jest dostępny w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Wymagane informacje o spotkaniu można również uzyskać od adresu URL **spotkania przyłączenia** do zespołu, który zaprosił się w sobie.
+Zestaw SDK wywoływania usług komunikacyjnych akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, który jest dostępny w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Wymagane informacje o spotkaniu można również uzyskać od adresu URL **spotkania przyłączenia** do zespołu, który zaprosił się w sobie.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Uruchom aplikację i Dołącz do spotkania zespołów
 

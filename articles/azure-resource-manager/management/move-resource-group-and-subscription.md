@@ -2,14 +2,14 @@
 title: Przenoszenie zasobów do nowej subskrypcji lub grupy zasobów
 description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670209"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108642"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -18,6 +18,12 @@ W tym artykule opisano sposób przenoszenia zasobów platformy Azure do innej su
 Zarówno Grupa źródłowa, jak i Grupa docelowa są zablokowane podczas operacji przenoszenia. Operacje zapisu i usuwania na grupach zasobów są blokowane do momentu zakończenia przenoszenia. Ta blokada oznacza, że nie można dodawać, aktualizować ani usuwać zasobów w grupach zasobów. Nie oznacza to, że zasoby są zamrożone. Jeśli na przykład przeniesiesz serwer logiczny usługi Azure SQL i jego bazy danych do nowej grupy zasobów lub subskrypcji, aplikacje korzystające z baz danych nie będą miały żadnych przestojów. Nadal mogą odczytywać i zapisywać bazy danych. Blokada może trwać maksymalnie cztery godziny, ale większość ruchów kończy się w znacznie krótszym czasie.
 
 Przeniesienie zasobu powoduje jedynie przeniesienie go do nowej grupy zasobów lub subskrypcji. Operacja nie może zmienić lokalizacji zasobu.
+
+## <a name="changed-resource-id"></a>Zmieniony identyfikator zasobu
+
+Podczas przenoszenia zasobu należy zmienić jego identyfikator zasobu. Standardowy format identyfikatora zasobu to `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}` . Po przeniesieniu zasobu do nowej grupy zasobów lub subskrypcji należy zmienić jedną lub więcej wartości w tej ścieżce.
+
+Jeśli używasz identyfikatora zasobu w dowolnym miejscu, musisz zmienić tę wartość. Na przykład jeśli w portalu znajduje się [niestandardowy pulpit nawigacyjny](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) , który odwołuje się do identyfikatora zasobu, należy zaktualizować tę wartość. Poszukaj wszelkich skryptów lub szablonów, które należy zaktualizować dla nowego identyfikatora zasobu.
 
 ## <a name="checklist-before-moving-resources"></a>Sporządzenie listy kontrolnej przed przeniesieniem zasobów
 
@@ -36,7 +42,7 @@ Przed przeniesieniem zasobu należy wykonać kilka ważnych czynności. Dzięki 
    * [Virtual Machines wskazówki dotyczące przenoszenia](./move-limitations/virtual-machines-move-limitations.md)
    * Aby przenieść subskrypcję platformy Azure do nowej grupy zarządzania, zobacz [przenoszenie subskrypcji](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. W przypadku przeniesienia zasobu z rolą platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego) przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po przeniesieniu należy ponownie utworzyć przypisanie roli. Ostatecznie przypisanie oddzielonej roli zostanie automatycznie usunięte, ale najlepszym rozwiązaniem jest usunięcie przypisania roli przed przeniesieniem zasobu.
+1. W przypadku przeniesienia zasobu z rolą platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego) przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po przeniesieniu należy ponownie utworzyć przypisanie roli. Ostatecznie przypisanie oddzielonej roli zostanie automatycznie usunięte, ale zalecamy usunięcie przypisania roli przed przeniesieniem.
 
     Informacje o sposobach zarządzania przypisaniami ról można znaleźć w temacie [Lista przypisań ról platformy Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) i [Przypisywanie ról platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -260,7 +266,7 @@ Przeniesienie zasobu jest skomplikowaną operacją, która ma różne etapy. Mo�
 
 **Pytanie: Dlaczego moja grupa zasobów została zablokowana przez cztery godziny podczas przenoszenia zasobów?**
 
-Żądanie przeniesienia jest dozwolone maksymalnie cztery godziny. Aby zapobiec modyfikacji zasobów, zarówno źródłowa, jak i docelowa Grupa zasobów są zablokowane na czas trwania przenoszenia zasobów.
+Żądanie przeniesienia jest dozwolone maksymalnie cztery godziny. Aby zapobiec modyfikacji zasobów, zarówno źródłowa, jak i docelowa Grupa zasobów są blokowane podczas przenoszenia zasobów.
 
 W żądaniu przeniesienia istnieją dwie fazy. W pierwszej fazie zasób jest przenoszony. W drugiej fazie powiadomienia są wysyłane do innych dostawców zasobów, które są zależne od przenoszonego zasobu. Grupę zasobów można zablokować przez całe cztery godziny, gdy dostawca zasobów zakończy się niepowodzeniem. W dozwolonym czasie Menedżer zasobów ponawianie próby zakończonego niepowodzeniem.
 
