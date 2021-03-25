@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 03/24/2021
 ms.author: banders
-ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b88a5bc10afeffe7e15ad7a90e28bd8b8ff28688
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363053"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046559"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -21,7 +21,7 @@ W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platfo
 
 Przed rozpoczęciem żądania przeniesienia musisz pobrać lub wyeksportować wszelkie informacje dotyczące kosztów i rozliczeń, które chcesz zachować. Informacje dotyczące rozliczeń i wykorzystania nie są przenoszone razem z subskrypcją. Aby uzyskać więcej informacji na temat eksportowania danych dotyczących zarządzania kosztami, zobacz [Eksportowanie danych i zarządzanie nimi](../costs/tutorial-export-acm-data.md). Aby uzyskać więcej informacji na temat pobierania danych dotyczących faktur i użycia, zobacz [Pobieranie lub wyświetlanie faktury rozliczeniowej i danych dziennego użycia na platformie Azure](download-azure-invoice-daily-usage-date.md).
 
-Jeśli masz jakiekolwiek rezerwacje, po przeniesieniu subskrypcji przestaną one być stosowane. Przed przeniesieniem subskrypcji pamiętaj, aby [anulować wszelkie rezerwacje i uzyskać zwrot pieniędzy](../reservations/exchange-and-refund-azure-reservations.md).
+Jeśli masz jakieś istniejące rezerwacje, przestaną one zastosowanie do 90 dni po przeniesieniu subskrypcji. Pamiętaj o [anulowaniu wszelkich rezerwacji i zwrocie ich](../reservations/exchange-and-refund-azure-reservations.md) przed przekazaniem subskrypcji, aby uniknąć naliczania opłat po okresie prolongaty 90.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Przenoszenie subskrypcji EA do partnera CSP
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7649f9c13db1a10bdb48d19f1019ec3b31244f45
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988242"
+ms.locfileid: "105104562"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -26,7 +26,7 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypc
 
 ## <a name="install-the-speech-sdk"></a>Instalowanie zestawu SDK usługi Mowa
 
-Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK dla Node.js. Jeśli chcesz, aby nazwa pakietu była zainstalowana, uruchom polecenie `npm install microsoft-cognitiveservices-speech-sdk` . Instrukcje dotyczące instalacji z przewodnikiem znajdują się w artykule [wprowadzenie](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) .
+Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK dla Node.js. Jeśli chcesz, aby nazwa pakietu była zainstalowana, uruchom polecenie `npm install microsoft-cognitiveservices-speech-sdk` . Instrukcje dotyczące instalacji z przewodnikiem znajdują się w artykule [wprowadzenie](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs) .
 
 Użyj poniższej `require` instrukcji, aby zaimportować zestaw SDK.
 

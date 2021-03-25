@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/19/2021
+ms.openlocfilehash: f652858f22e26eb7167a0cc7a2cfb8ef4b600ace
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130072"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047304"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace
 
@@ -22,6 +22,9 @@ Jako komercyjny wydawca portalu Marketplace możesz utworzyć ofertę oprogramow
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj się z artykułem [Planowanie oferty SaaS dla komercyjnej witryny Marketplace](plan-saas-offer.md). Wyjaśni wymagania techniczne dotyczące aplikacji SaaS oraz informacje i zasoby, które będą potrzebne podczas tworzenia oferty. Jeśli nie planujesz opublikowania prostej listy (**skontaktuj się ze mną** ) w komercyjnej witrynie Marketplace, Twoja aplikacja SaaS musi spełniać wymagania techniczne dotyczące uwierzytelniania.
+
+> [!IMPORTANT]
+> Zalecamy utworzenie oddzielnej oferty deweloperskiej/testowej (DEV) i oddzielną ofertę produkcyjną (PROD). W tym artykule opisano sposób tworzenia oferty PRODUKCYJNEj. Aby uzyskać szczegółowe informacje na temat tworzenia oferty DEWELOPERSKIej, zobacz [Tworzenie oferty tworzenia i testowania](create-saas-dev-test-offer.md).
 
 ## <a name="create-a-new-saas-offer"></a>Tworzenie nowej oferty SaaS
 

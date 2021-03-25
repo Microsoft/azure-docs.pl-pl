@@ -4,12 +4,12 @@ ms.service: databox
 ms.author: alkohli
 ms.topic: include
 ms.date: 03/23/2021
-ms.openlocfilehash: 34d0d55ba6eb403055be96758b57b7bd0c2ab704
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0d912d0ac3f0fcf4c52116e67909038a1973304b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104987710"
+ms.locfileid: "105104846"
 ---
 Aby rozwiązać problemy związane z obliczeniami, użyj odpowiedzi w czasie wykonywania agenta IoT Edge. Poniżej znajduje się lista możliwych odpowiedzi:
 
@@ -32,7 +32,7 @@ Wszystkie moduły na urządzeniu pokazują nieznany stan i nie można ich użyć
 
 #### <a name="suggested-solution"></a>Sugerowane rozwiązanie
 
-Usuń usługę IoT Edge, a następnie ponownie Wdróż moduły. Aby uzyskać więcej informacji, zobacz [usuwanie usługi IoT Edge](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Usuń usługę IoT Edge, a następnie ponownie Wdróż moduły. Aby uzyskać więcej informacji, zobacz [usuwanie usługi IoT Edge](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
 
 
 ### <a name="modules-show-as-running-but-are-not-working"></a>Moduły są wyświetlane jako uruchomione, ale nie działają
@@ -65,7 +65,7 @@ W lokalnym interfejsie użytkownika sieci Web urządzenia wykonaj następujące 
 1. Wprowadź statyczny, ciągły zakres adresów IP dla **adresów IP usług zewnętrznych Kubernetes**. Potrzebujesz 1 adresu IP dla `edgehub` usługi. Ponadto wymagany jest jeden adres IP dla każdego modułu IoT Edge i dla każdej maszyny wirtualnej, która zostanie wdrożona. 
 1. Wybierz przycisk **Zastosuj**. Zmieniony zakres adresów IP powinien obowiązywać od razu.
 
-Aby uzyskać więcej informacji, zobacz [Zmienianie zewnętrznych adresów IP usługi dla kontenerów](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
+Aby uzyskać więcej informacji, zobacz [Zmienianie zewnętrznych adresów IP usługi dla kontenerów](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#change-external-service-ips-for-containers).
 
 ### <a name="configure-static-ips-for-iot-edge-modules"></a>Skonfiguruj statyczne adresy IP dla modułów IoT Edge
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d1ee13a464002a2e1503541964cd96957da3c651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a0fafad208d97e2a4d24036e226b4044764bccb4
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879229"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047086"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Samouczek: mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
 
@@ -156,7 +156,7 @@ Przejdź do dostawcy DNS i Dodaj rekord CNAME, aby zmapować domenę na <service
 ![Strona rekordów DNS](./media/custom-dns-tutorial/dns-records.png)
 
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Mapowanie domeny niestandardowej do aplikacji w chmurze platformy Azure
-Jeśli nie masz aplikacji w chmurze Azure wiosennej, postępuj zgodnie z instrukcjami w [przewodniku szybki start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Jeśli nie masz aplikacji w chmurze Azure wiosennej, postępuj zgodnie z instrukcjami w [przewodniku szybki start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](./spring-cloud-quickstart.md).
 
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 Przejdź do strony aplikacji.

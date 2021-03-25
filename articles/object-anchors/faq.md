@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 6de027f317072512bd9893303d3a79d0f34f3e3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101749083"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047579"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Często zadawane pytania dotyczące kotwic obiektów platformy Azure
 
@@ -78,7 +78,7 @@ Odp **.:** Jest to zależne od rozmiaru obiektu i procesu skanowania. Aby szybci
  1. Wykonaj kalibrację oczu, aby uzyskać dokładne renderowanie.
  2. Upewnij się, że pomieszczenie ma rozbudowaną teksturę wizualną i dobre oświetlenie.
  3. Utrzymywanie obiektów w nieruchomy sposób, jeśli jest to możliwe.
- 4. Opcjonalnie Wyczyść pamięć podręczną [mapowania przestrzennego](https://docs.microsoft.com/windows/mixed-reality/spatial-mapping) na urządzeniu HoloLens.
+ 4. Opcjonalnie Wyczyść pamięć podręczną [mapowania przestrzennego](/windows/mixed-reality/spatial-mapping) na urządzeniu HoloLens.
  5. Przeskanuj obiekt, przeciągając go. Upewnij się, że większość obiektów jest zaobserwowana.
  6. Ustaw wystarczająco duży obszar wyszukiwania, aby pokryć obiekt.
  7. Obiekt powinien pozostać nieruchomy podczas wykrywania.

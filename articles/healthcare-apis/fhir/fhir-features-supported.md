@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: a31fb48443cf760186faad705b8be21a62846a44
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020802"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048423"
 ---
 # <a name="features"></a>Funkcje
 
@@ -35,14 +35,14 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | Aktualizuj przy użyciu optymistycznego blokowania | Tak       | Tak       | Tak       |                                                     |
 | Aktualizuj (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | wysłana                          | Nie        | Nie        | Nie        |                                                     |
-| delete                         | Tak       | Tak       | Tak       |  Zobacz uwagę poniżej                                                   |
+| delete                         | Tak       | Tak       | Tak       |  Zobacz uwagę poniżej.                                   |
 | Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
 | historia                        | Tak       | Tak       | Tak       |                                                     |
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
 | Utwórz (warunkowo)           | Tak       | Tak       | Tak       | [#1382](https://github.com/microsoft/fhir-server/issues/1382) problemu |
-| search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz poniżej                                           |
-| Wyszukiwanie łańcuchowe                 | Nie        | Tak       | Nie        |                                                     |
-| Wyszukiwanie w łańcuchu wstecznym         | Nie        | Tak       | Nie        |                                                     |
+| search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz sekcję Wyszukaj poniżej.                           |
+| Wyszukiwanie łańcuchowe                 | Tak       | Tak       | Częściowe   | Patrz Uwaga 2 poniżej.                                   |
+| Wyszukiwanie w łańcuchu wstecznym         | Tak       | Tak       | Częściowe   | Patrz Uwaga 2 poniżej.                                   |
 | możliwości                   | Tak       | Tak       | Tak       |                                                     |
 | partia                          | Tak       | Tak       | Tak       |                                                     |
 | Transaction                    | Nie        | Tak       | Nie        |                                                     |
@@ -51,6 +51,12 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 
 > [!Note]
 > Usunięcie zdefiniowane przez specyfikację FHIR wymaga, aby po usunięciu kolejne odczyty zasobów, które nie są specyficzne dla wersji, zwracały kod stanu HTTP 410, a zasób nie został już odnaleziony przez wyszukiwanie. Interfejs API platformy Azure dla usługi FHIR umożliwia również całkowite usunięcie (łącznie z całą historią) zasobu. Aby całkowicie usunąć zasób, można przekazać ustawienia parametru `hardDelete` do wartości true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Jeśli nie przekażesz tego parametru lub nie ustawisz `hardDelete` wartości false, nadal będą dostępne wersje historyczne zasobu.
+
+
+ **Uwaga 2**
+* Dodaje obsługę programu MVP dla łańcuchowych i odwracających łańcucha FHIR w CosmosDB. 
+
+  W interfejsie API platformy Azure dla usługi FHIR i serwera FHIR Open Source obsługiwanego przez Cosmos wyszukiwanie łańcuchowe wyszukiwania i łańcucha wstecznego jest implementacją MVP. Aby wykonać wyszukiwanie łańcuchowe na Cosmos DB, implementacja sprawdza wyrażenie wyszukiwania i wystawia zapytania podrzędne, aby rozwiązać dopasowane zasoby. Jest to wykonywane dla każdego poziomu wyrażenia. Jeśli dowolne zapytanie zwróci więcej niż 100 wyników, zostanie zgłoszony błąd. Domyślnie wyszukiwanie łańcuchowe jest za flagą funkcji. Aby użyć wyszukiwania łańcuchowego na Cosmos DB, użyj nagłówka `x-ms-enable-chained-search: true` . Aby uzyskać więcej informacji, zobacz [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Wyszukaj
 
@@ -62,7 +68,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Data/godzina         | Tak       | Tak       | Tak       |         |
 | Ciąg                | Tak       | Tak       | Tak       |         |
 | Token                 | Tak       | Tak       | Tak       |         |
-| Dokumentacja             | Tak       | Tak       | Tak       |         |
+| Odwołanie             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
 | Liczba              | Tak       | Tak       | Tak       |         |
 | URI                   | Tak       | Tak       | Tak       |         |

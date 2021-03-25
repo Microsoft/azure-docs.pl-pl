@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: pafarley
-ms.openlocfilehash: 9293d47d8aade11f4cc3ee55bb32574f125dfafc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f280e1a70ab595a87789c7514d8cce4fccbe8e84
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428290"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046899"
 ---
 # <a name="whats-new-in-face-service"></a>Co nowego w usłudze rozpoznawania twarzy?
 
@@ -23,9 +23,9 @@ Usługa Azure Site Recovery jest regularnie aktualizowana. Skorzystaj z tego art
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
-* Nowy model wykrywania Face API: nowy model wykrywania 03 jest obecnie dostępnym modelem wykrywania. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. Wykrywanie 03 usprawnia zarówno przywoływanie, jak i precyzję w przypadku mniejszych twarzy znalezionych w obrębie obrazów (64x64 pikseli). Dodatkowe ulepszenia obejmują ogólną redukcję fałszywie dodatnich i ulepszone wykrywanie w przypadku obróconych orientacji. Łączenie wykrywania 03 z nowym rozpoznawaniem 04 zapewni również lepszą dokładność rozpoznawania. Aby uzyskać więcej informacji [, zobacz Określanie modelu wykrywania kroju](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) .
-* Atrybut maski krawędzi: atrybut maska czołowa jest dostępny z najnowszym modelem wykrywania 03, wraz z dodatkowym atrybutem, `"noseAndMouthCovered"` który wykrywa, czy maska czołowa jest odnosząca się do zamierzonego, obejmującego nos i ustanie. Aby użyć najnowszej funkcji wykrywania masek, użytkownicy muszą określić model wykrywania w żądaniu interfejsu API: Przypisz wersję modelu z parametrem _detectionModel_ do `detection_03` . Aby uzyskać więcej informacji [, zobacz Określanie modelu wykrywania kroju](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) .
-* Nowy model rozpoznawania Face API: nowy model rozpoznawanie 04 jest obecnie dostępnym modelem rozpoznawania. Jeśli jesteś nowym klientem, zalecamy użycie tego modelu do weryfikacji i identyfikacji. Zwiększa się to z dokładnością rozpoznawania 03, łącznie z ulepszonym rozpoznawaniem zarejestrowanego użytkownika w zakresie okładek (masek chirurgicznych, masek N95, masek tkaniny). Teraz klienci mogą tworzyć bezpieczne i bezproblemowe środowiska użytkownika, które wykrywają, czy zarejestrowany użytkownik jest w stanie obsłużyć z najnowszym modelem wykrywania 03, i rozpoznaje, kto jest w modelu rozpoznawania w wersji 04. Aby uzyskać więcej informacji, zobacz temat [Określanie modelu rozpoznawania kroju](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model) .
+* Nowy model wykrywania Face API: nowy model wykrywania 03 jest obecnie dostępnym modelem wykrywania. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. Wykrywanie 03 usprawnia zarówno przywoływanie, jak i precyzję w przypadku mniejszych twarzy znalezionych w obrębie obrazów (64x64 pikseli). Dodatkowe ulepszenia obejmują ogólną redukcję fałszywie dodatnich i ulepszone wykrywanie w przypadku obróconych orientacji. Łączenie wykrywania 03 z nowym rozpoznawaniem 04 zapewni również lepszą dokładność rozpoznawania. Aby uzyskać więcej informacji [, zobacz Określanie modelu wykrywania kroju](./face-api-how-to-topics/specify-detection-model.md) .
+* Atrybut maski krawędzi: atrybut maska czołowa jest dostępny z najnowszym modelem wykrywania 03, wraz z dodatkowym atrybutem, `"noseAndMouthCovered"` który wykrywa, czy maska czołowa jest odnosząca się do zamierzonego, obejmującego nos i ustanie. Aby użyć najnowszej funkcji wykrywania masek, użytkownicy muszą określić model wykrywania w żądaniu interfejsu API: Przypisz wersję modelu z parametrem _detectionModel_ do `detection_03` . Aby uzyskać więcej informacji [, zobacz Określanie modelu wykrywania kroju](./face-api-how-to-topics/specify-detection-model.md) .
+* Nowy model rozpoznawania Face API: nowy model rozpoznawanie 04 jest obecnie dostępnym modelem rozpoznawania. Jeśli jesteś nowym klientem, zalecamy użycie tego modelu do weryfikacji i identyfikacji. Zwiększa się to z dokładnością rozpoznawania 03, łącznie z ulepszonym rozpoznawaniem zarejestrowanego użytkownika w zakresie okładek (masek chirurgicznych, masek N95, masek tkaniny). Teraz klienci mogą tworzyć bezpieczne i bezproblemowe środowiska użytkownika, które wykrywają, czy zarejestrowany użytkownik jest w stanie obsłużyć z najnowszym modelem wykrywania 03, i rozpoznaje, kto jest w modelu rozpoznawania w wersji 04. Aby uzyskać więcej informacji, zobacz temat [Określanie modelu rozpoznawania kroju](./face-api-how-to-topics/specify-recognition-model.md) .
 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.

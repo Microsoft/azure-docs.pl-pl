@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6bcfbc19cbaa078373d6857bdac74eaf86eca104
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712219"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048055"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opcje obliczeń i magazynowania w Azure Database for PostgreSQL-elastycznym serwerze
 
@@ -121,7 +121,7 @@ Możesz monitorować użycie we/wy w Azure Portal lub przy użyciu poleceń inte
 W przypadku zaznaczenia z liczbą operacji we \* /wy są ograniczone przez wybrany typ maszyny wirtualnej. W przeciwnym razie operacje we/wy są ograniczone przez wybrany rozmiar magazynu.
 
 >[!NOTE]
-> W metrykach może być widocznych więcej operacji we/wy z powodu dużego poziomu dysku. Więcej informacji można znaleźć w [dokumentacji](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) . 
+> W metrykach może być widocznych więcej operacji we/wy z powodu dużego poziomu dysku. Więcej informacji można znaleźć w [dokumentacji](../../virtual-machines/disk-bursting.md#disk-level-bursting) . 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Maksymalna przepustowość operacji we/wy (MiB/s) dla konfiguracji
 
