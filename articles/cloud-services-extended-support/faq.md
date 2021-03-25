@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744818"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025241"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Często zadawane pytania dotyczące usług Azure Cloud Services (wsparcie dodatkowe)
 W tym artykule opisano często zadawane pytania dotyczące usługi Azure Cloud Services (obsługa rozszerzona).
@@ -82,6 +82,8 @@ Pliki szablonów i parametrów są używane tylko na potrzeby automatyzacji wdra
 ### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Jak zmienia się kod aplikacji na Cloud Services (obsługa rozszerzona)
 Nie są wymagane żadne zmiany w kodzie aplikacji spakowane w cspkg. Twoje istniejące aplikacje będą nadal działały tak jak wcześniej. 
 
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>Czy Cloud Services (obsługa rozszerzona) zezwala na format pakietu CTP?
+Format pakietu CTP nie jest obsługiwany w Cloud Services (obsługa rozszerzona). Umożliwia jednak limit rozmiaru pakietu rozszerzonego wynoszący 800 MB
 
 ## <a name="migration"></a>Migracja
 

@@ -3,17 +3,17 @@ title: Alokowanie kosztów platformy Azure
 description: W tym artykule wyjaśniono, jak utworzyć reguły alokacji kosztów w celu dystrybuowania kosztów subskrypcji, grup zasobów lub tagów do innych użytkowników.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/11/2020
+ms.date: 03/23/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 414ce626d76c9b7a7d073d6cbfa5a5f4446c3073
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131092"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025530"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Tworzenie reguł alokacji kosztów platformy Azure i zarządzanie nimi (wersja zapoznawcza)
 
@@ -58,7 +58,7 @@ W przypadku dystrybucji kosztów według kosztów zasobów obliczeniowych, koszt
 
 Podczas dystrybucji kosztów w stosunku do łącznych kosztów wartość procentowa jest przydzielana proporcjonalnie na podstawie sumy lub łącznego kosztu wybranych elementów docelowych w bieżącym miesiącu rozliczeniowym.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Przykład przedstawiający tworzenie nazwy reguły" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Przykład przedstawiający procent alokacji" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Następnie określa się wstępnie wypełnione stałe wartości procentowe. Mają one zastosowanie do wszystkich bieżących alokacji. Wartości procentowe ulegają zmianie tylko wtedy, gdy reguła jest aktualizowana ręcznie.
 
@@ -84,7 +84,7 @@ Gdy reguła alokacji kosztów jest aktywna, koszty z wybranych źródeł są dys
 
 Wpływ reguły alokacji można sprawdzić w obszarze analizy kosztów. W witrynie Azure Portal przejdź do sekcji [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Wybierz z listy subskrypcję objętą aktywną regułą alokacji kosztów. Następnie z menu wybierz pozycję **Analiza kosztów**. W obszarze Analiza kosztów wybierz pozycję **Grupuj według**, a następnie wybierz pozycję **Alokacja kosztów**. W wyświetlonym widoku pojawi się skrócony podział kosztów wygenerowany przez subskrypcję, a także koszty przydzielone do danej subskrypcji (co widać na poniższej ilustracji).
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Przykład przedstawiający tworzenie nazwy reguły" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Przykład przedstawiający podział kosztów" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Wyświetlanie alokacji kosztów dla grupy zasobów
 
@@ -94,7 +94,12 @@ Podobny proces należy zastosować w przypadku reguły alokacji kosztów dotycz�
 
 W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**. Na stronie Analiza kosztów wybierz pozycję **Dodaj filtr**. Wybierz pozycję **Tag**, a następnie wybierz klucz tagu i wartości tagów, do których przydzielono koszty.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Przykład przedstawiający tworzenie nazwy reguły" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Przykład przedstawiający koszty dla elementów otagowanych" lightbox="./media/allocate-costs/tagged-costs.png" :::
+
+Oto film wideo, który pokazuje, jak utworzyć regułę alokacji kosztów.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Edytowanie istniejącej reguły alokacji kosztów
 

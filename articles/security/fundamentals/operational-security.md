@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab54243eb7109965941cf60edd9358133550c7d3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101711998"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046644"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -165,7 +165,7 @@ Usługa Azure Security Center zbiera efemeryczne kopie plików zrzutu awaryjnego
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-[Azure monitor rejestruje rozwiązanie zabezpieczenia](../../security-center/security-center-monitoring.md) i Inspekcja umożliwia działowi IT aktywne monitorowanie wszystkich zasobów, co może pomóc zminimalizować wpływ zdarzeń zabezpieczeń. Dzienniki Azure Monitor Security and Audit mają domeny zabezpieczeń, których można używać do monitorowania zasobów. Domena zabezpieczeń zapewnia szybki dostęp do opcji, aby monitorować zabezpieczenia następujące domeny zostały omówione bardziej szczegółowo:
+[Azure monitor rejestruje rozwiązanie zabezpieczenia](../../security-center/security-center-remediate-recommendations.md) i Inspekcja umożliwia działowi IT aktywne monitorowanie wszystkich zasobów, co może pomóc zminimalizować wpływ zdarzeń zabezpieczeń. Dzienniki Azure Monitor Security and Audit mają domeny zabezpieczeń, których można używać do monitorowania zasobów. Domena zabezpieczeń zapewnia szybki dostęp do opcji, aby monitorować zabezpieczenia następujące domeny zostały omówione bardziej szczegółowo:
 
 -   Ocena złośliwego oprogramowania
 -   Ocena aktualizacji

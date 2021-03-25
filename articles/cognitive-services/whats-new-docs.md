@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 03/08/2021
-ms.openlocfilehash: b5893ab7c616c30d4febf957c21da56caf7c9673
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4334166f435612370e7e0b7b380814fe85075f78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631374"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046627"
 ---
 # <a name="cognitive-services-docs-whats-new-for-february-1-2021---february-28-2021"></a>Cognitive Services docs: co nowego w 1 lutego 2021 — 28 lutego 2021
 
@@ -28,25 +28,25 @@ Witamy w nowościach Cognitive Services dokumentach od 1 lutego 2021 do 28 luteg
 
 ### <a name="new-articles"></a>Nowe artykuły
 
-- [Kontenery Cognitive Services platformy Azure — często zadawane pytania](/azure/cognitive-services/containers/container-faq)
+- [Kontenery Cognitive Services platformy Azure — często zadawane pytania](./containers/container-faq.yml)
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure](/azure/cognitive-services/containers/container-image-tags)
+- [Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure](./containers/container-image-tags.md)
 
 ## <a name="form-recognizer"></a>Rozpoznawanie formularzy
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Wdrażanie przykładowego narzędzia do oznaczania etykietami](/azure/cognitive-services/form-recognizer/deploy-label-tool)
-- [Co to jest rozpoznawanie formularzy?](/azure/cognitive-services/form-recognizer/overview)
-- [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [Wdrażanie przykładowego narzędzia do oznaczania etykietami](./form-recognizer/deploy-label-tool.md)
+- [Co to jest rozpoznawanie formularzy?](./form-recognizer/overview.md)
+- [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](./form-recognizer/quickstarts/label-tool.md)
 
 ## <a name="text-analytics"></a>Analiza tekstu
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Obsługa języków interfejs API analizy tekstu v3](/azure/cognitive-services/text-analytics/language-support)
-- [Jak wywołać interfejs API REST analiza tekstu](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [Obsługa języków interfejs API analizy tekstu v3](./text-analytics/language-support.md)
+- [Jak wywołać interfejs API REST analiza tekstu](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]
