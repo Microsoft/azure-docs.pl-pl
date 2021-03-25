@@ -3,12 +3,12 @@ title: Konfigurowanie monitorowania PV przy użyciu usługi Container Insights |
 description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z trwałymi woluminami przy użyciu usługi Container Insights.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 578cfe128b7445f8b09771999d1e653e92c4befa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200703"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026108"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Konfigurowanie monitorowania PV przy użyciu usługi Container Insights
 
@@ -19,7 +19,7 @@ Usługi Container Insights automatycznie zaczynają monitorować użycie PV prze
 
 | Nazwa metryki | Wymiar metryki (Tagi) | Opis metryki | | `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, ClusterName | Zajęte miejsce w bajtach dla określonego woluminu trwałego z wnioskiem używanym przez określony element. `capacityBytes` jest składany jako wymiar w polu Tagi, aby zmniejszyć koszty pozyskiwania danych i uprościć zapytania. |
 
-Dowiedz się więcej o konfigurowaniu zebranych metryk PV [tutaj](https://aka.ms/ci/pvconfig).
+Dowiedz się więcej o konfigurowaniu zebranych metryk PV [tutaj](./container-insights-agent-config.md).
 
 ## <a name="pv-inventory"></a>Spis PV
 
@@ -48,7 +48,7 @@ Przegląd trwałego spisu woluminów można znaleźć w skoroszycie ze **szczeg�
 :::image type="content" source="./media/container-insights-persistent-volumes/pv-details-workbook-example.PNG" alt-text="Przykład skoroszytu szczegółów Azure Monitor PV":::
 
 ### <a name="persistent-volume-usage-recommended-alert"></a>Alert zalecanego użycia woluminu trwałego
-Można włączyć alert zalecany, gdy średnie użycie PV dla elementu pod jest powyżej 80%. Dowiedz się więcej o alertach [tutaj](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts) i jak zastąpić domyślny próg w [tym miejscu](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts#configure-alertable-metrics-in-configmaps).
+Można włączyć alert zalecany, gdy średnie użycie PV dla elementu pod jest powyżej 80%. Dowiedz się więcej o alertach [tutaj](./container-insights-metric-alerts.md) i jak zastąpić domyślny próg w [tym miejscu](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps).
 ## <a name="next-steps"></a>Następne kroki
 
 - Więcej informacji na temat zebranych metryk PV [znajdziesz tutaj](./container-insights-agent-config.md).

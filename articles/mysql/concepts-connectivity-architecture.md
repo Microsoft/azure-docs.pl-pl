@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0197b533f80ccb1524de2bbb9fc5c642f2626bbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8ee1f22429c1002ba8c3db5c41f5a186cc59451
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655261"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046474"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architektura łączności w Azure Database for MySQL
 W tym artykule opisano architekturę Azure Database for MySQL łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MySQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -110,7 +110,7 @@ Tylko węzły bramy zostaną zlikwidowane. Gdy użytkownicy łączą się z serw
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Jak można sprawdzić, czy Twoje połączenia przechodzą do starych węzłów bramy czy z nowych węzłów bramy?
 Wyślij polecenie ping do nazwy FQDN serwera, na przykład  ``ping xxx.mysql.database.azure.com`` . Jeśli zwrotny adres IP jest jednym z adresów IP wymienionych w obszarze Address Gateway (likwidowanie) w dokumencie powyżej, oznacza to, że połączenie przechodzi przez starą bramę. Contrarily, jeśli zwrotny adres IP jest jednym z adresów IP wymienionych w obszarze addressed Address Gateways, oznacza to, że połączenie przechodzi przez nową bramę.
 
-Możesz również testować przez [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) lub TCPPing serwera bazy danych z aplikacji klienckiej przy użyciu portu 3306 i upewnić się, że zwrotny adres IP nie jest jednym z likwidowanych adresów IP.
+Możesz również testować przez [PSPing](/sysinternals/downloads/psping) lub TCPPing serwera bazy danych z aplikacji klienckiej przy użyciu portu 3306 i upewnić się, że zwrotny adres IP nie jest jednym z likwidowanych adresów IP.
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Jak mogę wiedzieć, kiedy konserwacja jest w trybie failover i otrzymam kolejne powiadomienie, gdy stare adresy IP zostaną zlikwidowane?
 Otrzymasz wiadomość e-mail z informacją o tym, kiedy zaczniemy pracę z konserwacją. Konserwacja może trwać do miesiąca w zależności od liczby serwerów, które muszą zostać zmigrowane w regionach Al. Przygotuj klienta do nawiązania połączenia z serwerem bazy danych przy użyciu nazwy FQDN lub nowego adresu IP z powyższej tabeli. 

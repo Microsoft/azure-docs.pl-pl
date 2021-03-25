@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 03/09/2021
-ms.openlocfilehash: 0b0fc1062f9e57ab716aa0fa88f90924f0485b08
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: efd145732ecc119e2fdf9b73ca59729232a37d4c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864877"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109526"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Dostosowywanie klastrów usługi Azure HDInsight za pomocą akcji skryptu
 
@@ -22,27 +22,32 @@ Akcje skryptu można również publikować w portalu Azure Marketplace jako apli
 
 Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight. Właściwości i funkcje skryptu są następujące:
 
-- Musi być przechowywany w identyfikatorze URI dostępnym z klastra usługi HDInsight. Możliwe są następujące lokalizacje magazynu:
+- Identyfikator URI skryptu bash (lokalizacja uzyskiwania dostępu do pliku) musi być dostępny z poziomu dostawcy zasobów usługi HDInsight i klastra.
+- Możliwe są następujące lokalizacje magazynu:
 
-  - W przypadku regularnych klastrów (innych niż ESP):
-    - Data Lake Storage Gen1/Gen2: główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu. Format identyfikatora URI dla skryptów przechowywanych w Data Lake Storage Gen1 to `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` .
-    - Obiekt BLOB na koncie magazynu platformy Azure, który jest podstawowym lub dodatkowym kontem magazynu dla klastra usługi HDInsight. Usługa HDInsight ma dostęp do obu typów kont magazynu podczas tworzenia klastra.
+   - W przypadku regularnych klastrów (innych niż ESP):
+     - Obiekt BLOB na koncie magazynu platformy Azure, który jest podstawowym lub dodatkowym kontem magazynu dla klastra usługi HDInsight. Usługa HDInsight ma dostęp do obu typów kont magazynu podczas tworzenia klastra.
+    
+       > [!IMPORTANT]  
+       > Nie obracaj klucza magazynu na tym koncie usługi Azure Storage, ponieważ spowoduje to, że kolejne akcje skryptu z zapisanymi skryptami nie powiodą się.
 
-    > [!IMPORTANT]  
-    > Nie obracaj klucza magazynu na tym koncie usługi Azure Storage, ponieważ spowoduje to, że kolejne akcje skryptu z zapisanymi skryptami nie powiodą się.
+     - Data Lake Storage Gen1: główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu. Format identyfikatora URI skryptu bash to `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` . 
 
-    - Publiczna usługa udostępniania plików dostępna za pomocą `http://` ścieżek. Przykłady to Azure Blob, GitHub lub OneDrive. Przykładowo identyfikatory URI, zobacz [przykładowe skrypty akcji skryptu](#example-script-action-scripts).
+     - Nie zaleca się stosowania Data Lake Storage Gen2 dla akcji skryptu. `abfs://` nie jest obsługiwany dla identyfikatora URI skryptu bash. `https://` Możliwe są identyfikatory URI, ale te działają w przypadku kontenerów mających dostęp publiczny, a Zapora jest otwarta dla dostawcy zasobów usługi HDInsight. w związku z tym nie jest to zalecane.
+
+     - Publiczna usługa udostępniania plików dostępna za pomocą `https://` ścieżek. Przykłady to Azure Blob, GitHub lub OneDrive. Przykładowo identyfikatory URI, zobacz [przykładowe skrypty akcji skryptu](#example-script-action-scripts).
+
   - W przypadku klastrów z ESP `wasb://` `wasbs://` `http[s]://` obsługiwane są identyfikatory URI lub lub.
 
-- Mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów. Przykłady to węzły główne lub węzły procesu roboczego.
-- Mogą być utrwalone lub *ad hoc*.
+- Akcje skryptu mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów. Przykłady to węzły główne lub węzły procesu roboczego.
+- Akcje skryptu mogą być utrwalone lub *ad hoc*.
 
   - Akcje utrwalonego skryptu muszą mieć unikatową nazwę. Utrwalone skrypty są używane do dostosowywania nowych węzłów procesu roboczego dodanych do klastra za pomocą operacji skalowania. Utrwalony skrypt może również zastosować zmiany do innego typu węzła w przypadku wystąpienia operacji skalowania. Przykładem jest węzeł główny.
   - Skrypty *ad hoc* nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć poziom skryptu *ad hoc* do utrwalonego skryptu lub obniżyć utrwalony skrypt do skryptu *ad hoc* . Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
 
-- Może akceptować parametry, które są używane przez skrypt podczas wykonywania.
-- Uruchom z uprawnieniami poziomu głównego w węzłach klastra.
-- Mogą być używane w ramach zestawu SDK programu .NET Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub usługi HDInsight.
+- Akcje skryptu mogą akceptować parametry, które są używane przez skrypt podczas wykonywania.
+- Akcje skryptu są uruchamiane z uprawnieniami poziomu głównego w węzłach klastra.
+- Akcje skryptu mogą być używane w ramach zestawu .NET SDK Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub usługi HDInsight.
 - Akcje skryptów, które usuwają lub modyfikują pliki usługi na maszynie wirtualnej, mogą mieć wpływ na kondycję usługi i dostępność.
 
 Klaster przechowuje historię wszystkich uruchomionych skryptów. Historia jest pomocna w przypadku konieczności znalezienia identyfikatora skryptu dla operacji podwyższania lub obniżania poziomu.

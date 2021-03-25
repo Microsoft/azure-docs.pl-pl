@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047457"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025360"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Korzystanie z kont magazynu zarządzanych przez klienta w usłudze Azure Monitor Log Analytics
 
@@ -50,7 +50,7 @@ Aby konto magazynu zostało pomyślnie połączone z prywatnym łączem, musi:
 * Zezwól Azure Monitor na dostęp do konta magazynu. Jeśli wybrano opcję zezwalania tylko wybranym sieci na dostęp do konta magazynu, należy wybrać wyjątek: "Zezwalaj na dostęp do tego konta magazynu zaufanym usługom firmy Microsoft".
 ![Obraz usług z zaufaniem do konta magazynu](./media/private-storage/storage-trust.png)
 * Jeśli obszar roboczy obsługuje również ruch z innych sieci, należy skonfigurować konto magazynu tak, aby zezwalało na ruch przychodzący z odpowiednich sieci/Internetu.
-* Koordynuj wersję protokołu TLS między agentami i kontem magazynu — zalecamy wysyłanie danych do Log Analytics przy użyciu protokołu TLS 1,2 lub nowszego. Przejrzyj [wskazówki dotyczące platformy](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12)i w razie potrzeby [Skonfiguruj agentów do korzystania z protokołu TLS 1,2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Jeśli z jakiegoś powodu nie jest możliwe, należy skonfigurować konto magazynu w celu akceptowania protokołu TLS 1,0.
+* Koordynuj wersję protokołu TLS między agentami i kontem magazynu — zalecamy wysyłanie danych do Log Analytics przy użyciu protokołu TLS 1,2 lub nowszego. Przejrzyj [wskazówki dotyczące platformy](./data-security.md#sending-data-securely-using-tls-12)i w razie potrzeby [Skonfiguruj agentów do korzystania z protokołu TLS 1,2](../agents/agent-windows.md#configure-agent-to-use-tls-12). Jeśli z jakiegoś powodu nie jest możliwe, należy skonfigurować konto magazynu w celu akceptowania protokołu TLS 1,0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Używanie konta magazynu zarządzanego przez klienta do szyfrowania danych CMK
 Usługa Azure Storage szyfruje wszystkie dane przechowywane na koncie magazynu. Domyślnie do szyfrowania danych są używane klucze zarządzane przez firmę Microsoft (MMK). Jednak usługa Azure Storage umożliwia również korzystanie z usługi CMK z magazynu kluczy Azure do szyfrowania danych magazynu. Możesz zaimportować własne klucze do Azure Key Vault lub użyć interfejsów API Azure Key Vault do wygenerowania kluczy.

@@ -151,7 +151,7 @@
           items:
             - name: Funkcja GitHub Actions
               href: quickstart-mysql-github-actions.md
-    - name: Networking
+    - name: Sieć
       items:
         - name: Punkty końcowe usługi dla sieci wirtualnej
           items:
@@ -387,23 +387,6 @@
           displayName: application
         - name: Najlepsze rozwiązania w zakresie operacji
           href: concept-operation-excellence-best-practices.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Rozwiązywanie problemów z wydajnością zapytań
-          href: howto-troubleshoot-query-performance.md
-          displayName: 'debug, performance issues, query performance'
-        - name: Jak używać widoków w schemacie sys
-          href: howto-troubleshoot-sys-schema.md
-          displayName: 'sys schema, views'
-        - name: Rozwiązywanie problemów z szyfrowaniem danych
-          href: howto-data-encryption-troubleshoot.md
-          displayName: 'encryption, security'
-        - name: Rozwiązywanie problemów z opóźnieniem replikacji
-          href: howto-troubleshoot-replication-latency.md
-          displayName: 'replication, latency, monitor'
-        - name: Eliminowanie uszkodzenia bazy danych
-          href: how-to-fix-corrupt-database.md
-          displayName: corrupt data
 - name: Serwer elastyczny (wersja zapoznawcza)
   items:
     - name: Dokumentacja serwera elastycznego
@@ -483,7 +466,7 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Uruchom ponownie serwer przy użyciu Azure Portal
           href: flexible-server/how-to-restart-server-portal.md
-    - name: Networking
+    - name: Sieć
       items:
         - name: Pojęcia
           href: flexible-server/concepts-networking.md
@@ -567,6 +550,26 @@
     - name: Rozwiązywanie typowych problemów
       href: howto-troubleshoot-common-errors.md
       displayName: 'SUPER privilege, DBA role, Access is denied'
+- name: Rozwiązywanie problemów
+  items:
+    - name: Rozwiązywanie problemów z błędami migracji
+      href: howto-troubleshoot-common-errors.md
+      displayName: 'SUPER privilege, DBA role, Access is denied'
+    - name: Rozwiązywanie problemów z wydajnością zapytań
+      href: howto-troubleshoot-query-performance.md
+      displayName: 'debug, performance issues, query performance'
+    - name: Jak używać widoków w schemacie sys
+      href: howto-troubleshoot-sys-schema.md
+      displayName: 'sys schema, views'
+    - name: Rozwiązywanie problemów z szyfrowaniem danych
+      href: howto-data-encryption-troubleshoot.md
+      displayName: 'encryption, security'
+    - name: Rozwiązywanie problemów z opóźnieniem replikacji
+      href: howto-troubleshoot-replication-latency.md
+      displayName: 'replication, latency, monitor'
+    - name: Rozwiązywanie problemów z uszkodzeniem bazy danych
+      href: how-to-fix-corrupt-database.md
+      displayName: corrupt data
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

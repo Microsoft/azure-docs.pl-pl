@@ -3,12 +3,12 @@ title: Praca z alertami w lokalnej konsoli zarządzania
 description: Korzystając z lokalnej konsoli zarządzania, można uzyskać wgląd w najnowsze zagrożenia w sieci i lepiej zrozumieć, jak użytkownicy czujnika obsługują te informacje.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781470"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032144"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Praca z alertami w lokalnej konsoli zarządzania 
 
@@ -242,6 +242,7 @@ Reguły tworzone za pomocą interfejsu API pojawiają się w oknie **reguła wyk
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Zrzut ekranu przedstawiający widok reguły wykluczania.":::
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
-[Pracuj z alertami na czujniku](how-to-work-with-alerts-on-your-sensor.md)
+[Pracuj z alertami na czujniku](how-to-work-with-alerts-on-your-sensor.md).
+Przejrzyj [alerty aparatu usługi Defender for IoT](alert-engine-messages.md).

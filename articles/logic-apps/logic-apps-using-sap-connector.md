@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 86bc43e043e7d67ff149391b111831df8171f34e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102489841"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048769"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -125,9 +125,6 @@ Zarządzany łącznik SAP integruje się z systemami SAP za pomocą [lokalnej br
 ### <a name="ise-prerequisites"></a>Wymagania wstępne ISE
 
 Te wymagania wstępne są stosowane, jeśli aplikacja logiki jest uruchamiana w ISE na poziomie Premium. Nie dotyczą jednak aplikacji logiki działających w ISE na poziomie dewelopera. ISE zapewnia dostęp do zasobów chronionych przez sieć wirtualną platformy Azure i oferuje inne łączniki natywne ISE, które umożliwiają aplikacjom logiki bezpośredni dostęp do zasobów lokalnych bez korzystania z lokalnej bramy danych.
-
-> [!NOTE]
-> Gdy łącznik SAP ISE jest widoczny wewnątrz ISE na poziomie dewelopera, próby zainstalowania łącznika nie powiedzie się.
 
 1. Jeśli nie masz jeszcze konta usługi Azure Storage z kontenerem obiektów blob, Utwórz kontener przy użyciu [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) lub [Eksplorator usługi Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 

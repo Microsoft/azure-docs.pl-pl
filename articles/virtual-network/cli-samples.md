@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 539d11205ffead52d7f40526f2c712e8cf8b5cdd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87501444"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048837"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla sieci wirtualnej
 
@@ -35,4 +35,4 @@ Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą poleceń
 | [Filtrowanie przychodzącego i wychodzącego ruchu sieciowego maszyny wirtualnej](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Tworzy sieć wirtualną z podsieciami frontonu i zaplecza. Ruch sieciowy przychodzący do podsieci frontonu jest ograniczony do protokołów HTTP, HTTPS i SSH. Ruch wychodzący do Internetu z podsieci zaplecza jest niedozwolony. |
 |[Konfigurowanie sieci wirtualnej o podwójnym stosie IPv4 + IPv6 z podstawową Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Wdraża sieć wirtualną o podwójnej stercie (IPv4 + IPv6) z dwiema maszynami wirtualnymi i podstawową Load Balancer platformy Azure przy użyciu adresów IPv4 i IPv6. |
 |[Konfigurowanie sieci wirtualnej o podwójnym stosie IPv4 + IPv6 przy użyciu usługa Load Balancer w warstwie Standardowa](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Wdraża sieć wirtualną dual-stack (IPv4 + IPv6) z dwiema maszynami wirtualnymi i usługa Load Balancer w warstwie Standardowa platformy Azure z publicznymi adresami IP w protokołach IPv4 i IPv6. |
-|[Samouczek: Tworzenie i testowanie bramy translatora adresów sieciowych — interfejs wiersza polecenia platformy Azure](../virtual-network/tutorial-create-validate-nat-gateway-cli.md)|Utwórz i sprawdź poprawność bramy NAT przy użyciu źródłowej i docelowej maszyny wirtualnej. |
+|[Samouczek: Tworzenie i testowanie bramy translatora adresów sieciowych — interfejs wiersza polecenia platformy Azure](./tutorial-create-nat-gateway-cli.md)|Utwórz i sprawdź poprawność bramy NAT przy użyciu źródłowej i docelowej maszyny wirtualnej. |

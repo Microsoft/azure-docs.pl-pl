@@ -2,17 +2,17 @@
 title: Wdróż pakiety aplikacji w węzłach obliczeniowych
 description: Funkcja pakietów aplikacji programu Azure Batch umożliwia łatwe zarządzanie wieloma aplikacjami i wersjami do zainstalowania w węzłach obliczeniowych usługi Batch.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033735"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045794"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -59,6 +59,9 @@ W przypadku pakietów aplikacji zadanie uruchamiania puli nie musi określać d�
 ## <a name="upload-and-manage-applications"></a>Przekazywanie aplikacji i zarządzanie nimi
 
 Za pomocą [Azure Portal](https://portal.azure.com) lub interfejsów API zarządzania usługą Batch można zarządzać pakietami aplikacji na koncie w usłudze Batch. W poniższych sekcjach wyjaśniono, jak połączyć konto magazynu oraz jak dodawać aplikacje i pakiety aplikacji oraz zarządzać nimi w Azure Portal.
+
+> [!NOTE]
+> Podczas definiowania wartości aplikacji w [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) zasobu [szablonu ARM](quick-create-template.md)nie jest obecnie możliwe używanie szablonu ARM do przekazywania pakietów aplikacji do użycia na koncie w usłudze Batch. Musisz przekazać je na połączone konto magazynu, zgodnie z [poniższym](#add-a-new-application)opisem.
 
 ### <a name="link-a-storage-account"></a>Łączenie konta magazynu
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/24/2021
 ms.author: b-juche
-ms.openlocfilehash: add907923cc2284939acd972237fd4ec74ee2d12
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864010"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048378"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Tworzenie połączeń Active Directory i zarządzanie nimi dla Azure NetApp Files
 
@@ -86,6 +86,8 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 * Azure NetApp Files obsługuje [podpisywanie LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), co umożliwia bezpieczną transmisję ruchu LDAP między usługą Azure NetApp Files i kierowanymi [Active Directory kontrolerami domeny](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Jeśli masz wskazówki dotyczące usługi Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) na potrzeby podpisywania LDAP, należy włączyć funkcję podpisywania ldap w Azure NetApp Files, sprawdzając pole **podpisywania LDAP** w oknie [sprzężenie Active Directory](#create-an-active-directory-connection) . 
 
     Sama konfiguracja [powiązania kanału LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) nie ma wpływu na usługę Azure NetApp Files. Jeśli jednak używasz zarówno powiązania kanału LDAP, jak i bezpiecznego protokołu LDAP (na przykład LDAPs lub `start_tls` ), Tworzenie woluminu SMB zakończy się niepowodzeniem.
+
+* W przypadku zintegrowanego systemu DNS niezwiązanego z usługą AD należy dodać rekord A/PTR systemu DNS, aby umożliwić Azure NetApp Files funkcji przy użyciu "przyjaznej nazwy". 
 
 ## <a name="decide-which-domain-services-to-use"></a>Zdecyduj, które usługi domenowe mają być używane 
 

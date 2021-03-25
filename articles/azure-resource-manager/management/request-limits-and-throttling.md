@@ -4,12 +4,12 @@ description: Opisuje sposób korzystania z ograniczania z żądaniami Azure Reso
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97563130"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024629"
 ---
 # <a name="throttling-resource-manager-requests"></a>Ograniczanie przepływności żądań usługi Resource Manager
 
@@ -58,7 +58,7 @@ Dostawca zasobów Microsoft. Network stosuje następujące limity ograniczania p
 
 ### <a name="compute-throttling"></a>Ograniczanie obliczeń
 
-Aby uzyskać informacje dotyczące limitów ograniczania dla operacji obliczeniowych, zobacz [Rozwiązywanie problemów z ograniczaniem wydajności interfejsu API — obliczenia](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Aby uzyskać informacje dotyczące limitów ograniczania dla operacji obliczeniowych, zobacz [Rozwiązywanie problemów z ograniczaniem wydajności interfejsu API — obliczenia](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 Aby sprawdzić wystąpienia maszyn wirtualnych w zestawie skalowania maszyn wirtualnych, użyj [operacji Virtual Machine Scale Sets](/rest/api/compute/virtualmachinescalesetvms). Na przykład użyj opcji maszyny wirtualne [zestawu skalowania maszyn wirtualnych](/rest/api/compute/virtualmachinescalesetvms/list) z parametrami, aby sprawdzić stan elektrowni wystąpień maszyn wirtualnych. Ten interfejs API zmniejsza liczbę żądań.
 
@@ -98,7 +98,7 @@ Liczbę pozostałych żądań można określić, sprawdzając nagłówki odpowie
 | x-MS-ratelimit-pozostały-dzierżawca-zasób-żądania |Pozostałe żądania typu zasobu z zakresem dzierżawy pozostało.<br /><br />Ten nagłówek jest dodawany tylko do żądań na poziomie dzierżawy i tylko wtedy, gdy usługa została zastąpiona domyślnym limitem. Menedżer zasobów dodaje tę wartość zamiast operacji odczytu lub zapisu dzierżawy. |
 | x-MS-ratelimit-pozostały-dzierżawca-obiekty — odczyt |Pozostałe żądania kolekcji typów zasobów z zakresem dzierżawy pozostało.<br /><br />Ten nagłówek jest dodawany tylko do żądań na poziomie dzierżawy i tylko wtedy, gdy usługa została zastąpiona domyślnym limitem. |
 
-Dostawca zasobów może również zwracać nagłówki odpowiedzi z informacjami o pozostałych żądaniach. Informacje o nagłówkach odpowiedzi zwracanych przez dostawcę zasobów obliczeniowych znajdują się w temacie [Informacje o szybkości wywołań — nagłówki odpowiedzi](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+Dostawca zasobów może również zwracać nagłówki odpowiedzi z informacjami o pozostałych żądaniach. Informacje o nagłówkach odpowiedzi zwracanych przez dostawcę zasobów obliczeniowych znajdują się w temacie [Informacje o szybkości wywołań — nagłówki odpowiedzi](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Pobieranie wartości nagłówka
 

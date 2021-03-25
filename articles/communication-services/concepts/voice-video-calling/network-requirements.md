@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 3/23/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 753bb7a88f8032d6ed9aeac1b1adf4f34d7cec43
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 22bf8af89771e57621a0d8851ca31bb750b7cda2
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105051352"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108353"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Zapewnianie wysokiej jakości multimediów w usłudze Azure Communications Services
 
@@ -36,7 +36,7 @@ Jakość multimediów w czasie rzeczywistym za pośrednictwem protokołu IP ma z
 
 Upewnij się, że sieć jest skonfigurowana do obsługi przepustowości wymaganej przez współbieżne sesje multimedialne usług Azure Communication Services i inne aplikacje biznesowe. Testowanie kompleksowej ścieżki sieciowej pod kątem wąskich gardeł przepustowości ma kluczowe znaczenie dla pomyślnego wdrożenia rozwiązania multimedialnego usług komunikacyjnych.
 
-Poniżej przedstawiono wymagania dotyczące przepustowości dla bibliotek klienckich JavaScript:
+Poniżej przedstawiono wymagania dotyczące przepustowości dla zestawów SDK języka JavaScript:
 
 |Przepustowość|Scenariusze|
 |:--|:--|
@@ -47,7 +47,7 @@ Poniżej przedstawiono wymagania dotyczące przepustowości dla bibliotek klienc
 |500 KB/s|Grupuj wideo wywołujące 360p w 30fps|
 |1,2 MB/s|Wideo z grupą HD, wywoływanie przy użyciu rozdzielczości HD 720 w 30fps| 
 
-Poniżej przedstawiono wymagania dotyczące przepustowości dla natywnych bibliotek klienckich systemu Android i iOS:
+Poniżej przedstawiono wymagania dotyczące przepustowości dla natywnych zestawów SDK dla systemów Android i iOS:
 
 |Przepustowość|Scenariusze|
 |:--|:--|
@@ -79,7 +79,7 @@ Możesz chcieć zoptymalizować więcej, jeśli:
 | Zadanie optymalizacji sieci | Szczegóły |
 | :-- | :-- |
 | Planowanie sieci | W tej dokumentacji można znaleźć minimalne wymagania dotyczące sieci dla wywołań. Zapoznaj się z [przykładem Teams w celu zaplanowania sieci](https://docs.microsoft.com/microsoftteams/tutorial-network-planner-example) |
-| Rozpoznawanie nazw zewnętrznych | Upewnij się, że wszystkie komputery z uruchomioną biblioteką klienta usługi Azure Communications Services mogą rozpoznawać zewnętrzne zapytania DNS w celu odnajdywania usług oferowanych przez usługi komunikacyjne platformy Azure i uniemożliwiania dostępu przez zapory. Upewnij się, że biblioteki klienckie mogą rozpoznawać adresy *. skype.com, *. microsoft.com, *. azure.net, *. azureedge.net, *. office.com, *. trouter.io  |
+| Rozpoznawanie nazw zewnętrznych | Upewnij się, że wszystkie komputery z uruchomionymi zestawami SDK usług Azure Communications Services mogą rozpoznawać zewnętrzne zapytania DNS w celu odnajdywania usług oferowanych przez usługi komunikacyjne platformy Azure i uniemożliwiania dostępu przez zapory. Upewnij się, że zestawy SDK mogą rozpoznawać adresy *. skype.com, *. microsoft.com, *. azure.net, *. azureedge.net, *. office.com, *. trouter.io  |
 | Utrzymywanie trwałości sesji | Upewnij się, że Zapora nie zmienia adresów translatora adresów sieciowych (NAT) ani portów dla protokołu UDP
 Sprawdzanie poprawności rozmiaru puli NAT | Sprawdź poprawność rozmiaru puli translatora adresów sieciowych (NAT) wymaganego do połączenia z użytkownikiem. Gdy wielu użytkowników i urządzeń uzyskują dostęp do usług Azure Communication Services przy użyciu translatora [adresów sieciowych (NAT) lub translacji adresów portów](https://docs.microsoft.com/office365/enterprise/nat-support-with-office-365), należy się upewnić, że urządzenia ukryte za każdy publiczny adres IP routingu nie przekraczają obsługiwanej liczby. Upewnij się, że odpowiednie publiczne adresy IP są przypisane do pul NAT, aby zapobiec wyczerpaniu portów. Wyczerpanie portów będzie współtworzyć użytkowników wewnętrznych i urządzeń, które nie są w stanie połączyć się z usługami Azure Communications Services |
 | Wskazówki dotyczące wykrywania i zapobiegania włamaniom | Jeśli środowisko ma system wykrywania lub zapobiegania [włamaniu](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools) (identyfikatory/adresy IP) wdrożony w celu uzyskania dodatkowej warstwy zabezpieczeń dla połączeń wychodzących, Zezwól na wszystkie adresy URL usług Azure Communications Services |
@@ -89,10 +89,10 @@ Sprawdzanie poprawności rozmiaru puli NAT | Sprawdź poprawność rozmiaru puli
 
 
 
-### <a name="operating-system-and-browsers-for-javascript-client-libraries"></a>System operacyjny i przeglądarki (dla bibliotek klienckich JavaScript)
+### <a name="operating-system-and-browsers-for-javascript-sdks"></a>System operacyjny i przeglądarki (dla zestawów SDK języka JavaScript)
 
-Biblioteki klienta głosowego i wideo usługi Azure Communication Services obsługują pewne systemy operacyjne i przeglądarki.
-Informacje na temat systemów operacyjnych i przeglądarek obsługiwanych przez wywołujące biblioteki klienta w [dokumentacji dotyczącej pojęć wywołujących](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+Zestawy SDK głosu/wideo usługi Azure Communication Services obsługują pewne systemy operacyjne i przeglądarki.
+Informacje na temat systemów operacyjnych i przeglądarek obsługiwanych przez wywołania zestawów SDK w [dokumentacji dotyczącej pojęć wywołujących](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
 
 ## <a name="next-steps"></a>Następne kroki
 

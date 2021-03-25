@@ -1,22 +1,22 @@
 ---
 title: Szybki Start — dodawanie telefonu VOIP do aplikacji systemu Android przy użyciu usług Azure Communications Services
-description: W tym samouczku dowiesz się, jak korzystać z biblioteki klienta wywołującego usługę Azure Communications Services dla systemu Android
+description: W tym samouczku dowiesz się, jak używać zestawu SDK wywołań usługi Azure Communication Services dla systemu Android
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 094dbd090b5f2d68a9961f2fb9b8b611e486e7bc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b68d3a92015a8add2dd97313f9971cf896f8e77e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719772"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108295"
 ---
-W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu Android.
+W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu zestawu SDK wywołań usługi Azure Communication Services dla systemu Android.
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 8 z wywołującej biblioteki klienta.
+> Ten dokument używa wersji 1.0.0-beta. 8 zestawu SDK wywoływania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Wybierz szablon projektu "puste działanie" w obszarze "telefon i tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający opcję &quot;puste działanie&quot; wybraną na ekranie szablonu projektu.":::
 
-Wybierz minimalną bibliotekę klienta "API 26: Android 8,0 (OREO)" lub większą.
+Wybierz opcję minimalny zestaw SDK "API 26: Android 8,0 (OREO)" lub nowszy.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający opcję &quot;puste działanie&quot; wybraną na ekranie szablonu projektu 2.":::
 
@@ -110,8 +110,8 @@ Aby zażądać uprawnień wymaganych do wykonania wywołania, należy najpierw j
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -260,11 +260,11 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Model obiektów
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta wywołującego usługi Azure Communications Services:
+Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK wywołującego usługi Azure Communications Services:
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
+| CallClient| CallClient jest głównym punktem wejścia do wywołującego zestawu SDK.|
 | CallAgent | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
 | CommunicationUserCredential | CommunicationUserCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier jest używany jako inny typ uczestnika, który mógłby być częścią wywołania.|

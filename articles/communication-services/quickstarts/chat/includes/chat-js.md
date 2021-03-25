@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 0805537fe0791a622eb1814cc233c04d914dbecd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5af681b6edf8abc8145caf599fc0fb3c4daf5c15
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612976"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107066"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -43,7 +43,7 @@ npm init -y
 
 ### <a name="install-the-packages"></a>Zainstaluj pakiety
 
-Użyj `npm install` polecenia, aby zainstalować poniższe biblioteki klienckie usług komunikacyjnych dla języka JavaScript.
+Użyj `npm install` polecenia, aby zainstalować Poniższe zestawy SDK usług komunikacyjnych dla języka JavaScript.
 
 ```console
 npm install @azure/communication-common --save
@@ -87,7 +87,7 @@ Dodaj `start` skrypt do programu `package.json` , który będzie używany do uru
 }
 ```
 
-Utwórz plik **index.html** w katalogu głównym projektu. Użyjemy tego pliku jako szablonu, aby dodać możliwość rozmowy przy użyciu biblioteki klienckiej rozmowy komunikacyjnej platformy Azure dla języka JavaScript.
+Utwórz plik **index.html** w katalogu głównym projektu. Użyjemy tego pliku jako szablonu, aby dodać możliwość rozmowy przy użyciu zestawu SDK usługi Azure Communication Chat dla języka JavaScript.
 
 ```html
 <!DOCTYPE html>
@@ -111,7 +111,7 @@ Aby utworzyć klienta programu chat w aplikacji sieci Web, należy użyć **punk
 
 Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services. Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami aplikacji czatu. Aby uzyskać więcej informacji o tokenach dostępu, zobacz [pojęcia dotyczące rozmowy](../../../concepts/chat/concepts.md) , aby uzyskać więcej informacji o architekturze rozmowy i [tokenach dostępu użytkowników](../../access-tokens.md) .
 
-Wewnątrz **client.js** Użyj punktu końcowego i tokenu dostępu w poniższym kodzie, aby dodać możliwość rozmowy przy użyciu biblioteki klienckiej usługi Azure Communication Chat dla języka JavaScript.
+Wewnątrz **client.js** Użyj punktu końcowego i tokenu dostępu w poniższym kodzie, aby dodać możliwość rozmowy przy użyciu zestawu SDK usługi Azure Communication Chat dla języka JavaScript.
 
 ```JavaScript
 
@@ -144,7 +144,7 @@ Azure Communication Chat client created!
 ```
 
 ## <a name="object-model"></a>Model obiektów
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta czatu usługi Azure Communication Services dla języka JavaScript.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu Azure Communications Services Chat SDK dla języka JavaScript.
 
 | Nazwa                                   | Opis                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
