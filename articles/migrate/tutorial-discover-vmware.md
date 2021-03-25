@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: d0acf83ddfb0d2a3aff0db0f3d151869bce1c710
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 1a0ad751a216e8da772fd5fdc96a0dc67cb27d01
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771740"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109860"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware przy użyciu Azure Migrate: odnajdywanie i Ocena
 
@@ -46,12 +46,10 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 **Wprowadzony** | vCenter Server wymaga zasobów do przydzielenia serwera dla urządzenia Azure Migrate:<br/><br/> -32 GB pamięci RAM, 8 procesorów wirtualnych vCPU i około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny i dostęp do Internetu na serwerze urządzeń, bezpośrednio lub za pośrednictwem serwera proxy.
 **Serwery** | Wszystkie wersje systemów operacyjnych Windows i Linux są obsługiwane na potrzeby odnajdywania metadanych konfiguracji i wydajności. <br/><br/> Aby przeprowadzić odnajdywanie aplikacji na serwerach, obsługiwane są wszystkie wersje systemów operacyjnych Windows i Linux. Sprawdź wersje systemu operacyjnego obsługiwane [w przypadku analizy](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) zależności bez agentów.<br/><br/> Aby przeprowadzić odnajdywanie zainstalowanych aplikacji i analizy zależności bez agenta, należy zainstalować i uruchomić narzędzia VMware (nowsze niż 10.2.0) na serwerach. Na serwerach z systemem Windows musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.<br/><br/> Aby odnaleźć SQL Server wystąpienia i bazy danych, [zapoznaj się](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) z obsługiwanymi SQL Server wersjami i wydaniami, obsługiwane wersje systemu operacyjnego Windows i mechanizmy uwierzytelniania.
 
-> [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
-
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
 Aby utworzyć projekt i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
+
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory (AAD)
 - Właściciel lub współautor oraz uprawnienia administratora dostępu użytkowników do subskrypcji platformy Azure w celu utworzenia Key Vault używane podczas migracji serwera bez agenta
@@ -96,14 +94,13 @@ W programie klient sieci Web vSphere Skonfiguruj konto w następujący sposób:
 3. W obszarze **Użytkownicy** Dodaj nowego użytkownika.
 4. W obszarze **nowy użytkownik** wpisz szczegóły konta. Następnie kliknij przycisk **OK**.
 5. W obszarze **uprawnienia globalne** wybierz konto użytkownika i przypisz rolę tylko do **odczytu** do konta. Następnie kliknij przycisk **OK**.
-6.  Jeśli chcesz również przeprowadzić odnajdywanie zainstalowanych aplikacji i analizy zależności bez agenta, przejdź do **ról** > wybierz rolę tylko do **odczytu** , a w obszarze **uprawnienia** wybierz pozycję **operacje gościa**. Można propagować uprawnienia do wszystkich obiektów w vCenter Server, zaznaczając pole wyboru Propaguj do elementów podrzędnych.
+6. Jeśli chcesz również przeprowadzić odnajdywanie zainstalowanych aplikacji i analizy zależności bez agenta, przejdź do **ról** > wybierz rolę tylko do **odczytu** , a w obszarze **uprawnienia** wybierz pozycję **operacje gościa**. Można propagować uprawnienia do wszystkich obiektów w vCenter Server, zaznaczając pole wyboru Propaguj do elementów podrzędnych.
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Pole wyboru zezwalające na operacje gościa w roli tylko do odczytu":::
 
 
 > [!NOTE]
 > Można ograniczyć odnajdywanie do określonych vCenter Server centrów danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych serwerów przez określanie zakresu vCenter Server konta. [**Dowiedz się więcej**](set-discovery-scope.md) na temat określania zakresu vCenter Servergo konta użytkownika.
-
 
 ### <a name="create-an-account-to-access-servers"></a>Utwórz konto, aby uzyskać dostęp do serwerów
 
@@ -234,7 +231,6 @@ Skonfiguruj urządzenie po raz pierwszy.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 w Menedżerze konfiguracji urządzenia":::
 
-
 ### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
 1. Wklej **klucz projektu** skopiowany z portalu. Jeśli nie masz klucza, przejdź do **Azure Migrate: odnajdywania i oceny> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
@@ -274,9 +270,6 @@ W **kroku 3: zapewnianie poświadczeń serwera do wykonywania spisu oprogramowan
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzenia dla szczegółów serwera":::
 
-> [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
-
 Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, wykonując poniższe kroki. Urządzenie podejmie próbę automatycznego mapowania poświadczeń do serwerów w celu wykonania funkcji odnajdywania.
 
 - Możesz dodać poświadczenia serwera, klikając przycisk **Dodaj poświadczenia** . Spowoduje to otwarcie modalnego, w którym można wybrać **Typ poświadczeń** z listy rozwijanej.
@@ -289,6 +282,7 @@ Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, 
 - W tabeli poświadczeń można zobaczyć **stan sprawdzania poprawności** dla wszystkich poświadczeń domeny. Zweryfikowane zostaną tylko poświadczenia domeny.
 - Jeśli sprawdzanie poprawności zakończy się niepowodzeniem, można kliknąć pozycję stan **niepowodzenia** , aby zobaczyć błąd napotkany, a następnie kliknąć przycisk ponownie **Sprawdź poprawność poświadczeń** po rozwiązaniu problemu w celu ponownego zweryfikowania nieudanych poświadczeń domeny.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzenia na potrzeby udostępniania wielu poświadczeń":::
 
 ### <a name="start-discovery"></a>Rozpocznij odnajdywanie
 

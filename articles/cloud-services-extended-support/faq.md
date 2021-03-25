@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025241"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107520"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Często zadawane pytania dotyczące usług Azure Cloud Services (wsparcie dodatkowe)
 W tym artykule opisano często zadawane pytania dotyczące usługi Azure Cloud Services (obsługa rozszerzona).
@@ -93,7 +93,7 @@ Nie, wdrożenia usługi w chmurze (obsługa rozszerzona) są powiązane z klastr
 ### <a name="when-do-i-need-to-migrate"></a>Kiedy należy przeprowadzić migrację? 
 Oszacowanie czasu wymaganego i migracji złożoności zależy od zakresu zmiennych. Planowanie jest najbardziej skutecznym krokiem do zrozumienia zakresu pracy, zablokowanych i złożoności migracji.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Sieć 
 
 ### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>Dlaczego nie mogę utworzyć wdrożenia bez sieci wirtualnej?
 Sieci wirtualne są wymagane do wdrożenia na Azure Resource Manager. Wdrożenie Cloud Services (obsługa rozszerzona) musi znajdować się w sieci wirtualnej. 
@@ -112,6 +112,9 @@ Klienci są rozliczani za korzystanie z adresów IP w Cloud Services (obsługa r
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Czy mogę użyć nazwy DNS z Cloud Services (obsługa rozszerzona)? 
 Tak. Cloud Services (obsługa rozszerzona) może również mieć nazwę DNS. W przypadku Azure Resource Manager etykieta DNS jest opcjonalną właściwością publicznego adresu IP przypisanego do usługi w chmurze. Format nazwy DNS dla wdrożeń opartych na Azure Resource Manager to `<userlabel>.<region>.cloudapp.azure.com`
+
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>Czy mogę zaktualizować lub zmienić odwołanie do sieci wirtualnej dla istniejącej usługi w chmurze (obsługa rozszerzona)? 
+Nie. Odwołanie do sieci wirtualnej jest obowiązkowe podczas tworzenia usługi w chmurze. W przypadku istniejącej usługi w chmurze nie można zmienić odwołania do sieci wirtualnej. Przestrzeń adresową sieci wirtualnej można zmodyfikować przy użyciu interfejsów API sieci wirtualnej. 
 
 ## <a name="certificates--key-vault"></a>& certyfikatów Key Vault
 

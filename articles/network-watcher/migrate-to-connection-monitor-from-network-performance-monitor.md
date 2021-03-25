@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010409"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045488"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrowanie do monitora połączeń z Network Performance Monitor
 
@@ -31,7 +31,7 @@ Testy z programu Network Performance Monitor (NPM) można migrować do nowego, u
 
 Migracja pomaga generować następujące wyniki:
 
-* Lokalne agenci i ustawienia zapory działają zgodnie z oczekiwaniami. Nie są wymagane żadne zmiany. Log Analytics agenci zainstalowani na maszynach wirtualnych platformy Azure muszą zostać zamienione na [rozszerzenie Network Watcher](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+* Lokalne agenci i ustawienia zapory działają zgodnie z oczekiwaniami. Nie są wymagane żadne zmiany. Log Analytics agenci zainstalowani na maszynach wirtualnych platformy Azure muszą zostać zamienione na [rozszerzenie Network Watcher](../virtual-machines/extensions/network-watcher-windows.md).
 * Istniejące testy są mapowane do monitora połączeń > grupy testowej > formacie testu. Wybierając pozycję **Edytuj**, można wyświetlić i zmodyfikować właściwości nowego monitora połączeń, pobrać szablon, aby wprowadzić w nim zmiany, i przesłać szablon za pośrednictwem Azure Resource Manager.
 * Agenci wysyłają dane do obszaru roboczego Log Analytics i metryk.
 * Monitorowanie danych:

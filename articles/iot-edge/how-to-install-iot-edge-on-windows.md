@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 94c3917b0912835799818597f94f3880ea3a7639
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: c291bb701aca385a11631504f1a312b25cced633
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889539"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045675"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalowanie i aprowizacja usługi IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
@@ -370,4 +370,6 @@ Sprawdź, czy IoT Edge dla systemu Linux w systemie Windows zostały pomyślnie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kontynuuj [wdrażanie modułów IoT Edge](how-to-deploy-modules-portal.md) , aby dowiedzieć się, jak wdrażać moduły na urządzeniu.
+* Kontynuuj [wdrażanie modułów IoT Edge](how-to-deploy-modules-portal.md) , aby dowiedzieć się, jak wdrażać moduły na urządzeniu.
+* Dowiedz się, jak [zarządzać certyfikatami na IoT Edge dla systemu Linux na maszynie wirtualnej z systemem Windows](how-to-manage-device-certificates.md) i przetransferować pliki z systemu operacyjnego hosta na maszynę wirtualną z systemem Linux.
+* Dowiedz się, jak [skonfigurować urządzenia IoT Edge do komunikowania się za pomocą serwera proxy](how-to-configure-proxy-support.md).

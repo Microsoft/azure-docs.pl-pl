@@ -3,12 +3,12 @@ title: Konfigurowanie integracji usługi Container Insights Prometheus | Microso
 description: W tym artykule opisano, jak można skonfigurować agenta usługi Container Insights w celu uzyskania wycinków metryk z Prometheus z klastrem Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731735"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109645"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Konfigurowanie wycinków metryk Prometheus za pomocą usługi Container Insights
 
@@ -48,7 +48,7 @@ Po określeniu adresu URL usługi Container Insights tylko odcinają punkt końc
 |------|-----|-----------|-------|-------------|
 | Cały klaster | | | | Określ jedną z następujących trzech metod, aby wypróbować punkty końcowe dla metryk. |
 | | `urls` | Ciąg | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym parametrem usługi Container Insights i może być używany zamiast adresu IP węzła. Musi zawierać wielkie litery). |
-| | `kubernetes_services` | Ciąg | Tablica rozdzielona przecinkami | Tablica usług Kubernetes Services do odporności metryk z metryk polecenia-State-Metrics. Na przykład `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | Ciąg | Tablica rozdzielona przecinkami | Tablica usług Kubernetes Services do odporności metryk z metryk polecenia-State-Metrics. W tym miejscu należy użyć w pełni kwalifikowanych nazw domen. Na przykład `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Wartość logiczna | true lub false | Po ustawieniu na wartość `true` w ustawieniach całego klastra Agent usługi Container Insights będzie odporny na Kubernetesy w całym klastrze dla następujących adnotacji Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Wartość logiczna | true lub false | Włącza odpadków pod. `monitor_kubernetes_pods` musi być ustawiony na `true` . |
 | | `prometheus.io/scheme` | Ciąg | http lub https | Wartość domyślna to złomowanie za pośrednictwem protokołu HTTP. W razie potrzeby ustaw wartość `https` . | 

@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630790"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045250"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Testowanie i publikowanie oferty SaaS na rynku komercyjnym
 
 W tym artykule wyjaśniono, jak za pomocą Centrum partnerskiego przesłać ofertę SaaS do opublikowania, wyświetlić podgląd oferty, przetestować ją, a następnie opublikować ją na żywo na komercyjnej platformie Marketplace. Musisz mieć już utworzoną ofertę, która ma zostać opublikowana.
+
+> [!NOTE]
+> Zalecamy utworzenie oddzielnej oferty testowej i programistycznej (DEV) jako niskiego ryzyka, aby przeprowadzić test przed opublikowaniem oferty produkcyjnej (PROD). Wykonaj następujące kroki, aby utworzyć i przetestować ofertę DEV przed opublikowaniem oferty (PROD).
 
 ## <a name="submit-your-offer-for-publishing"></a>Prześlij swoją ofertę na potrzeby publikowania
 
@@ -48,7 +51,7 @@ Wykonaj poniższe kroki, aby wyświetlić podgląd oferty.
 
 1. Na stronie **Przegląd oferty** wybierz link do wersji zapoznawczej w obszarze przycisk **Przejdź na żywo** .
 
-1. Aby sprawdzić, czy jest to kompleksowy przepływ zakupów i konfiguracji, Kup swoją ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty.
+1. Aby sprawdzić, czy jest to kompleksowy przepływ zakupów i konfiguracji, Kup plany w ofercie, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty.
 
 1. Jeśli oferta SaaS obsługuje [naliczanie opłat naliczanych przy użyciu komercyjnej usługi pomiarów w portalu Marketplace](./partner-center-portal/saas-metered-billing.md), należy zapoznać się z najlepszymi rozwiązaniami dotyczącymi testowania i postępować zgodnie z informacjami w temacie [interfejsy API Rozlicz](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices)
 
@@ -60,10 +63,10 @@ Wykonaj poniższe kroki, aby wyświetlić podgląd oferty.
 
 ## <a name="publish-your-offer-live"></a>Publikuj swoją ofertę na żywo
 
-Po zakończeniu wszystkich testów w wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować swoją ofertę na żywo na rynku komercyjnym.
+Po zakończeniu wszystkich testów w wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować swoją ofertę na żywo na rynku komercyjnym. Jeśli Twoja oferta już działa w komercyjnej witrynie Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą dostępne do momentu wybrania pozycji **Przejdź na żywo**.
 
-   > [!TIP]
-   > Jeśli Twoja oferta już działa w komercyjnej witrynie Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą dostępne do momentu wybrania pozycji **Przejdź na żywo**.
+> [!IMPORTANT]
+> Nie musisz wybierać opcji **Przejdź na żywo** w celu [tworzenia i testowania oferty](create-saas-dev-test-offer.md).
 
 Teraz, gdy wybrano opcję udostępnienia oferty w komercyjnej witrynie Marketplace, przeprowadzamy serię ostatecznych testów weryfikacyjnych, aby upewnić się, że oferta na żywo jest skonfigurowana tak jak wersja zapoznawcza oferty. Aby uzyskać szczegółowe informacje o tych kontrolach weryfikacji, zobacz [Publikowanie faz](review-publish-offer.md#publish-phase).
 

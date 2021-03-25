@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: b2c-support
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652134"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043601"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Omówienie kont użytkowników w Azure Active Directory B2C
 
@@ -36,7 +37,8 @@ Konto służbowe jest tworzone w taki sam sposób dla wszystkich dzierżawców w
 
 Po dodaniu nowego konta służbowego należy wziąć pod uwagę następujące ustawienia konfiguracji:
 
-- **Nazwa** i **Nazwa użytkownika** — Właściwość **name** zawiera imię i nazwisko użytkownika. **Nazwa użytkownika** to identyfikator, który użytkownik wprowadza do logowania. Nazwa użytkownika obejmuje pełną domenę. Część nazwy domeny musi być początkową domyślną nazwą domeny *Your-Domain.onmicrosoft.com* lub zweryfikowaną [niestandardową nazwą domeny](../active-directory/fundamentals/add-custom-domain.md) nieautorytatywną, taką jak *contoso.com*.
+- **Nazwa** i **Nazwa użytkownika** — Właściwość **name** zawiera imię i nazwisko użytkownika. **Nazwa użytkownika** to identyfikator, który użytkownik wprowadza do logowania. Nazwa użytkownika obejmuje pełną domenę. Część nazwy domeny musi być początkową domyślną nazwą domeny *Your-Domain.onmicrosoft.com* lub zweryfikowaną [niestandardową nazwą domeny](../active-directory/fundamentals/add-custom-domain.md) nieautorytatywną, taką jak *contoso.com*. 
+- **Poczta e-mail** — nowy użytkownik może również zalogować się przy użyciu adresu e-mail. W wiadomościach e-mail nie są obsługiwane znaki specjalne ani znaki wielobajtowe, na przykład znaki japońskie.
 - **Profil** — konto jest konfigurowane z profilem danych użytkownika. Możesz wprowadzić imię, nazwisko, stanowisko i nazwę działu. Można edytować profil po utworzeniu konta.
 - **Grupy** — używanie grup do wykonywania zadań zarządzania, takich jak Przypisywanie licencji lub uprawnień do wielu użytkowników lub urządzeń jednocześnie. Nowe konto można umieścić w istniejącej [grupie](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) w dzierżawie.
 - **Rola katalogu** — należy określić poziom dostępu, który ma być używany przez konto użytkownika do zasobów w dzierżawie. Dostępne są następujące poziomy uprawnień:

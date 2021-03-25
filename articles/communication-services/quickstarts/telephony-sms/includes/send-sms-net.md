@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 96cdeb7c35cd1ccd503f7ce01e1098a6b83884c3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: caca5f5a05a136248f7453337629fdd2b22f956a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622016"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110371"
 ---
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta SMS usług komunikacyjnych w języku C# do wysyłania wiadomości SMS.
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK programu SMS usługi Communication Services w celu wysyłania wiadomości SMS.
 
 W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
 
@@ -28,13 +28,13 @@ W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kil
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Najnowsza wersja [programu .NET Core Client Library](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego.
+- Najnowsza wersja [zestaw .NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego.
 - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
 - Numer telefonu z włączoną funkcją SMS. [Pobierz numer telefonu](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
 
-- W terminalu lub oknie poleceń Uruchom `dotnet` polecenie, aby sprawdzić, czy Biblioteka klienta .NET jest zainstalowana.
+- W terminalu lub oknie polecenia Uruchom `dotnet` polecenie, aby sprawdzić, czy zestaw .NET SDK jest zainstalowany.
 - Aby wyświetlić numery telefonów skojarzone z zasobem usług komunikacyjnych, zaloguj się do [Azure Portal](https://portal.azure.com/), Znajdź zasób usługi komunikacyjnej i Otwórz kartę **numery telefonów** w okienku nawigacji po lewej stronie.
 
 ## <a name="setting-up"></a>Konfigurowanie
@@ -56,7 +56,7 @@ dotnet build
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Mimo że w katalogu aplikacji, zainstaluj bibliotekę klienta programu SMS dla usług Azure Communication Services dla platformy .NET za pomocą `dotnet add package` polecenia.
+Mimo że w katalogu aplikacji, zainstaluj pakiet SMS SDK usług Azure Communication Services dla platformy .NET za pomocą `dotnet add package` polecenia.
 
 ```console
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
@@ -77,7 +77,7 @@ using Azure.Communication.Sms;
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta SMS usługi Azure Communication Services dla języka C#.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SMS SDK usługi Azure Communication Services dla języka C#.
 
 | Nazwa                                       | Opis                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |

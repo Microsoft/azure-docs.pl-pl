@@ -67,6 +67,8 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Publikowanie za pomocą usługi Azure DevOps
+      href: publish-devops.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

@@ -10,16 +10,16 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487943"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152810"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-**Przykład Hero grupy** usług komunikacyjnych platformy Azure demonstruje, jak usługi komunikacyjne wywołujące bibliotekę klienta sieci Web mogą być używane do tworzenia środowiska wywołującego grupę.
+**Przykład Hero grupy** usług komunikacyjnych platformy Azure demonstruje, jak usługi komunikacyjne WYWOŁUJĄCE zestaw SDK sieci Web mogą być używane do tworzenia środowiska wywołującego grupę.
 
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
 
@@ -96,7 +96,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- Zapoznaj się z [pomocą biblioteki klienta wywołującego](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Zapoznaj się z [użyciem zestawu SDK wywołującego](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Dowiedz się więcej o [sposobie wywoływania programu](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Materiały uzupełniające

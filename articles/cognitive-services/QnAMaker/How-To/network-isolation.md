@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467548"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043363"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
 
@@ -60,7 +60,7 @@ Wystąpienie Wyszukiwanie poznawcze może być izolowane za pośrednictwem prywa
 
 Jeśli QnA Maker App Service jest ograniczone przy użyciu App Service Environment, Użyj tej samej sieci wirtualnej, aby utworzyć połączenie prywatnego punktu końcowego z wystąpieniem Wyszukiwanie poznawcze. Utwórz nowy wpis DNS w sieci wirtualnej, aby zamapować punkt końcowy Wyszukiwanie poznawcze na Wyszukiwanie poznawcze adres IP prywatnego punktu końcowego. 
 
-Jeśli App Service Environment nie jest używany dla App Service QnAMaker, najpierw należy utworzyć nowy zasób sieci wirtualnej, a następnie utworzyć połączenie prywatnego punktu końcowego z wystąpieniem Wyszukiwanie poznawcze. W takim przypadku App Service QnA Maker należy [zintegrować z siecią wirtualną](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) , aby połączyć się z wystąpieniem wyszukiwanie poznawcze. 
+Jeśli App Service Environment nie jest używany dla App Service QnAMaker, najpierw należy utworzyć nowy zasób sieci wirtualnej, a następnie utworzyć połączenie prywatnego punktu końcowego z wystąpieniem Wyszukiwanie poznawcze. W takim przypadku App Service QnA Maker należy [zintegrować z siecią wirtualną](../../../app-service/web-sites-integrate-with-vnet.md) , aby połączyć się z wystąpieniem wyszukiwanie poznawcze. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 

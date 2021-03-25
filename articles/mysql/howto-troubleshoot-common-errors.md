@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 546f29330b76548ea553cfb7e4e31ac35b19cb1c
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105037550"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109798"
 ---
-# <a name="common-errors"></a>Typowe błędy
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Często występujące błędy podczas migracji do usługi Azure Database for MySQL lub po jej opublikowaniu
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database for MySQL to w pełni zarządzana usługa oparta na wersji społeczności MySQL. Środowisko MySQL w środowisku usługi zarządzanej może się różnić od uruchamiania programu MySQL w Twoim środowisku. W tym artykule zobaczysz niektóre typowe błędy, które użytkownicy mogą napotkać podczas migrowania lub opracowywania usługi Azure Database for MySQL po raz pierwszy.
 
@@ -84,6 +86,14 @@ Powyższy błąd może wystąpić podczas wykonywania instrukcji CREATE VIEW wit
 
 > [!Tip] 
 > Użyj narzędzia SED lub Perl, aby zmodyfikować plik zrzutu lub skrypt SQL w celu zastąpienia instrukcji DEFINE =
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>BŁĄD 1227 (42000) w wierszu 18: odmowa dostępu; potrzebujesz (co najmniej jednego z tych uprawnień) dla tej operacji
+
+Powyższy błąd może wystąpić w przypadku próby zaimportowania pliku zrzutu z serwera MySQL z GTID włączonym do docelowego serwera Azure Database for MySQL. Mysqldump dodaje instrukcję SET @ @SESSION.sql_log_bin = 0 do pliku zrzutu z serwera, na którym są używane GTIDs, co powoduje wyłączenie rejestrowania danych binarnych podczas ponownego ładowania pliku zrzutu.
+
+**Rozwiązanie**: Aby rozwiązać ten problem podczas importowania, Usuń lub Skomentuj poniższe wiersze w pliku mysqldump i ponownie uruchom operację importowania, aby upewnić się, że zakończyło się pomyślnie. 
+
+Ustaw @MYSQLDUMP_TEMP_LOG_BIN = @ @SESSION.SQL_LOG_BIN ; Ustaw wartość @ @SESSION.SQL_LOG_BIN = 0; Ustaw wartość @ @GLOBAL.GTID_PURGED = ""; Ustaw wartość @ @SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN ;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>Typowe błędy połączeń dla logowania administratora serwera
 

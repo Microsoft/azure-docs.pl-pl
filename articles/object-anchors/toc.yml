@@ -31,15 +31,15 @@
 - name: Odwołania
   items:
     - name: Zestaw SDK środowiska uruchomieniowego dla aparatu Unity
-      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.ObjectAnchors/'
+      href: /dotnet/api/Microsoft.Azure.ObjectAnchors/
     - name: Zestaw SDK środowiska uruchomieniowego dla urządzeń HoloLens C++/WinRT
-      href: 'https://docs.microsoft.com/cpp/api/object-anchors/winrt/'
+      href: /cpp/api/object-anchors/winrt/
 - name: Zasoby
   items:
     - name: Informacje o wersji
       href: 'https://github.com/Azure/azure-object-anchors/releases'
     - name: Interfejs API REST zarządzania zasobami usługi Azure Mixed Reality
-      href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+      href: /rest/api/mixedreality/
     - name: Często zadawane pytania
       href: faq.md
     - name: Stack Overflow

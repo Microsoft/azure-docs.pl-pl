@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2822f719928515efc70eeed3d7c182e347627418
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743291"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045522"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy 
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] lub  
 [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] lub  
 [Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
-* [32-bitowe środowisko Python w wersji 2.7][Python 2.7 32-bit] lub [32-bitowe środowisko Python w wersji 3.5][Python 3.5 32-bit]
+* [Python 2,7 32-bit][Python 2.7 32-bit] lub [Python 3,8 32-bit][Python 3.8 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -71,7 +71,7 @@ Usługa w chmurze może zawierać role zaimplementowane w różnych językach.  
 
 Główny problem ze skryptami instalacji polega na tym, że nie instalują one środowiska Python. Najpierw należy zdefiniować dwa [zadania uruchamiania](cloud-services-startup-tasks.md) w pliku [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). Pierwsze zadanie (**PrepPython.ps1**) pobiera i instaluje środowiska uruchomieniowe języka Python. Drugie zadanie (**PipInstaller.ps1**) uruchamia mechanizm pip, aby zainstalować wszystkie zależności.
 
-Poniższe skrypty zostały napisane dla języka Python 3.5. Jeśli chcesz korzystać z wersji 2.x języka Python, ustaw plik zmiennej **PYTHON2** na **on** dla dwóch zadań uruchamiania i zadania środowiska uruchomieniowego: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+Następujące skrypty zostały zapisane w środowisku Python 3,8. Jeśli chcesz korzystać z wersji 2.x języka Python, ustaw plik zmiennej **PYTHON2** na **on** dla dwóch zadań uruchamiania i zadania środowiska uruchomieniowego: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -167,7 +167,7 @@ Zmienne **PYTHON2** i **PYPATH** muszą zostać dodane do zadania uruchamiania p
 Następnie należy utworzyć pliki **PrepPython.ps1** i **PipInstaller.ps1** w folderze **./bin** roli użytkownika.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest zainstalowane środowisko Python 2.7. W przeciwnym razie jest zainstalowane środowisko Python 3.5.
+Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, wówczas środowisko Python 2,7 jest zainstalowane, w przeciwnym razie jest zainstalowany język Python 3,8.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -186,12 +186,12 @@ if (-not $is_emulated){
 
     if (-not $?) {
 
-        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.8.8/python-3.8.8-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.8.8-amd64.exe"
 
         if ($is_python2) {
-            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+            $url = "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.18.amd64.msi"
         }
 
         Write-Output "Not found, downloading $url to $outFile$nl"
@@ -214,7 +214,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest używane środowisko Python 2.7. W przeciwnym razie jest używane środowisko Python 3.5.
+Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2,7, w przeciwnym razie jest używany język Python 3,8.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -249,7 +249,7 @@ if (-not $is_emulated){
 
 Skrypt **Bin\LaunchWorker.ps1** pierwotnie został utworzony w celu wykonywania działań przygotowawczych, ale w praktyce nie działa. Zastąp zawartość tego pliku następującym skryptem.
 
-Ten skrypt wywołuje plik **worker.py** z projektu języka Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest używane środowisko Python 2.7. W przeciwnym razie jest używane środowisko Python 3.5.
+Ten skrypt wywołuje plik **worker.py** z projektu języka Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, używany jest język Python 2,7, w przeciwnym razie jest używany język Python 3,8.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -364,4 +364,4 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie roli 
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
-[Python 3.5 32-bit]: https://www.python.org/downloads/
+[Python 3.8 32-bit]: https://www.python.org/downloads/

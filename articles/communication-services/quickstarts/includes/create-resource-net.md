@@ -4,23 +4,23 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: bf00b0829868b7099579c1a35113dbca1741cfe3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 443595a52458d7ff7c168f4c120257cfb60fad2e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495900"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110897"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/dotnet/).
-- Najnowsza wersja [programu .NET Core Client Library](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego.
-- Pobierz najnowszą wersję [biblioteki klienta tożsamości platformy .NET](/dotnet/api/azure.identity).
-- Pobierz najnowszą wersję [biblioteki klienta zarządzania .NET](../../concepts/sdk-options.md).
+- Najnowsza wersja [zestaw .NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego.
+- Pobierz najnowszą wersję [zestawu SDK dla platformy .NET](/dotnet/api/azure.identity).
+- Pobierz najnowszą wersję [zestawu .NET Management SDK](../../concepts/sdk-options.md).
 
-## <a name="installing-the-client-library"></a>Instalowanie biblioteki klienckiej
+## <a name="installing-the-sdk"></a>Instalowanie zestawu SDK
 
-Najpierw Uwzględnij bibliotekę klienta zarządzania usługami komunikacyjnymi w projekcie w języku C#:
+Najpierw Uwzględnij zestaw SDK zarządzania usługami komunikacyjnymi w projekcie w języku C#:
 
 ```csharp
 using Azure.ResourceManager.Communication;
@@ -121,11 +121,11 @@ Po uwierzytelnieniu możesz użyć swojego klienta zarządzania do wykonywania w
 
 Dla każdego z poniższych przykładów przypiszemy nasze zasoby usług komunikacyjnych do istniejącej grupy zasobów.
 
-Jeśli musisz utworzyć grupę zasobów, możesz to zrobić za pomocą [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) lub [Azure Resource Manager biblioteki klienta](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Jeśli musisz utworzyć grupę zasobów, możesz to zrobić za pomocą [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) lub [zestawu Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Tworzenie zasobu usług komunikacyjnych i zarządzanie nim
 
-Nasze wystąpienie klienta biblioteki klienta zarządzania usługami komunikacyjnymi ( ``Azure.ResourceManager.Communication.CommunicationManagementClient`` ) może służyć do wykonywania operacji na zasobach usług komunikacyjnych.
+Nasze wystąpienie klienta SDK zarządzania usługami komunikacyjnymi ( ``Azure.ResourceManager.Communication.CommunicationManagementClient`` ) może służyć do wykonywania operacji na zasobach usług komunikacyjnych.
 
 #### <a name="create-a-communication-services-resource"></a>Tworzenie zasobu usług Communication Services
 
@@ -173,7 +173,7 @@ await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourc
 
 ## <a name="managing-keys-and-connection-strings"></a>Zarządzanie kluczami i ciągami połączeń
 
-Każdy zasób usług komunikacyjnych ma parę kluczy dostępu i odpowiadające im parametry połączenia. Dostęp do tych kluczy można uzyskać za pomocą biblioteki klienta zarządzania, a następnie użyć innych bibliotek klienckich usług komunikacyjnych w celu samodzielnego uwierzytelnienia w usłudze Azure Communications Services.
+Każdy zasób usług komunikacyjnych ma parę kluczy dostępu i odpowiadające im parametry połączenia. Do tych kluczy można uzyskać dostęp za pomocą zestawu SDK zarządzania, a następnie użyć innych zestawów SDK usług komunikacyjnych do samodzielnego uwierzytelnienia w usłudze Azure Communications Services.
 
 #### <a name="get-access-keys-for-a-communication-services-resource"></a>Pobieranie kluczy dostępu dla zasobu usług komunikacyjnych
 

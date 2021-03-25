@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Azure 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573612"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046015"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure
 
@@ -88,21 +88,21 @@ Następujące regiony i maksymalne zasoby są dostępne dla grup kontenerów z [
 | Brazylia Południowa | 4 | 16 | 4 | 16 | 20 |
 | Kanada Środkowa | 2 | 8 | 2 | 3,5 | 20 |
 | Indie Środkowe | 2 | 3,5 | 2 | 3,5 | 20 |
-| Central US | 2 | 3,5 | 2 | 3,5 | 20 |
+| Central US | 2 | 8 | 2 | 3,5 | 20 |
 | Azja Wschodnia | 2 | 3,5 | 2 | 3,5 | 20 |
-| East US | 4 | 16 | 2 | 8 | 20 |
-| Wschodnie stany USA 2 | 2 | 3,5 | 4 | 16 | 20 |
+| East US | 2 | 8 | 2 | 8 | 20 |
+| Wschodnie stany USA 2 | 2 | 8 | 4 | 16 | 20 |
 | Japonia Wschodnia | 4 | 16 | 4 | 16 | 20 |
 | Korea Środkowa | 4 | 16 | 4 | 16 | 20 |
-| Północno-środkowe stany USA | 4 | 16 | 4 | 16 | 20 |
+| Północno-środkowe stany USA | 2 | 8 | 4 | 16 | 20 |
 | Europa Północna | 2 | 8 | 2 | 8 | 20 |
-| South Central US | 2 | 3,5 | 2 | 8 | 20 |
+| South Central US | 2 | 8 | 2 | 8 | 20 |
 | Southeast Asia | NIE DOTYCZY | NIE DOTYCZY | 2 | 3,5 | 20 |
 | Indie Południowe | 2 | 3,5 | 2 | 3,5 | 20 |
 | Południowe Zjednoczone Królestwo | 2 | 8 | 2 | 3,5 | 20 |
-| Zachodnio-środkowe stany USA | 4 | 16 | 2 | 8 | 20 |
+| Zachodnio-środkowe stany USA | 2 | 8 | 2 | 8 | 20 |
 | West Europe | 4 | 16 | 4 | 16 | 20 |
-| Zachodnie stany USA | 4 | 16 | 2 | 8 | 20 |
+| Zachodnie stany USA | 2 | 8 | 2 | 8 | 20 |
 | Zachodnie stany USA 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 

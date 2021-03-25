@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: c04bac76453d565abb99a971386b9ce0461b88ae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172083"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043737"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Samouczek: Tworzenie aplikacji do kolby za pomocą usługi Azure Cognitive Services
 
@@ -49,7 +49,7 @@ W przypadku użytkowników, którzy chcą uzyskać głębokie szczegółowe po t
 
 Zapoznaj się z oprogramowaniem i kluczami subskrypcji, które będą potrzebne w tym samouczku.
 
-* [Python 3.5.2 lub nowszy](https://www.python.org/downloads/)
+* [Python 3,6 lub nowszy](https://www.python.org/downloads/)
 * [Narzędzia Git](https://git-scm.com/downloads)
 * IDE lub Edytor tekstu, taki jak [Visual Studio Code](https://code.visualstudio.com/) lub [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) lub [Firefox](https://www.mozilla.org/firefox)

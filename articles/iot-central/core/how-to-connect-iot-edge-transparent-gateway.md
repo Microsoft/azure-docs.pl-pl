@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bdfb5f65106f3f8843b4aa52b752f5e563ab03f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620122"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045335"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Jak podłączyć urządzenia za poorednictwem niewidocznej bramy IoT Edge
 
@@ -186,7 +186,7 @@ Twoja przezroczysta Brama jest teraz skonfigurowana i gotowa do uruchamiania prz
 
 ## <a name="provision-a-downstream-device"></a>Udostępnianie urządzenia podrzędnego
 
-Obecnie IoT Edge nie może automatycznie zainicjować obsługi administracyjnej urządzenia podrzędnego w aplikacji IoT Central. W poniższych krokach pokazano, jak udostępnić `thermostat1` urządzenie. Aby wykonać te kroki, należy zainstalować środowisko z zainstalowanym językiem Python 3,5 (lub nowszym) i połączeniem z Internetem. [Azure Cloud Shell](https://shell.azure.com/) ma wstępnie zainstalowany język Python 3,5:
+Obecnie IoT Edge nie może automatycznie zainicjować obsługi administracyjnej urządzenia podrzędnego w aplikacji IoT Central. W poniższych krokach pokazano, jak udostępnić `thermostat1` urządzenie. Aby wykonać te kroki, należy zainstalować środowisko z zainstalowanym językiem Python 3,6 (lub nowszym) i połączeniem z Internetem. [Azure Cloud Shell](https://shell.azure.com/) ma wstępnie zainstalowany język Python 3,7:
 
 1. Uruchom następujące polecenie, aby zainstalować `azure.iot.device` moduł:
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c866629677790447d0ed730ae9cc62cb37e338e9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ddc9bfeb0df32614d835e0eaef9da52e917ee91
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495508"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108438"
 ---
 # <a name="sms-concepts"></a>Pojęcia dotyczące wiadomości SMS
 
@@ -23,9 +23,9 @@ ms.locfileid: "103495508"
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Usługa Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS przy użyciu bibliotek klienckich programu SMS usług komunikacyjnych. Te biblioteki klienckie mogą służyć do obsługi scenariuszy obsługi klienta, przypomnień o terminie, uwierzytelniania dwuskładnikowego i innych potrzeb związanych z łącznością w czasie rzeczywistym. Usługi komunikacyjne programu SMS umożliwiają niezawodne wysyłanie komunikatów przy jednoczesnym ujawnianiu informacji o dostarczaniu i częstotliwości odpowiedzi w ramach kampanii.
+Usługa Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS przy użyciu zestawów SDK SMS usług komunikacyjnych. Te zestawy SDK mogą służyć do obsługi scenariuszy obsługi klienta, przypomnienia o terminie, uwierzytelniania dwuskładnikowego i inne potrzeby komunikacji w czasie rzeczywistym. Usługi komunikacyjne programu SMS umożliwiają niezawodne wysyłanie komunikatów przy jednoczesnym ujawnianiu informacji o dostarczaniu i częstotliwości odpowiedzi w ramach kampanii.
 
-Najważniejsze funkcje bibliotek klienckich programu SMS usługi Azure Communication Services obejmują:
+Najważniejsze funkcje zestawów SDK SMS usługi Azure Communication Services:
 
 -  **Proste** środowisko konfiguracji umożliwiające dodawanie funkcji programu SMS do aplikacji.
 - Obsługa komunikatów **o wysokiej szybkości** przez wiele bezpłatnych numerów dla A2P (aplikacji do osoby) w Stany Zjednoczone.
@@ -46,6 +46,6 @@ Najważniejsze funkcje bibliotek klienckich programu SMS usługi Azure Communica
 
 Następujące dokumenty mogą być interesujące:
 
-- Zapoznaj się z [biblioteką klienta programu SMS](../telephony-sms/sdk-features.md)
+- Zapoznaj się z [zestawem SDK programu SMS](../telephony-sms/sdk-features.md)
 - Uzyskaj [numer telefonu](../../quickstarts/telephony-sms/get-phone-number.md) z obsługą wiadomości SMS
 - [Typy numerów telefonów w usłudze Azure Communications Services](../telephony-sms/plan-solution.md)

@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 668b987dd8b367c143a91dc5adb11848321a9d5a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96339612"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044417"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich przy użyciu usługi Azure Wyszukiwanie poznawcze
 
-Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywności zapytań inicjowanych przez użytkownika. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania*, która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Drugie środowisko użytkownika to *sugestie* lub krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć link do strony szczegółów dotyczącej tej książki). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
+Wyszukiwanie zgodnie z Twoim typem jest powszechną techniką w celu zwiększenia produktywności zapytań. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania*, która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Drugie środowisko użytkownika to *sugestie* lub krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć link do strony szczegółów dotyczącej tej książki). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
 
 Aby zaimplementować te środowiska na platformie Azure Wyszukiwanie poznawcze, potrzebne są:
 
@@ -63,13 +63,16 @@ Skorzystaj z poniższych linków, aby uzyskać informacje o stronach REST i .NET
 
 Odpowiedzi na potrzeby automatycznego uzupełniania i sugestii są następujące: [Funkcja autouzupełniania](/rest/api/searchservice/autocomplete#response) zwraca listę warunków, [sugestie](/rest/api/searchservice/suggestions#response) zwracają warunki i identyfikator dokumentu, aby można było pobrać dokument (Użyj interfejsu API [dokumentu wyszukiwania](/rest/api/searchservice/lookup-document) do pobrania określonego dokumentu dla strony szczegółów).
 
-Odpowiedzi są dostosowane do parametrów żądania. Dla opcji Autouzupełnianie Ustaw [**AutoCompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) , aby określić, czy uzupełnianie tekstu występuje na jednym lub dwóch warunkach. W przypadku sugestii wybrane pole określa zawartość odpowiedzi.
+Odpowiedzi są dostosowane do parametrów żądania:
 
-W przypadku sugestii należy dokładniej ograniczyć odpowiedź, aby uniknąć duplikowania lub jakie są niepowiązane wyniki. Aby kontrolować wyniki, Dołącz więcej parametrów do żądania. Następujące parametry mają zastosowanie zarówno do autouzupełniania, jak i sugestii, ale mogą być bardziej potrzebne w przypadku sugestii, zwłaszcza wtedy, gdy sugerował zawiera wiele pól.
++ W przypadku autouzupełniania ustaw wartość [**AutoCompleteMode**](/rest/api/searchservice/autocomplete#query-parameters) , aby określić, czy uzupełnianie tekstu występuje na jednym lub dwóch warunkach. 
+
++ W przypadku sugestii Ustaw [**$SELECT**](/rest/api/searchservice/suggestionse#query-parameters) , aby zwracały pola zawierające unikatowe lub odróżniające wartości, takie jak nazwy i opisy. Unikaj pól, które zawierają zduplikowane wartości (takie jak kategoria lub miasto).
+
+Następujące dodatkowe parametry mają zastosowanie zarówno do autouzupełniania, jak i sugestii, ale mogą być bardziej potrzebne w przypadku sugestii, zwłaszcza gdy Sugerowana wartość zawiera wiele pól.
 
 | Parametr | Użycie |
 |-----------|-------|
-| **$select** | Jeśli masz wiele **sourceFields** w sugestii, użyj **$SELECT** , aby określić, które pole zawiera wartości ( `$select=GameTitle` ). |
 | **searchFields** | Ogranicz zapytanie do określonych pól. |
 | **$filter** | Zastosuj kryteria dopasowania w zestawie wyników ( `$filter=Category eq 'ActionAdventure'` ). |
 | **$top** | Ogranicz wyniki do określonego numeru ( `$top=5` ).|

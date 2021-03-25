@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69718b219d239ac13e5d932b05a7dd29619adaa3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602022"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045590"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Tworzenie obrazu pulpitu wirtualnego systemu Windows przy użyciu narzędzia Azure VM Image Builder i programu PowerShell
 
@@ -22,11 +22,11 @@ W tym artykule opisano sposób tworzenia obrazu pulpitu wirtualnego systemu Wind
 
 * Instalowanie [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Uruchamianie [skryptu optymalizacji pulpitu wirtualnego systemu Windows](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) z repozytorium społeczności.
-* Zainstaluj [program Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
-* [Uruchom ponownie](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
-* Uruchom [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
+* Zainstaluj [program Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* [Uruchom ponownie](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
+* Uruchom [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-Zobaczymy, jak zautomatyzować ten proces przy użyciu konstruktora obrazów maszyn wirtualnych platformy Azure, a następnie rozproszyć obraz do [udostępnionej galerii obrazów](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), gdzie można przeprowadzić replikację do innych regionów, kontrolować skalę i udostępniać obraz wewnątrz organizacji i poza nią.
+Zobaczymy, jak zautomatyzować ten proces przy użyciu konstruktora obrazów maszyn wirtualnych platformy Azure, a następnie rozproszyć obraz do [udostępnionej galerii obrazów](../shared-image-galleries.md), gdzie można przeprowadzić replikację do innych regionów, kontrolować skalę i udostępniać obraz wewnątrz organizacji i poza nią.
 
 
 Aby uprościć wdrażanie konfiguracji konstruktora obrazu, w tym przykładzie używa się szablonu Azure Resource Manager z szablonem konstruktora obrazów zagnieżdżone wewnątrz. Zapewnia to inne korzyści, takie jak zmienne i dane wejściowe parametrów. Parametry można także przekazać z wiersza polecenia.
@@ -73,7 +73,7 @@ Ten artykuł jest przeznaczony do wykonania kopiowania i wklejania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć zainstalowane najnowsze polecenia CmdLet Azure PowerShell. zobacz [tutaj](https://docs.microsoft.com/powershell/azure/overview) , aby uzyskać szczegółowe informacje dotyczące instalacji.
+Musisz mieć zainstalowane najnowsze polecenia CmdLet Azure PowerShell. zobacz [tutaj](/powershell/azure/overview) , aby uzyskać szczegółowe informacje dotyczące instalacji.
 
 ```PowerShell
 # Register for Azure Image Builder Feature
@@ -279,7 +279,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
-Teraz kompilacja została zakończona można utworzyć maszynę wirtualną na podstawie obrazu, używając przykładów z tego [miejsca](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples).
+Teraz kompilacja została zakończona można utworzyć maszynę wirtualną na podstawie obrazu, używając przykładów z tego [miejsca](/powershell/module/az.compute/new-azvm#examples).
 
 ## <a name="clean-up"></a>Czyszczenie
 

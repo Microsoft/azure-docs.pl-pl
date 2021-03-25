@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 7a196ff8c80a6f92e1205f5553a54913e281b52b
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: f74a242db2686eb4571ebbea80b88a75dda205d4
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025887"
+ms.locfileid: "105044071"
 ---
 # <a name="get-facial-pose-events"></a>Pobierz zdarzenia ułożenia twarzy
 
@@ -31,7 +31,7 @@ Nie ma żadnej relacji jeden-do-jednego między visemes i fonemów.
 Często kilka fonemów odpowiada pojedynczej viseme, tak jak kilka fonemów wyglądać tak samo na twarz, na przykład `s` i `z` .
 Zobacz [tabelę mapowania między visemes i fonemów](#map-phonemes-to-visemes).
 
-Za pomocą visemes można utworzyć bardziej naturalny i inteligentny asystenta rozgłaszania wiadomości, bardziej interaktywne gry i kreskówki oraz bardziej intuicyjne wideo nauczania. Z upośledzeniem słuchu można również losowo wybierać dźwięki i zawartość mowy "lip-Read", która przedstawia visemes na animowanej stronie.
+Za pomocą visemes można utworzyć bardziej naturalny i inteligentny asystenta rozgłaszania wiadomości, bardziej interaktywne gry i kreskówki oraz bardziej intuicyjne wideo nauczania. Osoby z upośledzeniem słuchu mogą również wybierać dźwięki wizualnie i zawartość mowy "lip-Read", która przedstawia visemes na animowanej platformie.
 
 ## <a name="get-viseme-events-with-the-speech-sdk"></a>Pobieranie zdarzeń viseme za pomocą zestawu Speech SDK
 

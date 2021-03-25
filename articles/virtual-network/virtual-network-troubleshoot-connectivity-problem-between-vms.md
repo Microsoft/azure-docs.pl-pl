@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98219202"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042870"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure
 
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby rozwiązać problem. Po ukończeniu każdego kr
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Krok 1. sprawdzenie, czy karta sieciowa jest nieprawidłowo skonfigurowana
 
-Wykonaj kroki opisane w temacie [jak zresetować interfejs sieciowy dla maszyny wirtualnej platformy Azure z systemem Windows](../virtual-machines/troubleshooting/reset-network-interface.md). 
+Wykonaj kroki opisane w temacie [jak zresetować interfejs sieciowy dla maszyny wirtualnej platformy Azure z systemem Windows](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 Jeśli problem występuje po zmodyfikowaniu interfejsu sieciowego (NIC), wykonaj następujące kroki:
 
@@ -62,8 +62,8 @@ Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsów sieciowych do lu
 
 **Maszyna wirtualna z jedną kartą sieciową** 
 
-- [Ponowne wdrażanie maszyny wirtualnej z systemem Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
-- [Ponowne wdrażanie maszyny wirtualnej z systemem Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
+- [Ponowne wdrażanie maszyny wirtualnej z systemem Windows](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Ponowne wdrażanie maszyny wirtualnej z systemem Linux](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Krok 2. Sprawdzanie, czy ruch sieciowy jest blokowany przez sieciowej grupy zabezpieczeń czy UDR
 
@@ -107,7 +107,7 @@ Wszystkie maszyny wirtualne utworzone na platformie Azure przy użyciu klasyczne
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Krok 8. próba nawiązania połączenia z udziałem sieciowym maszyny wirtualnej
 
-Jeśli nie można nawiązać połączenia z udziałem sieciowym maszyn wirtualnych, problem może być spowodowany przez niedostępne karty sieciowe w maszynie wirtualnej. Aby usunąć niedostępne karty sieciowe, zobacz [Jak usunąć niedostępne karty sieciowe](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Jeśli nie można nawiązać połączenia z udziałem sieciowym maszyn wirtualnych, problem może być spowodowany przez niedostępne karty sieciowe w maszynie wirtualnej. Aby usunąć niedostępne karty sieciowe, zobacz [Jak usunąć niedostępne karty sieciowe](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Krok 9. Sprawdzanie łączności Inter-Vnet
 

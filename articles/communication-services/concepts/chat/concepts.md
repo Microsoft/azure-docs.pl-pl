@@ -9,20 +9,20 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e71917d917491037100b4ee666cbeb030b0a4786
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e05bf1df503a13efc8e4ca30b3341216e01e678e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656145"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110835"
 ---
 # <a name="chat-concepts"></a>Pojęcia dotyczące czatu 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
-Biblioteki klienckie programu Chat usługi Azure Communication Services mogą służyć do dodawania rozmów tekstowych w czasie rzeczywistym do aplikacji. Ta strona zawiera podsumowanie najważniejszych koncepcji i możliwości rozmowy.    
+Zestawy SDK rozmowy z usługami Azure Communication Services umożliwiają dodawanie do aplikacji funkcji rozmowy w czasie rzeczywistym. Ta strona zawiera podsumowanie najważniejszych koncepcji i możliwości rozmowy.    
 
-Zobacz [Omówienie biblioteki klienta rozmowy usług komunikacyjnych](./sdk-features.md) , aby dowiedzieć się więcej o określonych językach i możliwościach biblioteki klienta.    
+Zobacz [Omówienie zestawu SDK rozmowy usług komunikacyjnych](./sdk-features.md) , aby dowiedzieć się więcej o określonych językach i możliwościach zestawu SDK.  
 
 ## <a name="chat-overview"></a>Omówienie rozmowy    
 
@@ -117,7 +117,7 @@ Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika
 
 ## <a name="real-time-signaling"></a>Sygnalizowanie w czasie rzeczywistym  
 
-Biblioteka kliencka JavaScript programu Chat obejmuje Sygnalizowanie w czasie rzeczywistym. Pozwala to klientom na nasłuchiwanie aktualizacji w czasie rzeczywistym i komunikatów przychodzących do wątku rozmowy bez konieczności sondowania interfejsów API. Dostępne są następujące zdarzenia:
+Zestaw SDK JavaScript rozmowy zawiera Sygnalizowanie w czasie rzeczywistym. Pozwala to klientom na nasłuchiwanie aktualizacji w czasie rzeczywistym i komunikatów przychodzących do wątku rozmowy bez konieczności sondowania interfejsów API. Dostępne są następujące zdarzenia:
 
  - `ChatMessageReceived` — gdy nowa wiadomość jest wysyłana do wątku rozmowy. To zdarzenie nie jest wysyłane do automatycznie generowanych komunikatów systemowych, które zostały omówione w poprzednim temacie.   
  - `ChatMessageEdited` — gdy komunikat jest edytowany w wątku rozmowy. 
@@ -136,9 +136,9 @@ Biblioteka kliencka JavaScript programu Chat obejmuje Sygnalizowanie w czasie rz
 Sygnalizowanie w czasie rzeczywistym umożliwia użytkownikom rozmowy w czasie rzeczywistym. Usługi mogą używać Azure Event Grid, aby subskrybować zdarzenia związane z rozmową. Aby uzyskać więcej informacji, zobacz temat [Omówienie obsługi zdarzeń](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?tabs=event-grid-event-schema).
 
 
-## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Używanie Cognitive Services z biblioteką klienta czatu do włączania funkcji inteligentnych 
+## <a name="using-cognitive-services-with-chat-sdk-to-enable-intelligent-features"></a>Korzystanie z Cognitive Services z zestawem SDK usługi chat w celu włączenia funkcji inteligentnych    
 
-Korzystając z [interfejsów API poznawczej platformy Azure](../../../cognitive-services/index.yml) , można dodawać inteligentne funkcje do aplikacji przy użyciu biblioteki klienckiej rozmowy. Możesz na przykład:  
+Możesz użyć [interfejsów API poznawczej platformy Azure](../../../cognitive-services/index.yml) z zestawem SDK rozmowy, aby dodać inteligentne funkcje do aplikacji. Możesz na przykład: 
 
 - Zezwól użytkownikom na rozmowę ze sobą w różnych językach.  
 - Pomóż agentowi pomocy technicznej w ustalaniu priorytetów biletów przez wykrywanie negatywnej tonacji problemu przychodzącego od klienta.   
@@ -156,4 +156,4 @@ W ten sposób historia komunikatów będzie zawierać zarówno oryginalne, jak i
 > [Wprowadzenie do rozmowy](../../quickstarts/chat/get-started.md)    
 
 Następujące dokumenty mogą być interesujące:  
-- Zapoznaj się z [biblioteką klienta rozmowy](sdk-features.md)
+- Zapoznaj się z [zestawem SDK rozmowy](sdk-features.md)

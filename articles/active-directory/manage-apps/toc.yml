@@ -47,7 +47,39 @@
         - name: Eksport wpisów tajnych i certyfikatów wygasających poza datą wymaganą
           href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: Przykłady programu PowerShell dla serwera proxy aplikacji
-      href: application-proxy-powershell-samples.md
+      items:
+        - name: Omówienie przykładów serwera proxy aplikacji
+          href: application-proxy-powershell-samples.md
+        - name: Wyświetl podstawowe informacje o aplikacjach
+          href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+        - name: Wyświetl rozszerzone informacje o aplikacjach
+          href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+        - name: Wyświetlanie listy aplikacji według grupy łączników
+          href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+        - name: Wyświetlanie listy aplikacji z zasadami istnienia tokenu
+          href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
+        - name: Wyświetl listę grup łączników i łączników
+          href: ./scripts/powershell-get-all-connectors.md
+        - name: Przenoszenie aplikacji między grupami łączników
+          href: ./scripts/powershell-move-all-apps-to-connector-group.md
+        - name: Wyświetlanie listy użytkowników i grup przypisanych do aplikacji
+          href: ./scripts/powershell-display-users-group-of-app.md
+        - name: Przypisywanie użytkownika do aplikacji
+          href: ./scripts/powershell-assign-user-to-app.md
+        - name: Przypisywanie grupy do aplikacji
+          href: ./scripts/powershell-assign-group-to-app.md
+        - name: Wyświetlanie listy aplikacji przy użyciu domen domyślnych
+          href: ./scripts/powershell-get-all-default-domain-apps.md
+        - name: Wyświetlanie listy aplikacji przy użyciu funkcji publikowania symboli wieloznacznych
+          href: ./scripts/powershell-get-all-wildcard-apps.md
+        - name: Wyświetl listę wszystkich domen niestandardowych i certyfikatów
+          href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+        - name: Wyświetlanie listy aplikacji bez certyfikatów
+          href: ./scripts/powershell-get-all-custom-domain-no-cert.md
+        - name: Wyświetlanie listy aplikacji z identycznymi certyfikatami
+          href: ./scripts/powershell-get-custom-domain-identical-cert.md
+        - name: Zastąp identyczne certyfikaty
+          href: ./scripts/powershell-get-custom-domain-replace-cert.md
 - name: Pojęcia
   expanded: true
   items:
