@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577363"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027183"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Co to jest Azure Cosmos DB magazyn analityczny?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -110,9 +110,10 @@ Poniższe ograniczenia dotyczą danych operacyjnych w Azure Cosmos DB po włącz
 
 * Obecnie firma Microsoft nie obsługuje nazw kolumn odczytanych przez usługę Azure Synapse Spark, które zawierają wartości puste (białe znaki).
 
-* Oczekiwane jest inne zachowanie w odniesieniu do `NULL` wartości:
-  * Pule Spark w usłudze Azure Synapse będą odczytywać te wartości jako 0 (zero).
-  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości jako `NULL` .
+* Oczekiwane jest inne zachowanie w odniesieniu do wartości jawnych `null` :
+  * Pule Spark w usłudze Azure Synapse będą odczytywać te wartości jako `0` (zero).
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości tak, jakby `NULL` pierwszy dokument kolekcji miał, dla tej samej właściwości, wartość z innym typem danych `integer` .
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości jako `0` (zero), jeśli pierwszy dokument kolekcji ma, dla tej samej właściwości, wartość, która jest `integer` .
 
 * Zaczekaj inne zachowanie w odniesieniu do brakujących kolumn:
   * Pule platformy Spark w usłudze Azure Synapse będą przedstawiać te kolumny jako `undefined` .
@@ -144,6 +145,11 @@ Dobrze zdefiniowana reprezentacja schematu tworzy prostą tabelaryczną reprezen
 
 > [!NOTE]
 > Jeśli Azure Cosmos DB magazyn analityczny jest zgodny z dobrze zdefiniowaną reprezentacją schematu, a powyższa specyfikacja została naruszona przez pewne elementy, te elementy nie zostaną uwzględnione w magazynie analitycznym.
+
+* Zaczekaj inne zachowanie w odniesieniu do różnych typów w dobrze zdefiniowanym schemacie:
+  * Pule Spark w usłudze Azure Synapse będą przedstawiać te wartości jako `undefined` .
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą przedstawiać te wartości jako `NULL` .
+
 
 **Reprezentacja schematu pełnej wierności**
 

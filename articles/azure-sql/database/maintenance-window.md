@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/11/2021
-ms.openlocfilehash: bd91c29ca97c2096c4d8f3df19dbb9eab306b8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149753"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047256"
 ---
 # <a name="maintenance-window-preview"></a>Okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,14 +27,14 @@ Funkcja okna obsługi umożliwia skonfigurowanie harmonogramu konserwacji dla [A
 
 ## <a name="overview"></a>Omówienie
 
-Platforma Azure okresowo przeprowadza [planowaną konserwację](planned-maintenance.md) zasobów wystąpień zarządzanych SQL Database i SQL. Podczas zdarzenia konserwacji usługi Azure SQL bazy danych są w pełni dostępne, ale mogą być poddawane krótkim przełączeniu w tryb failover w ramach odpowiednich umowy SLA dostępności dla [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) i [wystąpienia zarządzanego SQL](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), ponieważ w niektórych przypadkach wymagana jest ponowna konfiguracja zasobów.
+Platforma Azure okresowo przeprowadza [planowaną konserwację](planned-maintenance.md) zasobów wystąpień zarządzanych SQL Database i SQL. Podczas zdarzenia konserwacji usługi Azure SQL bazy danych są w pełni dostępne, ale mogą być poddawane krótkim ponownym konfiguracjom w ramach odpowiednich umowy SLA dostępności dla [wystąpień zarządzanych](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance) [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) i SQL.
 
-Okno obsługi jest przeznaczone dla obciążeń produkcyjnych, które nie są odporne na przełączenie do trybu failover bazy danych lub wystąpienia i nie mogą wchłonąć krótkich przerw w działaniu spowodowanych przez planowane zdarzenia konserwacji. Wybierając preferowane okno obsługi, możesz zminimalizować wpływ planowanej konserwacji w miarę ich występowania poza szczytowymi godzinami pracy. Obciążenia odporne na błędy i obciążenia nieprodukcyjne mogą opierać się na domyślnych zasadach konserwacji usługi Azure SQL.
+Okno obsługi jest przeznaczone do obciążeń produkcyjnych, które nie są odporne na ponowne konfiguracje bazy danych lub wystąpień i nie mogą wchłonąć krótkich przerw w działaniu spowodowanych przez planowane zdarzenia konserwacji. Wybierając preferowane okno obsługi, możesz zminimalizować wpływ planowanej konserwacji w miarę ich występowania poza szczytowymi godzinami pracy. Obciążenia odporne na błędy i obciążenia nieprodukcyjne mogą opierać się na domyślnych zasadach konserwacji usługi Azure SQL.
 
 Okno obsługi można skonfigurować podczas tworzenia lub dla istniejących zasobów usługi Azure SQL. Można ją skonfigurować przy użyciu interfejsu API Azure Portal, PowerShell, interfejsu wiersza polecenia lub platformy Azure.
 
 > [!Important]
-> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej pracy w trybie failover, która jest wykonywana na końcu operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ trybu failover, należy wykonać operację poza godzinami szczytu.
+> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej ponownej konfiguracji, która odbywa się na koniec operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ ponownej konfiguracji, należy wykonać operację poza godzinami szczytu.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Zwiększ przewidywalność przy użyciu okna obsługi
 
@@ -98,7 +98,7 @@ Wybranie okna obsługi innego niż domyślne jest obecnie dostępne w następuj�
 
 Aby uzyskać maksymalną korzyść z okien obsługi, upewnij się, że aplikacje klienckie używają zasad połączenia przekierowania. Przekierowywanie jest zalecanymi zasadami połączeń, w których klienci nawiązują połączenia bezpośrednio z węzłem hostującym bazę danych, co prowadzi do zmniejszenia opóźnień i zwiększonej przepływności.  
 
-* W Azure SQL Database wszystkie połączenia korzystające z zasad połączenia serwera proxy mogą mieć wpływ zarówno z wybranego okna obsługi, jak i okna obsługi węzła bramy. Jednak połączenia klienckie korzystające z zalecanych zasad połączenia przekierowania nie mają wpływ na tryb failover konserwacji węzła bramy. 
+* W Azure SQL Database wszystkie połączenia korzystające z zasad połączenia serwera proxy mogą mieć wpływ zarówno z wybranego okna obsługi, jak i okna obsługi węzła bramy. Jednak połączenia klienckie korzystające z zalecanych zasad połączenia przekierowania nie mają wpływ na ponowną konfigurację konserwacji węzła bramy. 
 
 * W wystąpieniu zarządzanym usługi Azure SQL węzły bramy są hostowane [w klastrze wirtualnym](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) i mają takie samo okno obsługi jak wystąpienie zarządzane, ale przy użyciu zasad połączenia przekierowania nadal zaleca się zminimalizowanie liczby przerw w czasie trwania zdarzenia konserwacji.
 
@@ -115,7 +115,7 @@ Wszystkie wystąpienia hostowane w klastrze wirtualnym korzystają z okna obsłu
 Oczekiwany czas trwania konfigurowania okna obsługi w wystąpieniu zarządzanym można obliczyć przy użyciu [szacowanego czasu trwania operacji zarządzania wystąpieniami](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 > [!Important]
-> Krótkie przejście w tryb failover odbywa się na końcu operacji konserwacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ trybu failover, należy zaplanować operację poza godzinami szczytu.
+> Krótka ponowna konfiguracja odbywa się na koniec operacji konserwacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ ponownej konfiguracji, należy zaplanować operację poza godzinami szczytu.
 
 ### <a name="ip-address-space-requirements"></a>Wymagania dotyczące przestrzeni adresów IP
 Każdy nowy klaster wirtualny w podsieci wymaga dodatkowych adresów IP zgodnie z [alokacją adresów IP klastra wirtualnego](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). Zmiana okna obsługi istniejącego wystąpienia zarządzanego wymaga również [tymczasowej dodatkowej pojemności IP](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) , jak w przypadku skalowania rdzeni wirtualnych dla odpowiedniej warstwy usług.
@@ -129,9 +129,9 @@ Skonfigurowanie i zmiana okna obsługi powoduje zmianę adresu IP wystąpienia w
 ## <a name="next-steps"></a>Następne kroki
 
 * [Powiadomienia z wyprzedzeniem](advance-notifications.md)
-* [Konfiguruj okno obsługi](maintenance-window-configure.md)
+* [Konfigurowanie okna obsługi](maintenance-window-configure.md)
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Okno obsługi — często zadawane pytania](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: 66ca039a449e355e47563b689f5f44cced164fea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0e3073c491b251a1dbb505d4656de9c6a1e0ac7f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724153"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048497"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure
 
@@ -24,7 +24,7 @@ WAF zapobiega złośliwym atakom blisko źródeł ataków przed wprowadzeniem do
 
 ![Zapora aplikacji internetowej platformy Azure](../media/overview/wafoverview.png)
 
-[W wersji zapoznawczej platformy Azure z przodu wprowadzono dwie nowe jednostki SKU](https://docs.microsoft.com/azure/frontdoor/standard-premium/overview): Standard tylnego drzwi i jednostkę SKU w warstwie Premium. WAF jest natywnie zintegrowana z jednostką SKU Premium dla drzwi z pełnymi możliwościami. Dla standardowej jednostki SKU z przodu, obsługiwane są tylko [reguły niestandardowe](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#custom-authored-rules) .
+[W wersji zapoznawczej platformy Azure z przodu wprowadzono dwie nowe jednostki SKU](../../frontdoor/standard-premium/overview.md): Standard tylnego drzwi i jednostkę SKU w warstwie Premium. WAF jest natywnie zintegrowana z jednostką SKU Premium dla drzwi z pełnymi możliwościami. Dla standardowej jednostki SKU z przodu, obsługiwane są tylko [reguły niestandardowe](#custom-authored-rules) .
 
 ## <a name="waf-policy-and-rules"></a>Zasady i reguły WAF
 

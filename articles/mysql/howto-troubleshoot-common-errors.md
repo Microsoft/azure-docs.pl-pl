@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 546f29330b76548ea553cfb7e4e31ac35b19cb1c
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631371"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037550"
 ---
 # <a name="common-errors"></a>Typowe błędy
 
@@ -48,7 +48,7 @@ BEGIN
 END;
 ```
 
-**Rozwiązanie**: Aby rozwiązać ten problem, ustaw log_bin_trust_function_creators na 1 z bloku [parametrów serwera](howto-server-parameters.md) w portalu, wykonaj instrukcje języka DDL lub zaimportuj schemat w celu utworzenia żądanych obiektów i Przywróć poprzednią wartość parametru log_bin_trust_function_creators po utworzeniu.
+**Rozwiązanie**: Aby rozwiązać ten problem, należy ustawić log_bin_trust_function_creators na 1 z bloku [parametrów serwera](howto-server-parameters.md) w portalu, wykonać instrukcje języka DDL lub zaimportować schemat w celu utworzenia żądanych obiektów. Aby uniknąć tego błędu w przyszłości, można nadal konserwować log_bin_trust_function_creators na 1. Naszym rekomendacją jest ustawienie log_bin_trust_function_creators, ponieważ ryzyko bezpieczeństwa wyróżnione w [dokumentacji społeczności MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) jest minimalne w przypadku usługi Azure DB for MySQL, ponieważ dziennik bin nie jest narażony na żadne zagrożenia.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>BŁĄD 1227 (42000) w wierszu 101: odmowa dostępu; potrzebujesz (co najmniej jednego z tych uprawnień) dla tej operacji. Operacja nie powiodła się z ExitCode 1
 

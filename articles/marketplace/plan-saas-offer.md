@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/30/2020
-ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.openlocfilehash: b1bb749400cfb1e289a0a335275f4654d37145e9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581307"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046508"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -37,7 +37,7 @@ W poniższej tabeli przedstawiono opcje wyświetlania ofert SaaS w komercyjnej w
 
 Aby uzyskać więcej informacji na temat tych opcji, zobacz [komercyjne funkcje Transact Marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Po opublikowaniu oferty opcja wystaw wybrana dla oferty zostanie wyświetlona jako przycisk w lewym górnym rogu strony aukcji oferty. Na przykład poniższy zrzut ekranu przedstawia stronę aukcji oferty w witrynie Azure Marketplace przy użyciu przycisków **kontakt ze mną** i **Test Drive** .
+Po opublikowaniu oferty opcja wystaw wybrana dla oferty zostanie wyświetlona jako przycisk w lewym górnym rogu strony aukcji oferty. Na przykład poniższy zrzut ekranu przedstawia stronę aukcji oferty w witrynie Azure Marketplace z przyciskami **Pobierz teraz** i **Przetestuj dysk** .
 
 ![Przedstawia listę ofert w sklepie online.](./media/listing-options.png)
 
@@ -68,9 +68,9 @@ W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje 
 
 - **Adres URL strony docelowej**: adres URL witryny SaaS (na przykład: `https://contoso.com/signup` ), do której użytkownicy będą kierowani po uzyskaniu oferty od komercyjnej witryny Marketplace, wyzwalając proces konfiguracji od nowo utworzonej subskrypcji SaaS. Ten adres URL otrzyma token, który może służyć do wywoływania interfejsów API realizacji w celu uzyskania szczegółowych informacji o aprowizacji na stronie rejestracji interaktywnej.
 
-  Ten adres URL zostanie wywołany za pomocą parametru tokenu zakupu w portalu Marketplace, który jednoznacznie identyfikuje określonego klienta SaaS zakupu. Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą [interfejsu API rozpoznawania](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Te szczegóły i wszystkie inne, które mają być zbierane, powinny być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji klienta i aktywowania zakupu. Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD).
+  Ten adres URL zostanie wywołany za pomocą parametru tokenu zakupu w portalu Marketplace, który jednoznacznie identyfikuje określonego klienta SaaS zakupu. Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą [interfejsu API rozpoznawania](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Te szczegóły i wszystkie inne, które mają być zbierane w ramach strony sieci Web interaktywnej klienta, mogą służyć do uruchamiania środowiska dołączania klienta, które należy ostatecznie zakończyć z wywołaniem aktywacji w interfejsie API w celu uruchomienia okresu subskrypcji. Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD).
 
-  Ten adres URL z parametrem tokena identyfikacji zakupu w witrynie Marketplace zostanie również wywołany, gdy klient uruchomi zarządzane środowisko SaaS z poziomu Centrum administracyjnego usługi Azure Portal lub M365. Należy obsługiwać oba przepływy: gdy token jest dostarczany po raz pierwszy po nowym zakupie klienta i gdy zostanie on ponownie udostępniony dla istniejącego klienta zarządzającego rozwiązaniem SaaS.
+  Ten adres URL z parametrem tokena identyfikacji zakupu w witrynie Marketplace zostanie również wywołany, gdy klient uruchomi zarządzane środowisko SaaS z poziomu Centrum administracyjnego Azure Portal lub Microsoft 365. Należy obsługiwać oba przepływy: gdy token jest dostarczany po raz pierwszy po nowym zakupie klienta i gdy zostanie on ponownie udostępniony dla istniejącego klienta zarządzającego rozwiązaniem SaaS.
 
     Skonfigurowana Strona docelowa powinna mieć wartość 24/7. Jest to jedyny sposób, w jaki otrzymasz powiadomienie o nowych zakupach ofert SaaS oferowanych w komercyjnym portalu Marketplace lub żądaniach konfiguracji dla aktywnej subskrypcji oferty.
 
@@ -79,7 +79,7 @@ W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje 
   Podano element webhook, który powinien działać w 24/7. Jest to jedyny sposób powiadomienia o aktualizacjach subskrypcji SaaS klientów zakupionych za pośrednictwem komercyjnej witryny Marketplace.
 
   > [!NOTE]
-  > W ramach Azure Portal wymagamy utworzenia aplikacji Azure Active Directory z jedną dzierżawą [(Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) w celu umożliwienia użycia jednego identyfikatora aplikacji Azure do uwierzytelniania połączenia między naszymi dwiema usługami. Aby znaleźć [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer identyfikatora katalogu, który jest wymieniony. Na przykład `50c464d3-4930-494c-963c-1e951d15360e`.
+  > W Azure Portal wymagamy utworzenia rejestracji aplikacji Azure Active Directory z jedną dzierżawą [(Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md). Szczegóły rejestracji aplikacji umożliwiają uwierzytelnianie Twojego rozwiązania podczas wywoływania interfejsów API portalu Marketplace. Aby znaleźć [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer identyfikatora katalogu, który jest wymieniony. Na przykład `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **Azure Active Directory identyfikator dzierżawy**: (znany również jako identyfikator katalogu). W Azure Portal wymagamy [zarejestrowania aplikacji Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) , aby można ją było dodać do listy kontroli dostępu (ACL) interfejsu API, aby upewnić się, że masz autoryzację do wywołania go. Aby znaleźć identyfikator dzierżawy dla aplikacji Azure Active Directory (AD), przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie poszukaj podanego numeru **identyfikatora dzierżawy** (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
@@ -88,7 +88,7 @@ W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje 
   Identyfikator aplikacji usługi Azure AD jest skojarzony z IDENTYFIKATORem wydawcy na koncie Centrum partnerskiego. Musisz użyć tego samego identyfikatora aplikacji dla wszystkich ofert na tym koncie.
 
   > [!NOTE]
-  > Jeśli Wydawca ma co najmniej dwa różne konta w centrum partnerskim, należy użyć co najmniej dwóch identyfikatorów aplikacji usługi Azure AD, z których każde będzie miało konto. Każde konto partnera w centrum partnerskim musi używać unikatowego identyfikatora aplikacji usługi Azure AD dla wszystkich ofert SaaS opublikowanych za pośrednictwem tego konta.
+  > Jeśli Wydawca ma co najmniej dwa różne konta w centrum partnerskim, szczegóły rejestracji aplikacji usługi Azure AD mogą być używane tylko na jednym koncie. Użycie tego samego identyfikatora dzierżawy i pary identyfikatorów aplikacji dla oferty w ramach innego konta wydawcy nie jest obsługiwane.
 
 ## <a name="test-drives"></a>Wersje testowe
 Możesz włączyć dysk testowy dla aplikacji SaaS. Dyski testowe zapewniają klientom dostęp do wstępnie skonfigurowanego środowiska przez określoną liczbę godzin. Możesz włączyć dyski testowe dla dowolnej opcji publikowania, jednak ta funkcja ma dodatkowe wymagania. Aby dowiedzieć się więcej na temat dysków testowych, zobacz [co to jest dysk testowy?](what-is-test-drive.md) Aby uzyskać informacje o konfigurowaniu różnych rodzajów dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](test-drive-technical-configuration.md).
@@ -209,9 +209,6 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
 > [!Note]
 > Oferta musi być zgodna z ogólnymi [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies#100-general) oraz [oprogramowaniem jako zasady usługi](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) do opublikowania na komercyjnym rynku.
 
-## <a name="preview-audience"></a>Podgląd odbiorców
-Odbiorca w wersji zapoznawczej może uzyskać dostęp do oferty przed opublikowaniem jej w sklepach online w celu przetestowania kompleksowej funkcjonalności przed opublikowaniem jej na żywo. Na stronie **Podgląd odbiorców** można zdefiniować ograniczonych odbiorców w wersji zapoznawczej. To ustawienie jest niedostępne, jeśli zdecydujesz się na niezależne przetwarzanie transakcji zamiast sprzedawania oferty przez firmę Microsoft. Jeśli tak, możesz pominąć tę sekcję i przejść do [dodatkowych możliwości sprzedaży](#additional-sales-opportunities).
-
 > [!NOTE]
 > Odbiorca w wersji zapoznawczej różni się od planu prywatnego. Plan prywatny jest dostępny tylko dla określonych odbiorców. Pozwala to na negocjowanie planu niestandardowego z konkretnymi klientami. Aby uzyskać więcej informacji, zobacz następną sekcję: plany.
 
@@ -251,6 +248,50 @@ W poniższym przykładzie przedstawiono przykładowy podział kosztów i wypłat
 |||
 
 **`*` Zmniejszona opłata za usługę Marketplace** — w przypadku niektórych ofert SaaS opublikowanych w komercyjnej witrynie Marketplace firma Microsoft obniży opłatę za usługę portalu Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Aby otrzymać obniżoną opłatę za usługę Marketplace, należy spełnić co najmniej pięć dni roboczych przed końcem każdego miesiąca kalendarzowego. Po osiągnięciu uprawnień zmniejszona opłata za usługę zostanie naliczona wszystkim transakcjom, które zaczęły obowiązywać pierwszy dzień następnego miesiąca, i będzie nadal stosowana do momentu utraty zachęcani stanu usługi Azure IP. Aby uzyskać szczegółowe informacje na temat uprawnień do współsprzedawanych adresów IP, zobacz [wymagania dotyczące stanu współsprzedażu](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Zmniejszona opłata za usługę Marketplace ma również zastosowanie do zachęcani maszyn wirtualnych platformy Azure, aplikacji zarządzanych i innych oferowanych z nich ofert IaaS z obsługą transakcji dostępnych za pośrednictwem komercyjnej witryny Marketplace.
+
+## <a name="preview-audience"></a>Podgląd odbiorców
+
+Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty przed opublikowaniem jej na żywo w sklepach online. Mogą zobaczyć, jak Twoja oferta będzie wyglądała na komercyjnym rynku i przetestować kompleksowe funkcje przed opublikowaniem jej na żywo. 
+
+Na stronie **Podgląd odbiorców** można zdefiniować ograniczonych odbiorców w wersji zapoznawczej. To ustawienie jest niedostępne, jeśli zdecydujesz się na niezależne przetwarzanie transakcji zamiast sprzedawania oferty przez firmę Microsoft. Jeśli tak, możesz pominąć tę sekcję i przejść do [dodatkowych możliwości sprzedaży](#additional-sales-opportunities).
+
+## <a name="test-offer"></a>Oferta testu
+
+Przed opublikowaniem oferty na żywo należy użyć funkcji w wersji zapoznawczej do opracowania implementacji technicznej, testowania i eksperymentowania z różnymi modelami cenowymi.
+
+W celu opracowania i przetestowania oferty SaaS z najniższym ryzykiem zalecamy utworzenie oferty testowej i deweloperskiej (DEV) na potrzeby eksperymentowania i testowania. Oferta DEV będzie oddzielona od oferty produkcyjnej (PROD).
+
+Aby zapobiec przypadkowemu zakupie oferty DEV, nigdy nie wypychanie przycisku **Przejdź na żywo** w celu opublikowania oferty dev na żywo.
+
+![Przedstawia stronę omówienia oferty dla oferty w centrum partnerskim. Widoczny jest przycisk Przejdź na żywo i linki do wersji zapoznawczej. Łącze Wyświetl raport weryfikacji jest również wyświetlane w obszarze Automatyczne sprawdzanie poprawności.](./media/review-publish-offer/publish-status-saas.png)
+
+Oto kilka powodów, dla których zespół programistyczny ma korzystać z innej oferty DEWELOPERSKIej na potrzeby tworzenia i testowania oferty PRODUKCYJNEj:
+
+- Unikaj przypadkowego naliczania opłat dla klientów
+- Oceń modele cenowe
+- Nie dodawaj planów, które nie odpowiadają rzeczywistym klientom
+
+### <a name="avoid-accidental-customer-charges"></a>Unikaj przypadkowego naliczania opłat dla klientów
+
+Korzystając z oferty DEWELOPERSKIej zamiast oferty PRODUKCYJNEj i traktując je jako środowiska deweloperskie i produkcyjne, możesz uniknąć przypadkowego naliczania opłat dla klientów.
+
+Zalecamy zarejestrowanie dwóch różnych aplikacji usługi Azure AD na potrzeby wywoływania interfejsów API portalu Marketplace. Deweloperzy będą korzystać z jednej aplikacji usługi Azure AD z ustawieniami oferty DEWELOPERSKIej, a zespół operacyjny będzie używał rejestracji aplikacji PRODUKCYJNEj. W ten sposób można odizolować zespół programistyczny od przypadkowego pomyłki, takich jak wywołanie interfejsu API w celu anulowania subskrypcji klienta, który płaci $100 000 miesięcznie. Można też uniknąć naliczania opłat za użycie mierzonych użycia.
+
+### <a name="evaluate-pricing-models"></a>Oceń modele cenowe
+
+Testowanie modeli cen w ofercie DEV zmniejsza ryzyko, gdy deweloperzy poeksperymentują z różnymi modelami cenowymi.
+
+Wydawcy mogą utworzyć plany, których potrzebują w ofercie DEV, aby określić, który model cenowy najlepiej sprawdza się w ramach oferty. Deweloperzy mogą chcieć utworzyć wiele planów w ofercie DEV, aby przetestować różne kombinacje cenowe. Można na przykład utworzyć plany z różnymi zestawami niestandardowych wymiarów taryfowych. Możesz utworzyć inny plan z mieszaniem stałej stawki i niestandardowych wymiarów taryfowych.
+
+Aby przetestować wiele opcji cenowych, należy utworzyć plan dla każdego unikatowego modelu cen. Aby dowiedzieć się więcej, zobacz [plany](#plans).
+
+### <a name="not-adding-plans-that-do-not-target-actual-customers"></a>Nie dodawaj planów, które nie odpowiadają rzeczywistym klientom
+
+Korzystając z oferty DEWELOPERSKIej na potrzeby programowania i testowania, można zmniejszyć niepotrzebne bałagany w ofercie PRODUKCYJNEj. Na przykład nie można usunąć utworzonych planów, aby przetestować różne modele cen lub konfiguracje techniczne (bez zgłoszenia biletu pomocy technicznej). Dzięki utworzeniu planów do testowania w ofercie DEV można zmniejszyć ilość bałaganu w ofercie PRODUKCYJNEj.
+
+Brak bałaganu w ofertach produkcyjnych frustrates produkty i zespoły marketingowe, ponieważ oczekują one wszystkich planów ukierunkowanych na faktycznych klientów. Szczególnie w przypadku dużych zespołów, które są rozłączone, którzy chcą mieć różne piaskownice, utworzenie dwóch ofert spowoduje udostępnienie dwóch różnych środowisk dla deweloperów i produkcyjnych. W niektórych przypadkach może być konieczne utworzenie wielu ofert DEWELOPERSKIch w celu obsługi większego zespołu, który ma różne osoby, na których działają różne scenariusze testów. Umożliwienie różnym członkom zespołu pracy w ofercie DEWELOPERSKIej oddzielonej od oferty PRODUKCYJNEj, pomaga w zachowaniu planów produkcyjnych jako bliskich gotowości do produkcji.
+
+Testowanie oferty DEWELOPERSKIej pomaga uniknąć 30 niestandardowych limitów wymiarów taryfowych na ofertę. Deweloperzy mogą wypróbować różne kombinacje mierników w ofercie DEV bez wpływania na niestandardowy limit wymiarów taryfowych w ofercie PRODUKCYJNEj.
 
 ## <a name="additional-sales-opportunities"></a>Dodatkowe możliwości sprzedaży
 

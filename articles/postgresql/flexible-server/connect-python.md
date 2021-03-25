@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2bcf467eea9186cc57fb4c6c3d8964632b8fec03
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90947774"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047715"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -28,7 +28,7 @@ W tym artykule założono, że wiesz już, jak programować za pomocą języka P
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Serwer elastyczny Azure Database for PostgreSQL. Aby utworzyć elastyczny serwer, zapoznaj się z tematem [tworzenie Azure Database for PostgreSQL-elastyczny serwer przy użyciu Azure Portal](./quickstart-create-server-portal.md).
-* [Python](https://www.python.org/downloads/) 2.7.9 + lub 3.4 +.
+* [Python](https://www.python.org/downloads/) 2,7 lub 3.6 +.
 * Najnowsza wersja Instalatora pakietu [PIP](https://pip.pypa.io/en/stable/installing/) .
 
 ## <a name="preparing-your-client-workstation"></a>Przygotowywanie stacji roboczej klienta

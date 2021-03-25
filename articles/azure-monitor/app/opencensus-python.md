@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704416"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047426"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -19,7 +19,7 @@ Azure Monitor obsługuje śledzenie rozproszone, zbieranie metryk i rejestrowani
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-- Instalacja języka Python. W tym artykule jest stosowany [3.7.0 języka Python](https://www.python.org/downloads/release/python-370/), chociaż inne wersje będą prawdopodobnie działały z drobnymi zmianami. Zestaw SDK obsługuje tylko Języki Python v 2.7 i v 3.4-v 3.7.
+- Instalacja języka Python. W tym artykule jest stosowany [3.7.0 języka Python](https://www.python.org/downloads/release/python-370/), chociaż inne wersje będą prawdopodobnie działały z drobnymi zmianami. Zestaw SDK obsługuje tylko środowisko Python w wersji 2,7 i 3.6 +.
 - Utwórz [zasób](./create-new-resource.md)Application Insights. Do zasobu zostanie przypisany własny klucz Instrumentacji (iKey).
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrument z zestawem SDK OpenCensus języka Python dla Azure Monitor

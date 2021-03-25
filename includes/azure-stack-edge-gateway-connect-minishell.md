@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5e2ab0b9d7f61539a16fc685134bef6c9047229d
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0ad760caedffa97599548b8dd1b59a887b5690af
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104987734"
+ms.locfileid: "105104374"
 ---
 W zależności od systemu operacyjnego klienta procedury zdalnego łączenia się z urządzeniem są różne.
 
@@ -21,7 +21,7 @@ W zależności od systemu operacyjnego klienta procedury zdalnego łączenia si�
 Przed rozpoczęciem upewnij się, że:
 
 - Klient systemu Windows korzysta z programu Windows PowerShell 5,0 lub nowszego.
-- Klient systemu Windows ma łańcuch podpisywania (certyfikat główny) odpowiadający certyfikatowi węzła zainstalowanego na urządzeniu. Aby uzyskać szczegółowe instrukcje, zobacz [Instalowanie certyfikatu na kliencie systemu Windows](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Klient systemu Windows ma łańcuch podpisywania (certyfikat główny) odpowiadający certyfikatowi węzła zainstalowanego na urządzeniu. Aby uzyskać szczegółowe instrukcje, zobacz [Instalowanie certyfikatu na kliencie systemu Windows](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 - `hosts`Plik znajdujący się pod adresem `C:\Windows\System32\drivers\etc` dla klienta systemu Windows zawiera wpis odpowiadający certyfikatowi węzła w następującym formacie:
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`
