@@ -1,26 +1,24 @@
 ---
-title: Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET — Azure Storage
-description: Dowiedz się, jak wyświetlić listę obiektów BLOB w kontenerze na koncie usługi Azure Storage za pomocą biblioteki klienckiej platformy .NET. Przykłady kodu przedstawiają sposób wyświetlania listy obiektów BLOB w postaci płaskiej listy lub sposobu wyświetlania listy obiektów BLOB hierarchicznie, tak jakby były zorganizowane w katalogi lub foldery.
+title: Wyświetlanie listy obiektów BLOB za pomocą interfejsów API usługi Azure Storage
+description: Dowiedz się, jak wyświetlać listę obiektów BLOB na koncie magazynu przy użyciu bibliotek klienckich usługi Azure Storage. Przykłady kodu przedstawiają sposób wyświetlania listy obiektów BLOB w postaci płaskiej listy lub sposobu wyświetlania listy obiektów BLOB hierarchicznie, tak jakby były zorganizowane w katalogi lub foldery.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95543072"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046946"
 ---
-# <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
+# <a name="list-blobs-with-azure-storage-client-libraries"></a>Wyświetlanie listy obiektów BLOB za pomocą bibliotek klienckich usługi Azure Storage
 
 Podczas wyświetlania listy obiektów blob z kodu można określić szereg opcji zarządzania wynikami zwracanymi z usługi Azure Storage. Możesz określić liczbę wyników do zwrócenia w każdym zestawie wyników, a następnie pobrać kolejne zestawy. Można określić prefiks do zwrócenia obiektów blob, których nazwy zaczynają się od znaku lub ciągu. I można wyświetlić listę obiektów BLOB w strukturze płaskiej listy lub hierarchicznie. Hierarchiczna lista zwraca obiekty blob, tak jakby były zorganizowane w folderach.
-
-W tym artykule przedstawiono sposób wyświetlania listy obiektów BLOB przy użyciu [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-blob-listing-options"></a>Omówienie opcji listy obiektów BLOB
 
@@ -45,7 +43,9 @@ Aby wyświetlić listę obiektów BLOB w kontenerze, wywołaj jedną z następuj
 - [CloudBlobContainer. ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer. ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-Przeciążenia dla tych metod udostępniają dodatkowe opcje zarządzania sposobem zwracania obiektów BLOB przez operację wyświetlania. Te opcje są opisane w poniższych sekcjach.
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
 
@@ -61,13 +61,25 @@ Aby odfiltrować listę obiektów blob, Określ ciąg dla `prefix` parametru. Ci
 
 Można zwrócić metadane obiektu BLOB z wynikami.
 
-- Jeśli używasz zestawu SDK platformy .NET V12, określ wartość **metadanych** dla wyliczenia [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
-- Jeśli używasz zestawu SDK platformy .NET V11, określ wartość **metadanych** dla wyliczenia [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Usługa Azure Storage obejmuje metadane z zwróconymi wszystkimi obiektami BLOB, więc nie trzeba wywoływać jednej z metod **FetchAttributes** w tym kontekście, aby pobrać metadane obiektu BLOB.
+Określ wartość **metadanych** dla wyliczenia [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
+Określ wartość **metadanych** dla wyliczenia [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Usługa Azure Storage obejmuje metadane z zwróconymi wszystkimi obiektami BLOB, więc nie trzeba wywoływać jednej z metod **FetchAttributes** w tym kontekście, aby pobrać metadane obiektu BLOB.
+
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+Określ `metadata` dla `include=` parametru podczas wywoływania [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
+
+---
 
 ### <a name="list-blob-versions-or-snapshots"></a>Wyświetl listę wersji lub migawek obiektów BLOB
 
-Aby wyświetlić listę wersji lub migawek obiektów BLOB za pomocą biblioteki klienta .NET V12, określ parametr [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) w polu **wersja** lub **migawka** . Wersje i migawki są wymienione na liście od najstarszych do najnowszych. Aby uzyskać więcej informacji na temat wyświetlania wersji, zobacz [Lista wersji obiektów BLOB](versioning-enable.md#list-blob-versions).
+- Aby wyświetlić listę wersji lub migawek obiektów BLOB za pomocą biblioteki klienta .NET V12, określ parametr [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) w polu **wersja** lub **migawka** . Wersje i migawki są wymienione na liście od najstarszych do najnowszych. Aby uzyskać więcej informacji na temat wyświetlania wersji, zobacz [Lista wersji obiektów BLOB](versioning-enable.md#list-blob-versions).
+
+- Aby wyświetlić liczbę migawek z biblioteką kliencką V12 języka Python, określ `num_snapshots` wartość w `include=` parametrze podczas wywoływania [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Płaska lista w porównaniu z listą hierarchiczną
 
@@ -135,11 +147,15 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+
 ---
 
 Przykładowe dane wyjściowe są podobne do:
 
-```
+```console
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
 Blob name: FolderA/blob3.txt
@@ -153,7 +169,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## <a name="use-a-hierarchical-listing"></a>Korzystanie z listy hierarchicznej
 
-Gdy wywołasz operację tworzenia listy hierarchicznie, usługa Azure Storage zwraca katalogi wirtualne i obiekty blob na pierwszym poziomie hierarchii. Właściwość [prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) każdego katalogu wirtualnego jest ustawiona, aby można było przekazać prefiks w wywołaniu cyklicznym w celu pobrania następnego katalogu.
+Gdy wywołasz operację tworzenia listy hierarchicznie, usługa Azure Storage zwraca katalogi wirtualne i obiekty blob na pierwszym poziomie hierarchii.
 
 # <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
@@ -164,6 +180,8 @@ Poniższy przykład wyświetla listę obiektów BLOB w określonym kontenerze pr
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
+Właściwość [prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) każdego katalogu wirtualnego jest ustawiona, aby można było przekazać prefiks w wywołaniu cyklicznym w celu pobrania następnego katalogu.
 
 Aby wyświetlić listę obiektów BLOB hierarchicznie, ustaw `useFlatBlobListing` parametr metody list na **wartość false**.
 
@@ -222,11 +240,19 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+Aby wyświetlić listę obiektów BLOB hierarchicznie, wywołaj metodę [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-) .
+
+Poniższy przykład wyświetla listę obiektów BLOB w określonym kontenerze przy użyciu listy hierarchicznej z określonym opcjonalnym rozmiarem segmentu i zapisuje nazwę obiektu BLOB do okna konsoli.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
+
 ---
 
 Przykładowe dane wyjściowe są podobne do:
 
-```
+```console
 Virtual directory prefix: FolderA/
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt

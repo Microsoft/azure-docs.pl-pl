@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98938953"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865472"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Omówienie usługi Azure Storage w usłudze HDInsight
 
@@ -24,7 +24,7 @@ Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **
 
 Na poniższym diagramie przedstawiono abstrakcyjny widok architektury usługi HDInsight w usłudze Azure Storage:
 
-!["HDInsight Storage Architecture"](./media/overview-azure-storage/storage-architecture.png "Architektura HDInsight Storage")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="Architektura HDInsight Storage" border="false":::
 
 Usługa HDInsight zapewnia dostęp do rozproszonego systemu plików, który jest lokalnie dołączony do węzłów obliczeniowych. Dostęp do tego systemu plików można uzyskać przy użyciu w pełni kwalifikowanego identyfikatora URI, na przykład:
 
@@ -40,7 +40,7 @@ W przypadku korzystania z konta usługi Azure Storage z klastrami HDInsight nale
 
 * **Kontenery publiczne lub publiczne obiekty blob na kontach magazynu, które nie są połączone z klastrem:** Masz uprawnienia tylko do odczytu obiektów BLOB w kontenerach.
   
-  > [!NOTE]  
+  > [!NOTE]
   > Kontenery publiczne umożliwiają uzyskanie listy wszystkich obiektów blob, które są dostępne w tym kontenerze i uzyskiwania metadanych kontenera. Publiczne obiekty blob umożliwiają dostęp do obiektów blob jedynie osobom znającym dokładny adres URL. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Prywatne kontenery na kontach magazynu, które nie są połączone z klastrem:** Nie można uzyskać dostępu do obiektów BLOB w kontenerach, chyba że zostanie zdefiniowane konto magazynu podczas przesyłania zadań WebHCat.

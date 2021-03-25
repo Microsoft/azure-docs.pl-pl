@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 71d5a910e36762d096763c4f45a13cbdad47414d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730629"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105565"
 ---
-Przed wdrożeniem maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge musisz skonfigurować klienta programu tak, aby łączył się z urządzeniem za pośrednictwem Azure Resource Manager przez Azure PowerShell. Aby uzyskać szczegółowe instrukcje, zobacz [nawiązywanie połączenia z Azure Resource Manager na urządzeniu brzegowym Azure Stack](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
+Przed wdrożeniem maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge musisz skonfigurować klienta programu tak, aby łączył się z urządzeniem za pośrednictwem Azure Resource Manager przez Azure PowerShell. Aby uzyskać szczegółowe instrukcje, zobacz [nawiązywanie połączenia z Azure Resource Manager na urządzeniu brzegowym Azure Stack](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Upewnij się, że w celu uzyskania dostępu do urządzenia z poziomu klienta można wykonać następujące czynności. Ta konfiguracja została już wykonana po nawiązaniu połączenia z usługą Azure Resource Manager i teraz sprawdzanie, czy konfiguracja zakończyła się pomyślnie. 
 
@@ -38,5 +38,3 @@ Upewnij się, że w celu uzyskania dostępu do urządzenia z poziomu klienta mo�
 
     > [!NOTE]
     > Jeśli tworzysz maszyny wirtualne GPU, wybierz interfejs sieciowy, który jest połączony z Internetem. Dzięki temu można zainstalować na urządzeniu rozszerzenie procesora GPU.
-
-

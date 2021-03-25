@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175078"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048106"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Zarejestruj i Skanuj źródło programu Teradata (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób rejestrowania źródła programu Teradata w progr
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 1.  Skonfiguruj najnowsze [środowisko Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Upewnij się, że na maszynie wirtualnej zainstalowano środowisko Integration Runtime [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) .
 
@@ -70,7 +70,7 @@ Na ekranie **Rejestr sources (Teradata)** wykonaj następujące czynności:
 
 Aby utworzyć i uruchomić nowe skanowanie, wykonaj następujące czynności:
 
-1.  W centrum zarządzania kliknij pozycję **Integration Runtimes**. Upewnij się, że jest skonfigurowany własny środowisko Integration Runtime. Jeśli nie jest on skonfigurowany, wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) , aby skonfigurować własne środowisko Integration Runtime
+1.  W centrum zarządzania kliknij pozycję **Integration Runtimes**. Upewnij się, że jest skonfigurowany własny środowisko Integration Runtime. Jeśli nie jest on skonfigurowany, wykonaj kroki opisane [tutaj](./manage-integration-runtimes.md) , aby skonfigurować własne środowisko Integration Runtime
 
 2.  Przejdź do **źródeł**
 
@@ -90,7 +90,7 @@ Aby utworzyć i uruchomić nowe skanowanie, wykonaj następujące czynności:
     -   Podaj nazwę użytkownika, aby połączyć się z serwerem bazy danych w polu wejściowym nazwa użytkownika
     -   Zapisz hasło serwera bazy danych w kluczu tajnym.
 
-        Aby dowiedzieć się więcej na temat poświadczeń, zapoznaj się z linkiem [tutaj](https://docs.microsoft.com/azure/purview/manage-credentials)
+        Aby dowiedzieć się więcej na temat poświadczeń, zapoznaj się z linkiem [tutaj](./manage-credentials.md)
 
 6.  **Schemat**: Lista podzestawu schematów do zaimportowania wyrażona jako lista rozdzielonych średnikami. np. Schema1; schema2. Wszystkie schematy użytkownika są importowane, jeśli lista jest pusta. Wszystkie schematy systemowe (na przykład sysadmin) i obiekty są domyślnie ignorowane. Gdy lista jest pusta, wszystkie dostępne schematy są importowane.
 

@@ -3,12 +3,12 @@ title: Scenariusze i projektowanie aplikacji
 description: Omówienie kategorii aplikacji w chmurze w Service Fabric. Omawia projekt aplikacji, który korzysta z usług stanowych i bezstanowych.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575673"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045760"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenariusze aplikacji Service Fabric
 
@@ -68,7 +68,7 @@ Oto przykładowa aplikacja korzystająca z usług stanowych: ![ aplikacja, któr
 
 * Zacznij tworzyć bezstanowe i stanowe usługi przy użyciu Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) i [Reliable Actors](service-fabric-reliable-actors-get-started.md) modelami programowania.
 * Odwiedź Centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [tworzenia mikrousług na platformie Azure](/azure/architecture/microservices/).
-* Przejdź do [platformy Azure Service Fabric aplikacji i najlepszych](service-fabric-best-practices-overview.md) rozwiązań dotyczących projektowania aplikacji.
+* Przejdź do [platformy Azure Service Fabric aplikacji i najlepszych](./service-fabric-best-practices-security.md) rozwiązań dotyczących projektowania aplikacji.
 
 * Zobacz też:
   * [Informacje o mikrousługach](service-fabric-overview-microservices.md)
