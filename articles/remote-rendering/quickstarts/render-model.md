@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729967"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031549"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
@@ -37,10 +37,7 @@ Należy zainstalować następujące oprogramowanie:
   * **Programowanie aplikacji klasycznych w języku C++**
   * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * GIT [(pobieranie)](https://git-scm.com/downloads)
-* 2019.3.1 Unity [(pobieranie)](https://unity3d.com/get-unity/download)
-  * Zainstaluj te moduły w aparacie Unity:
-    * **Platformy UWP** — obsługa kompilacji platforma uniwersalna systemu Windows
-    * **IL2CPP** — obsługa kompilacji systemu Windows (IL2CPP)
+* Unity (zobacz [wymagania systemowe](../overview/system-requirements.md#unity) dla obsługiwanych wersji)
 
 ## <a name="clone-the-sample-app"></a>Klonowanie przykładowej aplikacji
 

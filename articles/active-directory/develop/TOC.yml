@@ -551,6 +551,8 @@
           href: vs-active-directory-error.md
     - name: Usuwanie rejestracji aplikacji
       href: quickstart-remove-app.md
+    - name: Przywracanie lub usuwanie usuniętej rejestracji aplikacji
+      href: quickstart-restore-app.md
 - name: Dokumentacja
   items:
     - name: Słownik

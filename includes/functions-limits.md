@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: aa75d1d57f44bb1a4d6513823ac97ac9917b260f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 91f72117fdbcdbeda1d906a9760243e66404920c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934473"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104667"
 ---
 | Zasób |[Plan Zużycie](../articles/azure-functions/consumption-plan.md)|[Plan Premium](../articles/azure-functions/functions-premium-plan.md)|[Dedykowany plan](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -21,6 +21,7 @@ ms.locfileid: "97934473"
 | Maksymalna długość adresu URL żądania<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Zależy od klastra |
 |[ACU](../articles/virtual-machines/acu.md) na wystąpienie | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Cennik AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Maksymalna ilość pamięci (GB na wystąpienie) | 1.5 | 3,5-14 | 1,75-14 | 3,5 – 14 | Obsługiwany jest dowolny węzeł |
+| Maksymalna liczba wystąpień | 200 | 100<sup>9</sup> | zależy od jednostki SKU<sup>10</sup> | 100<sup>10</sup> | Zależy od klastra |   
 | Aplikacje funkcji na plan |100 |100 |niepowiązane<sup>4</sup> | Unbounded | Unbounded |
 | [Plany usługi App Service](../articles/app-service/overview-hosting-plans.md) | 100 na [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 na grupę zasobów |100 na grupę zasobów | - | - |
 | Magazyn<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/d |
@@ -34,4 +35,6 @@ ms.locfileid: "97934473"
 <sup>5</sup> limit magazynowania to całkowity rozmiar zawartości w magazynie tymczasowym dla wszystkich aplikacji w ramach tego samego planu App Service. W planie użycia Azure Files tymczasowego magazynu.  
 <sup>6</sup> gdy aplikacja funkcji jest hostowana w [planie zużycia](../articles/azure-functions/consumption-plan.md), obsługiwana jest tylko opcja CNAME. W przypadku aplikacji funkcji w [planie Premium](../articles/azure-functions/functions-premium-plan.md) lub w [planie App Service](../articles/azure-functions/dedicated-plan.md)można zmapować domenę niestandardową przy użyciu rekordu CNAME lub a.  
 <sup>7</sup> gwarantujemy do 60 minut.  
-<sup>8</sup> procesów roboczych to role obsługujące aplikacje klienta. Procesy robocze są dostępne w trzech stałych rozmiarach: jeden vCPU/3,5 GB pamięci RAM; Dwa vCPU/7 GB pamięci RAM; Cztery vCPU/14 GB pamięci RAM.
+<sup>8</sup> procesów roboczych to role obsługujące aplikacje klienta. Procesy robocze są dostępne w trzech stałych rozmiarach: jeden vCPU/3,5 GB pamięci RAM; Dwa vCPU/7 GB pamięci RAM; Cztery vCPU/14 GB pamięci RAM.   
+<sup>9</sup> w przypadku uruchamiania w systemie Linux w planie Premium masz obecnie ograniczenie do 20 wystąpień.  
+<sup>10</sup> Aby uzyskać szczegółowe informacje, zobacz [limity App Service](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) .
