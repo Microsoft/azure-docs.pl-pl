@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 2/19/2021
+ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020312"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045312"
 ---
 # <a name="how-to-export-fhir-data"></a>Jak wyeksportować dane FHIR
 
@@ -23,14 +23,19 @@ Przed rozpoczęciem korzystania z $export upewnij się, że jest skonfigurowany 
 
 ## <a name="using-export-command"></a>Używanie $export polecenia
 
-Po skonfigurowaniu interfejsu API platformy Azure dla usługi FHIR na potrzeby eksportu można użyć polecenia $export, aby wyeksportować dane z usługi. Dane będą przechowywane na koncie magazynu określonym podczas konfigurowania eksportu. Aby dowiedzieć się, jak wywołać $export polecenie na serwerze FHIR, Przeczytaj dokumentację dotyczącą [specyfikacji HL7 FHIR $Export](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
+Po skonfigurowaniu interfejsu API platformy Azure dla usługi FHIR na potrzeby eksportu można użyć polecenia $export, aby wyeksportować dane z usługi. Dane będą przechowywane na koncie magazynu określonym podczas konfigurowania eksportu. Aby dowiedzieć się, jak wywołać $export polecenie na serwerze FHIR, Przeczytaj dokumentację dotyczącą [specyfikacji HL7 FHIR $Export](https://hl7.org/Fhir/uv/bulkdata/export/index.html).
+
+
+**Zadania zablokowane w nieprawidłowym stanie**
+
+W niektórych sytuacjach istnieje możliwość, że zadanie ma być zablokowane w nieprawidłowym stanie. Może się to zdarzyć zwłaszcza wtedy, gdy uprawnienia konta magazynu nie zostały prawidłowo skonfigurowane. Jednym ze sposobów sprawdzenia, czy eksport zakończył się pomyślnie, jest sprawdzenie konta magazynu w celu sprawdzenia, czy odpowiadający mu plik kontenera (czyli ndjson) są obecne. Jeśli nie są one obecne i nie są uruchomione żadne inne zadania eksportowania, istnieje możliwość, że bieżące zadanie zostanie zablokowane w nieprawidłowym stanie. Zadanie eksportu należy anulować przez wysłanie żądania anulowania i ponowne Zakolejkowanie zadania. Nasz domyślny czas wykonywania eksportu w nieprawidłowym stanie wynosi 10 minut, zanim zostanie zatrzymany i przejdziesz do nowego zadania, lub spróbuj ponownie wyeksportować. 
 
 Interfejs API platformy Azure dla usługi FHIR obsługuje $export na następujących poziomach:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
 * [Pacjent](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Grupa pacjentów *](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) — interfejs API platformy Azure dla FHIR eksportuje wszystkie powiązane zasoby, ale nie eksportuje cech grupy: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
-Podczas eksportowania danych jest tworzony oddzielny plik dla każdego typu zasobu. Aby upewnić się, że eksportowane pliki nie staną się zbyt duże, utworzymy nowy plik po rozmiar pojedynczego wyeksportowanego pliku, który będzie większy niż 64 MB. W efekcie można uzyskać wiele plików dla każdego typu zasobu, który zostanie wyliczony (tj. pacjenta-1. ndjson, pacjent-2. ndjson). 
+Podczas eksportowania danych jest tworzony oddzielny plik dla każdego typu zasobu. Aby upewnić się, że eksportowane pliki nie staną się zbyt duże. Tworzymy nowy plik, gdy rozmiar pojedynczego wyeksportowanego pliku będzie większy niż 64 MB. W efekcie można uzyskać wiele plików dla każdego typu zasobu, który zostanie wyliczony (to jest: pacjenta-1. ndjson, pacjent-2. ndjson). 
 
 
 > [!Note] 
@@ -42,7 +47,7 @@ Ponadto sprawdzanie stanu eksportu za pośrednictwem adresu URL zwróconego prze
 
 Obecnie obsługujemy $export dla ADLS Gen2 włączonych kont magazynu z następującymi ograniczeniami:
 
-- Użytkownik nie może jeszcze korzystać z [hierarchicznych obszarów nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) ; nie istnieje sposób, aby można było eksportować do określonego podkatalogu w kontenerze. Zapewniamy tylko możliwość kierowania określonego kontenera (w przypadku tworzenia nowego folderu dla każdego eksportu).
+- Użytkownik nie może korzystać z [hierarchicznych przestrzeni nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace), ale nie ma sposobu na eksportowanie do określonego podkatalogu w kontenerze. Zapewniamy tylko możliwość kierowania określonego kontenera (w przypadku tworzenia nowego folderu dla każdego eksportu).
 
 - Po zakończeniu eksportu nigdy nie eksportuje niczego do tego folderu, ponieważ kolejne eksporty do tego samego kontenera będą znajdować się wewnątrz nowo utworzonego folderu.
 
@@ -65,17 +70,20 @@ Interfejs API platformy Azure dla usługi FHIR obsługuje następujące parametr
 | \_typefilter | Tak | Aby zażądać bardziej szczegółowego filtrowania, można użyć \_ TypeFilter wraz z \_ parametrem typu. Wartość parametru _typeFilter jest rozdzielaną przecinkami listą zapytań FHIR, które bardziej ograniczają wyniki |
 | \_wbudowane | Nie |  Określa kontener w skonfigurowanym koncie magazynu, w którym mają zostać wyeksportowane dane. Jeśli kontener jest określony, dane zostaną wyeksportowane do tego kontenera w nowym folderze o nazwie. Jeśli kontener nie zostanie określony, zostanie on wyeksportowany do nowego kontenera przy użyciu sygnatury czasowej i identyfikatora zadania. |
 
+> [!Note]
+> Jako miejsce docelowe dla operacji $export mogą być rejestrowane tylko konta magazynu w tej samej subskrypcji, co w przypadku usługi Azure API for FHIR.
+
 ## <a name="secure-export-to-azure-storage"></a>Bezpieczny eksport do usługi Azure Storage
 
 Interfejs API platformy Azure dla usługi FHIR obsługuje operację bezpiecznego eksportowania. Jedną z opcji wykonywania bezpiecznego eksportu jest umożliwienie określonym adresom IP skojarzonym z interfejsem API platformy Azure dla FHIR dostępu do konta usługi Azure Storage. Konfiguracja różni się w zależności od tego, czy konto magazynu znajduje się w tej samej lokalizacji, czy w innym miejscu niż interfejs API platformy Azure dla FHIR.
 
 ### <a name="when-the-azure-storage-account-is-in-a-different-region"></a>Gdy konto usługi Azure Storage znajduje się w innym regionie
 
-Wybierz blok sieć konta usługi Azure Storage z portalu. 
+Wybierz pozycję **Sieć** konta usługi Azure Storage z portalu. 
 
    :::image type="content" source="media/export-data/storage-networking.png" alt-text="Ustawienia sieci usługi Azure Storage." lightbox="media/export-data/storage-networking.png":::
    
-Wybierz pozycję "wybrane sieci" i określ adres IP w polu **zakres adresów** w obszarze zapory \| Dodaj zakresy adresów IP, aby zezwolić na dostęp z Internetu lub sieci lokalnych. Adres IP można znaleźć z poniższej tabeli dla regionu platformy Azure, w którym Zainicjowano obsługę interfejsu API platformy Azure dla usługi FHIR.
+Wybierz pozycję **Wybrane sieci**. W sekcji Zapora Określ adres IP w polu **zakres adresów** . Dodaj zakresy adresów IP, aby zezwolić na dostęp z Internetu lub sieci lokalnych. Adres IP można znaleźć w poniższej tabeli dla regionu platformy Azure, w którym Zainicjowano obsługę interfejsu API platformy Azure dla usługi FHIR.
 
 |**Region świadczenia usługi Azure**         |**Publiczny adres IP** |
 |:----------------------|:-------------------|
@@ -110,7 +118,7 @@ Proces konfiguracji jest taki sam jak powyżej, ale zamiast niego jest używany 
     
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób eksportowania FHIR zasobów przy użyciu polecenia $export. Następnie Dowiedz się, jak eksportować dane z wyznaczonymi danymi:
+W tym artykule przedstawiono sposób eksportowania FHIR zasobów przy użyciu polecenia $export. Aby dowiedzieć się, jak eksportować wyeksportowane dane, zobacz:
  
 >[!div class="nextstepaction"]
 >[Eksportowanie wyznaczonych danych](de-identified-export.md)

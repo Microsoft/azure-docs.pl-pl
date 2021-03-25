@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e9069b5d43044ef0d0341717a12fcce7c4a72dc7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 5ac4c53550468d33e9ed533303749d29e772d766
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804006"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108483"
 ---
 W tym przewodniku szybki start dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu biblioteki Osadź zespoły usługi Azure Communication Services dla systemu Android.
 
@@ -34,7 +34,7 @@ Wybierz szablon projektu "puste działanie" w obszarze "telefon i tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający opcję &quot;puste działanie&quot; wybraną na ekranie szablonu projektu.":::
 
-Nazwij projekt `TeamsEmbedAndroidGettingStarted` , Ustaw język Java i wybierz minimalną bibliotekę klienta "API 21: Android 5,0 (lizak)" lub większą.
+Nazwij projekt `TeamsEmbedAndroidGettingStarted` , Ustaw język Java i wybierz minimalny zestaw SDK "API 21: Android 5,0 (lizak)" lub nowszy.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający opcję &quot;puste działanie&quot; wybraną na ekranie szablonu projektu 2.":::
 
@@ -299,7 +299,7 @@ public String fetchToken() {
 ## <a name="get-the-teams-meeting-link"></a>Pobierz link do spotkania dla zespołów
 
 Link do spotkania zespołów można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisany w [dokumentacji programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-Biblioteka klienta wywołującego usługę komunikacyjną akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, który jest dostępny w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) , można także uzyskać wymagane informacje o spotkaniu z adresu URL **spotkania dołączania** w przypadku, gdy spotkanie zespołu się zaprosiło.
+Zestaw SDK wywoływania usług komunikacyjnych akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, który jest dostępny w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) , można także uzyskać wymagane informacje o spotkaniu z adresu URL **spotkania dołączania** w przypadku, gdy spotkanie zespołu się zaprosiło.
 
 ## <a name="start-a-meeting-using-the-meeting-client"></a>Rozpocznij spotkanie przy użyciu klienta spotkania
 

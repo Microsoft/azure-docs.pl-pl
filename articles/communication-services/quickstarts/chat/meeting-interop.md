@@ -1,25 +1,25 @@
 ---
 title: Wprowadzenie do korzystania z zespołów międzyoperacyjnych w usłudze Azure Communications Services
 titleSuffix: An Azure Communication Services quickstart
-description: W tym przewodniku szybki start dowiesz się, jak sprzęgać spotkanie zespołów z biblioteką kliencką usługi Azure Communication Chat
+description: W tym przewodniku szybki start dowiesz się, jak sprzęgać spotkanie zespołów z zestawem SDK usługi Azure Communication Chat
 author: askaur
 ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 75580931b2df33b02b9759b6faaa5bec548daaae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d7ea3b67c3ce85ce104d16785e4e5f4d45b138f6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496182"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106800"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Szybki Start: dołączanie aplikacji czatu do spotkania zespołów
 
 > [!IMPORTANT]
 > Aby włączyć/wyłączyć [współdziałanie dzierżawcy dla zespołów](../../concepts/teams-interop.md), Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-Rozpocznij pracę z usługami Azure Communications Services, łącząc rozwiązanie czatu z firmą Microsoft Teams przy użyciu biblioteki klienckiej języka JavaScript. 
+Rozpocznij pracę z usługami Azure Communications Services, łącząc rozwiązanie czatu z firmą Microsoft Teams przy użyciu zestawu JavaScript SDK. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 

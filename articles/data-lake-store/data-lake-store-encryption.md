@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 51c9f924c6fe3ac6db86d60e26749d35bc4ab733
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92109157"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108948"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Szyfrowanie danych w Azure Data Lake Storage Gen1
 
@@ -135,4 +135,4 @@ Należy pamiętać, że w przypadku używania opcji domyślnych dla szyfrowania 
 Ta operacja powinna zająć mniej niż dwie minuty i nie powinna powodować żadnego przestoju. Po zakończeniu operacji jest używana nowa wersja klucza.
 
 > [!IMPORTANT]
-> Po zakończeniu operacji rotacji kluczy stara wersja klucza nie jest już aktywnie używana do szyfrowania danych.  Jednak w rzadkich przypadkach wystąpienia nieoczekiwanych awarii, które mają wpływ nawet na nadmiarowe kopie danych, dane można przywrócić z kopii zapasowej nadal używającej starego klucza. Aby zapewnić dostępność danych w tych rzadkich przypadkach, należy zachować kopię poprzedniej wersji klucza szyfrowania. Zobacz [wskazówki dotyczące odzyskiwania po awarii dla danych w Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) , aby poznać najlepsze rozwiązania związane z planowaniem odzyskiwania po awarii.
+> Po zakończeniu operacji rotacji kluczy stara wersja klucza nie jest już aktywnie używana do szyfrowania nowych danych. Mogą jednak wystąpić sytuacje, w których uzyskanie dostępu do starszych danych może potrzebować starego klucza. Aby umożliwić odczytywanie takich starszych danych, nie usuwaj starego klucza

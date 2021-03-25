@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 996fa53aa105c0bcc27db7134c25d6d00e542a78
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90976495"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110291"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Odporność i odzyskiwanie po awarii w usłudze Azure SignalR Service
 
@@ -44,13 +44,16 @@ Poniżej przedstawiono diagram, który ilustruje taką topologię:
 
 ![Diagram przedstawia dwa regiony z serwerem aplikacji i usługą sygnalizującego, gdzie każdy serwer jest skojarzony z usługą sygnalizującą w swoim regionie jako podstawową i z usługą w innym regionie jako pomocniczą.](media/signalr-concept-disaster-recovery/topology.png)
 
-## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Konfigurowanie serwerów aplikacji od kątem wielu wystąpień usługi SignalR
+## <a name="configure-multiple-signalr-service-instances"></a>Konfigurowanie wielu wystąpień usługi sygnalizującego
 
-Po utworzeniu usługi SignalR i serwerów aplikacji w każdym regionie można skonfigurować serwery aplikacji pod kątem łączenia ze wszystkimi wystąpieniami usługi SignalR.
+Obsługiwane są wiele wystąpień usługi sygnalizującej zarówno na serwerach aplikacji, jak i w Azure Functions.
 
+Po wybraniu usługi sygnalizującej i serwerów aplikacji/Azure Functions utworzonych w każdym regionie można skonfigurować serwery aplikacji/Azure Functions do łączenia się ze wszystkimi wystąpieniami usługi sygnalizującego.
+
+### <a name="configure-on-app-servers"></a>Konfiguruj na serwerach aplikacji
 Można to zrobić na dwa sposoby:
 
-### <a name="through-config"></a>Za pomocą konfiguracji
+#### <a name="through-config"></a>Za pomocą konfiguracji
 
 Należy już wiedzieć, jak ustawić parametry połączenia usługi sygnalizujące za pomocą zmiennych środowiskowych/ustawień aplikacji/Web. cofig w pozycji konfiguracji o nazwie `Azure:SignalR:ConnectionString` .
 Jeśli masz wiele punktów końcowych, możesz je umieścić w wielu wpisach konfiguracji, z których każdy jest w następującym formacie:
@@ -62,7 +65,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 W tym miejscu parametr `<name>` to nazwa punktu końcowego, a parametr `<role>` to jego rola (podstawowy lub pomocniczy).
 Nazwa jest opcjonalna, lecz będzie przydatna, jeśli chcesz dostosować zachowanie routingu między wieloma punktami końcowymi.
 
-### <a name="through-code"></a>Za pomocą kodu
+#### <a name="through-code"></a>Za pomocą kodu
 
 Jeśli wolisz przechowywać parametry połączenia w innym miejscu, możesz je również odczytać w kodzie i używać ich jako parametrów podczas wywoływania `AddAzureSignalR()` (w ASP.NET Core) lub `MapAzureSignalR()` (w ASP.NET).
 
@@ -93,6 +96,9 @@ Można skonfigurować wiele wystąpień podstawowego lub pomocniczego. Jeśli is
 
 1. Jeśli istnieje co najmniej jedno wystąpienie podstawowe w trybie online, zwróć losowe podstawowe wystąpienie online.
 2. Jeśli wszystkie wystąpienia podstawowe nie działają, zwróć losowe pomocnicze wystąpienie w trybie online.
+
+### <a name="configure-on-azure-functions"></a>Konfiguruj na Azure Functions
+Zobacz [ten artykuł](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method).
 
 ## <a name="failover-sequence-and-best-practice"></a>Sekwencja trybu failover i najlepsze rozwiązania
 
@@ -137,3 +143,5 @@ Takie przypadki należy obsługiwać po stronie klienta, aby były przezroczyste
 W tym artykule przedstawiono sposób konfigurowania aplikacji pod kątem odporności ze względu na usługę SignalR. Aby dowiedzieć się więcej na temat połączenia serwera/klienta i routingu połączenia w usłudze SignalR, możesz przeczytać [ten artykuł](signalr-concept-internals.md) przedstawiający elementy wewnętrzne usługi SignalR.
 
 W przypadku scenariuszy skalowania, takich jak fragmentowania, w połączeniu z wieloma wystąpieniami w celu obsługi dużej liczby połączeń, należy zapoznać [się z tematem skalowanie wielu wystąpień](signalr-howto-scale-multi-instances.md).
+
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania Azure Functions z wieloma wystąpieniami usługi sygnalizującego, Odczytaj [wiele wystąpień usługi Azure sygnalizujących w programie Azure Functions](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md).

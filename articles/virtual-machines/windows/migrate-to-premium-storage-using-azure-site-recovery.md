@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: aeb8028468a1e1944a4fd39275f134bfae00dfa3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a8b58c72ee4e6d9d38dccb369a3d38c46f0c4afe
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555350"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046848"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery
 
@@ -199,7 +199,7 @@ Site Recovery utworzy wystąpienie maszyny wirtualnej, którego typ jest taki sa
    * W przypadku maszyny wirtualnej utworzonej za pomocą klasycznego modelu wdrażania: Dodaj maszynę wirtualną do zestawu dostępności w Azure Portal. Aby uzyskać szczegółowe instrukcje, przejdź do sekcji [Dodawanie istniejącej maszyny wirtualnej do zestawu dostępności](/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic).
    * W przypadku maszyny wirtualnej utworzonej za pomocą Menedżer zasobów model wdrażania: Zapisz konfigurację maszyny wirtualnej, a następnie usuń i ponownie utwórz maszyny wirtualne w zestawie dostępności. Aby to zrobić, Użyj skryptu w [ustawieniu Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Przed uruchomieniem tego skryptu sprawdź jego ograniczenia i Zaplanuj przestoje.
 
-2. **Usuń stare maszyny wirtualne i dyski**. Upewnij się, że dyski w warstwie Premium są spójne z dyskami źródłowymi i że nowe maszyny wirtualne wykonują tę samą funkcję co źródłowe maszyny wirtualne. Usuń maszynę wirtualną i Usuń dyski z kont magazynu źródłowego w Azure Portal. Jeśli wystąpi problem polegający na tym, że dysk nie został usunięty nawet po usunięciu maszyny wirtualnej, zobacz [Rozwiązywanie problemów z usuwaniem zasobów magazynu](../troubleshooting/storage-resource-deletion-errors.md).
+2. **Usuń stare maszyny wirtualne i dyski**. Upewnij się, że dyski w warstwie Premium są spójne z dyskami źródłowymi i że nowe maszyny wirtualne wykonują tę samą funkcję co źródłowe maszyny wirtualne. Usuń maszynę wirtualną i Usuń dyski z kont magazynu źródłowego w Azure Portal. Jeśli wystąpi problem polegający na tym, że dysk nie został usunięty nawet po usunięciu maszyny wirtualnej, zobacz [Rozwiązywanie problemów z usuwaniem zasobów magazynu](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 3. **Wyczyść infrastrukturę Azure Site Recovery**. Jeśli Site Recovery nie jest już potrzebne, można oczyścić jej infrastrukturę. Usuń zreplikowane elementy, serwer konfiguracji i zasady odzyskiwania, a następnie usuń Magazyn Azure Site Recovery.
 

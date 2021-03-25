@@ -1,7 +1,7 @@
 ---
 title: Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak rozpocząć pracę z eksperymentem uczenia maszynowego i zarządzać nim za pomocą zestawu Azure Machine Learning Python SDK.
+description: Dowiedz się, jak uruchamiać, monitorować i śledzić eksperyment uczenia maszynowego za pomocą zestawu SDK języka Python Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634786"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110274"
 ---
-# <a name="start-monitor-and-track-runs"></a>Uruchamianie, monitorowanie i Śledzenie przebiegów 
+# <a name="start-monitor-and-track-run-history"></a>Uruchamianie, monitorowanie i śledzenie historii przebiegów 
 
-[Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro), [Machine Learning interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)i [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i zarządzania przebiegami w celu uczenia i eksperymentowania.
+[Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro), [interfejsu wiersza polecenia Machine Learning](reference-azure-machine-learning-cli.md)i programu [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i śledzenia przebiegów w celu uczenia się i eksperymentowania. Historia przebiegów w ML jest ważną częścią procesu deweloperskiego i powtarzalnego projektowania.
 
-W tym artykule przedstawiono przykłady następujących zadań:
+W tym artykule przedstawiono sposób wykonywania następujących zadań:
 
 * Monitoruj wydajność uruchamiania.
 * Monitoruj powiadomienie o stanie uruchomienia za pomocą wiadomości e-mail.
 * Tagi i Znajdź uruchomienia.
 * Dodaj opis uruchomienia. 
-* Uruchom wyszukiwanie. 
+* Uruchom wyszukiwanie w historii uruchamiania. 
 * Anulowanie lub niepowodzenie uruchomienia.
 * Utwórz uruchomienia podrzędne.
  
@@ -134,7 +134,7 @@ Potrzebne będą następujące elementy:
         print(notebook_run.get_status())
         ```
     
-    * Aby uzyskać identyfikator uruchomienia, czas wykonywania i dodatkowe szczegóły dotyczące przebiegu, użyj [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) metody.
+    * Aby uzyskać identyfikator uruchomienia, czas wykonywania oraz inne szczegóły dotyczące przebiegu, użyj [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) metody.
     
         ```python
         print(notebook_run.get_details())
@@ -285,9 +285,9 @@ W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić or
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    Możesz dodawać, edytować lub usuwać Tagi uruchomieniowe z Studio. Przejdź do strony **szczegóły uruchamiania** dla przebiegu i wybierz ikonę Edytuj lub ołówka, aby dodać, edytować lub usunąć Tagi dla przebiegów. Możesz również wyszukiwać Tagi i filtrować je na stronie listy uruchamiania.
+    Możesz dodawać, edytować lub usuwać Tagi przebiegów z Studio. Przejdź do strony **szczegóły uruchamiania** dla przebiegu i wybierz ikonę Edytuj lub ołówka, aby dodać, edytować lub usunąć Tagi dla przebiegów. Możesz również wyszukiwać Tagi i filtrować je na stronie listy uruchamiania.
     
-    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Zrzut ekranu: Dodawanie, edytowanie lub usuwanie tagów uruchamiania":::
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Zrzut ekranu: Dodawanie, edytowanie lub usuwanie tagów przebiegu":::
     
     ---
 
@@ -403,11 +403,11 @@ Aby wydajnie tworzyć wiele podrzędnych przebiegów, użyj [`create_children()`
 
 ### <a name="submit-child-runs"></a>Prześlij uruchomienia podrzędne
 
-Uruchomienia podrzędne mogą być również przesyłane z przebiegu nadrzędnego. Pozwala to na tworzenie hierarchii uruchamiania obiektów nadrzędnych i podrzędnych. Nie można utworzyć przebiegu podrzędnego bez elementu nadrzędnego: nawet wtedy, gdy uruchomienie nadrzędne nic nie robi, ale uruchomienia podrzędnego, nadal trzeba utworzyć hierarchię. Stan wszystkich przebiegów jest niezależny: element nadrzędny może być w `"Completed"` stanie pomyślnym, nawet jeśli co najmniej jeden przebieg podrzędny został anulowany lub zakończył się niepowodzeniem.  
+Uruchomienia podrzędne mogą być również przesyłane z przebiegu nadrzędnego. Pozwala to na tworzenie hierarchii uruchamiania obiektów nadrzędnych i podrzędnych. Nie można utworzyć przebiegu podrzędnego bez elementu nadrzędnego: nawet jeśli uruchomienie nadrzędne nie robi nic, ale uruchomienia podrzędnego, nadal trzeba utworzyć hierarchię. Stan wszystkich przebiegów jest niezależny: element nadrzędny może być w `"Completed"` stanie pomyślnym, nawet jeśli co najmniej jeden przebieg podrzędny został anulowany lub zakończył się niepowodzeniem.  
 
-Możesz chcieć, aby dziecko uruchomiło inną konfigurację przebiegu niż uruchomienie nadrzędne. Na przykład można użyć mniej zaawansowanej konfiguracji opartej na procesorach CPU dla elementu nadrzędnego, a jednocześnie używać konfiguracji opartych na procesorze GPU dla elementów podrzędnych. Innym typowym pragnieniem jest przekazanie każdego elementu podrzędnego różnych argumentów i danych. Aby dostosować uruchomienie podrzędne, Utwórz `ScriptRunConfig` obiekt dla uruchomienia podrzędnego. Poniższy kod wykonuje następujące czynności:
+Możesz chcieć, aby dziecko uruchomiło inną konfigurację przebiegu niż uruchomienie nadrzędne. Na przykład można użyć mniej zaawansowanej konfiguracji opartej na procesorach CPU dla elementu nadrzędnego, a jednocześnie używać konfiguracji opartych na procesorze GPU dla elementów podrzędnych. Innym typowym życzeniem jest przekazanie każdego elementu podrzędnego różnych argumentów i danych. Aby dostosować uruchomienie podrzędne, Utwórz `ScriptRunConfig` obiekt dla uruchomienia podrzędnego. Poniższy kod:
 
-- Pobierz zasób obliczeniowy o nazwie `"gpu-cluster"` z obszaru roboczego `ws`
+- Pobiera zasób obliczeniowy o nazwie `"gpu-cluster"` z obszaru roboczego `ws`
 - Wykonuje iterację przez różne wartości argumentu, aby można było przekazywać je do obiektów podrzędnych. `ScriptRunConfig`
 - Tworzy i przesyła nowe uruchomienie podrzędne przy użyciu niestandardowego zasobu obliczeniowego i argumentu
 - Bloki do momentu zakończenia wszystkich elementów podrzędnych
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>Rejestruj do uruchomienia nadrzędnego lub głównego
 
-Możesz użyć pola, `Run.parent` Aby uzyskać dostęp do uruchomienia, który uruchomił bieżące uruchomienie podrzędne. Typowym przypadkiem użycia jest to, gdy chcesz skonsolidować wyniki dzienników w jednym miejscu. Należy zauważyć, że elementy podrzędne uruchamiają się asynchronicznie i nie ma gwarancji, że porządkowanie ani synchronizacja wykraczające poza zdolność elementu nadrzędnego do ukończenia jego działania podrzędnego.
+Możesz użyć pola, `Run.parent` Aby uzyskać dostęp do uruchomienia, który uruchomił bieżące uruchomienie podrzędne. Typowym przypadkiem użycia `Run.parent` jest łączenie wyników dzienników w jednym miejscu. Należy zauważyć, że elementy podrzędne uruchamiają się asynchronicznie i nie ma gwarancji, że porządkowanie ani synchronizacja wykraczające poza zdolność elementu nadrzędnego do ukończenia jego działania podrzędnego.
 
 ```python
 # in child (or even grandchild) run

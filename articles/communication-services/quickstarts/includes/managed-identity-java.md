@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: f2e4bf603fa4cfb93c7ca51f64029ccaedcff727
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ce575a67552c89b17ff4ed9b44ab43a4bd12d67f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103021797"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110761"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>Dodawanie tożsamości zarządzanej do rozwiązania usług komunikacyjnych (Java)
 
-### <a name="install-the-client-library-packages"></a>Instalowanie pakietów biblioteki klienta
+### <a name="install-the-sdk-packages"></a>Instalowanie pakietów SDK
 W pliku pom.xml Dodaj następujące elementy zależności do grupy zależności.
 
 ```xml
@@ -29,9 +29,9 @@ W pliku pom.xml Dodaj następujące elementy zależności do grupy zależności.
 </dependency>
 ```
 
-### <a name="use-the-client-library-packages"></a>Korzystanie z pakietów biblioteki klienta
+### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów SDK
 
-Dodaj następujące `import` dyrektywy do kodu, aby użyć usług Azure Identity i Azure Communications Client Library.
+Dodaj następujące `import` dyrektywy do kodu, aby użyć tożsamości platformy Azure i zestawów SDK usługi Azure Communication.
 
 ```java
 import com.azure.communication.common.*;

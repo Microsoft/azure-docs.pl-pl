@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865234"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110512"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Konfigurowanie urządzenia dla serwerów w środowisku VMware
 
@@ -29,6 +29,7 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 ## <a name="deploy-with-ova"></a>Wdrażanie przy użyciu komórek jajowych
 
 Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
+
 1. Podaj nazwę urządzenia i Wygeneruj klucz projektu w portalu.
 1. Pobierz plik szablonu komórki jajowe i zaimportuj go do vCenter Server. Sprawdź, czy komórki jajowe są bezpieczne.
 1. Utwórz maszynę wirtualną z urządzeniem z pliku JAJOWE i sprawdź, czy może ona połączyć się z Azure Migrate.
@@ -40,7 +41,7 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
 3. W obszarze **1: generowanie klucza projektu** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w środowisku programu VMware. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywania podczas tworzenia zasobów.
-1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
+1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany klucz projektu * *.
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
 ### <a name="2-download-the-ova-template"></a>2. Pobierz szablon komórki jajowe
@@ -101,7 +102,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
 1. W programie Configuration Manager > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
    - **Łączność**: Urządzenie sprawdza, czy serwer ma dostęp do Internetu. Jeśli serwer używa serwera proxy:
-     - Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy w postaci `http://ProxyIPAddress` lub na `http://ProxyFQDN` porcie nasłuchu.
+     - Kliknij pozycję **Konfiguruj serwer proxy** , aby określić adres serwera proxy w postaci `http://ProxyIPAddress` lub na `http://ProxyFQDN` porcie nasłuchu.
      - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
      - Obsługiwane są tylko serwery proxy HTTP.
      - Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.
@@ -144,9 +145,9 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane konfigur
     - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych serwerów), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
 1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
 1. Po kliknięciu przycisku **Zapisz** Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej vCenter Server adres IP/nazwa FQDN.
-1. Przed rozpoczęciem odnajdywania można ponownie **sprawdzić poprawność** łączności, aby vCenter Server w dowolnym momencie.
+1. Możesz ponownie **sprawdzić poprawność** łączności, aby vCenter Server kiedykolwiek przed rozpoczęciem odnajdywania.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzeń dla vCenter Server Szczegóły":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel w Menedżerze konfiguracji urządzenia dla vCenter Server Szczegóły":::
 
 ### <a name="provide-server-credentials"></a>Podaj poświadczenia serwera
 
@@ -166,7 +167,7 @@ Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, 
 - Po kliknięciu przycisku **Zapisz** lub **Dodaj więcej** urządzenie sprawdza poprawność poświadczeń domeny z Active Directory domeny w celu ich autentyczności. W tym celu należy unikać blokowania kont, gdy urządzenie wykonuje wiele iteracji w celu mapowania poświadczeń na odpowiednie serwery.
 - W tabeli poświadczeń można zobaczyć **stan sprawdzania poprawności** dla wszystkich poświadczeń domeny. Zweryfikowane zostaną tylko poświadczenia domeny.
 - Jeśli sprawdzanie poprawności zakończy się niepowodzeniem, można kliknąć pozycję stan **niepowodzenia** , aby zobaczyć błąd napotkany, a następnie kliknąć przycisk ponownie **Sprawdź poprawność poświadczeń** po rozwiązaniu problemu w celu ponownego zweryfikowania nieudanych poświadczeń domeny.
-
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 w Menedżerze konfiguracji urządzenia na potrzeby udostępniania wielu poświadczeń":::
 
 ### <a name="start-discovery"></a>Rozpocznij odnajdywanie
 
@@ -176,6 +177,7 @@ Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, 
 1. Podczas tworzenia spisu oprogramowania poświadczenia dodanych serwerów będą powtarzane względem serwerów i sprawdzane pod kątem analizy zależności bez agenta. Można włączyć analizę zależności bez agenta dla serwerów z poziomu portalu. Tylko serwery, na których Walidacja zakończyła się powodzeniem, można wybrać, aby włączyć analizę zależności bez agenta.
 
 Odnajdywanie działa w następujący sposób:
+
 - Aby spis odnalezionych serwerów pojawił się w portalu, zajmie około 15 minut.
 - Odnajdywanie zainstalowanych aplikacji może zająć trochę czasu. Czas trwania zależy od liczby odnalezionych serwerów. W przypadku serwerów z 500 na wykrytym magazynie w portalu Azure Migrate trwa około godziny.
 - Po zakończeniu odnajdywania serwerów można włączyć analizę zależności bez agenta na serwerach z poziomu portalu.

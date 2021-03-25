@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492612"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044298"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Samouczek: Podpisz i Wysyłaj żądania przy użyciu programu Poster
 W tym samouczku skonfigurujemy i korzystamy z programu Poster w celu zgłoszenia żądania do usług Azure Communications Services (ACS) przy użyciu protokołu HTTP. Po zakończeniu tego samouczka pomyślnie wyślesz wiadomość SMS przy użyciu usług ACS i Poster i będzie można użyć programu do eksplorowania innych interfejsów API w usłudze ACS.
@@ -68,7 +68,7 @@ Więcej informacji na temat zmiennych można znaleźć [w dokumentacji](https://
 
 ### <a name="creating-a-pre-request-script"></a>Tworzenie skryptu poprzedzającego żądanie
 
-Następnym krokiem jest utworzenie skryptu poprzedzającego żądanie w ramach programu Poster. Skrypt poprzedzający żądanie jest skryptem, który jest uruchamiany przed każdym żądaniem w programie Poster i może modyfikować lub zmieniać parametry żądania w Twoim imieniu. Będziemy używać tej funkcji do podpisywania żądań HTTP, aby umożliwić im autoryzowanie usług ACS. Aby uzyskać więcej informacji na temat wymagań dotyczących podpisywania, możesz [zapoznać się z naszym przewodnikiem dotyczącym uwierzytelniania](https://docs.microsoft.com/rest/api/communication/authentication).
+Następnym krokiem jest utworzenie skryptu poprzedzającego żądanie w ramach programu Poster. Skrypt poprzedzający żądanie jest skryptem, który jest uruchamiany przed każdym żądaniem w programie Poster i może modyfikować lub zmieniać parametry żądania w Twoim imieniu. Będziemy używać tej funkcji do podpisywania żądań HTTP, aby umożliwić im autoryzowanie usług ACS. Aby uzyskać więcej informacji na temat wymagań dotyczących podpisywania, możesz [zapoznać się z naszym przewodnikiem dotyczącym uwierzytelniania](/rest/api/communication/authentication).
 
 Utworzymy ten skrypt w kolekcji w taki sposób, aby działał on na dowolnym żądaniu w kolekcji. W tym celu na karcie kolekcja kliknij podkartę "skrypt przed żądaniem".
 
@@ -186,7 +186,7 @@ Teraz, gdy wszystko jest skonfigurowane, możemy utworzyć żądanie ACS w ramac
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Przycisk plusa.":::
 
-Spowoduje to utworzenie nowej karty dla naszego żądania w programie Poster. Po jego utworzeniu musimy go skonfigurować. Wyślemy żądanie do interfejsu API wysyłania SMS, więc zapoznaj się z [dokumentacją tego interfejsu API w celu uzyskania pomocy](https://docs.microsoft.com/rest/api/communication/sms/send). Skonfigurujmy żądanie post.
+Spowoduje to utworzenie nowej karty dla naszego żądania w programie Poster. Po jego utworzeniu musimy go skonfigurować. Wyślemy żądanie do interfejsu API wysyłania SMS, więc zapoznaj się z [dokumentacją tego interfejsu API w celu uzyskania pomocy](/rest/api/communication/sms/send). Skonfigurujmy żądanie post.
 
 Zacznij od ustawienia typ żądania do `POST` i wprowadź `{{endpoint}}/sms?api-version=2021-03-07` w polu adres URL żądania. Ten adres URL używa poprzednio utworzonej `endpoint` zmiennej do automatycznego wysyłania jej do zasobu ACS.
 
@@ -238,8 +238,8 @@ Telefon komórkowy, który jest właścicielem numeru podanego w wartości "do",
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Eksplorowanie interfejsów API](https://docs.microsoft.com/rest/api/communication/) 
->  usług ACS [Przeczytaj więcej na temat uwierzytelniania](https://docs.microsoft.com/rest/api/communication/authentication) 
+> [Eksplorowanie interfejsów API](/rest/api/communication/) 
+>  usług ACS [Przeczytaj więcej na temat uwierzytelniania](/rest/api/communication/authentication) 
 >  [Dowiedz się więcej o programie Poster](https://learning.postman.com/)
 
 Możesz również chcieć:

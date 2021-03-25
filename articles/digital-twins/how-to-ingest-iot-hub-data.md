@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889471"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950601"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
@@ -39,7 +39,7 @@ W tym temacie opisano sposób wysyłania komunikatów z IoT Hub do usługi Azure
 
 Za każdym razem, gdy zdarzenie telemetrii temperatury jest wysyłane przez urządzenie termostatu, funkcja przetwarza dane telemetryczne i Właściwość *temperatura* cyfr cyfrowych. Ten scenariusz przedstawiono na poniższym diagramie:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury poprzez IoT Hub do funkcji na platformie Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram IoT Hub urządzenie wysyłające dane telemetryczne dotyczące temperatury poprzez IoT Hub do funkcji na platformie Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Dodawanie modelu i reprezentacji bliźniaczej
 
@@ -47,14 +47,7 @@ W tej sekcji opisano konfigurowanie [cyfrowej sieci dwucyfrowej](concepts-twins-
 
 Aby utworzyć sznurek termostatu, należy najpierw przekazać [model](concepts-models.md) termostatu do wystąpienia, który opisuje właściwości termostatu i będzie później używany do tworzenia sznurka. 
 
-Model wygląda następująco:
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
-
-Aby **przekazać ten model do wystąpienia bliźniaczych reprezentacji**, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure, które przekazuje powyższy model jako wbudowany kod JSON. Można uruchomić polecenie w [Azure Cloud Shell](/cloud-shell/overview.md) w przeglądarce lub na maszynie, jeśli interfejs wiersza polecenia jest [zainstalowany lokalnie](/cli/azure/install-azure-cli).
-
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 Następnie należy **utworzyć jedną sznurek przy użyciu tego modelu**. Użyj poniższego polecenia, aby utworzyć dwuosiowy termostat o nazwie **thermostat67**, a następnie ustaw 0,0 jako początkową wartość temperatury.
 
@@ -62,13 +55,8 @@ Następnie należy **utworzyć jedną sznurek przy użyciu tego modelu**. Użyj 
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> Jeśli używasz Cloud Shell w środowisku programu PowerShell, może być konieczne wypróbowanie znaków cudzysłowu w wbudowanych polach JSON, aby ich wartości były analizowane prawidłowo. Poniżej przedstawiono polecenia umożliwiające przekazanie modelu i utworzenie sznurka z tą modyfikacją:
->
-> Przekaż model:
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
+> [!Note]
+> Jeśli używasz Cloud Shell w środowisku programu PowerShell, może być konieczne wypróbowanie znaków cudzysłowu w wbudowanych polach JSON, aby ich wartości były analizowane prawidłowo. Oto polecenie, aby utworzyć sznurek z tą modyfikacją:
 >
 > Utwórz sznurek:
 > ```azurecli-interactive
@@ -117,7 +105,7 @@ Zapisz kod funkcji.
 
 #### <a name="step-3-publish-the-function-app-to-azure"></a>Krok 3. publikowanie aplikacji funkcji na platformie Azure
 
-Opublikuj projekt w aplikacji funkcji na platformie Azure.
+Opublikuj projekt przy użyciu funkcji *IoTHubtoTwins. cs* w aplikacji funkcji na platformie Azure.
 
 Aby uzyskać instrukcje, jak to zrobić, zapoznaj się z sekcją [**publikowanie aplikacji funkcji na platformie Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) *: Konfigurowanie funkcji do przetwarzania artykułu danych* .
 

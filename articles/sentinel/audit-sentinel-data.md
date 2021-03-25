@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: a8ea32d84da521c8a1af926c6cb5e26bc2738de2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a02be0938b1ab925fb0343351ce1c414cc59c615
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054755"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044842"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Inspekcja zapytań i działań wskaźnikowych platformy Azure
 
@@ -132,7 +132,7 @@ Na przykład poniższa tabela zawiera listę wybranych operacji znalezionych w d
 |Ustawienia aktualizacji    |Microsoft. SecurityInsights/ustawienia|
 | | |
 
-Aby uzyskać więcej informacji, zobacz [schemat zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/essentials/activity-log-schema).
+Aby uzyskać więcej informacji, zobacz [schemat zdarzeń dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log-schema.md).
 
 
 ## <a name="auditing-with-laquerylogs"></a>Inspekcja przy użyciu LAQueryLogs
@@ -157,7 +157,7 @@ Dane LAQueryLogs obejmują następujące informacje:
 
 1. Tabela **LAQueryLogs** nie jest domyślnie włączona w obszarze roboczym log Analytics. Aby korzystać z danych **LAQueryLogs** podczas przeprowadzania inspekcji na platformie Azure, należy najpierw włączyć **LAQueryLogs** w obszarze **ustawień diagnostycznych** obszaru roboczego log Analytics.
 
-    Aby uzyskać więcej informacji, zobacz [Inspekcja zapytań w dziennikach Azure monitor](/azure/azure-monitor/logs/query-audit).
+    Aby uzyskać więcej informacji, zobacz [Inspekcja zapytań w dziennikach Azure monitor](../azure-monitor/logs/query-audit.md).
 
 
 1. Następnie wykonaj zapytanie o dane przy użyciu KQL, tak jak w przypadku każdej innej tabeli.

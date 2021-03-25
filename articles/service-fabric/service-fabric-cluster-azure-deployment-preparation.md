@@ -3,19 +3,19 @@ title: Planowanie wdrożenia klastra Service Fabric platformy Azure
 description: Dowiedz się więcej o planowaniu i przygotowaniu dla środowiska produkcyjnego wdrożenia klastra Service Fabric na platformie Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97109627"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046321"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planowanie i przygotowywanie wdrożenia klastra
 
 Planowanie i przygotowywanie wdrożenia klastra produkcyjnego jest bardzo ważne.  Istnieje wiele czynników, które należy wziąć pod uwagę.  W tym artykule przedstawiono kroki przygotowywania wdrożenia klastra.
 
 ## <a name="read-the-best-practices-information"></a>Przeczytaj informacje o najlepszych rozwiązaniach
-Aby pomyślnie zarządzać aplikacjami i klastrami platformy Azure Service Fabric, istnieją operacje, dla których zdecydowanie zalecamy przeprowadzenie optymalizacji niezawodności środowiska produkcyjnego.  Aby uzyskać więcej informacji, Przeczytaj [Service Fabric najlepszych rozwiązań dotyczących aplikacji i klastrów](service-fabric-best-practices-overview.md).
+Aby pomyślnie zarządzać aplikacjami i klastrami platformy Azure Service Fabric, istnieją operacje, dla których zdecydowanie zalecamy przeprowadzenie optymalizacji niezawodności środowiska produkcyjnego.  Aby uzyskać więcej informacji, Przeczytaj [Service Fabric najlepszych rozwiązań dotyczących aplikacji i klastrów](./service-fabric-best-practices-security.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Wybierz system operacyjny dla klastra
 Service Fabric umożliwia tworzenie klastrów Service Fabric na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server lub Linux.  Przed wdrożeniem klastra należy wybrać system operacyjny: Windows lub Linux.  W każdym węźle (maszynie wirtualnej) w klastrze działa ten sam system operacyjny, nie można mieszać maszyn wirtualnych z systemami Windows i Linux w tym samym klastrze.
@@ -117,7 +117,7 @@ Krytyczna część dostarczania wysokiej dostępności zapewnia, że usługi mog
 Czy Twoja aplikacja i klaster są gotowe do przetworzenia ruchu produkcyjnego? Przed wdrożeniem klastra w środowisku produkcyjnym należy wykonać czynności z [listy kontrolnej gotowości produkcyjnej](service-fabric-production-readiness-checklist.md). Utrzymuj bezproblemowe działanie aplikacji i klastra, wykonując czynności wykonywane przez elementy z tej listy kontrolnej. Zdecydowanie zalecamy, aby wszystkie te elementy były wyszukiwane przed przejściem do środowiska produkcyjnego.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie klastra Service Fabric z systemem Windows](service-fabric-best-practices-overview.md)
+* [Tworzenie klastra Service Fabric z systemem Windows](./service-fabric-best-practices-security.md)
 * [Tworzenie klastra Service Fabric z systemem Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

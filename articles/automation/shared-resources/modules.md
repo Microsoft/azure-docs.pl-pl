@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: ae3329401a138bc0566ea93a8fbf2071fd44f02c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 57dfc388dcba926706a695c93d2afa1956432be8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503423"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953939"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Zarządzanie modułami w usłudze Azure Automation
 
@@ -142,10 +142,10 @@ Importowanie modułu AZ module do konta usługi Automation nie powoduje automaty
 
 * Gdy element Runbook wywołuje polecenie cmdlet z modułu.
 * Gdy element Runbook importuje moduł jawnie za pomocą polecenia cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module) .
-* Gdy element Runbook importuje moduł jawnie za pomocą instrukcji [using module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . Instrukcja using jest obsługiwana począwszy od programu Windows PowerShell 5,0 i obsługuje klasy i typ wyliczenia.
+* Gdy element Runbook importuje moduł jawnie za pomocą instrukcji [using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . Instrukcja using jest obsługiwana począwszy od programu Windows PowerShell 5,0 i obsługuje klasy i typ wyliczenia.
 * Gdy element Runbook importuje inny moduł zależny.
 
-Można zaimportować moduły AZ w Azure Portal. Pamiętaj, aby zaimportować tylko te moduły AZ, które są potrzebne, a nie cały moduł AZ. Automation. Ponieważ [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) jest zależnością dla innych modułów AZ module, pamiętaj o zaimportowaniu tego modułu przed innymi.
+Można zaimportować moduły az do konta usługi Automation z Azure Portal. Pamiętaj, aby zaimportować tylko te moduły AZ, które są potrzebne, a nie każdy AZ module, który jest dostępny. Ponieważ [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) jest zależnością dla innych modułów AZ module, pamiętaj o zaimportowaniu tego modułu przed innymi.
 
 1. Na koncie usługi Automation w obszarze **udostępnione zasoby** wybierz pozycję **moduły**.
 2. Wybierz pozycję **Przeglądaj Galerię**.  

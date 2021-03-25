@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130021"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048344"
 ---
 # <a name="register-a-saas-application"></a>Rejestrowanie aplikacji SaaS
 
@@ -48,7 +48,7 @@ Każda aplikacja, która ma korzystać z funkcji usługi Azure AD, musi najpierw
 **Identyfikator aplikacji usługi Azure AD** jest SKOJARZONY z identyfikatorem wydawcy, dlatego upewnij się, że ten sam *Identyfikator aplikacji* jest używany we wszystkich ofertach.
 
 >[!Note]
->Jeśli Wydawca ma dwa różne konta w centrum partnerskim, należy użyć dwóch różnych identyfikatorów aplikacji usługi Azure AD.  Każde konto partnera w centrum partnerskim musi używać unikatowego identyfikatora aplikacji usługi Azure AD dla wszystkich ofert SaaS opublikowanych za pomocą tego konta.
+>Jeśli Wydawca ma co najmniej dwa różne konta w centrum partnerskim, szczegóły rejestracji aplikacji usługi Azure AD mogą być używane tylko na jednym koncie. Użycie tego samego identyfikatora dzierżawy i pary identyfikatorów aplikacji dla oferty w ramach innego konta wydawcy nie jest obsługiwane.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Jak uzyskać Token autoryzacji wydawcy
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 55440c3bec940e0cd5fd4c4d644801e7012b5e95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6ab310681ae7b63cb4e9f4e07984983727ae5ff2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101701493"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953922"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -40,7 +40,7 @@ Aby zapewnić lepszą izolację elementów Runbook, można używać hybrydowych 
 
 - [Jak wdrożyć i skonfigurować zaporę platformy Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Środowisko wykonywania elementu Runbook](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment)
+- [Środowisko wykonywania elementu Runbook](./automation-runbook-execution.md#runbook-execution-environment)
 
 **Odpowiedzialność**: Klient
 
@@ -132,7 +132,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Przykłady Azure Policy dla sieci](../governance/policy/samples/built-in-policies.md#network)
 
 - [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -162,9 +162,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów i wykrywania zmian zasobów sieciowych. Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w zasobach krytycznych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Odpowiedzialność**: Klient
 
@@ -182,7 +182,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Jak rozpocząć pracę z usługą Azure Monitor i integracją SIEM innej firmy](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -202,9 +202,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: umożliwia Azure monitor dostępu do dzienników inspekcji i aktywności, w tym źródła zdarzeń, daty, użytkownika, sygnatury czasowej, adresów źródłowych, adresów docelowych i innych przydatnych elementów. 
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Odpowiedzialność**: Klient
 
@@ -214,9 +214,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: w obszarze Azure monitor Ustaw okres przechowywania log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 
-- [Zmień okres przechowywania danych w Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Szczegóły przechowywania danych dla kont usługi Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+- [Szczegóły przechowywania danych dla kont usługi Automation](./automation-managing-data.md#data-retention)
 
 **Odpowiedzialność**: Klient
 
@@ -230,9 +230,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Omówienie zapytań dzienników w Azure Monitor](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Omówienie zapytań dzienników w Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Odpowiedzialność**: Klient
 
@@ -248,7 +248,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec o Azure Monitor danych dziennika](/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec o Azure Monitor danych dziennika](../azure-monitor/alerts/tutorial-response.md)
 
 **Odpowiedzialność**: Klient
 
@@ -296,7 +296,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management role uprzywilejowane dla usług firmy Microsoft i Azure Resource Manager.
 
-- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 - [Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako](delete-run-as-account.md)
 
@@ -352,7 +352,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usł
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](/azure/azure-monitor/platform/action-groups)
+- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../azure-monitor/alerts/action-groups.md)
 
 **Odpowiedzialność**: Klient
 
@@ -374,7 +374,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usł
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
-- [Używanie uwierzytelniania elementu Runbook z tożsamościami zarządzanymi](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+- [Używanie uwierzytelniania elementu Runbook z tożsamościami zarządzanymi](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
 **Odpowiedzialność**: Klient
 
@@ -384,7 +384,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usł
 
 **Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp. Za każdym razem, gdy używane są konta Uruchom jako konta usługi Automation dla elementów Runbook, upewnij się, że te jednostki usługi są również śledzone w spisie, ponieważ często mają podwyższony poziom uprawnień. Usuń wszystkie nieużywane konta Uruchom jako, aby zminimalizować narażoną powierzchnię ataku.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -412,7 +412,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: Użyj funkcji ryzyka i ochrony tożsamości Azure Active Directory (Azure AD), aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników dla danego zasobu sieciowego. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
-- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania w usłudze Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -488,7 +488,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w czasie spoczynku i szyfrowania podczas przesyłania, jeśli ma to zastosowanie.
 
-- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 - [Azure Automation protokołu TLS 1,2](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
@@ -510,7 +510,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 - [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Uprawnienia elementu Runbook dla hybrydowego procesu roboczego elementu Runbook](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+- [Uprawnienia elementu Runbook dla hybrydowego procesu roboczego elementu Runbook](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
 - [Zarządzanie uprawnieniami ról i zabezpieczeniami](automation-role-based-access-control.md)
 
@@ -538,7 +538,7 @@ W przypadku korzystania z hybrydowych procesów roboczych elementów Runbook dys
 
 - [Azure Disk Encryption dla maszyn wirtualnych z systemem Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
-- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Zmienne zarządzane w Azure Automation](shared-resources/variables.md)
 
@@ -554,9 +554,9 @@ W przypadku korzystania z hybrydowych procesów roboczych elementów Runbook dys
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące sytuacji, w których zmiany dotyczą najważniejszych zasobów platformy Azure, takich jak składniki sieci, konta Azure Automation i elementy Runbook. 
 
-- [Rejestrowanie diagnostyczne dla sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [Rejestrowanie diagnostyczne dla sieciowej grupy zabezpieczeń](../private-link/private-link-overview.md#logging-and-monitoring)
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -689,7 +689,7 @@ Ponadto za pomocą grafu zasobów platformy Azure można wysyłać zapytania/odn
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Odpowiedzialność**: Klient
 
@@ -771,7 +771,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak używać aliasów](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
 
 - [Przykładowe Azure Policy wbudowane dla Azure Automation](policy-reference.md)
 
@@ -831,7 +831,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 - [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Korzystanie z integracji kontroli źródła](source-control-integration.md)
 
@@ -857,9 +857,9 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 - [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-- [Kopia zapasowa danych platformy Azure dla kont usługi Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+- [Kopia zapasowa danych platformy Azure dla kont usługi Automation](./automation-managing-data.md#data-backup)
 
 **Odpowiedzialność**: Klient
 
@@ -873,7 +873,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 - [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
-- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Korzystanie z kluczy zarządzanych przez klienta dla konta usługi Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Odpowiedzialność**: Klient
 
@@ -987,5 +987,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97618823"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043754"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Konfigurowanie przepływu rejestracji i logowania w Azure Active Directory B2C
 
@@ -66,6 +67,7 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
     ![Strona wyboru atrybutów i oświadczeń z trzema wybranymi oświadczeniami](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Kliknij przycisk **Utwórz** , aby dodać przepływ użytkownika. Prefiks *B2C_1* jest automatycznie dołączany do nazwy.
+2. Postępuj zgodnie z instrukcjami, aby [obsłużyć przepływ "nie pamiętasz hasła?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) . w zasadach rejestracji lub logowania.
 
 ### <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
@@ -73,7 +75,7 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
 1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Kliknij pozycję **Uruchom przepływ użytkownika**, a następnie wybierz pozycję **Utwórz konto teraz**.
 
-    ![Uruchom stronę przepływu użytkownika w portalu z wyróżnionym przyciskiem Uruchom przepływ użytkownika](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Uruchom stronę przepływu użytkownika w portalu z wyróżnionym przyciskiem Uruchom przepływ użytkownika](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Wprowadź prawidłowy adres e-mail, kliknij pozycję **Wyślij kod weryfikacyjny**, Wprowadź otrzymany kod weryfikacyjny, a następnie wybierz pozycję **Weryfikuj kod**.
 1. Wprowadź nowe hasło i Potwierdź hasło.

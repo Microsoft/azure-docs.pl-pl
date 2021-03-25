@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: fe777c3aa7b314dc56a42cc64712d18281a6ea7d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121171"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109492"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Konfigurowanie aktywnej replikacji geograficznej usługi Azure cache dla wystąpień Redis (wersja zapoznawcza)
 
@@ -26,9 +26,11 @@ Aktywne grupy replikacji geograficznej — dwie lub więcej pamięci podręcznej
 >
 >
 
-1. W nowym interfejsie użytkownika tworzenia **Redis Cache** kliknij pozycję **Konfiguruj** , aby skonfigurować **aktywną replikację geograficzną** na karcie **Zaawansowane** .
+1. Na karcie **Zaawansowane** w oknie **Nowy** interfejs użytkownika tworzenia Redis Cache wybierz pozycję **Enterprise** for **Clustering Policy**.
 
     ![Konfigurowanie aktywnej replikacji geograficznej](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+
+1. Kliknij pozycję **Konfiguruj** , aby skonfigurować **aktywną replikację geograficzną**.
 
 1. Utwórz nową grupę replikacji, dla pierwszej instancji pamięci podręcznej lub wybierz istniejącą z listy.
 
@@ -38,7 +40,7 @@ Aktywne grupy replikacji geograficznej — dwie lub więcej pamięci podręcznej
 
     ![Skonfigurowano aktywną replikację geograficzną](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. Powtórz powyższe kroki dla każdego dodatkowego wystąpienia pamięci podręcznej w grupie replikacji geograficznej.
+1. Poczekaj na pomyślne utworzenie pierwszej pamięci podręcznej. Powtórz powyższe kroki dla każdego dodatkowego wystąpienia pamięci podręcznej w grupie replikacji geograficznej.
 
 ## <a name="remove-from-an-active-geo-replication-group"></a>Usuń z aktywnej grupy replikacji geograficznej
 

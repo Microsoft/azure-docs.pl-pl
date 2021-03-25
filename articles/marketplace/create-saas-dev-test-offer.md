@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 58649e9a864e64ab5781cff3b663e190dac50cb6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105050665"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110546"
 ---
 # <a name="create-a-test-offer"></a>Tworzenie oferty testowej
 
@@ -80,7 +80,7 @@ Skorzystaj z oferty DEV, aby eksperymentować z modelami cenowymi. Po sprawdzeni
 Oferta DEV powinna mieć plany z zerowymi lub bardzo niskimi cenami w planach. Oferta PRODUKCYJNa będzie miała ceny, które mają być naliczane klientom.
 
 > [!NOTE]
-> Informacje, które użytkownik powinien zauważyć, nawet jeśli skimmingPurchases w wersji zapoznawczej zostaną przetworzone dla ofert DEWELOPERSKIch i PROD. Jeśli oferta ma cenę $100/miesiąc, opłata zostanie naliczona na $100. Jeśli tak się stanie, możesz otworzyć [bilet pomocy technicznej](support.md) i wystawić wypłatę za pełną kwotę (i nie podejmować żadnych opłat za Agencję).
+> Zakupy dokonywane w wersji zapoznawczej zostaną przetworzone dla ofert DEWELOPERSKIch i PROD. Jeśli oferta ma cenę $100/miesiąc, opłata zostanie naliczona na $100. Jeśli tak się stanie, możesz otworzyć [bilet pomocy technicznej](support.md) i wystawić wypłatę za pełną kwotę (i nie podejmować żadnych opłat za Agencję).
 
 #### <a name="pricing-model"></a>Model cen
 

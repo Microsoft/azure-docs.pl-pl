@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5f853c19015a70d596c32532a9c280c785b4597b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609547"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954058"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Uaktualnij wystąpienie obliczeniowe i system operacyjny hosta klastra obliczeniowego
 
 __Klaster obliczeniowy__ Azure Machine Learning i __wystąpienie obliczeniowe__ są zarządzaną infrastrukturą obliczeniową. Jako usługa zarządzana, firma Microsoft zarządza systemem operacyjnym hosta oraz zainstalowanymi pakietami i wersjami oprogramowania.
 
-System operacyjny hosta dla klastra obliczeniowego i wystąpienia obliczeniowego został Ubuntu 16,04 LTS. **30 kwietnia 2021**, Ubuntu kończy pomoc techniczną dla 16,04. Od __15 marca 2021__, firma Microsoft automatycznie zaktualizuje system operacyjny hosta do Ubuntu 18,04 LTS. Aktualizacja do 18,04 zapewni dalsze aktualizacje zabezpieczeń i pomoc techniczną ze społeczności Ubuntu. Aby uzyskać więcej informacji o końcowym obsłudze Ubuntu dla 16,04, zobacz Blog dotyczący [wersji Ubuntu](https://wiki.ubuntu.com/Releases).
+System operacyjny hosta dla klastra obliczeniowego i wystąpienia obliczeniowego został Ubuntu 16,04 LTS. **30 kwietnia 2021**, Ubuntu kończy pomoc techniczną dla 16,04. Od __15 marca 2021__, firma Microsoft automatycznie zaktualizuje system operacyjny hosta do Ubuntu 18,04 LTS. Aktualizacja do 18,04 zapewni dalsze aktualizacje zabezpieczeń i pomoc techniczną ze społeczności Ubuntu. Ta aktualizacja zostanie przeprowadzona w regionach świadczenia usługi Azure i będzie dostępna we wszystkich regionach do __9 kwietnia 2021__. Aby uzyskać więcej informacji o końcowym obsłudze Ubuntu dla 16,04, zobacz Blog dotyczący [wersji Ubuntu](https://wiki.ubuntu.com/Releases).
 
 > [!TIP]
 > * System operacyjny hosta nie jest wersją systemu operacyjnego, którą można określić dla [środowiska](how-to-use-environments.md) podczas uczenia lub wdrażania modelu. Środowiska są uruchamiane wewnątrz platformy Docker. Platforma Docker jest uruchamiana w systemie operacyjnym hosta.
@@ -30,11 +30,11 @@ System operacyjny hosta dla klastra obliczeniowego i wystąpienia obliczeniowego
 > * W przypadku używania wystąpienia obliczeniowego Azure Machine Learning w oparciu o Ubuntu 18,04 domyślna wersja języka Python to _python 3,8_.
 ## <a name="creating-new-resources"></a>Tworzenie nowych zasobów
 
-Klaster obliczeniowy lub wystąpienia obliczeniowe utworzone po __15 marca 2021__ używają domyślnie Ubuntu 18,04 LTS jako systemu operacyjnego hosta. Nie można wybrać innego systemu operacyjnego hosta.
+Klaster obliczeniowy lub wystąpienia obliczeniowe utworzone po __09 kwietnia 2021__ domyślnie używają Ubuntu 18,04 LTS jako systemu operacyjnego hosta. Nie można wybrać innego systemu operacyjnego hosta.
 
 ## <a name="upgrade-existing-resources"></a>Uaktualnianie istniejących zasobów
 
-Jeśli masz istniejące Klastry obliczeniowe lub wystąpienia obliczeniowe utworzone przed __15 marca 2021__, musisz podjąć odpowiednie działania, aby uaktualnić system operacyjny hosta do Ubuntu 18,04:
+Jeśli masz istniejące Klastry obliczeniowe lub wystąpienia obliczeniowe utworzone przed __15 marca 2021__, należy podjąć działania w celu uaktualnienia systemu operacyjnego hosta do Ubuntu 18,04. W zależności od regionu, do którego uzyskuje się dostęp Azure Machine Learning, zalecamy wykonanie następujących czynności po __09 kwietnia 2021,__ aby upewnić się, że zmiany zostały wdrożone we wszystkich regionach:
 
 * __Azure Machine Learning klaster obliczeniowy__:
 
