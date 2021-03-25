@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ff322cb3633616e9004bc8fa25b048b6f1263008
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802152"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046338"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
 
@@ -58,11 +58,11 @@ Dostępnych jest szereg sposobów instalowania narzędzia pip i środowiska Pyth
 
 W przypadku systemów Windows 10, Windows Server 2016 i Windows Server 2012 R2 należy postępować zgodnie z oficjalnymi instrukcjami standardowej instalacji. Instalator środowiska Python domyślnie instaluje też narzędzie pip.
 
-1. Przejdź do oficjalnej [strony pobierania środowiska Python](https://www.python.org/downloads/)i Pobierz najnowszą wersję środowiska Python 3,7.
+1. Przejdź do oficjalnej [strony pobierania środowiska Python](https://www.python.org/downloads/)i Pobierz najnowszą wersję języka Python 3. x.
 
 2. Uruchom instalatora.
 
-3. W dolnej części monitu wybierz pozycję **Dodaj język Python 3,7 do ścieżki**.
+3. W dolnej części monitu wybierz pozycję **Dodaj język Python 3. x do ścieżki**.
 
 4. Wybierz pozycję **Install Now (Zainstaluj teraz)** i dokończ instalację.
 
@@ -118,8 +118,8 @@ sudo pip3 install sfctl
 Aby zainstalować interfejs wiersza polecenia Service Fabric na Red Hat, uruchom następujące polecenia:
 
 ```bash
-sudo yum install -y python34
-sudo yum install python34-setuptools
+sudo yum install -y python38
+sudo yum install python38-setuptools
 sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
@@ -135,7 +135,7 @@ W przypadku systemu MacOS zaleca się użycie [menedżera pakietów HomeBrew](ht
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Następnie z terminalu zainstaluj środowisko Python 3,7, PIP i interfejs wiersza polecenia Service Fabric, uruchamiając następujące polecenia:
+Następnie z terminalu Zainstaluj najnowszą wersję języka Python 3. x, PIP i interfejs wiersza polecenia Service Fabric, uruchamiając następujące polecenia:
 
 ```bash
 brew install python3

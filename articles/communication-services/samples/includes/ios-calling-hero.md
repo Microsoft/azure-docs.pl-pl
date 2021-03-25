@@ -10,16 +10,16 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f1d49aa0583f34327afff229b46d7a366202aded
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104783627"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152799"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Grupa usługi Azure Communication Services **wywołująca przykład Hero dla systemu iOS** pokazuje, w jaki sposób usługi komunikacyjne wywołujące bibliotekę klienta systemu iOS mogą być używane do tworzenia środowiska wywołującego grupę, które zawiera głos i wideo. W tym przykładowym samouczku szybki start dowiesz się, jak skonfigurować i uruchomić przykład. Przegląd przykładu jest dostępny dla kontekstu.
+Grupa usługi Azure Communication Services **wywołująca przykład Hero dla systemu iOS** pokazuje, w jaki sposób usługi komunikacyjne WYWOŁUJĄCE zestaw SDK dla systemu iOS mogą być używane do tworzenia środowiska wywołującego grupę, które zawiera głos i wideo. W tym przykładowym samouczku szybki start dowiesz się, jak skonfigurować i uruchomić przykład. Przegląd przykładu jest dostępny dla kontekstu.
 
 ## <a name="download-code"></a>Pobieranie kodu
 
@@ -27,7 +27,7 @@ Znajdź końcowy kod dla tego przewodnika Szybki Start w witrynie [GitHub](https
 
 ## <a name="overview"></a>Omówienie
 
-Przykładem jest Natywna aplikacja dla systemu iOS, która korzysta z bibliotek klienckich systemu iOS w usłudze Azure Communications Services do tworzenia interfejsu wywołującego, który umożliwia nawiązywanie połączeń głosowych i wideo. Aplikacja używa składnika serwerowego do udostępniania tokenów dostępu, które są następnie używane do inicjowania biblioteki klienta usług Azure Communications Services. Aby skonfigurować ten składnik po stronie serwera, możesz korzystać z [usługi zaufanej za pomocą](../../tutorials/trusted-service-tutorial.md) samouczka Azure Functions.
+Przykładem jest Natywna aplikacja dla systemu iOS, która korzysta z zestawów SDK usługi Azure Communication Services dla systemu iOS do tworzenia interfejsu wywołującego, który umożliwia nawiązywanie połączeń głosowych i wideo. Aplikacja używa składnika po stronie serwera, aby udostępnić tokeny dostępu, które są następnie używane do inicjowania zestawu SDK usług Azure Communication Services. Aby skonfigurować ten składnik po stronie serwera, możesz korzystać z [usługi zaufanej za pomocą](../../tutorials/trusted-service-tutorial.md) samouczka Azure Functions.
 
 Oto jak wygląda przykład:
 
@@ -103,7 +103,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- Zapoznaj się z [pomocą biblioteki klienta wywołującego](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Zapoznaj się z [użyciem zestawu SDK wywołującego](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Dowiedz się więcej o [sposobie wywoływania programu](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Materiały uzupełniające

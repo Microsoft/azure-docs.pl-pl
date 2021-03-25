@@ -10,21 +10,21 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: ffb40d7fb45f43349004fc4d18e7582aa3521185
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91383ecba119959213804e0432f612c3f1ff636c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495901"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110898"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Szybki Start: Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub z biblioteki klienta zarządzania platformy .NET. Biblioteka klienta zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów z [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w bibliotekach klienta są dostępne w Azure Portal. 
+Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub zestawu .NET Management SDK. Zestaw SDK zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów przy użyciu [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w zestawach SDK są dostępne w Azure Portal. 
 
 
-Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub z biblioteki klienta zarządzania platformy .NET. Biblioteka klienta zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów z [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w bibliotekach klienta są dostępne w Azure Portal.
+Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub zestawu .NET Management SDK. Zestaw SDK zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów przy użyciu [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w zestawach SDK są dostępne w Azure Portal.
 
 > [!WARNING]
 > Należy pamiętać, że podczas gdy usługi komunikacyjne są dostępne w wielu lokalizacje geograficzneach, w celu uzyskania numeru telefonu zasób musi mieć ustawioną lokalizację danych "US". Należy również pamiętać, że nie można przesłać zasobów komunikacyjnych do innej subskrypcji w ramach publicznej wersji zapoznawczej.
@@ -43,9 +43,9 @@ Rozpocznij pracę z usługami Azure Communications Services, udostępniając pie
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Uzyskiwanie dostępu do parametrów połączenia i punktów końcowych usługi
 
-Parametry połączeń umożliwiają bibliotekom klienckim usług komunikacyjnych łączenie się i uwierzytelnianie na platformie Azure. Możesz uzyskać dostęp do parametrów połączenia usług komunikacyjnych i punktów końcowych usługi z Azure Portal lub programowo przy użyciu Azure Resource Manager interfejsów API.
+Parametry połączeń umożliwiają zestawom SDK usług komunikacyjnych łączenie się i uwierzytelnianie na platformie Azure. Możesz uzyskać dostęp do parametrów połączenia usług komunikacyjnych i punktów końcowych usługi z Azure Portal lub programowo przy użyciu Azure Resource Manager interfejsów API.
 
-Po przejściu do zasobu usług komunikacyjnych wybierz pozycję **klucze** z menu nawigacji i skopiuj wartości **parametrów połączenia** lub **punktów końcowych** w celu użycia przez biblioteki klienta usług komunikacyjnych. Należy pamiętać, że masz dostęp do kluczy podstawowych i pomocniczych. Może to być przydatne w scenariuszach, w których chcesz zapewnić tymczasowy dostęp do zasobów usług komunikacyjnych do środowiska innego lub przejściowego.
+Po przejściu do zasobu usług komunikacyjnych wybierz pozycję **klucze** z menu nawigacji i skopiuj wartości **parametrów połączenia** lub **punktów końcowych** w celu użycia przez zestawy SDK usług komunikacyjnych. Należy pamiętać, że masz dostęp do kluczy podstawowych i pomocniczych. Może to być przydatne w scenariuszach, w których chcesz zapewnić tymczasowy dostęp do zasobów usług komunikacyjnych do środowiska innego lub przejściowego.
 
 :::image type="content" source="./media/key.png" alt-text="Zrzut ekranu przedstawiający stronę klucza usług komunikacyjnych.":::
 
@@ -59,7 +59,7 @@ az communication list-key --name "<communicationName>" --resource-group "<resour
 
 ## <a name="store-your-connection-string"></a>Przechowywanie parametrów połączenia
 
-Biblioteki klienckie usług komunikacyjnych używają parametrów połączenia do autoryzacji żądań wysyłanych do usług komunikacyjnych. Istnieje kilka opcji przechowywania parametrów połączenia:
+Zestawy SDK usług komunikacyjnych używają parametrów połączenia do autoryzacji żądań wysyłanych do usług komunikacyjnych. Istnieje kilka opcji przechowywania parametrów połączenia:
 
 * Aplikacja działająca na komputerze stacjonarnym lub na urządzeniu może przechowywać parametry połączenia w pliku **app.config** lub **web.config** . Dodaj parametry połączenia do sekcji **AppSettings** w tych plikach.
 * Aplikacja działająca w Azure App Service może przechowywać parametry połączenia w [ustawieniach aplikacji App Service](../../app-service/configure-common.md). Dodaj parametry połączenia do sekcji **parametry połączeń** karty Ustawienia aplikacji w portalu.

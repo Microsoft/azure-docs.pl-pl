@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 02/03/2021
-  ms.openlocfilehash: 87584400894b97f0ef0522d8f7c421100a673cba
-  ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+  ms.openlocfilehash: e27705b9b4a8120861b605cdc9cf33a16f7ad577
+  ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/04/2021
-  ms.locfileid: "99550306"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "105045233"
 landingContent:
 - title: Informacje o zabezpieczeniach platformy Azure
   linkLists:
@@ -40,7 +40,7 @@ landingContent:
     - text: Usługi i technologie zabezpieczeń
       url: services-technologies.md
     - text: Wbudowane mechanizmy zabezpieczeń
-      url: security-controls.md
+      url: ../benchmarks/index.yml
 - title: Eliminowanie zagrożeń
   linkLists:
   - linkListType: overview

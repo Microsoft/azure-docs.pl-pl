@@ -5,20 +5,20 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 05/25/2019
+ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92202417"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044604"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
 
-ExpressRoute jest przeznaczona do wysokiej dostępności w celu zapewnienia poufności łączności sieci prywatnej z zasobami firmy Microsoft. Innymi słowy, w ścieżce ExpressRoute w sieci firmy Microsoft nie ma single point of failure. Aby poznać zagadnienia dotyczące projektowania w celu zmaksymalizowania dostępności obwodu usługi ExpressRoute, zobacz [projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute][HA].
+ExpressRoute jest przeznaczona do wysokiej dostępności w celu zapewnienia poufności łączności sieci prywatnej z zasobami firmy Microsoft. Innymi słowy, nie ma single point of failure w ścieżce ExpressRoute w sieci firmy Microsoft. Aby poznać zagadnienia dotyczące projektowania w celu zmaksymalizowania dostępności obwodu usługi ExpressRoute, zobacz [projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute][HA].
 
-Jednak dzięki Murphy popularnej powiedzeniem —*Jeśli coś się nie powiedzie, w tym artykule zauważamy*, że firma Microsoft koncentruje się na rozwiązaniach, które wykraczają poza awarie, które można rozwiązać za pomocą pojedynczego obwodu usługi ExpressRoute. Innymi słowy, w tym artykule poinformuj nas o architekturze sieci dotyczącej tworzenia niezawodnej łączności sieciowej zaplecza na potrzeby odzyskiwania po awarii za pomocą obwodów ExpressRoute geograficznie nadmiarowych.
+Jednak dzięki Murphy popularnej powiedzeniem —*Jeśli coś się nie powiedzie, w tym artykule zauważamy*, że firma Microsoft koncentruje się na rozwiązaniach, które wykraczają poza awarie, które można rozwiązać za pomocą pojedynczego obwodu usługi ExpressRoute. Będziemy rozważać zagadnienia dotyczące architektury sieci dotyczące tworzenia niezawodnej łączności sieciowej zaplecza na potrzeby odzyskiwania po awarii za pomocą obwodów ExpressRoute geograficznie nadmiarowych.
 
 >[!NOTE]
 >Koncepcje opisane w tym artykule są równie stosowane, gdy obwód ExpressRoute jest tworzony w ramach wirtualnej sieci WAN lub poza nią.
@@ -26,9 +26,9 @@ Jednak dzięki Murphy popularnej powiedzeniem —*Jeśli coś się nie powiedzie
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Potrzebna do nadmiarowego rozwiązania łączności
 
-Istnieją również możliwości i wystąpienia, w których cała usługa regionalna (powinna zostać obniżona przez firmę Microsoft, dostawców usług sieciowych, klientów lub innych dostawców usług w chmurze). Główną przyczyną takiego wpływu na obsługę wielu regionów jest naturalny Calamity. W związku z tym, aby uzyskać ciągłość biznesową i najważniejsze aplikacje, ważne jest, aby zaplanować odzyskiwanie po awarii.   
+Istnieją również możliwości i wystąpienia, w których cała usługa regionalna (powinna zostać obniżona przez firmę Microsoft, dostawców usług sieciowych, klientów lub innych dostawców usług w chmurze). Główną przyczyną takiego wpływu na obsługę wielu regionów jest naturalny Calamity. Dlatego w celu zapewnienia ciągłości biznesowej i kluczowych aplikacji ważne jest zaplanowanie odzyskiwania po awarii.   
 
-Bez względu na to, czy aplikacje o znaczeniu strategicznym są uruchamiane w regionie świadczenia usługi Azure, czy lokalnie czy w innym miejscu, możesz użyć innego regionu platformy Azure jako witryny trybu failover. Poniższe artykuły dotyczą odzyskiwania po awarii z aplikacji i perspektyw dostępu frontonu:
+Niezależnie od tego, czy uruchamiasz aplikacje o znaczeniu strategicznym w regionie świadczenia usługi Azure, czy lokalnie czy w innym miejscu, możesz użyć innego regionu platformy Azure jako witryny trybu failover. Poniższe artykuły dotyczą odzyskiwania po awarii z aplikacji i perspektyw dostępu frontonu:
 
 - [Odzyskiwanie po awarii w skali przedsiębiorstwa][Enterprise DR]
 - [Odzyskiwanie po awarii dla małych i średnich firm za pomocą usługi Azure Site Recovery][SMB DR]
@@ -37,9 +37,19 @@ Jeśli polegasz na ExpressRoute łączności między siecią lokalną i firmą M
 
 ## <a name="challenges-of-using-multiple-expressroute-circuits"></a>Wyzwania związane z korzystaniem z wielu obwodów usługi ExpressRoute
 
-W przypadku łączenia tego samego zestawu sieci przy użyciu więcej niż jednego połączenia wprowadza się ścieżki równoległe między sieciami. Ścieżki równoległe, gdy nie są poprawnie zaprojektowane, mogą prowadzić do routingu asymetrycznego. Jeśli masz jednostki stanowe (na przykład translator adresów sieciowych, Zapora) w ścieżce, routing asymetryczny może blokować przepływ ruchu.  Zazwyczaj za pośrednictwem prywatnej ścieżki komunikacji równorzędnej ExpressRoute nie będziesz mieć między jednostkami stanowymi, takimi jak translator adresów sieciowych lub zapory. W związku z tym Routing asymetryczny za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute nie musi blokować przepływu ruchu.
+W przypadku łączenia tego samego zestawu sieci przy użyciu więcej niż jednego połączenia wprowadza się ścieżki równoległe między sieciami. Ścieżki równoległe, gdy nie są poprawnie zaprojektowane, mogą prowadzić do routingu asymetrycznego. Jeśli masz jednostki stanowe (na przykład translator adresów sieciowych, Zapora) w ścieżce, routing asymetryczny może blokować przepływ ruchu.  Zazwyczaj za pośrednictwem prywatnej ścieżki komunikacji równorzędnej ExpressRoute nie będziesz mieć między jednostkami stanowymi, takimi jak translator adresów sieciowych lub zapory. Dlatego asymetryczne Routing za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute nie musi blokować przepływu ruchu.
  
-Jednak w przypadku równoważenia obciążenia ruchu między geograficznie nadmiarowymi ścieżkami równoległymi, niezależnie od tego, czy są to jednostki stanowe, czy nie, wystąpi niespójna wydajność sieci. W tym artykule omówiono sposoby rozwiązywania tych problemów.
+Jednak w przypadku równoważenia obciążenia ruchu między geograficznie nadmiarowymi ścieżkami równoległymi, niezależnie od tego, czy masz jednostki stanowe, czy nie, wystąpi niespójna wydajność sieci. Te geograficznie nadmiarowe ścieżki równoległe mogą znajdować się w tej samej linii metra lub różnych liniach metra, które znajdują się na stronie [dostawcy według lokalizacji](expressroute-locations-providers.md#partners) . 
+
+### <a name="same-metro"></a>Ta sama linia metra
+
+Korzystając z tej samej linii metra, należy użyć pomocniczej lokalizacji drugiej ścieżki do działania tej konfiguracji. Przykładem tej samej linii *metra byłyby i* *Amsterdam2*. Zaletą wyboru tej samej linii metra jest przełączenie w tryb failover aplikacji, kompleksowego opóźnienia między aplikacjami lokalnymi a firmą Microsoft pozostaje bez zmian. Jeśli jednak występuje klęska żywiołowa, łączność dla obu ścieżek może nie być już dostępna. 
+
+### <a name="different-metros"></a>Różne Metro
+
+W przypadku korzystania z różnych linii metra dla standardowych obwodów SKU lokacja dodatkowa powinna znajdować się w tym samym [regionie geograficznym](expressroute-locations-providers.md#locations). Aby wybrać lokalizację spoza regionu geopolitycznego, należy użyć jednostki SKU w warstwie Premium dla obu obwodów w ścieżkach równoległych. Zaletą tej konfiguracji jest prawdopodobieństwo, że klęska żywiołowa powoduje awarię obu linków, ale kosztem nieprzerwanego wzrostu czasu oczekiwania.
+
+W tym artykule omówiono sposób rozwiązywania problemów, które mogą wystąpić podczas konfigurowania ścieżek geograficznie nadmiarowych.
 
 ## <a name="small-to-medium-on-premises-network-considerations"></a>Zagadnienia dotyczące małych i średnich sieci lokalnych
 
@@ -100,13 +110,13 @@ Korzystając z dowolnych z tych technik, jeśli zamierzasz korzystać z platform
 
 ## <a name="large-distributed-enterprise-network"></a>Duże rozproszone sieci przedsiębiorstwa
 
-W przypadku dużej rozproszonej sieci przedsiębiorstwa istnieje wiele obwodów usługi ExpressRoute. W tej sekcji Zobaczmy, jak projektować odzyskiwanie po awarii za pomocą obwodów usługi ExpressRoute w aktywnym miejscu, bez konieczności używania dodatkowych obwodów. 
+W przypadku dużej rozproszonej sieci przedsiębiorstwa istnieje wiele obwodów usługi ExpressRoute. W tej sekcji Zobaczmy, jak projektować odzyskiwanie po awarii za pomocą obwodów usługi ExpressRoute w aktywnym miejscu, bez konieczności używania innych obwodów. 
 
 Rozważmy przykład przedstawiony na poniższym diagramie. W tym przykładzie firma Contoso ma dwie lokalizacje lokalne połączone z dwoma różnymi regionami platformy Azure za pośrednictwem obwodów usługi ExpressRoute w dwóch różnych lokalizacjach komunikacji równorzędnej. 
 
 [![ust]][6]
 
-Sposób, w jaki oferujemy środowisko odzyskiwania po awarii, ma wpływ na to, jak odbywa się kierowanie ruchu między różnymi lokalizacjami (Region1/region2 do Location2/Location1). Rozważmy dwie różne architektury awaryjne, które przekierowują ruch między lokalizacjami między regionami.
+Sposób, w jaki oferujemy środowisko odzyskiwania po awarii, ma wpływ na to, jak jest kierowany ruch między różnymi lokalizacjami (Region1/region2 do Location2/Location1). Rozważmy dwie różne architektury awaryjne, które przekierowują ruch między lokalizacjami między regionami.
 
 ### <a name="scenario-1"></a>Scenariusz 1
 

@@ -1,7 +1,7 @@
 ---
-title: Omówienie biblioteki klienta rozmowy dla usług Azure Communications Services
+title: Omówienie zestawu SDK rozmowy dla usług Azure Communications Services
 titleSuffix: An Azure Communication Services concept document
-description: Dowiedz się więcej o bibliotece klienta czatu dotyczącej usług Azure Communication Services.
+description: Dowiedz się więcej o zestawie SDK usługi Azure Communication Services.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,22 +9,22 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 705bd926c2ac6f414464254969b5c511c88891f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b275c3af2e92dc5af677120b5082751d19676b2e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656111"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110818"
 ---
-# <a name="chat-client-library-overview"></a>Omówienie biblioteki klienta czatu  
+# <a name="chat-sdk-overview"></a>Omówienie zestawu SDK rozmowy 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
-Za pomocą bibliotek klienckich czatu usługi Azure Communication Services można dodawać rozbudowane rozmowy w czasie rzeczywistym do aplikacji.
+Zestawy SDK rozmowy z usługami Azure Communication Services mogą służyć do dodawania rozbudowanej, w czasie rzeczywistym rozmowy do aplikacji.
     
-## <a name="chat-client-library-capabilities"></a>Możliwości w bibliotece klienta rozmowy 
+## <a name="chat-sdk-capabilities"></a>Możliwości zestawu SDK rozmowy    
 
-Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w bibliotekach klienta rozmowy usług komunikacyjnych.  
+Poniższa lista przedstawia zbiór funkcji, które są obecnie dostępne w zestawach SDK rozmowy usług komunikacyjnych.  
 
 | Grupa funkcji | Możliwość | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
@@ -51,13 +51,13 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 
 * * Zastrzeżony pakiet sygnalizowania jest implementowany przy użyciu gniazd sieci Web. Nastąpi powrót do długiego sondowania, jeśli gniazda sieci Web nie są obsługiwane.  
 
-## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Obsługa biblioteki klienta rozmowy w języku JavaScript według systemu operacyjnego i przeglądarki 
+## <a name="javascript-chat-sdk-support-by-os-and-browser"></a>Obsługa zestawu SDK rozmowy JavaScript według systemu operacyjnego i przeglądarki    
 
 Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek i wersji, które są obecnie dostępne.
     
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | system operacyjny iPad|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
-| **Biblioteka kliencka rozmowy** | Firefox *, Chrome*, Nowa krawędź | Firefox *, Chrome*, Safari * | Własnego  | Własnego | Własnego | Safari | Safari |
+| **Zestaw SDK rozmowy** | Firefox *, Chrome*, Nowa krawędź | Firefox *, Chrome*, Safari * | Własnego  | Własnego | Własnego | Safari | Safari |
 
 * Warto zauważyć, że Najnowsza wersja jest obsługiwana oprócz poprzednich dwóch wersji.<br/>   
 

@@ -9,16 +9,16 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 824fd19e8acfed75ab3d64048a00f579b70286d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0f456581e14f17b0ea3ebbd54d0768d419e800b3
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496239"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110648"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
-Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako przewodnik krok po kroku dotyczący różnych możliwości zapewnianych przez bibliotekę klienta wywołującego usługi komunikacyjne w sieci Web.
+Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako szczegółowy przewodnik dotyczący różnych możliwości zapewnianych przez zestaw SDK wywoływania sieci Web usług komunikacyjnych.
 
 Ten przykład został skompilowany dla deweloperów i ułatwia rozpoczęcie pracy z usługami komunikacyjnymi. Interfejs użytkownika jest podzielony na wiele sekcji, z których każdy zawiera przycisk "Pokaż kod", który umożliwia kopiowanie kodu bezpośrednio z przeglądarki do własnej aplikacji usług komunikacyjnych.
 
@@ -86,7 +86,7 @@ Ten przykład zawiera również fragmenty kodu dla następujących możliwości:
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- Zapoznaj się z [pomocą biblioteki klienta wywołującego](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Zapoznaj się z [użyciem zestawu SDK wywołującego](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Dowiedz się więcej o [sposobie wywoływania programu](../concepts/voice-video-calling/about-call-types.md)
 - Zapoznaj się z dokumentacją [interfejsu API](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Zapoznaj się z przykładem [aplikacji Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)

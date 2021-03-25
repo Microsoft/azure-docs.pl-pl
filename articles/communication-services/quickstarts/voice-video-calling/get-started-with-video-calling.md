@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 28813a23b91f75f88e844b9e6b36d6ba0771569a
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: e7f74298b8bf8209a6b1473880b33d64bd17cfd9
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048089"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108098"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Szybki Start: Dodawanie 1:1 wideo dla aplikacji (JavaScript)
 
@@ -33,9 +33,11 @@ Otwórz terminal lub okno poleceń Utwórz nowy katalog dla aplikacji i przejdź
 mkdir calling-quickstart && cd calling-quickstart
 ```
 ### <a name="install-the-package"></a>Zainstaluj pakiet
-Użyj `npm install` polecenia, aby zainstalować bibliotekę klienta wywołującego usługi Azure Communications Services dla języka JavaScript.
+Użyj `npm install` polecenia, aby zainstalować zestaw SDK wywoływania usługi Azure Communications Services dla języka JavaScript.
 
-Ten przewodnik Szybki Start używa biblioteki klienta wywołującej komunikację platformy Azure `1.0.0.beta-6` . 
+> [!IMPORTANT]
+> Ten przewodnik Szybki Start używa wersji zestawu SDK wywołującej usługi komunikacyjnej platformy Azure `1.0.0.beta-10` . 
+
 
 ```console
 npm install @azure/communication-common --save
@@ -105,7 +107,7 @@ Oto kod:
 Utwórz plik w katalogu głównym projektu o nazwie, `client.js` aby zawierał logikę aplikacji dla tego przewodnika Szybki Start. Dodaj następujący kod, aby zaimportować klienta wywołującego i uzyskać odwołania do elementów modelu DOM.
 
 ```JavaScript
-import { CallClient, CallAgent, Renderer, LocalVideoStream } from "@azure/communication-calling";
+import { CallClient, CallAgent, VideoStreamRenderer, LocalVideoStream } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
@@ -124,18 +126,18 @@ let rendererRemote;
 ```
 ## <a name="object-model"></a>Model obiektów
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta wywołującego usługi Azure Communications Services:
+Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK wywołującego usługi Azure Communications Services:
 
 | Nazwa      | Opis | 
 | :---        |    :----   |
-| CallClient  | CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.      |
+| CallClient  | CallClient jest głównym punktem wejścia do wywołującego zestawu SDK.      |
 | CallAgent  | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi.        |
 | Devicemanager | Devicemanager jest używany do zarządzania urządzeniami multimedialnymi.    |
 | AzureCommunicationTokenCredential | Klasa AzureCommunicationTokenCredential implementuje interfejs CommunicationTokenCredential, który jest używany do tworzenia wystąpienia CallAgent.        |
 
 ## <a name="authenticate-the-client-and-access-devicemanager"></a>Uwierzytelnianie klienta i dostęp do urządzenia
 
-Należy zastąpić <USER_ACCESS_TOKEN> z prawidłowym tokenem dostępu użytkownika dla zasobu. Jeśli nie masz jeszcze dostępnego tokenu, zapoznaj się z dokumentacją tokenu dostępu użytkownika. Za pomocą CallClient zainicjuj wystąpienie CallAgent z CommunicationUserCredential, które umożliwi nam wykonywanie i odbieranie wywołań. Aby uzyskać dostęp do obiektu devicemanager, należy najpierw utworzyć wystąpienie callAgent. Następnie można użyć metody z `getDeviceManager` `CallClient` wystąpienia, aby uzyskać `DeviceManager` .
+Należy zastąpić <USER_ACCESS_TOKEN> z prawidłowym tokenem dostępu użytkownika dla zasobu. Jeśli nie masz jeszcze dostępnego tokenu, zapoznaj się z dokumentacją tokenu dostępu użytkownika. Przy użyciu `CallClient` , zainicjuj `CallAgent` wystąpienie z, `CommunicationUserCredential` które umożliwi nam wykonywanie i odbieranie wywołań. Aby uzyskać dostęp do `DeviceManager` wystąpienia callAgent, należy najpierw utworzyć wystąpienie. Następnie można użyć metody z `getDeviceManager` `CallClient` wystąpienia, aby uzyskać `DeviceManager` .
 
 Dodaj następujący kod do pliku `client.js`:
 
@@ -154,7 +156,7 @@ init();
 
 Dodaj odbiornik zdarzeń, aby zainicjować wywołanie po `callButton` kliknięciu:
 
-Najpierw należy wyliczyć aparaty lokalne przy użyciu interfejsu API devicemanager getCameraList. W tym przewodniku szybki start używamy pierwszego aparatu w kolekcji. Po wybraniu żądanego aparatu wystąpienie LocalVideoStream zostanie skonstruowane i przesłane w videoOptions jako element w tablicy localVideoStream do metody Call. Po nawiązaniu połączenia zostanie automatycznie rozpoczęte wysyłanie strumienia wideo do innego uczestnika. 
+Najpierw należy wyliczyć aparaty lokalne przy użyciu `getCameraList` interfejsu API urządzenia. W tym przewodniku szybki start używamy pierwszego aparatu w kolekcji. Po wybraniu żądanego aparatu wystąpienie LocalVideoStream zostanie skonstruowane i przesłane `videoOptions` jako element w tablicy LocalVideoStream do metody Call. Po nawiązaniu połączenia zostanie automatycznie rozpoczęte wysyłanie strumienia wideo do innego uczestnika. 
 
 ```JavaScript
 callButton.addEventListener("click", async () => {
@@ -179,40 +181,40 @@ callButton.addEventListener("click", async () => {
     callButton.disabled = true;
 });
 ```  
-Aby renderować a `LocalVideoStream` , należy utworzyć nowe wystąpienie `Renderer` , a następnie utworzyć nowe wystąpienie RendererView za pomocą metody asynchronicznej `createView` . Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika. 
+Aby renderować a `LocalVideoStream` , należy utworzyć nowe wystąpienie `VideoStreamRenderer` , a następnie utworzyć nowe `VideoStreamRendererView` wystąpienie przy użyciu metody asynchronicznej `createView` . Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika. 
 
 ```JavaScript
 async function localVideoView() {
-    rendererLocal = new Renderer(localVideoStream);
+    rendererLocal = new VideoStreamRenderer(localVideoStream);
     const view = await rendererLocal.createView();
     document.getElementById("myVideo").appendChild(view.target);
 }
 ```
-Wszyscy uczestnicy zdalni są dostępni za pomocą `remoteParticipants` kolekcji w wystąpieniu wywołania. Musisz zasubskrybować zdalnych uczestników bieżącego wywołania i nasłuchiwać zdarzenia, `remoteParticipantsUpdated` Aby subskrybować Dodawanie uczestników zdalnych.
+Wszyscy uczestnicy zdalni są dostępni za pomocą `remoteParticipants` kolekcji w wystąpieniu wywołania. Musisz nasłuchiwać zdarzenia, aby otrzymywać `remoteParticipantsUpdated` powiadomienia, gdy do wywołania zostanie dodany nowy uczestnik zdalny. Należy również wykonać iterację `remoteParticipants` kolekcji, aby subskrybować ich strumienie wideo. 
 
 ```JavaScript
 function subscribeToRemoteParticipantInCall(callInstance) {
-    callInstance.remoteParticipants.forEach( p => {
-        subscribeToRemoteParticipant(p);
-    })
     callInstance.on('remoteParticipantsUpdated', e => {
         e.added.forEach( p => {
-            subscribeToRemoteParticipant(p);
+            subscribeToParticipantVideoStreams(p);
         })
-    });   
+    }); 
+    callInstance.remoteParticipants.forEach( p => {
+        subscribeToParticipantVideoStreams(p);
+    })
 }
 ```
-Możesz subskrybować `remoteParticipants` kolekcję bieżącego wywołania i zbadać `videoStreams` kolekcje, aby wyświetlić listę strumieni każdego uczestnika. Musisz również subskrybować wydarzenie remoteParticipantsUpdated, aby obsłużyć dodano uczestników zdalnych. 
+Musisz subskrybować `videoStreamsUpdated` zdarzenie, aby obsłużyć dodane strumienie wideo dla uczestników zdalnych. Możesz sprawdzić kolekcje, `videoStreams` Aby wyświetlić listę strumieni każdego uczestnika podczas przechodzenia przez `remoteParticipants` kolekcję bieżącego wywołania.
 
 ```JavaScript
-function subscribeToRemoteParticipant(remoteParticipant) {
-    remoteParticipant.videoStreams.forEach(v => {
-        handleVideoStream(v);
-    });
+function subscribeToParticipantVideoStreams(remoteParticipant) {
     remoteParticipant.on('videoStreamsUpdated', e => {
         e.added.forEach(v => {
             handleVideoStream(v);
         })
+    });
+    remoteParticipant.videoStreams.forEach(v => {
+        handleVideoStream(v);
     });
 }
 ```
@@ -231,11 +233,11 @@ function handleVideoStream(remoteVideoStream) {
     }
 }
 ```
-Aby renderować a `RemoteVideoStream` , należy utworzyć nowe wystąpienie `Renderer` , a następnie utworzyć nowe `RendererView` wystąpienie przy użyciu metody asynchronicznej `createView` . Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika. 
+Aby renderować a `RemoteVideoStream` , należy utworzyć nowe wystąpienie `VideoStreamRenderer` , a następnie utworzyć nowe `VideoStreamRendererView` wystąpienie przy użyciu metody asynchronicznej `createView` . Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika. 
 
 ```JavaScript
 async function remoteVideoView(remoteVideoStream) {
-    rendererRemote = new Renderer(remoteVideoStream);
+    rendererRemote = new VideoStreamRenderer(remoteVideoStream);
     const view = await rendererRemote.createView();
     document.getElementById("remoteVideo").appendChild(view.target);
 }
@@ -259,7 +261,7 @@ callAgent.on('incomingCall', async e => {
     const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
     call = addedCall;
 
-    subscribeToRemoteParticipantInCall(addedCall);   
+    subscribeToRemoteParticipantInCall(addedCall);  
 });
 ```
 ## <a name="end-the-current-call"></a>Zakończ bieżące wywołanie
@@ -334,6 +336,8 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
-- Zapoznaj się z naszym [przykładem wywoływania sieci Web](../../samples/web-calling-sample.md)
-- Informacje o [wywoływaniu możliwości biblioteki klienta](./calling-client-samples.md?pivots=platform-web)
-- Dowiedz się więcej o [sposobie wywoływania programu](../../concepts/voice-video-calling/about-call-types.md)
+
+- Zapoznaj się z naszym [przykładem wywoływania sieci Web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
+- Informacje o [wywoływaniu możliwości zestawu SDK](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- Dowiedz się więcej o [sposobie wywoływania programu](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+

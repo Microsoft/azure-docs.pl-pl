@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773049"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047239"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
 
@@ -272,7 +272,7 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 
 > [!IMPORTANT]
 >
-> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  Zapoznaj się z artykułem [Azure Cognitive Services Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
+> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  Zapoznaj się z artykułem [Azure Cognitive Services Security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
 >
 > Może być konieczne zaktualizowanie następujących pól w zależności od operacji:
 >>>

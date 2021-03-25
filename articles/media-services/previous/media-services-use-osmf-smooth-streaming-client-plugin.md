@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: e41e33b5f30cd861ae8715e0ad7f6694f8854198
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036054"
+ms.locfileid: "105046933"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak używać wtyczki Microsoft Smooth Streaming dla środowiska multimedialnego firmy Adobe typu open source
 
@@ -34,7 +34,7 @@ SS dla OSMF obejmuje dwie wersje wtyczki:
 * Wtyczka Smooth Streaming statyczna dla OSMF (. SWC)
 * Wtyczka Smooth Streaming dynamicznego dla OSMF (. SWF)
 
-W tym dokumencie przyjęto założenie, że czytelnik ma ogólną praktyczną wiedzę na temat wtyczek OSMF i OSMF. Aby uzyskać więcej informacji na temat OSMF, zapoznaj się z dokumentacją w [oficjalnej witrynie OSMF](http://osmf.org/).
+W tym dokumencie przyjęto założenie, że czytelnik ma ogólną praktyczną wiedzę na temat wtyczek OSMF i OSMF. Aby uzyskać więcej informacji na temat OSMF, zapoznaj się z dokumentacją w oficjalnej witrynie OSMF.
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Wtyczka Smooth Streaming dla OSMF 2,0
 Wtyczka obsługuje ładowanie i odtwarzanie zawartości Smooth Streaming na żądanie przy użyciu następujących funkcji:
@@ -62,7 +62,7 @@ Wtyczki OSMF można ładować statycznie (w czasie kompilacji) lub dynamicznie (
 Aby uzyskać więcej informacji na temat ładowania statycznego i dynamicznego, zapoznaj się z oficjalną [stroną wtyczki OSMF](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS dla statycznego ładowania OSMF
-Poniższy fragment kodu przedstawia sposób ładowania wtyczki SS dla OSMF statycznie i odtwarzania podstawowego wideo przy użyciu klasy OSMF MediaFactory. Przed dołączeniem do kodu OSMF, należy się upewnić, że odwołanie do projektu zawiera statyczną wtyczkę "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. SWC".
+Poniższy fragment kodu przedstawia sposób ładowania wtyczki SS dla OSMF statycznie i odtwarzania podstawowego wideo przy użyciu klasy OSMF MediaFactory. Przed dołączeniem do kodu OSMF, należy się upewnić, że odwołanie do projektu zawiera statyczną wtyczkę "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. SWC". 
 
 ```csharp
 package 
@@ -337,7 +337,7 @@ package
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Lampa błyskowa przy użyciu wtyczki dynamicznej ODMF SS
 Smooth Streaming dla wtyczki dynamicznej OSMF jest zgodna z [lampą odtwarzania multimediów (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). Aby dodać Smooth Streaming odtwarzanie zawartości do SMP, można użyć wtyczki SS for OSMF. Aby to zrobić, skopiuj plik "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. swf" w ramach serwera sieci Web na potrzeby ładowania HTTP, wykonując następujące czynności:
 
-1. Przejrzyj [stronę Konfiguracja ze społecznością](http://osmf.org/dev/2.0gm/setup.html). 
+1. Przejrzyj [stronę Konfiguracja ze społecznością](http://www.koopman.me/bob3/setup.html). 
 2. Ustaw element src na źródło Smooth Streaming, (np. http: \/ /devplatem.VO.msecnd.NET/Sintel/Sintel_H264.ISM/manifest) 
 3. Wprowadź żądane zmiany konfiguracji i kliknij przycisk Podgląd i zaktualizuj.
    
@@ -394,7 +394,7 @@ Smooth Streaming dla wtyczki dynamicznej OSMF jest zgodna z [lampą odtwarzania 
 2. Zapisz stronę HTML i opublikuj ją na serwerze sieci Web. Przejdź do opublikowanej strony sieci Web przy użyciu ulubionej &reg; przeglądarki internetowej z włączonym programem Flash Player (Internet Explorer, Chrome, Firefox itd.).
 3. Korzystaj z Smooth Streaming zawartości wewnątrz &reg; programu Adobe Flash &reg; Player.
 
-Aby uzyskać więcej informacji na temat ogólnej OSMF projektowania, zobacz oficjalną [stronę programistyczną OSMF](http://osmf.org/resources.html).
+Aby uzyskać więcej informacji na temat ogólnej OSMF projektowania, zobacz oficjalną [stronę programistyczną OSMF](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
