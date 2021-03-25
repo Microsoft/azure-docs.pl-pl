@@ -3,19 +3,14 @@ title: Rozwiązywanie problemów z błędami kopii zapasowych na dysku Azure
 description: Informacje o rozwiązywaniu problemów z błędami kopii zapasowych w usłudze Kopia zapasowa Azure Disk
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737731"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107248"
 ---
-# <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Rozwiązywanie problemów z błędami kopii zapasowych na dysku platformy Azure (wersja zapoznawcza)
-
->[!IMPORTANT]
->Kopia zapasowa Azure Disk jest w wersji zapoznawczej bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać dostęp do regionu, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
->
->[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
+# <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Rozwiązywanie problemów z błędami kopii zapasowych na dysku Azure
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych i przywracania z użyciem dysku platformy Azure. Aby uzyskać więcej informacji na temat dostępności obszaru [kopii zapasowej na dysku platformy Azure](disk-backup-overview.md) , obsługiwanych scenariuszy i ograniczeń, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
 
@@ -157,7 +152,7 @@ Zalecana akcja: należy rozważyć użycie innego punktu odzyskiwania w celu prz
 
 Komunikat o błędzie: kopia zapasowa dysku nie jest jeszcze dostępna w regionie magazynu kopii zapasowych, w którym jest podejmowana próba skonfigurowania ochrony.
 
-Zalecana akcja: Magazyn kopii zapasowych musi znajdować się w regionie obsługiwanym w wersji zapoznawczej. Aby uzyskać dostęp do regionu, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
+Zalecana akcja: Magazyn kopii zapasowych musi znajdować się w obsługiwanym regionie. Aby uzyskać dostęp do regionu, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
 
 ### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Kod błędu: UserErrorDppDatasourceAlreadyHasBackupInstance
 

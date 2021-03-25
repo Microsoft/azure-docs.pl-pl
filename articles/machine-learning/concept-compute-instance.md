@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ac90827fec65187088787971623483a96da77d7c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f41a68feafe2f0a3eae1e0026a4c350b0959aec
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016240"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036989"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -178,6 +178,9 @@ Wystąpienie obliczeniowe:
 * Obsługuje wielowęzłowe zadania szkoleniowe wieloprocesorowe.
 
 Wystąpienia obliczeniowego można użyć jako lokalnego celu wdrożenia inferencing na potrzeby scenariuszy testowania/debugowania.
+
+> [!TIP]
+> Wystąpienie obliczeniowe ma dysk systemu operacyjnego o 120 GB. Jeśli zabrakło miejsca na dysku, przed podjęciem próby zatrzymania lub ponownego uruchomienia wystąpienia obliczeniowego Wyczyść wystarczającą ilość miejsca.
 
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Co się stało z maszyną wirtualną notesu?

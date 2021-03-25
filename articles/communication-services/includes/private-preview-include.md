@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
 ms.custom: private_preview
-ms.openlocfilehash: a0ceb03f19a3b22a27a1a31dcfe760211ea31f21
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96037e5aa0de62a2aecbcd5d95fd6aeb5c79980c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487941"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152770"
 ---
 > [!IMPORTANT]
-> Funkcje opisane w tym dokumencie są obecnie w prywatnej wersji zapoznawczej. Prywatna wersja zapoznawcza obejmuje dostęp do bibliotek i dokumentacji klienta w celach testowych, które nie są jeszcze dostępne publicznie.
+> Funkcje opisane w tym dokumencie są obecnie w prywatnej wersji zapoznawczej. Prywatna wersja zapoznawcza obejmuje dostęp do zestawów SDK i dokumentacji na potrzeby testowania, które nie są jeszcze publicznie dostępne.
 > Zastosuj, aby stać się wczesnym przejęciem, wypełniając formularz dotyczący [dostępu do wersji zapoznawczej do usług Azure Communications Services](https://aka.ms/ACS-EarlyAdopter).

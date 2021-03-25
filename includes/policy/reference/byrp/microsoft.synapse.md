@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4062375bbde1dce1e20ac04ff16562d892de808e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9bc4bd7c557f21c29949938411c76a88d979b3c2
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600187"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037034"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -24,5 +24,5 @@ ms.locfileid: "104600187"
 |[Sieć wirtualna zarządzanego obszaru roboczego w obszarze roboczym usługi Azure Synapse powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |Włączenie zarządzanej sieci wirtualnej obszaru roboczego gwarantuje, że obszar roboczy jest odizolowany od innych obszarów roboczych. Integracja danych i zasoby platformy Spark wdrożone w tej sieci wirtualnej również zapewniają izolację poziomu użytkownika dla działań Spark. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Zarządzane prywatne punkty końcowe Synapse powinny łączyć się tylko z zasobami w zatwierdzonych dzierżawach Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Ochrona obszaru roboczego usługi Synapse przez umożliwienie połączeń z zasobami w zatwierdzonych dzierżawach Azure Active Directory (Azure AD). Zatwierdzone dzierżawy usługi Azure AD można zdefiniować podczas przypisywania zasad. |Inspekcja, wyłączona, Odmów |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
 |[Ustawienia inspekcji obszaru roboczego Synapse powinny mieć skonfigurowane grupy akcji do przechwytywania działań krytycznych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b18f286-371e-4b80-9887-04759970c0d3) |Aby upewnić się, że dzienniki inspekcji są tak szczegółowe, jak to możliwe, właściwość AuditActionsAndGroups powinna obejmować wszystkie odpowiednie grupy. Zalecamy dodanie co najmniej SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP i BATCH_COMPLETED_GROUP. Jest to czasami wymagane do zgodności ze standardami prawnymi. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditing_ActionsAndGroups_Audit.json) |
-|[Obszary robocze Synapse powinny być skonfigurowane z zachowaniem inspekcji na 90 dni lub wyższej.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F529ea018-6afc-4ed4-95bd-7c9ee47b00bc) |W celu zbadania zdarzenia zalecamy ustawienie przechowywania danych dla inspekcji obszaru roboczego Synapse na co najmniej 90 dni. Upewnij się, że spełniasz niezbędne reguły przechowywania dla regionów, w których pracujesz. Jest to czasami wymagane do zgodności ze standardami prawnymi. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditingRetentionDays_Audit.json) |
+|[Obszary robocze Synapse z inspekcją SQL do miejsca docelowego konta magazynu powinny być skonfigurowane z zachowaniem 90 dni lub nowszym](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F529ea018-6afc-4ed4-95bd-7c9ee47b00bc) |W celu zbadania zdarzenia zalecamy ustawienie przechowywania danych dla funkcji inspekcji SQL obszaru roboczego Synapse na konto magazynu na co najmniej 90 dni. Upewnij się, że spełniasz niezbędne reguły przechowywania dla regionów, w których pracujesz. Jest to czasami wymagane do zgodności ze standardami prawnymi. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditingRetentionDays_Audit.json) |
 |[Ocena luk w zabezpieczeniach powinna być włączona w obszarach roboczych Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Wykrywaj, śledź i Koryguj potencjalne luki w zabezpieczeniach, konfigurując cykliczne skanowania w ramach oceny luk w programie SQL w obszarach roboczych Synapse. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

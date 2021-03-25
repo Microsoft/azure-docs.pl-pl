@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 22e48239631850d82cbb3e3208748416087da87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103422210"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043074"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Wydajne skalowanie niestandardowych umiejętności
 
@@ -42,7 +42,7 @@ Na [niestandardowej umiejętności](cognitive-search-custom-skill-web-api.md) us
 
 3. Ustaw `timeout` wartość wystarczającą, aby umiejętność odpowiadała na prawidłową odpowiedź.
 
-4. W `indexer` definicji Ustaw [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) liczbę dokumentów, które powinny być odczytywane ze źródła danych i wzbogacone współbieżnie.
+4. W `indexer` definicji Ustaw [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) liczbę dokumentów, które powinny być odczytywane ze źródła danych i wzbogacone współbieżnie.
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 
@@ -106,5 +106,5 @@ Gratulacje! Twoje niestandardowe umiejętności są teraz skalowane bezpośredni
 
 + [Umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)
-+ [Dodaj umiejętność Azure Machine Learning](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Użyj sesji debugowania do testowania zmian](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Dodaj umiejętność Azure Machine Learning](./cognitive-search-aml-skill.md)
++ [Użyj sesji debugowania do testowania zmian](./cognitive-search-debug-session.md)

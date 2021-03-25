@@ -3,19 +3,14 @@ title: Często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7729bc1120fc0e2f4361739a8e05f3a82ccb4268
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98734566"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107316"
 ---
-# <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk (wersja zapoznawcza)
-
->[!IMPORTANT]
->Kopia zapasowa Azure Disk jest w wersji zapoznawczej bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać dostęp do regionu, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
->
->[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
+# <a name="frequently-asked-questions-about-azure-disk-backup"></a>Często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk. Aby uzyskać więcej informacji na temat dostępności obszaru [kopii zapasowej na dysku platformy Azure](disk-backup-overview.md) , obsługiwanych scenariuszy i ograniczeń, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
 
