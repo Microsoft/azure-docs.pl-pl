@@ -602,6 +602,8 @@
               displayName: 'hyperscale, ssl'
             - name: Punkt odniesienia zabezpieczeń
               href: postgresql-hyperscale-security-baseline.md
+        - name: Konserwacja zaplanowana
+          href: concepts-hyperscale-maintenance.md
         - name: Ciągłość działalności biznesowej
           items:
             - name: Tworzenie kopii zapasowej i przywracanie

@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 081eea7842652884363603bc5ba742ba48539f85
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 7c89527218e34bea0819a1e2446441216cde45ae
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503622"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104717"
 ---
 **Cele obliczeń mogą być ponownie używane z jednego zadania szkoleniowego do następnego.** Na przykład po dołączeniu zdalnej maszyny wirtualnej do obszaru roboczego można użyć jej ponownie dla wielu zadań. W przypadku potoków uczenia maszynowego Użyj odpowiedniego [kroku potoku](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) dla każdego elementu docelowego obliczeń.
 
@@ -30,3 +30,6 @@ W przypadku większości zadań można użyć dowolnego z poniższych zasobów d
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | Tak | &nbsp; |
 |[Usługa Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Tak | &nbsp; |
 |[Usługa Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Tak | &nbsp; |
+
+> [!TIP]
+> Wystąpienie obliczeniowe ma dysk systemu operacyjnego o 120 GB. Jeśli zabrakło miejsca na dysku, przed podjęciem próby zatrzymania lub ponownego uruchomienia wystąpienia obliczeniowego Wyczyść wystarczającą ilość miejsca.

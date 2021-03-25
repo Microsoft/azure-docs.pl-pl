@@ -4,12 +4,12 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 11/19/2020
 ms.author: crtreasu
-ms.openlocfilehash: 7aa4e244b88b3793f1b480aeb21bfec69d52591d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c740fa294fe2b3de9687a76b90d90a021d4efdbc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044800"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104917"
 ---
 # <a name="web-download"></a>[Pobieranie w sieci Web](#tab/unity-package-web-ui)
 
@@ -21,12 +21,12 @@ Postępuj zgodnie z instrukcjami znajdującymi się <a href="https://docs.unity3
 
 # <a name="mixed-reality-feature-tool-beta"></a>[Narzędzie funkcji rzeczywistości mieszanej (beta)](#tab/unity-package-mixed-reality-feature-tool)
 
-Ten krok wymaga pobrania i udostępnienia <a href="https://aka.ms/MRFeatureToolDocs" target="_blank">Narzędzia funkcji rzeczywistości mieszanej</a> .
+Ten krok wymaga pobrania i udostępnienia <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Narzędzia funkcji rzeczywistości mieszanej</a> .
 
 > [!NOTE]
-> <a a href="https://aka.ms/MRFeatureToolDocs" target="_blank">Narzędzie funkcji rzeczywistości mieszanej</a> obecnie obsługuje tylko system Windows.
+> <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Narzędzie funkcji rzeczywistości mieszanej</a> obecnie obsługuje tylko system Windows.
 
-1. Aby skonfigurować narzędzie i dowiedzieć się, jak z niego korzystać, Skorzystaj z dokumentacji narzędzia do tworzenia <a href="https://aka.ms/MRFeatureToolDocs" target="_blank">rzeczywistości mieszanej</a> .
+1. Aby skonfigurować narzędzie i dowiedzieć się, jak z niego korzystać, Skorzystaj z dokumentacji narzędzia do tworzenia <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">rzeczywistości mieszanej</a> .
 2. Zainstaluj pakiet funkcji "Microsoft Azure kotwic obiektów" w folderze projektu aparatu Unity.
 
 ---

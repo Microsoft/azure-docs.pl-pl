@@ -137,6 +137,8 @@
       href: fhir-faq.md
     - name: Obsługiwane funkcje
       href: fhir-features-supported.md
+    - name: Projekty GitHub
+      href: fhir-github-projects.md
     - name: Ekosystem partnerów
       href: partner-ecosystem.md
 - name: Dokumentacja

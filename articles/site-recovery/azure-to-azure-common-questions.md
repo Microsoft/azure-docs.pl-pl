@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5309fd60640c45ade42bab4c5727cf1f0a8d9d70
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397969"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025479"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -73,7 +73,7 @@ Tak. maszyny wirtualne platformy Azure można replikować do dowolnej subskrypcj
 
 ### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>Czy można replikować maszyny wirtualne w strefie dostępności do innego regionu?
 
-Tak. maszyny wirtualne można replikować w strefach dostępności do innego regionu platformy Azure. Docelową maszynę wirtualną można wdrożyć jako pojedyncze wystąpienie, w zestawie dostępności lub w strefie dostępności, jeśli jest ona obsługiwana w regionie docelowym. 
+Tak. maszyny wirtualne można replikować w strefach dostępności do innego regionu platformy Azure. 
 
 ### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>Czy można replikować maszyny wirtualne niebędące strefami do strefy w tym samym regionie? 
 

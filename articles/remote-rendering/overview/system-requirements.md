@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 789233ce1ede751276f965143716694c6feca3ca
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705164"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032800"
 ---
 # <a name="system-requirements"></a>Wymagania systemowe
 
@@ -111,12 +111,10 @@ Należy zainstalować następujące oprogramowanie:
 
 ## <a name="unity"></a>Unity
 
-W przypadku programowania przy użyciu aparatu Unity Zainstaluj
-
-* 2019.3.1 Unity [(pobieranie)](https://unity3d.com/get-unity/download)
-* Zainstaluj te moduły w aparacie Unity:
-  * **Platformy UWP** — obsługa kompilacji platforma uniwersalna systemu Windows
-  * **IL2CPP** — obsługa kompilacji systemu Windows (IL2CPP)
+W przypadku programowania przy użyciu aparatu Unity Zainstaluj bieżącą wersję aparatu Unity 2019,3 lub 2019,4 LTS [(Pobierz)](https://unity3d.com/get-unity/download). Zalecamy używanie centrum Unity do zarządzania instalacjami.
+Upewnij się, że w instalacji aparatu Unity zostały uwzględnione następujące moduły:
+* **Platformy UWP** — obsługa kompilacji platforma uniwersalna systemu Windows
+* **IL2CPP** — obsługa kompilacji systemu Windows (IL2CPP)
 
 ## <a name="next-steps"></a>Następne kroki
 
