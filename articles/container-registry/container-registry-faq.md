@@ -3,14 +3,14 @@ title: Często zadawane pytania
 description: Odpowiedzi na często zadawane pytania dotyczące usługi Azure Container Registry
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8d5e161a0a663542142081c61bf1ad08be1be484
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97606287"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026244"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -260,11 +260,23 @@ Kwarantanna obrazu jest obecnie funkcją w wersji zapoznawczej ACR. Można włą
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Jak mogę włączyć anonimowy dostęp do ściągania?
 
-Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) dostępu do ściągania jest obecnie funkcją w wersji zapoznawczej. Jeśli masz jakieś [zasoby mapy zakresu (użytkownika) lub tokenów](./container-registry-repository-scoped-permissions.md) w rejestrze, usuń je przed podniesieniem poziomu biletu pomocy technicznej (mapowania zakresu systemowego można zignorować). Aby włączyć dostęp publiczny, należy otworzyć bilet pomocy technicznej pod adresem https://aka.ms/acr/support/create-ticket . Aby uzyskać szczegółowe informacje, zobacz [forum opinii na platformie Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Konfigurowanie usługi Azure Container Registry dla anonimowego (nieuwierzytelnionego) dostępu ściągania jest obecnie funkcją w wersji zapoznawczej, dostępną w [warstwach usług warstwy](container-registry-skus.md)standardowa i Premium. 
+
+Aby włączyć anonimowy dostęp do ściągania, zaktualizuj rejestr przy użyciu interfejsu wiersza polecenia platformy Azure (w wersji 2.21.0 lub nowszej) i przekaż `--anonymous-pull-enabled` parametr do narzędzia [AZ ACR Update](/cli/azure/acr#az_acr_update) :
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+W każdej chwili można wyłączyć anonimowy dostęp do ściągania, ustawiając wartość `--anonymous-pull-enabled` na `false` .
 
 > [!NOTE]
-> * Dostęp do tylko interfejsów API wymaganych do ściągnięcia znanego obrazu można uzyskać anonimowo. Żadne inne interfejsy API dla operacji, takich jak lista tagów lub lista repozytoriów, są dostępne anonimowo.
 > * Przed podjęciem próby anonimowej operacji ściągania Uruchom polecenie, `docker logout` Aby upewnić się, że wszystkie istniejące poświadczenia platformy Docker zostały wyczyszczone.
+> * Tylko operacje płaszczyzny danych są dostępne dla nieuwierzytelnionych klientów.
+> * Rejestr może ograniczać wysoki poziom nieuwierzytelnionych żądań.
+
+> [!WARNING]
+> Anonimowy dostęp do ściągania ma obecnie zastosowanie do wszystkich repozytoriów w rejestrze. W przypadku zarządzania dostępem do repozytorium przy użyciu [tokenów z zakresem repozytorium](container-registry-repository-scoped-permissions.md)należy pamiętać, że wszyscy użytkownicy mogą pobierać z tych repozytoriów w rejestrze z włączonym ściąganiem anonimowym. Zalecamy usuwanie tokenów, gdy jest włączony anonimowy dostęp do ściągania.
 
 ### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Jak mogę wypychania niedystrybuowanych warstw do rejestru?
 

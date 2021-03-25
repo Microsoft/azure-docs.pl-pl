@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a431060be380952940bdb99c65abc7a9740091de
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212760"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105038162"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Kodowanie i przesyłanie strumieniowe plików wideo za pomocą Node.JS
 
@@ -71,7 +71,7 @@ W przykładzie są wykonywane następujące akcje:
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. Aplikacja pobiera zakodowane pliki. Utwórz folder, w którym mają zostać przetworzone pliki wyjściowe i zaktualizuj wartość zmiennej **outputFolder** w pliku [index. TS](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59) . Domyślnie jest ustawiona wartość "Temp".
+1. Aplikacja pobiera zakodowane pliki. Utwórz folder, w którym mają zostać przetworzone pliki wyjściowe i zaktualizuj wartość zmiennej **outputFolder** w pliku [index. TS](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59) . Domyślnie jest ustawiona wartość "Temp".
 1. Otwórz **wiersz polecenia**, przejdź do katalogu przykładowego.
 1. Zmień katalog na folder AMSv3Samples.
 

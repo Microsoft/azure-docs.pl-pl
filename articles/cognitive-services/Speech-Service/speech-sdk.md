@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434522"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043261"
 ---
 # <a name="about-the-speech-sdk"></a>Informacje o zestawie SDK usługi Mowa
 
@@ -114,7 +114,7 @@ Zestaw mowy SDK może być używany do scenariuszy centrum połączeń jego prze
 
 ### <a name="codec-compressed-audio-input"></a>Koder-dekoder skompresowanego sygnału audio
 
-Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów danych wejściowych kompresji dźwiękowej </a>.
+Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów danych wejściowych kompresji dźwiękowej </a>.
 
 **Skompresowane dane wejściowe audio kodera-dekoder** są dostępne na następujących platformach:
 

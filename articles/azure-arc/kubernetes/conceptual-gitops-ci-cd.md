@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: Ten artykuł zawiera omówienie pojęć dotyczących przepływu pracy ciągłej integracji/ciągłego wdrażania przy użyciu GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, ARC, AKS, Azure Kubernetes Service, Containers, CI, CD, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121783"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025870"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Przepływ pracy ciągłej integracji/ciągłego wdrażania za pomocą GitOps — usługa Azure Arc Kubernetes
 
@@ -30,7 +30,7 @@ Rozważ użycie aplikacji wdrożonej w co najmniej jednym środowisku Kubernetes
 ### <a name="application-repo"></a>Repozytorium aplikacji
 Repozytorium aplikacji zawiera kod aplikacji, do której deweloperzy pracują w trakcie ich wewnętrznej pętli. Szablony wdrażania aplikacji na żywo w tym repozytorium w postaci generycznej, takiej jak Helm lub Kustomize. Wartości specyficzne dla środowiska nie są przechowywane. Zmiany w tym repozytorium wywołują potok żądania ściągnięcia lub CI, który uruchamia proces wdrożenia.
 ### <a name="container-registry"></a>Container Registry
-Rejestr kontenerów zawiera wszystkie obrazy pierwszej i innych firm używane w środowiskach Kubernetes. Oznacz obrazy aplikacji pierwszej firmy przy użyciu tagów czytelnych dla ludzi i zatwierdzenia git użytego do skompilowania obrazu. Buforuj obrazy innych firm pod kątem bezpieczeństwa, szybkości i odporności. Ustaw plan do przeprowadzenia testów i integracji aktualizacji zabezpieczeń. Aby uzyskać więcej informacji, zobacz artykuł [ACRing and utrzymują publiczną zawartość](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) podręcznika.
+Rejestr kontenerów zawiera wszystkie obrazy pierwszej i innych firm używane w środowiskach Kubernetes. Oznacz obrazy aplikacji pierwszej firmy przy użyciu tagów czytelnych dla ludzi i zatwierdzenia git użytego do skompilowania obrazu. Buforuj obrazy innych firm pod kątem bezpieczeństwa, szybkości i odporności. Ustaw plan do przeprowadzenia testów i integracji aktualizacji zabezpieczeń. Aby uzyskać więcej informacji, zobacz artykuł [ACRing and utrzymują publiczną zawartość](../../container-registry/tasks-consume-public-content.md) podręcznika.
 ### <a name="pr-pipeline"></a>Potok żądania ściągnięcia
 Żądań ściągnięcia do repozytorium aplikacji są zależne od pomyślnego uruchomienia potoku żądania ściągnięcia. Ten potok uruchamia podstawowe bramy jakości, takie jak zaznaczanie błędów i testy jednostkowe w kodzie aplikacji. Potok testuje aplikacje i szablony lints wieloetapowe dockerfile i Helm używane do wdrożenia w środowisku Kubernetesu. Obrazy platformy Docker powinny być kompilowane i testowane, ale nie wypychane. Przechowuj czas trwania potoku stosunkowo krótko, aby umożliwić szybką iterację.
 ### <a name="ci-pipeline"></a>Potok elementu konfiguracji

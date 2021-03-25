@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 1fcc918e5b4b54a415fed0f38d210aeeaa62c008
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00e0d1afa2aa035fe27e73dae60e291ea53bd6b8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101680306"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042853"
 ---
 # <a name="what-is-routing-preference-unmetered"></a>Czym jest nietaryfowa preferencja routingu?
 
@@ -45,4 +45,4 @@ Możesz również włączyć preferencję routingu dla konta magazynu i opubliko
 
 * [Konfigurowanie preferencji routingu dla maszyny wirtualnej przy użyciu Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Konfigurowanie preferencji routingu dla maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure](configure-routing-preference-virtual-machine-cli.md)
-* [Skonfiguruj preferencję routingu dla konta magazynu](/azure/storage/common/network-routing-preference)
+* [Skonfiguruj preferencję routingu dla konta magazynu](../storage/common/network-routing-preference.md)

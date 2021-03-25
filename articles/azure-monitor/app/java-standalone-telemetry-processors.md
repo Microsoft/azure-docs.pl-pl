@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 991e52c13a5730b83552abb6b922d4d7a57c5429
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734574"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024119"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesory telemetrii (wersja zapoznawcza) — Azure Monitor Application Insights dla środowiska Java
 
@@ -21,10 +21,13 @@ ms.locfileid: "101734574"
 Agent Java 3,0 dla Application Insights może przetwarzać dane telemetryczne przed wyeksportowaniem danych.
 
 Poniżej przedstawiono niektóre przypadki użycia dla procesorów telemetrii:
- * Utwórz poufne dane.
+ * Maskowanie poufnych danych.
  * Warunkowo Dodaj niestandardowe wymiary.
  * Zaktualizuj nazwę zakresu, która jest używana do agregowania podobnej telemetrii w Azure Portal.
- * Porzuć atrybuty zakresu, aby kontrolować koszty pozyskiwania.
+ * Porzuć określone atrybuty zakresu, aby kontrolować koszty pozyskiwania.
+
+> [!NOTE]
+> Jeśli chcesz porzucić konkretne (całkowite) zakresy kontroli kosztów pozyskiwania, zobacz [zastępowanie próbek](./java-standalone-sampling-overrides.md).
 
 ## <a name="terminology"></a>Terminologia
 

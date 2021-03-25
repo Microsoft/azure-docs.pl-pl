@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 085f3a5295d60b83536683a57a34b51abccd3067
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453771"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043023"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -74,7 +74,7 @@ Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli masz własną lic
 1. Upewnij się, że maszyna spełnia wymagania wymagane przez usługę Defender for Endpoint:
 
     - Dla **wszystkich wersji systemu Windows**:
-        - Konfigurowanie ustawień sieci opisanych w temacie [Konfigurowanie serwera proxy urządzenia i ustawień łączności z Internetem](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+        - Konfigurowanie ustawień sieci opisanych w temacie [Konfigurowanie serwera proxy urządzenia i ustawień łączności z Internetem](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
         - Jeśli program Defender jest wdrażany na maszynach lokalnych, połącz go z usługą Azure Arc zgodnie z opisem w temacie [łączenie maszyn hybrydowych z serwerami z obsługą usługi Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
     - Ponadto w przypadku **maszyn z systemem Windows Server 2019** upewnij się, że są uruchomione prawidłowy Agent i mają rozszerzenie MicrosoftMonitoringAgent
 

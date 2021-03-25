@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 6f0a94daef8c5db820a17fe8cb50eda616bcf260
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 70b56e70ec0e6f511142c48cc89720c054807a5c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453982"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042802"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń
 
@@ -64,7 +64,7 @@ Na karcie **Ustawianie logiki reguły** można napisać zapytanie bezpośrednio 
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Konfigurowanie logiki i ustawień reguły zapytania" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
-- Oto inne przykładowe zapytanie, które będzie powiadamiać o utworzeniu nietypowej liczby zasobów w [działaniu platformy Azure](../azure-monitor/platform/activity-log.md).
+- Oto inne przykładowe zapytanie, które będzie powiadamiać o utworzeniu nietypowej liczby zasobów w [działaniu platformy Azure](../azure-monitor/essentials/activity-log.md).
 
     ```kusto
     AzureActivity

@@ -3,18 +3,18 @@ title: Samouczek — eksportowanie danych z usługi Azure Cost Management i zarz
 description: W tym artykule pokazano, jak eksportować dane usługi Azure Cost Management i zarządzać nimi, aby można było używać ich w systemach zewnętrznych.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/7/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e3c1fa071cd23b871f754e89d6f17eb2cc44b394
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: a386b214c4372c9d8de729a8b6bed4aac9edd9f3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400356"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043465"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Samouczek: Eksportowanie danych i zarządzanie nimi
 
@@ -80,6 +80,8 @@ Nowy eksport pojawi się na liście eksportów. Domyślnie nowe zadania eksportu
 Początkowo uruchomienie eksportu może zająć od 12 do 24 godzin. Jednak wyświetlenie danych w wyeksportowanych plikach może potrwać dłużej.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+W przypadku programistycznego tworzenia eksportu należy ręcznie zarejestrować `Microsoft.CostManagementExports` dostawcę zasobów w ramach subskrypcji, w której znajduje się konto magazynu. Rejestracja odbywa się automatycznie podczas tworzenia eksportu przy użyciu Azure Portal. Aby uzyskać więcej informacji na temat rejestrowania dostawców zasobów, zobacz [Rejestrowanie dostawcy zasobów](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
 
@@ -148,6 +150,8 @@ az costmanagement export delete --name DemoExport --scope "subscriptions/0000000
 ```
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+W przypadku programistycznego tworzenia eksportu należy ręcznie zarejestrować `Microsoft.CostManagementExports` dostawcę zasobów w ramach subskrypcji, w której znajduje się konto magazynu. Rejestracja odbywa się automatycznie podczas tworzenia eksportu przy użyciu Azure Portal. Aby uzyskać więcej informacji na temat rejestrowania dostawców zasobów, zobacz [Rejestrowanie dostawcy zasobów](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 Rozpocznij od przygotowania środowiska pod kątem programu Azure:
 

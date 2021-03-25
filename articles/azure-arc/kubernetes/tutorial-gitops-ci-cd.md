@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 72caca47cde960eb7298ec2cf0c6994755cb3159
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f720cc196f4034d29ec1d628e28d3534b10f3e41
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121613"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025819"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Samouczek: implementowanie ciągłej integracji/ciągłego wdrażania za pomocą GitOps przy użyciu klastrów Kubernetes z obsługą usługi Azure Arc
 
@@ -37,12 +37,12 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 W tym samouczku założono znajomość DevOps, Azure Repos i potoków platformy Azure oraz interfejsu wiersza polecenia platformy Azure.
 
 * Zaloguj się do [Azure DevOps Services](https://dev.azure.com/).
-* Wykonaj [poprzedni samouczek](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) , aby dowiedzieć się, jak wdrożyć GitOps dla środowiska Ci/CD.
-* Zapoznaj się z [zaletami i architekturą](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) tej funkcji.
+* Wykonaj [poprzedni samouczek](./tutorial-use-gitops-connected-cluster.md) , aby dowiedzieć się, jak wdrożyć GitOps dla środowiska Ci/CD.
+* Zapoznaj się z [zaletami i architekturą](./conceptual-configurations.md) tej funkcji.
 * Sprawdź, czy masz:
-  * [Połączony klaster Kubernetes z obsługą usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) o nazwie **Arc-cicd-Cluster**.
-  * Połączone Azure Container Registry (ACR) z [integracją AKS](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) lub [uwierzytelnianiem klastra innym niż AKS](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes).
-  * Uprawnienia "Administrator kompilacji" i "Administrator projektu" dla [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) i [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
+  * [Połączony klaster Kubernetes z obsługą usługi Azure Arc](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) o nazwie **Arc-cicd-Cluster**.
+  * Połączone Azure Container Registry (ACR) z [integracją AKS](../../aks/cluster-container-registry-integration.md) lub [uwierzytelnianiem klastra innym niż AKS](../../container-registry/container-registry-auth-kubernetes.md).
+  * Uprawnienia "Administrator kompilacji" i "Administrator projektu" dla [Azure Repos](/azure/devops/repos/get-started/what-is-repos) i [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Zainstaluj następujące rozszerzenia interfejsu wiersza polecenia usługi Azure Arc Kubernetes dla wersji >= 1.0.0:
 
   ```azurecli
@@ -67,7 +67,7 @@ Zaimportuj [repozytorium aplikacji](https://docs.microsoft.com/azure/azure-arc/k
    * Adres URL: https://github.com/Azure/arc-cicd-demo-gitops
    * Działa jako podstawa dla zasobów klastra, które są przechowywane w aplikacji do głosowania platformy Azure.
 
-Dowiedz się więcej o [importowaniu repozytoriów usługi git](https://docs.microsoft.com/azure/devops/repos/git/import-git-repository).
+Dowiedz się więcej o [importowaniu repozytoriów usługi git](/azure/devops/repos/git/import-git-repository).
 
 >[!NOTE]
 > Importowanie i używanie dwóch oddzielnych repozytoriów dla repozytoriów aplikacji i GitOps może poprawić bezpieczeństwo i prostotę. Uprawnienia i widoczność repozytoriów aplikacji i GitOps można dostrajać pojedynczo.
@@ -86,7 +86,7 @@ Utworzone połączenie GitOps będzie automatycznie:
 Przepływ pracy ciągłej integracji/ciągłego zapełni katalog manifestu dodatkowymi manifestami w celu wdrożenia aplikacji.
 
 
-1. [Utwórz nowe połączenie usługi GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) z nowo zaimportowanym repozytorium **Arc-cicd-Demonstracja GitOps** w Azure Repos.
+1. [Utwórz nowe połączenie usługi GitOps](./tutorial-use-gitops-connected-cluster.md) z nowo zaimportowanym repozytorium **Arc-cicd-Demonstracja GitOps** w Azure Repos.
 
    ```azurecli
    az k8sconfiguration create \
@@ -172,7 +172,7 @@ kubectl create secret docker-registry <secret-name> \
 ## <a name="create-environment-variable-groups"></a>Tworzenie grup zmiennych środowiskowych
 
 ### <a name="app-repo-variable-group"></a>Grupa zmiennych repozytorium aplikacji
-[Utwórz grupę zmiennych](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups) o nazwie **AZ-głosowa-App-dev**. Ustaw następujące wartości:
+[Utwórz grupę zmiennych](/azure/devops/pipelines/library/variable-groups) o nazwie **AZ-głosowa-App-dev**. Ustaw następujące wartości:
 
 | Zmienna | Wartość |
 | -------- | ----- |
@@ -182,13 +182,13 @@ kubectl create secret docker-registry <secret-name> \
 | ENVIRONMENT_NAME | Deweloperskie |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | Parametry połączenia git dla repozytorium GitOps |
-| Osobisty token dostępu | [Utworzony token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?#create-a-pat) źródła danych z uprawnieniami do odczytu i zapisu. Zapisz go do późniejszego użycia podczas tworzenia `stage` grupy zmiennych. |
+| Osobisty token dostępu | [Utworzony token](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) źródła danych z uprawnieniami do odczytu i zapisu. Zapisz go do późniejszego użycia podczas tworzenia `stage` grupy zmiennych. |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
 > [!IMPORTANT]
-> Oznacz swoją wartość jako typ wpisu tajnego. W aplikacjach należy rozważyć łączenie wpisów tajnych z [magazynu kluczy platformy Azure](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
+> Oznacz swoją wartość jako typ wpisu tajnego. W aplikacjach należy rozważyć łączenie wpisów tajnych z [magazynu kluczy platformy Azure](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
 >
 ### <a name="stage-environment-variable-group"></a>Grupa zmiennych środowiskowych etapów
 
@@ -255,7 +255,7 @@ Jeśli środowisko deweloperskie ujawnia przerwanie po wdrożeniu, zachowaj je w
 1. Podaj osoby zatwierdzające i opcjonalną wiadomość.
 1. Wybierz pozycję **Utwórz** ponownie, aby ukończyć Dodawanie ręcznego sprawdzania zatwierdzania.
 
-Aby uzyskać więcej informacji, zobacz samouczek [Definiuj zatwierdzenie i sprawdzanie](https://docs.microsoft.com/azure/devops/pipelines/process/approvals) .
+Aby uzyskać więcej informacji, zobacz samouczek [Definiuj zatwierdzenie i sprawdzanie](/azure/devops/pipelines/process/approvals) .
 
 Po następnym uruchomieniu potoku dysku CD potok zostanie wstrzymany po utworzeniu żądania ściągnięcia GitOps. Sprawdź, czy zmiana została prawidłowo zsynchronizowana i przeszedł podstawową funkcję. Zatwierdź sprawdzenie z potoku, aby umożliwić zmianę przepływu zmian do następnego środowiska.
 
@@ -291,7 +291,7 @@ Błędy znalezione podczas wykonywania potoku pojawiają się w sekcji wyniki te
 Po zakończeniu przebiegu potoku masz pewność, że jakość kodu aplikacji i szablon, który zostanie wdrożony. Teraz możesz zatwierdzić i zakończyć żądanie ściągnięcia. Przed wyzwoleniem potoku dysku CD zostanie ponownie uruchomiony element konfiguracji i manifesty.
 
 > [!TIP]
-> W rzeczywistym środowisku nie zapomnij ustawić zasad gałęzi, aby upewnić się, że żądanie ściągnięcia przekazuje kontrolę jakości. Aby uzyskać więcej informacji, zobacz artykuł [Ustawianie zasad gałęzi](https://docs.microsoft.com/azure/devops/repos/git/branch-policies) .
+> W rzeczywistym środowisku nie zapomnij ustawić zasad gałęzi, aby upewnić się, że żądanie ściągnięcia przekazuje kontrolę jakości. Aby uzyskać więcej informacji, zobacz artykuł [Ustawianie zasad gałęzi](/azure/devops/repos/git/branch-policies) .
 
 ## <a name="cd-process-approvals"></a>Zatwierdzenia procesów dysku CD
 

@@ -246,6 +246,8 @@
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
             - name: Łączenie z konsolą maszyny wirtualnej
               href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+            - name: Zarządzanie interfejsami sieciowymi
+              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
         - name: Zarządzanie certyfikatami
           items:
             - name: Wymagania

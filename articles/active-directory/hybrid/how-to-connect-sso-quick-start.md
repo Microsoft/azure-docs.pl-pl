@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c320c8497506a0269e65cd79e18aea1972354729
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589526"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043941"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
@@ -43,7 +43,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
     >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](./reference-connect-version-history.md) , aby dowiedzieć się więcej.
     
     >[!NOTE]
-    >Jeśli masz wychodzący serwer proxy HTTP, upewnij się, że ten adres URL to autologon.microsoftazuread-sso.com, listy dozwolonych. Należy jawnie określić ten adres URL, ponieważ symbol wieloznaczny nie może zostać zaakceptowany. 
+    >Jeśli masz wychodzący serwer proxy HTTP, upewnij się, że ten adres URL, autologon.microsoftazuread-sso.com, znajduje się na liście dozwolonych. Należy jawnie określić ten adres URL, ponieważ symbol wieloznaczny nie może zostać zaakceptowany. 
 
 * **Użyj obsługiwanej topologii Azure AD Connectej**: Upewnij się, że używasz jednej z Azure AD Connect obsługiwanych topologii opisanych [tutaj](plan-connect-topologies.md).
 

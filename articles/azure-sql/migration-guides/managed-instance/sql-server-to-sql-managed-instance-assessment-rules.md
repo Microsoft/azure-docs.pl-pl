@@ -1,5 +1,5 @@
 ---
-title: Reguły oceny dla SQL Server do migracji wystąpienia zarządzanego SQL
+title: Reguły oceny dla SQL Server do migracji wystąpienia zarządzanego Azure SQL
 description: Reguły oceny umożliwiające zidentyfikowanie problemów z wystąpieniem źródłowego SQL Server, które należy rozwiązać przed migracją do wystąpienia zarządzanego usługi Azure SQL.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: 760a6496ff297ae6328810589f780b430d55b18a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054726"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026040"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-managed-instance-migration"></a>Reguły oceny dla SQL Server do migracji wystąpienia zarządzanego SQL
+# <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Reguły oceny dla SQL Server do migracji wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Narzędzia migracji sprawdzają poprawność wystąpienia SQL Server źródłowego, uruchamiając kilka reguł oceny, aby zidentyfikować problemy, które należy rozwiązać przed migracją bazy danych SQL Server do wystąpienia zarządzanego Azure SQL. 
