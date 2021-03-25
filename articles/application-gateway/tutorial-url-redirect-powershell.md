@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć bramę aplikacji z obsługą przekierow
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/19/2020
+ms.date: 03/24/2021
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 61a47f691d453218f06a5db4ad433b4760ebe265
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397072"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105038384"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą programu Azure PowerShell
 
@@ -392,6 +392,8 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się usługi IIS. Zestaw skalowania przypisuje się do puli zaplecza podczas konfigurowania ustawień adresu IP.
 
+\<username> \<password> Przed uruchomieniem skryptu Zastąp wartości i własnymi wartościami.
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -447,8 +449,8 @@ for ($i=1; $i -le 3; $i++)
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
-    -AdminUsername azureuser `
-    -AdminPassword "Azure123456!" `
+    -AdminUsername <username> `
+    -AdminPassword "<password>" `
     -ComputerNamePrefix myvmss$i
 
   Add-AzVmssNetworkInterfaceConfiguration `

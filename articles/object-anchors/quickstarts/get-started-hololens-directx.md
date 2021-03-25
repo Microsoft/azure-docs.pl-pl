@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b5db9f3766bdd7d754f49403665a371f9d10afd7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049670"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047613"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Szybki Start: Tworzenie aplikacji HoloLens przy użyciu kotwic obiektów platformy Azure w językach C++/WinRT i DirectX
 
@@ -34,7 +34,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 * Komputer z systemem Windows z zainstalowaną funkcją:
   * <a href="https://git-scm.com" target="_blank">Git dla systemu Windows</a>
   * <a href="https://www.visualstudio.com/downloads/" target="_blank">Program Visual Studio 2019</a> z obciążeniem **programowanie platforma uniwersalna systemu Windows** i składnikiem **Windows 10 SDK (10.0.18362.0 lub nowszym)**
-* Urządzenie HoloLens 2, które jest aktualne i ma włączony [Tryb dewelopera](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio#enabling-developer-mode) .
+* Urządzenie HoloLens 2, które jest aktualne i ma włączony [Tryb dewelopera](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) .
   * Aby zaktualizować do najnowszej wersji na serwerze HoloLens, Otwórz aplikację **Ustawienia** , przejdź do pozycji **Aktualizacja & zabezpieczenia**, a następnie wybierz pozycję **Sprawdź aktualizacje**.
 
 ## <a name="open-the-sample-project"></a>Otwieranie przykładowego projektu

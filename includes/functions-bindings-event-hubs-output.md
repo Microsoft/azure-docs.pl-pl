@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 9fca69804220021ca7935e562f2026c11749515a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cdd8b42f3ef7530809c50925c631b7aa90ee213c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102623459"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105900"
 ---
 Użyj powiązania danych wyjściowych Event Hubs do zapisywania zdarzeń w strumieniu zdarzeń. Musisz mieć uprawnienie do wysłania do centrum zdarzeń, aby zapisywać w nim zdarzenia.
 
@@ -265,14 +265,14 @@ Można użyć następujących typów parametrów dla powiązania danych wyjścio
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out string paramName` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. Aby napisać wiele komunikatów, można użyć `ICollector<string>` lub zamiast `IAsyncCollector<string>` `out string` .
 
 ### <a name="additional-types"></a>Dodatkowe typy 
-Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
+Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
@@ -283,14 +283,14 @@ Można użyć następujących typów parametrów dla powiązania danych wyjścio
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
 
 Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out string paramName` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. Aby napisać wiele komunikatów, można użyć `ICollector<string>` lub zamiast `IAsyncCollector<string>` `out string` .
 
 ### <a name="additional-types"></a>Dodatkowe typy 
-Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
+Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -316,6 +316,6 @@ Istnieją dwie opcje wyprowadzania komunikatu centrum zdarzeń z funkcji przy u�
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Dokumentacja |
+| Wiązanie | Odwołanie |
 |---|---|
 | Centrum zdarzeń | [Przewodnik obsługi](/rest/api/eventhub/publisher-policy-operations) |
