@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 40d9f03526e5232c0a7b33f64ff35a8501702609
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622110"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107754"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -23,9 +23,8 @@ ms.locfileid: "103622110"
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 8 z wywołującej biblioteki klienta.
+> Ten dokument używa wersji 1.0.0-beta. 8 zestawu SDK wywoływania.
 
-<!-- TODO: update with instructions on how to download, install and add package to project -->
 Znajdź na poziomie projektu Build. Gradle i upewnij się, że dodano `mavenCentral()` do listy repozytoriów w ramach `buildscript` i `allprojects`
 ```groovy
 buildscript {
@@ -59,11 +58,11 @@ dependencies {
 
 ## <a name="object-model"></a>Model obiektów
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta wywołującego usługi Azure Communications Services:
+Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK wywołującego usługi Azure Communications Services:
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
+| CallClient| CallClient jest głównym punktem wejścia do wywołującego zestawu SDK.|
 | CallAgent | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
 | CommunicationTokenCredential | CommunicationTokenCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier jest używany jako inny typ uczestnika, który mógłby być częścią wywołania.|
@@ -224,10 +223,10 @@ Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było 
 
 Aby zarejestrować się w celu otrzymywania powiadomień wypychanych, aplikacja musi wywołać `registerPushNotification()` wystąpienie *CallAgent* z tokenem rejestracji urządzenia.
 
-Aby uzyskać token rejestracji urządzenia, dodaj bibliotekę kliencką Firebase do pliku *Build. Gradle* modułu aplikacji, dodając następujące wiersze w sekcji, jeśli jeszcze `dependencies` tego nie zrobiono:
+Aby uzyskać token rejestracji urządzenia, Dodaj zestaw Firebase SDK do pliku *Build. Gradle* modułu aplikacji, dodając następujące wiersze w sekcji, jeśli jeszcze `dependencies` tego nie zrobiono:
 
 ```
-    // Add the client library for Firebase Cloud Messaging
+    // Add the SDK for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
@@ -244,7 +243,7 @@ Dodaj następującą wtyczkę na początku pliku, jeśli jeszcze jej nie ma:
 apply plugin: 'com.google.gms.google-services'
 ```
 
-Na pasku narzędzi wybierz pozycję *Synchronizuj teraz* . Dodaj następujący fragment kodu, aby uzyskać token rejestracji urządzenia wygenerowany przez bibliotekę klienta usługi Firebase Cloud Messaging dla wystąpienia aplikacji klienta, pamiętaj, aby dodać poniższe elementy Import do nagłówka głównego działania wystąpienia. Są one wymagane do pobrania tokenu dla fragmentu kodu:
+Na pasku narzędzi wybierz pozycję *Synchronizuj teraz* . Dodaj następujący fragment kodu, aby uzyskać token rejestracji urządzenia wygenerowany przez zestaw SDK usługi Firebase Cloud Messaging dla wystąpienia aplikacji klienckiej, pamiętaj o dodaniu poniższego importu do nagłówka głównego działania wystąpienia. Są one wymagane do pobrania tokenu dla fragmentu kodu:
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -272,7 +271,7 @@ Dodaj ten fragment kodu, aby pobrać token:
                     }
                 });
 ```
-Zarejestruj token rejestracji urządzenia z biblioteką klienta usługi wywołującej dla przychodzących powiadomień wypychanych:
+Zarejestruj token rejestracji urządzenia z zestawem SDK usługi wywoływania dla przychodzących powiadomień wypychanych:
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,7 +287,7 @@ catch(Exception e) {
 
 Aby odbierać przychodzące powiadomienia wypychane, wywołaj *handlePushNotification ()* w wystąpieniu *CallAgent* z ładunkiem.
 
-Aby uzyskać ładunek z usługi Firebase Cloud Messaging, Zacznij od utworzenia nowej usługi (plik > nowej usługi > usługi >), która rozszerza klasę *FirebaseMessagingService* Firebase i zastąpi `onMessageReceived` metodę. Ta metoda jest procedura obsługi zdarzeń wywoływana, gdy usługa Firebase Cloud Messaging dostarcza powiadomienia wypychane do aplikacji.
+Aby uzyskać ładunek z usługi Firebase Cloud Messaging, Zacznij od utworzenia nowej usługi (plik > nowej usługi > usługi >), która rozszerza klasę *FirebaseMessagingService* Firebase SDK i przesłoni `onMessageReceived` metodę. Ta metoda jest procedura obsługi zdarzeń wywoływana, gdy usługa Firebase Cloud Messaging dostarcza powiadomienia wypychane do aplikacji.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -318,7 +317,7 @@ Dodaj następującą definicję usługi do `AndroidManifest.xml` pliku, wewnątr
         </service>
 ```
 
-- Po pobraniu ładunku można go przesłać do biblioteki klienta *usług komunikacyjnych* w celu przeanalizowania do wewnętrznego obiektu *IncomingCallInformation* , który zostanie obsłużony przez wywołanie metody *handlePushNotification* w wystąpieniu *CallAgent* . `CallAgent`Wystąpienie jest tworzone przez wywołanie `createCallAgent(...)` metody `CallClient` klasy.
+- Po pobraniu ładunku można go przesłać do zestawu SDK *usług komunikacyjnych* w celu przeanalizowania do wewnętrznego obiektu *IncomingCallInformation* , który zostanie obsłużony przez wywołanie metody *handlePushNotification* w wystąpieniu *CallAgent* . `CallAgent`Wystąpienie jest tworzone przez wywołanie `createCallAgent(...)` metody `CallClient` klasy.
 
 ```java
 try {

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2cc0707c344c3ca537795666a3f60f648026596
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96467824"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043771"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>Korzystanie z lokalnego interfejsu użytkownika sieci Web do zarządzania łącznością bezprzewodową na urządzeniu Azure Stack Edge mini R
 
@@ -55,6 +55,8 @@ Wykonaj następujące kroki w lokalnym interfejsie użytkownika urządzenia, aby
     ![Lokalny interfejs użytkownika sieci Web "Port Wi-Fi Network Settings" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     Profil sieci bezprzewodowej zawiera informacje o identyfikatorze SSID (sieci), klucz hasła i zabezpieczeniach, które mają być w stanie połączyć się z siecią bezprzewodową. Możesz uzyskać profil Wi-Fi dla swojego środowiska z poziomu administratora sieci.
+
+    Aby uzyskać informacje na temat przygotowywania profilów Wi-Fi, zobacz [Używanie profilów Wi-Fi z urządzeniami Azure Stack Edge mini R](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
     ![Lokalny interfejs użytkownika sieci Web "Port Wi-Fi Network Settings" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 

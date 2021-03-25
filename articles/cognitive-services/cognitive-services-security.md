@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425298"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043882"
 ---
 # <a name="azure-cognitive-services-security"></a>Zabezpieczenia usługi Azure Cognitive Services
 
@@ -29,13 +29,13 @@ Wszystkie Cognitive Services punkty końcowe uwidocznione za pośrednictwem prot
 * Język (i platforma) służący do wywołania protokołu HTTP musi określić protokół TLS 1,2 w ramach żądania
   * W zależności od języka i platformy, określanie protokołu TLS jest wykonywane jawnie lub jawnie
 
-W przypadku użytkowników platformy .NET należy wziąć pod uwagę <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security najlepszych </a>rozwiązań.
+W przypadku użytkowników platformy .NET należy wziąć pod uwagę <a href="/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security najlepszych </a>rozwiązań.
 
 ## <a name="authentication"></a>Authentication
 
 Podczas omawiania uwierzytelniania istnieje kilka typowych nielicznych koncepcji. Uwierzytelnianie i autoryzacja są często mylone ze sobą. Tożsamość jest również głównym składnikiem zabezpieczeń. Tożsamość to zbiór informacji o <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">podmiotu zabezpieczeń </a>. Dostawcy tożsamości (dostawcy tożsamości) dostarczają tożsamości do usług uwierzytelniania. Uwierzytelnianie jest czynnością weryfikowania tożsamości użytkownika. Autoryzacja to specyfikacja praw dostępu i uprawnień do zasobów dla danej tożsamości. Niektóre oferty Cognitive Services obejmują kontrolę dostępu opartą na rolach (Azure RBAC). Korzystając z usługi Azure RBAC, można uprościć niektóre z procedury związanych z ręcznym zarządzaniem podmiotami zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure dla zasobów platformy Azure](../role-based-access-control/overview.md).
 
-Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu kluczy subskrypcji, tokenów dostępu i Azure Active Directory (AAD), zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">uwierzytelnianie żądań na platformie Azure Cognitive Services</a>.
+Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu kluczy subskrypcji, tokenów dostępu i Azure Active Directory (AAD), zobacz <a href="/azure/cognitive-services/authentication" target="_blank">uwierzytelnianie żądań na platformie Azure Cognitive Services</a>.
 
 ## <a name="environment-variables-and-application-configuration"></a>Zmienne środowiskowe i konfiguracja aplikacji
 
@@ -113,7 +113,7 @@ Aby uzyskać zmienną środowiskową, należy ją odczytać w pamięci. W zależ
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>Zobacz.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>Zobacz.
 
 ```cpp
 #include <stdlib.h>

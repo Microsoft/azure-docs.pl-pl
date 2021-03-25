@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 26124f8f650e1006244b4871e26962d417d90fd4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc1246d079760fd86513840aebbffa34d192f8ed
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054819"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044179"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Zarządzanie dostępem do danych wskaźnikowych platformy Azure według zasobu
 
@@ -36,7 +36,7 @@ Gdy użytkownicy mają dostęp do danych wskaźnikowych platformy Azure za pośr
 
 - **Za pośrednictwem Azure monitor**. Tej metody należy użyć, gdy chcesz utworzyć zapytania obejmujące wiele zasobów i/lub grup zasobów. Podczas nawigowania do dzienników i skoroszytów w Azure Monitor, zdefiniuj swój zakres do co najmniej jednej konkretnej grupy zasobów lub zasobów.
 
-Włącz funkcję RBAC dla kontekstu zasobów w Azure Monitor. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure monitor](/azure/azure-monitor/logs/manage-access).
+Włącz funkcję RBAC dla kontekstu zasobów w Azure Monitor. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure monitor](../azure-monitor/logs/manage-access.md).
 
 > [!NOTE]
 > Jeśli dane nie są zasobami platformy Azure, takimi jak dziennik systemowy, CEF lub AAD lub dane zbierane przez moduł zbierający niestandardowy, należy ręcznie skonfigurować identyfikator zasobu używany do identyfikowania danych i włączyć dostęp.
@@ -66,7 +66,7 @@ Na poniższej liście opisano scenariusze, w których inne rozwiązania do uzysk
 |---------|---------|
 |**Jednostka zależna ma zespół SOC, który wymaga pełnego środowiska Azure wskaźnikowego**.     |  W takim przypadku należy użyć architektury wieloskładnikowej w celu oddzielenia uprawnień do danych. <br><br>Aby uzyskać więcej informacji, zobacz: <br>- [Rozszerzona wskaźnik platformy Azure na obszary robocze i dzierżawy](extend-sentinel-across-workspaces-tenants.md)<br>    - [Pracuj ze zdarzeniami w wielu obszarach roboczych naraz](multiple-workspace-view.md)          |
 |**Chcesz zapewnić dostęp do określonego typu zdarzenia**.     |  Na przykład Podaj administratorowi systemu Windows dostęp do zdarzeń zabezpieczeń systemu Windows w obszarze Wszystkie systemy. <br><br>W takich przypadkach należy użyć [RBAC na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) , aby zdefiniować uprawnienia dla każdej tabeli.       |
-| **Ogranicz dostęp do bardziej szczegółowego poziomu, albo nie na podstawie zasobu, albo tylko do podzbioru pól w zdarzeniu**   |   Na przykład możesz chcieć ograniczyć dostęp do dzienników pakietu Office 365 w oparciu o jednostkę zależną użytkownika. <br><br>W takim przypadku należy zapewnić dostęp do danych przy użyciu wbudowanej integracji z [pulpitami nawigacyjnymi i raportami Power BI](/azure/azure-monitor/platform/powerbi).      |
+| **Ogranicz dostęp do bardziej szczegółowego poziomu, albo nie na podstawie zasobu, albo tylko do podzbioru pól w zdarzeniu**   |   Na przykład możesz chcieć ograniczyć dostęp do dzienników pakietu Office 365 w oparciu o jednostkę zależną użytkownika. <br><br>W takim przypadku należy zapewnić dostęp do danych przy użyciu wbudowanej integracji z [pulpitami nawigacyjnymi i raportami Power BI](../azure-monitor/visualize/powerbi.md).      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>Jawne konfigurowanie kontroli dostępu do kontekstu zasobów
@@ -77,11 +77,11 @@ Na przykład dane w obszarze roboczym wskaźnikowym platformy Azure, które nie 
 
 **Aby jawnie skonfigurować kontrolę kontekstu zasobów**:
 
-1. Upewnij się, że [włączono funkcję RBAC dla kontekstu zasobów](/azure/azure-monitor/platform/manage-access) w Azure monitor. 
+1. Upewnij się, że [włączono funkcję RBAC dla kontekstu zasobów](../azure-monitor/logs/manage-access.md) w Azure monitor. 
 
-1. [Utwórz grupę zasobów](/azure/azure-resource-manager/management/manage-resource-groups-portal) dla każdego zespołu użytkowników, którzy muszą uzyskać dostęp do zasobów bez całego środowiska wskaźnikowego platformy Azure.
+1. [Utwórz grupę zasobów](../azure-resource-manager/management/manage-resource-groups-portal.md) dla każdego zespołu użytkowników, którzy muszą uzyskać dostęp do zasobów bez całego środowiska wskaźnikowego platformy Azure.
 
-    Przypisz [uprawnienia odczytywania dziennika](/azure/azure-monitor/platform/manage-access#resource-permissions) dla każdego członka zespołu.
+    Przypisz [uprawnienia odczytywania dziennika](../azure-monitor/logs/manage-access.md#resource-permissions) dla każdego członka zespołu.
 
 1. Przypisz zasoby do utworzonych grup zespołu zasobów i Oznacz zdarzenia za pomocą odpowiednich identyfikatorów zasobów.
 
@@ -110,7 +110,7 @@ Jeśli masz wiele zespołów, upewnij się, że masz oddzielne maszyny wirtualne
 Na przykład oddzielenie maszyn wirtualnych zapewnia, że zdarzenia dziennika systemowego należące do zespołu A są zbierane przy użyciu maszyny wirtualnej modułu zbierającego A.
 
 > [!TIP]
-> - W przypadku korzystania z lokalnej maszyny wirtualnej lub innej maszyny wirtualnej w chmurze, takiej jak AWS, jako usługi przesyłania dalej dzienników upewnij się, że ma ona identyfikator zasobu przez implementację [usługi Azure Arc](/azure/azure-arc/servers/overview).
+> - W przypadku korzystania z lokalnej maszyny wirtualnej lub innej maszyny wirtualnej w chmurze, takiej jak AWS, jako usługi przesyłania dalej dzienników upewnij się, że ma ona identyfikator zasobu przez implementację [usługi Azure Arc](../azure-arc/servers/overview.md).
 > - Aby skalować środowisko maszyny wirtualnej do przekazywania dzienników, rozważ utworzenie [zestawu skalowania maszyn wirtualnych](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) w celu zebrania dzienników CEF i Sylog.
 
 
@@ -145,7 +145,7 @@ Na przykład poniższy kod przedstawia przykładowy plik konfiguracji logstash:
 >
 ### <a name="resource-ids-with-the-log-analytics-api-collection"></a>Identyfikatory zasobów z kolekcją interfejsów API Log Analytics
 
-Podczas zbierania przy użyciu [interfejsu API modułu zbierającego dane log Analytics](/azure/azure-monitor/platform/data-collector-api)można przypisać do zdarzeń z identyfikatorem zasobu przy użyciu nagłówka żądania HTTP [*x-MS-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) .
+Podczas zbierania przy użyciu [interfejsu API modułu zbierającego dane log Analytics](../azure-monitor/logs/data-collector-api.md)można przypisać do zdarzeń z identyfikatorem zasobu przy użyciu nagłówka żądania HTTP [*x-MS-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) .
 
 Jeśli używasz funkcji RBAC dla kontekstu zasobów i chcesz, aby zdarzenia zbierane przez interfejs API były dostępne dla określonych użytkowników, użyj identyfikatora zasobu grupy zasobów [utworzonej dla użytkowników](#explicitly-configure-resource-context-rbac).
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97588764"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045658"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Obsługa platformy zestawów SDK urządzeń Azure IoT
 
@@ -59,9 +59,9 @@ Dla każdego z wymienionych zestawów SDK firma Microsoft:
 
 | System operacyjny                  | Compiler                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2,7. *, 3,5 lub nowszy |
-| macOS High Sierra   | Python 2,7. *, 3,5 lub nowszy |
-| Rodzina systemów Windows 10   | Python 2,7. *, 3,5 lub nowszy |
+| Linux               | Python 2,7. *, 3,6 lub nowszy |
+| macOS High Sierra   | Python 2,7. *, 3,6 lub nowszy |
+| Rodzina systemów Windows 10   | Python 2,7. *, 3,6 lub nowszy |
 
 Tylko w wersji 3.5.3 lub nowszej obsługują asynchroniczne interfejsy API, zalecamy użycie wersji 3,7 lub nowszej.
 
@@ -69,7 +69,7 @@ Tylko w wersji 3.5.3 lub nowszej obsługują asynchroniczne interfejsy API, zale
 
 [Zestaw SDK urządzeń platformy Azure IoT Hub .NET (C#)](https://github.com/Azure/azure-iot-sdk-csharp) jest testowany z programem i obsługuje następujące konfiguracje.
 
-| System operacyjny                                   | Standardowa                                                   |
+| System operacyjny                                   | Standardowa (Standard)                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Jednostki SKU systemu Windows 10 dla komputerów stacjonarnych i serwerów   | .NET Core 2,1, .NET Framework 4.5.1 lub .NET Framework 4,7 |

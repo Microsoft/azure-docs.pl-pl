@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć monitorowanie klastra usługi Azure Ku
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: e84e1c4ad3aa3950a433218255ccac3d91435231
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101717676"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109628"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Włącz monitorowanie już wdrożonego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -21,6 +21,8 @@ Można włączyć monitorowanie klastra AKS, który jest już wdrożony przy uż
 * Terraform
 * [Z Azure monitor](#enable-from-azure-monitor-in-the-portal) lub [bezpośrednio z klastra AKS](#enable-directly-from-aks-cluster-in-the-portal) w Azure Portal
 * Za pomocą [podanego szablonu Azure Resource Manager](#enable-using-an-azure-resource-manager-template) przy użyciu polecenia cmdlet Azure PowerShell `New-AzResourceGroupDeployment` lub interfejsu wiersza polecenia platformy Azure.
+
+Jeśli łączysz istniejący klaster AKS z obszarem roboczym usługi Azure Log Analytics w innej subskrypcji, dostawca zasobów Microsoft. ContainerService musi być zarejestrowany w subskrypcji, w której został utworzony obszar roboczy Log Analytics. Aby uzyskać więcej informacji, zobacz [Rejestrowanie dostawcy zasobów](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

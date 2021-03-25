@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/04/2021
-ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183203"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047355"
 ---
 # <a name="configure-maintenance-window-preview"></a>Konfiguruj okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ Domyślne okno obsługi *systemu* to 17:00 8:00 (czas lokalny w regionie platfor
 Możliwość zmiany w innym oknie obsługi nie jest dostępna dla każdego poziomu usług lub w każdym regionie. Aby uzyskać szczegółowe informacje na temat dostępności, zobacz [dostępność okna obsługi](maintenance-window.md#availability).
 
 > [!Important]
-> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej pracy w trybie failover, która jest wykonywana na końcu operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ trybu failover, należy wykonać operację poza godzinami szczytu.
+> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej ponownej konfiguracji, która odbywa się na koniec operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ ponownej konfiguracji, należy wykonać operację poza godzinami szczytu.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Konfiguruj okno obsługi podczas tworzenia bazy danych 
 
@@ -257,7 +257,7 @@ Poniższy przykład tworzy nowe wystąpienie zarządzane i ustawia okno obsługi
 ## <a name="configure-maintenance-window-for-existing-databases"></a>Konfigurowanie okna obsługi dla istniejących baz danych
 
 
-Podczas stosowania wyboru okna obsługi do bazy danych w niektórych przypadkach może wystąpić krótki tryb failover (kilka sekund), ponieważ platforma Azure stosuje wymagane zmiany.
+Podczas stosowania wyboru okna obsługi do bazy danych w niektórych przypadkach może wystąpić krótka ponowna konfiguracja (kilka sekund), ponieważ platforma Azure stosuje wymagane zmiany.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

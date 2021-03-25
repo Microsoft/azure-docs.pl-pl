@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b725b7fcde8ad24934d74d3ce849260312d2f5f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101646558"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043618"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Samouczek: Konfigurowanie ochrony oszustwa systemu Microsoft Dynamics 365 za pomocą Azure Active Directory B2C
 
@@ -102,8 +102,8 @@ Skonfiguruj ustawienia aplikacji w [usłudze App Service na platformie Azure](..
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings: InstanceId | Konfiguracja programu Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Identyfikator klienta dotyczącego odcisku palca urządzenia firmy Microsoft |     |
-| FraudProtectionSettings:ApiBaseUrl |  Podstawowy adres URL z witryny Microsoft DFP Portal   | Usuń element "-int", aby wywołać produkcyjny interfejs API
-|  TokenProviderConfig: zasób | https://api.dfp.dynamics-int.com |   Usuń element "-int", aby wywołać produkcyjny interfejs API  |
+| FraudProtectionSettings:ApiBaseUrl |  Podstawowy adres URL z witryny Microsoft DFP Portal   | Usuń element "-int", aby wywołać produkcyjny interfejs API|
+|  TokenProviderConfig: zasób  |     | Usuń element "-int", aby wywołać produkcyjny interfejs API|
 |   TokenProviderConfig: ClientId       |Identyfikator aplikacji klienta usługi Azure AD dla handlowca ochrony oszustwa      |       |
 | TokenProviderConfig: Urząd | https://login.microsoftonline.com/<directory_ID> | Urząd dzierżawy usługi Azure AD w ramach ochrony oszustwa |
 | TokenProviderConfig: CertificateThumbprint * | Odcisk palca certyfikatu, który ma być używany do uwierzytelniania w aplikacji klienckiej usługi Azure AD dla sprzedawcy |
