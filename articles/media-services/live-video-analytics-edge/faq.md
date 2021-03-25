@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge często zadawane pytania — A
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące analizy filmów wideo na żywo na IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702253"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032804"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Analiza filmów wideo na żywo na IoT Edge często zadawane pytania
 
@@ -129,7 +129,7 @@ Rozwiązania różnią się w zależności od protokołu komunikacyjnego, który
    
 *Użyj protokołu gRPC*: 
 
-* W przypadku korzystania z usługi Live Video Analytics 1,0 w przypadku używania protokołu zdalnego wywołania procedury (gRPC), jedynym sposobem, aby to zrobić, jest to, że serwer gRPC uwidacznia różne modele AI za pośrednictwem różnych portów. W [tym przykładzie kodu](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json)pojedynczy port 44000 udostępnia wszystkie modele Yolo. Teoretycznie można napisać serwer Yolo gRPC w celu udostępnienia pewnych modeli na porcie 44000 i innych w porcie 45000. 
+* W przypadku korzystania z usługi Live Video Analytics 1,0 w przypadku używania protokołu zdalnego wywołania procedury (gRPC), jedynym sposobem, aby to zrobić, jest to, że serwer gRPC uwidacznia różne modele AI za pośrednictwem różnych portów. W [tym przykładzie kodu](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json)pojedynczy port 44000 udostępnia wszystkie modele Yolo. Teoretycznie można napisać serwer Yolo gRPC w celu udostępnienia pewnych modeli na porcie 44000 i innych w porcie 45000. 
 
 * W przypadku 2,0 modułu gRPC Video Analytics na żywo Nowa właściwość jest dodawana do węzła rozszerzenia. Ta właściwość, **extensionConfiguration**, jest opcjonalnym ciągiem, który może być używany jako część kontraktu gRPC. Jeśli masz wiele modeli AI spakowanych na pojedynczym serwerze wnioskowania, nie musisz ujawniać węzła dla każdego modelu AI. Zamiast tego dla wystąpienia grafu, jako dostawcy rozszerzeń, można zdefiniować sposób wybierania różnych modeli AI przy użyciu właściwości **extensionConfiguration** . Podczas wykonywania Analiza wideo na żywo przekazuje ten ciąg do serwera inferencing, który może go użyć do wywołania żądanego modelu AI. 
 

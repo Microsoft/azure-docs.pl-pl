@@ -3,12 +3,12 @@ title: Przewodnik rozwiązywania problemów dla Azure Service Bus | Microsoft Do
 description: Poznaj wskazówki dotyczące rozwiązywania problemów i zalecenia dotyczące kilku problemów, które mogą wystąpić podczas korzystania z Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179701"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031294"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Przewodnik rozwiązywania problemów Azure Service Bus
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów i zalecenia dotyczące kilku problemów, które mogą wystąpić podczas korzystania z Azure Service Bus. 
@@ -52,7 +52,7 @@ Poniższe kroki mogą pomóc w rozwiązywaniu problemów z łącznością/certyf
     ```
     Możesz użyć równoważnych poleceń, jeśli używasz innych narzędzi, takich jak `tnc` , `ping` , i tak dalej. 
 - Uzyskaj ślad sieci, jeśli poprzednie kroki nie pomagają i nie analizują go przy użyciu narzędzi, takich jak [Wireshark](https://www.wireshark.org/). W razie konieczności skontaktuj się z [Pomoc techniczna firmy Microsoft](https://support.microsoft.com/) . 
-- Aby znaleźć odpowiednie adresy IP do dodania do listy dozwolonych połączeń, zobacz [co to są adresy IP, które należy dodać do listy dozwolonych](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- Aby znaleźć odpowiednie adresy IP do dodania do dozwolonych dla połączeń, zobacz [co to są adresy IP, które należy dodać do dozwolonych](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemy, które mogą wystąpić w przypadku uaktualnień/ponownych uruchomień usług
@@ -98,6 +98,25 @@ Istnieje ograniczenie liczby tokenów używanych do wysyłania i odbierania wiad
 
 ### <a name="resolution"></a>Rozwiązanie
 Otwórz nowe połączenie z przestrzenią nazw Service Bus, aby wysłać więcej komunikatów.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>Dodawanie reguły sieci wirtualnej przy użyciu programu PowerShell kończy się niepowodzeniem
+
+### <a name="symptoms"></a>Objawy
+Skonfigurowano dwie podsieci z pojedynczej sieci wirtualnej w regule sieci wirtualnej. Próba usunięcia jednej podsieci przy użyciu polecenia cmdlet [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) nie powoduje usunięcia podsieci z reguły sieci wirtualnej. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>Przyczyna
+Identyfikator Azure Resource Manager określony dla podsieci może być nieprawidłowy. Może się tak zdarzyć, gdy sieć wirtualna znajduje się w innej grupie zasobów niż ta, która ma Service Bus przestrzeni nazw. Jeśli nie określisz jawnie grupy zasobów sieci wirtualnej, polecenie interfejsu wiersza polecenia konstruuje identyfikator Azure Resource Manager przy użyciu grupy zasobów przestrzeni nazw Service Bus. W związku z tym nie można usunąć podsieci z reguły sieci. 
+
+### <a name="resolution"></a>Rozwiązanie
+Określ pełny Azure Resource Manager identyfikator podsieci, która zawiera nazwę grupy zasobów, która ma sieć wirtualną. Na przykład:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły: 
