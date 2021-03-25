@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: daa89380894a57e58191edd95303a2160846da04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 80db53a5ed8d2edc90bc847578d5df4d603cc437
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492697"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107231"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Rozwiązywanie problemów w usłudze Azure Communications Services
 
@@ -33,11 +33,11 @@ Aby pomóc w rozwiązywaniu niektórych typów problemów, może zostać wyświe
 
 ## <a name="access-your-ms-cv-id"></a>Uzyskaj dostęp do identyfikatora MS-CV
 
-Identyfikator MS-CV można uzyskać, konfigurując diagnostykę w `clientOptions` wystąpieniu obiektu podczas inicjowania bibliotek klienckich. Diagnostykę można skonfigurować dla dowolnej biblioteki klienta platformy Azure, w tym rozmowy, tożsamości i VoIP.
+Identyfikator MS-CV można uzyskać, konfigurując diagnostykę w `clientOptions` wystąpieniu obiektu podczas inicjowania zestawów SDK. Diagnostykę można skonfigurować dla dowolnego z zestawów SDK platformy Azure, w tym rozmowy, tożsamości i połączeń VoIP.
 
 ### <a name="client-options-example"></a>Przykład opcji klienta
 
-Poniższe fragmenty kodu przedstawiają konfigurację diagnostyki. Gdy biblioteki klienckie są używane z włączoną diagnostyką, szczegóły diagnostyczne będą wysyłane do skonfigurowanego odbiornika zdarzeń:
+Poniższe fragmenty kodu przedstawiają konfigurację diagnostyki. Gdy zestawy SDK są używane z włączoną diagnostyką, szczegóły diagnostyczne będą wysyłane do skonfigurowanego odbiornika zdarzeń:
 
 # <a name="c"></a>[C#](#tab/csharp)
 ```
@@ -79,7 +79,7 @@ chat_client = ChatClient(
 
 ## <a name="access-your-call-id"></a>Dostęp do identyfikatora wywołania
 
-W przypadku zgłoszenia żądania pomocy technicznej przez Azure Portal związane z problemami z wywoływaniem może zostać wyświetlony monit o podanie identyfikatora wywołania, do którego się odwołujesz. Dostęp do niego można uzyskać za pomocą biblioteki wywołującej klienta:
+W przypadku zgłoszenia żądania pomocy technicznej przez Azure Portal związane z problemami z wywoływaniem może zostać wyświetlony monit o podanie identyfikatora wywołania, do którego się odwołujesz. Dostęp do niego można uzyskać za pomocą zestawu SDK wywołującego:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
@@ -127,7 +127,7 @@ console.log(result); // your message ID will be in the result
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy kod może służyć do konfigurowania `AzureLogger` programu w celu wysyłania dzienników do konsoli przy użyciu biblioteki klienckiej języka JavaScript:
+Poniższy kod może służyć do konfigurowania `AzureLogger` programu w celu wysyłania dzienników do konsoli przy użyciu zestawu JavaScript SDK:
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
@@ -157,16 +157,16 @@ Na Android Studio przejdź do Eksploratora plików urządzenia, wybierając pozy
 
 ---
 
-## <a name="calling-client-library-error-codes"></a>Kody błędów biblioteki klienta wywołującego
+## <a name="calling-sdk-error-codes"></a>Wywoływanie kodów błędów zestawu SDK
 
-Biblioteka klienta wywołującego usługi Azure Communication Services używa następujących kodów błędów, aby ułatwić rozwiązywanie problemów z wywoływaniem. Te kody błędów są udostępniane przez `call.callEndReason` Właściwość po zakończeniu wywołania.
+Zestaw SDK wywoływania usługi Azure Communication Services używa następujących kodów błędów, aby ułatwić rozwiązywanie problemów z wywoływaniem. Te kody błędów są udostępniane przez `call.callEndReason` Właściwość po zakończeniu wywołania.
 
 | Kod błędu | Opis | Akcja do wykonania |
 | -------- | ---------------| ---------------|
 | 403 | Niepowodzenie w przypadku niedostępności/uwierzytelniania. | Upewnij się, że token usług komunikacyjnych jest prawidłowy i nie wygasł. |
 | 404 | Nie znaleziono wywołania. | Upewnij się, że występuje numer wywoływany (lub wywołanie, do którego nastąpi połączenie). |
 | 408 | Przekroczono limit czasu kontrolera wywołań. | Upłynął limit czasu kontrolera wywołań podczas oczekiwania na komunikaty protokołu z punktów końcowych użytkownika. Upewnij się, że klienci są połączeni i dostępni. |
-| 410 | Błąd lokalnego stosu multimediów lub infrastruktury multimediów. | Upewnij się, że korzystasz z najnowszej biblioteki klienta w obsługiwanym środowisku. |
+| 410 | Błąd lokalnego stosu multimediów lub infrastruktury multimediów. | Upewnij się, że używasz najnowszego zestawu SDK w obsługiwanym środowisku. |
 | 430 | Nie można dostarczyć komunikatu do aplikacji klienckiej. | Upewnij się, że aplikacja kliencka jest uruchomiona i dostępna. |
 | 480 | Zdalny punkt końcowy klienta nie jest zarejestrowany. | Upewnij się, że zdalny punkt końcowy jest dostępny. |
 | 481 | Nie można obsłużyć wywołania przychodzącego. | Prześlij żądanie pomocy technicznej za pomocą Azure Portal. |

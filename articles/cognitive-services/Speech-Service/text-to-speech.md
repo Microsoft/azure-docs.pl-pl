@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: 7722c9387e8d6475c6da4c771e9a0e355a4ac0af
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e42f81ce0f06b3782972dbf4322f0590763d8704
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654853"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026329"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -41,7 +41,10 @@ Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany t
 
 * Dopasowywanie stylów mówiących za pomocą SSML-Speech SSMLing Language languageing jest językiem znaczników opartym na języku XML używanym do dostosowywania danych wyjściowych zamiany mowy na tekst. Za pomocą SSML można dostosować gęstość, dodać pauzy, poprawić wymowę, przyspieszyć lub spowalniać liczbę mówienia, zwiększyć lub zmniejszyć ilość, a także dodać wiele głosów do jednego dokumentu. Zapoznaj się z [tematem jak to zrobić](speech-synthesis-markup.md) , aby dopasować style odmowy.
 
-* Visemes- [visemes](how-to-speech-synthesis-viseme.md) to klucz dotyczący zaobserwowanej mowy, w tym pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem. Visemes mają silną korelację z głosymi i fonemów. Przy użyciu zdarzeń viseme w zestawie mowy SDK można generować dane animacji twarzy, które mogą służyć do animowania twarze na potrzeby komunikacji, edukacji, rozrywki i obsługi klienta w programie lip. 
+* Visemes- [visemes](how-to-speech-synthesis-viseme.md) to klucz dotyczący zaobserwowanej mowy, w tym pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem. Visemes mają silną korelację z głosymi i fonemów. Przy użyciu zdarzeń viseme w zestawie mowy SDK można generować dane animacji twarzy, które mogą służyć do animowania twarze na potrzeby komunikacji, edukacji, rozrywki i obsługi klienta w programie lip.
+
+> [!NOTE]
+> Viseme działa tylko `en-US-AriaNeural` w przypadku głosu w regionie zachodnie stany USA 2 ( `westus2` ).
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

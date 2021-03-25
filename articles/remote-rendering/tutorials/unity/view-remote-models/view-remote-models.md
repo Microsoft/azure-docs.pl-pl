@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3370aac242fb47a133a5f7d6dc9b3444c65e3691
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: dd3596dd7b2cd01e80d9cf4db9bbc179048e7fcf
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573119"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035969"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
@@ -33,10 +33,7 @@ W tym samouczku są potrzebne:
 * Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(pobieranie)](https://git-scm.com/downloads)
-* Aparat Unity, Najnowsza wersja 2019,3, zalecamy użycie centrum Unity dla tego [(pobieranie)](https://unity3d.com/get-unity/download)
-  * Zainstaluj te moduły w aparacie Unity:
-    * **Platformy UWP** — obsługa kompilacji platforma uniwersalna systemu Windows
-    * **IL2CPP** — obsługa kompilacji systemu Windows (IL2CPP)
+* Unity (zobacz [wymagania systemowe](../../../overview/system-requirements.md#unity) dla obsługiwanych wersji)
 * Pośrednia znajomość aparatu Unity i języka C# (na przykład: Tworzenie skryptów i obiektów przy użyciu prefabs, Konfigurowanie zdarzeń aparatu Unity itp.)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Inicjowanie obsługi zdalnego renderowania (ARR) na platformie Azure

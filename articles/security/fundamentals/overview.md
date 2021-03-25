@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564515"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047783"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 
@@ -204,11 +204,11 @@ Sieć platformy Azure obsługuje różne scenariusze bezpiecznego dostępu zdaln
 
 ### <a name="azure-private-link"></a>Link prywatny platformy Azure
 
-[Link prywatny platformy Azure](https://azure.microsoft.com/services/private-link/) umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerskich i firmowych platformy Azure w sieci wirtualnej za pośrednictwem [prywatnego punktu końcowego](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Konfiguracja i użycie przy użyciu prywatnego linku platformy Azure jest spójne w ramach usług Azure PaaS, należących do klienta i współużytkowanych partnerów. Ruch z sieci wirtualnej do usługi platformy Azure zawsze pozostaje w sieci szkieletowej Microsoft Azure.
+[Link prywatny platformy Azure](https://azure.microsoft.com/services/private-link/) umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerskich i firmowych platformy Azure w sieci wirtualnej za pośrednictwem [prywatnego punktu końcowego](../../private-link/private-endpoint-overview.md). Konfiguracja i użycie przy użyciu prywatnego linku platformy Azure jest spójne w ramach usług Azure PaaS, należących do klienta i współużytkowanych partnerów. Ruch z sieci wirtualnej do usługi platformy Azure zawsze pozostaje w sieci szkieletowej Microsoft Azure.
 
-[Prywatne punkty końcowe](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) umożliwiają zabezpieczenie najważniejszych zasobów usługi platformy Azure tylko do sieci wirtualnych. Prywatny punkt końcowy platformy Azure używa prywatnego adresu IP z sieci wirtualnej, aby połączyć się prywatnie i bezpiecznie do usługi obsługiwanej przez link prywatny platformy Azure, efektywnie udostępniając usługę w sieci wirtualnej. Udostępnienie sieci wirtualnej do publicznego Internetu nie jest już konieczne do korzystania z usług na platformie Azure. 
+[Prywatne punkty końcowe](../../private-link/private-endpoint-overview.md) umożliwiają zabezpieczenie najważniejszych zasobów usługi platformy Azure tylko do sieci wirtualnych. Prywatny punkt końcowy platformy Azure używa prywatnego adresu IP z sieci wirtualnej, aby połączyć się prywatnie i bezpiecznie do usługi obsługiwanej przez link prywatny platformy Azure, efektywnie udostępniając usługę w sieci wirtualnej. Udostępnienie sieci wirtualnej do publicznego Internetu nie jest już konieczne do korzystania z usług na platformie Azure. 
 
-Możesz również utworzyć własną prywatną usługę linku w sieci wirtualnej. [Usługa link prywatny platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-service-overview) to odwołanie do własnej usługi, która jest obsługiwana przez link prywatny platformy Azure. Usługa, która działa za usługa Load Balancer w warstwie Standardowa platformy Azure, może być włączona do prywatnego dostępu do łączy, dzięki czemu konsumenci usługi mogą uzyskiwać do nich dostęp prywatnie z własnych sieci wirtualnych. Klienci mogą utworzyć prywatny punkt końcowy wewnątrz sieci wirtualnej i zmapować ją na tę usługę. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne do renderowania usług na platformie Azure. 
+Możesz również utworzyć własną prywatną usługę linku w sieci wirtualnej. [Usługa link prywatny platformy Azure](../../private-link/private-link-service-overview.md) to odwołanie do własnej usługi, która jest obsługiwana przez link prywatny platformy Azure. Usługa, która działa za usługa Load Balancer w warstwie Standardowa platformy Azure, może być włączona do prywatnego dostępu do łączy, dzięki czemu konsumenci usługi mogą uzyskiwać do nich dostęp prywatnie z własnych sieci wirtualnych. Klienci mogą utworzyć prywatny punkt końcowy wewnątrz sieci wirtualnej i zmapować ją na tę usługę. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne do renderowania usług na platformie Azure. 
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 

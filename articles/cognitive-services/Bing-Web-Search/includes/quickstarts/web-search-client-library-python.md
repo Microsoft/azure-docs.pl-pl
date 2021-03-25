@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: db303d1e7bd5a9cb7b8441f0a5da634a13113066
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5d5aaf84482dae6786ac7fd9f9ee837efca71b34
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947379"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105556"
 ---
 Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją języka Python. Z tego przewodnika Szybki start dowiesz się, jak wysłać żądanie, odebrać odpowiedź JSON oraz filtrować i analizować wyniki.
 
@@ -21,9 +21,9 @@ Chcesz zobaczyć kod teraz? Przykłady dla [bibliotek klienta wyszukiwanie Bing 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Zestaw SDK wyszukiwania w Internecie Bing jest zgodny ze środowiskiem Python w wersjach 2.7, 3.3, 3.4, 3.5 i 3.6. Na potrzeby tego przewodnika Szybki start zalecamy używanie środowiska wirtualnego.
+Zestaw SDK wyszukiwanie w sieci Web Bing jest zgodny z językiem Python 2,7 lub 3.6 +. Na potrzeby tego przewodnika Szybki start zalecamy używanie środowiska wirtualnego.
 
-* Środowisko Python w wersji 2.7, 3.3, 3.4, 3.5 lub 3.6
+* Python 2,7 lub 3.6 +
 * [Moduł virtualenv](https://docs.python.org/3/tutorial/venv.html) dla środowiska Python w wersji 2.7
 * [Moduł venv](https://pypi.python.org/pypi/virtualenv) dla środowiska Python w wersji 3.x
 
@@ -318,6 +318,6 @@ Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji 
 > [!div class="nextstepaction"]
 > [Przykłady dotyczące zestawu SDK dla języka Python dla usług Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja zestawu Azure Python SDK](/python/api/azure-cognitiveservices-search-websearch/)

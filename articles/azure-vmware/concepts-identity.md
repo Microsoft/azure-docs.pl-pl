@@ -3,12 +3,12 @@ title: Pojęcia — tożsamość i dostęp
 description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: f3a79c79acef07721bd0883fa70c835bee14ef0d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 7b1880ccdee1d4c3ce25e264c004b1a949134a96
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799279"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026908"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
@@ -101,11 +101,11 @@ Użyj konta *administratora* , aby uzyskać dostęp do Menedżera NSX-T. Ma peł
 
 Teraz, gdy został objęty usługą Azure VMware dostęp do rozwiązań i pojęcia związane z tożsamościami, warto zapoznać się z tematem:
 
-- [Pojęcia dotyczące uaktualniania chmury prywatnej](concepts-upgrades.md).
-- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).
-- [Szczegóły każdego uprawnienia](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
-- [Sposób monitorowania i naprawiania chmur prywatnych przez rozwiązanie VMware firmy Azure](concepts-monitor-repair-private-cloud.md).
-- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md).
+- [Pojęcia dotyczące uaktualniania chmury prywatnej](concepts-upgrades.md)
+- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md)
+- [Szczegóły każdego uprawnienia](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Jak rozwiązanie VMware firmy Azure monitoruje i naprawia chmury prywatne](concepts-monitor-repair-private-cloud.md)
+- [Jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md)
 
 
 <!-- LINKS - external-->

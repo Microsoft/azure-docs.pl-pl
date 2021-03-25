@@ -3,12 +3,12 @@ title: Co nowego Informacje o wersji — Azure Event Grid
 description: Dowiedz się, co nowego w Azure Event Grid, takich jak Najnowsze informacje o wersji, znane problemy, poprawki błędów, przestarzałe funkcje i nadchodzące zmiany.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96350011"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107537"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Co nowego w Azure Event Grid?
 
@@ -73,14 +73,14 @@ Azure Event Grid w bieżąco otrzymuje ulepszenia. Aby zachować aktualność w 
 - Ta wersja odpowiada `2019-06-01` wersji interfejsu API.
 - Dodaje obsługę do następujących nowych funkcji:
     * [Domeny](event-domains.md)
-    * Podział na strony i filtr wyszukiwania dla operacji na liście zasobów. Aby zapoznać się z przykładem, zobacz [Tematy — lista według subskrypcji](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Podział na strony i filtr wyszukiwania dla operacji na liście zasobów. Aby zapoznać się z przykładem, zobacz [Tematy — lista według subskrypcji](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Service Bus Kolejka jako lokalizacja docelowa](handler-service-bus.md)
     * [Filtrowanie zaawansowane](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0 — wersja zapoznawcza (2019-03)
 - Ta wersja odpowiada wersji interfejsu API 2019-02-01-Preview.
 - Dodaje obsługę do następujących nowych funkcji:
-    * Podział na strony i filtr wyszukiwania dla operacji na liście zasobów. Aby zapoznać się z przykładem, zobacz [Tematy — lista według subskrypcji](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Podział na strony i filtr wyszukiwania dla operacji na liście zasobów. Aby zapoznać się z przykładem, zobacz [Tematy — lista według subskrypcji](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Ręczne tworzenie/usuwanie tematów domen](how-to-event-domains.md)
     * [Service Bus Kolejka jako lokalizacja docelowa](handler-service-bus.md)
 
