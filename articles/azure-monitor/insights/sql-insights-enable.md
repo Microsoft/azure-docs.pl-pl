@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889624"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025037"
 ---
 # <a name="enable-sql-insights-preview"></a>Włącz funkcję SQL Insights (wersja zapoznawcza)
 W tym artykule opisano sposób włączania usługi [SQL Insights](sql-insights-overview.md) w celu monitorowania wdrożeń SQL. Monitorowanie jest wykonywane z maszyny wirtualnej platformy Azure, która nawiązuje połączenie z wdrożeniami SQL i korzysta z dynamicznych widoków zarządzania (widoków DMV) w celu zbierania danych monitorowania. Można kontrolować, które zestawy danych są zbierane, oraz częstotliwość zbierania danych przy użyciu profilu monitorowania.
@@ -40,7 +40,7 @@ Sprawdź, czy użytkownik został utworzony.
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Sprawdź skrypt użytkownika telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
 ### <a name="azure-sql-managed-instance"></a>Wystąpienie zarządzane Azure SQL
-Zaloguj się do wystąpienia zarządzanego usługi Azure SQL i użyj programu [SSMS](../../azure-sql/database/connect-query-ssms.md) lub podobnego narzędzia, aby uruchomić Poniższy skrypt w celu utworzenia użytkownika monitorowania z wymaganymi uprawnieniami. Zamień *użytkownika* na nazwę użytkownika i *mystrongpassword* z hasłem.
+Zaloguj się do wystąpienia zarządzanego usługi Azure SQL i Użyj [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) lub podobnego narzędzia, aby uruchomić Poniższy skrypt w celu utworzenia użytkownika monitorowania z wymaganymi uprawnieniami. Zamień *użytkownika* na nazwę użytkownika i *mystrongpassword* z hasłem.
 
  
 ```
@@ -85,7 +85,7 @@ Na maszynach wirtualnych platformy Azure są spełnione następujące wymagania.
 > [!NOTE]
 > Rozmiar maszyny wirtualnej Standard_B2s (2 procesory CPU, 4 GiB pamięci) będzie obsługiwał maksymalnie 100 parametrów połączenia. Nie należy przydzielić więcej niż 100 połączeń do pojedynczej maszyny wirtualnej.
 
-Maszyny wirtualne muszą znajdować się w tej samej sieci wirtualnej co systemy SQL, aby umożliwić połączenie sieciowe w celu zbierania danych monitorowania. W przypadku używania maszyny wirtualnej monitorowania do monitorowania serwera SQL działającego na maszynach wirtualnych platformy Azure lub jako wystąpienia zarządzanego platformy Azure należy rozważyć umieszczenie maszyny wirtualnej monitorowania w grupie zabezpieczeń aplikacji lub tej samej sieci wirtualnej co te zasoby, aby nie trzeba było podawać punktu końcowego sieci publicznej na potrzeby monitorowania programu SQL Server. 
+W zależności od ustawień sieciowych zasobów SQL, maszyny wirtualne mogą wymagać umieszczenia w tej samej sieci wirtualnej co zasoby SQL, dzięki czemu mogą oni tworzyć połączenia sieciowe w celu zbierania danych monitorowania.  
 
 ## <a name="configure-network-settings"></a>Konfigurowanie ustawień sieciowych
 Każdy typ SQL oferuje metody monitorowania maszyny wirtualnej w celu bezpiecznego dostępu do bazy danych SQL.  W poniższych sekcjach opisano opcje oparte na typie języka SQL.
@@ -100,8 +100,6 @@ Aby uzyskać dostęp za pośrednictwem publicznego punktu końcowego, należy do
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Ustawienia zapory." lightbox="media/sql-insights-enable/firewall-settings.png":::
 
-> [!NOTE]
-> Usługa SQL Insights obecnie nie obsługuje prywatnego punktu końcowego platformy Azure dla Azure SQL Database.  Zalecamy używanie [tagów usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) w ustawieniach sieciowej grupy zabezpieczeń lub zapory sieci wirtualnej [obsługiwanych przez agenta Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).
 
 ### <a name="azure-sql-managed-instances"></a>Wystąpienia usługi Azure SQL Managed Instance 
 
@@ -213,12 +211,16 @@ Aby monitorować pomocniczą kopię zapasową, należy uwzględnić klucz-warto�
 
 
 
-## <a name="profile-created"></a>Utworzono profil 
-Wybierz pozycję **Dodaj monitorowanie maszyny wirtualnej** , aby skonfigurować maszynę wirtualną do zbierania danych z wdrożeń SQL. Nie powracaj do karty **Przegląd** .  W ciągu kilku minut w kolumnie Stan powinna zostać zmieniona wartość "zbieranie", dlatego dane dotyczące systemów wybranych do monitorowania powinny być widoczne.
+## <a name="monitoring-profile-created"></a>Utworzono profil monitorowania 
+
+Wybierz pozycję **Dodaj monitorowanie maszyny wirtualnej** , aby skonfigurować maszynę wirtualną do zbierania danych z zasobów SQL. Nie powracaj do karty **Przegląd** .  W ciągu kilku minut kolumna stan powinna ulec zmianie, aby można było odczytać "zbieranie" danych dotyczących zasobów SQL, które zostały wybrane do monitorowania.
 
 Jeśli nie widzisz danych, zobacz temat [Rozwiązywanie problemów z usługą SQL Insights](sql-insights-troubleshoot.md) w celu zidentyfikowania problemu. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Utworzono profil" lightbox="media/sql-insights-enable/profile-created.png":::
+
+> [!NOTE]
+> Jeśli musisz zaktualizować profil monitorowania lub parametry połączenia na maszynach wirtualnych monitorowania, możesz to zrobić za pomocą karty usługi SQL Insights **Zarządzanie profilem** .  Po zapisaniu aktualizacji zmiany zostaną zastosowane w ciągu około 5 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

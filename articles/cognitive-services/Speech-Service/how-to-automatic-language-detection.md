@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e62333f241cf24620773314fb7aa4846af651eaf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b558d4b3be64f82775eb9caf2f3ea8c5a8f95c6d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185873"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025224"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Automatyczne wykrywanie języka dla zamiany mowy na tekst
 
@@ -30,7 +30,7 @@ W tym artykule dowiesz się, jak `AutoDetectSourceLanguageConfig` utworzyć `Spe
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatyczne wykrywanie języka za pomocą zestawu Speech SDK
 
-Funkcja automatycznego wykrywania języka ma obecnie limit czterech języków po stronie usług. To ograniczenie należy wziąć pod uwagę podczas konstruowania `AudoDetectSourceLanguageConfig` obiektu. W poniższych przykładach utworzysz `AutoDetectSourceLanguageConfig` , a następnie użyjesz go do utworzenia `SpeechRecognizer` .
+Funkcja automatycznego wykrywania języka ma obecnie limit czterech języków po stronie usług. To ograniczenie należy wziąć pod uwagę podczas konstruowania `AutoDetectSourceLanguageConfig` obiektu. W poniższych przykładach utworzysz `AutoDetectSourceLanguageConfig` , a następnie użyjesz go do utworzenia `SpeechRecognizer` .
 
 > [!TIP]
 > Możesz również określić model niestandardowy, który ma być używany podczas wykonywania zamiany mowy na tekst. Aby uzyskać więcej informacji, zobacz [Korzystanie z modelu niestandardowego na potrzeby automatycznego wykrywania języka](#use-a-custom-model-for-automatic-language-detection).

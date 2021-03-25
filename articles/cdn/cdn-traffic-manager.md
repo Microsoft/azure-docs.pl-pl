@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777745"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034762"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Tryb failover w wielu punktach końcowych za pomocą usługi Azure Traffic Manager
 
@@ -94,7 +94,10 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
     > [!NOTE]
     > Jeśli Twoja domena jest obecnie aktywna i nie można jej przerwać, zrób to w ostatnim kroku. Przed zaktualizowaniem DNS domeny niestandardowej na Traffic Manager należy sprawdzić, czy są używane punkty końcowe sieci CDN i domeny usługi Traffic Manager.
     >
-
+   
+    > [!NOTE]
+    > W przypadku implemeting ten tryb failover scenerio oba punkty końcowe muszą znajdować się w różnych profilach, a różne profile powinny należeć do różnych dostawców usługi CDN, aby uniknąć konfliktów nazw domen.
+    > 
 
 2.  Z poziomu profilu Azure CDN wybierz pierwszy punkt końcowy usługi CDN (Akamai). Wybierz pozycję **Dodaj domenę niestandardową** i wprowadź **cdndemo101.dustydogpetcare.online**. Sprawdź, czy znacznik wyboru weryfikacji domeny niestandardowej jest zielony. 
 

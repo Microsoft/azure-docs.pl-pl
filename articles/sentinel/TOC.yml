@@ -320,7 +320,7 @@
         - name: Krótki przewodnik po języku zapytań Kusto
           href: /azure/data-explorer/kql-quick-reference
         - name: Optymalizacje zapytań w dzienniku Azure Monitor
-          href: /azure/azure-monitor/logs/query-optimization
+          href: ../azure-monitor/logs/query-optimization.md
     - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek
       href: ueba-enrichments.md
     - name: Mapowanie pola dziennika CEF
