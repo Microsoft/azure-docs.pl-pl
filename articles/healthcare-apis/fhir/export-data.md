@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a5b3daa499546f3a30b5a4d133d77786a1916b6a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045312"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559200"
 ---
 # <a name="how-to-export-fhir-data"></a>Jak wyeksportować dane FHIR
 
@@ -47,8 +47,7 @@ Ponadto sprawdzanie stanu eksportu za pośrednictwem adresu URL zwróconego prze
 
 Obecnie obsługujemy $export dla ADLS Gen2 włączonych kont magazynu z następującymi ograniczeniami:
 
-- Użytkownik nie może korzystać z [hierarchicznych przestrzeni nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace), ale nie ma sposobu na eksportowanie do określonego podkatalogu w kontenerze. Zapewniamy tylko możliwość kierowania określonego kontenera (w przypadku tworzenia nowego folderu dla każdego eksportu).
-
+- Użytkownik nie może korzystać z [hierarchicznych przestrzeni nazw](../../storage/blobs/data-lake-storage-namespace.md), ale nie ma sposobu na eksportowanie do określonego podkatalogu w kontenerze. Zapewniamy tylko możliwość kierowania określonego kontenera (w przypadku tworzenia nowego folderu dla każdego eksportu).
 - Po zakończeniu eksportu nigdy nie eksportuje niczego do tego folderu, ponieważ kolejne eksporty do tego samego kontenera będą znajdować się wewnątrz nowo utworzonego folderu.
 
 

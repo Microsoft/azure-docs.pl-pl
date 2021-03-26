@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 07310a5b6f275d4a35a3649c22aeea68045dde8b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca55b1df347b47a6eb82557658d59a3de666b703
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101662841"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558401"
 ---
 # <a name="azure-role-based-access-control-rbac-and-device-update"></a>Kontrola dostępu oparta na rolach (RBAC) na platformie Azure i aktualizacja urządzenia
 
@@ -39,7 +39,7 @@ Aktualizacja urządzenia używa również usługi Azure AD do uwierzytelniania w
 
 ### <a name="create-client-azure-ad-app"></a>Utwórz aplikacja usługi Azure AD klienta
 
-Aby zintegrować aplikację lub usługę z usługą Azure AD, [należy najpierw zarejestrować](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) aplikację w usłudze Azure AD. Konfiguracja aplikacji klienckiej różni się w zależności od używanego przepływu autoryzacji.  W poniższej konfiguracji przedstawiono wskazówki dotyczące korzystania z interfejsów API REST aktualizacji urządzenia.
+Aby zintegrować aplikację lub usługę z usługą Azure AD, [należy najpierw zarejestrować](../active-directory/develop/quickstart-register-app.md) aplikację w usłudze Azure AD. Konfiguracja aplikacji klienckiej różni się w zależności od używanego przepływu autoryzacji.  W poniższej konfiguracji przedstawiono wskazówki dotyczące korzystania z interfejsów API REST aktualizacji urządzenia.
 
 * Ustaw uwierzytelnianie klienta: "Przekieruj identyfikatory URI dla klienta natywnego lub internetowego".
 * Ustawianie uprawnień interfejsu API — aktualizacja urządzenia dla IoT Hub uwidacznia:

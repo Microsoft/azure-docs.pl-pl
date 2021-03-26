@@ -3,12 +3,12 @@ title: Obsługa warstwy archiwum (wersja zapoznawcza)
 description: Dowiedz się więcej o obsłudze warstwy Archiwum dla Azure Backup
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609856"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563977"
 ---
 # <a name="archive-tier-support-preview"></a>Obsługa warstwy archiwum (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Obsługiwani klienci:
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. Połącz się z platformą Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+1. Połącz się z platformą Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 1. Zaloguj się do subskrypcji:
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -128,7 +128,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 W przypadku punktów odzyskiwania w archiwum Azure Backup zapewnia zintegrowaną metodologię przywracania.
 
-Zintegrowane przywracanie jest procesem dwuetapowym. Pierwszy krok obejmuje ponownego wypełniania punktów odzyskiwania przechowywanych w archiwum i tymczasowe przechowywanie ich w warstwie Standardowa magazynu przez czas trwania (znany również jako czas odzyskiwania) od okresu od 10 do 30 dni. Wartość domyślna to 15 dni. Istnieją dwa różne priorytety uzupełniania — standardowy i wysoki priorytet. Dowiedz się więcej o [priorytecie](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier)ponownego uzupełniania.
+Zintegrowane przywracanie jest procesem dwuetapowym. Pierwszy krok obejmuje ponownego wypełniania punktów odzyskiwania przechowywanych w archiwum i tymczasowe przechowywanie ich w warstwie Standardowa magazynu przez czas trwania (znany również jako czas odzyskiwania) od okresu od 10 do 30 dni. Wartość domyślna to 15 dni. Istnieją dwa różne priorytety uzupełniania — standardowy i wysoki priorytet. Dowiedz się więcej o [priorytecie](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier)ponownego uzupełniania.
 
 >[!NOTE]
 >

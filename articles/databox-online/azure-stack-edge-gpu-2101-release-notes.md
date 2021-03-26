@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 84bf14caeec163c31004a430fa954fc36f4be68b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630371"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562787"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 — informacje o wersji
 
@@ -49,7 +49,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów w wersji 2101.
 |**3.**|Kubernetes |Rejestr kontenerów krawędzi nie działa, gdy jest włączony serwer proxy sieci Web.|Ta funkcja będzie dostępna w przyszłych wydaniach. |
 |**4.**|Kubernetes |Rejestr kontenerów krawędzi nie działa z modułami IoT Edge.| |
 |**5000.**|Kubernetes |Kubernetes nie obsługuje ":" w nazwach zmiennych środowiskowych, które są używane przez aplikacje platformy .NET. Jest to również wymagane w przypadku, gdy moduł IoT Edge Event Grid może działać na Azure Stack urządzeniu brzegowym i innych aplikacjach. Aby uzyskać więcej informacji, zobacz [dokumentację ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Zamień ciąg ":" przez podwójne podkreślenie. Aby uzyskać więcej informacji, zobacz [Kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**ust.** |Azure Arc + klaster Kubernetes |Domyślnie po `yamls` usunięciu zasobu z repozytorium git odpowiednie zasoby nie są usuwane z klastra Kubernetes.  |Aby zezwolić na usunięcie zasobów po ich usunięciu z repozytorium git, ustaw wartość `--sync-garbage-collection` w polu łuk OperatorParams. Aby uzyskać więcej informacji, zobacz [Usuwanie konfiguracji](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**ust.** |Azure Arc + klaster Kubernetes |Domyślnie po `yamls` usunięciu zasobu z repozytorium git odpowiednie zasoby nie są usuwane z klastra Kubernetes.  |Aby zezwolić na usunięcie zasobów po ich usunięciu z repozytorium git, ustaw wartość `--sync-garbage-collection` w polu łuk OperatorParams. Aby uzyskać więcej informacji, zobacz [Usuwanie konfiguracji](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**7.**|NFS |Aplikacje korzystające z instalacji udziałów NFS na urządzeniu do zapisywania danych powinny używać zapisu wyłącznego. Dzięki temu zapisy są zapisywane na dysku.| |
 |**0,8.**|Konfiguracja obliczeń |Konfiguracja obliczeń kończy się niepowodzeniem w konfiguracjach sieci, w których bramy lub przełączniki lub routery odpowiadają na żądania protokołu ARP (Address Resolution Protocol) dla systemów, które nie istnieją w sieci.| |
 |**9.**|Obliczenia i Kubernetes |Jeśli Kubernetes jest najpierw skonfigurowany na urządzeniu, przejmuje wszystkie dostępne procesory GPU. W związku z tym nie jest możliwe tworzenie Azure Resource Manager maszyn wirtualnych przy użyciu procesorów GPU po skonfigurowaniu Kubernetes. |Jeśli urządzenie ma 2 procesory GPU, można utworzyć 1 maszynę wirtualną, która używa procesora GPU, a następnie skonfigurować Kubernetes. W takim przypadku Kubernetes będzie używać pozostałego dostępnego 1 procesora GPU. |

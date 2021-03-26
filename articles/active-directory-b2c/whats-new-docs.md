@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 00be0a18984f1ad3eacf86a2cf3477d8b0d9065f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454621"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557874"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: co nowego
 
@@ -73,7 +73,7 @@ Zapoznaj się z nowościami w dokumentacji Azure Active Directory B2C. W tym art
 
 ### <a name="new-articles"></a>Nowe artykuły
 
-- [Tworzenie przepływu użytkownika w Azure Active Directory B2C](create-user-flow.md)
+- [Tworzenie przepływu użytkownika w Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
 - [Skonfiguruj rejestrację i logowanie za telefon na potrzeby przepływów użytkowników (wersja zapoznawcza)](phone-authentication-user-flows.md)
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
@@ -114,7 +114,7 @@ Zapoznaj się z nowościami w dokumentacji Azure Active Directory B2C. W tym art
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 - [Ustaw adresy URL przekierowania na b2clogin.com dla Azure Active Directory B2C](b2clogin.md)
 - [Zdefiniuj profil techniczny OpenID Connect Connect w zasadach niestandardowych Azure Active Directory B2C](openid-connect-technical-profile.md)
-- [Skonfiguruj konto i zaloguj się przy użyciu zasad niestandardowych w Azure AD B2C](phone-authentication.md)
+- [Skonfiguruj konto i zaloguj się przy użyciu zasad niestandardowych w Azure AD B2C](phone-authentication-user-flows.md)
 
 
 ## <a name="august-2020"></a>Sierpień 2020 r.

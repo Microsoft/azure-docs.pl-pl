@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97831554"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559370"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -139,7 +139,7 @@ Aby sprawdzić, przejdź do opcji ***system i Podgląd zdarzeń Dzienniki aplika
 
 Rozwiązanie:
 
-* Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Zmień zasady tworzenia kopii zapasowych, aby wykonywać kopie zapasowe w godzinach szczytu, gdy obciążenie maszyny wirtualnej jest najniższe.
 * Uaktualnij dyski platformy Azure, aby obsługiwać wyższe liczby operacji we/wy. [Dowiedz się więcej tutaj](../virtual-machines/disks-types.md)
 
@@ -371,12 +371,12 @@ Zazwyczaj Agent maszyny wirtualnej znajduje się już w maszynach wirtualnych ut
 #### <a name="windows-vms---set-up-the-agent"></a>Maszyny wirtualne z systemem Windows — Konfigurowanie agenta
 
 * Pobierz i zainstaluj [plik MSI agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aby zakończyć instalację, musisz mieć uprawnienia administratora.
-* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania należy [zaktualizować Właściwość maszyny wirtualnej](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) , aby wskazać, że Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Azure Resource Manager maszyn wirtualnych.
+* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania należy [zaktualizować Właściwość maszyny wirtualnej](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) , aby wskazać, że Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Azure Resource Manager maszyn wirtualnych.
 
 #### <a name="linux-vms---set-up-the-agent"></a>Maszyny wirtualne z systemem Linux — Konfigurowanie agenta
 
 * Zainstaluj najnowszą wersję agenta z repozytorium dystrybucji. Aby uzyskać szczegółowe informacje na temat nazwy pakietu, zobacz [repozytorium agentów systemu Linux](https://github.com/Azure/WALinuxAgent).
-* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [zaktualizuj właściwość VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) i sprawdź, czy Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Menedżer zasobów maszyn wirtualnych.
+* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [zaktualizuj właściwość VM](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) i sprawdź, czy Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Menedżer zasobów maszyn wirtualnych.
 
 ### <a name="update-the-vm-agent"></a>Aktualizowanie agenta maszyny wirtualnej
 

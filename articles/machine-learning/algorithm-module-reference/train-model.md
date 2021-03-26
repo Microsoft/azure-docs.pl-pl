@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2021
-ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224342"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562770"
 ---
 # <a name="train-model-module"></a>Moduł uczenia modelu
 
@@ -71,7 +71,7 @@ W Azure Machine Learning tworzenie i Używanie modelu uczenia maszynowego jest z
 
 Możliwość interpretowania modeli umożliwia comprehend modelu ML i przedstawia podstawową podstawę podejmowania decyzji w sposób zrozumiały dla ludzi.
 
-Moduł aktualnie **pouczenie modelu** obsługuje [Używanie pakietu do interpretacji w celu wyjaśnienia modeli ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Obsługiwane są następujące algorytmy wbudowane:
+Moduł aktualnie **pouczenie modelu** obsługuje [Używanie pakietu do interpretacji w celu wyjaśnienia modeli ml](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Obsługiwane są następujące algorytmy wbudowane:
 
 - Regresja liniowa
 - Regresja sieci neuronowej
@@ -87,7 +87,7 @@ Po zakończeniu przebiegu potoku można odwiedzić kartę **wyjaśnienia** w pra
 
 ![Zrzut ekranu przedstawiający wykresy wyjaśniające model](./media/module/train-model-explanations-tab.gif)
 
-Aby dowiedzieć się więcej o używaniu wyjaśnień modelowania w Azure Machine Learning, zapoznaj się z artykułem z artykułu jak [interpretować modele ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
+Aby dowiedzieć się więcej o używaniu wyjaśnień modelowania w Azure Machine Learning, zapoznaj się z artykułem z artykułu jak [interpretować modele ml](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Wyniki
 
@@ -101,4 +101,4 @@ Po przeszkoleniu modelu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

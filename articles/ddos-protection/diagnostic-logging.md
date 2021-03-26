@@ -3,7 +3,7 @@ title: Azure DDoS Protection Raporty standardowe i dzienniki przepływów
 description: Informacje o konfigurowaniu raportów i dzienników przepływów.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100591885"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567682"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Wyświetlanie i konfigurowanie rejestrowania diagnostycznego dotyczącego ataków DDoS
 
@@ -130,7 +130,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 
 Ten [szablon](https://aka.ms/ddosdiaglogs) służy do tworzenia definicji Azure Policy umożliwiającej automatyczne włączenie rejestrowania diagnostycznego dla wszystkich publicznych dzienników adresów IP w zdefiniowanym zakresie.
 
-[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
 
 ## <a name="view-log-data-in-workbooks"></a>Wyświetlanie danych dziennika w skoroszytach
 
@@ -144,7 +144,7 @@ Możesz łączyć dzienniki z platformą Azure, wyświetlać i analizować dane 
 
 Za pomocą [tego szablonu Azure Resource Manager (ARM)](https://aka.ms/ddosworkbook) można wdrożyć skoroszyt analizy ataków. Ten skoroszyt umożliwia wizualizację danych ataku w kilku panelach z możliwością filtrowania, aby łatwo zrozumieć, co to jest. 
 
-[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 ![Skoroszyt DDoS Protection](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 

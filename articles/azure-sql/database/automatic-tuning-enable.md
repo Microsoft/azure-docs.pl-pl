@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
-ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042525"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558282"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Włączanie dostrajania automatycznego w Azure Portal do monitorowania zapytań i zwiększania wydajności obciążeń
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -120,7 +120,7 @@ W przypadku komunikatów o błędach, które automatyczne zarządzanie rekomenda
 - Magazyn zapytań został zatrzymany, ponieważ wykorzystał przydzieloną przestrzeń dyskową.
 
 Aby rozwiązać ten problem, można rozważyć następujące czynności:
-- Wyczyść magazyn zapytań lub zmodyfikuj okres przechowywania danych na wartość "Auto" przy użyciu języka T-SQL. Zobacz jak [skonfigurować zalecane zasady przechowywania i przechwytywania dla magazynu zapytań](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Wyczyść magazyn zapytań lub zmodyfikuj okres przechowywania danych na wartość "Auto" przy użyciu języka T-SQL. Zobacz jak [skonfigurować zalecane zasady przechowywania i przechwytywania dla magazynu zapytań](./query-performance-insight-use.md#recommended-retention-and-capture-policy).
 - Użyj SQL Server Management Studio (SSMS) i wykonaj następujące kroki:
   - Połącz z Azure SQL Database
   - Kliknij prawym przyciskiem myszy bazę danych

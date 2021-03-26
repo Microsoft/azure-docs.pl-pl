@@ -3,19 +3,19 @@ title: Dokumentacja usługi Azure Percept
 summary: Usługa Azure Percept to kompleksowe rozwiązanie do kompilowania i wdrażania percepcji na podstawie systemu AI na krawędzi.
 metadata:
   title: Dokumentacja usługi Azure Percept
-  description: Usługa Azure Percept to kompleksowa platforma systemu AI.
+  description: Azure Percept to kompleksowa platforma do tworzenia i opracowywania oprogramowania.
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page
-  author: elqu20
-  ms.author: v-elqu
-  ms.date: 02/11/2021
-  ms.openlocfilehash: b979f147c67e8e877b5bb0e9d3dc557317c7aa50
-  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+  author: mimcco
+  ms.author: mimcco
+  ms.date: 03/25/2021
+  ms.openlocfilehash: 61e9d784d899cb8f0741f27aee0bdb7031bb37d1
+  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102097499"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105562549"
 landingContent:
 - title: Co to jest Azure Percept?
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: overview-azure-percept-studio.md
     - text: Omówienie zabezpieczeń usługi Azure Percept
       url: overview-percept-security.md
+    - text: Integracja 80/20
+      url: overview-8020-integration.md
 - title: Rozpoczynanie pracy z usługą Azure Percept DK
   linkLists:
   - linkListType: quickstart

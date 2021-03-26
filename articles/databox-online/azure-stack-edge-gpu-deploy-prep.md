@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a58146c2c8121f3f0e3b564caafbb09396d39672
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036048"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568549"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro z procesorem GPU 
 
@@ -47,8 +47,8 @@ W przypadku wdrożenia programu Azure Stack EDGE Pro należy najpierw przygotowa
 |**[6. Skonfiguruj ustawienia zabezpieczeń dla Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Skonfiguruj certyfikaty dla urządzenia. Korzystanie z certyfikatów generowanych przez urządzenia lub przenoszenie własnych certyfikatów.   |
 |**[7. Aktywuj Azure Stack Edge w wersji Pro](azure-stack-edge-gpu-deploy-activate.md)** |Aktywuj urządzenie przy użyciu klucza aktywacji z usługi. Urządzenie jest gotowe do skonfigurowania udziałów SMB lub NFS lub łączenia się za pośrednictwem interfejsu REST. |
 |**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Tworzony jest również klaster Kubernetes. |
-|**[9a. Transferowanie danych za pomocą udziałów brzegowych](azure-stack-edge-j-series-deploy-add-shares.md)** |Dodaj udziały i nawiąż z nimi połączenie za pomocą protokołu SMB lub NFS. |
-|**[9b. Transferowanie danych za pomocą kont magazynu Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Dodawanie kont magazynu i nawiązywanie połączenia z usługą BLOB Storage za pośrednictwem interfejsów API REST. |
+|**[9a. Transferowanie danych za pomocą udziałów brzegowych](./azure-stack-edge-gpu-deploy-add-shares.md)** |Dodaj udziały i nawiąż z nimi połączenie za pomocą protokołu SMB lub NFS. |
+|**[9b. Transferowanie danych za pomocą kont magazynu Edge](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Dodawanie kont magazynu i nawiązywanie połączenia z usługą BLOB Storage za pośrednictwem interfejsów API REST. |
 
 
 Teraz możesz zacząć zbierać informacje dotyczące konfiguracji oprogramowania dla urządzenia z usługą Azure Stack EDGE Pro.

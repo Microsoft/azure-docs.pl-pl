@@ -5,126 +5,122 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: b5add466a60bc855e08917d02fecaf60a35deeb1
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d0bb5c55d3f7ba0573dfe9b511f4d31dcc64ed85
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889573"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567835"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitoruj wdrożenia SQL za pomocą usługi SQL Insights (wersja zapoznawcza)
-Usługi SQL Insights monitorują wydajność i kondycję wdrożeń SQL.  Może ona pomóc zapewnić przewidywalną wydajność i dostępność ważnych obciążeń, które zostały utworzone wokół zaplecze SQL, identyfikując wąskie gardła i problemy z wydajnością. Usługi SQL Insights przechowują swoje dane w [dziennikach Azure monitor](../logs/data-platform-logs.md), co pozwala na dostarczanie zaawansowanej agregacji i filtrowania oraz analizowanie trendów danych w miarę upływu czasu. Te Azure Monitor dane można wyświetlić w widokach, które firma Microsoft udostępnia w ramach tej oferty, i można nawiązać do nich udział bezpośrednio w danych dziennika w celu uruchamiania zapytań i analizowania trendów.
+SQL Insights to kompleksowe rozwiązanie do monitorowania dowolnego produktu w [rodzinie usługi Azure SQL](../../azure-sql/index.yml). Usługi SQL Insights wykorzystują [dynamiczne widoki zarządzania](../../azure-sql/database/monitoring-with-dmvs.md) , aby uwidocznić dane potrzebne do monitorowania kondycji, diagnozowania problemów i dostrajania wydajności.  
 
-Usługa SQL Insights nie instaluje żadnych elementów we wdrożeniach usługi SQL IaaS. Zamiast tego używa dedykowanych maszyn wirtualnych monitorowania do zdalnego zbierania danych dla wdrożeń SQL PaaS i SQL IaaS.  Profil monitorowania usługi SQL Insights umożliwia zarządzanie zestawami danych, które mają być zbierane na podstawie typu SQL, w tym Azure SQL DB, wystąpienia zarządzanego usługi Azure SQL i programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure.
+Program SQL Insights wykonuje zdalne monitorowanie. Agenci monitorowania na dedykowanych maszynach wirtualnych nawiązują połączenie z zasobami SQL i zdalnie zbierają dane. Zebrane dane są przechowywane w [dziennikach Azure monitor](../logs/data-platform-logs.md), co umożliwia łatwą agregację, filtrowanie i analizę trendów. Zebrane dane można wyświetlić z [szablonu skoroszytu](../visualize/workbooks-overview.md)usługi SQL Insights lub można je oddzielać bezpośrednio do danych przy użyciu [zapytań dzienników](../logs/get-started-queries.md).
 
 ## <a name="pricing"></a>Ceny
+Usługi SQL Insights nie mają bezpośredniego kosztu. Wszystkie koszty są naliczane przez maszyny wirtualne, które zbierają dane, Log Analytics obszary robocze, które przechowują dane, oraz wszelkie reguły alertów skonfigurowane dla danych. 
 
-Nie ma bezpośredniego kosztu usługi SQL Insights, ale opłaty są naliczane za działanie w obszarze roboczym Log Analytics. W oparciu o Cennik opublikowany na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/)usługi SQL Insights są rozliczane za:
+**Maszyny wirtualne**
 
-- Dane pozyskane z agentów i przechowywane w obszarze roboczym.
-- Reguły alertów na podstawie danych dziennika.
-- Powiadomienia wysyłane z reguł alertów.
+W przypadku maszyn wirtualnych opłata jest naliczana zgodnie z cennikiem opublikowanym na [stronie cennika usługi Virtual Machines](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/). Liczba wymaganych maszyn wirtualnych zależy od liczby parametrów połączenia, które mają być monitorowane. Zalecamy przydzielenie 1 maszyny wirtualnej o rozmiarze Standard_B2s dla każdego ciągu połączenia 100. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące maszyny wirtualnej platformy Azure](sql-insights-enable.md#azure-virtual-machine-requirements) .
 
-Rozmiar dziennika jest różny w zależności od długości ciągu zbieranych danych i może zwiększyć się wraz z ilością działania bazy danych. 
+**Obszary robocze usługi Log Analytics**
+
+W przypadku obszarów roboczych Log Analytics opłaty są naliczone zgodnie z cennikiem opublikowanym na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Obszary robocze Log Analytics używane przez usługi SQL Insights będą powodować naliczanie opłat za pozyskiwanie i przechowywanie danych oraz (opcjonalnie) eksportowanie danych. Dokładne opłaty będą się różnić w zależności od ilości danych, które zostały odebrane, zachowane i wyeksportowane. Ilość tych danych będzie się różnić w zależności od aktywności bazy danych i ustawień kolekcji zdefiniowanych w [profilach monitorowania](sql-insights-enable.md#create-sql-monitoring-profile).
+
+**Zasady alertów**
+
+W przypadku reguł alertów w Azure Monitor opłaty są naliczone zgodnie z cennikiem opublikowanym na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Jeśli zdecydujesz się na [tworzenie alertów za pomocą usługi SQL Insights](sql-insights-alerts.md), nastąpi naliczanie opłat za wszystkie utworzone reguły alertów i powiadomienia.
 
 ## <a name="supported-versions"></a>Obsługiwane wersje 
 Usługi SQL Insights obsługują następujące wersje SQL Server:
-
 - SQL Server 2012 i nowsze
 
 Usługi SQL Insights obsługują SQL Server uruchomione w następujących środowiskach:
-
 - Azure SQL Database
 - Wystąpienie zarządzane Azure SQL
-- Maszyny wirtualne usługi Azure SQL
-- Maszyny wirtualne platformy Azure
+- SQL Server na platformie Azure Virtual Machines (SQL Server uruchomione na maszynach wirtualnych zarejestrowanych w dostawcy [maszyny wirtualnej SQL](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) )
+- Maszyny wirtualne platformy Azure (SQL Server uruchomione na maszynach wirtualnych, które nie są zarejestrowane w dostawcy [maszyny wirtualnej SQL](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) )
 
 Usługi SQL Insights nie obsługują ani nie ma ograniczonej obsługi dla następujących elementów:
-
-- SQL Server uruchomione na maszynach wirtualnych poza platformą Azure nie są obecnie obsługiwane.
-- Azure SQL Database pule elastyczne: ograniczona pomoc techniczna w publicznej wersji zapoznawczej. Będą w pełni obsługiwane w ogólnej dostępności.  
-- Wdrożenia bez usługi Azure SQL Server: podobnie jak Active Geo-DR, bieżąca agenci monitorowania uniemożliwią wdrażanie bezserwerowe w stanie uśpienia. Może to spowodować większe niż oczekiwane koszty wdrożeń bezserwerowych.  
-- Możliwe do odczytu serwery pomocnicze: obsługiwane są obecnie tylko typy wdrożeń z pojedynczym dodatkowym punktem końcowym do odczytu (Krytyczne dla działania firmy lub do skalowania). Gdy wdrożenia w ramach skalowania w poziomie obsługują nazwane repliki, będziemy mogli obsługiwać wiele pomocniczych punktów końcowych dla jednej logicznej bazy danych.  
-- Azure Active Directory: obecnie obsługujemy tylko nazwy logowania SQL dla agenta monitorowania. Planujemy obsługiwać usługi Azure Active Directory w nadchodzącym wydaniu i nie ma bieżącej obsługi uwierzytelniania maszyn wirtualnych SQL przy użyciu usługi Active Directory na kontrolerze domeny Bespoke.  
-
+- **Wystąpienia spoza platformy Azure**: SQL Server uruchomione na maszynach wirtualnych poza platformą Azure nie są obsługiwane
+- **Azure SQL Database pule elastyczne**: nie można zbierać metryk dla pul elastycznych. Nie można zbierać metryk dla baz danych w ramach pul elastycznych.
+- **Azure SQL Database niskie warstwy usług**: nie można zbierać metryk dla baz danych w [warstwach usług](../../azure-sql/database/resource-limits-dtu-single-databases.md) podstawowa, S0, S1 i S2
+- **Azure SQL Database warstwa bezserwerowa**: metryki można zbierać dla baz danych przy użyciu warstwy obliczeń bezserwerowych. Jednak proces zbierania metryk zresetuje czasomierz autopauzy, uniemożliwiając przechodzenie bazy danych do stanu autowstrzymania
+- **Repliki pomocnicze**: metryki można zbierać tylko dla jednej repliki pomocniczej na bazę danych. Jeśli baza danych ma więcej niż 1 replikę pomocniczą, można monitorować tylko 1.
+- **Uwierzytelnianie za pomocą Azure Active Directory**: jedyną obsługiwaną metodą [uwierzytelniania](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) dla monitorowania jest uwierzytelnianie SQL. W przypadku SQL Server na maszynie wirtualnej platformy Azure uwierzytelnianie przy użyciu Active Directory na niestandardowym kontrolerze domeny nie jest obsługiwane.  
 
 ## <a name="open-sql-insights"></a>Otwórz program SQL Insights
 Otwórz program SQL Insights, wybierając pozycję **SQL (wersja zapoznawcza)** z sekcji **Insights** w menu **Azure monitor** w Azure Portal. Kliknij kafelek, aby załadować środowisko dla typu monitorowanego serwera SQL.
 
 :::image type="content" source="media/sql-insights/portal.png" alt-text="Usługi SQL Insights w Azure Portal.":::
 
-
 ## <a name="enable-sql-insights"></a>Włącz usługi SQL Insights 
-Zobacz temat [Włączanie usługi SQL Insights](sql-insights-enable.md) , aby uzyskać szczegółową procedurę włączania usługi SQL Insights oprócz kroków związanych z rozwiązywaniem problemów.
+Zobacz temat [Włączanie usługi SQL Insights](sql-insights-enable.md) , aby uzyskać instrukcje dotyczące włączania usługi SQL Insights.
 
+## <a name="troubleshoot-sql-insights"></a>Rozwiązywanie problemów z usługą SQL Insights 
+Zobacz temat [Rozwiązywanie problemów z usługą SQL Insights](sql-insights-troubleshoot.md) , aby uzyskać instrukcje dotyczące rozwiązywania problemów z usługą SQL Insights.
 
 ## <a name="data-collected-by-sql-insights"></a>Dane zbierane przez usługi SQL Insights
+Program SQL Insights wykonuje zdalne monitorowanie. Nie instalujemy żadnych agentów na maszynach wirtualnych z systemem SQL Server. 
 
-Usługi SQL Insights obsługują tylko zdalną metodę monitorowania SQL. Nie instalujemy żadnych agentów na maszynach wirtualnych, na których jest uruchomiony SQL Server. Co najmniej jeden dedykowany maszyn wirtualnych monitorowania jest używany do zdalnego zbierania danych z zasobów SQL. 
+Usługi SQL Insights wykorzystują dedykowane maszyny wirtualne monitorowania do zdalnego zbierania danych z zasobów SQL. Dla każdej maszyny wirtualnej monitorowania zostanie zainstalowany [agent Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) i rozszerzenie usługi obciążenie Insights (WLI). Rozszerzenie WLI zawiera [agenta telegraf](https://www.influxdata.com/time-series-platform/telegraf/)Open Source. Usługi SQL Insights wykorzystują [reguły zbierania danych](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-overview) w celu określenia ustawień zbierania danych dla [wtyczki SQL Server](https://www.influxdata.com/integration/microsoft-sql-server/)telegraf.
 
-Na każdej z tych maszyn wirtualnych monitorowania jest na nich zainstalowany [agent Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) wraz z rozszerzeniem usługi obciążenia szczegółowe informacje (WLI). 
+Różne zestawy danych są dostępne dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server. W poniższych tabelach opisano dostępne dane. Można dostosować, które zestawy danych mają być zbierane, oraz częstotliwość zbierania podczas [tworzenia profilu monitorowania](sql-insights-enable.md#create-sql-monitoring-profile).
 
-Rozszerzenie WLI zawiera [agenta telegraf](https://www.influxdata.com/time-series-platform/telegraf/)Open Source.  Używamy [reguł zbierania danych](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-overview) w celu skonfigurowania [wtyczki wejściowej SqlServer](https://www.influxdata.com/integration/microsoft-sql-server/) w celu określenia danych do zebrania z usługi Azure SQL DB, wystąpienia zarządzanego usługi Azure SQL i SQL Server uruchomionego na maszynie wirtualnej platformy Azure. 
+Poniższe tabele zawierają następujące kolumny:
+- **Przyjazna nazwa**: Nazwa zapytania, jak pokazano na Azure Portal podczas tworzenia profilu monitorowania
+- **Nazwa konfiguracji**: Nazwa zapytania, jak pokazano na Azure Portal podczas edytowania profilu monitorowania
+- **Przestrzeń nazw**: Nazwa zapytania, która została znaleziona w obszarze roboczym log Analytics. Ten identyfikator jest wyświetlany w tabeli **InsighstMetrics** we `Namespace` właściwości w kolumnie. `Tags`
+- **Widoków DMV**: dynamiczne widoki zarządzane używane do tworzenia zestawu danych
+- **Domyślnie włączone**: niezależnie od tego, czy dane są zbierane domyślnie
+- **Częstotliwość zbierania domyślnego**: jak często dane są zbierane domyślnie
 
-Poniższe tabele podsumowują następujące elementy:
+### <a name="data-for-azure-sql-database"></a>Dane dla Azure SQL Database 
+| Przyjazna nazwa | Nazwa konfiguracji | Przestrzeń nazw | Dynamiczne widoki zarządzania | Włączona domyślnie | Domyślna częstotliwość zbierania |
+|:---|:---|:---|:---|:---|:---|
+| Statystyka oczekiwania bazy danych | AzureSQLDBWaitStats | sqlserver_azuredb_waitstats | sys.dm_db_wait_stats | Nie | NA |
+| Statystyka oczekiwania DBO | AzureSQLDBOsWaitstats | sqlserver_waitstats |sys.dm_os_wait_stats | Tak | 60 sekund |
+| Nadzorcy pamięci | AzureSQLDBMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Tak | 60 sekund |
+| Operacje we/wy bazy danych | AzureSQLDBDatabaseIO | sqlserver_database_io | sys.dm_io_virtual_file_stats<br>sys.database_files<br>tempdb.sys .database_files | Tak | 60 sekund |
+| Właściwości serwera | AzureSQLDBServerProperties | sqlserver_server_properties | sys.dm_os_job_object<br>sys.database_files<br>widoku. 6.5<br>widoku. [database_service_objectives] | Tak | 60 sekund |
+| Liczniki wydajności | AzureSQLDBPerformanceCounters | sqlserver_performance | sys.dm_os_performance_counters<br>sys.databases | Tak | 60 sekund |
+| Statystyka zasobów | AzureSQLDBResourceStats | sqlserver_azure_db_resource_stats | sys.dm_db_resource_stats | Tak | 60 sekund |
+| Nadzór nad zasobami | AzureSQLDBResourceGovernance | sqlserver_db_resource_governance | sys.dm_user_db_resource_governance | Tak | 60 sekund |
+| Żądania | AzureSQLDBRequests | sqlserver_requests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | Nie | NA |
+| Planiści| AzureSQLDBSchedulers | sqlserver_schedulers | sys.dm_os_schedulers | Nie | NA  |
 
-- Nazwa zapytania w dodatku SqlServer telegraf
-- Dynamiczne widoki zarządzane, wywołania zapytania
-- Przestrzeń nazw, w której pojawiają się dane w tabeli *InsighstMetrics*
-- Czy dane są zbierane domyślnie
-- Jak często dane są zbierane domyślnie
- 
-Podczas tworzenia profilu monitorowania można modyfikować, które zapytania są uruchamiane i częstotliwość zbierania danych. 
+### <a name="data-for-azure-sql-managed-instance"></a>Dane dla wystąpienia zarządzanego usługi Azure SQL 
 
-### <a name="azure-sql-db-data"></a>Dane usługi Azure SQL DB 
+| Przyjazna nazwa | Nazwa konfiguracji | Przestrzeń nazw | Dynamiczne widoki zarządzania | Włączona domyślnie | Domyślna częstotliwość zbierania |
+|:---|:---|:---|:---|:---|:---|
+| Statystyki oczekiwania | AzureSQLMIOsWaitstats | sqlserver_waitstats | sys.dm_os_wait_stats | Tak | 60 sekund |
+| Nadzorcy pamięci | AzureSQLMIMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Tak | 60 sekund |
+| Operacje we/wy bazy danych | AzureSQLMIDatabaseIO | sqlserver_database_io | sys.dm_io_virtual_file_stats<br>sys.master_files | Tak | 60 sekund |
+| Właściwości serwera | AzureSQLMIServerProperties | sqlserver_server_properties | sys.server_resource_stats | Tak | 60 sekund |
+| Liczniki wydajności | AzureSQLMIPerformanceCounters | sqlserver_performance | sys.dm_os_performance_counters<br>sys.databases| Tak | 60 sekund |
+| Statystyka zasobów | AzureSQLMIResourceStats | sqlserver_azure_db_resource_stats | sys.server_resource_stats | Tak | 60 sekund |
+| Nadzór nad zasobami | AzureSQLMIResourceGovernance | sqlserver_instance_resource_governance | sys.dm_instance_resource_governance | Tak | 60 sekund |
+| Żądania | AzureSQLMIRequests | sqlserver_requests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | Nie | NA |
+| Planiści | AzureSQLMISchedulers | sqlserver_schedulers | sys.dm_os_schedulers | Nie | NA |
 
-| Nazwa zapytania | DMV | Przestrzeń nazw | Włączona domyślnie | Domyślna częstotliwość zbierania |
-|:---|:---|:---|:---|:---|
-| AzureSQLDBWaitStats |  sys.dm_db_wait_stats | sqlserver_azuredb_waitstats | Nie | NA |
-| AzureSQLDBResourceStats | sys.dm_db_resource_stats | sqlserver_azure_db_resource_stats | Tak | 60 sekund |
-| AzureSQLDBResourceGovernance | sys.dm_user_db_resource_governance | sqlserver_db_resource_governance | Tak | 60 sekund |
-| AzureSQLDBDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.database_files<br>tempdb.sys .database_files | sqlserver_database_io | Tak | 60 sekund |
-| AzureSQLDBServerProperties | sys.dm_os_job_object<br>sys.database_files<br>widoku. 6.5<br>widoku. [database_service_objectives] | sqlserver_server_properties | Tak | 60 sekund |
-| AzureSQLDBOsWaitstats | sys.dm_os_wait_stats | sqlserver_waitstats | Tak | 60 sekund |
-| AzureSQLDBMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Tak | 60 sekund |
-| AzureSQLDBPerformanceCounters | sys.dm_os_performance_counters<br>sys.databases | sqlserver_performance | Tak | 60 sekund |
-| AzureSQLDBRequests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | sqlserver_requests | Nie | NA |
-| AzureSQLDBSchedulers | sys.dm_os_schedulers | sqlserver_schedulers | Nie | NA  |
+### <a name="data-for-sql-server"></a>Dane dla SQL Server
 
-### <a name="azure-sql-managed-instance-data"></a>Dane wystąpienia zarządzanego usługi Azure SQL 
-
-| Nazwa zapytania | DMV | Przestrzeń nazw | Włączona domyślnie | Domyślna częstotliwość zbierania |
-|:---|:---|:---|:---|:---|
-| AzureSQLMIResourceStats | sys.server_resource_stats | sqlserver_azure_db_resource_stats | Tak | 60 sekund |
-| AzureSQLMIResourceGovernance | sys.dm_instance_resource_governance | sqlserver_instance_resource_governance | Tak | 60 sekund |
-| AzureSQLMIDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.master_files | sqlserver_database_io | Tak | 60 sekund |
-| AzureSQLMIServerProperties | sys.server_resource_stats | sqlserver_server_properties | Tak | 60 sekund |
-| AzureSQLMIOsWaitstats | sys.dm_os_wait_stats | sqlserver_waitstats | Tak | 60 sekund |
-| AzureSQLMIMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Tak | 60 sekund |
-| AzureSQLMIPerformanceCounters | sys.dm_os_performance_counters<br>sys.databases | sqlserver_performance | Tak | 60 sekund |
-| AzureSQLMIRequests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | sqlserver_requests | Nie | NA |
-| AzureSQLMISchedulers | sys.dm_os_schedulers | sqlserver_schedulers | Nie | NA |
-
-### <a name="sql-server-data"></a>SQL Server dane
-
-| Nazwa zapytania | DMV | Przestrzeń nazw | Włączona domyślnie | Domyślna częstotliwość zbierania |
-|:---|:---|:---|:---|:---|
-| SQLServerPerformanceCounters | sys.dm_os_performance_counters | sqlserver_performance | Tak | 60 sekund |
-| SQLServerWaitStatsCategorized | sys.dm_os_wait_stats | sqlserver_waitstats | Tak | 60 sekund | 
-| SQLServerDatabaseIO | sys.dm_io_virtual_file_stats<br>sys.master_files | sqlserver_database_io | Tak | 60 sekund |
-| SQLServerProperties | sys.dm_os_sys_info | sqlserver_server_properties | Tak | 60 sekund |
-| SQLServerMemoryClerks | sys.dm_os_memory_clerks | sqlserver_memory_clerks | Tak | 60 sekund |
-| SQLServerSchedulers | sys.dm_os_schedulers | sqlserver_schedulers | Nie | NA |
-| SQLServerRequests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | sqlserver_requests | Nie | NA |
-| SQLServerVolumeSpace | sys.master_files | sqlserver_volume_space | Tak | 60 sekund |
-| SQLServerCpu | sys.dm_os_ring_buffers | sqlserver_cpu | Tak | 60 sekund |
-| SQLServerAvailabilityReplicaStates | sys.dm_hadr_availability_replica_states<br>sys.availability_replicas<br>sys.availability_groups<br>sys.dm_hadr_availability_group_states | sqlserver_hadr_replica_states | | 60 sekund |
-| SQLServerDatabaseReplicaStates | sys.dm_hadr_database_replica_states<br>sys.availability_replicas | sqlserver_hadr_dbreplica_states | | 60 sekund |
-
-
-
+| Przyjazna nazwa | Nazwa konfiguracji | Przestrzeń nazw | Dynamiczne widoki zarządzania | Włączona domyślnie | Domyślna częstotliwość zbierania |
+|:---|:---|:---|:---|:---|:---|
+| Statystyki oczekiwania | SQLServerWaitStatsCategorized | sqlserver_waitstats | sys.dm_os_wait_stats | Tak | 60 sekund | 
+| Nadzorcy pamięci | SQLServerMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Tak | 60 sekund |
+| Operacje we/wy bazy danych | SQLServerDatabaseIO | sqlserver_database_io | sys.dm_io_virtual_file_stats<br>sys.master_files | Tak | 60 sekund |
+| Właściwości serwera | SQLServerProperties | sqlserver_server_properties | sys.dm_os_sys_info | Tak | 60 sekund |
+| Liczniki wydajności | SQLServerPerformanceCounters | sqlserver_performance | sys.dm_os_performance_counters | Tak | 60 sekund |
+| Miejsce na woluminie | SQLServerVolumeSpace | sqlserver_volume_space | sys.master_files | Tak | 60 sekund |
+| SQL Server CPU | SQLServerCpu | sqlserver_cpu | sys.dm_os_ring_buffers | Tak | 60 sekund |
+| Planiści | SQLServerSchedulers | sqlserver_schedulers | sys.dm_os_schedulers | Nie | NA |
+| Żądania | SQLServerRequests | sqlserver_requests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | Nie | NA |
+| Stany repliki dostępności | SQLServerAvailabilityReplicaStates | sqlserver_hadr_replica_states | sys.dm_hadr_availability_replica_states<br>sys.availability_replicas<br>sys.availability_groups<br>sys.dm_hadr_availability_group_states | Nie | 60 sekund |
+| Repliki bazy danych dostępności | SQLServerDatabaseReplicaStates | sqlserver_hadr_dbreplica_states | sys.dm_hadr_database_replica_states<br>sys.availability_replicas | Nie | 60 sekund |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz temat [Włączanie usługi SQL Insights](sql-insights-enable.md) , aby uzyskać szczegółową procedurę włączania usługi SQL Insights.
-Zapoznaj się z [często zadawanymi pytaniami](../faq.md#sql-insights-preview) dotyczącymi często zadawanych pytań dotyczących usługi SQL Insights.
+- Zobacz [Włączanie usługi SQL Insights](sql-insights-enable.md) , aby uzyskać instrukcje dotyczące włączania usługi SQL Insights
+- Zapoznaj się z [często zadawanymi pytaniami](../faq.md#sql-insights-preview) dotyczącymi często zadawanych pytań dotyczących usługi SQL Insights

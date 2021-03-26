@@ -1,18 +1,18 @@
 ---
 title: Azure Percept — Omówienie
 description: Dowiedz się więcej o platformie Azure Percept
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953601"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567665"
 ---
 # <a name="introduction-to-azure-percept"></a>Wprowadzenie do usługi Azure Percept
 
@@ -28,21 +28,21 @@ Integracja polega na wykorzystaniu jednej twarzy przy próbie wdrożenia rozwią
 
 Główne składniki usługi Azure Percept są następujące:
 
-1. [Azure Percept DK](./overview-azure-percept-dk.md)
+- [Azure Percept DK](./overview-azure-percept-dk.md)
 
     - Zestaw programistyczny, który jest wystarczająco elastyczny, aby obsługiwał różnorodne scenariusze tworzenia prototypów dla konstruktorów urządzeń, konstruktorów rozwiązań i klientów.
 
         > [!div class="nextstepaction"]
         > [Kup teraz](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. Usługi i przepływy pracy, które przyspieszają Opracowywanie modelu i rozwiązań na urządzeniach brzegowych AI.
+- Usługi i przepływy pracy, które przyspieszają Opracowywanie modelu i rozwiązań na urządzeniach brzegowych AI.
 
     - Przepływy pracy deweloperskiej i wstępnie skompilowane modele dostępne w [usłudze Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Usługi projektowania modeli.
     - Usługi zarządzania urządzeniami do skalowania.
     - Kompleksowe zabezpieczenia.
 
-1. Dokumentacja sprzętowa i Programy certyfikacyjne programu AI.
+- Dokumentacja sprzętowa i Programy certyfikacyjne programu AI.
 
     - Zapewnia ekosystem deweloperów sprzętu z wzorcem i najlepszymi rozwiązaniami dotyczącymi tworzenia sprzętu brzegowego AI, który można łatwo zintegrować z usługami Azure AI i IoT.
 

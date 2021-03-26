@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110546"
+ms.locfileid: "105543367"
 ---
 # <a name="create-a-test-offer"></a>Tworzenie oferty testowej
 
@@ -27,7 +27,7 @@ W poniższych sekcjach opisano różnice między ofertami DEV i PROD.
 
 Zalecamy użycie tego samego aliasu w polu **alias** obu ofert, ale dołączenie "_test" do aliasu oferty dev. Na przykład jeśli alias oferty PRODUKCYJNEj to "contososolution", alias oferty DEV powinien mieć wartość "contososolution_test". W ten sposób można łatwo określić, którą ofertę DEV z oferty PRODUKCYJNEj.
 
-W sekcji **potencjalni klienci** Użyj usługi i Azure Table lub testowego środowiska CRM dla oferty dev. Użyj zamierzonego systemu zarządzania potencjalnymi klientami dla oferty PRODUKCYJNEj.
+W sekcji **potencjalni klienci** Skorzystaj z tabeli platformy Azure lub środowiska testowego programu CRM dla oferty dev. Użyj zamierzonego systemu zarządzania potencjalnymi klientami dla oferty PRODUKCYJNEj.
 
 ## <a name="properties-page"></a>Strona właściwości
 
@@ -39,7 +39,7 @@ Skonfiguruj Tę stronę w taki sam sposób, jak w ofertach DEV i PROD.
 
 ## <a name="preview-audience"></a>Podgląd odbiorców
 
-W ofercie DEV (Programowanie) Uwzględnij główną nazwę użytkownika usługi Azure Active Directory (AAD) lub konto Microsoft (MSA) adres e-mail deweloperów i testerów, w tym siebie. Należy pamiętać, że główna nazwa użytkownika użytkownika w usłudze AAD może różnić się od adresu e-mail użytkownika. Na przykład program jane.doe@contoso.com nie będzie działał, ale janedoe@contoso.com będzie działał. Są to osoby, które będą miały dostęp do oferty DEV po udostępnieniu linku do **wersji zapoznawczej** w fazie tworzenia i testowania.
+W ofercie DEV Uwzględnij nazwy główne użytkowników usługi Azure Active Directory (AAD) lub konto Microsoft (MSA) adresy e-mail deweloperów i testerów, w tym siebie. Główna nazwa użytkownika dla użytkownika w usłudze AAD może różnić się od wiadomości e-mail danego użytkownika. Na przykład program jane.doe@contoso.com nie będzie działał, ale janedoe@contoso.com będzie. Wyznaczeni użytkownicy będą mieli dostęp do oferty DEV po udostępnieniu linku do **wersji zapoznawczej** w fazie tworzenia i testowania.
 
 W ofercie PRODUKCYJNEj Podaj nazwę główną użytkownika usługi Azure AD lub adres Microsoft e-mail użytkowników, którzy będą sprawdzać poprawność oferty przed wybraniem **przycisku Przejdź na żywo** w celu opublikowania oferty na żywo.
 
@@ -77,10 +77,10 @@ Wybierz te same rynki dla ofert DEV i PROD.
 
 Skorzystaj z oferty DEV, aby eksperymentować z modelami cenowymi. Po sprawdzeniu, który model cen lub modele najlepiej sprawdza się, utworzysz plany w ofercie PRODUKCYJNEj z modelami cenowymi i cenami, które chcesz.
 
-Oferta DEV powinna mieć plany z zerowymi lub bardzo niskimi cenami w planach. Oferta PRODUKCYJNa będzie miała ceny, które mają być naliczane klientom.
+Oferta DEV powinna mieć plany z zerowymi lub niskimi cenami w planach. Oferta PRODUKCYJNa będzie miała ceny, które mają być naliczane klientom.
 
-> [!NOTE]
-> Zakupy dokonywane w wersji zapoznawczej zostaną przetworzone dla ofert DEWELOPERSKIch i PROD. Jeśli oferta ma cenę $100/miesiąc, opłata zostanie naliczona na $100. Jeśli tak się stanie, możesz otworzyć [bilet pomocy technicznej](support.md) i wystawić wypłatę za pełną kwotę (i nie podejmować żadnych opłat za Agencję).
+> [!IMPORTANT]
+> Zakupy dokonywane w wersji zapoznawczej zostaną przetworzone dla ofert DEWELOPERSKIch i PROD. Jeśli oferta ma cenę $100/miesiąc, opłata zostanie naliczona na $100. Jeśli tak się stanie, możesz otworzyć [bilet pomocy technicznej](support.md) i wystawić wypłatę za pełną kwotę (bez opłaty za usługę magazynu).
 
 #### <a name="pricing-model"></a>Model cen
 
@@ -97,7 +97,7 @@ Aby zmniejszyć koszty testowania modeli cenowych, w tym wymiarów mierników ni
 | $50,00 i więcej | Użyj tego zakresu cen do testowania wypłaty. Aby uzyskać informacje na temat naszego harmonogramu płatności, zobacz [harmonogramy i procesy wypłaty](/partner-center/payout-policy-details). |
 |||
 
-Aby uniknąć naliczania opłat za przetwarzanie na test, Otwórz [bilet pomocy technicznej](support.md).
+Aby uniknąć naliczania opłat za usługę w sklepie na test, Otwórz [bilet pomocy technicznej](support.md).
 
 #### <a name="free-trial"></a>Bezpłatna wersja próbna
 

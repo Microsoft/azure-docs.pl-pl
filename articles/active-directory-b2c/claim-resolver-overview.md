@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102119777"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557534"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informacje o rozpoznawaniu roszczeń w Azure Active Directory B2C zasadach niestandardowych
 
@@ -72,12 +72,12 @@ W poniższych sekcjach znajduje się lista dostępnych elementów rozwiązywania
 | {OIDC: LoginHint} |  `login_hint`Parametr ciągu zapytania. | someone@contoso.com |
 | {OIDC: MaxAge} | Element `max_age`. | Nie dotyczy |
 | {OIDC: nonce} |`Nonce`Parametr ciągu zapytania. | defaultNonce |
-| {OIDC: hasło}| [Poświadczenia hasła właściciela zasobu przepływu](ropc-custom.md) hasła użytkownika.| password1| 
+| {OIDC: hasło}| [Poświadczenia hasła właściciela zasobu przepływu](add-ropc-policy.md) hasła użytkownika.| password1| 
 | {OIDC: Prompt} | `prompt`Parametr ciągu zapytania. | logowanie |
 | {OIDC: RedirectUri} |`redirect_uri`Parametr ciągu zapytania. | https://jwt.ms |
 | {OIDC: Resource} |`resource`Parametr ciągu zapytania. | Nie dotyczy |
 | {OIDC: Scope} |`scope`Parametr ciągu zapytania. | OpenID Connect |
-| {OIDC: username}| Nazwa użytkownika [przepływu poświadczeń hasła właściciela zasobu](ropc-custom.md) .| emily@contoso.com| 
+| {OIDC: username}| Nazwa użytkownika [przepływu poświadczeń hasła właściciela zasobu](add-ropc-policy.md) .| emily@contoso.com| 
 
 ### <a name="context"></a>Kontekst
 

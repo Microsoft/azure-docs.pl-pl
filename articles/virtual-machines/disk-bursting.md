@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101677482"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568719"
 ---
 # <a name="managed-disk-bursting"></a>Zarządzanie dyskami zarządzanymi
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -27,10 +27,10 @@ Dodatkowo [można zmienić warstwę wydajności dysków zarządzanych](disks-cha
 
 |  |Korzystanie z rozliczeń opartych na kredycie  |Szeregowanie na żądanie  |Zmiana warstwy wydajności  |
 |---------|---------|---------|---------|
-| Scenariusze|Idealne rozwiązanie do krótkoterminowego skalowania (30 minut lub mniej).|Idealny do krótkoterminowego skalowania (bez ograniczeń czasowych).|Idealne rozwiązanie w przypadku ciągłego uruchamiania obciążenia w ramach serii.|
-|Koszt     |Bezpłatna         |Koszt jest zmienny, zobacz sekcję [rozliczenia](#billing) , aby uzyskać szczegółowe informacje.        |Koszt każdej warstwy wydajności jest ustalony, zobacz [Managed disks cennika](https://azure.microsoft.com/pricing/details/managed-disks/) , aby uzyskać szczegółowe informacje.         |
-|Dostępność     |Dostępne tylko dla warstwy Premium dysków SSD 512 GiB i mniejszej.         |Dostępne tylko dla dysków SSD Premium o rozmiarze większym niż 512 GiB.         |Dostępne dla wszystkich rozmiarów dysków SSD w warstwie Premium.         |
-|Włączanie     |Domyślnie włączone na kwalifikujących się dyskach.         |Musi być włączona przez użytkownika.         |Użytkownik musi ręcznie zmienić warstwę.         |
+| **Scenariusze**|Idealne rozwiązanie do krótkoterminowego skalowania (30 minut lub mniej).|Idealny do krótkoterminowego skalowania (bez ograniczeń czasowych).|Idealne rozwiązanie w przypadku ciągłego uruchamiania obciążenia w ramach serii.|
+|**Koszty**     |Bezpłatna         |Koszt jest zmienny, zobacz sekcję [rozliczenia](#billing) , aby uzyskać szczegółowe informacje.        |Koszt każdej warstwy wydajności jest ustalony, zobacz [Managed disks cennika](https://azure.microsoft.com/pricing/details/managed-disks/) , aby uzyskać szczegółowe informacje.         |
+|**Dostępność**     |Dostępne tylko dla warstwy Premium dysków SSD 512 GiB i mniejszej.         |Dostępne tylko dla dysków SSD Premium o rozmiarze większym niż 512 GiB.         |Dostępne dla wszystkich rozmiarów dysków SSD w warstwie Premium.         |
+|**Włączanie**     |Domyślnie włączone na kwalifikujących się dyskach.         |Musi być włączona przez użytkownika.         |Użytkownik musi ręcznie zmienić warstwę.         |
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 Poniższe scenariusze mogą znacznie wzczerpać korzyści z rozszeregowania:

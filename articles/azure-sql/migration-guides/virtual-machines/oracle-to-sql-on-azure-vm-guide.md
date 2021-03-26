@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d24e056d397617c95a7ba301b58efc3631f40dd
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 4173fe34c6966514ef4f150527cd712c9d95ab7e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026525"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561716"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>Przewodnik migracji: baza danych Oracle do SQL Server na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -199,7 +199,7 @@ Aby opublikować schemat i przeprowadzić migrację danych, wykonaj następując
 
 
 Oprócz korzystania z usługi ASYSTENCIE migracji można również migrować dane przy użyciu SQL Server Integration Services (SSIS). Aby dowiedzieć się więcej, zobacz: 
-- Artykuł [wprowadzenie z SQL Server Integration Services](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services).
+- Artykuł [wprowadzenie z SQL Server Integration Services](//sql/integration-services/sql-server-integration-services).
 - Oficjalny dokument [SQL Server Integration Services: SSIS dla platformy Azure i hybrydowego przenoszenia danych](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
@@ -271,4 +271,3 @@ Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest spon
 
 - Aby ocenić warstwę dostępu do aplikacji, zobacz [Data Access Migration Toolkit (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - Aby uzyskać szczegółowe informacje na temat przeprowadzania testów warstwy dostępu do danych A/B, zobacz [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).
-

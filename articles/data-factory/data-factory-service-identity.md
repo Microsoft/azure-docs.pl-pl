@@ -4,14 +4,14 @@ description: Informacje o tożsamości zarządzanej Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888995"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562464"
 ---
 # <a name="managed-identity-for-data-factory"></a>Tożsamość zarządzana dla usługi Data Factory
 
@@ -28,8 +28,7 @@ Podczas tworzenia fabryki danych można utworzyć zarządzaną tożsamość wraz
 Tożsamość zarządzana dla Data Factory korzysta z następujących funkcji:
 
 - [Poświadczenie magazynu w Azure Key Vault](store-credentials-in-key-vault.md), w którym ma być używana tożsamość zarządzana fabryki danych do Azure Key Vault uwierzytelniania.
-- Łączniki, w tym [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)i [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
-- [Działanie sieci Web](control-flow-web-activity.md).
+- Uzyskuj dostęp do magazynów danych lub obliczeń przy użyciu uwierzytelniania tożsamości zarządzanej, takich jak Azure Blob Storage, Azure Eksplorator danych, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, wystąpienie zarządzane Azure SQL, Azure Synapse Analytics, REST, aktywność obiektów, aktywność sieci Web itd. Aby uzyskać szczegółowe informacje, zobacz artykuły dotyczące łącznika i działania.
 
 ## <a name="generate-managed-identity"></a>Generuj tożsamość zarządzaną
 
@@ -157,11 +156,10 @@ Informacje o tożsamości zarządzanej można znaleźć na stronie Azure Portal 
 
 - Identyfikator obiektu tożsamości zarządzanej
 - Zarządzana dzierżawa tożsamości
-- Identyfikator zarządzanej aplikacji tożsamości
 
 Informacje o tożsamości zarządzanej również zostaną wyświetlone podczas tworzenia połączonej usługi, która obsługuje uwierzytelnianie tożsamości zarządzanej, takie jak obiekt blob platformy Azure, Azure Data Lake Storage, Azure Key Vault itd.
 
-Podczas udzielania uprawnień Użyj identyfikatora obiektu lub nazwy fabryki danych (jako nazwy tożsamości zarządzanej), aby znaleźć tę tożsamość.
+W przypadku przyznawania uprawnień w karcie Access Control zasobów platformy Azure (IAM) > Dodaj przypisanie roli-> Przypisz dostęp do-> wybierz Data Factory w obszarze System przypisanej tożsamości zarządzanej-> wybierz pozycję według nazwy fabryki; lub ogólnie rzecz biorąc, można użyć identyfikatora obiektu lub nazwy fabryki danych (jako nazwy tożsamości zarządzanej), aby znaleźć tę tożsamość. Jeśli musisz uzyskać identyfikator aplikacji tożsamości zarządzanej, możesz użyć programu PowerShell.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Pobieranie tożsamości zarządzanej przy użyciu programu PowerShell
 

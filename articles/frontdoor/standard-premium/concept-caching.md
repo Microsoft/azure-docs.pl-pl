@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 73b2e8e59774e12ddb9aa684382510d1f2c151b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63ea252a4b4c673ae3028adb7ab793ac21fb2e99
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100153"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564589"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Buforowanie przy użyciu standardu Front/Premium platformy Azure (wersja zapoznawcza)
 
@@ -26,6 +26,10 @@ W tym artykule dowiesz się, jak trasy i zestawy reguł w warstwie Standardowa/P
 > Platforma Azure Front-Standard/Premium (wersja zapoznawcza) jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="request-methods"></a>Metody żądań
+
+Tylko Metoda GET Request może generować zawartość z pamięci podręcznej w ramach zewnętrznych drzwi platformy Azure. Wszystkie pozostałe metody żądań są zawsze przekazywane za pomocą sieci.
 
 ## <a name="delivery-of-large-files"></a>Dostarczanie dużych plików
 

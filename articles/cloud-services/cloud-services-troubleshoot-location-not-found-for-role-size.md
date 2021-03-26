@@ -7,12 +7,12 @@ ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: b11aedb52be3c263c781c2ac68d1d5197ba4def2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101746747"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558962"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Rozwiązywanie problemów z LocationNotFoundForRoleSize podczas wdrażania usługi w chmurze (klasycznej) na platformie Azure
 
@@ -47,7 +47,7 @@ W tym scenariuszu należy wybrać inny region lub jednostkę SKU do wdrożenia u
 
 ### <a name="list-skus-in-region-using-azure-cli"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Możesz użyć polecenia [AZ VM list-SKU](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus) .
+Możesz użyć polecenia [AZ VM list-SKU](/cli/azure/vm.html#az_vm_list_skus) .
 
 - Użyj `--location` parametru, aby odfiltrować dane wyjściowe do lokalizacji, której używasz.
 - Użyj `--size` parametru, aby wyszukać według częściowej nazwy rozmiaru.
@@ -63,7 +63,7 @@ Możesz użyć polecenia [AZ VM list-SKU](https://docs.microsoft.com/cli/azure/v
 
 #### <a name="list-skus-in-region-using-powershell"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu programu PowerShell
 
-Można użyć polecenia [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) .
+Można użyć polecenia [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) .
 
 - Filtruj wyniki według lokalizacji.
 - Dla tego polecenia trzeba mieć najnowszą wersję programu PowerShell.
@@ -91,7 +91,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 #### <a name="list-skus-in-region-using-rest-api"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu interfejsu API REST
 
-Możesz użyć operacji [SKU zasobów — lista](https://docs.microsoft.com/rest/api/compute/resourceskus/list) . Zwraca dostępne jednostki SKU i regiony w następującym formacie:
+Możesz użyć operacji [SKU zasobów — lista](/rest/api/compute/resourceskus/list) . Zwraca dostępne jednostki SKU i regiony w następującym formacie:
 
 ```json
 {

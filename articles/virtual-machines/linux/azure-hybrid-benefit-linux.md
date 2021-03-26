@@ -4,7 +4,7 @@ description: Dowiedz się, jak Korzyść użycia hybrydowego platformy Azure mo�
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
-manager: westonh
+manager: rochakm
 ms.service: virtual-machines
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73747222b9131fa85ae6ac01c9dedd5b0bbe1d63
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101695485"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543413"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Jak Korzyść użycia hybrydowego platformy Azure ma zastosowanie w przypadku maszyn wirtualnych z systemem Linux
 
@@ -39,7 +39,7 @@ Możesz również wybrać konwersję maszyny wirtualnej, na której włączono k
 
 Korzyść użycia hybrydowego platformy Azure jest dostępny dla wszystkich obrazów RHEL i SLES PAYG z witryny Azure Marketplace. Korzyść nie jest jeszcze dostępna dla obrazów RHEL lub SLES BYOS lub obrazów niestandardowych w witrynie Azure Marketplace.
 
-Wystąpienia zarezerwowane, dedykowane wystąpienia hosta platformy Azure i korzyści z używania hybrydowej bazy danych SQL nie kwalifikują się do Korzyść użycia hybrydowego platformy Azure, jeśli masz już korzyść z maszynami wirtualnymi z systemem Linux.
+Wystąpienia dedykowanego hosta platformy Azure i korzyści z używania hybrydowych danych SQL nie są uprawnione do Korzyść użycia hybrydowego platformy Azure, jeśli już używasz korzyści z maszynami wirtualnymi z systemem Linux.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
@@ -90,11 +90,8 @@ Możesz włączyć korzyść dla istniejących maszyn wirtualnych, odwiedzając 
 1. Przejdź do opcji **Konfiguracja** po lewej stronie. Zostanie wyświetlona sekcja Licencjonowanie. Aby włączyć konwersję AHB, zaznacz przycisk radiowy "tak" i zaznacz pole wyboru potwierdzenia.
 ![Blok konfiguracji AHB po utworzeniu](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-
 >[!NOTE]
 > Jeśli utworzono **migawkę niestandardową** lub **udostępniony obraz (SIG)** obrazu z witryny Marketplace RHEL lub SLES PAYG, możesz użyć interfejsu wiersza polecenia platformy Azure, aby włączyć korzyść użycia hybrydowego platformy Azure. Jest to znane ograniczenie i obecnie nie ma żadnych osi czasu, aby zapewnić tę możliwość w witrynie Azure Portal.
-
-
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Włączanie i wyłączanie korzyści w interfejsie wiersza polecenia platformy Azure
 
@@ -179,6 +176,15 @@ Aby uzyskać więcej informacji na temat zgodności subskrypcji Red Hat, aktuali
 
 Aby użyć Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych SLES i uzyskać informacje dotyczące przechodzenia z SLES PAYG do BYOS lub przechodzenia z SLES BYOS do PAYG, zobacz [SUSE Linux Enterprise i korzyść użycia hybrydowego platformy Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
+## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>Korzyść użycia hybrydowego platformy Azure na wystąpieniach zarezerwowanych jest w wersji zapoznawczej
+
+Azure Reservations (Azure Reserved Virtual Machine Instances) pomaga zaoszczędzić pieniądze przez zatwierdzenie planów jednego roku lub trzech lat dla wielu produktów. Więcej informacji o [wystąpieniach zarezerwowanych](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)można znaleźć tutaj. Korzyść użycia hybrydowego platformy Azure jest dostępny w wersji zapoznawczej dla [zarezerwowanych wystąpień maszyn wirtualnych (RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Oznacza to, że w przypadku zakupu kosztów obliczeniowych z obniżoną stawką przy użyciu systemu RI można zastosować korzyść AHB na kosztach licencjonowania dla RHEL i SUSE. Kroki związane z zastosowaniem korzyści AHB dla wystąpienia RI pozostają dokładnie takie same, jak w przypadku zwykłej maszyny wirtualnej.
+![AHB dla usług RIs](./media/azure-hybrid-benefit/reserved-instances.png)
+
+>[!NOTE]
+>Jeśli zakupione zostały już rezerwacje oprogramowania RHEL lub SUSE PAYG w portalu Azure Marketplace, poczekaj na ukończenie zastrzeżeń przed użyciem Korzyść użycia hybrydowego platformy Azure.
+
+
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 *P: Czy można użyć typu licencji `RHEL_BYOS` z SLES obrazem lub odwrotnie?*
 
@@ -206,11 +212,11 @@ Odp.: tak, możesz. Można użyć typu licencji `RHEL_BYOS` dla maszyn wirtualny
 
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure w zestawach skalowania maszyn wirtualnych dla RHEL i SLES?*
 
-Odp.: nie. Zestawy skalowania maszyn wirtualnych nie są obecnie w zakresie Korzyść użycia hybrydowego platformy Azure dla RHEL i SLES.
+Odp.: tak, Korzyść użycia hybrydowego platformy Azure w zestawach skalowania maszyn wirtualnych dla RHEL i SLES jest w wersji zapoznawczej. Możesz [dowiedzieć się więcej na temat tej korzyści i sposobu używania jej w tym miejscu](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss). 
 
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure na wystąpieniach zarezerwowanych dla RHEL i SLES?*
 
-Odp.: nie. Wystąpienia zarezerwowane nie są obecnie w zakresie Korzyść użycia hybrydowego platformy Azure dla RHEL i SLES.
+Odp.: tak, Korzyść użycia hybrydowego platformy Azure w wystąpieniu zarezerwowanym dla RHEL i SLES jest w wersji zapoznawczej. Możesz [dowiedzieć się więcej na temat tej korzyści i sposobu używania jej w tym miejscu](#azure-hybrid-benefit-on-reserved-instances-is-in-preview).
 
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynie wirtualnej wdrożonej dla SQL Server na obrazach RHEL?*
 

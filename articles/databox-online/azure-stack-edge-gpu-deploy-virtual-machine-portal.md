@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c11a89d91693075ca54c0689223dcf2af06df521
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102436536"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568515"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure Portal
 
@@ -52,7 +52,7 @@ Podsumowanie wysokiego poziomu przepływu pracy wdrożenia jest następujące:
 
 Przed rozpoczęciem tworzenia maszyn wirtualnych na urządzeniu i zarządzania nimi za pomocą Azure Portal upewnij się, że:
 
-1. Ustawienia sieciowe na urządzeniu z systemem Azure Stack Edge w wersji Pro zostały ukończone zgodnie z opisem w [sekcji Krok 1. Konfigurowanie programu Azure Stack EDGE Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Ustawienia sieciowe na urządzeniu z systemem Azure Stack Edge w wersji Pro zostały ukończone zgodnie z opisem w [sekcji Krok 1. Konfigurowanie programu Azure Stack EDGE Pro](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
     1. Włączono interfejs sieciowy dla obliczeń. Ten interfejs sieciowy IP służy do tworzenia przełącznika wirtualnego dla wdrożenia maszyny wirtualnej. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **obliczenia**. Wybierz interfejs sieciowy, który zostanie użyty do utworzenia przełącznika wirtualnego.
 

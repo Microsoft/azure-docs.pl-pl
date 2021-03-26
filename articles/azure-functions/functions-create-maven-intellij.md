@@ -1,17 +1,17 @@
 ---
 title: Tworzenie funkcji języka Java w Azure Functions przy użyciu IntelliJ
 description: Dowiedz się, jak za pomocą IntelliJ utworzyć prostą funkcję języka Java wyzwalaną przez protokół HTTP, która następnie zostanie uruchomiona w środowisku bezserwerowym na platformie Azure.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708819"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543650"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Tworzenie pierwszej funkcji języka Java na platformie Azure przy użyciu IntelliJ
 
@@ -104,17 +104,9 @@ W tej sekcji użyto Azure Toolkit for IntelliJ do utworzenia projektu Azure Func
 
     ![Wdrażanie projektu na platformie Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. Jeśli nie masz jeszcze żadnych aplikacja funkcji, kliknij przycisk *nie dostępna funkcja, a następnie kliknij, aby utworzyć nowy*.
+1. Jeśli nie masz jeszcze żadnych aplikacja funkcji, kliknij *+* w wierszu *funkcji* . Wpisz nazwę aplikacji funkcji i wybierz odpowiednią platformę, tutaj można po prostu zaakceptować wartość domyślną. Kliknij przycisk *OK* . nowo utworzona aplikacja funkcji zostanie automatycznie wybrana. Kliknij przycisk *Uruchom* , aby wdrożyć swoje funkcje.
 
     ![Tworzenie aplikacji funkcji na platformie Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. Wpisz nazwę aplikacji funkcji i wybierz odpowiednią subskrypcję/platformę/grupę zasobów/App Service plan, a następnie w tym miejscu możesz utworzyć plan grupy zasobów/App Service. Następnie pozostaw ustawienia aplikacji bez zmian, kliknij przycisk *OK* i poczekaj kilka minut na utworzenie nowej aplikacji funkcji. Po *utworzeniu nowego aplikacja funkcji...* pasek postępu znika.
-
-    ![Wdróż aplikację funkcji w Kreatorze tworzenia aplikacji platformy Azure](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. Wybierz aplikację funkcji, w której chcesz wdrożyć program (nowo utworzona aplikacja funkcji zostanie automatycznie zaznaczona). Kliknij przycisk *Uruchom* , aby wdrożyć swoje funkcje.
-
-    ![Zrzut ekranu przedstawia okno dialogowe wdrażanie Azure Functions.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Wdróż aplikację funkcji w usłudze Azure log](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

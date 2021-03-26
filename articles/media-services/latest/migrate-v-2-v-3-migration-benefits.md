@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598392"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559761"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Krok 1. zapoznanie się z zaletami migracji do Media Services API v3
 
@@ -23,6 +23,8 @@ ms.locfileid: "104598392"
 <hr color="#5ea0ef" size="10">
 
 ![kroki migracji 2](./media/migration-guide/steps-1.svg)
+
+## <a name="use-the-latest-api"></a>Użyj najnowszego interfejsu API
 
 Zachęcamy do rozpoczęcia korzystania z wersji 2020-05-01 interfejsu API Azure Media Services v3 teraz, aby uzyskać korzyści, ponieważ nowe funkcje, funkcje i optymalizacje wydajności są dostępne tylko w bieżącym interfejsie API v3.
 
@@ -60,7 +62,3 @@ Wprowadzono znaczne ulepszenia Media Services w wersji 3.
 | **Monitorowanie** | |
 | Obsługa powiadomień [usługi Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Powiadomienia EventGrid są rozbudowane. Istnieje więcej typów powiadomień, szerokiej obsługi zestawu SDK do otrzymywania powiadomień w aplikacji i innych istniejących usług platformy Azure, które mogą działać jako programy obsługi zdarzeń. |
 | [Azure Monitor pomoc techniczną i integrację w Azure Portal](monitoring/monitor-events-portal-how-to.md) | Dzięki temu klienci mogą wizualizować Media Services użycia przydziału kont, statystyk w czasie rzeczywistym dla punktów końcowych przesyłania strumieniowego oraz pozyskiwanie i archiwizowanie statystyk dla wydarzeń na żywo. Klienci mogą teraz ustawiać alerty i wykonywać niezbędne działania na podstawie danych metryk w czasie rzeczywistym. |
-
-## <a name="next-steps"></a>Następne kroki
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

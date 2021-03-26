@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98706711"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564572"
 ---
 # <a name="repairing-an-import-job"></a>Naprawianie zadania importu
 Usługa Microsoft Azure Import/Export może nie móc skopiować niektórych plików lub części pliku do usługi Windows Azure Blob. Przyczyny niepowodzeń mogą być następujące:  
@@ -30,7 +30,7 @@ Narzędzie Microsoft Azure Import/Export można uruchomić za pomocą plików dz
 
 Następujące parametry można określić za pomocą **RepairImport**: 
   
-|||  
+| Parametr | Opis |  
 |-|-|  
 |**/r:**<RepairFile\>|**Wymagane.** Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku Przekaż ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Zawsze określaj plik naprawy odpowiadający dyskowi docelowemu.|  
 |**/logdir:**<LogDirectory\>|**Obowiązkowe.** Katalog dzienników. Pełne pliki dziennika są zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog jest używany jako katalog dziennika.|  

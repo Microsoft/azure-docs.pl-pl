@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1cbd314861a4d5079a5c8e5213f45c7164344f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a21ae2ce79c500455c5735f4d82e7852e8474ad1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204171"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559149"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -157,9 +157,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z wystąpieniami Azure Data Factory. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -175,7 +175,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub zdarzenia związane z zabezpieczeniami innych firm (SIEM). Możesz także zintegrować Azure Data Factory z usługą git, aby korzystać z kilku korzyści z kontroli źródła, takich jak możliwość śledzenia i inspekcji zmian oraz możliwość przywracania zmian wprowadzających błędy.
 
-- [Jak skonfigurować ustawienia diagnostyczne](/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal)
+- [Jak skonfigurować ustawienia diagnostyczne](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -193,7 +193,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Ustawienia diagnostyczne służą do konfigurowania dzienników diagnostycznych dla zasobów nieobliczeniowych w Azure Data Factory, takich jak metryki i dane uruchamiania potoków. Azure Data Factory przechowuje dane przebiegu potoku przez 45 dni. Aby zachować te dane przez dłuższy czas, Zapisz dzienniki diagnostyczne na koncie magazynu na potrzeby inspekcji lub inspekcji ręcznej i określ czas przechowywania w dniach.  Możesz również przesłać strumieniowo dzienniki do usługi Azure Event Hubs lub wysłać dzienniki do obszaru roboczego Log Analytics w celu przeprowadzenia analizy.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Informacje o dziennikach diagnostycznych Azure Data Factory](monitor-using-azure-monitor.md)
 
@@ -207,9 +207,9 @@ Ustawienia diagnostyczne służą do konfigurowania dzienników diagnostycznych 
 
 Jeśli organizacja ma zachować dane dziennika zdarzeń zabezpieczeń, może być przechowywana w ramach warstwy zbierania danych. w tym momencie można wykonać zapytanie w Log Analytics.
 
-- [Jak zbierać dane z usługi Azure Virtual Machines w programie Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Jak zbierać dane z usługi Azure Virtual Machines w programie Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
-- [Włączanie zbierania danych w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+- [Włączanie zbierania danych w Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Odpowiedzialność**: Klient
 
@@ -221,7 +221,7 @@ Jeśli organizacja ma zachować dane dziennika zdarzeń zabezpieczeń, może by�
 
 - [Jak włączyć dzienniki diagnostyczne w Azure Data Factory](monitor-using-azure-monitor.md)
 
-- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Odpowiedzialność**: Klient
 
@@ -235,9 +235,9 @@ Jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure, Wł�
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-- [Schemat Log Analytics](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events)
+- [Schemat Log Analytics](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-- [Jak zbierać dane z maszyny wirtualnej platformy Azure za pomocą Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Jak zbierać dane z maszyny wirtualnej platformy Azure za pomocą Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -253,11 +253,11 @@ Skonfiguruj ustawienia diagnostyczne dla Azure Data Factory i Wyślij dzienniki 
 
 Ponadto upewnij się, że ustawienia diagnostyczne są włączone dla usług związanych z magazynami danych. Aby uzyskać wskazówki, można odwołać się do linii bazowej zabezpieczeń każdej usługi.
 
-- [Alerty w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts)
+- [Alerty w Azure Data Factory](./monitor-visually.md#alerts)
 
-- [Wszystkie obsługiwane strony metryk](/azure/azure-monitor/platform/metrics-supported)
+- [Wszystkie obsługiwane strony metryk](../azure-monitor/essentials/metrics-supported.md)
 
-- [Jak skonfigurować alerty w obszarze roboczym Log Analytics](/azure/azure-monitor/platform/alerts-log)
+- [Jak skonfigurować alerty w obszarze roboczym Log Analytics](../azure-monitor/alerts/alerts-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -279,7 +279,7 @@ Ponadto upewnij się, że ustawienia diagnostyczne są włączone dla usług zwi
 
 **Wskazówki**: jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure, możesz włączyć rejestrowanie inspekcji w wierszu polecenia. Azure Security Center zapewnia monitorowanie dzienników zdarzeń zabezpieczeń dla maszyn wirtualnych platformy Azure.  Security Center udostępnia Microsoft Monitoring Agent na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i nowych, które są tworzone w przypadku włączenia automatycznej aprowizacji lub można zainstalować agenta ręcznie.  Agent włącza zdarzenie tworzenia procesu 4688 i pole wiersza polecenia wewnątrz zdarzenia 4688. Nowe procesy utworzone na maszynie wirtualnej są rejestrowane przez dziennik zdarzeń i monitorowane przez usługi wykrywania Security Center.
 
-- [Zbieranie danych w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+- [Zbieranie danych w usłudze Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Odpowiedzialność**: Klient
 
@@ -305,7 +305,7 @@ Chociaż usługa Azure AD jest zalecaną metodą administrowania dostępem użyt
 
 - [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-- [Informacje dotyczące kont lokalnych](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+- [Informacje dotyczące kont lokalnych](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
 **Odpowiedzialność**: Klient
 
@@ -434,7 +434,7 @@ Jeśli używasz integracji środowiska uruchomieniowego na maszynie wirtualnej p
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -448,7 +448,7 @@ Jeśli używasz integracji środowiska uruchomieniowego na maszynie wirtualnej p
 
 Jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure (VM), na płycie maszyny wirtualnej na platformie Azure. Microsoft Azure wskaźnikiem wydajności jest skalowalne i natywne rozwiązanie do zarządzania zdarzeniami zabezpieczeń (SIEM) i o (Security Orchestration). Platforma Azure — wskaźnik przedstawia inteligentne rozwiązania w zakresie zabezpieczeń i analizy zagrożeń w całym przedsiębiorstwie, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Autoryzuj dostęp do zasobów Event Hubs za pomocą usługi Azure AD](../event-hubs/authorize-access-azure-active-directory.md)
 
@@ -468,7 +468,7 @@ Jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure (VM),
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim przy użyciu programu SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell)
+- [Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim przy użyciu programu SQL](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)
 
 - [Włącz uwierzytelnianie usługi Azure AD dla Azure-SSIS Integration Runtime](enable-aad-authentication-azure-ssis-ir.md)
 
@@ -620,9 +620,9 @@ Poświadczenia lub wartości tajne można przechowywać w Azure Key Vault i uży
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące wprowadzania zmian do Azure Data Factory i powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Rejestrowanie usługi Azure Storage Analytics](../storage/common/storage-analytics-logging.md)
 
@@ -1019,7 +1019,7 @@ Możesz również przechowywać poświadczenia lub wartości tajne w Azure Key V
 
 - [Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Jak utworzyć Key Vault](/azure/key-vault/quick-create-portal)
+- [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 - [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
 
@@ -1243,5 +1243,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie usługi Azure Security test w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie usługi Azure Security test w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

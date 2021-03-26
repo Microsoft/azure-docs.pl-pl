@@ -1,14 +1,14 @@
 ---
 title: Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
 description: Przechwyć informacje o sieci z śledzenia przeglądarki, aby pomóc w rozwiązywaniu problemów z Azure Portal.
-ms.date: 05/11/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745999"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563495"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
 
@@ -190,13 +190,13 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie Fir
 
     ![Zrzut ekranu przedstawiający wyniki śledzenia przeglądarki](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Har Export/Import** , a następnie **Zapisz wszystkie jako Har**.
+1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Zapisz wszystko jako Har**.
 
     ![Zrzut ekranu przedstawiający "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Zatrzymaj Rejestrator kroków w systemie Windows lub nagrania ekranu na komputerze Mac i Zapisz nagranie.
 
-1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz opcję **Eksportuj widoczny komunikat do** i Zapisz dane wyjściowe konsoli w pliku tekstowym.
+1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz pozycję **Eksportuj widoczne wiadomości do** i Zapisz dane wyjściowe konsoli w pliku tekstowym.
 
     ![Zrzut ekranu przedstawiający dane wyjściowe konsoli](media/capture-browser-trace/firefox-console-select.png)
 

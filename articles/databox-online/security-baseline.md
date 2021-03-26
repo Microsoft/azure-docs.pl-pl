@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d88284f3b9759ce04af9e44ae591c4796dde4e84
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452377"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565201"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linia bazowa zabezpieczeń Azure dla Azure Stack Edge
 
@@ -38,7 +38,7 @@ Ruch wewnętrzny jest bardziej zabezpieczony przez:
 
 Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
  
-- [Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack Edge](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack Edge](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Szybki Start — wprowadzenie do Azure Stack EDGE Pro z procesorem GPU](azure-stack-edge-gpu-quickstart.md)
 
@@ -54,7 +54,7 @@ Klienci mogą skonfigurować wirtualną sieć prywatną na swoich Azure Stack ur
 
 - [Konfigurowanie sieci VPN platformy Azure za pośrednictwem skryptu Azure PowerShell dla Azure Stack brzeg Pro R i Azure Stack Edge mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack Edge](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack Edge](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Samouczek: Konfigurowanie certyfikatów dla Azure Stack EDGE Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -68,7 +68,7 @@ Klienci mogą skonfigurować wirtualną sieć prywatną na swoich Azure Stack ur
 
 - [Konfigurowanie sieci VPN platformy Azure za pośrednictwem skryptu Azure PowerShell dla Azure Stack brzeg Pro R i Azure Stack Edge mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack Edge](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack Edge](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Samouczek: Konfigurowanie certyfikatów dla Azure Stack EDGE Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -298,7 +298,7 @@ Należy pamiętać, że do uzyskania wglądu w obciążenia i usługi mogą być
 
 **Wskazówki**: tylko autoryzowani użytkownicy mogą na przykład uzyskać dostęp do Azure Stack interfejsów API urządzenia brzegowego za pośrednictwem Azure Resource Manager lokalnego. Hasła kont użytkowników można zarządzać tylko w Azure Portal. 
 
-- [Ustawianie hasła usługi Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
+- [Ustawianie hasła usługi Azure Resource Manager](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

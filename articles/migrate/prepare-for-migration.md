@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614891"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558231"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Przygotowywanie maszyn lokalnych do migracji na platformę Azure
 
@@ -86,7 +86,7 @@ Wymagane zmiany zostały podsumowane w tabeli.
 --- | --- | --- | ---
 **Skonfiguruj zasady sieci SAN jako wszystkie**<br/><br/> Zapewnia to, że woluminy systemu Windows na maszynie wirtualnej platformy Azure używają tych samych przypisań liter dysku co lokalna maszyna wirtualna. | Ustawiaj automatycznie dla maszyn z systemem Windows Server 2008 R2 lub nowszym.<br/><br/> Skonfiguruj ręcznie w przypadku starszych systemów operacyjnych. | Ustawiana automatycznie w większości przypadków. | Skonfiguruj ręcznie.
 **Zainstaluj integrację gościa funkcji Hyper-V** | [Zainstaluj ręcznie](prepare-windows-server-2003-migration.md#install-on-vmware-vms) na komputerach z systemem Windows Server 2003. | [Zainstaluj ręcznie](prepare-windows-server-2003-migration.md#install-on-vmware-vms) na komputerach z systemem Windows Server 2003. | [Zainstaluj ręcznie](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) na komputerach z systemem Windows Server 2003.
-**Włącz konsolę seryjną platformy Azure**.<br/><br/>[Włącz konsolę](../virtual-machines/troubleshooting/serial-console-windows.md) programu na maszynach wirtualnych platformy Azure, aby pomóc w rozwiązywaniu problemów. Nie ma potrzeby ponownego uruchamiania maszyny wirtualnej. Maszyna wirtualna platformy Azure zostanie uruchomiona przy użyciu obrazu dysku. Rozruch obrazu dysku jest równoznaczny z ponownym uruchomieniem nowej maszyny wirtualnej. | Włącz ręcznie | Włącz ręcznie | Włącz ręcznie
+**Włącz konsolę seryjną platformy Azure**.<br/><br/>[Włącz konsolę](/troubleshoot/azure/virtual-machines/serial-console-windows) programu na maszynach wirtualnych platformy Azure, aby pomóc w rozwiązywaniu problemów. Nie ma potrzeby ponownego uruchamiania maszyny wirtualnej. Maszyna wirtualna platformy Azure zostanie uruchomiona przy użyciu obrazu dysku. Rozruch obrazu dysku jest równoznaczny z ponownym uruchomieniem nowej maszyny wirtualnej. | Włącz ręcznie | Włącz ręcznie | Włącz ręcznie
 **Połącz po migracji**<br/><br/> Aby nawiązać połączenie po migracji, należy wykonać kilka czynności przed przeprowadzeniem migracji. | [Skonfiguruj](#prepare-to-connect-to-azure-windows-vms) ręcznie. | [Skonfiguruj](#prepare-to-connect-to-azure-windows-vms) ręcznie. | [Skonfiguruj](#prepare-to-connect-to-azure-windows-vms) ręcznie.
 
 
@@ -126,7 +126,7 @@ W przypadku innych wersji Przygotuj maszyny zgodnie z podsumowaniem w tabeli.
 **Akcja** | **Szczegóły** | **Wersja systemu Linux**
 --- | --- | ---
 **Zainstaluj usługi integracji funkcji Hyper-V w systemie Linux** | Ponownie skompiluj obraz inicjowania systemu Linux, aby zawierał niezbędne sterowniki funkcji Hyper-V. Ponowne skompilowanie obrazu init gwarantuje, że maszyna wirtualna zostanie przeprowadzony na platformie Azure. | Większość nowych wersji dystrybucji systemu Linux jest domyślnie uwzględnionych w tym systemie.<br/><br/> Jeśli nie jest uwzględniony, zainstaluj ją ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
-**Włącz rejestrowanie w konsoli szeregowej platformy Azure** | Włączenie rejestrowania konsoli ułatwia rozwiązywanie problemów. Nie ma potrzeby ponownego uruchamiania maszyny wirtualnej. Maszyna wirtualna platformy Azure zostanie uruchomiona przy użyciu obrazu dysku. Rozruch obrazu dysku jest równoznaczny z ponownym uruchomieniem nowej maszyny wirtualnej.<br/><br/> Postępuj zgodnie z [tymi instrukcjami](../virtual-machines/troubleshooting/serial-console-linux.md) , aby włączyć.
+**Włącz rejestrowanie w konsoli szeregowej platformy Azure** | Włączenie rejestrowania konsoli ułatwia rozwiązywanie problemów. Nie ma potrzeby ponownego uruchamiania maszyny wirtualnej. Maszyna wirtualna platformy Azure zostanie uruchomiona przy użyciu obrazu dysku. Rozruch obrazu dysku jest równoznaczny z ponownym uruchomieniem nowej maszyny wirtualnej.<br/><br/> Postępuj zgodnie z [tymi instrukcjami](/troubleshoot/azure/virtual-machines/serial-console-linux) , aby włączyć.
 **Zaktualizuj plik mapy urządzeń** | Zaktualizuj plik mapy urządzeń za pomocą skojarzeń nazw urządzeń z systemem, aby korzystać z trwałych identyfikatorów urządzeń. | Instaluj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej. (Dotyczy tylko w scenariuszu VMware opartym na agentach)
 **Aktualizowanie wpisów fstab** |  Aktualizowanie wpisów w celu używania identyfikatorów woluminów trwałych.    | Aktualizuj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
 **Usuń regułę udev** | Usuń wszystkie reguły udev, które rezerwują nazwy interfejsów na podstawie adresu MAC itp. | Usuń ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
@@ -148,7 +148,7 @@ Poniższa tabela zawiera podsumowanie kroków wykonywanych automatycznie w przyp
 
 Dowiedz się więcej o krokach [uruchamiania maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/create-upload-generic.md)i uzyskaj instrukcje dotyczące niektórych popularnych dystrybucji systemu Linux.
 
-Przejrzyj listę [wymaganych pakietów](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) , aby zainstalować agenta maszyny wirtualnej z systemem Linux. Azure Migrate automatycznie instaluje agenta maszyny wirtualnej z systemem Linux dla RHEL6, RHEL7, CentOS7 (6 powinna być obsługiwana podobnie jak RHEL), Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04 w przypadku korzystania z metody migracji VMware bez agenta.
+Przejrzyj listę [wymaganych pakietów](../virtual-machines/extensions/agent-linux.md#requirements) , aby zainstalować agenta maszyny wirtualnej z systemem Linux. Azure Migrate automatycznie instaluje agenta maszyny wirtualnej z systemem Linux dla RHEL6, RHEL7, CentOS7 (6 powinna być obsługiwana podobnie jak RHEL), Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04 w przypadku korzystania z metody migracji VMware bez agenta.
 
 ## <a name="check-azure-vm-requirements"></a>Sprawdź wymagania dotyczące maszyny wirtualnej platformy Azure
 
@@ -187,7 +187,7 @@ Po przeprowadzeniu migracji wykonaj następujące kroki na maszynach wirtualnych
 
 1. Aby nawiązać połączenie z maszyną wirtualną za pośrednictwem Internetu, przypisz publiczny adres IP do maszyny wirtualnej. Musisz użyć innego publicznego adresu IP dla maszyny wirtualnej platformy Azure niż używany przez maszynę lokalną. [Dowiedz się więcej](../virtual-network/virtual-network-public-ip-address.md).
 2. Sprawdź, czy reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) na maszynie wirtualnej zezwalają na połączenia przychodzące do portu RDP lub SSH.
-3. Sprawdź [diagnostykę rozruchu](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) , aby wyświetlić maszynę wirtualną.
+3. Sprawdź [diagnostykę rozruchu](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) , aby wyświetlić maszynę wirtualną.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -200,4 +200,4 @@ W przypadku maszyn wirtualnych VMware Migracja serwera obsługuje funkcję [bezo
 
 - **Maszyny wirtualne VMware**: Weryfikuj [wymagania dotyczące migracji i obsługa](migrate-support-matrix-vmware-migration.md) maszyn wirtualnych VMware.
 - **Maszyny wirtualne funkcji Hyper-v**: Weryfikuj [wymagania dotyczące migracji i obsługa](migrate-support-matrix-hyper-v-migration.md) maszyn wirtualnych funkcji Hyper-v.
-- **Maszyny fizyczne**: Sprawdź [wymagania dotyczące migracji i obsługę](migrate-support-matrix-physical-migration.md) lokalnych maszyn fizycznych i innych zwirtualizowanych serwerów. 
+- **Maszyny fizyczne**: Sprawdź [wymagania dotyczące migracji i obsługę](migrate-support-matrix-physical-migration.md) lokalnych maszyn fizycznych i innych zwirtualizowanych serwerów.

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dec29dc92f70a3f02f3fb598659aa86477fb59bf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99094560"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558248"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "99094560"
 
 Usługa Azure Active Directory (Azure AD) została wprowadzona [przy użyciu grup w chmurze do zarządzania przypisaniami ról w Azure Active Directory (wersja zapoznawcza)](../../active-directory/roles/groups-concept.md). Dzięki temu można przypisywać role usługi Azure AD do grup.
 
-W przypadku włączenia [zarządzanej tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub usługi Azure Synapse Analytics należy przypisać rolę [**czytelnicy**](../../active-directory/roles/permissions-reference.md#directory-readers) usługi Azure AD do tożsamości, aby zezwolić na dostęp do odczytu do [interfejs API programu Graph usługi Azure AD](../../active-directory/develop/active-directory-graph-api.md). Zarządzana tożsamość SQL Database i Azure Synapse jest określana jako tożsamość serwera. Zarządzana tożsamość wystąpienia zarządzanego SQL jest określana jako tożsamość wystąpienia zarządzanego i automatycznie przypisywana podczas tworzenia wystąpienia. Aby uzyskać więcej informacji na temat przypisywania tożsamości serwera do SQL Database lub Azure Synapse, zobacz [Włączanie nazw głównych usług w celu tworzenia użytkowników usługi Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+W przypadku włączenia [zarządzanej tożsamości](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub usługi Azure Synapse Analytics należy przypisać rolę [**czytelnicy**](../../active-directory/roles/permissions-reference.md#directory-readers) usługi Azure AD do tożsamości, aby zezwolić na dostęp do odczytu do [interfejs API programu Graph usługi Azure AD](/graph/migrate-azure-ad-graph-planning-checklist). Zarządzana tożsamość SQL Database i Azure Synapse jest określana jako tożsamość serwera. Zarządzana tożsamość wystąpienia zarządzanego SQL jest określana jako tożsamość wystąpienia zarządzanego i automatycznie przypisywana podczas tworzenia wystąpienia. Aby uzyskać więcej informacji na temat przypisywania tożsamości serwera do SQL Database lub Azure Synapse, zobacz [Włączanie nazw głównych usług w celu tworzenia użytkowników usługi Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 Rola **czytelnicy Directory** jest wymagana do:
 

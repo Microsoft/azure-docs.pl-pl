@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573284"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566408"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrowanie obciążeń z Azure Stack Edge FPGA z krawędzią Pro do Azure Stack
 
@@ -173,7 +173,7 @@ Wykonaj następujące kroki, aby odzyskać dane z udziałów lokalnych:
 
 1. [Skonfiguruj obliczenia na urządzeniu](azure-stack-edge-gpu-deploy-configure-compute.md).
 1. Dodaj wszystkie udziały lokalne na urządzeniu docelowym. Szczegółowe instrukcje można znaleźć w temacie [Dodawanie udziału lokalnego](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
-1. Uzyskanie dostępu do udziałów SMB na urządzeniu źródłowym spowoduje użycie adresów IP na urządzeniu docelowym. Zobacz [nawiązywanie połączenia z udziałem SMB na Azure Stack Edge GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Aby nawiązać połączenie z udziałami NFS na urządzeniu docelowym, należy użyć nowych adresów IP skojarzonych z urządzeniem. Zobacz [nawiązywanie połączenia z udziałem NFS w witrynie Azure Stack Edge — procesor GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
+1. Uzyskanie dostępu do udziałów SMB na urządzeniu źródłowym spowoduje użycie adresów IP na urządzeniu docelowym. Zobacz [nawiązywanie połączenia z udziałem SMB na Azure Stack Edge GPU](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-smb-share). Aby nawiązać połączenie z udziałami NFS na urządzeniu docelowym, należy użyć nowych adresów IP skojarzonych z urządzeniem. Zobacz [nawiązywanie połączenia z udziałem NFS w witrynie Azure Stack Edge — procesor GPU](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-nfs-share). 
 
     Jeśli dane udziału zostały skopiowane na serwer pośredni za pośrednictwem protokołu SMB lub NFS, można skopiować dane z serwera pośredniego do udziałów na urządzeniu docelowym. Jeśli urządzenie źródłowe i docelowe są w *trybie online*, można także skopiować dane bezpośrednio z urządzenia źródłowego.
 

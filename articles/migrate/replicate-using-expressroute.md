@@ -6,19 +6,19 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9aa9a42422f3c114490d1dbb28a146b6e76ca8cd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448832"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558622"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replikowanie danych przez ExpressRoute z Azure Migrate: Migracja serwera
 
-W tym artykule dowiesz się, jak skonfigurować [Azure Migrate: Migracja serwera](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-migration-tool) w celu replikowania danych za pośrednictwem obwodu usługi ExpressRoute podczas migrowania serwerów na platformę Azure.
+W tym artykule dowiesz się, jak skonfigurować [Azure Migrate: Migracja serwera](./migrate-services-overview.md#azure-migrate-server-migration-tool) w celu replikowania danych za pośrednictwem obwodu usługi ExpressRoute podczas migrowania serwerów na platformę Azure.
 
 ## <a name="understand-azure-expressroute-circuits"></a>Omówienie obwodów usługi Azure ExpressRoute
-Obwód usługi ExpressRoute (ER) łączy infrastrukturę lokalną z firmą Microsoft za pośrednictwem dostawcy łączności. Obwody usługi ExpressRoute można skonfigurować tak, aby korzystały z prywatnej komunikacji równorzędnej, komunikacji równorzędnej firmy Microsoft lub obu tych elementów. Zapoznaj się z artykułem dotyczącym [obwodów usługi ExpressRoute i komunikacji równorzędnej](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#peeringcompare) , aby dowiedzieć się więcej o różnych opcjach komunikacji równorzędnej dostępnych z ExpressRoute.
+Obwód usługi ExpressRoute (ER) łączy infrastrukturę lokalną z firmą Microsoft za pośrednictwem dostawcy łączności. Obwody usługi ExpressRoute można skonfigurować tak, aby korzystały z prywatnej komunikacji równorzędnej, komunikacji równorzędnej firmy Microsoft lub obu tych elementów. Zapoznaj się z artykułem dotyczącym [obwodów usługi ExpressRoute i komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#peeringcompare) , aby dowiedzieć się więcej o różnych opcjach komunikacji równorzędnej dostępnych z ExpressRoute.
 
 Narzędzie migracji serwera Azure Migrate ułatwia Migrowanie serwerów lokalnych i serwerów z innych chmur do usługi Azure Virtual Machines. To narzędzie działa przez skonfigurowanie trwającego strumienia replikacji w celu replikowania danych z serwerów, które mają zostać zmigrowane do dysków zarządzanych w ramach subskrypcji platformy Azure. Gdy wszystko będzie gotowe do migracji serwerów, zreplikowane dane na platformie Azure są używane do migrowania serwerów.
 
@@ -104,7 +104,7 @@ Prywatne punkty końcowe można tworzyć tylko na koncie magazynu Ogólnego prze
     > [!Note]
     > Sieć wirtualna musi zawierać punkt końcowy bramy ExpressRoute lub musi być połączona z siecią wirtualną za pomocą bramy ExpressRoute. 
 
-    W sekcji **integracja prywatna strefa DNS** wybierz pozycję **tak** i Zintegruj z prywatną strefą DNS. Wybranie opcji **tak** powoduje automatyczne połączenie strefy DNS z wybraną siecią wirtualną i dodanie rekordów DNS, które są wymagane do rozpoznawania nazw DNS nowych adresów IP i w pełni kwalifikowanych nazwy domen utworzonych dla prywatnego punktu końcowego. Dowiedz się więcej o [prywatnych strefach DNS.](https://docs.microsoft.com/azure/dns/private-dns-overview)
+    W sekcji **integracja prywatna strefa DNS** wybierz pozycję **tak** i Zintegruj z prywatną strefą DNS. Wybranie opcji **tak** powoduje automatyczne połączenie strefy DNS z wybraną siecią wirtualną i dodanie rekordów DNS, które są wymagane do rozpoznawania nazw DNS nowych adresów IP i w pełni kwalifikowanych nazwy domen utworzonych dla prywatnego punktu końcowego. Dowiedz się więcej o [prywatnych strefach DNS.](../dns/private-dns-overview.md)
 
     ![privatednszone](./media/replicate-using-expressroute/private-dns-zone.png)
 
@@ -144,14 +144,14 @@ Jeśli nie wybrano opcji integracji z prywatną strefą DNS w momencie tworzenia
     b. Na stronie **Dodawanie zestawu rekordów** Dodaj wpis dla w pełni kwalifikowanej nazwy domeny i prywatnego adresu IP jako rekord typu.
 
 > [!Important]
-> Możesz wymagać dodatkowych ustawień DNS, aby rozwiązać prywatny adres IP prywatnego punktu końcowego konta magazynu ze środowiska źródłowego. Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder) , aby poznać wymaganą konfigurację systemu DNS.
+> Możesz wymagać dodatkowych ustawień DNS, aby rozwiązać prywatny adres IP prywatnego punktu końcowego konta magazynu ze środowiska źródłowego. Zapoznaj się z [tym artykułem](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) , aby poznać wymaganą konfigurację systemu DNS.
 
 ## <a name="replicate-data-using-an-expressroute-circuit-with-microsoft-peering"></a>Replikowanie danych przy użyciu obwodu usługi ExpressRoute przy użyciu komunikacji równorzędnej firmy Microsoft
 
 Możesz użyć komunikacji równorzędnej firmy Microsoft lub istniejącej publicznej domeny komunikacji równorzędnej (przestarzałe dla nowych połączeń ExpressRoute), aby skierować ruch związany z replikacją za pomocą obwodu usługi ExpressRoute, jak pokazano na poniższym diagramie.
 ![replicationwithmicrosoftpeering](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Nawet w przypadku danych replikacji przechodzących przez obwód komunikacji równorzędnej firmy Microsoft nadal będziesz potrzebować połączenia z Internetem z lokacji lokalnej w celu przeprowadzenia innej komunikacji (płaszczyzny kontroli) z usługą Azure Migrate. Istnieją dodatkowe adresy URL, które nie są dostępne za pośrednictwem ExpressRoute, że urządzenie replikacji/host funkcji Hyper-V musi mieć dostęp do organizowania procesu replikacji. Wymagania dotyczące adresu URL można sprawdzić w zależności od scenariusza migracji, [migracji programu VMware bez agenta](https://docs.microsoft.com/azure/migrate/migrate-appliance#public-cloud-urls) lub [migracji opartych na agentach](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance).  
+Nawet w przypadku danych replikacji przechodzących przez obwód komunikacji równorzędnej firmy Microsoft nadal będziesz potrzebować połączenia z Internetem z lokacji lokalnej w celu przeprowadzenia innej komunikacji (płaszczyzny kontroli) z usługą Azure Migrate. Istnieją dodatkowe adresy URL, które nie są dostępne za pośrednictwem ExpressRoute, że urządzenie replikacji/host funkcji Hyper-V musi mieć dostęp do organizowania procesu replikacji. Wymagania dotyczące adresu URL można sprawdzić w zależności od scenariusza migracji, [migracji programu VMware bez agenta](./migrate-appliance.md#public-cloud-urls) lub [migracji opartych na agentach](./migrate-replication-appliance.md).  
 
 Jeśli używasz serwera proxy w lokacji lokalnej i chcesz użyć usługi ExpressRoute do obsługi ruchu związanego z replikacją, musisz skonfigurować obejście serwera proxy dla odpowiednich adresów URL na urządzeniu lokalnym. 
 
@@ -172,7 +172,7 @@ Jeśli używasz serwera proxy w lokacji lokalnej i chcesz użyć usługi Express
 
 Wykonaj poniższe kroki, aby skonfigurować listę obejścia serwera proxy na serwerze konfiguracji i serwerach przetwarzania:
 
-1. [Pobierz narzędzie PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) , aby uzyskać dostęp do kontekstu użytkownika systemu.
+1. [Pobierz narzędzie PsExec](/sysinternals/downloads/psexec) , aby uzyskać dostęp do kontekstu użytkownika systemu.
 2. Otwórz program Internet Explorer w kontekście użytkownika systemu, uruchamiając następujący wiersz polecenia PsExec-s-i "użycie ścieżki%ProgramFiles%\Internet Explorer\iexplore.exe"
 3. Dodaj ustawienia serwera proxy w programie IE.
 4. Na liście pomijania Dodaj adres URL usługi Azure Storage. *. blob. Core. Windows. NET.  
@@ -185,10 +185,10 @@ Ponadto należy zaanonsować trasy w filtrze tras dla następujących Wspólnot 
 - Regionalna społeczność protokołu BGP dla docelowego regionu platformy Azure (region migracji)
 - Społeczność BGP dla Azure Active Directory (12076:5060)
 
-Dowiedz się więcej o [filtrach tras](https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal) i liście [społeczności protokołu BGP dla ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp). 
+Dowiedz się więcej o [filtrach tras](../expressroute/how-to-routefilter-portal.md) i liście [społeczności protokołu BGP dla ExpressRoute](../expressroute/expressroute-routing.md#bgp). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [obwodów usługi ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings).
-- Dowiedz się więcej o [domenach routingu ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#peeringcompare).
-- Dowiedz się więcej o [prywatnych punktach końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+- Dowiedz się więcej na temat [obwodów usługi ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
+- Dowiedz się więcej o [domenach routingu ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+- Dowiedz się więcej o [prywatnych punktach końcowych](../private-link/private-endpoint-overview.md).

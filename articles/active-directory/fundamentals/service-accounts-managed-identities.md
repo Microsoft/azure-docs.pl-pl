@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 16cd14aa447fb56af4cd9dd809696aecdc0c47a5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587835"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557840"
 ---
 # <a name="securing-managed-identities"></a>Zabezpieczanie tożsamości zarządzanych
 
@@ -38,7 +38,7 @@ Tożsamości zarządzane są najlepiej używane do komunikacji między usługami
 
 System źródłowy żąda dostępu do usługi docelowej. Dowolny zasób platformy Azure może być systemem źródłowym. Na przykład maszyny wirtualne platformy Azure, wystąpienie funkcji platformy Azure i wystąpienia usługi Azure App Services obsługują tożsamości zarządzane.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>Jak działa uwierzytelnianie i autoryzacja
 
@@ -86,7 +86,7 @@ Istnieje kilka sposobów, w których można znaleźć tożsamości zarządzane:
 
 ### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W usłudze Azure AD wybierz pozycję Aplikacja dla przedsiębiorstw.
+1. W Azure Active Directory wybierz pozycję aplikacje dla przedsiębiorstw.
 
 2. Wybierz filtr dla "tożsamości zarządzane" 
 
@@ -120,7 +120,7 @@ Można to zrobić przez Wyliczenie członków grup o wysokim poziomie uprawnień
 
 ## <a name="move-to-managed-identities"></a>Przenieś do zarządzanych tożsamości
 
-Jeśli używasz nazwy głównej usługi lub konta użytkownika usługi Azure AD, Oceń, czy zamiast tego możesz użyć funkcji zarządzanej, aby wyeliminować konieczność ochrony i rotacji poświadczeń oraz zarządzania nimi. 
+Jeśli używasz nazwy głównej usługi lub konta użytkownika usługi Azure AD, Oceń, czy zamiast tego możesz użyć tożsamości zarządzanej, aby wyeliminować konieczność ochrony i rotacji poświadczeń oraz zarządzania nimi. 
 
 ## <a name="next-steps"></a>Następne kroki
 

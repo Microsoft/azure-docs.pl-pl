@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865591"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564759"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
@@ -29,15 +29,15 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
 
 1. Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby.
 
-2. Utwórz nową grupę zasobów przy użyciu [Azure Portal](/azure/azure-resource-manager/management/manage-resource-groups-portal) lub [programu PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącej grupy zasobów.
+2. Utwórz nową grupę zasobów przy użyciu [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) lub [programu PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Ten krok jest opcjonalny, jeśli używasz istniejącej grupy zasobów.
  
-3. Utwórz nowe konto magazynu przy użyciu [Azure Portal](/azure/storage/common/storage-account-create?tabs=azure-portal) lub [programu PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
+3. Utwórz nowe konto magazynu przy użyciu [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) lub [programu PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
 
-4. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) lub [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
+4. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
 
 5. Obowiązkowe Utwórz magazyn kluczy i przekaż certyfikaty.
 
-    -  Certyfikaty mogą być dołączane do usług w chmurze w celu zapewnienia bezpiecznej komunikacji z usługą i z niej. Aby można było korzystać z certyfikatów, ich odciski palców muszą być określone w pliku konfiguracji usługi (. cscfg) i przekazywane do magazynu kluczy. Magazyn kluczy można utworzyć za pomocą [Azure Portal](/azure/key-vault/general/quick-create-portal) lub [programu PowerShell](/azure/key-vault/general/quick-create-powershell).
+    -  Certyfikaty mogą być dołączane do usług w chmurze w celu zapewnienia bezpiecznej komunikacji z usługą i z niej. Aby można było korzystać z certyfikatów, ich odciski palców muszą być określone w pliku konfiguracji usługi (. cscfg) i przekazywane do magazynu kluczy. Magazyn kluczy można utworzyć za pomocą [Azure Portal](../key-vault/general/quick-create-portal.md) lub [programu PowerShell](../key-vault/general/quick-create-powershell.md).
     - Skojarzony Magazyn kluczy musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze.
     - Skojarzony Magazyn kluczy dla programu musi mieć włączone odpowiednie uprawnienia, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikaty z Key Vault. Aby uzyskać więcej informacji, zobacz [Certyfikaty i Key Vault](certificates-and-key-vault.md)
     - Magazyn kluczy musi być przywoływany w sekcji OsProfile szablonu ARM przedstawionym w poniższych krokach.

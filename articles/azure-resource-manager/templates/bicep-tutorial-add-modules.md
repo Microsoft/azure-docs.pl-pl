@@ -2,15 +2,15 @@
 title: Samouczek — Dodawanie modułów do Azure Resource Manager pliku Bicep
 description: Za pomocą modułów można hermetyzować złożone Szczegóły deklaracji zasobów nieprzetworzonych.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6efd9c230df49c83adc17361082af85b0ef9edc5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102633142"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568770"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>Samouczek: Dodawanie modułów do Azure Resource Manager pliku Bicep
 
@@ -128,4 +128,4 @@ Gratulacje, wprowadzenie do wdrożenia plików Bicep na platformie Azure został
 Kolejna seria samouczków prowadzi do bardziej szczegółowych informacji na temat wdrażania szablonów.
 
 > [!div class="nextstepaction"]
-> [Dodaj moduły](./bicep-tutorial-add-modules.md)
+> [Wdrażanie szablonu lokalnego](./deployment-tutorial-local-template.md)

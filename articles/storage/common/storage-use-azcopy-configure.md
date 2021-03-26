@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9c699cd865746bf430193eba38ec6fa79575692e
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596950"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543452"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -103,14 +103,16 @@ Przed ustawieniem tej zmiennej zalecamy uruchomienie testu porównawczego. Proce
 
 ### <a name="optimize-memory-use"></a>Optymalizuj użycie pamięci
 
-Ustaw `AZCOPY_BUFFER_GB` zmienną środowiskową, aby określić maksymalną ilość pamięci systemowej, która ma być używana podczas pobierania i przekazywania plików.
-Ta wartość jest wyrażana w gigabajtach (GB).
+Ustaw `AZCOPY_BUFFER_GB` zmienną środowiskową, aby określić maksymalną ilość pamięci systemowej, która ma być używana do buforowania w przypadku pobierania i przekazywania plików. Ta wartość jest wyrażana w gigabajtach (GB).
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> Śledzenie zadań zawsze wiąże się z dodatkowym obciążeniem w pamięci. Kwota jest różna w zależności od liczby transferów w zadaniu. Bufory są największą częścią użycia pamięci. Możesz ułatwić sterowanie narzutem za pomocą programu `AZCOPY_BUFFER_GB` , aby w przybliżeniu spełniał wymagania, ale nie ma żadnej flagi umożliwiającej całkowite użycie pamięci.
 
 ### <a name="optimize-file-synchronization"></a>Optymalizowanie synchronizacji plików
 

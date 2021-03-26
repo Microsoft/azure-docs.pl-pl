@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie monitorowania i rejestrowania w usłudze Live Video Analytics na IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730250"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564487"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -312,7 +312,7 @@ Wykonaj następujące kroki, aby włączyć zbieranie metryk z poziomu usługi L
    W takim przypadku w Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **metryki** w okienku po lewej stronie. W tym miejscu powinny zostać wyświetlone metryki.
 
 ### <a name="log-analytics-metrics-collection"></a>Log Analytics zbieranie metryk
-Za pomocą [punktu końcowego Prometheus](https://prometheus.io/docs/practices/naming/) wraz z [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)można generować i [monitorować metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , takie jak używane CPUPercent, MemoryUsedPercent itd.   
+Za pomocą [punktu końcowego Prometheus](https://prometheus.io/docs/practices/naming/) wraz z [log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)można generować i [monitorować metryki](../../azure-monitor/essentials/metrics-supported.md) , takie jak używane CPUPercent, MemoryUsedPercent itd.   
 
 > [!NOTE]
 > Poniższa konfiguracja nie zbiera dzienników, a **jedynie metryki**. Istnieje możliwość rozbudowania modułu zbierającego, aby również zbierać i ładować dzienniki.

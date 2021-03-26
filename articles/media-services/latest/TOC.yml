@@ -329,6 +329,8 @@
           href: how-to-create-asset.md
         - name: Przekazywanie multimediów
           href: how-to-upload-media.md
+        - name: Zarządzanie wieloma kontami magazynu
+          href: media-services-managing-multiple-storage-accounts.md
     - name: Tworzenie przekształceń i zadań
       items:
         - name: Tworzenie przekształceń
@@ -367,6 +369,8 @@
                   href: how-to-create-overlay.md
                 - name: Generowanie miniatur za pomocą platformy .NET
                   href: media-services-generate-thumbnails-dotnet.md
+                - name: Przycinanie filmów wideo przy użyciu platformy .NET
+                  href: crop-howto.md
             - name: Przy użyciu interfejsu wiersza polecenia
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
@@ -417,6 +421,12 @@
           href: offline-widevine-for-android.md
         - name: Technologia PlayReady w trybie offline dla systemu Windows 10
           href: offline-plaready-streaming-for-windows-10.md
+    - name: Korzystanie z usługi Azure Functions
+      items:
+        - name: Przy użyciu platformy .NET
+          items:
+            - name: Użyj Azure Functions .NET
+              href: media-services-dotnet-how-to-use-azure-functions.md
     - name: Tworzenie filtrów
       items:
         - name: Przy użyciu platformy .NET
@@ -440,6 +450,10 @@
           href: download-results-howto.md
         - name: Dźwięk opisowy sygnału
           href: signal-descriptive-audio-howto.md
+    - name: Zabezpieczenia
+      items:
+        - name: Przetaczaj klucze dostępu do magazynu
+          href: media-services-roll-storage-access-keys.md
     - name: Korzystanie z odtwarzaczy multimediów
       items:
         - name: Pełna konfiguracja usługi Azure Media Player
@@ -448,6 +462,8 @@
           href: how-to-video-js-player.md
         - name: Korzystanie z odtwarzacza wideo Shaka
           href: how-to-shaka-player.md
+        - name: Przekaż tokeny uwierzytelniania
+          href: media-services-pass-authentication-tokens.md
 - name: Dokumentacja
   items:
     - name: Specyfikacja interfejsu OpenAPI (Swagger)

@@ -1062,18 +1062,26 @@
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
                 - name: Grupa dostępności
                   href: virtual-machines/windows/availability-group-overview.md
-                - name: Wystąpienie klastra trybu failover
+                - name: Wystąpienie klastra trybu failover (FCI)
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
             - name: Najlepsze rozwiązania
               items:
-                - name: Wydajność
-                  href: virtual-machines/windows/performance-guidelines-best-practices.md
                 - name: Zabezpieczenia
                   href: virtual-machines/windows/security-considerations-best-practices.md
                 - name: Konfiguracja klastra
                   href: virtual-machines/windows/hadr-cluster-best-practices.md
                 - name: Wzorce aplikacji
                   href: virtual-machines/windows/application-patterns-development-strategies.md
+                - name: Wydajność
+                  items:
+                    - name: Szybka lista kontrolna
+                      href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+                    - name: Rozmiar maszyny wirtualnej
+                      href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+                    - name: Storage
+                      href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
+                    - name: Zbierz linię bazową
+                      href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
             - name: Zarządzanie
               items:
                 - name: Rozszerzenie agenta środowiska IaaS programu SQL

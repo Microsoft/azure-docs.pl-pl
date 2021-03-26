@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679601"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561240"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Usługa Device Update dla agenta usługi IoT Hub — omówienie
 
 Agent aktualizacji urządzenia składa się z dwóch warstw koncepcyjnych:
 
-* Warstwa interfejsu jest oparta na [usłudze Azure IoT Plug and Play (PNP)](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) umożliwiająca przepływ komunikatów między agentem aktualizacji urządzeń i usługami aktualizacji urządzeń.
+* Warstwa interfejsu jest oparta na [usłudze Azure IoT Plug and Play (PNP)](../iot-pnp/overview-iot-plug-and-play.md) umożliwiająca przepływ komunikatów między agentem aktualizacji urządzeń i usługami aktualizacji urządzeń.
 * Warstwa platformy jest odpowiedzialna za akcje aktualizacji wysokiego poziomu, które można pobrać, zainstalować i zastosować, które mogą być platformą lub specyficzne dla urządzenia.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implementacje agentów." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -72,8 +72,7 @@ Procedura obsługi aktualizacji APT przetwarza manifest aktualizacji specyficzny
 
 ## <a name="self-update-device-update-agent"></a>Samoobsługowa aktualizacja agenta aktualizacji urządzeń
 
-Agenta aktualizacji urządzenia i jego zależności można zaktualizować za pomocą aktualizacji urządzenia dla potoku IoT Hub. W przypadku korzystania z aktualizacji opartej na obrazie należy uwzględnić w nowym obrazie najnowszą wersję agenta aktualizacji urządzenia. W przypadku korzystania z aktualizacji opartej na pakiecie należy uwzględnić agenta aktualizacji urządzenia i jego żądaną wersję w manifeście apt, jak każdy inny pakiet. [Dowiedz się więcej](device-update-apt-manifest.md) na temat manifestu apt. Zainstalowaną wersję agenta aktualizacji urządzeń i agenta optymalizacji dostarczania można sprawdzić w sekcji Właściwości urządzenia w ramach [sznurka urządzenia IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Dowiedz się więcej o właściwościach urządzeń w interfejsie adu Core](device-update-plug-and-play.md#device-properties).
+Agenta aktualizacji urządzenia i jego zależności można zaktualizować za pomocą aktualizacji urządzenia dla potoku IoT Hub. W przypadku korzystania z aktualizacji opartej na obrazie należy uwzględnić w nowym obrazie najnowszą wersję agenta aktualizacji urządzenia. W przypadku korzystania z aktualizacji opartej na pakiecie należy uwzględnić agenta aktualizacji urządzenia i jego żądaną wersję w manifeście apt, jak każdy inny pakiet. [Dowiedz się więcej](device-update-apt-manifest.md) na temat manifestu apt. Zainstalowaną wersję agenta aktualizacji urządzeń i agenta optymalizacji dostarczania można sprawdzić w sekcji Właściwości urządzenia w ramach [sznurka urządzenia IoT](../iot-hub/iot-hub-devguide-device-twins.md). [Dowiedz się więcej o właściwościach urządzeń w interfejsie adu Core](device-update-plug-and-play.md#device-properties).
 
 ## <a name="next-steps"></a>Następne kroki
 [Opis pliku konfiguracji agenta aktualizacji urządzeń](device-update-configuration-file.md)
-

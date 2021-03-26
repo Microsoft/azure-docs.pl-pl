@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/01/2021
-ms.openlocfilehash: c1d4c9be1f76e62be3c17d4dec22479db003b77a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 31c19f62f0328fca05562eaa2f19b7a79c0f3e15
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608261"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562702"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>Lista kontrolna wstępnego certyfikacji dla modułów IoT Edge
 
@@ -55,7 +55,7 @@ Zespół certyfikacji używa poniższego sprzętu do sprawdzania poprawności ob
 #### <a name="steps"></a>Kroki
 
 1. Upewnij się, że można uzyskać dostęp do utworzonych urządzeń/maszyn wirtualnych za poorednictwem wychodzenia.
-1. Pobierz [środowisko uruchomieniowe IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge) na urządzenie.
+1. Pobierz [środowisko uruchomieniowe IoT Edge](../iot-edge/how-to-install-iot-edge.md) na urządzenie.
 1. Zaktualizuj parametry połączenia skopiowane w kroku 5 do pliku config. YAML.
 1. Uruchom ponownie moduł brzegowy za pomocą `sudo systemctl restart iotedge` .
 1. Sprawdź, czy moduł został wdrożony na urządzeniu z `sudo iotedge list` ; powinien być w stanie uruchomienia.
@@ -78,6 +78,6 @@ Sprawdź następujące informacje:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdrażanie modułów z komercyjnej witryny Marketplace](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal#deploy-from-azure-marketplace)
-- [Publikowanie modułu brzegowego w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
-- [Wdróż moduł IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)  
+- [Wdrażanie modułów z komercyjnej witryny Marketplace](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
+- [Publikowanie modułu brzegowego w centrum partnerskim](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [Wdróż moduł IoT Edge](../iot-edge/quickstart-linux.md)

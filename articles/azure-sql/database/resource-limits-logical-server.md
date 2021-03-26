@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691233"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543520"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Ten artykuł zawiera omówienie limitów zasobów dla serwera logicznego używanego przez Azure SQL Database i usługę Azure Synapse Analytics. Zawiera informacje o tym, co się stanie w przypadku osiągnięcia lub przekroczenia limitów zasobów oraz opis mechanizmów ładu zasobów używanych do wymuszania tych limitów.
+Ten artykuł zawiera omówienie limitów zasobów dla [serwera logicznego](logical-servers.md) używanego przez Azure SQL Database i usługę Azure Synapse Analytics. Zawiera informacje o tym, co się stanie w przypadku osiągnięcia lub przekroczenia limitów zasobów oraz opis mechanizmów ładu zasobów używanych do wymuszania tych limitów.
 
 > [!NOTE]
-> W przypadku limitów wystąpienia zarządzanego usługi Azure SQL zapoznaj się z tematem [SQL Database limitów zasobów dla wystąpień zarządzanych](../managed-instance/resource-limits.md).
+> W przypadku limitów wystąpienia zarządzanego usługi Azure SQL zapoznaj się z [limitami zasobów dla wystąpień zarządzanych](../managed-instance/resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Maksymalne limity zasobów
 
 | Zasób | Limit |
 | :--- | :--- |
-| Bazy danych na serwer | 5000 |
-| Domyślna liczba serwerów na subskrypcję w dowolnym regionie | 20 |
-| Maksymalna liczba serwerów na subskrypcję w dowolnym regionie | 200 |  
-| Przydział jednostek DTU/eDTU na serwer | 54 000 |  
-| przydział rdzeń wirtualny na serwer/wystąpienie | 540 |
-| Maksymalna liczba pul na serwer | Ograniczone przez liczbę DTU lub rdzeni wirtualnych. Na przykład jeśli każda pula ma 1000 DTU, serwer może obsługiwać pule 54.|
+| Bazy danych na serwer logiczny | 5000 |
+| Domyślna liczba serwerów logicznych na subskrypcję w regionie | 20 |
+| Maksymalna liczba serwerów logicznych na subskrypcję w regionie | 200 |  
+| Przydział jednostek DTU/eDTU na serwer logiczny | 54 000 |  
+| przydział rdzeń wirtualny na serwer logiczny | 540 |
+| Maksymalna liczba pul na serwer logiczny | Ograniczone przez liczbę DTU lub rdzeni wirtualnych. Na przykład jeśli każda pula ma 1000 DTU, serwer może obsługiwać pule 54.|
 |||
 
 > [!IMPORTANT]
-> Ponieważ liczba baz danych zbliża się do limitu na serwer, mogą wystąpić następujące elementy:
+> Ponieważ liczba baz danych zbliża się do limitu dla serwera logicznego, mogą wystąpić następujące:
 >
-> - Zwiększanie opóźnień w uruchamianiu zapytań względem bazy danych Master.  Obejmuje to widoki statystyk wykorzystania zasobów, takie jak sys.resource_stats.
+> - Zwiększanie opóźnień w uruchamianiu zapytań względem bazy danych Master.  Dotyczy to również widoków statystyk wykorzystania zasobów, takich jak `sys.resource_stats` .
 > - Zwiększenie opóźnienia w operacjach zarządzania i portalu renderowania, który obejmuje wyliczanie baz danych na serwerze.
 
 > [!NOTE]
-> Aby uzyskać więcej wartości przydziału jednostek DTU/eDTU, przydziału rdzeń wirtualny lub większej liczby serwerów niż domyślna, Prześlij nowe żądanie obsługi w Azure Portal. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](quota-increase-request.md).
+> Aby uzyskać więcej zasobów jednostek DTU/eDTU, przydziału rdzeń wirtualny lub większej liczby serwerów logicznych niż wartość domyślna, Prześlij nowe żądanie obsługi w Azure Portal. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Rozmiar magazynu
 

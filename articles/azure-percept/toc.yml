@@ -18,7 +18,7 @@
       href: overview-percept-security.md
     - name: Integracja 80/20
       href: overview-8020-integration.md
-    - name: Aktualizowanie urządzeń z Percept
+    - name: Aktualizacje urządzenia
       href: overview-update-experience.md
 - name: Przewodniki Szybki start
   items:
@@ -44,6 +44,10 @@
       items:
         - name: Zachowanie diody LED i przycisku
           href: audio-button-led-behavior.md
+    - name: Zabezpieczenia
+      items:
+        - name: Konfiguracja zapory i zalecenia dotyczące zabezpieczeń
+          href: concept-security-configuration.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Obsługa opracowywania rozwiązań za pomocą usługi Azure Percept DK

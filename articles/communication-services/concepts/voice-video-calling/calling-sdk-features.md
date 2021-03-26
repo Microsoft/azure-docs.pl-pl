@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 39331cb83b233f6b91344e6e299ed81f187fe9d9
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 240bdaee9073ab18e175e2911ac1c23ae49b3d7e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108401"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562413"
 ---
 # <a name="calling-sdk-overview"></a>Omówienie wywoływania zestawu SDK
 
@@ -72,13 +72,33 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 |                   | Ustawianie/aktualizowanie trybu skalowania                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Renderowanie zdalnego strumienia wideo                                                                                          | ✔️   | ✔️            | ✔️
 
+## <a name="calling-client-library-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego biblioteki klienta
+Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące konfiguracje przesyłania strumieniowego:
 
+| Limit          |Internet | System Android/iOS|
+|-----------|----|------------|
+|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 wideo + 1 udostępnianie ekranu | 1 wideo + 1 udostępnianie ekranu|
+|**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 wideo + 1 udostępnianie ekranu| 6 wideo + 1 udostępnianie ekranu |
+
+## <a name="calling-client-library-timeouts"></a>Wywoływanie limitów czasu biblioteki klienta
+
+Następujące limity czasu dotyczą bibliotek klienta wywołującego usługi komunikacyjne:
+
+| Akcja           | Limit czasu w sekundach |
+| -------------- | ---------- |
+| Uczestnik ponownego łączenia/usuwania | 120 |
+| Dodawanie lub usuwanie nowego modalności wywołania (uruchamianie/zatrzymywanie udostępniania wideo lub ekranu) | 40 |
+| Limit czasu operacji transferu wywołań | 60 |
+| limit czasu ustanowienia wywołania 1:1 | 85 |
+| Limit czasu ustanowienia połączenia z grupą | 85 |
+| Limit czasu ustanowienia połączenia PSTN | 115 |
+| Podnieś poziom 1:1 wywołania do grupy limit czasu wywołania | 115 |
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Obsługa zestawu SDK w języku JavaScript przez system operacyjny i przeglądarkę
 
 Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek, które są obecnie dostępne. Obsługujemy najnowsze trzy wersje przeglądarki, chyba że wskazano inaczej.
 
-|                                  | Chrome | Safari  | Krawędź (chrom) | 
+| Platforma                         | Chrome | Safari  | Krawędź (chrom) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -114,15 +134,6 @@ Na przykład ten element IFRAME umożliwia dostęp do aparatu i mikrofonu:
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-## <a name="calling-sdk-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego SDK
-Zestaw SDK wywoływania usług komunikacyjnych obsługuje następujące konfiguracje przesyłania strumieniowego:
-
-|           |Internet | System Android/iOS|
-|-----------|----|------------|
-|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 udostępnianie wideo lub 1 ekran | 1 wideo + 1 udostępnianie ekranu|
-|**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 udostępnianie wideo lub 1 ekran| 6 wideo + 1 udostępnianie ekranu |
-
 
 ## <a name="next-steps"></a>Następne kroki
 
