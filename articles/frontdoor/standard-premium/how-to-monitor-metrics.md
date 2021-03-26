@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: bb10fb337972db2696960b530f2d7538bd36a2fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 72388eb8006ff1b9628db5066dc63e6a0811f3d5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101099388"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557330"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Monitorowanie w czasie rzeczywistym na platformie Azure — warstwa standardowa/Premium
 
@@ -22,11 +22,11 @@ ms.locfileid: "101099388"
 
 Platforma Azure Front-Standard/Premium jest zintegrowana z Azure Monitor i ma 11 metryki, które ułatwiają monitorowanie z użyciem usługi Azure Front-Standard/Premium w czasie rzeczywistym w celu śledzenia, rozwiązywania problemów i debugowania.  
 
-Miary platformy Azure z przodu Standard/Premium i wysyłają metryki w 60 sekund. Metryki mogą pojawić się w portalu dopiero po 3 minutach. Metryki mogą być wyświetlane na wykresach lub w wybranych siatkach i dostępne za pośrednictwem portalu, programu PowerShell, interfejsu wiersza polecenia i interfejsu API. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../../azure-monitor/platform/data-platform-metrics.md).  
+Miary platformy Azure z przodu Standard/Premium i wysyłają metryki w 60 sekund. Metryki mogą pojawić się w portalu dopiero po 3 minutach. Metryki mogą być wyświetlane na wykresach lub w wybranych siatkach i dostępne za pośrednictwem portalu, programu PowerShell, interfejsu wiersza polecenia i interfejsu API. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../../azure-monitor/essentials/data-platform-metrics.md).  
 
 Metryki domyślne są bezpłatne. Dodatkowe metryki można włączyć dla dodatkowego kosztu. 
 
-Można skonfigurować alerty dla każdej metryki, takie jak próg dla 4XXErrorRate lub 5XXErrorRate. Gdy współczynnik błędów przekracza wartość progową, zostanie wyzwolony alert zgodnie z konfiguracją. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md). 
+Można skonfigurować alerty dla każdej metryki, takie jak próg dla 4XXErrorRate lub 5XXErrorRate. Gdy współczynnik błędów przekracza wartość progową, zostanie wyzwolony alert zgodnie z konfiguracją. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/alerts/alerts-metric.md). 
 
 > [!IMPORTANT]
 > Platforma Azure Front-Standard/Premium (wersja zapoznawcza) jest obecnie dostępna w publicznej wersji zapoznawczej.
@@ -75,7 +75,7 @@ Można skonfigurować alerty dla każdej metryki, takie jak próg dla 4XXErrorRa
 
 1. Wybierz **nową regułę alertu** dla metryk wymienionych w sekcji metryki.
 
-Opłata zostanie naliczona na podstawie Azure Monitor. Aby uzyskać więcej informacji na temat alertów, zobacz [Azure monitor alertów](../../azure-monitor/platform/alerts-overview.md).
+Opłata zostanie naliczona na podstawie Azure Monitor. Aby uzyskać więcej informacji na temat alertów, zobacz [Azure monitor alertów](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

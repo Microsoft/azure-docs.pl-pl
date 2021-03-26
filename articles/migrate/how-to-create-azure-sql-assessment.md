@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: e9243fc750843c83b7ca8c295655853d20dcd083
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 9acc6de84c3e5bc43f482d36ade242d2315a2a4f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024988"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565116"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Tworzenie oceny usługi Azure SQL
 
@@ -192,4 +192,4 @@ Ocena zaufania pomaga oszacować niezawodność zaleceń dotyczących rozmiaru w
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej](concepts-azure-sql-assessment-calculation.md) na temat obliczania ocen usługi Azure SQL.
-- Rozpocznij Migrowanie wystąpień i baz danych SQL przy użyciu [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
+- Rozpocznij Migrowanie wystąpień i baz danych SQL przy użyciu [Azure Database Migration Service](../dms/dms-overview.md).

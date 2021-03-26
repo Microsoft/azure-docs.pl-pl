@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c1fbaf9be4cb128f0e4390a8c97c6f0b9330ce2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705402"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559880"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia i zmiany jednostek między Media Services V2 i V3
 
@@ -90,7 +90,3 @@ Zapoznaj się z konwencjami nazewnictwa, które są stosowane do zasobów Media 
 | Tryb gotowości zdarzenia na żywo <!--new row --> | Brak trybu wstrzymania dla wersji 2. | Tryb gotowości to nowa funkcja v3, która ułatwia zarządzanie dynamicznymi pulami wydarzeń na żywo. Przed przejściem do stanu działania klienci mogą teraz rozpocząć wydarzenie na żywo w trybie czuwania przy niższych kosztach. Zwiększa to czasy uruchamiania kanału i zmniejsza koszty operacyjnych pul z możliwością szybszego uruchamiania. |
 | Rozliczanie wydarzeń na żywo <!--new row --> | <!-- empty-->| Rozliczenia wydarzeń na żywo opierają się na licznikach kanału na żywo. |
 | Wyjście na żywo <!--new row --> | Programy musiały zostać uruchomione po utworzeniu. | Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane podczas usuwania. |
-
-## <a name="next-steps"></a>Następne kroki
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

@@ -3,12 +3,12 @@ title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e600439d54a89dd9bd2510b2e47b71b60ee93a7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102633805"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557687"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -135,7 +135,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[Złącza](/azure/kusto/query/joinoperator) |[Magazyn kluczy z nazwą subskrypcji](../samples/advanced.md#join) |Obsługiwane typy sprzężeń: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [wewnętrzne](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit 3 `join` w pojedynczym zapytaniu, z którym może być wiele tabel `join` . Jeśli wszystkie użycie między tabelami `join` jest między _zasobami_ i _ResourceContainers_, to 3 `join` . Niestandardowe strategie dołączania, takie jak sprzężenie emisji, nie są dozwolone. W których tabelach można używać `join` , zobacz [tabele grafów zasobów](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim `take` . Nie działa z [pominięciem](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Starszy operator, `mv-expand` zamiast tego użyj. _RowLimit_ max z 400. Wartość domyślna to 128. |
-|[MV — rozwiń](/azure/kusto/query/mvexpandoperator) |[Wyświetlanie listy Cosmos DB z określonymi lokalizacjami zapisu](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max z 400. Wartość domyślna to 128. Limit 3 `mv-expand` w pojedynczym zapytaniu.|
+|[MV — rozwiń](/azure/kusto/query/mvexpandoperator) |[Wyświetlanie listy Cosmos DB z określonymi lokalizacjami zapisu](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max z 400. Wartość domyślna to 128. Limit 2 `mv-expand` w pojedynczym zapytaniu.|
 |[order](/azure/kusto/query/orderoperator) |[Wyświetl listę zasobów posortowanych według nazwy](../samples/starter.md#list-resources) |Synonim `sort` |
 |[projektu](/azure/kusto/query/projectoperator) |[Wyświetl listę zasobów posortowanych według nazwy](../samples/starter.md#list-resources) | |
 |[projekt — poza](/azure/kusto/query/projectawayoperator) |[Usuń kolumny z wyników](../samples/advanced.md#remove-column) | |

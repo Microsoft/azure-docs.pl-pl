@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98724445"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557908"
 ---
 # <a name="resilient-end-user-experience"></a>Odporne środowisko użytkownika końcowego
 
@@ -62,7 +62,7 @@ W ramach procesu rejestracji zewnętrznego dostawcy tożsamości należy dołąc
 
 ## <a name="availability-of-multi-factor-authentication"></a>Dostępność uwierzytelniania wieloskładnikowego
 
-W przypadku korzystania z [usługi telefonicznej do uwierzytelniania wieloskładnikowego (MFA)](../../active-directory-b2c/phone-authentication.md)należy wziąć pod uwagę alternatywnego dostawcę usług. Lokalny odpływ lub dostawca usług telefonicznych może powodować zakłócenia w swojej usłudze.
+W przypadku korzystania z [usługi telefonicznej do uwierzytelniania wieloskładnikowego (MFA)](../../active-directory-b2c/phone-authentication-user-flows.md)należy wziąć pod uwagę alternatywnego dostawcę usług. Lokalny odpływ lub dostawca usług telefonicznych może powodować zakłócenia w swojej usłudze.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Jak wybrać alternatywną usługę MFA  
 

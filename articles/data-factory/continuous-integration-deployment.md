@@ -7,12 +7,12 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784037"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564181"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
@@ -335,7 +335,7 @@ Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu,
 * Chociaż dostosowanie specyficzne dla typu jest dostępne dla zestawów danych, można zapewnić konfigurację bez jawnego \* konfigurowania. W poprzednim przykładzie wszystkie właściwości zestawu danych w obszarze `typeProperties` są sparametryzowane.
 
 > [!NOTE]
-> **Alerty i macierze platformy Azure**  w przypadku skonfigurowania potoku nie są obecnie obsługiwane jako parametry wdrożeń usługi ARM. Aby ponownie zastosować alerty i macierze w nowym środowisku, postępuj zgodnie z [Data Factory monitorowaniem, alertami i macierzami.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> **Alerty i macierze platformy Azure**  w przypadku skonfigurowania potoku nie są obecnie obsługiwane jako parametry wdrożeń usługi ARM. Aby ponownie zastosować alerty i macierze w nowym środowisku, postępuj zgodnie z [Data Factory monitorowaniem, alertami i macierzami.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### <a name="default-parameterization-template"></a>Domyślny szablon parametryzacja

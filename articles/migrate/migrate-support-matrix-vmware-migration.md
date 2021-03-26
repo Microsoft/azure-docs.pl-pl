@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576785"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557568"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi dla migracji oprogramowania VMware
 
@@ -68,7 +68,7 @@ W tabeli zestawiono wymagania dotyczące migracji bez agentów dla maszyn wirtua
 **Protokół IPv6** | Nieobsługiwane.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa, dysk SSD w warstwie Premium) na platformie Azure.
 **Równoczesna replikacja** | Do 300 jednocześnie replikowanie maszyn wirtualnych na vCenter Server z 1 urządzeniem. Do 500 jednocześnie replikowanie maszyn wirtualnych na vCenter Server w przypadku wdrożenia dodatkowego [urządzenia skalowalnego](./how-to-scale-out-for-migration.md) w poziomie. 
-**Automatyczna instalacja agenta maszyny wirtualnej platformy Azure (Agent systemu Windows i Linux)** | Obsługiwane w przypadku systemu Windows Server 2008 R2 lub nowszego. <br/> Obsługiwane dla RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Zapoznaj się z listą [wymaganych pakietów](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)dla tych systemów operacyjnych Linux.
+**Automatyczna instalacja agenta maszyny wirtualnej platformy Azure (Agent systemu Windows i Linux)** | Obsługiwane w przypadku systemu Windows Server 2008 R2 lub nowszego. <br/> Obsługiwane dla RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Zapoznaj się z listą [wymaganych pakietów](../virtual-machines/extensions/agent-linux.md#requirements)dla tych systemów operacyjnych Linux.
 
 > [!TIP]
 >  Korzystając z Azure Portal będzie można wybrać maksymalnie 10 maszyn wirtualnych, aby skonfigurować replikację. Aby replikować więcej maszyn wirtualnych, możesz użyć portalu i dodać maszyny wirtualne do replikacji w wielu partiach 10 maszyn wirtualnych lub użyć interfejsu Azure Migrate PowerShell, aby skonfigurować replikację. Upewnij się, że nie skonfigurowano równoczesnej replikacji na ponad maksymalną obsługiwaną liczbę maszyn wirtualnych na potrzeby jednoczesnych replikacji.

@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
 ms.date: 03/03/2021
-ms.openlocfilehash: d8f7a2b2f31fb192147c1950866cff77064a3671
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a884dac90273e98868fed6bfe1cbed23b939d286
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020317"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557704"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Włączanie rejestrowania diagnostycznego w interfejsie API platformy Azure dla usługi FHIR
 
@@ -42,7 +42,7 @@ Możesz wyświetlić metryki w obszarze monitorowanie | Metryki z portalu. Metry
     2. **Przesyłaj strumieniowo do centrum zdarzeń** w celu pozyskiwania przez usługę innej firmy lub niestandardowe rozwiązanie analityczne. Aby można było skonfigurować ten krok, należy utworzyć przestrzeń nazw centrum zdarzeń i zasady centrum zdarzeń.
     3. **Przesyłaj strumieniowo do** obszaru roboczego Log Analytics w Azure monitor. Aby można było wybrać tę opcję, musisz utworzyć obszar roboczy usługi Dzienniki analizy.
 
-6. Wybierz pozycję **AuditLogs** i/lub **AllMetrics**. Metryki obejmują nazwę usługi, dostępność, rozmiar danych, łączny czas oczekiwania, całkowitą liczbę żądań, łączne błędy i sygnaturę czasową. Więcej szczegółów na temat [obsługiwanych metryk](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices)można znaleźć. 
+6. Wybierz pozycję **AuditLogs** i/lub **AllMetrics**. Metryki obejmują nazwę usługi, dostępność, rozmiar danych, łączny czas oczekiwania, całkowitą liczbę żądań, łączne błędy i sygnaturę czasową. Więcej szczegółów na temat [obsługiwanych metryk](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices)można znaleźć. 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Ustawienia diagnostyczne usługi Azure FHIR. Wybierz pozycję AuditLogs i/lub AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

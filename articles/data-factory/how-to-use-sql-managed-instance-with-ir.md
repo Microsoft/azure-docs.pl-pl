@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102451731"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564150"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Korzystanie z wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory
 
@@ -39,7 +39,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
             - W tej samej sieci wirtualnej co wystąpienie zarządzane z **inną podsiecią**.
             - Wewnątrz innej sieci wirtualnej niż wystąpienia zarządzanej za pośrednictwem komunikacji równorzędnej sieci wirtualnej (ograniczonej do tego samego regionu ze względu na globalne ograniczenia wirtualnych sieci równorzędnych) lub połączenia z sieci wirtualnej z siecią wirtualną.
 
-            Aby uzyskać więcej informacji na temat łączności wystąpienia zarządzanego SQL, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](/azure/sql-database/sql-database-managed-instance-connect-app).
+            Aby uzyskać więcej informacji na temat łączności wystąpienia zarządzanego SQL, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Konfigurowanie sieci wirtualnej](#configure-virtual-network).
 

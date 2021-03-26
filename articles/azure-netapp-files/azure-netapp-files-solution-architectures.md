@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: abbae7f8cb047f2f2ad3d998966bc00b02a002d4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 03a29e121d3838404519045601d484a1875db9ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864027"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557245"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -100,6 +100,7 @@ Ta sekcja zawiera odwołania do rozwiązań SAP w systemie Azure.
 * [Woluminy w chmurze ONTAP i Azure NetApp Files: łatwa migracja systemu SAP HANA](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
 * [Decyzje dotyczące architektury w celu zmaksymalizowania inwestycji ANF w programie HANA N + M Scale-Out architekturze — część 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
 * [Decyzje dotyczące architektury w celu zmaksymalizowania inwestycji ANF w programie HANA N + M Scale-Out architekturze — część 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [Decyzje dotyczące architektury w celu zmaksymalizowania inwestycji ANF w programie HANA N + M Scale-Out architekturze — część 3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
 
 ## <a name="azure-vmware-solutions"></a>Rozwiązania VMware platformy Azure
 

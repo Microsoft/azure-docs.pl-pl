@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 24a538686e101d40daba008f30a72ffc5078047a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104674537"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559132"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
 
@@ -52,14 +52,14 @@ Aby użyć wtyczki logowania jednokrotnego w przedsiębiorstwie firmy Microsoft 
 - Urządzenie musi być *zarejestrowane w usłudze MDM*, na przykład za pomocą Microsoft Intune.
 - Aby włączyć wtyczkę logowania jednokrotnego dla przedsiębiorstwa, należy przeprowadzić konfigurację *wypychaną do urządzenia* . Firma Apple wymaga tego ograniczenia zabezpieczeń.
 
-wymagania dotyczące systemu iOS:
+### <a name="ios-requirements"></a>wymagania dotyczące systemu iOS:
 - na urządzeniu musi być zainstalowany system iOS w wersji 13,0 lub nowszej.
-- Na urządzeniu musi być zainstalowana aplikacja firmy Microsoft udostępniająca dodatek logowania jednokrotnego dla przedsiębiorstwa firmy Microsoft dla urządzeń firmy Apple. W publicznej wersji zapoznawczej ta aplikacja jest aplikacją [Microsoft Authenticator](/intune/user-help/user-help-auth-app-overview.md).
+- Na urządzeniu musi być zainstalowana aplikacja firmy Microsoft udostępniająca dodatek logowania jednokrotnego dla przedsiębiorstwa firmy Microsoft dla urządzeń firmy Apple. W publicznej wersji zapoznawczej te aplikacje są [Microsoft Authenticator aplikacji](/azure/active-directory/user-help/user-help-auth-app-overview).
 
 
-wymagania macOS:
+### <a name="macos-requirements"></a>wymagania macOS:
 - na urządzeniu musi być zainstalowany macOS 10,15 lub nowszy. 
-- Na urządzeniu musi być zainstalowana aplikacja firmy Microsoft udostępniająca dodatek logowania jednokrotnego dla przedsiębiorstwa firmy Microsoft dla urządzeń firmy Apple. W publicznej wersji zapoznawczej ta aplikacja jest aplikacją [Intune — portal firmy](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
+- Na urządzeniu musi być zainstalowana aplikacja firmy Microsoft udostępniająca dodatek logowania jednokrotnego dla przedsiębiorstwa firmy Microsoft dla urządzeń firmy Apple. W publicznej wersji zapoznawczej te aplikacje zawierają [Intune — portal firmy aplikację](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
 
 ## <a name="enable-the-sso-plug-in"></a>Włącz wtyczkę logowania jednokrotnego
 

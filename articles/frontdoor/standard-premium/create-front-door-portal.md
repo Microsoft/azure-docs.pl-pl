@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 18956948a32a79c1435bf4fc1554b09480c9010c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 175fb82a5fdf300915f89c3d8cdc238638a742e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100870"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565133"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Szybki Start: Tworzenie profilu warstwy Standardowa/Premium platformy Azure — Azure Portal
 
@@ -58,7 +58,7 @@ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https
     | **Nazwa punktu końcowego** | Wprowadź globalnie unikatową nazwę dla punktu końcowego. |
     | **Typ źródła** | Wybierz typ zasobu dla źródła. W tym przykładzie wybieramy usługę App Service jako źródło z włączonym prywatnym linkiem. |
     | **Nazwa hosta źródła** | Wprowadź nazwę hosta dla źródła. |
-    | **Włącz link prywatny** | Jeśli chcesz mieć połączenie prywatne między drzwiami i pochodzeniem z platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tematem [wskazówki dotyczące łącza prywatnego](concept-private-link.md) i [Włącz prywatne łącze](how-to-enable-private-link.md).
+    | **Włącz link prywatny** | Jeśli chcesz mieć połączenie prywatne między drzwiami i pochodzeniem z platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tematem [wskazówki dotyczące łącza prywatnego](concept-private-link.md) i [Włącz prywatne łącze](./how-to-enable-private-link-web-app.md).
     | **Buforowanie** | Zaznacz to pole wyboru, jeśli chcesz, aby zawartość pamięci podręcznej była bliżej użytkowników globalnie przy użyciu punktów obecności i sieci firmy Microsoft na platformie Azure. |
     | **Zasady WAF** | Wybierz pozycję **Utwórz nowe** lub Wybierz istniejące zasady WAF z listy rozwijanej, jeśli chcesz włączyć tę funkcję. |
 

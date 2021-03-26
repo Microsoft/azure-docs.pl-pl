@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f28a95ce6ef5e87eed6e5efcd013cc40b102fcba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3a09e3f2bf29c09066e9414f9aa02a7879375425
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721093"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563535"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji i tworzenia pakietów na podstawie scenariusza dostarczania
 
@@ -62,7 +62,3 @@ Zapoznaj się z tematami dotyczącymi publikowania, samouczkami i przewodnikami 
 ## <a name="samples"></a>Samples
 
 Możesz również [porównać kod v2 i V3 w przykładach kodu](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Następne kroki
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

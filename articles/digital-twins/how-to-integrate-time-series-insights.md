@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aeb7489b455840eeca0a8e1967c7e6e2ed50b7a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 608f883304dbc8e1ea8b0127668125ae50ca0b11
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199904"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564946"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -157,7 +157,7 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Tworzenie i łączenie wystąpienia usługi Time Series Insights
 
-Następnie skonfigurujesz wystąpienie Time Series Insights do odbierania danych z drugiego centrum zdarzeń (TSI). Wykonaj poniższe kroki i aby uzyskać więcej informacji o tym procesie, zobacz [*Samouczek: Konfigurowanie środowiska Azure Time Series Insights GEN2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+Następnie skonfigurujesz wystąpienie Time Series Insights do odbierania danych z drugiego centrum zdarzeń (TSI). Wykonaj poniższe kroki i aby uzyskać więcej informacji o tym procesie, zobacz [*Samouczek: Konfigurowanie środowiska Azure Time Series Insights GEN2 PAYG*](../time-series-insights/tutorial-set-up-environment.md).
 
 1. Na Azure Portal Rozpocznij tworzenie środowiska Time Series Insights. 
     1. Wybierz warstwę cenową **Gen2 (L1)** .
@@ -201,7 +201,7 @@ Teraz dane powinny być przepływane do wystąpienia Time Series Insights, gotow
 
 Bliźniaczych reprezentacji cyfrowe są przechowywane domyślnie jako płaska hierarchia w Time Series Insights, ale można je wzbogacać o informacje o modelu i hierarchię wielopoziomową dla organizacji. Aby dowiedzieć się więcej na temat tego procesu, Przeczytaj: 
 
-* [*Samouczek: Definiowanie i stosowanie modelu*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
+* [*Samouczek: Definiowanie i stosowanie modelu*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 Można napisać logikę niestandardową, aby automatycznie podawać te informacje za pomocą modelu i danych grafu przechowywanych już w usłudze Azure Digital bliźniaczych reprezentacji. Aby dowiedzieć się więcej o zarządzaniu, uaktualnianiu i pobieraniu informacji z grafu bliźniaczych reprezentacji, zobacz następujące odwołania:
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0701ff53202d53131ceac8ceabb148fb5ff4f2b2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 629459d22b18b326307b45bb512d16622808b533
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025156"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562634"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -143,7 +143,7 @@ Jeśli wystąpienie jest gotowe zarówno pod kątem usługi Azure SQL DB, jak i 
 Może to mieć miejsce, gdy docelowy typ wdrożenia wybrany we właściwościach oceny jest **zalecany** i wystąpienie programu SQL Server nie jest gotowe pod kątem usługi Azure SQL Database ani Azure SQL Managed Instance. Użytkownikowi zaleca się utworzenie oceny w usłudze Azure Migrate z typem oceny ustawionym na wartość **Azure VM Azure**, aby określić, czy serwer, na którym uruchomiono wystąpienie, jest gotowy do migracji na maszynę wirtualną platformy Azure.
 Zaleca się utworzenie oceny w Azure Migrate z typem oceny jako **maszyną wirtualną platformy Azure** w celu ustalenia, czy serwer, na którym uruchomiono wystąpienie, jest gotowy do migracji na maszynę wirtualną platformy Azure:
 - Oceny maszyn wirtualnych platformy Azure w Azure Migrate są obecnie zniesione i przenoszone i nie uwzględniają określonych metryk wydajności związanych z uruchamianiem wystąpień SQL i baz danych na maszynie wirtualnej platformy Azure. 
-- Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dla programu SQL Server w usłudze Azure Virtual Machines.
+- Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) dla programu SQL Server w usłudze Azure Virtual Machines.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Nie widzę niektórych baz danych w ramach mojej oceny, mimo że wystąpienie jest częścią oceny
 
@@ -151,7 +151,7 @@ Ocena usługi Azure SQL obejmuje tylko bazy danych w stanie online. W przypadku,
 
 ## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Chcę porównać koszty uruchamiania wystąpień programu SQL na maszynie wirtualnej platformy Azure a Azure SQL Database/wystąpienia zarządzanego Azure SQL
 
-Możesz utworzyć ocenę typu **Maszyna wirtualna platformy Azure** w tej samej grupie, która została użyta w ramach oceny dotyczącej **usługi Azure SQL**. Następnie można porównać wyniki tych dwóch raportów. Należy jednak wziąć pod uwagę, że oceny maszyn wirtualnych platformy Azure w usłudze Azure Migrate kładą obecnie nacisk na migrację metodą „lift-and-shift” i nie uwzględniają określonych metryk wydajności dotyczących uruchamiania wystąpień i baz danych SQL na maszynie wirtualnej platformy Azure. Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dla programu SQL Server w usłudze Azure Virtual Machines.
+Możesz utworzyć ocenę typu **Maszyna wirtualna platformy Azure** w tej samej grupie, która została użyta w ramach oceny dotyczącej **usługi Azure SQL**. Następnie można porównać wyniki tych dwóch raportów. Należy jednak wziąć pod uwagę, że oceny maszyn wirtualnych platformy Azure w usłudze Azure Migrate kładą obecnie nacisk na migrację metodą „lift-and-shift” i nie uwzględniają określonych metryk wydajności dotyczących uruchamiania wystąpień i baz danych SQL na maszynie wirtualnej platformy Azure. Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) dla programu SQL Server w usłudze Azure Virtual Machines.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Koszt magazynu w ramach oceny usługi Azure SQL jest równy zero
 W przypadku wystąpienia zarządzanego usługi Azure SQL nie dodaliśmy kosztu magazynu dla pierwszego magazynu 32 GB/wystąpienia/miesiąca, a dodatkowy koszt magazynu jest dodawany do magazynu w przyrostach 32 GB. [Więcej informacji](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)

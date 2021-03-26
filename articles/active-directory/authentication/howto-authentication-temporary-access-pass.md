@@ -7,23 +7,23 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579386"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558265"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Konfigurowanie przekazywania tymczasowego dostępu w usłudze Azure AD w celu rejestrowania metod uwierzytelniania bezhaseł (wersja zapoznawcza)
 
 Metody uwierzytelniania bez hasła, takie jak FIDO2 i logowanie za pomocą telefonu bezobsługowego hasłem przy użyciu aplikacji Microsoft Authenticator, umożliwiają użytkownikom bezpieczne logowanie się, nie używając hasła. Użytkownicy mogą w jeden z dwóch sposobów przeprowadzać Bootstrap metody bezhasła:
 
-- Korzystanie z istniejących metod uwierzytelniania wieloskładnikowego usługi Azure AD 
-- Używanie tymczasowego dostępu 
+- Korzystanie z istniejących metod Multi-Factor Authentication usługi Azure AD 
+- Używanie tymczasowego dostępu (TAP) 
 
 Dostęp tymczasowy to ograniczony czasowo kod dostępu wystawiony przez administratora, który spełnia wymagania dotyczące silnych uwierzytelnień i może służyć do dołączania innych metod uwierzytelniania, w tym bez haseł. Tymczasowe przekazywanie dostępu sprawia również, że odzyskiwanie jest łatwiejsze, gdy użytkownik straci lub zapomniał silnego czynnika uwierzytelniania, takiego jak FIDO2 Security Key lub Microsoft Authenticator App, ale musi zalogować się, aby zarejestrować nowe metody silnego uwierzytelniania.
 
@@ -49,13 +49,13 @@ Aby skonfigurować zasady metody uwierzytelniania dla dostępu tymczasowego:
    Wartość domyślna i zakres dozwolonych wartości są opisane w poniższej tabeli.
 
 
-   | Ustawienie          | Wartości domyślne | Dozwolone wartości               | Komentarze                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Minimalny okres istnienia | 1 godzina         | 10 – 43200 minut (30 dni) | Minimalna liczba minut ważności tymczasowego dostępu.                                                                                                                                                                                                                         |   |
-   | Maksymalny okres istnienia | 24 godziny       | 10 – 43200 minut (30 dni) | Maksymalna liczba minut ważności tymczasowego dostępu.                                                                                                                                                                                                                         |   |
-   | Domyślny okres istnienia | 1 godzina         | 10 – 43200 minut (30 dni) | Wartości domyślne mogą być przesłonięte przez poszczególne przebiegi w ramach minimalnego i maksymalnego okresu istnienia skonfigurowanego przez zasady                                                                                                                                                |   |
-   | Jednorazowe użycie     | Fałsz          | PRAWDA/FAŁSZ                 | Jeśli zasady są ustawione na wartość false, w dzierżawie może być używana jedna lub więcej niż raz w okresie ważności (maksymalny okres istnienia). Wymuszając jednorazowe użycie w ramach zasad dostępu tymczasowego, wszystkie przebiegi utworzone w dzierżawie zostaną utworzone jako jednorazowe użycie. |   |
-   | Długość           | 8              | 8-48 znaków              | Definiuje długość kodu dostępu.                                                                                                                                                                                                                                      |   |
+   | Ustawienie | Wartości domyślne | Dozwolone wartości | Komentarze |
+   |---|---|---|---|
+   | Minimalny okres istnienia | 1 godzina | 10 – 43200 minut (30 dni) | Minimalna liczba minut ważności tymczasowego dostępu. |
+   | Maksymalny okres istnienia | 24 godziny | 10 – 43200 minut (30 dni) | Maksymalna liczba minut ważności tymczasowego dostępu. |
+   | Domyślny okres istnienia | 1 godzina | 10 – 43200 minut (30 dni) | Wartości domyślne mogą być przesłonięte przez poszczególne przebiegi w ramach minimalnego i maksymalnego okresu istnienia skonfigurowanego przez zasady. |
+   | Jednorazowe użycie | Fałsz | PRAWDA/FAŁSZ | Jeśli zasady są ustawione na wartość false, w dzierżawie może być używana jedna lub więcej niż raz w okresie ważności (maksymalny okres istnienia). Wymuszając jednorazowe użycie w ramach zasad dostępu tymczasowego, wszystkie przebiegi utworzone w dzierżawie zostaną utworzone jako jednorazowe użycie. |
+   | Długość | 8 | 8-48 znaków | Definiuje długość kodu dostępu. |
 
 ## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Tworzenie tymczasowego dostępu w portalu usługi Azure AD
 

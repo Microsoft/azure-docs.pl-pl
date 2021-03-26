@@ -7,18 +7,18 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102615384"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568821"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Przykład scenariusza wdrożenia w podglądzie połączonej pamięci podręcznej firmy Microsoft: dwupoziom zagnieżdżony Azure IoT Edge
 
 Na poniższym diagramie w tym scenariuszu jest dostępna Brama Azure IoT Edge i Azure IoT Edge urządzenie podrzędne, a jedna brama Azure IoT Edge została zadana jako nadrzędna dla innej bramy Azure IoT Edge i serwera proxy w strefie DMZ IT. Poniżej przedstawiono przykład zmiennych środowiskowych pamięci podręcznej połączonej przez firmę Microsoft, które można ustawić w interfejsie użytkownika Azure Portal dla obu modułów MCC wdrożonych na bramach Azure IoT Edge. W pokazanym przykładzie przedstawiono konfigurację dwóch poziomów Azure IoT Edge bram, ale nie ma żadnego limitu dla hostów nadrzędnych, które obsługują pamięć podręczną połączoną przez firmę Microsoft. Nie ma żadnych różnic w MCC kontenera Utwórz opcje z poprzednich przykładów.
 
-Aby uzyskać więcej informacji na temat konfigurowania wdrożeń warstwowych Azure IoT Edge bram, zapoznaj się z dokumentacją [IoT Edge Azure IoT Edge urządzeniach podrzędnych](https://docs.microsoft.com/azure/iot-edge/how-to-connect-downstream-iot-edge-device?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true) . Dodatkowo należy zauważyć, że podczas wdrażania Azure IoT Edge, połączonej pamięci podręcznej firmy Microsoft i modułów niestandardowych wszystkie moduły muszą znajdować się w tym samym rejestrze kontenerów.
+Aby uzyskać więcej informacji na temat konfigurowania wdrożeń warstwowych Azure IoT Edge bram, zapoznaj się z dokumentacją [IoT Edge Azure IoT Edge urządzeniach podrzędnych](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) . Dodatkowo należy zauważyć, że podczas wdrażania Azure IoT Edge, połączonej pamięci podręcznej firmy Microsoft i modułów niestandardowych wszystkie moduły muszą znajdować się w tym samym rejestrze kontenerów.
 
 Na poniższym diagramie przedstawiono scenariusz, w którym jedna brama Azure IoT Edge jako bezpośredni dostęp do zasobów sieci CDN działa jako element nadrzędny dla innej bramy Azure IoT Edge działającej jako element nadrzędny dla urządzenia typu liść usługi Azure IoT, takiego jak Raspberry Pi. Tylko nadrzędny Azure IoT Edge bramy ma łączność z Internetem z zasobami sieci CDN i zarówno dla Azure IoT Edge podrzędnych, jak i z urządzenia Azure IoT. 
 
@@ -70,7 +70,7 @@ Na poniższym diagramie przedstawiono scenariusz, w którym jedna brama Azure Io
 ## <a name="child-gateway-configuration"></a>Konfiguracja bramy podrzędnej
 
 >[!Note]
->Jeśli masz zreplikowane kontenery używane w konfiguracji w Twoim prywatnym rejestrze, należy zmodyfikować ustawienia konfiguracji. toml i ustawienia środowiska uruchomieniowego w ramach wdrożenia modułu. Aby uzyskać więcej informacji, zobacz [samouczek — Tworzenie hierarchii IoT Edge urządzeń — Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device) , aby uzyskać więcej szczegółów.
+>Jeśli masz zreplikowane kontenery używane w konfiguracji w Twoim prywatnym rejestrze, należy zmodyfikować ustawienia konfiguracji. toml i ustawienia środowiska uruchomieniowego w ramach wdrożenia modułu. Aby uzyskać więcej informacji, zobacz [samouczek — Tworzenie hierarchii IoT Edge urządzeń — Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device) , aby uzyskać więcej szczegółów.
 
 1. Zmodyfikuj ścieżkę obrazu dla agenta usługi Edge, jak pokazano w poniższym przykładzie:
 

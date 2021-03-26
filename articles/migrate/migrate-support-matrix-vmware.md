@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4d51fc13e3587c21a7340b35db10d3cf36ab74b5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870742"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557551"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
@@ -94,8 +94,8 @@ Oprócz odnajdywania serwerów, Azure Migrate: odnajdywanie i ocenianie może wy
 **Obsługiwane usługi SQL** | Obsługiwany jest tylko aparat bazy danych SQL Server. <br/> Odnajdywanie SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS) i SQL Server Analysis Services (SSAS) nie jest obsługiwane.
 
 > [!Note]
-> Azure Migrate zaszyfruje komunikację między urządzeniem Azure Migrate i SQL Server wystąpieniami źródła (z właściwością Szyfruj połączenie ustawioną na wartość TRUE). Te połączenia są szyfrowane za pomocą [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (wartość true). Warstwa transportu będzie używać protokołu SSL do szyfrowania kanału i pomijania łańcucha certyfikatów w celu zweryfikowania zaufania. Serwer urządzenia musi być skonfigurowany do [**zaufania głównego urzędu certyfikacji**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Jeśli podczas uruchamiania nie zainicjowano obsługi administracyjnej certyfikatu na serwerze, SQL Server generuje certyfikat z podpisem własnym, który jest używany do szyfrowania pakietów logowania. [**Dowiedz się więcej**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> Azure Migrate zaszyfruje komunikację między urządzeniem Azure Migrate i SQL Server wystąpieniami źródła (z właściwością Szyfruj połączenie ustawioną na wartość TRUE). Te połączenia są szyfrowane za pomocą [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (wartość true). Warstwa transportu będzie używać protokołu SSL do szyfrowania kanału i pomijania łańcucha certyfikatów w celu zweryfikowania zaufania. Serwer urządzenia musi być skonfigurowany do [**zaufania głównego urzędu certyfikacji**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Jeśli podczas uruchamiania nie zainicjowano obsługi administracyjnej certyfikatu na serwerze, SQL Server generuje certyfikat z podpisem własnym, który jest używany do szyfrowania pakietów logowania. [**Dowiedz się więcej**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Wymagania dotyczące analizy zależności (bez wykorzystania agentów)
 

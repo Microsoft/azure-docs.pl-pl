@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 795b6f13913590041b463115c0be65a6201fedab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6caf72884ce2566ad25b7dd6d80b15d737bbe664
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97654068"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543588"
 ---
 # <a name="about-point-to-site-vpn"></a>Informacje o sieci VPN typu punkt-lokacja
 
@@ -61,9 +61,9 @@ Na wysokim poziomie należy wykonać następujące kroki, aby skonfigurować uwi
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Uwierzytelnianie przy użyciu serwera domeny Active Directory (AD)
 
 Uwierzytelnianie domeny usługi AD umożliwia użytkownikom nawiązywanie połączeń z platformą Azure przy użyciu poświadczeń domeny organizacji. Wymaga serwera RADIUS, który integruje się z serwerem usługi AD. Organizacje mogą również korzystać z istniejącego wdrożenia usługi RADIUS.
-  
-Serwer RADIUS można wdrożyć lokalnie lub w sieci wirtualnej platformy Azure. Podczas uwierzytelniania VPN Gateway Azure pełni rolę przekazywania i przesyłania dalej komunikatów uwierzytelniania między serwerem RADIUS a urządzeniem łączącym. W związku z tym ważne jest, aby brama była osiągalna do serwera RADIUS. Jeśli serwer RADIUS jest obecny w środowisku lokalnym, w celu uzyskania dostępu do lokacji lokalnej wymagane jest połączenie S2S sieci VPN z platformy Azure.  
-  
+
+Serwer RADIUS można wdrożyć lokalnie lub w sieci wirtualnej platformy Azure. Podczas uwierzytelniania VPN Gateway Azure pełni rolę przekazywania i przesyłania dalej komunikatów uwierzytelniania między serwerem RADIUS a urządzeniem łączącym. W związku z tym ważne jest, aby brama była osiągalna do serwera RADIUS. Jeśli serwer RADIUS jest obecny w środowisku lokalnym, w celu uzyskania dostępu do lokacji lokalnej wymagane jest połączenie S2S sieci VPN z platformy Azure.
+
 Serwer RADIUS można także zintegrować z usługami certyfikatów usługi AD. Pozwala to na użycie serwera RADIUS i wdrożenia certyfikatu przedsiębiorstwa do uwierzytelniania certyfikatu P2S jako alternatywę dla uwierzytelniania certyfikatu platformy Azure. Zalety polegają na tym, że nie trzeba przekazywać certyfikatów głównych i odwołać certyfikatów na platformie Azure.
 
 Serwer RADIUS można także zintegrować z innymi zewnętrznymi systemami tożsamości. Spowoduje to otwarcie dużej liczby opcji uwierzytelniania dla sieci VPN P2S, w tym opcji wieloskładnikowych.

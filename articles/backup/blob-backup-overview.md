@@ -3,12 +3,12 @@ title: Przegląd operacyjnej kopii zapasowej dla obiektów blob platformy Azure
 description: Informacje o operacyjnej kopii zapasowej obiektów blob platformy Azure (w wersji zapoznawczej).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745100"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558758"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Przegląd operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)
 
@@ -22,7 +22,7 @@ Operacyjna kopia zapasowa obiektów BLOB to lokalne rozwiązanie do **tworzenia 
 
 Operacyjna kopia zapasowa używa możliwości platformy obiektów BLOB do ochrony danych i zezwalania na odzyskiwanie, gdy jest to wymagane:
 
-- **Przywracanie do punktu w czasie**: [przywracanie w ramach punktu obiektu BLOB w czasie](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) umożliwia przywracanie danych obiektów BLOB do wcześniejszego stanu. To z kolei powoduje użycie **nietrwałego usunięcia**, **źródła zmian** i **przechowywania wersji obiektów BLOB** w celu zachowania danych przez określony czas. Operacyjna kopia zapasowa obsługuje przywracanie do określonego momentu oraz podstawowe funkcje zapewniające, że dane są przechowywane przez określony czas.
+- **Przywracanie do punktu w czasie**: [przywracanie w ramach punktu obiektu BLOB w czasie](../storage/blobs/point-in-time-restore-overview.md) umożliwia przywracanie danych obiektów BLOB do wcześniejszego stanu. To z kolei powoduje użycie **nietrwałego usunięcia**, **źródła zmian** i **przechowywania wersji obiektów BLOB** w celu zachowania danych przez określony czas. Operacyjna kopia zapasowa obsługuje przywracanie do określonego momentu oraz podstawowe funkcje zapewniające, że dane są przechowywane przez określony czas.
 
 - **Usuń blokadę**: Usunięcie blokady zapobiega przypadkowemu usunięciu konta magazynu lub przez nieautoryzowanych użytkowników. Działająca kopia zapasowa po skonfigurowaniu również automatycznie stosuje blokadę usuwania w celu zmniejszenia możliwości utraty danych z powodu usunięcia konta magazynu.
 
@@ -63,9 +63,9 @@ Operacyjna kopia zapasowa umożliwia przywrócenie wszystkich blokowych obiektó
 
 W przypadku używania operacyjnej kopii zapasowej dla obiektów BLOB nie są naliczane żadne opłaty za zarządzanie ani opłaty za wystąpienie. Zostaną jednak naliczone następujące opłaty:
 
-- Przywracanie odbywa się przy użyciu przywracania do punktu w czasie i naliczane są opłaty na podstawie ilości przetworzonych danych. Aby uzyskać więcej informacji, zobacz [Cennik przywracania do punktu w czasie](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing).
+- Przywracanie odbywa się przy użyciu przywracania do punktu w czasie i naliczane są opłaty na podstawie ilości przetworzonych danych. Aby uzyskać więcej informacji, zobacz [Cennik przywracania do punktu w czasie](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
-- Przechowywanie danych ze względu [na nietrwałe usunięcie dla obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), [obsługę kanału informacyjnego zmiany w usłudze Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed)i [przechowywanie wersji obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- Przechowywanie danych ze względu [na nietrwałe usunięcie dla obiektów BLOB](../storage/blobs/soft-delete-blob-overview.md), [obsługę kanału informacyjnego zmiany w usłudze Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md)i [przechowywanie wersji obiektów BLOB](../storage/blobs/versioning-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

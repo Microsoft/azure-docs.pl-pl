@@ -3,12 +3,12 @@ title: Raporty Azure Backup e-mail
 description: Twórz zautomatyzowane zadania, aby otrzymywać raporty okresowe pocztą e-mail
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 8c18d4c7a3c7a9ba343296961fa9a44614366405
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510509"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561342"
 ---
 # <a name="email-azure-backup-reports"></a>Raporty Azure Backup e-mail
 
@@ -30,7 +30,7 @@ Aby skonfigurować zadania poczty e-mail za pomocą raportów kopii zapasowych, 
 
 ## <a name="authorize-connections-to-azure-monitor-logs-and-office-365"></a>Autoryzuj połączenia z dziennikami Azure Monitor i pakietem Office 365
 
-Aplikacja logiki używa łącznika [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) do wykonywania zapytań dotyczących obszarów roboczych La i używa łącznika [programu Outlook dla usługi Office 365](https://docs.microsoft.com/connectors/office365connector/) do wysyłania wiadomości e-mail. Należy wykonać jednorazową autoryzację dla tych dwóch łączników. 
+Aplikacja logiki używa łącznika [azuremonitorlogs](/connectors/azuremonitorlogs/) do wykonywania zapytań dotyczących obszarów roboczych La i używa łącznika [programu Outlook dla usługi Office 365](/connectors/office365connector/) do wysyłania wiadomości e-mail. Należy wykonać jednorazową autoryzację dla tych dwóch łączników. 
  
 Aby przeprowadzić autoryzację, wykonaj poniższe kroki:
 
@@ -79,4 +79,4 @@ Aby rozwiązać ten problem:
 Jeśli problemy będą się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o raportach kopii zapasowych](https://docs.microsoft.com/azure/backup/configure-reports)
+[Dowiedz się więcej o raportach kopii zapasowych](./configure-reports.md)

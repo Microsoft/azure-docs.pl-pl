@@ -4,12 +4,12 @@ description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą P
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180313"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544251"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "102180313"
 > Zdecydowanie zaleca się rozpoczęcie testowania scenariuszy z Azure Policy dla AKS, które oferują wbudowane zasady zabezpieczające i wbudowane inicjatywy, które są mapowane na zasady zabezpieczeń na poziomie. Aby przeprowadzić migrację z zasad zabezpieczeń na komputerze, należy wykonać następujące działania w klastrze.
 > 
 > 1. [Wyłącz zasady zabezpieczeń pod](#clean-up-resources) względem klastra
-> 1. Włączanie [dodatku Azure Policy][kubernetes-policy-reference]
+> 1. Włączanie [dodatku Azure Policy][azure-policy-add-on]
 > 1. Włącz odpowiednie zasady platformy Azure z [dostępnych zasad wbudowanych][policy-samples]
 > 1. Przejrzyj [zmiany zachowania między zasadami zabezpieczeń a Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
@@ -462,7 +462,6 @@ Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -479,3 +478,4 @@ Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [policy-samples]: ./policy-reference.md#microsoftcontainerservice
+[azure-policy-add-on]: ../governance/policy/concepts/policy-for-kubernetes.md

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2922e9620f558e072cfc1264f7e661efd11a90fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf236396f080af9676f211c42178ddda6a794420
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437012"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568345"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
@@ -110,7 +110,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Tylko lokalne konta magazynu, takie jak Magazyn lokalnie nadmiarowy (Standard_LRS lub Premium_LRS), można tworzyć za pośrednictwem Azure Resource Manager. Aby utworzyć konta magazynu warstwowego, zapoznaj się z instrukcjami w temacie [Dodawanie i nawiązywanie połączenia z kontami magazynu w witrynie Azure Stack EDGE Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Tylko lokalne konta magazynu, takie jak Magazyn lokalnie nadmiarowy (Standard_LRS lub Premium_LRS), można tworzyć za pośrednictwem Azure Resource Manager. Aby utworzyć konta magazynu warstwowego, zapoznaj się z instrukcjami w temacie [Dodawanie i nawiązywanie połączenia z kontami magazynu w witrynie Azure Stack EDGE Pro](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 Poniżej pokazano przykładowe dane wyjściowe.
 

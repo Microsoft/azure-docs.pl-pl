@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ba3cee2ecd7efcbb33c19d7ed159083e843c84a8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952120"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559914"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -56,8 +56,8 @@ Większość zadań i usług można wykonywać w ramach delegowanych zasobów w 
   - Upewnij się, że ten sam zestaw zasad jest stosowany w środowiskach hybrydowych klientów
   - Używanie Azure Security Center do monitorowania zgodności między środowiskami hybrydowymi klientów
 - Zarządzanie klastrami hybrydowymi Kubernetes w skali — [Kubernetes z włączoną funkcją Azure ARC (wersja zapoznawcza)](../../azure-arc/kubernetes/overview.md):
-  - [Zarządzanie klastrami Kubernetes połączonymi](../../azure-arc/kubernetes/connect-cluster.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
-  - [Użyj GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) dla połączonych klastrów
+  - [Zarządzanie klastrami Kubernetes połączonymi](../../azure-arc/kubernetes/quickstart-connect-cluster.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
+  - [Użyj GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) dla połączonych klastrów
   - Wymuś zasady w połączonych klastrach
 
 [Azure Automation](../../automation/index.yml):

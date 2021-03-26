@@ -3,12 +3,12 @@ title: Zarządzanie infrastrukturą hybrydową na dużą skalę za pomocą usłu
 description: Dowiedz się, jak efektywnie zarządzać maszynami klientów i klastrami Kubernetes poza platformą Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: da7f016b507f8f876d27f6924f87f078a7806563
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419340"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563603"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Zarządzanie infrastrukturą hybrydową na dużą skalę za pomocą usługi Azure Arc
 
@@ -35,11 +35,11 @@ Można na przykład [upewnić się, że ten sam zestaw zasad jest stosowany prze
 
 ## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Zarządzanie hybrydowymi klastrami Kubernetes na dużą skalę przy użyciu usługi Azure Arc Kubernetes
 
-Można zarządzać klastrami Kubernetes, które zostały [połączone z subskrypcją klienta za pomocą usługi Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), tak jakby były one uruchomione na platformie Azure.
+Można zarządzać klastrami Kubernetes, które zostały [połączone z subskrypcją klienta za pomocą usługi Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), tak jakby były one uruchomione na platformie Azure.
 
 Jeśli klient utworzył [konto jednostki usługi w celu dołączenia klastrów Kubernetes do usługi Azure Arc](../../azure-arc/kubernetes/create-onboarding-service-principal.md), możesz uzyskać dostęp do tego konta głównej usługi, aby dołączyć klastry i zarządzać nimi. Można to zrobić przez użytkowników w dzierżawie zarządzającej, którzy uzyskali wbudowaną rolę "Kubernetes klaster — Azure Arc dołączania", gdy subskrypcja zawierająca konto głównej usługi została dołączona [do usługi Azure Lighthouse](onboard-customer.md).
 
-[Konfiguracje](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) i [wykresy Helm](../../azure-arc/kubernetes/use-gitops-with-helm.md) można wdrażać za pomocą GitOps dla podłączonych klastrów.
+[Konfiguracje](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) i [wykresy Helm](../../azure-arc/kubernetes/use-gitops-with-helm.md) można wdrażać za pomocą GitOps dla podłączonych klastrów.
 
 Możliwe jest również monitorowanie podłączonych klastrów przy użyciu Azure Monitor i [użycie Azure Policy do zastosowania konfiguracji klastra w odpowiedniej skali](../../azure-arc/kubernetes/use-azure-policy.md).
 

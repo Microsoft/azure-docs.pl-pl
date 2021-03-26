@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d9769a2cfdbd5f552e97a6cd665263cbd488325
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6f0b53fc47c6e93c0750ba729a1b4670289d7714
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592969"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560407"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -627,7 +627,7 @@ Serwer proxy aplikacji usługi Azure Active Directory (Azure AD) natywnie obsłu
 **Kategoria usługi:** B2C — Zarządzanie tożsamościami konsumentów  
 **Możliwość produktu:** B2B/B2C
 
-Dzięki rejestrowaniu i rejestrowaniu numerów telefonów deweloperzy i przedsiębiorstwa mogą umożliwić klientom rejestrowanie się i logowanie przy użyciu hasła jednorazowego wysyłanego do numeru telefonu użytkownika za pośrednictwem wiadomości SMS. Ta funkcja umożliwia także zmianę numeru telefonu przez klienta w przypadku utraty dostępu do telefonu. Korzystając z możliwości zasad niestandardowych, zezwól programistom i przedsiębiorstwom na komunikowanie się z nimi za pomocą dostosowywania strony. Dowiedz się [, jak skonfigurować rejestrowanie i logowanie za pomocą zasad niestandardowych w Azure AD B2C](../../active-directory-b2c/phone-authentication.md).
+Dzięki rejestrowaniu i rejestrowaniu numerów telefonów deweloperzy i przedsiębiorstwa mogą umożliwić klientom rejestrowanie się i logowanie przy użyciu hasła jednorazowego wysyłanego do numeru telefonu użytkownika za pośrednictwem wiadomości SMS. Ta funkcja umożliwia także zmianę numeru telefonu przez klienta w przypadku utraty dostępu do telefonu. Korzystając z możliwości zasad niestandardowych, zezwól programistom i przedsiębiorstwom na komunikowanie się z nimi za pomocą dostosowywania strony. Dowiedz się [, jak skonfigurować rejestrowanie i logowanie za pomocą zasad niestandardowych w Azure AD B2C](../../active-directory-b2c/phone-authentication-user-flows.md).
  
 ---
 

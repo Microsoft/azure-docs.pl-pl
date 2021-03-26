@@ -2,13 +2,13 @@
 title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028747"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543786"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Masz pełny adres URL linku.
 
-Zwykle hostuje szablon w publicznym repozytorium. Jeśli używasz repozytorium prywatnego, musisz dołączyć token, aby uzyskać dostęp do nieprzetworzonej zawartości szablonu. Token wygenerowany przez witrynę GitHub jest ważny tylko przez krótki czas. Należy często aktualizować link.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Jeśli korzystasz [z narzędzia Git z Azure Repos](/azure/devops/repos/git/) zamiast repozytorium GitHub, możesz nadal korzystać z przycisku **Wdróż na platformie Azure** . Upewnij się, że Twoje repozytorium jest publiczne. Użyj [operacji Items](/rest/api/azure/devops/git/items/get) , aby pobrać szablon. Twoje żądanie powinno mieć następujący format:
 

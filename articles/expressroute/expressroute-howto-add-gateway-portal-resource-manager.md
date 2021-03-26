@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e70b41dfba03b7439313350746724c6f8e90bc34
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038921"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564776"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute przy użyciu Azure Portal
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
 [Film wideo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dotyczący tych kroków można wyświetlić przed rozpoczęciem konfiguracji.
 
 > [!IMPORTANT]
-> Obsługa protokołu IPv6 dla prywatnej komunikacji równorzędnej jest obecnie dostępna w **publicznej wersji zapoznawczej**. Jeśli chcesz połączyć sieć wirtualną z obwodem usługi ExpressRoute przy użyciu skonfigurowanej prywatnej komunikacji równorzędnej opartej na protokole IPv6, upewnij się, że sieć wirtualna jest podwójna, i postępuj zgodnie z wytycznymi dotyczącymi [protokołu IPv6 dla sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> Obsługa protokołu IPv6 dla prywatnej komunikacji równorzędnej jest obecnie dostępna w **publicznej wersji zapoznawczej**. Jeśli chcesz połączyć sieć wirtualną z obwodem usługi ExpressRoute przy użyciu skonfigurowanej prywatnej komunikacji równorzędnej opartej na protokole IPv6, upewnij się, że sieć wirtualna jest podwójna, i postępuj zgodnie z wytycznymi dotyczącymi [protokołu IPv6 dla sieci wirtualnej platformy Azure](../virtual-network/ipv6-overview.md).
 > 
 > 
 

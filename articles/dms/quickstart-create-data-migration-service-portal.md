@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.openlocfilehash: 6232c842514c10a5440e574621ca74e2f4867d86
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8a500104a0273b9e131815c4dc832bd33729cd51
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981675"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566595"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Szybki start: tworzenie wystąpienia usługi Azure Database Migration Service przy użyciu witryny Azure Portal
 
@@ -90,6 +90,6 @@ Możesz wyczyścić zasoby utworzone w tym przewodniku Szybki Start, usuwając [
 ## <a name="next-steps"></a>Następne kroki
 
 * [Migracja z programu SQL Server do usługi Azure SQL Database w trybie offline](tutorial-sql-server-to-azure-sql.md)
-* [Migracja z programu SQL Server do usługi Azure SQL Database w trybie online](tutorial-sql-server-azure-sql-online.md)
+* [Migracja z programu SQL Server do usługi Azure SQL Database w trybie online](./tutorial-sql-server-to-azure-sql.md)
 * [Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie offline](tutorial-sql-server-to-managed-instance.md)
 * [Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie online](tutorial-sql-server-managed-instance-online.md)

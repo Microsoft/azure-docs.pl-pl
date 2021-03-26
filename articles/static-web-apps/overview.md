@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f4e900c8bcdcb5febec39421e098b19ad10b8b00
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92320488"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558894"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
 
@@ -24,7 +24,7 @@ Przepływ pracy Web Apps statycznej platformy Azure jest dostosowany do codzienn
 
 Po utworzeniu zasobu usługi Azure Static Web Apps platforma Azure skonfiguruje przepływ pracy funkcji GitHub Actions w repozytorium kodu źródłowego aplikacji, które monitoruje wybraną przez Ciebie gałąź. Za każdym razem, gdy wypychanie zatwierdzeń lub zaakceptowanie żądań ściągnięcia do rozgałęzienia obserwowane, Akcja GitHub automatycznie kompiluje i wdraża aplikację oraz jej interfejs API na platformie Azure.
 
-Statyczne aplikacje sieci Web są często kompilowane przy użyciu bibliotek i platform, takich jak elementy kątowe, reaguje, Svelte, VUE lub Blazor. Te aplikacje obejmują zasoby HTML, CSS, JavaScript i obrazy, które tworzą aplikację. W przypadku tradycyjnego serwera sieci Web te zasoby są obsługiwane z jednego serwera wraz z dowolnym wymaganym punktami końcowymi interfejsu API.
+Statyczne aplikacje sieci Web są często kompilowane przy użyciu bibliotek i platform, takich jak kątowy, reaguje, Svelte, VUE lub Blazor, gdzie renderowanie po stronie serwera nie jest wymagane. Te aplikacje obejmują zasoby HTML, CSS, JavaScript i obrazy, które tworzą aplikację. W przypadku tradycyjnego serwera sieci Web te zasoby są obsługiwane z jednego serwera wraz z dowolnym wymaganym punktami końcowymi interfejsu API.
 
 W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego serwera sieci Web i zamiast tego są obsługiwane z punktów geograficznie rozmieszczonych na całym świecie. Takie rozproszenie sprawia, że pliki są obsługiwane znacznie szybciej, ponieważ znajdują się fizycznie bliżej użytkowników końcowych. Ponadto punkty końcowe interfejsu API są hostowane przy użyciu [architektury bezserwerowej](../azure-functions/functions-overview.md), co pozwala uniknąć konieczności pełnego serwera zaplecza.
 

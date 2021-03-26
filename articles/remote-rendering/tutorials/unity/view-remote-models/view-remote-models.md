@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3596dd7b2cd01e80d9cf4db9bbc179048e7fcf
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: b98f5253cc60edc8949c06a645d81849dff2de7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105035969"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543690"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
@@ -753,7 +753,7 @@ Powyższy kod wykonuje następujące czynności:
 1. Utwórz [jednostkę zdalną](../../../concepts/entities.md).
 1. Utwórz lokalną Gręobject, która będzie reprezentować jednostkę zdalną.
 1. Skonfiguruj lokalną Gręobject, aby synchronizować jej stan (tj. Transform) z jednostką zdalną każdej ramki.
-1. Ustaw nazwę i Dodaj [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) , aby pomóc w ustabilizowaniu.
+1. Ustaw nazwę i Dodaj [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) , aby pomóc w ustabilizowaniu.
 1. Załaduj dane modelu z Blob Storage do jednostki zdalnej.
 1. Zwróć jednostkę nadrzędną, aby uzyskać dalsze informacje.
 

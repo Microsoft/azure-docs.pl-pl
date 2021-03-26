@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465763"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562855"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Samouczek: analizowanie wideo na żywo przy użyciu rozwiązania Intel OpenVINO™ DL — rozszerzenie AI 
 
@@ -66,7 +66,7 @@ W tym samouczku wykonasz następujące czynności:
 
 OpenVINO™ DL — moduł rozszerzenia systemu AI jest mikrousługą opartą na analizie wideo firmy Intel, która obsługuje potoki analizy wideo utworzone za pomocą OpenVINO™ DL. Deweloperzy mogą wysyłać zdekodowane ramki wideo do modułu rozszerzenia AI, który przeprowadza wykrywanie, klasyfikację lub śledzenie i zwraca wyniki. Moduł rozszerzenia AI udostępnia interfejsy API gRPC, które są zgodne z platformami analitycznymi wideo, takimi jak Live Video Analytics na IoT Edge firmy Microsoft. 
 
-Aby można było tworzyć złożone, wysoce wydajne rozwiązania do analizy filmów wideo na żywo, analiza filmów wideo na żywo w module IoT Edge powinna być sparowana z wydajnym aparatem wnioskowania, który może wykorzystać skalę na krawędzi. W tym samouczku żądania wnioskowania są wysyłane do rozwiązania [Intel OpenVINO™ DL — rozszerzenie AI](https://aka.ms/lva-intel-openvino-dl-streamer), czyli moduł graniczny, który został zaprojektowany z myślą o pracy z analizą wideo na żywo na IoT Edge. 
+Aby można było tworzyć złożone, wysoce wydajne rozwiązania do analizy filmów wideo na żywo, analiza filmów wideo na żywo w module IoT Edge powinna być sparowana z wydajnym aparatem wnioskowania, który może wykorzystać skalę na krawędzi. W tym samouczku żądania wnioskowania są wysyłane do rozwiązania [Intel OpenVINO™ DL — rozszerzenie AI](), czyli moduł graniczny, który został zaprojektowany z myślą o pracy z analizą wideo na żywo na IoT Edge. 
 
 W początkowej wersji tego serwera wnioskowania masz dostęp do następujących [modeli](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 

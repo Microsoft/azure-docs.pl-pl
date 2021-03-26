@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 930594d2c1af198aba3dae936cd0ce8fcf91c336
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 01c9a8b62190f3b545169bb5ba6732e6799ff9f2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214103"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559812"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,7 +52,7 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 * [Środowisko Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Witryna internetowa platformy Azure z włączonym środowiskiem uruchomieniowym języka Java (np. Tomcat lub Jetty).](../app-service/quickstart-java.md)
 
-Jeśli instalujesz te narzędzia po raz pierwszy, coreservlets.com zawiera Przewodnik po procesie instalacji w sekcji szybki start w [samouczku: Instalowanie TomCat7 i używanie go z](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) zaem.
+Jeśli instalujesz te narzędzia po raz pierwszy, coreservlets.com zawiera Przewodnik po procesie instalacji w sekcji szybki start w [samouczku: Instalowanie TomCat7 i używanie go z](https://www.youtube.com/watch?v=jOdCfW7-ybI&t=2s) zaem.
 
 ## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Tworzenie konta usługi Azure Cosmos DB
 

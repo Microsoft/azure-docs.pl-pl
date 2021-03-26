@@ -3,12 +3,12 @@ title: Operacje płaszczyzny kontroli i płaszczyzny danych
 description: Opisuje różnicę między operacjami płaszczyzny kontroli i płaszczyzny danych. Operacje płaszczyzny kontroli są obsługiwane przez Azure Resource Manager. Operacje płaszczyzny danych są obsługiwane przez usługę.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91371273"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544098"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Płaszczyzna danych i płaszczyzna kontroli platformy Azure
 
@@ -52,7 +52,7 @@ Płaszczyzna kontroli obejmuje dwa scenariusze obsługi żądań — "zielone po
 
 ## <a name="data-plane"></a>Płaszczyzna danych
 
-Żądania operacji płaszczyzny danych są wysyłane do punktu końcowego, który jest specyficzny dla danego wystąpienia. Na przykład [Operacja wykrywania języka](/rest/api/cognitiveservices/textanalytics/detect%20language/detect%20language) w Cognitive Services jest operacją płaszczyzny danych, ponieważ adres URL żądania to:
+Żądania operacji płaszczyzny danych są wysyłane do punktu końcowego, który jest specyficzny dla danego wystąpienia. Na przykład [Operacja wykrywania języka](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) w Cognitive Services jest operacją płaszczyzny danych, ponieważ adres URL żądania to:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7766b57b5a3b9ffc73691303b5d8bcaa63fce4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab3f651c610127399da83addd6463ae8cb3748a9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721671"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565252"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Podstawowa usługa Azure Security dla zapory platformy Azure
 
@@ -36,7 +36,7 @@ Ponadto Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczący
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. Network**:
 
@@ -52,7 +52,7 @@ Ponadto Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczący
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. Network**:
 
@@ -72,7 +72,7 @@ Należy pamiętać, że nie można utworzyć własnego tagu usługi ani określi
 
 - [Tagi usługi Zapora platformy Azure](service-tags.md)
 
-- [Dostępne Tagi usług](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
+- [Dostępne Tagi usług](../virtual-network/service-tags-overview.md#available-service-tags)
 
 - [Grupy IP w zaporze platformy Azure](ip-groups.md)
 
@@ -90,7 +90,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Przykłady Azure Policy dla sieci](../governance/policy/samples/built-in-policies.md#network)
 
 - [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -104,9 +104,9 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 - [Monitorowanie dzienników i metryk usługi Azure Firewall](firewall-diagnostics.md)
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -120,7 +120,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 **Wskazówki**: Firma Microsoft przechowuje źródła czasu dla zasobów platformy Azure dla zapory platformy Azure. Klienci muszą utworzyć regułę sieci, aby zezwolić na dostęp, lub na serwer czasu używany w ich środowisku.
 
-- [Dostęp do serwera NTP](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [Dostęp do serwera NTP](./protect-windows-virtual-desktop.md#additional-considerations)
 
 **Odpowiedzialność**: Współużytkowane
 
@@ -144,7 +144,7 @@ Uwaga: oba dzienniki mogą być zapisane na koncie magazynu, przesyłane strumie
 
 Lista akcji zasobów w dziennikach aktywności: Azure Resource Manager operacje dostawcy zasobów
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor ](/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -188,9 +188,9 @@ Aby uzyskać więcej informacji, zobacz linki do odwołań poniżej.
 
 - [Dzienniki i metryki usługi Azure Firewall](logs-and-metrics.md)
 
-- [Zmień okres przechowywania danych w Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Odpowiedzialność**: Klient
 
@@ -214,7 +214,7 @@ Dzienniki Azure Monitor mogą służyć do ogólnego monitorowania w czasie rzec
 
 - [Dzienniki i metryki usługi Azure Firewall](logs-and-metrics.md)
 
-- [Dzienniki diagnostyczne](https://docs.microsoft.com/azure/firewall/logs-and-metrics#diagnostic-logs)
+- [Dzienniki diagnostyczne](./logs-and-metrics.md#diagnostic-logs)
 
 **Odpowiedzialność**: Klient
 
@@ -230,7 +230,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Odpowiedzialność**: Klient
 
@@ -258,7 +258,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management role uprzywilejowane dla usług firmy Microsoft i Azure Resource Manager.
 
-- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Odpowiedzialność**: Klient
 
@@ -334,7 +334,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usł
 
 **Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -348,7 +348,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko za pomocą usł
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Odpowiedzialność**: Klient
 
@@ -386,11 +386,11 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Można ograniczyć dostęp do zasobów zapory platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pomocą kontroli dostępu opartej na rolach platformy Azure.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -414,7 +414,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w czasie spoczynku i szyfrowania podczas przesyłania, jeśli ma to zastosowanie. 
 
-- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Odpowiedzialność**: Współużytkowane
 
@@ -456,7 +456,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla momentu wprowadzenia zmian w zaporze platformy Azure.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -470,7 +470,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 **Wskazówki**: stosowanie tagów do zapory platformy Azure i powiązanych zasobów, dzięki którym metadane mogą logicznie organizować je w taksonomię. 
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -482,7 +482,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create-management-group-portal)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -526,7 +526,7 @@ Użyj grafu zasobów platformy Azure, aby wysyłać zapytania/odnajdywać zasoby
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/concepts/effects.md#deny)
 
 **Odpowiedzialność**: Klient
 
@@ -594,7 +594,7 @@ W tej chwili usługa Azure Policy nie jest w pełni obsługiwana w przypadku zap
 
 **Wskazówki**: Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod, taki jak niestandardowe zasady platformy Azure i szablony Azure Resource Manager, oraz zarządzać nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -608,7 +608,7 @@ W tej chwili usługa Azure Policy nie jest w pełni obsługiwana w przypadku zap
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak używać aliasów](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Odpowiedzialność**: Klient
 
@@ -682,7 +682,7 @@ W tej chwili usługa Azure Policy nie jest w pełni obsługiwana w przypadku zap
 
 **Wskazówki**: Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i zarządzać nimi. Aby chronić zasoby zarządzane w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -784,5 +784,5 @@ Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w s
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

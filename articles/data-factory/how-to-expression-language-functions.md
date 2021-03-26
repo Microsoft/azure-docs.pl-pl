@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 090c738d06b9b8acd53a4c194e97fa3a0515e1d6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c9e1abc5fb6f66981f56bc262319587d9fc4265e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783391"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566663"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Jak używać parametrów, wyrażeń i funkcji w Azure Data Factory
 
@@ -25,7 +25,7 @@ W tym dokumencie będziemy przede wszystkim skupić się na podstawowych pojęci
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Interfejs użytkownika i parametry usługi Azure Data Factory
 
-Jeśli jesteś nowym użytkownikiem użycia parametrów usługi Azure Data Factory w interfejsie użytkownika funkcji ADF, przejrzyj [Informacje o interfejsie użytkownika usługi Data Factory dla połączonych usług z parametrami](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  i [interfejsem użytkownika usługi Data Factory dla potoku opartego na metadanych z parametrami](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) dla wyjaśnienia wizualnego.
+Jeśli jesteś nowym użytkownikiem użycia parametrów usługi Azure Data Factory w interfejsie użytkownika funkcji ADF, przejrzyj [Informacje o interfejsie użytkownika usługi Data Factory dla połączonych usług z parametrami](./parameterize-linked-services.md#data-factory-ui)  i [interfejsem użytkownika usługi Data Factory dla potoku opartego na metadanych z parametrami](./how-to-use-trigger-parameterization.md#data-factory-ui) dla wyjaśnienia wizualnego.
 
 ## <a name="parameter-and-expression-concepts"></a>Pojęcia dotyczące parametrów i wyrażeń 
 
@@ -313,11 +313,11 @@ Ten [parametr potoku kopiowania usługi Azure Data Factory](https://azure.micros
 
 ### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Szczegółowy potok przepływu danych mapowania z parametrami 
 
-Postępuj zgodnie z informacjami o [mapowaniu przepływu danych z parametrami](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) , aby uzyskać pełny przykład użycia parametrów w przepływie danych.
+Postępuj zgodnie z informacjami o [mapowaniu przepływu danych z parametrami](./parameters-data-flow.md) , aby uzyskać pełny przykład użycia parametrów w przepływie danych.
 
 ### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>Szczegółowy potok oparty na metadanych z parametrami
 
-Aby dowiedzieć się więcej na temat używania parametrów do projektowania potoków opartych na metadanych, należy postępować według [potoku opartego na metadanych z parametrami](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) . Jest to popularny przypadek użycia dla parametrów.
+Aby dowiedzieć się więcej na temat używania parametrów do projektowania potoków opartych na metadanych, należy postępować według [potoku opartego na metadanych z parametrami](./how-to-use-trigger-parameterization.md) . Jest to popularny przypadek użycia dla parametrów.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101645471"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543962"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planowanie Azure Active Directory konfiguracji aplikacji
 
@@ -74,31 +74,19 @@ Administratorzy mogą konfigurować:
 
 ## <a name="plan-consent-configuration"></a>Zaplanuj konfigurację zgody
 
-Istnieją dwa typy wyrazów zgody: użytkownik wyraża zgodę i zgodę na aplikacje uzyskujące dostęp do danych.
-
-![Zrzut ekranu przedstawiający konfigurację zgody](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>Użytkownik wyraża zgodę na aplikacje 
 
-Użytkownicy lub Administratorzy muszą wyrazić zgodę na warunki użytkowania aplikacji oraz zasady zachowania poufności informacji. Należy zdecydować, czy użytkownicy lub tylko Administratorzy mogą wyrazić zgodę na aplikacje. **Firma Microsoft zaleca, aby jeśli reguły biznesowe umożliwiały korzystanie z programu, użytkownik wyraża zgodę na zachowanie kontroli nad aplikacjami w dzierżawie**.
+Zanim użytkownik będzie mógł zalogować się do aplikacji, a aplikacja będzie mogła uzyskać dostęp do danych organizacji, użytkownik lub administrator musi udzielić uprawnień aplikacji. Możesz określić, czy zgoda użytkownika jest dozwolona i w jakich warunkach. **Firma Microsoft zaleca, aby zezwalać tylko na zgodę użytkownika na zweryfikowane wydawcy.**
 
-Aby korzystać z zgody administratora, musisz być administratorem globalnym organizacji, a aplikacje muszą mieć jedną z tych opcji:
-
-* Zarejestrowane w organizacji.
-
-* Zarejestrowane w innej organizacji usługi Azure AD, które zostały wcześniej wysłane do co najmniej jednego użytkownika.
-
-Jeśli chcesz zezwolić użytkownikom na wyrażanie zgody, musisz zdecydować, czy chcesz je wyrazić zgodę na dowolną aplikację, czy tylko w określonych okolicznościach.
-
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikację w Azure Active Directory.](../manage-apps/configure-user-consent.md)
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](../manage-apps/configure-user-consent.md)
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Wyrażanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych
 
-Ustal, czy właściciele grup zabezpieczeń usługi Azure AD lub grup M365 są w stanie wyrazić zgodę na dostęp do danych dla należących do nich grup. Możesz nie zezwalać na wszystkie właściciele grup lub zezwalać tylko na podzbiór właścicieli grup.
+Właściciele grup i zespołów mogą autoryzować aplikacje, takie jak aplikacje opublikowane przez dostawców innych firm, w celu uzyskania dostępu do danych organizacji skojarzonych z grupą. Aby dowiedzieć się więcej, zobacz temat [wyrażanie zgody na zasoby w usłudze Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) . 
+
+Możesz określić, czy chcesz zezwolić na tę funkcję, czy ją wyłączyć.
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień do zgody na grupy](../manage-apps/configure-user-consent-groups.md).
-
-Następnie skonfiguruj [Ustawienia zgody użytkownika i właściciela grupy](https://portal.azure.com/) w Azure Portal.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 

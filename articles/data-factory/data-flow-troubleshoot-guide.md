@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77007f0d9ffac39ecb6f21957dd8cd1bf7a0b945
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593858"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565711"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z mapowaniem przepływów danych w Azure Data Factory
 
@@ -302,7 +302,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 
 ### <a name="error-code-df-excel-invalidrange"></a>Kod błędu: DF-Excel-InvalidRange
 - **Komunikat**: podano nieprawidłowy zakres.
-- **Zalecenie**: Sprawdź wartość parametru i określ prawidłowy zakres przez następujące odwołanie: [format programu Excel we właściwościach Factory-Dataset danych platformy Azure](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Zalecenie**: Sprawdź wartość parametru i określ prawidłowy zakres przez następujące odwołanie: [format programu Excel we właściwościach Factory-Dataset danych platformy Azure](./format-excel.md#dataset-properties).
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>Kod błędu: DF-Excel-WorksheetNotExist
 - **Komunikat**: arkusz programu Excel nie istnieje.
@@ -369,4 +369,3 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów, zobacz następujące z
 *  [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
-

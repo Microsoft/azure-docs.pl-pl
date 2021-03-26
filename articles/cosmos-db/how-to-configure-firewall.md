@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b94b30851a5206c2183d999a3c024351cf415c90
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122718"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568243"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurowanie zapory IP w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -108,7 +108,7 @@ W przypadku uzyskiwania dostępu do konta Azure Cosmos DB z komputera w Internec
 
 Aby uzyskać dostęp do bieżącej listy zakresów wychodzących adresów IP w celu dodania ich do ustawień zapory, zobacz [pobieranie zakresów adresów IP platformy Azure i znaczników usług](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Aby zautomatyzować listę, zobacz [Korzystanie z interfejsu API odnajdywania tagów usług (publiczna wersja zapoznawcza)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview).
+Aby zautomatyzować listę, zobacz [Korzystanie z interfejsu API odnajdywania tagów usług (publiczna wersja zapoznawcza)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview).
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Konfigurowanie zapory IP przy użyciu szablonu Menedżer zasobów
 

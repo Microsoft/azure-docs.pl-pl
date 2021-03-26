@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798854"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568804"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Twórz interaktywne raporty usługi VM Insights ze skoroszytami
 
@@ -103,13 +103,13 @@ Każda sekcja ma własne ustawienia zaawansowane, które są dostępne w ![ sekc
 
 ![Zrzut ekranu okna dialogowego Ustawienia zaawansowane w Virtual Machines skoroszycie Azure Monitor. Zostanie wyróżniona ikona otwierająca okno dialogowe.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Ustawienie | Opis |
 | ---------------- |:-----|
-| **Szerokość niestandardowa**    | Sprawia, że element jest dowolnego rozmiaru, dzięki czemu można dopasować wiele elementów w jednym wierszu, co pozwala lepiej organizować wykresy i tabele w Zaawansowane raporty interaktywne.  |
-| **Warunkowo widoczne** | Określ, aby ukryć kroki na podstawie parametru w trybie odczytu. |
-| **Eksportowanie parametru**| Zezwól na wybranie wiersza w siatce lub wykresie, aby spowodować późniejsze kroki zmiany wartości lub staną się widoczne.  |
-| **Pokaż zapytanie, gdy nie jest edytowane** | Wyświetla zapytanie powyżej wykresu lub tabeli, nawet w trybie do czytania.
-| **Pokaż przycisk Otwórz w analizie, gdy nie jest edytowany** | Dodaje ikonę Blue Analytics do prawego rogu wykresu, aby zezwolić na dostęp za pomocą jednego kliknięcia.|
+| Szerokość niestandardowa    | Sprawia, że element jest dowolnego rozmiaru, dzięki czemu można dopasować wiele elementów w jednym wierszu, co pozwala lepiej organizować wykresy i tabele w Zaawansowane raporty interaktywne.  |
+| Warunkowo widoczne | Określ, aby ukryć kroki na podstawie parametru w trybie odczytu. |
+| Eksportowanie parametru| Zezwól na wybranie wiersza w siatce lub wykresie, aby spowodować późniejsze kroki zmiany wartości lub staną się widoczne.  |
+| Pokaż zapytanie, gdy nie jest edytowane | Wyświetla zapytanie powyżej wykresu lub tabeli, nawet w trybie do czytania.
+| Pokaż przycisk Otwórz w analizie, gdy nie jest edytowany | Dodaje ikonę Blue Analytics do prawego rogu wykresu, aby zezwolić na dostęp za pomocą jednego kliknięcia.|
 
 Większość z tych ustawień jest dość intuicyjna, ale w celu zrozumienia **eksportu parametru** lepiej jest sprawdzić skoroszyt, który korzysta z tej funkcji.
 
@@ -152,12 +152,12 @@ Parametry są liniowe, zaczynając od góry skoroszytu i przepływają w dół d
  
 Istnieją cztery różne typy parametrów, które są obecnie obsługiwane:
 
-|                  |      |
+| Parametr | Opis |
 | ---------------- |:-----|
-| **Tekst**    | Zezwala użytkownikowi na edytowanie pola tekstowego i opcjonalnie można podać zapytanie w celu wypełnienia wartości domyślnej. |
-| **Lista rozwijana** | Zezwala użytkownikowi na wybór z zestawu wartości. |
-| **Selektor zakresu czasu**| Zezwala użytkownikowi na wybór ze wstępnie zdefiniowanego zestawu wartości czasu lub pobranie z niestandardowego zakresu czasu.|
-| **Selektor zasobów** | Zezwala użytkownikowi na wybór spośród zasobów wybranych dla skoroszytu.|
+| Tekst    | Zezwala użytkownikowi na edytowanie pola tekstowego i opcjonalnie można podać zapytanie w celu wypełnienia wartości domyślnej. |
+| Lista rozwijana | Zezwala użytkownikowi na wybór z zestawu wartości. |
+| Selektor zakresu czasu| Zezwala użytkownikowi na wybór ze wstępnie zdefiniowanego zestawu wartości czasu lub pobranie z niestandardowego zakresu czasu.|
+| Selektor zasobów | Zezwala użytkownikowi na wybór spośród zasobów wybranych dla skoroszytu.|
 
 ### <a name="using-a-text-parameter"></a>Używanie parametru tekstowego
 

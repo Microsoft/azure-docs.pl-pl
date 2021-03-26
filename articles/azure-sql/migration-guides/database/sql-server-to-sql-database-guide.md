@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: ce155015373a096595dc61d75c876633e2e4f00a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027197"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564929"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>Przewodnik migracji: SQL Server do Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -152,7 +152,7 @@ W przypadku korzystania z opcji migracji, które w sposób ciągły replikuje/sy
 Po zweryfikowaniu, że dane są takie same na serwerze źródłowym i docelowym, można uruchomienie produkcyjne ze źródła do środowiska docelowego. Ważne jest, aby zaplanować proces uruchomienie produkcyjne z zespołami biznesowymi/aplikacjami, aby zapewnić minimalną przerwę w czasie, gdy uruchomienie produkcyjne nie ma wpływu na ciągłość działania firmy. 
 
 > [!IMPORTANT]
-> Aby uzyskać szczegółowe informacje dotyczące konkretnych kroków związanych z wykonywaniem uruchomienie produkcyjne w ramach migracji za pomocą usługi DMS, zobacz [wykonywanie migracji uruchomienie produkcyjne](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> Aby uzyskać szczegółowe informacje dotyczące konkretnych kroków związanych z wykonywaniem uruchomienie produkcyjne w ramach migracji za pomocą usługi DMS, zobacz [wykonywanie migracji uruchomienie produkcyjne](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="migration-recommendations"></a>Zalecenia dotyczące migracji
 

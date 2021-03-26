@@ -3,12 +3,12 @@ title: Koncepcje grafu multimediów — Azure
 description: Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. Ten artykuł zawiera szczegółowy opis koncepcji wykresu multimedialnego.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401104"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557670"
 ---
 # <a name="media-graph"></a>Graf multimedialny
 
@@ -74,7 +74,7 @@ Węzeł źródłowy RTSP umożliwia pozyskiwanie multimediów z serwera [RTSP](h
 
 #### <a name="iot-hub-message-source"></a>IoT Hub źródło komunikatu 
 
-Podobnie jak w przypadku innych [modułów IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-module), analiza filmów wideo na żywo w module IoT Edge może odbierać komunikaty za pośrednictwem [Centrum IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Te komunikaty mogą być wysyłane z innych modułów lub aplikacji uruchamianych na urządzeniu brzegowym lub w chmurze. Takie komunikaty są dostarczane (kierowane) do [nazwanego wejścia](../../iot-edge/module-composition.md#sink) w module. Węzeł źródła komunikatu IoT Hub pozwala na uzyskiwanie dostępu do grafu multimedialnego. Te komunikaty lub sygnały mogą być następnie używane wewnętrznie na grafie multimediów, zazwyczaj w celu aktywowania bram sygnałów (zobacz [bramy sygnałów](#signal-gate-processor) poniżej). 
+Podobnie jak w przypadku innych [modułów IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge), analiza filmów wideo na żywo w module IoT Edge może odbierać komunikaty za pośrednictwem [Centrum IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Te komunikaty mogą być wysyłane z innych modułów lub aplikacji uruchamianych na urządzeniu brzegowym lub w chmurze. Takie komunikaty są dostarczane (kierowane) do [nazwanego wejścia](../../iot-edge/module-composition.md#sink) w module. Węzeł źródła komunikatu IoT Hub pozwala na uzyskiwanie dostępu do grafu multimedialnego. Te komunikaty lub sygnały mogą być następnie używane wewnętrznie na grafie multimediów, zazwyczaj w celu aktywowania bram sygnałów (zobacz [bramy sygnałów](#signal-gate-processor) poniżej). 
 
 Na przykład można mieć moduł IoT Edge, który generuje komunikat, gdy otwiera się drzwi. Komunikat z tego modułu można skierować do centrum IoT Edge, z którego można następnie skierować do źródła komunikatu usługi IoT Hub grafu multimedialnego. Na wykresie multimedialnym źródło komunikatu usługi IoT Hub może przekazać zdarzenie do procesora usługi Signal Gateway, które następnie może włączyć nagrywanie wideo ze źródła RTSP do pliku. 
 

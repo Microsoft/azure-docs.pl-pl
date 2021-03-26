@@ -9,19 +9,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b2a3f018b16258622b817648cb00e230313bf49
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199853"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564521"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrowanie baz danych z SQL Server do wystąpienia zarządzanego SQL za pomocą usługi powtarzania dzienników (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 W tym artykule wyjaśniono, jak ręcznie skonfigurować migrację bazy danych z SQL Server 2008-2019 do wystąpienia zarządzanego Azure SQL, używając usługi log Powtórzeniaing (LRS), która jest obecnie dostępna w publicznej wersji zapoznawczej. LRS to usługa w chmurze, która jest włączona dla wystąpienia zarządzanego SQL i oparta na SQL Server technologii dostarczania dzienników. 
 
-[Azure Database Migration Service](/azure/dms/tutorial-sql-server-to-managed-instance) i LRS używają tej samej podstawowej technologii migracji i tych samych interfejsów API. Zwalniając LRS, możemy dodatkowo włączyć złożone migracje niestandardowe i architekturę hybrydową między lokalnymi SQL Server i wystąpieniem zarządzanym SQL.
+[Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md) i LRS używają tej samej podstawowej technologii migracji i tych samych interfejsów API. Zwalniając LRS, możemy dodatkowo włączyć złożone migracje niestandardowe i architekturę hybrydową między lokalnymi SQL Server i wystąpieniem zarządzanym SQL.
 
 ## <a name="when-to-use-log-replay-service"></a>Kiedy używać usługi powtarzania dzienników
 
@@ -66,7 +66,7 @@ Po zatrzymaniu usługi LRS automatycznie za pomocą funkcji Autouzupełnianie lu
     
 | Operacja | Szczegóły |
 | :----------------------------- | :------------------------- |
-| **1. Skopiuj kopie zapasowe bazy danych z SQL Server do BLOB Storage**. | Kopiowanie pełnych, różnicowych i dzienników kopii zapasowych z SQL Server do kontenera Blob Storage przy użyciu [AzCopy](/azure/storage/common/storage-use-azcopy-v10) lub [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Użyj dowolnych nazw plików. LRS nie wymaga określonej konwencji nazewnictwa plików.<br /><br />W przypadku migrowania kilku baz danych konieczne jest oddzielny folder dla każdej bazy danych. |
+| **1. Skopiuj kopie zapasowe bazy danych z SQL Server do BLOB Storage**. | Kopiowanie pełnych, różnicowych i dzienników kopii zapasowych z SQL Server do kontenera Blob Storage przy użyciu [AzCopy](../../storage/common/storage-use-azcopy-v10.md) lub [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Użyj dowolnych nazw plików. LRS nie wymaga określonej konwencji nazewnictwa plików.<br /><br />W przypadku migrowania kilku baz danych konieczne jest oddzielny folder dla każdej bazy danych. |
 | **2. Uruchom LRS w chmurze**. | Usługę można uruchomić ponownie przy użyciu wybranych poleceń cmdlet: PowerShell ([Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure ([az_sql_midb_log_replay_start poleceń cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Uruchom LRS oddzielnie dla każdej bazy danych, która wskazuje folder kopii zapasowej na Blob Storage. <br /><br /> Po uruchomieniu usługi zostaną wykonane kopie zapasowe z kontenera Blob Storage i rozpocznie się ich przywracanie w wystąpieniu zarządzanym SQL.<br /><br /> Jeśli uruchomiono LRS w trybie ciągłym, po przywróceniu wszystkich wstępnie przekazanych kopii zapasowych usługa będzie oglądać wszystkie nowe pliki przekazane do folderu. Usługa będzie stale stosować dzienniki na podstawie łańcucha numeru sekwencyjnego dziennika (LSN), dopóki nie zostanie zatrzymana. |
 | **2,1. Monitoruj postęp operacji**. | Możesz monitorować postęp operacji przywracania za pomocą wybranych poleceń cmdlet: PowerShell ([Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure ([az_sql_midb_log_replay_show poleceń cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2,2. Zatrzymaj operację w razie konieczności**. | Jeśli chcesz zatrzymać proces migracji, masz możliwość wyboru poleceń cmdlet: PowerShell ([stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> Zatrzymanie operacji spowoduje usunięcie bazy danych, która jest przywracana w wystąpieniu zarządzanym SQL. Po zatrzymaniu operacji nie można wznowić LRS dla bazy danych. Należy ponownie uruchomić proces migracji od podstaw. |
@@ -164,7 +164,7 @@ Usługa Azure Blob Storage jest używana jako magazyn pośredniczący dla plikó
 
 W przypadku migrowania baz danych do wystąpienia zarządzanego przy użyciu programu LRS można użyć następujących metod, aby przekazać kopie zapasowe do Blob Storage:
 - Używanie SQL Server natywnej [kopii zapasowej do obsługi adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
-- Przekazywanie kopii zapasowych do kontenera obiektów BLOB za pomocą [AzCopy](/azure/storage/common/storage-use-azcopy-v10) lub [Eksplorator usługi Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer)
+- Przekazywanie kopii zapasowych do kontenera obiektów BLOB za pomocą [AzCopy](../../storage/common/storage-use-azcopy-v10.md) lub [Eksplorator usługi Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer)
 - Używanie Eksplorator usługi Storage w Azure Portal
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Utwórz kopie zapasowe SQL Server bezpośrednio do Blob Storage

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98071378"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568662"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
 
@@ -292,7 +292,7 @@ Ten problem występuje, gdy vCenter Server agenci zarządzania przestaną dział
 
 ### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nieprawidłowy rozmiar dysku migawki]
 
-Jest to znany problem dotyczący oprogramowania VMware, w którym rozmiar dysku wskazany przez migawkę zmieni się na zero. Postępuj zgodnie z rozdzielczością podaną w [oprogramowaniu VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
+Jest to znany problem dotyczący oprogramowania VMware, w którym rozmiar dysku wskazany przez migawkę zmieni się na zero. Postępuj zgodnie z rozdzielczością podaną w [oprogramowaniu VMware KB](https://kb.vmware.com/s/).
 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Alokacja pamięci nie powiodła się. Za mało pamięci.]
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888910"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561971"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Wyszukiwanie semantyczne na platformie Azure Wyszukiwanie poznawcze
 
@@ -44,7 +44,7 @@ Wyszukiwanie semantyczne usprawnia precyzję i cofa Dodawanie następujących mo
 
 ### <a name="order-of-operations"></a>Kolejność operacji
 
-Składniki wyszukiwania semantycznego poszerzają istniejący potok wykonywania zapytania w obu kierunkach. Jeśli włączysz korektę pisowni, narzędzie [sprawdzania](speller-how-to-add.md) pisowni poprawi literówki na początku, zanim warunki zapytania osiągnie wyszukiwarkę.
+Składniki wyszukiwania semantycznego poszerzają istniejący potok wykonywania zapytania w obu kierunkach. Jeśli włączysz korektę pisowni, narzędzie [sprawdzania pisowni](speller-how-to-add.md) poprawi literówki na początku zapytania, zanim warunki docierają do aparatu wyszukiwania.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Składniki semantyczne w wykonaniu zapytania" border="true":::
 

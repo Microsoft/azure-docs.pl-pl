@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708487"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567037"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
 
@@ -64,14 +64,14 @@ Można wybrać jedną z dwóch opcji czasu trwania przypisania dla każdego typu
 
 Można wybrać jedną **z następujących opcji** czasu trwania przypisania:
 
-| | |
+| | Opis |
 | --- | --- |
 | **Zezwalaj na trwałe przypisanie** | Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą przypisywać trwałe, kwalifikujące się przypisanie. |
 | **Unieważnij przypisanie kwalifikujące się po** | Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą wymagać, aby wszystkie kwalifikujące się przypisania miały określoną datę początkową i końcową. |
 
 Można też wybrać jedną z następujących opcji **aktywnego** przydziału czasu trwania:
 
-| | |
+| | Opis |
 | --- | --- |
 | **Zezwalaj na trwałe aktywne przypisanie** | Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą przypisywać trwałe aktywne przydziały. |
 | **Wygasa aktywne przypisanie po** | Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą wymagać, aby wszystkie aktywne przypisania miały określoną datę początkową i końcową. |

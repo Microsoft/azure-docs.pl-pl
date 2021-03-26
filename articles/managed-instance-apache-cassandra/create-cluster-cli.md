@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: ef8ef85dde11eb991f14201286dc1a086df71dc8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b719310a331044df363efcc6b79be323faf49247
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588604"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562107"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Szybki Start: Tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń interfejsu wier
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* [Platforma Azure Virtual Network](../virtual-network/virtual-networks-overview.md) z łącznością z własnym środowiskiem hostowanym lub lokalnym. Aby uzyskać więcej informacji na temat łączenia środowisk lokalnych z platformą Azure, zobacz artykuł [łączenie sieci lokalnej z platformą Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) .
+* [Platforma Azure Virtual Network](../virtual-network/virtual-networks-overview.md) z łącznością z własnym środowiskiem hostowanym lub lokalnym. Aby uzyskać więcej informacji na temat łączenia środowisk lokalnych z platformą Azure, zobacz artykuł [łączenie sieci lokalnej z platformą Azure](/azure/architecture/reference-architectures/hybrid-networking/) .
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

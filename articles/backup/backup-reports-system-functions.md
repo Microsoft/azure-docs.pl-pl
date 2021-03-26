@@ -3,34 +3,34 @@ title: Funkcje systemowe w dziennikach Azure Monitor
 description: Zapisuj niestandardowe zapytania dotyczące dzienników Azure Monitor przy użyciu funkcji systemowych
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510553"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564912"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Funkcje systemowe w dziennikach Azure Monitor
 
 Azure Backup udostępnia zestaw funkcji, nazywanych funkcjami systemowymi lub funkcjami rozwiązania, które są domyślnie dostępne w obszarach roboczych Log Analytics (LA).
  
-Te funkcje działają na danych w [nieprzetworzonych tabelach Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) w La i zwracają sformatowane dane, które ułatwiają uzyskiwanie informacji o wszystkich jednostkach związanych z kopiami zapasowymi przy użyciu prostych zapytań. Użytkownicy mogą przekazywać parametry do tych funkcji, aby filtrować dane zwracane przez te funkcje. 
+Te funkcje działają na danych w [nieprzetworzonych tabelach Azure Backup](./backup-azure-reports-data-model.md) w La i zwracają sformatowane dane, które ułatwiają uzyskiwanie informacji o wszystkich jednostkach związanych z kopiami zapasowymi przy użyciu prostych zapytań. Użytkownicy mogą przekazywać parametry do tych funkcji, aby filtrować dane zwracane przez te funkcje. 
 
 Zalecane jest używanie funkcji systemowych do wykonywania zapytań dotyczących danych kopii zapasowych w programie LA Workspaces w celu tworzenia raportów niestandardowych, ponieważ zapewniają one wiele korzyści, zgodnie z opisem w poniższej sekcji.
 
 ## <a name="benefits-of-using-system-functions"></a>Zalety korzystania z funkcji systemowych
 
-* **Prostsze zapytania**: korzystanie z funkcji pomaga w zmniejszeniu liczby sprzężeń potrzebnych w zapytaniach. Domyślnie funkcje zwracają schematy "spłaszczone", które obejmują wszystkie informacje dotyczące jednostki (wystąpienie kopii zapasowej, zadanie, magazyn itd.), w którym są wysyłane zapytania. Jeśli na przykład chcesz uzyskać listę pomyślnych zadań tworzenia kopii zapasowej według nazwy elementu kopii zapasowej i skojarzonego z nim kontenera, proste wywołanie funkcji **_AzureBackup_getJobs ()** udostępni wszystkie te informacje dla każdego zadania. Z drugiej strony wykonywanie zapytania dotyczącego nieprzetworzonych tabel bezpośrednio wymagało wykonania wielu sprzężeń między tabelami [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) i [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup) .
+* **Prostsze zapytania**: korzystanie z funkcji pomaga w zmniejszeniu liczby sprzężeń potrzebnych w zapytaniach. Domyślnie funkcje zwracają schematy "spłaszczone", które obejmują wszystkie informacje dotyczące jednostki (wystąpienie kopii zapasowej, zadanie, magazyn itd.), w którym są wysyłane zapytania. Jeśli na przykład chcesz uzyskać listę pomyślnych zadań tworzenia kopii zapasowej według nazwy elementu kopii zapasowej i skojarzonego z nim kontenera, proste wywołanie funkcji **_AzureBackup_getJobs ()** udostępni wszystkie te informacje dla każdego zadania. Z drugiej strony wykonywanie zapytania dotyczącego nieprzetworzonych tabel bezpośrednio wymagało wykonania wielu sprzężeń między tabelami [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) i [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup) .
 
-* **Płynne przejście ze starszego zdarzenia diagnostyki**: funkcja system Functions pomaga w bezproblemowym przejściu ze [starszego zdarzenia diagnostyki](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport w trybie AzureDiagnostics) do [zdarzeń specyficznych dla zasobów](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). Wszystkie funkcje systemowe zapewniane przez Azure Backup umożliwiają określenie parametru, który umożliwia wybranie, czy funkcja powinna wykonywać zapytania dotyczące danych tylko z tabel specyficznych dla zasobów, czy też wykonywać zapytania dotyczące danych z tabeli ze starszą wersją i tabel specyficznych dla zasobów (z deduplikacją rekordów).
+* **Płynne przejście ze starszego zdarzenia diagnostyki**: funkcja system Functions pomaga w bezproblemowym przejściu ze [starszego zdarzenia diagnostyki](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport w trybie AzureDiagnostics) do [zdarzeń specyficznych dla zasobów](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). Wszystkie funkcje systemowe zapewniane przez Azure Backup umożliwiają określenie parametru, który umożliwia wybranie, czy funkcja powinna wykonywać zapytania dotyczące danych tylko z tabel specyficznych dla zasobów, czy też wykonywać zapytania dotyczące danych z tabeli ze starszą wersją i tabel specyficznych dla zasobów (z deduplikacją rekordów).
     * Jeśli pomyślnie przeprowadzono migrację do tabel specyficznych dla zasobów, możesz zdecydować się na wykluczenie starszej tabeli z kwerendy przez funkcję.
     * Jeśli obecnie trwa proces migracji i masz pewne dane w starszych tabelach, które są wymagane do analizy, możesz dołączyć starszą tabelę. Po zakończeniu przejścia i przeniesieniu danych z starszej tabeli, można po prostu zaktualizować wartość parametru przekazaną do funkcji w zapytaniach, aby wykluczyć starszą tabelę.
-    * Jeśli nadal używasz tylko starszej tabeli, funkcje będą nadal działać, jeśli wybierzesz opcję dołączenia starszej tabeli za pośrednictwem tego samego parametru. Jednak zaleca się [przełączenie do tabel specyficznych dla zasobów](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) w najkrótszym czasie.
+    * Jeśli nadal używasz tylko starszej tabeli, funkcje będą nadal działać, jeśli wybierzesz opcję dołączenia starszej tabeli za pośrednictwem tego samego parametru. Jednak zaleca się [przełączenie do tabel specyficznych dla zasobów](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) w najkrótszym czasie.
 
 * **Zmniejsza prawdopodobieństwo przerwania zapytań niestandardowych**: Jeśli Azure Backup wprowadza ulepszenia schematu bazowych tabel La, aby uwzględnić przyszłe scenariusze raportowania, definicja funkcji zostanie również zaktualizowana w celu uwzględnienia zmian schematu. W takim przypadku, jeśli używasz funkcji systemowych do tworzenia kwerend niestandardowych, zapytania nie będą przerywane, nawet jeśli istnieją zmiany w źródłowym schemacie tabel.
 
 > [!NOTE]
-> Funkcje systemowe są obsługiwane przez firmę Microsoft, a ich definicje nie mogą być edytowane przez użytkowników. Jeśli potrzebujesz funkcji edytowalnych, możesz tworzyć [zapisane funkcje](https://docs.microsoft.com/azure/azure-monitor/logs/functions) w La.
+> Funkcje systemowe są obsługiwane przez firmę Microsoft, a ich definicje nie mogą być edytowane przez użytkowników. Jeśli potrzebujesz funkcji edytowalnych, możesz tworzyć [zapisane funkcje](../azure-monitor/logs/functions.md) w La.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Typy funkcji systemowych oferowane przez Azure Backup
 
@@ -390,4 +390,4 @@ Poniżej przedstawiono kilka przykładowych zapytań, które ułatwiają rozpocz
     ````
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o raportach kopii zapasowych](https://docs.microsoft.com/azure/backup/configure-reports)
+[Dowiedz się więcej o raportach kopii zapasowych](./configure-reports.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ab310681ae7b63cb4e9f4e07984983727ae5ff2
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ea75b9c1e8c7a1a242406b5a7f73db1b05c70276
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953922"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562209"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -544,7 +544,7 @@ W przypadku korzystania z hybrydowych procesów roboczych elementów Runbook dys
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. Automation**:
 
@@ -743,7 +743,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 - [Zrozumienie Azure Policy efektów](../governance/policy/concepts/effects.md)
 
-- [Wdróż konto usługi Automation przy użyciu szablonu Azure Resource Manager](/azure/automation/quickstart-create-account-template#deploy-the-template)
+- [Wdróż konto usługi Automation przy użyciu szablonu Azure Resource Manager](/azure/automation/quickstart-create-automation-account-template)
 
 - [Przykładowe Azure Policy wbudowane dla Azure Automation](policy-reference.md)
 

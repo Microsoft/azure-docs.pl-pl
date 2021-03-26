@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679591"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561172"
 ---
 # <a name="device-update-apt-manifest"></a>Manifest APT aktualizacji urządzenia
 
@@ -103,7 +103,7 @@ W przypadku pominięcia wersji zostanie zainstalowana najnowsza dostępna wersja
 > Menedżer pakietów APT ignoruje wymagania dotyczące obsługi wersji dostarczone przez pakiet, gdy zależne pakiety do zainstalowania są automatycznie rozwiązywane. Dopóki nie zostaną podane jawne wersje pakietów zależnych, zostaną one użyte w najnowszej wersji, nawet jeśli sam pakiet może określić ścisłe wymaganie (=) w danym systemie. To automatyczne rozwiązanie może prowadzić do błędów dotyczących zależności niewypełnienia. [Więcej informacji](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Jeśli aktualizujesz określoną wersję Azure IoT Edge Security daemon, należy dołączyć odpowiednią wersję `iotedge` pakietu i jego pakiet zależny `libiothsm-std` do manifestu apt.
-[Więcej informacji](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[Więcej informacji](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Manifestu apt można użyć do aktualizacji agenta aktualizacji urządzeń i jego zależności. Wyświetl nazwę agenta aktualizacji urządzenia i żądaną wersję w manifeście apt, tak jak w przypadku każdego innego pakietu. Ten manifest apt można następnie zaimportować i wdrożyć za pomocą aktualizacji urządzenia dla potoku IoT Hub. 
@@ -202,4 +202,3 @@ Ta aktualizacja obejmuje pakiet foo, a także pakiet słupkowy.
 
 > [!div class="nextstepaction"]
 > [Importuj nową aktualizację](import-update.md)
-

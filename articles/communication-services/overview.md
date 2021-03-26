@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a993a4ad4c709a3736f5d5f577741c82c95af83f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: fe580848e3bbea701718463123a6bbcd4848a9f3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107265"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564606"
 ---
 # <a name="what-is-azure-communication-services"></a>Co to są usługi Azure Communication Services?
 
@@ -42,19 +42,23 @@ Obsługiwane są scenariusze mieszane. Na przykład aplikacja usług komunikacyj
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
-Następujące zasoby są doskonałym miejscem do uruchomienia, jeśli dopiero zaczynasz pracę z usługą Azure Communications Services:
+Następujące zasoby są doskonałym miejscem, aby rozpocząć pracę z usługami Azure Communications Services. 
 <br>
 
 | Zasób                               |Opis                           |
 |---                                    |---                                   |
-|**[Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo, rozmowy i udostępniania ekranu.|
-|**[Tworzenie zasobu usług Communication Services](./quickstarts/create-communication-resource.md)**|Możesz rozpocząć korzystanie z usług Azure Communication Services przy użyciu zestawu SDK Azure Portal lub usług komunikacyjnych, aby zainicjować obsługę pierwszego zasobu usług komunikacyjnych. Gdy masz parametry połączenia zasobu usług komunikacyjnych, możesz udostępnić tokeny dostępu pierwszego użytkownika.|
-|**[Tworzenie pierwszego tokenu dostępu użytkownika](./quickstarts/access-tokens.md)**|Tokeny dostępu użytkowników są używane do uwierzytelniania usług względem zasobu usług Azure Communications Services. Te tokeny są obsługiwane i ponownie wystawiane przy użyciu zestawu SDK usług komunikacyjnych.|
+|**[Tworzenie zasobu usług Communication Services](./quickstarts/create-communication-resource.md)**|Możesz rozpocząć korzystanie z usług Azure Communication Services przy użyciu biblioteki klienta Azure Portal lub usług komunikacyjnych, aby zainicjować obsługę pierwszego zasobu usług komunikacyjnych. Gdy masz parametry połączenia zasobu usług komunikacyjnych, możesz udostępnić tokeny dostępu pierwszego użytkownika.|
 |**[Pobierz numer telefonu](./quickstarts/telephony-sms/get-phone-number.md)**|Za pomocą usług Azure Communications Services można udostępniać i zwalniać numery telefonów. Te numery telefonów mogą służyć do inicjowania wywołań wychodzących i tworzenia rozwiązań komunikacyjnych programu SMS.|
-|**[Wyślij wiadomość SMS z aplikacji](./quickstarts/telephony-sms/send.md)**|Zestaw SDK SMS usługi Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS z aplikacji .NET i JavaScript.|
-|**[Wprowadzenie do wywoływania głosu i wideo](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Usługi Azure Communication Services umożliwiają dodawanie połączeń głosowych i wideo do aplikacji przy użyciu zestawu SDK wywoływania. Ta biblioteka jest obsługiwana przez protokołu WebRTC i umożliwia ustanawianie komunikacji równorzędnej, multimedialnej w czasie rzeczywistym w aplikacjach.|
-|**[Wprowadzenie do rozmowy](./quickstarts/chat/get-started.md)**|Zestaw Azure Communication Services Chat SDK umożliwia integrację rozmowy w czasie rzeczywistym z aplikacjami.|
+|**[Wyślij wiadomość SMS z aplikacji](./quickstarts/telephony-sms/send.md)**|Biblioteka klienta SMS usługi Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS z aplikacji .NET i JavaScript.|
 
+Po utworzeniu zasobu usług komunikacyjnych możesz zacząć tworzyć scenariusze klientów, takie jak nawiązanie głosu i wideo lub Rozmowa z tekstem.
+
+| Zasób                               |Opis                           |
+|---                                    |---                                   |
+|**[Tworzenie pierwszego tokenu dostępu użytkownika](./quickstarts/access-tokens.md)**|Tokeny dostępu użytkowników są używane do uwierzytelniania usług względem zasobu usług Azure Communications Services. Te tokeny są inicjowane i ponownie wystawiane przy użyciu biblioteki klienta usług komunikacyjnych.|
+|**[Wprowadzenie do wywoływania głosu i wideo](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Usługi Azure Communication Services umożliwiają dodawanie połączeń głosowych i wideo do aplikacji przy użyciu biblioteki klienta wywołującego. Ta biblioteka jest obsługiwana przez protokołu WebRTC i umożliwia ustanawianie komunikacji równorzędnej, multimedialnej w czasie rzeczywistym w aplikacjach.|
+|**[Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo, rozmowy i udostępniania ekranu.|
+|**[Wprowadzenie do rozmowy](./quickstarts/chat/get-started.md)**|W celu zintegrowania rozmowy w czasie rzeczywistym z aplikacjami można użyć biblioteki klienta czatu usługi Azure Communication Services.|
 
 ## <a name="samples"></a>Samples
 
@@ -82,7 +86,7 @@ Następujące zasoby ułatwią zapoznanie się z zestawami SDK usług Azure Comm
 
 Istnieją dwa inne produkty do komunikacji firmy Microsoft, które można wziąć pod uwagę w przypadku, gdy nie są w tej chwili bezpośrednio obsługiwane usługi komunikacyjne:
 
- - [Microsoft Graph interfejsy API komunikacji w chmurze](/graph/cloud-communications-concept-overview) umożliwiają organizacjom tworzenie środowisk komunikacyjnych powiązanych z Azure Active Directory użytkownikami z licencjami M365. Jest to idealne rozwiązanie w przypadku aplikacji powiązanych z Azure Active Directoryą lub miejsca, w którym chcesz zwiększyć produktywność w programie Microsoft Teams. Istnieją także interfejsy API do kompilowania aplikacji i dostosowywania w ramach [środowiska zespołu.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
+ - [Microsoft Graph interfejsy API komunikacji w chmurze](/graph/cloud-communications-concept-overview) umożliwiają organizacjom tworzenie środowisk komunikacyjnych powiązanych z Azure Active Directory użytkownikami z licencjami Microsoft 365. Jest to idealne rozwiązanie w przypadku aplikacji powiązanych z Azure Active Directoryą lub miejsca, w którym chcesz zwiększyć produktywność w programie Microsoft Teams. Istnieją także interfejsy API do kompilowania aplikacji i dostosowywania w ramach [środowiska zespołu.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
  - [Usługa Azure PlayFaber](/gaming/playfab/features/multiplayer/networking/) upraszcza Dodawanie rozmowy o małym opóźnieniu i komunikacji danych z grami. W przypadku korzystania z usług komunikacyjnych w programie do gier i połączeń z usługą łączności PlayFab jest to dostosowana opcja i bezpłatna na konsoli Xbox.
 

@@ -134,6 +134,8 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/vmware/vmware
+    - name: Magazyn danych interfejsu wiersza polecenia platformy Azure
+      href: /cli/azure/ext/vmware/vmware/datastore
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
     - name: Terraform dostawcy platformy Azure

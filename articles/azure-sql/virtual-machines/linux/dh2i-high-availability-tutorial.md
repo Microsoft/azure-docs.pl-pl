@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: amvin87
 ms.author: amitkh
 ms.reviewer: vanto
-ms.openlocfilehash: 0500f4143ad7cbdaaa8406af2b242e0d40b1caa2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 07752eb5c7f18a8952c43e77afed78b06432aca6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102227400"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568540"
 ---
 # <a name="tutorial---setup-a-three-node-always-on-availability-group-with-dh2i-dxenterprise-running-on-linux-based-azure-virtual-machines"></a>Samouczek — Konfigurowanie grupy dostępności z trzema węzłami przy użyciu usługi DH2i DxEnterprise działającej na platformie Azure Virtual Machines
 
@@ -39,22 +39,22 @@ W tym samouczku zamierzamy skonfigurować klaster DxEnterprise przy użyciu [int
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Utwórz cztery maszyny wirtualne na platformie Azure. Postępuj zgodnie z [przewodnikiem Szybki Start: Tworzenie maszyny wirtualnej z systemem Linux w Azure Portal](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) artykule, aby utworzyć maszyny wirtualne z systemem Linux. Podobnie w przypadku tworzenia maszyny wirtualnej opartej na systemie Windows postępuj zgodnie z [przewodnikiem Szybki Start: Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) artykule.
-- Zainstaluj program .NET 3,1 na wszystkich maszynach wirtualnych opartych na systemie Linux, które będą częścią klastra. Postępuj zgodnie z instrukcjami opisanymi [tutaj](https://docs.microsoft.com/dotnet/core/install/linux) na podstawie wybranego systemu operacyjnego Linux.
+- Utwórz cztery maszyny wirtualne na platformie Azure. Postępuj zgodnie z [przewodnikiem Szybki Start: Tworzenie maszyny wirtualnej z systemem Linux w Azure Portal](../../../virtual-machines/linux/quick-create-portal.md) artykule, aby utworzyć maszyny wirtualne z systemem Linux. Podobnie w przypadku tworzenia maszyny wirtualnej opartej na systemie Windows postępuj zgodnie z [przewodnikiem Szybki Start: Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](../../../virtual-machines/windows/quick-create-portal.md) artykule.
+- Zainstaluj program .NET 3,1 na wszystkich maszynach wirtualnych opartych na systemie Linux, które będą częścią klastra. Postępuj zgodnie z instrukcjami opisanymi [tutaj](/dotnet/core/install/linux) na podstawie wybranego systemu operacyjnego Linux.
 - Wymagana jest prawidłowa licencja DxEnterprise z włączonymi funkcjami zarządzania grupami dostępności. Aby uzyskać więcej informacji, zobacz [DxEnterprise bezpłatna wersja próbna](https://dh2i.com/trial/) dotycząca sposobu uzyskania bezpłatnej wersji próbnej.
 
 ## <a name="install-sql-server-on-all-the-azure-vms-that-will-be-part-of-the-availability-group"></a>Zainstaluj SQL Server na wszystkich maszynach wirtualnych platformy Azure, które będą częścią grupy dostępności
 
-W tym samouczku skonfigurujemy klaster oparty na systemie Linux należący do grupy dostępności. Postępuj zgodnie z dokumentacją [SQL Server instalacji w systemie Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview#install) na podstawie wyboru platformy Linux. Zalecamy również zainstalowanie [narzędzi SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) dla tego samouczka.
+W tym samouczku skonfigurujemy klaster oparty na systemie Linux należący do grupy dostępności. Postępuj zgodnie z dokumentacją [SQL Server instalacji w systemie Linux](/sql/linux/sql-server-linux-overview#install) na podstawie wyboru platformy Linux. Zalecamy również zainstalowanie [narzędzi SQL Server](/sql/linux/sql-server-linux-setup-tools) dla tego samouczka.
  
 > [!NOTE]
-> Upewnij się, że wybrany system operacyjny Linux jest powszechną dystrybucją obsługiwaną przez oba [DH2i DxEnterprise (patrz minimalna sekcja wymagania systemowe)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) i [Microsoft SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms).
+> Upewnij się, że wybrany system operacyjny Linux jest powszechną dystrybucją obsługiwaną przez oba [DH2i DxEnterprise (patrz minimalna sekcja wymagania systemowe)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) i [Microsoft SQL Server](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms).
 >
 > W tym przykładzie używamy Ubuntu 18,04, który jest obsługiwany przez DH2i DxEnterprise i Microsoft SQL Server.
 
 W tym samouczku nie będziemy instalować SQL Server na maszynie wirtualnej z systemem Windows, ponieważ ten węzeł nie będzie częścią klastra i służy tylko do zarządzania klastrem za pomocą DxAdmin.
 
-Po wykonaniu tego kroku należy zainstalować narzędzia SQL Server i [SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) (opcjonalnie) na wszystkich trzech maszynach wirtualnych opartych na systemie Linux, które będą uczestniczyć w grupie dostępności.
+Po wykonaniu tego kroku należy zainstalować narzędzia SQL Server i [SQL Server](/sql/linux/sql-server-linux-setup-tools) (opcjonalnie) na wszystkich trzech maszynach wirtualnych opartych na systemie Linux, które będą uczestniczyć w grupie dostępności.
  
 ## <a name="install-dxenterprise-on-all-the-vms-and-configure-the-cluster"></a>Zainstaluj DxEnterprise na wszystkich maszynach wirtualnych i skonfiguruj klaster
 
@@ -84,7 +84,7 @@ Aby zainstalować tylko narzędzie klienta DxAdmin na maszynie wirtualnej z syst
 Po wykonaniu tego kroku należy utworzyć klaster DxEnterprise na maszynach wirtualnych z systemem Linux, a klient DxAdmin zainstalowany na komputerze klienckim z systemem Windows. 
 
 > [!NOTE]
-> Możesz również utworzyć klaster z trzema węzłami, w którym jeden z węzłów zostanie dodany jako *tryb tylko do konfiguracji*, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) , aby włączyć automatyczne przełączanie do trybu failover. 
+> Możesz również utworzyć klaster z trzema węzłami, w którym jeden z węzłów zostanie dodany jako *tryb tylko do konfiguracji*, zgodnie z opisem w [tym miejscu](/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) , aby włączyć automatyczne przełączanie do trybu failover. 
 
 ## <a name="create-the-virtual-hosts-to-provide-failover-support-and-high-availability"></a>Tworzenie hostów wirtualnych w celu zapewnienia obsługi trybu failover i wysokiej dostępności
 
@@ -100,7 +100,7 @@ Połącz się z komputerem klienckim z systemem Windows, na którym działa prog
 
 ## <a name="create-the-internal-azure-load-balancer-for-listener-optional"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure dla odbiornika (opcjonalnie)
 
-W tym opcjonalnym kroku można utworzyć i skonfigurować moduł równoważenia obciążenia platformy Azure, który zawiera adresy IP dla odbiorników grupy dostępności. Aby uzyskać więcej informacji na Azure Load Balancer, zapoznaj się z [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Aby skonfigurować odbiornik modułu równoważenia obciążenia i grupy dostępności platformy Azure przy użyciu DxAdmin, postępuj zgodnie z [Przewodnik Szybki start Azure Load Balancer](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/)DxEnterprise.
+W tym opcjonalnym kroku można utworzyć i skonfigurować moduł równoważenia obciążenia platformy Azure, który zawiera adresy IP dla odbiorników grupy dostępności. Aby uzyskać więcej informacji na Azure Load Balancer, zapoznaj się z [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). Aby skonfigurować odbiornik modułu równoważenia obciążenia i grupy dostępności platformy Azure przy użyciu DxAdmin, postępuj zgodnie z [Przewodnik Szybki start Azure Load Balancer](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/)DxEnterprise.
 
 Po wykonaniu tego kroku należy utworzyć odbiornik grupy dostępności i zmapować go na wewnętrzny moduł równoważenia obciążenia platformy Azure.
 
@@ -121,7 +121,7 @@ Aby uzyskać więcej informacji na temat większej liczby operacji w programie D
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [grupach dostępności w systemie Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-availability-group-overview)
-- [Szybki Start: Tworzenie maszyny wirtualnej z systemem Linux w Azure Portal](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
-- [Szybki start: tworzenie maszyny wirtualnej z systemem Windows w witrynie Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-- [Obsługiwane platformy dla SQL Server 2019 w systemie Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)
+- Dowiedz się więcej o [grupach dostępności w systemie Linux](/sql/linux/sql-server-linux-availability-group-overview)
+- [Szybki Start: Tworzenie maszyny wirtualnej z systemem Linux w Azure Portal](../../../virtual-machines/linux/quick-create-portal.md)
+- [Szybki start: tworzenie maszyny wirtualnej z systemem Windows w witrynie Azure Portal](../../../virtual-machines/windows/quick-create-portal.md)
+- [Obsługiwane platformy dla SQL Server 2019 w systemie Linux](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)

@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 26b519ce11747ab3374d9bd286800a6c93129019
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96180493"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565235"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról usługi Azure AD w Privileged Identity Management
 
@@ -50,9 +50,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Administratorzy nie korzystają z ról uprzywilejowanych
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Użytkownicy, którym przypisano role uprzywilejowane, których nie potrzebują, zwiększają prawdopodobieństwo ataku. Łatwiejsze jest również, aby osoby atakujące pozostały niezauważalny w przypadku kont, które nie są aktywnie używane. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról, których nie potrzebują. |
 | **Zapobieganie** | Przypisywanie ról uprzywilejowanych tylko użytkownikom, którzy mają uzasadnienie biznesowe. </br>Zaplanuj regularne [przeglądy dostępu](pim-how-to-start-security-review.md) , aby upewnić się, że użytkownicy nadal potrzebują dostępu. |
@@ -62,9 +63,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Role nie wymagają uwierzytelniania wieloskładnikowego na potrzeby aktywacji
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bez uwierzytelniania wieloskładnikowego użytkownicy ze złamanymi zabezpieczeniami mogą aktywować uprzywilejowane role. |
 | **Jak naprawić?** | Przejrzyj listę ról i [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) w przypadku każdej roli. |
 | **Zapobieganie** | [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla każdej roli.  |
@@ -72,17 +74,19 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>Organizacja nie ma Azure AD — wersja Premium P2
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bieżąca organizacja usługi Azure AD nie ma Azure AD — wersja Premium P2. |
 | **Jak naprawić?** | Przejrzyj informacje o [wersjach usługi Azure AD](../fundamentals/active-directory-whatis.md). Uaktualnij do Azure AD — wersja Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Potencjalne przestarzałe konta w roli uprzywilejowanej
 
-| | |
+Ważność: **średnia**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Śred. |
 | **Dlaczego otrzymuję ten alert?** | Konta w roli uprzywilejowanej nie zmieniły swojego hasła w ciągu ostatnich 90 dni. Te konta mogą być kontami usług lub udostępnionymi, które nie są utrzymywane i są narażone na ataki. |
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
@@ -91,9 +95,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Role są przypisywane poza Privileged Identity Management
 
-| | |
+Ważność: **wysoka**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Wys. |
 | **Dlaczego otrzymuję ten alert?** | Przypisania ról uprzywilejowanych wprowadzone poza Privileged Identity Management nie są prawidłowo monitorowane i mogą wskazywać na aktywny atak. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról przypisanych poza Privileged Identity Management. |
 | **Zapobieganie** | Sprawdź, gdzie użytkownicy są przypisani do ról uprzywilejowanych spoza Privileged Identity Management i Zabroń w przyszłości. |
@@ -101,9 +106,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="there-are-too-many-global-administrators"></a>Zbyt wielu administratorów globalnych
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Administrator globalny jest najwyższą rolą uprzywilejowaną. W przypadku naruszenia zabezpieczeń administratora globalnego osoba atakująca uzyskuje dostęp do wszystkich swoich uprawnień, co stanowi zagrożenie dla całego systemu. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń wszystkie, które nie potrzebują absolutnie roli administratora globalnego. </br>Zamiast tego Przypisz do tych użytkowników niższych ról uprzywilejowanych. |
 | **Zapobieganie** | Przypisywanie użytkownikom najniższych ról, których potrzebują. |
@@ -114,9 +120,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Role są uaktywniane zbyt często
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Wielokrotne aktywacje z tą samą uprzywilejowaną rolą przez tego samego użytkownika jest znakiem ataku. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla roli uprzywilejowanej jest ustawiony wystarczająco długo, aby wykonywał zadania. |
 | **Zapobieganie** | Upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych jest ustawiony na wystarczająco długi, aby użytkownicy mogli wykonywać swoje zadania.</br>[Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych, które mają konta współużytkowane przez wielu administratorów. |
@@ -149,9 +156,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Administratorzy nie korzystają z ról uprzywilejowanych
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Użytkownicy, którym przypisano role uprzywilejowane, których nie potrzebują, zwiększają prawdopodobieństwo ataku. Łatwiejsze jest również, aby osoby atakujące pozostały niezauważalny w przypadku kont, które nie są aktywnie używane. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról, których nie potrzebują. |
 | **Zapobieganie** | Przypisywanie ról uprzywilejowanych tylko użytkownikom, którzy mają uzasadnienie biznesowe. </br>Zaplanuj regularne [przeglądy dostępu](pim-how-to-start-security-review.md) , aby upewnić się, że użytkownicy nadal potrzebują dostępu. |
@@ -161,9 +169,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Role nie wymagają uwierzytelniania wieloskładnikowego na potrzeby aktywacji
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bez uwierzytelniania wieloskładnikowego użytkownicy ze złamanymi zabezpieczeniami mogą aktywować uprzywilejowane role. |
 | **Jak naprawić?** | Przejrzyj listę ról i [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) w przypadku każdej roli. |
 | **Zapobieganie** | [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla każdej roli.  |
@@ -171,17 +180,19 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>Organizacja nie ma Azure AD — wersja Premium P2
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bieżąca organizacja usługi Azure AD nie ma Azure AD — wersja Premium P2. |
 | **Jak naprawić?** | Przejrzyj informacje o [wersjach usługi Azure AD](../fundamentals/active-directory-whatis.md). Uaktualnij do Azure AD — wersja Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Potencjalne przestarzałe konta w roli uprzywilejowanej
 
-| | |
+Ważność: **średnia**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Śred. |
 | **Dlaczego otrzymuję ten alert?** | Konta w roli uprzywilejowanej nie zmieniły swojego hasła w ciągu ostatnich 90 dni. Te konta mogą być kontami usług lub udostępnionymi, które nie są utrzymywane i są narażone na ataki. |
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
@@ -190,9 +201,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Role są przypisywane poza Privileged Identity Management
 
-| | |
+Ważność: **wysoka**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Wys. |
 | **Dlaczego otrzymuję ten alert?** | Przypisania ról uprzywilejowanych wprowadzone poza Privileged Identity Management nie są prawidłowo monitorowane i mogą wskazywać na aktywny atak. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról przypisanych poza Privileged Identity Management. |
 | **Zapobieganie** | Sprawdź, gdzie użytkownicy są przypisani do ról uprzywilejowanych spoza Privileged Identity Management i Zabroń w przyszłości. |
@@ -200,9 +212,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="there-are-too-many-global-administrators"></a>Zbyt wielu administratorów globalnych
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Administrator globalny jest najwyższą rolą uprzywilejowaną. W przypadku naruszenia zabezpieczeń administratora globalnego osoba atakująca uzyskuje dostęp do wszystkich swoich uprawnień, co stanowi zagrożenie dla całego systemu. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń wszystkie, które nie potrzebują absolutnie roli administratora globalnego. </br>Zamiast tego Przypisz do tych użytkowników niższych ról uprzywilejowanych. |
 | **Zapobieganie** | Przypisywanie użytkownikom najniższych ról, których potrzebują. |
@@ -213,9 +226,10 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Role są uaktywniane zbyt często
 
-| | |
+Ważność: **niski**
+
+| | Opis |
 | --- | --- |
-| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Wielokrotne aktywacje z tą samą uprzywilejowaną rolą przez tego samego użytkownika jest znakiem ataku. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla roli uprzywilejowanej jest ustawiony wystarczająco długo, aby wykonywał zadania. |
 | **Zapobieganie** | Upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych jest ustawiony na wystarczająco długi, aby użytkownicy mogli wykonywać swoje zadania.</br>[Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych, które mają konta współużytkowane przez wielu administratorów. |

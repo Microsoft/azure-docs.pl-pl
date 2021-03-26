@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b2a8ae76c79e4d3ff151334defe7f966c60f032
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443815"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559251"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Samouczek dotyczący aktualizacji urządzeń z platformą Azure IoT Hub przy użyciu agenta referencyjnego symulatora Ubuntu (18,04 x64)
 
@@ -30,10 +30,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wdróż aktualizację obrazu
 > * Monitorowanie wdrożenia aktualizacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
-
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Dostęp do IoT Hub. Zaleca się użycie warstwy S1 (standardowa) lub wyższej.
+* Jeśli jeszcze tego nie zrobiono, Utwórz [konto i wystąpienie aktualizacji urządzenia](create-device-update-account.md), w tym Konfigurowanie IoT Hub.
 
 ### <a name="download-and-install"></a>Pobieranie i instalowanie
 

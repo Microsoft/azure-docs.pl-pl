@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5e01c8d1ac16e5e8be405660a0726796789e645
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad8968fdb6548da29a031f0e44bd3671f67b5553
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738977"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557721"
 ---
 # <a name="azure-security-baseline-for-azure-resource-graph"></a>Podstawowa baza zabezpieczeń Azure dla wykresu zasobów platformy Azure
 
@@ -30,7 +30,7 @@ Aby dowiedzieć się, jak usługa Azure Resource Graph jest całkowicie mapowana
 
 **Wskazówki**: usługa Azure Resource Graph zapewnia dostęp do typów zasobów i właściwości na podstawie kontroli dostępu opartej na ROLACH (RBAC) platformy Azure. Regularnie przeprowadzaj inspekcję i przeglądanie dostępu udzielanego do podmiotów zabezpieczeń (użytkowników, grup i kont usług), aby upewnić się, że zapytania zwracają wyniki dla odpowiednich zasobów.
 
-- [Uprawnienia w usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Uprawnienia w usłudze Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../../../active-directory/governance/access-reviews-overview.md)
 
@@ -46,7 +46,7 @@ Aby dowiedzieć się, jak usługa Azure Resource Graph jest całkowicie mapowana
 
 **Wskazówki**: korzystanie z usługi Azure RBAC do kontrolowania dostępu do danych i zasobów. Aby korzystać z grafu zasobów platformy Azure, musisz mieć również odpowiedni dostęp do zasobów, które chcesz zbadać. Ten dostęp powinien być objęty zakresem tylko do odczytu i może być przyznany tylko do wymaganego personelu.
 
-- [Uprawnienia w usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Uprawnienia w usłudze Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [Jak skonfigurować usługę Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
@@ -96,5 +96,5 @@ Aby dowiedzieć się, jak usługa Azure Resource Graph jest całkowicie mapowana
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../../../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../../../security/benchmarks/security-baselines-overview.md)

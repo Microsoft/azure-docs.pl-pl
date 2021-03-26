@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 092078a79124682f7ee5c7824d4f7906c6e35475
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232379"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558503"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Aktualizacja urządzenia dla IoT Hub (wersja zapoznawcza) — Omówienie
 
@@ -82,7 +82,7 @@ Po odebraniu na urządzeniu polecenia Update zostanie wykonane żądanie aktuali
 
 Importowanie polega na tym, jak aktualizacje są pozyskiwane w ramach aktualizacji urządzenia, dzięki czemu można je wdrożyć na urządzeniach. Aktualizacja urządzenia obsługuje wdrażanie jednej aktualizacji na urządzenie. Sprawia to, że jest to idealne rozwiązanie w przypadku aktualizacji w pełnym obrazie, które aktualizują całą partycję systemu operacyjnego jednocześnie, lub manifest apt, który opisuje wszystkie pakiety, które chcesz zaktualizować na urządzeniu. Aby zaimportować aktualizacje do aktualizacji urządzeń, należy najpierw utworzyć manifest importu opisujący aktualizację, przekazać pliki aktualizacji i manifest importu do lokalizacji dostępnej do Internetu. Następnie można użyć Azure Portal lub [interfejsu API REST importowania aktualizacji urządzenia](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) , aby zainicjować asynchroniczny proces importowania aktualizacji. Aktualizacja urządzenia przekazuje pliki, przetwarza je i udostępnia je do dystrybucji na urządzeniach IoT.
 
-W przypadku zawartości poufnej należy chronić pobieranie przy użyciu sygnatury dostępu współdzielonego (SAS, Shared Access Signature), takiego jak wielohoc SAS dla usługi Azure Blob Storage. [Więcej informacji na temat sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+W przypadku zawartości poufnej należy chronić pobieranie przy użyciu sygnatury dostępu współdzielonego (SAS, Shared Access Signature), takiego jak wielohoc SAS dla usługi Azure Blob Storage. [Więcej informacji na temat sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md)
 
 :::image type="content" source="media/understand-device-update/import-update.png" alt-text="Diagram aktualizacji urządzenia dla IoT Hub importowania przepływu pracy." lightbox="media/understand-device-update/import-update.png":::
 

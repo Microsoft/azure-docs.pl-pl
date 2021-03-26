@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: c3a0a8bd5805757b92e3f5b046335c8883b4ba72
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888927"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562039"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Klasyfikacja semantyczna na platformie Azure Wyszukiwanie poznawcze
 
@@ -24,32 +24,34 @@ Klasyfikacja semantyczna to rozszerzenie potoku wykonywania zapytania, które zw
 
 Klasyfikacja semantyczna to zarówno zasób, jak i czasochłonne. Aby zakończyć przetwarzanie w oczekiwanym opóźnieniu operacji zapytania, dane wejściowe rangi semantycznej są konsolidowane i zmniejszane, aby można było szybko wykonać podstawowe czynności podsumowujące i zmiany klasyfikacji.
 
-## <a name="preparation-for-semantic-ranking"></a>Przygotowanie do klasyfikacji semantycznej
+## <a name="pre-processing"></a>Przetwarzanie wstępne
 
-Przed rozpoczęciem oceny przydatności zawartość musi być zredukowana do liczby wejść, które mogą być efektywnie obsługiwane przez rangę semantyczną. Zmniejszenie zawartości obejmuje następującą sekwencję kroków.
+Przed rozpoczęciem oceny przydatności zawartość musi być zredukowana do możliwej do zarządzania ilością danych wejściowych, które mogą być efektywnie obsługiwane przez rangę semantyczną.
 
-1. Obniżka zawartości zaczyna się od pierwszego zestawu wyników zwracanego przez domyślny [algorytm klasyfikacji podobieństwa](index-ranking-similarity.md) używany do wyszukiwania słów kluczowych. Wyniki wyszukiwania mogą zawierać do 1 000 dopasowań, ale Klasyfikacja semantyczna będzie przetwarzać tylko pierwsze 50. 
+1. Najpierw obniżka zawartości zaczyna się od początkowego zestawu wyników zwróconego przez domyślny [algorytm klasyfikacji podobieństwa](index-ranking-similarity.md) używany do wyszukiwania słów kluczowych. W przypadku dowolnego zapytania wyniki mogą być kilku dokumentów, maksymalnie do limitu 1 000. Ponieważ przetwarzanie dużej liczby dopasowań zajmie zbyt dużo czasu, tylko górny postęp 50 do klasyfikacji semantycznej.
 
-   Po otrzymaniu zapytania początkowe wyniki mogą być znacznie mniejsze niż 50, w zależności od liczby znalezionych dopasowań. Bez względu na liczbę dokumentów początkowy zestaw wyników jest dokument korpus na potrzeby klasyfikacji semantycznej.
+   Bez względu na liczbę dokumentów, niezależnie od tego, czy jeden lub 50, początkowy zestaw wyników ustanawia pierwszą iterację dokumentu korpus na potrzeby klasyfikacji semantycznej.
 
-1. W dokumencie korpus zawartość każdego pola w "searchFields" jest wyodrębniana i łączona do długiego ciągu.
+1. Następnie w korpus, zawartość każdego pola w "searchFields" są wyodrębniane i łączone w długi ciąg.
 
-1. Wszystkie ciągi, które są nadmiernie długie, są przycinane w celu zapewnienia, że ogólna długość spełnia wymagania wejściowe kroku podsumowania. W tym ćwiczeniu przycinania jest ważne, aby pomieścić zwięzłe pola jako pierwsze w "searchFields", aby upewnić się, że są one uwzględnione w ciągu. Jeśli masz bardzo duże dokumenty z polami tekstowymi, wszystkie elementy po osiągnięciu maksymalnego limitu są ignorowane.
+1. Po konsolidacji ciągów wszystkie ciągi, które są zbyt długie, są przycinane w celu zapewnienia, że ogólna długość spełnia wymagania wejściowe kroku podsumowania.
+
+   W tym ćwiczeniu przycinania jest ważne, aby pomieścić zwięzłe pola jako pierwsze w "searchFields", aby upewnić się, że są one uwzględnione w ciągu. Jeśli masz bardzo duże dokumenty z polami tekstowymi, wszystkie elementy po osiągnięciu maksymalnego limitu są ignorowane.
 
 Każdy dokument jest teraz reprezentowany przez pojedynczy długi ciąg.
 
 > [!NOTE]
-> Parametrami wejściowymi do modeli są tokeny, nie znaki ani wyrazy. Tokenizacji jest określany w części przez przypisanie analizatora w polach z możliwością wyszukiwania. Aby uzyskać szczegółowe informacje na temat sposobu tworzenia tokenów ciągów, można sprawdzić dane wyjściowe tokenu analizatora przy użyciu [interfejsu API REST analizatora testowego](/rest/api/searchservice/test-analyzer).
+> Ciąg składa się z tokenów, nie znaków ani wyrazów. Tokenizacji jest określany w części przez przypisanie analizatora w polach z możliwością wyszukiwania. Jeśli używasz wyspecjalizowanego analizatora, takiego jak nGram lub EdgeNGram, możesz chcieć wykluczyć to pole z searchFields. Aby uzyskać szczegółowe informacje na temat sposobu tworzenia tokenów ciągów, można sprawdzić dane wyjściowe tokenu analizatora przy użyciu [interfejsu API REST analizatora testowego](/rest/api/searchservice/test-analyzer).
 
-## <a name="summarization"></a>Podsumowanie
+## <a name="extraction"></a>Wyodrębnianie
 
-Po zmniejszeniu liczby ciągów można teraz przekazać zredukowane dane wejściowe za pomocą informacji o czytaniu maszyn i modeli reprezentacji języka, aby określić, które zdania i frazy najlepiej podsumowują dokument w odniesieniu do zapytania.
+Po zmniejszeniu liczby ciągów można teraz przekazać zredukowane dane wejściowe za pomocą informacji o czytaniu maszyn i modeli reprezentacji języka, aby określić, które zdania i frazy najlepiej podsumowują dokument w odniesieniu do zapytania. Ta faza wyodrębnia zawartość z ciągu, który przejdzie dalej do rangi semantycznej.
 
-Dane wejściowe podsumowania to długie ciągi, które są uzyskiwane dla każdego dokumentu w fazie przygotowania. Z danego danych wejściowych model podsumowania znajduje fragment, który najlepiej reprezentuje odpowiedni dokument. Ten fragment stanowi również [podpis semantyczny](semantic-how-to-query-request.md) dokumentu. Każdy podpis jest dostępny w postaci zwykłego tekstu z wyróżnionymi wyróżnieniami i zawiera mniej niż 200 słów na dokument.
+Dane wejściowe podsumowania są długimi ciągami uzyskanymi dla każdego dokumentu w fazie przygotowania. W przypadku każdego ciągu model podsumowania znajduje fragment, który jest najbardziej reprezentatywny. Ten fragment stanowi również [podpis semantyczny](semantic-how-to-query-request.md) dokumentu. Każdy podpis jest dostępny w wersji zwykłego tekstu i wyróżnieniu i jest często krótszy niż 200 słów na dokument.
 
 [Odpowiedź semantyczna](semantic-answers.md) zostanie również zwrócona, jeśli określono parametr "odpowiedzi", jeśli zapytanie zostało pożądane jako pytanie i jeśli zostanie znaleziony w długim ciągu, który może dostarczyć odpowiedzi na pytanie.
 
-## <a name="scoring-and-ranking"></a>Ocenianie i Klasyfikacja
+## <a name="semantic-ranking"></a>Klasyfikacja semantyczna
 
 1. Podpisy są oceniane pod kątem zgodności z koncepcją i semantyką względem podanego zapytania.
 

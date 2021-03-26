@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c2e739a45c7915c957ca89e5b01b98afa945d03e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025122"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557194"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Przegląd oceny (Migrowanie do usługi Azure SQL)
 
-Ten artykuł zawiera omówienie ocen migracji lokalnych wystąpień SQL Server ze środowiska VMware do baz danych Azure SQL lub wystąpień zarządzanych przy użyciu [narzędzia Azure Migrate do odnajdywania i oceny](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool).
+Ten artykuł zawiera omówienie ocen migracji lokalnych wystąpień SQL Server ze środowiska VMware do baz danych Azure SQL lub wystąpień zarządzanych przy użyciu [narzędzia Azure Migrate do odnajdywania i oceny](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 ## <a name="whats-an-assessment"></a>Co to jest Ocena?
 Ocena narzędzia odnajdywanie i ocenianie to punkt w czasie migawki danych i miara gotowości i oszacowania efektu migracji serwerów lokalnych na platformę Azure.
@@ -80,7 +80,7 @@ Oto nowości uwzględnione we właściwościach oceny usługi Azure SQL:
 **Użycie percentyla** | Użycie percentylu określa wartość percentylości próbki wydajności używanej dla odpowiedniej zmiany.
 **Współczynnik komfortu** | Bufor używany podczas oceny. Konta IT dotyczą problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrasta w przyszłości.<br/><br/> Na przykład wystąpienie 10-rdzeniowe z wykorzystaniem 20% zwykle powoduje wystąpienie dwurdzeniowe. Ze współczynnikiem komfortu wynoszącym 2,0, wynikiem jest wystąpienie z czterema rdzeniami.
 **Program oferty/licencjonowania** | [Oferta platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , w której zarejestrowano Cię. Obecnie możesz wybrać tylko opcję płatność zgodnie z rzeczywistym użyciem i płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie. Pamiętaj, że możesz skorzystać z dodatkowego rabatu, stosując zarezerwowaną pojemność i Korzyść użycia hybrydowego platformy Azure na podstawie oferty z płatność zgodnie z rzeczywistym użyciem.
-**Warstwa usług** | Najbardziej odpowiednia opcja warstwy usług w celu uwzględnienia potrzeb firmy na potrzeby migracji do Azure SQL Database i/lub wystąpienia zarządzanego Azure SQL:<br/><br/>**Zalecane** , jeśli chcesz, aby Azure Migrate zalecić najlepszą dodaną warstwę usług dla serwerów. Może to być ogólne lub krytyczne dla działania firmy. <br/><br/> **Ogólnego przeznaczenia** Jeśli chcesz, aby konfiguracja usługi Azure SQL została zaprojektowana na potrzeby obciążeń zorientowanych na budżet. [Więcej informacji](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Krytyczne dla działania firmy** Jeśli chcesz, aby konfiguracja usługi Azure SQL została zaprojektowana dla obciążeń o małych opóźnieniach i ma wysoką odporność na awarie i szybkie przełączanie do trybu failover. [Więcej informacji](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Warstwa usług** | Najbardziej odpowiednia opcja warstwy usług w celu uwzględnienia potrzeb firmy na potrzeby migracji do Azure SQL Database i/lub wystąpienia zarządzanego Azure SQL:<br/><br/>**Zalecane** , jeśli chcesz, aby Azure Migrate zalecić najlepszą dodaną warstwę usług dla serwerów. Może to być ogólne lub krytyczne dla działania firmy. <br/><br/> **Ogólnego przeznaczenia** Jeśli chcesz, aby konfiguracja usługi Azure SQL została zaprojektowana na potrzeby obciążeń zorientowanych na budżet. [Więcej informacji](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Krytyczne dla działania firmy** Jeśli chcesz, aby konfiguracja usługi Azure SQL została zaprojektowana dla obciążeń o małych opóźnieniach i ma wysoką odporność na awarie i szybkie przełączanie do trybu failover. [Więcej informacji](../azure-sql/database/service-tier-business-critical.md)
 **Waluta** | Waluta rozliczeń dla Twojego konta.
 **Rabat (%)** | Wszystkie zniżki związane z subskrypcją, które otrzymujesz w ramach oferty platformy Azure. Ustawienie domyślne to 0%.
 **Korzyść użycia hybrydowego platformy Azure** | Określa, czy masz już licencję SQL Serverową. <br/><br/> Jeśli to zrobisz, a zostaną one objęte aktywnym programem Software Assurance SQL Server subskrypcje, możesz zastosować Korzyść użycia hybrydowego platformy Azure po przeniesieniu licencji na platformę Azure.
@@ -124,7 +124,7 @@ W przypadku wybrania docelowego typu wdrożenia zgodnie z **zaleceniem** we wła
 Jeśli wystąpienie programu SQL Server nie jest gotowe do Azure SQL Database i wystąpienia zarządzanego Azure SQL, zalecany typ wdrożenia zostanie oznaczony jako *potencjalnie gotowy dla maszyny wirtualnej platformy Azure*.
 - Zaleca się utworzenie oceny w Azure Migrate z typem oceny jako "maszyna wirtualna platformy Azure", aby określić, czy serwer, na którym uruchomiono wystąpienie, jest gotowy do migracji na maszynę wirtualną platformy Azure. Należy pamiętać, że:
     - Oceny maszyn wirtualnych platformy Azure w Azure Migrate są obecnie podnoszone i zmieniane i nie będą brane pod uwagę w przypadku uruchamiania wystąpień SQL i baz danych na maszynie wirtualnej platformy Azure. 
-    - Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dla programu SQL Server w usłudze Azure Virtual Machines.
+    - Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je będzie zmigrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed przeprowadzeniem migracji [zapoznaj się z zaleceniami dotyczącymi wydajności](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) dla programu SQL Server w usłudze Azure Virtual Machines.
 
 
 ## <a name="calculate-sizing"></a>Oblicz rozmiar

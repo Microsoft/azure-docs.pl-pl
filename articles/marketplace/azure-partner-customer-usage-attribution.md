@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799194"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558418"
 ---
 # <a name="azure-customer-usage-attribution"></a>Przypisanie użycia klienta platformy Azure
 
@@ -34,7 +34,7 @@ Istnieją pomocnicze przypadki użycia dotyczące przypisywania użycia klienta 
 
 ## <a name="commercial-marketplace-azure-apps"></a>Komercyjne aplikacje platformy Azure Marketplace
 
-Śledzenie użycia platformy Azure z poziomu aplikacji platformy Azure opublikowanych na komercyjnej witrynie Marketplace jest w dużym stopniu automatyczne. Po przekazaniu szablonu Menedżer zasobów w ramach [konfiguracji technicznej planu aplikacji platformy Azure Marketplace](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration)centrum partnerskie doda identyfikator śledzenia możliwy do odczytania przez Azure Resource Manager.
+Śledzenie użycia platformy Azure z poziomu aplikacji platformy Azure opublikowanych na komercyjnej witrynie Marketplace jest w dużym stopniu automatyczne. Po przekazaniu szablonu Menedżer zasobów w ramach [konfiguracji technicznej planu aplikacji platformy Azure Marketplace](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration)centrum partnerskie doda identyfikator śledzenia możliwy do odczytania przez Azure Resource Manager.
 
 Jeśli używasz Azure Resource Manager interfejsów API, musisz dodać identyfikator śledzenia zgodnie z [poniższymi instrukcjami](#use-resource-manager-apis) , aby przekazać go do Azure Resource Manager, ponieważ kod wdraża zasoby. Ten identyfikator jest widoczny w centrum partnerskim na stronie konfiguracji technicznej Twojego planu. 
 

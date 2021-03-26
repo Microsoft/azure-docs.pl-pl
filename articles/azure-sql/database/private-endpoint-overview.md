@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 506982a22fd53dfb4f8f3d94735c11fc491469eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0ce8e45f301ac0fd84f7d5d27d81b63103768f89
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097282"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567716"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatny link do platformy Azure dla Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -62,7 +62,7 @@ Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wir
 
  ![Diagram opcji łączności][1]
 
-Ponadto usługi, które nie są uruchomione bezpośrednio w sieci wirtualnej, ale są zintegrowane z nią (na przykład App Service aplikacje lub funkcje sieci Web), mogą również uzyskać połączenie prywatne z bazą danych. Aby uzyskać więcej informacji o tym konkretnym przypadku użycia, zapoznaj się z tematem [aplikacja internetowa z informacjami o architekturze Private w usłudze Azure SQL Database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) .
+Ponadto usługi, które nie są uruchomione bezpośrednio w sieci wirtualnej, ale są zintegrowane z nią (na przykład App Service aplikacje lub funkcje sieci Web), mogą również uzyskać połączenie prywatne z bazą danych. Aby uzyskać więcej informacji o tym konkretnym przypadku użycia, zapoznaj się z tematem [aplikacja internetowa z informacjami o architekturze Private w usłudze Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app) .
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Przetestuj łączność z SQL Database z maszyny wirtualnej platformy Azure w tej samej sieci wirtualnej
 
@@ -185,7 +185,7 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
 
 - Aby zapoznać się z omówieniem zabezpieczeń Azure SQL Database, zobacz [Zabezpieczanie bazy danych](security-overview.md)
 - Omówienie łączności Azure SQL Database można znaleźć w temacie [Architektura łączności usługi Azure SQL](connectivity-architecture.md)
-- Warto również zainteresować [aplikację internetową, korzystając z prywatnej łączności z architekturą usługi Azure SQL Database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) , która łączy aplikację sieci Web spoza sieci wirtualnej z prywatnym punktem końcowym bazy danych.
+- Warto również zainteresować [aplikację internetową, korzystając z prywatnej łączności z architekturą usługi Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app) , która łączy aplikację sieci Web spoza sieci wirtualnej z prywatnym punktem końcowym bazy danych.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

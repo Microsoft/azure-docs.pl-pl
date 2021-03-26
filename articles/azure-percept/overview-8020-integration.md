@@ -5,22 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/24/2021
 ms.custom: template-concept
-ms.openlocfilehash: 01196c34ea6afbaa5a1e3b81ab14dec037e1fed0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 32254b1ca094ee3e34ca95088210bb7c2e7bc0e8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595944"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562753"
 ---
 # <a name="azure-percept-dk-8020-integration-overview"></a>Omówienie integracji z usługą Azure Percept DK 80/20
 
-Usługa Azure Percept DK i akcesoria audio zostały zaprojektowane do integracji z [systemem kolei 80/20](https://8020.net/).
+Percepty i akcesoria audio platformy Azure zaprojektowano tak, aby można było zintegrować ją z [systemem tworzenia w 80/20 T-gnieździe](https://8020.net/).
 
 ## <a name="8020-features"></a>funkcje 80/20
 
-Każdy składnik sprzętowy jest zbudowany z nacięciami i protrusions w celu dopasowania do typu wytłoczenia 1010. Ta Integracja umożliwia klientom i konstruktorom rozwiązań łatwiejsze poszerzanie ich weryfikacji w środowiskach produkcyjnych.
+Na platformie Azure Percept DK, na urządzeniu z obsługą platformy Azure Percept i akcesoriami Azure Percept audio są tworzone wbudowane łączniki 80/20 1010, które umożliwiają nieograniczone konfiguracje instalacji z użyciem szyn 80/20. Ta Integracja umożliwia klientom i konstruktorom rozwiązań łatwiejsze poszerzanie ich weryfikacji w środowiskach produkcyjnych.
 
 Zapoznaj się z tym wideo, aby uzyskać więcej informacji na temat korzystania z platformy Azure Percept DK z 80/20:
 
@@ -30,4 +30,5 @@ Zapoznaj się z tym wideo, aby uzyskać więcej informacji na temat korzystania 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat [akcesoriów audio usługi Azure Percept](./overview-azure-percept-audio.md).
+> [!div class="nextstepaction"]
+> [Kupowanie usługi Azure Percept DK ze sklepu Microsoft Online](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

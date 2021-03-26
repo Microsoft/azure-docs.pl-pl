@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 43853f2eba05794540a72fe64e748fcafd9073d2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 16dc95d4e32c683634aa2d96fc2af281612346e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102638153"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568311"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -355,7 +355,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
    Identyfikator klienta Azure Resource Manager jest zakodowany na stałe. Identyfikator dzierżawy Azure Resource Manager i Identyfikator subskrypcji Azure Resource Manager są obecne w danych wyjściowych `az login` polecenia wykonanego wcześniej. Wpis tajny klienta Azure Resource Manager jest ustawionym hasłem Azure Resource Manager.
 
-   Aby uzyskać więcej informacji, zobacz [Azure Resource Manager hasło](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
+   Aby uzyskać więcej informacji, zobacz [Azure Resource Manager hasło](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password).
 
 5. Zmień profil do wersji 2019-03-01-hybrydowej. Aby zmienić wersję profilu, uruchom następujące polecenie:
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: thweiss
-ms.openlocfilehash: ec12deb5a7c77674026b849585552fd873aee5c1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f8028d69e376e2b71549be52267e2f6cbdb1f8ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045998"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568664"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Konfigurowanie kontroli dostępu opartej na rolach za pomocą Azure Active Directory dla konta Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -323,9 +323,9 @@ Aby użyć Azure Cosmos DB RBAC w aplikacji, należy zaktualizować sposób inic
 
 Sposób tworzenia `TokenCredential` wystąpienia wykracza poza zakres tego artykułu. Istnieje wiele sposobów tworzenia takiego wystąpienia w zależności od typu tożsamości usługi AAD, która ma być używana (główna nazwa użytkownika, nazwa główna usługi, Grupa itp.). Co najważniejsze, `TokenCredential` wystąpienie musi rozpoznać tożsamość (Identyfikator podmiotu zabezpieczeń), do której przypisano Twoje role. Przykłady tworzenia klasy można znaleźć `TokenCredential` :
 
-- [w programie .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [w języku Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [w języku JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [w programie .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [w języku Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [w języku JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 W poniższych przykładach użyto jednostki usługi z `ClientSecretCredential` wystąpieniem.
 

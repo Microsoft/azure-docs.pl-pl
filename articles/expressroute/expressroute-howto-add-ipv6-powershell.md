@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e893216eb8e2d7e44e3f272f6b965b84c6253f7f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7a9ac98a9566986767016720fda245712197b27f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870334"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566544"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Dodawanie obsługi protokołu IPv6 do prywatnej komunikacji równorzędnej przy użyciu Azure PowerShell (wersja zapoznawcza)
 
 W tym artykule opisano sposób dodawania obsługi protokołu IPv6 w celu nawiązania połączenia za pośrednictwem ExpressRoute z zasobami na platformie Azure przy użyciu Azure PowerShell.
 
 > [!Note]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej w [regionach platformy Azure z strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). Obwód usługi ExpressRoute może być w związku z tym tworzony przy użyciu dowolnej lokalizacji komunikacji równorzędnej, ale wdrożenia oparte na protokole IPv6, z którymi nawiązuje połączenie, muszą znajdować się w regionie z Strefy dostępności.
+> Ta funkcja jest obecnie dostępna w wersji zapoznawczej w [regionach platformy Azure z strefy dostępności](../availability-zones/az-region.md#azure-regions-with-availability-zones). Obwód usługi ExpressRoute może być w związku z tym tworzony przy użyciu dowolnej lokalizacji komunikacji równorzędnej, ale wdrożenia oparte na protokole IPv6, z którymi nawiązuje połączenie, muszą znajdować się w regionie z Strefy dostępności.
 
 ## <a name="working-with-azure-powershell"></a>Praca z Azure PowerShell
 
@@ -46,7 +46,7 @@ Twoje żądanie zostanie zatwierdzone przez zespół ExpressRoute w ciągu 2-3 d
 
 ## <a name="add-ipv6-private-peering-to-your-expressroute-circuit"></a>Dodawanie prywatnej komunikacji równorzędnej IPv6 do obwodu ExpressRoute
 
-1. [Utwórz obwód ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-arm) lub Użyj istniejącego obwodu. Pobierz obwód, uruchamiając polecenie **Get-AzExpressRouteCircuit** :
+1. [Utwórz obwód ExpressRoute](./expressroute-howto-circuit-arm.md) lub Użyj istniejącego obwodu. Pobierz obwód, uruchamiając polecenie **Get-AzExpressRouteCircuit** :
 
     ```azurepowershell-interactive
     $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -150,7 +150,7 @@ Wykonaj poniższe czynności, jeśli masz istniejące środowisko zasobów platf
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. Jeśli masz istniejącą strefowo nadmiarową bramę, uruchom następujące polecenie, aby włączyć łączność IPv6. W przeciwnym razie [Utwórz bramę sieci wirtualnej](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ).
+4. Jeśli masz istniejącą strefowo nadmiarową bramę, uruchom następujące polecenie, aby włączyć łączność IPv6. W przeciwnym razie [Utwórz bramę sieci wirtualnej](./expressroute-howto-add-gateway-resource-manager.md) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ).
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -161,13 +161,13 @@ Wykonaj poniższe czynności, jeśli masz istniejące środowisko zasobów platf
 
 Wykonaj poniższe czynności, jeśli planujesz nawiązać połączenie z nowym zestawem zasobów platformy Azure w regionie z Strefy dostępności przy użyciu prywatnej komunikacji równorzędnej IPv6.
 
-1. Utwórz sieć wirtualną o podwójnej stercie z przestrzenią adresową IPv4 i IPv6. Aby uzyskać więcej informacji, zobacz [Tworzenie sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/quick-create-portal#create-a-virtual-network).
+1. Utwórz sieć wirtualną o podwójnej stercie z przestrzenią adresową IPv4 i IPv6. Aby uzyskać więcej informacji, zobacz [Tworzenie sieci wirtualnej](../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-2. [Utwórz podsieć bramy o podwójnym stosie](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+2. [Utwórz podsieć bramy o podwójnym stosie](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
 
-3. [Utwórz bramę sieci wirtualnej](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ). Jeśli planujesz używać FastPath, użyj ErGw3AZ (należy zauważyć, że jest to dostępne tylko dla obwodów korzystających z usługi ExpressRoute Direct).
+3. [Utwórz bramę sieci wirtualnej](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ). Jeśli planujesz używać FastPath, użyj ErGw3AZ (należy zauważyć, że jest to dostępne tylko dla obwodów korzystających z usługi ExpressRoute Direct).
 
-4. [Połącz sieć wirtualną z obwodem ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
+4. [Połącz sieć wirtualną z obwodem ExpressRoute](./expressroute-howto-linkvnet-arm.md).
 
 ## <a name="limitations"></a>Ograniczenia
 Gdy obsługa protokołu IPv6 jest dostępna dla połączeń z wdrożeniami w regionach z Strefy dostępności, nie obsługuje następujących przypadków użycia:

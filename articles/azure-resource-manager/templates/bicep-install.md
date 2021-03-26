@@ -3,12 +3,12 @@ title: Konfiguracja Bicep środowiska projektowania i wdrażania
 description: Jak skonfigurować Bicep środowiska projektowania i wdrażania
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: d665a863affdec2009fc208f76b85a7f25de451d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd3721aca83488de61494a94826bfcd0b6acc26
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594397"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543741"
 ---
 # <a name="setup-bicep-development-and-deployment-environment"></a>Konfigurowanie środowiska deweloperskiego i wdrażania Bicep
 
@@ -31,7 +31,7 @@ Pliki Bicep można wdrożyć za pomocą interfejsu wiersza polecenia platformy A
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
 
 > [!NOTE]
-> Obecnie zarówno interfejs wiersza polecenia platformy Azure, jak i Azure PowerShell mogą wdrażać tylko lokalne pliki Bicep. Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Deploy-CLI](/deploy-cli.md#deploy-remote-template). Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu Azure PowerShell, zobacz [Deploy-PowerShell](/deploy-powershell.md#deploy-remote-template).
+> Obecnie zarówno interfejs wiersza polecenia platformy Azure, jak i Azure PowerShell mogą wdrażać tylko lokalne pliki Bicep. Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Deploy-CLI](./deploy-cli.md#deploy-remote-template). Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu Azure PowerShell, zobacz [Deploy-PowerShell]( ./deploy-powershell.md#deploy-remote-template).
 
 Po zainstalowaniu obsługiwanej wersji Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można wdrożyć plik Bicep z:
 

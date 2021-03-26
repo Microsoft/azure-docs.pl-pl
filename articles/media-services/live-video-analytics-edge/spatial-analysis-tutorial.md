@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrze
 description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na żywo wraz z przetwarzanie obrazów funkcją AI do analizy przestrzennej z poziomu usługi Azure Cognitive Services w celu przeanalizowania na żywo kanału informacyjnego wideo z aparatu (symulowane).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698760"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561019"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł g
 
 Węzeł MediaGraphCognitiveServicesVisionExtension odgrywa rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem **pamięci współdzielonej** do innego modułu brzegowego, który uruchamia operacje AI za punktem końcowym gRPC. W tym przykładzie modułem brzegowym jest moduł analizy przestrzennej. Węzeł procesora MediaGraphCognitiveServicesVisionExtension wykonuje dwie czynności:
 
-* Gromadzi wyniki i publikuje zdarzenia w węźle [ujścia IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
+* Gromadzi wyniki i publikuje zdarzenia w węźle [ujścia IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
 * Przechwytuje również 30-sekundowe klipy wideo ze źródła RTSP przy użyciu [procesora bramy sygnałów](media-graph-concept.md#signal-gate-processor) i zapisuje je jako Media Services zasoby.
 
 ## <a name="create-the-computer-vision-resource"></a>Tworzenie zasobu przetwarzanie obrazów

@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 70905d23b61ee9fee319bae41aeb421d808fa4d0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606722"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566765"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage za pomocą narzędzia Kopiowanie danych
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -87,21 +87,6 @@ W tym samouczku używasz nazwy i klucza swojego konta magazynu. Pobierz nazwę i
 
 
 1. Skopiuj wartości z pól **Nazwa konta magazynu** i **klucz1** i wklej je do Notatnika lub innego edytora do późniejszego użycia z tym samouczkiem.
-
-#### <a name="create-the-adftutorial-container"></a>Tworzenie kontenera adftutorial
-W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłudze Blob Storage.
-
-1. W oknie **Konto magazynu** przełącz się do widoku **Przegląd**, a następnie wybierz pozycję **Obiekty blob**.
-
-1. W oknie **obiekty blob** wybierz pozycję **+ kontener**.
-
-1. W oknie **nowy kontener** w obszarze **Nazwa** wpisz **adftutorial**, a następnie wybierz przycisk **OK**.
-
-1. Kliknij pozycję **adftutorial** na liście kontenerów.
-
-
-1. Pozostaw otwarte okno **kontenera** dla **adftutorial**. Służy do zweryfikowania danych wyjściowych na końcu samouczka. Usługa Data Factory automatycznie tworzy folder wyjściowy w tym kontenerze, więc Ty nie musisz go tworzyć.
-
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 

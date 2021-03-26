@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 0dcb750871eeae504ddb3d4e3851c834bcad125c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604547"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567122"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez wykorzystania agentów)
 
@@ -91,7 +91,7 @@ Aby włączyć replikację:
     - Podwójne szyfrowanie za pomocą kluczy zarządzanych przez platformę i klienta
 
    > [!NOTE]
-   > Aby replikować maszyny wirtualne za pomocą CMK, należy [utworzyć zestaw szyfrowanie dysków](https://go.microsoft.com/fwlink/?linkid=2151800) w docelowej grupie zasobów. Obiekt zestawu szyfrowania dysku mapuje Managed Disks do Key Vault, który zawiera CMK do użycia na potrzeby SSE.
+   > Aby replikować maszyny wirtualne za pomocą CMK, należy [utworzyć zestaw szyfrowanie dysków](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) w docelowej grupie zasobów. Obiekt zestawu szyfrowania dysku mapuje Managed Disks do Key Vault, który zawiera CMK do użycia na potrzeby SSE.
   
 10. W obszarze **Korzyść użycia hybrydowego platformy Azure**:
 
@@ -189,7 +189,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
 ## <a name="complete-the-migration"></a>Kończenie migracji
 
 1. Po zakończeniu migracji kliknij prawym przyciskiem myszy maszynę wirtualną, > **zatrzymać replikację**. Spowoduje to zatrzymanie replikacji maszyny lokalnej i oczyszczenie informacji o stanie replikacji dla maszyny wirtualnej.
-2. Podczas migracji automatycznie instalujemy agenta maszyny wirtualnej dla maszyn wirtualnych z systemem Windows i systemu Linux. Zapoznaj się z [wymaganiami](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) agenta maszyny wirtualnej systemu Linux na zmigrowanych maszynach, jeśli komputer ma system operacyjny Linux, aby upewnić się, że Instalacja agenta maszyny wirtualnej z systemem Linux jest prawidłowa. 
+2. Podczas migracji automatycznie instalujemy agenta maszyny wirtualnej dla maszyn wirtualnych z systemem Windows i systemu Linux. Zapoznaj się z [wymaganiami](../virtual-machines/extensions/agent-linux.md#requirements) agenta maszyny wirtualnej systemu Linux na zmigrowanych maszynach, jeśli komputer ma system operacyjny Linux, aby upewnić się, że Instalacja agenta maszyny wirtualnej z systemem Linux jest prawidłowa. 
 3. Po zakończeniu migracji wykonaj wszystkie potrzebne czynności konfiguracyjne, takie jak aktualizacja parametrów połączenia bazy danych i serwera sieci Web.
 4. Wykonaj dla zmigrowanej aplikacji uruchomionej na platformie Azure testy końcowe aplikacji i akceptacji migracji.
 5. Obcinaj ruch do zmigrowanego wystąpienia maszyny wirtualnej platformy Azure.

@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów przy użyciu programu PowerShell i szablonu
 description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
 ms.topic: conceptual
-ms.date: 03/04/2021
-ms.openlocfilehash: e1d2197064b94d428855bbb36aadbb5eb88d4032
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 03/25/2021
+ms.openlocfilehash: 11a293ca58fc6acf3bd99bb0169d817dae11fb94
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950862"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543809"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
 
@@ -118,6 +118,8 @@ Wdrożenie może potrwać kilka minut.
 > Obecnie Azure PowerShell nie obsługuje wdrażania plików zdalnych Bicep. Użyj [interfejsu wiersza polecenia Bicep](./bicep-install.md#development-environment) , aby skompilować plik Bicep do szablonu JSON, a następnie załaduj plik JSON do lokalizacji zdalnej.
 
 Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów. Nazwa grupy zasobów może zawierać tylko znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Może składać się z maksymalnie 90 znaków. Nazwa nie może kończyć się kropką.
 

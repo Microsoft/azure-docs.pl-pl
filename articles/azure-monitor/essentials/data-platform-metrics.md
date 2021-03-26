@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700978"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562974"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Przegląd metryk Azure Monitor
 Metryki Azure Monitor są funkcją Azure Monitor, która zbiera dane liczbowe z [monitorowanych zasobów](../monitor-reference.md) do bazy danych szeregów czasowych. Metryki to wartości liczbowe, które są zbierane w regularnych odstępach czasu i opisują kilka aspektów systemu w danym momencie. Metryki w Azure Monitor są lekkie i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Możesz przeanalizować je interaktywnie przy użyciu Eksploratora metryk, otrzymywać powiadomienia o alertach, gdy wartość przekroczy próg lub Wizualizuj je w skoroszycie lub pulpicie nawigacyjnym.
@@ -27,7 +27,7 @@ Metryki Azure Monitor są funkcją Azure Monitor, która zbiera dane liczbowe z 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Co możesz zrobić z metrykami Azure Monitor?
 W poniższej tabeli przedstawiono różne sposoby używania metryk w Azure Monitor.
 
-|  |  |
+|  | Opis |
 |:---|:---|
 | **Analiza** | Użyj [Eksploratora metryk](metrics-charts.md) do analizowania zebranych metryk na wykresie i porównywania metryk z różnych zasobów. |
 | **Alert** | Skonfiguruj [regułę alertu metryki](../alerts/alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](../alerts/action-groups.md) , gdy wartość metryki przekroczy próg. |

@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 915fdcb059d9e7bf9e1853040b90b82a0457652e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf66723f878f8b277d71577c068afdad56708ad6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598409"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563275"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu
 
@@ -43,7 +43,7 @@ Kliknij poniższy obraz, aby wyświetlić większą wersję.
 
 [![Kodowanie przepływu pracy dla wersji 2 ](./media/migration-guide/V2-pretty.svg)](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. Konfigurowanie
+1. Konfiguracja
     1. Utwórz element zawartości lub Użyj istniejącego elementu zawartości. W przypadku korzystania z nowego elementu zawartości Przekaż zawartość do tego zasobu. W przypadku korzystania z istniejącego elementu zawartości należy zakodować pliki, które już istnieją w elemencie zawartości.
     2. Pobierz wartości następujących elementów:
         - Identyfikator lub obiekt procesora multimediów
@@ -143,7 +143,3 @@ W przypadku klientów korzystających z procesora indeksatora v1 w interfejsie A
 ## <a name="samples"></a>Samples
 
 Możesz również [porównać kod v2 i V3 w przykładach kodu](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Następne kroki
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
