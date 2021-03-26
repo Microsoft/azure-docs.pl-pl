@@ -4,12 +4,12 @@ description: Informacje na temat używania dzienników Azure Monitor do monitoro
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 299a17e23ca3eb2d954bae7335571ae1f645152e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100571897"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867155"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Jak monitorować dostępność klastra za pomocą dzienników Azure Monitor w usłudze HDInsight
 
@@ -25,7 +25,7 @@ Jako warunek wstępny potrzebny będzie obszar roboczy Log Analytics do przechow
 
 Na stronie zasób klastra usługi HDInsight w portalu wybierz pozycję **Azure monitor**. Następnie wybierz pozycję **Włącz** , a następnie wybierz obszar roboczy log Analytics z listy rozwijanej.
 
-![Pakiet Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/azure-portal-monitoring.png" alt-text="Pakiet Operations Management Suite":::
 
 Domyślnie program pakietu OMS jest instalowany na wszystkich węzłach klastra z wyjątkiem węzłów brzegowych. Ponieważ żaden Agent pakietu OMS nie jest zainstalowany w węzłach brzegowych klastra, domyślnie nie ma żadnych danych telemetrycznych w węzłach brzegowych obecnych w Log Analytics.
 
@@ -33,7 +33,7 @@ Domyślnie program pakietu OMS jest instalowany na wszystkich węzłach klastra 
 
 Po włączeniu integracji dzienników Azure Monitor (może to potrwać kilka minut) przejdź do zasobów **obszaru roboczego log Analytics** i wybierz pozycję **dzienniki**.
 
-![Log Analytics dzienników obszaru roboczego](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/hdinsight-portal-logs.png" alt-text="Log Analytics dzienników obszaru roboczego":::
 
 Rejestruje listę przykładowych zapytań, takich jak:
 
@@ -47,7 +47,7 @@ Rejestruje listę przykładowych zapytań, takich jak:
 
 Przykładowo Uruchom przykładowe zapytanie o **współczynnik dostępności** , wybierając pozycję **Uruchom** dla tego zapytania, jak pokazano na poniższym zrzucie ekranu. Spowoduje to wyświetlenie wartości procentowej częstotliwości dostępności każdego węzła w klastrze. Jeśli włączono wiele klastrów usługi HDInsight do wysyłania metryk do tego samego obszaru roboczego Log Analytics, zobaczysz stawkę dostępności dla wszystkich węzłów (z wyjątkiem węzłów brzegowych) w tych klastrach.
 
-![Przykładowe zapytanie Log Analytics "szybkość dostępności" dzienników obszaru roboczego](media/cluster-availability-monitor-logs/portal-availability-rate.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-availability-rate.png" alt-text="Przykładowe zapytanie Log Analytics &quot;szybkość dostępności&quot; dzienników obszaru roboczego":::
 
 > [!NOTE]  
 > Częstotliwość dostępności jest mierzona w okresie 24-godzinnym, więc klaster będzie musiał działać przez co najmniej 24 godziny, zanim zobaczysz dokładne stawki dostępności.
@@ -60,16 +60,16 @@ Można również skonfigurować alerty Azure Monitor, które będą wyzwalane, g
 
 W obszarze **dzienniki** Uruchom przykładowe zapytanie **niedostępne komputery** , wybierając polecenie **Uruchom** dla tego zapytania, jak pokazano poniżej.
 
-![Przykład dziennika obszaru roboczego "niedostępne komputery" Log Analytics](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-unavailable-computers.png" alt-text="Przykład dziennika obszaru roboczego &quot;niedostępne komputery&quot; Log Analytics":::
 
 Jeśli wszystkie węzły są dostępne, to zapytanie powinno zwrócić teraz zero wyników. Kliknij pozycję **Nowa reguła alertu** , aby rozpocząć konfigurowanie alertu dla tego zapytania.
 
-![Log Analytics nowej regule alertu obszaru roboczego](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png" alt-text="Log Analytics nowej regule alertu obszaru roboczego":::
 
 Alert zawiera trzy składniki: *zasób* , dla którego ma zostać utworzona reguła (log Analytics w tym przypadku obszar roboczy), *warunek* wyzwalania alertu oraz *grupy akcji* , które określają, co się stanie po wyzwoleniu alertu.
 Kliknij **tytuł warunku**, jak pokazano poniżej, aby zakończyć konfigurowanie logiki sygnałów.
 
-![Warunek reguły tworzenia alertu portalu](media/cluster-availability-monitor-logs/portal-condition-title.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-condition-title.png" alt-text="Warunek reguły tworzenia alertu portalu":::
 
 Spowoduje to otwarcie **konfiguracji logiki sygnałów**.
 
@@ -85,11 +85,11 @@ Na potrzeby tego alertu należy się upewnić, że **okres = częstotliwość.**
 
 Po zakończeniu konfigurowania logiki sygnałów wybierz pozycję **gotowe** .
 
-![Reguła alertu konfiguruje logikę sygnału](media/cluster-availability-monitor-logs/portal-configure-signal-logic.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-configure-signal-logic.png" alt-text="Reguła alertu konfiguruje logikę sygnału":::
 
 Jeśli nie masz jeszcze istniejącej grupy akcji, kliknij pozycję **Utwórz nową** w sekcji **grupy akcji** .
 
-![Reguła alertu tworzy nową grupę akcji](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-create-new-action-group.png" alt-text="Reguła alertu tworzy nową grupę akcji":::
 
 Spowoduje to otwarcie **grupy akcji Dodaj**. Wybierz **nazwę grupy akcji**, **krótką nazwę**, **subskrypcję** i **grupę zasobów.** W sekcji **Akcje** wybierz **nazwę akcji** i wybierz pozycję **email/SMS/push/Voice** jako **Typ akcji.**
 
@@ -98,26 +98,26 @@ Spowoduje to otwarcie **grupy akcji Dodaj**. Wybierz **nazwę grupy akcji**, **k
 
 Spowoduje to otwarcie **wiadomości e-mail/SMS/wypychania/głosu**. Wybierz **nazwę** odbiorcy, **zaznacz** pole adres **e-mail** , a następnie wpisz adres e-mail, na który ma być wysyłany alert. Wybierz pozycję **OK** w  **wiadomości e-mail/SMS/wypychanie/głos**, a następnie w obszarze **Dodaj grupę akcji** , aby zakończyć konfigurowanie grupy akcji.
 
-![Reguła alertu tworzy grupę akcji.](media/cluster-availability-monitor-logs/portal-add-action-group.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-add-action-group.png" alt-text="Reguła alertu tworzy grupę akcji.":::
 
 Po zamknięciu tych zamków powinna zostać wyświetlona grupa akcji wymieniona w sekcji **grupy akcji** . Na koniec Wypełnij sekcję **szczegóły alertu** , wpisując nazwę i **Opis** **reguły alertu** i wybierając **ważność**. Kliknij przycisk **Utwórz regułę alertu** , aby zakończyć.
 
-![Portal tworzy zakończenie reguły alertu](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png" alt-text="Portal tworzy zakończenie reguły alertu":::
 
 > [!TIP]
 > Możliwość określania **ważności** jest zaawansowanym narzędziem, które może być używane podczas tworzenia wielu alertów. Na przykład można utworzyć jeden alert, aby zgłosić ostrzeżenie (ważność 1), jeśli jeden węzeł główny ulegnie awarii i inny alert, który podnosi krytyczne (ważność 0) w prawdopodobnym zdarzeniu, że oba węzły główne przechodzą.
 
 Po spełnieniu warunku tego alertu alert zostanie uruchomiony i otrzymasz wiadomość e-mail z informacjami o alercie, takimi jak:
 
-![Przykład wiadomości e-mail dotyczącej alertu Azure Monitor](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alert-email.png" alt-text="Przykład wiadomości e-mail dotyczącej alertu Azure Monitor":::
 
 Możesz również wyświetlić wszystkie alerty, które zostały wywołane, pogrupowane według ważności, przechodząc do **alertów** w **obszarze roboczym log Analytics**.
 
-![Log Analytics alertów obszaru roboczego](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png" alt-text="Log Analytics alertów obszaru roboczego":::
 
 Wybranie grupowania ważności (tj. **ważność 1,** jak zostało wyróżnione powyżej) spowoduje wyświetlenie rekordów dla wszystkich alertów o ważności, które zostały wywołane jak poniżej:
 
-![Ważność obszar roboczy Log Analytics jeden alert](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Ważność obszar roboczy Log Analytics jeden alert":::
 
 ## <a name="next-steps"></a>Następne kroki
 

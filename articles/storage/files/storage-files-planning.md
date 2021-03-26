@@ -4,16 +4,16 @@ description: Opis planowania wdrożenia Azure Files. Można bezpośrednio zainst
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879851"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023524"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -65,7 +65,7 @@ Chociaż z perspektywy technicznej znacznie łatwiej jest instalować udziały p
 
 - **Tunelowanie sieciowe przy użyciu ExpressRoute, lokacja-lokacja lub sieci VPN typu punkt-lokacja**: tunelowanie do sieci wirtualnej umożliwia dostęp do udziałów plików platformy Azure z lokalnego, nawet jeśli port 445 jest zablokowany.
 - **Prywatne punkty końcowe**: prywatne punkty końcowe zapewniają konto magazynu dedykowany adres IP z przestrzeni adresowej sieci wirtualnej. Umożliwia to tunelowanie sieciowe bez konieczności otwierania sieci lokalnych do wszystkich zakresów adresów IP należących do klastrów usługi Azure Storage. 
-- **Przekazywanie DNS**: Skonfiguruj lokalny serwer DNS, aby rozpoznać nazwę konta magazynu (tj. `storageaccount.file.core.windows.net` dla regionów chmury publicznej) w celu rozpoznania adresu IP prywatnych punktów końcowych.
+- **Przekazywanie DNS**: Skonfiguruj lokalny serwer DNS, aby rozpoznać nazwę konta magazynu ( `storageaccount.file.core.windows.net` dla regionów chmury publicznej) w celu rozpoznania adresu IP prywatnych punktów końcowych.
 
 Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure, zapoznaj się z tematem [Azure Files zagadnienia dotyczące sieci](storage-files-networking-overview.md).
 
@@ -94,7 +94,7 @@ Azure Files ma wielowarstwowe podejście do zapewnienia, że kopie zapasowe dany
 ### <a name="soft-delete"></a>Usuwanie nietrwałe
 Usuwanie nietrwałe dla udziałów plików (wersja zapoznawcza) to ustawienie poziomu konta magazynu, które pozwala na odzyskanie udziału plików po jego przypadkowym usunięciu. Po usunięciu udziału plików przechodzi do nietrwałego stanu usuniętego, a nie na stałe wymazywanie. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty, i Cofnij usunięcie udziału w dowolnym momencie w tym okresie przechowywania. 
 
-Zalecamy włączenie usuwania nietrwałego dla większości udziałów plików. W przypadku przepływu pracy, w którym jest używane usuwanie udziałów i oczekiwanie, możesz zdecydować, że masz bardzo krótki okres przechowywania lub nie masz włączonego usuwania nietrwałego.
+Zalecamy włączenie usuwania nietrwałego dla większości udziałów plików. W przypadku przepływu pracy, w którym jest używane usuwanie udziałów i oczekiwanie, możesz zdecydować, że masz krótki okres przechowywania lub nie masz włączonego usuwania nietrwałego.
 
 Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [zapobieganie przypadkowemu](./storage-files-prevent-file-share-deletion.md)usuwaniu danych.
 
@@ -107,10 +107,10 @@ Można wykonywać zarówno przywracanie na poziomie elementu, jak i na poziomie 
 
 Aby uzyskać więcej informacji na temat kopii zapasowej, zobacz [Informacje o kopii zapasowej udziału plików platformy Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Files (wersja zapoznawcza)
-Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która zapewnia alerty w przypadku wykrycia nietypowej aktywności na koncie magazynu, na przykład nietypowe próby dostępu do konta magazynu. ATP uruchamia również analizę reputacji skrótu złośliwego oprogramowania i alertuje o znanym złośliwym oprogramowaniu. ATP można skonfigurować na poziomie subskrypcji lub konta magazynu za pośrednictwem Azure Security Center. 
+### <a name="azure-defender-for-azure-files"></a>Usługa Azure Defender dla Azure Files 
+Usługa Azure Defender dla usługi Azure Storage (wcześniej Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage) oferuje dodatkową warstwę analizy zabezpieczeń, która zapewnia alerty w przypadku wykrycia nietypowej aktywności na koncie magazynu, na przykład nietypowe próby dostępu. Uruchamia również analizę reputacji skrótu złośliwego oprogramowania i alertuje o znanym złośliwym oprogramowaniu. Usługę Azure Defender można skonfigurować na poziomie subskrypcji lub konta magazynu za pośrednictwem Azure Security Center. 
 
-Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure Storage](../common/azure-defender-storage-configure.md).
+Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure Defender dla magazynu](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Warstwy magazynowania
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

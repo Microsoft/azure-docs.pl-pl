@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e2b76fbc2afaad465773860ff45f18261edad138
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bcf2f39423f033ccd5bfdb6bf51ebc89e254f802
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933436"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867818"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Użyj Apache Hive jako narzędzia wyodrębniania, przekształcania i ładowania (ETL)
 
@@ -20,7 +20,7 @@ Zazwyczaj należy oczyścić i przekształcić przychodzące dane przed załadow
 
 Na poniższej ilustracji przedstawiono przegląd przypadku użycia i modelu dla automatyzacji ETL. Dane wejściowe są przekształcane w celu wygenerowania odpowiednich danych wyjściowych.  Podczas tej transformacji dane zmieniają kształt, typ danych i język nawet.  Procesy ETL umożliwiają konwersję z układu brytyjskiego na metrykę, zmienianie stref czasowych i poprawianie dokładności odpowiednio wyrównane z istniejącymi danymi w miejscu docelowym. Procesy ETL mogą również łączyć nowe dane z istniejącymi danymi, aby aktualizować raporty lub uzyskiwać dokładniejsze informacje o istniejących danych. Aplikacje, takie jak narzędzia i usługi raportowania, mogą następnie korzystać z tych danych w żądanym formacie.
 
-![Apache Hive jako architektura ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+:::image type="content" source="./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png" alt-text="Apache Hive jako architektura ETL" border="false":::
 
 Usługa Hadoop jest zwykle używana w procesach ETL, które zaimportują ogromną liczbę plików tekstowych (takich jak CSV). Lub mniejsza, ale często zmieniana liczba plików tekstowych lub obie.  Hive jest doskonałym narzędziem służącym do przygotowywania danych przed załadowaniem ich do miejsca docelowego danych.  Program Hive umożliwia utworzenie schematu w formacie CSV i użycie języka przypominającego SQL w celu wygenerowania programów MapReduce, które współdziałają z danymi.
 

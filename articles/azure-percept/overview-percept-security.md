@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 6a3049709c6c094f722a8132ee4c4b2051e24d95
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9575c0aec4a1b45f9099bff1dc4209c63529ddf6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616693"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025547"
 ---
 # <a name="azure-percept-security-overview"></a>Omówienie zabezpieczeń usługi Azure Percept
 
@@ -25,7 +25,7 @@ Urządzenia z systemem Azure Percept DK są zaprojektowane z użyciem sprzętowe
 
 ### <a name="azure-percept-dk"></a>Azure Percept DK
 
-Usługa Azure Percept DK zawiera Trusted Platform Module (TPM) w wersji 2,0, która może być używana do łączenia urządzenia z usługami Azure Device Provisioning z dodatkowymi zabezpieczeniami. Moduł TPM jest standardem ISO opartym na całej branży, a na podstawie Trusted Computing Group można dowiedzieć się więcej na temat modułu TPM i uzyskać [pełną specyfikację modułu tpm 2,0](https://trustedcomputinggroup.org/resource/tpm-library-specification/) lub specyfikację ISO/IEC 11889. Aby uzyskać więcej informacji na temat sposobu, w jaki usługa DPS może bezpiecznie udostępnić urządzenia, zobacz [Azure IoT Hub Device Provisioning Service — zaświadczanie modułu TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation).
+Usługa Azure Percept DK zawiera Trusted Platform Module (TPM) w wersji 2,0, która może być używana do łączenia urządzenia z usługami Azure Device Provisioning z dodatkowymi zabezpieczeniami. Moduł TPM jest standardem ISO opartym na całej branży, a na podstawie Trusted Computing Group można dowiedzieć się więcej na temat modułu TPM i uzyskać [pełną specyfikację modułu tpm 2,0](https://trustedcomputinggroup.org/resource/tpm-library-specification/) lub specyfikację ISO/IEC 11889. Aby uzyskać więcej informacji na temat sposobu, w jaki usługa DPS może bezpiecznie udostępnić urządzenia, zobacz [Azure IoT Hub Device Provisioning Service — zaświadczanie modułu TPM](../iot-dps/concepts-tpm-attestation.md).
 
 ### <a name="azure-percept-system-on-module-som"></a>System Azure Percept w module (SOM)
 
@@ -37,7 +37,7 @@ Urządzenia usługi Azure Percept używają głównego zaufania sprzętowego do 
 
 ### <a name="iot-edge"></a>IoT Edge
 
-Usługa Azure Percept DK nawiązuje połączenie z usługą Azure Percept Studio z dodatkowymi zabezpieczeniami i innymi usługami platformy Azure wykorzystującymi protokół Transport Layer Security (TLS). Azure Percept DK to urządzenie z włączonym Azure IoT Edge. Środowisko uruchomieniowe IoT Edge to zbiór programów, które włączają urządzenie do urządzenia IoT Edge. Zbiorowo składniki środowiska uruchomieniowego IoT Edge umożliwiają IoT Edge urządzeniom otrzymywanie kodu do uruchomienia na brzegu i przekazywanie wyników. Usługa Azure Percept DK używa kontenerów platformy Docker do izolowania obciążeń IoT Edge z systemu operacyjnego hosta i aplikacji z włączonymi krawędziami. Aby uzyskać więcej informacji na temat środowiska zabezpieczeń Azure IoT Edge, Przeczytaj o programie [IoT Edge Security Manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager).
+Usługa Azure Percept DK nawiązuje połączenie z usługą Azure Percept Studio z dodatkowymi zabezpieczeniami i innymi usługami platformy Azure wykorzystującymi protokół Transport Layer Security (TLS). Azure Percept DK to urządzenie z włączonym Azure IoT Edge. Środowisko uruchomieniowe IoT Edge to zbiór programów, które włączają urządzenie do urządzenia IoT Edge. Zbiorowo składniki środowiska uruchomieniowego IoT Edge umożliwiają IoT Edge urządzeniom otrzymywanie kodu do uruchomienia na brzegu i przekazywanie wyników. Usługa Azure Percept DK używa kontenerów platformy Docker do izolowania obciążeń IoT Edge z systemu operacyjnego hosta i aplikacji z włączonymi krawędziami. Aby uzyskać więcej informacji na temat środowiska zabezpieczeń Azure IoT Edge, Przeczytaj o programie [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
 ### <a name="device-update-for-iot-hub"></a>Aktualizacja urządzenia dla IoT Hub
 
@@ -57,7 +57,7 @@ Ta lista kontrolna jest punktem początkowym dla reguł zapory:
 |*. auth.azureperceptdk.azure.net|   443|    Azure DK — uwierzytelnianie i autoryzacja modelu SOM|
 |*. auth.projectsantacruz.azure.net| 443|    Azure DK — uwierzytelnianie i autoryzacja modelu SOM|
 
-Ponadto Przejrzyj listę [połączeń używanych przez Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices).
+Ponadto Przejrzyj listę [połączeń używanych przez Azure IoT Edge](../iot-edge/production-checklist.md#allow-connections-from-iot-edge-devices).
 
 <!---
 ## Additional Recommendations for Deployment to Production

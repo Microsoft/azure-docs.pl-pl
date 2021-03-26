@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: a5732c2dc0a92bd5727eeff39a529630e45683d7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bb448a4befb15618485b2b5951222761180a1f22
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946676"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866747"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Wizualizowanie danych programu Apache Hive przy użyciu usługi Microsoft Power BI za pomocą interfejsu ODBC w usłudze Azure HDInsight
 
@@ -21,7 +21,7 @@ Dowiedz się, jak połączyć Power BI Desktop firmy Microsoft z usługą Azure 
 
 W tym artykule załadujesz dane z tabeli programu `hivesampletable` Hive do Power BI. Tabela programu Hive zawiera dane użycia telefonu komórkowego. Następnie można wykreślić dane użycia na mapie światowej:
 
-![Usługa HDInsight Power BI raport mapy](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
+:::image type="content" source="./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png" alt-text="Usługa HDInsight Power BI raport mapy" border="true":::
 
 Informacje dotyczą również nowego typu klastra [interakcyjnych zapytań](../interactive-query/apache-interactive-query-get-started.md) . Aby dowiedzieć się, jak nawiązać połączenie z interakcyjnym zapytaniem usługi HDInsight przy użyciu zapytania bezpośredniego, zobacz [Wizualizacja interaktywne zapytania Hive danych w usłudze Microsoft Power BI przy użyciu zapytania bezpośredniego w usłudze HDInsight Azure](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 
@@ -45,7 +45,7 @@ Tabela programu Hive **hivesampletable** zawiera wszystkie klastry usługi HDIns
 
 1. W górnym menu Przejdź do **strony głównej**  >  **Pobierz dane**  >  **więcej...**.
 
-    ![Usługa HDInsight Excel Power BI otworzyć dane](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png" alt-text="Usługa HDInsight Excel Power BI otworzyć dane" border="true":::
 
 1. W oknie dialogowym **pobieranie danych** wybierz pozycję **inne** po lewej stronie, wybierz pozycję **ODBC** z prawej strony, a następnie wybierz pozycję **Połącz** u dołu.
 
@@ -61,7 +61,7 @@ Kontynuuj z ostatniej procedury.
 
 1. W okienku wizualizacje wybierz pozycję **Mapa**, czyli ikonę globusa.
 
-    ![Power BI dostosowuje Raport usługi HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png" alt-text="Power BI dostosowuje Raport usługi HDInsight" border="true":::
 
 1. W okienku **pola** wybierz pozycję **Country** i **devicemake**. Dane są wyświetlane na mapie.
 

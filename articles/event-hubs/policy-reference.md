@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Event Hubs
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Event Hubs platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d9a0159d9397aff490d317d19c1ada7f102aa67f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 84486285dd9566821b5b6bbe33e3cfbffb792532
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591908"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031340"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Azure Policy wbudowane definicje dla platformy Azure Event Hubs
 

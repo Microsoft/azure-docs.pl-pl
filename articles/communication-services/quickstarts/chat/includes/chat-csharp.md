@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 127031479d7ef414298d3096ebef814df1fe9a18
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7e4ffb800a65a9a1e436e50921e9c7f76f02b571
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027959"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107080"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -43,7 +43,7 @@ dotnet build
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Zainstaluj bibliotekę kliencką rozmowy komunikacyjnej platformy Azure dla platformy .NET
+Instalowanie zestawu SDK usługi Azure Communication Chat dla platformy .NET
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
@@ -51,7 +51,7 @@ dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta czatu usługi Azure Communication Services dla języka C#.
+Poniższe klasy obsługują niektóre główne funkcje zestawu Azure Communication Services Chat SDK dla języka C#.
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -60,7 +60,7 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta czatu 
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
-Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z biblioteki klienta tożsamości, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
+Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z zestawu SDK tożsamości, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
 
 Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md).
 

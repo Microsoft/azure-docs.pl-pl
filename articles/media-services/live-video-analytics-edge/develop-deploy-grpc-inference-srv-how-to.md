@@ -3,12 +3,12 @@ title: Opracowywanie i wdrażanie serwera gRPC wnioskowania — Azure
 description: Ten artykuł zawiera wskazówki dotyczące tworzenia i wdrażania serwera wnioskowania gRPC.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dbf46a26626a4143d76385968d092c4f238729da
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98881656"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034864"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Przewodnik — tworzenie i wdrażanie serwera wnioskowania gRPC
 
@@ -242,7 +242,7 @@ Po utworzeniu modułu rozszerzenia gRPC teraz utworzysz i wdrożono topologię p
         * W obszarze GraphInstanceSet Zmień nazwę topologii wykresu, aby odpowiadała wartości w poprzednim łączu:<br/>`"topologyName": "InferencingWithGrpcExtension"`
         * W obszarze GraphTopologyDelete Edytuj nazwę:<br/>`"name": "InferencingWithGrpcExtension"`
 
-            Topologia (na przykład `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json` ) musi definiować adres rozszerzenia:
+            Topologia (na przykład `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json` ) musi definiować adres rozszerzenia:
     * Parametr adresu rozszerzenia
 
         ```
@@ -308,4 +308,4 @@ Na tym etapie wdrożenie modułów brzegowych na urządzeniu IoT Edge zostało r
 
 ## <a name="next-steps"></a>Następne kroki
 
-Postępuj zgodnie z instrukcjami dotyczącymi **przygotowania do monitorowania zdarzeń** wymienionymi w sekcji [Analizowanie wideo na żywo z modelem](use-your-model-quickstart.md) Szybki Start, aby uruchomić przykład i zinterpretować wyniki. Ponadto zapoznaj się z naszymi przykładowymi topologiami gRPC: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension i [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
+Postępuj zgodnie z instrukcjami dotyczącymi **przygotowania do monitorowania zdarzeń** wymienionymi w sekcji [Analizowanie wideo na żywo z modelem](use-your-model-quickstart.md) Szybki Start, aby uruchomić przykład i zinterpretować wyniki. Ponadto zapoznaj się z naszymi przykładowymi topologiami gRPC: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension i [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).

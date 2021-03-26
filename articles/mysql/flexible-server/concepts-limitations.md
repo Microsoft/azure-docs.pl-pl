@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94543089"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034524"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Ograniczenia na serwerze elastycznym Azure Database for MySQL (wersja zapoznawcza)
 
@@ -89,8 +89,12 @@ Następujące elementy nie są obsługiwane:
 - W przypadku przywracania do punktu w czasie nowe serwery są tworzone przy użyciu tych samych konfiguracji obliczeniowych i magazynu, co na serwerze źródłowym, na którym bazuje. Nowo przywrócone obliczenia serwera można skalować w dół po utworzeniu serwera.
 - Przywracanie usuniętego serwera nie jest obsługiwane.
 
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>Funkcje dostępne na jednym serwerze, ale nie są jeszcze obsługiwane na elastycznym serwerze 
+Nie wszystkie funkcje dostępne w Azure Database for MySQL — jeden serwer jest jeszcze dostępny na serwerze elastycznym. Aby uzyskać pełną listę porównania funkcji między pojedynczym serwerem i elastycznym serwerem, należy zapoznać się z tematem [Wybieranie odpowiedniej opcji serwera MySQL w dokumentacji platformy Azure.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+
 ## <a name="next-steps"></a>Następne kroki
 
-- [Informacje o dostępnych opcjach obliczeniowych i pamięci masowej](concepts-compute-storage.md)
+- Dowiedz się [, jak wybrać odpowiednią opcję serwera MySQL w dokumentacji platformy Azure](../select-right-deployment-type.md)
+- [Informacje o dostępnych opcjach obliczeniowych i pamięci masowej na serwerze elastycznym](concepts-compute-storage.md)
 - Informacje o [obsługiwanych wersjach programu MySQL](concepts-supported-versions.md)
-- Zapoznaj [się z tematem jak utworzyć kopię zapasową i przywrócić serwer przy użyciu Azure Portal](how-to-restore-server-portal.md)
+- Szybki Start: [użyj Azure Portal, aby utworzyć Azure Database for MySQL elastyczny serwer](quickstart-create-server-portal.md)

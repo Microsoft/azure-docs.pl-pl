@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416234"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110257"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Uruchamianie powrotu po awarii dla maszyn wirtualnych funkcji Hyper-V
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób powrotu po awarii maszyn wirtualnych platformy Az
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 1. [Zapoznaj się z typami powrotu po awarii](failover-failback-overview.md#hyper-v-reprotectionfailback) , których można użyć — odzyskiwanie oryginalnej lokalizacji i odzyskiwanie lokalizacji alternatywnej.
-2. Upewnij się, że maszyny wirtualne platformy Azure używają konta magazynu i nie są dyskami zarządzanymi. Powrót po awarii maszyn wirtualnych funkcji Hyper-V replikowanych za pomocą usługi Managed disks nie jest obsługiwany.
+2. Upewnij się, że maszyny wirtualne platformy Azure używają konta magazynu i nie są dyskami zarządzanymi. Powrót po awarii maszyn wirtualnych funkcji Hyper-V, które przełączone do trybu failover na maszynach platformy Azure przy użyciu dysków zarządzanych, nie są obsługiwane.
 3. Sprawdź, czy lokalny host funkcji Hyper-V (lub serwer programu System Center VMM, jeśli używasz programu z usługą Site Recovery) jest uruchomiony i połączony z platformą Azure. 
 4. Upewnij się, że maszyny wirtualne zostały wykonane w trybie failover i zatwierdzania. Nie trzeba konfigurować żadnych określonych składników Site Recovery w przypadku powrotu po awarii maszyn wirtualnych funkcji Hyper-V z platformy Azure.
 5. Czas wymagany do ukończenia synchronizacji danych i uruchomienia lokalnej maszyny wirtualnej będzie zależeć od wielu czynników. Aby przyspieszyć pobieranie danych, można skonfigurować agenta Recovery Services firmy Microsoft w celu użycia większej liczby wątków do zrównoleglanie pobierania. [Dowiedz się więcej](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).

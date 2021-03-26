@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87291108"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889301"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Przenoszenie maszyny wirtualnej do innej subskrypcji lub grupy zasobów
 W tym artykule omówiono sposób przenoszenia maszyny wirtualnej między grupami zasobów lub subskrypcjami. Przenoszenie maszyny wirtualnej między subskrypcjami może być przydatne, jeśli utworzono maszynę wirtualną w osobistej subskrypcji, a teraz chcesz przenieść ją do subskrypcji firmy.
@@ -38,6 +38,7 @@ Aby pomyślnie przenieść maszynę wirtualną, należy przenieść maszynę wir
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+`table`Dane wyjściowe są niedostępne, jeśli używasz `--interactive` . Zmień dane wyjściowe na inną opcję, na przykład `json` .
 
 Aby przenieść maszynę wirtualną i jej zasoby do innej grupy zasobów, użyj [AZ Resource Move](/cli/azure/resource). Poniższy przykład pokazuje, jak przenieść maszynę wirtualną i najpopularniejsze zasoby, których wymaga. Użyj parametru **-ID** i przekaż listę oddzielonych przecinkami (bez spacji) identyfikatorów dla zasobów do przeniesienia.
 

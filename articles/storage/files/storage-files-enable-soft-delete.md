@@ -4,16 +4,16 @@ description: Dowiedz się, jak włączyć usuwanie nietrwałe w udziałach plik�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 13e6668337b82ea4be86eadcbc6f7797a72771c6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218557"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023487"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 
@@ -26,16 +26,16 @@ W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego d
 ## <a name="getting-started"></a>Wprowadzenie
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
-1. Przejdź do konta magazynu i wybierz pozycję **usuwanie nietrwałe** w obszarze **Usługa plików**.
-1. Wybierz opcję **włączone** dla **trwałego usunięcia udziału plików**.
+1. Przejdź do konta magazynu i wybierz pozycję **udziały plików** w obszarze **Usługa plików**.
+1. Wybierz opcję **włączone** dla **usuwania nietrwałego dla wszystkich udziałów plików**.
 1. Wybierz **okres przechowywania udziału plików w dniach** i wprowadź wybraną liczbę.
 1. Wybierz pozycję **Zapisz** , aby potwierdzić ustawienia przechowywania danych.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Zrzut ekranu przedstawiający okienko ustawień usuwania nietrwałego konta magazynu. Wyróżnianie sekcji udziały plików, Włączanie przełącznika, Ustawianie okresu przechowywania i zapisywanie. Spowoduje to włączenie usuwania nietrwałego dla wszystkich udziałów plików na koncie magazynu.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Zrzut ekranu przedstawiający okienko ustawień usuwania nietrwałego konta magazynu. Wyróżnij sekcję nietrwałe usuwanie udziałów plików, włącz przełącznik, Ustaw okres przechowywania i Zapisz. Spowoduje to włączenie usuwania nietrwałego dla wszystkich udziałów plików na koncie magazynu.":::
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.3 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.3 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="getting-started-with-cli"></a>Wprowadzenie do interfejsu wiersza polecenia
 
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Wyłącz usuwanie nietrwałe
 
-Jeśli chcesz zatrzymać korzystanie z funkcji usuwania nietrwałego lub trwale usunąć udział plików, postępuj zgodnie z następującymi instrukcjami:
+Jeśli chcesz zatrzymać korzystanie z funkcji usuwania nietrwałego, postępuj zgodnie z poniższymi instrukcjami. Aby trwale usunąć udział plików, który został usunięty z nietrwałego usunięcia, należy cofnąć jego usunięcie, wyłączyć usuwanie nietrwałe, a następnie usunąć go ponownie. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Przejdź do konta magazynu i wybierz pozycję **usuwanie nietrwałe** w obszarze **Ustawienia**.
-1. W obszarze **udziały plików** wybierz pozycję **wyłączone** dla opcji **Usuń nietrwałe dla udziałów plików**.
+1. Przejdź do konta magazynu i wybierz pozycję **udziały plików** w obszarze **Usługa plików**.
+1. Wybierz opcję **wyłączone** dla **usuwania nietrwałego dla wszystkich udziałów plików**.
 1. Wybierz pozycję **Zapisz** , aby potwierdzić ustawienia przechowywania danych.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Wyłączenie usuwania nietrwałego umożliwi natychmiastowe i trwałe usunięcie wszystkich udziałów plików na koncie magazynu.":::

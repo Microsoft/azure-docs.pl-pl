@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9558e6c5ddd58b1d5fd70da03187caef50d1275d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99980698"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865574"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w usłudze HDInsight opartej na systemie Linux
 
@@ -152,11 +152,11 @@ Dwie konfiguracje należy dodać do niestandardowej `mapred-site` w Ambari.
 
 2. Z listy usług po lewej stronie wybierz pozycję **przędza**.
 
-    ![Wybrano usługę Apache Ambari przędzę](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    :::image type="content" source="./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png" alt-text="Wybrano usługę Apache Ambari przędzę":::
 
 3. Z listy rozwijanej **szybkie linki** wybierz jeden z węzłów głównych klastra, a następnie wybierz opcję **`ResourceManager Log`** .
 
-    ![Szybkie linki do przędzy w usłudze Apache Ambari](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    :::image type="content" source="./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png" alt-text="Szybkie linki do przędzy w usłudze Apache Ambari":::
 
     Zostanie wyświetlona lista linków do dzienników PRZĘDZy.
 

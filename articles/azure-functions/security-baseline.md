@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4fd53067309f83b284da25040f9f6534936cead9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8f19e25e01e0c5fcdb5b2aa4db29ebe29fd7b5e3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704676"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025394"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
 
@@ -72,7 +72,7 @@ Ponadto upewnij się, że debugowanie zdalne zostało wyłączone dla Azure Func
 
 Rozważ wdrożenie zapory aplikacji sieci Web platformy Azure (WAF) jako części konfiguracji sieci w celu przeprowadzenia dodatkowej inspekcji ruchu przychodzącego. Włącz ustawienie diagnostyczne dla WAF i pobierania dzienników do konta magazynu, centrum zdarzeń lub Log Analytics obszaru roboczego. 
 
-- [Jak zabezpieczyć Azure Functions punkty końcowe w środowisku produkcyjnym](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Jak zabezpieczyć Azure Functions punkty końcowe w środowisku produkcyjnym](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
 - [Jak wdrożyć usługę Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -132,7 +132,7 @@ Alternatywnie istnieje wiele opcji portalu Marketplace, takich jak Zapora aplika
 
 - [Używanie prywatnych punktów końcowych Azure Functions](../app-service/networking/private-endpoint.md)
 
-- [Opis usługi Barracuda WAF w chmurze](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Opis usługi Barracuda WAF w chmurze](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Odpowiedzialność**: Klient
 
@@ -208,9 +208,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian ustawień sieciowych i zasobów związanych z wdrożeniami Azure Functions. Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych ustawieniach sieciowych lub zasobach. 
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -230,7 +230,7 @@ Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w apl
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub informacji o systemie oraz rozwiązania do zarządzania zdarzeniami innych firm. 
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak skonfigurować Azure Functions przy użyciu usługi Azure Application Insights](functions-monitoring.md)
 
@@ -248,7 +248,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w aplikacji funkcji, Włącz ustawienie Diagnostyka "FunctionAppLogs" i Wyślij dzienniki do obszaru roboczego Log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. 
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak włączyć ustawienia diagnostyczne (dzienniki wygenerowane przez użytkownika) dla Azure Functions](functions-monitor-log-analytics.md)
 
@@ -272,7 +272,7 @@ Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w apl
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z aplikacjami funkcji zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Odpowiedzialność**: Klient
 
@@ -288,7 +288,7 @@ Jeśli masz wbudowane niestandardowe rejestrowanie zabezpieczeń/inspekcji w apl
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub informacji o systemie oraz rozwiązania do zarządzania zdarzeniami innych firm.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak włączyć ustawienia diagnostyczne dla Azure Functions](functions-monitor-log-analytics.md)
 
@@ -308,11 +308,11 @@ Włącz Application Insights aplikacji funkcji w celu zbierania danych dziennik�
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub informacji o systemie oraz rozwiązania do zarządzania zdarzeniami innych firm.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak włączyć ustawienia diagnostyczne dla Azure Functions](functions-monitor-log-analytics.md)
 
-- [Jak włączyć Application Insights dla Azure Functions](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#enable-application-insights-integration)
+- [Jak włączyć Application Insights dla Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 **Odpowiedzialność**: Klient
 
@@ -326,9 +326,9 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 **Wskazówki**: Azure Active Directory (Azure AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Odpowiedzialność**: Klient
 
@@ -342,9 +342,9 @@ Dostęp do płaszczyzny danych można kontrolować za pomocą kilku środków, t
 
 Wiele metod wdrażania jest dostępnych dla aplikacji funkcji, a niektóre z nich mogą korzystać z zestawu wygenerowanych poświadczeń. Zapoznaj się z metodami wdrażania, które będą używane dla danej aplikacji.
 
-- [Zabezpieczanie punktu końcowego HTTP](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Zabezpieczanie punktu końcowego HTTP](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Jak uzyskać i wygenerować ponownie klucze autoryzacji](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [Jak uzyskać i wygenerować ponownie klucze autoryzacji](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
 - [Technologie wdrażania w Azure Functions](functions-deployment-technologies.md)
 
@@ -378,7 +378,7 @@ Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
 **Wskazówki**: wszędzie tam, gdzie to możliwe, użyj Azure Active Directory (Azure AD) SSO zamiast konfigurować indywidualne poświadczenia autonomiczne na potrzeby dostępu do danych do aplikacji funkcji. Użyj Azure Security Center zalecenia dotyczące zarządzania tożsamościami i dostępem. Zaimplementuj Logowanie jednokrotne dla aplikacji funkcji przy użyciu funkcji uwierzytelniania App Service/autoryzacji.
 
-- [Informacje o uwierzytelnianiu i autoryzacji w Azure Functions](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Informacje o uwierzytelnianiu i autoryzacji w Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
 - [Opis logowania jednokrotnego w usłudze Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -450,7 +450,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 **Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -468,7 +468,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 - [Jak skonfigurować aplikację funkcji do korzystania z logowania do usługi Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/quickstart-onboard.md)
 
@@ -532,7 +532,7 @@ Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końc
 
 **Wskazówki**: w Azure Portal aplikacji funkcji w obszarze "funkcje platformy: sieć: SSL" Włącz ustawienie "tylko https" i ustaw minimalną wersję protokołu TLS na 1,2.
 
-- [Wymagaj protokołu HTTPS w aplikacjach funkcji](https://docs.microsoft.com/azure/azure-functions/security-concepts#require-https)
+- [Wymagaj protokołu HTTPS w aplikacjach funkcji](./security-concepts.md#require-https)
 
 **Odpowiedzialność**: Klient
 
@@ -592,7 +592,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Functions i ma z
 
 **Wskazówki**: Użyj Azure monitor w dzienniku aktywności platformy Azure, aby utworzyć alerty dotyczące zmian w aplikacjach funkcji produkcyjnych, a także innych krytycznych lub pokrewnych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -608,7 +608,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Functions i ma z
 
 Ponadto postępuj zgodnie z zaleceniami Azure Security Center, aby pomóc w zabezpieczeniu aplikacji funkcji.
 
-- [Jak dodać ciągłą weryfikację zabezpieczeń do potoku CI/CD](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&amp;preserve-view=true)
+- [Jak dodać ciągłą weryfikację zabezpieczeń do potoku CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
 - [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -638,7 +638,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -712,7 +712,7 @@ Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Odpowiedzialność**: Klient
 
@@ -744,7 +744,7 @@ Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
 Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -772,9 +772,9 @@ Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
 - [Projektowanie zasad jako przepływów pracy kodu](../governance/policy/concepts/policy-as-code.md)
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Odpowiedzialność**: Klient
 
@@ -854,11 +854,11 @@ Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i A
 
 - [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service/manage-backup.md)
 
-- [Zrozumienie dostępności danych w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Zrozumienie dostępności danych w usłudze Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Odpowiedzialność**: Klient
 
@@ -874,11 +874,11 @@ Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i A
 
 - [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Zrozumienie dostępności danych w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Zrozumienie dostępności danych w usłudze Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Odpowiedzialność**: Klient
 
@@ -892,7 +892,7 @@ Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i A
 
 - [Przywracanie aplikacji na platformie Azure z migawki](../app-service/app-service-web-restore-snapshots.md)
 
-- [Jak przywrócić klucze magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Odpowiedzialność**: Klient
 
@@ -1002,5 +1002,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0b2ccc0bf5d38e9a72bf780875d3b6f29733189
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100535244"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026755"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Szybki Start: Tworzenie i Konfigurowanie Azure DDoS Protection Standard
 
@@ -112,7 +112,7 @@ Możesz zachować zasoby dla następnego samouczka. Jeśli nie jest już potrzeb
 Aby wyłączyć ochronę DDoS dla sieci wirtualnej: 
 
 1. W **polu Wyszukaj zasoby, usługi i dokumenty** w górnej części portalu wprowadź nazwę sieci wirtualnej, dla której chcesz wyłączyć usługę DDoS Protection w warstwie Standardowa. Gdy nazwa sieci wirtualnej pojawi się w wynikach wyszukiwania, wybierz ją.
-2. Wybierz pozycję **Wyłącz** **w obszarze DDoS Protection Standard**.
+2. W obszarze **DDoS Protection Standard** wybierz pozycję **Wyłącz**.
 
 W celu usunięcia planu ochrony DDoS należy najpierw usunąć skojarzenie wszystkich sieci wirtualnych. 
 

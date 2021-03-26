@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze 1.3.0
 description: Szczegółowe informacje na temat usług CIS Microsoft Azure testów porównawczych 1.3.0 zgodności z przepisami. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 9c268e1146b61656ec3a98153c9bd9060075c93d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e359ae66e8dc34032e365af360020844ec8f66b8
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604733"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032484"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usługi CIS Microsoft Azure testy porównawcze 1.3.0 zgodności z przepisami
 
@@ -217,7 +217,7 @@ Następnie Znajdź i wybierz pozycję **CIS Microsoft Azure fundacje testów por
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Serwery SQL powinny zachować dane inspekcji przez co najmniej 90 dni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |W celu zbadania zdarzeń zalecamy ustawienie przechowywania danych dla danych inspekcji serwerów SQL na co najmniej 90 dni. Upewnij się, że spełniasz niezbędne reguły przechowywania dla regionów, w których pracujesz. Jest to czasami wymagane do zgodności ze standardami prawnymi. |AuditIfNotExists, wyłączone |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[Serwery SQL z inspekcją w miejscu docelowym konta magazynu powinny być skonfigurowane z zachowaniem 90 dni lub nowszym](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |W celu zbadania zdarzenia zalecamy ustawienie przechowywania danych dla inspekcji SQL Server na konto magazynu na co najmniej 90 dni. Upewnij się, że spełniasz niezbędne reguły przechowywania dla regionów, w których pracujesz. Jest to czasami wymagane do zgodności ze standardami prawnymi. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-advanced-threat-protection-atp-on-a-sql-server-is-set-to-enabled"></a>Upewnij się, że Zaawansowana ochrona przed zagrożeniami (ATP) w programie SQL Server ma ustawioną wartość "Enabled"
 

@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: bb70f799a308282a20a5b76ea841c3a1ae5e8b49
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b71a0581bf4f9d8239171e6abc56f87e7ae8183
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612405"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152828"
 ---
 ## <a name="download-code"></a>Pobierz kod
 
@@ -76,7 +76,7 @@ Teraz będziemy instalować biblioteki usług Azure Communication Services.
 
 Użyjemy `Identity` biblioteki do wygenerowania `User Access Tokens` .
 
-Użyj `npm install` polecenia, aby zainstalować bibliotekę klienta tożsamości usługi Azure Communication Services dla języka JavaScript.
+Użyj `npm install` polecenia, aby zainstalować zestaw SDK tożsamości usługi Azure Communication Services dla języka JavaScript.
 
 ```console
 

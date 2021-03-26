@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: 02901e6b4a75257b2cda8dee84dbe3438dc15c18
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b0a1f4a948aa6fec565130acb5267476a1d4401
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91332376"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048650"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Jak ustawić zasady dotyczące plików cookie dla czytnika immersyjny
 
@@ -47,7 +47,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>Następne kroki
 
 * Wyświetl [Node.js przewodnika Szybki Start](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu Node.js
-* Obejrzyj [Samouczek systemu Android](../tutorial-android.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
-* Wyświetl [Samouczek systemu iOS](../tutorial-ios.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
-* Obejrzyj [samouczek języka Python](../tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
+* Obejrzyj [Samouczek systemu Android](../how-to-launch-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
+* Wyświetl [Samouczek systemu iOS](../how-to-launch-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
+* Obejrzyj [samouczek języka Python](../how-to-launch-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
 * Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](../reference.md)

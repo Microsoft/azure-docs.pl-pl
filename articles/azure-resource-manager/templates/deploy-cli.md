@@ -3,12 +3,12 @@ title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy A
 description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1fc3397409634f29690af05ca2a85e67c30b6d89
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521700"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954976"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
@@ -85,7 +85,7 @@ Wdrożenie może potrwać kilka minut. Po zakończeniu zobaczysz komunikat, któ
 ## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
 
 > [!NOTE]
-> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania zdalnych plików Bicep. Aby wdrożyć zdalny plik Bicep, użyj Bicep interfejsu wiersza polecenia, aby najpierw skompilować plik Bicep do szablonu JSON.
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania zdalnych plików Bicep. Użyj [interfejsu wiersza polecenia Bicep](./bicep-install.md#development-environment) , aby skompilować plik Bicep do szablonu JSON, a następnie załaduj plik JSON do lokalizacji zdalnej.
 
 Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
 

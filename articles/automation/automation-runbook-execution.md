@@ -3,14 +3,14 @@ title: Wykonywanie elementu runbook w usłudze Azure Automation
 description: Ten artykuł zawiera omówienie przetwarzania elementów Runbook w programie Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100586047"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954347"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -34,7 +34,8 @@ Na poniższym diagramie przedstawiono cykl życia zadania elementu Runbook dla [
 
 Elementy Runbook w Azure Automation mogą być uruchamiane w piaskownicy platformy Azure lub [hybrydowym procesie roboczym elementu Runbook](automation-hybrid-runbook-worker.md). 
 
-Gdy elementy Runbook są przeznaczone do uwierzytelniania i uruchamiania względem zasobów na platformie Azure, są uruchamiane w piaskownicy platformy Azure, która jest środowiskiem udostępnionym, które może być używane przez wiele zadań. Zadania korzystające z tej samej piaskownicy są powiązane z ograniczeniami zasobów piaskownicy. Środowisko piaskownicy platformy Azure nie obsługuje operacji interaktywnych. Uniemożliwia dostęp do wszystkich pozaprocesowych serwerów COM. Wymaga również używania lokalnych plików MOF dla elementów Runbook, które powodują wywołania Win32.
+Gdy elementy Runbook są przeznaczone do uwierzytelniania i uruchamiania względem zasobów na platformie Azure, są uruchamiane w piaskownicy platformy Azure, która jest środowiskiem udostępnionym, które może być używane przez wiele zadań. Zadania korzystające z tej samej piaskownicy są powiązane z ograniczeniami zasobów piaskownicy. Środowisko piaskownicy platformy Azure nie obsługuje operacji interaktywnych. Uniemożliwia ona dostęp do wszystkich pozaprocesowych serwerów COM i nie obsługuje wykonywania [wywołań WMI](/windows/win32/wmisdk/wmi-architecture) dla dostawcy Win32 w elemencie Runbook.  Te scenariusze są obsługiwane tylko przez uruchomienie elementu Runbook w hybrydowym procesie roboczym elementu Runbook systemu Windows.
+
 
 Można również użyć [hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md) do uruchamiania elementów Runbook bezpośrednio na komputerze hostującym rolę i w odniesieniu do zasobów lokalnych w środowisku. Azure Automation przechowuje elementy Runbook i zarządza nimi, a następnie dostarcza je do co najmniej jednego przypisanego komputera.
 
