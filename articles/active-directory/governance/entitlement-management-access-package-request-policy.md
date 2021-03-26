@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 87792b8469c78e20a8716bd925d71933f9d97c5e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426964"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560492"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ustawienia żądania zmiany dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -85,7 +85,7 @@ Wykonaj te kroki, jeśli chcesz zezwolić użytkownikom w katalogu na żądanie 
 
 1. Wybierz jedną z następujących opcji:
 
-    |  |  |
+    |  | Opis |
     | --- | --- |
     | **Konkretni użytkownicy i grupy** | Wybierz tę opcję, jeśli chcesz, aby tylko użytkownicy i grupy w Twoim katalogu mogli żądać tego pakietu dostępu. |
     | **Wszyscy członkowie (z wyłączeniem Gości)** | Wybierz tę opcję, jeśli chcesz, aby wszyscy użytkownicy należący do katalogu mogli żądać tego pakietu dostępu. Ta opcja nie obejmuje żadnych użytkowników-Gości, którzy zostali zaproszeni do katalogu. |
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby zezwolić użytkownikom, którzy nie należą d
 
 1. Wybierz jedną z następujących opcji:
 
-    |  |  |
+    |  | Opis |
     | --- | --- |
     | **Określone organizacje połączone** | Wybierz tę opcję, jeśli chcesz wybrać z listy organizacji, które wcześniej dodaliśmy do administratora. Wszyscy użytkownicy wybranych organizacji mogą zażądać tego pakietu dostępu. |
     | **Wszystkie skonfigurowane połączone organizacje** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich skonfigurowanych połączonych organizacji mogą żądać tego pakietu dostępu. Tylko użytkownicy z skonfigurowanych połączonych organizacji mogą żądać pakietów dostępu, które są widoczne dla użytkowników ze wszystkich skonfigurowanych organizacji. |

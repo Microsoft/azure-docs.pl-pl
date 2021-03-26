@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: 1a0ad751a216e8da772fd5fdc96a0dc67cb27d01
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 9f433815838cc4d8dd41f3b95fc1bd6fe0acc955
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109860"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562736"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware przy użyciu Azure Migrate: odnajdywanie i Ocena
 
@@ -106,7 +106,7 @@ W programie klient sieci Web vSphere Skonfiguruj konto w następujący sposób:
 
 Do przeprowadzenia odnajdywania zainstalowanych aplikacji, analizy zależności bez agenta i odnajdywania wystąpień SQL Server i baz danych potrzebne jest konto użytkownika z niezbędnymi uprawnieniami na serwerach. Konto użytkownika można podać w Menedżerze konfiguracji urządzenia. Urządzenie nie instaluje żadnych agentów na serwerach.
 
-1. W przypadku serwerów z systemem Windows należy utworzyć konto (lokalne lub domeny) z uprawnieniami administracyjnymi na serwerach. Aby odnaleźć SQL Server wystąpienia i bazy danych, musisz mieć konto systemu Windows lub SQL Server być członkiem roli serwera sysadmin. [Dowiedz się więcej](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) na temat sposobu przypisywania wymaganej roli do konta użytkownika.
+1. W przypadku serwerów z systemem Windows należy utworzyć konto (lokalne lub domeny) z uprawnieniami administracyjnymi na serwerach. Aby odnaleźć SQL Server wystąpienia i bazy danych, musisz mieć konto systemu Windows lub SQL Server być członkiem roli serwera sysadmin. [Dowiedz się więcej](/sql/relational-databases/security/authentication-access/server-level-roles) na temat sposobu przypisywania wymaganej roli do konta użytkownika.
 2. W przypadku serwerów z systemem Linux Utwórz konto z uprawnieniami głównymi. Alternatywnie można utworzyć konto z tymi uprawnieniami dla plików/bin/netstat i/bin/ls: CAP_DAC_READ_SEARCH i CAP_SYS_PTRACE.
 
 > [!NOTE]
@@ -292,8 +292,8 @@ Jeśli chcesz korzystać z tych funkcji, możesz podać poświadczenia serwera, 
 1. Podczas tworzenia spisu oprogramowania poświadczenia dodanych serwerów będą powtarzane względem serwerów i sprawdzane pod kątem analizy zależności bez agenta. Można włączyć analizę zależności bez agenta dla serwerów z poziomu portalu. Tylko serwery, na których Walidacja zakończyła się powodzeniem, można wybrać, aby włączyć analizę zależności bez agenta.
 
 > [!Note]
->Azure Migrate zaszyfruje komunikację między urządzeniem Azure Migrate i SQL Server wystąpieniami źródła (z właściwością Szyfruj połączenie ustawioną na wartość TRUE). Te połączenia są szyfrowane za pomocą [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (wartość true). Warstwa transportu będzie używać protokołu SSL do szyfrowania kanału i pomijania łańcucha certyfikatów w celu zweryfikowania zaufania. Serwer urządzenia musi być skonfigurowany do [**zaufania głównego urzędu certyfikacji**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Jeśli podczas uruchamiania nie zainicjowano obsługi administracyjnej certyfikatu na serwerze, SQL Server generuje certyfikat z podpisem własnym, który jest używany do szyfrowania pakietów logowania. [**Dowiedz się więcej**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>Azure Migrate zaszyfruje komunikację między urządzeniem Azure Migrate i SQL Server wystąpieniami źródła (z właściwością Szyfruj połączenie ustawioną na wartość TRUE). Te połączenia są szyfrowane za pomocą [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (wartość true). Warstwa transportu będzie używać protokołu SSL do szyfrowania kanału i pomijania łańcucha certyfikatów w celu zweryfikowania zaufania. Serwer urządzenia musi być skonfigurowany do [**zaufania głównego urzędu certyfikacji**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Jeśli podczas uruchamiania nie zainicjowano obsługi administracyjnej certyfikatu na serwerze, SQL Server generuje certyfikat z podpisem własnym, który jest używany do szyfrowania pakietów logowania. [**Dowiedz się więcej**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 Odnajdywanie działa w następujący sposób:
 

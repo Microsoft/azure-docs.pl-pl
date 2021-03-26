@@ -48,13 +48,13 @@
     - name: Analizowanie klipów wideo w czasie rzeczywistym
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
     - name: Jak skonfigurować sieci wirtualne
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Uaktualnienie z wersji Read 2.x do wersji Read 3.x
       href: upgrade-api-versions.md
     - name: Jak skonfigurować uwierzytelnianie w usłudze AAD
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Jak używać kluczy zarządzanych przez klienta
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../encryption/cognitive-services-encryption-keys-portal.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Wdróż przetwarzanie obrazów
       items:
         - name: Kontenery
@@ -126,7 +126,7 @@
   items:
     - name: Generowanie metadanych dla obrazów
       href: Tutorials/storage-lab-tutorial.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Przetwarzanie obrazów API REST v 3.2 (wersja zapoznawcza)
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
@@ -155,7 +155,7 @@
     - name: Obsługa regionów
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: UCZENIe modułów
-      href: 'https://docs.microsoft.com/en-us/learn/paths/explore-computer-vision-microsoft-azure/'
+      href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: Pomoc techniczna &
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
     - name: Zgodność
