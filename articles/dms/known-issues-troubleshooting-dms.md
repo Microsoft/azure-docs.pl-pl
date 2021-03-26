@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962284"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567311"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Rozwiązywanie typowych problemów i błędów Azure Database Migration Service
 
@@ -102,7 +102,7 @@ Podczas próby nawiązania połączenia ze źródłem w kreatorze projektu usłu
 
 | Przyczyna         | Rozwiązanie    |
 | ------------- | ------------- |
-| W przypadku korzystania z [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [wymaga](./tutorial-sql-server-azure-sql-online.md) obsługi trzech punktów końcowych usługi w podsieci Virtual Network skojarzonej z usługą:<br> --Service Bus punkt końcowy<br> --Punkt końcowy magazynu<br> --Docelowy punkt końcowy bazy danych (np. punkt końcowy SQL, Cosmos DB punkt końcowy)<br><br><br><br><br> | [Włącz](./tutorial-sql-server-azure-sql-online.md) wymagane punkty końcowe usługi dla łączności ExpressRoute między źródłem a Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| W przypadku korzystania z [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [wymaga](./tutorial-sql-server-to-azure-sql.md) obsługi trzech punktów końcowych usługi w podsieci Virtual Network skojarzonej z usługą:<br> --Service Bus punkt końcowy<br> --Punkt końcowy magazynu<br> --Docelowy punkt końcowy bazy danych (np. punkt końcowy SQL, Cosmos DB punkt końcowy)<br><br><br><br><br> | [Włącz](./tutorial-sql-server-to-azure-sql.md) wymagane punkty końcowe usługi dla łączności ExpressRoute między źródłem a Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Błąd oczekiwania na zablokowanie podczas migrowania bazy danych MySQL do usługi Azure DB for MySQL
 
@@ -126,7 +126,7 @@ Podczas próby nawiązania połączenia Azure Database Migration Service ze źr�
 
 ## <a name="additional-known-issues"></a>Dodatkowe znane problemy
 
-* [Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database](./index.yml)
 * [Znane problemy/ograniczenia migracji z migracją online do Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Znane problemy/ograniczenia migracji z migracją online do Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 

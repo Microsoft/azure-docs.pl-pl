@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ccabffc0e5a65e41f31c3c80703e67f78e8b5f9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 87cd32dcace6fd38180cc09ba999efca76f5ae16
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101005"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605471"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>Dodaj warstwę wytłoczenia wielokąta do mapy (Android SDK)
 
@@ -106,7 +106,7 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-Poniższy zrzut ekranu przedstawia powyższy kod, rending Wielokąt rozciągany w pionie przy użyciu warstwy wytłoczenia wielokąta.
+Poniższy zrzut ekranu przedstawia powyższy kod podczas renderowania wielokąta rozciąganego w pionie przy użyciu warstwy wytłoczenia wielokąta.
 
 ![Mapuj z wielokątem rozciąganym w pionie przy użyciu warstwy wytłoczenia wielokąta](media/map-extruded-polygon-android/polygon-extrusion-layer.jpg)
 

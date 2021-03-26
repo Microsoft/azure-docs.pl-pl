@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706195"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568039"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Rozwiązywanie problemów dotyczących zabezpieczeń Azure Data Factory i kontroli dostępu
 
@@ -182,7 +182,7 @@ Na przykład: obiekt ujścia Blob Storage platformy Azure używa Azure IR (publi
 
 #### <a name="cause"></a>Przyczyna
 
-Funkcja ADF może nadal używać zarządzanej sieci wirtualnej, ale można napotkać ten błąd, ponieważ publiczny punkt końcowy na platformie Azure Blob Storage w zarządzanej sieci wirtualnej nie jest niezawodny w oparciu o wynik testu, a usługi Azure Blob Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy w przypadku zarządzanych przez usługę ADF Virtual Network z zarządzaną [siecią wirtualną & zarządzanych prywatnych punktów końcowych](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+Funkcja ADF może nadal używać zarządzanej sieci wirtualnej, ale można napotkać ten błąd, ponieważ publiczny punkt końcowy na platformie Azure Blob Storage w zarządzanej sieci wirtualnej nie jest niezawodny w oparciu o wynik testu, a usługi Azure Blob Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy w przypadku zarządzanych przez usługę ADF Virtual Network z zarządzaną [siecią wirtualną & zarządzanych prywatnych punktów końcowych](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
 
 #### <a name="solution"></a>Rozwiązanie
 

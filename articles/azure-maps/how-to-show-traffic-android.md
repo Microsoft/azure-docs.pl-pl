@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 36b3666f12b48468467e76f4c281d58d8018478c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aabe246c343537a42c33d3eaad0bfae3989022fe
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098540"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604519"
 ---
 # <a name="show-traffic-data-on-the-map-android-sdk"></a>Pokaż dane ruchu na mapie (Android SDK)
 
@@ -63,7 +63,7 @@ map.setTraffic(
 
 ::: zone-end
 
-Poniższy zrzut ekranu przedstawia powyższy kod rending informacje o ruchu w czasie rzeczywistym na mapie.
+Poniższy zrzut ekranu przedstawia powyższy kod podczas renderowania informacji o ruchu w czasie rzeczywistym na mapie.
 
 ![Mapa pokazująca informacje o ruchu w czasie rzeczywistym](media/how-to-show-traffic-android/android-show-traffic.png)
 
@@ -179,7 +179,7 @@ map.events.add(OnFeatureClick { features: List<Feature>? ->
 
 ::: zone-end
 
-Poniższy zrzut ekranu przedstawia powyższy kod rending informacje o ruchu w czasie rzeczywistym na mapie z wyskakującym komunikatem wyświetlającym szczegóły zdarzenia.
+Poniższy zrzut ekranu przedstawia powyżej kod renderowania informacji o ruchu w czasie rzeczywistym na mapie z wyskakującym komunikatem wyświetlającym szczegółowe informacje o zdarzeniu.
 
 ![Mapa pokazująca informacje o ruchu w czasie rzeczywistym z wyskakującym komunikatem wyświetlającym szczegóły zdarzenia](media/how-to-show-traffic-android/android-traffic-details.png)
 

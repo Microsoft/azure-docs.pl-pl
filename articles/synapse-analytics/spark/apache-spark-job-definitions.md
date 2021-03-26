@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 15b67c969cb0464256caed58a2e7388eb7a76b9c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176624"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608774"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio
 
@@ -25,8 +25,11 @@ Ten samouczek obejmuje następujące zadania:
 > - Tworzenie definicji zadania Apache Spark dla PySpark (Python)
 > - Utwórz definicję zadania Apache Spark dla platformy Spark (Scala)
 > - Tworzenie definicji zadania Apache Spark dla platformy .NET Spark (C#/F #)
+> - Utwórz definicję zadania przez zaimportowanie pliku JSON
+> - Eksportowanie pliku definicji zadania Apache Spark do lokalnego
 > - Prześlij definicję zadania Apache Spark jako zadanie wsadowe
 > - Dodawanie definicji zadania Apache Spark do potoku
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,6 +39,7 @@ Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnion
 * Bezserwerowa Pula Apache Spark.
 * Konto magazynu ADLS Gen2. Musisz być **współautorem danych obiektów blob magazynu** ADLS Gen2 systemie plików, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
 * Jeśli nie chcesz używać magazynu domyślnego obszaru roboczego, Połącz wymagane konto magazynu ADLS Gen2 w programie Synapse Studio. 
+
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Tworzenie definicji zadania Apache Spark dla PySpark (Python)
 
@@ -160,6 +164,57 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla platformy .NET Spark 
 
       ![Publikuj definicję dotnet](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
+## <a name="create-apache-spark-job-definition-by-importing-a-json-file"></a>Tworzenie definicji zadania Apache Spark przez zaimportowanie pliku JSON
+
+ Istniejący lokalny plik JSON można zaimportować do obszaru roboczego usługi Azure Synapse z menu **Akcje** (...) w Eksploratorze definicji zadań Apache Spark, aby utworzyć nową definicję zadania Apache Spark.
+
+ ![Utwórz definicję importu](./media/apache-spark-job-definitions/create-import-definition.png)
+
+ 
+ Definicja zadania platformy Spark jest w pełni zgodna z interfejsem API usługi Livy. Można dodać dodatkowe parametry dla innych właściwości usługi Livy [(usługi Livy docs-REST API (Apache.org)](https://livy.incubator.apache.org/docs/latest/rest-api.html) w lokalnym pliku JSON. Możesz również określić parametry związane z konfiguracją platformy Spark we właściwości konfiguracji, jak pokazano poniżej. Następnie można zaimportować plik JSON z powrotem, aby utworzyć nową definicję zadania Apache Spark dla zadania usługi Batch. Przykładowy kod JSON dla importu definicji platformy Spark:
+ 
+```Scala
+   {
+  "targetBigDataPool": {
+    "referenceName": "socdemolarge",
+    "type": "BigDataPoolReference"
+  },
+  "requiredSparkVersion": "2.3",
+  "language": "scala",
+  "jobProperties": {
+    "name": "robinSparkDefinitiontest",
+    "file": "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/wordcount.jar",
+    "className": "WordCount",
+    "args": [
+      "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/shakespeare.txt"
+    ],
+    "jars": [],
+    "files": [],
+    "conf": {
+      "spark.dynamicAllocation.enabled": "false",
+      "spark.dynamicAllocation.minExecutors": "2",
+      "spark.dynamicAllocation.maxExecutors": "2"
+    },
+    "numExecutors": 2,
+    "executorCores": 8,
+    "executorMemory": "24g",
+    "driverCores": 8,
+    "driverMemory": "24g"
+  }
+}
+
+```
+
+![inne właściwości usługi Livy](./media/apache-spark-job-definitions/other-livy-properties.png)
+
+## <a name="export-an-existing-apache-spark-job-definition-file"></a>Eksportuj istniejący plik definicji zadania Apache Spark
+
+ Istniejące pliki definicji zadania Apache Spark można eksportować do lokalizacji lokalnej z menu **Akcje** (...) w Eksploratorze plików. Można dodatkowo zaktualizować plik JSON pod kątem dodatkowych właściwości usługi Livy, a następnie zaimportować go ponownie, aby utworzyć nową definicję zadania.
+
+ ![Utwórz definicję eksportu](./media/apache-spark-job-definitions/create-export-definition.png)
+
+ ![Utwórz definicję eksportu 2](./media/apache-spark-job-definitions/create-export-definition-2.png)
+
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Prześlij definicję zadania Apache Spark jako zadanie wsadowe
 
 Po utworzeniu definicji zadania Apache Spark można przesłać ją do puli Apache Spark. Upewnij się, że jesteś **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
@@ -202,6 +257,7 @@ W tej sekcji dodasz definicję zadania Apache Spark do potoku.
      ![Dodaj do pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
      ![Dodaj do pipeline2](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+
 
 ## <a name="next-steps"></a>Następne kroki
 

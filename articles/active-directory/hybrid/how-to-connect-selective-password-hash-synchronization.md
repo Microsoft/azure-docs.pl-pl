@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103603105"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604672"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Konfiguracja selektywnej synchronizacji skrótów haseł dla Azure AD Connect
 
@@ -36,6 +36,9 @@ Aby zmniejszyć nakład pracy w konfiguracji, należy najpierw wziąć pod uwag�
 
 > [!Important]
 > W przypadku wybrania opcji konfiguracji wymagana synchronizacja początkowa (Pełna synchronizacja) w celu zastosowania zmian zostanie przeprowadzona automatycznie w następnym cyklu synchronizacji.
+
+> [!Important]
+> Konfigurowanie selektywnej synchronizacji skrótów haseł bezpośrednio wpływa na zapisywanie zwrotne haseł. Zmiany hasła lub resetowanie haseł, które są inicjowane w Azure Active Directory zapisuj z powrotem do lokalnego Active Directory tylko wtedy, gdy użytkownik jest w zasięgu dla synchronizacji skrótów haseł. 
 
 ### <a name="the-admindescription-attribute"></a>Atrybut adminDescription
 Oba scenariusze polegają na ustawieniu atrybutu adminDescription użytkowników dla określonej wartości.  Pozwala to na stosowanie reguł i to, co sprawia, że selektywne PHS pracy.
@@ -134,6 +137,9 @@ Po zakończeniu wszystkich konfiguracji należy edytować atrybut **adminDescrip
    
   ![Edytowanie atrybutu](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+Aby edytować atrybut **adminDescription** użytkownika, można również użyć następującego polecenia programu PowerShell:
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>Wykluczeni użytkownicy jest większy niż uwzględnioni użytkownicy
 W poniższej sekcji opisano, jak włączyć selektywną synchronizację skrótów haseł, gdy liczba **wykluczonych** użytkowników jest **większa** niż liczba użytkowników do **uwzględnienia**.
@@ -202,7 +208,9 @@ Po zakończeniu wszystkich konfiguracji należy edytować atrybut **adminDescrip
 
   ![Edytuj atrybuty](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ Aby edytować atrybut **adminDescription** użytkownika, można również użyć następującego polecenia programu PowerShell:
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>Następne kroki
 - [Co to jest synchronizacja skrótów haseł?](whatis-phs.md)

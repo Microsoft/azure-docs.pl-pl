@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 8437d12075a148a3e8062f62e195bc019d89a85b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881032"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606967"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Dedykowane zabezpieczenia fizyczne modułu HSM platformy Azure
 
@@ -25,7 +25,7 @@ Dedykowany moduł HSM platformy Azure pomaga spełnić zaawansowane wymagania do
 
 ## <a name="security-through-procurement"></a>Zabezpieczenia za poorednictwem zakupów
 
-Firma Microsoft postępuje zgodnie z bezpiecznym procesem zaopatrzenia. Zarządzamy łańcuchem opieki i upewnij się, że określone urządzenie zostało uporządkowane i dostarczone, gdy urządzenie dociera do naszych centrów danych. Urządzenia znajdują się w odwrocie do zdarzeń z tworzywa sztucznego. Są one przechowywane w bezpiecznym obszarze magazynu, dopóki nie zostaną przełączone do galerii danych centrum danych.  Stojaki zawierające urządzenia HSM są uważane za duże znaczenie biznesowe (HBI). Urządzenia są zablokowane i pod nadzorem wideo przez cały czas i z tyłu.
+Firma Microsoft postępuje zgodnie z bezpiecznym procesem zaopatrzenia. Zarządzamy łańcuchem opieki i upewnij się, że określone urządzenie zostało uporządkowane i dostarczone, gdy urządzenie dociera do naszych centrów danych. Urządzenia znajdują się w serializowanych torbach i kontenerach z niezabezpieczonymi zdarzeniami. Są one przechowywane w bezpiecznym obszarze magazynu, dopóki nie zostaną przełączone do galerii danych centrum danych.  Stojaki zawierające urządzenia HSM są uważane za duże znaczenie biznesowe (HBI). Urządzenia są zablokowane i pod nadzorem wideo przez cały czas i z tyłu.
 
 ## <a name="security-through-deployment"></a>Zabezpieczenia przy użyciu wdrożenia
 
@@ -49,7 +49,7 @@ Jeśli inżynier firmy Microsoft musi uzyskać dostęp do stojaka używanego prz
 
 ## <a name="logical-level-security-considerations"></a>Zagadnienia dotyczące zabezpieczeń na poziomie logicznym
 
-Sprzętowych modułów zabezpieczeń są obsługiwane w sieci wirtualnej utworzonej przez klienta. To jest prywatna przestrzeń adresowa IUP klienta.  Ta konfiguracja zapewnia cenną izolację poziomu sieci logicznej i zapewnia dostęp tylko dla klienta. Wynika to z tego, że wszystkie kontrole zabezpieczeń na poziomie logicznym są odpowiedzialne za klienta.
+Sprzętowych modułów zabezpieczeń są obsługiwane w sieci wirtualnej utworzonej przez klienta w ramach prywatnego obszaru adresów IP klienta.  Ta konfiguracja zapewnia cenną izolację poziomu sieci logicznej i zapewnia dostęp tylko dla klienta. Wynika to z tego, że wszystkie kontrole zabezpieczeń na poziomie logicznym są odpowiedzialne za klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

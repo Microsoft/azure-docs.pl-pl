@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 895b9081ba7eb6d7e8b5d3304d37168e4064ed39
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101690893"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560050"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Powiadomienia z wyprzedzeniem dotyczące planowanych zdarzeń konserwacji (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -89,5 +89,5 @@ W poniższej tabeli przedstawiono dodatkowe powiadomienia, które mogą być wys
 
 - [Okno obsługi](maintenance-window.md)
 - [Okno obsługi — często zadawane pytania](maintenance-window-faq.yml)
-- [Przegląd alertów na platformie Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-- [Wyślij wiadomość e-mail do roli usługi Azure Resource Manager](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
+- [Przegląd alertów na platformie Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+- [Wyślij wiadomość e-mail do roli usługi Azure Resource Manager](../../azure-monitor/alerts/action-groups.md#email-azure-resource-manager-role)

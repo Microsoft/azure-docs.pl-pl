@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: c952fe33b434aac972be6a1eb03b63698eb64fc6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995914fab0e7112327ebf6ab8e32fb67181f481e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782320"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608922"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -260,6 +260,34 @@ Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli.
 | 10007: nie można przetworzyć odnalezionych metadanych. | Wystąpił błąd podczas próby deserializacji JSON. | Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie. |
 | 10008: nie można utworzyć pliku na serwerze. | Problem może wystąpić z powodu błędu wewnętrznego. | Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie. |
 | 10009: nie można zapisać odnalezionych metadanych do pliku na serwerze. | Problem może wystąpić z powodu błędu wewnętrznego. | Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie. |
+
+## <a name="common-sql-server-instances-and-database-discovery-errors"></a>Typowe wystąpienia SQL Server i błędy odnajdywania bazy danych
+
+Azure Migrate obsługuje odnajdywanie wystąpień SQL Server i baz danych działających na maszynach lokalnych przy użyciu Azure Migrate: odnajdywania i oceny. Funkcja odnajdywania SQL jest obecnie obsługiwana tylko przez oprogramowanie VMware. Aby rozpocząć, zapoznaj się z samouczkiem [odnajdywania](tutorial-discover-vmware.md) .
+
+W tabeli zestawiono typowe błędy funkcji odnajdywania SQL.
+
+| **Błąd** | **Przyczyna** | **Akcja** |
+|--|--|--|
+|30000: poświadczenia skojarzone z tym SQL Server nie działają.|Ręcznie skojarzone poświadczenia są nieprawidłowe lub autoskojarzone poświadczenia nie mogą już uzyskiwać dostępu do SQL Server.|Dodaj poświadczenia dla SQL Server na urządzeniu i poczekaj na kolejne cykle odnajdywania SQL lub Wymuś odświeżanie.|
+|30001: nie można nawiązać połączenia z SQL Server z urządzenia.|1. urządzenie nie ma liniowej linii wglądu do SQL Server.<br/>2. blokowanie połączenia między SQL Server i urządzeniem przez zaporę.|1. Udostępnij SQL Server z urządzenia.<br/>2. Zezwól na połączenia przychodzące z urządzenia do SQL Server.|
+|30003: certyfikat nie jest zaufany.|Zaufany certyfikat nie jest zainstalowany na komputerze z uruchomionym SQL Server.|Skonfiguruj zaufany certyfikat na serwerze. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153616)|
+|30004: niewystarczające uprawnienia.|Ten błąd może wystąpić z powodu braku uprawnień wymaganych do skanowania wystąpień SQL Server. |Przyznaj roli sysadmin poświadczenia/konto udostępniane na urządzeniu w celu odnajdywania SQL Server wystąpień i baz danych. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153511)|
+|30005: Logowanie SQL Server nie powiodło się z powodu problemu z jego domyślną główną bazą danych.|Sama baza danych jest nieprawidłowa lub logowanie nie ma uprawnień do nawiązania połączenia z bazą danych.|Użyj polecenia ALTER LOGIN, aby ustawić domyślną bazę danych w bazie danych Master.<br/>Przyznaj roli sysadmin poświadczenia/konto udostępniane na urządzeniu w celu odnajdywania SQL Server wystąpień i baz danych. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153615)|
+|30006: nie można użyć nazwy logowania SQL Server z uwierzytelnianiem systemu Windows.|1. identyfikator logowania może być identyfikatorem logowania SQL Server, ale serwer akceptuje tylko uwierzytelnianie systemu Windows.<br/>2. próbujesz nawiązać połączenie przy użyciu uwierzytelniania SQL Server, ale użyta nazwa logowania nie istnieje w SQL Server.<br/>3. logowanie może korzystać z uwierzytelniania systemu Windows, ale logowanie jest nierozpoznanym podmiotem zabezpieczeń systemu Windows. Nierozpoznany podmiot zabezpieczeń systemu Windows oznacza, że logowanie nie może zostać zweryfikowane przez system Windows. Może to być spowodowane faktem, że logowanie systemu Windows pochodzi z niezaufanej domeny.|Jeśli próbujesz nawiązać połączenie przy użyciu uwierzytelniania SQL Server, sprawdź, czy SQL Server jest skonfigurowany w trybie uwierzytelniania mieszanego, a SQL Server Logowanie istnieje.<br/>Jeśli próbujesz nawiązać połączenie przy użyciu uwierzytelniania systemu Windows, sprawdź, czy użytkownik jest prawidłowo zalogowany do prawidłowej domeny. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153421)|
+|30007: hasło wygasło.|Hasło konta wygasło.|Hasło logowania SQL Server mogło wygasnąć, zmienić ustawienie hasła i/lub zwiększyć datę wygaśnięcia hasła. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153419)|
+|30008: należy zmienić hasło.|Należy zmienić hasło konta.|Zmień hasło podanego poświadczenia na potrzeby odnajdywania SQL Server. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153318)|
+|30009: Wystąpił błąd wewnętrzny.|Wystąpił błąd wewnętrzny podczas odnajdywania wystąpień SQL Server i baz danych. |Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft.|
+|30010: nie znaleziono baz danych.|Nie można znaleźć żadnych baz danych z wybranego wystąpienia serwera.|Przyznaj roli sysadmin poświadczenia/konto udostępniane na urządzeniu w celu odnajdywania baz danych SQL.|
+|30011: Wystąpił błąd wewnętrzny podczas oceniania wystąpienia lub bazy danych SQL.|Wystąpił błąd wewnętrzny podczas przeprowadzania oceny.|Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft.|
+|30012: połączenie SQL nie powiodło się.|1. Zapora na serwerze odrzuciła połączenie.<br/>2. usługa SQL Server Browser (SQLBrowser) nie została uruchomiona.<br/>3. SQL Server nie odpowiedział na żądanie klienta, ponieważ serwer prawdopodobnie nie został uruchomiony.<br/>4. Klient SQL Server nie może nawiązać połączenia z serwerem. Ten błąd może wystąpić, ponieważ serwer nie jest skonfigurowany do akceptowania połączeń zdalnych.<br/>5. Klient SQL Server nie może nawiązać połączenia z serwerem. Może wystąpić błąd, ponieważ klient nie może rozpoznać nazwy serwera lub nazwa serwera jest niepoprawna.<br/>6. protokoły TCP lub nazwanych potoków nie są włączone.<br/>7. określona nazwa wystąpienia SQL Server jest nieprawidłowa.|Skorzystaj z [tego](https://go.microsoft.com/fwlink/?linkid=2153317) interaktywnego przewodnika użytkownika, aby rozwiązać problem z łącznością. Zaczekaj 24 godziny, po upływie których dane mają zostać zaktualizowane w usłudze. Jeśli problem nadal występuje, skontaktuj się z pomocą techniczną firmy Microsoft.|
+|30013: Wystąpił błąd podczas nawiązywania połączenia z wystąpieniem programu SQL Server.|1. nazwa SQL Server nie może zostać rozwiązana z urządzenia.<br/>2. SQL Server nie zezwala na połączenia zdalne.|Jeśli możesz wysłać polecenie ping do programu SQL Server z urządzenia, odczekaj 24 godziny, aby sprawdzić, czy ten problem został rozwiązany. Jeśli nie, skontaktuj się z pomocą techniczną firmy Microsoft. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153316)|
+|30014: Nazwa użytkownika lub hasło jest nieprawidłowe.| Ten błąd może wystąpić z powodu niepowodzenia uwierzytelniania, które dotyczy nieprawidłowego hasła lub nazwy użytkownika.|Podaj poświadczenie z prawidłową nazwą użytkownika i hasłem. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153315)|
+|30015: Wystąpił błąd wewnętrzny podczas odnajdywania wystąpienia SQL.|Wystąpił błąd wewnętrzny podczas odnajdywania wystąpienia programu SQL.|Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft.|
+|30016: połączenie z wystąpieniem "% instance;" nie powiodło się z powodu przekroczenia limitu czasu.| Taka sytuacja może wystąpić, Jeśli Zapora na serwerze odmówi połączenia.|Sprawdź, czy Zapora w SQL Server jest skonfigurowana do akceptowania połączeń. Jeśli błąd będzie się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2153611)|
+|30017: Wystąpił błąd wewnętrzny.|Nieobsługiwany wyjątek.|Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną firmy Microsoft.|
+|30018: Wystąpił błąd wewnętrzny.|Wystąpił błąd wewnętrzny podczas zbierania danych, takich jak rozmiar tymczasowej bazy danych, rozmiar pliku itp.|Poczekaj 24 godziny i skontaktuj się z pomocą techniczną firmy Microsoft, jeśli problem będzie się powtarzać.|
+|30019: Wystąpił błąd wewnętrzny.|Wystąpił błąd wewnętrzny podczas zbierania metryk wydajności, takich jak użycie pamięci itp., w bazie danych lub wystąpieniu.|Poczekaj 24 godziny i skontaktuj się z pomocą techniczną firmy Microsoft, jeśli problem będzie się powtarzać.|
 
 ## <a name="next-steps"></a>Następne kroki
 

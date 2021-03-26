@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, seodec18
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97508275"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606950"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Rozwiązywanie problemów z usługą dedykowanego modułu HSM platformy Azure
 
-Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsze Rejestracja i wdrożenie na platformie Azure urządzeń HSM z ich podstawowymi składnikami sieciowymi. Na koniec konfiguracja urządzeń HSM w przygotowaniu do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia HSM sieci firmy Thales Luna są takie same na platformie Azure, jak w przypadku zakupu bezpośrednio od firmy Thales, fakt, że jest to zasób na platformie Azure, tworzy pewne unikatowe uwagi. Te zagadnienia i wszelkie wynikłe rozwiązania dotyczące rozwiązywania problemów oraz najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest używana, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej bezpośrednio do firmy Microsoft lub firmy Thales. 
+Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsze Rejestracja i wdrożenie na platformie Azure urządzeń HSM z ich podstawowymi składnikami sieciowymi. Na koniec konfiguracja urządzeń HSM w przygotowaniu do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia [HSM firmy Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) są takie same na platformie Azure, jak w przypadku zakupu bezpośrednio od firmy Thales, fakt, że jest to zasób na platformie Azure, tworzy pewne unikatowe uwagi. Te zagadnienia i wszelkie wynikłe rozwiązania dotyczące rozwiązywania problemów oraz najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest używana, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej bezpośrednio do firmy Microsoft lub firmy Thales. 
 
 > [!NOTE]
 > Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM, należy je zaktualizować przy użyciu wszelkich odpowiednich poprawek. Konkretna wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, który rozwiązuje problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania.
 
 ## <a name="hsm-registration"></a>Rejestracja modułu HSM
 
-Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu allowlisting za pośrednictwem poczty e-mail HSMrequest@microsoft.com . 
+Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu allowlisiting za pośrednictwem poczty e-mail HSMrequest@microsoft.com . 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Uzyskiwanie dostępu do dedykowanego modułu HSM
 
-Jeśli uważasz, że dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu kluczy, Wyślij wiadomość e-mail HSMrequest@microsoft.com do żądania dostępu. Utwórz konspekt aplikacji, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
+Najpierw Zaproponuj siebie przypadki użycia, których nie można rozwiązać za pomocą [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) lub [zarządzanego modułu HSM platformy Azure](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Jeśli uważasz, że tylko dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu kluczy, Wyślij wiadomość e-mail, HSMrequest@microsoft.com Aby zażądać dostępu. Utwórz konspekt aplikacji i przypadków użycia, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
 
 ## <a name="hsm-provisioning"></a>Inicjowanie obsługi modułu HSM
 
@@ -56,7 +56,7 @@ Standardowy szablon ARM udostępniony do wdrożenia ma zasoby dotyczące moduł�
 
 ### <a name="hsm-deployment-using-terraform"></a>Wdrażanie modułu HSM przy użyciu Terraform
 
-Kilku klientów użył Terraform jako środowiska automatyzacji zamiast szablonów ARM, które są dostarczane podczas rejestrowania dla tej usługi. Sprzętowych modułów zabezpieczeń nie można wdrożyć w ten sposób, ale zależne zasoby sieciowe mogą. Terraform ma moduł do wywołania minimalnego szablonu ARM, który JUT ma wdrożenie HSM.  W takiej sytuacji należy zachować ostrożność, aby zapewnić, że zasoby sieciowe, takie jak wymagana Brama ExpressRoute są w pełni wdrożone przed wdrożeniem sprzętowych modułów zabezpieczeń. Poniższe polecenie interfejsu wiersza polecenia może służyć do testowania wdrożenia zakończonego i zintegrowanego zgodnie z wymaganiami. Zastąp symbole kątowe odniesień do określonych nazw. Należy wyszukać wynik "provisioningState jest powodzenie"
+Kilku klientów użył Terraform jako środowiska automatyzacji zamiast szablonów ARM, które są dostarczane podczas rejestrowania dla tej usługi. Sprzętowych modułów zabezpieczeń nie można wdrożyć w ten sposób, ale zależne zasoby sieciowe mogą. Terraform ma moduł do wywołania minimalnego szablonu ARM, który ma tylko wdrożenie modułu HSM.  W takiej sytuacji należy zachować ostrożność, aby zapewnić, że zasoby sieciowe, takie jak wymagana Brama ExpressRoute są w pełni wdrożone przed wdrożeniem sprzętowych modułów zabezpieczeń. Poniższe polecenie interfejsu wiersza polecenia może służyć do testowania wdrożenia zakończonego i zintegrowanego zgodnie z wymaganiami. Zastąp symbole kątowe odniesień do określonych nazw. Należy wyszukać wynik "provisioningState jest powodzenie"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -66,7 +66,7 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 Wdrożenia mogą zakończyć się niepowodzeniem w przypadku przekroczenia 2 sprzętowych modułów zabezpieczeń na sygnaturę i 4 sprzętowych modułów zabezpieczeń na region. Aby uniknąć tej sytuacji, upewnij się, że usunięto zasoby z wcześniej zakończonych niepowodzeniem wdrożeń przed ponownym wdrożeniem. Zapoznaj się z poniższym elementem "Jak mogę See sprzętowych modułów zabezpieczeń", aby sprawdzić zasoby. Jeśli uważasz, że musisz przekroczyć ten limit przydziału, który jest przede wszystkim w ramach zabezpieczeń, Wyślij wiadomość e-mail HSMrequest@microsoft.com ze szczegółowymi informacjami.
 
 ### <a name="deployment-failure-based-on-capacity"></a>Niepowodzenie wdrażania na podstawie pojemności
-Gdy określona sygnatura lub region jest zapełniony, oznacza to, że prawie wszystkie bezpłatne sprzętowych modułów zabezpieczeń są obsługiwane, co może prowadzić do niepowodzeń wdrażania. Każda sygnatura ma 11 sprzętowych modułów zabezpieczeń dostępnych dla klientów, co oznacza 22 dla regionu. W każdej sygnaturze znajdują się również 3 zapasy i 1 urządzenie testowe. Jeśli uważasz, że osiągnięto limit, Wyślij wiadomość e-mail HSMrequest@microsoft.com w celu uzyskania informacji na temat wypełniania określonych sygnatur.
+Gdy określona sygnatura lub region jest zapełniony, oznacza to, że prawie wszystkie bezpłatne sprzętowych modułów zabezpieczeń są obsługiwane, co może prowadzić do niepowodzeń wdrażania. Każda sygnatura ma 12 sprzętowych modułów zabezpieczeń dostępnych dla klientów, co oznacza 24 na region. Każda sygnatura zawiera również 2 zapasy i 1 urządzenie testowe. Jeśli uważasz, że osiągnięto limit, Wyślij wiadomość e-mail HSMrequest@microsoft.com w celu uzyskania informacji na temat wypełniania określonych sygnatur.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Jak mogę zobaczyć sprzętowych modułów zabezpieczeń po zainicjowaniu obsługi administracyjnej?
 Ze względu na dedykowany moduł HSM, który jest usługą allowlisted, jest traktowany jako "typ ukryty" w Azure Portal. Aby wyświetlić zasoby HSM, należy zaznaczyć pole wyboru "Pokaż ukryte typy", jak pokazano poniżej. Zasób karty sieciowej zawsze jest zgodny z modułem HSM i jest dobrym miejscem, aby znaleźć adres IP modułu HSM przed użyciem protokołu SSH do nawiązania połączenia.
@@ -112,7 +112,7 @@ Dostarczenie nieprawidłowych poświadczeń do sprzętowych modułów zabezpiecz
 Poniżej znajdują się sytuacje, w których błędy konfiguracji są wspólne lub mają wpływ zaufanego się na wywołania:
 
 ### <a name="hsm-documentation-and-software"></a>Dokumentacja i oprogramowanie modułu HSM
-Oprogramowanie i dokumentacja urządzeń HSM firmy Thales SafeNet Luna 7 nie są dostępne w firmie Microsoft i muszą zostać pobrane bezpośrednio z usługi firmy Thales. Rejestracja jest wymagana przy użyciu identyfikatora klienta firmy Thales otrzymanego podczas procesu rejestracji. Urządzenia, zgodnie z oczekiwaniami firmy Microsoft, mają oprogramowanie wersja 7,2 i oprogramowanie układowe 7.0.3. Wcześniej w 2020 firmy Thales dokumentację publiczną i można ją znaleźć [tutaj](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
+Oprogramowanie i dokumentacja urządzeń [HSM firmy Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) nie są dostępne w firmie Microsoft i muszą zostać pobrane bezpośrednio z usługi firmy Thales. Rejestracja jest wymagana przy użyciu identyfikatora klienta firmy Thales otrzymanego podczas procesu rejestracji. Urządzenia, zgodnie z oczekiwaniami firmy Microsoft, mają oprogramowanie wersja 7,2 i oprogramowanie układowe 7.0.3. Wcześniej w 2020 firmy Thales dokumentację publiczną i można ją znaleźć [tutaj](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
 
 ### <a name="hsm-networking-configuration"></a>Konfiguracja sieci HSM
 
@@ -120,7 +120,7 @@ Należy zachować ostrożność podczas konfigurowania sieci w module HSM.  Modu
 
 ### <a name="hsm-device-reboot"></a>Ponowne uruchomienie urządzenia HSM
 
-Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może przestać odpowiadać. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w programie firmy Thales Luna Network HSM 7,2 pobieranie dla zalecanej poprawki, aby rozwiązać problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania (Uwaga: należy zarejestrować się w portalu pomocy technicznej firmy Thales do pobrania).
+Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może przestać odpowiadać. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w plikach firmy Thales Luna 7 HSM 7,2 dla zalecanej poprawki, aby uzyskać problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania (Uwaga: konieczne będzie zarejestrowanie się w [portalu obsługi klienta firmy Thales](https://supportportal.thalesgroup.com/csm) do pobrania).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS certyfikaty poza synchronizacją
 Klient może utracić połączenie z modułem HSM, gdy certyfikat wygaśnie lub został nadpisany przez aktualizacje konfiguracji. Konfiguracja klienta wymiany certyfikatów powinna być stosowana ponownie z każdym modułem HSM.

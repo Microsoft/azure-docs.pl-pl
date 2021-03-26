@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509373"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562328"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -148,7 +148,7 @@ Dostępne są dwa typy widoków przestrzegania zasad:
 
 * **Zasady przestrzegania przez okres**: za pomocą tego widoku można sprawdzić, ile elementów ma co najmniej jedną pomyślną kopię zapasową w danym dniu i ile nie miało pomyślnej kopii zapasowej w danym dniu. Możesz kliknąć wiersz, aby wyświetlić szczegółowe informacje o wszystkich zadaniach tworzenia kopii zapasowych, które zostały wyzwolone w wybranym dniu. Należy pamiętać, że w przypadku zwiększenia zakresu czasu do większej wartości, na przykład w ciągu ostatnich 60 dni, siatka jest renderowana w widoku tydzień i wyświetlana jest liczba wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w danym tygodniu. Podobnie istnieje miesięczny widok dla większych zakresów czasu.
 
-W przypadku elementów, których kopia zapasowa jest wykonywana co tydzień, ta siatka ułatwia identyfikację wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w danym tygodniu. W przypadku większego przedziału czasu, takiego jak ostatnie 120 dni, siatka jest renderowana w widoku miesięcznym i zawiera liczbę wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w każdym tygodniu w danym miesiącu. [Konwencje odwołania używane w raportach usługi Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) zawierają więcej informacji na temat codziennych, tygodniowych i miesięcznych widoków.
+W przypadku elementów, których kopia zapasowa jest wykonywana co tydzień, ta siatka ułatwia identyfikację wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w danym tygodniu. W przypadku większego przedziału czasu, takiego jak ostatnie 120 dni, siatka jest renderowana w widoku miesięcznym i zawiera liczbę wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w każdym tygodniu w danym miesiącu. [Konwencje odwołania używane w raportach usługi Backup](#conventions-used-in-backup-reports) zawierają więcej informacji na temat codziennych, tygodniowych i miesięcznych widoków.
 
 ![Przestrzeganie zasad według przedziału czasu](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ Po utworzeniu aplikacji logiki należy autoryzować połączenia z dziennikami A
 
 Raporty kopii zapasowych korzystają [z funkcji systemowych na Azure monitor dziennikach](backup-reports-system-functions.md). Te funkcje działają na danych w nieprzetworzonych tabelach Azure Backup w LA i zwracają sformatowane dane, które ułatwiają uzyskiwanie informacji o wszystkich jednostkach związanych z kopiami zapasowymi przy użyciu prostych zapytań. 
 
-Aby utworzyć własne skoroszyty raportowania przy użyciu raportów kopii zapasowych, można przejść do raportów kopii zapasowych, kliknąć pozycję **Edytuj** u góry raportu i wyświetlić/edytować zapytania używane w raportach. Zapoznaj się z [dokumentacją dotyczącą skoroszytów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) , aby dowiedzieć się więcej na temat tworzenia raportów niestandardowych. 
+Aby utworzyć własne skoroszyty raportowania przy użyciu raportów kopii zapasowych, można przejść do raportów kopii zapasowych, kliknąć pozycję **Edytuj** u góry raportu i wyświetlić/edytować zapytania używane w raportach. Zapoznaj się z [dokumentacją dotyczącą skoroszytów platformy Azure](../azure-monitor/visualize/workbooks-overview.md) , aby dowiedzieć się więcej na temat tworzenia raportów niestandardowych. 
 
 ## <a name="export-to-excel"></a>Eksportuj do programu Excel
 

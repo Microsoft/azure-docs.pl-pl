@@ -1,44 +1,43 @@
 ---
 title: Przycisk audio usługi Azure Percept i zachowanie diody LED
 description: Dowiedz się więcej na temat przycisku i Stanów diody LED usługi Azure Percept audio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.custom: template-concept
-ms.openlocfilehash: 1d956e33a84b5509c16400c8f5f8e813d116411a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: fa919acb527084d19ab88b2e7895d4e6ab0b72d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095752"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609075"
 ---
 # <a name="azure-percept-audio-button-and-led-behavior"></a>Przycisk audio usługi Azure Percept i zachowanie diody LED
 
-Zapoznaj się z poniższymi wskazówkami, aby uzyskać informacje na temat przycisku i Stanów diody LED dźwięku usługi Azure Percept.
+Zapoznaj się z poniższymi wskazówkami, aby uzyskać informacje na temat przycisku i Stanów LED urządzenia audio usługi Azure Percept.
 
 ## <a name="button-behavior"></a>Zachowanie przycisku
 
-Za pomocą przycisków można kontrolować zachowanie urządzenia.
+Użyj przycisków, aby sterować zachowaniem urządzenia.
 
-|Stan przycisku|  Zachowanie|
+|Stan przycisku|Zachowanie|
 |------------|----------|
-|Głos|  Naciśnij klawisz, aby wyciszyć/wyłączyć wyciszenie macierzy mikrofonu. Zdarzenie przycisku jest wyzwalane po naciśnięciu.|
-|/Object|   Naciśnij klawisz, aby pominąć słowo kluczowe wykrywania trendów i uaktywnić stan nasłuchiwania polecenia. Naciśnij przycisk ponownie, aby zatrzymać aktywny dialog agenta i wrócić do stanu wykrywania trendów słowa kluczowego. Zdarzenie przycisku jest wyzwalane po naciśnięciu. Środek do oznaczania działa tylko wtedy, gdy przycisk jest wciśnięty, gdy Agent mówi.|
+|Głos|Naciśnij klawisz, aby wyciszyć/wyciszyć tablicę MIC. Zdarzenie przycisku jest wyzwalane po naciśnięciu.|
+|/Object|Naciśnij klawisz, aby pominąć słowo kluczowe wykrywania trendów i uaktywnić stan nasłuchiwania polecenia. Naciśnij przycisk ponownie, aby zatrzymać aktywny dialog agenta i powrócić do stanu wykrywania trendów słowa kluczowego. Zdarzenie przycisku jest wyzwalane po naciśnięciu. Środek o stanie działa tylko wtedy, gdy przycisk zostanie naciśnięty, gdy Agent wysłuchuje|
 
 ## <a name="led-behavior"></a>Zachowanie diody LED
 
-Możesz użyć wskaźników LED, aby zrozumieć, z jakim stanem jest urządzenie.
+Użyj wskaźników LED, aby zrozumieć, z jakim stanem jest urządzenie.
 
-|BRANŻ|   Stan diody LED|  Wyczyść stan modelu SoM|
-|---|------------|----------------| 
-|L02|   1x biały, statyczny na |Włącz |
-|L02|   1x biały, 0,5 Hz miga|  Trwa uwierzytelnianie |
-|L01 & L02 & L03|   3. niebieskie, static on|     Oczekiwanie na słowo kluczowe|
-|L01 & L02 & L03|   Dioda LED miga, 20fps | Nasłuchiwanie lub mówienie|
-|L01 & L02 & L03|   Wyścigi tablicowe diod LED, 20fps|    Myśleć|
-|L01 & L02 & L03|   3. czerwony, statyczny na | Głos|
+|BRANŻ|Stan diody LED|Wyczyść stan modelu SoM|
+|---|------------|----------------|
+|L02|1x biały, statyczny na|Włącz |
+|L02|1x biały, 0,5 Hz miga|Trwa uwierzytelnianie |
+|L01 & L02 & L03|3. niebieskie, static on|Oczekiwanie na słowo kluczowe|
+|L01 & L02 & L03|Dioda LED miga, 20fps |Nasłuchiwanie lub mówienie|
+|L01 & L02 & L03|Wyścigi tablicowe diod LED, 20fps|Myśleć|
+|L01 & L02 & L03|3. czerwony, statyczny na |Głos|
 
 ## <a name="next-steps"></a>Następne kroki
 

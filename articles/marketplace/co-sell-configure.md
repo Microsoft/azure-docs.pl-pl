@@ -8,16 +8,16 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e8019a30d4f5bf24814d88fc749cefd6b529b73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609652"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563399"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace
 
-W tym artykule opisano sposób konfigurowania **sprzedaży z kartami firmy Microsoft** dla komercyjnej oferty portalu Marketplace. Dostarczenie informacji na tej karcie jest całkowicie opcjonalne, ale jest wymagane do osiągnięcia [gotowej do obchodzenia i zachęcani stanu współsprzedażowego](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Te informacje nie są dostępne bezpośrednio dla klientów. Aby uzyskać więcej informacji na temat współpracy z firmą Microsoft, zobacz artykuł [współpraca ze sprzedającymi i partnerami w](marketplace-co-sell.md) ramach usługi, a następnie [sprzedawanie z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+W tym artykule opisano sposób konfigurowania **sprzedaży z kartami firmy Microsoft** dla komercyjnej oferty portalu Marketplace. Dostarczenie informacji na tej karcie jest całkowicie opcjonalne, ale jest wymagane do osiągnięcia [gotowej do obchodzenia i zachęcani stanu współsprzedażowego](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Te informacje nie są dostępne bezpośrednio dla klientów. Aby uzyskać więcej informacji na temat współpracy z firmą Microsoft, zobacz artykuł [współpraca ze sprzedającymi i partnerami w](marketplace-co-sell.md) ramach usługi, a następnie [sprzedawanie z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 Opcja współsprzedaży jest dostępna dla następujących typów ofert.
 

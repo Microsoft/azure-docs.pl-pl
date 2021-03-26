@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702457"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567954"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Przerwy w działaniu między Azure Media Services V2 i V3
 
@@ -48,6 +48,6 @@ Interfejs API v3 ma następujące luki w funkcjach interfejsu API w wersji 2. Ki
 
 - Szyfrowanie magazynu po stronie klienta na potrzeby ochrony zasobów w spoczynku zostało usunięte z interfejsu API v3 i zastąpione przez szyfrowanie usługi Storage dla danych przechowywanych w spoczynku. Interfejsy API v3 nadal pracują z istniejącymi zasobami zaszyfrowanymi magazynu, ale nie pozwalają na tworzenie nowych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="terminology-and-entity-changes"></a>Terminologia i zmiany jednostek
 
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+Zapoznaj się z [terminologią i](migrate-v-2-v-3-differences-terminology.md) zmianami jednostek, aby uzyskać dodatkowe zmiany w interfejsie API.

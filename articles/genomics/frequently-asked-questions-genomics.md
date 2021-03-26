@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96018328"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608616"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: typowe pytania
 
@@ -59,11 +59,15 @@ Wymagane są dwa klucze dostępu, jeśli chcesz je zaktualizować (wygenerować 
 ## <a name="do-you-save-my-storage-account-keys"></a>Czy chcesz zapisać klucze konta magazynu?
 Klucz konta magazynu służy do tworzenia krótkoterminowych tokenów dostępu dla usługi Microsoft Genomics do odczytywania plików wejściowych i zapisywania plików wyjściowych. Domyślny czas trwania tokenu to 48 godzin. Czas trwania tokenu można zmienić za pomocą `-sas/--sas-duration` opcji przesyłania polecenia; wartość jest w godzinach.
 
+## <a name="does-microsoft-genomics-store-customer-data"></a>Czy Microsoft Genomics przechowywać dane klienta?
+
+Nie. Microsoft Genomics nie przechowuje żadnych danych klienta.
+
 ## <a name="what-genome-references-can-i-use"></a>Których odwołań genomów mogę używać?
 
 Te odwołania są obsługiwane:
 
- |Dokumentacja              | Wartość `-pa/--process-args` |
+ |Odwołanie              | Wartość `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

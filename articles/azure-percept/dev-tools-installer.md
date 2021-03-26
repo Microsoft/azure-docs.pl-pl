@@ -5,20 +5,20 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 7639af0c6e616a6fd8683f2a529a570f7e856973
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f81f7922431f85cfc2a98261a128ba66d23a984f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047338"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608599"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Omówienie Instalatora pakietu narzędzi deweloperskich
 
-Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które instaluje i konfiguruje wszystkie narzędzia wymagane do opracowania inteligentnego rozwiązania brzegowego. Jeśli zainstalowano już dowolne z wymienionych poniżej pakietów oprogramowania, Instalator pakietu narzędzi deweloperskich zainstaluje ponownie te pakiety, dzięki czemu narzędzia będą spójne z wersjami oprogramowania Instalatora.
+Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które instaluje i konfiguruje wszystkie narzędzia wymagane do opracowania zaawansowanego rozwiązania inteligentnej krawędzi.
 
-## <a name="mandatory-tools-installed"></a>Zainstalowane obowiązkowe narzędzia
+## <a name="mandatory-tools"></a>Narzędzia obowiązkowe
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python 3,6 lub nowszy](https://www.python.org/)
@@ -27,7 +27,7 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
 * [TensorFlow 1,13](https://www.tensorflow.org/)
 * [Zestaw SDK Azure Machine Learning 1,1](/python/api/overview/azure/ml/)
 
-## <a name="optional-tools-available-for-installation"></a>Opcjonalne narzędzia dostępne do zainstalowania
+## <a name="optional-tools"></a>Narzędzia opcjonalne
 
 * [NVIDIA DEEPSTREAM SDK 5](https://developer.nvidia.com/deepstream-sdk) (zestaw narzędzi do tworzenia rozwiązań dla akceleratorów NVIDIA)
 * [Intel OpenVino toolkit 2020,2](https://docs.openvinotoolkit.org/) (zestaw narzędzi do tworzenia rozwiązań dla akceleratorów firmy Intel)
@@ -42,104 +42,97 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
 
 ## <a name="known-issues"></a>Znane problemy
 
-- Opcjonalna instalacja Caffe może zakończyć się niepowodzeniem, jeśli platforma Docker nie działa prawidłowo w systemie. Jeśli chcesz zainstalować Caffe, upewnij się, że platforma Docker jest zainstalowana i uruchomiona przed podjęciem próby instalacji Caffe za pomocą Instalatora pakietu narzędzi deweloperskich. 
+- Opcjonalna instalacja Caffe może zakończyć się niepowodzeniem, jeśli platforma Docker nie działa prawidłowo. Jeśli chcesz zainstalować Caffe, upewnij się, że platforma Docker jest zainstalowana i uruchomiona przed podjęciem próby instalacji Caffe za pomocą Instalatora pakietu narzędzi deweloperskich.
 
 - Opcjonalna instalacja CUDA kończy się niepowodzeniem w systemach niezgodnych. Przed podjęciem próby zainstalowania [zestawu narzędzi cuda toolkit 10.0.130](https://developer.nvidia.com/cuda-toolkit) za pomocą Instalatora pakietu narzędzi deweloperskich Sprawdź zgodność systemu.
 
-## <a name="minimum-requirements"></a>Minimalne wymagania
+## <a name="docker-minimum-requirements"></a>Minimalne wymagania platformy Docker
 
-* Minimalne wymagania platformy Docker:
+### <a name="windows"></a>Windows
 
-    * W systemie Windows:
-        * https://docs.docker.com/docker-for-windows/install/#system-requirements
+- Windows 10 64-bit: Pro, Enterprise lub Education (kompilacja 16299 lub nowsza).
 
-        - Windows 10 64-bit: Pro, Enterprise lub Education (kompilacja 16299 lub nowsza).
+- Funkcja Hyper-V i kontenery funkcji systemu Windows muszą być włączone. Do pomyślnego uruchomienia funkcji Hyper-V w systemie Windows 10 wymagane są następujące wymagania wstępne dotyczące sprzętu:
 
-             W przypadku systemu Windows 10 Home zapoznaj się z tematem Instalowanie programu Docker Desktop w systemie Windows Home.
-           - Funkcja Hyper-V i kontenery funkcji systemu Windows muszą być włączone.
-           - Następujące wymagania wstępne dotyczące sprzętu są wymagane do pomyślnego uruchomienia funkcji Hyper-V klienta w systemie Windows 10:
+    - 64-bitowy procesor z [translacją adresów drugiego poziomu (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
+    - 4 GB pamięci RAM systemu
+    - Obsługa wirtualizacji sprzętu na poziomie systemu BIOS musi być włączona w ustawieniach systemu BIOS. Aby uzyskać więcej informacji, zobacz wirtualizacja.
 
-              - 64-bitowy procesor z [translacją adresów drugiego poziomu (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
-              - 4 GB pamięci RAM systemu
-              - Obsługa wirtualizacji sprzętu na poziomie systemu BIOS musi być włączona w ustawieniach systemu BIOS. Aby uzyskać więcej informacji, zobacz wirtualizacja.
+> [!NOTE]
+> Platforma Docker obsługuje pulpit platformy Docker w systemie Windows na podstawie cyklu pomocy technicznej firmy Microsoft dla systemu operacyjnego Windows 10. Aby uzyskać więcej informacji, zobacz [Arkusz faktów cyklu życia systemu Windows](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet).
 
-        > [!NOTE]
-        > Platforma Docker obsługuje pulpit platformy Docker w systemie Windows na podstawie cyklu pomocy technicznej firmy Microsoft dla systemu operacyjnego Windows 10. Aby uzyskać więcej informacji, zobacz [Arkusz faktów cyklu życia systemu Windows](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet).
+Dowiedz się więcej o [instalowaniu pulpitu platformy Docker w systemie Windows](https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-on-windows).
 
-    * Mac:
-        * https://docs.docker.com/docker-for-mac/install/#system-requirements
-       
-        Aby pomyślnie zainstalować program Docker Desktop, komputer Mac musi spełniać następujące wymagania:
-         
-         - **Sprzęt Mac musi być modelem 2010 lub nowszym z procesorem Intel**, z obsługą sprzętową firmy Intel do wirtualizacji jednostki zarządzania pamięcią (pamięcią), w tym rozszerzonymi tabelami stron (EPT) i trybem nieograniczonym. Aby sprawdzić, czy maszyna ma tę pomoc techniczną, możesz uruchomić następujące polecenie w terminalu: ```sysctl kern.hv_support```
+### <a name="mac"></a>Mac
 
-        Jeśli komputer Mac obsługuje strukturę funkcji hypervisor, polecenie drukuje ```kern.hv_support: 1``` .
+- Komputery Mac muszą mieć model 2010 lub nowszy z następującymi atrybutami:
+    - Procesor Intel
+    - Obsługa sprzętowa przez firmę Intel do wirtualizacji jednostki zarządzania pamięci (pamięcią), w tym rozszerzone tabele stron (EPT) i Tryb nieograniczony. Aby sprawdzić, czy maszyna ma tę pomoc techniczną, możesz uruchomić następujące polecenie w terminalu: ```sysctl kern.hv_support``` . Jeśli komputer Mac obsługuje strukturę funkcji hypervisor, polecenie drukuje ```kern.hv_support: 1``` .
 
-         - **macOS musi być w wersji 10,14 lub nowszej**. To jest, Mojave, Catalina lub Big Sur. Zalecamy uaktualnienie do najnowszej wersji programu macOS.
+- macOS w wersji 10,14 lub nowszej (Mojave, Catalina lub Big Sur). Zalecamy uaktualnienie do najnowszej wersji programu macOS. Jeśli wystąpią jakieś problemy po uaktualnieniu macOS do wersji 10,15, musisz zainstalować najnowszą wersję programu Docker Desktop, aby była zgodna z tą wersją programu macOS.
 
-        Jeśli wystąpią jakieś problemy po uaktualnieniu macOS do wersji 10,15, musisz zainstalować najnowszą wersję programu Docker Desktop, aby była zgodna z tą wersją programu macOS.
+- Co najmniej 4 GB pamięci RAM.
 
-        - Co najmniej 4 GB pamięci RAM.
-        - Nie można zainstalować VirtualBox przed wersją 4.3.30, ponieważ nie jest on zgodny z programem Docker Desktop.
+- NIE instaluj VirtualBox przed wersją 4.3.30--nie jest to zgodne z programem Docker Desktop.
 
-        > [!NOTE]
-        > Platforma Docker obsługuje program Docker Desktop na najnowszych wersjach programu macOS. Oznacza to, że bieżąca wersja programu macOS i poprzednich dwóch wersji. Ponieważ nowe główne wersje macOS są ogólnie dostępne, platforma Docker przestaje obsługiwać najstarszą wersję i obsługuje najnowszą wersję programu macOS (oprócz poprzednich dwóch wersji). Program Docker Desktop obecnie obsługuje macOS Mojave, macOS Catalina i macOS Big Sur.
-        > 
-        - Instalator nie jest obsługiwany przez firmę Apple M1.
+- Instalator nie jest obsługiwany przez firmę Apple M1.
 
-## <a name="instructions"></a>Instrukcje
+Dowiedz się więcej o [instalowaniu pulpitu platformy Docker na komputerze Mac](https://docs.docker.com/docker-for-mac/install/#system-requirements).
 
-1. Pobierz instalatora pakietu narzędzi deweloperskich dla [systemów Windows](https://go.microsoft.com/fwlink/?linkid=2132187), [Linux](https://go.microsoft.com/fwlink/?linkid=2132186)i [Mac](https://go.microsoft.com/fwlink/?linkid=2132296).
+## <a name="launch-the-installer"></a>Uruchom instalatora
 
-1. W zależności od platformy nastąpi kilka różnic w uruchamianiu Instalatora.
+Pobierz instalatora pakietu narzędzi deweloperskich dla [systemu Windows](https://go.microsoft.com/fwlink/?linkid=2132187), [Linux](https://go.microsoft.com/fwlink/?linkid=2132186)lub [Mac](https://go.microsoft.com/fwlink/?linkid=2132296). Uruchom Instalatora zgodnie z Twoją platformą, zgodnie z poniższym opisem.
 
-    1. W przypadku systemu Windows:
-    
-        1. Kliknij pozycję **dev-Tools-Pack-Installer** , aby otworzyć Kreatora instalacji.
-        
-    1. Dla komputerów Mac:
-    
-        1. Po pobraniu Przenieś plik Dev-Tools-Pack-Installer.app do folderu Applications.
-        
-        1. Kliknij pozycję **dev-Tools-Pack-Installer.app** , aby otworzyć Kreatora instalacji.
-        
-        1. Jeśli zostanie wyświetlone okno dialogowe zabezpieczeń "niezidentyfikowane deweloperem":
-        
-            1. Przejdź do pozycji Preferencje systemu — > zabezpieczenia & prywatność — > ogólne, a następnie kliknij przycisk "Otwórz mimo wszystko" obok pozycji "Dev-Tools-Pack-Installer.app"
-        
-            1. Kliknij ikonę elektronu ponownie w Docku
-        
-            1. Kliknij przycisk "Otwórz" w oknie dialogowym Zabezpieczenia
-    
-    1. W przypadku systemu Linux:
-    
-        1. Po wyświetleniu monitu przez przeglądarkę kliknij pozycję "Zapisz", aby ukończyć pobieranie instalatora
-        
-        1. Dodaj uprawnienia wykonywania do pliku **appimage** Metoda 1 (CommandLine):
-            
-            1. Otwórz terminal systemu Linux
-            
-            1. Wpisz następujące w terminalu, aby przejść do folderu pliki do pobrania
-            
-                1. CD ~/downloads/
-                
-            1. Wpisz następujące w terminalu, aby AppImage plik wykonywalny
-            
-                1. chmod + x **dev-Tools-Pack-Installer. AppImage**
-                
-            1. Wpisz następujące w terminalu, aby uruchomić Instalatora
-            
-                1. ./Dev-Tools-Pack-Installer.AppImage
-        
-        1. Dodawanie uprawnień wykonywania do pliku **appimage** — Metoda 2 (interfejs użytkownika):
-        
-            1. Kliknij prawym przyciskiem myszy plik. appimage i wybierz polecenie Właściwości
-            
-            1. Otwórz kartę uprawnienia
-            
-            1. Zaznacz pole wyboru Zezwalaj na wykonywanie pliku jako programu
-            
-            1. Zamknij właściwości i Otwórz plik. appimage
+### <a name="windows"></a>Windows
+
+1. Kliknij pozycję **dev-Tools-Pack-Installer** , aby otworzyć Kreatora instalacji.
+
+### <a name="mac"></a>Mac
+
+1. Po pobraniu Przenieś plik **dev-Tools-Pack-Installer.app** do folderu **Applications** .
+
+1. Kliknij pozycję **dev-Tools-Pack-Installer.app** , aby otworzyć Kreatora instalacji.
+
+1. Jeśli zostanie wyświetlone okno dialogowe zabezpieczeń "niezidentyfikowane deweloperem":
+
+    1. Przejdź do pozycji **Preferencje systemu**  ->  **zabezpieczenia & prywatność**  ->  **Ogólne** , a następnie kliknij przycisk **Otwórz mimo wszystko** obok **dev-Tools-Pack-Installer.app**.
+    1. Kliknij ikonę elektronu.
+    1. W oknie dialogowym Zabezpieczenia kliknij pozycję **Otwórz** .
+
+### <a name="linux"></a>Linux
+
+1. Po wyświetleniu monitu przez przeglądarkę kliknij przycisk **Zapisz** , aby ukończyć pobieranie instalatora.
+
+1. Dodaj uprawnienia wykonywania do pliku **appimage** :
+
+    1. Otwórz terminal systemu Linux.
+
+    1. Wprowadź następujące elementy w terminalu, aby przejść do folderu **pliki do pobrania** :
+
+        ```bash
+        cd ~/Downloads/
+        ```
+
+    1. Utwórz plik wykonywalny AppImage:
+
+        ```bash
+        chmod +x Dev-Tools-Pack-Installer.AppImage
+        ```
+
+    1. Uruchom Instalatora:
+
+        ```bash
+        ./Dev-Tools-Pack-Installer.AppImage
+        ```
+
+1. Dodaj uprawnienia wykonywania do pliku **appimage** :
+
+    1. Kliknij prawym przyciskiem myszy plik. appimage i wybierz polecenie **Właściwości**.
+    1. Otwórz kartę **uprawnienia** .
+    1. Zaznacz pole wyboru obok pozycji **Zezwalaj na wykonywanie pliku jako programu**.
+    1. Zamknij **Właściwości** i Otwórz plik **. appimage** .
+
+## <a name="run-the-installer"></a>Uruchamianie instalatora
 
 1. Na stronie **Instalowanie Instalatora pakietu narzędzi deweloperskich** kliknij pozycję **Wyświetl licencję** , aby wyświetlić umowy licencyjne poszczególnych pakietów oprogramowania zawartych w instalatorze. Jeśli akceptujesz warunki umowy licencyjnej, zaznacz pole wyboru i kliknij przycisk **dalej**.
 
@@ -165,21 +158,19 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
 
 Jeśli Instalator powiadamia, aby sprawdzić, czy program Docker Desktop jest w dobrym stanie, zobacz następujące kroki:
 
-   1. W systemie Windows:
-   
-      1. Rozwiń ukryte ikony paska zadań:
-      
-         1. Rozwiń ukryte ikony paska zadań, jeśli są ukryte:
+### <a name="windows"></a>Windows
 
-            :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="Pasek zadań.":::
-         
-         1. Sprawdź, czy ikona programu Docker Desktop zawiera element "Docker Desktop działa":
+1. Rozwiń ukryte ikony na pasku zadań.
 
-            :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Stan platformy Docker.":::
-         
-         1. Jeśli powyższa ikona nie zostanie wyświetlona na pasku zadań, uruchom program Docker Desktop z menu Start.
-         
-         1. Jeśli platforma Docker poprosi o ponowne uruchomienie, warto zamknąć Instalatora i uruchomić ponownie po ponownym uruchomieniu, a platforma Docker jest w stanie uruchomienia. Wszystkie pomyślnie zainstalowane aplikacje innych firm powinny być wykrywane i nie będą instalowane automatycznie.
+    :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="Pasek zadań.":::
+
+1. Upewnij się, że ikona platformy Docker zawiera program **Docker Desktop uruchomiony**.
+
+    :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Stan platformy Docker.":::
+
+1. Jeśli powyższa ikona nie zostanie wyświetlona na pasku zadań, uruchom program Docker Desktop z menu Start.
+
+1. Jeśli platforma Docker poprosi o ponowne uruchomienie, warto zamknąć Instalatora i uruchomić ponownie po ponownym uruchomieniu, a platforma Docker jest w stanie uruchomienia. Wszystkie pomyślnie zainstalowane aplikacje innych firm powinny być wykrywane i nie będą instalowane automatycznie.
 
 ## <a name="next-steps"></a>Następne kroki
 

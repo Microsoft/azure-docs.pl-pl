@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044191"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608361"
 ---
 # <a name="clustering-point-data"></a>Dane punktu klastrowania
 
@@ -26,7 +26,7 @@ Podczas wizualizacji wielu punktów danych na mapie punkty danych mogą się nak
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Włączanie klastrowania w źródle danych
 
-Włącz klastrowanie w `DataSource` klasie, ustawiając dla `cluster` opcji wartość true. Ustaw `clusterRadius` , aby wybrać punkty w pobliżu i połączyć je z klastrem. Wartość `clusterRadius` jest w pikselach. Użyj `clusterMaxZoom` , aby określić poziom powiększenia, dla którego ma zostać wyłączona logika klastrowania. Oto przykład sposobu włączania klastrowania w źródle danych.
+Włącz klastrowanie w `DataSource` klasie, ustawiając `cluster` opcję na `true` . Ustaw `clusterRadius` , aby wybrać punkty w pobliżu i połączyć je z klastrem. Wartość `clusterRadius` jest w pikselach. Użyj `clusterMaxZoom` , aby określić poziom powiększenia, dla którego ma zostać wyłączona logika klastrowania. Oto przykład sposobu włączania klastrowania w źródle danych.
 
 ```javascript
 //Create a data source and enable clustering.

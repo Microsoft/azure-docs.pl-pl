@@ -3,12 +3,12 @@ title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868158"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564309"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -61,7 +61,7 @@ Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dl
 
 Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
 
-- Nie można jednocześnie włączyć [zasad zabezpieczeń AKS](../../../aks/use-pod-security-policies.md) na poziomie i dodatku Azure Policy dla AKS. Aby uzyskać więcej informacji, zobacz [AKS pod kątem zabezpieczeń](../../../aks/use-pod-security-on-azure-policy.md#limitations).
+- Nie można jednocześnie włączyć [zasad zabezpieczeń AKS](../../../aks/use-pod-security-policies.md) na poziomie i dodatku Azure Policy dla AKS. Aby uzyskać więcej informacji, zobacz [AKS pod kątem zabezpieczeń](../../../aks/use-azure-policy.md).
 - Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_, _strażnik-system_ i _AKS-Periscope_.
 
 ## <a name="recommendations"></a>Zalecenia
@@ -201,7 +201,7 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
 1. Zainstaluj [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
-1. Klaster Kubernetes włączony dla usługi Azure Arc. Aby uzyskać więcej informacji, zobacz Dołączanie [klastra Kubernetes do usługi Azure Arc](../../../azure-arc/kubernetes/connect-cluster.md).
+1. Klaster Kubernetes włączony dla usługi Azure Arc. Aby uzyskać więcej informacji, zobacz Dołączanie [klastra Kubernetes do usługi Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 1. Mają w pełni kwalifikowany identyfikator zasobu platformy Azure dla klastra Kubernetes z włączoną funkcją Azure Arc.
 

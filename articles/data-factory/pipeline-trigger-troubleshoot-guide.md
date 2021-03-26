@@ -7,12 +7,12 @@ ms.date: 03/13/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462001"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563416"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
@@ -95,7 +95,7 @@ Azure Data Factory oblicza wynik wszystkich działań na poziomie liścia. Wynik
 
 * Zaimplementuj kontrole na poziomie działania, wykonując następujące czynności [, jak obsługiwać awarie i błędy potoków](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Wizualnie Monitoruj potok](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Wizualnie Monitoruj potok](./monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Jak monitorować błędy potoków w regularnych odstępach czasu
 
@@ -105,7 +105,7 @@ Może być konieczne monitorowanie niezakończonych potoków Data Factory w inte
 
 **Rozwiązanie**
 * Można skonfigurować aplikację logiki platformy Azure, która będzie wysyłać zapytania do wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz raportować zdarzenia do systemu biletów.
-* [Wizualnie Monitoruj potok](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Wizualnie Monitoruj potok](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>Stopień wzrostu równoległości nie powoduje większej przepływności
 
@@ -146,8 +146,8 @@ Taka sytuacja może wystąpić, jeśli nie zaimplementowano funkcji Time to Live
 
 **Rozwiązanie**
 
-* Jeśli uruchomienie każdego działania kopiowania trwa do 2 minut, a problem występuje głównie w sprzężeniu sieci wirtualnej (w porównaniu do środowiska Azure IR), może to być problem z wydajnością kopiowania. Aby zapoznać się z krokami rozwiązywania problemów, przejdź do pozycji [Kopiowanie ulepszeń wydajności.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* Aby zmniejszyć czas uruchamiania klastra dla działań przepływu danych, można użyć funkcji Time to Live. Przejrzyj [Integration Runtime przepływu danych.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+* Jeśli uruchomienie każdego działania kopiowania trwa do 2 minut, a problem występuje głównie w sprzężeniu sieci wirtualnej (w porównaniu do środowiska Azure IR), może to być problem z wydajnością kopiowania. Aby zapoznać się z krokami rozwiązywania problemów, przejdź do pozycji [Kopiowanie ulepszeń wydajności.](./copy-activity-performance-troubleshooting.md)
+* Aby zmniejszyć czas uruchamiania klastra dla działań przepływu danych, można użyć funkcji Time to Live. Przejrzyj [Integration Runtime przepływu danych.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Problemy z wydajnością w SHIR (samodzielnie hostowane Integration Runtime)
  
@@ -157,7 +157,7 @@ Taka sytuacja może wystąpić, jeśli nie przeprowadzono skalowania SHIR w dó�
 
 **Rozwiązanie**
 
-* Jeśli wystąpi problem z pojemnością SHIR, Uaktualnij maszynę wirtualną, aby zwiększyć jej obciążenie. Jeśli zostanie wyświetlony komunikat o błędzie dotyczący ogólnego błędu lub nieznanego błędu środowiska IR, samodzielnego uaktualnienia IR lub samodzielnego połączenia IR, które może wygenerować długą kolejkę, przejdź do obszaru [Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime.](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide)
+* Jeśli wystąpi problem z pojemnością SHIR, Uaktualnij maszynę wirtualną, aby zwiększyć jej obciążenie. Jeśli zostanie wyświetlony komunikat o błędzie dotyczący ogólnego błędu lub nieznanego błędu środowiska IR, samodzielnego uaktualnienia IR lub samodzielnego połączenia IR, które może wygenerować długą kolejkę, przejdź do obszaru [Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime.](./self-hosted-integration-runtime-troubleshoot-guide.md)
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Komunikaty o błędach ze względu na długie kolejki kopiowania i przepływu danych usługi ADF
 
@@ -166,10 +166,10 @@ Taka sytuacja może wystąpić, jeśli nie przeprowadzono skalowania SHIR w dó�
 Komunikaty o błędach związanych z kolejką Long mogą się pojawiać z różnych powodów. 
 
 **Rozwiązanie**
-* Jeśli zostanie wyświetlony komunikat o błędzie z dowolnego źródła lub miejsca docelowego za pośrednictwem łączników, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów łącznika.](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide)
-* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący mapowania przepływu danych, który może generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów z przepływami danych.](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide)
-* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący innych działań, takich jak datakostki, działania niestandardowe lub HDI, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów dotyczących działań.](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide)
-* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący uruchamiania pakietów usług SSIS, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów z wykonywaniem pakietu Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) i [Przewodnik rozwiązywania problemów dotyczących zarządzania Integration Runtime.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+* Jeśli zostanie wyświetlony komunikat o błędzie z dowolnego źródła lub miejsca docelowego za pośrednictwem łączników, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów łącznika.](./connector-troubleshoot-guide.md)
+* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący mapowania przepływu danych, który może generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów z przepływami danych.](./data-flow-troubleshoot-guide.md)
+* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący innych działań, takich jak datakostki, działania niestandardowe lub HDI, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów dotyczących działań.](./data-factory-troubleshoot-guide.md)
+* Jeśli zostanie wyświetlony komunikat o błędzie dotyczący uruchamiania pakietów usług SSIS, które mogą generować długą kolejkę, przejdź do [przewodnika rozwiązywania problemów z wykonywaniem pakietu Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) i [Przewodnik rozwiązywania problemów dotyczących zarządzania Integration Runtime.](./ssis-integration-runtime-management-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Następne kroki

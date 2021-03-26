@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 257fc6544061c2ef9c3fdbfb8c33bc06ed2db6e3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518725"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566339"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Uruchamianie notesów Jupyter w obszarze roboczym
 
@@ -273,7 +273,7 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 
 * Jeśli nie możesz połączyć się z notesem, upewnij się, że komunikacja gniazda internetowego **nie** jest wyłączona. Aby można było korzystać z funkcji Jupyter wystąpienia obliczeniowego, musi być włączona komunikacja między gniazdami sieci Web. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms. 
 
-* Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można [uzyskać do niego dostęp tylko z poziomu sieci wirtualnej](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla < nazwa wystąpienia >. < regionu >. instances.azureml.ms z prywatnym adresem IP obszaru prywatnego punktu roboczego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](./how-to-custom-dns.md?tabs=azure-cli) .
+* Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można [uzyskać do niego dostęp tylko z poziomu sieci wirtualnej](./how-to-secure-training-vnet.md#compute-instance). Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla < nazwa wystąpienia >. < regionu >. instances.azureml.ms z prywatnym adresem IP obszaru prywatnego punktu roboczego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Następne kroki
 

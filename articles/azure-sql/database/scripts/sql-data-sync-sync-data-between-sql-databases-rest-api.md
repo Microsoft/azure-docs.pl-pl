@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: ef2823b870f76922dd0dc157341aea9b502fb4bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d3ff8114c11b224a0bdbb0bd2d0e5686a7e57b55
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565541"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565914"
 ---
 # <a name="use-rest-api-to-sync-data-between-multiple-databases"></a>Synchronizowanie danych między wieloma bazami danych przy użyciu interfejsu API REST 
 
@@ -31,7 +31,7 @@ Aby zapoznać się z omówieniem SQL Data Sync, zobacz [synchronizowanie danych 
 
 ## <a name="create-sync-group"></a>Utwórz grupę synchronizacji
 
-Użyj szablonu [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) , aby utworzyć grupę synchronizacji.
+Użyj szablonu [Utwórz lub zaktualizuj](/rest/api/sql/syncgroups/createorupdate) , aby utworzyć grupę synchronizacji.
  
 Podczas tworzenia grupy synchronizacji nie przekazuj schematu synchronizacji (table\column) i nie przekazuj masterSyncMemberName, ponieważ w tej grupie synchronizacji nie ma jeszcze informacji o table\column.
 
@@ -91,7 +91,7 @@ Kod stanu: 201
 
 ## <a name="create-sync-member"></a>Utwórz element członkowski synchronizacji
 
-Użyj szablonu [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) , aby utworzyć element członkowski synchronizacji.
+Użyj szablonu [Utwórz lub zaktualizuj](/rest/api/sql/syncmembers/createorupdate) , aby utworzyć element członkowski synchronizacji.
 
 Przykładowe żądanie utworzenia elementu członkowskiego synchronizacji:
 
@@ -151,7 +151,7 @@ Kod stanu: 201
 
 Po pomyślnym utworzeniu grupy synchronizacji Odśwież schemat przy użyciu następujących szablonów.
 
-Aby odświeżyć schemat bazy danych centrów, użyj szablonu [schematu Refresh Hub](https://docs.microsoft.com/rest/api/sql/syncgroups/refreshhubschema)  . 
+Aby odświeżyć schemat bazy danych centrów, użyj szablonu [schematu Refresh Hub](/rest/api/sql/syncgroups/refreshhubschema)  . 
 
 Przykładowe żądanie odświeżania schematu bazy danych centrum: 
 
@@ -165,17 +165,17 @@ Kod stanu: 200
 
 Kod stanu: 202
 
-Użyj szablonu [schematy centrów listy](https://docs.microsoft.com/rest/api/sql/syncgroups/listhubschemas) , aby wyświetlić schemat bazy danych centrum. 
+Użyj szablonu [schematy centrów listy](/rest/api/sql/syncgroups/listhubschemas) , aby wyświetlić schemat bazy danych centrum. 
 
-Użyj szablonu [schematu Odśwież element członkowski](https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema) , aby odświeżyć schemat bazy danych elementu członkowskiego. 
+Użyj szablonu [schematu Odśwież element członkowski](/rest/api/sql/syncmembers/refreshmemberschema) , aby odświeżyć schemat bazy danych elementu członkowskiego. 
 
-Użyj szablonu [schematu elementu członkowskiego listy](https://docs.microsoft.com/rest/api/sql/syncmembers/listmemberschemas) , aby wyświetlić schemat bazy danych elementu członkowskiego. 
+Użyj szablonu [schematu elementu członkowskiego listy](/rest/api/sql/syncmembers/listmemberschemas) , aby wyświetlić schemat bazy danych elementu członkowskiego. 
 
 Przejdź do następnego kroku, gdy schemat zostanie pomyślnie odświeżony. 
 
 ## <a name="update-sync-group"></a>Aktualizowanie grupy synchronizacji 
 
-Użyj szablonu [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) , aby zaktualizować grupę synchronizacji.
+Użyj szablonu [Utwórz lub zaktualizuj](/rest/api/sql/syncgroups/createorupdate) , aby zaktualizować grupę synchronizacji.
 
 Zaktualizuj grupę synchronizacji, określając schemat synchronizacji. Dołącz schemat i masterSyncMemberName, czyli nazwę, która zawiera schemat, którego chcesz użyć. 
 
@@ -232,7 +232,7 @@ Przykładowa odpowiedź dotycząca aktualizacji grupy synchronizacji:
 ```
 ## <a name="update-sync-member"></a>Aktualizuj element członkowski synchronizacji
 
-Użyj szablonu [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) , aby zaktualizować element członkowski synchronizacji.
+Użyj szablonu [Utwórz lub zaktualizuj](/rest/api/sql/syncmembers/createorupdate) , aby zaktualizować element członkowski synchronizacji.
 
 Przykładowe żądanie aktualizacji elementu członkowskiego synchronizacji: 
 
@@ -291,7 +291,7 @@ Kod stanu: 201
 
 ## <a name="trigger-sync"></a>Synchronizuj wyzwalacz
 
-Użyj szablonu [synchronizacji wyzwalacza](https://docs.microsoft.com/rest/api/sql/syncgroups/triggersync) , aby wyzwolić operację synchronizacji.
+Użyj szablonu [synchronizacji wyzwalacza](/rest/api/sql/syncgroups/triggersync) , aby wyzwolić operację synchronizacji.
 
 Przykładowe żądanie wyzwalania operacji synchronizacji: 
 

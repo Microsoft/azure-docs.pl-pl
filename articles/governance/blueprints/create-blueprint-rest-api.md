@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu API REST'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu API REST.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915645"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558979"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu API REST
 
@@ -329,7 +329,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
 - `{YourMG}` — zastąp identyfikatorem swojej grupy zarządzania
 - `{subscriptionId}` — zastąp swoim identyfikatorem subskrypcji
 
-1. Podaj jednostce usługi Azure Blueprint rolę **Właściciel** w subskrypcji docelowej. Identyfikator AppId jest statyczny ( `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` ), ale nazwa główna usługi różni się w zależności od dzierżawy. Szczegółowych informacji na temat dzierżawy można żądać, używając poniższego interfejsu API REST. Używa [interfejs API programu Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), które ma inną autoryzację.
+1. Podaj jednostce usługi Azure Blueprint rolę **Właściciel** w subskrypcji docelowej. Identyfikator AppId jest statyczny ( `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` ), ale nazwa główna usługi różni się w zależności od dzierżawy. Szczegółowych informacji na temat dzierżawy można żądać, używając poniższego interfejsu API REST. Używa [interfejs API programu Graph Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist), które ma inną autoryzację.
 
    - Identyfikator URI interfejsu API REST
 
@@ -337,7 +337,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. Uruchom wdrażanie strategii, przypisując ją do subskrypcji. Ponieważ parametry **contributors** i **owners** wymagają, aby tablica identyfikatorów obiektów podmiotów zabezpieczeń miała przypisaną rolę, skorzystaj z [interfejsu API programu Grpah usługi Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) do zbierania identyfikatorów obiektów, które będą używane w **treści żądania** na potrzeby Twoich własnych użytkowników, grup lub jednostek usługi.
+1. Uruchom wdrażanie strategii, przypisując ją do subskrypcji. Ponieważ parametry **contributors** i **owners** wymagają, aby tablica identyfikatorów obiektów podmiotów zabezpieczeń miała przypisaną rolę, skorzystaj z [interfejsu API programu Grpah usługi Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) do zbierania identyfikatorów obiektów, które będą używane w **treści żądania** na potrzeby Twoich własnych użytkowników, grup lub jednostek usługi.
 
    - Identyfikator URI interfejsu API REST
 

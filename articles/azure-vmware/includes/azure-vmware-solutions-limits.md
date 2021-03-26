@@ -2,13 +2,13 @@
 title: Limity rozwiązań VMware platformy Azure
 description: Ograniczenia rozwiązań VMware platformy Azure.
 ms.topic: include
-ms.date: 03/16/2021
-ms.openlocfilehash: 0e2359d951f5348b69e95ab7fa046981b2b7b32d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 997a5ae96ff30226d055b7b966b128d7ec0ae5bd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622145"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582462"
 ---
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
 
@@ -19,7 +19,7 @@ W poniższej tabeli opisano maksymalne limity dla rozwiązania VMware platformy 
 | Klastry na chmurę prywatną | 12 |
 | Minimalna liczba węzłów na klaster | 3 |
 | Maksymalna liczba węzłów na klaster | 16 |
-| Węzły na chmurę prywatną | 64 |
+| Węzły na chmurę prywatną | 96 |
 | Program vCenter na chmurę prywatną | 1  |
 | Pary witryn HCX | 3 z Advanced Edition, 10 i Enterprise Edition |
 | Automatyczna synchronizacja ExpressRoute maksymalna połączona SDDCs | 4 |

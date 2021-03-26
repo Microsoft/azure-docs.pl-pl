@@ -7,12 +7,12 @@ ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597389"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565983"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z i do usługi Dynamics 365 (Common Data Service/Microsoft datavers) lub Dynamics CRM przy użyciu Azure Data Factory
 
@@ -370,7 +370,7 @@ Optymalna kombinacja **writeBatchSize** i **parallelCopies** zależy od schematu
 
 Aby pobrać dane z widoków dynamiki, należy pobrać zapisane zapytanie w widoku i użyć zapytania w celu uzyskania danych.
 
-Istnieją dwie jednostki, w których są przechowywane różne typy widoków: "zapisane zapytanie" zawiera widok systemowy i widok użytkownika "zapytanie użytkownika". Aby uzyskać informacje o widokach, zapoznaj się z następującą kwerendą FetchXML i Zastąp ciąg "TARGETENTITY" z `savedquery` lub `userquery` . Każdy typ jednostki ma więcej dostępnych atrybutów, które można dodać do zapytania w zależności od potrzeb. Dowiedz się więcej o jednostkach [SavedQuery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) i [userquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+Istnieją dwie jednostki, w których są przechowywane różne typy widoków: "zapisane zapytanie" zawiera widok systemowy i widok użytkownika "zapytanie użytkownika". Aby uzyskać informacje o widokach, zapoznaj się z następującą kwerendą FetchXML i Zastąp ciąg "TARGETENTITY" z `savedquery` lub `userquery` . Każdy typ jednostki ma więcej dostępnych atrybutów, które można dodać do zapytania w zależności od potrzeb. Dowiedz się więcej o jednostkach [SavedQuery](/dynamics365/customer-engagement/web-api/savedquery) i [userquery](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >
