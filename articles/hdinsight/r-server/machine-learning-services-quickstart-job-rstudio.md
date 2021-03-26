@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 7604a327c43ed1942d336399b6d8b9dbb1e64d75
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98935710"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104862837"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Szybki Start: wykonywanie skryptu języka R w klastrze usług ML w usłudze Azure HDInsight przy użyciu serwera RStudio
 
@@ -34,7 +34,7 @@ Gdy logujesz się po raz pierwszy, musisz uwierzytelnić się dwa razy. W przypa
 
 Po nawiązaniu połączenia ekran powinien przypominać następujący zrzut ekranu:
 
-![Przeglądy konsoli sieci Web programu R Studio](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="Przeglądy konsoli sieci Web programu R Studio" border="true":::
 
 ## <a name="use-a-compute-context"></a>Używanie kontekstu obliczeniowego
 

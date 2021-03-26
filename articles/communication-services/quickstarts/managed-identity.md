@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ffda88da451e25b79112a7adf85026158bd27acc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e4b71cc889615fd4784f11c9edd77b44ef421d9e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492357"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110762"
 ---
 # <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu tożsamości zarządzanych. Biblioteki usług komunikacyjnych i klienckie programu SMS obsługują uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu tożsamości zarządzanych. Tożsamość usług komunikacyjnych i zestawy SDK programu SMS obsługują uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-W tym przewodniku szybki start przedstawiono sposób autoryzacji dostępu do tożsamości i bibliotek klienckich programu SMS ze środowiska platformy Azure, które obsługuje zarządzane tożsamości. Opisano w nim również sposób testowania kodu w środowisku programistycznym.
+W tym przewodniku szybki start pokazano, jak autoryzować dostęp do tożsamości i zestawów SDK programu SMS ze środowiska platformy Azure, które obsługuje zarządzane tożsamości. Opisano w nim również sposób testowania kodu w środowisku programistycznym.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]

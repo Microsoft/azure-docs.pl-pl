@@ -190,6 +190,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Optymalizowanie platformy Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Znajdowanie nazw hostów węzłów klastra
+              href: ./find-host-name.md
             - name: Ponowne uruchamianie węzłów klastra
               href: ./cluster-reboot-vm.md
             - name: Korzystanie z interfejsu API REST systemu Apache Ambari

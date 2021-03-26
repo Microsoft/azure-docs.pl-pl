@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5d1076239938988119d8a9838d0e060d70a22082
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6eb91734afac81e103cebea48865793fa687ad71
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583360"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024833"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analiza użytkowników, sesji i zdarzeń w Application Insights
 
@@ -63,5 +63,4 @@ Sekcja **zapoznaj się z użytkownikami** zawiera informacje o pięciu przykład
     - [Noszą](usage-retention.md)
     - [Przepływy użytkownika](usage-flows.md)
     - [Skoroszyty](../visualize/workbooks-overview.md)
-    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
-
+    - [Dodawanie kontekstu użytkownika](./usage-overview.md)

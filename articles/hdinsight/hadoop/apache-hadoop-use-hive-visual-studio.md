@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4512c9d9fdb66713ba24fbf30278e5d5dbb2ae23
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943171"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863755"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uruchamianie zapytań Apache Hive przy użyciu wtyczki Data Lake Tools for Visual Studio
 
@@ -49,11 +49,11 @@ Zapytania ad hoc mogą być wykonywane w trybie **wsadowym** lub **interaktywnym
 
 5. Wybierz pozycję **Wykonaj**. Tryb wykonywania jest domyślnie **interaktywny**.
 
-    ![Wykonywanie interakcyjnego zapytania Hive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Wykonywanie interakcyjnego zapytania Hive, Visual Studio" border="true":::
 
 6. Aby uruchomić to samo zapytanie w trybie **wsadowym** , przełącz listę rozwijaną **interaktywnie** do **Batch**. Przycisk wykonywania zmienia się z **Execute** na **Submit**.
 
-    ![Przesyłanie zapytania programu Hive w usłudze Batch, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Przesyłanie zapytania programu Hive w usłudze Batch, Visual Studio" border="true":::
 
     Edytor Hive obsługuje funkcję IntelliSense. Narzędzia Data Lake Tools for Visual Studio obsługują ładowanie zdalnych metadanych podczas edycji skryptu Hive. Na przykład, jeśli wpiszesz `SELECT * FROM` , IntelliSense wyświetla wszystkie sugerowane nazwy tabel. Po określeniu nazwy tabeli funkcja IntelliSense wyświetla nazwy kolumn. Narzędzia obsługują większość instrukcji DML programu Hive, podzapytań i wbudowanych sterowników UDF. Funkcja IntelliSense zasugeruje tylko metadane klastra zaznaczonego na pasku narzędzi usługi HDInsight.
 
@@ -61,7 +61,7 @@ Zapytania ad hoc mogą być wykonywane w trybie **wsadowym** lub **interaktywnym
 
 8. W przypadku wybrania opcji przesyłania zaawansowanego Skonfiguruj **nazwę zadania**, **argumenty**, **dodatkowe konfiguracje** i **katalog stanu** w oknie dialogowym **Prześlij skrypt** . Następnie wybierz pozycję **Prześlij**.
 
-    ![Okno dialogowe przesyłania skryptu, zapytanie Hive usługi HDInsight Hadoop](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Okno dialogowe przesyłania skryptu, zapytanie Hive usługi HDInsight Hadoop" border="true":::
 
 ### <a name="create-a-hive-application"></a>Tworzenie aplikacji Hive
 
@@ -109,7 +109,7 @@ Aby uruchomić zapytanie programu Hive przez utworzenie aplikacji Hive, wykonaj 
 
    Zostanie wyświetlone **Podsumowanie zadania programu Hive** zawierające informacje o uruchomionym zadaniu. Użyj linku **Odśwież** , aby odświeżyć informacje o zadaniu do momentu, aż **stan zadania** zmieni się na **zakończone**.
 
-   ![Ukończono podsumowanie zadania Hive, aplikacja Hive, program Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Ukończono podsumowanie zadania Hive, aplikacja Hive, program Visual Studio" border="true":::
 
 7. Wybierz pozycję **dane wyjściowe zadania** , aby wyświetlić dane wyjściowe tego zadania. Zostanie wyświetlona `[ERROR] 3` , która jest wartością zwracaną przez to zapytanie.
 

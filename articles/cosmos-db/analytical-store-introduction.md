@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027183"
+ms.locfileid: "105046217"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Co to jest Azure Cosmos DB magazyn analityczny?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -112,8 +112,8 @@ Poniższe ograniczenia dotyczą danych operacyjnych w Azure Cosmos DB po włącz
 
 * Oczekiwane jest inne zachowanie w odniesieniu do wartości jawnych `null` :
   * Pule Spark w usłudze Azure Synapse będą odczytywać te wartości jako `0` (zero).
-  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości tak, jakby `NULL` pierwszy dokument kolekcji miał, dla tej samej właściwości, wartość z innym typem danych `integer` .
-  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości jako `0` (zero), jeśli pierwszy dokument kolekcji ma, dla tej samej właściwości, wartość, która jest `integer` .
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości tak, jakby `NULL` pierwszy dokument kolekcji ma dla tej samej właściwości wartość z `non-numeric` typem danych.
+  * Pule bezserwerowe programu SQL Server w usłudze Azure Synapse będą odczytywać te wartości jako `0` (zero), jeśli pierwszy dokument kolekcji ma, dla tej samej właściwości, wartość z `numeric` typem danych.
 
 * Zaczekaj inne zachowanie w odniesieniu do brakujących kolumn:
   * Pule platformy Spark w usłudze Azure Synapse będą przedstawiać te kolumny jako `undefined` .

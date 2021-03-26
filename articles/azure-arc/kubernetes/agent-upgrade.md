@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Aktualizacje agentów kontroli dla usługi Azure ARC z włączoną obsługą Kubernetes
 keywords: Kubernetes, łuk, Azure, K8s, kontenery, Agent, uaktualnienie
-ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d81a00ed4f30f446aeed96d59a455935c652b7d5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121919"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954551"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Uaktualnianie agentów Kubernetes z włączonym usługą Azure Arc
 
@@ -84,6 +84,6 @@ Jedna wersja pomocnicza agentów Kubernetes z włączoną funkcją Azure Arc jes
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./connect-cluster.md).
-* Masz już klaster Kubernetes połączony z usługą Azure Arc? [Utwórz konfiguracje w klastrze Kubernetes z włączonym łukiem](./use-gitops-connected-cluster.md).
+* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./quickstart-connect-cluster.md).
+* Masz już klaster Kubernetes połączony z usługą Azure Arc? [Utwórz konfiguracje w klastrze Kubernetes z włączonym łukiem](./tutorial-use-gitops-connected-cluster.md).
 * Dowiedz się [, jak używać Azure Policy do stosowania konfiguracji w odpowiedniej skali](./use-azure-policy.md).

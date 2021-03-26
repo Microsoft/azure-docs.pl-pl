@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b0a173d605da859830e288aebf355117b928090a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622291"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110372"
 ---
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta SMS usługi komunikacyjnej do wysyłania wiadomości SMS.
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK SMS usługi komunikacyjnej do wysyłania wiadomości SMS.
 
 W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
 
@@ -57,7 +57,7 @@ Użyj edytora tekstów, aby utworzyć plik o nazwie **send-sms.js** w katalogu g
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Użyj `npm install` polecenia, aby zainstalować bibliotekę klienta SMS usługi Azure Communication Services dla języka JavaScript.
+Użyj `npm install` polecenia, aby zainstalować zestaw SMS SDK usług Azure Communications Services dla języka JavaScript.
 
 ```console
 npm install @azure/communication-sms --save
@@ -67,7 +67,7 @@ npm install @azure/communication-sms --save
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta SMS usługi Azure Communication Services dla Node.js.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SMS SDK usługi Azure Communication Services dla Node.js.
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -78,7 +78,7 @@ Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki k
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Zaimportuj **SmsClient** z biblioteki klienta i Utwórz wystąpienie go przy użyciu parametrów połączenia. Poniższy kod pobiera parametry połączenia dla zasobu ze zmiennej środowiskowej o nazwie `COMMUNICATION_SERVICES_CONNECTION_STRING` . Dowiedz się, jak [zarządzać parametrami połączenia zasobu](../../create-communication-resource.md#store-your-connection-string).
+Zaimportuj **SmsClient** z zestawu SDK i Utwórz wystąpienie go przy użyciu parametrów połączenia. Poniższy kod pobiera parametry połączenia dla zasobu ze zmiennej środowiskowej o nazwie `COMMUNICATION_SERVICES_CONNECTION_STRING` . Dowiedz się, jak [zarządzać parametrami połączenia zasobu](../../create-communication-resource.md#store-your-connection-string).
 
 Dodaj następujący kod do **send-sms.js**:
 

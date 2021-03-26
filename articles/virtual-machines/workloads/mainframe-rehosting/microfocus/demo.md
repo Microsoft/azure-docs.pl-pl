@@ -7,12 +7,12 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-ms.openlocfilehash: 7c9a9f355def492f04f47b49045fadb5afb6acd6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 9ef9dd27183b6c23762dcdc2d5a844123d35559a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950539"
+ms.locfileid: "105045964"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurowanie mikrofokusu CICS BankDemo dla deweloperów Enterprise Developer 4,0 na platformie Azure
 
@@ -276,5 +276,5 @@ Gratulacje! Teraz uruchamiasz aplikację CICS na platformie Azure przy użyciu p
 - [Uruchamianie serwera korporacyjnego w kontenerach platformy Docker na platformie Azure](run-enterprise-server-container.md)
 - [Migracja komputera mainframe — Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
 - [Virtual Machines](../../../linux/overview.md)
-- [Rozwiązywanie problemów](../../../troubleshooting/index.yml)
+- [Rozwiązywanie problemów](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Sztuczna komputera mainframe do migracji na platformę Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745297"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046355"
 ---
 # <a name="manage-the-datadog-resource"></a>Zarządzanie zasobem usługi Datadog
 
@@ -61,7 +61,7 @@ Listę zasobów można filtrować według typu zasobu, nazwy grupy zasobów, lok
 **Usługi Datadog** kolumn wskazuje, czy zasób wysyła dzienniki do usługi Datadog. Jeśli zasób nie wysyła dzienników, to pole wskazuje, dlaczego dzienniki nie są wysyłane do usługi Datadog. Przyczyny mogą być następujące:
 
 - Zasób nie obsługuje wysyłania dzienników. Tylko typy zasobów z kategoriami dzienników monitorowania można skonfigurować do wysyłania dzienników do usługi Datadog.
-- Osiągnięto limit pięciu ustawień diagnostycznych. Każdy zasób platformy Azure może mieć maksymalnie pięć ustawień diagnostycznych. Aby uzyskać więcej informacji, zobacz [Ustawienia diagnostyczne](../../azure-monitor/platform/diagnostic-settings.md).
+- Osiągnięto limit pięciu ustawień diagnostycznych. Każdy zasób platformy Azure może mieć maksymalnie pięć ustawień diagnostycznych. Aby uzyskać więcej informacji, zobacz [Ustawienia diagnostyczne](../../azure-monitor/essentials/diagnostic-settings.md).
 - Błąd. Zasób jest skonfigurowany do wysyłania dzienników do usługi Datadog, ale jest blokowany z powodu błędu.
 - Dzienniki nie zostały skonfigurowane. Tylko zasoby platformy Azure, które mają odpowiednie Tagi zasobów, są skonfigurowane do wysyłania dzienników do usługi Datadog.
 - Region nie jest obsługiwany. Zasób platformy Azure znajduje się w regionie, który obecnie nie obsługuje wysyłania dzienników do usługi Datadog.

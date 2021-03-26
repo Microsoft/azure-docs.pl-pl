@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/30/2020
-ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/23/2021
+ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96500873"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951287"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Dostrajanie automatyczne w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +54,8 @@ Aby zapoznać się z omówieniem działania dostrajania automatycznego i dla typ
 
 ## <a name="enable-automatic-tuning"></a>Włączanie automatycznego dostrajania
 
-- [Włączenie dostrajania automatycznego dla Azure SQL Database w Azure Portal](automatic-tuning-enable.md) lub przy użyciu instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
-- Automatyczne dostrajanie dla wystąpienia zarządzanego usługi Azure SQL można włączyć za pomocą instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
+- [Włączenie dostrajania automatycznego dla Azure SQL Database w Azure Portal](automatic-tuning-enable.md) lub przy użyciu instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) T-SQL.
+- Automatyczne dostrajanie dla wystąpienia zarządzanego usługi Azure SQL można włączyć za pomocą instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true) T-SQL.
 
 ## <a name="automatic-tuning-options"></a>Opcje dostrajania automatycznego
 
@@ -64,7 +64,7 @@ Opcje dostrajania automatycznego dostępne w Azure SQL Database i wystąpieniu z
 | Opcja dostrajania automatycznego | Obsługa pojedynczej bazy danych i bazy danych w puli | Obsługa bazy danych wystąpień |
 | :----------------------------- | ----- | ----- |
 | **Create index** — identyfikuje indeksy, które mogą zwiększyć wydajność obciążenia, tworzy indeksy i automatycznie sprawdzają, czy wydajność zapytań została ulepszona. | Tak | Nie |
-| **Drop index** — identyfikuje nadmiarowe i zduplikowane indeksy codziennie, z wyjątkiem unikatowych indeksów i indeksów, które nie były używane przez długi czas (>90 dni). Należy pamiętać, że ta opcja nie jest zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów. Usuwanie nieużywanych indeksów nie jest obsługiwane dla warstw usług premium i Krytyczne dla działania firmy. | Tak | Nie |
+| **Drop index** -odrzuca nieużywane (w ciągu ostatnich 90 dni) i zduplikowane indeksy. Indeksy unikatowe, w tym indeksy obsługujące klucz podstawowy i ograniczenia UNIQUE, nigdy nie są usuwane. Ta opcja może zostać automatycznie wyłączona, gdy zapytania ze wskazówkami dotyczącymi indeksów są obecne w obciążeniu, lub gdy obciążenie wykonuje przełączanie partycji. W warstwach usług premium i Krytyczne dla działania firmy ta opcja nigdy nie spowoduje porzucenia nieużywanych indeksów, ale spowoduje porzucenie zduplikowanych indeksów (jeśli istnieją). | Tak | Nie |
 | **Wymuś ostatni dobry plan** (automatyczne korekcje planu) — IDENTYFIKUJE zapytania SQL platformy Azure przy użyciu planu wykonywania, który jest wolniejszy niż poprzedni dobry plan, i wykonuje zapytania przy użyciu ostatniego znanego dobrego planu zamiast planu uległa pogorszeniu. | Tak | Tak |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Dostrajanie automatyczne dla SQL Database
@@ -90,7 +90,7 @@ Aby dowiedzieć się więcej o tworzeniu powiadomień e-mail dotyczących zalece
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Dostrajanie automatyczne dla wystąpienia zarządzanego usługi Azure SQL
 
-Dostrajanie automatyczne dla wystąpienia zarządzanego SQL obsługuje tylko **wymuszanie ostatniego dobrego planu**. Aby uzyskać więcej informacji na temat konfigurowania opcji dostrajania automatycznego przy użyciu języka T-SQL, zobacz [dostrajanie automatyczne wprowadza automatyczne korekcje planu](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) i [automatyczną korektę planu](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+Dostrajanie automatyczne dla wystąpienia zarządzanego SQL obsługuje tylko **wymuszanie ostatniego dobrego planu**. Aby uzyskać więcej informacji na temat konfigurowania opcji dostrajania automatycznego przy użyciu języka T-SQL, zobacz [dostrajanie automatyczne wprowadza automatyczne korekcje planu](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) i [automatyczną korektę planu](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Następne kroki
 

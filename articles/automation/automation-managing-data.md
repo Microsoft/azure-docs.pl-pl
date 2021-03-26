@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616120"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954677"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
@@ -56,7 +56,7 @@ Poniższa tabela zawiera podsumowanie zasad przechowywania dla różnych zasobó
 | Raporty węzła |Raport węzła zostanie trwale usunięty 90 dni po wygenerowaniu nowego raportu dla tego węzła. |
 | Elementy Runbook |Element Runbook zostanie trwale usunięty 30 dni od momentu usunięcia zasobu przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera zasób<sup>1</sup>. |
 
-<sup>1</sup> Element Runbook można odzyskać w ramach 30-dniowego okna przez zgłoszenie zdarzenia pomocy technicznej platformy Azure z obsługą Microsoft Azure. Przejdź do [witryny pomocy technicznej systemu Azure](/support/options) i wybierz pozycję **Prześlij żądanie pomocy technicznej**.
+<sup>1</sup> Element Runbook można odzyskać w ramach 30-dniowego okna przez zgłoszenie zdarzenia pomocy technicznej platformy Azure z obsługą Microsoft Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Prześlij żądanie pomocy technicznej**.
 
 ## <a name="data-backup"></a>Kopia zapasowa danych
 

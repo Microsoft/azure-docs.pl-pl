@@ -4,15 +4,15 @@ description: Poznaj kilka wymagań dotyczących integracji dla komercyjnej witry
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88606812"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044128"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Często zadawane pytania dotyczące interfejsów API realizacji SaaS
 
@@ -40,7 +40,10 @@ Podczas subskrybowania oferty SaaS użytkownik wyraził zgodę na płatność za
 
 Po zasubskrybowaniu oferty użytkownik platformy Azure może odnaleźć wszystkie oferty na platformie Azure i zarządzać nimi. Domyślnie stan nowo zasubskrybowanej oferty SaaS jest pokazywany jako **Inicjowanie obsługi administracyjnej**. W tym stanie użytkownik platformy Azure zostanie monitowany z akcją w celu **skonfigurowania konta**, aby przejść do środowiska zarządzania subskrypcją usługi SaaS w Azure Portal.
 
-Gdy użytkownik wybierze opcję **Skonfiguruj konto**, zostanie przekierowany do witryny sieci Web usługi SaaS. Wydawca skonfigurował adres URL w momencie opublikowania oferty. Ta strona jest nazywana stroną docelową wydawcy. Użytkownicy platformy Azure logują się na stronie docelowej SaaS na podstawie istniejących poświadczeń usługi AAD na platformie Azure.
+Gdy użytkownik wybierze opcję **Skonfiguruj konto**, zostanie przekierowany do witryny sieci Web usługi SaaS. Wydawca skonfigurował adres URL w momencie opublikowania oferty. Ta strona jest nazywana stroną docelową wydawcy. Użytkownicy platformy Azure logują się na stronie docelowej SaaS na podstawie istniejących poświadczeń usługi Azure Active Directory (Azure AD) na platformie Azure.
+
+> [!IMPORTANT]
+> Musisz zalogować użytkownika kupowanie przy użyciu Azure Active Directory, logowania jednokrotnego (Azure AD SSO) zgodnie z [zasadami](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). `mail`Właściwość zasobu użytkownika pobrana z interfejsu API Microsoft Graph udostępnia informacje kontaktowe dotyczące przypadku usługi Azure AD i elementu `userPrincipalName` MSA. Istnieje możliwość, że pole "Poczta" jest puste dla usługi Azure AD, a użytkownik może nie mieć zapisanej wiadomości e-mail. W takim przypadku zalecamy wykrycie i poproszenie o kontaktowy adres e-mail. Jest to jedyna szansa, aby uzyskać kontaktowy adres e-mail, aby skontaktować się z klientem w trakcie lub po zakończeniu procesu dochodzenia przez klienta.
 
 Gdy użytkownik platformy Azure zostanie przekierowany do strony docelowej, zostanie dodany token do adresu URL zapytania. Token ten jest krótkoterminowy i ważny przez 24 godziny. Następnie możesz wykryć obecność tego tokenu i wywoływać interfejs API firmy Microsoft, aby uzyskać więcej kontekstu skojarzonego z tokenem.
 

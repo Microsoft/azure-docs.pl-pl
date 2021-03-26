@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511018"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046814"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Szybki Start: korzystanie z interfejsu API języka Python w celu uruchomienia zadania Azure Batch
 
@@ -28,7 +28,7 @@ Po ukończeniu tego przewodnika Szybki Start zrozumiesz kluczowe pojęcia związ
 
 - Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) w wersji 2,7 lub 3,3 lub nowszej, w tym Menedżera pakietów [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads) w wersji 2,7 lub 3,6, włącznie z menedżerem pakietów [PIP](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
