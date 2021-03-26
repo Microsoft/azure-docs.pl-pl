@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587852"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604706"
 ---
 # <a name="securing-service-principals"></a>Zabezpieczanie podmiotów usługi
 
@@ -96,6 +96,7 @@ Aby uzyskać więcej informacji, zobacz [Get-AzureADServicePrincipal](/powershel
 Aby ocenić zabezpieczenia podmiotów usługi, należy ocenić uprawnienia i magazyn poświadczeń.
 
 Należy wyeliminować potencjalne wyzwania, korzystając z poniższych informacji.
+
 |Wyzwania | Środki zaradcze|
 | - | - |
 | Wykrywaj użytkownika, który wyraził zgodę na aplikację z wieloma dzierżawcami, i Wykryj nielegalne dotacje dla aplikacji z wieloma dzierżawcami | Uruchom następujące środowisko PowerShell, aby znaleźć aplikacje wielodostępne.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Wyłącz wyrażenie zgody użytkownika. <br>Zezwalaj na zgodę użytkownika od zweryfikowanych wydawców na wybrane uprawnienia (zalecane) <br> Użyj dostępu warunkowego, aby blokować jednostki usługi z niezaufanych lokalizacji. Skonfiguruj je w kontekście użytkownika, a ich tokeny powinny służyć do wyzwalania nazwy głównej usługi.|

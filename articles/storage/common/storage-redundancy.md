@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802203"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607324"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -73,9 +73,9 @@ W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w który
 
 | Typ konta magazynu | Obsługiwane regiony | Obsługiwane usługi |
 |--|--|--|
-| Ogólnego przeznaczenia<sup>w wersji 2</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japonia Wschodnia<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> tabelami<br /> Kolejki<br /> |
-| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Francja Środkowa <br /> Japan East<br /> Południowe Zjednoczone Królestwo <br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2| Tylko blokowe obiekty blob w warstwie Premium |
-| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Francja Środkowa <br /> Japan East<br /> Południowe Zjednoczone Królestwo <br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2 | Tylko udziały plików Premium |
+| Ogólnego przeznaczenia<sup>w wersji 2</sup> | Kazał Północna Republika Południowej Afryki<br /> (Azja i Pacyfik) Azja Wschodnia<br /> (Azja i Pacyfik) Azja Południowo-Wschodnia<br /> (Azja i Pacyfik) Australia Wschodnia<br /> (Azja i Pacyfik) Indie Środkowe<br /> (Azja i Pacyfik) Japonia Wschodnia<br /> (Azja i Pacyfik) Korea środkowa<br /> – Kanada środkowa<br /> Terenie Europa Północna<br /> Terenie Europa Zachodnia<br /> Terenie Francja środkowa<br /> Terenie Niemcy Środkowo-Zachodnie<br /> Terenie Norwegia Wschodnia<br /> Terenie Szwajcaria Północna<br /> Terenie Południowe Zjednoczone Królestwo<br /> (Bliski Wschód) Północne Zjednoczone Emiraty Arabskie<br /> (Ameryka Południowa) Brazylia Południowa<br /> Prześlij Środkowe stany USA<br /> (USA) Wschodnie stany USA<br /> Prześlij Wschodnie stany USA 2<br /> Prześlij Północno-środkowe stany USA<br />Prześlij Południowo-środkowe stany USA<br /> Prześlij Zachodnie stany USA<br /> Prześlij Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> tabelami<br /> Kolejki<br /> |
+| BlockBlobStorage<sup>1</sup> | Kazał Północna Republika Południowej Afryki<br /> (Azja i Pacyfik) Azja Wschodnia<br /> (Azja i Pacyfik) Azja Południowo-Wschodnia<br /> (Azja i Pacyfik) Australia Wschodnia<br /> (Azja i Pacyfik) Indie Środkowe<br /> (Azja i Pacyfik) Japonia Wschodnia<br /> (Azja i Pacyfik) Korea środkowa<br /> – Kanada środkowa<br /> Terenie Europa Północna<br /> Terenie Europa Zachodnia<br /> Terenie Francja środkowa<br /> Terenie Niemcy Środkowo-Zachodnie<br /> Terenie Norwegia Wschodnia<br /> Terenie Szwajcaria Północna<br /> Terenie Południowe Zjednoczone Królestwo<br /> (Bliski Wschód) Północne Zjednoczone Emiraty Arabskie<br /> (Ameryka Południowa) Brazylia Południowa<br /> Prześlij Środkowe stany USA<br /> (USA) Wschodnie stany USA<br /> Prześlij Wschodnie stany USA 2<br /> Prześlij Północno-środkowe stany USA<br />Prześlij Południowo-środkowe stany USA<br /> Prześlij Zachodnie stany USA<br /> Prześlij Zachodnie stany USA 2 | Tylko blokowe obiekty blob w warstwie Premium |
+| FileStorage | Kazał Północna Republika Południowej Afryki<br /> (Azja i Pacyfik) Azja Wschodnia<br /> (Azja i Pacyfik) Azja Południowo-Wschodnia<br /> (Azja i Pacyfik) Australia Wschodnia<br /> (Azja i Pacyfik) Indie Środkowe<br /> (Azja i Pacyfik) Japonia Wschodnia<br /> (Azja i Pacyfik) Korea środkowa<br /> – Kanada środkowa<br /> Terenie Europa Północna<br /> Terenie Europa Zachodnia<br /> Terenie Francja środkowa<br /> Terenie Niemcy Środkowo-Zachodnie<br /> Terenie Norwegia Wschodnia<br /> Terenie Szwajcaria Północna<br /> Terenie Południowe Zjednoczone Królestwo<br /> (Bliski Wschód) Północne Zjednoczone Emiraty Arabskie<br /> (Ameryka Południowa) Brazylia Południowa<br /> Prześlij Środkowe stany USA<br /> (USA) Wschodnie stany USA<br /> Prześlij Wschodnie stany USA 2<br /> Prześlij Północno-środkowe stany USA<br />Prześlij Południowo-środkowe stany USA<br /> Prześlij Zachodnie stany USA<br /> Prześlij Zachodnie stany USA 2 | Tylko udziały plików Premium |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -127,15 +127,30 @@ Tylko konta magazynu ogólnego przeznaczenia w wersji 2 obsługują GZRS i RA-GZ
 
 GZRS i RA-GZRS są obsługiwane w następujących regionach:
 
-- Azja Południowo-Wschodnia
-- Europa Północna
-- Europa Zachodnia
-- Japan East
-- Południowe Zjednoczone Królestwo
-- Środkowe stany USA
-- Wschodnie stany USA
-- Wschodnie stany USA 2
-- Zachodnie stany USA 2
+- Kazał Północna Republika Południowej Afryki
+- (Azja i Pacyfik) Azja Wschodnia
+- (Azja i Pacyfik) Azja Południowo-Wschodnia
+- (Azja i Pacyfik) Australia Wschodnia
+- (Azja i Pacyfik) Indie Środkowe
+- (Azja i Pacyfik) Japonia Wschodnia
+- (Azja i Pacyfik) Korea środkowa
+- – Kanada środkowa
+- Terenie Europa Północna
+- Terenie Europa Zachodnia
+- Terenie Francja środkowa
+- Terenie Niemcy Środkowo-Zachodnie
+- Terenie Norwegia Wschodnia
+- Terenie Szwajcaria Północna
+- Terenie Południowe Zjednoczone Królestwo
+- (Bliski Wschód) Północne Zjednoczone Emiraty Arabskie
+- (Ameryka Południowa) Brazylia Południowa
+- Prześlij Środkowe stany USA
+- (USA) Wschodnie stany USA
+- Prześlij Wschodnie stany USA 2
+- Prześlij Północno-środkowe stany USA
+- Prześlij Południowo-środkowe stany USA
+- Prześlij Zachodnie stany USA
+- Prześlij Zachodnie stany USA 2
 
 Aby uzyskać informacje na temat cen, zobacz szczegóły cennika [obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), [plików](https://azure.microsoft.com/pricing/details/storage/files/), [kolejek](https://azure.microsoft.com/pricing/details/storage/queues/)i [tabel](https://azure.microsoft.com/pricing/details/storage/tables/).
 

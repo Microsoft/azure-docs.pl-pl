@@ -1,14 +1,14 @@
 ---
 title: Przegląd agenta połączonej maszyny
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470493"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609239"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -18,6 +18,8 @@ Agent połączonego komputera z usługą Azure Arc umożliwia zarządzanie maszy
 >Począwszy od ogólnej wersji serwerów z obsługą usługi Azure Arc we wrześniu 2020, wszystkie wersje wstępne agenta maszyny połączonej z platformą Azure (agenci z wersjami mniejszą niż 1,0) są **przestarzałe** w dniu **2 lutego 2021**.  Ten przedział czasu umożliwia uaktualnienie do wersji 1,0 lub nowszej przed niewykorzystanymi agentami, którzy nie będą już mogli komunikować się z usługą serwera z włączonym łukiem Azure.
 
 ## <a name="agent-component-details"></a>Szczegóły składnika agenta
+
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Omówienie agentów serwerów z włączonym łukem." border="false":::
 
 Pakiet agenta połączonej maszyny platformy Azure zawiera kilka składników logicznych, które są powiązane ze sobą.
 

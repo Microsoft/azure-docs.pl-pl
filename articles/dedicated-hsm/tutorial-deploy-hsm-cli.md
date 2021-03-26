@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 1ca8bc5c82540b0dc02959d26b452554ef294368
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: fa1c01c2d9da19ec1f60878de83a509b7cf561e8
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200533"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606831"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Samouczek: wdrażanie sprzętowych modułów zabezpieczeń w istniejącej sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -233,14 +233,14 @@ Dane wyjściowe powinny wyglądać jak te na poniższym obrazie:
 
 ![Zrzut ekranu przedstawia dane wyjściowe w oknie programu PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-Do tego momentu przydzielono wszystkie zasoby na potrzeby wdrożenia o wysokiej dostępności z dwoma modułami HSM oraz zweryfikowano dostęp i stan operacyjny. Dalsze czynności związane z konfiguracją lub testowaniem obejmują dodatkową pracę z samym modułem HSM. W tym celu należy postępować zgodnie z instrukcjami w przewodniku administracji firmy Thales Luna Network HSM 7 Rozdział 7, aby zainicjować moduł HSM i utworzyć partycje. Cała dokumentacja i oprogramowanie są dostępne bezpośrednio z programu firmy Thales do pobrania po zarejestrowaniu się w portalu obsługi klienta firmy Thales i o IDENTYFIKATORze klienta. Pobierz oprogramowanie klienckie w wersji 7.2, aby uzyskać wszystkie wymagane składniki.
+Do tego momentu przydzielono wszystkie zasoby na potrzeby wdrożenia o wysokiej dostępności z dwoma modułami HSM oraz zweryfikowano dostęp i stan operacyjny. Dalsze czynności związane z konfiguracją lub testowaniem obejmują dodatkową pracę z samym modułem HSM. W tym celu należy postępować zgodnie z instrukcjami w przewodniku administratora modułu HSM firmy Thales Luna 7, rozdział 7, aby zainicjować moduł HSM i utworzyć partycje. Cała dokumentacja i oprogramowanie są dostępne bezpośrednio z programu firmy Thales do pobrania po zarejestrowaniu się w [portalu obsługi klienta firmy Thales](https://supportportal.thalesgroup.com/csm) i o identyfikatorze klienta. Pobierz oprogramowanie klienckie w wersji 7.2, aby uzyskać wszystkie wymagane składniki.
 
 ## <a name="delete-or-clean-up-resources"></a>Usuwanie lub czyszczenie zasobów
 
 Jeśli zakończono pracę z urządzeniem HSM, to można je usunąć jako zasób i zwrócić do dostępnej puli. Poważnym problemem w takim przypadku są jakiekolwiek poufne dane klienta znajdujące się na urządzeniu. Najlepszym sposobem na "zeroize" jest to, że hasło administratora modułu HSM jest niewłaściwe 3 razy (Uwaga: nie jest to administrator urządzenia — jest to rzeczywisty administrator HSM). Ze względów bezpieczeństwa w celu ochrony materiału kluczowego urządzenie nie może zostać usunięte jako zasób platformy Azure, dopóki nie będzie w stanie wyzerować.
 
 > [!NOTE]
-> Jeśli masz problem z dowolną konfiguracją urządzeń firmy Thales, skontaktuj się z działem [obsługi klienta firmy Thales](https://safenet.gemalto.com/technical-support/).
+> Jeśli masz problem z dowolną konfiguracją urządzeń firmy Thales, skontaktuj się z działem [obsługi klienta firmy Thales](https://supportportal.thalesgroup.com/csm).
 
 Jeśli wszystkie zasoby w tej grupie zasobów zostały zakończone, można je usunąć za pomocą następującego polecenia:
 

@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać iniekcji zależności do rejestrowania i
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955092"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608123"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -21,6 +21,11 @@ Azure Functions obsługuje wzorzec projektowania oprogramowania dla iniekcji zal
 - Iniekcja zależności w Azure Functions jest oparta na funkcjach wstrzykiwania zależności platformy .NET Core. Zaleca się zaznajomienie z [iniekcją zależności .NET Core](/aspnet/core/fundamentals/dependency-injection) . Istnieją różnice między zastępowaniem zależności i sposobem odczytywania wartości konfiguracji przy użyciu Azure Functions na planie zużycia.
 
 - Obsługa iniekcji zależności rozpoczyna się od Azure Functions 2. x.
+
+- Wzorce iniekcji zależności różnią się w zależności od tego, czy funkcje języka C# działają [w procesie](functions-dotnet-class-library.md) , czy [poza procesem](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> Wskazówki zawarte w tym artykule mają zastosowanie tylko do [funkcji biblioteki klas języka C#](functions-dotnet-class-library.md), które są uruchamiane w procesie w środowisku uruchomieniowym. Ten niestandardowy model iniekcji zależności nie ma zastosowania do [funkcji izolowanych przez platformę .NET](dotnet-isolated-process-guide.md), co umożliwia uruchamianie wbudowanych funkcji programu .NET 5,0. Model procesów izolowanych przez platformę .NET opiera się na ASP.NET Core zwykłych wzorcach iniekcji zależności. Aby dowiedzieć się więcej, zobacz [iniekcja zależności](dotnet-isolated-process-guide.md#dependency-injection) w odizolowanym procesie .NET Guide.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

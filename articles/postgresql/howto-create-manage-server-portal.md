@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie Azure Database for PostgreSQL-Azure Portal
 description: Dowiedz się, jak zarządzać serwerem Azure Database for PostgreSQL przy użyciu Azure Portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/20/2019
-ms.openlocfilehash: 393e67d1b690f7231b5bf298b44f4db7c489d184
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b581ac137a4172ab70e4fb3fb2a75e268115c06
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91704518"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604128"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for PostgreSQL przy użyciu Azure Portal
 

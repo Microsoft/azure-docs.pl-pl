@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100988"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604791"
 ---
 # <a name="set-map-style-android-sdk"></a>Ustaw styl mapy (Android SDK)
 
@@ -83,7 +83,7 @@ Poniższy zrzut ekranu przedstawia powyższy kod zawierający mapę z stylem sat
 
 ## <a name="setting-the-map-camera"></a>Ustawianie aparatu mapy
 
-Aparat mapy kontroluje, jaka część mapy jest wyświetlana na mapie. Aparat może być w tym samym układzie programowo w kodzie. Gdy ustawiasz ją w kodzie, istnieją dwie główne metody ustawiania pozycji mapy; Używanie centrum i powiększanie lub przekazywanie w polu ograniczenia. Poniższy kod pokazuje, jak ustawić wszystkie opcjonalne opcje kamery podczas korzystania z `center` i `zoom` .
+Formant mapy, która jest częścią świata wyświetlana w okienku ekranu mapy. Aparat może być w tym samym układzie programowo w kodzie. Gdy ustawiasz ją w kodzie, istnieją dwie główne metody ustawiania pozycji mapy; Używanie centrum i powiększanie lub przekazywanie w polu ograniczenia. Poniższy kod pokazuje, jak ustawić wszystkie opcjonalne opcje kamery podczas korzystania z `center` i `zoom` .
 
 ::: zone pivot="programming-language-java-android"
 
@@ -104,7 +104,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -130,7 +130,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
@@ -162,7 +162,7 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -192,14 +192,14 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
 
 ::: zone-end
 
-Należy zauważyć, że współczynnik proporcji pola ograniczenia nie może być taki sam jak współczynnik proporcji mapy, ponieważ taka Mapa często pokazuje pełen obszar pola ograniczenia, ale często jest tylko w pionie lub w poziomie.
+Współczynnik proporcji pola ograniczenia nie może być taki sam jak współczynnik proporcji mapy, ponieważ w takiej formie Mapa często będzie wyświetlać pełen obszar pola ograniczenia, ale często jest to możliwe tylko w pionie lub w poziomie.
 
 ## <a name="next-steps"></a>Następne kroki
 

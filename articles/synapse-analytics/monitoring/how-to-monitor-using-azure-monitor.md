@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549859"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609262"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Używanie Azure Monitor z obszarem roboczym usługi Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ Utwórz lub Dodaj ustawienia diagnostyczne dla obszaru roboczego, dedykowanej pu
 1. Podaj nazwę ustawienia, wybierz pozycję **Wyślij do log Analytics**, a następnie wybierz obszar roboczy z **log Analytics obszarze roboczym**.
 
     > [!NOTE]
-    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [Dokumentacja dzienników AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [Dokumentacja dzienników AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Wybierz pozycję **Zapisz**.
 

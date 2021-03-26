@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d80caf767d923ce2539ca254a8312371155a3104
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553735"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607596"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
@@ -52,7 +52,7 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: podjęto próbę usunięcia galerii zawierającej co najmniej jedną istniejącą definicję obrazu. Galeria musi być pusta, aby można było ją usunąć.  
 **Obejście**: Usuń wszystkie definicje obrazów w galerii, a następnie wybierz pozycję Usuń galerię. Jeśli definicja obrazu zawiera wersje obrazu, należy usunąć wersje obrazu przed usunięciem definicji obrazu.
 
-**Komunikat**: *nazwa galerii "<galleryname \> " nie jest unikatowa w ramach subskrypcji " <subscriptionId> ". Wybierz inną nazwę galerii.*  
+**Komunikat**: *nazwa galerii "<galleryname \> " nie jest unikatowa w ramach subskrypcji " <subscriptionID> ". Wybierz inną nazwę galerii.*  
 **Przyczyna**: masz istniejącą galerię o tej samej nazwie i podjęto próbę utworzenia innej galerii o tej samej nazwie.  
 **Obejście**: Wybierz inną nazwę galerii.
 
@@ -127,7 +127,7 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: podjęto próbę usunięcia definicji obrazu zawierającej wersje obrazu. Definicja obrazu musi być pusta, aby można było ją usunąć.  
 **Obejście**: Usuń wszystkie wersje obrazu w definicji obrazu, a następnie wybierz pozycję Usuń definicję obrazu.
 
-**Komunikat**: *nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartości \> na typ <PropertyType \> . Nie można dopasować nazwy identyfikatora <wartość \> do prawidłowej nazwy modułu wyliczającego. Określ jedną z następujących nazw modułów wyliczających i spróbuj ponownie: <choice1 \> , <Choice2 \> ,.* ..  
+**Komunikat**: *nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartości \> na typ <PropertyType \> . Nie można dopasować nazwy identyfikatora <wartość \> do prawidłowej nazwy modułu wyliczającego. Określ jedną z następujących nazw modułów wyliczających i spróbuj ponownie: <wybór \_ 1 \> , <wyboru \_ 2 \> ,.* ..  
 **Przyczyna**: właściwość ma ograniczoną listę możliwych wartości, a <wartość \> nie jest jedną z nich.  
 **Obejście**: Wybierz jedną z możliwych <\> wartości wyboru.
 
@@ -185,7 +185,7 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: podczas tworzenia wersji obrazu przy użyciu listy dysków i/lub migawek dysku, co najmniej dwa dyski lub migawki dysków mają ten sam identyfikator zasobu.  
 **Obejście**: Usuń lub Zmień zduplikowane identyfikatory źródeł dysków.
 
-**Komunikat**: *Identyfikator właściwości <ResourceID \> w ścieżce "properties. obszarze storageprofile. <diskImages \> . Source.ID" jest nieprawidłowy. Oczekiwano w pełni kwalifikowanego identyfikatora zasobu rozpoczynającego się od "/subscriptions/{subscriptionId}" lub "/providers/{resourceProviderNamespace}/".*  
+**Komunikat**: *Identyfikator właściwości <ResourceID \> w ścieżce "properties. obszarze storageprofile. <diskImages \> . Source.ID" jest nieprawidłowy. Oczekiwano w pełni kwalifikowanego identyfikatora zasobu rozpoczynającego się od "/subscriptions/ <subscriptionID> " lub "/Providers/ <resourceProviderNamespace> /".*  
 **Przyczyna**: wartość <ResourceID \> jest niepoprawnie sformatowana.  
 **Obejście**: Sprawdź, czy identyfikator zasobu jest prawidłowy.
 
@@ -303,7 +303,7 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: definicja obrazu użyta do wdrożenia maszyny wirtualnej nie zawiera żadnych wersji obrazu, które są zawarte w najnowszym.  
 **Obejście**: Upewnij się, że istnieje co najmniej jedna wersja obrazu, która ma ustawioną wartość "Wyklucz z najnowszej" jako false. 
 
-**Komunikat**: *Klient ma uprawnienia do wykonania akcji "Microsoft. COMPUTE/Galerie/images/Versions/Read" w zakresie <ResourceID \> , ale bieżąca dzierżawa <tenantId1 \> nie ma autoryzacji dostępu do połączonej subskrypcji <subscriptionId2 \> .*  
+**Komunikat**: *Klient ma uprawnienia do wykonania akcji "Microsoft. COMPUTE/Galerie/images/Versions/Read" w zakresie <ResourceID \> , ale bieżąca dzierżawa <tenantID \> nie jest autoryzowana do uzyskiwania dostępu do połączonej subskrypcji <subskrypcji \> .*  
 **Przyczyna**: maszyna wirtualna lub zestaw skalowania został utworzony za pomocą obrazu SIG w innej dzierżawie. Podjęto próbę wprowadzenia zmiany do maszyny wirtualnej lub zestawu skalowania, ale nie masz dostępu do subskrypcji, która jest właścicielem obrazu.  
 **Obejście**: skontaktuj się z właścicielem subskrypcji wersji obrazu, aby przyznać dostęp do odczytu do wersji obrazu.
 
@@ -327,12 +327,17 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: bieżący obraz źródła zestawu skalowania to uogólniony obraz źródłowy, ale jest aktualizowany przy użyciu obrazu źródła, który jest wyspecjalizowany. Bieżący obraz źródłowy i nowy obraz źródłowy zestawu skalowania muszą być tego samego stanu.  
 **Obejście**: Aby zaktualizować zestaw skalowania, użyj uogólnionej wersji obrazu.
 
-**Komunikat**: *ustawiono szyfrowanie dysków <diskEncryptionSetId \> w galerii obrazów udostępnionych <versionId \> należy do subskrypcji <subscriptionId1 \> i nie można jej używać z zasobem "" w ramach \> subskrypcji <subscriptionId2*  
+**Komunikat**: *ustawiono szyfrowanie dysków <diskEncryptionSetID \> w galerii obrazów udostępnionych <versionID \> należy do subskrypcji <identyfikatora subskrypcji \_ 1 \> i nie można jej użyć z zasobem "" w subskrypcji <Identyfikator subskrypcji \_ 2 \>*  
 **Przyczyna**: zestaw szyfrowania dysków używany do szyfrowania wersji obrazu znajduje się w innej subskrypcji niż subskrypcja do hostowania wersji obrazu.  
 **Obejście**: Użyj tej samej subskrypcji dla wersji obrazu i zestawu szyfrowania dysków.
 
 **Komunikat**: *Tworzenie zestawu skalowania maszyn wirtualnych lub maszyny wirtualnej zajmuje dużo czasu.*  
 **Obejście**: Sprawdź, czy **OSType** wersji obrazu, z którą próbujesz utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych, ma ten sam **OSType** źródła, którego użyto do utworzenia wersji obrazu. 
+
+**Komunikat**: *zasób o ID <identyfikatorze maszyny wirtualnej \> ma inny plan ["{ \" name \" : \" <name> \" , \" Publisher \" : \" <publisher> \" , \" Product \" : \" <product> \" , \" promotionCode \" : \" <promotionCode> \" }"] niż nadrzędny plan obrazu galerii ["null"].*  
+**Przyczyna**: definicja obrazu nadrzędnego dla wdrażanej wersji obrazu nie ma informacji o planie zakupu.  
+**Obejście**: Utwórz definicję obrazu z tym samym szczegóły planu zakupu w komunikacie o błędzie i Utwórz wersję obrazu w ramach definicji obrazu.
+
 
 ## <a name="creating-a-disk-from-an-image-version"></a>Tworzenie dysku na podstawie wersji obrazu ##
 

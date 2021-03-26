@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z b
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0737d0550df6d8dd2e3bb61bb71188479d87363e
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 0d0522be53ec9b1008f18725308c91a19ee24156
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105329"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609470"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
@@ -122,14 +122,15 @@ Utwórz zmienną dla nazwy zasobu i klucza platformy Azure.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
-> [!IMPORTANT]
-> Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
+- Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do zasobu QnA Maker w Azure Portal i kliknij pozycję **klucze i punkt końcowy** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
+- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do Azure Portal i Znajdź zasób QnA Maker, który został utworzony w sekcji wymagania wstępne. Kliknij pozycję **klucze i punkt końcowy** , w obszarze **Zarządzanie zasobami** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
 
  ![Punkt końcowy QnA Maker tworzenia](../media/keys-endpoint.png)
- 
-- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` . 
+
+- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` . Przejdź do Azure Portal i Znajdź zasób QnA Maker, który został utworzony w sekcji wymagania wstępne. Kliknij pozycję **Eksportuj szablon** w obszarze **Automatyzacja** , aby zlokalizować punkt końcowy środowiska uruchomieniowego.
+
+ ![Punkt końcowy QnA Maker środowiska uruchomieniowego](../media/runtime-endpoint.png)
    
 - W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](../../../key-vault/general/overview.md) Storage udostępnia bezpieczny Magazyn kluczy.
 
@@ -137,10 +138,9 @@ Utwórz zmienną dla nazwy zasobu i klucza platformy Azure.
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/version-2)
 
-> [!IMPORTANT]
-> Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
+- Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do zasobu QnA Maker w Azure Portal i kliknij pozycję **klucze i punkt końcowy** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
+- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do Azure Portal i Znajdź zasób QnA Maker, który został utworzony w sekcji wymagania wstępne. Kliknij pozycję **klucze i punkt końcowy** , w obszarze **Zarządzanie zasobami** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
 
  ![Punkt końcowy QnA Maker tworzenia](../media/keys-endpoint.png)
  

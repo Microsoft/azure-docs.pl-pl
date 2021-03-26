@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604410"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606219"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
-Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą narzędzia do *sugerowania*. Sugerował jest wewnętrzną strukturą danych, która składa się z kolekcji Fields. Pola są poddawane dodatkowej tokenizacji, generując sekwencje prefiksu w celu obsługi dopasowań w przypadku częściowych warunków.
+Na platformie Azure Wyszukiwanie poznawcze, typeahead lub "wyszukiwanie w trakcie pisania" jest włączane za pomocą narzędzia do *sugerowania*. Sugerował jest wewnętrzną strukturą danych, która składa się z kolekcji Fields. Pola są poddawane dodatkowej tokenizacji, generując sekwencje prefiksu w celu obsługi dopasowań w przypadku częściowych warunków. Na przykład, sugestia, która zawiera pole miasto, będzie mieć prefiks kombinacji "Sea", "siedzenie", "siedzisko" i "Seattl" dla terminu "Seattle".
 
-Na przykład, jeśli sugerował zawiera pole miasto, powstałe kombinacje prefiksów "Sea", "siedzenie", "siedzisko" i "Seattl" dla terminu "Seattle". Prefiksy są przechowywane w odwróconych indeksach, po jednym dla każdego pola określonego w kolekcji pól sugerujących.
+Dopasowania dotyczące częściowych terminów mogą być albo zakończono autoukończeniem zapytania lub sugestią dopasowania. Ten sam program sugerujący obsługuje oba środowiska.
 
 ## <a name="typeahead-experiences-in-cognitive-search"></a>Typeahead środowiska w Wyszukiwanie poznawcze
 
-Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie*, które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
+Typeahead może być *uzupełnieniem*, który kończy częściowe dane wejściowe dla całego zapytania warunkowego, lub *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
 
 Poniższy zrzut ekranu przedstawiający [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustruje oba te elementy. Funkcja Autouzupełnianie przewiduje potencjalną kadencję, kończąc "TW" z "in". Sugestie to wyniki wyszukiwania mini, gdzie pole takie jak nazwa hotelu reprezentuje pasujący dokument wyszukiwania hotelowego z indeksu. W przypadku sugestii można wyświetlić dowolne pole, które zawiera opisowe informacje.
 
@@ -40,11 +40,11 @@ Obsługa wyszukiwania jako typu jest włączana dla poszczególnych pól dla pó
 
 ## <a name="how-to-create-a-suggester"></a>Jak utworzyć sugestię
 
-Aby utworzyć program sugerujący, Dodaj go do [definicji indeksu](/rest/api/searchservice/create-index). Sugerował Pobiera nazwę i kolekcję pól, w których włączono środowisko typeahead. i [ustawić każdą właściwość](#property-reference). Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
+Aby utworzyć program sugerujący, Dodaj go do [definicji indeksu](/rest/api/searchservice/create-index). Funkcja Sugerowana przyjmuje nazwę i kolekcję pól, w których włączono środowisko typeahead. Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
 
 + Używaj tylko pól ciągów.
 
-+ Jeśli pole String jest częścią typu złożonego (na przykład pole miasto w adres), Uwzględnij element nadrzędny w polu: `"Address/City"` (REST, C# i Python) lub `["Address"]["City"]` (JavaScript).
++ Jeśli pole String jest częścią typu złożonego (na przykład pole miasto w adres), Uwzględnij element nadrzędny w ścieżce pola: `"Address/City"` (REST, C# i Python) lub `["Address"]["City"]` (JavaScript).
 
 + Użyj domyślnego standardowego analizatora Lucene ( `"analyzer": null` ) lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"` ) dla tego pola.
 
@@ -58,7 +58,7 @@ Wykorzystaj automatycznie korzyści z większej puli pól do narysowania ze wzgl
 
 Sugestie z drugiej strony dają lepsze wyniki, gdy wybór pola jest selektywny. Należy pamiętać, że sugestia jest serwerem proxy dla dokumentu wyszukiwania, dzięki czemu można chcieć, aby pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które odróżniają wiele pasujących wyników działają najlepiej. Jeśli pola zawierają powtarzające się wartości, sugestie składają się z identycznych wyników i użytkownik nie wie, który z nich należy kliknąć.
 
-Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystkie pola, które są potrzebne do autouzupełniania, a następnie użyj **$SELECT**, **$Top**, **$Filter** i **searchFields** , aby kontrolować wyniki dla sugestii.
+Aby zaspokoić zarówno środowisko wyszukiwania zgodnie z oczekiwaniami, Dodaj wszystkie pola, które są potrzebne do autouzupełniania, ale Użyj "$select", "$top", "$filter" i "searchFields", aby kontrolować wyniki dla sugestii.
 
 ### <a name="choose-analyzers"></a>Wybieranie analizatorów
 
@@ -142,9 +142,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Właściwość      |Opis      |
 |--------------|-----------------|
-|`name`        | Określony w definicji sugerowania, ale również wywoływany na żądanie autouzupełniania lub sugestii. |
-|`sourceFields`| Określony w definicji sugestii. Jest to lista co najmniej jednego pola w indeksie, które są źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi być nazwany Analizator leksykalny z [tej listy](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (a nie analizatora niestandardowego).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
-|`searchMode`  | Tylko parametr REST, ale również widoczny w portalu. Ten parametr nie jest dostępny w zestawie .NET SDK. Wskazuje ona strategię używaną do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching` , który jest obecnie zgodny na początku okresu.|
+| name        | Określony w definicji sugerowania, ale również wywoływany na żądanie autouzupełniania lub sugestii. |
+| sourceFields | Określony w definicji sugestii. Jest to lista co najmniej jednego pola w indeksie, które są źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi być nazwany Analizator leksykalny z [tej listy](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (a nie analizatora niestandardowego). </br></br>Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej. </br></br>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
+| searchMode  | Tylko parametr REST, ale również widoczny w portalu. Ten parametr nie jest dostępny w zestawie .NET SDK. Wskazuje ona strategię używaną do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching` , który jest obecnie zgodny na początku okresu.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -157,9 +157,9 @@ W zapytaniu jest używany element sugerujący. Po utworzeniu sugestii Wywołaj j
 + [SuggestAsync, Metoda](/dotnet/api/azure.search.documents.searchclient.suggestasync)
 + [AutocompleteAsync, Metoda](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
-W aplikacji wyszukiwania kod klienta powinien korzystać z biblioteki, takiej jak [Funkcja autouzupełniania interfejsu użytkownika jQuery](https://jqueryui.com/autocomplete/) , aby zebrać częściowe zapytanie i zapewnić dopasowanie. Aby uzyskać więcej informacji na temat tego zadania, zobacz [Dodawanie funkcji Autouzupełnianie lub sugerowanych wyników do kodu klienta](search-autocomplete-tutorial.md).
+W aplikacji wyszukiwania kod klienta powinien korzystać z biblioteki, takiej jak [Funkcja autouzupełniania interfejsu użytkownika jQuery](https://jqueryui.com/autocomplete/) , aby zebrać częściowe zapytanie i zapewnić dopasowanie. Aby uzyskać więcej informacji na temat tego zadania, zobacz [Dodawanie funkcji Autouzupełnianie lub sugerowanych wyników do kodu klienta](search-add-autocomplete-suggestions.md).
 
-Użycie interfejsu API jest zilustrowane w następującym wywołaniu interfejsu API REST autouzupełniania. W tym przykładzie istnieją dwa wnioski. Po pierwsze, podobnie jak w przypadku wszystkich zapytań, operacja jest odnosząca się do kolekcji dokumentów indeksu, a zapytanie zawiera parametr **wyszukiwania** , który w tym przypadku zawiera częściowe zapytanie. Po drugie należy dodać **suggesterName** do żądania. Jeśli nie zdefiniowano sugestii w indeksie, wywołanie funkcji Autouzupełnianie lub sugestii zakończy się niepowodzeniem.
+Użycie interfejsu API jest zilustrowane w następującym wywołaniu interfejsu API REST autouzupełniania. W tym przykładzie istnieją dwa wnioski. Po pierwsze, podobnie jak w przypadku wszystkich zapytań, operacja jest odnosząca się do kolekcji dokumentów indeksu, a zapytanie zawiera parametr "Search", który w tym przypadku zawiera zapytanie częściowe. Po drugie należy dodać do żądania "suggesterName". Jeśli nie zdefiniowano sugestii w indeksie, wywołanie funkcji Autouzupełnianie lub sugestii zakończy się niepowodzeniem.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -178,4 +178,4 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 Zalecamy, aby dowiedzieć się więcej o tym, jak formułowane są żądania.
 
 > [!div class="nextstepaction"]
-> [Dodawanie funkcji Autouzupełnianie i sugestii do kodu klienta](search-autocomplete-tutorial.md)
+> [Dodawanie funkcji Autouzupełnianie i sugestii do kodu klienta](search-add-autocomplete-suggestions.md)

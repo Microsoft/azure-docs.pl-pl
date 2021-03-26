@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b5115355133bdcf33825a05d4baa16408cb3fccd
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 92324d68eabfb1885a482a7f539140f93be77596
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562447"
+ms.locfileid: "105605199"
 ---
 # <a name="sdks-and-rest-apis"></a>Zestawy SDK i interfejsy API REST
 
-Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane w sześć obszarów. Większość obszarów ma w pełni udostępnione biblioteki klienckie, które zostały zaprogramowane do opublikowanych interfejsów API REST, których można używać bezpośrednio przez Internet. Biblioteka klienta wywołującego używa własnościowych interfejsów sieciowych i jest aktualnie ZAMKNIĘTA — źródło. Przykłady i szczegółowe informacje techniczne dotyczące zestawów SDK są publikowane w [repozytorium GitHub usługi Azure Communication Services](https://github.com/Azure/communication).
+Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane w sześć obszarów. Większość obszarów ma całkowicie zestaw SDK, które zostały zaprogramowane do opublikowanych interfejsów API REST, których można używać bezpośrednio przez Internet. Zestaw SDK wywoływania używa własnościowych interfejsów sieciowych i jest obecnie zamknięty — źródło. Przykłady i szczegółowe informacje techniczne dotyczące zestawów SDK są publikowane w [repozytorium GitHub usługi Azure Communication Services](https://github.com/Azure/communication).
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 Interfejsy API usług komunikacyjnych są udokumentowane wraz z innymi interfejsami API REST platformy Azure w [docs.Microsoft.com](/rest/api/azure/). W tej dokumentacji przedstawiono sposób struktury komunikatów HTTP i przedstawiono wskazówki dotyczące korzystania z programu Poster. Ta dokumentacja jest również oferowana w formacie Swagger w serwisie [GitHub](https://github.com/Azure/azure-rest-api-specs).
@@ -29,14 +29,14 @@ Interfejsy API usług komunikacyjnych są udokumentowane wraz z innymi interfejs
 | Zestaw | Przestrzenie nazw| Protokoły | Możliwości |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
 | Azure Resource Manager | Azure. ResourceManager. Komunikacja | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Udostępnianie zasobów usług komunikacyjnych i zarządzanie nimi|
-| Wspólne | Azure. Communications. Common| REST | Udostępnia typy podstawowe dla innych bibliotek klienta |
+| Wspólne | Azure. Communications. Common| REST | Udostępnia typy podstawowe dla innych zestawów SDK |
 | Tożsamość | Azure. Communications. Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Zarządzanie użytkownikami, tokenami dostępu|
 | Numery telefonów _(beta)_| Azure. Communications. unports| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Uzyskaj numery telefonów i zarządzaj nimi |
 | Czat | Azure. Communications. Chat| [](https://docs.microsoft.com/rest/api/communication/) Zastąp zastrzeżonym sygnalizowaniem | Dodawanie rozmowy na podstawie tekstu w czasie rzeczywistym do aplikacji |
 | SMS| Azure. Communications. SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Wysyłanie i odbieranie wiadomości SMS|
 | Rozmów| Azure. komunikacja. wywoływanie | Transport własnościowy | Korzystanie z głosu, wideo, udostępniania ekranu i innych funkcji komunikacji danych w czasie rzeczywistym |
 
-Biblioteki klienta Azure Resource Manager, tożsamości i programu SMS koncentrują się na integracji usługi, a w wielu przypadkach występują problemy z bezpieczeństwem w przypadku integrowania tych funkcji w aplikacjach użytkowników końcowych. Popularne biblioteki klienta i rozmowy są odpowiednie dla aplikacji usługi i klienta. Biblioteka klienta wywołującego jest przeznaczona dla aplikacji klienckich. Biblioteka klienta ukierunkowana na scenariusze usług jest w trakcie opracowywania.
+Zestawy SDK Azure Resource Manager, tożsamości i SMS koncentrują się na integracji usługi, a w wielu przypadkach występują problemy z bezpieczeństwem w przypadku integrowania tych funkcji w aplikacjach użytkowników końcowych. Zestawy SDK Common and Chat są odpowiednie dla aplikacji usług i klienta. Zestaw SDK wywoływania jest przeznaczony dla aplikacji klienckich. Zestaw SDK skoncentrowany na scenariuszach usług jest w trakcie opracowywania.
 
 
 ### <a name="languages-and-publishing-locations"></a>Języki i lokalizacje publikowania
@@ -61,7 +61,7 @@ Niektóre interfejsy API REST i odpowiednie metody zestawu SDK mają limity ogra
 | Interfejs API                                                                                                                          | Ograniczenie            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [Wszystkie interfejsy API planu numeru telefonu wyszukiwania](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 żądania/dzień      |
-| [Zakup planu numeru telefonu](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 żądanie/dzień       |
+| [Zakup planu numeru telefonu](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 zakup w miesiącu  |
 | [Wyślij wiadomość SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 żądań na minutę |
 
 

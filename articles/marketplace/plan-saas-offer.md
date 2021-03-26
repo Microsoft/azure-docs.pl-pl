@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b1bb749400cfb1e289a0a335275f4654d37145e9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046508"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604943"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -37,9 +37,9 @@ W poniższej tabeli przedstawiono opcje wyświetlania ofert SaaS w komercyjnej w
 
 Aby uzyskać więcej informacji na temat tych opcji, zobacz [komercyjne funkcje Transact Marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Po opublikowaniu oferty opcja wystaw wybrana dla oferty zostanie wyświetlona jako przycisk w lewym górnym rogu strony aukcji oferty. Na przykład poniższy zrzut ekranu przedstawia stronę aukcji oferty w witrynie Azure Marketplace z przyciskami **Pobierz teraz** i **Przetestuj dysk** .
+Po opublikowaniu oferty opcja wystaw wybrana dla oferty zostanie wyświetlona jako przycisk w lewym górnym rogu strony aukcji oferty. Na przykład poniższy zrzut ekranu przedstawia stronę aukcji oferty w witrynie Azure Marketplace z przyciskiem **Pobierz teraz** .
 
-![Przedstawia listę ofert w sklepie online.](./media/listing-options.png)
+![Przedstawia listę ofert w sklepie online.](./media/saas/listing-options-saas-full.png)
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 
@@ -138,7 +138,7 @@ Jeśli zdecydujesz się na korzystanie z kontraktu standardowego, możesz dodać
 
 Gdy tworzysz [nową ofertę SaaS](create-new-saas-offer.md) w centrum partnerskim, wprowadzisz tekst, obrazy, opcjonalne filmy wideo i inne szczegóły na stronie z **listą ofert** . Są to informacje, które użytkownicy zobaczą po znalezieniu oferty w portalu komercyjnym, jak pokazano w poniższym przykładzie.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
 
 **Opisy połączeń**
 

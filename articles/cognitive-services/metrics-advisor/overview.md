@@ -10,49 +10,48 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0de93eff0fc422bc28fe7b2c42c295c8d8b1acc4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 901d86b5569be61f89178dac460b8750bce9ea73
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344474"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605539"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Co to jest klasyfikator metryk (wersja zapoznawcza)? 
 
-Doradca metryk jest częścią Cognitive Services platformy Azure, która używa systemu AI do monitorowania danych i wykrywania anomalii w danych szeregów czasowych. Usługa automatyzuje proces stosowania modeli do danych i udostępnia zestaw interfejsów API opartych na sieci Web na potrzeby pozyskiwania danych, wykrywania anomalii i diagnostyki — bez potrzeby uczenia maszynowego. Użyj usługi Metric Advisor, aby:
+Doradca metryk jest częścią Cognitive Services platformy Azure, która używa systemu AI do monitorowania danych i wykrywania anomalii w danych szeregów czasowych. Usługa automatyzuje proces stosowania modeli do danych i udostępnia zestaw interfejsów API oraz internetowy obszar roboczy do pozyskiwania danych, wykrywania anomalii i diagnostyki — bez potrzeby uczenia maszynowego. Deweloperzy mogą tworzyć aplikacje AIOps, predicative Maintenance i Business Monitor na podstawie usługi. Użyj usługi Metric Advisor, aby:
 
-* Analizowanie wielowymiarowych danych z wielu źródeł danych 
+* Analizowanie wielowymiarowych danych z wielu źródeł danych
 * Identyfikowanie i skorelowanie anomalii
 * Konfigurowanie i Dostosowywanie modelu wykrywania anomalii używanego na danych
-* Diagnozuj anomalie i Pomóż z analizą głównych przyczyn. 
+* Diagnozuj anomalie i pomoc przy analizie przyczyny głównej
 
 :::image type="content" source="media/metrics-advisor-overview.png" alt-text="Omówienie klasyfikatora metryk":::
 
 ## <a name="connect-to-a-variety-of-data-sources"></a>Łączenie się z różnymi źródłami danych
 
-Usługa Metric Advisor może łączyć się z usługą i dowiązywać dane [metryk wielowymiarowych](how-tos/onboard-your-data.md) z wielu magazynów danych, w tym: SQL Server, Azure Blob Storage, MongoDB i inne. 
+Usługa Metric Advisor może łączyć się z usługą i dowiązywać dane [metryk wielowymiarowych](how-tos/onboard-your-data.md) z wielu magazynów danych, w tym: SQL Server, Azure Blob Storage, MongoDB i inne.
 
 ## <a name="easy-to-use-and-customizable-anomaly-detection"></a>Łatwe w użyciu i dostosowywalne wykrywanie anomalii
 
-* Klasyfikator metryk automatycznie wybiera najlepszy model danych, bez znajomości uczenia maszynowego. 
+* Klasyfikator metryk automatycznie wybiera najlepszy model danych, bez znajomości uczenia maszynowego.
 * Automatycznie Monitoruj każdą serię czasową w ramach [metryk wielowymiarowych](glossary.md#multi-dimensional-metric).
 * Używaj [dostrajania parametrów](how-tos/configure-metrics.md) i [interaktywnych informacji zwrotnych](how-tos/anomaly-feedback.md) , aby dostosować model stosowany do danych i w przyszłości wyniki wykrywania anomalii.
 
-
 ## <a name="real-time-alerts-through-multiple-channels"></a>Alerty w czasie rzeczywistym przez wiele kanałów
 
-W przypadku wykrycia anomalii usługa Advisor może [wysyłać alerty w czasie rzeczywistym](how-tos/alerts.md) za pośrednictwem wielu kanałów przy użyciu punktów zaczepienia, takich jak punkty zaczepienia wiadomości e-mail, elementy webhook i punkty zaczepienia usługi Azure DevOps. Elastyczne reguły alertów umożliwiają dostosowywanie alertów, które są wysyłane i gdzie.
+W przypadku wykrycia anomalii usługa Advisor może [wysyłać alerty w czasie rzeczywistym](how-tos/alerts.md) za pośrednictwem wielu kanałów przy użyciu punktów zaczepienia, takich jak punkty zaczepienia wiadomości e-mail, elementy webhook i punkty zaczepienia usługi Azure DevOps. Elastyczne reguły alertów umożliwiają dostosowywanie alertów, które są wysyłane i ich miejsca docelowego.
 
 ## <a name="smart-diagnostic-insights-by-analyzing-anomalies"></a>Inteligentny wgląd diagnostyczny przez analizowanie anomalii
 
-Analizuj anomalie wykryte w metrykach wielowymiarowych i Generuj [inteligentne informacje diagnostyczne](how-tos/diagnose-incident.md) , w tym najbardziej prawdopodobną przyczynę główną, drzewa diagnostyczne, przechodzenie metryczne i inne. Dzięki skonfigurowaniu [wykresu metryk](how-tos/metrics-graph.md)można analizować metryki krzyżowe, aby ułatwić wizualizację zdarzeń.
+Analizuj anomalie wykryte w metrykach wielowymiarowych i Generuj [inteligentne informacje diagnostyczne](how-tos/diagnose-incident.md) , w tym najbardziej prawdopodobną przyczynę główną, drzewa diagnostyczne, przechodzenie metryczne i inne. Konfigurując [Wykres metryk](how-tos/metrics-graph.md), można włączyć analizę metryk krzyżowych ułatwiającą wizualizację zdarzeń.
 
 
 ## <a name="typical-workflow"></a>Typowy przepływ pracy
 
 Przepływ pracy jest prosty: po dodaniu danych możesz dostosować wykrywanie anomalii i utworzyć konfiguracje zgodne z Twoim scenariuszem.
 
-1. [Utwórz zasób platformy Azure dla usługi](../cognitive-services-apis-create-account.md) Metric Advisor. 
+1. [Utwórz zasób platformy Azure dla usługi](https://go.microsoft.com/fwlink/?linkid=2142156) Metric Advisor. 
 2. Kompiluj swój pierwszy monitor przy użyciu portalu sieci Web.
     1. Dołączanie danych
     2. Dostrajanie wykrywania anomalii

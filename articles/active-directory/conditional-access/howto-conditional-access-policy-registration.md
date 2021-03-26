@@ -5,37 +5,66 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 03/24/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e99f7466bd3b7ed5517157ca3fa45e7c3241217
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 711d4bdf2be2ad3158c12e4690a70fb83fe7a846
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98599766"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559506"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: Zabezpieczanie rejestracji informacji zabezpieczających
 
-Zabezpieczanie, kiedy i jak użytkownicy rejestrują się w usłudze Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła jest teraz możliwe przy użyciu akcji użytkownika w zasadach dostępu warunkowego. Ta funkcja w wersji zapoznawczej jest dostępna dla organizacji, które włączyły [Podgląd rejestracji połączonej](../authentication/concept-registration-mfa-sspr-combined.md). Ta funkcjonalność może być włączona w organizacjach, w których chcą korzystać z takich warunków, jak Zaufane lokalizacje sieciowe, aby ograniczyć dostęp do usługi Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Aby uzyskać więcej informacji o warunkach użytecznych, zobacz artykuł [dostęp warunkowy: warunki](concept-conditional-access-conditions.md).
+Zabezpieczanie podczas i sposobu rejestrowania użytkowników w usłudze Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła jest możliwe w przypadku akcji użytkownika w zasadach dostępu warunkowego. Ta funkcja jest dostępna dla organizacji, które włączyły [rejestrację połączoną](../authentication/concept-registration-mfa-sspr-combined.md). Ta funkcja umożliwia organizacjom traktowanie procesu rejestracji, takiego jak dowolna aplikacja w zasadach dostępu warunkowego, i korzystanie z pełnych możliwości dostępu warunkowego w celu zabezpieczenia środowiska. 
 
-## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Utwórz zasady, aby wymagać rejestracji z zaufanej lokalizacji
+Niektóre organizacje w przeszłości mogły używać zaufanej lokalizacji sieciowej lub zgodności urządzeń jako środka do zabezpieczenia środowiska rejestracji. Po dodaniu [tymczasowego dostępu](../authentication/howto-authentication-temporary-access-pass.md) do usługi Azure AD Administratorzy mogą inicjować poświadczenia ograniczone czasowo dla użytkowników, którzy będą mogli rejestrować się z dowolnego urządzenia lub lokalizacji. Poświadczenia przekazywania dostępu tymczasowego spełniają wymagania dostępu warunkowego dla uwierzytelniania wieloskładnikowego.
 
-Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, którzy próbują zarejestrować się przy użyciu połączonego środowiska rejestracji i blokują dostęp, chyba że nawiązują połączenie z lokalizacji oznaczonej jako zaufane sieci.
+## <a name="create-a-policy-to-secure-registration"></a>Tworzenie zasad w celu zabezpieczenia rejestracji
+
+Następujące zasady mają zastosowanie do wybranych użytkowników, którzy próbują zarejestrować się przy użyciu połączonego środowiska rejestracji. Zasady wymagają od użytkowników przeprowadzenia uwierzytelniania wieloskładnikowego lub użycia tymczasowych poświadczeń dostępu.
+
+1. W **Azure Portal** przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
+1. Wybierz pozycję **nowe zasady**.
+1. W polu Nazwa wprowadź nazwę dla tych zasad. Na przykład **zarejestrowano informacje zabezpieczające z programem TAP**.
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz użytkowników i grupy, do których te zasady mają być stosowane.
+   1. W obszarze **dołączanie** wybierz pozycję **Wszyscy użytkownicy**.
+
+      > [!WARNING]
+      > Użytkownicy muszą być włączeni do [rejestracji połączonej](../authentication/howto-registration-mfa-sspr-combined.md).
+
+   1. W obszarze **Wyklucz**.
+      1. Wybierz **wszystkich Gości i użytkowników zewnętrznych**.
+      
+         > [!NOTE]
+         > Tymczasowe przekazywanie dostępu nie działa dla użytkowników-Gości.
+
+      1. Wybierz pozycję **Użytkownicy i grupy** , a następnie pozycję dostęp awaryjny lub konta w firmie. 
+1. W obszarze **aplikacje lub akcje w chmurze** wybierz pozycję **akcje użytkownika**, a następnie sprawdź pozycję **zarejestruj informacje zabezpieczające**.
+1. W obszarze **Kontrola dostępu**  >  **Udziel**.
+   1. Kliknij opcję **Przyznaj dostęp**.
+   1. Wybierz pozycję **Wymagaj uwierzytelniania wieloskładnikowego**.
+   1. Kliknij pozycję **Wybierz**.
+1. Ustaw przełącznik **Włącz zasady** na wartość **Włączone**.
+1. Następnie wybierz pozycję **Utwórz**.
+
+Administratorzy będą teraz musieli wystawić użytkownikom tymczasowy dostęp do poświadczeń, aby mogli je spełnić wymagania dotyczące uwierzytelniania wieloskładnikowego. Kroki prowadzące do wykonania tego zadania znajdują się w sekcji [Tworzenie tymczasowego dostępu w portalu usługi Azure AD](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass-in-the-azure-ad-portal).
+
+Organizacje mogą zdecydować się na zażądać innych kontroli dotacji oprócz lub zamiast tego **wymagają uwierzytelniania wieloskładnikowego** w kroku 6b. W przypadku wybrania wielu kontrolek upewnij się, że wybrano odpowiedni przełącznik przycisku radiowego, aby wymagać **wszystkich** lub **jednej** z wybranych kontrolek podczas wprowadzania tej zmiany.
+
+### <a name="guest-user-registration"></a>Rejestracja użytkownika-gościa
+
+Dla [użytkowników-Gości](../external-identities/what-is-b2b.md) , którzy muszą zarejestrować się w celu uwierzytelniania wieloskładnikowego w katalogu, można zablokować rejestrację spoza [zaufanych lokalizacji sieciowych](concept-conditional-access-conditions.md#locations) , korzystając z poniższego przewodnika.
 
 1. W **Azure Portal** przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
 1. Wybierz pozycję **nowe zasady**.
 1. W polu Nazwa wprowadź nazwę dla tych zasad. Na przykład **połączona informacja dotycząca zabezpieczeń Rejestracja w zaufanych sieciach**.
 1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz użytkowników i grupy, do których te zasady mają być stosowane.
-
-   > [!WARNING]
-   > Użytkownicy muszą być włączeni do [rejestracji połączonej](../authentication/howto-registration-mfa-sspr-combined.md).
-
-   1. W obszarze **Wyklucz** wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Kliknij **Gotowe**.
+   1. W obszarze **dołączanie** wybierz pozycję **Wszyscy Goście i użytkownicy zewnętrzni**.
 1. W obszarze **aplikacje lub akcje w chmurze** wybierz pozycję **akcje użytkownika**, a następnie sprawdź pozycję **zarejestruj informacje zabezpieczające**.
 1. W obszarze **warunków**  >  **lokalizacji**.
    1. Skonfiguruj **tak**.
@@ -43,27 +72,11 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, któ
    1. Wyklucz **wszystkie Zaufane lokalizacje**.
    1. Wybierz pozycję **gotowe** w bloku lokalizacje.
    1. Wybierz pozycję **gotowe** w bloku warunki.
-1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość opcji **Konfiguruj** na **tak**, a następnie wybierz pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **Udziel**.
    1. Wybierz pozycję **Blokuj dostęp**.
    1. Następnie kliknij pozycję **Wybierz**.
 1. Ustaw przełącznik **Włącz zasady** na wartość **Włączone**.
 1. Następnie wybierz pozycję **Zapisz**.
-
-W kroku 6 tych zasad organizacje mają odpowiednie opcje. Powyższe zasady wymagają rejestracji z zaufanej lokalizacji sieciowej. Organizacje mogą zdecydować się na korzystanie z jakichkolwiek dostępnych warunków zamiast **lokalizacji**. Należy pamiętać, że te zasady są zasadami blokowania, aby wszystkie dołączone elementy były blokowane i wszystkie elementy, które nie pasują do dołączenia, są dozwolone. 
-
-Niektóre z nich mogą korzystać z stanu urządzenia zamiast lokalizacji w kroku 6 powyżej:
-
-6. W obszarze **warunki**  >  **stan urządzenia (wersja zapoznawcza)**.
-   1. Skonfiguruj **tak**.
-   1. Uwzględnij **wszystkie Stany urządzeń**.
-   1. Wykluczenie **hybrydowej urządzenia z usługą Azure AD** i/lub **urządzenia oznaczonego jako zgodne**
-   1. Wybierz pozycję **gotowe** w bloku lokalizacje.
-   1. Wybierz pozycję **gotowe** w bloku warunki.
-
-> [!WARNING]
-> Jeśli używasz stanu urządzenia jako warunku w zasadach, może to mieć wpływ na użytkowników-Gości w katalogu. [Tryb tylko do raportowania](concept-conditional-access-report-only.md) może pomóc w ustaleniu wpływu decyzji dotyczących zasad.
-> Należy pamiętać, że tryb tylko do raportowania nie ma zastosowania do zasad dostępu warunkowego z zakresem "akcje użytkownika".
 
 ## <a name="next-steps"></a>Następne kroki
 

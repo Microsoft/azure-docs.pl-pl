@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: d3d10eb496899287e93a96f0cbb06dedf83c601d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 86a656630f6c41e2cf6682d0160cce345d1f564d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048633"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606627"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
@@ -711,13 +711,13 @@ Jest to poprawka usterek i ma wpływ tylko na natywny/zarządzany zestaw SDK. Ni
 **Poprawki błędów**
 
 - Należy rozwiązać FromSubscription, gdy jest używany z transkrypcją konwersacji.
-- Usuń usterkę słowa kluczowego wykrywania trendów dla asystentów głosowych.
+- Napraw usterkę w rozpoznawaniu słów kluczowych dla asystentów głosowych.
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019 — może wydać
 
 **Nowe funkcje**
 
-- Wykrywania trendów słowa kluczowego (KWS) jest teraz dostępny dla systemów Windows i Linux. Funkcja KWS może działać z dowolnym typem mikrofonu, oficjalną obsługą KWS, ale jest obecnie ograniczona do tablic mikrofonów znajdujących się na sprzęcie platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK.
+- Rozpoznawanie słów kluczowych jest teraz dostępne dla systemów Windows i Linux. Ta funkcja może działać z dowolnego typu mikrofonu, ale oficjalne wsparcie jest obecnie ograniczone do tablic mikrofonów znalezionych w ramach sprzętu platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK.
 - Funkcja podpowiedzi frazy jest dostępna za pomocą zestawu SDK. Aby uzyskać więcej informacji, zobacz [tutaj](./get-started-speech-to-text.md).
 - Funkcja transkrypcji konwersacji jest dostępna za pomocą zestawu SDK. Zobacz [tutaj](./conversation-transcription.md).
 - Dodawanie obsługi asystentów głosowych przy użyciu kanału bezpośredniej linii mowy.

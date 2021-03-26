@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584520"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563297"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu przepływów danych mapowania
 
@@ -24,7 +24,7 @@ Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, zobacz [Wprowadz
 W tym samouczku użyjesz interfejsu użytkownika Azure Data Factory, aby utworzyć potok, który kopiuje i przekształca dane ze źródła Azure Data Lake Storage (ADLS) Gen2 do ujścia ADLS Gen2 przy użyciu przepływu danych mapowania. Wzorzec konfiguracji w tym samouczku można rozszerzyć przy przekształcaniu danych przy użyciu przepływu danych mapowania
 
  >[!NOTE]
-   >Ten samouczek jest przeznaczony do ogólnego mapowania przepływów danych. Przepływy danych są dostępne zarówno w Azure Data Factory, jak i w potokach Synapse. Jeśli dopiero zaczynasz przepływy danych w potokach usługi Azure Synapse, postępuj zgodnie z [przepływem danych przy użyciu potoków usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   >Ten samouczek jest przeznaczony do ogólnego mapowania przepływów danych. Przepływy danych są dostępne zarówno w Azure Data Factory, jak i w potokach Synapse. Jeśli dopiero zaczynasz przepływy danych w potokach usługi Azure Synapse, postępuj zgodnie z [przepływem danych przy użyciu potoków usługi Azure Synapse](../synapse-analytics/concepts-data-flow-overview.md) 
    
 W tym samouczku wykonasz następujące czynności:
 

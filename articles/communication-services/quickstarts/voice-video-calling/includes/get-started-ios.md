@@ -6,12 +6,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5d3a282d108d197ea0c5c616e9ee84fb7b952026
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 536b9a9a0d1a7b48841938eef44d181d22b87bf4
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108299"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609467"
 ---
 W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu zestawu SDK wywoływania usługi Azure Communication Services dla systemu iOS.
 
@@ -38,7 +38,7 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instalowanie pakietu i zależności za pomocą CocoaPods
 
 1. Aby utworzyć plik podfile dla aplikacji, Otwórz Terminal i przejdź do folderu projektu i uruchom ```pod init```
-3. Dodaj następujący kod do plik podfile i Zapisz:
+3. Dodaj następujący kod do plik podfile i Zapisz (Upewnij się, że element "target" jest zgodny z nazwą projektu):
 
    ```
    platform :ios, '13.0'

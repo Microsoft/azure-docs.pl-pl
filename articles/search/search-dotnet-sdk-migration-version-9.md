@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89002712"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606338"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uaktualnianie do Azure Search .NET SDK wersja 9
 
@@ -40,7 +40,7 @@ Wersja 9 zestawu Azure Search .NET SDK Target w wersji 2019-05-06 Azure Search A
 
 * [Wzbogacanie AI](cognitive-search-concept-intro.md) to możliwość wyodrębnienia tekstu z obrazów, obiektów blob i innych źródeł danych bez struktury — wzbogacanie zawartości, aby ułatwić wyszukiwanie w Azure Search indeksie.
 * Obsługa [typów złożonych](search-howto-complex-data-types.md) pozwala modelować niemal dowolną zagnieżdżoną strukturę JSON w indeksie Azure Search.
-* [Funkcja autouzupełniania](search-autocomplete-tutorial.md) stanowi alternatywę dla interfejsu API **sugerowania** w celu zaimplementowania zachowania typu "wyszukiwanie jako użytkownik". Autouzupełnianie "kończy się" wyraz lub frazę, która jest aktualnie wpisywana przez użytkownika.
+* [Funkcja autouzupełniania](search-add-autocomplete-suggestions.md) stanowi alternatywę dla interfejsu API **sugerowania** w celu zaimplementowania zachowania typu "wyszukiwanie jako użytkownik". Autouzupełnianie "kończy się" wyraz lub frazę, która jest aktualnie wpisywana przez użytkownika.
 * [Tryb analizy JsonLines](search-howto-index-json-blobs.md), część indeksowania obiektów blob platformy Azure, tworzy jeden dokument wyszukiwania na jednostkę JSON rozdzieloną wierszem.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>Nowe funkcje wersji zapoznawczej w wersji 8,0 — wersja zapoznawcza

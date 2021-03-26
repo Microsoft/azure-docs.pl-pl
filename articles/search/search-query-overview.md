@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600806"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609279"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -77,7 +77,7 @@ Jeśli przewidujesz duże użycie operatorów logicznych, co jest bardziej podob
 
 ## <a name="autocomplete-and-suggested-queries"></a>Autouzupełnianie i sugerowane zapytania
 
-[Autouzupełnianie lub sugerowane wyniki](search-autocomplete-tutorial.md) są alternatywą dla **`search`** tych nieudanych żądań zapytań, opartych na częściowych danych wejściowych ciągu (po każdym znaku) w funkcji wyszukiwania w trakcie wpisywania. Można używać **`autocomplete`** parametrów i **`suggestions`** razem lub oddzielnie, zgodnie z opisem w [tym samouczku](tutorial-csharp-type-ahead-and-suggestions.md), ale nie można ich używać z **`search`** . Zarówno ukończone warunki, jak i sugerowane zapytania są wyprowadzane z zawartości indeksu. Aparat nigdy nie zwróci ciągu lub sugestii, które nie są istniejące w indeksie. Aby uzyskać więcej informacji, zobacz [Autouzupełnianie (interfejs API REST)](/rest/api/searchservice/autocomplete) i [sugestie (interfejs API REST)](/rest/api/searchservice/suggestions).
+[Autouzupełnianie lub sugerowane wyniki](search-add-autocomplete-suggestions.md) są alternatywą dla **`search`** tych nieudanych żądań zapytań, opartych na częściowych danych wejściowych ciągu (po każdym znaku) w funkcji wyszukiwania w trakcie wpisywania. Można używać **`autocomplete`** parametrów i **`suggestions`** razem lub oddzielnie, zgodnie z opisem w [tym samouczku](tutorial-csharp-type-ahead-and-suggestions.md), ale nie można ich używać z **`search`** . Zarówno ukończone warunki, jak i sugerowane zapytania są wyprowadzane z zawartości indeksu. Aparat nigdy nie zwróci ciągu lub sugestii, które nie są istniejące w indeksie. Aby uzyskać więcej informacji, zobacz [Autouzupełnianie (interfejs API REST)](/rest/api/searchservice/autocomplete) i [sugestie (interfejs API REST)](/rest/api/searchservice/suggestions).
 
 ## <a name="filter-search"></a>Filtruj wyszukiwanie
 

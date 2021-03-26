@@ -2,21 +2,22 @@
 title: Uruchamianie zadań w obszarze konta użytkowników
 description: Informacje o typach kont użytkowników i sposobach ich konfigurowania.
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88719363"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606610"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
 
 > [!NOTE]
 > Konta użytkowników omówione w tym artykule różnią się od kont użytkowników używanych dla Remote Desktop Protocol (RDP) lub Secure Shell (SSH) ze względów bezpieczeństwa.
 >
-> Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją maszyny wirtualnej z systemem Linux za pośrednictwem protokołu SSH, zobacz [używanie pulpit zdalny do maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/use-remote-desktop.md) Aby połączyć się z węzłami z systemem Windows za pomocą protokołu RDP, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją maszyny wirtualnej z systemem Linux za pośrednictwem protokołu SSH, zobacz [Install and configure xrdp to pulpit zdalny use with Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Aby nawiązać połączenie z węzłami z systemem Windows za pośrednictwem protokołu RDP, zobacz [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](../virtual-machines/windows/connect-logon.md).
+>
 > Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją usługi w chmurze za pośrednictwem protokołu RDP, zobacz [włączanie Podłączanie pulpitu zdalnego dla roli w usłudze Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 Zadanie w Azure Batch zawsze działa w ramach konta użytkownika. Domyślnie zadania są uruchamiane w ramach kont użytkowników standardowych, bez uprawnień administratora. W przypadku niektórych scenariuszy można skonfigurować konto użytkownika, w ramach którego ma zostać uruchomione zadanie. W tym artykule omówiono typy kont użytkowników i sposób ich konfigurowania dla danego scenariusza.
@@ -30,7 +31,7 @@ Azure Batch oferuje dwa typy kont użytkowników do uruchamiania zadań:
 - **Nazwane konto użytkownika.** Podczas tworzenia puli można określić jedno lub więcej nazwanych kont użytkowników dla puli. Każde konto użytkownika jest tworzone w każdym węźle puli. Oprócz nazwy konta należy określić hasło konta użytkownika, poziom podniesienia uprawnień oraz, w przypadku pul systemu Linux, klucz prywatny SSH. Po dodaniu zadania można określić nazwane konto użytkownika, w ramach którego ma zostać uruchomione zadanie.
 
 > [!IMPORTANT]
-> Usługa Batch w wersji 2017 -01-01.4.0 wprowadza istotne zmiany, które wymagają zaktualizowania kodu w celu wywołania tej wersji. W przypadku migrowania kodu ze starszej wersji usługi Batch należy pamiętać, że właściwość **runElevated** nie jest już obsługiwana w interfejsie API REST ani w bibliotekach klienta usługi Batch. Użyj nowej właściwości **tożsamość użytkownika** zadania, aby określić poziom podniesienia uprawnień. Zobacz [Aktualizowanie kodu do najnowszej biblioteki klienta usługi Batch,](#update-your-code-to-the-latest-batch-client-library) Aby uzyskać szybkie wskazówki dotyczące aktualizowania kodu partii, jeśli używasz jednej z bibliotek klienta.
+> Usługa Batch w wersji 2017 -01-01.4.0 wprowadziła istotną zmianę, która wymaga zaktualizowania kodu w celu wywołania tej wersji lub nowszej. Zobacz [Aktualizowanie kodu do najnowszej biblioteki klienta usługi Batch,](#update-your-code-to-the-latest-batch-client-library) Aby uzyskać szybkie wskazówki dotyczące aktualizowania kodu partii ze starszej wersji.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Dostęp do plików i katalogów przez konto użytkownika
 
@@ -77,6 +78,7 @@ Poniższe fragmenty kodu pokazują, jak skonfigurować specyfikację autoużytko
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### <a name="batch-java"></a>Batch Java
 
 ```java
@@ -278,7 +280,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Aktualizowanie kodu do najnowszej biblioteki klienta w usłudze Batch
 
-Usługa Batch w wersji 2017 -01-01.4.0 wprowadza istotną zmianę, zastępując Właściwość **runElevated** dostępną we wcześniejszych wersjach właściwością **tożsamość użytkownika** . W poniższych tabelach przedstawiono proste mapowanie, których można użyć do zaktualizowania kodu z wcześniejszych wersji bibliotek klienckich.
+Usługa Batch w wersji 2017 -01-01.4.0 wprowadziła istotną zmianę, zastępując Właściwość **runElevated** dostępną we wcześniejszych wersjach właściwością **tożsamość użytkownika** . W poniższych tabelach przedstawiono proste mapowanie, których można użyć do zaktualizowania kodu z wcześniejszych wersji bibliotek klienckich.
 
 ### <a name="batch-net"></a>Batch .NET
 

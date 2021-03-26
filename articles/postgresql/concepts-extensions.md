@@ -1,17 +1,17 @@
 ---
 title: Rozszerzenia — Azure Database for PostgreSQL — pojedynczy serwer
 description: Dowiedz się więcej na temat dostępnych rozszerzeń Postgres w Azure Database for PostgreSQL-pojedynczym serwerze
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92485464"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606321"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Rozszerzenia PostgreSQL w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia zapewniają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia działają jak wbudowane funkcje.
@@ -62,7 +62,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
 > |[deakcentowanie](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
@@ -108,7 +108,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | zasadniczy           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
 > |[deakcentowanie](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
@@ -154,11 +154,14 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
 > |[deakcentowanie](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
-## <a name="postgres-95-extensions"></a>Rozszerzenia Postgres 9,5 
+## <a name="postgres-95-extensions"></a>Rozszerzenia Postgres 9,5
+
+>[!NOTE]
+> PostgreSQL wersja 9,5 została wycofana.
 
 Następujące rozszerzenia są dostępne na serwerach Azure Database for PostgreSQL, które mają Postgres w wersji 9,5.
 

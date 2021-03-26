@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 6460c8c6d9ffb868d7ac6640c19608f2c10e4d4b
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 755e4fcb9d5b9f1711bc615a29489037ea377d43
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104979"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609431"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
@@ -93,14 +93,15 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
-> [!IMPORTANT]
-> Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
+- Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do zasobu QnA Maker w Azure Portal i kliknij pozycję **klucze i punkt końcowy** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
+- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do Azure Portal i Znajdź zasób QnA Maker, który został utworzony w sekcji wymagania wstępne. Kliknij pozycję **klucze i punkt końcowy** , w obszarze **Zarządzanie zasobami** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
 
  ![Punkt końcowy QnA Maker tworzenia](../media/keys-endpoint.png)
- 
-- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` .
+
+- Wartość QNA_MAKER_RUNTIME_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net` . Przejdź do Azure Portal i Znajdź zasób QnA Maker, który został utworzony w sekcji wymagania wstępne. Kliknij pozycję **Eksportuj szablon** w obszarze **Automatyzacja** , aby zlokalizować punkt końcowy środowiska uruchomieniowego.
+
+ ![Punkt końcowy QnA Maker środowiska uruchomieniowego](../media/runtime-endpoint.png)
    
 - W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](../../../key-vault/general/overview.md) Storage udostępnia bezpieczny Magazyn kluczy.
 
@@ -108,10 +109,9 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/version-2)
 
-> [!IMPORTANT]
-> Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
+- Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` .  Przejdź do zasobu QnA Maker w Azure Portal i kliknij pozycję **klucze i punkt końcowy** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
+- Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Przejdź do Azure Portal i Znajdź zasób QnA Maker, który został utworzony w sekcji wymagania wstępne. Kliknij pozycję **klucze i punkt końcowy** , w obszarze **Zarządzanie zasobami** , aby zlokalizować klucz tworzenie (subskrypcja) i punkt końcowy QNA Maker.
 
  ![Punkt końcowy QnA Maker tworzenia](../media/keys-endpoint.png)
  

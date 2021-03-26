@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719668"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607097"
 ---
 Ustawienia konfiguracji dla [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -121,7 +121,7 @@ Nazwy centrów zadań muszą zaczynać się literą i składać się tylko z lit
 |eventGridPublishRetryInterval|5 min|Event Grid publikuje interwał ponawiania prób w formacie *gg: mm: SS* .|
 |eventGridPublishEventTypes||Lista typów zdarzeń do opublikowania w Event Grid. Jeśli nie zostanie określony, zostaną opublikowane wszystkie typy zdarzeń. Dozwolone wartości to `Started` , `Completed` , `Failed` , `Terminated` .|
 |useAppLease|true|Po ustawieniu na `true` aplikacje będą wymagały uzyskania dzierżawy obiektu BLOB na poziomie aplikacji przed przetworzeniem komunikatów centrum zadań. Więcej informacji można znaleźć w dokumentacji dotyczącej [odzyskiwania po awarii i dystrybucji geograficznej](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) . Dostępne od 2.3.0.
-|useLegacyPartitionManagement|true|Po ustawieniu na `false` program używa algorytmu zarządzania partycjami, który zmniejsza możliwość duplikowania wykonywania funkcji podczas skalowania w górę.  Dostępne od 2.3.0. Wartość domyślna zostanie zmieniona na `false` w przyszłej wersji.|
+|useLegacyPartitionManagement|fałsz|Po ustawieniu na `false` program używa algorytmu zarządzania partycjami, który zmniejsza możliwość duplikowania wykonywania funkcji podczas skalowania w górę.  Dostępne od 2.3.0.|
 |useGracefulShutdown|fałsz|Przeglądania Włącz bezpieczne zamykanie, aby zmniejszyć prawdopodobieństwo niepowodzenia zamykania funkcji w procesie.|
 
 Wiele z tych ustawień umożliwia optymalizację wydajności. Aby uzyskać więcej informacji, zobacz [wydajność i skalowanie](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579148"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605080"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -31,7 +31,7 @@ Aplikacje w chmurze lub akcje są kluczowym sygnałem w zasadach dostępu warunk
 
 Wiele z istniejących aplikacji w chmurze firmy Microsoft znajduje się na liście aplikacji, z których można wybierać. 
 
-Administratorzy mogą przypisywać zasady dostępu warunkowego do następujących aplikacji w chmurze firmy Microsoft. Niektóre aplikacje, takie jak pakiety Office 365 i zarządzanie Microsoft Azure, obejmują wiele powiązanych aplikacji lub usług podrzędnych. Poniższa lista nie jest wyczerpująca i może ulec zmianie.
+Administratorzy mogą przypisywać zasady dostępu warunkowego do następujących aplikacji w chmurze firmy Microsoft. Niektóre aplikacje, takie jak pakiety Office 365 i zarządzanie Microsoft Azure, obejmują wiele powiązanych aplikacji lub usług podrzędnych. Ciągle dodajemy więcej aplikacji, więc Poniższa lista nie jest wyczerpująca i może ulec zmianie.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -66,6 +66,8 @@ Administratorzy mogą przypisywać zasady dostępu warunkowego do następującyc
 - Skype dla firm Online
 - Wirtualna sieć prywatna (VPN)
 - Zaawansowana ochrona przed zagrożeniami w usłudze Windows Defender
+
+Aplikacje, które są dostępne dla dostępu warunkowego, zostały przełączone przez proces dołączania i weryfikacji. Nie obejmuje to wszystkich aplikacji firmy Microsoft, tak jak wiele usług zaplecza, i nie ma zastosowania do nich bezpośrednio do nich zasad. Jeśli szukasz brakującej aplikacji, możesz skontaktować się z konkretnym zespołem aplikacji lub wysłać żądanie w usłudze [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 

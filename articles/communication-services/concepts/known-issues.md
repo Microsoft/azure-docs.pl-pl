@@ -8,43 +8,46 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: aa5530dd279e8b45382fe6841b6f193a652c0ba3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 7be40ac5f6cda7a81d68ca0b17f377891dd58480
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566799"
+ms.locfileid: "105606049"
 ---
-# <a name="known-issues-azure-communication-services-client-libraries"></a>Znane problemy: biblioteki klienckie usług Azure Communications Services
-Ten artykuł zawiera informacje o ograniczeniach i znanych problemach związanych z bibliotekami klienckimi usług Azure Communications Services.
+# <a name="known-issues-azure-communication-services-sdks"></a>Znane problemy: zestawy SDK usług Azure Communication Services
+Ten artykuł zawiera informacje o ograniczeniach i znanych problemach związanych z zestawami SDK usług Azure Communication Services.
 
 > [!IMPORTANT]
 > Istnieje wiele czynników, które mogą mieć wpływ na jakość wywoływania. Zapoznaj się z dokumentacją **[dotyczącą wymagań sieciowych](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** , aby dowiedzieć się więcej na temat konfiguracji sieci usług komunikacyjnych i najlepszych rozwiązań dotyczących testowania.
 
 
-## <a name="javascript-client-library"></a>Biblioteka klienta języka JavaScript
+## <a name="javascript-sdk"></a>Zestaw SDK dla języka JavaScript
 
-W tej sekcji znajdują się informacje o znanych problemach związanych z dźwiękiem i filmami klienta wywołujących skrypty JavaScript w usłudze Azure Communications Services.
+Ta sekcja zawiera informacje o znanych problemach związanych z zestawem SDK dla głosu i wideo dla usług Azure Communication Services.
 
-### <a name="after-refreshing-the-page-user-is-not-removed-from-the-call-immediately"></a>Po odświeżeniu strony użytkownik nie zostanie natychmiast usunięty z wywołania 
-Jeśli użytkownik jest w wywołaniu i zdecyduje się odświeżyć stronę, Biblioteka klienta usług komunikacyjnych może nie być w stanie poinformować usługi multimediów usług komunikacyjnych o rozłączeniu. Usługa multimediów usług komunikacyjnych nie będzie usuwać tego użytkownika bezpośrednio z wywołania, ale będzie czekać na ponowne dołączenie przez użytkownika założono problemy z łącznością sieciową. Użytkownik zostanie usunięty z wywołania po upływie limitu czasu usługi multimediów.
+### <a name="refreshing-a-page-doesnt-immediately-remove-the-user-from-their-call"></a>Odświeżenie strony nie powoduje natychmiastowego usunięcia użytkownika z wywołania
 
-Zachęcamy deweloperów do tworzenia środowisk, które nie wymagają od użytkowników końcowych odświeżania strony aplikacji podczas rozmowy. Jeśli użytkownik ododświeży stronę, najlepszym sposobem obsługi aplikacji jest ponowne użycie tego samego identyfikatora użytkownika usług komunikacyjnych dla użytkownika po powrocie do aplikacji po odświeżeniu.
+Jeśli użytkownik jest w wywołaniu i zdecyduje się odświeżyć stronę, Usługa multimediów usług komunikacyjnych nie usunie tego użytkownika bezpośrednio z wywołania. Poczeka na ponowne dołączenie użytkownika. Użytkownik zostanie usunięty z wywołania po upływie limitu czasu usługi multimedialnej.
 
-Dla perspektywy innych uczestników wywołania ten użytkownik pozostanie w trakcie wywołania przez wstępnie zdefiniowany czas (1-2 minut). Jeśli użytkownik zostanie ponownie dołączony przy użyciu tego samego identyfikatora użytkownika usług komunikacyjnych, będzie reprezentowany jako ten sam istniejący obiekt w `remoteParticipants` kolekcji.
-Jeśli wcześniej Użytkownik wysłał wideo, `videoStreams` kolekcja będzie zachować poprzednie informacje o strumieniu, dopóki usługa nie przekroczy limitu czasu i go usunie, w tym scenariuszu aplikacja może zdecydować się na obserwowanie wszelkich nowych strumieni dodanych do kolekcji i renderowanie ich przy użyciu najwyższej `id` . 
+Najlepszym rozwiązaniem jest skompilowanie środowiska użytkownika, które nie wymagają od użytkowników końcowych odświeżania strony aplikacji podczas wywołania. Jeśli użytkownik Odświeża stronę, należy ponownie użyć tego samego identyfikatora użytkownika usług komunikacyjnych po powrocie z powrotem do aplikacji.
+
+Od perspektywy innych uczestników wywołania użytkownik pozostanie w wywołaniu przez okres czasu (1-2 minut). Jeśli użytkownik ponownie przyłączy się przy użyciu tego samego identyfikatora użytkownika usług komunikacyjnych, będzie reprezentowany jako ten sam istniejący obiekt w `remoteParticipants` kolekcji.
+
+Jeśli Użytkownik wysłał wideo przed odświeżeniem, `videoStreams` kolekcja będzie utrzymywać poprzednie informacje o strumieniu do momentu przełączenia usługi i usunięcia jej. W tym scenariuszu aplikacja może zdecydować się na obserwowanie wszelkich nowych strumieni dodanych do kolekcji i renderowanie ich przy użyciu najwyższej `id` . 
 
 
 ### <a name="its-not-possible-to-render-multiple-previews-from-multiple-devices-on-web"></a>Nie jest możliwe renderowanie wielu podglądów z wielu urządzeń w sieci Web
-Jest to znane ograniczenie. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem wywoływanie biblioteki klienta](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) .
+Jest to znane ograniczenie. Aby uzyskać więcej informacji, zobacz [Omówienie WYWOŁYWANIA SDK](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
 
-### <a name="enumeration-of-the-microphone-and-speaker-devices-is-not-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>Wyliczenie z mikrofonu i głośników nie jest możliwe w przeglądarce Safari, gdy aplikacja działa w systemie iOS lub iPadOS 
+### <a name="enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>Wyliczanie urządzeń w przeglądarce Safari nie jest możliwe, gdy aplikacja działa w systemie iOS lub iPadOS
+
 Aplikacje nie mogą wyliczyć/wybrać urządzeń MIC/prelegenta (takich jak Bluetooth) w systemie iOS/iPad. Jest to znane ograniczenie systemu operacyjnego.
 
 Jeśli korzystasz z przeglądarki Safari w systemie macOS, aplikacja nie będzie mogła wyliczać ani wybierać głośników za pośrednictwem usług komunikacyjnych Device Manager. W tym scenariuszu urządzenia muszą być wybierane za pośrednictwem systemu operacyjnego. Jeśli używasz programu Chrome w systemie macOS, aplikacja będzie mogła wyliczyć/wybrać urządzenia za pomocą Device Manager usług komunikacyjnych.
 
 ### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>Połączenie audio jest tracone podczas otrzymywania wiadomości SMS lub wywołań podczas trwającego wywołania usługi VoIP
-Przeglądarki mobilne nie zachowują łączności w tle. Może to prowadzić do pogorszenia wydajności połączeń, jeśli wywołanie VoIP zostało przerwane przez wiadomość tekstową lub przychodzące połączenie PSTN, które wypchnięcie aplikacji do tła.
+Przeglądarki mobilne nie zachowują łączności w tle. Może to prowadzić do pogorszenia wydajności połączeń, jeśli wywołanie VoIP zostało przerwane przez zdarzenie, które wypycha aplikację do tła.
 
 <br/>Biblioteka kliencka: wywoływanie (JavaScript)
 <br/>Przeglądarki: Safari, Chrome
@@ -55,7 +58,7 @@ Przeglądarki mobilne nie zachowują łączności w tle. Może to prowadzić do 
 Przełączenie między urządzeniami wideo może spowodować wstrzymanie strumienia wideo w czasie, gdy strumień zostanie pobrany z wybranego urządzenia.
 
 #### <a name="possible-causes"></a>Możliwe przyczyny
-Przetwarzanie strumieniowe z i przełączanie między urządzeniami multimedialnymi jest czasochłonne. Przełączenie często może spowodować spadek wydajności. Deweloperzy są zachęcani do zatrzymania jednego strumienia urządzenia przed rozpoczęciem kolejnego.
+Przełączenie między urządzeniami często może spowodować spadek wydajności. Deweloperzy są zachęcani do zatrzymania jednego strumienia urządzenia przed rozpoczęciem kolejnego.
 
 ### <a name="bluetooth-headset-microphone-is-not-detected-therefore-is-not-audible-during-the-call-on-safari-on-ios"></a>Nie wykryto mikrofonu z zestawem słuchawkowym Bluetooth
 Zestawy słuchawkowe Bluetooth nie są obsługiwane przez przeglądarkę Safari w systemie iOS. Urządzenie Bluetooth nie zostanie wyświetlone na liście dostępnych opcji mikrofonu, a inni uczestnicy nie będą mogli Cię słyszeć w przypadku próby użycia połączenia Bluetooth przez przeglądarkę Safari.
@@ -75,7 +78,7 @@ Gdy urządzenia są obracane, użytkownicy mogą mieć obniżoną jakość wideo
 
 
 ### <a name="camera-switching-makes-the-screen-freeze"></a>Przełączenie aparatu powoduje zablokowanie ekranu 
-Gdy użytkownik usług komunikacyjnych przyłącza się do wywołania przy użyciu biblioteki klienta wywołującego JavaScript, a następnie trafi przycisk przełącznika aparatu fotograficznego, interfejs użytkownika może przestać odpowiadać, dopóki aplikacja nie zostanie odświeżona lub przeglądarka nie zostanie wypchnięte do tła przez użytkownika.
+Gdy użytkownik usług komunikacyjnych dołącza do wywołania przy użyciu zestawu SDK wywołującego JavaScript, a następnie trafi przycisk przełącznika aparatu fotograficznego, interfejs użytkownika może przestać odpowiadać, dopóki aplikacja nie zostanie odświeżona lub przeglądarka nie zostanie wypchnięte do tła przez użytkownika.
 
 <br/>Uwzględnione urządzenia: Google Pixel 4a
 <br/>Biblioteka kliencka: wywoływanie (JavaScript)
@@ -89,12 +92,12 @@ W trakcie badania.
 ### <a name="if-the-video-signal-was-stopped-while-the-call-is-in-connecting-state-the-video-will-not-be-sent-after-the-call-started"></a>Jeśli sygnał wideo został zatrzymany, gdy wywołanie jest w stanie "łączenie", wideo nie zostanie wysłane po rozpoczęciu wywołania 
 Jeśli użytkownicy zdecydują się szybko włączyć/wyłączyć wideo, gdy wywołanie jest w `Connecting` stanie — może to prowadzić do problemu ze strumieniem uzyskanym dla wywołania. Zachęcamy deweloperów do kompilowania aplikacji w taki sposób, że nie wymaga to włączania i wyłączania wideo, gdy wywołanie jest w `Connecting` stanie. Przyczyną tego problemu może być spadek wydajności wideo w następujących scenariuszach:
 
- - Jeśli użytkownik rozpocznie pracę z dźwiękiem, a następnie uruchomi i zatrzyma wideo, gdy wywołanie jest w `Connecting` stanie.
- - Jeśli użytkownik rozpocznie pracę z dźwiękiem, a następnie uruchomi i zatrzyma wideo, gdy wywołanie jest w `Lobby` stanie.
+ - Jeśli użytkownik rozpoczyna pracę od dźwięk, a następnie uruchomi i zatrzyma wideo, gdy wywołanie jest w `Connecting` stanie.
+ - Jeśli użytkownik rozpoczyna pracę od dźwięk, a następnie uruchomi i zatrzyma wideo, gdy wywołanie jest w `Lobby` stanie.
 
 
 #### <a name="possible-causes"></a>Możliwe przyczyny
 W trakcie badania.
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>Czasami renderowanie zdalnych filmów wideo trwa zbyt długo
-Podczas trwającego wywołania grupy _użytkownik a_ wysyła wideo, a następnie _użytkownik B_ dołącza wywołanie. Czasami użytkownik B nie widzi wideo od użytkownika A lub użytkownik A wideo rozpoczyna renderowanie po długim opóźnieniu. Może to być spowodowane przez środowisko sieciowe, które wymaga dalszej konfiguracji. Wskazówki dotyczące konfiguracji sieci znajdują się w dokumentacji [dotyczącej wymagań sieciowych](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) .
+Podczas trwającego wywołania grupy _użytkownik a_ wysyła wideo, a następnie _użytkownik B_ dołącza wywołanie. Czasami użytkownik B nie widzi wideo od użytkownika A lub użytkownik A wideo rozpoczyna renderowanie po długim opóźnieniu. Przyczyną tego problemu może być środowisko sieciowe, które wymaga dalszej konfiguracji. Wskazówki dotyczące konfiguracji sieci znajdują się w dokumentacji [dotyczącej wymagań sieciowych](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) .

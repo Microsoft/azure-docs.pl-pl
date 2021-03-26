@@ -343,7 +343,7 @@
             - name: Tworzenie sugestora
               href: index-add-suggesters.md
             - name: Dodawanie autouzupełniania i sugestii
-              href: search-autocomplete-tutorial.md
+              href: search-add-autocomplete-suggestions.md
         - name: Stronicowanie i zliczenia
           href: search-pagination-page-layout.md
         - name: Dokumentacja składni
