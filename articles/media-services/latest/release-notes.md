@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fe49f44e157708c3083e2c73757988877fbfcb5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596743"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563467"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -88,7 +88,7 @@ Wersja 3 oferuje następujące informacje:
 
 #### <a name="action-required"></a>Wymagana akcja
 
-Aby zminimalizować zakłócenia w obciążeniu, zapoznaj się z [przewodnikiem migracji](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) , aby przenieść kod z interfejsu API wersji 2 i zestawów SDK do wersji 3 interfejsu API i zestawu SDK przed 29 lutego 2024.
+Aby zminimalizować zakłócenia w obciążeniu, zapoznaj się z [przewodnikiem migracji](./migrate-v-2-v-3-migration-introduction.md) , aby przenieść kod z interfejsu API wersji 2 i zestawów SDK do wersji 3 interfejsu API i zestawu SDK przed 29 lutego 2024.
 **Po 29 lutego 2024** Azure Media Services nie będzie już akceptować ruchu w interfejsie API REST w wersji 2, interfejsie API zarządzania kontami ARM w wersji 2015-10-01 lub z zestawów SDK klienta .NET w wersji 2. Obejmuje to wszystkie zestawy SDK klienta Open-Source innych firm, które mogą wywołać interfejs API w wersji 2.  
 
 Zapoznaj się z oficjalnym [ogłoszeniem aktualizacji platformy Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -134,11 +134,11 @@ Zapoznaj się z najnowszymi przykładami w repozytorium centrum usługi Git w **
 
 Zdarzenia na żywo obsługują teraz tryb rozliczania z niższymi kosztami dla "autonomiczne". Dzięki temu klienci mogą wstępnie przydzielić wydarzenia na żywo z niższym kosztem dla tworzenia "pul aktywnych". Klienci mogą następnie użyć wydarzeń na żywo w celu szybszego przejścia do stanu uruchomienia.  Pozwala to skrócić czas, aby w znacznym stopniu uruchomić kanał, i umożliwia szybkie przydzielanie maszyn z systemem w trybie niższych cen.
 Najnowsze szczegóły cennika znajdują się [tutaj](https://azure.microsoft.com/pricing/details/media-services).
-Aby uzyskać więcej informacji na temat stanu wstrzymania i innych stanów wydarzeń na żywo, zobacz artykuł — [Stany wydarzeń na żywo i rozliczenia.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+Aby uzyskać więcej informacji na temat stanu wstrzymania i innych stanów wydarzeń na żywo, zobacz artykuł — [Stany wydarzeń na żywo i rozliczenia.](./live-event-states-billing.md)
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
-### <a name="regional-availability"></a>Dostępność regionalna
+### <a name="regional-availability"></a>Dostępność w regionach
 
 Azure Media Services jest teraz dostępna w regionie Norwegia Wschodnia w Azure Portal.  W tym regionie nie ma restV2.
 

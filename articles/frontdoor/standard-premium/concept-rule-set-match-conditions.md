@@ -5,25 +5,25 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/24/2021
 ms.author: yuajia
-ms.openlocfilehash: 4c65d0e7f80fab59ca7df4849df7117d482352c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 039effb885463c1c53085535a6980601be890340
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100041"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561515"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-match-conditions"></a>Warunki dopasowania zestawu reguł (wersja zapoznawcza) usługi Azure Front-Standard/Premium
 
 > [!Note]
 > Ta dokumentacja dotyczy platformy Azure — Standard/Premium (wersja zapoznawcza). Szukasz informacji na temat zewnętrznych drzwi platformy Azure? [Tutaj](../front-door-overview.md)Wyświetl.
 
-W tym samouczku pokazano, jak utworzyć zestaw reguł przy użyciu pierwszego zestawu reguł w Azure Portal. W [zestawie reguł](concept-rule-set.md)Standard/Premium platformy Azure w warstwie Standardowa reguła składa się z co najmniej zero warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w zestawie reguł Standard/Premium platformy Azure.
+W [zestawie reguł](concept-rule-set.md)Standard/Premium platformy Azure w warstwie Standardowa reguła składa się z co najmniej zero warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w zestawie reguł Standard/Premium platformy Azure.
 
-Pierwszą częścią reguły jest warunek dopasowania lub zestaw warunków zgodności. Reguła może składać się z maksymalnie 10 warunków dopasowywania. Warunek dopasowania służy do identyfikowania określonych typów żądań, dla których wykonywane są określone akcje. Jeśli używasz wielu warunków dopasowywania, warunki dopasowania są pogrupowane przy użyciu i logiki. Dla wszystkich warunków dopasowania, które obsługują wiele wartości (zanotowanych jako "rozdzielone spacjami"), przyjęto operator "OR".
+Pierwszą częścią reguły jest warunek dopasowania lub zestaw warunków zgodności. Reguła może składać się z maksymalnie 10 warunków dopasowywania. Warunek dopasowania służy do identyfikowania określonych typów żądań, dla których wykonywane są określone akcje. Jeśli używasz wielu warunków dopasowywania, warunki dopasowania są pogrupowane przy użyciu i logiki. Dla wszystkich warunków dopasowania, które obsługują wiele wartości, lub jest używana logika.
 
-Można na przykład użyć warunku dopasowywania do:
+Warunku dopasowywania można użyć do:
 
 * Filtrowanie żądań na podstawie określonego adresu IP, kraju lub regionu.
 * Filtruj żądania według informacji nagłówka.
@@ -36,192 +36,764 @@ Można na przykład użyć warunku dopasowywania do:
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Następujące warunki dopasowania są dostępne do użycia w zestawie reguł Standard/Premium platformy Azure dla warstwy Standardowa:
+## <a name="device-type"></a><a name="IsDevice"></a> Typ urządzenia
 
-## <a name="device-type"></a>Typ urządzenia
+Warunek dopasowania **typu urządzenia** służy do identyfikowania żądań, które zostały wykonane z urządzenia przenośnego lub urządzenia stacjonarnego.  
 
-Identyfikuje żądania wysyłane z urządzenia przenośnego lub urządzenia stacjonarnego.  
+### <a name="properties"></a>Właściwości
 
-#### <a name="required-fields"></a>Pola wymagane
+| Właściwość | Obsługiwane wartości |
+|-------|------------------|
+| Operator | <ul><li>W Azure Portal: `Equal` , `Not Equal`</li><li>W szablonach ARM: `Equal` ; Użyj `negateCondition` właściwości, aby określić _nie równa_ się |
+| Wartość | `Mobile`, `Desktop` |
 
-Operator | Obsługiwane wartości
----------|----------------
-Równa się, nie równa się | Urządzenia przenośne, komputery stacjonarne
+### <a name="example"></a>Przykład
 
-## <a name="post-argument"></a>Opublikuj argument
+W tym przykładzie są zgodne wszystkie żądania, które zostały wykryte jako pochodzące z urządzenia przenośnego.
 
-Identyfikuje żądania na podstawie argumentów zdefiniowanych dla metody POST Request, która jest używana w żądaniu.
+# <a name="portal"></a>[Portal](#tab/portal)
 
-#### <a name="required-fields"></a>Pola wymagane
+:::image type="content" source="../media/concept-rule-set-match-conditions/device-type.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania typu urządzenia.":::
 
-Nazwa argumentu | Operator | Wartość argumentu | Przekształcanie wielkości liter
---------------|----------|----------------|---------------
-Ciąg | [Lista operatorów](#operator-list) | String, int | Małe litery, wielkie litery
+# <a name="json"></a>[JSON](#tab/json)
 
-## <a name="query-string"></a>Ciąg zapytania
+```json
+{
+  "name": "IsDevice",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "Mobile"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters"
+  }
+}
+```
 
-Identyfikuje żądania zawierające określony parametr ciągu zapytania. Ten parametr jest ustawiony na wartość zgodną z określonym wzorcem. Parametry ciągu zapytania (na przykład **parametr = wartość**) w adresie URL żądania określają, czy ten warunek jest spełniony. Ten warunek dopasowania identyfikuje parametr ciągu zapytania według jego nazwy i akceptuje co najmniej jedną wartość wartości parametru.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-#### <a name="required-fields"></a>Pola wymagane
+```bicep
+{
+  name: 'IsDevice'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'Mobile'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters'
+  }
+}
+```
 
-Operator | Ciąg zapytania | Przekształcanie wielkości liter
----------|--------------|---------------
-[Lista operatorów](#operator-list) | String, int | Małe litery, wielkie litery
+---
 
-## <a name="remote-address"></a>Adres zdalny
+## <a name="post-args"></a><a name="PostArgs"></a> Ogłoś argumenty
 
-Identyfikuje żądania na podstawie lokalizacji lub adresu IP osoby żądającej.
+Warunek zgodności **post args** służy do identyfikowania żądań na podstawie argumentów dostarczonych w treści żądania post. Jeden warunek dopasowania pasuje do pojedynczego argumentu z treści żądania POST. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
 
-#### <a name="required-fields"></a>Pola wymagane
+> [!NOTE]
+> Warunek dopasowania **post args** działa z `application/x-www-form-urlencoded` typem zawartości.
 
-Operator | Obsługiwane wartości
----------|-----------------
-Dopasowanie geograficzne | Numer kierunkowy kraju
-Dopasowanie adresu IP | Adres IP (rozdzielone spacjami)
-Brak dopasowania geograficznego | Numer kierunkowy kraju
-Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
+### <a name="properties"></a>Właściwości
 
-#### <a name="key-information"></a>Informacje o kluczu
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Ogłoś argumenty | Wartość ciągu reprezentująca nazwę argumentu POST. |
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość argumentu POST do dopasowania. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
 
-* Użyj notacji CIDR.
-* W przypadku wielu adresów IP i bloków adresów IP jest obsługiwana logika "OR".
-    * **Przykład IPv4**: Jeśli dodasz dwa adresy IP *1.2.3.4* i *10.20.30.40*, warunek jest dopasowywany, jeśli jakieś żądania, które dotarły do adresu 1.2.3.4 lub 10.20.30.40.
-    * **Przykład IPv6**: Jeśli dodasz dwa adresy IP *1:2:3:4:5:6:7:8* i *10:20:30:40:50:60:70:80*, warunek jest dopasowywany, jeśli jakieś żądania, które dotarły do adresu 1:2:3:4:5:6:7:8 lub 10:20:30:40:50:60:70:80.
-* Składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Na przykład:
-    * **Przykład IPv4**: *5.5.5.64/26* dopasowuje wszystkie żądania odbierane z adresów 5.5.5.64 przez 5.5.5.127.
-    * **Przykład IPv6**: *1:2:3:/48* dopasowuje wszystkie żądania, które nadeszły z adresów 1:2:3:0:0:0:0:0 do 1:2:3: FFFF: FFFF: FFFF: FFFF: FFFF.
+### <a name="example"></a>Przykład
 
-## <a name="request-body"></a>Treść żądania
+W tym przykładzie zgadzamy się na wszystkie żądania POST `customerName` , w których argument jest podany w treści żądania i gdzie wartość zaczyna się od `customerName` litery `J` lub `K` . Użyjemy transformacji przypadku, aby przekonwertować wartości wejściowe na wielkie litery, tak aby wartości zaczynające się od `J` ,, `j` `K` i `k` są zgodne.
 
-Identyfikuje żądania na podstawie określonego tekstu, który pojawia się w treści żądania.
+# <a name="portal"></a>[Portal](#tab/portal)
 
-#### <a name="required-fields"></a>Pola wymagane
+:::image type="content" source="../media/concept-rule-set-match-conditions/post-args.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania wpisów.":::
 
-Operator | Treść żądania | Przekształcanie wielkości liter
----------|--------------|---------------
-[Lista operatorów](#operator-list) | String, int | Małe litery, wielkie litery
+# <a name="json"></a>[JSON](#tab/json)
 
-## <a name="request-header"></a>Nagłówek żądania
+```json
+{
+  "name": "PostArgs",
+  "parameters": {
+    "selector": "customerName",
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+        "J",
+        "K"
+    ],
+    "transforms": [
+        "Uppercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters"
+}
+```
 
-Identyfikuje żądania, które używają określonego nagłówka w żądaniu.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-#### <a name="required-fields"></a>Pola wymagane
+```bicep
+{
+  name: 'PostArgs'
+  parameters: {
+    selector: 'customerName'
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'J'
+      'K'
+    ]
+    transforms: [
+      'Uppercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters'
+  }
+}
+```
 
-Nazwa nagłówka | Operator | Wartość nagłówka | Przekształcanie wielkości liter
-------------|----------|--------------|---------------
-Ciąg | [Lista operatorów](#operator-list) | String, int | Małe litery, wielkie litery
+---
 
-## <a name="request-method"></a>Metoda żądania
+## <a name="query-string"></a><a name="QueryString"></a> Ciąg zapytania
 
-Identyfikuje żądania wykorzystujące określoną metodę żądania.
+Warunek dopasowania **ciągu zapytania** służy do identyfikowania żądań zawierających konkretny ciąg zapytania. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
 
-#### <a name="required-fields"></a>Pola wymagane
+> [!NOTE]
+> Cały ciąg zapytania jest dopasowywany do pojedynczego ciągu, bez wiodącego `?` .
 
-Operator | Obsługiwane wartości
----------|----------------
-Równa się, nie równa się | GET, POST, PUT, DELETE, GŁOWY, OPTIONS, TRACE
+### <a name="properties"></a>Właściwości
 
-#### <a name="key-information"></a>Informacje o kluczu
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Ciąg zapytania | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość ciągu zapytania do dopasowania. Nie dołączaj `?` na początku ciągu zapytania. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
 
-Tylko Metoda GET Request może generować zawartość z pamięci podręcznej w ramach zewnętrznych drzwi platformy Azure. Wszystkie pozostałe metody żądań są przekazywane za pomocą sieci.
+### <a name="example"></a>Przykład
 
-## <a name="request-protocol"></a>Protokół żądania
+W tym przykładzie są zgodne wszystkie żądania, w których ciąg zapytania zawiera ciąg `language=en-US` . Chcemy, aby warunek dopasowania miał wielkość liter, więc nie przekształcamy wielkości liter.
 
-Identyfikuje żądania używające określonego używanego protokołu.
+# <a name="portal"></a>[Portal](#tab/portal)
 
-#### <a name="required-fields"></a>Pola wymagane
+:::image type="content" source="../media/concept-rule-set-match-conditions/query-string.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania ciągu zapytania.":::
 
-Operator | Obsługiwane wartości
----------|----------------
-Równa się, nie równa się | HTTP, HTTPS
+# <a name="json"></a>[JSON](#tab/json)
 
-## <a name="request-url"></a>Adres URL żądania
+```json
+{
+  "name": "QueryString",
+  "parameters": {
+    "operator": "Contains",
+    "negateCondition": false,
+    "matchValues": [
+      "language=en-US"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters"
+  }
+}
+```
 
-Identyfikuje żądania zgodne z określonym adresem URL.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-#### <a name="required-fields"></a>Pola wymagane
+```bicep
+{
+  name: 'QueryString'
+  parameters: {
+    operator: 'Contains'
+    negateCondition: false
+    matchValues: [
+      'language=en-US'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters'
+  }
+}
+```
 
-Operator | Adres URL żądania | Przekształcanie wielkości liter
----------|-------------|---------------
-[Lista operatorów](#operator-list) | String, int | Małe litery, wielkie litery
+---
 
-#### <a name="key-information"></a>Informacje o kluczu
+## <a name="remote-address"></a><a name="RemoteAddress"></a> Adres zdalny
 
-Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: *https://www . \<yourdomain\> . Model com*.
+Warunek zgodności **adresów zdalnych** identyfikuje żądania na podstawie lokalizacji lub adresu IP osoby żądającej. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
 
-## <a name="request-file-extension"></a>Rozszerzenie pliku żądania
+* Użyj notacji CIDR podczas określania bloków adresów IP. Oznacza to, że składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Na przykład:
+    * **Przykład IPv4**: `5.5.5.64/26` dopasowuje wszystkie żądania odbierane z adresów 5.5.5.64 za pośrednictwem 5.5.5.127.
+    * **Przykład IPv6**: `1:2:3:/48` dopasowuje wszystkie żądania przychodzące z adresów od 1:2:3:0:0:0:0:0 do 1:2:3: FFFF: FFFF: FFFF: FFFF: FFFF.
+* Po określeniu wielu adresów IP i bloków adresów IP stosowana jest logika "OR".
+    * **Przykład IPv4**: Jeśli dodasz dwa adresy IP `1.2.3.4` `10.20.30.40` , warunek jest dopasowywany dla wszystkich żądań, które dotarły do adresu 1.2.3.4 lub 10.20.30.40.
+    * **Przykład IPv6**: Jeśli dodasz dwa adresy IP `1:2:3:4:5:6:7:8` `10:20:30:40:50:60:70:80` , warunek jest dopasowywany dla wszystkich żądań, które dotarły do adresu 1:2:3:4:5:6:7:8 lub 10:20:30:40:50:60:70:80.
 
-Identyfikuje żądania, które zawierają określone rozszerzenie pliku w nazwie pliku w żądającym adresie URL.
+### <a name="properties"></a>Właściwości
 
-#### <a name="required-fields"></a>Pola wymagane
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | <ul><li>W Azure Portal: `Geo Match` , `Geo Not Match` , `IP Match` lub `IP Not Match`</li><li>W szablonach ARM: `GeoMatch` , `IPMatch` ; Użyj `negateCondition` właściwości, aby określić _niezgodność geograficzną_ lub _niezgodność adresu IP_</li></ul> |
+| Wartość | <ul><li>Dla `IP Match` operatorów or `IP Not Match` : Określ jeden lub więcej zakresów adresów IP. Jeśli określono wiele zakresów adresów IP, są one oceniane przy użyciu lub logiki.</li><li>Dla `Geo Match` operatorów or `Geo Not Match` : Określ co najmniej jedną lokalizację przy użyciu kodu kraju.</li></ul> |
 
-Operator | Wewnętrzny | Przekształcanie wielkości liter
----------|-----------|---------------
-[Lista operatorów](#operator-list)  | String, int | Małe litery, wielkie litery
+### <a name="example"></a>Przykład
 
-#### <a name="key-information"></a>Informacje o kluczu
+W tym przykładzie są zgodne wszystkie żądania, w przypadku których żądanie nie pochodzi z Stany Zjednoczone.
 
-W przypadku rozszerzenia nie należy umieszczać wiodących kropek; na przykład użyj *HTML* zamiast *. html*.
+# <a name="portal"></a>[Portal](#tab/portal)
 
-## <a name="request-file-name"></a>Nazwa pliku żądania
+:::image type="content" source="../media/concept-rule-set-match-conditions/remote-address.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania adresu zdalnego.":::
 
-Identyfikuje żądania, które zawierają określoną nazwę pliku w adresie URL żądania.
+# <a name="json"></a>[JSON](#tab/json)
 
-#### <a name="required-fields"></a>Pola wymagane
+```json
+{
+  "name": "RemoteAddress",
+  "parameters": {
+    "operator": "GeoMatch",
+    "negateCondition": true,
+    "matchValues": [
+      "US"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"
+  }
+}
+```
 
-Operator | Nazwa pliku | Przekształcanie wielkości liter
----------|-----------|---------------
-[Lista operatorów](#operator-list)| String, int | Małe litery, wielkie litery
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-## <a name="request-path"></a>Ścieżka żądania
+```bicep
+{
+  name: 'RemoteAddress'
+  parameters: {
+    operator: 'GeoMatch'
+    negateCondition: true
+    matchValues: [
+      'US'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters'
+  }
+}
+```
 
-Identyfikuje żądania, które zawierają określoną ścieżkę w adresie URL żądania.
+---
 
-#### <a name="required-fields"></a>Pola wymagane
+## <a name="request-body"></a><a name="RequestBody"></a> Treść żądania
 
-Operator | Wartość | Przekształcanie wielkości liter
----------|-------|---------------
-[Lista operatorów](#operator-list) | String, int | Małe litery, wielkie litery
+Warunek dopasowania **treści żądania** identyfikuje żądania na podstawie określonego tekstu, który pojawia się w treści żądania. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
 
-## <a name="operator-list"></a><a name = "operator-list"></a>Lista operatorów
+> [!NOTE]
+> Jeśli treść żądania przekracza rozmiar 64 KB, tylko pierwsza 64 KB będzie brana pod uwagę warunek dopasowania **treści żądania** .
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość tekstu treści żądania do dopasowania. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w których treść żądania zawiera ciąg `ERROR` . Treść żądania jest przekształcana na wielkie przed ocenęm dopasowania, więc `error` i inne odmiany wielkości liter spowodują również wyzwolenie tego warunku dopasowywania.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-body.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania treści żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "RequestBody",
+  "parameters": {
+    "operator": "Contains",
+    "negateCondition": false,
+    "matchValues": [
+      "ERROR"
+    ],
+    "transforms": [
+      "Uppercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestBody'
+  parameters: {
+    operator: 'Contains'
+    negateCondition: false
+    matchValues: [
+      'ERROR'
+    ]
+    transforms: [
+      'Uppercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-file-name"></a><a name="UrlFileName"></a> Nazwa pliku żądania
+
+Warunek dopasowania **nazwy pliku żądania** identyfikuje żądania, które zawierają określoną nazwę pliku w adresie URL żądania. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość nazwy pliku żądania do dopasowania. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w przypadku których nazwa pliku żądania to `media.mp4` . Nazwa pliku zostanie przekształcona na małe przed ocenęm dopasowania, więc `MEDIA.MP4` a inne odmiany przypadku również spowodują wyzwolenie tego warunku dopasowywania.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania nazw plików żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "UrlFileName",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "media.mp4"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlFileName'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'media.mp4'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-file-extension"></a><a name="UrlFileExtension"></a> Rozszerzenie pliku żądania
+
+Warunek dopasowania **rozszerzenia pliku żądania** identyfikuje żądania, które zawierają określone rozszerzenie pliku w nazwie pliku w adresie URL żądania. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+
+> [!NOTE]
+> Nie dołączaj wiodącego okresu. Na przykład: użyj opcji `html` zamiast `.html`.
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość rozszerzenia pliku żądania do dopasowania. Nie dołączaj wiodącego okresu. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w przypadku których rozszerzenie pliku żądania to `pdf` lub `docx` . Przekształćmy rozszerzenie pliku żądania na małe litery przed dokonaniem oceny dopasowania, więc `PDF` , `DocX` i inne różnice wielkości liter spowodują również wyzwolenie tego warunku dopasowywania.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Zrzut ekranu portalu pokazujący warunek dopasowania rozszerzenia pliku żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "UrlFileExtension",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "pdf",
+      "docx"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters"
+  }
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlFileExtension'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'pdf'
+      'docx'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-header"></a><a name="RequestHeader"></a> Nagłówek żądania
+
+Warunek dopasowania **nagłówka żądania** identyfikuje żądania, które zawierają określony nagłówek w żądaniu. Możesz użyć tego warunku dopasowania, aby sprawdzić, czy nagłówek istnieje niezależnie od jego wartości, lub sprawdzić, czy nagłówek jest zgodny z określoną wartością. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Nazwa nagłówka | Wartość ciągu reprezentująca nazwę argumentu POST. |
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość nagłówka żądania do dopasowania. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w których żądanie zawiera nagłówek o nazwie `MyCustomHeader` , niezależnie od jego wartości.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-header.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania nagłówka żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "RequestHeader",
+  "parameters": {
+    "selector": "MyCustomHeader",
+    "operator": "Any",
+    "negateCondition": false,
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestHeader'
+  parameters: {
+    selector: 'MyCustomHeader',
+    operator: 'Any'
+    negateCondition: false
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-method"></a><a name="RequestMethod"></a> Metoda żądania
+
+Warunek dopasowania **metody żądania** identyfikuje żądania, które używają określonej metody żądania HTTP. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | <ul><li>W Azure Portal: `Equal` , `Not Equal`</li><li>W szablonach ARM: `Equal` ; Użyj `negateCondition` właściwości, aby określić _nie równa_ się |
+| Metoda żądania | Co najmniej jedna metoda HTTP z: `GET` ,,,,, `POST` `PUT` `DELETE` `HEAD` `OPTIONS` , `TRACE` . Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są one zgodne ze wszystkimi żądaniami, w których żądanie używa `DELETE` metody.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-method.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania metody żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "RequestMethod",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "DELETE"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestMethod'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'DELETE
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-path"></a><a name="UrlPath"></a> Ścieżka żądania
+
+Warunek dopasowania **ścieżki żądania** identyfikuje żądania, które zawierają określoną ścieżkę w adresie URL żądania. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+
+> [!NOTE]
+> Ścieżka jest częścią adresu URL po nazwie hosta i ukośniku. Na przykład, w adresie URL `https://www.contoso.com/files/secure/file1.pdf` , ścieżka ma wartość `files/secure/file1.pdf` .
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość ścieżki żądania do dopasowania. Nie dołączaj ukośnika wiodącego. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w których rozpoczyna się ścieżka pliku żądania `files/secure/` . Przekształćmy rozszerzenie pliku żądania na małe litery przed ocenęm dopasowania, więc żądania do `files/SECURE/` i inne różnice wielkości liter spowodują również wyzwolenie tego warunku dopasowywania.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-path.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania ścieżki żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "UrlPath",
+  "parameters": {
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "files/secure/"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlPath'
+  parameters: {
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'files/secure/'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-protocol"></a><a name="RequestScheme"></a> Protokół żądania
+
+Warunek dopasowania **protokołu żądania** identyfikuje żądania, które używają określonego protokołu (http lub https).
+
+> [!NOTE]
+> *Protokół* jest czasami nazywany również *schematem*.
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | <ul><li>W Azure Portal: `Equal` , `Not Equal`</li><li>W szablonach ARM: `Equal` ; Użyj `negateCondition` właściwości, aby określić _nie równa_ się |
+| Metoda żądania | `HTTP`, `HTTPS` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w przypadku których żądanie używa `HTTP` protokołu.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-protocol.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania protokołu żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "RequestScheme",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "HTTP"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestScheme'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'HTTP
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="request-url"></a><a name="RequestUrl"></a> Adres URL żądania
+
+Identyfikuje żądania zgodne z określonym adresem URL. Cały adres URL jest oceniany. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+
+> [!TIP]
+> Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu protokołu. Na przykład użyj `https://www.contoso.com` zamiast tylko `www.contoso.com` .
+
+### <a name="properties"></a>Właściwości
+
+| Właściwość | Obsługiwane wartości |
+|-|-|
+| Operator | Dowolny operator z [listy standardowych operatorów](#operator-list). |
+| Wartość | Co najmniej jedna wartość ciągu lub liczba całkowita reprezentująca wartość adresu URL żądania do dopasowania. Jeśli określono wiele wartości, są one oceniane przy użyciu lub logiki. |
+| Przekształcanie wielkości liter | `Lowercase`, `Uppercase` |
+
+### <a name="example"></a>Przykład
+
+W tym przykładzie są zgodne wszystkie żądania, w których rozpoczyna się adres URL żądania `https://api.contoso.com/customers/123` . Przekształćmy rozszerzenie pliku żądania na małe litery przed ocenęm dopasowania, więc żądania do `https://api.contoso.com/Customers/123` i inne różnice wielkości liter spowodują również wyzwolenie tego warunku dopasowywania.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-url.png" alt-text="Zrzut ekranu portalu przedstawiający warunek dopasowania adresu URL żądania.":::
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+{
+  "name": "RequestUri",
+  "parameters": {
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "https://api.contoso.com/customers/123"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters"
+  }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestUri'
+  parameters: {
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'https://api.contoso.com/customers/123'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters'
+  }
+}
+```
+
+---
+
+## <a name="operator-list"></a><a name = "operator-list"></a> Lista operatorów
 
 Dla reguł, które akceptują wartości z standardowej listy operatorów, są prawidłowe następujące operatory:
 
-* Dowolne
-* Równa się
-* Contains
-* Zaczyna się od
-* Kończący się na
-* Mniejsze niż
-* Mniejsze niż lub równe
-* Większe niż
-* Większe niż lub równe
-* Nie wszystkie
-* Nie zawiera
-* Nie zaczyna się od
-* Nie kończący się na
-* Nie mniejsze niż
-* Nie mniejsze niż lub równe
-* Nie większe niż
-* Nie większe niż lub równe
-* Wyrażenie regularne
+| Operator                   | Opis                                                                                                                    | Obsługa szablonów ARM                                            |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Dowolne                        | Dopasowuje, gdy istnieje jakakolwiek wartość, niezależnie od tego, co to jest.                                                                     | `operator`: `Any`                                               |
+| Równe                      | Dopasowuje, gdy wartość dokładnie pasuje do określonego ciągu.                                                                   | `operator`: `Equal`                                             |
+| Contains                   | Dopasowuje, gdy wartość zawiera określony ciąg.                                                                          | `operator`: `Contains`                                          |
+| Mniejsze niż                  | Dopasowuje, gdy długość wartości jest mniejsza niż określona liczba całkowita.                                                       | `operator`: `LessThan`                                          |
+| Większe niż               | Dopasowuje, gdy długość wartości jest większa niż określona liczba całkowita.                                                    | `operator`: `GreaterThan`                                       |
+| Mniejsze niż lub równe         | Dopasowuje, jeśli długość wartości jest mniejsza lub równa określonej liczbie całkowitej.                                           | `operator`: `LessThanOrEqual`                                   |
+| Większe niż lub równe      | Dopasowuje, gdy długość wartości jest większa lub równa określonej liczbie całkowitej.                                        | `operator`: `GreaterThanOrEqual`                                |
+| Zaczyna się od                | Dopasowuje, gdy wartość zaczyna się od określonego ciągu.                                                                       | `operator`: `BeginsWith`                                        |
+| Kończy się na                  | Dopasowuje, gdy wartość zostanie zakończona z określonym ciągiem.                                                                         | `operator`: `EndsWith`                                          |
+| Wyrażeń                      | Dopasowuje, gdy wartość jest zgodna z określonym wyrażeniem regularnym. [Aby uzyskać więcej informacji, zobacz poniżej.](#regular-expressions)        | `operator`: `RegEx`                                             |
+| Nie wszystkie                    | Dopasowuje, jeśli nie ma wartości.                                                                                                | `operator`: `Any` i `negateCondition` : `true`                |
+| Nie równa się                  | Dopasowuje, gdy wartość jest niezgodna z określonym ciągiem.                                                                    | `operator`: `Equal` i `negateCondition` : `true`              |
+| Nie zawiera               | Dopasowuje, gdy wartość nie zawiera określonego ciągu.                                                                  | `operator`: `Contains` i `negateCondition` : `true`           |
+| Nie mniejsze niż              | Dopasowuje, jeśli długość wartości nie jest mniejsza niż określona liczba całkowita.                                                   | `operator`: `LessThan` i `negateCondition` : `true`           |
+| Nie większe niż           | Dopasowuje, jeśli długość wartości nie jest większa niż określona liczba całkowita.                                                | `operator`: `GreaterThan` i `negateCondition` : `true`        |
+| Nie mniejsze niż lub równe     | Dopasowuje, jeśli długość wartości nie jest mniejsza lub równa określonej liczbie całkowitej.                                       | `operator`: `LessThanOrEqual` i `negateCondition` : `true`    |
+| Nie większe niż lub równe | Dopasowuje, jeśli długość wartości nie jest większa lub równa określonej liczbie całkowitej.                                    | `operator`: `GreaterThanOrEqual` i `negateCondition` : `true` |
+| Nie zaczyna się od            | Dopasowuje, gdy wartość nie zaczyna się od określonego ciągu.                                                               | `operator`: `BeginsWith` i `negateCondition` : `true`         |
+| Nie kończący się na              | Dopasowuje, gdy wartość nie kończy się określonym ciągiem.                                                                 | `operator`: `EndsWith` i `negateCondition` : `true`           |
+| Bez wyrażenia regularnego                  | Dopasowuje, gdy wartość jest niezgodna z określonym wyrażeniem regularnym. [Aby uzyskać więcej informacji, zobacz poniżej.](#regular-expressions) | `operator`: `RegEx` i `negateCondition` : `true`              |
 
-W przypadku operatorów liczbowych, takich jak *mniejsza niż* i *większa niż lub równa*, użyte porównanie jest zależne od długości. Wartość w warunku dopasowywania powinna być liczbą całkowitą, która jest równa długości, którą chcesz porównać.
+> [!TIP]
+> W przypadku operatorów liczbowych, takich jak *mniejsza niż* i *większa niż lub równa*, użyte porównanie jest zależne od długości. Wartość w warunku dopasowywania powinna być liczbą całkowitą określającą długość, którą chcesz porównać.
 
-## <a name="regular-expression"></a>Wyrażenie regularne
+### <a name="regular-expressions"></a><a name="regular-expressions"></a> Wyrażenia regularne
 
-Wyrażenie regularne nie obsługuje następujących operacji:
+Wyrażenia regularne nie obsługują następujących operacji:
 
-* Odwołania wsteczne i przechwytywanie podwyrażeń
-* Dowolne potwierdzenia o zerowej szerokości
-* Odwołania podprocedury i wzorce cykliczne
-* Wzorce warunkowe
-* Zlecenia kontroli wycofywania
-* \C jednobajtowa dyrektywa
-* Dyrektywa dopasowania nowego wiersza
-* \K początek dyrektywy resetowania dopasowania
-* Objaśnienia i kod osadzony
-* Grupowanie niepodzielne i Kwantyfikatory Possessive
+* Odwołania wsteczne i przechwytywanie podwyrażeń.
+* Dowolne potwierdzenia o zerowej szerokości.
+* Odwołania podprocedury i wzorce cykliczne.
+* Wzorce warunkowe.
+* Wycofywanie czasowników kontroli.
+* `\C`Dyrektywa jednobajtowa.
+* `\R`Dyrektywa dopasowania nowego wiersza.
+* `\K`Dyrektywa początku resetowania dopasowania.
+* Wywołania i kod osadzony.
+* Grupowanie niepodzielne i Kwantyfikatory Possessive.
+
+## <a name="arm-template-support"></a>Obsługa szablonów ARM
+
+Zestawy reguł można skonfigurować przy użyciu szablonów Azure Resource Manager. [Zobacz przykładowy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). Możesz dodać warunki dopasowania przy użyciu fragmentów kodu JSON lub Bicep zawartych w powyższych przykładach.
 
 ## <a name="next-steps"></a>Następne kroki
 

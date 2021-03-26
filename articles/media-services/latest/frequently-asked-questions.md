@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b9a4c15c0942a0a5dffe2cfdb30dbea4184057ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871405"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565592"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
@@ -31,7 +31,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Med
 - Klienci dołączą własne konta magazynu do swoich kont Azure Media Services.  Wszystkie dane zasobów są przechowywane na skojarzonych kontach magazynu, a klient kontroluje lokalizację i typ replikacji tego magazynu.
 - Dodatkowe dane skojarzone z kontem Media Services (w tym klucze szyfrowania zawartości, klucze weryfikacji tokenu, adresy URL JobInputHttp i inne metadane jednostki) są przechowywane w magazynie firmy Microsoft w ramach regionu wybranego dla konta Media Services.
     - Ze względu na [wymagania dotyczące miejsca zamieszkania danych](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) w Brazylii Południowo-Wschodnia Azja, dodatkowe dane konta są przechowywane w strefie nadmiarowej i znajdują się w jednym regionie. W przypadku Azja Południowo-Wschodnia wszystkie dodatkowe dane konta są przechowywane w Singapurze i w Brazylii Południowej, dane są przechowywane w Brazylii.
-    - W regionach innych niż Brazylia Południowa i Południowo-Wschodnia dane konta mogą być również przechowywane w magazynie należącym do firmy Microsoft w [sparowanym regionie](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+    - W regionach innych niż Brazylia Południowa i Południowo-Wschodnia dane konta mogą być również przechowywane w magazynie należącym do firmy Microsoft w [sparowanym regionie](../../best-practices-availability-paired-regions.md).
 - Azure Media Services to usługa regionalna i nie zapewnia [wysokiej dostępności](media-services-high-availability-encoding.md) ani replikacji danych. Klienci, którzy potrzebują tych funkcji, są zdecydowanie zachęcani do tworzenia rozwiązań przy użyciu kont Media Services w wielu regionach.  Przykład przedstawiający sposób tworzenia rozwiązania wysokiej dostępności dzięki Media Services wideo na żądanie jest dostępny jako przewodnik.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Jakie są ograniczenia Azure Portal dla Media Services v3?

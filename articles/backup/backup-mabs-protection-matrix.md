@@ -3,12 +3,12 @@ title: SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup Server chronić.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d8f2a38db468ec57cdc0a4f0813fe7ae8e341d52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfdd227135a2124e22a604bad4bd41594a38fb37
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609774"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561274"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 
@@ -127,7 +127,7 @@ Azure Backup Server może chronić obciążenia klastra, które znajdują się w
   * Serwer plików
   * Hyper-V
 
-  Te obciążenia mogą działać na jednym serwerze lub w konfiguracji klastra. Aby chronić obciążenie, które nie znajduje się w zaufanej domenie, zobacz temat [przygotowywanie komputerów w grupach roboczych i domenach niezaufanych](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm) , aby poznać dokładne informacje o obsługiwanych i wymaganym uwierzytelnianiu.
+  Te obciążenia mogą działać na jednym serwerze lub w konfiguracji klastra. Aby chronić obciążenie, które nie znajduje się w zaufanej domenie, zobacz temat [przygotowywanie komputerów w grupach roboczych i domenach niezaufanych](/system-center/dpm/prepare-environment-for-dpm) , aby poznać dokładne informacje o obsługiwanych i wymaganym uwierzytelnianiu.
 
 ## <a name="unsupported-data-types"></a>Nieobsługiwane typy danych
 

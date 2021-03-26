@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225551"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564470"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -40,7 +40,7 @@ W poniższej tabeli opisano funkcje magazynów Recovery Services:
 **Przenoszenie danych między magazynami** | Przeniesienie danych kopii zapasowej między magazynami nie jest obsługiwane.
 **Modyfikuj typ magazynu magazynów** | Możesz zmodyfikować typ replikacji magazynu (magazyn Geograficznie nadmiarowy lub Magazyn lokalnie nadmiarowy) dla magazynu przed zapisaniem kopii zapasowych. Po rozpoczęciu wykonywania kopii zapasowych w magazynie nie można zmienić typu replikacji.
 **Magazyn strefowo nadmiarowy (ZRS)** | Dostępne w regionach Południowe Zjednoczone Królestwo (UKS) i Południowej Azja Wschodnia (SEA).
-**Prywatne punkty końcowe** | [Ta sekcja](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) zawiera wymagania dotyczące tworzenia prywatnych punktów końcowych dla magazynu usługi Recovery Service.  
+**Prywatne punkty końcowe** | [Ta sekcja](./private-endpoints.md#before-you-start) zawiera wymagania dotyczące tworzenia prywatnych punktów końcowych dla magazynu usługi Recovery Service.  
 
 ## <a name="on-premises-backup-support"></a>Obsługa lokalnych kopii zapasowych
 

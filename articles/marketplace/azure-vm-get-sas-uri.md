@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800112"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558010"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Jak wygenerować identyfikator URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
 > [!NOTE]
-> Nie potrzebujesz identyfikatora URI sygnatury dostępu współdzielonego, aby opublikować maszynę wirtualną. Możesz po prostu udostępnić obraz w centrum danych. Zapoznaj się z tematem [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) lub [Utwórz maszynę wirtualną przy użyciu własnych instrukcji obrazu](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) .
+> Nie potrzebujesz identyfikatora URI sygnatury dostępu współdzielonego, aby opublikować maszynę wirtualną. Możesz po prostu udostępnić obraz w centrum danych. Zapoznaj się z tematem [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](./azure-vm-create-using-approved-base.md) lub [Utwórz maszynę wirtualną przy użyciu własnych instrukcji obrazu](./azure-vm-create-using-own-image.md) .
 
 Generowanie identyfikatorów URI sygnatury dostępu współdzielonego dla wirtualnych dysków twardych ma następujące wymagania:
 

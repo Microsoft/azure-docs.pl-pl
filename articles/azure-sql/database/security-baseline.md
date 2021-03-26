@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87072ecc4bff054d64c3d8576f821e725959ea7e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca28c2a1943912ce6a244929e7438edd7680d131
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657795"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565966"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Podstawa zabezpieczeń platformy Azure dla Azure SQL Database
 
@@ -32,13 +32,13 @@ Aby zezwolić na dostęp do Azure SQL Database, użyj tagów usługi SQL, aby ze
 
 Reguły sieci wirtualnej umożliwiają Azure SQL Database tylko akceptowanie komunikacji wysyłanej z wybranych podsieci w sieci wirtualnej.
 
-- [Jak skonfigurować link prywatny dla Azure SQL Database](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+- [Jak skonfigurować link prywatny dla Azure SQL Database](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
-- [Jak korzystać z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów baz danych](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [Jak korzystać z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów baz danych](./vnet-service-endpoint-rule-overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -68,9 +68,9 @@ Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do
 
 **Wskazówki**: Włączanie standardu DDoS Protection w sieciach wirtualnych skojarzonych z wystąpieniami SQL Server w celu ochrony przed rozproszonymi atakami typu "odmowa usługi". Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
-- [Jak skonfigurować ochronę DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Jak skonfigurować ochronę DDoS](../../ddos-protection/manage-ddos-protection.md)
 
-- [Opis Azure Security Center zintegrowanej analizy zagrożeń](/azure/security-center/security-center-alerts-data-services)
+- [Opis Azure Security Center zintegrowanej analizy zagrożeń](../../security-center/azure-defender.md)
 
 **Odpowiedzialność**: Klient
 
@@ -92,7 +92,7 @@ Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do
 
 **Wskazówki**: Włącz zaawansowaną ochronę przed zagrożeniami (ATP) dla Azure SQL Database.  Użytkownicy otrzymują alerty o podejrzanych działaniach związanych z bazą danych, potencjalnych luk w zabezpieczeniach i atakach iniekcji SQL, a także o nietypowych wzorcach dostępu do bazy danych i zapytań. Zaawansowana ochrona przed zagrożeniami integruje także alerty z Azure Security Center. 
 
-- [Zrozumienie i używanie zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database](/azure/sql-database/sql-database-threat-detection-overview)
+- [Zrozumienie i używanie zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database](./threat-detection-overview.md)
 
 **Odpowiedzialność**: Klient
 
@@ -104,7 +104,7 @@ Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do
 
 W przypadku korzystania z punktów końcowych usługi dla Azure SQL Database jest wymagane wychodzące Azure SQL Database publicznych adresów IP: grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń) muszą być otwarte, aby Azure SQL Database adresy IP w celu umożliwienia łączności. Można to zrobić za pomocą tagów usługi sieciowej grupy zabezpieczeń dla Azure SQL Database.
 
-- [Opis tagów usługi z punktami końcowymi usługi dla Azure SQL Database](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
+- [Opis tagów usługi z punktami końcowymi usługi dla Azure SQL Database](./vnet-service-endpoint-rule-overview.md#limitations)
 
 - [Zrozumienie i używanie tagów usługi](../../virtual-network/service-tags-overview.md)
 
@@ -136,7 +136,7 @@ Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takic
 
 Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -146,9 +146,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z wystąpieniami serwera Azure SQL Database. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -164,11 +164,11 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do Azure SQL Analytics, rozwiązanie w chmurze, które monitoruje wydajność baz danych SQL Azure i wystąpień zarządzanych usługi Azure SQL na dużą skalę i w wielu subskrypcjach. Może pomóc zbierać i wizualizować Azure SQL Database metryki wydajności i ma wbudowaną analizę na potrzeby rozwiązywania problemów z wydajnością.
 
-- [Jak skonfigurować inspekcję dla Azure SQL Database](/azure/sql-database/sql-database-auditing)
+- [Jak skonfigurować inspekcję dla Azure SQL Database](./auditing-overview.md)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](/azure/sql-database/sql-database-metrics-diag-logging)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md)
 
-- [Jak przesłać strumieniowo diagnostykę do Azure SQL Analytics](/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics)
+- [Jak przesłać strumieniowo diagnostykę do Azure SQL Analytics](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-sql-analytics)
 
 **Odpowiedzialność**: Klient
 
@@ -178,11 +178,11 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Wskazówki**: Włącz inspekcję w wystąpieniu serwera Azure SQL Database i wybierz lokalizację przechowywania dzienników inspekcji (Azure storage, log Analytics lub centrum zdarzeń).
 
-- [Jak włączyć inspekcję dla SQL Server platformy Azure](/azure/sql-database/sql-database-auditing)
+- [Jak włączyć inspekcję dla SQL Server platformy Azure](./auditing-overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -192,11 +192,11 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Wskazówki**: podczas przechowywania dzienników Azure SQL Database w obszarze roboczym log Analytics Ustaw okres przechowywania dziennika zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -206,7 +206,7 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Wskazówki**: analizowanie i monitorowanie dzienników pod kątem nietypowych zachowań i regularne przeglądy wyników. Użyj zaawansowanej ochrony przed zagrożeniami w usłudze Azure Security Center, aby otrzymywać alerty dotyczące nietypowej aktywności związanej z wystąpieniem Azure SQL Database. Alternatywnie możesz skonfigurować alerty na podstawie wartości metryk lub wpisów dziennika aktywności platformy Azure związanych z wystąpieniami Azure SQL Database.
 
-- [Omówienie zaawansowanej ochrony przed zagrożeniami i alertów dla usługi Azure SQL Server](/azure/sql-database/sql-database-threat-detection-overview)
+- [Omówienie zaawansowanej ochrony przed zagrożeniami i alertów dla usługi Azure SQL Server](./threat-detection-overview.md)
 
 - [Jak skonfigurować alerty niestandardowe dla Azure SQL Database](alerts-insights-configure-portal.md)
 
@@ -218,7 +218,7 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Wskazówki**: Użyj Azure Security Center zaawansowanej ochrony przed zagrożeniami dla baz danych Azure SQL Database do monitorowania i generowania alertów dotyczących nietypowej aktywności. Włącz usługę Azure Defender dla programu SQL dla baz danych SQL. Usługa Azure Defender dla programu SQL zawiera funkcje do odnajdywania i klasyfikowania poufnych danych, podłączania i ograniczania potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych.
 
-- [Poznaj zaawansowaną ochronę przed zagrożeniami i alerty dla Azure SQL Database](/azure/sql-database/sql-database-threat-detection-overview)
+- [Poznaj zaawansowaną ochronę przed zagrożeniami i alerty dla Azure SQL Database](./threat-detection-overview.md)
 
 - [Jak włączyć usługę Azure Defender dla programu SQL dla Azure SQL Database](azure-defender-for-sql.md)
 
@@ -226,7 +226,7 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -240,9 +240,9 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Wskazówki**: Azure Active Directory (Azure AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Odpowiedzialność**: Klient
 
@@ -252,7 +252,7 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 **Wskazówki**: Azure Active Directory (Azure AD) nie ma koncepcji domyślnych haseł. W przypadku inicjowania obsługi wystąpienia Azure SQL Database zalecamy integrację uwierzytelniania z usługą Azure AD.
 
-- [Jak skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nim przy użyciu usługi Azure SQL](/azure/sql-database/azure-sql/database/authentication-aad-configure)
+- [Jak skonfigurować uwierzytelnianie usługi Azure AD i zarządzać nim przy użyciu usługi Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 
 **Odpowiedzialność**: Klient
 
@@ -298,11 +298,11 @@ Ponadto można przesyłać dane telemetryczne diagnostyki usługi Azure SQL do A
 
 Użyj zaawansowanej ochrony przed zagrożeniami Azure SQL Database, aby wykrywać anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
-- [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identyfikowanie użytkowników usługi Azure AD oflagowanych na skutek ryzykownego działania](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Przejrzyj zaawansowaną ochronę przed zagrożeniami i potencjalne alerty](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview#alerts)
+- [Przejrzyj zaawansowaną ochronę przed zagrożeniami i potencjalne alerty](./threat-detection-overview.md#alerts)
 
 **Odpowiedzialność**: Klient
 
@@ -328,7 +328,7 @@ Użyj zaawansowanej ochrony przed zagrożeniami Azure SQL Database, aby wykrywa�
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -360,7 +360,7 @@ Użyj zaawansowanej ochrony przed zagrożeniami Azure SQL Database, aby wykrywa�
 
 **Wskazówki**: usługa Azure Active Directory (Azure AD) umożliwia ochronę tożsamości i wykrywanie zagrożeń, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Dodatkowo można pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
-- [Jak wyświetlić informacje o ryzyku usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić informacje o ryzyku usługi Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -386,11 +386,11 @@ Użyj zaawansowanej ochrony przed zagrożeniami Azure SQL Database, aby wykrywa�
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -400,13 +400,13 @@ Użyj zaawansowanej ochrony przed zagrożeniami Azure SQL Database, aby wykrywa�
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Zasoby powinny być oddzielone sieciami wirtualnymi/podsieć, odpowiednio oznakowane i zabezpieczone w ramach sieciowej grupy zabezpieczeń lub zapory platformy Azure. Zasoby przechowujące lub przetwarzające dane poufne powinny być izolowane. Użyj linku prywatnego; Wdróż SQL Server platformy Azure w sieci wirtualnej i łącz się z prywatnymi punktami końcowymi.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
-- [Jak skonfigurować link prywatny dla Azure SQL Database](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+- [Jak skonfigurować link prywatny dla Azure SQL Database](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
 **Odpowiedzialność**: Klient
 
@@ -418,7 +418,7 @@ Użyj zaawansowanej ochrony przed zagrożeniami Azure SQL Database, aby wykrywa�
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Jak skonfigurować link prywatny i sieciowych grup zabezpieczeń, aby zapobiec eksfiltracji danych w wystąpieniach Azure SQL Database](/azure/sql-database/sql-database-private-endpoint-overview)
+- [Jak skonfigurować link prywatny i sieciowych grup zabezpieczeń, aby zapobiec eksfiltracji danych w wystąpieniach Azure SQL Database](./private-endpoint-overview.md)
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../../security/fundamentals/protection-customer-data.md)
 
@@ -430,11 +430,11 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj funkcji odnajdywania i klasyfikowania danych Azure SQL Database. Funkcja odnajdywania i klasyfikowania danych zapewnia zaawansowane funkcje wbudowane w Azure SQL Database na potrzeby odnajdywania, klasyfikowania i etykietowania &amp; ochrony poufnych danych w bazach danych.
 
-- [Jak używać funkcji odnajdywania i klasyfikowania danych dla platformy Azure SQL Server](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Jak używać funkcji odnajdywania i klasyfikowania danych dla platformy Azure SQL Server](./data-discovery-and-classification-overview.md)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -444,9 +444,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj Azure Active Directory (Azure AD) do uwierzytelniania i kontrolowania dostępu do wystąpień Azure SQL Database.
 
-- [Jak zintegrować usługę Azure SQL Server z usługą Azure AD na potrzeby uwierzytelniania](/azure/sql-database/sql-database-aad-authentication)
+- [Jak zintegrować usługę Azure SQL Server z usługą Azure AD na potrzeby uwierzytelniania](./authentication-aad-overview.md)
 
-- [Jak kontrolować dostęp w usłudze Azure SQL Server](/azure/sql-database/sql-database-control-access)
+- [Jak kontrolować dostęp w usłudze Azure SQL Server](./logins-create-manage.md)
 
 **Odpowiedzialność**: Klient
 
@@ -456,11 +456,11 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: przezroczyste szyfrowanie danych (TDE) pomaga chronić Azure SQL Database, wystąpienie zarządzane SQL Azure i magazyn danych Azure przed zagrożeniem złośliwego działania w trybie offline przez szyfrowanie danych przechowywanych w spoczynku. Ta technologia w czasie rzeczywistym szyfruje i odszyfrowuje magazynowaną bazę danych, skojarzone kopie zapasowe i pliki dzienników transakcji bez konieczności dokonywania jakichkolwiek zmian w aplikacji. Domyślnie TDE jest włączony dla wszystkich nowo wdrożonych baz danych w wystąpieniu zarządzanym SQL Database i SQL. Klucz szyfrowania TDE może być zarządzany przez firmę Microsoft lub klienta.
 
-- [Jak zarządzać przezroczystym szyfrowaniem danych i korzystać z własnych kluczy szyfrowania](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption)
+- [Jak zarządzać przezroczystym szyfrowaniem danych i korzystać z własnych kluczy szyfrowania](./transparent-data-encryption-tde-overview.md?tabs=azure-portal#manage-transparent-data-encryption)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -470,7 +470,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych Azure SQL Database i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -484,15 +484,15 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Włącz usługę Azure Defender dla programu SQL dla Azure SQL Database i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach na serwerach SQL platformy Azure.
 
-- [Jak uruchomić oceny luk w zabezpieczeniach na Azure SQL Database](/azure/sql-database/sql-vulnerability-assessment)
+- [Jak uruchomić oceny luk w zabezpieczeniach na Azure SQL Database](./sql-vulnerability-assessment.md)
 
 - [Jak włączyć usługę Azure Defender dla programu SQL](azure-defender-for-sql.md)
 
-- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -502,7 +502,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Włącz okresowe skanowanie cykliczne dla wystąpień Azure SQL Database; spowoduje to skonfigurowanie oceny luk w zabezpieczeniach w celu automatycznego uruchamiania skanowania bazy danych na tydzień. Podsumowanie wyników skanowania zostanie wysłane na adresy e-mail, które zapewniasz. Porównaj wyniki, aby sprawdzić, czy luki zostały skorygowane.
 
-- [Jak wyeksportować raport oceny luk w zabezpieczeniach w Azure Security Center](/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment)
+- [Jak wyeksportować raport oceny luk w zabezpieczeniach w Azure Security Center](./sql-vulnerability-assessment.md#export-an-assessment-report)
 
 **Odpowiedzialność**: Klient
 
@@ -512,11 +512,11 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj domyślnych ocen ryzyka ("Secure Score") dostarczonych przez Azure Security Center.
 
-- [Informacje na temat Azure Security Center zabezpieczeń](/azure/security-center/security-center-secure-score)
+- [Informacje na temat Azure Security Center zabezpieczeń](../../security-center/secure-score-security-controls.md)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -534,7 +534,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../../governance/resource-graph/first-query-portal.md)
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Opis kontroli RBAC platformy Azure](../../role-based-access-control/overview.md)
 
@@ -546,7 +546,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -556,11 +556,11 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie to konieczne, do organizowania i śledzenia zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
 **Odpowiedzialność**: Klient
 
@@ -594,7 +594,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 **Odpowiedzialność**: Klient
 
@@ -640,9 +640,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Dokumentacja Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Odpowiedzialność**: Klient
 
@@ -662,7 +662,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: skorzystaj z Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla serwerów i baz danych Azure SQL.
 
-- [Jak skorygować zalecenia w Azure Security Center](/azure/security-center/security-center-sql-service-recommendations)
+- [Jak skorygować zalecenia w Azure Security Center](../../security-center/security-center-remediate-recommendations.md)
 
 **Odpowiedzialność**: Klient
 
@@ -672,7 +672,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 **Wskazówki**: Użyj Azure Key Vault do przechowywania kluczy szyfrowania dla Azure SQL Database transparent Data Encryption (TDE).
 
-- [Jak chronić poufne dane przechowywane w usłudze Azure SQL Server i przechowywać klucze szyfrowania w Azure Key Vault](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+- [Jak chronić poufne dane przechowywane w usłudze Azure SQL Server i przechowywać klucze szyfrowania w Azure Key Vault](./always-encrypted-azure-key-vault-configure.md)
 
 **Odpowiedzialność**: Klient
 
@@ -726,11 +726,11 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 Aby spełnić inne wymagania dotyczące zgodności, można wybrać różne okresy przechowywania dla cotygodniowych, comiesięcznych i/lub corocznych kopii zapasowych. Użycie magazynu zależy od wybranej częstotliwości wykonywania kopii zapasowych i okresów przechowywania.
 
-- [Informacje o kopiach zapasowych i ciągłości działania w usłudze Azure SQL Server](/azure/sql-database/sql-database-business-continuity)
+- [Informacje o kopiach zapasowych i ciągłości działania w usłudze Azure SQL Server](./business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 **Odpowiedzialność**: Współużytkowane
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -742,13 +742,13 @@ Aby spełnić inne wymagania dotyczące zgodności, można wybrać różne okres
 
 W przypadku korzystania z kluczy zarządzanych przez klienta do Transparent Data Encryption upewnij się, że tworzone są kopie zapasowe kluczy.
 
-- [Informacje o kopiach zapasowych w usłudze Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups?tabs=single-database)
+- [Informacje o kopiach zapasowych w usłudze Azure SQL Server](./automated-backups-overview.md?tabs=single-database)
 
-- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Odpowiedzialność**: Klient
 
-**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/azure/governance/policy/samples/azure-security-benchmark) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/azure/security-center/security-center-recommendations). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/azure/security-center/azure-defender) dla powiązanych usług.
 
 **Azure Policy wbudowane definicje — Microsoft. SQL**:
 
@@ -758,9 +758,9 @@ W przypadku korzystania z kluczy zarządzanych przez klienta do Transparent Data
 
 **Wskazówki**: Zapewnij okresowe wykonywanie operacji przywracania danych w ramach Azure Backup. W razie potrzeby przetestuj odzyskiwanie zawartości do izolowanej sieci VLAN. Testowanie przywracania kopii zapasowych kluczy zarządzanych przez klienta.
 
-- [Jak przywrócić klucze magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Jak odzyskać Azure SQL Database kopie zapasowe przy użyciu funkcji przywracania do punktu w czasie](/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore)
+- [Jak odzyskać Azure SQL Database kopie zapasowe przy użyciu funkcji przywracania do punktu w czasie](./recovery-using-backups.md#point-in-time-restore)
 
 **Odpowiedzialność**: Klient
 
@@ -770,7 +770,7 @@ W przypadku korzystania z kluczy zarządzanych przez klienta do Transparent Data
 
 **Wskazówki**: Włącz usuwanie nietrwałe w Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
-- [Jak włączyć usuwanie nietrwałe w Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Jak włączyć usuwanie nietrwałe w Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Odpowiedzialność**: Klient
 
@@ -860,5 +860,5 @@ W przypadku korzystania z kluczy zarządzanych przez klienta do Transparent Data
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../../security/benchmarks/security-baselines-overview.md)

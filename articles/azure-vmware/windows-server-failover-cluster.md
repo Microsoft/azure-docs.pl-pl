@@ -3,12 +3,12 @@ title: Klaster trybu failover systemu Windows Server na platformie Azure VMware 
 description: Skonfiguruj usługę Windows Server Failover Clustering (WSFC) w rozwiązaniu Azure VMware i Skorzystaj z rozwiązań wymagających możliwości korzystania z usługi WSFC.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 8cb2fdd8d519c665840390a41c95121218750a95
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025972"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562243"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi
 
@@ -30,7 +30,7 @@ Ważne jest wdrożenie obsługiwanej konfiguracji usługi WSFC. Chcesz, aby Twoj
 
 Ten artykuł koncentruje się na usłudze WSFC w systemie Windows Server 2016 i w systemie Windows Server 2019. Starsze wersje systemu Windows Server mają [nietypowe wsparcie](https://support.microsoft.com/lifecycle/search?alpha=windows%20server) i dlatego nie są tu rozpatrywane w tym miejscu.
 
-Musisz najpierw [utworzyć usługi WSFC](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster). Aby uzyskać więcej informacji na temat usługi WSFC, zobacz [klaster trybu failover w systemie Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview). Informacje zawarte w tym artykule dotyczą określonego wdrożenia usługi WSFC w rozwiązaniu VMware firmy Azure.
+Musisz najpierw [utworzyć usługi WSFC](/windows-server/failover-clustering/create-failover-cluster). Aby uzyskać więcej informacji na temat usługi WSFC, zobacz [klaster trybu failover w systemie Windows Server](/windows-server/failover-clustering/failover-clustering-overview). Informacje zawarte w tym artykule dotyczą określonego wdrożenia usługi WSFC w rozwiązaniu VMware firmy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -150,7 +150,7 @@ Następujące działania nie są obsługiwane i mogą spowodować przejście w t
 
 ## <a name="related-information"></a>Informacje pokrewne
 
-- [Klaster trybu failover w systemie Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Klaster trybu failover w systemie Windows Server](/windows-server/failover-clustering/failover-clustering-overview)
 - [Wytyczne dotyczące klastrowania Microsoft w systemie vSphere (1037959) (vmware.com)](https://kb.vmware.com/s/article/1037959)
 - [Informacje o konfiguracji klastra trybu failover i usługi klastrowania firmy Microsoft (vmware.com)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.mscs.doc/GUID-1A2476C0-CA66-4B80-B6F9-8421B6983808.html)
 - [Sieci vSAN 6,7 U3-WSFC z dyskami udostępnionymi &amp; (VMware.com) — trwałe rezerwacje SCSI](https://blogs.vmware.com/virtualblocks/2019/08/23/vsan67-u3-wsfc-shared-disksupport/)
@@ -162,5 +162,5 @@ Teraz, po skonfigurowaniu usługi WSFC w rozwiązaniu VMware platformy Azure, wa
 
 - Konfigurowanie nowej usługi WSFC przez dodanie większej liczby aplikacji, które wymagają możliwości usługi WSFC. Na przykład, SQL Server i SAP ASCS.
 - Konfigurowanie rozwiązania do tworzenia kopii zapasowych.
-  - [Konfigurowanie Azure Backup Server dla rozwiązania Azure VMware](https://docs.microsoft.com/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution)
-  - [Rozwiązania do tworzenia kopii zapasowych dla maszyn wirtualnych rozwiązania Azure VMware](https://docs.microsoft.com/azure/azure-vmware/ecosystem-back-up-vms)
+  - [Konfigurowanie Azure Backup Server dla rozwiązania Azure VMware](./set-up-backup-server-for-azure-vmware-solution.md)
+  - [Rozwiązania do tworzenia kopii zapasowych dla maszyn wirtualnych rozwiązania Azure VMware](./ecosystem-back-up-vms.md)

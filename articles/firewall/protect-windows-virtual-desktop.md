@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94654987"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566030"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Używanie usługi Azure Firewall do chronienia wdrożeń pulpitów wirtualnych systemu Windows
 
@@ -54,7 +54,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 - Utwórz kolekcję reguł sieci Dodaj następujące reguły:
 
    - Zezwalaj na system DNS — Zezwalanie na ruch z dodanego prywatnego adresu IP do * dla portów TCP i UDP 53.
-   - Zezwalaj na usługę KMS — Zezwalanie na ruch z maszyn wirtualnych z systemem Windows Virtual Machines do usługi aktywacji systemu Windows portu TCP 1688. Aby uzyskać więcej informacji na temat docelowych adresów IP, zobacz [Aktywacja systemu Windows kończy się niepowodzeniem w scenariuszu wymuszonego tunelowania](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Zezwalaj na usługę KMS — Zezwalanie na ruch z maszyn wirtualnych z systemem Windows Virtual Machines do usługi aktywacji systemu Windows portu TCP 1688. Aby uzyskać więcej informacji na temat docelowych adresów IP, zobacz [Aktywacja systemu Windows kończy się niepowodzeniem w scenariuszu wymuszonego tunelowania](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Niektóre wdrożenia mogą nie potrzebować reguł DNS, na przykład Azure Active Directory kontrolery domeny przekazują zapytania DNS do Azure DNS w 168.63.129.16.

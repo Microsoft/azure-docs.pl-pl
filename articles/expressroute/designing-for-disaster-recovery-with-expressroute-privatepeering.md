@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044604"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562311"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
 
@@ -43,11 +43,11 @@ Jednak w przypadku równoważenia obciążenia ruchu między geograficznie nadmi
 
 ### <a name="same-metro"></a>Ta sama linia metra
 
-Korzystając z tej samej linii metra, należy użyć pomocniczej lokalizacji drugiej ścieżki do działania tej konfiguracji. Przykładem tej samej linii *metra byłyby i* *Amsterdam2*. Zaletą wyboru tej samej linii metra jest przełączenie w tryb failover aplikacji, kompleksowego opóźnienia między aplikacjami lokalnymi a firmą Microsoft pozostaje bez zmian. Jeśli jednak występuje klęska żywiołowa, łączność dla obu ścieżek może nie być już dostępna. 
+[Wiele Metro](expressroute-locations-providers.md#global-commercial-azure) ma dwie lokalizacje ExpressRoute. Przykładem może być *Amsterdam* i *Amsterdam2*. Podczas projektowania nadmiarowości można utworzyć dwie ścieżki równoległe na platformie Azure z obu lokalizacji w tej samej linii metra. Zaletą tego projektu jest przełączenie w tryb failover aplikacji, kompleksowego opóźnienia między aplikacjami lokalnymi a firmą Microsoft. Jeśli jednak występuje klęska żywiołowa, taka jak trzęsienie ziemi, łączność dla obu ścieżek może być niedostępna.
 
 ### <a name="different-metros"></a>Różne Metro
 
-W przypadku korzystania z różnych linii metra dla standardowych obwodów SKU lokacja dodatkowa powinna znajdować się w tym samym [regionie geograficznym](expressroute-locations-providers.md#locations). Aby wybrać lokalizację spoza regionu geopolitycznego, należy użyć jednostki SKU w warstwie Premium dla obu obwodów w ścieżkach równoległych. Zaletą tej konfiguracji jest prawdopodobieństwo, że klęska żywiołowa powoduje awarię obu linków, ale kosztem nieprzerwanego wzrostu czasu oczekiwania.
+W przypadku korzystania z różnych linii metra w celu zapewnienia nadmiarowości lokalizacja dodatkowa powinna znajdować się w tym samym [regionie geograficznym](expressroute-locations-providers.md#locations). Aby wybrać lokalizację spoza regionu geopolitycznego, należy użyć jednostki SKU w warstwie Premium dla obu obwodów w ścieżkach równoległych. Zaletą tej konfiguracji jest prawdopodobieństwo, że klęska żywiołowa powoduje awarię obu linków, ale kosztem nieprzerwanego wzrostu czasu oczekiwania.
 
 W tym artykule omówiono sposób rozwiązywania problemów, które mogą wystąpić podczas konfigurowania ścieżek geograficznie nadmiarowych.
 

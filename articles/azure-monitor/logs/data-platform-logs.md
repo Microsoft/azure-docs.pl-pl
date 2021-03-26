@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708003"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567294"
 ---
 # <a name="azure-monitor-logs-overview"></a>Przegląd dzienników usługi Azure Monitor
 Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dziennika i wydajności z [monitorowanych zasobów](../monitor-reference.md). Dane z różnych źródeł, takich jak [dzienniki platformy](../essentials/platform-logs-overview.md) z usług platformy Azure, dane dziennika i wydajności z [agentów maszyn wirtualnych](../agents/agents-overview.md)oraz dane dotyczące użycia i wydajności z [aplikacji](../app/app-insights-overview.md) , można skonsolidować w jednym obszarze roboczym, dzięki czemu można je analizować przy użyciu zaawansowanego języka zapytań, który umożliwia szybkie analizowanie milionów rekordów. Można wykonać proste zapytanie, które po prostu Pobiera określony zestaw rekordów lub przeprowadza zaawansowane analizy danych w celu zidentyfikowania kluczowych wzorców w danych monitorowania. Pracuj z kwerendami dzienników i ich wyniki interaktywnie przy użyciu Log Analytics, korzystaj z nich w regułach alertów, aby otrzymywać powiadomienia o problemach lub wizualizować ich wyniki w skoroszycie lub pulpicie nawigacyjnym.
@@ -23,7 +23,7 @@ Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane d
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>Co możesz zrobić z dziennikami Azure Monitor?
 W poniższej tabeli opisano niektóre różne sposoby używania dzienników w Azure Monitor:
 
-|  |  |
+|  | Opis |
 |:---|:---|
 | **Analiza** | Użyj [log Analytics](./log-analytics-tutorial.md) w Azure Portal, aby napisać [zapytania dzienników](./log-query-overview.md) i interaktywnie analizować dane dzienników przy użyciu zaawansowanego aparatu analizy |
 | **Alert** | Skonfiguruj [regułę alertu dziennika](../alerts/alerts-log.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](../alerts/action-groups.md) , gdy wyniki zapytania pasują do określonego wyniku. |

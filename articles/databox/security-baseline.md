@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a05a4692bb4a09213532ed29b2501f6b8056857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63b99cdeb7606798caa1b1d997dbb9f609c033b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721994"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562192"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Box
 
@@ -88,7 +88,7 @@ Możesz kontrolować, kto może uzyskiwać dostęp do zamówienia podczas pierws
 
 - [Jak skonfigurować usługę Azure RBAC dla skoroszytów](../sentinel/quickstart-get-visibility.md)
 
-- [Informacje na temat konfigurowania kontroli dostępu w kolejności](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Informacje na temat konfigurowania kontroli dostępu w kolejności](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Odpowiedzialność**: Klient
 
@@ -172,7 +172,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 W przypadku urządzenia urządzenie Data Box nie jest to obsługiwane w czasie rzeczywistym. Dzienniki można przejrzeć na końcu zadania.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -190,7 +190,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru roboczego.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/quickstart-onboard.md)
 
@@ -216,7 +216,7 @@ Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru rob
 
 **Wskazówki**: wkrótce dostępne; Skrytka klienta nie jest jeszcze obsługiwana dla Azure Data Box. 
 
-- [Lista usług obsługiwanych przez Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista usług obsługiwanych przez Skrytka klienta](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Odpowiedzialność**: Klient
 
@@ -254,7 +254,7 @@ Dzienniki usługi Azure Data Box nie są zapisywane do Log Analytics obszaru rob
 
 - [Informacje na temat rozpoczynania pracy z usługą Azure Data Box](data-box-quickstart-portal.md)
 
-- [Informacje o konfigurowaniu kontroli dostępu](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Informacje o konfigurowaniu kontroli dostępu](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Odpowiedzialność**: Klient
 
@@ -281,7 +281,7 @@ Ponadto Azure Data Box chroni klucz odblokowywania urządzenia (znanego także j
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla momentu wprowadzenia zmian w Azure Data Box, jak również inne krytyczne lub pokrewne zasoby.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -459,5 +459,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

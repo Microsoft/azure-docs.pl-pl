@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: 330131ea7e9a364a31d25a6f3f0a75b1adbeb27a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799891"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566136"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -191,6 +191,10 @@ Rozmiar woluminu zgłoszonego przez klienta SMB to maksymalny rozmiar, do które
 ### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Mam problemy z nawiązywaniem połączenia z udziałem SMB. Co mam zrobić?
 
 Najlepszym rozwiązaniem jest ustawienie maksymalnej tolerancji synchronizacji zegara komputera na pięć minut. Aby uzyskać więcej informacji, zobacz [maksymalna tolerancja synchronizacji zegara komputera](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
+### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Jak mogę uzyskać adres IP woluminu SMB za pośrednictwem portalu?
+
+Użyj linku **Widok JSON** w okienku Przegląd woluminu i wyszukaj identyfikator **startIp** w obszarze **Właściwości**  ->  **mountTargets**.
 
 ## <a name="capacity-management-faqs"></a>Często zadawane pytania dotyczące zarządzania pojemnością
 

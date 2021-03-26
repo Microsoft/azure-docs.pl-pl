@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 302f53bd218a2e01a039be4780a0e2ff5974e7b4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215956"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565575"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Szyfrowanie systemu operacyjnego i dołączonych dysków danych w zestawie skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -61,7 +61,7 @@ Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wir
 
 Azure Key Vault mogą przechowywać klucze, wpisy tajne lub hasła, które umożliwiają bezpieczne wdrażanie ich w aplikacjach i usługach. Klucze kryptograficzne są przechowywane w Azure Key Vault przy użyciu ochrony oprogramowania lub można importować lub generować klucze w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń) z certyfikatem standardu FIPS 140-2 Level 2. Te klucze kryptograficzne są używane do szyfrowania i odszyfrowywania dysków wirtualnych dołączonych do maszyny wirtualnej. Zachowujesz kontrolę nad tymi kluczami kryptograficznymi i można przeprowadzić inspekcję ich użycia.
 
-Zdefiniuj własne unikatowe *keyvault_name*. Następnie utwórz magazyn kluczy za pomocą [AZ kluczy Create](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) w tej samej subskrypcji i regionie, w której znajduje się zestaw skalowania, a następnie ustaw zasady dostępu *--Enabled-on-Encryption* .
+Zdefiniuj własne unikatowe *keyvault_name*. Następnie utwórz magazyn kluczy za pomocą [AZ kluczy Create](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-create) w tej samej subskrypcji i regionie, w której znajduje się zestaw skalowania, a następnie ustaw zasady dostępu *--Enabled-on-Encryption* .
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 Ten krok jest wymagany tylko w przypadku istniejących Key Vault, które mają być używane z szyfrowaniem dysków. Pomiń ten krok, jeśli utworzono Key Vault w poprzedniej sekcji.
 
-Zdefiniuj własne unikatowe *keyvault_name*. Następnie Zaktualizowano Magazyn kluczy za pomocą opcji [AZ Disk Update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) i ustawienia zasad dostępu *--Enabled-for-Encryption* .
+Zdefiniuj własne unikatowe *keyvault_name*. Następnie Zaktualizowano Magazyn kluczy za pomocą opcji [AZ Disk Update](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-update) i ustawienia zasad dostępu *--Enabled-for-Encryption* .
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Włącz szyfrowanie
 
-Aby zaszyfrować wystąpienia maszyn wirtualnych w zestawie skalowania, najpierw Uzyskaj pewne informacje o IDENTYFIKATORze zasobu Key Vault przy użyciu [AZ klucza magazynu show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Te zmienne są używane do uruchamiania procesu szyfrowania za pomocą [AZ VMSS Encryption Enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Aby zaszyfrować wystąpienia maszyn wirtualnych w zestawie skalowania, najpierw Uzyskaj pewne informacje o IDENTYFIKATORze zasobu Key Vault przy użyciu [AZ klucza magazynu show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Te zmienne są używane do uruchamiania procesu szyfrowania za pomocą [AZ VMSS Encryption Enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault

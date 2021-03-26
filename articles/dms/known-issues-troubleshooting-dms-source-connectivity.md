@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 93ac6ae3c8aed61557a239bb9c84d3587dce1daa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cffa8d9a0647ff5fe970801d5da98e23be0b2aaf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962335"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567329"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Troubleshoot DMS errors when connecting to source databases (Rozwiązywanie problemów z błędami usługi DMS podczas nawiązywania połączenia ze źródłowymi bazami danych)
 
@@ -74,8 +74,8 @@ Potencjalne problemy związane z nawiązywaniem połączenia z bazą danych AWS 
 | **Błąd 53** — połączenie SQL nie powiodło się. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został odnaleziony lub nie jest dostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne. (Dostawca: Dostawca nazwanych potoków, błąd: 40 — nie można otworzyć połączenia z SQL Server | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie. |
 | **Błąd 18456** — logowanie nie powiodło się. Logowanie użytkownika "{User}" nie powiodło się | Ten błąd występuje, gdy usługa nie może nawiązać połączenia ze źródłową bazą danych przy użyciu podanych poświadczeń T-SQL. Aby rozwiązać ten problem, sprawdź wprowadzone poświadczenia. Możesz również odwołać się do [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) lub do dokumentów rozwiązywania problemów wymienionych w uwadze poniżej tej tabeli i spróbować ponownie. |
 | **Błąd 87** — parametry połączenia są nieprawidłowe. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne. (Dostawca: interfejsy sieciowe SQL, błąd: 25 — parametry połączenia są nieprawidłowe) | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym z powodu nieprawidłowych parametrów połączenia. Aby rozwiązać ten problem, sprawdź podane parametry połączenia. Jeśli problem będzie się powtarzać, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie. |
-| **Błąd — certyfikat serwera nie jest zaufany.** Połączenie z serwerem zostało pomyślnie ustanowione, ale wystąpił błąd podczas procesu logowania. (Dostawca: dostawca SSL, błąd: 0 — łańcuch certyfikatów został wystawiony przez urząd, który nie jest zaufany.) | Ten błąd występuje, jeśli używany certyfikat nie jest zaufany. Aby rozwiązać ten problem, należy znaleźć certyfikat, który może być zaufany, a następnie włączyć go na serwerze. Alternatywnie można wybrać opcję certyfikatu zaufania podczas nawiązywania połączenia. Wykonaj tę czynność tylko wtedy, gdy znasz certyfikat używany i ufasz. <br> Połączenia TLS szyfrowane przy użyciu certyfikatu z podpisem własnym nie zapewniają silnych zabezpieczeń — są podatne na ataki typu man-in-the-middle. Nie należy polegać na protokole TLS przy użyciu certyfikatów z podpisem własnym w środowisku produkcyjnym lub na serwerach, które są połączone z Internetem. <br> Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSL z wystąpieniem usługi Microsoft SQL Server DB](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) lub [samouczkiem: Migrowanie SQL Server RDS na platformę Azure za pomocą usługi DMS](./tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md#prerequisites). |
-| **Błąd 300** — użytkownik nie ma wymaganych uprawnień. Nie można wyświetlić uprawnienia stanu serwera w obiekcie "{Server}" w bazie danych "{Database}" | Ten błąd występuje, gdy użytkownik nie ma uprawnień do przeprowadzenia migracji. Aby rozwiązać ten problem, zapoznaj się z tematem [Granting Server Permissions-Transact-SQL](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) lub [samouczek: Migruj SQL Server RDS na platformę Azure za pomocą usługi DMS](./tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md#prerequisites) , aby uzyskać więcej informacji. |
+| **Błąd — certyfikat serwera nie jest zaufany.** Połączenie z serwerem zostało pomyślnie ustanowione, ale wystąpił błąd podczas procesu logowania. (Dostawca: dostawca SSL, błąd: 0 — łańcuch certyfikatów został wystawiony przez urząd, który nie jest zaufany.) | Ten błąd występuje, jeśli używany certyfikat nie jest zaufany. Aby rozwiązać ten problem, należy znaleźć certyfikat, który może być zaufany, a następnie włączyć go na serwerze. Alternatywnie można wybrać opcję certyfikatu zaufania podczas nawiązywania połączenia. Wykonaj tę czynność tylko wtedy, gdy znasz certyfikat używany i ufasz. <br> Połączenia TLS szyfrowane przy użyciu certyfikatu z podpisem własnym nie zapewniają silnych zabezpieczeń — są podatne na ataki typu man-in-the-middle. Nie należy polegać na protokole TLS przy użyciu certyfikatów z podpisem własnym w środowisku produkcyjnym lub na serwerach, które są połączone z Internetem. <br> Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSL z wystąpieniem usługi Microsoft SQL Server DB](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) lub [samouczkiem: Migrowanie SQL Server RDS na platformę Azure za pomocą usługi DMS](./index.yml). |
+| **Błąd 300** — użytkownik nie ma wymaganych uprawnień. Nie można wyświetlić uprawnienia stanu serwera w obiekcie "{Server}" w bazie danych "{Database}" | Ten błąd występuje, gdy użytkownik nie ma uprawnień do przeprowadzenia migracji. Aby rozwiązać ten problem, zapoznaj się z tematem [Granting Server Permissions-Transact-SQL](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) lub [samouczek: Migruj SQL Server RDS na platformę Azure za pomocą usługi DMS](./index.yml) , aby uzyskać więcej informacji. |
 
 > [!NOTE]
 > Aby uzyskać więcej informacji dotyczących rozwiązywania problemów związanych z nawiązywaniem połączenia ze źródłem AWS RDS SQL Server, zobacz następujące zasoby:
@@ -85,7 +85,7 @@ Potencjalne problemy związane z nawiązywaniem połączenia z bazą danych AWS 
 
 ## <a name="known-issues"></a>Znane problemy
 
-* [Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database](./index.yml)
 * [Znane problemy/ograniczenia migracji z migracją online do Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Znane problemy/ograniczenia migracji z migracją online do Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 

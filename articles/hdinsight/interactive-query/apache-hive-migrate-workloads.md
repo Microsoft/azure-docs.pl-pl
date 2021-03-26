@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: b13e8e088eff95071247a53ad1a4a18879f94053
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43d616bc82c608918f5e7ee51481a393dd55a284
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742198"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566074"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrowanie obciążeń platformy Azure HDInsight 3,6 do usługi HDInsight 4,0
 
@@ -71,7 +71,7 @@ Ten krok powoduje użycie [`Hive Schema Tool`](https://cwiki.apache.org/confluen
     > [!NOTE]
     > To narzędzie używa klienta `beeline` do wykonywania skryptów SQL w programie `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql` .
     >
-    > Składnia SQL w tych skryptach nie musi być zgodna z innymi narzędziami klienckimi. Na przykład program [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) i [Edytor zapytań w witrynie Azure Portal](../../azure-sql/database/connect-query-portal.md) wymagają słowa kluczowego `GO` po każdym poleceniu.
+    > Składnia SQL w tych skryptach nie musi być zgodna z innymi narzędziami klienckimi. Na przykład program [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) i [Edytor zapytań w witrynie Azure Portal](../../azure-sql/database/connect-query-portal.md) wymagają słowa kluczowego `GO` po każdym poleceniu.
     >
     > Jeśli dowolny skrypt zakończy się niepowodzeniem ze względu na wydajność zasobów lub limity czasu transakcji, Przeskaluj w górę SQL Database.
 

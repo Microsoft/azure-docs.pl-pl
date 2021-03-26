@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471744"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562226"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -56,9 +56,9 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z lutego)
 + **Nowe funkcje**
-  + [Terminal macierzysty (ga)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem zintegrowanego terminalu.
+  + [Terminal macierzysty (ga)](./how-to-access-terminal.md). Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem zintegrowanego terminalu.
   + [Fragmenty notesu (wersja zapoznawcza)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Najpopularniejsze fragmenty kodu usługi Azure ML są teraz dostępne na wyręką. Przejdź do panelu fragmenty kodu, dostępnego za pośrednictwem paska narzędzi lub Aktywuj menu fragmenty w kodzie za pomocą klawiszy CTRL + SPACJA.  
-  + [Skróty klawiaturowe](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Pełna zgodność ze skrótami klawiaturowymi dostępnymi w Jupyter. 
+  + [Skróty klawiaturowe](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Pełna zgodność ze skrótami klawiaturowymi dostępnymi w Jupyter. 
   + Wskaż parametry komórki. Pokazuje użytkowników, którzy komórki w notesie są komórkami parametrycznymi i mogą uruchamiać sparametryzowane notesy za pośrednictwem [Papermill](https://github.com/nteract/papermill) na wystąpieniu obliczeniowym.
   + Menedżer sesji terminalu i jądra: użytkownicy będą mogli zarządzać wszystkimi jądrami i sesjami terminali działającymi w ramach obliczeń.
   + Przycisk udostępniania. Użytkownicy mogą teraz udostępniać dowolny plik w Eksploratorze plików notesu, klikając go prawym przyciskiem myszy i korzystając z przycisku Udostępnij.
@@ -68,7 +68,7 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
   + Ulepszone czasy ładowania stron
   + Większa wydajność 
   + Ulepszona szybkość i niezawodność jądra
-  + Dodano wirujące koło, aby pokazać postęp dla wszystkich bieżących [operacji wystąpienia obliczeniowego](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
+  + Dodano wirujące koło, aby pokazać postęp dla wszystkich bieżących [operacji wystąpienia obliczeniowego](./how-to-run-jupyter-notebooks.md#status-indicators).
   + Kliknij prawym przyciskiem myszy w Eksploratorze plików. Kliknięcie prawym przyciskiem myszy dowolnego pliku spowoduje teraz otwarcie operacji na plikach. 
 
 
@@ -79,7 +79,7 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
   + **azureml-core**
     + [Funkcja eksperymentalna] Dodawanie obsługi do łączenia obszaru roboczego Synapse w AML jako połączona usługa
     + [Funkcja eksperymentalna] Dodawanie obsługi do dołączania puli Synapse Spark do AML jako obliczeń
-    + [Funkcja eksperymentalna] Dodano obsługę dostępu do danych na podstawie tożsamości. Użytkownicy mogą rejestrować datastore lub zestawy danych bez podawania poświadczeń. W takim przypadku do uwierzytelniania będą używane tokeny usługi AAD lub zarządzana tożsamość elementu docelowego użytkowników. Dowiedz się więcej [tutaj](https://aka.ms/data-access).
+    + [Funkcja eksperymentalna] Dodano obsługę dostępu do danych na podstawie tożsamości. Użytkownicy mogą rejestrować datastore lub zestawy danych bez podawania poświadczeń. W takim przypadku do uwierzytelniania będą używane tokeny usługi AAD lub zarządzana tożsamość elementu docelowego użytkowników. Dowiedz się więcej [tutaj](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Funkcja eksperymentalna] Dodawanie obsługi [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

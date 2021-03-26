@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ecb9d1e25647e197614817116921140f0d7fbdf4
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 54c1b8c189264fb2e127ff04b0fdd9125f4c9aeb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024969"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563144"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>Przegląd migracji: SQL Server do Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -104,7 +104,7 @@ Poniższa tabela zawiera listę zalecanych narzędzi migracji:
 
 |Technologia | Opis|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate usługi Azure SQL umożliwia odnajdywanie i ocenianie danych SQL w odpowiedniej skali w przypadku programu VMware, dostarczając zaleceń dotyczących wdrażania usługi Azure SQL, określanie rozmiaru docelowej i miesięczne oszacowania. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure Migrate usługi Azure SQL umożliwia odnajdywanie i ocenianie danych SQL w odpowiedniej skali w przypadku programu VMware, dostarczając zaleceń dotyczących wdrażania usługi Azure SQL, określanie rozmiaru docelowej i miesięczne oszacowania. | 
 |[Narzędzie Data Migration Assistant (DMA)](/sql/dma/dma-migrateonpremsqltosqldb)|Data Migration Assistant to narzędzie pulpitu, które zapewnia bezproblemową ocenę SQL Server i migracji do Azure SQL Database (schemat i dane). Narzędzie można zainstalować lokalnie na serwerze lub na komputerze lokalnym, który ma łączność ze źródłowymi bazami danych. Proces migracji jest logicznym przenoszeniem danych między obiektami w źródłowej i docelowej bazie danych. </br> -Migruj pojedyncze bazy danych (schemat i dane)|
 |[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Usługa platformy Azure dla pierwszej strony, która może migrować bazy danych SQL Server do Azure SQL Database przy użyciu Azure Portal lub zautomatyzowanego za pomocą programu PowerShell. Usługa Azure DMS wymaga wybrania preferowanej usługi Azure Virtual Network (VNet) podczas aprowizacji, aby upewnić się, że istnieje łączność ze źródłowymi bazami danych SQL Server. </br> — Migrowanie pojedynczych baz danych lub na dużą skalę. |
 | | |
