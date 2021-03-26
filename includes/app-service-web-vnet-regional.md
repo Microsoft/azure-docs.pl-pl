@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 7796b94609a9be05fdb72900d0725747440f8042
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582578"
+ms.locfileid: "105609541"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -74,7 +74,7 @@ Ta funkcja jest w pełni obsługiwana zarówno w przypadku aplikacji systemu Win
 
 ### <a name="service-endpoints"></a>Punkty końcowe usługi
 
-Integracja z regionalną siecią wirtualną umożliwia korzystanie z punktów końcowych usługi. Podstawowe kroki umożliwiające uzyskanie dostępu do usługi z aplikacji za pośrednictwem punktów końcowych usługi są następujące:
+Integracja z regionalną siecią wirtualną umożliwia dostęp do usług platformy Azure, które są zabezpieczone za pomocą punktów końcowych usługi. Aby uzyskać dostęp do usługi zabezpieczonej przez punkt końcowy usługi, należy wykonać następujące czynności:
 
 1. Skonfiguruj regionalną integrację sieci wirtualnej z aplikacją internetową, aby połączyć się z określoną podsiecią w celu integracji.
 1. Przejdź do usługi docelowej i skonfiguruj punkty końcowe usługi w podsieci integracji.
@@ -101,9 +101,6 @@ Gdy aplikacja zostanie zintegrowana z siecią wirtualną, używa tego samego ser
 1. `WEBSITE_VNET_ROUTE_ALL` z wartością `1`
 
 Te ustawienia wysyłają wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej i umożliwiają aplikacji dostęp do Azure DNS strefy prywatnej. Dzięki tym ustawieniom aplikacja może używać Azure DNS, badając strefę prywatną DNS na poziomie procesu roboczego.  
-
-> [!NOTE]
-> Próba dodania domeny niestandardowej do aplikacji sieci Web przy użyciu strefy prywatnej DNS nie jest możliwa w przypadku Integracja z siecią wirtualną. Walidacja domeny niestandardowej odbywa się na poziomie kontrolera, a nie na poziomie procesu roboczego, co uniemożliwia wyświetlanie rekordów DNS. Aby użyć domeny niestandardowej z strefy prywatnej DNS, należy pominąć walidację przy użyciu [Application Gateway](../articles/app-service/networking/app-gateway-with-service-endpoints.md) lub [App Service Environment ILB](../articles/app-service/environment/create-ilb-ase.md).
 
 ### <a name="private-endpoints"></a>Prywatne punkty końcowe
 

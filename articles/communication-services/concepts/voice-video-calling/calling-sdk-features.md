@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 240bdaee9073ab18e175e2911ac1c23ae49b3d7e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 31b8e2e9a8e69fd730edb2c826005104f5f82bdc
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562413"
+ms.locfileid: "105609194"
 ---
 # <a name="calling-sdk-overview"></a>Omówienie wywoływania zestawu SDK
 
@@ -72,17 +72,17 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 |                   | Ustawianie/aktualizowanie trybu skalowania                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Renderowanie zdalnego strumienia wideo                                                                                          | ✔️   | ✔️            | ✔️
 
-## <a name="calling-client-library-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego biblioteki klienta
-Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące konfiguracje przesyłania strumieniowego:
+## <a name="calling-sdk-streaming-support"></a>Wywoływanie obsługi przesyłania strumieniowego SDK
+Zestaw SDK wywoływania usług komunikacyjnych obsługuje następujące konfiguracje przesyłania strumieniowego:
 
 | Limit          |Internet | System Android/iOS|
 |-----------|----|------------|
 |**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 wideo + 1 udostępnianie ekranu | 1 wideo + 1 udostępnianie ekranu|
 |**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 wideo + 1 udostępnianie ekranu| 6 wideo + 1 udostępnianie ekranu |
 
-## <a name="calling-client-library-timeouts"></a>Wywoływanie limitów czasu biblioteki klienta
+## <a name="calling-sdk-timeouts"></a>Trwa wywoływanie limitów czasu zestawu SDK
 
-Następujące limity czasu dotyczą bibliotek klienta wywołującego usługi komunikacyjne:
+Następujące limity czasu dotyczą usług komunikacyjnych wywołujących zestawy SDK:
 
 | Akcja           | Limit czasu w sekundach |
 | -------------- | ---------- |
