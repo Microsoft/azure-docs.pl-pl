@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: e9c889dcffe42fde244f8a35ce42032e84d78fff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36bf92a1b1bdef4e45b22b934728b3e8c46c3da
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488124"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107752"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -23,7 +23,7 @@ ms.locfileid: "103488124"
 ### <a name="creating-the-xcode-project"></a>Tworzenie projektu Xcode
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 8 z wywołującej biblioteki klienta.
+> Ten dokument używa wersji 1.0.0-beta. 8 zestawu SDK wywoływania.
 
 W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojedynczego widoku** . Ten przewodnik Szybki Start korzysta z [platformy SwiftUI](https://developer.apple.com/xcode/swiftui/), więc należy ustawić **Język** **SWIFT** i **interfejs użytkownika** na **SwiftUI**. Nie ma potrzeby tworzenia testów jednostkowych ani testów interfejsu użytkownika w ramach tego przewodnika Szybki Start. Możesz usunąć zaznaczenie opcji **Dołącz testy jednostkowe** , a także Usuń zaznaczenie pola wyboru **Dołącz testy interfejsu użytkownika**.
 
@@ -68,12 +68,12 @@ import AVFoundation
 
 ## <a name="object-model"></a>Model obiektów
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje usługi komunikacyjnej platformy Azure wywołującej bibliotekę klienta dla systemu iOS.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje wywołania zestawu SDK dla usługi Azure Communications Services dla systemu iOS.
 
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
+| CallClient | CallClient jest głównym punktem wejścia do wywołującego zestawu SDK.|
 | CallAgent | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
 | CommunicationTokenCredential | CommunicationTokenCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.| 
 | CommunicationIdentifier | CommunicationIdentifier jest używany do reprezentowania tożsamości użytkownika, który może być jedną z następujących: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
@@ -131,7 +131,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>Umieść wywołanie wychodzące
 
-Aby utworzyć i uruchomić wywołanie, należy wywołać jeden z interfejsów API w systemie `CallAgent` i podać tożsamość usługi komunikacyjnej użytkownika, który został zainicjowany przy użyciu biblioteki klienta zarządzania usługami komunikacyjnymi.
+Aby utworzyć i uruchomić wywołanie, należy wywołać jeden z interfejsów API w systemie `CallAgent` i podać tożsamość usług komunikacyjnych użytkownika, który został zainicjowany przy użyciu zestawu SDK zarządzania usługami komunikacyjnymi.
 
 Tworzenie i uruchamianie wywołań jest synchroniczne. Otrzymasz wystąpienie wywołania, które pozwala subskrybować wszystkie zdarzenia w wywołaniu.
 

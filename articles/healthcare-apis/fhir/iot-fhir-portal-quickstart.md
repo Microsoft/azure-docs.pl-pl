@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 405bcd4f3839b99879f76c23060ba24062b279de
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 91b3097e465458181074d1e450e69f267d0fe556
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019805"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026789"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Szybki Start: wdrażanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -169,14 +169,20 @@ Wdróż [szablon aplikacji do monitorowania ciągłego pacjenta](../../iot-centr
 > Za każdym razem, gdy prawdziwe urządzenia są gotowe, możesz użyć tej samej IoT Central aplikacji do dołączenia [urządzeń](../../iot-central/core/howto-set-up-template.md) i zamienić symulatory urządzeń. Dane urządzenia zostaną automatycznie uruchomione i przepływają do FHIR. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Łączenie danych IoT z łącznikiem usługi Azure IoT dla FHIR (wersja zapoznawcza)
-> [!WARNING]
-> Szablon mapowania urządzeń podany w tym przewodniku został zaprojektowany z założeniami, aby można było korzystać z eksportu danych (starsza wersja) w IoT Central.
 
-Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane rozpoczną generowanie danych telemetrycznych. Na potrzeby tego samouczka będziemy pozyskiwać dane telemetryczne z inteligentnych funkcji symulatora *poprawek* do FHIR za pośrednictwem łącznika usługi Azure IoT dla FHIR. Aby wyeksportować dane IoT do łącznika usługi Azure IoT dla programu FHIR, należy [skonfigurować ciągły eksport danych w ramach IoT Central](../../iot-central/core/howto-export-data-legacy.md). Na stronie Eksport danych ciągłych:
-- Wybierz pozycję *Azure Event Hubs* jako miejsce docelowe eksportowania.
-- Zaznacz pole wyboru *Użyj wartości parametrów połączenia* dla **Event Hubs przestrzeni nazw** .
+Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane rozpoczną generowanie danych telemetrycznych. Na potrzeby tego samouczka będziemy pozyskiwać dane telemetryczne z inteligentnych funkcji symulatora *poprawek* do FHIR za pośrednictwem łącznika usługi Azure IoT dla FHIR. Aby wyeksportować dane IoT do łącznika usługi Azure IoT dla programu FHIR, należy [skonfigurować ciągły eksport danych w ramach IoT Central](../../iot-central/core/howto-export-data.md). Najpierw musimy utworzyć połączenie z miejscem docelowym, a następnie utworzymy zadanie eksportu danych w celu ciągłego uruchomienia: 
+
+Utwórz nowe miejsce docelowe:
+- Przejdź do karty **miejsca docelowe** i Utwórz nowe miejsce docelowe.
+- Zacznij od nadania lokalizacji docelowej unikatowej nazwy.
+- Wybierz pozycję *Azure Event Hubs* jako typ docelowy.
 - Udostępnij łącznik usługi Azure IoT dla parametrów połączenia FHIR uzyskanych w poprzednim kroku dla pola **Parametry połączenia** .
-- Zachowaj opcję **telemetrii** *dla* **danych do wyeksportowania** .
+
+Utwórz nowy eksport danych:
+- Po utworzeniu miejsca docelowego przejdź do karty **eksporty** i Utwórz nowy eksport danych. 
+- Zacznij od podania, że dane wyeksportują unikatową nazwę.
+- W obszarze **dane** wybierz opcję *Telemetria* jako *Typ danych do wyeksportowania*.
+- W obszarze **Lokalizacja docelowa** wybierz nazwę docelową utworzoną w poprzedniej nazwie.
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Wyświetlanie danych urządzenia w usłudze Azure API for FHIR
 

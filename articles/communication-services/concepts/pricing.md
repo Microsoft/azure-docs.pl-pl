@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc5da3f4ac5bf9a08e16a931d54dfbf6a2fb9f48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ad88a7a6c91128bb863eeb51cc7f26c8d71b9eed
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495797"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107911"
 ---
 # <a name="pricing-scenarios"></a>Scenariusze cen
 
@@ -25,7 +25,7 @@ Ceny usług Azure Communication Services są ogólnie oparte na modelu z płatno
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Połączenie głosowe/wideo i udostępnianie ekranu
 
-Usługi komunikacyjne platformy Azure umożliwiają dodawanie połączeń głosowych i wideo oraz udostępnianie ekranu do aplikacji. Możesz osadzić środowisko w aplikacjach przy użyciu bibliotek JavaScript, zamierzenia C (Apple), Java (Android) lub .NET Client. Zapoznaj się z naszą [pełną listą dostępnych bibliotek klientów](./sdk-options.md).
+Usługi komunikacyjne platformy Azure umożliwiają dodawanie połączeń głosowych i wideo oraz udostępnianie ekranu do aplikacji. Środowisko można osadzać w aplikacjach przy użyciu języka JavaScript, celu-C (Apple), Java (Android) lub .NET SDK. Zapoznaj się z naszą [pełną listą dostępnych zestawów SDK](./sdk-options.md).
 
 ### <a name="pricing"></a>Ceny
 
@@ -33,9 +33,9 @@ Połączenia i usługi udostępniania ekranu są płatne za minutę za każdy uc
 
 Każdy uczestnik rozmowy będzie liczać opłaty za każdą minutę, która jest połączona z wywołaniem. Ta wartość jest prawdziwa bez względu na to, czy użytkownik ma nagranie wideo, połączenie głosowe czy udostępnianie ekranu.
 
-### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-client-libraries"></a>Przykład cen: połączenie audio/wideo za pomocą bibliotek JS i iOS
+### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-sdks"></a>Przykład cen: połączenie audio/wideo przy użyciu zestawów SDK i systemu iOS
 
-Alicja dokonała wywołania grupy z jej współpracownikami, Robert i Charlie. Alicja i Robert korzystali z bibliotek klienckich JS, Charliech bibliotek klienckich systemu iOS.
+Alicja dokonała wywołania grupy z jej współpracownikami, Robert i Charlie. Alicja i Robert korzystali z zestawów SDK JS, Charlie zestaw SDK systemu iOS.
 
 - Wywołanie trwa łącznie 60 minut.
 - Alicja i Robert uczestniczyły w całym wywołaniu. Alicja włączyła Twoje wideo przez pięć minut i udostępniają swój ekran przez 23 minuty. Robert dysponuje wideo dla całego wywołania (60 minut) i udostępnia swój ekran przez 12 minut.
@@ -48,9 +48,9 @@ Alicja dokonała wywołania grupy z jej współpracownikami, Robert i Charlie. A
 
 **Łączny koszt wywołania grupy**: $0,48 + $0,172 = $0,652
 
-### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Przykład cen: użytkownik biblioteki klienckiej usługi Communication Services JS dołącza zaplanowaną spotkanie Microsoft Teams
+### <a name="pricing-example-a-user-of-the-communication-services-javascript-sdk-joins-a-scheduled-microsoft-teams-meeting"></a>Przykład cen: użytkownik zestawu SDK JavaScript usług komunikacyjnych dołącza zaplanowaną spotkanie Microsoft Teams
 
-Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać do wizyty z poziomu aplikacji Team Desktop. Robert otrzyma link do sprzężenia przy użyciu witryny sieci Web dostawcy usług opieki zdrowotnej, która łączy się ze spotkaniem przy użyciu biblioteki klienckiej usługi Communication Services JS. Robert będzie używać swojego telefonu komórkowego do wprowadzania spotkania przy użyciu przeglądarki sieci Web (iPhone z programem Safari). Czat będzie dostępny podczas odwiedzin wirtualnych.
+Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać do wizyty z poziomu aplikacji Team Desktop. Robert otrzyma link do sprzężenia przy użyciu witryny sieci Web dostawcy usług opieki zdrowotnej, która nawiązuje połączenie ze spotkaniem przy użyciu zestawu SDK JavaScript usługi komunikacyjnej. Robert będzie używać swojego telefonu komórkowego do wprowadzania spotkania przy użyciu przeglądarki sieci Web (iPhone z programem Safari). Czat będzie dostępny podczas odwiedzin wirtualnych.
 
 - Wywołanie trwa łącznie 30 minut.
 - Alicja i Robert uczestniczą w całym wywołaniu. Alicja włącza swoje wideo pięć minut po rozpoczęciu wywołania i udostępni jego ekran przez 13 minut. Robert ma swoje wideo dla całego wywołania.
@@ -67,13 +67,13 @@ Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać d
 * Uczestnictwo Alicja jest objęte licencją zespołów. Na fakturze platformy Azure będą wyświetlane minuty i komunikaty rozmowy, które umożliwiają zespołom użytkowników usług komunikacyjnych dla wygody użytkownika, ale te minuty i komunikaty pochodzące od klientów zespołów nie będą kosztowały kosztów.
 
 **Łączny koszt dla wizyty**:
-- Przyłączanie użytkownika przy użyciu biblioteki klienckiej JS usług komunikacyjnych: $0,12 + $0,0024 = $0,1224
+- Przyłączanie użytkownika przy użyciu zestawu SDK JavaScript usług komunikacyjnych: $0,12 + $0,0024 = $0,1224
 - Przyłączanie użytkowników do aplikacji klasycznych zespołów: $0 (objętych przez licencję zespołów)
 
 
 ## <a name="chat"></a>Czat
 
-Dzięki usługom komunikacyjnym można ulepszyć aplikację, umożliwiając wysyłanie i odbieranie komunikatów rozmowy między dwoma lub większą liczbą użytkowników. Biblioteki klienckie programu Chat są dostępne dla języków JavaScript, .NET, Python i Java. Zapoznaj się z [tą stroną, aby dowiedzieć się więcej o bibliotekach klienta](./sdk-options.md)
+Dzięki usługom komunikacyjnym można ulepszyć aplikację, umożliwiając wysyłanie i odbieranie komunikatów rozmowy między dwoma lub większą liczbą użytkowników. Zestawy SDK rozmowy są dostępne dla języków JavaScript, .NET, Python i Java. Zobacz [Tę stronę, aby dowiedzieć się więcej o](./sdk-options.md) zestawach SDK
 
 ### <a name="price"></a>Cena
 

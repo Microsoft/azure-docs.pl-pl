@@ -10,14 +10,14 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 2739079b67d80f3e4a9f367aaa58f6dcbbb650ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4a9deded16de6b0de2ef5f88ffebd813b8e5b8c0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622273"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110370"
 ---
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta programu SMS dla usług komunikacyjnych, aby wysyłać wiadomości SMS.
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK SMS usług komunikacyjnych w celu wysyłania wiadomości SMS.
 
 W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
 
@@ -100,7 +100,7 @@ public class App
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta programu SMS dla usług Azure Communication Services dla języka Java.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SMS SDK usług Azure Communication Services dla języka Java.
 
 | Nazwa                                                             | Opis                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99524672"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109016"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -52,6 +52,9 @@ Ciągła ocena dostępu jest implementowana przez włączenie usług, takich jak
 
 Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do organizacyjnych plików usługi SharePoint Online, wiadomości e-mail, kalendarza lub zadań, a także zespoły z Microsoft 365 aplikacji klienckich w ciągu minut od jednego z tych zdarzeń krytycznych. 
 
+> [!NOTE] 
+> Zespoły nie obsługują jeszcze zdarzeń ryzyka użytkownika.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>Ocena zasad dostępu warunkowego (wersja zapoznawcza)
 
 Programy Exchange i SharePoint mogą synchronizować kluczowe zasady dostępu warunkowego, aby mogły być oceniane w ramach samej usługi.
@@ -59,11 +62,11 @@ Programy Exchange i SharePoint mogą synchronizować kluczowe zasady dostępu wa
 Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do plików organizacji, wiadomości e-mail, kalendarza lub zadań z Microsoft 365 aplikacji klienckich lub usługi SharePoint Online bezpośrednio po zmianie lokalizacji sieciowej.
 
 > [!NOTE]
-> Nie wszystkie kombinacje aplikacji i dostawcy zasobów są obsługiwane. Zobacz poniższą tabelę. Pakiet Office odwołuje się do programów Word, Excel i PowerPoint
+> Nie wszystkie kombinacje aplikacji i dostawcy zasobów są obsługiwane. Zobacz poniższą tabelę. Pakiet Office odnosi się do programów Word, Excel i PowerPoint.
 
 | | Sieć Web programu Outlook | Program Outlook Win32 | Outlook iOS | Program Outlook Android | Komputer Mac z programem Outlook |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Obsługiwane | Obsługiwane | Nieobsługiwane | Nieobsługiwane | Obsługiwane |
+| **SharePoint Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 | **Exchange Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
 | | Aplikacje sieci Web pakietu Office | Aplikacje pakietu Office Win32 | Pakiet Office dla systemu iOS | Pakiet Office dla systemu Android | Pakiet Office dla komputerów Mac |
@@ -71,23 +74,20 @@ Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do pl
 | **SharePoint Online** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 | **Exchange Online** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
+| | Usługa OneDrive w sieci Web | Usługa OneDrive Win32 | OneDrive dla systemu iOS | Usługa OneDrive dla systemu Android | Adres MAC usługi OneDrive |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
+
 ### <a name="client-side-claim-challenge"></a>Wyzwanie dla żądania po stronie klienta
 
 Przed ciągłą oceną dostępu klienci będą zawsze próbować odtworzyć token dostępu z jego pamięci podręcznej, o ile nie wygasł. Dzięki CAE wprowadzamy nowy przypadek, że dostawca zasobów może odrzucić token nawet wtedy, gdy nie wygasł. Aby poinformować klientów o konieczności obejścia swojej pamięci podręcznej, nawet jeśli tokeny buforowane nie wygasły, wprowadzimy mechanizm o nazwie **wyzwanie** , aby wskazać, że token został odrzucony, a nowy token dostępu musi być wystawiony przez usługę Azure AD. CAE wymaga aktualizacji klienta w celu zrozumienia wyzwania żądania. Najnowsza wersja następujących aplikacji poniżej obsługuje wyzwanie dla żądania:
 
-- Windows Outlook
-- Outlook iOS
-- Program Outlook Android
-- Komputer Mac z programem Outlook
-- Outlook Web App
-- Zespoły dla systemu Windows (tylko dla zasobów zespołów)
-- Zespoły iOS (tylko dla zasobów zespołów)
-- Zespoły systemu Android (tylko dla zasobów zespołów)
-- Teams Mac (tylko dla zasobów zespołów)
-- Word/Excel/PowerPoint dla systemu Windows
-- Word/Excel/PowerPoint dla systemu iOS
-- Word/Excel/PowerPoint dla systemu Android
-- Word/Excel/PowerPoint dla komputerów Mac
+| | Internet | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
+| **Teams** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
+| **Office** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
+| **OneDrive** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
 ### <a name="token-lifetime"></a>Okres istnienia tokenu
 
@@ -165,9 +165,9 @@ Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówie
 
 ### <a name="policy-change-timing"></a>Chronometraż zmiany zasad
 
-Ze względu na ryzyko związane z replikacją między usługą Azure AD i dostawcami zasobów zmiany zasad wprowadzone przez administratorów mogą trwać do 2 godzin dla usługi Exchange Online.
+Zmiany zasad wprowadzone przez administratorów mogą zająć do jednego dnia. Dokonano pewnej optymalizacji, aby skrócić opóźnienie do dwóch godzin. Nie dotyczy to jednak wszystkich scenariuszy. 
 
-Przykład: Administrator dodaje zasady blokujące zakres adresów IP od uzyskiwania dostępu do poczty e-mail o godzinie 11:00, a użytkownik, który pochodzi z tego zakresu adresów IP, zanim będzie mógł nadal uzyskać dostęp do poczty e-mail do 1:00 PM.
+Jeśli występują sytuacje awaryjne i konieczne będzie zastosowanie zaktualizowanych zasad do określonych użytkowników natychmiast, należy użyć tego [polecenia programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) lub "odwołaj sesję" na stronie profil użytkownika, aby odwołać się do sesji użytkowników, co spowoduje, że zaktualizowane zasady zostaną zastosowane natychmiast.
 
 ### <a name="coauthoring-in-office-apps"></a>Współtworzenie w aplikacjach pakietu Office
 

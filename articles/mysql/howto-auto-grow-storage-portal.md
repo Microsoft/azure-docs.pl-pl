@@ -1,17 +1,17 @@
 ---
 title: Azure Portal Azure Database for MySQL magazynu
 description: W tym artykule opisano sposób włączania magazynu z możliwością autowzrostu dla Azure Database for MySQL przy użyciu Azure Portal
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 9355c2b2c780b6ccd63100e576850fe5566db3cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5242ef7d5d2eb9fb3aca2138ad525199c8a6afee
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95998604"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109951"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Powiększ magazyn w Azure Database for MySQL przy użyciu Azure Portal
 W tym artykule opisano, jak można skonfigurować magazyn serwera Azure Database for MySQL do wzrostu bez wpływu na obciążenie.
