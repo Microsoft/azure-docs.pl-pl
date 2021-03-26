@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować kontener niestandardowy w Azure Ap
 ms.topic: article
 ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1d1a1292bc7583e4934ac176c34d2768700d11c5
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704875"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036768"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla usługi Azure App Service
 
@@ -112,6 +112,8 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 ```
 
 Gdy aplikacja zostanie uruchomiona, ustawienia aplikacji App Service są wprowadzane do procesu jako zmienne środowiskowe automatycznie. Zmienne środowiskowe kontenera można zweryfikować przy użyciu adresu URL `https://<app-name>.scm.azurewebsites.net/Env)` .
+
+Jeśli aplikacja używa obrazów z prywatnego rejestru lub z usługi Docker Hub, poświadczenia do uzyskiwania dostępu do repozytorium są zapisywane w zmiennych środowiskowych: `DOCKER_REGISTRY_SERVER_URL` , `DOCKER_REGISTRY_SERVER_USERNAME` i `DOCKER_REGISTRY_SERVER_PASSWORD` . Ze względu na zagrożenia bezpieczeństwa żadna z tych nazw zmiennych zarezerwowanych nie jest dostępna dla aplikacji.
 
 ::: zone pivot="container-windows"
 W przypadku kontenerów opartych na usługach IIS lub .NET Framework (4,0 lub nowsze) są one wstawiane do `System.ConfigurationManager` programu jako ustawienia aplikacji .NET i parametry połączenia automatycznie przez App Service. Dla wszystkich innych języków i struktur są one dostarczane jako zmienne środowiskowe dla procesu, z jednym z następujących prefiksów:

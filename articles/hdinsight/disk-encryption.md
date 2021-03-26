@@ -5,12 +5,12 @@ description: W tym artykule opisano dwie warstwy szyfrowania dostępne dla danyc
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d4f9e3be02a64efa058ea1f84a3e261cb6166fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988617"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867121"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -76,25 +76,25 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
 
 1. W nowym magazynie kluczy przejdź do pozycje **Ustawienia**  >  **klucze**  >  **+ Generuj/Importuj**.
 
-    ![Generuj nowy klucz w Azure Key Vault](./media/disk-encryption/create-new-key.png "Generuj nowy klucz w Azure Key Vault")
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Generuj nowy klucz w Azure Key Vault":::
 
 1. Podaj nazwę, a następnie wybierz pozycję **Utwórz**. Zachowaj domyślny **Typ klucza** **RSA**.
 
-    ![generuje nazwę klucza](./media/disk-encryption/create-key.png "Generuj nazwę klucza")
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="generuje nazwę klucza":::
 
 1. Po powrocie do strony **klucze** wybierz utworzony klucz.
 
-    ![Lista kluczy magazynu kluczy](./media/disk-encryption/key-vault-key-list.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="Lista kluczy magazynu kluczy":::
 
 1. Wybierz wersję, aby otworzyć stronę **wersja klucza** . Jeśli używasz własnego klucza do szyfrowania klastra usługi HDInsight, musisz podać identyfikator URI klucza. Skopiuj **Identyfikator klucza** i Zapisz go w dowolnym miejscu do momentu, aż wszystko będzie gotowe do utworzenia klastra.
 
-    ![Pobierz identyfikator klucza](./media/disk-encryption/get-key-identifier.png)
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="Pobierz identyfikator klucza":::
 
 ### <a name="create-access-policy"></a>Utwórz zasady dostępu
 
 1. W nowym magazynie kluczy przejdź do **ustawień**  >  **zasady dostępu**  >  **i Dodaj zasady dostępu**.
 
-    ![Utwórz nowe zasady dostępu Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="Utwórz nowe zasady dostępu Azure Key Vault":::
 
 1. Na stronie **Dodawanie zasad dostępu** podaj następujące informacje:
 
@@ -104,13 +104,13 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
     |Uprawnienia wpisu tajnego|Wybierz pozycje **Get**, **Set** i **delete**.|
     |Wybierz podmiot zabezpieczeń|Wybierz utworzoną wcześniej tożsamość zarządzaną przypisaną przez użytkownika.|
 
-    ![Ustaw pozycję Wybierz podmiot zabezpieczeń dla zasad dostępu Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Ustaw pozycję Wybierz podmiot zabezpieczeń dla zasad dostępu Azure Key Vault":::
 
 1. Wybierz pozycję **Dodaj**.
 
 1. Wybierz pozycję **Zapisz**.
 
-    ![Zapisz zasady dostępu Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Zapisz zasady dostępu Azure Key Vault":::
 
 ### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>Tworzenie klastra przy użyciu szyfrowania dysku klucza zarządzanego przez klienta
 
@@ -129,7 +129,7 @@ Podczas tworzenia klastra można użyć klucza z podsystemem lub bezwartościowe
 
 Należy również przypisać zarządzaną tożsamość do klastra.
 
-![Utwórz nowy klaster](./media/disk-encryption/create-cluster-portal.png)
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="Utwórz nowy klaster":::
 
 #### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
@@ -367,7 +367,7 @@ Klucze szyfrowania używane w uruchomionym klastrze można zmienić przy użyciu
 
 Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku**. Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
 
-![Obróć klucz szyfrowania dysku](./media/disk-encryption/change-key.png)
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="Obróć klucz szyfrowania dysku":::
 
 #### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
@@ -400,7 +400,7 @@ Nie, wszystkie dyski zarządzane i dyski zasobów są szyfrowane przy użyciu te
 
 Jeśli klaster utraci dostęp do klucza, ostrzeżenia będą wyświetlane w portalu Apache Ambari. W tym stanie operacja **zmiany klucza** zakończy się niepowodzeniem. Po przywróceniu dostępu do klucza Ambari ostrzeżenia i operacje, takie jak rotacja kluczy, mogą zostać wykonane pomyślnie.
 
-![alert dotyczący Ambari dostępu do klucza](./media/disk-encryption/ambari-alert.png)
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="alert dotyczący Ambari dostępu do klucza":::
 
 **Jak odzyskać klaster, jeśli klucze są usuwane?**
 

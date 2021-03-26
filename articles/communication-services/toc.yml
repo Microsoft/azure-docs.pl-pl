@@ -42,7 +42,7 @@
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
         - name: Dodawanie wideo wywoływanie do aplikacji (JavaScript)
           href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-        - name: Używanie biblioteki klienta połączeń
+        - name: Korzystanie z wywołującego zestawu SDK
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -70,13 +70,13 @@
   items:
     - name: Czat
       items:
-        - name: Omówienie biblioteki klienta czatu
+        - name: Omówienie zestawu SDK rozmowy
           href: concepts/chat/sdk-features.md
         - name: Pojęcia dotyczące czatu
           href: concepts/chat/concepts.md
     - name: Telefonia i wiadomości SMS
       items:
-        - name: Omówienie biblioteki klienta wiadomości SMS
+        - name: Omówienie zestawu SDK programu SMS
           href: concepts/telephony-sms/sdk-features.md
         - name: Pojęcia dotyczące wiadomości SMS
           href: concepts/telephony-sms/concepts.md
@@ -88,7 +88,7 @@
           href: concepts/telephony-sms/sip-interface-infrastructure.md
     - name: Połączenia głosowe i wideo
       items:
-        - name: Omówienie biblioteki klienta połączeń
+        - name: Omówienie wywoływania zestawu SDK
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Pojęcia dotyczące głosu i wideo
           href: concepts/voice-video-calling/about-call-types.md

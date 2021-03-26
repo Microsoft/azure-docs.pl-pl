@@ -1,7 +1,7 @@
 ---
 title: Szybki Start — tworzenie tokenów dostępu i zarządzanie nimi
 titleSuffix: An Azure Communication Services quickstart
-description: Dowiedz się, jak zarządzać tożsamościami i tokenami dostępu przy użyciu biblioteki klienta tożsamości usługi Azure Communication Services.
+description: Dowiedz się, jak zarządzać tożsamościami i tokenami dostępu przy użyciu zestawu SDK tożsamości usługi Azure Communication Services.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -10,16 +10,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 921934e581d9b3d32cba644d85987ebb9802f73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c7b705fd90888b33cebb46324ab442d3b5ef326c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495333"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107145"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Szybki Start: tworzenie tokenów dostępu i zarządzanie nimi
 
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta tożsamości usług komunikacyjnych. Umożliwia tworzenie tożsamości i zarządzanie tokenami dostępu. Tożsamość reprezentuje jednostkę aplikacji w usłudze komunikacyjnej platformy Azure (na przykład użytkownik lub urządzenie). Tokeny dostępu umożliwiają rozmowę i wywoływanie bibliotek klienckich bezpośrednio w usłudze Azure Communications Services. Zalecamy generowanie tokenów dostępu w usłudze po stronie serwera. Tokeny dostępu są następnie używane do inicjowania bibliotek klienckich usług komunikacyjnych na urządzeniach klienckich.
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK tożsamości usług komunikacyjnych. Umożliwia tworzenie tożsamości i zarządzanie tokenami dostępu. Tożsamość reprezentuje jednostkę aplikacji w usłudze komunikacyjnej platformy Azure (na przykład użytkownik lub urządzenie). Tokeny dostępu umożliwiają rozmowę i wywoływanie zestawów SDK bezpośrednio z usługami Azure Communications Services. Zalecamy generowanie tokenów dostępu w usłudze po stronie serwera. Tokeny dostępu są następnie używane do inicjowania zestawów SDK usług komunikacyjnych na urządzeniach klienckich.
 
 Wszystkie ceny widoczne w obrazach w tym samouczku służą wyłącznie do celów demonstracyjnych.
 
@@ -67,7 +67,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > [!div class="checklist"]
 > * Zarządzanie tożsamościami
 > * Wystawianie tokenów dostępu
-> * Korzystanie z biblioteki klienta tożsamości usług komunikacyjnych
+> * Korzystanie z zestawu SDK tożsamości usług komunikacyjnych
 
 
 > [!div class="nextstepaction"]

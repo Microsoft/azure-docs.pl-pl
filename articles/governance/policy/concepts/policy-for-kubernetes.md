@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100577100"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868158"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -68,7 +68,7 @@ Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla 
 
 Poniżej przedstawiono ogólne zalecenia dotyczące używania dodatku Azure Policy:
 
-- Aby można było uruchomić dodatek Azure Policy, wymagane są 3 składniki strażnika: 1 podelementy inspekcji w ramach i 2 replik. Te składniki zużywają więcej zasobów, ponieważ liczba zasobów Kubernetes i przypisań zasad zwiększa się w klastrze, który wymaga operacji inspekcji i wymuszania.
+- Aby można było uruchomić dodatek Azure Policy, wymagane są trzy składniki strażnika: 1 poddawana inspekcja w ramach i 2 replik elementu webhook. Te składniki zużywają więcej zasobów w miarę zwiększania liczby zasobów Kubernetes i przypisań zasad w klastrze, które wymagają operacji inspekcji i wymuszania.
 
   - W przypadku mniej niż 500 zasobników w jednym klastrze z maksymalnie 20 ograniczeniami: 2 procesorów wirtualnych vCPU i 350 MB pamięci na składnik.
   - Ponad 500 zasobników w jednym klastrze z maksymalnie 40 ograniczeniami: 3 procesorów wirtualnych vCPU i 600 MB pamięci na składnik.
@@ -85,7 +85,7 @@ Poniższe zalecenie dotyczy tylko AKS i dodatku Azure Policy:
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Zainstaluj dodatek Azure Policy dla AKS
 
-Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji usługi subskrypcja musi włączyć dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** .
+Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji usługi subskrypcja musi włączyć dostawców zasobów **Microsoft. PolicyInsights** .
 
 1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.12.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -93,15 +93,12 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
    - Azure Portal:
 
-     Zarejestruj dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** . Aby uzyskać instrukcje, zobacz [dostawcy zasobów i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Zarejestruj dostawców zasobów **Microsoft. PolicyInsights** . Aby uzyskać instrukcje, zobacz [dostawcy zasobów i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Interfejs wiersza polecenia platformy Azure:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -440,14 +437,13 @@ Niektóre inne zagadnienia:
 
 - Jeśli subskrypcja klastra jest zarejestrowana w Azure Security Center, Azure Security Center zasady Kubernetes są stosowane automatycznie w klastrze.
 
-- Gdy zasady odmowy są stosowane w klastrze z istniejącymi zasobami Kubernetes, w dalszym ciągu będą uruchamiane wszystkie istniejące zasoby, które nie są zgodne z nowymi zasadami. Gdy niezgodny zasób zostanie ponownie zaplanowany w innym węźle, Strażnik zablokuje tworzenie zasobu.
+- Gdy zasady odmowy są stosowane w klastrze z istniejącymi zasobami Kubernetes, w dalszym ciągu będą uruchamiane wszelkie istniejące wcześniej zasoby, które nie są zgodne z nowymi zasadami. Gdy niezgodny zasób zostanie ponownie zaplanowany w innym węźle, Strażnik zablokuje tworzenie zasobu.
 
 - Gdy klaster ma zasady odmowy, które sprawdzają poprawność zasobów, podczas tworzenia wdrożenia użytkownik nie zobaczy komunikatu o odrzuceniu. Rozważmy na przykład wdrożenie Kubernetes, które zawiera replicasets i zasobniki. Gdy użytkownik wykonuje `kubectl describe deployment $MY_DEPLOYMENT` , nie zwraca komunikatu o odrzuceniu w ramach zdarzeń. Zwraca jednak `kubectl describe replicasets.apps $MY_DEPLOYMENT` zdarzenia skojarzone z odrzuceniem.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Jako kontroler Kubernetes/kontener, zarówno _usługa Azure-Policy_ , jak i _strażnik_ , przechowują dzienniki w klastrze Kubernetes. Dzienniki mogą być uwidocznione na stronie **wglądu** w klaster Kubernetes.
-Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności klastra Kubernetes za pomocą Azure monitor dla kontenerów](../../../azure-monitor/containers/container-insights-analyze.md).
+Jako kontroler Kubernetes/kontener, zarówno _usługa Azure-Policy_ , jak i _strażnik_ , przechowują dzienniki w klastrze Kubernetes. Dzienniki mogą być uwidocznione na stronie **wglądu** w klaster Kubernetes. Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności klastra Kubernetes za pomocą Azure monitor dla kontenerów](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Aby wyświetlić dzienniki dodatków, użyj `kubectl` :
 

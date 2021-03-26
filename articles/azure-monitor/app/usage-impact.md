@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 51f938743d8da3c9a1dea546320662701e2b88c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ce49488124f07f05b8df2d9f4eae41e041aa0aa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583518"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026193"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analiza wpływu za pomocą Application Insights
 
@@ -86,5 +86,4 @@ Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy 
     - [Noszą](usage-retention.md)
     - [Przepływy użytkownika](usage-flows.md)
     - [Skoroszyty](../visualize/workbooks-overview.md)
-    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
-
+    - [Dodawanie kontekstu użytkownika](./usage-overview.md)

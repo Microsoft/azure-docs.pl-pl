@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496183"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106801"
 ---
 ## <a name="joining-the-meeting-chat"></a>Dołączanie do rozmowy o spotkaniu 
 
-Po włączeniu współdziałania zespołów użytkownik usług komunikacyjnych może przyłączyć się do zespołów jako użytkownik zewnętrzny przy użyciu biblioteki klienta wywołującego. Dołączenie do wywołania spowoduje dodanie ich jako uczestnika do rozmowy o spotkaniu, w którym mogą oni wysyłać i odbierać wiadomości z innymi użytkownikami w wywołaniu. Użytkownik nie będzie miał dostępu do komunikatów rozmowy, które zostały wysłane przed dołączeniem do wywołania. Aby przyłączyć się do spotkania i zacząć czatować, możesz wykonać kolejne kroki.
+Po włączeniu współdziałania zespołów użytkownik usług komunikacyjnych może przyłączyć się do zespołów jako zewnętrzny użytkownik korzystający z wywołującego zestawu SDK. Dołączenie do wywołania spowoduje dodanie ich jako uczestnika do rozmowy o spotkaniu, w którym mogą oni wysyłać i odbierać wiadomości z innymi użytkownikami w wywołaniu. Użytkownik nie będzie miał dostępu do komunikatów rozmowy, które zostały wysłane przed dołączeniem do wywołania. Aby przyłączyć się do spotkania i zacząć czatować, możesz wykonać kolejne kroki.
 
 ## <a name="install-the-chat-packages"></a>Instalowanie pakietów czatu
 
-Użyj `npm install` polecenia, aby zainstalować niezbędne biblioteki klienckie usług komunikacyjnych dla języka JavaScript.
+Użyj `npm install` polecenia, aby zainstalować wymagane zestawy SDK usług komunikacyjnych dla języka JavaScript.
 
 ```console
 npm install @azure/communication-common --save

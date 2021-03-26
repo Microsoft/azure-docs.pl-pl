@@ -238,6 +238,8 @@
               href: spatial-io-supported-data-format-details.md
         - name: Przeglądarki obsługiwane przez zestaw Web SDK
           href: supported-browsers.md
+        - name: Najlepsze rozwiązania
+          href: web-sdk-best-practices.md
     - name: Tworzenie aplikacji przy użyciu zestawu Android SDK
       items:
         - name: Wprowadzenie do kontrolek mapy systemu Android

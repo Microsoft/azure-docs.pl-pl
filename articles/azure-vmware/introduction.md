@@ -2,13 +2,13 @@
 title: Wprowadzenie
 description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy Azure w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
-ms.date: 11/11/2020
-ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a75c04cf6b51068ef9867e3f9438b2820da703fe
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579297"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048820"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
 
@@ -19,6 +19,11 @@ Rozwiązanie VMware platformy Azure to zweryfikowane rozwiązanie VMware, które
 Diagram przedstawia sąsiedztwo między chmurami prywatnymi i sieci wirtualnych na platformie Azure, usługach platformy Azure i w środowiskach lokalnych. Dostęp sieciowy z chmur prywatnych do usług platformy Azure lub sieci wirtualnych zapewnia integrację punktów końcowych usługi platformy Azure opartej na umowie SLA. ExpressRoute Global Reach nawiązuje połączenie środowiska lokalnego z chmurą prywatną rozwiązania Azure VMware. 
 
 ![Obraz przedstawiający chmurę prywatną rozwiązania Azure VMware na platformie Azure i lokalnie](./media/adjacency-overview-drawing-final.png)
+
+## <a name="customer-communication"></a>Komunikacja z klientem
+Problemy z usługą, planowana konserwacja, klasyfikatory kondycji, powiadomienia doradców zabezpieczeń są publikowane za pomocą **Service Health** w Azure Portal. Podczas konfigurowania alertów dziennika aktywności dla tych powiadomień można podejmować odpowiednie działania. Aby uzyskać więcej informacji, zobacz [tworzenie alertów dotyczących kondycji usługi przy użyciu Azure Portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Zrzut ekranu przedstawiający powiadomienia Service Health":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosty, klastry i chmury prywatne
 

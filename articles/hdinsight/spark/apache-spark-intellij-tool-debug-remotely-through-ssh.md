@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: ccd642578c8c35ac6b5f23397788ad1e7f83a1f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de838e094c8a37d375aa6c7649ee5717705ad33c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942605"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866356"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Debugowanie Apache Spark aplikacji w klastrze usługi HDInsight z Azure Toolkit for IntelliJ za pośrednictwem protokołu SSH
 
@@ -45,7 +45,7 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
     * **Maven** — w celu obsługi kreatora tworzenia projektu Scala.
     * **SBT** — na potrzeby zarządzania zależnościami i kompilacji projektu Scala.
 
-     ![IntelliJ Utwórz nowy projekt Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png" alt-text="IntelliJ Utwórz nowy projekt Spark" border="true":::
 
 1. Wybierz opcję **Dalej**.
 
@@ -58,7 +58,7 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
     |Zestaw SDK projektu|Jeśli to pole jest puste, wybierz pozycję **Nowy...** i przejdź do JDK.|
     |Wersja platformy Spark|Kreator tworzenia integruje poprawną wersję dla zestawów Spark SDK i Scala SDK. Jeśli wersja klastra Spark jest starsza niż 2.0, wybierz wartość **Spark 1.x**. W przeciwnym razie wybierz pozycję **Spark 2. x.**. W tym przykładzie używana jest wersja **Spark 2.3.0 (Scala 2.11.8)**.|
 
-   ![IntelliJ nowy projekt wybierz wersję platformy Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png" alt-text="IntelliJ nowy projekt wybierz wersję platformy Spark" border="true":::
 
 1. Wybierz pozycję **Zakończ**. Udostępnienie projektu może potrwać kilka minut. Obejrzyj w prawym dolnym rogu, aby postępować.
 
@@ -70,11 +70,11 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
 1. Po zakończeniu lokalnego uruchomienia można zobaczyć plik wyjściowy Zapisz w bieżącym domyślnym **danych** Eksploratora projektu  >  ****.
 
-    ![Wynik lokalnego uruchomienia projektu IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png" alt-text="Wynik lokalnego uruchomienia projektu IntelliJ" border="true":::
 
 1. Nasze narzędzia ustawili domyślną konfigurację uruchamiania lokalnego podczas przeprowadzania lokalnego uruchamiania i debugowania lokalnego. Otwórz konfigurację **[Spark w usłudze HDInsight] XXX** w prawym górnym rogu, zobaczysz, że **[Spark w usłudze HDInsight] XXX** już utworzone w obszarze **Apache Spark w usłudze HDInsight**. Przejdź do karty **uruchamiania lokalnego** .
 
-    ![IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png" alt-text="IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne" border="true":::
 
     - [Zmienne środowiskowe](#prerequisites): Jeśli ustawisz już zmienną środowiskową system **HADOOP_HOME** na **C:\WinUtils**, może ona automatycznie wykryć, że nie trzeba ręcznie dodawać.
     - [WinUtils.exe lokalizacja](#prerequisites): Jeśli nie ustawisz zmiennej środowiskowej systemowej, możesz znaleźć tę lokalizację, klikając jej przycisk.
@@ -94,35 +94,35 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
 1. W oknie dialogowym **konfiguracje uruchamiania/debugowania** wybierz znak plus ( **+** ). Następnie wybierz opcję **Apache Spark w usłudze HDInsight** .
 
-   ![IntelliJ Dodaj nową konfigurację](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png" alt-text="IntelliJ Dodaj nową konfigurację" border="true":::
 
 1. Przełącz się do **zdalnego uruchamiania na karcie klaster** . Wprowadź informacje o **nazwie**, **klastrze Spark** i **nazwie klasy głównej**. Następnie kliknij pozycję **Konfiguracja zaawansowana (debugowanie zdalne)**. Nasze narzędzia obsługują debugowanie za pomocą **modułów wykonujących**. **NumExectors** wartość domyślna to 5. Lepiej nie ustawiono wartości większej niż 3.
 
-   ![IntelliJ uruchamiaj konfiguracje debugowania](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png" alt-text="IntelliJ uruchamiaj konfiguracje debugowania" border="true":::
 
 1. W części **Konfiguracja zaawansowana (debugowanie zdalne)** wybierz pozycję **Włącz debugowanie zdalne Spark**. Wprowadź nazwę użytkownika SSH, a następnie wprowadź hasło lub użyj pliku klucza prywatnego. Jeśli chcesz przeprowadzić debugowanie zdalne, musisz je ustawić. Nie trzeba ustawiać go, jeśli chcesz tylko korzystać z zdalnego uruchomienia.
 
-   ![IntelliJ zaawansowaną konfigurację Włącz debugowanie zdalne Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png" alt-text="IntelliJ zaawansowaną konfigurację Włącz debugowanie zdalne Spark" border="true":::
 
 1. Konfiguracja jest teraz zapisywana o podanej nazwie. Aby wyświetlić szczegóły konfiguracji, wybierz nazwę konfiguracji. Aby wprowadzić zmiany, wybierz pozycję **Edytuj konfiguracje**.
 
 1. Po zakończeniu ustawień konfiguracji można uruchomić projekt względem klastra zdalnego lub wykonać zdalne debugowanie.
 
-   ![Zdalny przycisk uruchamiania zdalnego zadania Spark IntelliJ debugowania](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png" alt-text="Zdalny przycisk uruchamiania zdalnego zadania Spark IntelliJ debugowania" border="true":::
 
 1. Kliknij przycisk **Rozłącz** , aby dzienniki przesłane nie były wyświetlane w lewym panelu. Jednak nadal działa w zapleczu.
 
-   ![Wynik zdalnego uruchomienia zdalnego zadania Spark debugowania IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png" alt-text="Wynik zdalnego uruchomienia zdalnego zadania Spark debugowania IntelliJ" border="true":::
 
 ## <a name="perform-remote-debugging"></a>Wykonaj debugowanie zdalne
 
 1. Skonfiguruj punkty przerwania, a następnie kliknij ikonę **debugowania zdalnego** . Różnica polega na tym, że należy skonfigurować nazwę użytkownika/hasło SSH.
 
-   ![Ikona debugowania zdalnego zadania platformy Spark debugowania IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png" alt-text="Ikona debugowania zdalnego zadania platformy Spark debugowania IntelliJ" border="true":::
 
 1. Gdy wykonanie programu dociera do punktu przerwania, zobaczysz kartę **sterownika** i dwie karty **wykonawcze** w okienku **debuger** . Wybierz ikonę **Wznów program** , aby kontynuować uruchamianie kodu, który następnie osiągnie następny punkt przerwania. Aby znaleźć docelowy moduł wykonujący debugowanie, należy przełączyć się na poprawną kartę programu **wykonującego** . Dzienniki wykonywania można wyświetlić na odpowiedniej karcie **konsoli** .
 
-   ![Karta debugowania zdalnego zadania platformy Spark debugowania IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png" alt-text="Karta debugowania zdalnego zadania platformy Spark debugowania IntelliJ" border="true":::
 
 ### <a name="perform-remote-debugging-and-bug-fixing"></a>Wykonaj debugowanie zdalne i naprawianie błędów
 
@@ -132,21 +132,21 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
 1. Wybierz ikonę **Wznów program** , aby kontynuować. Kod zostaje zatrzymany w drugim punkcie. Wyjątek jest przechwytywany zgodnie z oczekiwaniami.
 
-   ![Błąd rzutowania zdalnego zadania Spark debugowania IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png" alt-text="Błąd rzutowania zdalnego zadania Spark debugowania IntelliJ" border="true":::
 
 1. Wybierz ponownie ikonę **programu Resume** . W oknie **przesyłanie usługi HDInsight Spark** zostanie wyświetlony komunikat o błędzie "uruchomienie zadania nie powiodło się".
 
-   ![Błąd podczas wysyłania zdalnego zadania Spark debugowania IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png" alt-text="Błąd podczas wysyłania zdalnego zadania Spark debugowania IntelliJ" border="true":::
 
 1. Aby dynamicznie zaktualizować wartość zmiennej przy użyciu funkcji debugowania IntelliJ, należy ponownie wybrać **Debuguj** . Zostanie wyświetlone okienko **zmienne** .
 
 1. Kliknij prawym przyciskiem myszy obiekt docelowy na karcie **debugowanie** , a następnie wybierz pozycję **Ustaw wartość**. Następnie wprowadź nową wartość dla zmiennej. Następnie wybierz klawisz **Enter** , aby zapisać wartość.
 
-   ![Wartość zestawu zadań zdalnej Spark dla debugowania IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png" alt-text="Wartość zestawu zadań zdalnej Spark dla debugowania IntelliJ" border="true":::
 
 1. Wybierz ikonę **Wznów program** , aby kontynuować uruchamianie programu. Tym razem nie jest przechwytywany żaden wyjątek. Można zobaczyć, że projekt zostanie uruchomiony pomyślnie bez żadnych wyjątków.
 
-   ![Debuguj zdalne zadanie Spark IntelliJ debugowania bez wyjątku](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png" alt-text="Debuguj zdalne zadanie Spark IntelliJ debugowania bez wyjątku" border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

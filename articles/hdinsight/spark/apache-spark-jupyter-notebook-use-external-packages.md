@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: a3d787059345b5971d99ebd7a1e26a9135b61bed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3ddfdfdfe10d5b6ea7c2d5cd99d325564163c0dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930343"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866016"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Korzystanie z zewnętrznych pakietów z notesami Jupyter w klastrach Apache Spark w usłudze HDInsight
 
@@ -34,11 +34,11 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
 1. Utwórz nowy notes. Wybierz pozycję **Nowy**, a następnie wybierz pozycję **Spark**.
 
-    ![Utwórz nowy Jupyter Notebook platformy Spark](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Utwórz nowy Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png " alt-text="Utwórz nowy Jupyter Notebook platformy Spark" border="true":::
 
 1. Zostanie utworzony i otwarty nowy notes o nazwie Untitled.pynb. Wybierz nazwę notesu u góry, a następnie wprowadź przyjazną nazwę.
 
-    ![Wprowadzanie nazwy notesu](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Wprowadzanie nazwy notesu")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png " alt-text="Wprowadzanie nazwy notesu" border="true":::
 
 1. Użyjemy Magic, `%%configure` Aby skonfigurować Notes do korzystania z pakietu zewnętrznego. W notesach korzystających z pakietów zewnętrznych upewnij się, że `%%configure` w pierwszej komórce kodu jest wywoływana magiczna. Dzięki temu jądro jest skonfigurowane do korzystania z pakietu przed rozpoczęciem sesji.
 
@@ -56,7 +56,7 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
     b. W repozytorium Zbierz wartości dla **identyfikatora GroupID**, **ArtifactId** i **wersji**. Upewnij się, że zebrane wartości są zgodne z klastrem. W tym przypadku korzystamy z pakietu Scala 2,11 i platformy Spark 1.5.0, ale może być konieczne wybranie różnych wersji dla odpowiedniej wersji Scala lub Spark w klastrze. Wersję Scala można sprawdzić w klastrze, uruchamiając `scala.util.Properties.versionString` je w jądrze platformy Spark Jupyter lub na stronie przesyłania na platformie Spark. Wersję platformy Spark można sprawdzić w klastrze, uruchamiając `sc.version` w notesach Jupyter.
 
-    ![Użyj zewnętrznych pakietów z Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Użyj zewnętrznych pakietów z Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png " alt-text="Użyj zewnętrznych pakietów z Jupyter Notebook" border="true":::
 
     c. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 

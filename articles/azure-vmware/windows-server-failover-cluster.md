@@ -3,12 +3,12 @@ title: Klaster trybu failover systemu Windows Server na platformie Azure VMware 
 description: Skonfiguruj usługę Windows Server Failover Clustering (WSFC) w rozwiązaniu Azure VMware i Skorzystaj z rozwiązań wymagających możliwości korzystania z usługi WSFC.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8cb2fdd8d519c665840390a41c95121218750a95
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518997"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025972"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi
 
@@ -49,10 +49,10 @@ Na poniższym diagramie przedstawiono architekturę węzłów wirtualnych usług
 
 Obecnie obsługiwane są następujące konfiguracje:
 
-- System Microsoft Windows Server 2012 lub nowszy.
-- Maksymalnie pięć węzłów klastra trybu failover na klaster.
-- Do czterech kart PVSCSI na maszynę wirtualną.
-- Do 64 dysków na kartę PVSCSI.
+- System Microsoft Windows Server 2012 lub nowszy
+- Maksymalnie pięć węzłów klastra trybu failover na klaster
+- Do czterech kart PVSCSI na maszynę wirtualną
+- Do 64 dysków na kartę PVSCSI
 
 ## <a name="virtual-machine-configuration-requirements"></a>Wymagania dotyczące konfiguracji maszyny wirtualnej
 

@@ -1,9 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pola obowiązkowe. Zobacz więcej na temat aka.ms/skyeye/meta.
-title: transformacje i zadania w Media Services: Azure Media Services opis: informacje na temat tworzenia transformacji, aby opisać reguły przetwarzania filmów wideo w Azure Media Services.
-usługi: Media-Services documentationcenter: "" Author: IngridAtMicrosoft Manager: femila Editor: ""
-
-MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 03/17/2021 MS. Author: inhenkel
+title: transformacje i zadania w Media Services: Azure Media Services opis: przekształcenia opisują reguły przetwarzania filmów wideo w Azure Media Services.
+usługi: Media-Services Author: IngridAtMicrosoft Manager: femila MS. Service: Media-Services MS. temat: koncepcyjne MS. Date: 03/22/2021 MS. Author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformacje i zadania w Media Services
@@ -90,12 +88,6 @@ Na poniższym diagramie przedstawiono obiekt **zadania** i obiekty, do których 
 Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
 [![Diagram przedstawiający obiekt zadania i obiekty, do których się odwołuje, włącznie z relacjami pochodnymi klasy między obiektami.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## <a name="configure-media-reserved-units"></a>Konfigurowanie jednostek zarezerwowanych multimediów
-
-W przypadku zadań analizy audio i analizy wideo, które są wyzwalane przez Media Services v3 lub Video Indexer, zdecydowanie zaleca się zainicjowanie obsługi konta przy użyciu 10 jednostek zarezerwowanych multimediów (MRUs). Jeśli potrzebujesz więcej niż 10 MRUs S3, Otwórz bilet pomocy technicznej przy użyciu [Azure Portal](https://portal.azure.com/).
-
-Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimediów przy użyciu interfejsu wiersza polecenia](media-reserved-units-cli-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 
