@@ -26,7 +26,7 @@
 - name: Samouczki
   items:
     - name: Bezpieczne łączenie urządzeń IoT z chmurą
-      href: /learn/paths/securely-connect-iot-devices/
+      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
 - name: Pojęcia
   items:
     - name: Opcje połączenia dla deweloperów urządzeń

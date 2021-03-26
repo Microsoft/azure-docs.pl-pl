@@ -3,12 +3,12 @@ title: Key Vault klucz tajny z szablonem
 description: Pokazuje, jak przekazać klucz tajny z magazynu kluczy jako parametr podczas wdrażania.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 05749fe2e9179051c3183ea2e592cf7190ddb347
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97672709"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889862"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Używanie usługi Azure Key Vault do przekazywania bezpiecznej wartości parametru podczas wdrażania
 
@@ -306,7 +306,7 @@ Następujący szablon dynamicznie tworzy identyfikator magazynu kluczy i przekaz
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",

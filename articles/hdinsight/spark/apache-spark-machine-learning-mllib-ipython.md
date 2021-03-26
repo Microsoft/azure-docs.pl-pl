@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 224ebae58a5688f81d1b64b4a9c81d5abd8a9690
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930053"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868855"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Apache Spark MLlib, aby skompilować aplikację uczenia maszynowego i analizować zestaw danych
 
@@ -175,7 +175,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
 
     Dane wyjściowe są następujące:
 
-    ![Dane wyjściowe zapytania SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Dane wyjściowe zapytania SQL")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="Dane wyjściowe zapytania SQL" border="true":::
 
 3. Możesz również użyć matplotlib, biblioteki używanej do konstruowania wizualizacji danych, aby utworzyć wykres. Ponieważ wykres musi być tworzony na podstawie lokalnie utrwalonej ramki Dataframe **countResultsdf** , fragment kodu musi rozpoczynać się od `%%local` Magic. Ta akcja zapewnia, że kod jest uruchamiany lokalnie na serwerze Jupyter.
 
@@ -348,7 +348,7 @@ Teraz możesz skonstruować ostateczną wizualizację, aby pomóc Ci w podaniu w
 
     Powinny zostać wyświetlone następujące dane wyjściowe:
 
-    ![Wyjście aplikacji Spark Machine Learning — wartość procentowa dla wykresu kołowego niepowodzenia inspekcji żywności.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Dane wyjściowe wyniku uczenia maszynowego platformy Spark")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Wyjście aplikacji Spark Machine Learning — wartość procentowa dla wykresu kołowego niepowodzenia inspekcji żywności." border="true":::
 
     Na tym wykresie wynik "pozytywny" odnosi się do nieudanej inspekcji żywności, natomiast wynik negatywny odnosi się do przeprowadzonej inspekcji.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: b72538c61d1a68bca655b0d9529f654068727f86
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: af3f54778882df9aaa06297f291c12a0f4b1577c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101696169"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046049"
 ---
 # <a name="register-and-scan-sap-ecc-source-preview"></a>Rejestrowanie i skanowanie źródła SAP ECC (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób rejestrowania źródła SAP ECC w programie kontr
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 1.  Skonfiguruj najnowsze [środowisko Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Upewnij się, że na maszynie wirtualnej zainstalowano środowisko Integration Runtime [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) .
 
@@ -80,7 +80,7 @@ Na ekranie **Rejestr sources (SAP ECC)** wykonaj następujące czynności:
 
 Aby utworzyć i uruchomić nowe skanowanie, wykonaj następujące czynności:
 
-1.  W centrum zarządzania kliknij pozycję Integration Runtimes. Upewnij się, że jest skonfigurowany własny środowisko Integration Runtime. Jeśli nie jest on skonfigurowany, wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) , aby utworzyć własne środowisko Integration Runtime.
+1.  W centrum zarządzania kliknij pozycję Integration Runtimes. Upewnij się, że jest skonfigurowany własny środowisko Integration Runtime. Jeśli nie jest on skonfigurowany, wykonaj kroki opisane [tutaj](./manage-integration-runtimes.md) , aby utworzyć własne środowisko Integration Runtime.
 
 2.  Przejdź do **źródeł**
 

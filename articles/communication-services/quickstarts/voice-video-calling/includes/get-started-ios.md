@@ -1,22 +1,22 @@
 ---
 title: Szybki Start — Dodawanie wywołania do aplikacji systemu iOS przy użyciu usług Azure Communications Services
-description: W tym przewodniku szybki start dowiesz się, jak korzystać z biblioteki klienta wywołującego usługę Azure Communications Services dla systemu iOS.
+description: W tym przewodniku szybki start dowiesz się, jak używać zestawu SDK wywoływania usługi Azure Communication Services dla systemu iOS.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 6cdd38f1e849efc416d62f22bd85ed7efb2e6349
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d3a282d108d197ea0c5c616e9ee84fb7b952026
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719702"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108299"
 ---
-W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu iOS.
+W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu zestawu SDK wywoływania usługi Azure Communication Services dla systemu iOS.
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 8 z wywołującej biblioteki klienta.
+> Ten dokument używa wersji 1.0.0-beta. 8 zestawu SDK wywoływania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -119,11 +119,11 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>Model obiektów
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta wywołującego usługi Azure Communications Services:
+Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK wywołującego usługi Azure Communications Services:
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
+| CallClient | CallClient jest głównym punktem wejścia do wywołującego zestawu SDK.|
 | CallAgent | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
 | CommunicationTokenCredential | CommunicationTokenCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.| 
 | CommunicationUserIdentifier | CommunicationUserIdentifier jest używany do reprezentowania tożsamości użytkownika, który może być jedną z następujących: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |

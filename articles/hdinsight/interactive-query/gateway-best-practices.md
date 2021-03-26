@@ -4,12 +4,12 @@ description: Dowiedz się, jak nawigować po najlepszych rozwiązaniach dotyczą
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933117"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869790"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Głębokie szczegółowe i najlepsze praktyki dotyczące bramy dla Apache Hive w usłudze Azure HDInsight
 
@@ -21,7 +21,7 @@ Brama usługi HDInsight jest jedyną częścią klastra usługi HDInsight, któr
 
 Poniższy diagram zawiera przybliżoną ilustrację sposobu, w jaki brama zapewnia streszczenie przed wszystkimi różnymi możliwościami rozpoznawania hosta w usłudze HDInsight.
 
-![Diagram rozpoznawania hosta](./media/gateway-best-practices/host-resolution-diagram.png "Diagram rozpoznawania hosta")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Diagram rozpoznawania hosta" border="true":::
 
 ## <a name="motivation"></a>Motywacja
 
@@ -39,7 +39,7 @@ Spadek wydajności bramy dla kwerend o dużym rozmiarze wynika z faktu, że dane
 
 Na poniższym diagramie przedstawiono kroki, które są uwzględnione w zapytaniu SELECT.
 
-![Diagram wyników](./media/gateway-best-practices/result-retrieval-diagram.png "Diagram wyników")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Diagram wyników" border="true":::
 
 Apache Hive to relacyjna Abstrakcja na bazie systemu plików zgodnej z systemem HDFS. Streszczenie oznacza, że instrukcje **SELECT** w gałęziach odpowiadają operacjom **odczytu** w systemie plików. Operacje **odczytu** są tłumaczone na odpowiedni schemat przed wysłaniem go do użytkownika. Opóźnienie tego procesu zwiększa się wraz z rozmiarem danych i łącznym przeskokami wymaganym do uzyskania dostępu do użytkownika końcowego.
 

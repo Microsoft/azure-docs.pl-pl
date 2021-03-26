@@ -3,19 +3,14 @@ title: Omówienie usługi Kopia zapasowa Azure Disk
 description: Poznaj rozwiązanie do tworzenia kopii zapasowych na dysku platformy Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915512"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107299"
 ---
-# <a name="overview-of-azure-disk-backup-in-preview"></a>Omówienie usługi Kopia zapasowa Azure Disk (wersja zapoznawcza)
-
->[!IMPORTANT]
->Kopia zapasowa Azure Disk jest w wersji zapoznawczej bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać dostęp do regionu, zobacz [Macierz obsługi](disk-backup-support-matrix.md).
->
->[Wypełnij ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) , aby utworzyć konto w wersji zapoznawczej.
+# <a name="overview-of-azure-disk-backup"></a>Omówienie usługi Kopia zapasowa Azure Disk
 
 Kopia zapasowa Azure Disk to natywne, oparte na chmurze rozwiązanie do tworzenia kopii zapasowych, chroniące dane w dyskach zarządzanych. Jest to proste, bezpieczne i ekonomiczne rozwiązanie, które umożliwia skonfigurowanie ochrony dysków zarządzanych w kilku krokach. Gwarantuje to, że możesz odzyskać dane w scenariuszu awarii.
 

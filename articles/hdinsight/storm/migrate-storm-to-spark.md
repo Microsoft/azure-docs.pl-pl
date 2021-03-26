@@ -4,12 +4,12 @@ description: Przepływ różnic i migracji w celu migrowania obciążeń Apache 
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944784"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868770"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrowanie Apache Storm usługi Azure HDInsight 3,6 do programu HDInsight 4,0 Apache Spark
 
@@ -25,8 +25,7 @@ Jeśli chcesz przeprowadzić migrację z Apache Storm w usłudze HDInsight 3,6, 
 
 Ten dokument zawiera Przewodnik migracji z Apache Storm do strumienia Spark i przesyłania strumieniowego platformy Spark.
 
-> [!div class="mx-imgBorder"]
-> ![Ścieżka migracji burzy usługi HDInsight](./media/migrate-storm-to-spark/storm-migration-path.png)
+:::image type="content" source="./media/migrate-storm-to-spark/storm-migration-path.png" alt-text="Ścieżka migracji burzy usługi HDInsight" border="false":::
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Porównanie między Apache Storm i Spark streaming, przetwarzania strumieniowego platformy Spark
 
@@ -47,8 +46,7 @@ Proces przesyłania strumieniowego platformy Spark polega na wymianie strumienia
 
 Burza zawiera model, który przetwarza każde pojedyncze zdarzenie. Oznacza to, że wszystkie rekordy przychodzące będą przetwarzane zaraz po ich nadejściu. Aplikacje strumieniowe Spark muszą czekać część sekund, aby zebrać każdą mikropartię zdarzeń przed wysłaniem tej partii na potrzeby przetwarzania. Z kolei aplikacja oparta na zdarzeniach natychmiast przetwarza każde zdarzenie. Opóźnienie przesyłania strumieniowego Spark jest zwykle w ciągu kilku sekund. Zalety metody Micro-Batch to wydajniejsze przetwarzanie danych i prostsze obliczenia zagregowane.
 
-> [!div class="mx-imgBorder"]
-> ![przesyłanie strumieniowe i przetwarzanie mikropartii](./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png)
+:::image type="content" source="./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png" alt-text="przesyłanie strumieniowe i przetwarzanie mikropartii" border="false":::
 
 ## <a name="storm-architecture-and-components"></a>Architektura i składniki burzy
 
@@ -59,8 +57,7 @@ Topologie systemu Storm obejmują wiele składników rozmieszczonych w skierowan
 |Elementu Spout|Przenosi dane do topologii. Wysyłają one co najmniej jeden strumień danych do topologii.|
 |Bolt|Wykorzystuje strumienie emitowane z elementy Spout lub innych piorunów. Składniki typu bolt mogą opcjonalnie emitować strumienie do topologii. Odpowiadają również za zapisywanie danych w usługach zewnętrznych lub magazynie — takim jak system plików HDFS, platforma Kafka lub usługa HBase.|
 
-> [!div class="mx-imgBorder"]
-> ![Interakcja ze składnikami burzy](./media/migrate-storm-to-spark/apache-storm-components.png)
+:::image type="content" source="./media/migrate-storm-to-spark/apache-storm-components.png" alt-text="Interakcja ze składnikami burzy" border="false":::
 
 Burza składa się z następujących trzech demonów, które uniemożliwiają działanie klastra burzy.
 
@@ -70,8 +67,7 @@ Burza składa się z następujących trzech demonów, które uniemożliwiają dz
 |Dozorcy|Służy do koordynowania klastra.|
 |Nadzorca|Nasłuchuje pracy przypisanej do komputera i uruchamiania i zatrzymywania procesów roboczych na podstawie dyrektyw z Nimbus. Każdy proces roboczy wykonuje podzestaw topologii. Logika aplikacji użytkownika (elementy Spout i Piorun) jest uruchamiana w tym miejscu.|
 
-> [!div class="mx-imgBorder"]
-> ![demony Nimbus, dozorcy i nadzorujące](./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png)
+:::image type="content" source="./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png" alt-text="demony Nimbus, dozorcy i nadzorujące" border="false":::
 
 ## <a name="spark-streaming-architecture-and-components"></a>Architektura i składniki przesyłania strumieniowego platformy Spark
 
@@ -83,15 +79,13 @@ Poniższe kroki podsumowują sposób współdziałania składników w usłudze S
 * Bloki danych są replikowane do innych programów wykonujących.
 * Przetworzone dane są następnie przechowywane w docelowym magazynie danych.
 
-> [!div class="mx-imgBorder"]
-> ![ścieżka przesyłania strumieniowego Spark do danych wyjściowych](./media/migrate-storm-to-spark/spark-streaming-to-output.png)
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-to-output.png" alt-text="ścieżka przesyłania strumieniowego Spark do danych wyjściowych" border="false":::
 
 ## <a name="spark-streaming-dstream-workflow"></a>Przepływ pracy Spark streaming (DStream)
 
 Po upływie każdego interwału partii tworzony jest nowy RDD, który zawiera wszystkie dane z tego interwału. Ciągłe zestawy odporne są zbierane do DStream. Jeśli na przykład interwał wsadowy jest dłuższy niż jedna sekunda, DStream emituje wsadowe co sekundę zawierające jedną RDD, która zawiera wszystkie dane, które zostały odebrane w ciągu sekundy. Podczas przetwarzania DStream, zdarzenie temperatury pojawia się w jednej z tych partii. Aplikacja Spark Streaming przetwarza partie zawierające zdarzenia i ostatecznie działa na danych przechowywanych w każdym RDD.
 
-> [!div class="mx-imgBorder"]
-> ![przetwarzanie wsadowe przetwarzania strumieniowego platformy Spark](./media/migrate-storm-to-spark/spark-streaming-batches.png)
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-batches.png" alt-text="przetwarzanie wsadowe przetwarzania strumieniowego platformy Spark" border="false":::
 
 Aby uzyskać szczegółowe informacje o różnych przekształceniach dostępnych w ramach przesyłania strumieniowego Spark, zobacz [przekształcenia w DStreams](https://spark.apache.org/docs/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
@@ -105,11 +99,9 @@ Dane wyjściowe zapytania dają *tabelę wyników*, która zawiera wyniki zapyta
 
 Czas przetwarzania danych z tabeli wejściowej jest kontrolowany przez interwał wyzwalacza. Domyślnie interwał wyzwalacza wynosi zero, więc transmisja strukturalna próbuje przetworzyć dane zaraz po nadejściu. W tym przypadku oznacza to, że zaraz po wykonaniu operacji przesyłania strumieniowego ze strukturą przetwarzanie przebiegu poprzedniego zapytania rozpocznie się w wyniku kolejnego przetwarzania danych. Wyzwalacz można skonfigurować tak, aby uruchamiał się z interwałem, dzięki czemu dane przesyłane strumieniowo są przetwarzane w partiach opartych na czasie.
 
-> [!div class="mx-imgBorder"]
-> ![przetwarzanie danych w ramach przesyłania strumieniowego ze strukturą](./media/migrate-storm-to-spark/structured-streaming-data-processing.png)
+:::image type="content" source="./media/migrate-storm-to-spark/structured-streaming-data-processing.png" alt-text="przetwarzanie danych w ramach przesyłania strumieniowego ze strukturą" border="false":::
 
-> [!div class="mx-imgBorder"]
-> ![model programowania dla przesyłania strumieniowego ze strukturą](./media/migrate-storm-to-spark/structured-streaming-model.png)
+:::image type="content" source="./media/migrate-storm-to-spark/structured-streaming-model.png" alt-text="model programowania dla przesyłania strumieniowego ze strukturą" border="false":::
 
 ## <a name="general-migration-flow"></a>Ogólny przepływ migracji
 
@@ -119,30 +111,25 @@ Zalecany przepływ migracji z burzy do platformy Spark przyjmuje następującą 
 * Kafka i burzy są wdrażane w tej samej sieci wirtualnej
 * Dane przetworzone przez burzę są zapisywane w ujściach danych, takich jak usługa Azure Storage lub Azure Data Lake Storage Gen2.
 
-    > [!div class="mx-imgBorder"]
-    > ![Diagram przypuszczalnego środowiska bieżącego](./media/migrate-storm-to-spark/presumed-current-environment.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/presumed-current-environment.png" alt-text="Diagram przypuszczalnego środowiska bieżącego"  border="false":::
 
 Aby przeprowadzić migrację aplikacji z burzy do jednego z interfejsów API przesyłania strumieniowego Spark, wykonaj następujące czynności:
 
 1. **Wdróż nowy klaster.** Wdróż nowy klaster usługi HDInsight 4,0 Spark w tej samej sieci wirtualnej i Wdróż na nim aplikację Spark Streaming lub Spark Structured Streaming oraz przetestuj ją dokładnie.
 
-    > [!div class="mx-imgBorder"]
-    > ![Nowe wdrożenie platformy Spark w usłudze HDInsight](./media/migrate-storm-to-spark/new-spark-deployment.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/new-spark-deployment.png" alt-text="Nowe wdrożenie platformy Spark w usłudze HDInsight" border="false":::
 
 1. **Zatrzymywanie używania starego klastra burzy.** W istniejącej burze, Przestań zużywać dane ze źródła danych przesyłania strumieniowego i zaczekaj, aż dane zakończą zapisywanie do docelowego ujścia.
 
-    > [!div class="mx-imgBorder"]
-    > ![Zatrzymywanie używania bieżącego klastra](./media/migrate-storm-to-spark/stop-consuming-current-cluster.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/stop-consuming-current-cluster.png" alt-text="Zatrzymywanie używania bieżącego klastra" border="false":::
 
 1. **Rozpocznij korzystanie z nowego klastra Spark.** Rozpocznij przesyłanie strumieniowe danych z nowo wdrożonego klastra usługi HDInsight 4,0 Spark. W tym momencie proces jest przejęty przez konsumowanie z ostatniego przesunięcia Kafka.
 
-    > [!div class="mx-imgBorder"]
-    > ![Rozpocznij korzystanie z nowego klastra](./media/migrate-storm-to-spark/start-consuming-new-cluster.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/start-consuming-new-cluster.png" alt-text="Rozpocznij korzystanie z nowego klastra" border="false":::
 
 1. **W razie konieczności Usuń stary klaster.** Po zakończeniu i poprawnym działaniu przełącznika Usuń stary klaster burzy usługi HDInsight 3,6 zgodnie z wymaganiami.
 
-    > [!div class="mx-imgBorder"]
-    > ![Usuń stare klastry usługi HDInsight zgodnie z wymaganiami](./media/migrate-storm-to-spark/remove-old-clusters1.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/remove-old-clusters1.png" alt-text="Usuń stare klastry usługi HDInsight zgodnie z wymaganiami" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

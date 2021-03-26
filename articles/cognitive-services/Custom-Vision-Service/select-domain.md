@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8aba6f13957d37f843114572f001029baf41ded6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095667"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889352"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Wybierz domenę dla projektu Custom Vision
 
@@ -25,12 +25,17 @@ Na karcie Ustawienia projektu Custom Vision możesz wybrać domenę dla projektu
 
 |Domena|Przeznaczenie|
 |---|---|
-|__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub jeśli nie masz pewności, którą domenę wybrać, wybierz domenę ogólne. #C1 `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub jeśli nie masz pewności, którą domenę wybrać, wybierz jedną z głównych domen. #C1 `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
 |__Ogólne [a1]__| Optymalizacja pod kątem lepszej dokładności dzięki porównywalnemu czasowi wnioskowania jako domeny ogólnej. Zalecane w przypadku większych zestawów danych lub trudniejszych scenariuszy użytkownika. Ta domena wymaga więcej czasu szkoleniowego. #C1 `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
+|__Ogólne [a2]__| Zoptymalizowane pod kątem lepszej dokładności z szybszym czasem wnioskowania niż ogólne domeny [a1] i ogólne. Zalecane w przypadku większości zestawów danych. Ta domena wymaga mniej czasu szkolenia niż ogólne i ogólne domeny [a1]. #C1 `2e37d7fb-3a54-486a-b4d6-cfc369af0018` |
 |__Żywności__|Optymalizacja pod kątem zdjęć naczyń w postaci widocznej w menu restauracji. Jeśli chcesz sklasyfikować fotografie poszczególnych owoców lub warzyw, użyj domeny żywności. #C1 `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Punkty orientacyjne__|Optymalizacja pod kątem rozpoznawalnych terenów, zarówno naturalnych, jak i sztucznej. Ta domena działa najlepiej, gdy punkt orientacyjny jest jasno widoczny na zdjęciu. Ta domena działa nawet wtedy, gdy punkt orientacyjny jest nieco przesunięty przez osoby przed nim. #C1 `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Sprzedaż detaliczna__|Optymalizacja pod kątem obrazów znajdujących się w katalogu zakupów lub witrynie internetowej do kupowania. Jeśli potrzebujesz klasyfikacji o wysokiej precyzji między Dresses, Pants i koszulami, Użyj tej domeny. #C1 `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Domeny kompaktowe__| Optymalizacja pod kątem ograniczeń klasyfikacji w czasie rzeczywistym na urządzeniach brzegowych.|
+
+
+> [!NOTE]
+> W szerokim zestawie scenariuszy można używać domen ogólnych [a1] i ogólnych [a2], które są zoptymalizowane pod kątem dokładności. Użyj modelu ogólnego [a2], aby uzyskać lepszą szybkość wnioskowania i krótszy czas uczenia. W przypadku większych zestawów danych warto użyć ogólnego [a1] do renderowania lepszej dokładności niż ogólne [a2], chociaż wymaga to więcej szkoleń i czasu wnioskowania. Ogólny model wymaga więcej czasu wnioskowania niż ogólne [a1] i ogólne [a2].
 
 ## <a name="object-detection"></a>Wykrywanie obiektów
 

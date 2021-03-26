@@ -2,17 +2,17 @@
 title: Oblicz wyniki testów porównawczych dla maszyn wirtualnych systemu Linux platformy Azure
 description: Porównaj wyniki testów porównawczych dla maszyn wirtualnych platformy Azure z systemem Linux.
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: benchmark
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: ef60bbfe19e10dcd98ca3691e1fdf0d03d07be24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04581e34444f929f32af647850766d4df50bf98b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102558665"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954075"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Linux
 Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w przypadku wysokiej wydajności zestawienia maszyn wirtualnych platformy Azure z systemem Ubuntu. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Windows](../windows/compute-benchmark-scores.md).

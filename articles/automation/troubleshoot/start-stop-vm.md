@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99053588"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953854"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Rozwiązywanie problemów dotyczących Start/Stop VMs during off-hours
 
@@ -149,7 +149,7 @@ Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania:
   ```
 
 * Aby można było uruchamiać i zatrzymywać maszyny wirtualne, konto Uruchom jako dla konta usługi Automation musi mieć odpowiednie uprawnienia do maszyny wirtualnej. Aby dowiedzieć się, jak sprawdzić uprawnienia do zasobu, zobacz [Szybki Start: Wyświetlanie ról przypisanych do użytkownika przy użyciu Azure Portal](../../role-based-access-control/check-access.md). Należy podać identyfikator aplikacji dla jednostki usługi używanej przez konto Uruchom jako. Możesz pobrać tę wartość, przechodząc do konta usługi Automation w Azure Portal. Wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta** i wybierz odpowiednie konto Uruchom jako.
-* Jeśli maszyna wirtualna ma problem z uruchamianiem lub cofaniem przydziału, może wystąpić problem z maszyną wirtualną. Przykłady to aktualizacja stosowana podczas próby zamknięcia maszyny wirtualnej, usługa, która zawiesza się i nie tylko. Przejdź do zasobu maszyny wirtualnej i sprawdź **dzienniki aktywności** , aby sprawdzić, czy w dziennikach znajdują się błędy. Możesz także próbować zalogować się do maszyny wirtualnej, aby sprawdzić, czy w dziennikach zdarzeń występują błędy. Aby dowiedzieć się więcej o rozwiązywaniu problemów z maszyną wirtualną, zobacz [Rozwiązywanie problemów dotyczących maszyn wirtualnych platformy Azure](../../virtual-machines/troubleshooting/index.yml)
+* Jeśli maszyna wirtualna ma problem z uruchamianiem lub cofaniem przydziału, może wystąpić problem z maszyną wirtualną. Przykłady to aktualizacja stosowana podczas próby zamknięcia maszyny wirtualnej, usługa, która zawiesza się i nie tylko. Przejdź do zasobu maszyny wirtualnej i sprawdź **dzienniki aktywności** , aby sprawdzić, czy w dziennikach znajdują się błędy. Możesz także próbować zalogować się do maszyny wirtualnej, aby sprawdzić, czy w dziennikach zdarzeń występują błędy. Aby dowiedzieć się więcej o rozwiązywaniu problemów z maszyną wirtualną, zobacz [Rozwiązywanie problemów dotyczących maszyn wirtualnych platformy Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 * Sprawdź [strumienie zadań](../automation-runbook-execution.md#job-statuses) , aby wyszukać błędy. W portalu przejdź do konta usługi Automation i wybierz pozycję **zadania** w obszarze **Automatyzacja procesów**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Scenariusz: mój niestandardowy element Runbook nie może uruchomić lub zatrzymać moich maszyn wirtualnych

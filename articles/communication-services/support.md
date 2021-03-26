@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 204a7ff77b4dd32ef62e1a06c66d50d7b30fcfc4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e403fb8bcd25d1274eda287bc62465bacdb9b613
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496137"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045471"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Opcje pomocy i obsługi technicznej dla usług Azure Communications Services
 
@@ -24,9 +24,9 @@ Na platformie Azure dostępnych jest wiele [opcji pomocy technicznej i planów](
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Opublikuj pytanie w firmie Microsoft Q&A
 
-Aby uzyskać szybkie i niezawodne odpowiedzi na pytania dotyczące produktu lub techniczne, możesz mieć dostęp do usług Azure Communication Services od inżynierów firmy Microsoft, platformy Azure o największej liczbie cennych specjalistów (MVP) lub naszej [&](https://docs.microsoft.com/answers/products/azure)społeczności. 
+Aby uzyskać szybkie i niezawodne odpowiedzi na pytania dotyczące produktu lub techniczne, możesz mieć dostęp do usług Azure Communication Services od inżynierów firmy Microsoft, platformy Azure o największej liczbie cennych specjalistów (MVP) lub naszej [&](/answers/products/azure)społeczności. 
 
-Jeśli nie możesz znaleźć odpowiedzi na problem, wykonując wyszukiwanie, możesz przesłać nowe pytanie do firmy Microsoft Q&A. Podczas tworzenia pytania upewnij się, że używasz [znacznika usługi Azure Communication Services](https://docs.microsoft.com/answers/topics/azure-communication-services.html).
+Jeśli nie możesz znaleźć odpowiedzi na problem, wykonując wyszukiwanie, możesz przesłać nowe pytanie do firmy Microsoft Q&A. Podczas tworzenia pytania upewnij się, że używasz [znacznika usługi Azure Communication Services](/answers/topics/azure-communication-services.html).
 
 ## <a name="post-a-question-on-stack-overflow"></a>Opublikuj pytanie na Stack Overflow
 

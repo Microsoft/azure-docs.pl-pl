@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć połączenie RDP z węzłami systemu Wi
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 4cfac73c66969148927897de7ed6da0c56aa276a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4b6ccc05d1cb49a77a2867dfc1c5fe5f45134dd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173821"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951916"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Nawiązywanie połączenia z usługą Azure Kubernetes Service (AKS) klastrami węzłów systemu Windows Server w celu przeprowadzenia konserwacji lub rozwiązywania problemów
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak utworzyć połączenie RDP z węzłem AKS przy uży
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS z węzłem systemu Windows Server. Jeśli potrzebujesz klastra AKS, zapoznaj się z artykułem dotyczącym [tworzenia klastra AKS z kontenerem systemu Windows przy użyciu interfejsu wiersza polecenia platformy Azure][aks-windows-cli]. Wymagana jest nazwa użytkownika i hasło administratora systemu Windows dla węzła systemu Windows Server, którego chcesz użyć do rozwiązywania problemów. Jeśli ich nie znasz, możesz je zresetować, wykonując następujące czynności [resetowania usługi pulpitu zdalnego lub jego hasła administratora na maszynie wirtualnej z systemem Windows ](../virtual-machines/troubleshooting/reset-rdp.md). Wymagany jest również klient RDP, taki jak [pulpit zdalny Microsoft][rdp-mac].
+W tym artykule przyjęto założenie, że masz istniejący klaster AKS z węzłem systemu Windows Server. Jeśli potrzebujesz klastra AKS, zapoznaj się z artykułem dotyczącym [tworzenia klastra AKS z kontenerem systemu Windows przy użyciu interfejsu wiersza polecenia platformy Azure][aks-windows-cli]. Wymagana jest nazwa użytkownika i hasło administratora systemu Windows dla węzła systemu Windows Server, którego chcesz użyć do rozwiązywania problemów. Jeśli ich nie znasz, możesz je zresetować, wykonując następujące czynności [resetowania usługi pulpitu zdalnego lub jego hasła administratora na maszynie wirtualnej z systemem Windows ](/troubleshoot/azure/virtual-machines/reset-rdp). Wymagany jest również klient RDP, taki jak [pulpit zdalny Microsoft][rdp-mac].
 
 Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 

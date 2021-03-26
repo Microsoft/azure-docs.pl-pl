@@ -8,12 +8,12 @@ ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 92e5b00cd655677cdc3096bc2142dfe1b704adf2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1aa91ea0f698e609e786d87a0072e6a07c143a3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102638168"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047321"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Oblicz liczbę obiektów blob i łączny rozmiar na kontener przy użyciu spisu usługi Azure Storage
 
@@ -43,7 +43,7 @@ Jeśli masz raport spisu do przeanalizowania, udziel sobie dostępu do odczytu o
 
 ## <a name="create-an-azure-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Azure Synapse
 
-Następnie [Utwórz obszar roboczy usługi Azure Synapse](/azure/synapse-analytics/get-started-create-workspace) , w którym zostanie wykonane zapytanie SQL w celu zgłoszenia wyników spisu.
+Następnie [Utwórz obszar roboczy usługi Azure Synapse](../../synapse-analytics/get-started-create-workspace.md) , w którym zostanie wykonane zapytanie SQL w celu zgłoszenia wyników spisu.
 
 ## <a name="create-the-sql-query"></a>Tworzenie zapytania SQL
 
@@ -58,7 +58,7 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse wykonaj następujące czyn
 
 ## <a name="run-the-sql-query"></a>Uruchamianie zapytania SQL
 
-1. Dodaj następujące zapytanie SQL w obszarze roboczym usługi Azure Synapse [, aby odczytać plik CSV spisu](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file).
+1. Dodaj następujące zapytanie SQL w obszarze roboczym usługi Azure Synapse [, aby odczytać plik CSV spisu](../../synapse-analytics/sql/query-single-csv-file.md#read-a-csv-file).
 
     Dla `bulk` parametru Użyj adresu URL pliku CSV raportu spisu, który ma zostać przeanalizowany.
 
