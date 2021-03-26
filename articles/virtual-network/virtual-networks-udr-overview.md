@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221018"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605216"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -96,6 +96,36 @@ Podczas tworzenia tras zdefiniowanych przez użytkownika możesz określić poni
 
 Typu **Komunikacja równorzędna sieci wirtualnej** lub **VirtualNetworkServiceEndpoint** nie możesz określić jako typu następnego przeskoku w trasach zdefiniowanych przez użytkownika. Trasy z typami następnego przeskoku **Komunikacja równorzędna sieci wirtualnej** lub **VirtualNetworkServiceEndpoint** są tworzone tylko przez platformę Azure podczas konfigurowania komunikacji równorzędnej sieci wirtualnej lub punktu końcowego usługi.
 
+### <a name="service-tags-for-user-defined-routes-public-preview"></a>Znaczniki usługi dla tras zdefiniowanych przez użytkownika (publiczna wersja zapoznawcza)
+
+Teraz można określić [tag usługi](service-tags-overview.md) jako prefiks adresu dla trasy zdefiniowanej przez użytkownika zamiast jawnego zakresu adresów IP. Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, co minimalizuje złożoność częstych aktualizacji tras zdefiniowanych przez użytkownika i zmniejsza liczbę tras, które należy utworzyć. W każdej tabeli tras można obecnie utworzyć 25 lub mniej tras za pomocą tagów usługi. </br>
+
+
+#### <a name="exact-match"></a>Dokładne dopasowanie
+W przypadku dokładnego dopasowania prefiksu między trasą z jawnym prefiksem IP a trasą z tagiem usługi preferencja jest przyznawana trasie z jawnym prefiksem. Gdy wiele tras z tagami usług ma pasujące prefiksy IP, trasy będą oceniane w następującej kolejności: 
+
+   1. Tagi regionalne (np. Storage. wschód, AppService. AustraliaCentral)
+   2. Tagi najwyższego poziomu (np. Magazyn, AppService)
+   3. AzureCloud Tagi regionalne (np. AzureCloud. canadacentral, AzureCloud. eastasia)
+   4. Tag AzureCloud </br></br>
+
+Aby użyć tej funkcji, należy określić nazwę tagu usługi dla parametru prefiksu adresu w poleceniach tabeli tras. Na przykład w programie PowerShell można utworzyć nową trasę do kierowania ruchu wysyłanego do prefiksu IP usługi Azure Storage do urządzenia wirtualnego za pomocą: </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+To samo polecenie dla interfejsu wiersza polecenia będzie: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> W publicznej wersji zapoznawczej istnieje kilka ograniczeń. Ta funkcja nie jest obecnie obsługiwana w witrynie Azure Portal i jest dostępna tylko za pomocą programu PowerShell i interfejsu wiersza polecenia. Nie jest obsługiwane używanie z kontenerami. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Typy następnego przeskoku dla narzędzi platformy Azure
 
 Nazwa wyświetlana i przywoływana dla typów następnego przeskoku jest różna dla witryny Azure Portal i narzędzi wiersza polecenia oraz usługi Azure Resource Manager i klasycznych modeli wdrażania. W poniższej tabeli wymieniono nazwy używane w odwołaniu do każdego typu następnego przeskoku dla różnych narzędzi i [modeli wdrażania](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -109,6 +139,8 @@ Nazwa wyświetlana i przywoływana dla typów następnego przeskoku jest różna
 |Brak                            |Brak                                            |Null (niedostępne w wersji klasycznej interfejsu wiersza polecenia w trybie asm)|
 |Komunikacja równorzędna sieci wirtualnej         |Komunikacja równorzędna sieci wirtualnych                                    |Nie dotyczy|
 |Punkt końcowy usługi dla sieci wirtualnej|VirtualNetworkServiceEndpoint                   |Nie dotyczy|
+
+
 
 ### <a name="border-gateway-protocol"></a>Protokół BGP (Border Gateway Protocol)
 

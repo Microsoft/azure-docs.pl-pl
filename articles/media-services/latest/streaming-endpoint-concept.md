@@ -63,6 +63,54 @@ Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania str
 
 <sup>1</sup> używany bezpośrednio w punkcie końcowym przesyłania strumieniowego, gdy sieć CDN nie jest włączona w punkcie końcowym.<br/>
 
+### <a name="versions"></a>Wersje
+
+|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Klasyczny|1.0|0|NA|Bezpłatna|
+|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2.0|0|Tak|Płatna|
+|Jednostki przesyłania strumieniowego w warstwie Premium|1.0|>0|Tak|Płatna|
+|Jednostki przesyłania strumieniowego w warstwie Premium|2.0|>0|Tak|Płatna|
+
+### <a name="features"></a>Funkcje
+
+Cecha|Standardowa (Standard)|Premium
+---|---|---
+Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
+CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
+Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
+Szyfrowanie dynamiczne|Tak|Tak
+Dynamiczne tworzenie pakietów|Tak|Tak
+Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe jednostki przesyłania strumieniowego.
+Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Tak|Tak
+Pobieranie progresywne|Tak|Tak
+Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania strumieniowego.|Profesjonalne użycie. 
+
+<sup>1</sup> używany bezpośrednio w punkcie końcowym przesyłania strumieniowego, gdy sieć CDN nie jest włączona w punkcie końcowym.<br/>
+
+Aby uzyskać informacje o umowie SLA, zobacz [Cennik i Umowa SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="migration-between-types"></a>Migracja między typami
+
+Źródło | Działanie | Akcja
+---|---|---
+Wdrożenie klasyczne|Standardowa (Standard)|Trzeba się zadecydować
+Klasyczny|Premium| Skalowanie (dodatkowe jednostki przesyłania strumieniowego)
+Standard/Premium|Klasyczny|Niedostępne (Jeśli wersja punktu końcowego przesyłania strumieniowego to 1,0). Można zmienić na klasyczny z ustawieniem scaleunits na "0".
+Standardowa (z usługą CDN/bez)|Premium z tymi samymi konfiguracjami|Dozwolone w stanie **uruchomienia** . (za pośrednictwem Azure Portal)
+Premium (z usługą CDN/bez)|Standardowa z tymi samymi konfiguracjami|Dozwolone w stanie **uruchomienia** (za pośrednictwem Azure Portal)
+Standardowa (z usługą CDN/bez)|Premium z inną konfiguracją|Dozwolone w stanie **zatrzymania** (za pośrednictwem Azure Portal). Niedozwolone w stanie uruchomienia.
+Premium (z usługą CDN/bez)|Standardowa z inną konfiguracją|Dozwolone w stanie **zatrzymania** (za pośrednictwem Azure Portal). Niedozwolone w stanie uruchomienia.
+Wersja 1,0 z usługą SU >= 1 z usługą CDN|Standardowa/Premium bez sieci CDN|Dozwolone w stanie **zatrzymanym** . Niedozwolone w stanie **uruchomienia** .
+Wersja 1,0 z usługą SU >= 1 z usługą CDN|Standardowa z siecią CDN/bez|Dozwolone w stanie **zatrzymanym** . Niedozwolone w stanie **uruchomienia** . Usługa CDN w wersji 1,0 zostanie usunięta i zostanie utworzona nowa i uruchomiona.
+Wersja 1,0 z usługą SU >= 1 z usługą CDN|Premium z usługą CDN/bez|Dozwolone w stanie **zatrzymanym** . Niedozwolone w stanie **uruchomienia** . Klasyczna sieć CDN zostanie usunięta, a nowa została utworzona i uruchomiona.
+
+
+
+
+
+
+
 ## <a name="streaming-endpoint-properties"></a>Właściwości punktu końcowego przesyłania strumieniowego
 
 Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości punktu końcowego przesyłania strumieniowego. Przykłady tworzenia nowego punktu końcowego przesyłania strumieniowego i opisy wszystkich właściwości można znaleźć w temacie [punkt końcowy przesyłania strumieniowego](/rest/api/media/streamingendpoints/create).
@@ -83,7 +131,7 @@ Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości
 - `crossSiteAccessPolicies`: Służy do określania zasad dostępu między lokacjami dla różnych klientów. Aby uzyskać więcej informacji, zobacz [specyfikację plików zasad między domenami](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) i [udostępnianie usługi w granicach domen](/previous-versions/azure/azure-services/gg185950(v=azure.100)). Ustawienia dotyczą tylko Smooth Streaming.
 - `customHostNames`: Służy do konfigurowania punktu końcowego przesyłania strumieniowego w celu akceptowania ruchu kierowanego do niestandardowej nazwy hosta. Ta właściwość jest prawidłowa dla punktów końcowych przesyłania strumieniowego w warstwie Standardowa i Premium i można ją ustawić w przypadku `cdnEnabled` : false.
 
-    Własność nazwy domeny musi zostać potwierdzona przez Media Services. Media Services weryfikuje własność nazwy domeny, wymagając `CName` rekordu zawierającego identyfikator konta Media Services jako składnika, który ma zostać dodany do domeny w użyciu. Przykładowo dla elementu "sports.contoso.com", który ma być używany jako niestandardowa nazwa hosta dla punktu końcowego przesyłania strumieniowego, rekord dla programu `<accountId>.contoso.com` musi być skonfigurowany tak, aby wskazywał jedną z nazw hostów weryfikacyjnych Media Services. Nazwa hosta weryfikacji składa się z verifydns. \<mediaservices-dns-zone> .
+    Własność nazwy domeny musi zostać potwierdzona przez Media Services. Media Services weryfikuje własność nazwy domeny, wymagając `CName` rekordu zawierającego identyfikator konta Media Services jako składnika, który ma zostać dodany do domeny w użyciu. Przykładowo dla elementu "sports.contoso.com", który ma być używany jako niestandardowa nazwa hosta dla punktu końcowego przesyłania strumieniowego, rekord dla programu `<accountId>.contoso.com` musi być skonfigurowany tak, aby wskazywał jedną z nazw hostów weryfikacyjnych Media Services. Nazwa hosta weryfikacji składa się z verifydns. `\<mediaservices-dns-zone>` .
 
     Poniżej znajdują się oczekiwane strefy DNS, które mają być używane w zweryfikowanym rekordzie dla różnych regionów świadczenia usługi Azure.
   

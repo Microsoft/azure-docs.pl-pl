@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.author: mbaldwin
-ms.openlocfilehash: 85aa9d355b2440535ea13c8c15e95500bac22352
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: c46ccbda35936ed94079a21e3e9c72405875b961
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98567251"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608871"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Dedykowana wysoka dostępność platformy Azure
 
@@ -25,7 +25,7 @@ Dedykowany moduł HSM platformy Azure jest przypięty przez centra danych o wyso
 
 ## <a name="high-availability-example"></a>Przykład wysokiej dostępności
 
-Informacje na temat sposobu konfigurowania urządzeń HSM pod kątem wysokiej dostępności na poziomie oprogramowania są dostępne w podręczniku administratora modułu HSM firmy Thales Luna 7. Ten dokument jest dostępny na  [stronie modułu HSM firmy Thales](https://thalesdocs.com/gphsm/Content/luna/network/luna_network_releases.htm).
+Informacje na temat sposobu konfigurowania urządzeń HSM pod kątem wysokiej dostępności na poziomie oprogramowania są dostępne w podręczniku administratora modułu HSM firmy Thales Luna 7. Ten dokument jest dostępny na  [stronie modułu HSM firmy Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms).
 
 Na poniższym diagramie przedstawiono architekturę o wysokiej dostępności. Używa wielu urządzeń w regionie i wielu urządzeń sparowanych w osobnym regionie. W tej architekturze są stosowane co najmniej cztery urządzenia HSM i wirtualne składniki sieciowe.
 
@@ -42,4 +42,4 @@ Dalsze tematy dotyczące poziomu koncepcji:
 * [Możliwości obsługi](supportability.md)
 * [Monitorowanie](monitoring.md)
 
-Aby uzyskać szczegółowe informacje dotyczące konfigurowania urządzeń HSM pod kątem wysokiej dostępności, zapoznaj się z sekcją firmy Thales Customer Support Portal dla przewodników administratora i zobacz sekcję 6.
+Aby uzyskać szczegółowe informacje dotyczące konfigurowania urządzeń HSM pod kątem wysokiej dostępności, zapoznaj się z sekcją [firmy Thales Customer Support Portal](https://supportportal.thalesgroup.com/csm) dla przewodników administratora i zobacz sekcję 6.

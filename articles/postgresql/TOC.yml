@@ -126,14 +126,14 @@
           href: concepts-supported-versions.md
         - name: Rozszerzenia PostgreSQL
           href: concepts-extensions.md
+        - name: Limity
+          href: concepts-limits.md
         - name: Omówienie warstw cenowych
           items:
             - name: Warstwy cenowe
               href: concepts-pricing-tiers.md
             - name: Opłacanie wydajności rezerwowej z góry
               href: concept-reserved-pricing.md
-            - name: Limity
-              href: concepts-limits.md
         - name: Zabezpieczenia
           items:
             - name: Omówienie zabezpieczeń

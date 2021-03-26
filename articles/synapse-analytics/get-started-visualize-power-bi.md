@@ -9,20 +9,20 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 952d69cccff86d1a0119391c400a40908c62ed69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98208968"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608446"
 ---
 # <a name="visualize-data-with-power-bi"></a>Wizualizacja danych przy użyciu usługi Power BI
 
 W tym samouczku dowiesz się, jak utworzyć obszar roboczy Power BI, połączyć obszar roboczy usługi Azure Synapse i utworzyć zestaw danych Power BI, który wykorzystuje dane w obszarze roboczym usługi Azure Synapse. 
 
-> [!NOTE]
-> Aby ukończyć ten samouczek, [zainstaluj Power BI Desktop](https://aka.ms/pbidesktopstore).
+## <a name="prerequisites"></a>Wymagania wstępne
+Aby ukończyć ten samouczek, [zainstaluj Power BI Desktop](https://aka.ms/pbidesktopstore).
 
 ## <a name="overview"></a>Omówienie
 

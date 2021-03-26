@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: f7e12567269304b33a98ff1eb9727cfdf0afbdc4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9468b3b53e0f7c435bf84b6ef99eb1e0f85d0c8e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418644"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560271"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Samouczek dotyczący aktualizacji urządzenia dla platformy Azure IoT Hub przy użyciu agenta pakietu na serwerze Ubuntu 18,04 x64
 
@@ -32,13 +32,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wdróż aktualizację pakietu
 > * Monitorowanie wdrożenia aktualizacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Dostęp do IoT Hub. Zaleca się użycie warstwy S1 (standardowa) lub wyższej.
-* Wystąpienie aktualizacji urządzenia i konto połączone z IoT Hub.
-  * Postępuj zgodnie z przewodnikiem, aby [utworzyć i połączyć konto aktualizacji urządzenia](create-device-update-account.md) , jeśli nie zostało to wcześniej zrobione.
+* Jeśli jeszcze tego nie zrobiono, Utwórz [konto i wystąpienie aktualizacji urządzenia](create-device-update-account.md), w tym Konfigurowanie IoT Hub.
 * [Parametry połączenia dla IoT Edge urządzenia](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
 
 ## <a name="prepare-a-device"></a>Przygotowywanie urządzenia

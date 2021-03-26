@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598188"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609092"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Informacje o monitorowaniu Media Services danych
 
-W tym artykule omówiono dane, które są przydatne do monitorowania Media Services. Aby uzyskać więcej informacji na temat wszystkich metryk platformy obsługiwanych w Azure Monitor, przejrzyj [obsługiwane metryki z Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+W tym artykule omówiono dane, które są przydatne do monitorowania Media Services. Aby uzyskać więcej informacji na temat wszystkich metryk platformy obsługiwanych w Azure Monitor, przejrzyj [obsługiwane metryki z Azure monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="media-services-metrics"></a>Metryki Media Services
 
@@ -59,7 +60,7 @@ Następujące metryki [punktów końcowych przesyłania strumieniowego](/rest/ap
 
 ## <a name="metric-dimensions"></a>Wymiary metryk
 
-Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [wielowymiarowe metryki](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [wielowymiarowe metryki](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [wielowymiarow
 
 ## <a name="media-services-diagnostic-logs"></a>Media Services dzienników diagnostycznych
 
-Dzienniki diagnostyczne zapewniają rozbudowane i częste dane dotyczące operacji zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [jak zbierać i zużywać dane dzienników z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
+Dzienniki diagnostyczne zapewniają rozbudowane i częste dane dotyczące operacji zasobu platformy Azure. Aby uzyskać więcej informacji, zobacz [jak zbierać i zużywać dane dzienników z zasobów platformy Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Media Services obsługuje następujące dzienniki diagnostyczne:
 
@@ -81,7 +82,7 @@ Media Services obsługuje następujące dzienniki diagnostyczne:
 
 ## <a name="schemas"></a>Schematy
 
-Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema-properties"></a>Właściwości schematu dziennika dostarczania kluczy
 

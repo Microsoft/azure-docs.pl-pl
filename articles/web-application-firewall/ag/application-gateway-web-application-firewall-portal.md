@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/16/2020
+ms.date: 03/25/2021
 ms.author: victorh
-ms.openlocfilehash: b9733eeb0d9941f6e23dcc9c0fa4dba60f4e4d30
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 35bede052f06c0fcffe46460a376d10690fd4417
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94561033"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559636"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Samouczek: Tworzenie bramy aplikacji za pomocą zapory aplikacji sieci Web przy użyciu Azure Portal
 
@@ -42,11 +42,9 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-Aby platforma Azure mogła komunikować się między zasobami, potrzebuje ona sieci wirtualnej. Można utworzyć nową sieć wirtualną lub użyć istniejącej. W tym przykładzie utworzysz nową sieć wirtualną. Sieć wirtualną można utworzyć podczas tworzenia bramy aplikacji. Wystąpienia Application Gateway są tworzone w różnych podsieciach. W tym przykładzie tworzysz dwie podsieci: jedną dla bramy aplikacji i drugą dla serwerów zaplecza.
+1. Wybierz pozycję **Utwórz zasób** w menu po lewej stronie w witrynie Azure Portal. Zostanie wyświetlone okno **Nowe**.
 
-Wybierz pozycję **Utwórz zasób** w menu po lewej stronie w witrynie Azure Portal. Zostanie wyświetlone okno **Nowe**.
-
-Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Application Gateway** na liście **polecanych** .
+2. Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Application Gateway** na liście **polecanych** .
 
 ### <a name="basics-tab"></a>Karta Podstawowe
 
@@ -60,7 +58,7 @@ Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Application Gateway
 
 2.  Do komunikacji między tworzonymi zasobami platforma Azure potrzebuje sieci wirtualnej. Można utworzyć nową sieć wirtualną lub użyć istniejącej. W tym przykładzie utworzysz nową sieć wirtualną w tym samym czasie, podczas tworzenia bramy aplikacji. Wystąpienia Application Gateway są tworzone w różnych podsieciach. W tym przykładzie tworzysz dwie podsieci: jedną dla bramy aplikacji i drugą dla serwerów zaplecza.
 
-    W obszarze **Konfigurowanie sieci wirtualnej** Utwórz nową sieć wirtualną, wybierając pozycję **Utwórz nową**. W otwartym oknie **Tworzenie sieci wirtualnej** wprowadź następujące wartości, aby utworzyć sieć wirtualną i dwie podsieci:
+    W obszarze **Konfigurowanie sieci wirtualnej** wybierz pozycję **Utwórz nową** , aby utworzyć nową sieć wirtualną. W otwartym oknie **Tworzenie sieci wirtualnej** wprowadź następujące wartości, aby utworzyć sieć wirtualną i dwie podsieci:
 
     - **Nazwa**: wprowadź *myVNet* dla nazwy sieci wirtualnej.
 
@@ -82,7 +80,7 @@ Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Application Gateway
    > [!NOTE]
    > W przypadku jednostki SKU Application Gateway v2 można wybrać tylko **publiczną** konfigurację adresu IP frontonu. Konfiguracja prywatnego adresu IP frontonu nie jest obecnie włączona dla tej jednostki SKU w wersji 2.
 
-2. Wybierz opcję **Utwórz nowy** dla **publicznego adresu IP** i wprowadź *MYAGPUBLICIPADDRESS* dla nazwy publicznego adresu IP, a następnie wybierz przycisk **OK**. 
+2. Wybierz pozycję **Dodaj nowy** dla **publicznego adresu IP** i wprowadź *MYAGPUBLICIPADDRESS* dla nazwy publicznego adresu IP, a następnie wybierz przycisk **OK**. 
 
      ![Utwórz nową bramę aplikacji: frontony](../media/application-gateway-web-application-firewall-portal/application-gateway-create-frontends.png)
 
@@ -92,7 +90,7 @@ Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Application Gateway
 
 Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsługują żądanie. Pule zaplecza mogą składać się z kart sieciowych, zestawów skalowania maszyn wirtualnych, publicznych adresów IP, wewnętrznych adresów IP, w pełni kwalifikowanych nazw domen (FQDN) i wielodostępnych zapleczy, takich jak Azure App Service. W tym przykładzie utworzysz pustą pulę zaplecza z bramą aplikacji, a następnie dodasz cele zaplecza do puli zaplecza.
 
-1. Na karcie **nadkończenie** wybierz pozycję **+ Dodaj pulę zaplecza**.
+1. Na karcie **nadkończenie** wybierz pozycję **Dodaj pulę zaplecza**.
 
 2. W otwartym oknie **Dodawanie puli zaplecza** wprowadź następujące wartości, aby utworzyć pustą pulę zaplecza:
 
@@ -109,7 +107,7 @@ Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsł
 
 Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i puli zaplecza utworzonej przy użyciu reguły routingu.
 
-1. Wybierz pozycję **Dodaj regułę** w kolumnie **reguły routingu** .
+1. Wybierz pozycję **Dodaj regułę routingu** w kolumnie **reguły routingu** .
 
 2. W otwartym oknie **Dodawanie reguły routingu** wpisz *MyRoutingRule* dla **nazwy reguły**.
 
@@ -124,7 +122,7 @@ Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i puli zapl
 
 4. Na karcie **cele zaplecza** wybierz pozycję **myBackendPool** dla **elementu docelowego zaplecza**.
 
-5. Dla **Ustawienia http** wybierz pozycję **Utwórz nowy** , aby utworzyć nowe ustawienie http. Ustawienie HTTP określi zachowanie reguły routingu. W oknie **Dodawanie ustawienia protokołu HTTP** , które zostanie otwarte, wprowadź *myHTTPSetting* dla **nazwy ustawienia http**. Zaakceptuj wartości domyślne pozostałych ustawień w oknie **Dodawanie ustawienia protokołu HTTP** , a następnie wybierz pozycję **Dodaj** , aby powrócić do okna **Dodawanie reguły routingu** . 
+5. Dla **Ustawienia http** wybierz pozycję **Dodaj nowe** , aby utworzyć nowe ustawienie http. Ustawienie HTTP określi zachowanie reguły routingu. W oknie **Dodawanie ustawienia protokołu HTTP** , które zostanie otwarte, wprowadź *myHTTPSetting* dla **nazwy ustawienia http**. Zaakceptuj wartości domyślne pozostałych ustawień w oknie **Dodawanie ustawienia protokołu HTTP** , a następnie wybierz pozycję **Dodaj** , aby powrócić do okna **Dodawanie reguły routingu** . 
 
      ![Utwórz nową bramę aplikacji: ustawienie HTTP](../media/application-gateway-web-application-firewall-portal/application-gateway-create-httpsetting.png)
 
@@ -158,12 +156,12 @@ W tym celu wykonaj następujące czynności:
 
     - **Grupa zasobów**: wybierz pozycję **myResourceGroupAG** dla nazwy grupy zasobów.
     - **Nazwa maszyny wirtualnej**: wprowadź *myVM* dla nazwy maszyny wirtualnej.
-    - **Nazwa** użytkownika: wprowadź *azureuser* dla nazwy administratora.
-    - **Hasło**: wprowadź *Azure123456!* jako hasło administratora.
+    - **Nazwa użytkownika: wprowadź** nazwę administratora.
+    - **Hasło**: wprowadź hasło administratora.
 4. Zaakceptuj inne wartości domyślne, a następnie wybierz pozycję **Dalej: dyski**.  
 5. Zaakceptuj ustawienia domyślne karty **dyski** , a następnie wybierz pozycję **Dalej: sieć**.
 6. Na karcie **Sieć** sprawdź, czy wybrano pozycję **myVNet** w obszarze **Sieć wirtualna** oraz czy pozycja **Podsieć** została ustawiona na wartość **myBackendSubnet**. Zaakceptuj inne wartości domyślne, a następnie wybierz pozycję **Dalej: Zarządzanie**.<br>Application Gateway może komunikować się z wystąpieniami poza siecią wirtualną, w której znajduje się, ale należy upewnić się, że połączenie IP jest nawiązywane.
-7. Na karcie **Zarządzanie** ustaw pozycję **Diagnostyka rozruchu** na **Wył.** Zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Przeglądanie + tworzenie**.
+7. Na karcie **Zarządzanie** Skonfiguruj **diagnostykę rozruchu** , aby **wyłączyć**. Zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Przeglądanie + tworzenie**.
 8. Na karcie **Przeglądanie + tworzenie** przejrzyj ustawienia, usuń wszystkie błędy walidacji, a następnie wybierz pozycję **Utwórz**.
 9. Poczekaj na ukończenie tworzenia maszyny wirtualnej, zanim przejdziesz dalej.
 
@@ -175,7 +173,7 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
 
     ![Instalowanie rozszerzenia niestandardowego](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Uruchom następujące polecenie, aby zainstalować usługi IIS na maszynie wirtualnej: 
+2. Ustaw parametr Location dla środowiska, a następnie uruchom następujące polecenie, aby zainstalować usługi IIS na maszynie wirtualnej: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -199,48 +197,49 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
 
 3. Wybierz pozycję **myBackendPool**.
 
-4. W obszarze **Cele** wybierz pozycję **Maszyna wirtualna** z listy rozwijanej.
+4. W obszarze **Typ docelowy** wybierz z listy rozwijanej pozycję **maszyna wirtualna** .
 
-5. W obszarach **MASZYNA WIRTUALNA** i **INTERFEJSY SIECIOWE** wybierz maszyny wirtualne **myVM** i **myVM2** oraz ich skojarzone interfejsy sieciowe z list rozwijanych.
+5. W obszarze **cel** wybierz z listy rozwijanej skojarzony interfejs sieciowy dla **myVM** .
+1. Powtórz dla **myVM2**.
 
-    ![Dodawanie serwerów zaplecza](../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
+   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png" alt-text="Dodawanie serwerów zaplecza":::
+
 
 6. Wybierz pozycję **Zapisz**.
 
 7. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Tworzenie konta magazynu i konfigurowanie diagnostyki
-
-### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
-
-W tym artykule Brama aplikacji używa konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub.
-
-1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
-1. Wybierz pozycję **Magazyn**, a następnie wybierz pozycję **konto magazynu**.
-1. W obszarze *Grupa zasobów* wybierz pozycję **myResourceGroupAG** dla grupy zasobów.
-1. Wpisz *myagstore1* w polu Nazwa konta magazynu.
-1. Zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz**.
-1. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
-
-### <a name="configure-diagnostics"></a>Konfigurowanie diagnostyki
-
-Skonfiguruj diagnostykę do rejestrowania danych w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog.
-
-1. W menu po lewej stronie wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję *myAppGateway*.
-2. W obszarze monitorowanie wybierz pozycję **Ustawienia diagnostyki**.
-3. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
-4. Wprowadź *myDiagnosticsSettings* jako nazwę ustawień diagnostycznych.
-5. Wybierz pozycję **Archiwizuj na koncie magazynu**, a następnie wybierz pozycję **Konfiguruj** , aby wybrać utworzone wcześniej konto magazynu *myagstore1* , a następnie wybierz przycisk **OK**.
-6. Wybierz dzienniki bramy aplikacji, które mają być zbierane i przechowywane.
-7. Wybierz pozycję **Zapisz**.
-
-    ![Konfigurowanie diagnostyki](../media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
-
+   
 ## <a name="create-and-link-a-web-application-firewall-policy"></a>Tworzenie i łączenie zasad zapory aplikacji sieci Web
 
-Wszystkie dostosowania i ustawienia WAF znajdują się w osobnym obiekcie, zwanym zasadami WAF. Zasady muszą być skojarzone z Twoim Application Gateway. Aby utworzyć zasady WAFymi, zobacz [Tworzenie zasad WAF](create-waf-policy-ag.md). Po jego utworzeniu można skojarzyć zasady z WAF (lub pojedynczym odbiornikiem) z poziomu zasad WAF na karcie **skojarzone bramy aplikacji** . 
+Wszystkie dostosowania i ustawienia WAF znajdują się w osobnym obiekcie, zwanym zasadami WAF. Zasady muszą być skojarzone z Twoim Application Gateway. 
 
-![Skojarzone bramy aplikacji](../media/application-gateway-web-application-firewall-portal/associated-application-gateways.png)
+Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł (DRS).
+
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**. Wyszukaj pozycję **WAF**, wybierz pozycję **Zapora aplikacji sieci Web**, a następnie wybierz pozycję **Utwórz**.
+2. Na stronie **Tworzenie zasad WAF** , **podstawowe** karty, wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz**:
+
+   |Ustawienie  |Wartość  |
+   |---------|---------|
+   |Zasady dla     |WAF regionalny (Application Gateway)|
+   |Subskrypcja     |Wybierz nazwę subskrypcji|
+   |Grupa zasobów     |Wybierz **myResourceGroupAG**|
+   |Nazwa zasady     |Wpisz unikatową nazwę zasad WAF.|
+1. Wybierz kolejno pozycje **Dalej: ustawienia zasad**.
+1. Zaakceptuj wartości domyślne, a następnie wybierz kolejno pozycje **Dalej: reguły zarządzane**.
+1. Zaakceptuj wartość domyślną, a następnie wybierz kolejno pozycje **Dalej: Reguły niestandardowe**.
+1. Wybierz pozycję **Dalej: skojarzenie**.
+1. Wybierz pozycję **Dodaj skojarzenie** , a następnie wybierz pozycję **Application Gateway**.
+1. Zaznacz pole wyboru **Zastosuj konfigurację zasad zapory aplikacji sieci Web, nawet jeśli różni się od bieżącej konfiguracji**.
+1. Wybierz pozycję **Dodaj**.
+1. Na karcie **skojarzenie** wybierz pozycję **Dodaj skojarzenie**, a następnie wybierz pozycję **Application Gateway**.
+
+   > [!NOTE]
+   > W przypadku przypisywania zasad do Application Gateway (lub odbiornika), które mają już zasady, pierwotne zasady zostaną zastąpione i zastąpione przez nowe zasady.
+4. Wybierz pozycję **Przeglądanie i tworzenie**, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Dalej: Tagi**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 

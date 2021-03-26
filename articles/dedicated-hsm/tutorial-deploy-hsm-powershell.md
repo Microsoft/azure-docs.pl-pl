@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108606"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606882"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Samouczek: wdrażanie modułów HSM w istniejącej sieci wirtualnej przy użyciu programu PowerShell
 
@@ -68,7 +68,7 @@ Polecenie powinno zwrócić stan "zarejestrowane" (jak pokazano poniżej) przed 
 
 ### <a name="creating-hsm-resources"></a>Tworzenie zasobów modułu HSM
 
-Urządzenie HSM jest aprowizowane w sieci wirtualnej klientów. Oznacza to konieczność użycia podsieci. Zależność dla modułu HSM w celu umożliwienia komunikacji między siecią wirtualną i urządzeniem fizycznym stanowi brama usługi ExpressRoute. Wymagana jest również maszyna wirtualna służąca do uzyskania dostępu do urządzenia HSM za pomocą oprogramowania klienckiego firmy Gemalto. W celu ułatwienia użycia te zasoby zostały zebrane w pliku szablonu z odpowiadającym im plikiem parametrów. Te pliki zostaną udostępnione po skontaktowaniu się z firmą Microsoft bezpośrednio pod adresem HSMrequest@Microsoft.com.
+Urządzenie HSM jest aprowizowane w sieci wirtualnej klientów. Oznacza to konieczność użycia podsieci. Zależność modułu HSM do włączania komunikacji między siecią wirtualną a urządzeniem fizycznym jest bramą ExpressRoute, a na koniec do uzyskania dostępu do urządzenia HSM przy użyciu oprogramowania klienckiego firmy Thales jest wymagana maszyna wirtualna. W celu ułatwienia użycia te zasoby zostały zebrane w pliku szablonu z odpowiadającym im plikiem parametrów. Te pliki zostaną udostępnione po skontaktowaniu się z firmą Microsoft bezpośrednio pod adresem HSMrequest@Microsoft.com.
 
 Po uzyskaniu tych plików należy zmodyfikować plik parametrów i wstawić preferowane nazwy zasobów. Oznacza to konieczność edytowania wierszy z wartością "value": "".
 
@@ -235,14 +235,14 @@ Dane wyjściowe powinny wyglądać podobnie do tych na poniższym obrazie:
 
 ![Zrzut ekranu pokazujący dane wyjściowe polecenia HSM show.](media/tutorial-deploy-hsm-powershell/output.png)
 
-Do tego momentu przydzielono wszystkie zasoby na potrzeby wdrożenia o wysokiej dostępności z dwoma modułami HSM oraz zweryfikowano dostęp i stan operacyjny. Dalsze czynności związane z konfiguracją lub testowaniem obejmują dodatkową pracę z samym modułem HSM. W tym celu należy postępować zgodnie z instrukcjami znajdującymi się w rozdziale 7 przewodnika administratora urządzenia Luna Network HSM 7 firmy Gemalto, które dotyczą inicjowania modułu HSM i tworzenia partycji. Całość dokumentacji i oprogramowania jest dostępna bezpośrednio od firmy Gemalto do pobrania po zarejestrowaniu się w portalu pomocy technicznej firmy Gemalto i uzyskaniu identyfikatora klienta. Pobierz oprogramowanie klienckie w wersji 7.2, aby uzyskać wszystkie wymagane składniki.
+Do tego momentu przydzielono wszystkie zasoby na potrzeby wdrożenia o wysokiej dostępności z dwoma modułami HSM oraz zweryfikowano dostęp i stan operacyjny. Dalsze czynności związane z konfiguracją lub testowaniem obejmują dodatkową pracę z samym modułem HSM. W tym celu należy postępować zgodnie z instrukcjami w przewodniku administratora modułu HSM firmy Thales Luna 7, rozdział 7, aby zainicjować moduł HSM i utworzyć partycje. Cała dokumentacja i oprogramowanie są dostępne bezpośrednio z programu firmy Thales do pobrania po zarejestrowaniu się w [portalu obsługi klienta firmy Thales](https://supportportal.thalesgroup.com/csm) i o identyfikatorze klienta. Pobierz oprogramowanie klienckie w wersji 7.2, aby uzyskać wszystkie wymagane składniki.
 
 ## <a name="delete-or-clean-up-resources"></a>Usuwanie lub czyszczenie zasobów
 
 Jeśli zakończono pracę z urządzeniem HSM, to można je usunąć jako zasób i zwrócić do dostępnej puli. Poważnym problemem w takim przypadku są jakiekolwiek poufne dane klienta znajdujące się na urządzeniu. Najlepszym sposobem na "zeroize" jest to, że hasło administratora modułu HSM jest niewłaściwe 3 razy (Uwaga: nie jest to administrator urządzenia — jest to rzeczywisty administrator HSM). Ze względów bezpieczeństwa w celu ochrony materiału kluczowego urządzenie nie może zostać usunięte jako zasób platformy Azure, dopóki nie będzie w stanie wyzerować.
 
 > [!NOTE]
-> Jeśli masz problemy z jakimikolwiek czynnościami konfiguracyjnymi dotyczącymi urządzeń firmy Gemalto, skontaktuj się [z pomocą techniczną firmy Gemalto](https://safenet.gemalto.com/technical-support/).
+> Jeśli masz problem z dowolną konfiguracją urządzeń firmy Thales, skontaktuj się z działem [obsługi klienta firmy Thales](https://supportportal.thalesgroup.com/csm).
 
 Jeśli chcesz usunąć zasób HSM na platformie Azure, możesz użyć następującego polecenia zastępującego zmienne "$" własnymi parametrami:
 

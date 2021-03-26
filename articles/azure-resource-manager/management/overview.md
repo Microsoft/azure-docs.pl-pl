@@ -2,14 +2,14 @@
 title: Omówienie usługi Azure Resource Manager
 description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostępu do tych zasobów oraz zarządzania nimi za pomocą usługi Azure Resource Manager.
 ms.topic: overview
-ms.date: 09/01/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97858522"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608548"
 ---
 # <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
@@ -91,7 +91,7 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
 * Usunięcie grupy zasobów spowoduje również usunięcie wszystkich zasobów w grupie zasobów. Aby uzyskać informacje o tym, jak Azure Resource Manager organizować te usunięcia, zobacz [Azure Resource Manager grupy zasobów i usuwanie zasobów](delete-resource-group.md).
 
-* W każdej grupie zasobów można wdrożyć maksymalnie 800 wystąpień typu zasobu. Niektóre typy zasobów są [wykluczone z limitu wystąpienia 800](resources-without-resource-group-limit.md).
+* W każdej grupie zasobów można wdrożyć maksymalnie 800 wystąpień typu zasobu. Niektóre typy zasobów są [wykluczone z limitu wystąpienia 800](resources-without-resource-group-limit.md). Aby uzyskać więcej informacji, zobacz [limity grupy zasobów](azure-subscription-service-limits.md#resource-group-limits).
 
 * Niektóre zasoby mogą znajdować się poza grupą zasobów. Te zasoby są wdrażane w [subskrypcji](../templates/deploy-to-subscription.md), [grupie zarządzania](../templates/deploy-to-management-group.md)lub [dzierżawie](../templates/deploy-to-tenant.md). W tych zakresach są obsługiwane tylko określone typy zasobów.
 
@@ -112,6 +112,8 @@ Usługa Azure Resource Manager została zaprojektowana pod kątem odporności i 
 Ta odporność ma zastosowanie do usług, które odbierają żądania przez Menedżer zasobów. Na przykład Key Vault korzyści wynikające z tej odporności.
 
 ## <a name="next-steps"></a>Następne kroki
+
+* Aby dowiedzieć się więcej o ograniczeniach stosowanych w ramach usług platformy Azure, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](azure-subscription-service-limits.md).
 
 * Aby dowiedzieć się więcej o przenoszeniu zasobów, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).
 

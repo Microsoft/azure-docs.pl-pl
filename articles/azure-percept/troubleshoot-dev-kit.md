@@ -5,25 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023082"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605641"
 ---
-# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Rozwiązywanie problemów z platformą Azure Percept DK (dev Kit)
+# <a name="azure-percept-dk-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Percept DK
 
 Zapoznaj się z poniższymi wskazówkami, aby poznać ogólne porady dotyczące rozwiązywania problemów z platformą Azure Percept.
 
 ## <a name="general-troubleshooting-commands"></a>Ogólne polecenia rozwiązywania problemów
 
-Aby uruchomić te polecenia, 
-1. Połącz z [Wi-Fim AP zestawu deweloperów](./quickstart-percept-dk-set-up.md)
-1. [Protokół SSH do zestawu deweloperskiego](./how-to-ssh-into-percept-dk.md)
-1. Wprowadź polecenia w terminalu SSH
+Aby uruchomić te polecenia, Użyj protokołu [SSH do zestawu deweloperów](./how-to-ssh-into-percept-dk.md) i wprowadź polecenia do monitu klienta SSH.
 
 Aby przekierować wszystkie dane wyjściowe do pliku. txt w celu dalszej analizy, należy użyć następującej składni:
 
@@ -43,7 +40,7 @@ Po przekierowaniu danych wyjściowych do pliku txt Skopiuj plik na komputer host
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` odwołuje się do lokalizacji na komputerze hosta, do której chcesz skopiować plik txt. ```[remote username]``` jest nazwą użytkownika SSH wybraną podczas [instalacji](./quickstart-percept-dk-set-up.md). Jeśli nie skonfigurowano logowania SSH w trakcie OOBE, zdalna nazwa użytkownika to ```root``` .
+```[local host file path]``` odwołuje się do lokalizacji na komputerze hosta, do której chcesz skopiować plik txt. ```[remote username]``` jest nazwą użytkownika SSH wybraną podczas [instalacji](./quickstart-percept-dk-set-up.md).
 
 Dodatkowe informacje na temat poleceń Azure IoT Edge można znaleźć w [dokumentacji dotyczącej rozwiązywania problemów z urządzeniem Azure IoT Edge](../iot-edge/troubleshoot.md).
 
@@ -88,11 +85,11 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[usuwa wszystkie obrazy zawieszonego](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |Sprawdź stan pobierania kontenera platformy Docker |
 
-## <a name="usb-updating"></a>Aktualizowanie USB
+## <a name="usb-updates"></a>Aktualizacje USB
 
 |Błąd:                                    |Rozwiązanie:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX podczas flash USB za pośrednictwem UUU |Ten błąd jest wynikiem błędu połączenia USB podczas aktualizowania UUU. Jeśli kabel USB nie jest prawidłowo podłączony do portów USB na komputerze lub PE-10X, wystąpi błąd tego formularza. Spróbuj odłączyć i ponownie podłączyć oba punkty końcowe kabla USB i Jiggling kabel, aby zapewnić bezpieczne połączenie. Prawie zawsze rozwiązuje ten problem. |
+|LIBUSB_ERROR_XXX podczas flash USB za pośrednictwem UUU |Ten błąd jest wynikiem błędu połączenia USB podczas aktualizowania UUU. Jeśli kabel USB nie jest prawidłowo podłączony do portów USB na komputerze lub na płycie Percept DK, wystąpi błąd tego formularza. Spróbuj odłączyć i ponownie połączyć oba punkty końcowe kabla USB i Jiggling kabel, aby zapewnić bezpieczne połączenie. Prawie zawsze rozwiązuje ten problem. |
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>Microsoft Azure Percept DK — Stany LED
 

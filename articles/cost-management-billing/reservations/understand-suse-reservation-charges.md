@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/25/2021
 ms.author: banders
-ms.openlocfilehash: 2c17b2f9dc12fa7bff2dae8603bcf95a3a8ddfa0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 8bf53715b7f19c44d9114150e617f903cd05a51e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350844"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566319"
 ---
 # <a name="azure-software-plan-discount"></a>Rabat za plan oprogramowania na platformie Azure
 
@@ -63,55 +63,37 @@ W poniższych tabelach przedstawiono plany oprogramowania, dla których możesz 
 
 ### <a name="suse-linux-enterprise-server-for-hpc-priority"></a>SUSE Linux Enterprise Server dla HPC — subskrypcja Priorytetowa
 
-Nazwa na platformie Marketplace i w witrynie Azure Portal:
-
-- SLES 12 SP3 dla HPC (subskrypcja Priorytetowa)
-
 |Maszyna wirtualna z oprogramowaniem SUSE | Identyfikator miernika| Współczynnik| Przykładowy rozmiar maszyny wirtualnej|
 | -------| ------------------------| --- |--- |
-|SLES dla HPC — od 1 do 2 procesorów wirtualnych|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
-|SLES dla HPC — od 3 do 4 procesorów wirtualnych|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
-|SLES dla HPC — 5 lub więcej procesorów wirtualnych|4edcd5a5-8510-49a8-a9fc-c9721f501913|2,6|D8s_v3|
+|SUSE Linux Enterprise Server dla HPC — subskrypcja Priorytetowa 1-2 procesorów wirtualnych vCPU|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
+|SUSE Linux Enterprise Server dla HPC — subskrypcja Priorytetowa 3-4 procesorów wirtualnych vCPU|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
+|SUSE Linux Enterprise Server dla HPC — subskrypcja Priorytetowa 5 i procesorów wirtualnych vCPU|4edcd5a5-8510-49a8-a9fc-c9721f501913|2,6|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server dla HPC — subskrypcja Standardowa
 
-Nazwa na platformie Marketplace i w witrynie Azure Portal:
-
-- SLES 12 SP3 dla HPC
-
 |Maszyna wirtualna z oprogramowaniem SUSE | Identyfikator miernika | Współczynnik|Przykładowy rozmiar maszyny wirtualnej|
 | ------- | --- | ------------------------| --- |
-|SLES dla HPC — od 1 do 2 procesorów wirtualnych |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
-|SLES dla HPC — od 3 do 4 procesorów wirtualnych|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1,92308|D4s_v3|
-|SLES dla HPC — 5 lub więcej procesorów wirtualnych |907a85de-024f-4dd6-969c-347d47a1bdff|2,92308|D8s_v3|
+|SUSE Linux Enterprise Server dla HPC — subskrypcja Standardowa 1-2 procesorów wirtualnych vCPU |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
+|SUSE Linux Enterprise Server dla HPC — subskrypcja Standardowa 3-4 procesorów wirtualnych vCPU|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1,92308|D4s_v3|
+|SUSE Linux Enterprise Server dla HPC — subskrypcja Standardowa 5 i procesorów wirtualnych vCPU |907a85de-024f-4dd6-969c-347d47a1bdff|2,92308|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-for-sap-priority"></a>SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa
+### <a name="suse-linux-enterprise-server-for-sap-standard"></a>SUSE Linux Enterprise Server dla oprogramowania SAP Standard
 
-Nazwy na platformie Marketplace i w witrynie Azure Portal:
-
-- SLES for SAP 15 (subskrypcja Priorytetowa)
-- SLES for SAP 12 SP3 (subskrypcja Priorytetowa)
-- SLES for SAP 12 SP2 (subskrypcja Priorytetowa)
+Wcześniej SUSE Linux Enterprise Server for SAP standard ma nazwę SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa.
 
 |Maszyna wirtualna z oprogramowaniem SUSE | Identyfikator miernika | Współczynnik|Przykładowy rozmiar maszyny wirtualnej|
 | ------- |------------------------| --- | --- |
-|SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa — od 1 do 2 procesorów wirtualnych|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
-|SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa — od 3 do 4 procesorów wirtualnych |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
-|SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa — 5 lub więcej procesorów wirtualnych |18ae79cd-dfce-48c9-897b-ebd3053c6058|2,41176|D8s_v3|
+|SUSE Linux Enterprise Server dla oprogramowania SAP standard 1-2 procesorów wirtualnych vCPU|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SUSE Linux Enterprise Server dla oprogramowania SAP Standard 3-4 procesorów wirtualnych vCPU |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SUSE Linux Enterprise Server dla oprogramowania SAP Standard 5 + procesorów wirtualnych vCPU |18ae79cd-dfce-48c9-897b-ebd3053c6058|2,41176|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server — subskrypcja Standardowa
 
-Nazwy na platformie Marketplace i w witrynie Azure Portal:
-
-- SLES 15
-- SLES 15 (subskrypcja Standardowa)
-- SLES 12 SP3 (subskrypcja Standardowa)
-
 |Maszyna wirtualna z oprogramowaniem SUSE | Identyfikator miernika | Współczynnik|Przykładowy rozmiar maszyny wirtualnej|
 | ------- |------------------------| --- |--- |
-|SLES — od 1 do 2 rdzeni procesorów wirtualnych |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
-|SLES — od 3 do 4 rdzeni procesorów wirtualnych |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1,92308|D4s_v3|
-|SLES — 5 lub więcej procesorów wirtualnych |7b349b65-d906-42e5-833f-b2af38513468|2,30769| D8s_v3|
+|Procesorów wirtualnych vCPU 1-2 rdzeni SUSE Linux Enterprise Server — subskrypcja Standardowa |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
+|Procesorów wirtualnych vCPU 3-4 rdzeni SUSE Linux Enterprise Server — subskrypcja Standardowa |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1,92308|D4s_v3|
+|SUSE Linux Enterprise Server — subskrypcja Standardowa 5 i procesorów wirtualnych vCPU |7b349b65-d906-42e5-833f-b2af38513468|2,30769| D8s_v3|
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
 

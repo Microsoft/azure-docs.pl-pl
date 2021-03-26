@@ -7,17 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 4926aa40831056556060cbf564022fa7f5e3aa7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 367f527180a310f2cbc74b1ccdc1102e1e53d1cf
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962897"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605992"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Szybki Start: Łączenie zestawu DEWELOPERSKIEGO AZ3166 Devkit z IoT Central
 
 **Dotyczy**: [projektowanie urządzeń osadzonych](about-iot-develop.md#embedded-device-development)<br>
 **Łączny czas ukończenia**: 30 minut
+
+[![Przeglądaj kod](media/common/browse-github-code.png)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 W tym samouczku za pomocą usługi Azure RTO nawiążesz połączenie z usługą Azure IoT zestawu DEWELOPERSKIEGO AZ3166 IoT DevKit (poniżej zestawu deweloperskiego DevKit). Artykuł jest częścią serii [wprowadzenie do projektowania urządzeń z usługą Azure IoT Embedded](quickstart-device-development.md). Seria wprowadza do usługi Azure RTO deweloperów urządzeń i pokazuje, jak połączyć kilka zestawów ewaluacyjnych urządzeń z usługą Azure IoT.
 
@@ -26,9 +28,6 @@ Wykonasz następujące zadania:
 * Zainstaluj zestaw osadzonych narzędzi programistycznych na potrzeby programowania zestawu DEWELOPERSKIEGO DevKit w języku C
 * Tworzenie obrazu i błyskowanie go na zestawu DEWELOPERSKIEGO DevKit
 * Użyj usługi Azure IoT Central, aby tworzyć składniki w chmurze, wyświetlać właściwości, wyświetlać dane telemetryczne urządzeń i wywoływać bezpośrednie polecenia
-
-> [!NOTE]
-> Jeśli wolisz tylko wyświetlać kod i nie dokończyć tego artykułu, zobacz przykład w [Connecting a zestawu DEWELOPERSKIEGO AZ3166 to Azure IoT](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). Jeśli planujesz wykonać ten artykuł, Sklonuj repozytorium GitHub w późniejszym kroku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

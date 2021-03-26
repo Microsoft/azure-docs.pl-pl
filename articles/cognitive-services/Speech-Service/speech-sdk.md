@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043261"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608089"
 ---
 # <a name="about-the-speech-sdk"></a>Informacje o zestawie SDK usługi Mowa
 
@@ -67,17 +67,17 @@ Obsługa **asystenta głosowego** jest dostępna na następujących platformach:
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
   - Go
 
-#### <a name="keyword-spotting"></a>Wykrywania trendów słowa kluczowego
+#### <a name="keyword-recognition"></a>Rozpoznawanie słów kluczowych
 
-Koncepcja [wykrywania trendów słowa kluczowego](./custom-keyword-basics.md) jest obsługiwana w zestawie mowy SDK. Wykrywania trendów słowa kluczowego to czynność identyfikująca słowo kluczowe w zamiany, a następnie akcję po wysłuchaniu słowa kluczowego. Na przykład "Hey Cortana" spowoduje uaktywnienie asystenta Cortany.
+Koncepcja [rozpoznawania słowa kluczowego](./custom-keyword-basics.md) jest obsługiwana w zestawie mowy SDK. Rozpoznawanie słów kluczowych to czynność identyfikująca słowo kluczowe w zamiany, a następnie akcję po wysłuchaniu słowa kluczowego. Na przykład "Hey Cortana" spowoduje uaktywnienie asystenta Cortany.
 
-**Słowo kluczowe wykrywania trendów (KWS)** jest dostępne na następujących platformach:
+**Rozpoznawanie słów kluczowych** jest dostępne na następujących platformach:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
-  - Funkcja wykrywania trendów słowa kluczowego (KWS) może działać z dowolnym typem mikrofonu, oficjalną obsługą KWS, ale jest obecnie ograniczona do tablic mikrofonów znajdujących się na sprzęcie platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK
+  - Funkcja rozpoznawania słów kluczowych może działać z dowolnym typem mikrofonu, oficjalną obsługą rozpoznawania słów kluczowych, ale jest obecnie ograniczona do tablic mikrofonu znalezionych w ramach sprzętu platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK
 
 ### <a name="meeting-scenarios"></a>Scenariusze spotkań
 

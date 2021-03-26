@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5365ba8c4fbc07c487dd40cfcdc9d566990c493c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91359158"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607051"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Dedykowana sieć HSM platformy Azure
 
@@ -84,6 +84,60 @@ W przypadku aplikacji rozproszonych globalnie lub dla regionalnych scenariuszy t
 > Globalna komunikacja równorzędna sieci wirtualnych nie jest dostępna w scenariuszach łączności między regionami z dedykowanymi sprzętowych modułów zabezpieczeńami w tej chwili, a zamiast tego należy użyć bramy sieci VPN. 
 
 ![Diagram przedstawia dwa regiony połączone dwoma bramami V P N. Każdy region zawiera równorzędne sieci wirtualne.](media/networking/global-vnet.png)
+
+## <a name="networking-restrictions"></a>Ograniczenia dotyczące sieci
+> [!NOTE]
+> Ograniczenie dedykowanej usługi HSM przy użyciu delegowania podsieci jest nakładane ograniczenia, które należy wziąć pod uwagę podczas projektowania architektury sieci docelowej dla wdrożenia modułu HSM. Korzystanie z delegowania podsieci oznacza, że sieciowych grup zabezpieczeń, UDR i globalna komunikacja równorzędna sieci wirtualnych nie są obsługiwane dla dedykowanego modułu HSM. Poniższe sekcje zawierają pomoc dotyczącą alternatywnych technik w celu osiągnięcia tego samego lub podobnego wyniku dla tych funkcji. 
+
+Karta sieciowa HSM, która znajduje się w dedykowanej sieci wirtualnej modułu HSM, nie może korzystać z sieciowych grup zabezpieczeń ani tras zdefiniowanych przez użytkownika. Oznacza to, że nie można ustawić domyślnych zasad odmowy z punktu widzenia dedykowanej sieci wirtualnej HSM, a inne segmenty muszą być allowlisted, aby uzyskać dostęp do dedykowanej usługi HSM. 
+
+Dodanie rozwiązania serwera proxy dla sieciowych urządzeń wirtualnych (urządzenie WUS) pozwala również na logiczne umieszczenie zapory urządzenie WUS w koncentratorze tranzytu/obwodów wirtualnych przed kartą sieciową HSM, co zapewnia niezbędną alternatywę dla sieciowych grup zabezpieczeń i UDR.
+
+### <a name="solution-architecture"></a>Architektura rozwiązania
+Ten projekt sieci wymaga następujących elementów:
+1.  Sieć wirtualna do sieci tranzytowej lub obwodowej obwodowej z warstwą serwera proxy urządzenie WUS. Istnieją idealne co najmniej dwie urządzeń WUS. 
+2.  Obwód usługi ExpressRoute z włączoną obsługą prywatnej komunikacji równorzędnej oraz połączenie z siecią wirtualną centrum tranzytowego.
+3.  Komunikacja równorzędna sieci wirtualnej między siecią wirtualną centrum tranzytowego i dedykowaną siecią wirtualną HSM.
+4.  Zaporę urządzenie WUS lub zaporę platformy Azure można wdrożyć w centrum jako opcję. 
+5.  Dodatkowe sieci wirtualnych obciążenia mogą być połączone komunikacji równorzędnej z siecią wirtualną koncentratora. Klient firmy Gemalto może uzyskać dostęp do dedykowanej usługi HSM za pomocą sieci wirtualnej centrum.
+
+![Diagram przedstawia sieć wirtualną z koncentratorem DMZ z warstwą urządzenie WUS proxy dla sieciowej grupy zabezpieczeń i UDR obejścia](media/networking/network-architecture.png)
+
+Ponieważ dodanie rozwiązania proxy urządzenie WUS umożliwia także zaporę urządzenie WUS w koncentratorze tranzytu/DMZ, aby była logicznie umieszczana przed kartą sieciową HSM, zapewniając w ten sposób odpowiednie zasady domyślne odmowy. W naszym przykładzie będziemy używać w tym celu zapory platformy Azure i będą potrzebne następujące elementy:
+1. Zapora platformy Azure wdrożona w podsieci "AzureFirewallSubnet" w sieci wirtualnej centrum DMZ
+2. Tabela routingu z UDR, która kieruje ruch kierowany do prywatnego punktu końcowego usługi Azure ILB do zapory platformy Azure. Ta tabela routingu zostanie zastosowana do GatewaySubnet, gdzie znajduje się Brama wirtualna ExpressRoute klienta
+3. Reguły zabezpieczeń sieci w AzureFirewall umożliwiają przekazywanie danych między zaufanym zakresem źródłowym i prywatnym punktem końcowym usługi Azure IBL na porcie TCP 1792. Ta logika zabezpieczeń spowoduje dodanie niezbędnych zasad "domyślne odmowa" do dedykowanej usługi HSM. W przypadku dedykowanej usługi HSM mogą być dozwolone tylko zakresy zaufanych źródłowych adresów IP. Wszystkie pozostałe zakresy zostaną usunięte.  
+4. Tabela routingu z UDR, która kieruje ruch kierowany do Premium w zaporze platformy Azure. Ta tabela routingu zostanie zastosowana do podsieci serwera proxy urządzenie WUS. 
+5. SIECIOWEJ grupy zabezpieczeń zastosowana do podsieci proxy urządzenie WUS, aby ufać tylko zakresowi podsieci zapory platformy Azure jako źródła i zezwalać na przekazywanie dalej do adresu IP karty sieciowej HSM za pośrednictwem portu TCP 1792. 
+
+> [!NOTE]
+> Ponieważ warstwa serwera proxy urządzenie WUS będzie podłączać adres IP klienta w trakcie przesyłania dalej do karty sieciowej HSM, nie są wymagane żadne UDR między siecią wirtualną HSM i siecią wirtualną koncentratora DMZ.  
+
+### <a name="alternative-to-udrs"></a>Alternatywa dla UDR
+Rozwiązanie warstwy urządzenie WUS wymienione powyżej działa jako alternatywa dla UDR. Istnieją pewne ważne punkty do uwagi.
+1.  Translacja adresów sieciowych powinna być skonfigurowana w systemie urządzenie WUS, aby umożliwić poprawne kierowanie ruchu zwrotnego.
+2. Klienci powinni wyłączyć kontrolę IP klienta w konfiguracji modułu HSM Luna, aby używać VNA do translatora adresów sieciowych. Następujące polecenia servce jako przykład.
+```
+Disable:
+[hsm01] lunash:>ntls ipcheck disable
+NTLS client source IP validation disabled
+Command Result : 0 (Success)
+
+Show:
+[hsm01] lunash:>ntls ipcheck show
+NTLS client source IP validation : Disable
+Command Result : 0 (Success)
+```
+3.  Wdróż UDR dla ruchu przychodzącego w warstwie urządzenie WUS. 
+4. Zgodnie z projektem, podsieci modułu HSM nie będą inicjować żądania połączenia wychodzącego do warstwy platformy.
+
+### <a name="alternative-to-using-global-vnet-peering"></a>Alternatywa dla korzystania z Wirtualne sieci równorzędne globalnego
+Istnieje kilka architektur, których można użyć jako alternatywy dla globalnej komunikacji równorzędnej sieci wirtualnej.
+1.  Użyj połączenia między sieciami [wirtualnymi VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
+2.  Połącz sieć wirtualną modułu HSM z inną siecią wirtualną za pomocą obwodu ER. Działa to najlepiej, gdy wymagana jest bezpośrednia ścieżka lokalna lub Sieć wirtualna sieci VPN. 
+
+#### <a name="hsm-with-direct-express-route-connectivity"></a>Moduł HSM z łącznością Direct Express Route
+![Diagram przedstawia moduł HSM z łącznością Direct Express Route](media/networking/expressroute-connectivity.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

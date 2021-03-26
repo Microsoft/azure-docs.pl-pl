@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 71e02ea1265a81da7dd2e85549f6d1390a46311a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952239"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565949"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -21,7 +21,7 @@ W tym artykule opisano różne środowiska obliczeniowe, za pomocą których mo�
 
 Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez Data Factory oraz działania, które można na nich uruchamiać. 
 
-| Środowisko obliczeniowe                                          | activities                                                   |
+| Środowisko obliczeniowe                                          | Działania                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Klaster HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster usługi HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [świnie](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), usługa [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Usługa Azure Batch](#azure-batch-linked-service)                   | [Niestandardowe](transform-data-using-dotnet-custom-activity.md)     |
@@ -436,6 +436,7 @@ Tworzysz Azure Machine Learning połączonej usługi, aby połączyć obszar rob
 ```
 
 ### <a name="properties"></a>Właściwości
+
 | Właściwość               | Opis                              | Wymagane                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Typ                   | Właściwość Type powinna mieć wartość: **AzureMLService**. | Tak                                      |

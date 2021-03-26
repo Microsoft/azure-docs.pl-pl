@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/23/2021
-ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047256"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565906"
 ---
 # <a name="maintenance-window-preview"></a>Okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -55,7 +55,7 @@ Po dokonaniu wyboru okna obsługi i zakończeniu konfiguracji usługi planowana 
 Konfigurowanie i korzystanie z okna obsługi jest bezpłatne za wszystkie kwalifikujące się [typy ofert](https://azure.microsoft.com/support/legal/offer-details/): płatność zgodnie z rzeczywistym użyciem, dostawca rozwiązań w chmurze (CSP), Microsoft Enterprise Agreement lub umowa klienta firmy Microsoft.
 
 > [!Note]
-> Oferta platformy Azure to typ posiadanej subskrypcji platformy Azure. Na przykład subskrypcja z [stawką płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/)użyciem, [platforma Azure w ramach usługi Open](https://azure.microsoft.com/offers/ms-azr-0111p/)i [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) to wszystkie oferty platformy Azure. Każda oferta lub plan ma inne warunki i zalety. Twoja oferta lub plan są wyświetlane na stronie Przegląd subskrypcji. Aby uzyskać więcej informacji na temat przełączania subskrypcji na inną ofertę, zobacz [Zmienianie subskrypcji platformy Azure na inną ofertę](/azure/cost-management-billing/manage/switch-azure-offer).
+> Oferta platformy Azure to typ posiadanej subskrypcji platformy Azure. Na przykład subskrypcja z [stawką płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/)użyciem, [platforma Azure w ramach usługi Open](https://azure.microsoft.com/offers/ms-azr-0111p/)i [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) to wszystkie oferty platformy Azure. Każda oferta lub plan ma inne warunki i zalety. Twoja oferta lub plan są wyświetlane na stronie Przegląd subskrypcji. Aby uzyskać więcej informacji na temat przełączania subskrypcji na inną ofertę, zobacz [Zmienianie subskrypcji platformy Azure na inną ofertę](../../cost-management-billing/manage/switch-azure-offer.md).
 
 ## <a name="advance-notifications"></a>Powiadomienia z wyprzedzeniem
 
@@ -108,17 +108,17 @@ Aby uzyskać więcej informacji na temat zasad połączenia klienta w wystąpien
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Zagadnienia dotyczące wystąpienia zarządzanego usługi Azure SQL
 
-Wystąpienie zarządzane Azure SQL obejmuje składniki usługi hostowane w dedykowanym zestawie izolowanych maszyn wirtualnych, które działają w podsieci sieci wirtualnej klienta. Te maszyny wirtualne tworzą [klastry wirtualne](/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) , które mogą hostować wiele wystąpień zarządzanych. Okno obsługi skonfigurowane w wystąpieniach jednej podsieci może mieć wpływ na liczbę klastrów wirtualnych w podsieci i dystrybucję wystąpień między klastrami wirtualnymi. Może to wymagać uwzględnienia kilku efektów.
+Wystąpienie zarządzane Azure SQL obejmuje składniki usługi hostowane w dedykowanym zestawie izolowanych maszyn wirtualnych, które działają w podsieci sieci wirtualnej klienta. Te maszyny wirtualne tworzą [klastry wirtualne](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) , które mogą hostować wiele wystąpień zarządzanych. Okno obsługi skonfigurowane w wystąpieniach jednej podsieci może mieć wpływ na liczbę klastrów wirtualnych w podsieci i dystrybucję wystąpień między klastrami wirtualnymi. Może to wymagać uwzględnienia kilku efektów.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>Konfiguracja okna obsługi jest operacją długotrwałą 
 Wszystkie wystąpienia hostowane w klastrze wirtualnym korzystają z okna obsługi. Domyślnie wszystkie wystąpienia zarządzane są hostowane w klastrze wirtualnym przy użyciu domyślnego okna obsługi. Określenie innego okna obsługi dla wystąpienia zarządzanego podczas jego tworzenia lub po nim oznacza, że musi być umieszczony w klastrze wirtualnym z odpowiednim oknem obsługi. Jeśli w podsieci nie ma takiego klastra wirtualnego, należy najpierw utworzyć nową, aby pomieścić wystąpienie. Dopełnienie dodatkowego wystąpienia w istniejącym klastrze wirtualnym może wymagać zmiany rozmiaru klastra. Obie operacje przyczyniają się do czasu trwania konfigurowania okna obsługi dla wystąpienia zarządzanego.
-Oczekiwany czas trwania konfigurowania okna obsługi w wystąpieniu zarządzanym można obliczyć przy użyciu [szacowanego czasu trwania operacji zarządzania wystąpieniami](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+Oczekiwany czas trwania konfigurowania okna obsługi w wystąpieniu zarządzanym można obliczyć przy użyciu [szacowanego czasu trwania operacji zarządzania wystąpieniami](../managed-instance/management-operations-overview.md#duration).
 
 > [!Important]
 > Krótka ponowna konfiguracja odbywa się na koniec operacji konserwacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ ponownej konfiguracji, należy zaplanować operację poza godzinami szczytu.
 
 ### <a name="ip-address-space-requirements"></a>Wymagania dotyczące przestrzeni adresów IP
-Każdy nowy klaster wirtualny w podsieci wymaga dodatkowych adresów IP zgodnie z [alokacją adresów IP klastra wirtualnego](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). Zmiana okna obsługi istniejącego wystąpienia zarządzanego wymaga również [tymczasowej dodatkowej pojemności IP](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) , jak w przypadku skalowania rdzeni wirtualnych dla odpowiedniej warstwy usług.
+Każdy nowy klaster wirtualny w podsieci wymaga dodatkowych adresów IP zgodnie z [alokacją adresów IP klastra wirtualnego](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Zmiana okna obsługi istniejącego wystąpienia zarządzanego wymaga również [tymczasowej dodatkowej pojemności IP](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) , jak w przypadku skalowania rdzeni wirtualnych dla odpowiedniej warstwy usług.
 
 ### <a name="ip-address-change"></a>Zmiana adresu IP
 Skonfigurowanie i zmiana okna obsługi powoduje zmianę adresu IP wystąpienia w zakresie adresów IP podsieci.
@@ -137,8 +137,3 @@ Skonfigurowanie i zmiana okna obsługi powoduje zmianę adresu IP wystąpienia w
 * [Azure SQL Database](sql-database-paas-overview.md) 
 * [Wystąpienie zarządzane SQL](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Zaplanuj zdarzenia konserwacji platformy Azure w Azure SQL Database i wystąpieniu zarządzanym Azure SQL](planned-maintenance.md)
-
-
-
-
-

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 03/15/2021
 ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493615"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563110"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v3 for Core (SQL) API: informacje o wersji i zasoby
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,7 +65,7 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 
 ## <a name="get-started-fast"></a>Szybkie rozpoczynanie pracy
 
-  Zacznij korzystać z danych wiosennych Azure Cosmos DB, postępując zgodnie z [przewodnikiem po rozpoczęciu uruchamiania sprężyny](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). Podejście do rozruchu sprężynowego jest zalecanym sposobem rozpoczęcia korzystania z łącznika Azure Cosmos DB danych sprężyny.
+  Zacznij korzystać z danych wiosennych Azure Cosmos DB, postępując zgodnie z [przewodnikiem po rozpoczęciu uruchamiania sprężyny](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). Podejście do rozruchu sprężynowego jest zalecanym sposobem rozpoczęcia korzystania z łącznika Azure Cosmos DB danych sprężyny.
 
   Alternatywnie możesz dodać zależność Azure Cosmos DB danych sprężyny do `pom.xml` pliku, jak pokazano poniżej:
 

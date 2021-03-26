@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 99a7f08b6d366f2f928b99caba2424c2fae0d625
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600432"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559523"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Opis | Dostępność  |
 |------------------------------|---------------|---------------|
-| [Wyszukiwanie semantyczne](semantic-search-overview.md) | Kolekcja funkcji związanych z zapytaniami, które znacząco ulepszają znaczenie wyników wyszukiwania z bardzo małym nakładem pracy. </br></br>[Klasyfikacja semantyczna](semantic-ranking.md) oblicza oceny przydatności przy użyciu semantyki w postaci wyrazów i zawartości. </br></br>[Podpisy semantyczne](semantic-how-to-query-request.md) to istotne fragmenty dokumentu, które najlepiej podsumowują dokument, z wyróżnionymi najważniejszymi terminami lub frazami. </br></br>[Odpowiedzi semantyczne](semantic-answers.md) to kluczowe fragmenty wyodrębnione z dokumentu wyszukiwania, które są formułowane jako bezpośrednia odpowiedź na zapytanie, które wygląda jak pytanie. | Publiczna wersja zapoznawcza ([według żądania](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Użyj usługi [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30 — wersja zapoznawcza i [eksplorator wyszukiwania](search-explorer.md) w Azure Portal. </br></br>Obowiązują ograniczenia dotyczące regionów i warstw. |
+| [Wyszukiwanie semantyczne](semantic-search-overview.md) | Kolekcja funkcji związanych z zapytaniami, które znacząco ulepszają znaczenie wyników wyszukiwania przez minimalne modyfikacje żądania zapytania. </br></br>[Klasyfikacja semantyczna](semantic-ranking.md) oblicza oceny przydatności przy użyciu semantyki w postaci wyrazów i zawartości. </br></br>[Podpisy semantyczne](semantic-how-to-query-request.md) zwracają odpowiednie fragmenty z dokumentu, który najlepiej podsumowuje dokument, z wyróżnionymi najważniejszymi terminami lub frazami. </br></br>[Odpowiedzi semantyczne](semantic-answers.md) zwracają kluczowe fragmenty wyodrębnione z dokumentu wyszukiwania, które są formułowane jako bezpośrednia odpowiedź na zapytanie, które wygląda jak pytanie. | Publiczna wersja zapoznawcza ([według żądania](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Użyj usługi [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30 — wersja zapoznawcza lub [eksplorator wyszukiwania](search-explorer.md) w Azure Portal. </br></br>Obowiązują ograniczenia dotyczące regionów i warstw. |
 | [Sprawdzanie pisowni — terminy zapytań](speller-how-to-add.md) | Przed przekazaniem terminów zapytania do aparatu wyszukiwania można sprawdzić, czy pisownia nie jest możliwa. `speller`Opcja działa z dowolnym typem kwerendy (prosty, pełny lub semantyczny). |  Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza|
 | [Indeksator usługi SharePoint Online](search-howto-index-sharepoint-online.md) | Ten indeksator nawiązuje połączenie z witryną usługi SharePoint Online, dzięki czemu można indeksować zawartość z biblioteki dokumentów. | Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |
 | [Normalizer](search-normalizers.md) | Normalizer oferuje proste przetwarzanie tekstu, takie jak wielkość liter, usuwanie akcentów, asciifolding i tak dalej, bez przechodzenia przez cały łańcuch analizy.| Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |

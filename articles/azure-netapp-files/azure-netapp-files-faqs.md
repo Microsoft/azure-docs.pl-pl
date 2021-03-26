@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3ca4938d8666fd60ebac9e75bb2da1780e0914d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566136"
+ms.locfileid: "105608004"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -208,9 +208,9 @@ Nie. Azure NetApp Files nie jest obsługiwana przez Eksplorator usługi Azure St
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Jak mogę określić, czy katalog zbliża się do rozmiaru limitu?
 
-Możesz użyć `stat` polecenia z klienta, aby sprawdzić, czy katalog zbliża się do limitu maksymalnego rozmiaru metadanych katalogu (320 MB).
+Możesz użyć `stat` polecenia z klienta, aby sprawdzić, czy katalog zbliża się do limitu maksymalnego rozmiaru metadanych katalogu (320 MB).   
 
-W przypadku katalogu 320 MB liczba bloków wynosi 655360, przy czym każdy rozmiar bloku jest 512 bajtów.  (To jest 320x1024x1024/512).  
+W przypadku katalogu 320-MB liczba bloków wynosi 655360, przy czym każdy rozmiar bloku jest 512 bajtów.  (To jest 320x1024x1024/512).  Ta liczba tłumaczy do około 4 000 000 plików maksymalnie dla katalogu 320-MB. Jednak rzeczywista liczba maksymalnych plików może być niższa, w zależności od czynników, takich jak liczba plików zawierających znaki inne niż ASCII w katalogu. W związku z tym należy użyć `stat` polecenia w następujący sposób, aby określić, czy katalog zbliża się do limitu.  
 
 Przykłady:
 

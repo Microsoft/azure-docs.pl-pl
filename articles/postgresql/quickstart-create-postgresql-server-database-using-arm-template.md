@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie szablonu usługi Azure DB dla PostgreSQL — ARM'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć Azure Database for PostgreSQL pojedynczy serwer przy użyciu szablonu Azure Resource Manager.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 02/11/2021
-ms.openlocfilehash: fb9f12b3b31f1049cd4d9306294783e514331229
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: db65a4bb5137da23f125d67920a2ff9a1a801141
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100382195"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606726"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie szablonu ARM do tworzenia Azure Database for PostgreSQL-pojedynczego serwera
 

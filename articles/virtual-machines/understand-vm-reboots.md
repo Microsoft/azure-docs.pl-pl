@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: af371a8f7da5ef32e95d4096b69c5d52ce3e3700
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9342e0c39b558cf8b6ff5773d623ce55062f9ab5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510533"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607477"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Opis ponownych uruchomień maszyn wirtualnych — konserwacja i przestoje
 Istnieją trzy scenariusze, które mogą prowadzić do maszyn wirtualnych na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
@@ -34,7 +34,7 @@ Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarze�
 
 * Używanie [strefy dostępności](../availability-zones/az-overview.md) do ochrony przed awariami centrum danych
 * Konfigurowanie wielu maszyn wirtualnych w [zestawie dostępności](availability-set-overview.md) w celu zapewnienia nadmiarowości
-* Używanie [zaplanowanych zdarzeń dla systemu Linux](/linux/scheduled-events.md) lub [zaplanowanych zdarzeń w](/windows/scheduled-events.md) celu aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną
+* Używanie [zaplanowanych zdarzeń dla systemu Linux](/azure/virtual-machines/linux/scheduled-events) lub [zaplanowanych zdarzeń w](/azure/virtual-machines/windows/scheduled-events) celu aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną
 * Konfigurowanie każdej warstwy aplikacji w osobnych zestawach dostępności
 * Łączenie [modułu równoważenia obciążenia](../load-balancer/load-balancer-overview.md) z strefami dostępności lub zestawami
 

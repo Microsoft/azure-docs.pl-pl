@@ -6,13 +6,14 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 783d9e1b4ab86f6580cf3418a0676921aef2db6a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 90ca92dc19c588d0b19adf009301cf844e0cdbde
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598205"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609053"
 ---
 # <a name="monitor-media-services"></a>Monitoruj Media Services
 
@@ -37,9 +38,9 @@ robb@microsoft.com -->
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 
-Media Services tworzy dane monitorowania przy użyciu [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview), który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
+Media Services tworzy dane monitorowania przy użyciu [Azure monitor](../../../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
 
-Zacznij od odczytywania artykułu dotyczącego [monitorowania zasobów platformy Azure za pomocą Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), który opisuje następujące pojęcia:
+Zacznij od odczytywania artykułu dotyczącego [monitorowania zasobów platformy Azure za pomocą Azure monitor](../../../azure-monitor/essentials/monitor-azure-resource.md), który opisuje następujące pojęcia:
 
 - Co to jest Azure Monitor?
 - Koszty związane z monitorowaniem
@@ -49,7 +50,7 @@ Zacznij od odczytywania artykułu dotyczącego [monitorowania zasobów platformy
 
 ## <a name="monitoring-data"></a>Dane monitorowania
 
-Media Services gromadzi te same rodzaje danych monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Media Services gromadzi te same rodzaje danych monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Wszystkie dane zbierane przez usługę Azure Monitor pasują do jednego z dwóch podstawowych typów: metryk i dzienników. Z tymi dwoma typami można:
 
@@ -69,13 +70,13 @@ Aby uzyskać szczegółowe informacje na temat metryk i dzienników tworzonych p
 
 *Dzienniki zasobów* **nie** są zbierane i przechowywane do momentu utworzenia ustawienia diagnostycznego i skierowania ich do co najmniej jednej lokalizacji.
 
-Zapoznaj się z artykułem [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
+Zapoznaj się z artykułem [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../../azure-monitor/essentials/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
 
 Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Kategorie Media Services są wymienione w temacie [Media Services monitorowanie danych](monitor-media-services-data-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analizowanie metryk
 
-Metryki dla Media Services z metrykami z innych usług platformy Azure za pomocą Eksploratora metryk można analizować, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) .
+Metryki dla Media Services z metrykami z innych usług platformy Azure za pomocą Eksploratora metryk można analizować, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../../azure-monitor/essentials/metrics-getting-started.md) .
 
 Listę metryk zbieranych dla Media Services można znaleźć w temacie [Monitoring Media Services Data Reference](monitor-media-services-data-reference.md).
 
@@ -83,11 +84,11 @@ Listę metryk zbieranych dla Media Services można znaleźć w temacie [Monitori
 
 Dane w dziennikach Azure Monitor są przechowywane w tabelach, w których każda tabela ma swój własny zestaw unikatowych właściwości.  
 
-Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema).
+Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Schemat Media Services dzienników zasobów znajduje się w temacie [monitorowanie Media Services odwołania do danych](monitor-media-services-data-reference.md).
 
-[Dziennik aktywności](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) to dziennik platformy na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.
+[Dziennik aktywności](../../../azure-monitor/essentials/activity-log.md) to dziennik platformy na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.
 
 Listę typów dzienników zasobów zbieranych dla Media Services można znaleźć w temacie [Monitoring Media Services Data Reference](monitor-media-services-data-reference.md).
 
@@ -102,7 +103,7 @@ Niektóre elementy, które można przeanalizować za pomocą dzienników diagnos
 
 ## <a name="alerts"></a>Alerty
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [dzienników](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)i [dziennika aktywności](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts).
+Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](../../../azure-monitor/alerts/alerts-metric-overview.md), [dzienników](../../../azure-monitor/alerts/alerts-unified-log.md)i [dziennika aktywności](../../../azure-monitor/alerts/activity-log-alerts.md).
 
 Metryki Media Services są zbierane w regularnych odstępach czasu, niezależnie od tego, czy wartość jest zmieniana. Są one przydatne w przypadku alertów, ponieważ mogą być próbkowane często. Alert może być uruchamiany szybko z stosunkowo prostą logiką.
 

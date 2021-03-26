@@ -6,14 +6,15 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cba9615a8c76387b593109bc2174ab4718f1750a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100006857"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609313"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodne z Azure Database for MySQL
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z programem Azure Database for MySQL.
 
 ## <a name="mysql-drivers"></a>Sterowniki MySQL
@@ -50,7 +51,7 @@ Zalety zgodności rozszerzają się również do narzędzi do zarządzania bazam
 | **Autouzupełnianie zapytań SQL** | X | X |  | X |
 | **Importowanie i eksportowanie danych** | X | X | X | X |
 | **Eksportuj do wielu formatów** | X | X | X | X |
-| **Tworzenie kopii zapasowej i przywracanie** |  | X |  | X |
+| **Wykonywanie kopii zapasowych i przywracanie** |  | X |  | X |
 | **Wyświetl parametry serwera** | X | X | X | X |
 | **Wyświetlanie połączeń klientów** | X | X | X | X |
 

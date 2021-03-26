@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 9aaaece7d60ceead80e51bdc2a1bb342d9a4d237
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: af5ec07a8fb2db0bd4b9b8f1af556ef54199400d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107755"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609520"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -123,6 +123,12 @@ const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 Gdy połączenie zostanie nawiązane, automatycznie rozpocznie się wysyłanie strumienia wideo z wybranego aparatu do innego uczestnika. Dotyczy to również `Call.Accept()` opcji wideo i `CallAgent.join()` opcji wideo.
 
 ### <a name="join-a-group-call"></a>Dołącz do wywołania grupy
+
+> [!NOTE]
+> `groupId`Parametr jest traktowany jako metadane systemu i może być używany przez firmę Microsoft do operacji wymaganych do uruchomienia systemu. Nie dołączaj danych osobowych do `groupId` wartości. Firma Microsoft nie traktuje tego parametru jako danych osobowych, a jego zawartość może być widoczna dla pracowników firmy Microsoft lub magazynowanych długoterminowo.
+>
+> `groupId`Parametr wymaga, aby dane były w formacie GUID. Zalecamy używanie losowo generowanych identyfikatorów GUID, które nie są traktowane jako dane osobowe w systemach.
+>
 
 Aby rozpocząć nowe wywołanie grupy lub dołączyć do trwającego wywołania grupy, użyj `join` metody i przekaż obiekt z `groupId` właściwością. `groupId`Wartość musi być identyfikatorem GUID.
 

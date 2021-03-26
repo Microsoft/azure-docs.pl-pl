@@ -2,35 +2,35 @@
 title: Uruchom zadania współbieżnie, aby zmaksymalizować użycie węzłów obliczeniowych wsadowych
 description: Zwiększenie wydajności i obniżenie kosztów dzięki użyciu mniejszej liczby węzłów obliczeniowych i uruchamiania zadań równolegle na każdym węźle w puli Azure Batch
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 03/25/2021
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 8bc9f03f05d52df6e400be5c57033ab2a38fa8eb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2a8f2d6a040bee0e32359f4860d7b346ac08c48e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92102969"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607987"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Uruchom zadania współbieżnie, aby zmaksymalizować użycie węzłów obliczeniowych wsadowych
 
 Można zmaksymalizować użycie zasobów na mniejszej liczbie węzłów obliczeniowych w puli, uruchamiając więcej niż jedno zadanie jednocześnie w każdym węźle.
 
-Chociaż niektóre scenariusze działają najlepiej ze wszystkimi zasobami węzła przeznaczonymi dla jednego zadania, niektóre obciążenia mogą wyświetlać krótsze czasy zadań i obniżać koszty, gdy wiele zadań współużytkuje te zasoby:
+Chociaż niektóre scenariusze działają najlepiej ze wszystkimi zasobami węzła przeznaczonymi dla jednego zadania, niektóre obciążenia mogą wyświetlać krótsze czasy zadania i obniżać koszty, gdy wiele zadań współużytkuje te zasoby. Rozważ następujące scenariusze:
 
 - **Minimalizuj transfer danych** dla zadań, które mogą udostępniać dane. Można znacznie zmniejszyć opłaty za transfer danych przez skopiowanie danych udostępnionych do mniejszej liczby węzłów, a następnie wykonywanie zadań równolegle na każdym węźle. W szczególności ma to zastosowanie, jeśli dane, które mają być skopiowane do każdego węzła, muszą być transferowane między regionami geograficznymi.
-- **Maksymalizuj użycie pamięci** dla zadań wymagających dużej ilości pamięci, ale tylko w krótkich okresach czasu i w zmiennym czasie wykonywania. Możesz użyć mniej, ale większych węzłów obliczeniowych z większą ilością pamięci, aby efektywnie obsłużyć takie skoki. Te węzły mają równolegle uruchomione wiele zadań w każdym węźle, ale każde zadanie będzie korzystać z plentiful pamięci węzłów w różnych godzinach.
+- **Maksymalizuj użycie pamięci** dla zadań wymagających dużej ilości pamięci, ale tylko w krótkich okresach czasu i w zmiennym czasie wykonywania. Możesz użyć mniej, ale większych węzłów obliczeniowych z większą ilością pamięci, aby efektywnie obsłużyć takie skoki. Te węzły mają równolegle uruchomione wiele zadań w każdym węźle, ale każde zadanie może korzystać z pamięci plentiful węzłów w różnych godzinach.
 - **Ograniczanie limitów liczby węzłów** , gdy komunikacja między węzłami jest wymagana w ramach puli. Obecnie pule skonfigurowane pod kątem komunikacji między węzłami są ograniczone do 50 węzłów obliczeniowych. Jeśli każdy węzeł w takiej puli ma możliwość równoległego wykonywania zadań, można jednocześnie wykonać większą liczbę zadań.
 - **Replikacja lokalnego klastra obliczeniowego**, na przykład podczas pierwszego przenoszenia środowiska obliczeniowego na platformę Azure. Jeśli bieżące rozwiązanie lokalne wykonuje wiele zadań w każdym węźle obliczeniowym, można zwiększyć maksymalną liczbę zadań węzłów, aby dokładniej zdublować tę konfigurację.
 
 ## <a name="example-scenario"></a>Przykładowy scenariusz
 
-Przykładowo Wyobraź sobie, że aplikacja zadania z wymaganiami dotyczącymi procesora CPU i pamięci, w taki sposób, że [standardowe węzły \_ D1](../cloud-services/cloud-services-sizes-specs.md) są wystarczające. Jednak w celu zakończenia zadania w wymaganym czasie 1 000 z tych węzłów są potrzebne.
+Przykładowo Wyobraź sobie, że aplikacja zadania z wymaganiami dotyczącymi procesora CPU i pamięci, w taki sposób, że [standardowe węzły \_ D1](../cloud-services/cloud-services-sizes-specs.md#d-series) są wystarczające. Jednak w celu zakończenia zadania w wymaganym czasie 1 000 z tych węzłów są potrzebne.
 
-Zamiast używać standardowych \_ węzłów D1, które mają 1 rdzeń procesora CPU, można użyć [standardowych węzłów \_ D14](../cloud-services/cloud-services-sizes-specs.md) o 16 rdzeniach i włączyć równoległe wykonywanie zadań. Oznacza to, że można użyć *16 razy mniej węzłów* — zamiast z 1 000 węzłów, wymagana będzie tylko 63. Jeśli dla każdego węzła wymagane są duże pliki aplikacji lub dane referencyjne, czas trwania zadania i wydajność są ponownie ulepszone, ponieważ dane są kopiowane tylko do 63 węzłów.
+Zamiast używać standardowych \_ węzłów D1, które mają 1 rdzeń procesora CPU, można użyć [standardowych węzłów \_ D14](../cloud-services/cloud-services-sizes-specs.md#d-series) o 16 rdzeniach i włączyć równoległe wykonywanie zadań. Oznacza to, że można użyć 16 razy mniej węzłów — zamiast z 1 000 węzłów, wymagana będzie tylko 63. Jeśli dla każdego węzła wymagane są duże pliki aplikacji lub dane referencyjne, czas trwania zadania i wydajność jest ulepszona, ponieważ dane są kopiowane tylko do 63 węzłów.
 
 ## <a name="enable-parallel-task-execution"></a>Włącz równoległe wykonywanie zadań
 
-Węzły obliczeniowe można skonfigurować do równoległego wykonywania zadań na poziomie puli. Za pomocą biblioteki Batch .NET ustaw właściwość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) podczas tworzenia puli. Jeśli używasz interfejsu API REST usługi Batch, Ustaw element [taskSlotsPerNode](/rest/api/batchservice/pool/add) w treści żądania podczas tworzenia puli.
+Węzły obliczeniowe można skonfigurować do równoległego wykonywania zadań na poziomie puli. Za pomocą biblioteki Batch .NET ustaw właściwość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) podczas tworzenia puli. Jeśli używasz interfejsu API REST usługi Batch, Ustaw element [taskSlotsPerNode](/rest/api/batchservice/pool/add) w treści żądania podczas tworzenia puli.
 
 > [!NOTE]
 > `taskSlotsPerNode`Właściwość element i [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) można ustawić tylko w czasie tworzenia puli. Nie można ich modyfikować po utworzeniu puli.
@@ -44,9 +44,9 @@ Azure Batch pozwala ustawić gniazda zadań na węzeł do (4x) liczbę rdzeni w�
 
 Podczas włączania współbieżnych zadań należy określić, w jaki sposób zadania mają być dystrybuowane między węzłami w puli.
 
-Za pomocą właściwości [CloudPool. TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) można określić, że zadania mają być przypisywane równomiernie we wszystkich węzłach w puli ("rozpraszanie"). Można też określić, że możliwie jak najwięcej zadań należy przypisać do każdego węzła przed przypisaniem zadań do innego węzła w puli ("pakowanie").
+Za pomocą właściwości [CloudPool. TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool.taskschedulingpolicy) można określić, że zadania mają być przypisywane równomiernie we wszystkich węzłach w puli ("rozpraszanie"). Można też określić, że możliwie jak najwięcej zadań należy przypisać do każdego węzła przed przypisaniem zadań do innego węzła w puli ("pakowanie").
 
-Przykładowo Rozważmy pulę [standardowych węzłów \_ D14](../cloud-services/cloud-services-sizes-specs.md) (w powyższym przykładzie), dla których skonfigurowano wartość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) równą 16. Jeśli [CloudPool. TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) jest skonfigurowany przy użyciu [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) *pakietu*, maksymalizuje użycie wszystkich 16 rdzeni każdego węzła i umożliwi [puli skalowania](batch-automatic-scaling.md) automatycznego usunięcie nieużywanych węzłów (węzłów bez przypisanych zadań) z puli. Pozwala to zminimalizować użycie zasobów i zaoszczędzić pieniądze.
+Przykładowo Rozważmy pulę [standardowych węzłów \_ D14](../cloud-services/cloud-services-sizes-specs.md#d-series) (w powyższym przykładzie), dla których skonfigurowano wartość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) równą 16. Jeśli [CloudPool. TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool.taskschedulingpolicy) jest skonfigurowany przy użyciu [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) *pakietu*, maksymalizuje użycie wszystkich 16 rdzeni każdego węzła i umożliwi [puli skalowania](batch-automatic-scaling.md) automatycznego usunięcie nieużywanych węzłów (węzłów bez przypisanych zadań) z puli. Pozwala to zminimalizować użycie zasobów i zaoszczędzić pieniądze.
 
 ## <a name="define-variable-slots-per-task"></a>Definiuj zmienne gniazd na zadanie
 
@@ -54,13 +54,12 @@ Zadanie można zdefiniować za pomocą właściwości [CloudTask. RequiredSlots]
 
 Na przykład dla puli z właściwością `taskSlotsPerNode = 8` można przesłać wiele rdzeni wymaganych zadań intensywnie korzystających z procesora CPU `requiredSlots = 8` , a inne zadania można ustawić na `requiredSlots = 1` . Po zaplanowaniu tego obciążenia mieszanego zadania intensywnie obciążające procesor CPU będą uruchamiane wyłącznie na ich węzłach obliczeniowych, podczas gdy inne zadania mogą być uruchamiane współbieżnie (do ośmiu zadań jednocześnie) w innych węzłach. Dzięki temu można zrównoważyć obciążenie w węzłach obliczeniowych i zwiększyć efektywność użycia zasobów.
 
+Upewnij się, że nie określono zadania `requiredSlots` , które ma być większe niż Pula `taskSlotsPerNode` . Spowoduje to, że zadanie nigdy nie będzie można uruchomić. Usługa Batch nie sprawdza obecnie tego konfliktu podczas przesyłania zadań, ponieważ zadanie może nie mieć powiązanej puli w czasie przesyłania lub można je zmienić na inną pulę przez wyłączenie/ponowne włączenie.
+
 > [!TIP]
 > W przypadku korzystania z gniazd zadań zmiennych istnieje możliwość tymczasowego zaplanowania dużych zadań z większą liczbą wymaganych miejsc, ponieważ nie ma wystarczającej liczby miejsc w żadnym węźle obliczeniowym, nawet jeśli w niektórych węzłach nadal znajdują się bezczynne gniazda. Możesz podnieść priorytet zadania dla tych zadań, aby zwiększyć ich szansę konkurowania z dostępnymi gniazdami w węzłach.
 >
 > Usługa Batch emituje [TaskScheduleFailEvent](batch-task-schedule-fail-event.md) , gdy nie zaplanował uruchomienia zadania i kontynuuje proces planowania, dopóki wymagane gniazda staną się niedostępne. Można nasłuchiwać tego zdarzenia, aby wykryć potencjalne problemy związane z planowaniem zadań i odpowiednio wyeliminować.
-
-> [!NOTE]
-> Nie określaj zadania, `requiredSlots` które ma być większe niż Pula `taskSlotsPerNode` . Spowoduje to, że zadanie nigdy nie będzie można uruchomić. Usługa Batch nie sprawdza obecnie tego konfliktu podczas przesyłania zadań, ponieważ zadanie może nie mieć powiązanej puli w czasie przesyłania lub można je zmienić na inną pulę przez wyłączenie/ponowne włączenie.
 
 ## <a name="batch-net-example"></a>Przykład platformy .NET w usłudze Batch
 
@@ -70,7 +69,7 @@ Poniższe fragmenty kodu interfejsu API [programu .NET Batch](/dotnet/api/micros
 
 Ten fragment kodu przedstawia żądanie utworzenia puli zawierającej cztery węzły z czterema gniazdami zadań dozwolonymi na węzeł. Określa zasady planowania zadań, które będą wypełnić każdy węzeł zadaniami przed przypisaniem zadań do innego węzła w puli.
 
-Aby uzyskać więcej informacji na temat dodawania pul przy użyciu interfejsu API usługi Batch platformy .NET, zobacz [BatchClient. PoolOperations. ispool](/dotnet/api/microsoft.azure.batch.pooloperations).
+Aby uzyskać więcej informacji na temat dodawania pul przy użyciu interfejsu API usługi Batch platformy .NET, zobacz [BatchClient. PoolOperations. ispool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
 
 ```csharp
 CloudPool pool =
@@ -169,7 +168,7 @@ Ten fragment kodu przedstawia żądanie dodania zadania z wartością niedomyśl
 
 ## <a name="code-sample-on-github"></a>Przykład kodu w witrynie GitHub
 
-Projekt [ParallelTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks) w usłudze GitHub ilustruje użycie właściwości [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) .
+Projekt [ParallelTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks) w usłudze GitHub ilustruje użycie właściwości [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) .
 
 Ta Aplikacja konsolowa w języku C# używa biblioteki [programu .NET Batch](/dotnet/api/microsoft.azure.batch) do tworzenia puli z co najmniej jednym węzłem obliczeniowym. Wykonuje konfigurowalną liczbę zadań w tych węzłach, aby symulować obciążenie zmienne. Dane wyjściowe aplikacji pokazują, które węzły wykonali każde zadanie. Aplikacja zawiera również podsumowanie parametrów zadania i czasu trwania.
 

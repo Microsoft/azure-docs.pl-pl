@@ -1,25 +1,25 @@
 ---
-title: Wydajność maszyny wirtualnej z serii HBv3
-description: Poznaj wyniki testów wydajności dla rozmiarów maszyn wirtualnych serii HBv3 na platformie Azure.
+title: Wydajność i skalowalność maszyny wirtualnej serii HBv3
+description: Poznaj wydajność i skalowalność rozmiarów maszyn wirtualnych z serii HBv3 na platformie Azure.
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 87c3e4e9b509589624a228ea2e1f4b68e86e3fa8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721140"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604774"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Wydajność maszyny wirtualnej z serii HBv3
 
-Użytkownicy wczesnego dostępu do maszyn wirtualnych HBv3 mogą oczekiwać następujących wartości wydajności na wspólnych mikrotestach HPC
+Oczekiwania na wydajność wykorzystujące typowe mikrotesty HPC są następujące:
 
 | Obciążenie                                        | HBv3                                                              |
 |-------------------------------------------------|-------------------------------------------------------------------|
@@ -30,7 +30,7 @@ Użytkownicy wczesnego dostępu do maszyn wirtualnych HBv3 mogą oczekiwać nast
 
 ## <a name="process-pinning"></a>Przypinanie procesów
 
-Przypinanie procesów działa dobrze na maszynach wirtualnych z serii HBv3, ponieważ udostępniamy podstawowy krzem jako-to-jest to maszyna wirtualna gościa. Zdecydowanie zalecamy Przypinanie procesów, aby zapewnić optymalną wydajność i spójność.
+[Przypinanie procesów](compiling-scaling-applications.md#process-pinning) działa dobrze na maszynach wirtualnych z serii HBv3, ponieważ udostępniamy podstawowy krzem jako-to-jest to maszyna wirtualna gościa. Zdecydowanie zalecamy Przypinanie procesów, aby zapewnić optymalną wydajność i spójność.
 
 ## <a name="mpi-latency"></a>Opóźnienie MPI
 
@@ -45,11 +45,12 @@ Test przepustowości MPI z pakietu OSU mikrotestu można wykonać na poniższe p
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 ## <a name="mellanox-perftest"></a>Perftest Mellanox
-[Pakiet Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) ma wiele testów InfiniBand, takich jak opóźnienie (ib_send_lat) i przepustowość (ib_send_bw). Przykładowe polecenie jest poniżej. 
+[Pakiet Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) ma wiele testów InfiniBand, takich jak opóźnienie (ib_send_lat) i przepustowość (ib_send_bw). Przykładowe polecenie jest poniżej.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej na temat [skalowania aplikacji MPI](compiling-scaling-applications.md).
+- Przejrzyj wyniki dotyczące wydajności i skalowalności aplikacji HPC na maszynach wirtualnych HBv3 w [artykule TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv3-vms/bc-p/2235843).
 - Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Aby zapoznać się z ogólnym widokiem architektury uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

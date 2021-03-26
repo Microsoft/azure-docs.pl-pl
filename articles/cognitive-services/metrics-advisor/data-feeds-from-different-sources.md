@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348623"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606151"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Dodawanie strumieniowych źródeł danych z różnych źródeł danych do klasyfikatora metryk
 
-Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące łączenia różnych typów źródeł danych z usługą Metric Advisor. Zapoznaj się z informacjami na temat sposobu dołączania [danych](how-tos/onboard-your-data.md) , aby dowiedzieć się więcej o najważniejszych pojęciach dotyczących używania danych za pomocą usługi Metric Advisor. 
+Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące łączenia różnych typów źródeł danych z usługą Metric Advisor. Zapoznaj się z informacjami na temat sposobu dołączania [danych](how-tos/onboard-your-data.md) , aby dowiedzieć się więcej o najważniejszych pojęciach dotyczących używania danych za pomocą usługi Metric Advisor. \
 
 ## <a name="supported-authentication-types"></a>Obsługiwane typy uwierzytelniania
 
@@ -51,7 +51,7 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 |[**MySQL**](#mysql) | Podstawowa |
 |[**PostgreSQL**](#pgsql)| Podstawowa|
 
-Utwórz **jednostkę poświadczeń** i użyj jej do uwierzytelniania w źródłach danych. W poniższych sekcjach określono parametry wymagane przez program do uwierzytelniania *podstawowego* . 
+Utwórz jednostkę poświadczeń * * i użyj jej do uwierzytelniania w źródłach danych. W poniższych sekcjach określono parametry wymagane przez program do uwierzytelniania *podstawowego* . 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Application Insights platformy Azure</span>
 
@@ -159,7 +159,7 @@ Dozwolony jest tylko jeden znacznik czasu na plik JSON.
   * `%h` jest godziną sformatowaną jako `HH`
   * `%M` jest minutą sformatowaną jako `mm`
 
-Obecnie klasyfikator metryk obsługuje schemat danych w plikach JSON. Na przykład:
+Obecnie klasyfikator metryk obsługuje schemat danych w plikach JSON w następujący sposób. Na przykład:
 
 ``` JSON
 [
@@ -212,15 +212,14 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage platformy Azure</span>
 
-* **Parametry połączenia**: należy zapoznać się z tematem [Wyświetlanie i kopiowanie parametrów połączenia](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) , aby uzyskać informacje na temat pobierania parametrów połączenia z usługi Azure Table Storage.
+* **Parametry połączenia**: Utwórz adres URL sygnatury dostępu współdzielonego (Shared Access Signature) i wprowadź tutaj. Najbardziej prostym sposobem na wygenerowanie adresu URL sygnatury dostępu współdzielonego jest użycie witryny Azure Portal. Za pomocą Azure Portal można nawigować graficznie. Aby utworzyć adres URL sygnatury dostępu współdzielonego za pomocą Azure Portal, najpierw przejdź do konta magazynu, do którego chcesz uzyskać dostęp, w sekcji Ustawienia, a następnie kliknij pozycję sygnatura dostęp współdzielony. Zaznacz pola wyboru co najmniej "Tabela" i "obiekt", a następnie kliknij przycisk Generuj sygnaturę dostępu współdzielonego i parametry połączenia. Adres URL sygnatury dostępu współdzielonego Table service jest to, czego potrzebujesz do kopiowania i wypełniania pola tekstowego w obszarze roboczym klasyfikatora metryki.
 
 * **Nazwa tabeli**: Określ tabelę, względem której ma zostać wyszukiwane zapytanie. Ten temat można znaleźć w wystąpieniu konta usługi Azure Storage. Kliknij pozycję **tabele** w sekcji **usługi tabel** .
 
-* **Zapytanie** Można użyć `@StartTime` w zapytaniu. `@StartTime` jest zastępowany ciągiem formatu RRRR-MM-DDTgg: mm: SS w skrypcie.
+* **Zapytanie** Można użyć `@StartTime` w zapytaniu. `@StartTime` jest zastępowany ciągiem formatu RRRR-MM-DDTgg: mm: SS w skrypcie. Porada: Użyj Eksploratora usługi Azure Storage, aby utworzyć zapytanie z określonym zakresem czasu i upewnić się, że jest ono uruchomione, a następnie zastąp.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
@@ -232,7 +231,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Żądanie HTTP</span>
 
-* **Adres URL żądania**: adres URL http, który może zwracać kod JSON. Symbole zastępcze% Y,% m,% d,% h,% M są obsługiwane:% Y = rok w formacie RRRR,% m = miesiąc w formacie MM,% d = dzień w formacie DD,% h = godzina w formacie gg,% M = minuta w formacie mm. Na przykład: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Adres URL żądania**: adres URL http, który może zwrócić plik JSON. Symbole zastępcze% Y,% m,% d,% h,% M są obsługiwane:% Y = rok w formacie RRRR,% m = miesiąc w formacie MM,% d = dzień w formacie DD,% h = godzina w formacie gg,% M = minuta w formacie mm. Na przykład: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Metoda żądania HTTP**: Użyj metody get lub post.
 * **Nagłówek żądania**: może dodać podstawowe uwierzytelnianie. 
 * **Ładunek żądania**: obsługiwany jest tylko ładunek JSON. Symbol zastępczy @StartTime jest obsługiwany w ładunku. Odpowiedź powinna mieć następujący format JSON: [{"timestamp": "2018 r-01-01T00:00:00Z", "rynek": "en-us", "Count": 11 "przychód": 1,23}, {"timestamp": "2018 r-01-01T00:00:00Z", "rynek": "zh-CN", "Count": 22, "przychód": da liczbę 4,56}]. (np. w przypadku pozyskiwania danych z 2020-06-21T00:00:00Z, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

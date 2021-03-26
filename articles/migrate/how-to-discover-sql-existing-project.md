@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2021
-ms.openlocfilehash: 8caac0a111c3a1bdd88e0d5f43a4629ad4221496
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 2de60880b511e43ffb2949a15fec2cf2a94f62fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888944"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567156"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Odnajdywanie wystąpień SQL Server w istniejącym projekcie 
 
@@ -41,7 +41,7 @@ Odnajdywanie wystąpień SQL Server i baz danych działających na maszynach lok
     - Sprawdź, czy usługi działające na urządzeniu zostały zaktualizowane do najnowszej wersji. Aby to zrobić, uruchom Menedżera konfiguracji urządzenia z serwera urządzenia i wybierz pozycję Wyświetl usługi urządzenia w panelu wymagania wstępne Instalatora.
         - Urządzenie i jego składniki są automatycznie aktualizowane :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Sprawdź wersję urządzenia":::
     - W panelu zarządzanie poświadczeniami i źródłami odnajdywania w Menedżerze konfiguracji urządzenia Dodaj poświadczenia uwierzytelniania domeny lub SQL Server, które mają dostęp administratora systemu w wystąpieniu SQL Server i bazach danych, które mają zostać odnalezione.
-    Możesz użyć funkcji automatycznego mapowania poświadczeń urządzenia lub ręcznie zmapować poświadczenia na odpowiedni serwer, jak zostało to wyróżnione w [tym miejscu](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery).
+    Możesz użyć funkcji automatycznego mapowania poświadczeń urządzenia lub ręcznie zmapować poświadczenia na odpowiedni serwer, jak zostało to wyróżnione w [tym miejscu](./tutorial-discover-vmware.md#start-continuous-discovery).
 
     Niektóre punkty do uwagi:
     - Upewnij się, że Spis oprogramowania jest już włączony, lub podaj poświadczenia domeny lub niedomenowe, aby włączyć takie samo. Aby odnajdywać wystąpienia SQL Server, należy wykonać Spis oprogramowania.

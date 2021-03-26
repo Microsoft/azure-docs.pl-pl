@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4ecc7033007361e27908e0881b80091ac660398e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 6ec616047a99465bace0b401f659765e4399634b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108396"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604570"
 ---
 # <a name="voice-and-video-concepts"></a>Pojęcia dotyczące głosu i wideo
 
@@ -44,14 +44,10 @@ Wywołanie "jeden do jednego" w usłudze Azure Communications Services ma miejsc
 Wywołanie grupy w usłudze Azure Communications Services odbywa się, gdy trzy lub więcej osób komunikują się ze sobą. Dowolna kombinacja połączeń VoIP i użytkowników połączonych z siecią PSTN może być obecna w wywołaniu grupy. Wywołanie "jeden do jednego" można przekonwertować na wywołanie grupy przez dodanie kolejnych uczestników wywołania. Jednym z tych uczestników może być bot.
 
 ### <a name="supported-video-standards"></a>Obsługiwane standardy wideo
-Obsługujemy H. 264 (MPEG-4)
+Obsługujemy H. 264 (MPEG-4).
 
 ### <a name="video-quality"></a>Jakość wideo 
 Obsługujemy do pełnej rozdzielczości HD w natywnych zestawach SDK (iOS, Android). W przypadku zestawu SDK dla sieci Web (JS) jest obsługiwany standardowy dysk HD 720. Jakość zależy od dostępnej przepustowości.
-
-### <a name="rooms-concept"></a>Koncepcje pokojów
-Pokoje są zestawem interfejsów API i zestawów SDK, które umożliwiają łatwe dodawanie funkcji audio, wideo, udostępniania ekranu, sieci PSTN i wiadomości SMS do witryny internetowej lub aplikacji natywnych.
-W trakcie korzystania z wersji zapoznawczej można użyć identyfikatora grupy do dołączenia do tej samej konwersacji. Można utworzyć dowolną liczbę identyfikatorów grup i oddzielić użytkowników od "pokojów". Przechodzenie do przodu spowoduje zwiększenie kontroli wokół "pokojów"
 
 ## <a name="next-steps"></a>Następne kroki
 
