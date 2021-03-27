@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a03ca4bcad9bb577db68e2728ff9dbebb5779a7a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606219"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626830"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
-Na platformie Azure Wyszukiwanie poznawcze, typeahead lub "wyszukiwanie w trakcie pisania" jest włączane za pomocą narzędzia do *sugerowania*. Sugerował jest wewnętrzną strukturą danych, która składa się z kolekcji Fields. Pola są poddawane dodatkowej tokenizacji, generując sekwencje prefiksu w celu obsługi dopasowań w przypadku częściowych warunków. Na przykład, sugestia, która zawiera pole miasto, będzie mieć prefiks kombinacji "Sea", "siedzenie", "siedzisko" i "Seattl" dla terminu "Seattle".
+Na platformie Azure Wyszukiwanie poznawcze, typeahead lub "wyszukiwanie w trakcie pisania" jest włączane za pomocą narzędzia do *sugerowania*. Program sugerowany zawiera listę pól, które poddają się do dodatkowych tokenizacji, generując sekwencje prefiksów do obsługi dopasowań w przypadku częściowych warunków. Na przykład, sugestia, która zawiera pole miasto o wartości dla "Seattle", będzie mieć prefiks kombinacji "Sea", "siedzisko", "siedzisko" i "Seattl" do obsługi typeahead.
 
 Dopasowania dotyczące częściowych terminów mogą być albo zakończono autoukończeniem zapytania lub sugestią dopasowania. Ten sam program sugerujący obsługuje oba środowiska.
 
@@ -171,11 +171,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-+ [Tworzenie pierwszej aplikacji w języku C# (Lekcja 3 — Dodawanie wyszukiwania w trakcie pisania)](tutorial-csharp-type-ahead-and-suggestions.md) — przykład przedstawia sugerowane zapytania, Autouzupełnianie i nawigację aspektową. Ten przykładowy kod działa w usłudze Azure Wyszukiwanie poznawcze piaskownicy i używa wstępnie załadowanego indeksu hoteli z już utworzonym programem sugerującym, więc wystarczy nacisnąć klawisz F5, aby uruchomić aplikację. Żadna subskrypcja ani logowanie nie są wymagane.
++ [Dodawanie wyszukiwania do witryny sieci Web (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) używa pakietu sugestii typu open source do częściowego uzupełniania terminu w aplikacji klienckiej.
+
++ [Tworzenie pierwszej aplikacji w języku C# (Lekcja 3 — Dodawanie wyszukiwania w trakcie pisania)](tutorial-csharp-type-ahead-and-suggestions.md) — przykład przedstawia sugerowane zapytania, Autouzupełnianie i nawigację aspektową. Ten kod zapewnia natywną obsługę typeahead zamiast używania widżetu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zalecamy, aby dowiedzieć się więcej o tym, jak formułowane są żądania.
+Dowiedz się więcej na temat żądań \ formowania.
 
 > [!div class="nextstepaction"]
 > [Dodawanie funkcji Autouzupełnianie i sugestii do kodu klienta](search-add-autocomplete-suggestions.md)

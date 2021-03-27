@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
-ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232362"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625912"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Dodawanie sprawdzania pisowni do zapytań w Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Można poprawić odwołania przez poprawność poszczególnych terminów zapytan
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ Istniejący indeks wyszukiwania zawierający zawartość w języku angielskim
++ Istniejący indeks wyszukiwania zawierający zawartość w języku angielskim. Obecnie Korekcja pisowni nie działa z [synonimami](search-synonyms.md). Unikaj używania jej w indeksach, które określają mapę synonimów w dowolnej definicji pola.
 
 + Klient wyszukiwania do wysyłania zapytań
 

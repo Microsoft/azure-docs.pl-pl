@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27184e267bb0472dad6fc9176dfdeee68d5eae58
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96518451"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611824"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Dostępność i nadmiarowość w usłudze Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault funkcje wielu warstw nadmiarowości, aby upewnić się, że kluc
 > [!NOTE]
 > Ten przewodnik ma zastosowanie do magazynów. Zarządzane pule modułów HSM używają różnych modeli wysokiej dostępności i odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [Przewodnik dotyczący odzyskiwania po awarii zarządzanego modułu HSM](../managed-hsm/disaster-recovery-guide.md) .
 
-Zawartość Twojego magazynu kluczy jest replikowana w regionie i do regionu pomocniczego, co najmniej 150 kilometrów, ale w tej samej lokalizacji geograficznej, aby zachować wysoką trwałość kluczy i wpisów tajnych. Aby uzyskać szczegółowe informacje na temat określonych par regionów, zobacz wieloskładnikowe [regiony platformy Azure](../../best-practices-availability-paired-regions.md). Wyjątek w modelu regionów sparowanych to Brazylia Południowa, która umożliwia tylko utrzymanie danych rezydentnych w Brazylii Południowej. Brazylia Południowa używa magazynu Strefowo nadmiarowego (ZRS) do replikowania danych trzykrotnie w obrębie jednej lokalizacji/regionu.   
+Zawartość Twojego magazynu kluczy jest replikowana w regionie i do regionu pomocniczego, co najmniej 150 kilometrów, ale w tej samej lokalizacji geograficznej, aby zachować wysoką trwałość kluczy i wpisów tajnych. Aby uzyskać szczegółowe informacje na temat określonych par regionów, zobacz wieloskładnikowe [regiony platformy Azure](../../best-practices-availability-paired-regions.md). Wyjątek w modelu regionów sparowanych to Brazylia Południowa, która umożliwia tylko utrzymanie danych rezydentnych w Brazylii Południowej. Brazylia Południowa używa magazynu Strefowo nadmiarowego (ZRS) do replikowania danych trzykrotnie w obrębie jednej lokalizacji/regionu. W przypadku usługi AKV Premium tylko 2 z 3 regionów są używane do replikowania danych z modułu HSM.  
 
 Jeśli poszczególne składniki w ramach usługi magazynu kluczy zakończą się niepowodzeniem, alternatywne składniki w ramach regionu w celu zapewnienia obsługi żądania, aby upewnić się, że nie ma obniżenia funkcjonalności. Nie musisz podejmować żadnych działań w celu uruchomienia tego procesu, dzieje się on automatycznie i będzie on widoczny dla Ciebie.
 

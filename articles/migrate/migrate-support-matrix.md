@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b9ea447b0204ad91065f27d265584c8787167fc2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: af0b8a4d3dfbce32e412f5294fb19ade61fd7661
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870725"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628173"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz obsługi Azure Migrate
 
@@ -44,7 +44,7 @@ Azure Migrate: Migracja serwera | Nie dotyczy | Migrowanie [maszyn wirtualnych V
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Oceniaj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, serwery fizyczne i inne obciążenia w chmurze. | Nie dotyczy
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Oceniaj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, serwer fizyczny — inne obciążenia w chmurze. |  Migrowanie maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V, serwerów fizycznych, obciążeń chmury publicznej.
 [Urządzenie 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Oceniaj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, serwery fizyczne i inne obciążenia w chmurze.| Nie dotyczy
-[Narzędzie DMA](/sql/dma/dma-overview?view=sql-server-2017) | Oceń SQL Server baz danych. | Nie dotyczy
+[Narzędzie DMA](/sql/dma/dma-overview) | Oceń SQL Server baz danych. | Nie dotyczy
 [DMS](../dms/dms-overview.md) | Nie dotyczy | Migrowanie SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Ocenianie infrastruktury pulpitu wirtualnego (VDI) | Nie dotyczy
 [Movere](https://www.movere.io/) | Oceniaj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, maszyny wirtualne Xen, serwery fizyczne, stacje robocze (w tym infrastruktury VDI) i inne obciążenia w chmurze. | Nie dotyczy

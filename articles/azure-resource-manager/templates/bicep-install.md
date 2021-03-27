@@ -1,39 +1,43 @@
 ---
-title: Konfiguracja Bicep środowiska projektowania i wdrażania
+title: Konfigurowanie środowisk deweloperskich i wdrożeń Bicep
 description: Jak skonfigurować Bicep środowiska projektowania i wdrażania
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 9a35355d1035943081ac58b36623af772fb8d547
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.date: 03/26/2021
+ms.openlocfilehash: 0e62e6a4633bee09fcbe8b783118cc95ccd5702e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612589"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626105"
 ---
 # <a name="install-bicep-preview"></a>Install Bicep (wersja zapoznawcza)
 
-Dowiedz się, jak skonfigurować Bicep środowiska deweloperskie i wdrożeniowe.
+Dowiedz się, jak skonfigurować Bicep środowiska projektowania i wdrażania.
 
 ## <a name="development-environment"></a>Środowisko deweloperskie
 
 Aby korzystać z najlepszego środowiska tworzenia Bicep, potrzebne są dwa składniki:
 
 - **Rozszerzenie Bicep dla Visual Studio Code**. Do tworzenia plików Bicep potrzebny jest dobry edytor Bicep. Zalecamy [Visual Studio Code](https://code.visualstudio.com/) z [rozszerzeniem Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Te narzędzia zapewniają obsługę języka i Autouzupełnianie zasobów. Ułatwiają one tworzenie i weryfikowanie plików Bicep. Aby uzyskać więcej informacji na temat używania Visual Studio Code i rozszerzenia Bicep, zobacz [Szybki Start: Tworzenie plików Bicep z Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
-- **Interfejs wiersza polecenia Bicep**. Użyj interfejsu wiersza polecenia Bicep, aby kompilować pliki Bicep do szablonów w usłudze ARM, i dekompilować szablony JSON programu ARM do plików Bicep. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia Bicep](#install-bicep-cli).
+- **Interfejs wiersza polecenia Bicep**. Użyj interfejsu wiersza polecenia Bicep, aby kompilować pliki Bicep do szablonów w usłudze ARM, i dekompilować szablony JSON programu ARM do plików Bicep. Instrukcje instalacji znajdują się w temacie [Install BICEP CLI](#install-manually).
 
 ## <a name="deployment-environment"></a>Środowisko wdrażania
 
-Pliki Bicep można wdrożyć za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. W przypadku interfejsu wiersza polecenia platformy Azure potrzebna jest wersja 2.20.0 lub nowsza; w przypadku Azure PowerShell wymagana jest wersja 5.6.0 lub nowsza. Instrukcje instalacji znajdują się w temacie:
+Do wdrożenia lokalnych plików Bicep potrzebne są dwa składniki:
 
-- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
-- [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
-- [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
-- [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
+- **Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej lub Azure PowerShell w wersji 5.6.0 lub nowszej**. Instrukcje instalacji znajdują się w temacie:
 
-> [!NOTE]
-> Obecnie zarówno interfejs wiersza polecenia platformy Azure, jak i Azure PowerShell mogą wdrażać tylko lokalne pliki Bicep. Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Deploy-CLI](./deploy-cli.md#deploy-remote-template). Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu Azure PowerShell, zobacz [Deploy-PowerShell]( ./deploy-powershell.md#deploy-remote-template).
+  - [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
+  - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
+  - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
+  - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
 
-Po zainstalowaniu obsługiwanej wersji Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można wdrożyć plik Bicep z:
+  > [!NOTE]
+  > Obecnie zarówno interfejs wiersza polecenia platformy Azure, jak i Azure PowerShell mogą wdrażać tylko lokalne pliki Bicep. Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Deploy-CLI](./deploy-cli.md#deploy-remote-template). Aby uzyskać więcej informacji o wdrażaniu plików Bicep przy użyciu Azure PowerShell, zobacz [Deploy-PowerShell]( ./deploy-powershell.md#deploy-remote-template).
+
+- **Interfejs wiersza polecenia Bicep**. Interfejs wiersza polecenia Bicep jest wymagany do kompilowania plików Bicep do szablonów JSON przed wdrożeniem. Instrukcje instalacji znajdują się w temacie [Install BICEP CLI](#install-bicep-cli).
+
+Po zainstalowaniu składników można wdrożyć plik Bicep z:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -59,11 +63,23 @@ az deployment group create \
 
 ## <a name="install-bicep-cli"></a>Instalowanie interfejsu wiersza polecenia Bicep
 
-Interfejs wiersza polecenia Bicep można zainstalować za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu Azure PowerShell lub ręcznie.
+- Aby użyć interfejsu wiersza polecenia Bicep do kompilowania i dekompilowania plików Bicep, zobacz [Instalowanie ręczne](#install-manually).
+- Aby wdrożyć pliki Bicep za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure](#use-with-azure-cli).
+- Aby użyć Azure PowerShell do wdrożenia plików Bicep, zobacz [Używanie z Azure PowerShell](#use-with-azure-powershell).
 
-### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+### <a name="use-with-azure-cli"></a>Używanie z interfejsem wiersza polecenia platformy Azure
 
-Przy użyciu polecenia AZ CLI w wersji 2.20.0 lub nowszej, interfejs CLI Bicep jest automatycznie instalowany, gdy wykonywane jest polecenie, które jest od niego zależne. Na przykład: `az deployment ... -f *.bicep` lub `az bicep ...`.
+Przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej, interfejs wiersza polecenia Bicep jest instalowany automatycznie, gdy wykonywane jest polecenie, które jest od niego zależne. Na przykład:
+
+```azurecli
+az deployment group create --template-file azuredeploy.bicep --resource-group myResourceGroup
+```
+
+lub
+
+```azurecli
+az bicep ...
+```
 
 Interfejs wiersza polecenia można również zainstalować ręcznie przy użyciu wbudowanych poleceń:
 
@@ -80,17 +96,11 @@ az bicep upgrade
 Aby zainstalować określoną wersję:
 
 ```bash
-az bicep install --version v0.2.212
+az bicep install --version v0.3.126
 ```
 
-> [!NOTE]
-> AZ CLI instaluje oddzielną wersję interfejsu wiersza polecenia Bicep, która nie jest w konflikcie z innymi zainstalowanymi instalacjami Bicep, i AZ CLI nie dodaje Bicep do ścieżki.
-
-Aby wyświetlić zainstalowane wersje:
-
-```bash
-az bicep version
-```
+> [!IMPORTANT]
+> Interfejs wiersza polecenia platformy Azure instaluje oddzielną wersję interfejsu wiersza polecenia Bicep, która nie jest w konflikcie z innymi zainstalowanymi instalacjami Bicep, a interfejs wiersza polecenia platformy Azure nie dodaje interfejsu wiersza polecenia Bicep do ścieżki. Aby użyć interfejsu wiersza polecenia Bicep do kompilowania/dekompilowania plików Bicep lub do wdrażania plików Bicep za pomocą Azure PowerShell, zobacz [Instalowanie ręczne](#install-manually) lub [Korzystanie z programu Azure PowerShell](#use-with-azure-powershell).
 
 Aby wyświetlić listę wszystkich dostępnych wersji interfejsu wiersza polecenia Bicep:
 
@@ -98,9 +108,30 @@ Aby wyświetlić listę wszystkich dostępnych wersji interfejsu wiersza polecen
 az bicep list-versions
 ```
 
-### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+Aby wyświetlić zainstalowane wersje:
 
-Azure PowerShell nie ma jeszcze możliwości zainstalowania interfejsu wiersza polecenia Bicep. Azure PowerShell (v 5.6.0 lub nowszy) oczekuje, że interfejs wiersza polecenia Bicep jest już zainstalowany i dostępny w ścieżce. Postępuj zgodnie z jedną z [metod instalacji ręcznej](#install-manually). Po zainstalowaniu interfejsu wiersza polecenia Bicep interfejs wiersza polecenia Bicep jest wywoływany za każdym razem, gdy jest wymagany dla polecenia cmdlet wdrażania. Na przykład `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`.
+```bash
+az bicep version
+```
+
+### <a name="use-with-azure-powershell"></a>Używanie z Azure PowerShell
+
+Azure PowerShell nie ma jeszcze możliwości zainstalowania interfejsu wiersza polecenia Bicep. Azure PowerShell (v 5.6.0 lub nowszy) oczekuje, że interfejs wiersza polecenia Bicep jest już zainstalowany i dostępny w ścieżce. Postępuj zgodnie z jedną z [metod instalacji ręcznej](#install-manually).
+
+Aby wdrożyć pliki Bicep, wymagany jest interfejs wiersza polecenia Bicep w wersji 0.3.1 lub nowszej. Aby sprawdzić wersję interfejsu wiersza polecenia Bicep:
+
+```cmd
+bicep --version
+```
+
+> [!IMPORTANT]
+> Interfejs wiersza polecenia platformy Azure instaluje własną, niezależną wersję interfejsu wiersza polecenia Bicep. Wdrożenie Azure PowerShell nie powiedzie się nawet wtedy, gdy są zainstalowane wymagane wersje interfejsu wiersza polecenia platformy Azure.
+
+Po zainstalowaniu interfejsu wiersza polecenia Bicep interfejs wiersza polecenia Bicep jest wywoływany za każdym razem, gdy jest wymagany dla polecenia cmdlet wdrażania. Na przykład:
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile azuredeploy.bicep
+```
 
 ### <a name="install-manually"></a>Instalowanie ręczne
 

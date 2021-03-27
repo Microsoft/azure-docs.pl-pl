@@ -3,30 +3,30 @@ title: Instalowanie wirtualnego systemu plików w puli
 description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsadowej.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 08/13/2019
-ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89145488"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626031"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
-Azure Batch teraz obsługuje instalowanie magazynu w chmurze lub zewnętrznego systemu plików w węzłach obliczeniowych systemu Windows lub Linux w pulach usługi Batch. Gdy węzeł obliczeniowy jest przyłączany do puli, wirtualny system plików jest instalowany i traktowany jako dysk lokalny w tym węźle. Można instalować systemy plików, takie jak Azure Files, Azure Blob Storage, Network File System (NFS), w tym [pamięci podręcznej VFXT avere](../avere-vfxt/avere-vfxt-overview.md)lub Common Internet File System (CIFS).
+Azure Batch obsługuje instalowanie magazynu w chmurze lub zewnętrznego systemu plików w węzłach obliczeniowych systemu Windows lub Linux w pulach usługi Batch. Gdy węzeł obliczeniowy jest przyłączany do puli, wirtualny system plików jest instalowany i traktowany jako dysk lokalny w tym węźle. Można instalować systemy plików, takie jak Azure Files, Azure Blob Storage, Network File System (NFS), w tym [pamięci podręcznej VFXT avere](../avere-vfxt/avere-vfxt-overview.md)lub Common Internet File System (CIFS).
 
 W tym artykule dowiesz się, jak zainstalować wirtualny system plików w puli węzłów obliczeniowych przy użyciu [biblioteki zarządzania usługą Batch dla platformy .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
-> Instalowanie wirtualnego systemu plików jest obsługiwane w pulach wsadowym utworzonym w dniu lub po 2019-08-19. Pule wsadowe utworzone przed 2019-08-19 nie obsługują tej funkcji.
-> 
-> Interfejsy API służące do instalowania systemów plików w węźle obliczeniowym są częścią biblioteki usługi [Batch .NET](/dotnet/api/microsoft.azure.batch) .
+> Instalowanie wirtualnego systemu plików jest obsługiwane tylko w pulach wsadowych utworzonych w dniu lub po 8 sierpnia 2019. Pule wsadowe utworzone przed tą datą nie będą obsługiwały tej funkcji.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Zalety instalowania w puli
 
 Zainstalowanie systemu plików w puli, zamiast zezwalania na pobieranie własnych danych z dużego zestawu danych, sprawia, że zadania są łatwiejsze i wydajniejsze w celu uzyskania dostępu do wymaganych danych.
 
-Rozważmy scenariusz z wieloma zadaniami wymagającymi dostępu do wspólnego zestawu danych, takich jak renderowanie filmu. Każde zadanie renderuje co najmniej jedną klatkę naraz z plików sceny. Zainstalowanie dysku, który zawiera pliki sceny, ułatwia korzystanie z węzłów obliczeniowych w celu uzyskania dostępu do udostępnionych danych. Ponadto podstawowy system plików można wybrać i skalować niezależnie w zależności od wydajności i skali (przepływności i liczby IOPS) wymaganej przez liczbę węzłów obliczeniowych, które jednocześnie uzyskują dostęp do danych. Na przykład avere rozproszonej pamięci podręcznej [vFXT](../avere-vfxt/avere-vfxt-overview.md) może służyć do obsługi dużych ruchów na skalę obrazu z tysiącami współbieżnych węzłów renderowania, które uzyskują dostęp do danych źródłowych, które znajdują się lokalnie. Alternatywnie w przypadku danych, które już znajdują się w magazynie obiektów BLOB opartych na chmurze, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) można użyć do zainstalowania tych danych jako lokalnego systemu plików. Blobfuse jest dostępna tylko w węzłach systemu Linux, ale [Azure Files](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) udostępnia podobny przepływ pracy i jest dostępny zarówno w systemie Windows, jak i Linux.
+Rozważmy scenariusz z wieloma zadaniami wymagającymi dostępu do wspólnego zestawu danych, takich jak renderowanie filmu. Każde zadanie renderuje co najmniej jedną klatkę naraz z plików sceny. Zainstalowanie dysku, który zawiera pliki sceny, ułatwia korzystanie z węzłów obliczeniowych w celu uzyskania dostępu do udostępnionych danych.
+
+Ponadto podstawowy system plików można wybrać i skalować niezależnie w zależności od wydajności i skali (przepływności i liczby IOPS) wymaganej przez liczbę węzłów obliczeniowych, które jednocześnie uzyskują dostęp do danych. Na przykład avere rozproszonej pamięci podręcznej [vFXT](../avere-vfxt/avere-vfxt-overview.md) może służyć do obsługi dużych ruchów na skalę obrazu z tysiącami współbieżnych węzłów renderowania, które uzyskują dostęp do danych źródłowych, które znajdują się lokalnie. Alternatywnie w przypadku danych, które już znajdują się w magazynie obiektów BLOB opartych na chmurze, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) można użyć do zainstalowania tych danych jako lokalnego systemu plików. Blobfuse jest dostępna tylko w węzłach systemu Linux, chociaż [Azure Files](../storage/files/storage-files-introduction.md) zapewnia podobny przepływ pracy i jest dostępny zarówno w systemie Windows, jak i Linux.
 
 ## <a name="mount-a-virtual-file-system-on-a-pool"></a>Instalowanie wirtualnego systemu plików w puli  
 
@@ -78,9 +78,11 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>System plików obiektów blob platformy Azure
 
-Innym rozwiązaniem jest użycie usługi Azure Blob Storage za pośrednictwem [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Zainstalowanie systemu plików BLOB wymaga `AccountKey` lub `SasKey` dla konta magazynu. Aby uzyskać informacje na temat uzyskiwania tych kluczy, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md)lub [przy użyciu sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md). Aby uzyskać więcej informacji na temat korzystania z programu blobfuse, zobacz temat [Rozwiązywanie problemów](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)z blobfuse. Aby uzyskać domyślny dostęp do zainstalowanego katalogu blobfuse, uruchom zadanie jako **administrator**. Blobfuse instaluje katalog w miejscu użytkownika, a podczas tworzenia puli jest instalowany jako główny. W systemie Linux wszystkie zadania **administratora** są głównymi. Wszystkie opcje dla modułu bezpiecznik są opisane na [stronie odmowa](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Innym rozwiązaniem jest użycie usługi Azure Blob Storage za pośrednictwem [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Zainstalowanie systemu plików BLOB wymaga `AccountKey` lub `SasKey` dla konta magazynu. Aby uzyskać informacje na temat uzyskiwania tych kluczy, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md) lub [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md). Aby uzyskać więcej informacji i porad dotyczących używania blobfuse, zobacz blobfuse.
 
-Oprócz przewodnika rozwiązywania problemów problemy z usługą GitHub w repozytorium blobfuse są przydatnym sposobem na sprawdzenie bieżących problemów i rozwiązań związanych z blobfuse. Aby uzyskać więcej informacji, zobacz [blobfuse problemy](https://github.com/Azure/azure-storage-fuse/issues).
+Aby uzyskać domyślny dostęp do zainstalowanego katalogu blobfuse, uruchom zadanie jako **administrator**. Blobfuse instaluje katalog w miejscu użytkownika, a podczas tworzenia puli jest instalowany jako główny. W systemie Linux wszystkie zadania **administratora** są głównymi. Wszystkie opcje dla modułu bezpiecznik są opisane na [stronie odmowa](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+
+Zapoznaj się z [często zadawanymi pytaniami](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) , aby uzyskać więcej informacji oraz porady dotyczące korzystania z programu blobfuse Możesz również przejrzeć [problemy z usługą GitHub w repozytorium blobfuse,](https://github.com/Azure/azure-storage-fuse/issues) aby sprawdzić bieżące problemy i rozwiązania blobfuse.
 
 ```csharp
 new PoolAddParameter
@@ -106,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>Sieciowy system plików
 
-Systemy plików NFS można również zainstalować w węzłach puli, co umożliwia łatwe uzyskiwanie dostępu do tradycyjnych systemów plików przez węzły Azure Batch. Może to być jeden serwer NFS wdrożony w chmurze lub lokalny serwer NFS, do którego można uzyskać dostęp za pośrednictwem sieci wirtualnej. Alternatywnie możesz skorzystać z rozwiązania rozproszonej pamięci podręcznej [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) , które zapewnia bezproblemową łączność z lokalnym magazynem, odczytywanie danych na żądanie do pamięci podręcznej oraz zapewnia wysoką wydajność i skalowalność węzłów obliczeniowych opartych na chmurze.
+Systemy plików NFS można zainstalować w węzłach puli, umożliwiając dostęp do tradycyjnych systemów plików przez Azure Batch. Może to być jeden serwer NFS wdrożony w chmurze lub lokalny serwer NFS, do którego można uzyskać dostęp za pośrednictwem sieci wirtualnej. Alternatywnie możesz użyć rozwiązania [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) Distributed cache w pamięci, aby uzyskać intensywne operacje obliczeniowe o wysokiej wydajności (HPC).
 
 ```csharp
 new PoolAddParameter
@@ -129,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Wspólny internetowy system plików
 
-W celu łatwego dostępu do węzłów puli można także zainstalować systemy plików CIFS (Common Internet File System), które umożliwiają korzystanie z tych samych węzłów Azure Batch. CIFS to protokół udostępniania plików, który zapewnia otwarty i Międzyplatformowy mechanizm do żądania plików i usług serwera sieciowego. Protokół CIFS jest oparty na rozszerzonej wersji protokołu SMB (Server Message Block) firmy Microsoft do udostępniania plików internetowych i intranetowych oraz służy do instalowania zewnętrznych systemów plików w węzłach systemu Windows. Aby dowiedzieć się więcej o protokole SMB, zobacz [serwer plików i protokół SMB](/windows-server/storage/file-server/file-server-smb-overview).
+Instalowanie [wspólnych systemów plików CIFS (Common Internet File Systems)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) w węzłach puli jest innym sposobem zapewnienia dostępu do tradycyjnych systemów plików. CIFS to protokół udostępniania plików, który zapewnia otwarty i Międzyplatformowy mechanizm do żądania plików i usług serwera sieciowego. Protokół CIFS jest oparty na rozszerzonej wersji protokołu [bloku komunikatów serwera (SMB)](/windows-server/storage/file-server/file-server-smb-overview) do udostępniania plików internetowych i intranetowych oraz może służyć do instalowania zewnętrznych systemów plików w węzłach systemu Windows.
 
 ```csharp
 new PoolAddParameter
@@ -154,7 +156,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnozuj błędy instalacji
 
-Jeśli konfiguracja instalacji nie powiedzie się, węzeł obliczeniowy w puli zakończy się niepowodzeniem, a stan węzła stanie się bezużyteczny. Aby zdiagnozować błąd konfiguracji instalacji, zbadaj [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) Właściwość w celu uzyskania szczegółowych informacji o błędzie.
+Jeśli konfiguracja instalacji nie powiedzie się, węzeł obliczeniowy w puli zakończy się niepowodzeniem, a stan węzła zostanie ustawiony na `unusable` . Aby zdiagnozować błąd konfiguracji instalacji, zbadaj [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) Właściwość w celu uzyskania szczegółowych informacji o błędzie.
 
 Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-output-files.md) do przekazania `*.log` plików. `*.log`Pliki zawierają informacje o instalacji systemu plików w `AZ_BATCH_NODE_MOUNTS_DIR` lokalizacji. Pliki dziennika instalacji mają format: `<type>-<mountDirOrDrive>.log` dla każdej instalacji. Na przykład `cifs` Instalacja w katalogu instalacji o nazwie `test` będzie miała plik dziennika instalacji o nazwie: `cifs-test.log` .
 
@@ -176,9 +178,25 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 | Oracle | Oracle-Linux | 7.6 | y | y | y | y |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | y | y | y |
 
+## <a name="networking-requirements"></a>Wymagania dotyczące sieci
+
+W przypadku korzystania z instalacji plików wirtualnych z [pulami Azure Batch w sieci wirtualnej](batch-virtual-network.md)należy pamiętać o następujących wymaganiach i upewnić się, że żaden wymagany ruch nie jest blokowany.
+
+- **Azure Files**:
+  - Wymaga otwartego portu TCP 445 dla ruchu do/z tagu usługi magazynu. Aby uzyskać więcej informacji, zobacz [Korzystanie z udziału plików platformy Azure w systemie Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
+- **Blobfuse**:
+  - Wymaga otwartego portu TCP 443 dla ruchu do/z tagu usługi magazynu.
+  - https://packages.microsoft.comAby można było pobrać pakiety blobfuse i GPG, maszyny wirtualne muszą mieć dostęp do programu. W zależności od konfiguracji może być również konieczne uzyskanie dostępu do innych adresów URL w celu pobrania dodatkowych pakietów.
+- **Sieciowy system plików (NFS)**:
+  - Wymaga dostępu do portu 2049 (domyślnie; konfiguracja może mieć inne wymagania).
+  - Aby można było pobrać pakiet plików NFS (Debian lub Ubuntu) lub NFS-narzędzia (dla CentOS), maszyny wirtualne muszą mieć dostęp do odpowiedniego Menedżera pakietów. Ten adres URL może się różnić w zależności od wersji systemu operacyjnego. W zależności od konfiguracji może być również konieczne uzyskanie dostępu do innych adresów URL w celu pobrania dodatkowych pakietów.
+- **Common Internet File System (CIFS)**:
+  - Wymaga dostępu do portu TCP 445.
+  - Aby można było pobrać pakiet CIFS-narzędzia, maszyny wirtualne muszą mieć dostęp do odpowiednich menedżerów pakietów. Ten adres URL może się różnić w zależności od wersji systemu operacyjnego.
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji na temat instalowania udziału Azure Files w [systemie Windows](../storage/files/storage-how-to-use-files-windows.md) lub [Linux](../storage/files/storage-how-to-use-files-linux.md).
+- Dowiedz się więcej o instalowaniu udziału Azure Files w [systemie Windows](../storage/files/storage-how-to-use-files-windows.md) lub [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Dowiedz się więcej o używaniu i instalowaniu wirtualnych systemów plików [blobfuse](https://github.com/Azure/azure-storage-fuse) .
 - Zapoznaj się z tematem [system plików sieciowych](/windows-server/storage/nfs/nfs-overview) , aby uzyskać informacje na temat systemu plików NFS i jego aplikacji.
 - Więcej informacji na temat protokołu CIFS można znaleźć w temacie [Omówienie protokołów SMB i protokołu CIFS firmy Microsoft](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) .

@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: d108774aea2d7ac7773dab06efc977dd9e501eb5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108778"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612521"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów z funkcją Hyper-V z Azure Migrate: odnajdywanie i Ocena
 
-W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia lokalne. 
+W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia lokalne.
 
 W tym samouczku przedstawiono sposób odnajdywania serwerów lokalnych na hostach funkcji Hyper-V za pomocą narzędzia do odnajdywania i oceny Azure Migrate: przy użyciu urządzenia z uproszczonym Azure Migrate. Urządzenie jest wdrażane jako serwer na hoście funkcji Hyper-V w celu ciągłego odnajdywania metadanych maszyn i wydajności.
 
@@ -42,7 +42,7 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 --- | ---
 **Host funkcji Hyper-V** | Hosty funkcji Hyper-V, na których znajdują się serwery mogą być autonomiczne lub w klastrze.<br/><br/> Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło łączyć się z metadanymi serwera ściągania i danymi wydajności przy użyciu sesji model wspólnych informacji (CIM).
 **Wdrażanie urządzenia** | Host funkcji Hyper-V wymaga zasobów do przydzielenia serwera dla urządzenia:<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU i około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny i dostęp do Internetu na urządzeniu, bezpośrednio lub za pośrednictwem serwera proxy.
-**Serwery** | Na serwerach może działać dowolny system operacyjny Windows lub Linux. 
+**Serwery** | Na serwerach może działać dowolny system operacyjny Windows lub Linux.
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
@@ -56,7 +56,7 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 
     ![Wyszukaj w polu wyszukiwania subskrypcję platformy Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt. 
+2. Na stronie **subskrypcje** wybierz subskrypcję, w której chcesz utworzyć projekt.
 3. W subskrypcji wybierz pozycję **Kontrola dostępu (IAM)**  >  **sprawdzanie dostępu**.
 4. W obszarze **Sprawdź dostęp** Wyszukaj odpowiednie konto użytkownika.
 5. W obszarze **Dodaj przypisanie roli** kliknij pozycję **Dodaj**.
@@ -176,7 +176,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
         **Scenariusz** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        Funkcja Hyper-V (8,91 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Funkcja Hyper-V (8,91 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Dla Azure Government:
 
@@ -293,5 +293,3 @@ Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w 
 
 - [Oceniaj serwery w środowisku funkcji Hyper-V](tutorial-assess-hyper-v.md) na potrzeby migracji do maszyn wirtualnych platformy Azure.
 - [Przejrzyj dane](migrate-appliance.md#collected-data---hyper-v) zbierane przez urządzenie podczas odnajdywania.
-
-

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d41b06bb0c2b26776f9d9c195c3a713e4dae9f82
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98572803"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626632"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalowanie w usłudze Durable Functions (Azure Functions)
 
@@ -40,7 +40,7 @@ W Durable Functions istnieje jedna kolejka elementów pracy dla każdego centrum
 
 ### <a name="control-queues"></a>Kolejki sterowania
 
-Istnieje wiele *kolejek sterowania* na centrum zadań w Durable Functions. *Kolejka sterująca* jest bardziej zaawansowana niż w przypadku prostszej kolejki elementów roboczych. Kolejki sterujące są używane do wyzwalania stanowych programów Orchestrator i Entity. Ponieważ wystąpienia usługi Orchestrator i Entity Functions są stanowymi pojedynczymi, nie jest możliwe używanie konkurującego modelu konsumenta do dystrybucji obciążenia między maszynami wirtualnymi. Zamiast tego komunikaty programu Orchestrator i jednostek są zrównoważone obciążenie w kolejkach sterowania. Więcej szczegółów dotyczących tego zachowania można znaleźć w kolejnych sekcjach.
+Istnieje wiele *kolejek sterowania* na centrum zadań w Durable Functions. *Kolejka sterująca* jest bardziej zaawansowana niż w przypadku prostszej kolejki elementów roboczych. Kolejki sterujące są używane do wyzwalania stanowych programów Orchestrator i Entity. Ponieważ wystąpienia usługi Orchestrator i Entity Functions są stanowymi pojedynczymi, ważne jest, aby każda organizacja lub jednostka była przetwarzana tylko przez jednego pracownika w danym momencie. Aby to osiągnąć, każde wystąpienie aranżacji lub jednostka jest przypisana do pojedynczej kolejki kontroli. Te kolejki sterujące są zrównoważone obciążenie między pracownikami, aby upewnić się, że każda kolejka jest przetwarzana tylko przez jednego pracownika w danym momencie. Więcej szczegółów dotyczących tego zachowania można znaleźć w kolejnych sekcjach.
 
 Kolejki sterujące zawierają różne typy komunikatów cyklu życia aranżacji. Przykładami mogą być [komunikaty sterujące programu Orchestrator](durable-functions-instance-management.md), komunikaty *odpowiedzi* funkcji działania i komunikaty czasomierza. Tak wiele komunikatów, jak wiadomości 32 zostaną rozkolejkowane z kolejki kontroli w ramach jednej ankiety. Te komunikaty zawierają dane ładunku, a także metadane, w tym to wystąpienie aranżacji, dla którego jest przeznaczone. Jeśli wiele komunikatów z kolejki jest przeznaczonych dla tego samego wystąpienia aranżacji, zostaną one przetworzone jako Partia zadań.
 
@@ -56,7 +56,7 @@ Maksymalne opóźnienie sondowania można skonfigurować za pomocą `maxQueuePol
 ### <a name="orchestration-start-delays"></a>Opóźnienia rozpoczęcia aranżacji
 Wystąpienia aranżacji są uruchamiane przez umieszczenie `ExecutionStarted` komunikatu w jednej z kolejek sterowania centrum zadań. W pewnych warunkach mogą wystąpić opóźnienia Wielosekundowe między rozpoczęciem planowania i uruchomieniem jego działania. W tym przedziale czasu wystąpienie aranżacji pozostanie w `Pending` stanie. Istnieją dwie potencjalne przyczyny tego opóźnienia:
 
-1. **Zaległe kolejki kontroli**: Jeśli kolejka kontroli dla tego wystąpienia zawiera dużą liczbę komunikatów, może upłynąć trochę czasu, zanim `ExecutionStarted` komunikat zostanie odebrany i przetworzony przez środowisko uruchomieniowe. Zaległości komunikatów mogą wystąpić, gdy aranżacje przetwarzają wiele zdarzeń współbieżnie. Zdarzenia, które przechodzą do kolejki sterującej, obejmują zdarzenia uruchamiania aranżacji, uzupełniania działań, trwałe czasomierze, zakończenie i zdarzenia zewnętrzne. Jeśli to opóźnienie występuje w normalnych warunkach, należy rozważyć utworzenie nowego centrum zadań o większej liczbie partycji. Skonfigurowanie kolejnych partycji spowoduje, że środowisko uruchomieniowe utworzy więcej kolejek kontroli na potrzeby dystrybucji obciążenia.
+1. **Zaległe kolejki kontroli**: Jeśli kolejka kontroli dla tego wystąpienia zawiera dużą liczbę komunikatów, może upłynąć trochę czasu, zanim `ExecutionStarted` komunikat zostanie odebrany i przetworzony przez środowisko uruchomieniowe. Zaległości komunikatów mogą wystąpić, gdy aranżacje przetwarzają wiele zdarzeń współbieżnie. Zdarzenia, które przechodzą do kolejki sterującej, obejmują zdarzenia uruchamiania aranżacji, uzupełniania działań, trwałe czasomierze, zakończenie i zdarzenia zewnętrzne. Jeśli to opóźnienie występuje w normalnych warunkach, należy rozważyć utworzenie nowego centrum zadań o większej liczbie partycji. Skonfigurowanie kolejnych partycji spowoduje, że środowisko uruchomieniowe utworzy więcej kolejek kontroli na potrzeby dystrybucji obciążenia. Każda partycja odnosi się do 1:1 z kolejką kontroli z maksymalnie 16 partycjami.
 
 2. **Wycofaj opóźnienia sondowania**: Inną częstą przyczyną opóźnień aranżacji jest [poprzednio opisana w ten sposób zachowanie sondowania dla kolejek kontroli](#queue-polling). To opóźnienie jest jednak oczekiwane tylko wtedy, gdy aplikacja jest skalowana do dwóch lub więcej wystąpień. Jeśli istnieje tylko jedno wystąpienie aplikacji lub jeśli wystąpienie aplikacji, które uruchamia aranżację, jest również tym samym wystąpieniem, które sonduje docelową kolejkę kontroli, nie będzie opóźnienia sondowania kolejki. Opóźnienia sondowania można zmniejszyć przez aktualizację **host.jsw** ustawieniach, jak opisano wcześniej.
 
@@ -94,7 +94,12 @@ Jeśli nie zostanie określony, `AzureWebJobsStorage` zostanie użyte domyślne 
 
 ## <a name="orchestrator-scale-out"></a>Skalowanie w poziomie programu Orchestrator
 
-Funkcje działania są bezstanowe i skalowane automatycznie przez dodanie maszyn wirtualnych. Funkcje i jednostki programu Orchestrator, z drugiej strony, są *podzielone na partycje* w jednej lub kilku kolejkach sterowania. Liczba kolejek sterujących jest definiowana w **host.js** pliku. Poniższy przykład host.jsna fragmencie kodu ustawia `durableTask/storageProvider/partitionCount` Właściwość (lub `durableTask/partitionCount` w Durable Functions 1. x) na `3` .
+Chociaż funkcje działania można skalować w nieskończoność, dodając więcej maszyn wirtualnych, pojedyncze wystąpienia programu Orchestrator i jednostki są ograniczone do inhabit pojedynczej partycji, a maksymalna liczba partycji jest ograniczona przez `partitionCount` ustawienie w `host.json` . 
+
+> [!NOTE]
+> Ogólnie mówiąc, funkcje programu Orchestrator mają być lekkie i nie powinny wymagać dużej ilości mocy obliczeniowej. Dlatego nie jest konieczne tworzenie dużej liczby partycji kolejki kontroli w celu uzyskania dużej przepływności dla aranżacji. Większość dużej ilości pracy należy wykonać w funkcjach bezstanowych, które można skalować w nieskończoność.
+
+Liczba kolejek sterujących jest definiowana w **host.js** pliku. Poniższy przykład host.jsna fragmencie kodu ustawia `durableTask/storageProvider/partitionCount` Właściwość (lub `durableTask/partitionCount` w Durable Functions 1. x) na `3` . Należy zauważyć, że istnieje tyle kolejek kontroli, ile istnieją partycje.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
@@ -124,11 +129,25 @@ Funkcje działania są bezstanowe i skalowane automatycznie przez dodanie maszyn
 
 Centrum zadań można skonfigurować z zakresu od 1 do 16 partycji. Jeśli nie zostanie określony, domyślna liczba partycji to **4**.
 
-Podczas skalowania do wielu wystąpień hosta funkcji (zwykle na różnych maszynach wirtualnych) każde wystąpienie uzyskuje blokadę dla jednej z kolejek kontrolek. Te blokady są wewnętrznie implementowane jako dzierżawy magazynu obiektów blob i zapewniają, że wystąpienie lub jednostka aranżacji działa tylko na jednym wystąpieniu hosta naraz. Jeśli centrum zadań jest skonfigurowane z trzema kolejkami sterowania, wystąpienia aranżacji i jednostki można zrównoważyć obciążenie w ramach maksymalnie trzech maszyn wirtualnych. Dodatkowe maszyny wirtualne można dodać, aby zwiększyć pojemność wykonywania funkcji działania.
+W przypadku scenariuszy o małym natężeniu ruchu aplikacja będzie skalowana w poziomie, więc partycje będą zarządzane przez małą liczbę procesów roboczych. Na przykład rozważmy diagram poniżej.
+
+![Diagram aranżacji skalowania](./media/durable-functions-perf-and-scale/scale-progression-1.png)
+
+Na poprzednim diagramie widzimy, że Koordynatory od 1 do 6 są zrównoważone obciążenie między partycjami. Podobnie partycje, takie jak działania, są zrównoważone obciążenie między pracownikami. Partycje są zrównoważone obciążenie między pracownikami, niezależnie od liczby programów Orchestrator, które zaczynają pracę.
+
+W przypadku korzystania z Azure Functions użycia lub elastycznych planów Premium lub w przypadku skonfigurowania automatycznego skalowania na podstawie obciążenia większa ilość procesów roboczych zostanie przypisana po zwiększeniu natężenia ruchu, a partycje będą ostatecznie zrównoważyć obciążenie dla wszystkich procesów roboczych. Jeśli będziemy kontynuować skalowanie w poziomie, ostatecznie każda partycja będzie ostatecznie zarządzana przez jednego pracownika. Działania z drugiej strony będą nadal zrównoważone obciążenie dla wszystkich procesów roboczych. Jest to pokazane na poniższej ilustracji.
+
+![Diagram aranżacji w pierwszej skali](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+Górna granica maksymalnej liczby współbieżnych _aktywnych_ aranżacji w *dowolnym momencie* jest równa liczbie procesów roboczych przyznanych do aplikacji _pomnożonej_ przez wartość `maxConcurrentOrchestratorFunctions` . Górne ograniczenie może być bardziej precyzyjne, gdy partycje są w pełni skalowane w różnych procesach roboczych. Po pełnym skalowaniu w poziomie i ponieważ każdy proces roboczy będzie miał tylko pojedyncze wystąpienie hosta Functions, Maksymalna liczba _aktywnych_ współbieżnych wystąpień programu Orchestrator będzie równa liczbie partycji _pomnożonej_ przez wartość `maxConcurrentOrchestratorFunctions` . Nasz obraz poniżej ilustruje w pełni skalowane scenariusze, w których dodano więcej programów Orchestrator, ale niektóre z nich są nieaktywne, pokazane w kolorze szarym.
+
+![Schemat organizowania w drugim skalowaniu w poziomie](./media/durable-functions-perf-and-scale/scale-progression-3.png)
+
+W przypadku skalowania w poziomie blokady kolejki sterowania mogą być rozpowszechniane między wystąpieniami hostów funkcji, aby zapewnić równomierne dystrybuowanie partycji. Te blokady są wewnętrznie implementowane jako dzierżawy magazynu obiektów blob i zapewniają, że poszczególne wystąpienia lub jednostki aranżacji działają tylko na jednym wystąpieniu hosta naraz. Jeśli centrum zadań jest skonfigurowane z trzema partycjami (i w związku z tym trzy kolejki kontrolne), wystąpienia aranżacji i jednostki mogą być zrównoważone równoważenia obciążenia we wszystkich trzech wystąpieniach hosta dzierżawy. Dodatkowe maszyny wirtualne można dodać, aby zwiększyć pojemność wykonywania funkcji działania.
 
 Na poniższym diagramie przedstawiono sposób interakcji hosta Azure Functions z jednostkami magazynu w środowisku skalowania w poziomie.
 
-![Diagram skalowania](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Diagram skalowania](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 Jak pokazano na poprzednim diagramie, wszystkie maszyny wirtualne konkurują o komunikaty w kolejce elementów roboczych. Jednak tylko trzy maszyny wirtualne mogą pobierać komunikaty z kolejek kontroli, a każda maszyna wirtualna blokuje jedną kolejkę kontroli.
 

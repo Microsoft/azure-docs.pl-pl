@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863687"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612028"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Konfigurowanie urządzenia dla serwerów w funkcji Hyper-V
 
@@ -39,7 +39,7 @@ Aby skonfigurować urządzenie przy użyciu szablonu wirtualnego dysku twardego:
 
 1. W obszarze **cele migracji**  >  **systemy Windows, Linux i SQL Server**  >  **Azure Migrate: odnajdywanie i Ocena** wybierz pozycję **odkryj**.
 2. W obszarze **odnajdowanie serwerów**  >  **są zwirtualizowane serwery?** wybierz opcję **tak, używając funkcji Hyper-V**.
-3. W **1: Wygeneruj klucz projektu**, podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów w funkcji Hyper-V. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+3. W obszarze **1: generowanie klucza projektu** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane na potrzeby odnajdywania serwerów w funkcji Hyper-V. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie serwerów podczas tworzenia zasobów.
 1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
@@ -53,7 +53,6 @@ W **2: Pobierz urządzenie Azure Migrate**, wybierz opcję. Plik VHD i kliknij p
 
    ![Wybory dla klucza generowania](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>Weryfikuj zabezpieczenia
 
 Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
@@ -63,9 +62,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład użycia: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Sprawdź najnowszą wartość skrótu, porównując wynik powyższego polecenia z wartością udokumentowaną [tutaj](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security) .
 
 ## <a name="create-the-appliance"></a>Utwórz urządzenie
 
@@ -85,7 +82,6 @@ Zaimportuj pobrany plik i Utwórz urządzenie.
 5. W obszarze **Wybierz sieć** Określ przełącznik wirtualny, który będzie używany przez serwer. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure.
 6. W obszarze **Podsumowanie** przejrzyj ustawienia. Następnie kliknij przycisk **Zakończ**.
 7. W Menedżerze funkcji Hyper-V > **Virtual Machines** Uruchom maszynę wirtualną.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
@@ -128,8 +124,6 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. Po pomyślnym zalogowaniu Wróć do poprzedniej karty przy użyciu Menedżera konfiguracji urządzeń.
 4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie [uprawnienia](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
 1. Po pomyślnym zarejestrowaniu urządzenia można wyświetlić szczegóły rejestracji, klikając pozycję **Wyświetl szczegóły**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegowanie poświadczeń dla wirtualnych dysków twardych SMB
 

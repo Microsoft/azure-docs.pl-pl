@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: a14f8e0ba3ae5cca75cf6518320023703a6d1700
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889063"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626388"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,22 +48,22 @@ Za każdym razem, gdy aparat bazy danych lub system operacyjny zostanie uaktualn
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Ogólnego przeznaczenia nadmiarowa dostępność strefy warstwy usług (wersja zapoznawcza)
 
-Konfiguracja nadmiarowa strefy dla warstwy usług ogólnego przeznaczenia wykorzystuje [strefy dostępności platformy Azure](../../availability-zones/az-overview.md)   do replikowania baz danych w wielu lokalizacjach fizycznych w regionie świadczenia usługi Azure.Wybranie nadmiarowości strefy pozwala utworzyć nowe i istniejące pojedyncze bazy danych ogólnego przeznaczenia, które są odporne na znacznie większy zestaw błędów, w tym katastrofalne przestoje w centrum, bez wprowadzania żadnych zmian w logice aplikacji.
+Konfiguracja nadmiarowej strefy dla warstwy usług ogólnego przeznaczenia jest oferowana zarówno w przypadku obliczeń bezserwerowych, jak i aprowizacji. Ta konfiguracja wykorzystuje [strefy dostępności platformy Azure](../../availability-zones/az-overview.md)   do replikowania baz danych w wielu lokalizacjach fizycznych w regionie świadczenia usługi Azure.Po wybraniu nadmiarowości strefy można utworzyć nowe i istniejące serverlesss oraz zainicjowane przez siebie pojedyncze bazy danych i elastyczne pule, które są odporne na znacznie większy zestaw błędów, w tym katastrofalne przerwy w działaniu, bez żadnych zmian w logice aplikacji.
 
 Konfiguracja nadmiarowa strefy dla warstwy ogólnego zastosowania ma dwie warstwy:  
 
-- Warstwa danych stanowych z plikami bazy danych (. mdf/. ldf), które są przechowywane w ZRS PFS ( [udział plików magazynu](../../storage/files/storage-how-to-create-file-share.md)Strefowo nadmiarowego w warstwie Premium. Korzystanie z [magazynu Strefowo nadmiarowego](../../storage/common/storage-redundancy.md) pliki danych i dziennika są synchronicznie kopiowane w ramach trzech fizycznie odizolowanych stref dostępności platformy Azure.
-- Warstwa obliczeń bezstanowych, która uruchamia proces sqlservr.exe i zawiera tylko dane przejściowe i buforowane, takie jak TempDB, modeluje bazy danych na dołączonym dysku SSD, oraz pamięć podręczną planu, pulę buforów i pulę magazynu kolumn w pamięci. Ten bezstanowy węzeł jest obsługiwany przez usługę Azure Service Fabric, która inicjuje sqlservr.exe, steruje kondycją węzła i wykonuje przejście w tryb failover do innego węzła w razie potrzeby. W przypadku strefowo nadmiarowych baz danych ogólnego przeznaczenia węzły o pojemności zapasowej są łatwo dostępne w innych Strefy dostępności do pracy w trybie failover.
+- Warstwa danych stanowych z plikami bazy danych (. mdf/. ldf), które są przechowywane w ZRS (magazyn strefowo nadmiarowy). Przy użyciu [ZRS](../../storage/common/storage-redundancy.md) pliki danych i dziennika są synchronicznie kopiowane w trzech fizycznie izolowanych strefach dostępności platformy Azure.
+- Warstwa obliczeń bezstanowych, która uruchamia proces sqlservr.exe i zawiera tylko dane przejściowe i buforowane, takie jak TempDB, modeluje bazy danych na dołączonym dysku SSD, oraz pamięć podręczną planu, pulę buforów i pulę magazynu kolumn w pamięci. Ten bezstanowy węzeł jest obsługiwany przez usługę Azure Service Fabric, która inicjuje sqlservr.exe, steruje kondycją węzła i wykonuje przejście w tryb failover do innego węzła w razie potrzeby. W przypadku strefowo nadmiarowe bezserwerowe i udostępniane bazy danych ogólnego przeznaczenia węzły o pojemności zapasowej są łatwo dostępne w innych Strefy dostępności do pracy w trybie failover.
 
 Strefa z nadmiarową wersją architektury wysokiej dostępności dla warstwy usług ogólnego przeznaczenia przedstawiono na poniższym diagramie:
 
 ![Konfiguracja nadmiarowa strefy dla ogólnego przeznaczenia](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Konfiguracja nadmiarowa strefy jest dostępna tylko wtedy, gdy wybrano sprzęt obliczeniowy 5 rdzeń. Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL. Konfiguracja nadmiarowa strefy dla warstwy ogólnego przeznaczenia jest dostępna tylko w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, Europa Północna, Europa Zachodnia, Azja Południowo-Wschodnia, Australia Wschodnia, Japonia Wschodnia, Południowe Zjednoczone Królestwo i Francja środkowa.
+> Konfiguracja nadmiarowa strefy jest dostępna tylko wtedy, gdy wybrano sprzęt obliczeniowy 5 rdzeń. Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL. Konfiguracja nadmiarowa stref dla warstwy ogólnego przeznaczenia bezserwerowego i aprowizacji jest dostępna tylko w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, Europa Północna, Europa Zachodnia, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Południowe Zjednoczone Królestwo i Francja środkowa.
 
 > [!NOTE]
-> Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Ponadto operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych i Konfigurowanie relacji Geo-DR mogą mieć mniejszą wydajność dla wszystkich baz danych większych niż 1 TB. 
+> Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Ponadto operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych, Konfigurowanie relacji geograficznych i obniżenie rozmiaru strefy nadmiarowa baza danych z Krytyczne dla działania firmy do Ogólnego przeznaczenia mogą spowodować wolniejszą wydajność dla wszystkich pojedynczych baz danych większych niż 1 TB. Aby uzyskać więcej informacji, zapoznaj [się z naszą dokumentacją dotyczącą opóźnień w zakresie skalowania bazy danych](single-database-scale.md) .
 > 
 > [!NOTE]
 > Wersja zapoznawcza nie jest objęta wystąpieniem zarezerwowanym

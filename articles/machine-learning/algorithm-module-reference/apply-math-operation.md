@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc2afb2b29c69e9687dbd3b194b6a1626d4131b3
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584994"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625198"
 ---
 # <a name="apply-math-operation"></a>Stosowanie operacji matematycznej
 
@@ -254,6 +254,7 @@ Kolejność dzielenia i odejmowania jest następująca:
 - Dzielenie (Arg1_Arg2) = arg1/ARG 2
 
 W poniższej tabeli przedstawiono kilka przykładów
+
 Operacja|Num1|Num2|Kolumna wyników|Wartość wyniku|
 ----|----|----|----|----
 |Znak dodawania|1|5|Dodaj (Num2_Num1)| 6|

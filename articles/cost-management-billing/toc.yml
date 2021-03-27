@@ -206,6 +206,8 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: Anulowanie subskrypcji
               href: manage/cancel-azure-subscription.md
+            - name: Zarządzanie zasadami subskrypcji
+              href: manage/manage-azure-subscription-policy.md
         - name: Programowe tworzenie subskrypcji
           items:
             - name: Programowe tworzenie subskrypcji

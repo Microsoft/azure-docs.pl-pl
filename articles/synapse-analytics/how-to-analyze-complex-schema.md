@@ -2,19 +2,19 @@
 title: Analizuj schemat z tablicami i zagnieżdżonymi strukturami
 description: Jak analizować tablice i zagnieżdżone struktury przy użyciu Apache Spark i SQL
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d4004887a4806a5b8e50429031fb204f4eec5000
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98220001"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627969"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analizowanie złożonych typów danych w usłudze Azure Synapse Analytics
 
