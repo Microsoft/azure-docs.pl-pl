@@ -2,13 +2,13 @@
 title: Jak rozwiązywać problemy z usługą Container Insights | Microsoft Docs
 description: W tym artykule opisano, jak rozwiązywać problemy z usługą Container Insights i je rozwiązywać.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 60a6e76d43d954b27336b9631c48328aeff0b69b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: b7618e9073308da67a8e17c82375a0f05925a542
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708309"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627119"
 ---
 # <a name="troubleshooting-container-insights"></a>Rozwiązywanie problemów dotyczących usługi Container Insights
 
@@ -113,6 +113,54 @@ Moduł do zbierania informacji o kontenerach usługi Container Insights używa p
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-container-insights"></a>Klaster Kubernetes spoza platformy Azure nie jest wyświetlany w usłudze Container Insights
 
 Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w usłudze Container Insights, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz w obszarze roboczym rozwiązania usługi Container Insights **ContainerInsights (*przestrzeń robocza*)**.
+
+## <a name="metrics-arent-being-collected"></a>Metryki nie są zbierane
+
+1. Sprawdź, czy klaster jest w [obsługiwanym regionie dla metryk niestandardowych](../essentials/metrics-custom-overview.md#supported-regions).
+
+2. Sprawdź, czy przypisanie roli **wydawcy metryk monitorowania** istnieje przy użyciu poniższego polecenia interfejsu CLI:
+
+    ``` azurecli
+    az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
+    ```
+    W przypadku klastrów z pakietem MSI identyfikator klienta przypisany przez użytkownika dla omsagent zmienia się przy każdym włączeniu i wyłączaniu monitorowania, dlatego przypisanie roli powinno istnieć na bieżącym identyfikatorze klienta MSI. 
+
+3. W przypadku klastrów z włączoną tożsamością Azure Active Directory pod i użyciem pliku MSI:
+
+   - Sprawdź wymaganą etykietę **Kubernetes.Azure.com/ManagedBy: AKS**  jest obecny w zasobnikach omsagent przy użyciu następującego polecenia:
+
+        `kubectl get pods --show-labels -n kube-system | grep omsagent`
+
+    - Upewnij się, że wyjątki są włączone, gdy tożsamość pod jest włączona przy użyciu jednej z obsługiwanych metod w https://github.com/Azure/aad-pod-identity#1-deploy-aad-pod-identity .
+
+        Uruchom następujące polecenie, aby zweryfikować:
+
+        `kubectl get AzurePodIdentityException -A -o yaml`
+
+        Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
+
+        ```
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: mic-exception
+        namespace: default
+        spec:
+        podLabels:
+        app: mic
+        component: mic
+        ---
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: aks-addon-exception
+        namespace: kube-system
+        spec:
+        podLabels:
+        kubernetes.azure.com/managedby: aks
+        ```
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,14 +2,14 @@
 title: Inicjowanie obsługi administracyjnej puli w sieci wirtualnej
 description: Jak utworzyć pulę usługi Batch w sieci wirtualnej platformy Azure, dzięki czemu węzły obliczeniowe mogą bezpiecznie komunikować się z innymi maszynami wirtualnymi w sieci, takimi jak serwer plików.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561921"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629312"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -56,6 +56,8 @@ Aby upewnić się, że węzły w puli działają w sieci wirtualnej z włączony
 - Usługa Batch musi komunikować się z węzłami w celu planowania zadań. Aby włączyć tę komunikację, należy dodać UDR dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md).
 
 - Upewnij się, że ruch wychodzący do usługi Azure Storage (w odniesieniu do adresów URL formularza `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` i `<account>.blob.core.windows.net` ) nie jest blokowany przez sieć lokalną.
+
+- W przypadku korzystania z instalacji plików wirtualnych Sprawdź [wymagania dotyczące sieci](virtual-file-mount.md#networking-requirements) i upewnij się, że żaden wymagany ruch nie jest blokowany.
 
 Po dodaniu UDR należy zdefiniować trasę dla każdego powiązanego prefiksu adresu IP partii i ustawić **Typ następnego przeskoku** na **Internet**.
 

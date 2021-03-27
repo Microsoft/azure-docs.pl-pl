@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8b725b7fcde8ad24934d74d3ce849260312d2f5f
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 24fe28eafc1d1da90b6a7b7f9d41b7e645e62855
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043618"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625776"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Samouczek: Konfigurowanie ochrony oszustwa systemu Microsoft Dynamics 365 za pomocą Azure Active Directory B2C
 
-W tym przykładowym samouczku przedstawiono wskazówki dotyczące integracji [ochrony oszustwa systemu Microsoft Dynamics 365](/dynamics365/fraud-protection/overview) (DFP) z usługą Azure Active Directory (AD) B2C.
+W tym przykładowym samouczku przedstawiono wskazówki dotyczące integracji [ochrony oszustwa systemu Microsoft Dynamics 365](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) z usługą Azure Active Directory (AD) B2C.
 
 Program Microsoft DFP zapewnia klientom możliwość oceny, czy ryzyko prób tworzenia nowych kont i próby zalogowania się do ekosystemu klienta jest fałszywe. Program Microsoft DFP Assessment może być używany przez klienta do blokowania lub zakwestionowania podejrzanych prób w celu utworzenia nowych, fałszywych kont lub naruszenia istniejących kont. Ochrona konta obejmuje sztuczną transportową kartę sieciową, interfejsy API do oceny ryzyka w czasie rzeczywistym, zasady i listę w celu optymalizacji strategii ryzyka zgodnie z potrzebami biznesowymi klienta oraz kartę wyników umożliwiającą monitorowanie skuteczności i trendów w ekosystemie klienta.
 
@@ -103,7 +103,7 @@ Skonfiguruj ustawienia aplikacji w [usłudze App Service na platformie Azure](..
 |FraudProtectionSettings: InstanceId | Konfiguracja programu Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Identyfikator klienta dotyczącego odcisku palca urządzenia firmy Microsoft |     |
 | FraudProtectionSettings:ApiBaseUrl |  Podstawowy adres URL z witryny Microsoft DFP Portal   | Usuń element "-int", aby wywołać produkcyjny interfejs API|
-|  TokenProviderConfig: zasób  |     | Usuń element "-int", aby wywołać produkcyjny interfejs API|
+|  TokenProviderConfig: zasób  | Podstawowy adres URL — https://api.dfp.dynamics-int.com     | Usuń element "-int", aby wywołać produkcyjny interfejs API|
 |   TokenProviderConfig: ClientId       |Identyfikator aplikacji klienta usługi Azure AD dla handlowca ochrony oszustwa      |       |
 | TokenProviderConfig: Urząd | https://login.microsoftonline.com/<directory_ID> | Urząd dzierżawy usługi Azure AD w ramach ochrony oszustwa |
 | TokenProviderConfig: CertificateThumbprint * | Odcisk palca certyfikatu, który ma być używany do uwierzytelniania w aplikacji klienckiej usługi Azure AD dla sprzedawcy |

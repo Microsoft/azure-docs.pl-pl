@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009967"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628955"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
 
@@ -127,6 +127,9 @@ Analityk danych może uruchamiać, zatrzymywać i ponownie uruchamiać wystąpie
 
 Uruchamianie, zatrzymywanie, ponowne uruchamianie i usuwanie wystąpienia obliczeniowego. Wystąpienie obliczeniowe nie jest automatycznie skalowane w dół, dlatego pamiętaj o zatrzymaniu zasobu, aby uniknąć naliczania opłat.
 
+> [!TIP]
+> Wystąpienie obliczeniowe ma dysk systemu operacyjnego o 120 GB. Jeśli zabraknie miejsca na [dysku, przed](how-to-access-terminal.md) zatrzymaniem lub ponownym uruchomieniem wystąpienia obliczeniowego należy wyczyścić co najmniej 1-2 GB pamięci.
+
 # <a name="python"></a>[Python](#tab/python)
 
 W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
@@ -225,6 +228,7 @@ Dla każdego wystąpienia obliczeniowego w utworzonym obszarze roboczym (lub kt�
 * Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
 
 ---
+
 
 [Usługa Azure RBAC](../role-based-access-control/overview.md) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało Logowanie jednokrotne i wszystkie akcje będą korzystać z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
 

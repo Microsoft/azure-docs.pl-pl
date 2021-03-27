@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 685d7f0a0aaab2f38967e0eb6c32c3fb4067dbe3
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110512"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612827"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Konfigurowanie urządzenia dla serwerów w środowisku VMware
 
@@ -67,7 +67,6 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
         --- | --- | ---
         VMware (11,9 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
-
 ### <a name="3-create-the-appliance-server"></a>3. Utwórz serwer urządzenia
 
 Zaimportuj pobrany plik i Utwórz serwer w środowisku VMware
@@ -81,11 +80,9 @@ Zaimportuj pobrany plik i Utwórz serwer w środowisku VMware
 8. W polu **mapowanie sieci** Określ sieć, z którą zostanie nawiązane połączenie serwer. Sieć wymaga łączności z Internetem, aby można było wysyłać metadane do Azure Migrate.
 9. Sprawdź poprawność ustawień, a następnie kliknij pozycję **Finish** (Zakończ).
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
 Upewnij się, że serwer urządzenia może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
-
 
 ### <a name="4-configure-the-appliance"></a>4. Skonfiguruj urządzenie
 
@@ -114,7 +111,6 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. Jeśli chcesz, możesz **ponownie uruchomić wymagania wstępne** w dowolnym momencie podczas konfigurowania urządzenia, aby sprawdzić, czy urządzenie spełnia wszystkie wymagania wstępne.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 w Menedżerze konfiguracji urządzenia":::
-
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 

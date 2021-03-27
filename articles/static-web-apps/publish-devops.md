@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: af359734ff5bfe90dedbb7f8389aecdc6e056654
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.openlocfilehash: 701f999427d743c18f5dbcadb00cf303f97a8f53
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105543566"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627335"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Samouczek: publikowanie Web Apps statycznej platformy Azure za pomocą usługi Azure DevOps
 
@@ -36,35 +36,13 @@ Z tego samouczka dowiesz się, jak wykonać następujące czynności:
 
 1. Przejdź do repozytorium usługi Azure DevOps.
 
-1. Użyj istniejącego repozytorium lub _zaimportuj repozytorium_ , jak pokazano poniżej.
+1. Wybierz pozycję **Importuj** , aby rozpocząć importowanie przykładowej aplikacji.
   
     :::image type="content" source="media/publish-devops/devops-repo.png" alt-text="Repozytorium DevOps":::
 
-1. Utwórz nowy plik dla aplikacji frontonu sieci Web.
+1. W polu **sklonowany adres URL** wprowadź `https://github.com/staticwebdev/vanilla-api.git` .
 
-1. Skopiuj i wklej następujący znacznik HTML do nowego pliku:
-
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-  
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="styles.css">
-      <title>Hello World!</title>
-    </head>
-  
-    <body>
-      <main>
-        <h1>Hello World!</h1>
-      </main>
-    </body>
-  
-    </html>
-    ```
-
-1. Zapisz plik.
+1. Wybierz pozycję **Importuj**.
 
 ## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji internetowej
 
@@ -85,7 +63,9 @@ Z tego samouczka dowiesz się, jak wykonać następujące czynności:
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Szczegóły wdrożenia — inne":::
 
-1. Po pomyślnym wdrożeniu wybierz pozycję **Zarządzaj tokenem wdrożenia**.
+1. Po pomyślnym wdrożeniu przejdź do nowego zasobu statycznego Web Apps.
+
+1. Wybierz pozycję **Zarządzaj tokenem wdrożenia**.
 
 1. Skopiuj **token wdrożenia** i wklej go do edytora tekstu, aby użyć go na innym ekranie.
 
@@ -96,16 +76,17 @@ Z tego samouczka dowiesz się, jak wykonać następujące czynności:
 
 ## <a name="create-the-pipeline-task-in-azure-devops"></a>Tworzenie zadania potoku na platformie Azure DevOps
 
-1. Przejdź do projektu usługi Azure DevOps, który został utworzony wcześniej.
+1. Przejdź do repozytorium Azure DevOps, które zostało utworzone wcześniej.
 
-2. Utwórz nowy **potok kompilacji** i wybierz pozycję **Skonfiguruj kompilację**.
+1. Wybierz pozycję **Konfiguruj kompilację**.
 
     :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Potok kompilacji":::
 
-3. Skopiuj i wklej następujący YAML do potoku.
+1. Na ekranie *Konfigurowanie potoku* wybierz pozycję **potok początkowy**.
 
-    > [!NOTE]
-    > Dla aplikacji należy zmodyfikować wartości wprowadzone dla _app_location_,_api_location_ i _output_location_ .  
+    :::image type="content" source="media/publish-devops/configure-pipeline.png" alt-text="Konfiguruj potok":::
+
+1. Skopiuj i wklej następujący YAML do potoku.
 
     ```yaml
     trigger:
@@ -117,40 +98,47 @@ Z tego samouczka dowiesz się, jak wykonać następujące czynności:
     steps:
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: frontend 
-          api_location: api
-          output_location: build
+          app_location: "/" 
+          api_location: "api"
+          output_location: ""
         env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 
-    Skonfiguruj dane wejściowe statycznej aplikacji internetowej platformy Azure zgodnie ze strukturą folderów aplikacji.
+    > [!NOTE]
+    > Jeśli nie korzystasz z przykładowej aplikacji, wartości dla `app_location` , `api_location` i `output_location` muszą ulec zmianie, aby odpowiadały wartościom w aplikacji.
 
     [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
     `azure_static_web_apps_api_token`Wartość jest samodzielnie zarządzana i jest konfigurowana ręcznie.
 
-4. Wybierz **zmienne**.
+1. Wybierz **zmienne**.
 
-5. Utwórz nową zmienną.
+1. Utwórz nową zmienną.
 
-6. Nazwij zmienną **deployment_token** (zgodną z nazwą w przepływie pracy).
+1. Nazwij zmienną **deployment_token** (zgodną z nazwą w przepływie pracy).
 
-7. Skopiuj token wdrożenia, który został wcześniej wklejony do edytora tekstu.
+1. Skopiuj token wdrożenia, który został wcześniej wklejony do edytora tekstu.
 
-8. Wklej w tokenie wdrożenia w polu _wartość_ .
+1. Wklej w tokenie wdrożenia w polu _wartość_ .
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Token zmiennej":::
 
-9. Wybierz przycisk **OK**.
+1. Wybierz opcję **Zachowaj ten wpis tajny wartości**.
 
-10. Wybierz pozycję **Zapisz i uruchom** potok.
+1. Wybierz przycisk **OK**.
+
+1. Wybierz pozycję **Zapisz** , aby powrócić do YAML potoku.
+
+1. Wybierz pozycję **Zapisz i uruchom** , aby otworzyć okno dialogowe _Zapisywanie i uruchamianie_ .
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Potok":::
 
-11. Po pomyślnym wdrożeniu przejdź do **omówienia** usługi Azure static Web Apps, który zawiera linki do konfiguracji wdrożenia.
+1. Wybierz pozycję **Zapisz i uruchom** , aby uruchomić potok.
 
-12. Wybierz **adres URL** , aby wyświetlić nowo wdrożoną witrynę sieci Web. Zwróć uwagę, jak link _źródłowy_ teraz wskazuje gałąź i lokalizację repozytorium usługi Azure DevOps.
+1. Po pomyślnym wdrożeniu przejdź do **omówienia** usługi Azure static Web Apps, który zawiera linki do konfiguracji wdrożenia. Zwróć uwagę, jak link _źródłowy_ teraz wskazuje gałąź i lokalizację repozytorium usługi Azure DevOps.
+
+1. Wybierz **adres URL** , aby wyświetlić nowo wdrożoną witrynę sieci Web.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Lokalizacja wdrożenia":::
 

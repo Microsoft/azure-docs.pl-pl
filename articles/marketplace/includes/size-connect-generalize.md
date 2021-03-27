@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630126"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105630089"
 ---
 ## <a name="generalize-the-image"></a>Uogólnianie obrazu
 
@@ -52,7 +52,9 @@ Gdy maszyna wirtualna będzie gotowa, możesz ją przechwycić w galerii udostę
 8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje.
 9. Po przekazaniu walidacji wybierz pozycję **Utwórz**.
 
-Do opublikowania konto wydawcy musi mieć dostęp właściciela do SIG. Aby udzielić dostępu:
+Subskrypcja platformy Azure zawierająca SIG musi znajdować się w tej samej dzierżawie co konto wydawcy, aby można było ją opublikować. Ponadto konto wydawcy musi mieć dostęp właściciela do SIG. 
+
+Aby udzielić dostępu:
 
 1. Przejdź do galerii obrazów udostępnionych.
 2. Na panelu po lewej stronie wybierz pozycję **Kontrola dostępu** (IAM).

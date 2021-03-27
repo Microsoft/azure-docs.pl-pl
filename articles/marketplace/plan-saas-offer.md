@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.date: 03/26/2021
+ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604943"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627062"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji na temat tych opcji, zobacz [komercyjne funkcje 
 
 Po opublikowaniu oferty opcja wystaw wybrana dla oferty zostanie wyświetlona jako przycisk w lewym górnym rogu strony aukcji oferty. Na przykład poniższy zrzut ekranu przedstawia stronę aukcji oferty w witrynie Azure Marketplace z przyciskiem **Pobierz teraz** .
 
-![Przedstawia listę ofert w sklepie online.](./media/saas/listing-options-saas-full.png)
+![Przedstawia listę ofert w sklepie online.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 

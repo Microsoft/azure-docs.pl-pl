@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 215b7e908b21b1843b36a1e55972038c49ee101a
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 1d1751ed56f63105ce7775ceaed9ea2dcca1f8bf
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605318"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628139"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL — pojedynczy serwer
 W tym artykule przedstawiono zagadnienia i wytyczne dotyczące pracy z serwerem Azure Database for PostgreSQL-pojedynczym.
@@ -36,7 +36,7 @@ Na serwerze Azure Database for PostgreSQL można utworzyć jedną lub wiele baz 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Jak mogę połączyć się i uwierzytelnić na serwerze Azure Database for PostgreSQL?
 Następujące elementy pomagają zapewnić bezpieczny dostęp do bazy danych:
 
-|||
+|Koncepcja zabezpieczeń|Opis|
 |:--|:--|
 | **Uwierzytelnianie i autoryzacja** | Serwer usługi Azure Database for PostgreSQL obsługuje natywne uwierzytelnianie bazy danych PostgreSQL. Aby nawiązać połączenie z serwerem i przeprowadzić uwierzytelnianie na serwerze, można użyć identyfikatora logowania administratora serwera. |
 | **Protokół** | Usługa obsługuje protokół oparty na komunikatach używany przez PostgreSQL. |

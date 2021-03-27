@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606950"
+ms.locfileid: "105611654"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Rozwiązywanie problemów z usługą dedykowanego modułu HSM platformy Azure
 
@@ -33,7 +33,7 @@ Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasob�
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Uzyskiwanie dostępu do dedykowanego modułu HSM
 
-Najpierw Zaproponuj siebie przypadki użycia, których nie można rozwiązać za pomocą [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) lub [zarządzanego modułu HSM platformy Azure](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Jeśli uważasz, że tylko dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu kluczy, Wyślij wiadomość e-mail, HSMrequest@microsoft.com Aby zażądać dostępu. Utwórz konspekt aplikacji i przypadków użycia, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
+Najpierw Zaproponuj siebie przypadki użycia, których nie można rozwiązać za pomocą [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) lub [zarządzanego modułu HSM platformy Azure](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). Jeśli uważasz, że tylko dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu kluczy, Wyślij wiadomość e-mail, HSMrequest@microsoft.com Aby zażądać dostępu. Utwórz konspekt aplikacji i przypadków użycia, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
 
 ## <a name="hsm-provisioning"></a>Inicjowanie obsługi modułu HSM
 

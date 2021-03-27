@@ -1,18 +1,18 @@
 ---
 title: Power BI i bezserwerowa Pula SQL do analizowania danych Azure Cosmos DB za pomocą linku Synapse
 description: Dowiedz się, jak utworzyć bezserwerową bazę danych puli i widoki za pośrednictwem linku Synapse dla Azure Cosmos DB, wysłać zapytanie do kontenerów Azure Cosmos DB, a następnie skompilować model przy użyciu Power BI w tych widokach.
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.author: acomet
+ms.author: rosouz
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 7a9324923164d6d5cbbdc48bfa60fc444bdc4fb1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868991"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626252"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Użyj Power BI i bezserwerowej puli SQL Synapse, aby analizować dane Azure Cosmos DB za pomocą linku Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]

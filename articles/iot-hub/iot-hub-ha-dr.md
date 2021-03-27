@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92151680"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628989"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub
 
@@ -64,7 +64,7 @@ Po zakończeniu operacji przejścia w tryb failover dla usługi IoT Hub należy 
 >
 > - W przypadku używania Azure Functions lub Azure Stream Analytics do łączenia wbudowanego punktu końcowego zdarzeń może być konieczne **ponowne uruchomienie komputera**. Wynika to z faktu, że podczas poprzedniego przesunięcia w tryb failover nie są już prawidłowe.
 >
-> - W przypadku kierowania do magazynu zalecamy wyświetlenie listy obiektów blob lub plików, a następnie przeprowadzenie iteracji dla nich, aby upewnić się, że wszystkie obiekty blob lub pliki są odczytywane bez tworzenia założeń partycji. Zakres partycji może ulec zmianie podczas pracy w trybie failover zainicjowanej przez firmę Microsoft lub ręcznego przejścia w tryb failover. Korzystając z [interfejsu API listy obiektów BLOB](/rest/api/storageservices/list-blobs) , można wyliczyć listę obiektów blob lub [listę interfejsów API ADLS Gen2](/rest/api/storageservices/datalakestoragegen2/path/list) dla listy plików. Aby dowiedzieć się więcej, zobacz [Azure Storage jako punkt końcowy routingu](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - W przypadku kierowania do magazynu zalecamy wyświetlenie listy obiektów blob lub plików, a następnie przeprowadzenie iteracji dla nich, aby upewnić się, że wszystkie obiekty blob lub pliki są odczytywane bez tworzenia założeń partycji. Zakres partycji może ulec zmianie podczas pracy w trybie failover zainicjowanej przez firmę Microsoft lub ręcznego przejścia w tryb failover. Korzystając z [interfejsu API listy obiektów BLOB](/rest/api/storageservices/list-blobs) , można wyliczyć listę obiektów blob lub [listę interfejsów API ADLS Gen2](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) dla listy plików. Aby dowiedzieć się więcej, zobacz [Azure Storage jako punkt końcowy routingu](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Tryb failover zainicjowany przez firmę Microsoft
 

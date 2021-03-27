@@ -7,18 +7,19 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109237"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629074"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Wizualizowanie i analizowanie danych IoT Central platformy Azure na pulpicie nawigacyjnym Power BI
 
 *Ten temat dotyczy administratorów i deweloperów rozwiązań.*
 
-[!Note] To rozwiązanie korzysta ze [starszych funkcji eksportu danych](./howto-export-data-legacy.md). Bądź na bieżąco z zaktualizowanymi wskazówkami dotyczącymi sposobu nawiązywania połączenia z Power BI przy użyciu najnowszego eksportu danych.
+> [!Note] 
+> To rozwiązanie korzysta ze [starszych funkcji eksportu danych](./howto-export-data-legacy.md). Bądź na bieżąco z zaktualizowanymi wskazówkami dotyczącymi sposobu nawiązywania połączenia z Power BI przy użyciu najnowszego eksportu danych.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Potok rozwiązania Power BI":::
 
@@ -29,7 +30,7 @@ Użyj rozwiązania Power BI dla platformy Azure IoT Central v3, aby utworzyć za
 - Filtrowanie w dół do danych wysyłanych przez określone urządzenia
 - Wyświetlanie najnowszych danych telemetrycznych w tabeli
 
-To rozwiązanie służy do konfigurowania potoku, który odczytuje dane z konta [usługi Azure Blob](./howto-export-data-legacy.md) Storage. Potok używa Azure Functions, Azure Data Factory i Azure SQL Database, aby przetwarzać i przekształcać dane. Możesz wizualizować i analizować dane w raporcie Power BI pobranym jako plik PBIX. Wszystkie zasoby są tworzone w ramach subskrypcji platformy Azure, dzięki czemu można dostosować każdy składnik do swoich potrzeb.
+To rozwiązanie służy do konfigurowania potoku, który odczytuje dane ze [starszego](./howto-export-data-legacy.md) konta usługi Azure Blob Storage. Potok używa Azure Functions, Azure Data Factory i Azure SQL Database, aby przetwarzać i przekształcać dane. Możesz wizualizować i analizować dane w raporcie Power BI pobranym jako plik PBIX. Wszystkie zasoby są tworzone w ramach subskrypcji platformy Azure, dzięki czemu można dostosować każdy składnik do swoich potrzeb.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +39,7 @@ Aby wykonać kroki opisane w tym przewodniku, musisz mieć aktywną subskrypcję
 Skonfigurowanie rozwiązania wymaga następujących zasobów:
 
 - Aplikacja IoT Central w wersji 3. Aby dowiedzieć się, jak sprawdzić wersję aplikacji, zobacz [Informacje o aplikacji](./howto-get-app-info.md). Aby dowiedzieć się, jak utworzyć aplikację IoT Central, zobacz [Tworzenie aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md).
-- Ciągły eksport danych skonfigurowany do eksportowania telemetrii, urządzeń i szablonów urządzeń do usługi Azure Blob Storage. Aby dowiedzieć się więcej, zobacz [jak wyeksportować dane IoT do miejsc docelowych na platformie Azure](howto-export-data.md).
+- Starszy ciągły eksport danych, który jest skonfigurowany do eksportowania telemetrii, urządzeń i szablonów urządzeń do usługi Azure Blob Storage. Aby dowiedzieć się więcej, zobacz [dokumentację dotyczącą starszego eksportu danych](howto-export-data-legacy.md).
   - Upewnij się, że tylko aplikacja IoT Central eksportuje dane do kontenera obiektów BLOB.
   - [Urządzenia muszą wysyłać komunikaty kodowane w formacie JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Urządzenia muszą określać `contentType:application/JSON` `contentEncoding:utf-8` `contentEncoding:utf-16` `contentEncoding:utf-32` Właściwości systemu komunikatów i lub lub.
 - Power BI Desktop (Najnowsza wersja). Zobacz [Power BI pobierania](https://powerbi.microsoft.com/downloads/).

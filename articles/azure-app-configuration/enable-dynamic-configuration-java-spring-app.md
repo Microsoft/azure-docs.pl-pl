@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
-ms.openlocfilehash: 076ab0bb7dbc85a31b626a24d977e6fea558143e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 590f221b0a4980d462267dd8c3a73ca7d02583fd
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102636542"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625521"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ze sprężyną Java
 
@@ -89,6 +89,7 @@ Następnie otwórz plik *pom.xml* w edytorze tekstów i Dodaj `<dependency>` do 
     ```
 
 1. Aby przetestować konfigurację dynamiczną, Otwórz Portal konfiguracji aplikacji platformy Azure skojarzony z Twoją aplikacją. Wybierz pozycję **Eksplorator konfiguracji** i zaktualizuj wartość wyświetlanego klucza, na przykład:
+
     | Klucz | Wartość |
     |---|---|
     | Aplikacja/Konfiguracja. komunikat | Witaj — Zaktualizowano |

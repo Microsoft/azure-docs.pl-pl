@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 3/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576617"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627136"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Słownik Azure Monitor dla systemu Windows Virtual Desktop (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ W tym artykule wymieniono i krótko opisano najważniejsze pojęcia i koncepcje 
 
 ## <a name="alerts"></a>Alerty
 
-Wszystkie aktywne alerty Azure Monitor skonfigurowane w ramach subskrypcji i sklasyfikowane jako [ważność 1](#severity-1-alerts) zostaną wyświetlone na stronie Przegląd. Aby dowiedzieć się, jak skonfigurować alerty, zobacz [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/alerts/tutorial-response.md).
+Wszystkie aktywne alerty Azure Monitor skonfigurowane w ramach subskrypcji i sklasyfikowane jako [ważność 0](#severity-0-alerts) zostaną wyświetlone na stronie Przegląd. Aby dowiedzieć się, jak skonfigurować alerty, zobacz [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Dostępne sesje
 
@@ -40,7 +40,7 @@ Całkowita liczba użytkowników, którzy uruchomili sesję w ciągu ostatnich 2
 
 ## <a name="daily-alerts"></a>Alerty na dzień
 
-Całkowita liczba [alertów o ważności 1](#severity-1-alerts) wyzwolonych w ciągu ostatnich 24 godzin.
+Całkowita liczba alertów wyzwalanych każdego dnia.
 
 ## <a name="daily-connections-and-reconnections"></a>Połączenia i ponowne połączenia na dzień
 
@@ -78,7 +78,7 @@ Każdy problem z diagnostyką lub błąd zawiera komunikat wyjaśniający, co po
 
 ## <a name="input-delay"></a>Opóźnienie wejściowe
 
-"Opóźnienie wejścia" w Azure Monitor dla pulpitu wirtualnego systemu Windows oznacza, że opóźnienie wejściowe dla każdego z sesji. Na stronie wydajność hosta w <aka.ms/azmonwvdi>, ten licznik wydajności jest skonfigurowany do wysyłania raportu do usługi co 30 sekund. Te 30-sekundowe interwały są nazywane "przykładami" i raportem najgorszego przypadku w tym oknie. Wartości Media i p95 odzwierciedlają medianę i używany 95. percentyl we wszystkich próbkach.
+"Opóźnienie wejścia" w Azure Monitor dla pulpitu wirtualnego systemu Windows oznacza, że opóźnienie wejściowe dla każdego z sesji. Na stronie wydajność hosta w [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), ten licznik wydajności jest skonfigurowany do wysyłania raportu do usługi co 30 sekund. Te 30-sekundowe interwały są nazywane "przykładami" i raportem najgorszego przypadku w tym oknie. Wartości Media i p95 odzwierciedlają medianę i używany 95. percentyl we wszystkich próbkach.
 
 W obszarze **opóźnienie wejściowe według hosta** możesz wybrać wiersz hosta sesji, aby przefiltrować wszystkie inne wizualizacje na stronie do tego hosta. Możesz również wybrać nazwę procesu, aby odfiltrować Średnie opóźnienie wejścia na wykresie czasu.
 
@@ -114,16 +114,11 @@ Poniższa tabela zawiera listę zalecanych liczników wydajności i przedziałó
 |DyskFizyczny ( \* ) \\ Średni czas dysku w s/odczyt|30 sekund|
 |DyskFizyczny ( \* ) \\ Średni czas dysku w s/transfer|30 sekund|
 |DyskFizyczny ( \* ) \\ Średni czas dysku w s/zapis|30 sekund|
-|Proces ( \* ) \\ czas procesora (%)|20 sekund|
-|Proces ( \* ) \\ % czasu użytkownika|30 sekund|
-|Proces ( \* ) \\ Liczba wątków|30 sekund|
-|Proces ( \* ) \\ operacje zapisu we/wy/s|30 sekund|
-|Proces ( \* ) \\ operacje odczytu we/wy/s|30 sekund|
 |Informacje o procesorze (_Total) \\ % czasu procesora|30 sekund|
 |\*Aktywne sesje usług terminalowych \\|60 sekund|
 |\*Nieaktywne sesje usług \\ terminalowych|60 sekund|
 |\* \\ Łączna liczba sesji usług terminalowych|60 sekund|
-|\*Opóźnienie wejściowe użytkownika na proces ( \* ) \\ Maksymalna liczba danych wejściowych dela|30 sekund|
+|\*Opóźnienie wejściowe użytkownika na proces ( \* ) \\ maksymalne opóźnienie wejścia|30 sekund|
 |\*Opóźnienie wejściowe użytkownika na sesję ( \* ) \\ maksymalne opóźnienie wejściowe|30 sekund|
 |Sieć funkcji RemoteFX ( \* ) \\ bieżący RTT TCP|30 sekund|
 |Sieć funkcji RemoteFX ( \* ) \\ Bieżąca przepustowość UDP|30 sekund|
@@ -155,7 +150,7 @@ Czas błądzenia (RTT) to oszacowanie czasu błądzenia połączenia między lok
 
 Element **Sessions** pokazuje stan wszystkich sesji, połączonych i rozłączonych. **Sesje bezczynne** są wyświetlane tylko w odłączonych sesjach.
 
-## <a name="severity-1-alerts"></a>Alerty o ważności 1
+## <a name="severity-0-alerts"></a>Alerty o ważności 0
 
 Najbardziej pilne elementy, które należy wziąć pod uwagę od razu. Jeśli te problemy nie są rozwiązywane, może to spowodować, że wdrożenie pulpitu wirtualnego systemu Windows przestanie działać.
 
@@ -171,11 +166,11 @@ Na stronie raport użytkownika można wyświetlić historię połączeń określ
 
 Jest to liczba użytkowników w poszczególnych rdzeńch maszyn wirtualnych. Śledzenie maksymalnej liczby użytkowników na rdzeń w miarę upływu czasu może pomóc w ustaleniu, czy środowisko spójnie działa na dużą, niskiej lub fluktuacji liczby użytkowników na rdzeń. Znajomość liczby aktywnych użytkowników pomoże Ci efektywnie zasoby i skalować środowisko.
 
-## <a name="windows-events"></a>Zdarzenia systemu Windows
+## <a name="windows-event-logs"></a>Dzienniki zdarzeń systemu Windows
 
 Dzienniki zdarzeń systemu Windows to źródła danych zbierane przez Log Analytics agentów na maszynach wirtualnych z systemem Windows. Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, a także niestandardowych dzienników tworzonych przez aplikacje, które muszą być monitorowane.
 
-W poniższej tabeli wymieniono wymagane zdarzenia systemu Windows dotyczące Azure Monitor dla pulpitu wirtualnego systemu Windows:
+Poniższa tabela zawiera listę wymaganych dzienników zdarzeń systemu Windows dla Azure Monitor dla pulpitu wirtualnego systemu Windows:
 
 |Nazwa zdarzenia|Typ zdarzenia|
 |---|---|
@@ -186,7 +181,7 @@ W poniższej tabeli wymieniono wymagane zdarzenia systemu Windows dotyczące Azu
 | Microsoft-FSLogix-Apps/Operational|Błąd, ostrzeżenie i informacje|
 |Microsoft-FSLogix-Apps/administrator|Błąd, ostrzeżenie i informacje|
 
-Aby dowiedzieć się więcej na temat zdarzeń systemu Windows, zobacz [Właściwości rekordów zdarzeń systemu Windows](../azure-monitor/agents/data-sources-windows-events.md).
+Aby dowiedzieć się więcej na temat dzienników zdarzeń systemu Windows, zobacz [Właściwości rekordów zdarzeń systemu Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -203,4 +198,4 @@ Jeśli potrzebujesz pomocy lub masz pytania, zapoznaj się z naszymi zasobami sp
    
 - Aby dowiedzieć się, jak opuścić opinię, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczną dla pulpitu wirtualnego systemu Windows](troubleshoot-set-up-overview.md#report-issues).
 
-- Możesz również wystawić opinię na temat pulpitu wirtualnego systemu Windows w [centrum opinii na pulpicie wirtualnym systemu Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) lub [naszym forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- Możesz również wystawić opinię na temat pulpitu wirtualnego systemu Windows w [centrum opinii pulpitu wirtualnego systemu Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

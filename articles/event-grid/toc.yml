@@ -188,6 +188,8 @@
           href: delivery-and-retry.md
         - name: Dostarczanie zdarzeń elementów webhook
           href: webhook-event-delivery.md
+        - name: Właściwości dostarczania
+          href: delivery-properties.md
     - name: Odzyskiwanie po awarii
       items:
         - name: Geograficzne odzyskiwanie po awarii
@@ -271,7 +273,15 @@
         - name: Bezpieczne publikowanie zdarzeń za pośrednictwem łącza prywatnego
           href: configure-private-endpoints.md
         - name: Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
-          href: managed-service-identity.md
+          items:
+            - name: Włącz tożsamość zarządzaną dla niestandardowego tematu lub domeny
+              href: enable-identity-custom-topics-domains.md
+            - name: Włącz tożsamość zarządzaną dla tematu systemu
+              href: enable-identity-system-topics.md
+            - name: Dodawanie tożsamości do ról platformy Azure w miejscach docelowych
+              href: add-identity-roles.md
+            - name: 'Tworzenie subskrypcji zdarzeń, które używają tożsamości'
+              href: managed-service-identity.md
         - name: Bezpieczne dostarczanie zdarzeń za pośrednictwem prywatnego linku
           href: consume-private-endpoints.md
         - name: Konfigurowanie zapory IP

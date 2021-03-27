@@ -47,7 +47,7 @@ Jest to lista dostępnych języków, które mogą być uzyskanego, przy użyciu 
 | Francuski (Francja) | fr-FR |
 | Włoski (Włochy) | it-IT |
 | Niderlandzki (Holandia) | nl-NL |
-| portugalski (Brazylia) | pt-BR |
+| Portugalski (Brazylia) | pt-BR |
 | Portugalski (Portugalia) | pt-PT |
 | Szwedzki (Szwecja) | sv-SE |
 
@@ -100,7 +100,7 @@ Operacja ma następującą treść (w której jest tworzone zdarzenie typu pass-
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]
@@ -161,7 +161,7 @@ WYSŁANA ```https://management.azure.com/subscriptions/:subscriptionId/resourceG
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]

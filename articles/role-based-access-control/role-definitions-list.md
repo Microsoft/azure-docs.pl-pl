@@ -2,24 +2,19 @@
 title: Wyświetlanie listy definicji ról platformy Azure — Azure RBAC
 description: Dowiedz się, jak wyświetlić listę wbudowanych i niestandardowych ról platformy Azure przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f354e3bb7fc0f7ced17d43acacf29c726ce1329c
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100555958"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629160"
 ---
 # <a name="list-azure-role-definitions"></a>Wyświetlanie listy definicji ról platformy Azure
 
@@ -33,6 +28,10 @@ Aby wyświetlić listę ról administratorów dla Azure Active Directory, zobacz
 
 Wykonaj następujące kroki, aby wyświetlić listę wszystkich ról w Azure Portal.
 
+Jeśli interesuje Cię przeglądanie zaktualizowanego środowiska, zapoznaj się z kartami **role (wersja zapoznawcza)** , która jest obecnie dostępna w publicznej wersji zapoznawczej. Karta **role (wersja zapoznawcza)** wyświetla tę samą listę ról, co karta **role** z dodatkowymi funkcjami. Możesz użyć dowolnej karty role do pracy z rolami, jednak w przypadku tworzenia lub usuwania ról niestandardowych może być konieczne ręczne odświeżenie strony, aby zobaczyć najnowsze zmiany.
+
+#### <a name="roles"></a>[Role](#tab/roles/)
+
 1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie wybierz dowolny zakres. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub zasób.
 
 1. Kliknij konkretny zasób.
@@ -43,7 +42,29 @@ Wykonaj następujące kroki, aby wyświetlić listę wszystkich ról w Azure Por
 
    Możesz zobaczyć liczbę użytkowników i grup przypisanych do każdej roli w bieżącym zakresie.
 
-   ![Lista ról](./media/role-definitions-list/roles-list.png)
+   ![Lista ról](./media/role-definitions-list/roles-list-current.png)
+
+#### <a name="roles-preview"></a>[Role (wersja zapoznawcza)](#tab/roles-preview/)
+
+1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie wybierz dowolny zakres. Można na przykład wybrać **grupy zarządzania**, **subskrypcje**, **grupy zasobów** lub zasób.
+
+1. Kliknij konkretny zasób.
+
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+
+1. Kliknij kartę **role (wersja zapoznawcza)** , aby wyświetlić listę wszystkich ról wbudowanych i niestandardowych.
+
+   ![Lista ról korzystająca z wersji zapoznawczej](./media/role-definitions-list/roles-list.png)
+
+1. Aby wyświetlić uprawnienia dla określonej roli, w kolumnie **szczegóły** kliknij link **Wyświetl** .
+
+    Zostanie wyświetlone okienko uprawnienia.
+
+1. Kliknij kartę **uprawnienia** , aby wyświetlić i wyszukać uprawnienia dla wybranej roli.
+
+   ![Uprawnienia roli korzystające z wersji zapoznawczej](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

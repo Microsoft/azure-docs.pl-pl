@@ -1,16 +1,14 @@
 ---
 title: Monitorowanie kondycji w Service Fabric
 description: Wprowadzenie do modelu monitorowania kondycji usługi Azure Service Fabric, który umożliwia monitorowanie klastra i jego aplikacji i usług.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800163"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627419"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.

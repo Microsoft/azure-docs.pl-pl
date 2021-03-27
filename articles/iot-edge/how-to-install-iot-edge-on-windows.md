@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9eeb30d8d3ab0c884472a001149021c4d5cc362c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558724"
+ms.locfileid: "105612125"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalowanie i aprowizacja usługi IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
@@ -117,7 +117,16 @@ Jeśli chcesz wdrożyć na zdalnym urządzeniu docelowym zamiast na urządzeniu 
 
    ![Wybierz urządzenie, aby sprawdzić, czy jest ono obsługiwane](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Zaakceptuj ustawienia domyślne na karcie **ustawienia 2,2** .
+1. Na karcie **ustawienia 2,2** Sprawdź ustawienia konfiguracji wdrożenia. Po spełnieniu ustawień wybierz pozycję **dalej**.
+
+   ![Przejrzyj ustawienia konfiguracji wdrożenia](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >W przypadku korzystania z maszyny wirtualnej z systemem Windows zaleca się użycie przełącznika domyślnego zamiast przełącznika zewnętrznego, aby upewnić się, że maszyna wirtualna z systemem Linux utworzona we wdrożeniu może uzyskać adres IP.
+   >
+   >Użycie domyślnego przełącznika przypisuje maszynom wirtualnym z systemem Linux wewnętrznego adresu IP. Nie można nawiązać połączenia z tym wewnętrznym adresem IP poza maszyną wirtualną z systemem Windows, ale może być on połączony lokalnie podczas logowania na maszynie wirtualnej z systemem Windows.
+   >
+   >W przypadku korzystania z systemu Windows Server należy pamiętać, że Azure IoT Edge dla systemu Linux w systemie Windows nie obsługują automatycznie przełącznika domyślnego. Na maszynie wirtualnej z systemem Windows Server upewnij się, że maszyna wirtualna z systemem Linux może uzyskać adres IP za pomocą przełącznika zewnętrznego. W przypadku maszyny wirtualnej z systemem Windows Server na platformie Azure Skonfiguruj przełącznik wewnętrzny przed wdrożeniem IoT Edge dla systemu Linux w systemie Windows.
 
 1. Na karcie **wdrożenie 2,3** można obejrzeć postęp wdrażania. Pełny proces obejmuje pobranie Azure IoT Edge dla systemu Linux w pakiecie Windows, zainstalowanie pakietu, skonfigurowanie urządzenia hosta i skonfigurowanie maszyny wirtualnej z systemem Linux. Ten proces może potrwać kilka minut. Pomyślne wdrożenie zostało przedstawione poniżej.
 
@@ -168,7 +177,7 @@ Zainstaluj IoT Edge dla systemu Linux w systemie Windows na urządzeniu docelowy
    ```
 
    > [!NOTE]
-   > Można uruchomić to polecenie bez parametrów lub opcjonalnie dostosować wdrożenie z parametrami. Aby zobaczyć ich znaczenie, można zapoznać się z informacjami o [skrypcie IoT Edge dla systemu Linux w programie Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) .
+   > Można uruchomić to polecenie bez parametrów lub opcjonalnie dostosować wdrożenie z parametrami. Aby zobaczyć znaczenie parametrów i wartości domyślne, można zapoznać się z informacjami o [skrypcie IoT Edge dla systemu Linux w programie Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) .
 
 1. Wprowadź wartość "Y", aby zaakceptować postanowienia licencyjne.
 

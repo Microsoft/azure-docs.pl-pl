@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 9e48d8f55efa8bc4c82eaa973a6feaeb42390064
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578778"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612402"
 ---
 # <a name="overview-of-shared-device-mode"></a>Przegląd trybu udostępnionego urządzenia
 
@@ -29,7 +29,7 @@ Tryb udostępnionego urządzenia jest funkcją Azure Active Directory, która um
 
 ## <a name="what-are-frontline-workers"></a>Co to są procesy robocze teraźniejszości?
 
-Pracownicy teraźniejszości to pracownicy detaliczni, konserwacje i agenci pól, personel medyczny i inni użytkownicy, którzy nie znajdują się przed komputerem lub używają firmowej poczty e-mail do współpracy. Poniższe sekcje zawierają zagadnienia i wyzwania wspierające pracowników teraźniejszości, a następnie wprowadzenie do funkcji oferowanych przez firmę Microsoft, które umożliwiają aplikacji korzystanie przez pracowników Teraźniejszościych w organizacji.
+Pracownicy teraźniejszości to pracownicy detaliczni, konserwacje i agenci pól, personel medyczny i inni użytkownicy, którzy nie znajdują się przed komputerem lub używają firmowej poczty e-mail do współpracy. Poniższe sekcje zawierają zagadnienia i wyzwania wspierające pracowników teraźniejszości, a następnie wprowadzenie do funkcji oferowanych przez firmę Microsoft, które umożliwiają aplikacji korzystanie przez pracowników teraźniejszościych w organizacji.
 
 ### <a name="challenges-of-supporting-frontline-workers"></a>Wyzwania dla wspierających pracowników teraźniejszości
 

@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 408e972eb5950baa75fa1bdf33fb2cd507154bcb
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89279418"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612844"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historia wersji
 Zespół Azure Active Directory regularnie aktualizuje Azure AD Connect Health za pomocą nowych funkcji i funkcji. W tym artykule wymieniono wersje i funkcje, które zostały wydane.  
@@ -32,12 +32,25 @@ Zespół Azure Active Directory regularnie aktualizuje Azure AD Connect Health z
 
 Azure AD Connect Health synchronizacji jest zintegrowana z instalacją Azure AD Connect. Przeczytaj więcej na temat [historii wersji Azure AD Connect](./reference-connect-version-history.md) , aby uzyskać informacje zwrotne dotyczące funkcji, zagłosuj na [kanale głosu użytkownika programu Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="march-2021"></a>Marzec 2021
+**Aktualizacja agenta**
+
+- Agent Azure AD Connect Health dla AD FS (wersja 3.1.95.0)
+
+  - Napraw, aby rozpoznać nazwę UPN sformatowaną w systemie NT4 podczas zdarzeń logowania.
+  - Popraw, aby zidentyfikować nieprawidłowe scenariusze identyfikatora aplikacji z dedykowanym kodem błędu.
+  - Zmiany w celu dodania nowej właściwości identyfikatora klienta OAuth.
+  - Popraw, aby wyświetlić poprawne wartości pól **Protokół** i **Typ uwierzytelniania** w raporcie usługi Azure AD Sign-In w przypadku niektórych scenariuszy logowania.
+  - Napraw, aby wyświetlić adresy IP w polu łańcuch adresów IP raportu Sign-In usługi Azure AD w kolejności żądania.
+  - Zmiany wprowadzające nowe pole w celu rozróżnienia w przypadku zażądania uwierzytelniania pomocniczego podczas logowania.
+  - Poprawka dla AD FS właściwości identyfikatora aplikacji do wyświetlania w raporcie Sign-In usługi Azure AD.
+
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 **Aktualizacja agenta**
 
 - Agent Azure AD Connect Health dla AD FS (wersja 3.1.77.0)
 
-   1.   Poprawka błędu dla alertu "Nieprawidłowa nazwa główna usługi (SPN) dla usługi AD FS", dla której alert został niepoprawnie zgłoszony.
+   - Poprawka błędu dla alertu "Nieprawidłowa nazwa główna usługi (SPN) dla usługi AD FS", dla której alert został niepoprawnie zgłoszony.
 
 
 ## <a name="july-2019"></a>Lipiec 2019 r.

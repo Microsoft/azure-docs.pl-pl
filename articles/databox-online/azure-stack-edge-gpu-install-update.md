@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 8bb858bc29ac18d110f2679c3681fd4d27b72baa
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ac5ed0e5941c6251d632d029fe4c9f80bbcf12df
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105607793"
+ms.locfileid: "105612555"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Aktualizowanie procesora GPU w Azure Stack Edge 
 
@@ -112,7 +112,7 @@ Zalecamy zainstalowanie aktualizacji za pomocą Azure Portal. Urządzenie automa
 
 8. Zobaczysz transparent powiadomienia informujący, że aktualizacje urządzeń są dostępne. Wybierz ten transparent, aby rozpocząć aktualizowanie oprogramowania Kubernetes na urządzeniu. 
 
-    ![Wersja oprogramowania po aktualizacji Update 13](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
+    ![Wersja oprogramowania po aktualizacji programu 13a](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
 
 
     ![Wersja oprogramowania po aktualizacji 14](./media/azure-stack-edge-gpu-install-update/portal-update-14-a.png) 

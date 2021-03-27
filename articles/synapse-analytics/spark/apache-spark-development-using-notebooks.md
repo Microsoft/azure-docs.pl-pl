@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671603"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612329"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio w usłudze Azure Synapse Analytics
 
@@ -41,9 +41,6 @@ Synapse zespół przyniesieł nowy składnik Notess do programu Synapse Studio w
 |%% HTML| Nieobsługiwane |&#9745;|
 |Przeciągnij i upuść, aby przenieść komórkę| Nieobsługiwane |&#9745;|
 |Dane wyjściowe wyświetlania trwałego ()|&#9745;| Niedostępne |
-|Anuluj wszystko| &#9745;| Niedostępne|
-|Uruchom wszystkie komórki powyżej|&#9745;| Niedostępne |
-|Uruchom wszystkie komórki poniżej|&#9745;| Niedostępne |
 |Formatowanie komórki tekstowej przy użyciu przycisków paska narzędzi|&#9745;| Niedostępne |
 |Operacja cofnięcia komórki| &#9745;| Niedostępne |
 
@@ -273,28 +270,38 @@ Wybierz przycisk **Uruchom wszystko** , aby uruchomić wszystkie komórki w bie�
    ![Run-All-Cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[Klasyczny Notes](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>Uruchom wszystkie komórki powyżej lub poniżej
+
+# <a name="classical-notebook"></a>[Klasyczny Notes](#tab/classical)
 
 Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielokropek (**...**). Następnie wybierz pozycję **Uruchom komórki powyżej** , aby uruchomić wszystkie komórki znajdujące się nad bieżącą sekwencją. Wybierz pozycję **Uruchom komórki poniżej** , aby uruchomić wszystkie komórki znajdujące się pod bieżącą sekwencją.
 
    ![Run-Cells-above-lub-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
+
+Rozwiń listę rozwijaną z przycisku **Uruchom wszystko** , a następnie wybierz pozycję **Uruchom komórki powyżej** , aby uruchomić wszystkie komórki znajdujące się nad bieżącą sekwencją. Wybierz pozycję **Uruchom komórki poniżej** , aby uruchomić wszystkie komórki znajdujące się pod bieżącą sekwencją.
+
+   ![Azure-Notes-Run-Cells-above-lub-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>Anuluj wszystkie uruchomione komórki
+
+# <a name="classical-notebook"></a>[Klasyczny Notes](#tab/classical)
 Wybierz przycisk **Anuluj wszystko** , aby anulować uruchomione komórki lub komórki oczekujące w kolejce. 
    ![Anuluj — wszystkie komórki](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
 
-Anulowanie wszystkich uruchomionych komórek jest jeszcze niedostępne dla notesu w wersji zapoznawczej. 
+Wybierz przycisk **Anuluj wszystko** , aby anulować uruchomione komórki lub komórki oczekujące w kolejce. 
+   ![Azure-Notes-Cancel-all-Cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>Notes referencyjny
+### <a name="notebook-reference"></a>Dokumentacja notesu
 
 # <a name="classical-notebook"></a>[Klasyczny Notes](#tab/classical)
 
@@ -305,6 +312,11 @@ Nieobsługiwane.
 Możesz użyć ```%run <notebook path>``` Magic polecenia, aby odwołać się do innego notesu w kontekście bieżącego notesu. Wszystkie zmienne zdefiniowane w notesie referencyjnym są dostępne w bieżącym notesie. ```%run``` Magic polecenie obsługuje wywołania zagnieżdżone, ale nie obsługuje wywołań cyklicznych. Jeśli głębokość instrukcji jest większa niż pięć, zostanie wyświetlony wyjątek. ```%run``` polecenie obecnie obsługuje tylko przekazywanie ścieżki notesu jako parametru. 
 
 Przykład: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> Odwołanie do notesu nie jest obsługiwane w potoku Synapse.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ Możesz również określić ustawienia sesji platformy Spark za pomocą polecen
     }
 }
 ```
-
+> [!NOTE]
+> Polecenie magiczna konfiguracja sesji platformy Spark nie jest obsługiwane w potoku Synapse.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Przenoszenie danych do notesu
 
@@ -420,6 +435,11 @@ We właściwościach notesu można określić, czy podczas zapisywania mają by�
 ## <a name="magic-commands"></a>Magic — polecenia
 Możesz używać znanych poleceń Jupyter Magic w notesach usługi Azure Synapse Studio. Przejrzyj poniższą listę jako bieżące dostępne polecenia Magic. Przekaż nam [swoje przypadki użycia w serwisie GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) , aby można było dalej tworzyć bardziej magicowe polecenia, aby zaspokoić Twoje potrzeby.
 
+> [!NOTE]
+> W potoku Synapse są obsługiwane tylko następujące polecenia Magic:%% pyspark,%% Spark,%% CSharp,%% SQL. 
+>
+>
+
 # <a name="classical-notebook"></a>[Klasyczny Notes](#tab/classical)
 
 Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Dostępne magicy komórki: [%% Time](https://ipython.readthedocs.io/en/stable/in
 
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
 
-Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% History](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Run](#reference-notebook), [% Load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% History](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Run](#notebook-reference), [% Load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Dostępne magicy komórki: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% CSharp](#use-multiple-languages), [%% HTML](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%% Configure](#spark-session-config-magic-command)
 

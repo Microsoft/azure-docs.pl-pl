@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/12/2020
+ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7c30649fe3486f812569cb51f609356a6cbfd58f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581086"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627544"
 ---
 # <a name="media-services-live-event-error-codes"></a>Kody błędów zdarzeń na żywo Media Services
 
@@ -83,7 +83,8 @@ Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveE
 >| Opis|Koder wysyła zbyt szybkie dane. |
 >| Sugerowane rozwiązanie|Dzieje się tak, gdy koder rozdzieli duży zestaw fragmentów w krótkim czasie.  Może to teoretycznie nastąpić, gdy koder nie może wypchnąć danych z powodu problemu z siecią i danych o rozerwaniu, gdy sieć jest dostępna. Znajdź przyczynę z dziennika kodera lub dziennika systemowego. |
 >|**Nieznane kody błędów** |
->| Opis| Te kody błędów mogą należeć do zakresu od błędu pamięci do zduplikowanych wpisów w mapie skrótów. |
+>| Opis| Te kody błędów mogą należeć do zakresu od błędu pamięci do zduplikowanych wpisów w mapie skrótów. Może się tak zdarzyć, gdy Koder wysyła duży zestaw fragmentów w krótkim czasie.  Może to mieć miejsce, gdy koder nie może wypchnąć danych z powodu problemu z siecią, a następnie wysyła wszystkie opóźnione fragmenty jednocześnie, gdy sieć stanie się dostępna. |
+>|Sugerowane rozwiązanie| Sprawdź dzienniki kodera.|
 
 ## <a name="other-error-codes"></a>Inne kody błędów
 
@@ -95,13 +96,13 @@ Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveE
 >|Sugerowane rozwiązanie| Brak.||
 >|**MPI_SYSTEM_MAINTENANCE** ||Tak|
 >| Opis|Koder odłączony z powodu aktualizacji usługi lub konserwacji systemu. ||
->|Sugerowane rozwiązanie|Upewnij się, że koder włącza funkcję AutoConnect. Jest to funkcja kodera, która umożliwia odzyskanie nieoczekiwanego odłączenia sesji. ||
+>|Sugerowane rozwiązanie|Upewnij się, że koder włącza funkcję AutoConnect. Umożliwia koderowi ponowne nawiązanie połączenia z nadmiarowym punktem końcowym zdarzenia na żywo, który nie jest w trakcie konserwacji. ||
 >|**MPE_BAD_URL_SYNTAX** ||Tak|
 >| Opis|Adres URL pozyskiwania jest niepoprawnie sformatowany. ||
 >|Sugerowane rozwiązanie|Upewnij się, że adres URL pozyskiwania jest poprawnie sformatowany. W przypadku protokołu RTMP powinna być `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Tak|
 >| Opis|Koder rozłączył sesję.  ||
->|Sugerowane rozwiązanie|To nie jest błąd. Jest to przypadek, w którym koder zainicjował odłączenie, w tym bezpieczne rozłączenie. Jeśli jest to nieoczekiwane rozłączenie, sprawdź dziennik kodera lub Dziennik systemowy. |
+>|Sugerowane rozwiązanie|To nie jest błąd. Koder zainicjował rozłączenie, w tym bezpieczne rozłączenie. Jeśli jest to nieoczekiwane rozłączenie, Sprawdź dzienniki kodera. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||Nie|
 >| Opis|Szybkość danych przychodzących nie jest zgodna z oczekiwaną szybkością transmisji bitów. ||
 >|Sugerowane rozwiązanie|Jest to ostrzeżenie, które jest wykonywane, gdy szybkość danych przychodzących jest zbyt niska lub szybka. Sprawdź dziennik kodera lub Dziennik systemowy.||

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 2e9dafc111478f35263dc9db0cc07d913327c936
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 09b04c67519bfa920a3781612823c5755cbc6d2d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612062"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627799"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware przy użyciu Azure Migrate: odnajdywanie i Ocena
 
@@ -115,7 +115,7 @@ Skonfiguruj nowy projekt.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
-3. W obszarze **Przegląd** wybierz pozycję **Utwórz projekt**.
+3. **Omówienie** > wybierane na podstawie celów migracji: **Windows, Linux i SQL Server** lub **SQL Server (tylko)** lub **Eksploruj więcej scenariuszy** > wybierz pozycję **Utwórz projekt**.
 5. W obszarze **Utwórz projekt** wybierz swoją subskrypcję platformy Azure i grupę zasobów. Utwórz grupę zasobów, jeśli jej nie masz.
 6. W obszarze **szczegóły projektu** Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 

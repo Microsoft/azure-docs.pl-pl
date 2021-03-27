@@ -4,12 +4,12 @@ description: Zawiera omówienie usługi Azure Backup i sposobu, w jaki przyczyni
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 2879d104d534733651ba76ab5521541adad0a51c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07fc6ee0afb29f9d6c701c7eb2c65be988971eaf
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101725360"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612640"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Co to jest usługa Azure Backup?
 
@@ -21,7 +21,7 @@ Usługa Azure Backup udostępnia proste, bezpieczne i ekonomiczne rozwiązania d
 
 - **Lokalne** — tworzenie kopii zapasowych plików, folderów i stanu systemu przy użyciu [agenta Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md). Lub Użyj agenta programu DPM lub Azure Backup Server (serwera usługi MAB) do ochrony lokalnych maszyn wirtualnych ([funkcji Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) i oprogramowania [VMware](backup-azure-backup-server-vmware.md)) i innych [obciążeń lokalnych](backup-mabs-protection-matrix.md) .
 - **Maszyny wirtualne**  -  platformy Azure [Tworzenie kopii zapasowej całych maszyn wirtualnych z systemem Windows/Linux](backup-azure-vms-introduction.md) (przy użyciu rozszerzeń kopii zapasowej) lub tworzenie kopii zapasowych plików, folderów i stanu systemu przy użyciu [agenta Mars](backup-azure-manage-mars.md).
-- **Managed disks**  -  platformy Azure [Tworzenie kopii zapasowej Managed disks platformy Azure (w wersji zapoznawczej)](backup-managed-disks.md)
+- **Managed disks**  -  platformy Azure [Tworzenie kopii zapasowej Managed disks platformy Azure](backup-managed-disks.md)
 - **Azure Files udziały**  -  [Tworzenie kopii zapasowych udziałów plików platformy Azure na koncie magazynu](backup-afs.md)
 - **SQL Server na maszynach wirtualnych**  -   platformy Azure [Tworzenie kopii zapasowych baz danych SQL Server uruchomionych na maszynach wirtualnych platformy Azure](backup-azure-sql-database.md)
 - **SAP HANA baz danych na maszynach wirtualnych**  -  platformy Azure [Tworzenie kopii zapasowych SAP HANA baz danych działających na maszynach wirtualnych platformy Azure](backup-azure-sap-hana-database.md)

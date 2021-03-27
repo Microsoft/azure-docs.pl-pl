@@ -3,12 +3,12 @@ title: Co nowego w usłudze Azure Backup
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095718"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612487"
 ---
 # <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
@@ -19,6 +19,7 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
 ## <a name="updates-summary"></a>Podsumowanie aktualizacji
 
 - Marzec 2021
+  - [Tworzenie kopii zapasowej na dysku na platformie Azure jest teraz ogólnie dostępne](#azure-disk-backup-is-now-generally-available)
   - [Centrum kopii zapasowych jest teraz ogólnie dostępne](#backup-center-is-now-generally-available)
   - [Obsługa warstwy Archiwum dla Azure Backup (w wersji zapoznawczej)](#archive-tier-support-for-azure-backup-in-preview)
 - Luty 2021 r.
@@ -39,6 +40,12 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
   - [SAP HANA kopii zapasowych w usłudze RHEL Azure Virtual Machines (w wersji zapoznawczej)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej (w wersji zapoznawczej)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA na maszynach wirtualnych platformy Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>Tworzenie kopii zapasowej na dysku na platformie Azure jest teraz ogólnie dostępne
+
+Azure Backup oferuje możliwość zarządzania cyklem życia migawek na platformie Azure Managed Disks przez Automatyzowanie okresowego tworzenia migawek i zachowywanie ich dla skonfigurowanych czasów trwania przy użyciu zasad tworzenia kopii zapasowych.
+
+Aby uzyskać więcej informacji, zobacz [Omówienie usługi Kopia zapasowa Azure Disk](disk-backup-overview.md).
 
 ## <a name="backup-center-is-now-generally-available"></a>Centrum kopii zapasowych jest teraz ogólnie dostępne
 

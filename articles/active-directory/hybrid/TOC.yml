@@ -242,6 +242,8 @@
           href: how-to-connect-fed-saml-idp.md
         - name: Zadania pokonfiguracyjne dotyczące dołączania do hybrydowej usługi Azure AD
           href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+        - name: Rotacja awaryjna AD FS certyfikatów
+          href: how-to-connect-emergency-ad-fs-certificate-rotation.md
     - name: Zarządzanie logowaniem jednokrotnym
       items:
         - name: Rozpoczynanie pracy z logowaniem jednokrotnym

@@ -3,12 +3,12 @@ title: Konfigurowanie monitorowania PV przy użyciu usługi Container Insights |
 description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z trwałymi woluminami przy użyciu usługi Container Insights.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7c6ddd62bf06d313987289e444962378cea43fc8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026108"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627901"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Konfigurowanie monitorowania PV przy użyciu usługi Container Insights
 
@@ -17,7 +17,9 @@ Począwszy od wersji *ciprod10052020* agenta, Azure monitor dla kontenerów zint
 
 Usługi Container Insights automatycznie zaczynają monitorować użycie PV przez gromadzenie następujących metryk w interwałach 60-sekund i przechowywanie ich w tabeli **InsightMetrics** .
 
-| Nazwa metryki | Wymiar metryki (Tagi) | Opis metryki | | `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, ClusterName | Zajęte miejsce w bajtach dla określonego woluminu trwałego z wnioskiem używanym przez określony element. `capacityBytes` jest składany jako wymiar w polu Tagi, aby zmniejszyć koszty pozyskiwania danych i uprościć zapytania. |
+| Nazwa metryki | Wymiar metryki (Tagi) | Opis metryki |
+|-----|-----------|----------|
+| `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, ClusterName| Zajęte miejsce w bajtach dla określonego woluminu trwałego z wnioskiem używanym przez określony element. `capacityBytes` jest składany jako wymiar w polu Tagi, aby zmniejszyć koszty pozyskiwania danych i uprościć zapytania.|
 
 Dowiedz się więcej o konfigurowaniu zebranych metryk PV [tutaj](./container-insights-agent-config.md).
 
@@ -27,7 +29,7 @@ Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie PVs przez zb
 
 |Dane |Źródło danych| Typ danych| Pola|
 |-----|-----------|----------|-------|
-|Spis woluminów trwałych w klastrze Kubernetes |Interfejs API polecenia |`KubePVInventory` | PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
+|Spis woluminów trwałych w klastrze Kubernetes |Interfejs API polecenia |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
 
 ## <a name="monitor-persistent-volumes"></a>Monitorowanie woluminów trwałych
 

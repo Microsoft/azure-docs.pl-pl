@@ -146,11 +146,14 @@
           href: content-aware-encoding.md
         - name: Jednostki zarezerwowane multimediów
           href: concept-media-reserved-units.md
-    - name: Analizowanie zawartości (Video Indexer)
+    - name: Analizowanie i Redakcja
       items:
         - name: Omówienie
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
+        - name: Wykrywaj i Zredaguj (rozmycie)
+          href: analyze-face-redaction-concept.md
+          displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
     - name: Transformacje i zadania
       href: transforms-jobs-concept.md
     - name: Transmisja strumieniowa na żywo
@@ -159,9 +162,9 @@
           href: live-streaming-overview.md
         - name: Zdarzenia na żywo i dane wyjściowe na żywo
           href: live-events-outputs-concept.md
-          displayName: 'vanity, ingest'
+          displayName: 'vanity, ingest, static, hostname, rtmp, ingest'
         - name: Przetestowane lokalne kodery na żywo
-          displayName: recommended
+          displayName: 'recommended, on-premises, live, encoder, OBS, FFMPEG, Wirecast'
           href: recommended-on-premises-live-encoders.md
         - name: Przesuwanie czasu i rejestracja transmisji na żywo do odtwarzania na żądanie
           displayName: 'archive, dvr'
