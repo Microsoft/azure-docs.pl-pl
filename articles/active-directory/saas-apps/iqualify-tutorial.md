@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bdd68a4f0dafd3b336bf5a3fb34399d725c9ff5c
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95999165"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Samouczek: integracja Azure Active Directory z systemem LMS iQualify
 
@@ -88,44 +88,41 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu system
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **iQualify LMS** wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
+   ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
 2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
 
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
+   ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
 3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
 
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
+   ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
+   
+   1. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
-    | |
-    |--|--|
-    | Środowisko produkcyjne: `https://<yourorg>.iqualify.com/`|
-    | Środowisko testowe: `https://<yourorg>.iqualify.io`|
+      * Środowisko produkcyjne: `https://<yourorg>.iqualify.com/`
+      * Środowisko testowe: `https://<yourorg>.iqualify.io`
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
-    | |
-    |--|--|
-    | Środowisko produkcyjne: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Środowisko testowe: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+   2. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
+
+      * Środowisko produkcyjne: `https://<yourorg>.iqualify.com/auth/saml2/callback` 
+      * Środowisko testowe: `https://<yourorg>.iqualify.io/auth/saml2/callback`
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
+   ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
-    | |
-    |--|--|
-    | Środowisko produkcyjne: `https://<yourorg>.iqualify.com/login` |
-    | Środowisko testowe: `https://<yourorg>.iqualify.io/login` |
+   W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 
-    > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta systemu LMS iQualify](https://www.iqualify.com/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+      * Środowisko produkcyjne: `https://<yourorg>.iqualify.com/login`
+      * Środowisko testowe: `https://<yourorg>.iqualify.io/login`
+
+   > [!NOTE]
+   > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta systemu LMS iQualify](https://www.iqualify.com/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 6. Aplikacja systemu LMS iQualify oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 

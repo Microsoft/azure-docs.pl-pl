@@ -3,42 +3,41 @@ title: Korzystanie z monitora systemu Windows Virtual Desktop monitor (wersja za
 description: Jak używać Azure Monitor dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e9da1071686dafa003a5a49d0864b77644493344
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1c87763cb2ca482fc8ee15588d7287f0d9275fff
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100594467"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627170"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Monitorowanie wdrożenia (wersja zapoznawcza) za pomocą Azure Monitor dla pulpitu wirtualnego systemu Windows
 
 >[!IMPORTANT]
 >Azure Monitor dla pulpitu wirtualnego systemu Windows jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Monitor dla systemu Windows Virtual Desktop (wersja zapoznawcza) to pulpit nawigacyjny oparty na Azure Monitor skoroszytach, które pomagają specjalistom IT zrozumieć swoje środowiska pulpitu wirtualnego systemu Windows. W tym temacie opisano sposób konfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu monitorowania środowisk pulpitu wirtualnego systemu Windows.
+Azure Monitor dla systemu Windows Virtual Desktop (wersja zapoznawcza) to pulpit nawigacyjny oparty na Azure Monitor skoroszytach, które pomagają specjalistom IT zrozumieć swoje środowiska pulpitu wirtualnego systemu Windows. W tym artykule opisano sposób konfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu monitorowania środowisk pulpitu wirtualnego systemu Windows.
 
 ## <a name="requirements"></a>Wymagania
 
 Przed rozpoczęciem korzystania z Azure Monitor dla pulpitu wirtualnego systemu Windows należy skonfigurować następujące elementy:
 
 - Wszystkie środowiska pulpitu wirtualnego systemu Windows, które są monitorowane, muszą być oparte na najnowszej wersji pulpitu wirtualnego systemu Windows, który jest zgodny z Azure Resource Manager.
-
-- Co najmniej jeden skonfigurowany obszar roboczy Log Analytics.
-
+- Co najmniej jeden skonfigurowany obszar roboczy Log Analytics. Użyj wydanego obszaru roboczego Log Analytics dla hostów sesji pulpitu wirtualnego systemu Windows, aby upewnić się, że liczniki wydajności i zdarzenia są zbierane tylko z hostów sesji w ramach wdrożenia pulpitu wirtualnego systemu Windows.
 - Włącz zbieranie danych dla następujących elementów w obszarze roboczym Log Analytics:
-    - Wszystkie wymagane liczniki wydajności
-    - Wszystkie liczniki wydajności lub zdarzenia używane w Azure Monitor dla pulpitu wirtualnego systemu Windows
-    - Dane narzędzia diagnostycznego dla wszystkich obiektów w środowisku, które będą monitorowane.
-    - Maszyny wirtualne w środowisku, które będą monitorowane.
+    - Diagnostyka ze środowiska pulpitu wirtualnego systemu Windows
+    - Zalecane liczniki wydajności z hostów sesji pulpitu wirtualnego systemu Windows
+    - Zalecane dzienniki zdarzeń systemu Windows z hostów sesji pulpitu wirtualnego systemu Windows
+
+ Proces konfiguracji danych opisany w tym artykule jest jedynym, który będzie potrzebny do monitorowania pulpitu wirtualnego systemu Windows. Możesz wyłączyć wszystkie inne elementy wysyłające dane do obszaru roboczego Log Analytics, aby zaoszczędzić koszty.
 
 Każda osoba monitorująca Azure Monitor dla pulpitu wirtualnego systemu Windows dla danego środowiska również będzie potrzebować następujących uprawnień do odczytu:
 
-- Dostęp do odczytu do grupy zasobów, w której znajdują się zasoby środowiska.
-
-- Dostęp do odczytu do grup zasobów, w których znajdują się hosty sesji środowiska
+- Dostęp do odczytu do subskrypcji platformy Azure, w których przechowywane są zasoby pulpitu wirtualnego systemu Windows
+- Dostęp do odczytu do grup zasobów subskrypcji, w których znajdują się hosty sesji usług pulpitu wirtualnego systemu Windows
+- Dostęp do odczytu do obszaru roboczego Log Analytics lub obszarów roboczych
 
 >[!NOTE]
 > Dostęp do odczytu umożliwia administratorom wyświetlanie danych. Będą oni potrzebować innych uprawnień do zarządzania zasobami w portalu pulpitu wirtualnego systemu Windows.
@@ -48,130 +47,138 @@ Każda osoba monitorująca Azure Monitor dla pulpitu wirtualnego systemu Windows
 Możesz otworzyć Azure Monitor dla pulpitu wirtualnego systemu Windows przy użyciu jednej z następujących metod:
 
 - Przejdź do [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
-
 - Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows** z Azure Portal, a następnie wybierz pozycję **szczegółowe** dane.
-
-- Wyszukaj i wybierz **Azure monitor** z Azure Portal. Wybierz pozycję usługi **Insights Hub** w obszarze usługi **Insights**, a w obszarze **inne** wybierz pozycję **pulpit wirtualny systemu Windows** , aby otworzyć pulpit nawigacyjny na stronie Azure monitor.
-
-Gdy Azure Monitor dla pulpitu wirtualnego systemu Windows jest otwarty, zaznacz co najmniej jedno pole wyboru z etykietą **subskrypcja**, **Grupa zasobów**, **pulę hostów** i **zakres czasu** , na podstawie którego środowiska chcesz monitorować.
+- Wyszukaj i wybierz **Azure monitor** z Azure Portal. Wybierz pozycję Usługa **Insights Hub** w obszarze **Insights**, a następnie wybierz pozycję **pulpit wirtualny systemu Windows**.
+Po otwarciu strony wprowadź **subskrypcję**, **grupę zasobów**, **pulę hostów** i **zakres czasu** środowiska, które chcesz monitorować.
 
 >[!NOTE]
 >Pulpit wirtualny systemu Windows obecnie obsługuje tylko monitorowanie tylko jednej subskrypcji, grupy zasobów i puli hostów. Jeśli nie możesz znaleźć środowiska, które chcesz monitorować, zapoznaj się [z dokumentacją rozwiązywania problemów z](troubleshoot-azure-monitor.md) znanymi żądaniami i problemami dotyczącymi funkcji.
 
-## <a name="set-up-with-the-configuration-workbook"></a>Konfigurowanie za pomocą skoroszytu konfiguracji
+## <a name="log-analytics-settings"></a>Ustawienia Log Analytics
 
-Jeśli jest to pierwszy raz otwarty Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz skonfigurować Azure Monitor dla zasobów pulpitu wirtualnego systemu Windows. Aby skonfigurować zasoby:
+Aby rozpocząć korzystanie z Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz mieć co najmniej jeden obszar roboczy Log Analytics. Aby sprawdzić, czy liczniki wydajności i zdarzenia będą zbierane w ramach wdrożenia pulpitu wirtualnego systemu Windows, należy użyć wydanego obszaru roboczego Log Analytics. Jeśli masz już skonfigurowany obszar roboczy, przejdź z wyprzedzeniem, aby [skonfigurować go za pomocą skoroszytu konfiguracji](#set-up-using-the-configuration-workbook). Aby je skonfigurować, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
-1. Otwórz skoroszyt w Azure Portal.
-2. Wybierz pozycję **Otwórz skoroszyt konfiguracji**.
+>[!NOTE]
+>Będą stosowane standardowe opłaty za magazyn danych dla Log Analytics. Aby rozpocząć, zalecamy wybranie modelu płatność zgodnie z rzeczywistym użyciem i dostosowanie go w miarę skalowania wdrożenia i przejęcia większej ilości danych. Aby dowiedzieć się więcej, zobacz [cennik Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Skoroszyt konfiguracji konfiguruje środowisko monitorowania i pozwala sprawdzić konfigurację po zakończeniu procesu instalacji. Ważne jest, aby sprawdzić konfigurację, jeśli elementy na pulpicie nawigacyjnym nie są wyświetlane prawidłowo lub gdy grupa produktów publikuje aktualizacje, które wymagają dodatkowych punktów danych.
+## <a name="set-up-using-the-configuration-workbook"></a>Konfigurowanie za pomocą skoroszytu konfiguracji
 
-## <a name="host-pool-diagnostic-settings"></a>Ustawienia diagnostyczne puli hostów
+Jeśli po raz pierwszy otworzysz Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz skonfigurować Azure Monitor dla środowiska pulpitu wirtualnego systemu Windows. Aby skonfigurować zasoby:
 
-Należy włączyć Azure Monitor ustawienia diagnostyczne dla wszystkich obiektów w środowisku pulpitu wirtualnego systemu Windows, które obsługują tę funkcję.
+1. Otwórz Azure Monitor dla pulpitu wirtualnego systemu Windows w Azure Portal w [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), a następnie wybierz pozycję **skoroszyt konfiguracji**.
+2. Wybierz środowisko do skonfigurowania w ramach **subskrypcji**, **grupy zasobów** i **puli hostów**.
 
-1. Otwórz Azure Monitor dla pulpitu wirtualnego systemu Windows w [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), a następnie wybierz pozycję **skoroszyt konfiguracji**.
+Skoroszyt konfiguracji konfiguruje środowisko monitorowania i pozwala sprawdzić konfigurację po zakończeniu procesu instalacji. Ważne jest, aby sprawdzić konfigurację, jeśli elementy na pulpicie nawigacyjnym nie są wyświetlane prawidłowo lub gdy grupa produktów publikuje aktualizacje, które wymagają nowych ustawień.
 
-2. Wybierz środowisko do monitorowania w ramach **subskrypcji**, **grupy zasobów** i **puli hostów**.
+### <a name="resource-diagnostic-settings"></a>Ustawienia diagnostyki zasobów
 
-3. W obszarze **Ustawienia diagnostyczne puli hostów** Sprawdź, czy dla puli hostów włączono funkcję diagnostyki pulpitu wirtualnego systemu Windows. Jeśli nie, zostanie wyświetlony komunikat o błędzie informujący o tym, że dla wybranej puli hostów nie znaleziono istniejącej konfiguracji diagnostycznej. 
-   
-   Należy włączyć następujące tabele:
+Aby zbierać informacje o infrastrukturze pulpitów wirtualnych systemu Windows, należy włączyć kilka ustawień diagnostycznych pul i obszarów roboczych programu pulpitów wirtualnych systemu Windows (jest to obszar roboczy pulpitu wirtualnego systemu Windows, a nie obszar roboczy Log Analytics). Aby dowiedzieć się więcej na temat pul hostów, obszarów roboczych i innych obiektów zasobów pulpitu wirtualnego systemu Windows, zobacz nasze [Przewodnik po środowisku](environment-setup.md).
+
+Więcej informacji na temat diagnostyki pulpitu wirtualnego systemu Windows i obsługiwanych tabel diagnostycznych można znaleźć w witrynie [wysyłanie diagnostyki pulpitu wirtualnego systemu Windows do log Analytics](diagnostics-log-analytics.md).
+
+Aby ustawić ustawienia diagnostyki zasobów w skoroszycie konfiguracji: 
+
+1. Wybierz kartę **Ustawienia diagnostyki zasobów** w skoroszycie konfiguracja. 
+2. Wybierz **log Analytics obszar roboczy** , aby wysłać diagnostykę pulpitu wirtualnego systemu Windows. 
+
+#### <a name="host-pool-diagnostic-settings"></a>Ustawienia diagnostyczne puli hostów
+
+Aby skonfigurować diagnostykę puli hostów za pomocą sekcji ustawień diagnostycznych zasobu w skoroszycie konfiguracji:
+
+1. W obszarze **Pula hostów** Sprawdź, czy jest włączona funkcja diagnostyki pulpitu wirtualnego systemu Windows. Jeśli nie, zostanie wyświetlony komunikat o błędzie informujący o tym, że dla wybranej puli hostów nie znaleziono istniejącej konfiguracji diagnostycznej. Należy włączyć następujące obsługiwane tabele diagnostyczne:
 
     - Punkt kontrolny
     - Błąd
     - Zarządzanie
     - Połączenie
     - Rejestracja hosta
-
+    - AgentHealthStatus
+    
     >[!NOTE]
-    > Jeśli komunikat o błędzie nie jest wyświetlany, nie musisz wykonywać kroku 4.
+    > Jeśli komunikat o błędzie nie jest wyświetlany, nie trzeba wykonywać kroków od 2 do 4.
 
-4. Wybierz pozycję **Konfiguruj pulę hostów**.
+2. Wybierz pozycję **Konfiguruj pulę hostów**.
+3. Wybierz pozycję **Wdróż**.
+4. Odśwież skoroszyt konfiguracji.
 
-5. Wybierz pozycję **Wdróż**.
+#### <a name="workspace-diagnostic-settings"></a>Ustawienia diagnostyczne obszaru roboczego 
 
-6. Odśwież skoroszyt.
+Aby skonfigurować diagnostykę obszaru roboczego za pomocą sekcji ustawień diagnostycznych zasobu w skoroszycie konfiguracji:
 
-Więcej informacji na temat włączania diagnostyki na wszystkich obiektach w środowisku pulpitu wirtualnego systemu Windows lub dostęp do obszaru roboczego Log Analytics przy [wysyłaniu diagnostyki pulpitu wirtualnego systemu Windows do log Analytics](diagnostics-log-analytics.md).
+ 1. W obszarze **obszar roboczy** Sprawdź, czy włączono diagnostykę pulpitu wirtualnego systemu Windows dla obszaru roboczego pulpit wirtualny systemu Windows. Jeśli nie, zostanie wyświetlony komunikat o błędzie informujący o tym, że nie znaleziono istniejącej konfiguracji diagnostycznej dla wybranego obszaru roboczego. Należy włączyć następujące obsługiwane tabele diagnostyczne:
+ 
+    - Punkt kontrolny
+    - Błąd
+    - Zarządzanie
+    - Źródło danych
+    
+    >[!NOTE]
+    > Jeśli komunikat o błędzie nie jest wyświetlany, nie trzeba wykonywać kroków 2-4.
 
-## <a name="configure-log-analytics"></a>Konfigurowanie usługi Log Analytics
+2. Wybierz pozycję **Konfiguruj obszar roboczy**.
+3. Wybierz pozycję **Wdróż**.
+4. Odśwież skoroszyt konfiguracji.
 
-Aby rozpocząć korzystanie z Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz także mieć co najmniej jeden Log Analytics obszar roboczy, aby zbierać dane ze środowiska, które planujesz monitorować i dostarczać do skoroszytu. Jeśli masz już skonfigurowaną funkcję, przejdź z wyprzedzeniem, aby [skonfigurować liczniki wydajności](#set-up-performance-counters). Aby skonfigurować nowy obszar roboczy Log Analytics dla subskrypcji platformy Azure zawierającej środowisko pulpitu wirtualnego systemu Windows, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
+### <a name="session-host-data-settings"></a>Ustawienia danych hosta sesji
 
->[!NOTE]
->Będą stosowane standardowe opłaty za magazyn danych dla Log Analytics. Aby rozpocząć, zalecamy wybranie modelu płatność zgodnie z rzeczywistym użyciem i dostosowanie go w miarę skalowania wdrożenia i przejęcia większej ilości danych. Aby dowiedzieć się więcej, zobacz [cennik Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Aby zbierać informacje o hostach sesji usług pulpitu wirtualnego systemu Windows, należy zainstalować agenta Log Analytics na wszystkich hostach sesji w puli hostów, upewnić się, że hosty sesji są wysyłane do Log Analytics obszaru roboczego, i skonfigurować ustawienia agenta Log Analytics w celu zbierania danych wydajności i dzienników zdarzeń systemu Windows.
 
-### <a name="set-up-performance-counters"></a>Konfigurowanie liczników wydajności
+W obszarze roboczym Log Analytics dane hosta sesji wysyłane do programu nie muszą być tymi samymi, do których są wysyłane dane diagnostyczne. Jeśli masz hosty sesji platformy Azure poza środowiskiem pulpitu wirtualnego systemu Windows, zalecamy wyznaczenie Log Analytics obszaru roboczego dla hostów sesji pulpitu wirtualnego systemu Windows. 
 
-Należy włączyć określone liczniki wydajności dla kolekcji w odpowiednim interwale próbkowania w obszarze roboczym Log Analytics. Te liczniki wydajności są jedynymi licznikami, które będą potrzebne do monitorowania pulpitu wirtualnego systemu Windows. Możesz wyłączyć wszystkie inne, aby zaoszczędzić koszty.
+Aby ustawić obszar roboczy Log Analytics, w którym mają być zbierane dane hosta sesji: 
 
-Jeśli masz już włączone liczniki wydajności i chcesz je usunąć, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md) , aby ponownie skonfigurować liczniki wydajności. W tym artykule opisano sposób dodawania liczników, ale można je również usunąć w tej samej lokalizacji.
+1. Wybierz kartę **Ustawienia danych hosta sesji** w skoroszycie konfiguracja. 
+2. Wybierz **obszar roboczy log Analytics** , do którego chcesz wysłać dane hosta sesji. 
 
-Jeśli nie skonfigurowano jeszcze liczników wydajności, poniżej przedstawiono sposób konfigurowania ich pod kątem Azure Monitor dla pulpitu wirtualnego systemu Windows:
+#### <a name="session-hosts"></a>Hosty sesji
 
-1. Przejdź do [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), a następnie wybierz **skoroszyt konfiguracji** dolny okna.
-
-2. W obszarze **konfiguracja log Analytics** wybierz obszar roboczy, który został skonfigurowany w ramach subskrypcji.
-
-3. W **obszarze liczniki wydajności obszaru roboczego** zostanie wyświetlona lista liczników wymaganych do monitorowania. Z prawej strony tej listy Sprawdź elementy na liście **brakujące liczniki** , aby włączyć liczniki, które będą potrzebne do rozpoczęcia monitorowania obszaru roboczego.
-
-4. Wybierz pozycję **Konfiguruj liczniki wydajności**.
-
-5. Wybierz pozycję **Zastosuj konfigurację**.
-
-6. Odśwież skoroszyt konfiguracji i Kontynuuj Konfigurowanie środowiska.
-
-Nowe liczniki wydajności można również dodać po początkowej konfiguracji przy każdej aktualizacji usługi i wymaga nowych narzędzi do monitorowania. Można sprawdzić, czy wszystkie wymagane liczniki są włączone, wybierając je z listy **brakujące liczniki** .
-
->[!NOTE]
->Liczniki wydajności opóźnienia wejścia są zgodne tylko z systemem Windows 10 RS5 lub nowszym lub Windows Server 2019 lub nowszym.
-
-Aby dowiedzieć się więcej na temat ręcznego dodawania liczników wydajności, które nie są już włączone dla kolekcji, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md).
-
-### <a name="set-up-windows-events"></a>Konfigurowanie zdarzeń systemu Windows
-
-Następnie musisz włączyć określone zdarzenia systemu Windows dla kolekcji w obszarze roboczym Log Analytics. Zdarzenia opisane w tej sekcji są jedynymi Azure Monitor dla potrzeb pulpitu wirtualnego systemu Windows. Możesz wyłączyć wszystkie inne, aby zaoszczędzić koszty.
-
-Aby skonfigurować zdarzenia systemu Windows:
-
-1. Jeśli masz już włączone zdarzenia systemu Windows i chcesz je usunąć, Usuń niepotrzebne zdarzenia przed użyciem skoroszytu konfiguracji w celu włączenia zestawu wymaganego do monitorowania.
-
-2. Przejdź do Azure Monitor dla pulpitu wirtualnego systemu Windows w [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), a następnie wybierz pozycję **skoroszyt konfiguracji** u dołu okna.
-
-3. W obszarze **Konfiguracja zdarzeń systemu Windows** istnieje lista zdarzeń systemu Windows, które są wymagane do monitorowania. Po prawej stronie tej listy znajdują się listy **brakujące zdarzenia** , w których znajdują się wymagane nazwy zdarzeń i typy zdarzeń, które nie są aktualnie włączone dla Twojego obszaru roboczego. Zapisz każdą z tych nazw w przyszłości.
-
-4. Wybierz pozycję **Konfiguracja otwartych obszarów roboczych**.
-
-5. Wybierz pozycję **dane**.
-
-6. Wybierz pozycję **dzienniki zdarzeń systemu Windows**.
-
-7. Dodaj brakujące nazwy zdarzeń z kroku 3 i wymagany typ zdarzenia dla każdego z nich.
-
-8. Odśwież skoroszyt konfiguracji i Kontynuuj Konfigurowanie środowiska.
-
-Nowe zdarzenia systemu Windows można dodać po konfiguracji początkowej, jeśli aktualizacje narzędzia do monitorowania wymagają włączenia nowych zdarzeń. Aby upewnić się, że wszystkie wymagane zdarzenia zostały włączone, Wróć do listy **brakujące zdarzenia** i Włącz wszystkie brakujące zdarzenia.
-
-## <a name="install-the-log-analytics-agent-on-all-hosts"></a>Zainstaluj agenta Log Analytics na wszystkich hostach
-
-Na koniec należy zainstalować agenta Log Analytics na wszystkich hostach w puli hostów w celu wysłania danych z hostów do wybranego obszaru roboczego.
-
-Aby zainstalować agenta Log Analytics:
-
-1. Przejdź do Azure Monitor dla pulpitu wirtualnego systemu Windows w [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), a następnie wybierz pozycję **skoroszyt konfiguracji** u dołu okna.
-
-2. Jeśli Log Analytics nie zostanie skonfigurowana dla wszystkich hostów w puli hostów, zobaczysz błąd w dolnej części sekcji konfiguracji Log Analytics z komunikatem "niektóre hosty w puli hostów nie będą wysyłać danych do wybranego obszaru roboczego Log Analytics". Wybierz pozycję **Dodaj hosty do obszaru roboczego** , aby dodać wybrane hosty. Jeśli komunikat o błędzie nie jest wyświetlany, Zatrzymaj go tutaj.
-
-3. Odśwież skoroszyt konfiguracji.
+Należy zainstalować agenta Log Analytics na wszystkich hostach sesji w puli hostów i wysłać dane z tych hostów do wybranego obszaru roboczego Log Analytics. Jeśli Log Analytics nie jest skonfigurowana dla wszystkich hostów sesji w puli hostów, w górnej części **ustawień danych hosta sesji** zostanie wyświetlona sekcja **hosty sesji** z komunikatem "niektóre hosty w puli hostów nie będą wysyłać danych do wybranego log Analytics obszaru roboczego".
 
 >[!NOTE]
->Aby można było zainstalować rozszerzenie Log Analytics, należy uruchomić maszynę hosta. Jeśli automatyczne wdrażanie na hoście zakończy się niepowodzeniem, zawsze możesz zainstalować rozszerzenie na hoście ręcznie. Aby dowiedzieć się, jak ręcznie zainstalować rozszerzenie, zobacz [log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md).
+> Jeśli nie widzisz sekcji **hosty sesji** lub komunikat o błędzie, wszystkie hosty sesji są poprawnie skonfigurowane. Przejdź z wyprzedzeniem, aby skonfigurować instrukcje dla [liczników wydajności obszaru roboczego](#workspace-performance-counters).
+
+Aby skonfigurować pozostałe hosty sesji przy użyciu skoroszytu konfiguracji:
+
+1. Wybierz pozycję **Dodaj hosty do obszaru roboczego**. 
+2. Odśwież skoroszyt konfiguracji.
+
+>[!NOTE]
+>Aby można było zainstalować rozszerzenie Log Analytics, należy uruchomić maszynę hosta. Jeśli automatyczne wdrażanie nie działa, można ręcznie zainstalować rozszerzenie na hoście. Aby dowiedzieć się, jak ręcznie zainstalować rozszerzenie, zobacz [log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md).
+
+#### <a name="workspace-performance-counters"></a>Liczniki wydajności obszaru roboczego
+
+Aby zbierać informacje o wydajności z hostów sesji i wysyłać je do obszaru roboczego Log Analytics, należy włączyć określone liczniki wydajności.
+
+Jeśli masz już włączone liczniki wydajności i chcesz je usunąć, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md). Liczniki wydajności można dodawać i usuwać w tej samej lokalizacji.
+
+Aby skonfigurować liczniki wydajności za pomocą skoroszytu konfiguracji: 
+
+1. W obszarze **obszary robocze liczniki wydajności** w skoroszycie konfiguracji Sprawdź **skonfigurowane liczniki** , aby wyświetlić liczniki, które zostały już włączone do wysłania do obszaru roboczego log Analytics. Sprawdź **brakujące liczniki** , aby upewnić się, że wszystkie wymagane liczniki zostały włączone.
+2. Jeśli brakuje liczników, wybierz pozycję **Konfiguruj liczniki wydajności**.
+3. Wybierz pozycję **Zastosuj konfigurację**.
+4. Odśwież skoroszyt konfiguracji.
+5. Upewnij się, że wszystkie wymagane liczniki są włączone, sprawdzając listę **brakujące liczniki** . 
+
+#### <a name="configure-windows-event-logs"></a>Konfigurowanie dzienników zdarzeń systemu Windows
+
+Należy również włączyć określone dzienniki zdarzeń systemu Windows, aby zbierać błędy, ostrzeżenia i informacje z hostów sesji i wysyłać je do obszaru roboczego Log Analytics.
+
+Jeśli włączono już dzienniki zdarzeń systemu Windows i chcesz je usunąć, postępuj zgodnie z instrukcjami zawartymi w temacie [Konfigurowanie dzienników zdarzeń systemu Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).  Dzienniki zdarzeń systemu Windows można dodawać i usuwać w tej samej lokalizacji.
+
+Aby skonfigurować dzienniki zdarzeń systemu Windows przy użyciu skoroszytu konfiguracji:
+
+1. W obszarze **Konfiguracja dzienników zdarzeń systemu Windows** Sprawdź **skonfigurowane dzienniki zdarzeń** , aby wyświetlić dzienniki zdarzeń, które zostały już włączone do wysłania do obszaru roboczego log Analytics. Sprawdź **brakujące dzienniki zdarzeń** , aby upewnić się, że włączono wszystkie dzienniki zdarzeń systemu Windows.
+2. Jeśli brakuje dzienników zdarzeń systemu Windows, wybierz pozycję **Konfiguruj zdarzenia**.
+3. Wybierz pozycję **Wdróż**.
+4. Odśwież skoroszyt konfiguracji.
+5. Upewnij się, że wszystkie wymagane dzienniki zdarzeń systemu Windows są włączone, sprawdzając listę **brakujące dzienniki zdarzeń** . 
+
+>[!NOTE]
+>Jeśli automatyczne wdrażanie zdarzeń zakończy się niepowodzeniem, wybierz pozycję **Otwórz konfigurację agenta** w skoroszycie konfiguracji, aby ręcznie dodać brakujące dzienniki zdarzeń systemu Windows. 
 
 ## <a name="optional-configure-alerts"></a>Opcjonalne: Konfigurowanie alertów
 
-Istnieje możliwość skonfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu powiadomienia użytkownika o poważnym Azure Monitor alertach w ramach wybranej subskrypcji. Aby to zrobić, postępuj zgodnie z instrukcjami w temacie [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/alerts/tutorial-response.md).
+Azure Monitor dla pulpitu wirtualnego systemu Windows umożliwia monitorowanie Azure Monitor alertów w ramach wybranej subskrypcji w kontekście danych pulpitu wirtualnego systemu Windows. Alerty Azure Monitor są opcjonalną funkcją subskrypcji platformy Azure i należy je skonfigurować niezależnie od Azure Monitor dla pulpitu wirtualnego systemu Windows. Za pomocą struktury alertów Azure Monitor można ustawiać niestandardowe alerty dotyczące zdarzeń, diagnostyki i zasobów pulpitu wirtualnego systemu Windows. Aby dowiedzieć się więcej o alertach Azure Monitor, zobacz temat [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="diagnostic-and-usage-data"></a>Dane diagnostyczne i użycia
 
@@ -186,7 +193,7 @@ Aby uzyskać więcej informacji na temat zbierania i używania danych, zobacz [z
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po skonfigurowaniu Azure Portal pulpitu wirtualnego systemu Windows, poniżej przedstawiono niektóre zasoby, które mogą pomóc:
+Teraz, po skonfigurowaniu Azure Monitor środowiska pulpitu wirtualnego systemu Windows, poniżej przedstawiono niektóre zasoby, które mogą pomóc w rozpoczęciu monitorowania środowiska:
 
 - Zapoznaj się z naszym [słownikiem](azure-monitor-glossary.md) , aby dowiedzieć się więcej na temat terminów i koncepcji dotyczących Azure monitor dla pulpitu wirtualnego systemu Windows.
-- Jeśli wystąpi problem, zapoznaj się z naszym [przewodnikiem rozwiązywania problemów](troubleshoot-azure-monitor.md) , aby uzyskać pomoc.
+- W przypadku wystąpienia problemu zapoznaj się z naszym [przewodnikiem rozwiązywania problemów](troubleshoot-azure-monitor.md) , aby uzyskać pomoc i znane problemy.

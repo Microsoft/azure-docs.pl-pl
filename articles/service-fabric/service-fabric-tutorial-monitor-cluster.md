@@ -1,17 +1,15 @@
 ---
 title: Monitorowanie klastra Service Fabric na platformie Azure
 description: W tym samouczku dowiesz się, jak monitorować klaster, wyświetlając Service Fabric zdarzenia, wykonując zapytania dotyczące interfejsów API EventStore, monitorowania liczników wydajności i wyświetlania raportów o kondycji.
-author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3e9c8011647567b6f07423e113f98493d80d8402
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98791781"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628785"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: monitorowanie klastra Service Fabric na platformie Azure
 

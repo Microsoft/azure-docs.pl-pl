@@ -2,16 +2,16 @@
 title: Wdróż rozszerzenia maszyn wirtualnych z szablonem
 description: Dowiedz się, jak wdrażać rozszerzenia maszyn wirtualnych za pomocą szablonów Azure Resource Manager (szablony ARM).
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 320908ab4b24c43e8bd5209d4f32ef0211036958
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587948"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628428"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów ARM
 
@@ -82,7 +82,7 @@ Dodaj zasób rozszerzenia maszyny wirtualnej do istniejącego szablonu o następ
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2019-12-01",
+  "apiVersion": "2020-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [

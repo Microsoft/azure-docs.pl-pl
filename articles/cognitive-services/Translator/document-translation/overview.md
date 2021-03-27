@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f84dc66828f2ebf13316b3348fd93933a2223b5a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656009"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612283"
 ---
 # <a name="what-is-document-translation-preview"></a>Co to jest tłumaczenie dokumentu (wersja zapoznawcza)?
 
@@ -52,7 +52,7 @@ Tłumaczenia dokumentów obsługują następujące typy plików dokumentów:
 |Microsoft Outlook|. msg|Wiadomość e-mail utworzona lub zapisana w programie Microsoft Outlook.|
 |Microsoft PowerPoint|pptx| Plik prezentacji służący do wyświetlania zawartości w formacie pokazu slajdów.|
 |Microsoft Word|docx| Plik dokumentu tekstowego.|
-|Wartości rozdzielane tabulatorami/tabulator|. tsv/. karta| rozdzielany znakami tabulacji plik danych nieprzetworzonych, używany przez programy arkusza kalkulacyjnego.|
+|Wartości rozdzielane tabulatorami/tabulator|. tsv/. karta| Rozdzielany znakami tabulacji plik danych nieprzetworzonych, używany przez programy arkusza kalkulacyjnego.|
 |Tekst|txt| Niesformatowany dokument tekstowy.|
 |Wymiana pamięci translacji|.tmx|Otwarty standard XML używany do wymiany danych pamięci translacji (TM) utworzonych przez aplikacje do przetłumaczenia i lokalizowania komputerów (CAT).|
 
@@ -63,7 +63,7 @@ Następujące typy plików słownika są obsługiwane przez tłumaczenie dokumen
 | Typ pliku| Rozszerzenie pliku|Opis|
 |---|---|--|
 |Format pliku wymiany lokalizacji|.xlf. , XLIFF| Format dokumentu równoległego, eksportowanie systemów pamięci translacji. Używane języki są zdefiniowane w pliku.|
-|Wartości rozdzielane tabulatorami/tabulator|. tsv/. karta| rozdzielany znakami tabulacji plik danych nieprzetworzonych, używany przez programy arkusza kalkulacyjnego.|
+|Wartości rozdzielane tabulatorami/tabulator|. tsv/. karta| Rozdzielany znakami tabulacji plik danych nieprzetworzonych, używany przez programy arkusza kalkulacyjnego.|
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia ko
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107282"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612861"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Macierz obsługi kopii zapasowych dysków na platformie Azure
 
@@ -51,7 +51,7 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 
 - Obecnie Azure Portal środowisko konfigurowania kopii zapasowych dysków jest ograniczone do maksymalnie 20 dysków z tej samej subskrypcji.
 
-- Obecnie (w trakcie korzystania z wersji zapoznawczej) korzystanie z programu PowerShell i interfejsu wiersza polecenia platformy Azure w celu skonfigurowania kopii zapasowych i przywracania dysków nie jest obsługiwane.
+- Usługa Kopia zapasowa Azure Disk obsługuje program PowerShell. Obecnie interfejs wiersza polecenia platformy Azure nie jest obsługiwany.
 
 - Podczas konfigurowania kopii zapasowej dysk wybrany do utworzenia kopii zapasowej i Grupa zasobów migawek, w której mają być przechowywane migawki, muszą być częścią tej samej subskrypcji. Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dowiedz się więcej na temat [migawek przyrostowych](../virtual-machines/disks-incremental-snapshots.md#restrictions) dla dysku zarządzanego. Aby uzyskać więcej informacji na temat wybierania grupy zasobów migawek, zobacz  [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup).
 
@@ -61,7 +61,7 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 
 - Obsługa [linków prywatnych](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) dla dysków zarządzanych umożliwia ograniczenie eksportu i importu dysków zarządzanych w taki sposób, aby były one wykonywane tylko w ramach sieci wirtualnej platformy Azure. Usługa Kopia zapasowa Azure Disk obsługuje tworzenie kopii zapasowych dysków z włączonymi prywatnymi punktami końcowymi. Nie obejmuje to danych kopii zapasowej ani migawek, które mają być dostępne za pomocą prywatnego punktu końcowego.
 
-- W trakcie okresu zapoznawczego nie można wyłączyć tworzenia kopii zapasowej, dlatego opcja **Zatrzymaj tworzenie kopii zapasowej i Zachowaj dane kopii w** programie nie jest obsługiwana. Można usunąć wystąpienie kopii zapasowej, które nie tylko zatrzyma kopię zapasową, ale również usunie wszystkie dane kopii zapasowej.
+- Można usunąć wystąpienie kopii zapasowej, co spowoduje zatrzymanie tworzenia kopii zapasowej, a także usunięcie wszystkich danych kopii zapasowej. Obecnie nie można wyłączyć wykonywania kopii zapasowej, ponieważ opcja **Zatrzymaj wykonywanie kopii zapasowej i Zachowaj dane kopii zapasowej** nie są obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

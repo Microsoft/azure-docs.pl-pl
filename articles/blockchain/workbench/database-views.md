@@ -4,16 +4,16 @@ description: Omówienie dostępnych widoków bazy danych SQL usługi Azure łań
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6c7fba590c9c8951e1862c28cb24dbde52c8da8d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87003325"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625538"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Widoki bazy danych usługi Azure łańcucha bloków Workbench
 
-Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej dostarcza dane z rozproszonych ksiąg do bazy danych usług SQL DB w *łańcuchu* . Baza danych między łańcuchami umożliwia korzystanie z programu SQL i istniejących narzędzi, takich jak [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), w celu współdziałania z danymi łańcucha bloków.
+Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej dostarcza dane z rozproszonych ksiąg do bazy danych usług SQL DB w *łańcuchu* . Baza danych między łańcuchami umożliwia korzystanie z programu SQL i istniejących narzędzi, takich jak [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), w celu współdziałania z danymi łańcucha bloków.
 
 Usługa Azure łańcucha bloków Workbench udostępnia zestaw widoków bazy danych, które zapewniają dostęp do danych, które będą pomocne podczas wykonywania zapytań. Te widoki są silnie nieznormalizowane, aby ułatwić szybkie rozpoczęcie tworzenia raportów, analiz i w inny sposób korzystać z danych łańcucha bloków z istniejących narzędzi i bez konieczności ponownego uczenia się personelu bazy danych.
 

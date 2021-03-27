@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 9f433815838cc4d8dd41f3b95fc1bd6fe0acc955
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 2e9dafc111478f35263dc9db0cc07d913327c936
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562736"
+ms.locfileid: "105612062"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów działających w środowisku VMware przy użyciu Azure Migrate: odnajdywanie i Ocena
 
@@ -34,11 +34,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
-
 
 **Wymaganie** | **Szczegóły**
 --- | ---
@@ -97,7 +95,6 @@ W programie klient sieci Web vSphere Skonfiguruj konto w następujący sposób:
 6. Jeśli chcesz również przeprowadzić odnajdywanie zainstalowanych aplikacji i analizy zależności bez agenta, przejdź do **ról** > wybierz rolę tylko do **odczytu** , a w obszarze **uprawnienia** wybierz pozycję **operacje gościa**. Można propagować uprawnienia do wszystkich obiektów w vCenter Server, zaznaczając pole wyboru Propaguj do elementów podrzędnych.
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Pole wyboru zezwalające na operacje gościa w roli tylko do odczytu":::
-
 
 > [!NOTE]
 > Można ograniczyć odnajdywanie do określonych vCenter Server centrów danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych serwerów przez określanie zakresu vCenter Server konta. [**Dowiedz się więcej**](set-discovery-scope.md) na temat określania zakresu vCenter Servergo konta użytkownika.
@@ -197,11 +194,9 @@ Zaimportuj pobrany plik i Utwórz serwer w środowisku VMware
 8. W polu **mapowanie sieci** Określ sieć, z którą zostanie nawiązane połączenie serwer. Sieć wymaga łączności z Internetem, aby można było wysyłać metadane do Azure Migrate.
 9. Sprawdź poprawność ustawień, a następnie kliknij pozycję **Finish** (Zakończ).
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
 Upewnij się, że serwer urządzenia może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
-
 
 ### <a name="4-configure-the-appliance"></a>4. Skonfiguruj urządzenie
 

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564011"
+ms.locfileid: "105611977"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Skalowanie migracji maszyn wirtualnych VMware na platformę Azure bez wykorzystania agentów
 
@@ -43,8 +43,8 @@ Aby dowiedzieć się, jak wykonać powyższe instrukcje, zapoznaj się z samoucz
 
 Aby dodać urządzenie skalowalne w poziomie, wykonaj czynności opisane poniżej:
 
-1. Klikniesz pozycję **odnajdywanie**  >  **czy maszyny są zwirtualizowane?** 
-1. Wybierz opcję **tak, za pomocą funkcji hypervisor VMware VSphere.**
+1. Kliknij pozycję **odkryj**  >  **czy Twoje maszyny są zwirtualizowane?** 
+1. Wybierz opcję **tak, za pomocą funkcji Hypervisor VMware vSphere.**
 1. W następnym kroku wybierz opcję replikacja bez wykorzystania agentów.
 1. Wybierz pozycję **Skaluj w poziomie istniejące urządzenie podstawowe** w menu wybierz typ urządzenia.
 1. Wybierz urządzenie podstawowe (urządzenie, za pomocą którego zostało wykonane odnajdywanie), które chcesz skalować w poziomie.
@@ -68,8 +68,8 @@ W obszarze **pobierz Azure Migrate urządzenie** kliknij pozycję  **Pobierz**. 
 > 1. Otwórz wiersz polecenia jako administrator
 > 2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku spakowanego:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykładowe użycie chmury publicznej: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Pobierz najnowszą wersję Instalatora urządzenia skalowalnego w poziomie z portalu, Jeśli obliczona wartość skrótu nie jest zgodna z tym ciągiem: e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+    - Przykładowe użycie chmury publicznej: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Pobierz najnowszą wersję Instalatora urządzenia skalowalnego w poziomie z portalu, Jeśli obliczona wartość skrótu nie jest zgodna z tym ciągiem: 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Uruchom skrypt Instalatora Azure Migrate
 Skrypt Instalatora wykonuje następujące czynności:
@@ -108,7 +108,7 @@ Przed rozpoczęciem upewnij się, że [te punkty końcowe platformy Azure](migra
 - Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
 - W programie Configuration Manager > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
    - **Łączność**: Urządzenie sprawdza, czy serwer ma dostęp do Internetu. Jeśli serwer używa serwera proxy:
-     1. Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy (w postaci http://ProxyIPAddress lub na http://ProxyFQDN) porcie nasłuchu.
+     1. Kliknij pozycję **Konfiguruj serwer proxy** , aby określić adres serwera proxy (w postaci http://ProxyIPAddress lub na http://ProxyFQDN) porcie nasłuchu.
      2. Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
      3. Obsługiwane są tylko serwery proxy HTTP.
      4. Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.

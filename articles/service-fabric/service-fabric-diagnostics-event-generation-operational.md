@@ -1,16 +1,14 @@
 ---
 title: Lista zdarzeń Service Fabric platformy Azure
 description: Kompleksowa lista zdarzeń zapewnianych przez usługę Azure Service Fabric w celu ułatwienia monitorowania klastrów.
-author: srrengar
 ms.topic: reference
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f65d7c3ddec8263ff6f115df9616b48814afc93
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85846645"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628887"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista zdarzeń Service Fabric 
 
@@ -55,6 +53,13 @@ Więcej szczegółów na temat uaktualniania klastra można znaleźć [tutaj](se
 | 25622 | NodeOpenFailed | Przejścia stanu |  Nie można uruchomić węzła i połączyć się z pierścieniem | FabricNode | Błąd | 
 | 25624 | NodeClosed | Przejścia stanu |  Węzeł zostanie zamknięty pomyślnie | FabricNode | Informacyjne | 
 | 25626 | NodeAborted | Przejścia stanu |  Węzeł jest niebezpiecznie zamknięty | FabricNode | Błąd | 
+
+**Zdarzenia węzła rejestratora KTL** 
+
+| EventId | Nazwa | Kategoria | Opis |Źródło (zadanie) | Poziom |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Służba zdrowia | Operacje zapisu w dzienniku udostępnionym są ograniczane | KtlLoggerNode | Informacyjne | 
+| 50188 | SharedLogWriteUnthrottled | Służba zdrowia | Zapisy w dzienniku udostępnionym mają nieograniczoną wartość | KtlLoggerNode | Informacyjne | 
 
 ## <a name="application-events"></a>Zdarzenia aplikacji
 

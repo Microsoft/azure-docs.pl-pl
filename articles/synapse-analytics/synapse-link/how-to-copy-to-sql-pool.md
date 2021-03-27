@@ -2,20 +2,20 @@
 title: Kopiuj łącze Synapse Azure Cosmos DB danych do dedykowanej puli SQL przy użyciu Apache Spark
 description: Załaduj dane do ramki danych platformy Spark, zanadzoruj dane i załaduj je do dedykowanej tabeli puli SQL
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/10/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 755782b117ef5a5619ddde3e1573fe1805117e77
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: ff04d43e72d4eca9800b330d5a4721ba951c85f9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868566"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627646"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Kopiowanie danych z Azure Cosmos DB do dedykowanej puli SQL przy użyciu Apache Spark
 

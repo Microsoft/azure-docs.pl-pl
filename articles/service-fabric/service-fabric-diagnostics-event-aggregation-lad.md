@@ -1,16 +1,14 @@
 ---
 title: Agregacja zdarzeń za pomocą Diagnostyka Azure systemu Linux
 description: Dowiedz się więcej na temat agregowania i zbierania zdarzeń przy użyciu LAD do monitorowania i diagnostyki klastrów Service Fabric platformy Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bd5efc6b661bf25ce7946cda0bcfa01be4c351a7
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96002174"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628938"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Linux
 > [!div class="op_single_selector"]

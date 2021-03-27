@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a46c7f35e30b2dda7b4800ed553447cef5bb5d33
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609360"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626711"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich przy użyciu usługi Azure Wyszukiwanie poznawcze
 
@@ -81,13 +81,15 @@ Następujące dodatkowe parametry mają zastosowanie zarówno do autouzupełnian
 
 Automatyczne wypełnianie terminu zapytania lub usuwanie listy pasujących linków wymaga kodu interakcji użytkownika, zazwyczaj języka JavaScript, który może zużywać żądania ze źródeł zewnętrznych, takich jak Autouzupełnianie lub zapytania sugestii dotyczące Azure Searchego indeksu poznawczego.
 
-Chociaż można napisać ten kod natywnie, znacznie łatwiej jest używać funkcji z istniejącej biblioteki JavaScript. W tym artykule opisano dwa, jeden dla sugestii i drugi do autouzupełniania. 
+Chociaż można napisać ten kod natywnie, łatwiej jest używać funkcji z istniejącej biblioteki JavaScript, takiej jak jedna z następujących. 
 
 + Element [widget autouzupełniania (interfejs użytkownika jQuery)](https://jqueryui.com/autocomplete/) pojawia się w fragmencie kodu sugestii. Można utworzyć pole wyszukiwania, a następnie odwołać się do niego w funkcji języka JavaScript korzystającej z widżetu Autouzupełnianie. Właściwości w widżecie ustaw źródło (funkcja autouzupełniania lub sugestii), minimalną długość znaków wejściowych przed akcją i pozycjonowanie.
 
 + [Wtyczka autouzupełniania XDSoft](https://xdsoft.net/jqplugins/autocomplete/) pojawia się w fragmencie kodu autouzupełniania.
 
-Te biblioteki są używane do tworzenia pola wyszukiwania z obsługą obu sugestii i autouzupełniania. Dane wejściowe zebrane w polu wyszukiwania są sparowane z sugestiami i akcjami autouzupełniania.
++ [sugestie](https://www.npmjs.com/package/suggestions) pojawiają się w [samouczku języka JavaScript](tutorial-javascript-overview.md) i przykładowym kodzie.
+
+Za pomocą tych bibliotek można utworzyć pole wyszukiwania obsługujące zarówno sugestie, jak i Autouzupełnianie. Dane wejściowe zebrane w polu wyszukiwania można następnie łączyć z sugestiami i akcjami autouzupełniania w usłudze wyszukiwania.
 
 ## <a name="suggestions"></a>Sugestie
 
@@ -247,7 +249,7 @@ Funkcja Autouzupełnianie pobiera dane wejściowe terminu wyszukiwania. Metoda t
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skorzystaj z tych linków, aby uzyskać szczegółowe instrukcje lub kod pokazujący, że oba środowiska wyszukiwania są w trakcie pisania. W przykładzie pokazano hybrydowe implementacje sugestii i funkcji autouzupełniania.
+Skorzystaj z tych linków, aby uzyskać szczegółowe instrukcje lub kod pokazujący, że oba środowiska wyszukiwania są w trakcie pisania. W przykładzie przedstawiono implementację hybrydową sugestii i funkcji autouzupełniania.
 
-+ [Samouczek: Tworzenie pierwszej aplikacji w języku C# (Lekcja 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Przykładowy kod w języku C#: Azure-Search-dotnet-Samples/Create-First-App/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
++ [Dodawanie wyszukiwania do witryny sieci Web (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) używa pakietu sugestii typu open source do częściowego uzupełniania terminu w aplikacji klienckiej.
++ [Samouczek: Tworzenie pierwszej aplikacji w języku c# (Lekcja 3)](tutorial-csharp-type-ahead-and-suggestions.md) za pomocą skojarzonego  [przykładu kodu w języku c#: Azure-Search-dotnet-Samples/Create-First-App/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) demonstracji Native support for typeahead.

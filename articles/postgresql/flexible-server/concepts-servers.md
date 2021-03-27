@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: e3b04563b0da3255c63208b73c9ecdbd62ff0cf7
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609298"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626847"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>Serwery — serwer elastyczny Azure Database for PostgreSQL
 
@@ -42,8 +42,8 @@ Na serwerze Azure Database for PostgreSQL można utworzyć jedną lub wiele baz 
 
 Następujące elementy pomagają zapewnić bezpieczny dostęp do bazy danych:
 
-|||
-|:--|:--|
+| Koncepcja zabezpieczeń | Opis |
+| :-- | :-- |
 | **Uwierzytelnianie i autoryzacja** | Serwer usługi Azure Database for PostgreSQL obsługuje natywne uwierzytelnianie bazy danych PostgreSQL. Aby nawiązać połączenie z serwerem i przeprowadzić uwierzytelnianie na serwerze, można użyć identyfikatora logowania administratora serwera. |
 | **Protokół** | Usługa obsługuje protokół oparty na komunikatach używany przez PostgreSQL. |
 | **TCP/IP** | Protokół jest obsługiwany za pośrednictwem protokołu TCP/IP i gniazd domen systemu UNIX. |

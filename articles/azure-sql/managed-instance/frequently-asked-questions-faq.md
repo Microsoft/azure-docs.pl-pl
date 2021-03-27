@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 42e263a47c6c771d2b1fef6586468cfc5a698e28
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047919"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628581"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -135,7 +135,7 @@ Wystąpienie zarządzane oferuje te same poziomy wydajności dla wielkości zaso
 
 Jedną z opcji jest [wyeksportowanie bazy danych do BACPAC](../database/database-export.md) , a następnie [zaimportowanie pliku BACPAC](../database/database-import.md). Jest to zalecane rozwiązanie, jeśli baza danych jest mniejsza niż 100 GB.
 
-[Replikacji transakcyjnej](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) można użyć, jeśli wszystkie tabele w bazie danych mają klucze *podstawowe* i w bazie danych nie ma obiektów OLTP w pamięci.
+[Replikacji transakcyjnej](replication-two-instances-and-sql-server-configure-tutorial.md) można użyć, jeśli wszystkie tabele w bazie danych mają klucze *podstawowe* i w bazie danych nie ma obiektów OLTP w pamięci.
 
 Nie można przywrócić natywnych kopii zapasowych COPY_ONLY pobranych z wystąpienia zarządzanego do SQL Server, ponieważ wystąpienie zarządzane ma nowszą wersję bazy danych w porównaniu do SQL Server. Aby uzyskać więcej informacji, zobacz [kopia zapasowa tylko do kopiowania](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
@@ -171,7 +171,7 @@ Zobacz [najważniejsze przyczyny różnic wydajności między wystąpieniem zarz
 
 Wydajność wystąpienia zarządzanego można zoptymalizować, wykonując następujące działania:
 - [Dostrajanie automatyczne](../database/automatic-tuning-overview.md) , które zapewnia wydajność szczytową i stabilną w ramach ciągłego dostrajania wydajności na podstawie systemu AI i uczenia maszynowego.
--   [OLTP w pamięci](../in-memory-oltp-overview.md) , które zwiększa przepływność i opóźnienie w przypadku obciążeń przetwarzania transakcyjnego i zapewnia szybszy wgląd w dane biznesowe. 
+-    [OLTP w pamięci](../in-memory-oltp-overview.md) , które zwiększa przepływność i opóźnienie w przypadku obciążeń przetwarzania transakcyjnego i zapewnia szybszy wgląd w dane biznesowe. 
 
 Aby jeszcze bardziej dostosować wydajność, należy rozważyć zastosowanie niektórych *najlepszych* rozwiązań w zakresie [dostrajania aplikacji i bazy danych](../database/performance-guidance.md#tune-your-database).
 Jeśli obciążenie obejmuje wiele małych transakcji, należy rozważyć [przełączenie typu połączenia z serwera proxy do trybu przekierowywania](connection-types-overview.md#changing-connection-type) dla małych opóźnień i większej przepływności.
@@ -263,9 +263,9 @@ Tak. Po aprowizacji wystąpienia zarządzanego można ustawić sieciowej grupy z
 **Czy można ustawić urządzenie WUS lub zaporę lokalną do filtrowania ruchu zarządzania wychodzącego na podstawie nazw FQDN?**
 
 Nie. Nie jest to obsługiwane z kilku powodów:
--   Ruch związany z routingiem reprezentujący odpowiedź na przychodzące żądanie zarządzania mógłby być asymetryczny i nie mógł działać.
--   Ruch związany z kierowaniem do magazynu może mieć wpływ na ograniczenia przepływności i opóźnienia, dzięki czemu nie będzie można zapewnić oczekiwanej jakości i dostępności usługi.
--   W oparciu o środowisko te konfiguracje są podatne na błędy i nie są obsługiwane.
+-    Ruch związany z routingiem reprezentujący odpowiedź na przychodzące żądanie zarządzania mógłby być asymetryczny i nie mógł działać.
+-    Ruch związany z kierowaniem do magazynu może mieć wpływ na ograniczenia przepływności i opóźnienia, dzięki czemu nie będzie można zapewnić oczekiwanej jakości i dostępności usługi.
+-    W oparciu o środowisko te konfiguracje są podatne na błędy i nie są obsługiwane.
 
 **Czy mogę ustawić urządzenie WUS lub zaporę dla wychodzącego ruchu niezwiązanego z zarządzaniem?**
 
@@ -416,9 +416,9 @@ Wystąpienie zarządzane SQL oferuje [model zakupu oparty na rdzeń wirtualny](s
 **Jakie korzyści z kosztów są dostępne dla wystąpienia zarządzanego SQL?**
 
 Koszty związane z korzyściami z usługi Azure SQL można zaoszczędzić w następujący sposób:
--   Zmaksymalizuj istniejące inwestycje w licencje lokalne i Zaoszczędź nawet do 55% dzięki [korzyść użycia hybrydowego platformy Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
--   Zatwierdź do rezerwacji zasobów obliczeniowych i zaoszczędź do 33% z [korzyścią wystąpienia zarezerwowanego](../database/reserved-capacity-overview.md). Połącz ją z korzyścią użycia hybrydowego platformy Azure, aby zaoszczędzić do 82%. 
--   Oszczędź do 55 procent w porównaniu z cennikiem dzięki [korzyściom z tytułu](https://azure.microsoft.com/pricing/dev-test/) tworzenia i testowania platformy Azure, która oferuje obniżone stawki za bieżące obciążenia związane z tworzeniem i testowaniem.
+-    Zmaksymalizuj istniejące inwestycje w licencje lokalne i Zaoszczędź nawet do 55% dzięki [korzyść użycia hybrydowego platformy Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-    Zatwierdź do rezerwacji zasobów obliczeniowych i zaoszczędź do 33% z [korzyścią wystąpienia zarezerwowanego](../database/reserved-capacity-overview.md). Połącz ją z korzyścią użycia hybrydowego platformy Azure, aby zaoszczędzić do 82%. 
+-    Oszczędź do 55 procent w porównaniu z cennikiem dzięki [korzyściom z tytułu](https://azure.microsoft.com/pricing/dev-test/) tworzenia i testowania platformy Azure, która oferuje obniżone stawki za bieżące obciążenia związane z tworzeniem i testowaniem.
 
 **Kto jest uprawniony do skorzystania z korzyści z wystąpienia zarezerwowanego?**
 

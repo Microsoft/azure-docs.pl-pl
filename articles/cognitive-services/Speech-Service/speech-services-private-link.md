@@ -10,30 +10,33 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6971c6f0959135c7de1f41bcd49adde514f87941
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99559654"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625487"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Korzystanie z usług mowy za pomocą prywatnego punktu końcowego
 
 [Link prywatny platformy Azure](../../private-link/private-link-overview.md) umożliwia łączenie się z usługami na platformie Azure przy użyciu [prywatnego punktu końcowego](../../private-link/private-endpoint-overview.md). Prywatny punkt końcowy to prywatny adres IP, który jest dostępny tylko w ramach określonej [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
 
 W tym artykule wyjaśniono, jak skonfigurować i korzystać z prywatnego linku i prywatnych punktów końcowych za pomocą usług mowy w usłudze Azure Cognitive Services.
+W tym artykule opisano sposób późniejszego usuwania prywatnych punktów końcowych, ale nadal używany jest zasób mowy.
 
 > [!NOTE]
 > Przed kontynuowaniem zapoznaj [się z tematem jak używać sieci wirtualnych z Cognitive Services](../cognitive-services-virtual-networks.md).
 
-W tym artykule opisano również [sposób usuwania prywatnych punktów końcowych w późniejszym czasie, ale nadal używany jest zasób mowy](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+
 
 ## <a name="create-a-custom-domain-name"></a>Utwórz niestandardową nazwę domeny
 
 Prywatne punkty końcowe wymagają [niestandardowej nazwy domeny podrzędnej dla Cognitive Services](../cognitive-services-custom-subdomains.md). Wykonaj poniższe instrukcje, aby utworzyć jeden dla zasobu mowy.
 
 > [!WARNING]
-> Zasób mowy z włączoną niestandardową nazwą domeny używa innego sposobu, aby móc korzystać z usługi Speech Services. Może być konieczne dostosowanie kodu aplikacji dla obu tych scenariuszy: włączono [prywatny punkt końcowy](#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled) , a [ *nie* włączony prywatny punkt końcowy](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> Zasób mowy, który używa niestandardowej nazwy domeny współdziała z usługami mowy w inny sposób.
+> Być może trzeba będzie dostosować kod aplikacji w taki sposób, aby korzystał z zasobu mowy z prywatnym punktem końcowym, a także używać zasobu mowy _bez_ prywatnego punktu końcowego.
+> Oba scenariusze mogą być konieczne, ponieważ przełączanie do niestandardowej nazwy domeny _nie_ jest odwracalne.
 >
 > Po włączeniu niestandardowej nazwy domeny operacja jest [nieodwracalna](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). Jedynym sposobem powrotu do [nazwy regionalnej](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) jest utworzenie nowego zasobu mowy.
 >
@@ -183,9 +186,9 @@ Jeśli nazwa jest już zajęta, zobaczysz następującą odpowiedź:
   "type": null
 }
 ```
-## <a name="enable-a-custom-domain-name"></a>Włącz niestandardową nazwę domeny
+## <a name="turn-on-a-custom-domain-name"></a>Włącz niestandardową nazwę domeny
 
-Aby włączyć niestandardową nazwę domeny dla wybranego zasobu mowy, użyj polecenia [AZ cognitiveservices Account Update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) .
+Aby użyć niestandardowej nazwy domeny z wybranym zasobem mowy, użyj polecenia [AZ cognitiveservices Account Update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) .
 
 Wybierz subskrypcję platformy Azure, która zawiera zasób mowy. Jeśli Twoje konto platformy Azure ma tylko jedną aktywną subskrypcję, możesz pominąć ten krok. Zamień wartość `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` na identyfikator swojej subskrypcji platformy Azure.
 ```azurecli-interactive
@@ -202,13 +205,14 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ***
 
-## <a name="enable-private-endpoints"></a>Włącz prywatne punkty końcowe
+## <a name="turn-on-private-endpoints"></a>Włącz prywatne punkty końcowe
 
-Zalecamy używanie [prywatnej strefy DNS](../../dns/private-dns-overview.md) dołączonej do sieci wirtualnej z aktualizacjami niezbędnymi dla prywatnych punktów końcowych. Prywatna strefa DNS jest tworzona domyślnie podczas procesu aprowizacji. W przypadku korzystania z własnego serwera DNS może być również konieczna zmiana konfiguracji DNS. 
+Zalecamy używanie [prywatnej strefy DNS](../../dns/private-dns-overview.md) dołączonej do sieci wirtualnej z aktualizacjami niezbędnymi dla prywatnych punktów końcowych. Podczas procesu aprowizacji można utworzyć prywatną strefę DNS. W przypadku korzystania z własnego serwera DNS może być również konieczna zmiana konfiguracji DNS.
 
 *Przed* udostępnieniem prywatnych punktów końcowych dla produkcyjnego zasobu mowy należy podjąć decyzję dotyczącą strategii DNS. I przetestuj zmiany DNS, zwłaszcza jeśli używasz własnego serwera DNS.
 
-Użyj jednego z poniższych artykułów, aby utworzyć prywatne punkty końcowe. W tych artykułach można używać aplikacji sieci Web jako przykładowego zasobu do włączania prywatnych punktów końcowych.
+Użyj jednego z poniższych artykułów, aby utworzyć prywatne punkty końcowe.
+Te artykuły używają aplikacji sieci Web jako przykładowego zasobu, aby udostępnić je za pomocą prywatnych punktów końcowych.
 
 - [Tworzenie prywatnego punktu końcowego za pomocą Azure Portal](../../private-link/create-private-endpoint-portal.md)
 - [Tworzenie prywatnego punktu końcowego za pomocą Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -248,7 +252,7 @@ Wykonaj następujące kroki, aby przetestować niestandardowy wpis DNS z sieci w
 
 ### <a name="resolve-dns-from-other-networks"></a>Rozpoznawanie systemu DNS z innych sieci
 
-Ten test należy wykonać tylko wtedy, gdy włączono opcję **wszystkie sieci** lub opcję dostęp do **wybranych sieci i prywatnych punktów końcowych** w sekcji **Sieć** zasobu. 
+To sprawdzenie należy wykonać tylko wtedy, gdy włączono opcję **wszystkie sieci** lub opcję dostęp do **wybranych sieci i prywatnych punktów końcowych** w sekcji **Sieć** zasobu. 
 
 Jeśli planujesz uzyskać dostęp do zasobu za pomocą tylko prywatnego punktu końcowego, możesz pominąć tę sekcję.
 
@@ -271,18 +275,20 @@ Jeśli planujesz uzyskać dostęp do zasobu za pomocą tylko prywatnego punktu k
 > [!NOTE]
 > Rozpoznany adres IP wskazuje punkt końcowy proxy sieci wirtualnej, który wysyła ruch sieciowy do prywatnego punktu końcowego dla zasobu Cognitive Services. Zachowanie będzie inne dla zasobu z niestandardową nazwą domeny, ale *bez* prywatnych punktów końcowych. Szczegółowe informacje znajdują się w [tej sekcji](#dns-configuration) .
 
-## <a name="adjust-existing-applications-and-solutions"></a>Dostosuj istniejące aplikacje i rozwiązania
+## <a name="adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint"></a>Dostosowanie aplikacji do korzystania z zasobu mowy z prywatnym punktem końcowym
 
-Zasób mowy z włączoną domeną niestandardową korzysta z innego sposobu, aby można było korzystać z usługi Speech Services. Jest to prawdziwe dla zasobu mowy z włączoną obsługą domeny niestandardowej zarówno z prywatnymi punktami końcowymi, jak i bez nich. Informacje w tej sekcji dotyczą obu scenariuszy.
+Zasób mowy z domeną niestandardową współdziała z usługami mowy w inny sposób. Jest to prawdziwe dla zasobu mowy z włączoną obsługą domeny niestandardowej zarówno z prywatnymi punktami końcowymi, jak i bez nich. Informacje w tej sekcji dotyczą obu scenariuszy.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled"></a>Korzystanie z zasobu mowy z niestandardową nazwą domeny i włączonym prywatnym punktem końcowym
+Postępuj zgodnie z instrukcjami w tej sekcji, aby dostosować istniejące aplikacje i rozwiązania do korzystania z zasobu mowy z niestandardową nazwą domeny i włączonym prywatnym punktem końcowym.
 
-Zasób mowy z niestandardową nazwą domeny i włączonym prywatnym punktem końcowym używa innego sposobu, aby móc korzystać z usługi Speech Services. W tej sekcji wyjaśniono, jak używać takiego zasobu z interfejsami API REST usług mowy i [zestawem SDK mowy](speech-sdk.md).
+Zasób mowy z niestandardową nazwą domeny i prywatnym punktem końcowym z włączonym innym sposobem korzystania z usługi Speech Services. W tej sekcji wyjaśniono, jak używać takiego zasobu z interfejsami API REST usług mowy i [zestawem SDK mowy](speech-sdk.md).
 
 > [!NOTE]
-> Zasób mowy bez prywatnych punktów końcowych, ale z włączoną niestandardową nazwą domeny, ma również specjalny sposób na korzystanie z usług mowy. W ten sposób różni się od scenariusza zasobów mowy z obsługą prywatnego punktu końcowego. Jeśli masz taki zasób (na przykład zasób z prywatnymi punktami końcowymi, ale podjęto decyzję o ich usunięciu), zobacz sekcję [Korzystanie z zasobu mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> Zasób mowy bez prywatnych punktów końcowych, który używa niestandardowej nazwy domeny, również ma specjalny sposób na korzystanie z usług mowy.
+> W ten sposób różni się od scenariusza zasobu mowy korzystającego z prywatnego punktu końcowego. Jest to ważne do uwzględnienia, ponieważ użytkownik może zdecydować się na późniejsze usunięcie prywatnych punktów końcowych.
+> Zobacz _Dostosowywanie aplikacji, aby używać zasobu mowy bez prywatnych punktów końcowych_ w dalszej części tego artykułu.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>Zasób mowy z niestandardową nazwą domeny i prywatnym punktem końcowym: użycie z interfejsami API REST
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>Zasób mowy z niestandardową nazwą domeny i prywatnym punktem końcowym: użycie z interfejsami API REST
 
 Użyjemy `my-private-link-speech.cognitiveservices.azure.com` jako przykładowej nazwy DNS zasobu mowy (domena niestandardowa) dla tej sekcji.
 
@@ -300,7 +306,7 @@ Funkcja zamiany mowy na tekst interfejsu API REST w wersji 3.0 używa innego zes
 
 W następnych podsekcjach opisano oba przypadki.
 
-##### <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
+#### <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
 
 Zazwyczaj zasoby mowy wykorzystują [Cognitive Services regionalne punkty końcowe](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do komunikowania się z [INTERFEJSem API REST z funkcją zamiany mowy na tekst](rest-speech-to-text.md#speech-to-text-rest-api-v30). Te zasoby mają następujący format nazewnictwa: <p/>`{region}.api.cognitive.microsoft.com`.
 
@@ -313,9 +319,9 @@ https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 > [!NOTE]
 > Zobacz [ten artykuł](sovereign-clouds.md) , aby uzyskać Azure Government i punkty końcowe platformy Azure w Chinach.
 
-Po włączeniu niestandardowej domeny dla zasobu mowy (który jest konieczny dla prywatnych punktów końcowych) ten zasób będzie używał następującego wzorca nazwy DNS dla podstawowego punktu końcowego interfejsu API REST: <p/>`{your custom name}.cognitiveservices.azure.com`.
+Po włączeniu niestandardowej domeny dla zasobu mowy (który jest konieczny dla prywatnych punktów końcowych) ten zasób będzie używał następującego wzorca nazwy DNS dla podstawowego punktu końcowego interfejsu API REST: <p/>`{your custom name}.cognitiveservices.azure.com`
 
-Oznacza to, że w naszym przykładzie nazwa punktu końcowego interfejsu API REST będzie: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
+Oznacza to, że w naszym przykładzie nazwa punktu końcowego interfejsu API REST będzie: <p/>`my-private-link-speech.cognitiveservices.azure.com`
 
 I przykładowy adres URL żądania musi zostać przekonwertowany na:
 ```http
@@ -330,7 +336,7 @@ Po włączeniu niestandardowej nazwy domeny dla zasobu mowy, zazwyczaj zastępuj
 >
 > Domena niestandardowa dla zasobu mowy *nie* zawiera informacji o regionie, w którym jest wdrożony zasób. Dlatego opisana wcześniej logika aplikacji *nie* będzie działać i musi zostać zmieniona.
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
 
 [Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) i [interfejsu API REST zamiany tekstu na mowę](rest-text-to-speech.md) wykorzystują dwa typy punktów końcowych:
 - [Cognitive Services regionalne punkty końcowe](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do komunikowania się z interfejsem API REST Cognitive Services w celu uzyskania tokenu autoryzacji
@@ -366,13 +372,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 ```
 Zapoznaj się ze szczegółowymi wyjaśnieniami w podsekcji [konstrukcja adresu URL punktu końcowego](#construct-endpoint-url) dla zestawu Speech SDK.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny i prywatnym punktem końcowym: użycie z zestawem Speech SDK
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny i prywatnym punktem końcowym: użycie z zestawem Speech SDK
 
 Korzystanie z zestawu Speech SDK z niestandardową nazwą domeny i zasobami mowy z obsługą prywatnych punktów końcowych wymaga przejrzenia i możliwie zmiany kodu aplikacji.
 
 Użyjemy `my-private-link-speech.cognitiveservices.azure.com` jako przykładowej nazwy DNS zasobu mowy (domena niestandardowa) dla tej sekcji.
 
-##### <a name="construct-endpoint-url"></a>Adres URL punktu końcowego konstruowania
+#### <a name="construct-endpoint-url"></a>Adres URL punktu końcowego konstruowania
 
 Zwykle w scenariuszach z zestawem SDK (a także w interfejsie API REST zamiany mowy na tekst na potrzeby krótkich i zamiany tekstu na mowę), zasoby mowy wykorzystują dedykowane regionalne punkty końcowe dla różnych ofert usług. Format nazwy DNS dla tych punktów końcowych to:
 
@@ -423,7 +429,7 @@ Zwróć uwagę na następujące szczegóły:
 https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
 
-Następujący równoważny adres URL korzysta z włączonego prywatnego punktu końcowego, gdzie nazwa domeny niestandardowej zasobu mowy to `my-private-link-speech.cognitiveservices.azure.com` :
+Następujący równoważny adres URL używa prywatnego punktu końcowego, gdzie niestandardowa nazwa domeny zasobu mowy `my-private-link-speech.cognitiveservices.azure.com` :
 
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
@@ -431,7 +437,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 Zostanie zastosowana ta sama zasada z przykładu 1, ale kluczowym elementem tego czasu jest `voice` .
 
-##### <a name="modifying-applications"></a>Modyfikowanie aplikacji
+#### <a name="modifying-applications"></a>Modyfikowanie aplikacji
 
 Wykonaj następujące kroki, aby zmodyfikować kod:
 
@@ -494,13 +500,13 @@ Wykonaj następujące kroki, aby zmodyfikować kod:
 
 Po tej modyfikacji aplikacja powinna współpracować z zasobami mowy z obsługą prywatnych punktów końcowych. Pracujemy nad bardziej bezproblemowe wsparciem scenariuszy prywatnych punktów końcowych.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints"></a>Używanie zasobu mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych
+## <a name="adjust-an-application-to-use-a-speech-resource-without-private-endpoints"></a>Dostosowanie aplikacji do korzystania z zasobu mowy bez prywatnych punktów końcowych
 
 W tym artykule opisano kilka razy, gdy włączenie niestandardowej domeny dla zasobu mowy jest *nieodwracalne*. Taki zasób będzie używać innego sposobu komunikowania się z usługami mowy w porównaniu z tymi, które korzystają z [regionalnych nazw punktów końcowych](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
-W tej sekcji wyjaśniono, jak używać zasobu mowy z włączoną niestandardową nazwą domeny, ale *bez* żadnych prywatnych punktów końcowych za pomocą interfejsów API REST usługi mowy i [zestawu Speech SDK](speech-sdk.md). Może to być zasób, który został raz użyty w scenariuszu prywatnego punktu końcowego, ale jego prywatne punkty końcowe zostały usunięte.
+W tej sekcji wyjaśniono, jak używać zasobu mowy z niestandardową nazwą domeny, ale *bez* żadnych prywatnych punktów końcowych za pomocą interfejsów API REST usługi mowy i [zestawu Speech SDK](speech-sdk.md). Może to być zasób, który został raz użyty w scenariuszu prywatnego punktu końcowego, ale jego prywatne punkty końcowe zostały usunięte.
 
-#### <a name="dns-configuration"></a>Konfiguracja usługi DNS
+### <a name="dns-configuration"></a>Konfiguracja usługi DNS
 
 Pamiętaj, jak nazwa DNS domeny niestandardowej zasobu mowy z obsługą prywatnego punktu końcowego jest [rozpoznawana z sieci publicznych](#resolve-dns-from-other-networks). W takim przypadku adres IP jest rozpoznawany jako punkt końcowy serwera proxy dla sieci wirtualnej. Ten punkt końcowy jest używany do wysyłania ruchu sieciowego do zasobu Cognitive Services z włączonym prywatnym punktem końcowym.
 
@@ -524,13 +530,13 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
 Porównaj ją z danymi wyjściowymi z [tej sekcji](#resolve-dns-from-other-networks).
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Zasób mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych: użycie przy użyciu interfejsów API REST
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Zasób mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych: użycie przy użyciu interfejsów API REST
 
-##### <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
+#### <a name="speech-to-text-rest-api-v30"></a>Zamiana mowy na tekst interfejsu API REST v 3.0
 
 Użycie funkcji zamiany mowy na tekst w interfejsie API v 3.0 jest w pełni równoważne w przypadku [zasobów mowy z obsługą punktu końcowego](#speech-to-text-rest-api-v30).
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Interfejs API REST zamiany mowy na tekst dla krótkiego dźwięku i interfejsu API REST zamiany tekstu na mowę
 
 W takim przypadku użycie interfejsu API REST zamiany mowy na tekst dla krótkiego dźwięku i użycia interfejsu API REST zamiany tekstu na mowę nie ma żadnych różnic między ogólnym przypadkiem a jednym wyjątkiem. (Zobacz poniższą uwagę). Należy używać obu interfejsów API, jak opisano w [interfejsie API REST zamiany mowy na tekst dla krótkiej](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) dokumentacji [interfejsu API REST audio i zamiany tekstu na mowę](rest-text-to-speech.md) .
 
@@ -539,7 +545,7 @@ W takim przypadku użycie interfejsu API REST zamiany mowy na tekst dla krótkie
 >
 > Użycie tokenu autoryzacji i przekazanie go do specjalnego punktu końcowego za pośrednictwem `Authorization` nagłówka będzie możliwe *tylko* wtedy, gdy włączono opcję dostępu **wszystkie sieci** w sekcji **Sieć** zasobu mowy. W innych przypadkach podczas `Forbidden` `BadRequest` próby uzyskania tokenu autoryzacji wystąpi błąd lub komunikat o błędzie.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych: użycie z zestawem Speech SDK
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Zasób mowy z niestandardową nazwą domeny i bez prywatnych punktów końcowych: użycie z zestawem Speech SDK
 
 Używanie zestawu Speech SDK z niestandardowymi zasobami mowy z obsługą domeny *bez* prywatnych punktów końcowych jest równoznaczne z ogólnym przypadkiem opisanym w [dokumentacji zestawu Speech SDK](speech-sdk.md).
 
@@ -559,7 +565,7 @@ var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Link prywatny platformy Azure](../../private-link/private-link-overview.md)
 * [Zestaw SDK rozpoznawania mowy](speech-sdk.md)

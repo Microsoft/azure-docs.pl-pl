@@ -1,16 +1,14 @@
 ---
 title: Konfigurowanie monitorowania przy użyciu dzienników Azure Monitor
 description: Dowiedz się, jak skonfigurować Azure Monitor dzienników do wizualizacji i analizowania zdarzeń do monitorowania klastrów Service Fabric platformy Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: srrengar
-ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 79dbc38f9d177bc3decf11673a68ce434f9a83bc
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570344"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625963"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurowanie dzienników Azure Monitor dla klastra
 

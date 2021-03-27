@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f0959ff51714e8a7e69f58a3e3abeab71e8359
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e9b0cce11abe1076d26ac8d4c4dc57c9b57c4737
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99259376"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625585"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Włączanie dostępu zdalnego do usługi Power BI dla urządzeń przenośnych przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -84,7 +84,7 @@ Teraz wszystko jest gotowe do skonfigurowania serwera proxy aplikacji usługi Az
 1. Publikowanie usług raportów za pomocą serwera proxy aplikacji z następującymi ustawieniami. Aby uzyskać instrukcje krok po kroku dotyczące publikowania aplikacji za pomocą serwera proxy aplikacji, zobacz temat dotyczący [publikowania aplikacji za pomocą serwera proxy aplikacji usługi Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    - **Wewnętrzny adres URL**: wprowadź adres URL serwera raportów, który łącznik może dotrzeć do sieci firmowej. Upewnij się, że ten adres URL jest dostępny z serwera, na którym zainstalowano łącznik. Najlepszym rozwiązaniem jest użycie domeny najwyższego poziomu, takiej jak `https://servername/`, aby uniknąć problemów z ścieżkami podrzędnymi opublikowanymi za pośrednictwem serwera proxy aplikacji. Użyj na przykład domeny `https://servername/`, a nie `https://servername/reports/` lub `https://servername/reportserver/`.
      > [!NOTE]
-     > Zalecamy używanie bezpiecznego połączenia HTTPS z serwerem raportów. Aby uzyskać odpowiednie instrukcje, zobacz temat [Configure SSL connections on a native mode report server](/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) (Konfigurowanie połączeń SSL na serwerze raportów w trybie natywnym).
+     > Zalecamy używanie bezpiecznego połączenia HTTPS z serwerem raportów. Aby uzyskać odpowiednie instrukcje, zobacz temat [Configure SSL connections on a native mode report server](/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server) (Konfigurowanie połączeń SSL na serwerze raportów w trybie natywnym).
    - **Zewnętrzny adres URL**: wprowadź publiczny adres URL, z którym zostanie nawiązane połączenie Power BI aplikacji mobilnej. Na przykład może wyglądać tak jak następujący `https://reports.contoso.com`, jeśli jest używana domena niestandardowa. Aby użyć domeny niestandardowej, przekaż certyfikat dla domeny i wskaż rekord DNS jako domyślną domenę msappproxy.net dla aplikacji. Aby uzyskać szczegółowe instrukcje, zobacz temat [Praca z domenami niestandardowymi na serwerze proxy aplikacji usługi Azure AD](application-proxy-configure-custom-domain.md).
 
    - **Metoda wstępnego uwierzytelniania**: Azure Active Directory

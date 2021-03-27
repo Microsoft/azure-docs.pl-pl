@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047239"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612385"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
 
@@ -37,8 +37,8 @@ Aby rozpocząć, musisz:
 
 > [!IMPORTANT]
 >
-> * Nie zostanie użyty punkt końcowy znaleziony na stronie klucze zasobów Azure Portal _i punkt_ końcowy ani globalny punkt końcowy usługi Translator — `api.cognitive.microsofttranslator.com` w celu żądania HTTP do tłumaczenia dokumentów.
 > * **Wszystkie żądania interfejsu API do usługi tłumaczenia dokumentów wymagają niestandardowego punktu końcowego domeny**.
+> * Nie zostanie użyty punkt końcowy znaleziony na stronie klucze zasobów Azure Portal _i punkt_ końcowy ani globalny punkt końcowy usługi Translator — `api.cognitive.microsofttranslator.com` w celu żądania HTTP do tłumaczenia dokumentów.
 
 ### <a name="what-is-the-custom-domain-endpoint"></a>Co to jest punkt końcowy domeny niestandardowej?
 
@@ -93,7 +93,7 @@ Należy  [**utworzyć kontenery**](../../../storage/blobs/storage-quickstart-blo
 
 * Tworzenie nowego projektu.
 * Zamień program. cs na kod w języku C# przedstawiony poniżej.
-* Ustaw punkt końcowy. klucz subskrypcji i wartości adresu URL kontenera w programie program. cs.
+* Ustaw wartości w polu punkt końcowy, klucz subskrypcji i adres URL kontenera w programie program. cs.
 * Aby przetworzyć dane JSON, Dodaj [Newtonsoft.Jsw pakiecie przy użyciu interfejsu wiersza polecenia platformy .NET](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Uruchom program z katalogu projektu.
 
@@ -101,7 +101,7 @@ Należy  [**utworzyć kontenery**](../../../storage/blobs/storage-quickstart-blo
 
 * Utwórz nowy projekt Node.js.
 * Zainstaluj bibliotekę Axios za pomocą programu `npm i axios` .
-* Kopiuj wklej poniższy kod do projektu.
+* Skopiuj/wklej poniższy kod do projektu.
 * Ustaw wartości w punktach końcowych, klucz subskrypcji i adres URL kontenera.
 * Uruchomisz program.
 
@@ -174,7 +174,7 @@ gradle run
 * Ustaw wartości w punktach końcowych, klucz subskrypcji i adres URL kontenera.
 * Zapisz plik z rozszerzeniem „go”.
 * Otwórz wiersz polecenia na komputerze, na którym zainstalowano środowisko języka Go.
-* Skompiluj plik, na przykład: "przejdź do przykładu kompilacji — Code. go".
+* Skompiluj plik. Na przykład: "przejdź do przykładu kompilacji — Code. go".
 * Uruchom plik, na przykład: "przykładowy kod".
 
  ---
@@ -207,26 +207,49 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 ## <a name="post-a-translation-request"></a>Opublikuj żądanie tłumaczenia
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-without-optional-glossaryurl"></a>Opublikuj treść żądania bez opcjonalnej glossaryURL
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>Opublikuj treść żądania, aby przetłumaczyć wszystkie dokumenty w kontenerze
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>Opublikuj treść żądania, aby przetłumaczyć określony dokument w kontenerze
+
+* Upewnij się, że określono "StorageType": "File"
+* Upewnij się, że został utworzony źródłowy adres URL & token SAS dla określonego obiektu blob/dokumentu (nie dla kontenera) 
+* Upewnij się, że określono nazwę pliku docelowego jako część docelowego adresu URL — mimo że token sygnatury dostępu współdzielonego jest nadal dla kontenera.
+* Przykładowe żądanie poniżej pokazuje pojedynczy dokument możliwy do przetłumaczenia na dwa języki docelowe
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -235,44 +258,10 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 }
 ```
 
-### <a name="post-request-body-with-optional-glossaryurl"></a>Opublikuj treść żądania z opcjonalną glossaryURL
-
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
 
 > [!IMPORTANT]
 >
-> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  Zapoznaj się z artykułem [Azure Cognitive Services Security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
+> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  Zapoznaj się z artykułem [Azure Cognitive Services Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
 >
 > Może być konieczne zaktualizowanie następujących pól w zależności od operacji:
 >>>
@@ -1247,7 +1236,7 @@ func main() {
 
 ## <a name="content-limits"></a>Limity zawartości
 
-W poniższej tabeli wymieniono limity danych wysyłanych do tłumaczenia dokumentu.
+W poniższej tabeli wymieniono limity danych wysyłanych do tłumaczenia dokumentu (wersja zapoznawcza).
 
 |Atrybut | Limit|
 |---|---|

@@ -8,13 +8,13 @@
       href: bicep-overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie szablonów — portal
-      href: quickstart-create-templates-use-the-portal.md
-    - name: Tworzenie szablonów — program VS Code
+    - name: Tworzenie szablonów JSON — VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Utwórz Bicep VS Code
+    - name: Tworzenie szablonów Bicep — VS Code
       href: quickstart-create-bicep-use-visual-studio-code.md
-    - name: Tworzenie i wdrażanie specyfikacji szablonu
+    - name: Tworzenie szablonów JSON — Portal
+      href: quickstart-create-templates-use-the-portal.md
+    - name: Tworzenie specyfikacji szablonu
       href: quickstart-create-template-specs.md
 - name: Samouczki
   items:
@@ -43,24 +43,34 @@
     - name: Bicep początkującego
       items:
         - name: 1. Tworzenie pierwszego szablonu
+          displayName: Bicep
           href: bicep-tutorial-create-first-bicep.md
         - name: 2 — Dodawanie parametrów
+          displayName: Bicep
           href: bicep-tutorial-add-parameters.md
         - name: 3 — Dodawanie funkcji szablonu
+          displayName: Bicep
           href: bicep-tutorial-add-functions.md
         - name: 4 — Dodawanie zmiennych
+          displayName: Bicep
           href: bicep-tutorial-add-variables.md
         - name: 5 — Dodawanie danych wyjściowych
+          displayName: Bicep
           href: bicep-tutorial-add-outputs.md
         - name: 6 — Korzystanie z wyeksportowanego szablonu
+          displayName: Bicep
           href: bicep-tutorial-export-template.md
         - name: 7 — korzystanie z szablonu szybkiego startu
+          displayName: Bicep
           href: bicep-tutorial-quickstart-template.md
         - name: 8 — Dodawanie tagów
+          displayName: Bicep
           href: bicep-tutorial-add-tags.md
         - name: 9 — Użyj pliku parametrów
+          displayName: Bicep
           href: bicep-tutorial-use-parameter-file.md
         - name: 10 — Dodawanie modułów
+          displayName: Bicep
           href: bicep-tutorial-add-modules.md
     - name: Wdrożenie
       items:

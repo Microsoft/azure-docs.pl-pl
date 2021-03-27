@@ -3,27 +3,20 @@ title: Używanie zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS
 description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą PodSecurityPolicy w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.date: 03/25/2021
+ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544251"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611773"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), została ustawiona na przestarzałe i nie będzie już dostępna po 30 czerwca 2021** na korzyść [Azure Policy dla AKS](use-azure-policy.md). Data wycofania została rozszerzona od daty wcześniejszej 15 października 2020.
+> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), zacznie wycofać się z Kubernetes w wersji 1,21 wraz z usunięciem w wersji 1,25.** Podobnie jak w przypadku Kubernetesch, Kubernetes społeczność będzie pracować nad dokumentami alternatywnymi. Powiadomienie o powyższym zaniechaniu zostało dokonane w chwili, gdy nie było to możliwe dla klientów. Teraz, gdy społeczność Kubernetes pracuje na alternatywie, nie jest już konieczne naciśnięcie przycisku w celu wycofania się z Kubernetes.
 >
 > Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
->
-> Zdecydowanie zaleca się rozpoczęcie testowania scenariuszy z Azure Policy dla AKS, które oferują wbudowane zasady zabezpieczające i wbudowane inicjatywy, które są mapowane na zasady zabezpieczeń na poziomie. Aby przeprowadzić migrację z zasad zabezpieczeń na komputerze, należy wykonać następujące działania w klastrze.
-> 
-> 1. [Wyłącz zasady zabezpieczeń pod](#clean-up-resources) względem klastra
-> 1. Włączanie [dodatku Azure Policy][azure-policy-add-on]
-> 1. Włącz odpowiednie zasady platformy Azure z [dostępnych zasad wbudowanych][policy-samples]
-> 1. Przejrzyj [zmiany zachowania między zasadami zabezpieczeń a Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Aby zwiększyć bezpieczeństwo klastra AKS, możesz ograniczyć, co można zaplanować. Nie można uruchomić z nich zasobników, które żądają niedozwolonych zasobów w klastrze AKS. Ten dostęp można zdefiniować przy użyciu zasad zabezpieczeń pod. W tym artykule pokazano, jak za pomocą zasad zabezpieczeń w programie ograniczyć wdrażanie zasobników w AKS.
 

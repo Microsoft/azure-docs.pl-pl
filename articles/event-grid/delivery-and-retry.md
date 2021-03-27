@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98247373"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629278"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -25,7 +25,7 @@ Event Grid domyślnie wysyłać każde zdarzenie do subskrybentów. Subskrybent 
 
 Wsadowe dostarczanie ma dwa ustawienia:
 
-* **Maksymalna Event Grid liczba zdarzeń przypadających na partie** Ta liczba nigdy nie zostanie przekroczona. można jednak dostarczyć mniejszą liczbę zdarzeń, jeśli podczas publikowania nie będą dostępne żadne inne zdarzenia. Event Grid nie opóźnia zdarzeń, aby można było utworzyć partię, jeśli są dostępne mniej zdarzeń. Musi zawierać się w przedziale od 1 do 5 000.
+* **Maksymalna Event Grid liczba zdarzeń przypadających na partie** Ta liczba nigdy nie zostanie przekroczona. można jednak dostarczyć mniejszą liczbę zdarzeń, jeśli podczas publikowania nie będą dostępne żadne inne zdarzenia. Event Grid nie opóźnia zdarzeń, aby utworzyć partię, jeśli są dostępne mniej zdarzeń. Musi zawierać się w przedziale od 1 do 5 000.
 * **Preferowany rozmiar wsadu w kilobajtach** — docelowy limit rozmiaru partii w kilobajtach. Podobnie jak w przypadku maksymalnych zdarzeń, rozmiar wsadu może być mniejszy, jeśli podczas publikowania nie są dostępne więcej zdarzeń. Istnieje możliwość, że partia jest większa niż preferowany rozmiar partii, *Jeśli* pojedyncze zdarzenie jest większe niż preferowany rozmiar. Na przykład jeśli preferowany rozmiar to 4 KB, a do Event Grid zostanie wypchnięte zdarzenie o rozmiarze 10 KB, zdarzenie o rozmiarze 10 KB będzie nadal dostarczane do własnej partii, a nie do porzucenia.
 
 Dostarczanie wsadowe skonfigurowane dla każdej subskrypcji zdarzenia za pośrednictwem portalu, interfejsu wiersza polecenia, programu PowerShell lub zestawów SDK.
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polece
 
 Gdy EventGrid odbiera błąd w przypadku próby dostarczenia zdarzenia, EventGrid decyduje o tym, czy należy ponowić próbę dostarczenia, czy też porzucić zdarzenie na podstawie typu błędu. 
 
-Jeśli błąd zwrócony przez subskrybowany punkt końcowy jest błędem związanym z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid będzie wykonywał utraconą literę zdarzenia lub porzucić zdarzenie, jeśli nie skonfigurowano wiadomości utraconych.
+Jeśli błąd zwrócony przez subskrybowany punkt końcowy to błąd związany z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid będzie wykonywał utraconą literę zdarzenia lub porzucić zdarzenie, jeśli utracona jest nieskonfigurowana.
 
 Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia nie nastąpi:
 
@@ -67,7 +67,7 @@ Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia
 | Webhook | 400 Nieprawidłowe żądanie, 413 jednostka żądania jest zbyt duża, 403 zabronione, nie znaleziono 404, 401 nieautoryzowane |
  
 > [!NOTE]
-> Jeśli nie skonfigurowano Dead-Letter dla punktu końcowego, zdarzenia zostaną usunięte, gdy wystąpią powyższe błędy. Rozważ skonfigurowanie wiadomości utraconych, jeśli nie chcesz, aby tego rodzaju zdarzenia zostały porzucone.
+> Jeśli Dead-Letter nie jest skonfigurowany dla punktu końcowego, zdarzenia będą porzucane w przypadku wystąpienia powyższych błędów. Rozważ skonfigurowanie wiadomości utraconych, jeśli nie chcesz, aby tego rodzaju zdarzenia zostały porzucone.
 
 Jeśli błąd zwrócony przez subskrybowany punkt końcowy nie należy do powyższej listy, EventGrid wykonuje ponowienie przy użyciu zasad opisanych poniżej:
 
@@ -97,7 +97,7 @@ Domyślnie Event Grid wygasa wszystkie zdarzenia, które nie zostały dostarczon
 
 W przypadku niepowodzeń dostarczania punktów końcowych Event Grid zacznie opóźniać dostarczenie i ponawianie zdarzeń do tego punktu końcowego. Na przykład jeśli pierwsze 10 zdarzeń opublikowanych w punkcie końcowym zakończy się niepowodzeniem, Event Grid przyjmie, że punkt końcowy ma problemy i spowoduje to opóźnienie wszystkich kolejnych ponownych prób *i nowych* dostaw przez pewien czas do kilku godzin.
 
-Celem opóźnionej dostawy jest ochrona punktów końcowych w złej kondycji oraz systemu Event Grid. Bez wycofywania i opóźnień dostarczania w przypadku punktów końcowych w złej kondycji, Event Grid zasady ponawiania prób i możliwości woluminów mogą łatwo zapychać system.
+Celem opóźnionego dostarczania jest ochrona punktów końcowych w złej kondycji i systemu Event Grid. Bez wycofywania i opóźnień dostarczania w przypadku punktów końcowych w złej kondycji, Event Grid zasady ponawiania prób i możliwości woluminów mogą łatwo zapychać system.
 
 ## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
 Gdy Event Grid nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**. Event Grid martwych liter zdarzenia po spełnieniu **jednego z następujących** warunków. 
@@ -109,7 +109,7 @@ Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utr
 
 Event Grid wysyła zdarzenie do lokalizacji utraconych, gdy nastąpi próba wszystkich ponownych prób. Jeśli Event Grid otrzymuje kod odpowiedzi 400 (Nieprawidłowe żądanie) lub 413 (żądanie jest zbyt duże), natychmiast planuje zdarzenie dla utraconych wiadomości. Te kody odpowiedzi wskazują, że dostarczenie zdarzenia nigdy nie powiedzie się.
 
-Wygaśnięcie czasu wygaśnięcia jest sprawdzane tylko przy następnej zaplanowanej próbie dostarczenia. W związku z tym, nawet jeśli czas wygaśnięcia (TTL) przed kolejną zaplanowaną próbą dostarczenia, wygasanie zdarzeń jest sprawdzane tylko w momencie następnego dostarczania, a następnie po usunięciu utraconych wiadomości. 
+Wygaśnięcie czasu wygaśnięcia jest sprawdzane tylko przy następnej zaplanowanej próbie dostarczenia. W związku z tym nawet jeśli czas wygaśnięcia jest upływa przed następną zaplanowaną próbą dostarczenia, wygasanie zdarzeń jest sprawdzane tylko w momencie następnego dostarczania, a następnie później utracone. 
 
 Istnieje pięć minut opóźnienia między ostatnią próbą dostarczenia zdarzenia a jego dostarczeniem do lokalizacji utraconych wiadomości. To opóźnienie jest przeznaczone do zmniejszenia liczby operacji magazynu obiektów BLOB. Jeśli lokalizacja utraconych wiadomości jest niedostępna przez cztery godziny, zdarzenie zostanie odrzucone.
 
@@ -288,6 +288,15 @@ Wszystkie inne kody, które nie znajdują się w powyższym zestawie (200-204), 
 | 503 — usługa niedostępna | Ponów próbę po 30 sekundach lub więcej |
 | Wszystkie pozostałe | Ponów próbę po 10 sekundach lub więcej |
 
+## <a name="delivery-with-custom-headers"></a>Dostarczanie z nagłówkami niestandardowymi
+Subskrypcje zdarzeń umożliwiają konfigurowanie nagłówków HTTP, które są uwzględnione w dostarczonych zdarzeniach. Ta funkcja umożliwia ustawienie niestandardowych nagłówków, które są wymagane przez miejsce docelowe. Podczas tworzenia subskrypcji zdarzeń można skonfigurować maksymalnie 10 nagłówków. Każda wartość nagłówka nie powinna być większa niż 4 096 (4K) bajtów. Można ustawić niestandardowe nagłówki dla zdarzeń, które są dostarczane do następujących miejsc docelowych:
+
+- Elementy webhook
+- Tematy Azure Service Bus i kolejki
+- Azure Event Hubs
+- Połączenia hybrydowe przekaźnika
+
+Aby uzyskać więcej informacji, zobacz [dostarczanie z nagłówkami niestandardowymi](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 

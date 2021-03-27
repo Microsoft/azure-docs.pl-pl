@@ -9,17 +9,18 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7dcd630b0d5987c796ebb5a02657af9130221e6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 78b31cb32e3df9b0d8e198d8c2122e492e609283
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045624"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625821"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Co to jest usługa Azure Synapse Analytics?
 
 **Azure Synapse** to usługa analizy korporacyjnej, która przyspiesza czas w celu wglądu w dane między magazynami danych i systemami danych Big Data. Usługa Azure Synapse umożliwia łączenie najlepszych technologii **SQL** używanych w magazynach danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data, **potoków** do integracji danych i ETL/ELT oraz głębokiej integracji z innymi usługami platformy Azure, takimi jak **Power BI**, **CosmosDB** i **Azure**.
 
+![Diagram architektury usługi Azure Synapse Analytics.](./media/overview-what-is/synapse-architecture.png)
 
 ## <a name="industry-leading-sql"></a>Wiodące w branży SQL
 
@@ -66,7 +67,7 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 
 **Synapse Studio** to środowisko użytkownika, które wiąże wszystko ze sobą w przypadku inżynierów danych. Umożliwia im to każde zadanie potrzebne do utworzenia kompletnego rozwiązania do analizy.
 
-* Kluczowe dane engingeer zadania w jednym miejscu: pozyskiwanie, eksplorowanie, przygotowywanie, organizowanie, wizualizowanie
+* Najważniejsze zadania inżyniera danych w jednym miejscu: pozyskiwanie, eksplorowanie, przygotowywanie, organizowanie, wizualizowanie
 * Wiodąca w branży produktywność pisania kodu SQL lub Spark: Tworzenie, debugowanie i Optymalizacja wydajności
 * Integracja z procesem ciągłej integracji/ciągłego wdrażania
 

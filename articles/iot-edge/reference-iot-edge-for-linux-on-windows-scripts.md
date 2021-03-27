@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5286362369e0c4881cdf0c56bc13d1d340056be1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 41827c5db58f3d4755fb34e46067357cd0255676
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562515"
+ms.locfileid: "105612776"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Skrypty programu PowerShell dla IoT Edge dla systemu Linux w systemie Windows
 
@@ -46,12 +46,15 @@ Polecenie **Deploy-eFlow** to główna Metoda wdrażania. Polecenie wdrożenia t
 | vmSizeDefintion | Nie więcej niż 30 znaków | Definicja liczby rdzeni i dostępnej pamięci RAM dla maszyny wirtualnej. **Wartość domyślna**: Standard_K8S_v1. |
 | vmDiskSize | Od 8 GB do 256 GB | Maksymalny rozmiar dysku dynamicznego powiększający się wirtualny dysk twardy. **Wartość domyślna**: 16 GB. |
 | vmUser | Nie więcej niż 30 znaków | Nazwa użytkownika do logowania się na maszynie wirtualnej. |
-| vnetType | **Transparent** lub **ICS** | Typ przełącznika wirtualnego. **Wartość domyślna**: transparent. |
+| vnetType | **Transparent** lub **ICS** | Typ przełącznika wirtualnego. **Wartość domyślna**: transparent. Przezroczysty odnosi się do przełącznika zewnętrznego, podczas gdy ICS odwołuje się do przełącznika wewnętrznego. |
 | vnetName | Nie więcej niż 64 znaków | Nazwa przełącznika wirtualnego. **Wartość domyślna**: external. |
 | enableVtpm | Brak | **Parametr przełącznika**. Utwórz maszynę wirtualną z włączonym lub wyłączonym modułem TPM. |
 | mobyPackageVersion | Nie więcej niż 30 znaków |  Wersja pakietu Moby do zweryfikowania lub zainstalowania na maszynie wirtualnej.  **Wartość domyślna:** 19.03.11. |
 | iotedgePackageVersion | Nie więcej niż 30 znaków | Wersja pakietu IoT Edge do zweryfikowania lub zainstalowania na maszynie wirtualnej. **Wartość domyślna:** 1.1.0. |
 | installPackages | Brak | **Parametr przełącznika**. Po przełączeniu skrypt podejmie próbę zainstalowania pakietów Moby i IoT Edge, a nie tylko sprawdzenia, czy pakiety są obecne. |
+
+>[!NOTE]
+>Domyślnie, jeśli proces nie może znaleźć przełącznika zewnętrznego o nazwie `External` , zostanie wyszukany dowolny istniejący przełącznik zewnętrzny, za pomocą którego ma zostać uzyskany adres IP. Jeśli nie ma dostępnego przełącznika zewnętrznego, zostanie wyszukany przełącznik wewnętrzny. Jeśli nie ma dostępnego przełącznika wewnętrznego, podejmie próbę utworzenia domyślnego przełącznika, za pomocą którego ma zostać uzyskany adres IP.
 
 ## <a name="verify-eflowvm"></a>Verify-EflowVm
 

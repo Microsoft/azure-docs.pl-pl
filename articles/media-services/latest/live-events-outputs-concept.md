@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454791"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625300"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 
@@ -117,47 +117,68 @@ Zobacz również [konwencje nazewnictwa punktów końcowych przesyłania strumie
 Po utworzeniu zdarzenia na żywo możesz uzyskać adresy URL pozyskiwania na żywo w usłudze Live on-premises Encoder. Koder na żywo używa tych adresów URL do wprowadzenia strumienia na żywo. Aby uzyskać więcej informacji, zobacz [zalecane lokalne kodery na żywo](recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
-> W przypadku wersji interfejsu API 2020-05-01 znaczącym adresy URL są nazywane statycznymi nazwami hostów
+> W przypadku wersji interfejsu API 2020-05-01 adresy URL "znaczącym" są nazywane statycznymi nazwami hostów (useStaticHostname: true)
 
-Możesz użyć znaczących lub nieznaczących adresów URL.
 
 > [!NOTE]
-> Aby adres URL pozyskiwania był predykcyjny, ustaw tryb "znaczącym".
+> Aby adres URL pozyskiwania był statyczny i przewidywalny do użycia w konfiguracji kodera sprzętowego, należy ustawić właściwość **useStaticHostname** na true i ustawić właściwość **accessToken** na ten sam identyfikator GUID przy każdym tworzeniu. 
 
-* Adres URL inny niż znaczącym
+### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>Przykładowe ustawienia konfiguracji LiveEvent i LiveEventInput dla statycznego (nielosowego) adresu URL protokołu RTMP.
 
-    Znaczącym adres URL jest trybem domyślnym w Media Services v3. Możesz szybko uzyskać wydarzenie na żywo, ale adres URL pozyskiwania jest znany tylko po rozpoczęciu zdarzenia na żywo. Adres URL zmieni się, jeśli zatrzymasz/uruchomisz wydarzenie na żywo. Znaczącym jest przydatne w scenariuszach, gdy użytkownik końcowy chce przesyłać strumieniowo przy użyciu aplikacji, w której aplikacja chce uzyskać na żywo zdarzenie JNW i ma dynamiczny adres URL pozyskiwania nie jest problemem.
+```csharp
+             LiveEvent liveEvent = new LiveEvent(
+                    location: mediaService.Location,
+                    description: "Sample LiveEvent from .NET SDK sample",
+                    // Set useStaticHostname to true to make the ingest and preview URL host name the same. 
+                    // This can slow things down a bit. 
+                    useStaticHostname: true,
+
+                    // 1) Set up the input settings for the Live event...
+                    input: new LiveEventInput(
+                        streamingProtocol: LiveEventInputProtocol.RTMP,  // options are RTMP or Smooth Streaming ingest format.
+                                                                         // This sets a static access token for use on the ingest path. 
+                                                                         // Combining this with useStaticHostname:true will give you the same ingest URL on every creation.
+                                                                         // This is helpful when you only want to enter the URL into a single encoder one time for this Live Event name
+                        accessToken: "acf7b6ef-8a37-425f-b8fc-51c2d6a5a86a",  // Use this value when you want to make sure the ingest URL is static and always the same. If omitted, the service will generate a random GUID value.
+                        accessControl: liveEventInputAccess, // controls the IP restriction for the source encoder.
+                        keyFrameIntervalDuration: "PT2S" // Set this to match the ingest encoder's settings
+                    ),
+```
+
+* Niestatyczna nazwa hosta
+
+    Niestatyczna nazwa hosta jest trybem domyślnym w Media Services v3 podczas tworzenia **LiveEvent**. Przydzielenie zdarzenia na żywo jest nieco szybsze, ale adres URL pozyskiwania, który będzie potrzebny dla sprzętu lub oprogramowania do kodowania na żywo, zostanie pobrany losowo. Adres URL zmieni się, jeśli zatrzymasz/uruchomisz wydarzenie na żywo. Nazwy hostów niestatycznej są przydatne tylko w scenariuszach, w których użytkownik końcowy chce przesyłać strumieniowo przy użyciu aplikacji, która musi szybko uzyskać wydarzenie na żywo i że dynamiczny adres URL pozyskiwania nie jest problemem.
 
     Jeśli aplikacja kliencka nie musi wstępnie generować adresu URL pozyskiwania przed utworzeniem zdarzenia na żywo, zezwól Media Services automatycznie generować token dostępu dla zdarzenia na żywo.
 
-* Adres URL znaczącym
+* Statyczne nazwy hostów 
 
-    Tryb znaczącym jest preferowany przez duże nadawcy multimediów, którzy korzystają z koderów emisji sprzętowej i nie chcą ponownie konfigurować swoich koderów po rozpoczęciu wydarzenia na żywo. Ci nadawcy chcą uzyskać adres URL pozyskiwania predykcyjnego, który nie zmienia się w czasie.
+    Tryb statycznej nazwy hosta jest preferowany przez większość operatorów, które chcą wstępnie skonfigurować swój sprzęt lub oprogramowanie do kodowania na żywo przy użyciu adresu URL pozyskiwania RTMP, który nigdy nie zmienia się podczas tworzenia lub zatrzymywania/uruchamiania konkretnego zdarzenia na żywo. Te operatory chcą przewidzieć predykcyjny adres URL pozyskiwania RTMP, który nie zmienia się w czasie. Jest to bardzo przydatne, gdy konieczne jest wypchnięcie statycznego adresu URL pozyskiwania RTMP do ustawień konfiguracji urządzenia kodowania sprzętowego, takiego jak BlackMagic Atem Mini Pro lub podobne kodowanie sprzętu i narzędzia produkcyjne. 
 
     > [!NOTE]
-    > W Azure Portal adres URL znaczącym ma nazwę "*statyczny prefiks nazwy hosta*".
+    > W Azure Portal statyczny adres URL hosta nosi nazwę "*statyczny prefiks nazwy hosta*".
 
     Aby określić ten tryb w interfejsie API, ustaw opcję na `useStaticHostName` `true` godzina utworzenia (domyślnie `false` ). Gdy `useStaticHostname` ma wartość true, `hostnamePrefix` Określa pierwszą część nazwy hosta przypisanej do podglądu zdarzenia na żywo i punkty końcowe pozyskiwania. Końcowa nazwa hosta będzie kombinacją tego prefiksu, nazwy konta usługi Media i krótkiego kodu dla Azure Media Services centrum danych.
 
     Aby uniknąć losowego tokenu w adresie URL, należy również przekazać własny token dostępu ( `LiveEventInput.accessToken` ) w czasie jego tworzenia.  Token dostępu musi być prawidłowym ciągiem identyfikatora GUID (z łącznikami lub bez nich). Po ustawieniu trybu nie można go zaktualizować.
 
-    Token dostępu musi być unikatowy w centrum danych. Jeśli Twoja aplikacja musi używać adresu URL znaczącym, zaleca się, aby zawsze utworzyć nowe wystąpienie GUID dla tokenu dostępu (zamiast ponownie używać dowolnego istniejącego identyfikatora GUID).
+    Token dostępu musi być unikatowy w regionie świadczenia usługi Azure i koncie Media Services. Jeśli Twoja aplikacja musi używać adresu URL pozyskiwania statycznej nazwy hosta, zalecane jest, aby zawsze tworzyć nowe wystąpienie GUID do użycia z określoną kombinacją regionu, konta usługi Media Services i zdarzenia na żywo.
 
-    Użyj następujących interfejsów API, aby włączyć adres URL znaczącym i ustawić token dostępu na prawidłowy identyfikator GUID (na przykład `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
+    Użyj następujących interfejsów API, aby włączyć statyczny adres URL hosta i ustawić token dostępu na prawidłowy identyfikator GUID (na przykład `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Język|Włącz adres URL znaczącym|Określanie tokenu dostępu|
+    |Język|Włącz statyczny adres URL nazwy hosta|Określanie tokenu dostępu|
     |---|---|---|
-    |REST|[Właściwości. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
-    |Interfejs wiersza polecenia|[--znaczącym-URL](/cli/azure/ams/live-event#az-ams-live-event-create)|[--token dostępu](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[Właściwości. useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
+    |Interfejs wiersza polecenia|[--Use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--token dostępu](/cli/azure/ams/live-event#optional-parameters)|
+    |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Reguły nazewnictwa adresów URL pozyskiwania na żywo
 
 * *Losowy* ciąg poniżej to 128-bitowa liczba szesnastkowa (która składa się z 32 znaków 0–9 a–f).
-* *token dostępu*: prawidłowy ciąg identyfikatora GUID ustawiany podczas korzystania z trybu znaczącym. Na przykład `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *token dostępu*: prawidłowy ciąg identyfikatora GUID, który został ustawiony w przypadku używania statycznego ustawienia nazwy hosta. Na przykład `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *Nazwa strumienia*: wskazuje nazwę strumienia dla określonego połączenia. Wartość nazwy strumienia jest zwykle dodawana przez używany koder na żywo. Można skonfigurować koder na żywo, aby używał dowolnych nazw do opisywania połączenia, na przykład: "video1_audio1", "video2_audio1", "Stream".
 
-#### <a name="non-vanity-url"></a>Adres URL inny niż znaczącym
+#### <a name="non-static-hostname-ingest-url"></a>Niestatyczny adres URL pozyskiwania nazwy hosta
 
 ##### <a name="rtmp"></a>RTMP
 
@@ -171,7 +192,7 @@ Możesz użyć znaczących lub nieznaczących adresów URL.
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### <a name="vanity-url"></a>Adres URL znaczącym
+#### <a name="static-hostname-ingest-url"></a>Adres URL pozyskiwania statycznej nazwy hosta
 
 W następujących ścieżkach `<live-event-name>` oznacza nazwę nadaną dla zdarzenia lub nazwę niestandardową używaną podczas tworzenia zdarzenia na żywo.
 

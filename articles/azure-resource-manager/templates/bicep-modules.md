@@ -2,15 +2,15 @@
 title: Moduły Bicep
 description: Opisuje sposób definiowania modułu i korzystania z nich oraz używania zakresów modułów.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889709"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611739"
 ---
-# <a name="use-bicep-modules"></a>Korzystanie z modułów Bicep
+# <a name="use-bicep-modules-preview"></a>Korzystanie z modułów Bicep (wersja zapoznawcza)
 
 Bicep umożliwia rozbicie złożonego rozwiązania na moduły. Moduł Bicep to zestaw co najmniej jednego zasobu, który ma zostać wdrożony razem. Moduły z nieskomplikowanymi szczegółami deklaracji zasobów nieprzetworzonych, które mogą zwiększyć czytelność. Można ponownie użyć tych modułów i udostępnić je innym osobom. W połączeniu z [specyfikacją szablonu](./template-specs.md)tworzy sposób tworzenia i ponownego użycia kodu. Aby zapoznać się z samouczkiem, zobacz [Samouczek: Dodawanie modułów Bicep](./bicep-tutorial-add-modules.md).
 
