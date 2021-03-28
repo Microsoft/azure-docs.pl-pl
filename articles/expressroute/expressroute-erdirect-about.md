@@ -16,7 +16,7 @@ ms.locfileid: "92202160"
 ---
 # <a name="about-expressroute-direct"></a>Informacje o usłudze ExpressRoute Direct
 
-Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia z siecią globalną firmy Microsoft w przypadku lokalizacji komunikacji równorzędnej strategicznie dystrybuowanej na całym świecie. Funkcja ExpressRoute Direct oferuje dwie połączenia o szybkości 100 Gb/s lub 10 Gb/s, które obsługują łączność aktywną/aktywną w dużej skali.
+Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia z siecią globalną firmy Microsoft w przypadku lokalizacji komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Funkcja ExpressRoute Direct oferuje dwie połączenia o szybkości 100 GB/s lub 10 GB/s, które obsługują łączność aktywną/aktywną w dużej skali. Możesz współpracować z dowolnym dostawcą usług dla usługi ER Direct.
 
 Najważniejsze funkcje dostarczane przez program ExpressRoute Direct obejmują, ale nie są ograniczone do:
 
