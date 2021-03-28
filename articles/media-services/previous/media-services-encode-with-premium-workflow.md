@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b58a1ae2a20afb357f6363077e70b692256d2ce7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8d39d54498872201afe2f705da1fc5654d8befb2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013503"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645000"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Zaawansowane kodowanie za pomocą usługi Media Encoder Premium Workflow
 
@@ -42,7 +42,8 @@ W tym artykule pokazano, jak kodować **Media Encoder Premium Workflow** przy u�
 
 Zadania kodowania dla **Media Encoder Premium Workflow** wymagają oddzielnego pliku konfiguracji o nazwie plik przepływu pracy. Te pliki mają rozszerzenie. Workflow i są tworzone za pomocą narzędzia [Projektant przepływu pracy](media-services-workflow-designer.md) .
 
-W [tym miejscu](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)możesz również uzyskać domyślne pliki przepływu pracy. Folder zawiera również opis tych plików.
+W [tym miejscu](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md
+)możesz również uzyskać domyślne pliki przepływu pracy. Folder zawiera również opis tych plików.
 
 Pliki przepływu pracy muszą zostać przekazane do konta Media Services jako element zawartości, a ten zasób powinien zostać przekazany do zadania kodowania.
 

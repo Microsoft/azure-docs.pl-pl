@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 0ddd2c96be3513d253537cefd5b9eb83da2b3c12
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634842"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640091"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,12 +61,12 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 | Cecha | Szczegóły |
 | ---| --- |
-| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transakcje rozproszone</a> | Transakcje rozproszone między wystąpieniami zarządzanymi. |
-| <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Nazwy główne serwera usługi Azure AD na poziomie wystąpienia (logowania)</a> | Utwórz identyfikatory logowania na poziomie wystąpienia przy użyciu instrukcji <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN from External Provider</a> . |
+| [Transakcje rozproszone](/azure/azure-sql/database/elastic-transactions-overview) | Transakcje rozproszone między wystąpieniami zarządzanymi. |
+| [Pule wystąpień](/azure/sql-database/sql-database-instance-pools) | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
+| [Nazwy główne serwera usługi Azure AD na poziomie wystąpienia (logowania)](/sql/t-sql/statements/create-login-transact-sql) | Utwórz identyfikatory logowania na poziomie wystąpienia przy użyciu instrukcji [CREATE LOGIN from External Provider](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . |
 | [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) | Replikuj zmiany z tabel do innych baz danych w wystąpieniu zarządzanym SQL, SQL Database lub SQL Server. Lub zaktualizuj tabele, gdy niektóre wiersze są zmieniane w innych wystąpieniach wystąpienia zarządzanego SQL lub SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Wykrywanie zagrożeń |Aby uzyskać więcej informacji, zobacz [Konfigurowanie wykrywania zagrożeń w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/threat-detection-configure.md).|
-| Długoterminowe przechowywanie kopii zapasowych | Aby uzyskać więcej informacji, zobacz [Konfigurowanie długoterminowego przechowywania kopii zapasowych w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/long-term-backup-retention-configure.md), które jest obecnie w ograniczonej publicznej wersji zapoznawczej. | 
+| Długoterminowe przechowywanie kopii zapasowych | Aby uzyskać więcej informacji, zobacz [Konfigurowanie długoterminowego przechowywania kopii zapasowych w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/long-term-backup-retention-configure.md), które jest obecnie w ograniczonej publicznej wersji zapoznawczej. |
 
 ---
 

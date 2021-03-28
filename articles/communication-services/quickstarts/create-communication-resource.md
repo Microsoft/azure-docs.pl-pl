@@ -9,13 +9,13 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: a1bdb1b8ac1f545933a92e78fd13b745606f1da3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
+ms.openlocfilehash: bdfd4dfef57721a24b4c6981ae653ab4f17562fa
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563785"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644724"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Szybki Start: Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi
 
@@ -23,8 +23,6 @@ ms.locfileid: "105563785"
 
 Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub zestawu .NET Management SDK. Zestaw SDK zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów przy użyciu [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w zestawach SDK są dostępne w Azure Portal. 
 
-
-Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub zestawu .NET Management SDK. Zestaw SDK zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów przy użyciu [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w zestawach SDK są dostępne w Azure Portal.
 
 > [!WARNING]
 > Należy pamiętać, że podczas gdy usługi komunikacyjne są dostępne w wielu lokalizacje geograficzneach, w celu uzyskania numeru telefonu zasób musi mieć ustawioną lokalizację danych "US". Należy również pamiętać, że nie można przesłać zasobów komunikacyjnych do innej subskrypcji w ramach publicznej wersji zapoznawczej.
@@ -40,6 +38,11 @@ Rozpocznij pracę z usługami Azure Communications Services, udostępniając pie
 ::: zone pivot="platform-net"
 [!INCLUDE [.NET](./includes/create-resource-net.md)]
 ::: zone-end
+
+::: zone pivot="platform-powershell"
+[!INCLUDE [PowerShell](./includes/create-resource-powershell.md)]
+::: zone-end
+
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Uzyskiwanie dostępu do parametrów połączenia i punktów końcowych usługi
 

@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108149"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641995"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do inspekcji ruchu kierowanego do prywatnego punktu końcowego
 
@@ -117,6 +117,7 @@ Utwórz trzy sieci wirtualne i odpowiadające im podsieci, aby:
 Zastąp następujące parametry w krokach poniższymi informacjami:
 
 ### <a name="azure-firewall-network"></a>Sieć zapory platformy Azure
+
 | Parametr                   | Wartość                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -127,6 +128,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### <a name="virtual-machine-network"></a>Sieć maszyn wirtualnych
+
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -137,13 +139,14 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### <a name="private-endpoint-network"></a>Sieć prywatna punktu końcowego
+
 | Parametr                   | Wartość                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | South Central US      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -564,7 +567,7 @@ W tej sekcji połączysz się prywatnie z SQL Database przy użyciu prywatnego p
     Address: 10.2.0.4
     ```
 
-2. Zainstaluj [SQL Server narzędzia wiersza polecenia](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Zainstaluj [SQL Server narzędzia wiersza polecenia](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Uruchom następujące polecenie, aby połączyć się z SQL Server. Użyj administratora serwera i hasła zdefiniowanego podczas tworzenia SQL Server w poprzednich krokach.
 

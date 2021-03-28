@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564426"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645121"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -39,7 +39,7 @@ Użycie [zestawu Speech SDK](speech-sdk.md) i/lub [interfejsu API REST zamiany m
 #### <a name="batch-transcription"></a>Transkrypcja partii
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
 |--|--|--|
-| Limit interfejsu API REST | Transkrypcja usługi Batch nie jest dostępna dla F0 | 300 żądań na minutę |
+| Limit [zamiany mowy na tekst w interfejsie API w wersji 2.0 i 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | Transkrypcja usługi Batch nie jest dostępna dla F0 | 300 żądań na minutę |
 | Maksymalny rozmiar pliku wejściowego audio | Nie dotyczy | 1 GB |
 | Maksymalny rozmiar wejściowego obiektu BLOB (może zawierać więcej niż jeden plik, na przykład w archiwum zip; Pamiętaj o powyższym limicie rozmiaru pliku) | Nie dotyczy | 2,5 GB |
 | Maksymalny rozmiar kontenera obiektów BLOB | Nie dotyczy | 5 GB |

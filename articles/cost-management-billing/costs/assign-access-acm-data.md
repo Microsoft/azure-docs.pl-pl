@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "91371970"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645294"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Przypisywanie dostępu do danych usługi Cost Management
 
@@ -39,9 +39,9 @@ Aby wyświetlać dane dotyczące kosztów dla subskrypcji EA platformy Azure, u�
 | Konto rozliczeniowe<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Administrator przedsiębiorstwa | Brak | Wszystkie subskrypcje z umowy Enterprise Agreement |
 | Dział | [https://ea.azure.com](https://ea.azure.com/) | Administrator działu | Włączona opcja **Wyświetlanie opłat dla administratora działu** | Wszystkie subskrypcje należące do konta rejestracji połączonego z działem |
 | Konto rejestracji<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Właściciel konta | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie subskrypcje z konta rejestracji |
-| Grupa zarządzania | [https://portal.azure.com](https://portal.azure.com/) | Czytelnik usługi Cost Management (lub Czytelnik) | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie subskrypcje poniżej grupy zarządzania |
-| Subskrypcja | [https://portal.azure.com](https://portal.azure.com/) | Czytelnik usługi Cost Management (lub Czytelnik) | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie zasoby lub grupy zasobów w subskrypcji |
-| Grupa zasobów | [https://portal.azure.com](https://portal.azure.com/) | Czytelnik usługi Cost Management (lub Czytelnik) | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie zasoby w grupie zasobów |
+| Grupa zarządzania | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (lub współautor) | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie subskrypcje poniżej grupy zarządzania |
+| Subskrypcja | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (lub współautor) | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie zasoby lub grupy zasobów w subskrypcji |
+| Grupa zasobów | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (lub współautor) | Włączona opcja **Wyświetlanie opłat dla właściciela konta** | Wszystkie zasoby w grupie zasobów |
 
 <sup>1</sup> Konto rozliczeniowe jest także nazywane kontem umowy Enterprise Agreement lub kontem rejestracji.
 
@@ -52,8 +52,8 @@ Aby wyświetlać dane dotyczące kosztów dla subskrypcji EA platformy Azure, u�
 
 Aby wyświetlać dane dotyczące kosztów dla innych subskrypcji platformy Azure, użytkownik musi mieć co najmniej prawa dostępu do odczytu do co najmniej jednego z poniższych zakresów:
 
-- Konto platformy Azure
 - Grupa zarządzania
+- Subskrypcja
 - Grupa zasobów
 
 Po dołączeniu klientów do umowy klienta firmy Microsoft przez partnerów dostępne są różne zakresy. Klienci programu CSP będą mogli wtedy korzystać z funkcji usługi Cost Management, jeśli zostały one włączone przez ich partnera CSP. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure Cost Management dla partnerów](get-started-partners.md).

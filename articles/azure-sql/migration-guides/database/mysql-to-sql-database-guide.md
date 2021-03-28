@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 1f1692aaa74f56c404a8fae7aa91e94baecbb7e1
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 8952e6e1bda8763d403c02dcd5815f1e1c0941e8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626490"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641874"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Przewodnik migracji: MySQL do Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -167,7 +167,7 @@ Aby uzyskać więcej pomocy przy wykonywaniu tego scenariusza migracji, zobacz n
 | --- | --- |
 | [Model i narzędzie oceny obciążenia danych](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Oferuje sugerowane "najlepsze dopasowania" platform docelowych, gotowość chmury oraz poziomy korygowania aplikacji/bazy danych dla określonych obciążeń. Oferuje proste, oparte na jednym kliknięcie Obliczanie i generowanie raportów, które ułatwiają przyspieszenie oceny dużych ilości, zapewniając zautomatyzowany, jednolity proces podejmowania decyzji na platformie docelowej. |
 
-Zespół inżynierów danych SQL Data opracował ten zasób. Podstawowa karta zespołu polega na odblokowaniu i przyspieszeniu złożonej modernizacji projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
+Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
 
 ## <a name="next-steps"></a>Następne kroki 
 

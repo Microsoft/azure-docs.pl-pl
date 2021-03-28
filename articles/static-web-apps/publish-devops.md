@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 701f999427d743c18f5dbcadb00cf303f97a8f53
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 472cf7b69078b3247c393ff65139bc29e5683a32
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627335"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639380"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Samouczek: publikowanie Web Apps statycznej platformy Azure za pomocą usługi Azure DevOps
 
@@ -57,9 +57,6 @@ Z tego samouczka dowiesz się, jak wykonać następujące czynności:
 1. Wybierz przycisk **Utwórz**.
 
 1. W obszarze _Szczegóły wdrożenia_ upewnij się, że wybrano pozycję **inne**. Pozwala to na użycie kodu w repozytorium usługi Azure DevOps.
-
-    > [!NOTE]
-    > Funkcja wybierania _innych_ jest obecnie wdrażana i może nie być jeszcze dostępna we wszystkich subskrypcjach platformy Azure.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Szczegóły wdrożenia — inne":::
 

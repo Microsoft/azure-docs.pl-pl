@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 74709d970f624f2d4cefaab77e8466361e4102cc
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: b6a9fa3ac85460a46653c171198a2dfea8580f3a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563433"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644485"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Samouczek dotyczący aktualizacji urządzeń z platformą Azure IoT Hub przy użyciu obrazu referencyjnego Raspberry Pi 3 B +
 
@@ -73,7 +73,7 @@ Korzystając z swojego ulubionego narzędzia do migania systemu operacyjnego, za
    
 Aktualizacja urządzenia dla platformy Azure IoT Hub podlega następującym postanowieniom licencyjnym:
    * [Aktualizacja urządzenia z licencją IoT Hub](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Licencja klienta optymalizacji dostarczania](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Licencja klienta optymalizacji dostarczania](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Przeczytaj postanowienia licencyjne przed użyciem agenta. Twoja instalacja i użycie stanowią zatwierdzenie tych warunków. Jeśli nie akceptujesz postanowień licencyjnych, nie należy używać aktualizacji urządzenia dla IoT Hub agenta.
 

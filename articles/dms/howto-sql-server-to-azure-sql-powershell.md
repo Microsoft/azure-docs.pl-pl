@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f7e14500fb377b46f651b53e2704d8477aea7a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3152fe0bf77b73e593ac61efb5f386827bdc96ef
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520663"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643720"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrowanie bazy danych SQL Server do Azure SQL Database przy użyciu Azure PowerShell
 
@@ -151,7 +151,7 @@ Na koniec Utwórz i uruchom zadanie migracji bazy danych platformy Azure. Zadani
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Utwórz parametry poświadczeń dla źródła i celu
 
-Poświadczenia zabezpieczeń połączeń można utworzyć jako obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) .
+Poświadczenia zabezpieczeń połączeń można utworzyć jako obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential) .
 
 Poniższy przykład pokazuje Tworzenie obiektów *PSCredential* dla połączeń źródłowych i docelowych, dostarczając hasła jako zmienne ciągów *$sourcePassword* i *$targetPassword*.
 
@@ -195,8 +195,8 @@ Użyj `New-AzDataMigrationTask` polecenia cmdlet, aby utworzyć i uruchomić zad
 * *Zadaniename*. Nazwa zadania do utworzenia. 
 * *SourceConnection*. Obiekt AzDmsConnInfo reprezentujący połączenie SQL Server źródłowej.
 * *TargetConnection*. Obiekt AzDmsConnInfo reprezentujący docelowe połączenie Azure SQL Database.
-* *SourceCred*. Obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) do nawiązywania połączenia z serwerem źródłowym.
-* *TargetCred*. Obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) do nawiązywania połączenia z serwerem docelowym.
+* *SourceCred*. Obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential) do nawiązywania połączenia z serwerem źródłowym.
+* *TargetCred*. Obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential) do nawiązywania połączenia z serwerem docelowym.
 * *SelectedDatabase*. Obiekt AzDataMigrationSelectedDB reprezentujący mapowanie źródłowe i docelowe bazy danych.
 * *SchemaValidation*. (opcjonalny, parametr przełącznika) Po migracji program wykonuje porównanie informacji o schemacie między źródłowym i docelowym.
 * *DataIntegrityValidation*. (opcjonalny, parametr przełącznika) Po migracji program wykonuje weryfikację integralności danych opartą na sumie kontrolnej między źródłem a celem.

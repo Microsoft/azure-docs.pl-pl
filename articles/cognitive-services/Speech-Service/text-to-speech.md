@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: e42f81ce0f06b3782972dbf4322f0590763d8704
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026329"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645014"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -44,7 +44,7 @@ Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany t
 * Visemes- [visemes](how-to-speech-synthesis-viseme.md) to klucz dotyczący zaobserwowanej mowy, w tym pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem. Visemes mają silną korelację z głosymi i fonemów. Przy użyciu zdarzeń viseme w zestawie mowy SDK można generować dane animacji twarzy, które mogą służyć do animowania twarze na potrzeby komunikacji, edukacji, rozrywki i obsługi klienta w programie lip.
 
 > [!NOTE]
-> Viseme działa tylko `en-US-AriaNeural` w przypadku głosu w regionie zachodnie stany USA 2 ( `westus2` ).
+> Viseme działa tylko dla `en-US-AriaNeural` głosu.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601376"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644916"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 ### <a name="logins-and-users"></a>Nazwy logowania i użytkownicy
 
 - Nazwy logowania SQL utworzone za pomocą `FROM CERTIFICATE` , `FROM ASYMMETRIC KEY` i `FROM SID` są obsługiwane. Zobacz [Tworzenie nazwy logowania](/sql/t-sql/statements/create-login-transact-sql).
-- Obsługiwane są Azure Active Directory (nazwy główne serwera usługi Azure AD) utworzone przy użyciu składni [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) lub [Create User from Login (logowanie za pomocą usługi Azure AD](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) ). Te nazwy logowania są tworzone na poziomie serwera.
+- Obsługiwane są Azure Active Directory (nazwy główne serwera usługi Azure AD) utworzone przy użyciu składni [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) lub [Create User from Login (logowanie za pomocą usługi Azure AD](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) ). Te nazwy logowania są tworzone na poziomie serwera.
 
     Wystąpienie zarządzane SQL obsługuje podmioty zabezpieczeń bazy danych usługi Azure AD przy użyciu składni `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` . Ta funkcja jest również znana jako użytkownicy zawartej bazy danych usługi Azure AD.
 
@@ -525,7 +525,7 @@ Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie t
 ### <a name="tempdb"></a>TEMPDB
 - Maksymalny rozmiar pliku `tempdb` nie może być większy niż 24 GB na rdzeń w warstwie ogólnego przeznaczenia. Maksymalny `tempdb` rozmiar w warstwie krytyczne dla działania firmy jest ograniczony przez rozmiar magazynu wystąpienia zarządzanego SQL. `Tempdb` rozmiar pliku dziennika jest ograniczony do 120 GB na warstwie Ogólnego przeznaczenia. Niektóre zapytania mogą zwrócić błąd, jeśli potrzebują ponad 24 GB na rdzeń w `tempdb` lub, jeśli generują więcej niż 120 GB danych dziennika.
 - `Tempdb` zawsze jest podzielony na 12 plików danych: 1 podstawowa, nazywana również Master, plik danych i 11 niepodstawowymi plikami danych. Nie można zmienić struktury pliku i nie można dodać do niej nowych plików `tempdb` . 
-- [ `tempdb` Metadane zoptymalizowane pod kątem pamięci](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), nowe funkcje bazy danych SQL Server 2019 w pamięci, nie są obsługiwane.
+- [ `tempdb` Metadane zoptymalizowane pod kątem pamięci](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), nowe funkcje bazy danych SQL Server 2019 w pamięci, nie są obsługiwane.
 - Po ponownym uruchomieniu lub przełączeniu w tryb failover obiekty utworzone w bazie danych modeli nie mogą zostać utworzone `tempdb` ponownie, ponieważ nie `tempdb` pobiera jej początkowej listy obiektów z bazy danych modelu. Obiekty należy tworzyć `tempdb` ręcznie po każdym ponownym uruchomieniu komputera lub w trybie failover.
 
 ### <a name="msdb"></a>MSDB
@@ -534,13 +534,13 @@ Następujące schematy MSDB w wystąpieniu zarządzanym SQL muszą należeć do 
 
 - Role ogólne
   - TargetServersRole
-- [Stałe role bazy danych](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Stałe role bazy danych](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Role DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Role DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Role usług Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Role usług Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

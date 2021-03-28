@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc394550cf5eb28ce3a30af4afcb3deca4223fe3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100587950"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642450"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 
@@ -304,7 +304,7 @@ Jeśli utworzysz maszynę wirtualną, a następnie zaktualizujesz wpis tajny w m
 
 Aby wdrożyć klucze publiczne. cer do zestawu skalowania maszyn wirtualnych, można wygenerować plik PFX zawierający tylko pliki. cer. W tym celu użyj `X509ContentType = Pfx` . Na przykład Załaduj plik CER jako obiekt x509Certificate2 w języku C# lub PowerShell, a następnie Wywołaj metodę.
 
-Aby uzyskać więcej informacji, zobacz [Metoda x509. Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
+Aby uzyskać więcej informacji, zobacz [Metoda x509. Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Jak mogę przekazać certyfikaty jako ciągi Base64?
 

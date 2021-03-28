@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: a475441a845300d74014924415a4e48ae4de16df
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628292"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640222"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z mapowaniem przepływów danych w Azure Data Factory
 
@@ -317,24 +317,6 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 ### <a name="error-code-df-excel-invalidfile"></a>Kod błędu: DF-Excel-InvalidFile
 - **Komunikat**: plik programu Excel jest nieprawidłowy, ale obsługiwane są tylko pliki xlsx i xls.
 
-### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Kod błędu: DF-AdobeIntegration-InvalidMapToFilter
-- **Komunikat**: zasób niestandardowy może mieć tylko jeden klucz/identyfikator mapowany do filtrowania.
-
-### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Kod błędu: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Komunikat**: obsługiwana jest tylko jedna partycja. Schemat partycji może być RoundRobin lub skrótem.
-- **Zalecenie**: w ustawieniach AdobeIntegration upewnij się, że masz tylko jedną partycję. Schemat partycji może być RoundRobin lub skrótem.
-
-### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Kod błędu: DF-AdobeIntegration-KeyColumnMissed
-- **Komunikat**: należy określić klucz dla operacji nienależących do wstawienia.
-- **Zalecenie**: Określ kolumny klucza w ustawieniach AdobeIntegration dla operacji nienależących do wstawienia.
-
-### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Kod błędu: DF-AdobeIntegration-InvalidPartitionType
-- **Komunikat**: typ partycji musi być roundRobin.
-- **Zalecenie**: Upewnij się, że typ partycji to roundRobin w ustawieniach AdobeIntegration.
-
-### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Kod błędu: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Komunikat**: obecnie jest Rodo tylko Regulamin ochrony prywatności.
-- **Zalecenie**: potwierdzenie zasad ochrony prywatności w ustawieniach AdobeIntegration jest **"Rodo"**.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Różne porady dotyczące rozwiązywania problemów
 - **Problem**: Wystąpił nieoczekiwany wyjątek i wykonywanie nie powiodło się.

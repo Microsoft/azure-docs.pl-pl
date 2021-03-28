@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a7efd57100ad89fa9824b7a635e11698515e13ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3246f6668a653c05599001a2f8d8fc8d376936ce
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521020"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642411"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Korzystanie z tożsamości zarządzanych z Azure Machine Learning (wersja zapoznawcza)
 
@@ -234,7 +234,7 @@ Po skonfigurowaniu ACR bez użytkownika administracyjnego zgodnie z wcześniejsz
 
 Podczas tworzenia obszaru roboczego można określić tożsamość zarządzaną przypisaną przez użytkownika, która będzie używana w celu uzyskania dostępu do skojarzonych zasobów: ACR, magazynu kluczy, magazynu i usługi App Insights.
 
-Najpierw [Utwórz tożsamość zarządzaną przypisaną przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli])i zanotuj identyfikator zasobu ARM zarządzanej tożsamości.
+Najpierw [Utwórz tożsamość zarządzaną przypisaną przez użytkownika](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)i zanotuj identyfikator zasobu ARM zarządzanej tożsamości.
 
 Następnie Utwórz obszar roboczy przy użyciu interfejsu wiersza polecenia platformy Azure lub zestawu SDK języka Python. Korzystając z interfejsu wiersza polecenia, należy określić identyfikator przy użyciu `--primary-user-assigned-identity` parametru. Korzystając z zestawu SDK, użyj polecenia `primary_user_assigned_identity` . Poniżej przedstawiono przykłady użycia interfejsu wiersza polecenia platformy Azure i języka Python w celu utworzenia nowego obszaru roboczego przy użyciu następujących parametrów:
 

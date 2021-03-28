@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 59cd364e5568b3509d0c06d439d39b132b202df6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563508"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641757"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu zestawu SDK .NET
 
@@ -105,6 +105,9 @@ Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> W przypadku kont US gov platformy Azure należy użyć BaseUri  *https://management.usgovcloudapi.net* zamiast *https://management.azure.com/* , a następnie utworzyć klienta zarządzania fabryki danych. 
+> 
 
 3. Dodaj do metody **Main** następujący kod, który tworzy wystąpienie klasy **DataFactoryManagementClient** . Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku.
 
@@ -118,6 +121,7 @@ Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 

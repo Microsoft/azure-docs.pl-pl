@@ -4,11 +4,12 @@
   items:
     - name: Informacje o usłudze Media Services
       href: media-services-overview.md
-    - name: Co nowego w usłudze Media Services
-      displayName: release notes
+    - name: Informacje o wersji
       href: release-notes.md
     - name: Zgodność z usługą Media Services
       href: concept-compliance.md
+    - name: Często zadawane pytania
+      href: frequently-asked-questions.yml
 - name: Przewodniki Szybki start
   items:
     - name: Konfigurowanie środowiska
@@ -262,9 +263,8 @@
       href: architectures-concept.md
     - name: Rozwiązywanie problemów
       items:
-        - name: Często zadawane pytania
-          displayName: faqs
-          href: frequently-asked-questions.md
+        - name: Kolekcja pytań
+          href: questions-collection.md
         - name: Kody błędów
           items:
             - name: Kody błędów punktu końcowego przesyłania strumieniowego
@@ -346,7 +346,7 @@
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Kopiowanie wideo bez kodowania przy użyciu interfejsu REST
           href: how-to-create-copy-video-audio-transform.md
-        - name: Tworzenie zadań przy użyciu platformy .NET
+        - name: Tworzenie zadań przy użyciu interfejsu wiersza polecenia
           href: cli-create-jobs.md
         - name: Tworzenie danych wejściowych zadania przy użyciu pliku lokalnego i platformy .NET
           displayName: upload

@@ -10,12 +10,12 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 4a9deded16de6b0de2ef5f88ffebd813b8e5b8c0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 0a59b18fa2c09cff943dbccd2203027cd72e146a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110370"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644328"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK SMS usług komunikacyjnych w celu wysyłania wiadomości SMS.
 
@@ -106,8 +106,8 @@ Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SMS 
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | Ta klasa tworzy SmsClient. Podajesz go za pomocą punktu końcowego, poświadczenia i klienta http. |
 | SmsClient                    | Ta klasa jest wymagana dla wszystkich funkcji programu SMS. Służy do wysyłania wiadomości SMS.                |
-| SmsSendResult                | Ta klasa zawiera wynik z usługi SMS.                                          |
 | SmsSendOptions               | Ta klasa zawiera opcje dodawania tagów niestandardowych i konfigurowania raportowania dostarczania. Jeśli deliveryReportEnabled ma wartość true, zdarzenie będzie emitowane po pomyślnym dostarczeniu|                           |
+| SmsSendResult                | Ta klasa zawiera wynik z usługi SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
@@ -160,6 +160,12 @@ System.out.println("Message Id: " + sendResult.getMessageId());
 System.out.println("Recipient Number: " + sendResult.getTo());
 System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 ```
+
+Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z zasobem usługi komunikacyjnej oraz `<to-phone-number>` numerem telefonu, na który chcesz wysłać wiadomość.
+
+> [!WARNING]
+> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
+
 ## <a name="send-a-1n-sms-message-with-options"></a>Wyślij wiadomość SMS z opcją 1: N z opcjami
 Aby wysłać wiadomość SMS do listy adresatów, wywołaj `send` metodę z listą numerów telefonów adresatów. Możesz również przekazać parametry opcjonalne, aby określić, czy raport dostarczania powinien być włączony, i ustawić Tagi niestandardowe.
 ```java
@@ -181,13 +187,14 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z zasobem usługi komunikacyjnej oraz `<to-phone-number>` numerem telefonu lub listą numerów telefonów, do których chcesz wysłać wiadomość.
+Należy zamienić `<from-phone-number>` na numer telefonu z włączoną funkcją SMS skojarzoną z zasobem usługi komunikacyjnej oraz `<to-phone-number-1>` `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość.
 
-## <a name="optional-parameters"></a>Parametry opcjonalne
+> [!WARNING]
+> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
 
-`deliveryReportEnabled`Parametr jest opcjonalnym parametrem, którego można użyć w celu skonfigurowania raportowania dostarczania. Jest to przydatne w scenariuszach, w których chcesz emitować zdarzenia podczas dostarczania wiadomości SMS. Zapoznaj się z tematem [Obsługa zdarzeń programu SMS](../handle-sms-events.md) — Szybki Start, aby skonfigurować dostarczanie raportów dla wiadomości SMS.
+`setDeliveryReportEnabled`Metoda służy do konfigurowania raportowania dostarczania. Jest to przydatne w scenariuszach, w których chcesz emitować zdarzenia podczas dostarczania wiadomości SMS. Zapoznaj się z tematem [Obsługa zdarzeń programu SMS](../handle-sms-events.md) — Szybki Start, aby skonfigurować dostarczanie raportów dla wiadomości SMS.
 
-`tag`Parametr jest opcjonalnym parametrem, za pomocą którego można zastosować tag do raportu dostarczania.
+`setTag`Metoda służy do zastosowania znacznika do raportu dostarczania.
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 

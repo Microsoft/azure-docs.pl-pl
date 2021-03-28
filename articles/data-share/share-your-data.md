@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659628"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639545"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Samouczek: Udostępnianie danych przy użyciu usługi Azure Data Share  
 
@@ -42,23 +42,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania danych ze źródła SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące udostępniania z usług Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
-Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/hIE-TjJD8Dc) .
 
 * Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW) z tabelami i widokami, które chcesz udostępnić.
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli **Współautor**.
-* Uprawnienie do zarządzania tożsamością zasobu udziału danych w celu uzyskania dostępu do bazy danych. Można to zrobić, wykonując następujące czynności: 
-    1. W Azure Portal przejdź do serwera SQL i ustaw go jako **administratora Azure Active Directory**.
-    1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
-    1. Wykonaj Poniższy skrypt, aby dodać tożsamość zarządzaną zasobu udziału danych jako db_datareader. Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych. Jeśli zasób udział danych nie został jeszcze utworzony, możesz wrócić do tego wymagania wstępnego później.  
-
-* Użytkownik Azure SQL Database z dostępem **"db_datareader"** do nawigowania i wybierania tabel i/lub widoków, które chcesz udostępnić. 
-
+* **Azure Active Directory administrator** programu SQL Server
 * SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do programu SQL Server. Wybierz *zapory i sieci wirtualne* z nawigacji po lewej stronie.
     1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
@@ -90,7 +77,6 @@ Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](htt
 ### <a name="share-from-azure-data-explorer"></a>Udostępnianie z usługi Azure Data Explorer
 * Klaster Eksplorator danych platformy Azure z bazami danych, które chcesz udostępnić.
 * Uprawnienie do zapisu w klastrze Eksplorator danych platformy Azure, który znajduje się w *Microsoft. Kusto/klastrów/Write*. To uprawnienie istnieje w roli **Współautor**.
-* Uprawnienie do dodawania przypisania roli do klastra usługi Azure Eksplorator danych, który jest obecny w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli **Właściciel**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -186,7 +172,7 @@ Użyj następujących poleceń, aby utworzyć zasób:
 
     ![Dodawanie zestawów danych do udziału](./media/datasets.png "Zestawy danych")
 
-1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. W przypadku udostępniania z Azure SQL Database lub usługi Azure Synapse Analytics (dawniej Azure SQL DW) zostanie wyświetlony monit o podanie poświadczeń SQL w celu wyświetlenia listy tabel.
+1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. W przypadku udostępniania z Azure SQL Database lub usługi Azure Synapse Analytics (dawniej Azure SQL DW) zostanie wyświetlony monit o metodę uwierzytelniania, aby wyświetlić listę tabel. Wybierz pozycję Uwierzytelnianie w usłudze AAD, a następnie zaznacz pole wyboru **Zezwalaj usłudze udostępnianie danych na uruchamianie skryptu "Create User" w moim imieniu**. 
 
     ![Adddatasets](./media/add-datasets.png "Dodaj zestawy danych")    
 

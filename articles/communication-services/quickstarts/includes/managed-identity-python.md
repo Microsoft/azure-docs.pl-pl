@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b37ebebdb99530ab615a313d9b269b9ce937b7f1
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: cefdf77052e559853cc85d129799e288032186b8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110763"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645462"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution"></a>Dodaj zarządzaną tożsamość do rozwiązania usług komunikacyjnych
 
@@ -24,7 +24,7 @@ Dodaj następujący `import` kod do kodu, aby użyć tożsamości platformy Azur
 from azure.identity import DefaultAzureCredential
 ```
 
-Poniższe przykłady używają [DefaultAzureCredential](/python/api/azure.identity.defaultazurecredential). To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych.
+Poniższe przykłady używają [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych.
 
 Aby zarejestrować aplikację w środowisku deweloperskim i skonfigurować zmienne środowiskowe, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md)
 

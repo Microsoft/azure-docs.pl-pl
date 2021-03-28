@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100095005"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642108"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logowanie i uruchamianie aplikacji z poziomu portalu My Apps
 
@@ -39,11 +39,12 @@ Jeśli nie masz dostępu do portalu **My Apps** , skontaktuj się z działem pom
 
 ## <a name="supported-browsers"></a>Obsługiwane przeglądarki
 
-Możesz przejść do portalu **My Apps** z dowolnej z następujących przeglądarek sieci Web:
+Możesz przejść do portalu **Moje aplikacje** z dowolnej z poniższych przeglądarek sieci Web. Firma Microsoft zaleca korzystanie z najbardziej aktualnej przeglądarki zgodnej z systemem operacyjnym.
 
-- Microsoft Edge (Wersja przenośna programu Edge jest obecnie jedyną obsługiwaną przeglądarką mobilną)
-- Google Chrome
-- Mozilla Firefox, wersja 26,0 lub nowsza
+- Microsoft Edge (Najnowsza wersja, Desktop i Mobile)
+- Safari (Najnowsza wersja, Mac i iOS)
+- Chrome (Najnowsza wersja, Desktop i Mobile)
+- Firefox (najnowsza wersja)
 
 Możesz uzyskać dostęp do portalu Moje aplikacje i korzystać z niego na komputerze lub z wersji mobilnej przeglądarki Edge na urządzeniu przenośnym z systemem iOS lub Android.
 

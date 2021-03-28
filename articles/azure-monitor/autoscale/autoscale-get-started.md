@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726057"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641554"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do autoskalowania na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -113,6 +113,10 @@ Teraz można ustawić liczbę wystąpień, które mają być skalowane ręcznie.
 
 Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włącz automatyczne skalowanie** , a następnie przycisk **Zapisz**.
 
+### <a name="cool-down-period-effects"></a>Efekty chłodzenia w czasie
+
+Funkcja automatycznego skalowania używa okresu chłodzenia, aby zapobiec "niestabilny", który jest szybkim, Repetative w górę i w dół skalowania wystąpień.  Aby uzyskać więcej informacji, zobacz [etapy oceny automatycznego skalowania](autoscale-understanding-settings.md#autoscale-evaluation).  Inne cenne informacje dotyczące niestabilny i zrozumienie, jak monitorować aparat skalowania automatycznego, można znaleźć w [temacie najlepsze rozwiązania dotyczące skalowania](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) automatycznego i [Rozwiązywanie problemów z automatycznym skalowaniem](autoscale-troubleshoot.md) . 
+
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
 
 <a id="health-check-path"></a>
@@ -136,6 +140,7 @@ Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyski
 ## <a name="next-steps"></a>Następne kroki
 - [Tworzenie alertu dziennika aktywności w celu monitorowania wszystkich operacji aparatu automatycznego skalowania w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Utwórz alert dziennika aktywności, aby monitorować wszystkie operacje skalowania automatycznego skalowania w poziomie i skalowania w poziomie w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com

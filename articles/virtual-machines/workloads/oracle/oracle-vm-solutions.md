@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 2f34e0bb3c4abcf4efba807f95decd798bbc1f86
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8bcd45ab1270d478b05b3929d7b8914976612294
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101669060"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645306"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure
 
@@ -161,7 +161,7 @@ Aby uzyskać powiązane informacje, zobacz artykuł **860340,1** w bazie wiedzy 
 - **Ograniczenia dynamicznego klastrowania i równoważenia obciążenia.** Załóżmy, że chcesz użyć dynamicznego klastra na serwerze Oracle WebLogic i uwidocznić go za pomocą jednego publicznego punktu końcowego ze zrównoważonym obciążeniem na platformie Azure. Można to zrobić tak długo, jak używasz stałego numeru portu dla każdego z serwerów zarządzanych (nie jest to przypisywany dynamicznie z zakresu) i nie uruchamiaj więcej zarządzanych serwerów niż maszyny, które są śledzone przez administratora. Oznacza to, że nie ma więcej niż jednego serwera zarządzanego na maszynę wirtualną. Jeśli konfiguracja powoduje, że są uruchamiane więcej serwerów Oracle WebLogic niż maszyny wirtualne (w przypadku wielu wystąpień serwera Oracle WebLogic, które współużytkują tę samą maszynę wirtualną), nie jest możliwe, aby więcej niż jedno wystąpienie serwerów Oracle WebLogic było powiązane z danym numerem portu. Inne osoby na tej maszynie wirtualnej zakończą się niepowodzeniem.
 
    Jeśli skonfigurujesz serwer administracyjny do automatycznego przypisywania unikatowych numerów portów do serwerów zarządzanych, równoważenie obciążenia nie jest możliwe, ponieważ platforma Azure nie obsługuje mapowania z jednego portu publicznego na wiele portów prywatnych, co byłoby wymagane dla tej konfiguracji.
-- **Wiele wystąpień serwera Oracle WebLogic na maszynie wirtualnej.** W zależności od wymagań wdrożenia można rozważyć uruchomienie wielu wystąpień serwera Oracle WebLogic na tej samej maszynie wirtualnej, jeśli maszyna wirtualna jest wystarczająco duża. Na przykład na maszynie wirtualnej o średnim rozmiarze, która zawiera dwa rdzenie, można uruchomić dwa wystąpienia serwera Oracle webWebLogicc Server. Jednak nadal zalecamy uniknięcie wprowadzenia pojedynczych punktów awarii do architektury, w przypadku gdy używana jest tylko jedna maszyna wirtualna z wieloma wystąpieniami programu Oracle webWebLogicc Server. Korzystanie z co najmniej dwóch maszyn wirtualnych może być lepszym rozwiązaniem, a każda maszyna wirtualna może uruchamiać wiele wystąpień serwera Oracle webWebLogicc Server. Każde wystąpienie serwera Oracle WebLogic może być częścią tego samego klastra. Obecnie nie jest możliwe używanie platformy Azure do równoważenia obciążenia punktów końcowych, które są udostępniane przez takie wdrożenia serwera Oracle WebLogic w ramach tej samej maszyny wirtualnej, ponieważ moduł równoważenia obciążenia platformy Azure wymaga dystrybuowania serwerów z równoważeniem obciążenia między unikatowymi maszynami wirtualnymi.
+- **Wiele wystąpień serwera Oracle WebLogic na maszynie wirtualnej.** W zależności od wymagań wdrożenia można rozważyć uruchomienie wielu wystąpień serwera Oracle WebLogic na tej samej maszynie wirtualnej, jeśli maszyna wirtualna jest wystarczająco duża. Na przykład w przypadku maszyny wirtualnej o średnim średnim, która zawiera dwa rdzenie, można uruchomić dwa wystąpienia programu Oracle webWebLogicc Server. Jednak nadal zalecamy uniknięcie wprowadzenia pojedynczych punktów awarii do architektury, w przypadku gdy używana jest tylko jedna maszyna wirtualna z wieloma wystąpieniami programu Oracle webWebLogicc Server. Korzystanie z co najmniej dwóch maszyn wirtualnych może być lepszym rozwiązaniem, a każda maszyna wirtualna może uruchamiać wiele wystąpień serwera Oracle webWebLogicc Server. Każde wystąpienie serwera Oracle WebLogic może być częścią tego samego klastra. Obecnie nie jest możliwe używanie platformy Azure do równoważenia obciążenia punktów końcowych, które są udostępniane przez takie wdrożenia serwera Oracle WebLogic w ramach tej samej maszyny wirtualnej, ponieważ moduł równoważenia obciążenia platformy Azure wymaga dystrybuowania serwerów z równoważeniem obciążenia między unikatowymi maszynami wirtualnymi.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Obrazy maszyn wirtualnych Oracle JDK
 

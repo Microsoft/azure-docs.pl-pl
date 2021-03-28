@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: cffa8d9a0647ff5fe970801d5da98e23be0b2aaf
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: edc420cb1e79ed6d99a55524764cb164bd2edaf5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567329"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641339"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Troubleshoot DMS errors when connecting to source databases (Rozwiązywanie problemów z błędami usługi DMS podczas nawiązywania połączenia ze źródłowymi bazami danych)
 
@@ -31,7 +31,7 @@ Potencjalne problemy związane z nawiązywaniem połączenia z źródłową baz�
 | ------------- | ------------- |
 | Połączenie SQL nie powiodło się. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne.<br> | Ten błąd występuje, gdy usługa nie może zlokalizować serwera źródłowego. Aby rozwiązać ten problem, zobacz artykuł [błąd podczas łączenia się z SQL Server źródłowym w przypadku używania portu dynamicznego lub nazwanego wystąpienia](./known-issues-troubleshooting-dms.md#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
 | **Błąd 53** — połączenie SQL nie powiodło się. (Również w przypadku kodów błędów 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z poniższymi zasobami, a następnie spróbuj ponownie. <br><br>  [Interaktywny przewodnik użytkownika dotyczący rozwiązywania problemów z łącznością](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Wymagania wstępne dotyczące migrowania SQL Server do Azure SQL Database](./pre-reqs.md#prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance) <br><br> [Wymagania wstępne dotyczące migrowania SQL Server do wystąpienia zarządzanego usługi Azure SQL](./pre-reqs.md#prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance) |
-| **Błąd 18456** — logowanie nie powiodło się.<br> | Ten błąd występuje, gdy usługa nie może nawiązać połączenia ze źródłową bazą danych przy użyciu podanych poświadczeń T-SQL. Aby rozwiązać ten problem, sprawdź wprowadzone poświadczenia. Możesz również odwołać się do [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) lub do dokumentów rozwiązywania problemów wymienionych w uwadze poniżej tej tabeli, a następnie spróbować ponownie. |
+| **Błąd 18456** — logowanie nie powiodło się.<br> | Ten błąd występuje, gdy usługa nie może nawiązać połączenia ze źródłową bazą danych przy użyciu podanych poświadczeń T-SQL. Aby rozwiązać ten problem, sprawdź wprowadzone poświadczenia. Możesz również odwołać się do [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error) lub do dokumentów rozwiązywania problemów wymienionych w uwadze poniżej tej tabeli, a następnie spróbować ponownie. |
 | Podano źle sformułowaną wartość AccountName " {0} ". Oczekiwany format Kontaname to DomainName\UserName<br> | Ten błąd występuje, gdy użytkownik wybierze opcję uwierzytelnianie systemu Windows, ale udostępnia nazwę użytkownika w nieprawidłowym formacie. Aby rozwiązać ten problem, należy podać nazwę użytkownika w prawidłowym formacie uwierzytelniania systemu Windows lub wybrać opcję **uwierzytelnianie SQL**. |
 
 ## <a name="aws-rds-mysql"></a>AWS RDS MySQL
@@ -48,8 +48,8 @@ Potencjalne problemy związane z nawiązywaniem połączenia z źródłową baz�
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat rozwiązywania problemów związanych z nawiązywaniem połączenia z bazą danych MySQL programu AWS RDS, zobacz następujące zasoby:
-> * [Rozwiązywanie problemów z łącznością Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
-> * [Jak mogę rozwiązać problemy związane z nawiązywaniem połączenia z moim wystąpieniem bazy danych Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> *    [Rozwiązywanie problemów z łącznością Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
+> *    [Jak mogę rozwiązać problemy związane z nawiązywaniem połączenia z moim wystąpieniem bazy danych Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="aws-rds-postgresql"></a>AWS RDS PostgreSQL
 
@@ -62,8 +62,8 @@ Potencjalne problemy związane z nawiązywaniem połączenia ze źródłową baz
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat rozwiązywania problemów związanych z nawiązywaniem połączenia z bazą danych AWS RDS PostgreSQL, zobacz następujące zasoby:
-> * [Rozwiązywanie problemów z łącznością Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
-> * [Jak mogę rozwiązać problemy związane z nawiązywaniem połączenia z moim wystąpieniem bazy danych Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> *    [Rozwiązywanie problemów z łącznością Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
+> *    [Jak mogę rozwiązać problemy związane z nawiązywaniem połączenia z moim wystąpieniem bazy danych Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="aws-rds-sql-server"></a>AWS SQL Server RDS
 
@@ -72,15 +72,15 @@ Potencjalne problemy związane z nawiązywaniem połączenia z bazą danych AWS 
 | Błąd         | Szczegóły przyczyny i rozwiązywania problemów |
 | ------------- | ------------- |
 | **Błąd 53** — połączenie SQL nie powiodło się. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został odnaleziony lub nie jest dostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne. (Dostawca: Dostawca nazwanych potoków, błąd: 40 — nie można otworzyć połączenia z SQL Server | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie. |
-| **Błąd 18456** — logowanie nie powiodło się. Logowanie użytkownika "{User}" nie powiodło się | Ten błąd występuje, gdy usługa nie może nawiązać połączenia ze źródłową bazą danych przy użyciu podanych poświadczeń T-SQL. Aby rozwiązać ten problem, sprawdź wprowadzone poświadczenia. Możesz również odwołać się do [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) lub do dokumentów rozwiązywania problemów wymienionych w uwadze poniżej tej tabeli i spróbować ponownie. |
+| **Błąd 18456** — logowanie nie powiodło się. Logowanie użytkownika "{User}" nie powiodło się | Ten błąd występuje, gdy usługa nie może nawiązać połączenia ze źródłową bazą danych przy użyciu podanych poświadczeń T-SQL. Aby rozwiązać ten problem, sprawdź wprowadzone poświadczenia. Możesz również odwołać się do [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error) lub do dokumentów rozwiązywania problemów wymienionych w uwadze poniżej tej tabeli i spróbować ponownie. |
 | **Błąd 87** — parametry połączenia są nieprawidłowe. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne. (Dostawca: interfejsy sieciowe SQL, błąd: 25 — parametry połączenia są nieprawidłowe) | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym z powodu nieprawidłowych parametrów połączenia. Aby rozwiązać ten problem, sprawdź podane parametry połączenia. Jeśli problem będzie się powtarzać, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie. |
 | **Błąd — certyfikat serwera nie jest zaufany.** Połączenie z serwerem zostało pomyślnie ustanowione, ale wystąpił błąd podczas procesu logowania. (Dostawca: dostawca SSL, błąd: 0 — łańcuch certyfikatów został wystawiony przez urząd, który nie jest zaufany.) | Ten błąd występuje, jeśli używany certyfikat nie jest zaufany. Aby rozwiązać ten problem, należy znaleźć certyfikat, który może być zaufany, a następnie włączyć go na serwerze. Alternatywnie można wybrać opcję certyfikatu zaufania podczas nawiązywania połączenia. Wykonaj tę czynność tylko wtedy, gdy znasz certyfikat używany i ufasz. <br> Połączenia TLS szyfrowane przy użyciu certyfikatu z podpisem własnym nie zapewniają silnych zabezpieczeń — są podatne na ataki typu man-in-the-middle. Nie należy polegać na protokole TLS przy użyciu certyfikatów z podpisem własnym w środowisku produkcyjnym lub na serwerach, które są połączone z Internetem. <br> Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSL z wystąpieniem usługi Microsoft SQL Server DB](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) lub [samouczkiem: Migrowanie SQL Server RDS na platformę Azure za pomocą usługi DMS](./index.yml). |
-| **Błąd 300** — użytkownik nie ma wymaganych uprawnień. Nie można wyświetlić uprawnienia stanu serwera w obiekcie "{Server}" w bazie danych "{Database}" | Ten błąd występuje, gdy użytkownik nie ma uprawnień do przeprowadzenia migracji. Aby rozwiązać ten problem, zapoznaj się z tematem [Granting Server Permissions-Transact-SQL](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) lub [samouczek: Migruj SQL Server RDS na platformę Azure za pomocą usługi DMS](./index.yml) , aby uzyskać więcej informacji. |
+| **Błąd 300** — użytkownik nie ma wymaganych uprawnień. Nie można wyświetlić uprawnienia stanu serwera w obiekcie "{Server}" w bazie danych "{Database}" | Ten błąd występuje, gdy użytkownik nie ma uprawnień do przeprowadzenia migracji. Aby rozwiązać ten problem, zapoznaj się z tematem [Granting Server Permissions-Transact-SQL](/sql/t-sql/statements/grant-server-permissions-transact-sql) lub [samouczek: Migruj SQL Server RDS na platformę Azure za pomocą usługi DMS](./index.yml) , aby uzyskać więcej informacji. |
 
 > [!NOTE]
 > Aby uzyskać więcej informacji dotyczących rozwiązywania problemów związanych z nawiązywaniem połączenia ze źródłem AWS RDS SQL Server, zobacz następujące zasoby:
 >
-> * [Usuwanie błędów łączności z programem SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)
+> *    [Usuwanie błędów łączności z programem SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)
 > * [Jak mogę rozwiązać problemy związane z nawiązywaniem połączenia z moim wystąpieniem bazy danych Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="known-issues"></a>Znane problemy
@@ -91,7 +91,7 @@ Potencjalne problemy związane z nawiązywaniem połączenia z bazą danych AWS 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z artykułem [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Zapoznaj się z artykułem [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration).
 * Zapoznaj się z artykułem [jak skonfigurować parametry serwera w Azure Database for MySQL przy użyciu Azure Portal](../mysql/howto-server-parameters.md).
 * Zapoznaj się z artykułem [Przegląd wymagań wstępnych dotyczących korzystania z Azure Database Migration Service](./pre-reqs.md).
 * Zobacz [często zadawane pytania dotyczące korzystania z Azure Database Migration Service](./faq.md).

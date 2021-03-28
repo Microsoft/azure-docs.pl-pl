@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ba03fe86c126c76faf91a06a96aaea6d1ffeddc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7eecacef7f678001c9d65da540432154305549e2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594928"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645138"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Partnerzy integracji danych usługi Azure Synapse Analytics
 
@@ -27,6 +27,7 @@ Aby utworzyć rozwiązanie magazynu danych za pomocą dedykowanej puli SQL w us�
 | Partner | Opis | Link do witryny sieci Web/produktu |
 | ------- | ----------- | -------------------- |
 | ![Initio AB](./media/sql-data-warehouse-partner-data-integration/abinitio-logo.png) |**Initio AB**<br> WieloInitioowa platforma inżynierii cyfrowej pozwala rozwiązać trudniejsze problemy związane z przetwarzaniem danych i zarządzaniem danymi w firmie obliczeniowej. Natywna platforma w chmurze Initio umożliwia dostęp do danych i korzystanie z nich w dowolnym miejscu w ekosystemie firmy, na platformie Azure lub lokalnie, w tym na danych przechowywanych w starszych systemach. Połączenie intuicyjnego interfejsu z zaawansowanymi możliwościami automatyzacji, jakości danych, zarządzania danymi i aktywnych metadanych umożliwia szybkie i wydajne tworzenie samoobsługowych danych, a jednocześnie umożliwia szybkie i efektywne wykonywanie zadań. Dołącz do największych firm, korzystając z Initio AB, aby przekształcić dane Big Data w dane. |[Strona produktu](https://www.abinitio.com/) |
+| ![Aecorsoft](./media/sql-data-warehouse-partner-data-integration/aecorsoft-logo.png) |**Aecorsoft**<br> Usługa AecorSoft oferuje szybkie, skalowalne i w czasie rzeczywistym rozwiązanie do tworzenia oprogramowania ELT/ETL, które pomaga klientom SAP uzyskać złożone dane SAP na platformie Azure Synapse Analytics i Azure Data Platform. W celu zapewnienia pełnej zgodności z zabezpieczeniami warstwy aplikacji SAP AecorSoft rozwiązanie jest oficjalnie SAP Premium certyfikowane do integracji z aplikacjami SAP. Unikatowe funkcje AecorSoft i przechwytywania zmian danych umożliwiają użytkownikom oprogramowania SAP przesyłanie strumieniowe danych różnicowych z nieprzezroczystych, puli i tabel klastra SAP do platformy Azure w formacie CSV, Parquet, Avro, ORC lub GZIP. Oprócz danych tabelarycznych SAP wiele innych obiektów oprogramowania SAP, takich jak zapytania o BW i S/4HANA dysków CD, jest w pełni obsługiwane. |[Strona produktu](https://www.aecorsoft.com/products/dataintegrator)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aecorsoftinc1588038796343.aecorsoftintegrationservice_adf)<br>|
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma to rozwiązanie wyodrębniania, przekształcania i ładowania (ETL), które umożliwia zespołom danych integrowanie, wzbogacanie i przesyłanie strumieniowe danych z różnych silosów danych do usługi Azure Synapse Data Warehouse w czasie rzeczywistym. |[Strona produktu](https://www.alooma.com/) |
 | ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br> Program oprogramowanie alteryx Designer oferuje powtarzalny przepływ pracy dla samoobsługowej analizy danych, który prowadzi do dokładniejszego wglądu w godziny, a nie tygodniowo typowych metod tradycyjnych. Program oprogramowanie alteryx Designer pomaga analitykom danych, łącząc przygotowanie danych, mieszanie danych i analizy — predykcyjne, statystyczne i przestrzenne — przy użyciu tego samego intuicyjnego interfejsu użytkownika. |[Strona produktu](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/alteryx.alteryx-designer)<br>|
 | ![Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_logo.png) |**Attunity (CloudBeam)**<br>Attunity CloudBeam zapewnia zautomatyzowane rozwiązanie do ładowania danych do magazynu danych Synapse platformy Azure. Upraszcza to ładowanie wsadowe i replikację przyrostową danych z wielu źródeł — SQL Server, Oracle, DB2, Sybase, MySQL i innych. |[Strona produktu](http://www.attunity.com/attunity-cloudbeam-for-azure/)<br>[Azure Marketplace](https://aws.amazon.com/marketplace/pp/Attunity-Attunity-CloudBeam/B00B5PB8IM) <br> |

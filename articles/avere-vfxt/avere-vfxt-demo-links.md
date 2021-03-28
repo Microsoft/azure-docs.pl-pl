@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 31e32bfc0a2c3279375148bdf3da7d4a4829af1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 43162c4c9812015952c749446d160ab1c0d84392
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88271077"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639403"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Projekty demonstracyjne avere vFXT
 
@@ -29,7 +29,7 @@ Przykładowe samouczki są dostępne w serwisie [GitHub](https://github.com/Azur
 
 ## <a name="vfxt-performance"></a>vFXT wydajność
 
-* [Mierzenie wydajności vFXT za pomocą vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) -a podstawowego Instalatora testów do generowania małych i średnich obciążeń w celu przetestowania pamięci vFXT i podsystemów dysków
+* [Mierzenie wydajności vFXT za pomocą vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) — Podstawowa konfiguracja testu do generowania małych i średnich obciążeń w celu przetestowania pamięci vFXT i podsystemów dysków
 
 ## <a name="client-setup"></a>Konfiguracja klienta
 

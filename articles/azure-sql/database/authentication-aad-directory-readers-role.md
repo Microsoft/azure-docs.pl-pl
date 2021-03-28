@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: dec29dc92f70a3f02f3fb598659aa86477fb59bf
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: d764c6b6cff6a0ba23d659d4fda63e21aac9b155
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558248"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644187"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL
 
@@ -31,7 +31,7 @@ Rola **czytelnicy Directory** jest wymagana do:
 
 - Tworzenie nazw logowania usługi Azure AD dla wystąpienia zarządzanego SQL
 - Personifikowanie użytkowników usługi Azure AD w usłudze Azure SQL
-- Migrowanie SQL Server użytkowników korzystających z uwierzytelniania systemu Windows do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania usługi Azure AD (za pomocą polecenia [ALTER User (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
+- Migrowanie SQL Server użytkowników korzystających z uwierzytelniania systemu Windows do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania usługi Azure AD (za pomocą polecenia [ALTER User (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
 - Zmień administratora usługi Azure AD dla wystąpienia zarządzanego SQL
 - Zezwalaj [podmiotom usługi (Applications)](authentication-aad-service-principal.md) na tworzenie użytkowników usługi Azure AD w usłudze Azure SQL
 

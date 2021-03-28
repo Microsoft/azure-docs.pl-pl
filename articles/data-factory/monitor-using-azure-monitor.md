@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 04aba71e49fedc8a4ca22aed576aaa978f733336
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 55b2fd911b32eae4f04ad9690de091e9dbd46ea4
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783646"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643968"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Data Factory monitorowania i alertów za pomocą Azure Monitor
 
@@ -76,7 +76,7 @@ Utwórz lub Dodaj ustawienia diagnostyczne dla fabryki danych.
    ![Nadaj nazwę ustawieniom i wybierz obszar roboczy usługi log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [Dokumentacja dzienników AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [Dokumentacja dzienników AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Wybierz pozycję **Zapisz**.
 

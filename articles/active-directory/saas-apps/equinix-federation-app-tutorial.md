@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/27/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: b0c772b3f30b211cf83512ca2ff2f10325fb4bc1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1172cd818a3b40e908bbf5a133ea76d6b0d17b9
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98735094"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642869"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z aplikacją Equinix Federation
 
-W ramach tego samouczka dowiesz się, jak zintegrować aplikację Federacji Equinix z usługą Azure Active Directory (Azure AD). W przypadku integrowania aplikacji federacyjnej Equinix z usługą Azure AD można:
+W ramach tego samouczka dowiesz się, jak zintegrować aplikację Federacji Equinix z usługą Azure Active Directory (Azure AD). Podczas integrowania aplikacji federacyjnej Equinix z usługą Azure AD można wykonać następujące czynności:
 
 * Kontrolka w usłudze Azure AD, która ma dostęp do aplikacji federacyjnej Equinix.
 * Zezwól użytkownikom na automatyczne logowanie do aplikacji federacyjnej Equinix przy użyciu kont usługi Azure AD.
@@ -37,7 +37,10 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Aplikacja Federacji Equinix obsługuje logowanie jednokrotne w ramach usługi **SP**
+* Aplikacja Federacji Equinix obsługuje logowanie jednokrotne w ramach usługi **SP** .
+
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="adding-equinix-federation-app-from-the-gallery"></a>Dodawanie aplikacji federacyjnej Equinix z galerii
 
@@ -70,20 +73,16 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **Federacji Equinix** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.equinix.com/sp/ACS.saml2`
-
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `Equinix:<CUSTOM_IDENTIFIER>`
-
-    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.equinix.com/sp/ACS.saml2`
+    W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:  `https://<customerprefix>customerportal.equinix.com`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta aplikacji federacyjnej Equinix](mailto:prodsecops@equinix.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Wartość adresu URL logowania nie jest prawdziwa. Zaktualizuj wartość za pomocą rzeczywistego adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta aplikacji federacyjnej Equinix](mailto:prodsecops@equinix.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -92,6 +91,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. W sekcji **Konfigurowanie aplikacji federacyjnej Equinix** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
@@ -128,13 +128,14 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji federacyjn
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania aplikacji federacyjnej Equinix, w którym można zainicjować przepływ logowania. 
+Przejdź bezpośrednio do adresu URL logowania aplikacji federacyjnej Equinix i zainicjuj tam przepływ logowania.
 
-* Przejdź bezpośrednio do adresu URL logowania aplikacji federacyjnej Equinix i zainicjuj tam przepływ logowania.
-
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka aplikacji federacyjnej Equinix w obszarze Moje aplikacje zostanie ono przekierowany do adresu URL logowania do aplikacji federacyjnej Equinix. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
+ > [!NOTE]
+ > Jeśli podjęto próbę przetestowania aplikacji platformy Azure za pomocą tego linku **test** lub kliknięcie kafelka aplikacji federacyjnej Equinix, nie będzie on działał, ponieważ jest inicjowane przez dostawcy tożsamości Logowanie jednokrotne, które Equinix nie jest obsługiwane domyślnie.  Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu aplikacji federacyjnej Equinix można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu aplikacji federacyjnej Equinix można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

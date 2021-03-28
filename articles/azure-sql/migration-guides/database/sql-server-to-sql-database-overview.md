@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 54c1b8c189264fb2e127ff04b0fdd9125f4c9aeb
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ef69b8cf0e51c6248862f4cabd4f4ce3598a811
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563144"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640353"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>Przegląd migracji: SQL Server do Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -207,7 +207,7 @@ Aby uzyskać dodatkową pomoc, zobacz następujące zasoby, które zostały opra
 |[Automatyzacja zbierania danych monitora wydajności za pomocą narzędzia Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Narzędzie, które zbiera dane PerMon w celu zrozumienia wydajności linii bazowej i pomaga w zaleceń dotyczących docelowego migracji. To narzędzie używa logman.exe, aby utworzyć polecenie, które będzie tworzyć, uruchamiać, zatrzymywać i usuwać liczniki wydajności ustawione na SQL Server zdalnej|
 |[Oficjalny dokument — migracja bazy danych do usługi Azure SQL DB przy użyciu BACPAC](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|Niniejszy dokument zawiera wskazówki i kroki ułatwiające przyspieszenie migracji z SQL Server do Azure SQL Database przy użyciu plików BACPAC.|
 
-Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest sponsorowany przez zespół inżynierów grupy danych platformy Azure. Podstawowa karta programu SQL Data Ninja to odblokowanie i przyspieszenie złożonej modernizacji i konkurowania możliwości migracji platformy danych na platformę danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie SQL Data ninja, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
+Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
 
 
 ## <a name="next-steps"></a>Następne kroki

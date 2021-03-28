@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: normesta
-ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c9eb1aa2e88019609f5ab26c2e995e4e43063ca
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100516282"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640816"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów blob dostępne w usłudze Azure Data Lake Storage Gen2
 
@@ -50,7 +50,7 @@ W poniższej tabeli przedstawiono, w jaki sposób każda funkcja magazynu obiekt
 |Anonimowy dostęp publiczny |Ogólnie dostępne|Ogólnie dostępne| Zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).|
 |Tryb failover konta zarządzanego przez klienta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Klucze dostarczone przez klienta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB](encryption-customer-provided-keys.md)|
-|Zakresy szyfrowania|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](encryption-scope-manage.md)|
+|Zakresy szyfrowania|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Tworzenie zakresów szyfrowania i zarządzanie nimi](encryption-scope-manage.md)|
 |Źródło zmian|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
 |Replikacja obiektów|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Konfiguruj replikację obiektów dla blokowych obiektów BLOB](object-replication-configure.md)|
 |Przechowywanie wersji obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)|

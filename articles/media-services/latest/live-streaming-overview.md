@@ -2,23 +2,18 @@
 title: Omówienie przesyłania strumieniowego na żywo
 description: Ten artykuł zawiera omówienie przesyłania strumieniowego na żywo przy użyciu Azure Media Services v3.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c82c646e4befef9d409bb8e59a442642913ada22
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955923"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641523"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
 
@@ -123,16 +118,6 @@ Element zawartości, do której jest archiwizowany na żywo danych wyjściowych,
 - [Stany i rozliczenia](live-event-states-billing.md)
 - [Opóźnienie](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
+## <a name="live-streaming-questions"></a>Pytania dotyczące przesyłania strumieniowego na żywo
 
-Zobacz artykuł [często zadawane pytania](frequently-asked-questions.md#live-streaming) .
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
-
-Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
-
-## <a name="next-steps"></a>Następne kroki
-
-* [Transmisja strumieniowa na żywo — Szybki Start](live-events-wirecast-quickstart.md)
-* [Samouczek przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)
-* [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-v-2-v-3-migration-introduction.md)
+Zobacz artykuł dotyczące [pytań dotyczących przesyłania strumieniowego na żywo](questions-collection.md#live-streaming) .

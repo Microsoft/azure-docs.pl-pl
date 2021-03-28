@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d83f6585500316515139f937a56889dfc1f8fac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96459675"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642706"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,7 @@ Centralne zarządzanie tożsamościami oferuje następujące korzyści:
 - Przypisywanie praw dostępu do zasobów do podmiotów zabezpieczeń usługi Azure AD za pośrednictwem przypisywania grup: Tworzenie grup usługi Azure AD, przyznawanie dostępu do grup i Dodawanie pojedynczych członków do grup. W bazie danych Utwórz użytkowników zawartej bazy danych, którzy mapują grupy usługi Azure AD. Aby przypisać uprawnienia wewnątrz bazy danych, należy umieścić użytkowników skojarzonych z grupami usługi Azure AD w rolach bazy danych z odpowiednimi uprawnieniami.
   - Zapoznaj się z artykułami, [Konfigurowanie i Zarządzanie uwierzytelnianiem Azure Active Directory przy użyciu programu SQL](authentication-aad-configure.md) i [Używanie usługi Azure AD do uwierzytelniania przy użyciu języka SQL](authentication-aad-overview.md).
   > [!NOTE]
-  > W wystąpieniu zarządzanym SQL można także utworzyć nazwy logowania mapowane do podmiotów zabezpieczeń usługi Azure AD w bazie danych Master. Zobacz [Create Login (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  > W wystąpieniu zarządzanym SQL można także utworzyć nazwy logowania mapowane do podmiotów zabezpieczeń usługi Azure AD w bazie danych Master. Zobacz [Create Login (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - Korzystanie z grup usługi Azure AD upraszcza zarządzanie uprawnieniami oraz właściciela grupy, a właściciel zasobu może dodawać i usuwać członków z grupy.
 
@@ -136,7 +136,7 @@ Usługa Azure AD Multi-Factor Authentication zapewnia dodatkowe zabezpieczenia, 
 
 - Użyj trybu uwierzytelniania interakcyjnego usługi Azure AD dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL, w przypadku których hasło jest wymagane interaktywnie, a następnie Multi-Factor Authentication:
   - Użyj uwierzytelniania uniwersalnego w programie SSMS. Zobacz artykuł [używanie uwierzytelniania wieloskładnikowego usługi Azure AD z Azure SQL Database, wystąpieniem zarządzanym SQL, Azure Synapse (Obsługa programu SSMS dla Multi-Factor Authentication)](authentication-mfa-ssms-overview.md).
-  - Użyj interakcyjnego uwierzytelniania obsługiwanego w narzędziach SQL Server Data Tools (SSDT). Zapoznaj się z artykułem [Azure Active Directory support w programie SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
+  - Użyj interakcyjnego uwierzytelniania obsługiwanego w narzędziach SQL Server Data Tools (SSDT). Zapoznaj się z artykułem [Azure Active Directory support w programie SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true).
   - Użyj innych narzędzi SQL obsługiwanych Multi-Factor Authentication.
     - Kreator programu SSMS obsługujący eksportowanie/wyodrębnianie/wdrażanie bazy danych  
     - [sqlpackage.exe](/sql/tools/sqlpackage): opcja "/UA"
@@ -196,7 +196,7 @@ W przypadkach, w których nie można uniknąć haseł, upewnij się, że są one
 
 - Jeśli nie jest możliwe uniknięcie haseł lub wpisów tajnych, należy przechowywać hasła użytkowników i wpisy tajne aplikacji w Azure Key Vault i zarządzać dostępem za poorednictwem zasad dostępu Key Vault.
 
-- Różne platformy programistyczne aplikacji mogą również oferować mechanizmy specyficzne dla platformy służące do ochrony kluczy tajnych w aplikacji. Na przykład: [aplikacja ASP.NET Core](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Różne platformy programistyczne aplikacji mogą również oferować mechanizmy specyficzne dla platformy służące do ochrony kluczy tajnych w aplikacji. Na przykład: [aplikacja ASP.NET Core](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>Używanie uwierzytelniania SQL dla starszych aplikacji
 

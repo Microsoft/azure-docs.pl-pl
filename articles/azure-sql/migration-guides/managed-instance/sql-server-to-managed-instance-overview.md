@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 529bc5468c74ac9d50f64decad29fd070a7bda83
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: a3876b63e9dc41a22ac6e95b31f34665a0d0bdd8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566935"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642352"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -236,7 +236,7 @@ Aby uzyskać dodatkową pomoc, zobacz następujące zasoby, które zostały opra
 |[Automatyzacja zbierania danych monitora wydajności za pomocą narzędzia Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Narzędzie służące do zbierania danych w celu zrozumienia wydajności linii bazowej, która pomaga w rekomendacji docelowej migracji. To narzędzie używające logman.exe do tworzenia polecenia, które będzie tworzyć, uruchamiać, zatrzymywać i usuwać liczniki wydajności ustawione na SQL Server zdalnej.|
 |[Oficjalny dokument — migracja bazy danych do wystąpienia zarządzanego usługi Azure SQL przez przywrócenie pełnych i różnicowych kopii zapasowych](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|Niniejszy dokument zawiera wskazówki i kroki ułatwiające przyspieszenie migracji z SQL Server do wystąpienia zarządzanego usługi Azure SQL, jeśli masz tylko pełne i różnicowe kopie zapasowe (bez możliwości tworzenia kopii zapasowych dzienników).|
 
-Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest sponsorowany przez zespół inżynierów grupy danych platformy Azure. Podstawowa karta programu SQL Data Ninja to odblokowanie i przyspieszenie złożonej modernizacji i konkurowania możliwości migracji platformy danych na platformę danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie SQL Data ninja, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
+Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: 3f0ec053d806208b4a3c15604714f6bdb87399e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8fb6985da5046d0a1bad171cbc9742a15baf1af
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613225"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643438"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Seria StorSimple 8000: rozwiązanie hybrydowego magazynu w chmurze
 
@@ -255,7 +255,7 @@ Poniżej znajduje się lista innych programów używanych z programem StorSimple
 | Miejsce docelowe kopii zapasowej |Veeam |Veeam v 9 i nowsze |[StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veaam](storsimple-configure-backup-target-veeam.md)|
 | Miejsce docelowe kopii zapasowej |Veritas Backup Exec |Backup Exec 16 i nowsze |[StorSimple jako miejsce docelowe kopii zapasowej przy użyciu programu Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Miejsce docelowe kopii zapasowej |VERITAS NetBackup |NetBackup 7.7. x i nowsze  |[StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Globalne udostępnianie plików <br></br> Współpraca |Talon  |[StorSimple z Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| Globalne udostępnianie plików <br></br> Współpraca |Talon  |[StorSimple z Talon](https://www.theinfostride.com/talon-and-microsoft-to-host-azure-storsimple-web-conference-with-capita/) | |
 
 ## <a name="storsimple-terminology"></a>Terminologia StorSimple
 Przed wdrożeniem rozwiązania Microsoft Azure StorSimple zalecamy zapoznanie się z poniższymi postanowieniami i definicjami.

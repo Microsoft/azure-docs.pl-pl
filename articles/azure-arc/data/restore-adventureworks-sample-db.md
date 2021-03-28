@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d238a889648e789087a0803f6b50288318462c7b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a6b3577fe820c9dadcb3c8415aa7a951a3283284
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91629067"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641806"
 ---
 # <a name="restore-the-adventureworks-sample-database-into-sql-managed-instance---azure-arc"></a>Przywracanie przykładowej bazy danych AdventureWorks do wystąpienia zarządzanego SQL — łuk platformy Azure
 
-[AdventureWorks](/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=tsql&preserve-view=true) to przykładowa baza danych zawierająca bazę danych OLTP, która jest często używana w samouczkach i przykładach. Jest ona dostarczana i obsługiwana przez firmę Microsoft w ramach [repozytorium SQL Server Samples](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases)w witrynie GitHub.
+[AdventureWorks](/sql/samples/adventureworks-install-configure) to przykładowa baza danych zawierająca bazę danych OLTP, która jest często używana w samouczkach i przykładach. Jest ona dostarczana i obsługiwana przez firmę Microsoft w ramach [repozytorium SQL Server Samples](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases)w witrynie GitHub.
 
 W tym dokumencie opisano prosty proces pobierania przykładowej bazy danych AdventureWorks do wystąpienia zarządzanego SQL — Azure Arc.
 

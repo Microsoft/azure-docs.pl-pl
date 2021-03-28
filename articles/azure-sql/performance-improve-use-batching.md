@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792603"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641392"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Korzystanie z usługi Batch w celu usprawnienia Azure SQL Database i wydajności aplikacji wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transakcje są faktycznie używane w obu tych przykładach. W pierwszym przykładzie każde pojedyncze wywołanie jest niejawną transakcją. W drugim przykładzie transakcja jawna otacza wszystkie wywołania. Zgodnie z dokumentacją [dziennika transakcji zapisu](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)rekordy dziennika są opróżniane do dysku podczas zatwierdzania transakcji. Tak więc, dołączając więcej wywołań w transakcji, zapis w dzienniku transakcji może opóźnić się do momentu zatwierdzenia transakcji. W efekcie w dzienniku transakcji serwera jest włączana partia operacji zapisu.
+Transakcje są faktycznie używane w obu tych przykładach. W pierwszym przykładzie każde pojedyncze wywołanie jest niejawną transakcją. W drugim przykładzie transakcja jawna otacza wszystkie wywołania. Zgodnie z dokumentacją [dziennika transakcji zapisu](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL)rekordy dziennika są opróżniane do dysku podczas zatwierdzania transakcji. Tak więc, dołączając więcej wywołań w transakcji, zapis w dzienniku transakcji może opóźnić się do momentu zatwierdzenia transakcji. W efekcie w dzienniku transakcji serwera jest włączana partia operacji zapisu.
 
 W poniższej tabeli przedstawiono niektóre wyniki testów ad hoc. Testy przeprowadzono te same sekwencyjne Wstawianie z i bez transakcji. W celu uzyskania większej perspektywy pierwszy zestaw testów działał zdalnie z poziomu laptopa do bazy danych w Microsoft Azure. Drugi zestaw testów został uruchomiony z poziomu usługi w chmurze i bazy danych, która znajduje się w tym samym Microsoft Azure Datacenter (Zachodnie stany USA). W poniższej tabeli przedstawiono czas trwania operacji wstawiania sekwencyjnego z i bez transakcji w milisekundach.
 

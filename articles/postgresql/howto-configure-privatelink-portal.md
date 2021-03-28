@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95995288"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642120"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu i zarządzanie nim
 
@@ -179,7 +179,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Utworzono link prywatny":::
 
     > [!NOTE] 
-    > Nazwa FQDN w ustawieniu DNS klienta nie jest rozpoznawana jako prywatny adres IP skonfigurowany. Konieczne będzie skonfigurowanie strefy DNS dla skonfigurowanej nazwy FQDN, jak pokazano [poniżej](../dns/dns-operations-recordsets-portal.md).
+    > Nazwa FQDN w ustawieniu DNS klienta nie jest rozpoznawana jako skonfigurowany prywatny adres IP. Konieczne będzie skonfigurowanie strefy DNS dla skonfigurowanej nazwy FQDN, jak pokazano [poniżej](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Pulpitu zdalnego (RDP)
 
@@ -222,7 +222,7 @@ Po utworzeniu **myVm** Połącz się z nim za pośrednictwem Internetu w następ
     Address:  10.1.3.4
     ```
 
-3. Przetestuj połączenie prywatne linku dla serwera PostgreSQL przy użyciu dowolnego dostępnego klienta. W poniższym przykładzie użyto [usługi Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) do wykonania tej operacji.
+3. Przetestuj połączenie prywatne linku dla serwera PostgreSQL przy użyciu dowolnego dostępnego klienta. W poniższym przykładzie użyto [usługi Azure Data Studio](/sql/azure-data-studio/download) do wykonania tej operacji.
 
 4. W obszarze **nowe połączenie** wprowadź lub wybierz następujące informacje:
 

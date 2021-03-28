@@ -4,17 +4,17 @@ description: Usługa Azure Storage chroni dane, automatycznie szyfrując je prze
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0688e14b77d885132d6c3fbaa44bed117cc7cf9d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180364"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641128"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Szyfrowanie w usłudze Azure Storage dla danych magazynowanych
 
@@ -65,50 +65,9 @@ Szyfrowanie na poziomie usługi obsługuje używanie kluczy zarządzanych przez 
 
 Aby uzyskać więcej informacji na temat tworzenia konta magazynu, które umożliwia szyfrowanie infrastruktury, zobacz [Tworzenie konta magazynu z włączoną funkcją szyfrowania infrastruktury w celu podwójnego szyfrowania danych](infrastructure-encryption-enable.md).
 
-## <a name="encryption-scopes-for-blob-storage-preview"></a>Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)
-
-Domyślnie konto magazynu jest szyfrowane przy użyciu klucza, który jest objęty zakresem konta magazynu. Możesz użyć kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta przechowywanych w Azure Key Vault, aby chronić i kontrolować dostęp do klucza, który szyfruje dane.
-
-Zakresy szyfrowania umożliwiają opcjonalne zarządzanie szyfrowaniem na poziomie kontenera lub pojedynczym obiektem BLOB. Zakresy szyfrowania można używać do tworzenia bezpiecznych granic między danymi znajdującymi się na tym samym koncie magazynu, ale należą do różnych klientów.
-
-Można utworzyć co najmniej jeden zakres szyfrowania dla konta magazynu przy użyciu dostawcy zasobów usługi Azure Storage. Podczas tworzenia zakresu szyfrowania należy określić, czy zakres jest chroniony za pomocą klucza zarządzanego przez firmę Microsoft, czy z kluczem zarządzanym przez klienta, który jest przechowywany w Azure Key Vault. Różne zakresy szyfrowania na tym samym koncie magazynu mogą korzystać z kluczy zarządzanych przez firmę Microsoft lub przez klienta.
-
-Po utworzeniu zakresu szyfrowania możesz określić ten zakres szyfrowania dla żądania, aby utworzyć kontener lub obiekt BLOB. Aby uzyskać więcej informacji na temat sposobu tworzenia zakresu szyfrowania, zobacz [Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](../blobs/encryption-scope-manage.md).
-
-> [!NOTE]
-> Zakresy szyfrowania nie są obsługiwane w przypadku magazynu geograficznie nadmiarowego dostępnego do odczytu (RA-GRS) i geograficznie nadmiarowego strefy magazynowej (RA-GZRS) w ramach wersji zapoznawczej.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> Wersja zapoznawcza zakresów szyfrowania jest przeznaczona wyłącznie do użycia w trybie nieprodukcyjnym. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
->
-> Aby uniknąć nieoczekiwanych kosztów, należy wyłączyć wszelkie zakresy szyfrowania, które nie są obecnie potrzebne.
-
-### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Tworzenie kontenera lub obiektu BLOB z zakresem szyfrowania
-
-Obiekty blob tworzone w ramach zakresu szyfrowania są szyfrowane przy użyciu klucza określonego dla tego zakresu. Możesz określić zakres szyfrowania dla pojedynczego obiektu BLOB podczas tworzenia obiektu BLOB lub określić domyślny zakres szyfrowania podczas tworzenia kontenera. Po określeniu domyślnego zakresu szyfrowania na poziomie kontenera wszystkie obiekty blob w tym kontenerze są szyfrowane przy użyciu klucza skojarzonego z zakresem domyślnym.
-
-Podczas tworzenia obiektu BLOB w kontenerze z domyślnym zakresem szyfrowania można określić zakres szyfrowania, który zastąpi domyślny zakres szyfrowania, jeśli kontener jest skonfigurowany tak, aby zezwalał na przesłonięcia domyślnego zakresu szyfrowania. Aby zapobiec zastępowaniu domyślnego zakresu szyfrowania, należy skonfigurować kontener tak, aby odmówił zastąpień dla pojedynczego obiektu BLOB.
-
-Operacje odczytu na obiekcie blob, który należy do zakresu szyfrowania, są w sposób przezroczysty, tak długo, jak zakres szyfrowania nie jest wyłączony.
-
-### <a name="disable-an-encryption-scope"></a>Wyłącz zakres szyfrowania
-
-Po wyłączeniu zakresu szyfrowania wszelkie kolejne operacje odczytu lub zapisu wykonane z zakresem szyfrowania zakończą się niepowodzeniem z kodem błędu HTTP 403 (dostęp zabroniony). Po ponownym włączeniu zakresu szyfrowania operacje odczytu i zapisu będą normalnie powtarzane.
-
-Po wyłączeniu zakresu szyfrowania nie są już naliczane opłaty. Wyłącz wszelkie zakresy szyfrowania, które nie są potrzebne, aby uniknąć niepotrzebnych opłat.
-
-Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez klienta Azure Key Vault, można również usunąć skojarzony klucz w magazynie kluczy, aby wyłączyć zakres szyfrowania. Należy pamiętać, że klucze zarządzane przez klienta w Azure Key Vault są chronione przez programowe usuwanie i przeczyszczanie ochrony, a usunięty klucz podlega zachowaniu zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
-
-- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/key-vault-recovery.md)
-- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md)
-
-> [!NOTE]
-> Nie można usunąć zakresu szyfrowania.
-
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)
 - [Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](customer-managed-keys-overview.md)
-- [Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)](../blobs/encryption-scope-overview.md)
+- [Zakresy szyfrowania dla usługi BLOB Storage](../blobs/encryption-scope-overview.md)
+- [Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB](../blobs/encryption-customer-provided-keys.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d88284f3b9759ce04af9e44ae591c4796dde4e84
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565201"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641379"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linia bazowa zabezpieczeń Azure dla Azure Stack Edge
 
@@ -298,7 +298,7 @@ Należy pamiętać, że do uzyskania wglądu w obciążenia i usługi mogą być
 
 **Wskazówki**: tylko autoryzowani użytkownicy mogą na przykład uzyskać dostęp do Azure Stack interfejsów API urządzenia brzegowego za pośrednictwem Azure Resource Manager lokalnego. Hasła kont użytkowników można zarządzać tylko w Azure Portal. 
 
-- [Ustawianie hasła usługi Azure Resource Manager](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
+- [Ustawianie hasła usługi Azure Resource Manager](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557373"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642389"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Zarządzanie kontami lokalnych usług
 
@@ -60,7 +60,7 @@ Podczas tworzenia nowego konta usługi należy użyć następujących kryteriów
 
 Użyj następujących ustawień z kontami użytkowników używanymi jako konta usług:
 
-* [**Wygaśnięcie konta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): ustawienie konta usługi na automatycznie wygasa po upływie określonego czasu od momentu jego sprawdzenia, chyba że zostanie ustalone, że powinien on być kontynuowany
+* [**Wygaśnięcie konta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): ustawienie konta usługi na automatycznie wygasa po upływie określonego czasu od momentu jego sprawdzenia, chyba że zostanie ustalone, że powinien on być kontynuowany
 
 *  **LogonWorkstations**: Ogranicz uprawnienia do miejsca, w którym można się zalogować za pomocą konta usługi. Jeśli działa lokalnie na komputerze i uzyskuje dostęp tylko do zasobów na tym komputerze, ogranicz je do logowania w dowolnym miejscu.
 
@@ -149,7 +149,7 @@ Ocena ryzyka, po przeprowadzeniu i udokumentowaniu, może mieć wpływ na:
 
 Utwórz konto usługi tylko wtedy, gdy odpowiednie informacje są udokumentowane w Twoim CMDB, i przeprowadź ocenę ryzyka. Ograniczenia konta powinny być wyrównane do oceny ryzyka. Należy wziąć pod uwagę poniższe ograniczenia dotyczące oceny.:
 
-* [Wygaśnięcie konta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Wygaśnięcie konta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
    * W przypadku wszystkich kont użytkowników używanych jako konta usług Zdefiniuj realistyczną i niezależną datę końcową do użycia. Ustaw tę wartość przy użyciu flagi "Konto wygasa". Aby uzyskać więcej informacji, zobacz[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
@@ -193,7 +193,7 @@ Po usunięciu wszystkich uprawnień Użyj tego procesu, aby usunąć konto.
 
 3. Usuń konto usługi po spełnieniu zasad pozostania wyłączenia. 
 
-   * W przypadku kont MSA można [odinstalować go](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) przy użyciu programu PowerShell lub usunąć ręcznie z kontenera zarządzanego konta usługi.
+   * W przypadku kont MSA można [odinstalować go](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) przy użyciu programu PowerShell lub usunąć ręcznie z kontenera zarządzanego konta usługi.
 
    * W przypadku kont komputerów lub użytkowników można ręcznie usunąć konto z usługi w Active Directory.
 
