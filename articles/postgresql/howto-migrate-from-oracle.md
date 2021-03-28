@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: b41f894a7e4742b75ea06684a960221d4a5b7641
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 1a20ffd7150ac75721b2affc2f4375301c4754c8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024765"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643566"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Migrowanie bazy danych Oracle do Azure Database for PostgreSQL
 
@@ -324,7 +324,7 @@ Aby uzyskać dodatkową pomoc dotyczącą wykonywania tego scenariusza migracji,
 | [Obejścia dotyczące migracji z programu Oracle do platformy Azure PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) | Celem tego dokumentu jest zapewnienie architektów, konsultantów, przetwarzający i powiązanych ról z przewodnikiem dotyczącym szybkiego rozwiązywania problemów i pracy z nimi w trakcie migrowania obciążeń z programu Oracle do Azure Database for PostgreSQL. |
 | [Kroki instalacji ora2pg w systemie Windows lub Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)                       | Ten dokument jest przeznaczony do użycia jako krótki przewodnik po instalacji w celu włączenia migracji danych & schematu z programu Oracle do Azure Database for PostgreSQL przy użyciu narzędzia ora2pg w systemie Windows lub Linux. Pełne szczegóły dotyczące narzędzia można znaleźć pod adresem http://ora2pg.darold.net/documentation.html . |
 
-Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest sponsorowany przez zespół inżynierów grupy danych platformy Azure. Podstawowa karta programu SQL Data Ninja to odblokowanie i przyspieszenie złożonej modernizacji i konkurowania możliwości migracji platformy danych na platformę danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie SQL Data ninja, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
+Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
 
 
 ### <a name="contact-support"></a>Kontakt z pomocą techniczną

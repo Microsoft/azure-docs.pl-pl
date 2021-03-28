@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 8cdf95dd3c0e801896328136b15e4bd4efe53005
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 306a8d78caf36291573d021ed1d814aa4f7a2164
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102563816"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642775"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,7 +109,7 @@ Aby skonfigurować regułę zapory na poziomie bazy danych:
 1. Na pasku narzędzi wybierz polecenie **Wykonaj**, aby utworzyć regułę zapory.
 
 > [!NOTE]
-> W programie SQL Server Management Studio można również utworzyć regułę zapory na poziomie serwera, używając polecenia [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) polecenia, ale wymagane jest wówczas połączenie z bazą danych *master*.
+> W programie SQL Server Management Studio można również utworzyć regułę zapory na poziomie serwera, używając polecenia [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current&preserve-view=true) polecenia, ale wymagane jest wówczas połączenie z bazą danych *master*.
 
 ## <a name="create-an-azure-ad-admin"></a>Tworzenie administratora usługi Azure AD
 

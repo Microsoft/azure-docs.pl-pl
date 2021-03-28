@@ -3,14 +3,14 @@ title: CreateUiDefinition.jsw pliku dla okienka portalu
 description: Opisuje sposób tworzenia definicji interfejsu użytkownika dla Azure Portal. Używane podczas definiowania Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89319575"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641652"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Plik CreateUiDefinition.json dla środowiska tworzenia aplikacji zarządzanej platformy Azure
 
@@ -63,25 +63,29 @@ Możesz użyć edytora JSON do utworzenia createUiDefinition, a następnie przet
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -103,11 +107,13 @@ Możesz użyć edytora JSON do utworzenia createUiDefinition, a następnie przet
 },
 ```
 
+Dla `isValid` Właściwości Napisz wyrażenie, które jest rozpoznawane jako true lub false. Dla `permission` Właściwości Określ jedną z [akcji dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md).
+
 ### <a name="wizard"></a>Kreatora
 
 `isWizard`Właściwość umożliwia wymaganie pomyślnej weryfikacji każdego kroku przed przejściem do następnego kroku. Gdy `isWizard` Właściwość nie jest określona, wartość domyślna to **false**, a Walidacja krok po kroku nie jest wymagana.
 
-Gdy `isWizard` jest włączona, ustawiona na **wartość true**, dostępna jest karta **podstawowe** i wszystkie inne karty są wyłączone. Po wybraniu przycisku **dalej** ikona karty wskazuje, czy Walidacja karty zakończyła się powodzeniem, czy nie. Po zakończeniu pól wymaganych przez kartę i sprawdzeniu, czy przycisk **dalej** umożliwia nawigowanie do następnej karty. Po przejściu wszystkich kart do walidacji można przejść do strony **Przegląd i tworzenie** , a następnie wybrać przycisk **Utwórz** , aby rozpocząć wdrażanie.
+Gdy `isWizard` jest włączona, ustawiona na **wartość true**, dostępna jest karta **podstawowe** i wszystkie inne karty są wyłączone. Po wybraniu przycisku **dalej** ikona karty wskazuje, czy Walidacja karty zakończyła się powodzeniem, czy nie. Po zakończeniu i sprawdzeniu pól wymaganych przez kartę **Następny** przycisk umożliwia nawigację do następnej karty. Po przejściu wszystkich kart do walidacji można przejść do strony **Przegląd i tworzenie** , a następnie wybrać przycisk **Utwórz** , aby rozpocząć wdrażanie.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Kreator kart":::
 
@@ -117,7 +123,7 @@ Konfiguracja podstaw pozwala dostosować etap podstawowy.
 
 W przypadku programu `description` Podaj ciąg z obsługą promocji, który opisuje zasób. Obsługiwane jest formatowanie wielowierszowe i łącza.
 
-`subscription`Elementy i `resourceGroup` umożliwiają określenie dodatkowych walidacji. Składnia służąca do określania walidacji jest taka sama jak niestandardowe sprawdzanie poprawności dla [pola tekstowego](microsoft-common-textbox.md). Możesz również określić `permission` walidacje dla subskrypcji lub grupy zasobów.  
+`subscription`Elementy i `resourceGroup` umożliwiają określanie większej liczby walidacji. Składnia służąca do określania walidacji jest taka sama jak niestandardowe sprawdzanie poprawności dla [pola tekstowego](microsoft-common-textbox.md). Możesz również określić `permission` walidacje dla subskrypcji lub grupy zasobów.  
 
 Kontrola subskrypcji akceptuje listę przestrzeni nazw dostawcy zasobów. Na przykład można określić **Microsoft. COMPUTE**. Wyświetla komunikat o błędzie, gdy użytkownik wybierze subskrypcję, która nie obsługuje dostawcy zasobów. Ten błąd występuje, gdy dostawca zasobów nie jest zarejestrowany w ramach tej subskrypcji, a użytkownik nie ma uprawnienia do rejestrowania dostawcy zasobów.  
 
@@ -150,7 +156,7 @@ Poniższy przykład pokazuje pole tekstowe, które zostało dodane do elementów
 
 ## <a name="steps"></a>Kroki
 
-Właściwość kroki zawiera zero lub więcej dodatkowych kroków do wyświetlenia po stronie podstawy. Każdy krok zawiera jeden lub więcej elementów. Rozważ dodanie kroków na rolę lub warstwę wdrażanej aplikacji. Na przykład Dodaj krok dla danych wejściowych węzła głównego i krok dla węzłów procesu roboczego w klastrze.
+Właściwość kroki zawiera zero lub więcej kroków do wyświetlenia po stronie podstawy. Każdy krok zawiera jeden lub więcej elementów. Rozważ dodanie kroków na rolę lub warstwę wdrażanej aplikacji. Na przykład Dodaj krok dla danych wejściowych węzła podstawowego i krok dla węzłów procesu roboczego w klastrze.
 
 ```json
 "steps": [

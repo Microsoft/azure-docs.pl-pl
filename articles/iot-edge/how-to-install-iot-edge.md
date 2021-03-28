@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/26/2021
 ms.author: kgremban
-ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a98eed61904b580988fe34302999f3ec6a24ac9e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201621"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640913"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instalowanie lub odinstalowywanie Azure IoT Edge dla systemu Linux
 
@@ -398,6 +398,8 @@ Sprawdź, czy usługa systemowa IoT Edge jest uruchomiona.
    sudo iotedge system status
    ```
 
+Odpowiedź dotycząca stanu powiodła się `Ok` .
+
 ::: moniker-end
 
 Jeśli potrzebujesz rozwiązać problem z usługą, pobierz jej dzienniki.
@@ -491,7 +493,7 @@ Korzystając z poleceń zwinięcie, można kierować pliki składników bezpośr
    2. Użyj skopiowanego linku w poniższym poleceniu, aby zainstalować tę wersję usługi tożsamości:
 
       ```bash
-      curl -L <identity service link> -o aziot-identity-service.deb && sudo dpkg -i ./aziot-identity-service.deb
+      curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
 
    3. Znajdź plik **aziot-Edge** pasujący do architektury urządzenia IoT Edge. Kliknij prawym przyciskiem myszy link do pliku i skopiuj adres łącza.
@@ -499,7 +501,7 @@ Korzystając z poleceń zwinięcie, można kierować pliki składników bezpośr
    4. Użyj skopiowanego linku w poniższym poleceniu, aby zainstalować tę wersję programu IoT Edge.
 
       ```bash
-      curl -L <iotedge link> -o aziot-edge.deb && sudo dpkg -i ./aziot-edge.deb
+      curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
 
 <!-- end 1.2 -->

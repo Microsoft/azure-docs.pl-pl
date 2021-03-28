@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0460317a47a1cf01707990b6f92532d4ade01439
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92674767"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643286"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Nawiązywanie połączenia z SQL Database przy użyciu języka C i C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Upewnij się, że masz:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu uzyskania [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Program Visual Studio](https://www.visualstudio.com/downloads/). Aby skompilować i uruchomić ten przykład, należy zainstalować składniki języka C++.
-* [Programowanie dla systemu Linux w programie Visual Studio](/cpp/linux/?view=vs-2019). W przypadku tworzenia aplikacji w systemie Linux należy również zainstalować rozszerzenie programu Visual Studio Linux.
+* [Programowanie dla systemu Linux w programie Visual Studio](/cpp/linux/). W przypadku tworzenia aplikacji w systemie Linux należy również zainstalować rozszerzenie programu Visual Studio Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL Database i SQL Server na maszynach wirtualnych
 

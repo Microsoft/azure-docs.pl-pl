@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2021
 ms.author: trbye
-ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 903e8db14a2830236ae81a2a3b5416491d03e8c7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95024997"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643245"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>Co to jest transkrypcja konwersacji w trakcie spotkań (wersja zapoznawcza)?
+# <a name="what-is-conversation-transcription-preview"></a>Co to jest transkrypcja konwersacji (wersja zapoznawcza)?
 
 Transkrypcja konwersacji to rozwiązanie typu ["Zamiana mowy na tekst](speech-to-text.md) ", które łączy rozpoznawanie mowy, identyfikację osoby mówiącej i wyrażenie zdania z każdym głośnikem (znanym także jako _diarization_), aby zapewnić w czasie rzeczywistym i/lub asynchroniczne transkrypcję każdej konwersacji. Transkrypcja konwersacji odróżnia głośniki w konwersacji, aby określić, którzy z nich korzystają i kiedy ułatwiają deweloperom Dodawanie mowy do tekstu do aplikacji, które wykonują wiele diarizationów.
 

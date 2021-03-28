@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 82a2c3047f851c9fbc273cd13e730572c38b6bcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775939"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640372"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Użyj usługi Azure DevOps, aby utworzyć potok ciągłej integracji/ciągłego wdrażania dla zadania Stream Analytics
 
@@ -26,21 +26,21 @@ W procedurach przedstawionych w tym artykule jest używany projekt Stream Analyt
 
 ## <a name="create-a-build-pipeline"></a>Tworzenie potoku kompilacji
 
-W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać się do tej przykładowej [kompilacji i potoku testowego](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) na platformie Azure DevOps.
+W tej sekcji dowiesz się, jak utworzyć potok kompilacji. 
 
 1. Otwórz przeglądarkę internetową i przejdź do projektu w usłudze Azure DevOps.  
 
-1. W obszarze **potoki** w menu nawigacji po lewej stronie wybierz pozycję **kompilacje**. Następnie wybierz pozycję **Nowy potok**.
+2. W obszarze **potoki** w menu nawigacji po lewej stronie wybierz pozycję **kompilacje**. Następnie wybierz pozycję **Nowy potok**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
-1. Wybierz pozycję **Użyj klasycznego edytora** , aby utworzyć potok bez YAML.
+3. Wybierz pozycję **Użyj klasycznego edytora** , aby utworzyć potok bez YAML.
 
-1. Wybierz typ źródła, projekt zespołowy i repozytorium. Następnie wybierz pozycję **Kontynuuj**.
+4. Wybierz typ źródła, projekt zespołowy i repozytorium. Następnie wybierz pozycję **Kontynuuj**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Wybierz projekt Azure Stream Analytics":::
 
-1. Na stronie **Wybierz szablon** wybierz pozycję **puste zadanie**.
+5. Na stronie **Wybierz szablon** wybierz pozycję **puste zadanie**.
 
 ## <a name="install-npm-package"></a>Zainstaluj pakiet npm
 
@@ -155,7 +155,7 @@ Plik podsumowania testu i pliki szablonów Azure Resource Manager można znaleź
 
 ## <a name="release-with-azure-pipelines"></a>Wydanie z Azure Pipelines
 
-W tej sekcji dowiesz się, jak utworzyć potok wersji. Możesz odwoływać się do tego przykładowego [potoku wersji](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) w usłudze Azure DevOps.
+W tej sekcji dowiesz się, jak utworzyć potok wersji. 
 
 Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Azure Stream Analytics.
 

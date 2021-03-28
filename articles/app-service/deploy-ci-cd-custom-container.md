@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: bc36325b55f049eebef823d836768fccc39a7615
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472177"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643359"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Ciągłe wdrażanie z kontenerami niestandardowymi w Azure App Service
 
@@ -32,7 +32,7 @@ W menu po lewej stronie kliknij pozycję Ustawienia **centrum wdrażania**  >  .
 **Wybierz** Źródło wdrożenia zależy od Twojego scenariusza:
 - **Rejestr kontenerów** konfiguruje Ci/CD między rejestrem kontenerów a App Service.
 - Opcja **działania** w serwisie GitHub jest dla Ciebie, Jeśli przechowujesz kod źródłowy obrazu kontenera w usłudze GitHub. Wyzwalane przez nowe zatwierdzenia w repozytorium GitHub, Akcja wdrożenia może zostać uruchomiona `docker build` i `docker push` bezpośrednio do rejestru kontenerów, a następnie zaktualizowana aplikacja App Service w celu uruchomienia nowego obrazu. Aby uzyskać więcej informacji, zobacz [jak działa usługa Ci/CD z akcjami usługi GitHub](#how-cicd-works-with-github-actions).
-- Aby skonfigurować ciągłe i ciągłe dostarczanie za pomocą **Azure Pipelines**, zobacz [wdrażanie kontenera aplikacji sieci Web platformy Azure z Azure Pipelines](/devops/pipelines/targets/webapp-on-container-linux).
+- Aby skonfigurować ciągłe i ciągłe dostarczanie za pomocą **Azure Pipelines**, zobacz [wdrażanie kontenera aplikacji sieci Web platformy Azure z Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
 
 > [!NOTE]
 > W przypadku aplikacji Docker Compose wybierz pozycję **Container Registry**.

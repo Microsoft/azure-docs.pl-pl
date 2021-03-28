@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 5af681b6edf8abc8145caf599fc0fb3c4daf5c15
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 6fe1e092e1db4ad283f9d0096ea431a1e983f87c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107066"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645375"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -250,7 +250,7 @@ Message sent!, message id:<number>
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Odbieranie komunikatów rozmowy z wątku rozmowy
 
-Dzięki sygnalizowaniu w czasie rzeczywistym można subskrybować nasłuchiwanie nowych wiadomości przychodzących i aktualizowanie bieżących komunikatów w pamięci. Usługi komunikacyjne platformy Azure obsługują [listę zdarzeń, które można subskrybować](../../../concepts/chat/concepts.md#real-time-signaling).
+Dzięki sygnalizowaniu w czasie rzeczywistym można subskrybować nasłuchiwanie nowych wiadomości przychodzących i aktualizowanie bieżących komunikatów w pamięci. Usługi komunikacyjne platformy Azure obsługują [listę zdarzeń, które można subskrybować](../../../concepts/chat/concepts.md#real-time-notifications).
 
 ```JavaScript
 // open notifications channel
@@ -286,17 +286,6 @@ Odśwież kartę, w konsoli powinna znajdować się lista komunikatów wysyłany
 `listMessages` zwraca najnowszą wersję komunikatu, w tym wszelkie edycje lub usunięcia, które wystąpiły w komunikacie przy użyciu `updateMessage` i `deleteMessage` .
 W przypadku usuniętych wiadomości `chatMessage.deletedOn` zwraca wartość typu DateTime wskazującą, kiedy ten komunikat został usunięty. W przypadku edytowanych wiadomości `chatMessage.editedOn` zwraca wartość typu DateTime wskazującą, kiedy wiadomość była edytowana. Można uzyskać dostęp do oryginalnego czasu tworzenia komunikatów przy użyciu programu `chatMessage.createdOn` , którego można użyć do porządkowania komunikatów.
 
-`listMessages` zwraca różne typy komunikatów, które mogą być identyfikowane przez `chatMessage.type` . Są to następujące typy:
-
-- `Text`: Zwykły komunikat rozmowy Wysłany przez uczestnika wątku.
-
-- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat.
-
-- `ThreadActivity/AddParticipant`: Komunikat systemowy wskazujący, że co najmniej jeden uczestnik został dodany do wątku rozmowy.
-
-- `ThreadActivity/RemoveParticipant`: Komunikat systemowy wskazujący, że uczestnik został usunięty z wątku rozmowy.
-
-Aby uzyskać więcej informacji, zobacz [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Dodawanie użytkownika jako uczestnika do wątku czatu
 

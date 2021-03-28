@@ -3,12 +3,12 @@ title: Konfigurowanie laboratorium do korzystania z bramy Pulpit zdalny w progra
 description: Dowiedz się, jak skonfigurować laboratorium w Azure DevTest Labs przy użyciu bramy usług pulpitu zdalnego w celu zapewnienia bezpiecznego dostępu do maszyn wirtualnych laboratorium bez konieczności ujawniania portu RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b15d4d39199c1a30eae292ece67f4553b656f530
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695690"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639591"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurowanie laboratorium w Azure DevTest Labs, aby można było korzystać z bramy usług pulpitu zdalnego
 W Azure DevTest Labs można skonfigurować bramę usług pulpitu zdalnego dla laboratorium, aby zapewnić bezpieczny dostęp do maszyn wirtualnych laboratorium (VM) bez konieczności ujawniania portu RDP. Laboratorium to centralne miejsce, w którym użytkownicy laboratorium mogą wyświetlać i łączyć się ze wszystkimi maszynami wirtualnymi, do których mają dostęp. Przycisk **Połącz** na stronie **maszyny wirtualnej** tworzy plik RDP specyficzny dla komputera, który można otworzyć w celu nawiązania połączenia z maszyną. Możesz bardziej dostosować i zabezpieczyć połączenie RDP, łącząc laboratorium z bramą usług pulpitu zdalnego. 
@@ -36,7 +36,7 @@ Aby można było korzystać z funkcji uwierzytelniania tokenów DevTest Labs, is
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Wymagania dotyczące maszyn bramy usług pulpitu zdalnego
 - Aby obsłużyć ruch HTTPS, na maszynie bramy musi być zainstalowany certyfikat TLS/SSL. Certyfikat musi odpowiadać w pełni kwalifikowanej nazwie domeny (FQDN) modułu równoważenia obciążenia dla farmy bramy lub nazwy FQDN samej maszyny, jeśli istnieje tylko jeden komputer. Nie działają certyfikaty wieloznacznych protokołów TLS/SSL.  
 - Certyfikat podpisywania zainstalowany na maszynach bramy. Utwórz certyfikat podpisywania przy użyciu skryptu [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) .
-- Zainstaluj [podłączany moduł uwierzytelniania](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) obsługujący uwierzytelnianie tokenu dla bramy usług pulpitu zdalnego. Przykładem takiego modułu jest `RDGatewayFedAuth.msi` dostarczany z [obrazami System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807). Aby uzyskać więcej informacji na temat programu System Center, zobacz [dokumentację programu System Center](/system-center/) i [szczegóły cennika](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Zainstaluj [podłączany moduł uwierzytelniania](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) obsługujący uwierzytelnianie tokenu dla bramy usług pulpitu zdalnego. Przykładem takiego modułu jest `RDGatewayFedAuth.msi` dostarczany z [obrazami System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807&preserve-view=true). Aby uzyskać więcej informacji na temat programu System Center, zobacz [dokumentację programu System Center](/system-center/) i [szczegóły cennika](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Serwer bramy może obsługiwać żądania wysyłane do programu `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` .
 
     Brama-hostname to nazwa FQDN modułu równoważenia obciążenia farmy bramy lub nazwa FQDN maszyny, jeśli istnieje tylko jedna maszyna. `{lab-machine-name}`To nazwa maszyny laboratorium, którą próbujesz połączyć, oraz `{port-number}` port, na którym nastąpi połączenie.  Domyślnie ten port to 3389.  Jeśli jednak maszyna wirtualna korzysta z funkcji [udostępnionych adresów IP](devtest-lab-shared-ip.md) w DevTest Labs, port będzie się różnić.
@@ -105,14 +105,14 @@ Wykonaj następujące kroki, aby skonfigurować przykładowe rozwiązanie dla fa
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
-    $cer.Import(‘path-to-certificate’);
+    $cer.Import('path-to-certificate');
     $hash = $cer.GetCertHashString()
     ```
 
     Aby uzyskać kodowanie Base64 przy użyciu programu PowerShell, użyj następującego polecenia.
 
     ```powershell
-    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(‘path-to-certificate’))
+    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes('path-to-certificate'))
     ```
 3. Pobierz pliki z [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway) .
 

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4fbb09a2687673ef96252d8bdb0523d0c5f235ae
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772029"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639917"
 ---
 # <a name="embedded-sign-in-experience"></a>Wbudowane środowisko logowania
 
@@ -45,7 +45,7 @@ Element ramki wbudowanej `<iframe>` służy do osadzania dokumentu na stronie si
 W przypadku używania elementu IFRAME należy wziąć pod uwagę następujące kwestie:
 
 - Osadzona Rejestracja jest obsługiwana tylko na kontach lokalnych. Większość dostawców tożsamości społecznościowych (np. Google i Facebook) uniemożliwia renderowanie stron logowania w ramkach wbudowanych.
-- Ponieważ pliki cookie sesji Azure AD B2C w elemencie iframe są uznawane za pliki cookie innych firm, niektóre przeglądarki (na przykład Safari lub Chrome w trybie incognito) blokują lub wyczyścili te pliki cookie, co może powodować niepożądane środowisko użytkownika. Aby uniknąć tego problemu, upewnij się, że nazwa domeny aplikacji i domena Azure AD B2C są *takie same*. Aby użyć tego samego źródła, [Włącz domeny niestandardowe](custom-domain.md) dla Azure AD B2C dzierżawy, a następnie skonfiguruj aplikację sieci Web przy użyciu tego samego źródła. Na przykład aplikacja hostowana w programie https://app.contoso.com ma takie samo źródło jak Azure AD B2C uruchomionym w systemie https://login.contoso.com .
+- Ponieważ pliki cookie sesji Azure AD B2C w elemencie iframe są uznawane za pliki cookie innych firm, niektóre przeglądarki (na przykład Safari lub Chrome w trybie incognito) blokują lub wyczyścili te pliki cookie, co może powodować niepożądane środowisko użytkownika. Aby uniknąć tego problemu, upewnij się, że nazwa domeny aplikacji i domena Azure AD B2C są *takie same*. Aby użyć tego samego źródła, [Włącz domeny niestandardowe](custom-domain.md) dla Azure AD B2C dzierżawy, a następnie skonfiguruj aplikację sieci Web przy użyciu tego samego źródła. Na przykład aplikacja hostowana na " https://app.contoso.com " ma takie samo źródło jak Azure AD B2C uruchomiona na " https://login.contoso.com ".
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

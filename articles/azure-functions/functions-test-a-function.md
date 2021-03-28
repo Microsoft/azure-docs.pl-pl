@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27bc8171509e16f25c508dd71515d8cb25a11b0b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98674154"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639860"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
 
@@ -41,7 +41,7 @@ Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższ
 3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę **MyTimerTrigger**.
 4. [Utwórz aplikację testową xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) w rozwiązaniu i nadaj jej nazwę **Functions. Tests**.
 5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Odwołuje się do aplikacji *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. Tests* .
+6. [Odwołuje się do aplikacji *Functions*](/visualstudio/ide/managing-references-in-a-project) z poziomu aplikacji *Functions. Tests* .
 
 ### <a name="create-test-classes"></a>Utwórz klasy testowe
 

@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — obsługa zdarzeń SMS
+title: Szybki Start — obsługa zdarzeń programu SMS dotyczących raportów dostarczania i wiadomości przychodzących
 titleSuffix: An Azure Communication Services quickstart
 description: Dowiedz się, jak obsługiwać zdarzenia SMS przy użyciu usług Azure Communications Services.
 author: mikben
@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d16a4d9ecd2e9246933b2543da3b05239ac2f7f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655992"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644638"
 ---
-# <a name="quickstart-handle-sms-events"></a>Szybki Start: obsługa zdarzeń programu SMS
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Szybki Start: obsługa zdarzeń programu SMS na potrzeby raportów dostarczania i komunikatów przychodzących
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -117,6 +117,7 @@ W tym przewodniku szybki start przedstawiono sposób korzystania z zdarzeń prog
 > [Wyślij wiadomość SMS](../telephony-sms/send.md)
 
 Możesz również chcieć:
+
 
  - [Informacje o pojęciach dotyczących obsługi zdarzeń](../../../event-grid/event-schema-communication-services.md)
  - [Dowiedz się więcej o Event Grid](../../../event-grid/overview.md)

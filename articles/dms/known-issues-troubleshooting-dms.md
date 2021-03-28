@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567311"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639802"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Rozwiązywanie typowych problemów i błędów Azure Database Migration Service
 
@@ -132,7 +132,7 @@ Podczas próby nawiązania połączenia Azure Database Migration Service ze źr�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z artykułem [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Zapoznaj się z artykułem [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration#data_migration).
 * Zapoznaj się z artykułem [jak skonfigurować parametry serwera w Azure Database for MySQL przy użyciu Azure Portal](../mysql/howto-server-parameters.md).
 * Zapoznaj się z artykułem [Przegląd wymagań wstępnych dotyczących korzystania z Azure Database Migration Service](./pre-reqs.md).
 * Zobacz [często zadawane pytania dotyczące korzystania z Azure Database Migration Service](./faq.md).

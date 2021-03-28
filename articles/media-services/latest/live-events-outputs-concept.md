@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 0eff5b13a79f64de1863e82a2c9285788accf6fc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625300"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641540"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 
@@ -225,14 +225,6 @@ Gdy strumień przepływa do zdarzenia na żywo, możesz rozpocząć zdarzenie pr
 
 Aby uzyskać szczegółowe informacje na temat danych wyjściowych na żywo, zobacz [Korzystanie z funkcji DVR w chmurze](live-event-cloud-dvr.md).
 
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
+## <a name="live-event-output-questions"></a>Pytania dotyczące danych wyjściowych zdarzenia na żywo
 
-Zobacz artykuł [często zadawane pytania](frequently-asked-questions.md#live-streaming) .
-
-## <a name="ask-questions-and-get-updates"></a>Zadawaj pytania i otrzymuj aktualizacje
-
-Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
-
-## <a name="next-steps"></a>Następne kroki
-
-[Samouczek przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)
+Zobacz artykuł [pytania dotyczące danych wyjściowych zdarzenia na żywo](questions-collection.md#live-streaming) .

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 6cf6e8e3f19b11a49e91b781b1ef6d83bf647903
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 4343359e17203fcae538558ebeaa967cfde1540d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563008"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640506"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Przewodnik migracji: wystąpienie zarządzane programu Oracle do usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -187,7 +187,7 @@ Aby uzyskać dodatkową pomoc dotyczącą wykonywania tego scenariusza migracji,
 | [ASYSTENCIE migracji dla typowych błędów Oracle i sposoby ich naprawiania](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Za pomocą programu Oracle można przypisać warunek nieskalarny w klauzuli WHERE. Jednak SQL Server nie obsługuje tego typu warunku. W związku z tym Asystent migracji do programu SQL Server (ASYSTENCIE migracji) dla programu Oracle nie konwertuje zapytań z warunkiem nieskalarnym w klauzuli WHERE zamiast generowania błędu O2SS0001. Ten oficjalny dokument zawiera więcej informacji o problemie i sposobach jego rozwiązania.          |
 | [Podręcznik migracji firmy Oracle do SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Ten dokument koncentruje się na zadaniach skojarzonych z migrowaniem schematu programu Oracle do najnowszej wersji programu SQL Server Base. Jeśli migracja wymaga zmiany funkcji/funkcjonalności, można uważnie rozważyć ewentualne konsekwencje każdej zmiany w aplikacjach korzystających z bazy danych.                                                     |
 
-Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest sponsorowany przez zespół inżynierów grupy danych platformy Azure. Podstawowa karta programu SQL Data Ninja to odblokowanie i przyspieszenie złożonej modernizacji i konkurowania możliwości migracji platformy danych na platformę danych platformy Microsoft Azure. Jeśli uważasz, że Twoja organizacja będzie chciała uczestniczyć w programie SQL Data ninja, skontaktuj się z zespołem ds. kont i poproś o przesłanie nominacji.
+Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043074"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641135"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Wydajne skalowanie niestandardowych umiejętności
 
@@ -26,7 +26,7 @@ Niestandardowe umiejętności to interfejsy API sieci Web implementujące okreś
 
 + Zapoznaj się z [niestandardowym interfejsem umiejętności](cognitive-search-custom-skill-interface.md) w celu wprowadzenia do interfejsu wejścia/wyjścia, który powinien być zaimplementowany przez umiejętność niestandardową.
 
-+ Skonfiguruj swoje środowisko. Możesz zacząć od [tego samouczka](/python/tutorial-vs-code-serverless-python-01) , aby skonfigurować funkcję platformy Azure bezserwerową przy użyciu rozszerzeń Visual Studio Code i Python.
++ Skonfiguruj swoje środowisko. Możesz zacząć od [tego samouczka](/azure/azure-functions/create-first-function-vs-code-python) , aby skonfigurować funkcję platformy Azure bezserwerową przy użyciu rozszerzeń Visual Studio Code i Python.
 
 ## <a name="skillset-configuration"></a>Konfiguracja zestawu umiejętności
 

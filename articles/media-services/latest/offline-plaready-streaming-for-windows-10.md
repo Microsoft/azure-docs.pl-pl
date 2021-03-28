@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea3d895970c6a18286d719471a693f774efaa387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aecae72b0bea07a0d8e240b3dcae7ee9b9662f95
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955235"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640721"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3
 
@@ -34,7 +34,7 @@ Azure Media Services obsługiwać pobieranie/odtwarzanie w trybie offline przy u
 > [!NOTE]
 > W przypadku funkcji DRM w trybie offline jest naliczana tylko jedna prośba o licencję podczas pobierania zawartości. Nie są naliczane opłaty za żadne błędy.
 
-## <a name="overview"></a>Omówienie
+## <a name="background-on-offline-mode-playback"></a>Odtwarzanie w trybie offline
 
 W tej sekcji przedstawiono niektóre w tle odtwarzania w trybie offline, szczególnie dlatego:
 
@@ -61,12 +61,12 @@ Można użyć dwóch typów dostarczania licencji PlayReady:
 
 Poniżej znajdują się dwa zestawy zasobów testowych, pierwszej z nich przy użyciu dostarczania licencji PlayReady w AMS, a drugi przy użyciu mojego serwera licencji PlayReady hostowanego na maszynie wirtualnej platformy Azure:
 
-#1 zasobów:
+## <a name="asset-1"></a>#1 zasobów
 
 * Adres URL pobierania progresywnego: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * LA_URL PlayReady (AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
-#2 zasobów:
+## <a name="asset-2"></a>#2 zasobów
 
 * Adres URL pobierania progresywnego: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * LA_URL PlayReady (lokalnie): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
@@ -124,7 +124,3 @@ Podsumowując, osiągnięto tryb offline na Azure Media Services:
 * Zawartość może być hostowana w usłudze Azure Media Services lub Azure Storage na potrzeby pobierania progresywnego.
 * Dostawy licencji PlayReady mogą znajdować się w Azure Media Services lub w innym miejscu;
 * Przygotowanej płynnej zawartości strumieniowej można nadal używać do przesyłania strumieniowego online za pośrednictwem ŁĄCZNIKa lub Wygładź przy użyciu oprogramowania PlayReady jako technologii DRM.
-
-## <a name="next-steps"></a>Następne kroki
-
-[Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)

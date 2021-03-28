@@ -1,65 +1,80 @@
 ---
-title: Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)
+title: Zakresy szyfrowania dla usługi BLOB Storage
 description: Zakresy szyfrowania zapewniają możliwość zarządzania szyfrowaniem na poziomie kontenera lub pojedynczym obiektem BLOB. Zakresy szyfrowania można używać do tworzenia bezpiecznych granic między danymi znajdującymi się na tym samym koncie magazynu, ale należą do różnych klientów.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/26/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 35395a30f7d58b9edb3aa7622a35e8c4a62dc76f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 16a600d7caf65f880ffb5c2a2abfe5a9774a7795
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211366"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640465"
 ---
-# <a name="encryption-scopes-for-blob-storage-preview"></a>Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)
+# <a name="encryption-scopes-for-blob-storage"></a>Zakresy szyfrowania dla usługi BLOB Storage
 
-Zakresy szyfrowania zapewniają możliwość zarządzania szyfrowaniem na poziomie kontenera lub pojedynczym obiektem BLOB. Zakresy szyfrowania można używać do tworzenia bezpiecznych granic między danymi znajdującymi się na tym samym koncie magazynu, ale należą do różnych klientów.
+Zakresy szyfrowania umożliwiają zarządzanie szyfrowaniem przy użyciu klucza, który jest objęty zakresem kontenera lub pojedynczym obiektem BLOB. Zakresy szyfrowania można używać do tworzenia bezpiecznych granic między danymi znajdującymi się na tym samym koncie magazynu, ale należą do różnych klientów.
 
-Domyślnie konto magazynu jest szyfrowane przy użyciu klucza, który jest objęty zakresem całego konta magazynu. Mając zakres szyfrowania, można określić, że co najmniej jeden kontener jest szyfrowany przy użyciu klucza, który jest objęty zakresem tylko tych kontenerów.
-
-Możesz użyć kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta przechowywanych w Azure Key Vault, aby chronić i kontrolować dostęp do klucza, który szyfruje dane. Różne zakresy szyfrowania na tym samym koncie magazynu mogą korzystać z kluczy zarządzanych przez firmę Microsoft lub przez klienta.
-
-Po utworzeniu zakresu szyfrowania możesz określić ten zakres szyfrowania dla żądania, aby utworzyć kontener lub obiekt BLOB. Aby uzyskać więcej informacji na temat sposobu tworzenia zakresu szyfrowania, zobacz [Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](encryption-scope-manage.md).
-
-> [!IMPORTANT]
-> Zakresy szyfrowania są obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
->
-> Aby uniknąć nieoczekiwanych kosztów, należy wyłączyć wszelkie zakresy szyfrowania, które nie są obecnie potrzebne.
->
-> Zakresy szyfrowania nie są obsługiwane z magazynem geograficznie nadmiarowym z dostępem do odczytu (RA-GRS) lub z dostępem do odczytu strefy geograficznie nadmiarowego (RA-GZRS) w ramach wersji zapoznawczej.
+Aby uzyskać więcej informacji na temat pracy z zakresami szyfrowania, zobacz [Tworzenie zakresów szyfrowania i zarządzanie nimi](encryption-scope-manage.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-## <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Tworzenie kontenera lub obiektu BLOB z zakresem szyfrowania
+## <a name="how-encryption-scopes-work"></a>Jak działają zakresy szyfrowania
 
-Obiekty blob tworzone w ramach zakresu szyfrowania są szyfrowane przy użyciu klucza określonego dla tego zakresu. Możesz określić zakres szyfrowania dla pojedynczego obiektu BLOB podczas tworzenia obiektu BLOB lub określić domyślny zakres szyfrowania podczas tworzenia kontenera. Po określeniu domyślnego zakresu szyfrowania na poziomie kontenera wszystkie obiekty blob w tym kontenerze są szyfrowane przy użyciu klucza skojarzonego z zakresem domyślnym.
+Domyślnie konto magazynu jest szyfrowane przy użyciu klucza, który jest objęty zakresem całego konta magazynu. Podczas definiowania zakresu szyfrowania należy określić klucz, który może być objęty zakresem kontenera lub pojedynczym obiektem BLOB. Gdy zakres szyfrowania jest stosowany do obiektu BLOB, obiekt BLOB jest szyfrowany przy użyciu tego klucza. Gdy zakres szyfrowania jest stosowany do kontenera, pełni rolę domyślnego zakresu dla obiektów BLOB w tym kontenerze, tak aby wszystkie obiekty blob przekazane do tego kontenera mogły być szyfrowane przy użyciu tego samego klucza. Kontener można skonfigurować w celu wymuszenia domyślnego zakresu szyfrowania dla wszystkich obiektów BLOB w kontenerze lub zezwalania na przekazywanie poszczególnych obiektów BLOB do kontenera z zakresem szyfrowania innym niż domyślny.
 
-Podczas tworzenia obiektu BLOB w kontenerze z domyślnym zakresem szyfrowania można określić zakres szyfrowania, który zastąpi domyślny zakres szyfrowania, jeśli kontener jest skonfigurowany tak, aby zezwalał na przesłonięcia domyślnego zakresu szyfrowania. Aby zapobiec zastępowaniu domyślnego zakresu szyfrowania, należy skonfigurować kontener tak, aby odmówił zastąpień dla pojedynczego obiektu BLOB.
+Operacje odczytu na obiekcie blob, który został utworzony z zakresem szyfrowania, są w sposób przezroczysty, dopóki zakres szyfrowania nie jest wyłączony.
 
-Operacje odczytu na obiekcie blob, który należy do zakresu szyfrowania, są w sposób przezroczysty, tak długo, jak zakres szyfrowania nie jest wyłączony.
+### <a name="key-management"></a>Zarządzanie kluczami
 
-## <a name="disable-an-encryption-scope"></a>Wyłącz zakres szyfrowania
+Podczas definiowania zakresu szyfrowania można określić, czy zakres jest chroniony za pomocą klucza zarządzanego przez firmę Microsoft, czy z kluczem zarządzanym przez klienta, który jest przechowywany w Azure Key Vault. Różne zakresy szyfrowania na tym samym koncie magazynu mogą korzystać z kluczy zarządzanych przez firmę Microsoft lub przez klienta. Możesz również przełączyć typ klucza używanego do ochrony zakresu szyfrowania z klucza zarządzanego przez klienta do klucza zarządzanego przez firmę Microsoft lub odwrotnie, w dowolnym momencie. Aby uzyskać więcej informacji o kluczach zarządzanych przez klienta, zobacz [klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](../common/customer-managed-keys-overview.md). Aby uzyskać więcej informacji na temat kluczy zarządzanych przez firmę Microsoft, zobacz [Informacje o zarządzaniu kluczami szyfrowania](../common/storage-service-encryption.md#about-encryption-key-management).
+
+Jeśli zdefiniujesz zakres szyfrowania z kluczem zarządzanym przez klienta, możesz wybrać opcję automatycznej aktualizacji wersji klucza lub ręcznie. W przypadku wybrania opcji automatycznej aktualizacji wersji klucza usługa Azure Storage sprawdza Magazyn kluczy lub moduł modułu HSM, który jest codziennie przeznaczony dla nowej wersji klucza zarządzanego przez klienta i automatycznie aktualizuje klucz do najnowszej wersji. Aby uzyskać więcej informacji na temat aktualizowania wersji klucza dla klucza zarządzanego przez klienta, zobacz [Aktualizacja wersji klucza](../common/customer-managed-keys-overview.md#update-the-key-version).
+
+Konto magazynu może mieć do 10 000 zakresów szyfrowania, które są chronione za pomocą kluczy zarządzanych przez klienta, dla których zostanie automatycznie zaktualizowana wersja klucza. Jeśli konto magazynu ma już 10 000 zakresy szyfrowania chronione przez klienta, które są automatycznie aktualizowane, należy ręcznie zaktualizować wersję klucza dla wszelkich dodatkowych zakresów szyfrowania chronionych przez klienta.  
+
+### <a name="encryption-scopes-for-containers-and-blobs"></a>Zakresy szyfrowania dla kontenerów i obiektów BLOB
+
+Podczas tworzenia kontenera można określić domyślny zakres szyfrowania dla obiektów blob, które są następnie przekazywane do tego kontenera. W przypadku określenia domyślnego zakresu szyfrowania dla kontenera można zdecydować, jak ma być wymuszany domyślny zakres szyfrowania:
+
+- Można wymagać, aby wszystkie obiekty blob przekazane do kontenera używały domyślnego zakresu szyfrowania. W takim przypadku każdy obiekt BLOB w kontenerze jest szyfrowany przy użyciu tego samego klucza.
+- Można zezwolić klientowi na zastąpienie domyślnego zakresu szyfrowania dla kontenera, aby obiekt BLOB mógł zostać przekazany z zakresem szyfrowania innym niż zakres domyślny. W takim przypadku obiekty blob w kontenerze mogą być szyfrowane przy użyciu różnych kluczy.
+
+W poniższej tabeli zestawiono zachowanie operacji przekazywania obiektów blob, w zależności od tego, jak domyślny zakres szyfrowania został skonfigurowany dla kontenera:
+
+| Zakres szyfrowania zdefiniowany w kontenerze to... | Trwa przekazywanie obiektu BLOB z domyślnym zakresem szyfrowania... | Przekazywanie obiektu BLOB z zakresem szyfrowania innym niż zakres domyślny... |
+|--|--|--|
+| Domyślny zakres szyfrowania z dozwolonymi zastąpieniami | Powiedzie się | Powiedzie się |
+| Domyślny zakres szyfrowania z zabronionami zastąpieniami | Powiedzie się | Ulega |
+
+W momencie tworzenia kontenera należy określić domyślny zakres szyfrowania dla kontenera.
+
+Jeśli dla kontenera nie określono żadnego domyślnego zakresu szyfrowania, można przekazać obiekt BLOB przy użyciu dowolnego zakresu szyfrowania zdefiniowanego dla konta magazynu. Należy określić zakres szyfrowania w chwili, gdy obiekt BLOB zostanie przekazany.
+
+## <a name="disabling-an-encryption-scope"></a>Wyłączanie zakresu szyfrowania
 
 Po wyłączeniu zakresu szyfrowania wszelkie kolejne operacje odczytu lub zapisu wykonane z zakresem szyfrowania zakończą się niepowodzeniem z kodem błędu HTTP 403 (dostęp zabroniony). Po ponownym włączeniu zakresu szyfrowania operacje odczytu i zapisu będą normalnie powtarzane.
 
 Po wyłączeniu zakresu szyfrowania nie są już naliczane opłaty. Wyłącz wszelkie zakresy szyfrowania, które nie są potrzebne, aby uniknąć niepotrzebnych opłat.
 
-Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez klienta, można również usunąć skojarzony klucz w magazynie kluczy, aby wyłączyć zakres szyfrowania. Należy pamiętać, że klucze zarządzane przez klienta są chronione przez nietrwałe usuwanie i przeczyszczanie ochrony w magazynie kluczy, a usunięty klucz podlega zachowaniem zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
+Jeśli zakres szyfrowania jest chroniony za pomocą klucza zarządzanego przez klienta, a klucz jest usuwany z magazynu kluczy, dane staną się niedostępne. Należy również wyłączyć zakres szyfrowania, aby uniknąć naliczania opłat.
+
+Należy pamiętać, że klucze zarządzane przez klienta są chronione przez nietrwałe usuwanie i przeczyszczanie ochrony w magazynie kluczy, a usunięty klucz podlega zachowaniem zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
 
 - [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/key-vault-recovery.md)
 - [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Nie można usunąć zakresu szyfrowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](../common/storage-service-encryption.md)
-- [Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](encryption-scope-manage.md)
+- [Tworzenie zakresów szyfrowania i zarządzanie nimi](encryption-scope-manage.md)
 - [Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](../common/customer-managed-keys-overview.md)
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)

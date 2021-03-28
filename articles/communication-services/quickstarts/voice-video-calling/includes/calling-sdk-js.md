@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: af5ec07a8fb2db0bd4b9b8f1af556ef54199400d
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 49054d9bbde67dc3670ec444e4b60c3ddf503db5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609520"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645424"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -21,10 +21,10 @@ ms.locfileid: "105609520"
 ## <a name="install-the-sdk"></a>Instalacja zestawu SDK
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 6 zestawu SDK wywoływania.
+> Ten dokument używa wersji 1.0.0-beta. 10 wywołującego zestawu SDK.
 
 Użyj `npm install` polecenia, aby zainstalować usługi Azure Communication Services wywołujące i popularne zestawy SDK dla języka JavaScript.
-Ten dokument zawiera odwołania do typów w wersji 1.0.0-beta. 5 biblioteki wywołującej.
+Ten dokument zawiera odwołania do typów w wersji 1.0.0-beta. 10 biblioteki wywoływania.
 
 ```console
 npm install @azure/communication-common --save
@@ -54,6 +54,10 @@ Jeśli masz `CallClient` wystąpienie, możesz utworzyć `CallAgent` wystąpieni
 Po utworzeniu `callAgent` wystąpienia można `getDeviceManager` uzyskać dostęp do metody na tym `CallClient` wystąpieniu `deviceManager` .
 
 ```js
+// Set the logger's log level
+setLogLevel('verbose');
+// Redirect logger output to wherever desired. By default it logs to console
+AzureLogger.log = (...args) => { console.log(...args) };
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
@@ -113,8 +117,8 @@ Po wybraniu aparatu należy używać go do konstruowania `LocalVideoStream` wyst
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const cameras = await deviceManager.getCameras();
-videoDeviceInfo = cameras[0];
-localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const camera = cameras[0]
+localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 
@@ -168,14 +172,26 @@ const call = callAgent.join(locator);
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
-    //Get information about caller
+
+    //Get incoming call ID
+    var incomingCallId = incomingCall.id
+
+    // Get information about caller
     var callerInfo = incomingCall.callerInfo
 
-    //Accept the call
+    // Accept the call
     var call = await incomingCall.accept();
 
-    //Reject the call
+    // Reject the call
     incomingCall.reject();
+
+    // Subscribe to callEnded event and get the call end reason
+     incomingCall.on('callEnded', args => {
+        console.log(args.callEndReason);
+    });
+
+    // callEndReason is also a property of IncomingCall
+    var callEndReason = incomingCall.callEndReason;
 };
 callAgentInstance.on('incomingCall', incomingCallHander);
 ```
@@ -194,7 +210,7 @@ Pobierz unikatowy identyfikator (ciąg) dla wywołania:
     const callId: string = call.id;
    ```
 
-Dowiedz się więcej o innych uczestnikach wywołania, sprawdzając `remoteParticipant` kolekcję:
+Dowiedz się więcej o innych uczestnikach wywołania, sprawdzając `remoteParticipants` kolekcję w wystąpieniu "Call":
 
    ```js
    const remoteParticipants = call.remoteParticipants;
@@ -217,7 +233,6 @@ Pobierz stan wywołania:
    Zwraca ciąg reprezentujący bieżący stan wywołania:
 
   - `None`: Początkowy stan wywołania.
-  - `Incoming`: Wskazuje, że wywołanie jest przychodzące. Musi zostać zaakceptowany lub odrzucony.
   - `Connecting`: Początkowy stan przejścia, gdy wywołanie jest złożone lub zaakceptowane.
   - `Ringing`: W przypadku wywołania wychodzącego wskazuje, że wywołanie jest sygnalizowane dla uczestników zdalnych. Jest on `Incoming` po stronie.
   - `EarlyMedia`: Wskazuje stan, w którym jest odtwarzany anons przed połączeniem połączenia.
@@ -231,8 +246,8 @@ Dowiedz się, dlaczego wywołanie zostało zakończone przez sprawdzenie `callEn
 
    ```js
    const callEndReason = call.callEndReason;
-   // callEndReason.code (number) code associated with the reason
-   // callEndReason.subCode (number) subCode associated with the reason
+   const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+   const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
    ```
 
 Dowiedz się, czy bieżące wywołanie jest przychodzące lub wychodzące przez sprawdzenie `direction` właściwości. Zwraca wartość `CallDirection` .
@@ -245,7 +260,7 @@ Dowiedz się, czy bieżące wywołanie jest przychodzące lub wychodzące przez 
 Sprawdź, czy bieżący mikrofon jest wyciszony. Zwraca wartość `Boolean` .
 
    ```js
-   const muted = call.isMicrophoneMuted;
+   const muted = call.isMuted;
    ```
 
 Sprawdź, czy strumień udostępniania ekranu jest wysyłany z danego punktu końcowego przez sprawdzenie `isScreenSharingOn` właściwości. Zwraca wartość `Boolean` .
@@ -291,7 +306,10 @@ await call.unmute();
 Aby uruchomić wideo, musisz określić kamer przy użyciu `getCameras` metody dla `deviceManager` obiektu. Następnie utwórz nowe wystąpienie `LocalVideoStream` przez przekazanie żądanego aparatu do `startVideo` metody jako argument:
 
 ```js
-const localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
@@ -311,12 +329,13 @@ Można przełączyć się na inne urządzenie aparatu fotograficznego, podczas g
 
 ```js
 const cameras = await callClient.getDeviceManager().getCameras();
-localVideoStream.switchSource(cameras[1]);
+const camera = cameras[1];
+localVideoStream.switchSource(camera);
 ```
 
 ## <a name="manage-remote-participants"></a>Zarządzanie uczestnikami zdalnymi
 
-Wszyscy uczestnicy zdalni są reprezentowani przez program `remoteParticipant` i są dostępni za pomocą `remoteParticipants` kolekcji w wystąpieniu wywołania.
+Wszyscy uczestnicy zdalni są reprezentowani według `RemoteParticipant` typu i dostępne za pomocą `remoteParticipants` kolekcji w wystąpieniu wywołania.
 
 ### <a name="list-the-participants-in-a-call"></a>Wyświetl listę uczestników wywołania
 
@@ -341,6 +360,7 @@ Uczestnicy zdalni mają zestaw skojarzonych właściwości i Kolekcje:
   - `{ communicationUserId: '<ACS_USER_ID'> }`: Obiekt reprezentujący użytkownika ACS.
   - `{ phoneNumber: '<E.164>' }`: Obiekt reprezentujący numer telefonu w formacie E. 164.
   - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Obiekt reprezentujący użytkownika zespołów.
+  - `{ id: string }`: obiekt repredenting identyfikator, który nie pasuje do żadnego z innych typów identyfikatora
 
 - `state`: Pobieranie stanu uczestnika zdalnego.
 
@@ -362,8 +382,8 @@ Uczestnicy zdalni mają zestaw skojarzonych właściwości i Kolekcje:
 
   ```js
   const callEndReason = remoteParticipant.callEndReason;
-  // callEndReason.code (number) code associated with the reason
-  // callEndReason.subCode (number) subCode associated with the reason
+  const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+  const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
   ```
 
 - `isMuted` stan: Aby dowiedzieć się, czy uczestnik zdalny został wyciszony, sprawdź `isMuted` Właściwość. Zwraca wartość `Boolean` .
@@ -382,6 +402,11 @@ Uczestnicy zdalni mają zestaw skojarzonych właściwości i Kolekcje:
 
   ```js
   const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+  ```
+- `displayName`: Aby uzyskać nazwę wyświetlaną dla tego uczestnika zdalnego, należy sprawdzić, czy `displayName` Właściwość zwraca ciąg. 
+
+  ```js
+  const displayName = remoteParticipant.displayName;
   ```
 
 ### <a name="add-a-participant-to-a-call"></a>Dodawanie uczestnika do wywołania
@@ -415,22 +440,22 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-Aby renderować `RemoteVideoStream` , musisz subskrybować `isAvailableChanged` wydarzenie. Jeśli `isAvailable` Właściwość zmieni się na `true` , uczestnik zdalny wysyła strumień. Po wykonaniu tej czynności Utwórz nowe wystąpienie programu `Renderer` , a następnie utwórz nowe `RendererView` wystąpienie przy użyciu metody asynchronicznej `createView` .  Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika.
+Aby renderować `RemoteVideoStream` , musisz subskrybować `isAvailableChanged` wydarzenie. Jeśli `isAvailable` Właściwość zmieni się na `true` , uczestnik zdalny wysyła strumień. Po wykonaniu tej czynności Utwórz nowe wystąpienie programu `VideoStreamRenderer` , a następnie utwórz nowe `VideoStreamRendererView` wystąpienie przy użyciu metody asynchronicznej `createView` .  Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika.
 
-Po zmianie dostępności strumienia zdalnego można zniszczyć `Renderer` , zniszczyć określone `RendererView` wystąpienie lub zachować wszystko. Moduły renderowania dołączone do niedostępnego strumienia spowodują powstanie pustej ramki wideo.
+Zawsze, gdy jest dostępna zmiana strumienia zdalnego, można wybrać opcję zniszczenia całości `VideoStreamRenderer` , określonych `VideoStreamRendererView` lub zachowywania, ale spowoduje to wyświetlenie pustej ramki wideo.
 
 ```js
 function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
-    let renderer: Renderer = new Renderer(remoteVideoStream);
+    let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
     const displayVideo = () => {
-        const view = await renderer.createView();
+        const view = await videoStreamRenderer.createView();
         htmlElement.appendChild(view.target);
     }
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             displayVideo();
         } else {
-            renderer.dispose();
+            videoStreamRenderer.dispose();
         }
     });
     if (remoteVideoStream.isAvailable) {
@@ -449,12 +474,6 @@ Zdalne strumienie wideo mają następujące właściwości:
   const id: number = remoteVideoStream.id;
   ```
 
-- `Stream.size`: Wysokość i szerokość zdalnego strumienia wideo.
-
-  ```js
-  const size: {width: number; height: number} = remoteVideoStream.size;
-  ```
-
 - `mediaStreamType`: Może być `Video` lub `ScreenSharing` .
 
   ```js
@@ -467,32 +486,32 @@ Zdalne strumienie wideo mają następujące właściwości:
   const type: boolean = remoteVideoStream.isAvailable;
   ```
 
-### <a name="renderer-methods-and-properties"></a>Metody i właściwości modułu renderowania
+### <a name="videostreamrenderer-methods-and-properties"></a>VideoStreamRenderer — metody i właściwości
 
-Utwórz `rendererView` wystąpienie, które może być dołączone w interfejsie użytkownika aplikacji, aby renderować zdalny strumień wideo:
-
-  ```js
-  renderer.createView()
-  ```
-
-Usuń z `renderer` i wszystkie skojarzone `rendererView` wystąpienia:
+Utwórz `VideoStreamRendererView` wystąpienie, które może być dołączone w interfejsie użytkownika aplikacji, aby renderować zdalny strumień wideo, użyj `createView()` metody asynchronicznej, która rozwiązuje, kiedy strumień jest gotowy do renderowania i zwraca obiekt z `target` właściwością reprezentującą `video` element, który może być dołączany wszędzie w drzewie dom
 
   ```js
-  renderer.dispose()
+  videoStreamRenderer.createView()
   ```
 
-### <a name="rendererview-methods-and-properties"></a>RendererView — metody i właściwości
+Usuń z `videoStreamRenderer` i wszystkie skojarzone `VideoStreamRendererView` wystąpienia:
 
-Podczas tworzenia można `rendererView` określić `scalingMode` `isMirrored` właściwości i. `scalingMode` może być `Stretch` , `Crop` lub `Fit` . Jeśli `isMirrored` jest określony, wyrenderowany strumień zostanie przerzucony w pionie.
+  ```js
+  videoStreamRenderer.dispose()
+  ```
+
+### <a name="videostreamrendererview-methods-and-properties"></a>VideoStreamRendererView — metody i właściwości
+
+Podczas tworzenia, można `VideoStreamRendererView` określić `scalingMode` `isMirrored` właściwości i. `scalingMode` może być `Stretch` , `Crop` lub `Fit` . Jeśli `isMirrored` jest określony, wyrenderowany strumień zostanie przerzucony w pionie.
 
 ```js
-const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
+const videoStreamRendererView: VideoStreamRendererView = await videoStreamRenderer.createView({ scalingMode, isMirrored });
 ```
 
-Każde `RendererView` wystąpienie ma `target` Właściwość reprezentującą powierzchnię renderowania. Dołącz tę właściwość w interfejsie użytkownika aplikacji:
+Każde `VideoStreamRendererView` wystąpienie ma `target` Właściwość reprezentującą powierzchnię renderowania. Dołącz tę właściwość w interfejsie użytkownika aplikacji:
 
 ```js
-document.body.appendChild(rendererView.target);
+htmlElement.appendChild(view.target);
 ```
 
 Możesz zaktualizować `scalingMode` przez wywołanie `updateScalingMode` metody:
@@ -506,9 +525,6 @@ view.updateScalingMode('Crop')
 W programie `deviceManager` można określić urządzenia lokalne, które mogą przesyłać strumienie audio i wideo w wywołaniu. Ułatwia także zażądanie uprawnienia dostępu do mikrofonu i aparatu innego użytkownika przy użyciu interfejsu API natywnej przeglądarki.
 
 Możesz uzyskać dostęp, `deviceManager` wywołując `callClient.getDeviceManager()` metodę:
-
-> [!IMPORTANT]
-> `callAgent`Aby można było uzyskać dostęp, musisz mieć obiekt `deviceManager` .
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -538,26 +554,26 @@ W programie `deviceManager` można ustawić urządzenie domyślne, które będzi
 const defaultMicrophone = deviceManager.selectedMicrophone;
 
 // Set the microphone device to use.
-await deviceManager.selectMicrophone(AudioDeviceInfo);
+await deviceManager.selectMicrophone(localMicrophones[0]);
 
 // Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.selectedSpeaker;
 
 // Set the speaker device to use.
-await deviceManager.selectSpeaker(AudioDeviceInfo);
+await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
 ### <a name="local-camera-preview"></a>Podgląd lokalnego aparatu fotograficznego
 
-Możesz użyć `deviceManager` i, `Renderer` Aby rozpocząć renderowanie strumieni z aparatu lokalnego. Ten strumień nie zostanie wysłany do innych uczestników; jest to lokalna wersja zapoznawcza.
+Możesz użyć `deviceManager` i, `VideoStreamRenderer` Aby rozpocząć renderowanie strumieni z aparatu lokalnego. Ten strumień nie zostanie wysłany do innych uczestników; jest to lokalna wersja zapoznawcza.
 
 ```js
 const cameras = await deviceManager.getCameras();
-const localVideoDevice = cameras[0];
-const localCameraStream = new LocalVideoStream(localVideoDevice);
-const renderer = new Renderer(localCameraStream);
-const view = await renderer.createView();
-document.body.appendChild(view.target);
+const camera = cameras[0];
+const localCameraStream = new LocalVideoStream(camera);
+const videoStreamRenderer = new VideoStreamRenderer(localCameraStream);
+const view = await videoStreamRenderer.createView();
+htmlElement.appendChild(view.target);
 
 ```
 

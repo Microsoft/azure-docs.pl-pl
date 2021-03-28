@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201216"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643426"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -115,7 +115,7 @@ Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD p
 
     Proces zmiany administratora może potrwać kilka minut. Nowy administrator pojawi się w polu Administrator usługi Active Directory.
 
-Po zainicjowaniu obsługi administracyjnej administratora usługi Azure AD dla wystąpienia zarządzanego SQL można rozpocząć tworzenie podmiotów zabezpieczeń serwera usługi Azure AD przy użyciu składni <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">tworzenia nazwy logowania</a> . Aby uzyskać więcej informacji, zobacz [Omówienie wystąpienia zarządzanego SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+Po zainicjowaniu obsługi administracyjnej administratora usługi Azure AD dla wystąpienia zarządzanego SQL można rozpocząć tworzenie podmiotów zabezpieczeń serwera usługi Azure AD przy użyciu składni [tworzenia nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . Aby uzyskać więcej informacji, zobacz [Omówienie wystąpienia zarządzanego SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > Aby później usunąć administratora, w górnej części strony Administrator Active Directory wybierz pozycję **Usuń administratora**, a następnie wybierz pozycję **Zapisz**.
@@ -345,8 +345,8 @@ Na wszystkich komputerach klienckich, z których aplikacje lub użytkownicy łą
 - .NET Framework 4,6 lub nowszy z [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Azure Active Directory bibliotekę uwierzytelniania dla SQL Server (*ADAL.DLL*). Poniżej znajdują się linki pobierania umożliwiające zainstalowanie najnowszego sterownika programu SSMS, ODBC i OLE DB zawierającego bibliotekę *ADAL.DLL* .
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [Sterownik ODBC 17 dla SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [OLE DB Driver 18 dla SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [Sterownik ODBC 17 dla SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [OLE DB Driver 18 dla SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 Wymagania te można spełnić w następujący sposób:
 
@@ -357,7 +357,7 @@ Wymagania te można spełnić w następujący sposób:
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Tworzenie zawartych użytkowników mapowanych na tożsamości usługi Azure AD
 
-Ponieważ wystąpienie zarządzane SQL obsługuje nazwy główne (logowania) serwera usługi Azure AD, korzystanie z użytkowników zawartej bazy danych nie jest wymagane. Podmioty zabezpieczeń serwera usługi Azure AD (identyfikatory logowania) umożliwiają tworzenie danych logowania z użytkowników, grup lub aplikacji usługi Azure AD. Oznacza to, że można uwierzytelnić się za pomocą wystąpienia zarządzanego SQL, używając identyfikatora logowania serwera usługi Azure AD, a nie użytkownika zawartego w bazie danych. Aby uzyskać więcej informacji, zobacz [Omówienie wystąpienia zarządzanego SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania), zobacz <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Tworzenie nazwy logowania</a>.
+Ponieważ wystąpienie zarządzane SQL obsługuje nazwy główne (logowania) serwera usługi Azure AD, korzystanie z użytkowników zawartej bazy danych nie jest wymagane. Podmioty zabezpieczeń serwera usługi Azure AD (identyfikatory logowania) umożliwiają tworzenie danych logowania z użytkowników, grup lub aplikacji usługi Azure AD. Oznacza to, że można uwierzytelnić się za pomocą wystąpienia zarządzanego SQL, używając identyfikatora logowania serwera usługi Azure AD, a nie użytkownika zawartego w bazie danych. Aby uzyskać więcej informacji, zobacz [Omówienie wystąpienia zarządzanego SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania), zobacz [Tworzenie nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 Jednak używanie uwierzytelniania Azure Active Directory z usługami SQL Database i Azure Synapse wymaga korzystania z użytkowników zawartej bazy danych w oparciu o tożsamość usługi Azure AD. Użytkownik zawartej bazy danych nie ma nazwy logowania w bazie danych Master i mapuje na tożsamość w usłudze Azure AD, która jest skojarzona z bazą danych. Tożsamość w usłudze Azure AD może być indywidualnym kontem użytkownika lub grupą. Aby uzyskać więcej informacji na temat użytkowników zawartej bazy danych, patrz [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) (Użytkownicy zawartych baz danych — tworzenie przenośnej bazy danych).
 

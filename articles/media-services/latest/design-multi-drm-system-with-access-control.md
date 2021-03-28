@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 057a284f99dd7c3713249b19e8fc39212d9e6003
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101092439"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640268"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu
 
@@ -53,7 +53,7 @@ Poniższa tabela zawiera podsumowanie natywnej obsługi technologii DRM na róż
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Urządzenia z systemem Android (telefon, tablet, telewizja)** |Widevine |Chrome dla Widevine |
 | **iOS** | FairPlay | Safari for FairPlay (od systemu iOS 11,2) |
-| **macOS** | FairPlay | Safari for FairPlay (od przeglądarki Safari 9 + na Mac OS X 10.11 + El Capitan)|
+| **macOS** | FairPlay | Safari for FairPlay (od przeglądarki Safari 9 + na macOS X 10.11 + El Capitan)|
 | **tvOS** | FairPlay | |
 
 Biorąc pod uwagę bieżący stan wdrożenia dla każdego DRM, usługa zazwyczaj chce zaimplementować dwa lub trzy protokołów DRM, aby upewnić się, że wszystkie typy punktów końcowych są zgodne z najlepszymi rozwiązaniami.
@@ -357,9 +357,3 @@ Poniższy zrzut ekranu przedstawia scenariusz, który używa klucza asymetryczne
 ![Niestandardowa usługa STS z kluczem asymetrycznym](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 W obu powyższych przypadkach uwierzytelnianie użytkownika pozostaje takie samo. Odbywa się to za pomocą usługi Azure AD. Jedyną różnicą jest to, że JWTs są wystawiane przez niestandardową usługę STS zamiast usługi Azure AD. W przypadku skonfigurowania dynamicznej ochrony CENC ograniczenie usługi dostarczania licencji określa typ JWT, czyli klucz symetryczny lub asymetryczny.
-
-## <a name="next-steps"></a>Następne kroki
-
-* [Często zadawane pytania](frequently-asked-questions.md)
-* [Omówienie ochrony zawartości](content-protection-overview.md)
-* [Ochrona zawartości za pomocą technologii DRM](protect-with-drm.md)

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4747c958b5e592458c14bbf4244953564c252678
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3e6ed6bc8ba426a981b7a2390e7d00d9c3b1e785
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98790127"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643450"
 ---
 # <a name="about-azure-key-vault"></a>Informacje o usłudze Azure Key Vault
 
@@ -71,8 +71,8 @@ Usługa Azure Key Vault umożliwia także rozdzielenie wpisów tajnych aplikacji
 
 Jako bezpieczny magazyn na platformie Azure usługa Key Vault jest używana do upraszczania takich scenariuszy jak:
 -  [Usługa Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)
--  Funkcja [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) i [transparent Data Encryption]( https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15) w programie SQL Server i Azure SQL Database
-- [Azure App Service]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
+-  Funkcja [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) i [transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) w programie SQL Server i Azure SQL Database
+- [Azure App Service](/azure/app-service/configure-ssl-certificate).
 
 Samą usługę Key Vault można zintegrować z kontami magazynu, centrami zdarzeń i analizą dzienników.
 

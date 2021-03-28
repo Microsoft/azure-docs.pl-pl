@@ -2,25 +2,19 @@
 title: Widevine strumienia Android w trybie offline
 description: W tym temacie przedstawiono sposób konfigurowania konta Azure Media Services v3 na potrzeby przesyłania strumieniowego w trybie offline Widevine chronionej zawartości.
 services: media-services
-keywords: ŁĄCZNIK, DRM, Widevine tryb offline, ExoPlayer, Android
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
+manager: femila
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c7adab9c14075e12cf5656f9e798e78ff26ff0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: inhenkel
+ms.openlocfilehash: c19a8dd4f9a4b715b5f81a5a349edbffc2f7dea2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955211"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640703"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3
 
@@ -47,7 +41,7 @@ Artykuł odnosi się również do niektórych typowych pytań dotyczących przes
 > [!NOTE]
 > W przypadku funkcji DRM w trybie offline jest naliczana tylko jedna prośba o licencję podczas pobierania zawartości. Nie są naliczane opłaty za żadne błędy.
 
-## <a name="prerequisites"></a>Wymagania wstępne 
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed wdrożeniem funkcji DRM w trybie offline dla Widevine na urządzeniach z systemem Android należy najpierw:
 
@@ -158,14 +152,8 @@ Powyższa aplikacja PWA Open Source została utworzona w Node.js. Jeśli chcesz 
     - Certyfikat musi mieć zaufany urząd certyfikacji, a certyfikat programistyczny z podpisem własnym nie działa
     - Certyfikat musi mieć nazwę POSPOLITą zgodną z nazwą DNS serwera sieci Web lub bramy
 
-## <a name="faqs"></a>Często zadawane pytania
+## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji, zobacz [Widevine często zadawane pytania](frequently-asked-questions.md#widevine-streaming-for-android).
-
-## <a name="additional-notes"></a>Uwagi dodatkowe
+Aby uzyskać więcej informacji, zobacz [Widevine w kolekcji pytań](questions-collection.md#widevine-streaming-for-android).
 
 Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
-
-## <a name="summary"></a>Podsumowanie
-
-W tym artykule opisano sposób wdrażania odtwarzania w trybie offline dla zawartości PAUZy chronionej przez Widevine na urządzeniach z systemem Android.  W odpowiedzi na niektóre często zadawane pytania dotyczące przesyłania strumieniowego w trybie offline Widevine chronionej zawartości.

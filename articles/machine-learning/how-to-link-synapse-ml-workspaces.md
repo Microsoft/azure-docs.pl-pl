@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dd62fb5e3c7450d50b9837ee5484ca480cab78aa
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889114"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640843"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Łączenie obszarów roboczych usługi Azure Synapse Analytics i Azure Machine Learningych (wersja zapoznawcza)
 
@@ -35,9 +35,9 @@ Możesz również łączyć obszary robocze i dołączać pulę Synapse Spark z 
 
 * [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md?tabs=python).
 
-* [Utwórz obszar roboczy Synapse w Azure Portal](/synapse-analytics/quickstart-create-workspace.md).
+* [Utwórz obszar roboczy Synapse w Azure Portal](/azure/synapse-analytics/quickstart-create-workspace).
 
-* [Tworzenie puli Apache Spark przy użyciu Azure Portal, narzędzi sieci Web lub Synapse Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+* [Tworzenie puli Apache Spark przy użyciu Azure Portal, narzędzi sieci Web lub Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)
 
 * Zainstaluj [zestaw Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)
 

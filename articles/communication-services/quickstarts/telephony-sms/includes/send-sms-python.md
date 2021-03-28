@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 727e2166bad7f0d8980ffe4fa18c292a206c37d7
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: aba9b71ec2fbfedecf08577c7bd2eae7a28a5588
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110369"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644304"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK programu SMS usługi Communication Services w celu wysyłania wiadomości SMS.
 
@@ -107,7 +107,7 @@ sms_responses = sms_client.send(
 Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacyjną i `<to-phone-number>` numerem telefonu, na który chcesz wysłać wiadomość. 
 
 > [!WARNING]
-> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 12223334444).
+> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
 
 ## <a name="send-a-1n-sms-message"></a>Wyślij wiadomość SMS z 1: N
 
@@ -125,13 +125,16 @@ sms_responses = sms_client.send(
 
 ```
 
-Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacji `<to-phone-number-1>` oraz `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość. 
+Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacji oraz `<to-phone-number-1>` `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość. 
+
+> [!WARNING]
+> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
 
 ## <a name="optional-parameters"></a>Parametry opcjonalne
 
 `enable_delivery_report`Parametr jest opcjonalnym parametrem, którego można użyć w celu skonfigurowania raportowania dostarczania. Jest to przydatne w scenariuszach, w których chcesz emitować zdarzenia podczas dostarczania wiadomości SMS. Zapoznaj się z tematem [Obsługa zdarzeń programu SMS](../handle-sms-events.md) — Szybki Start, aby skonfigurować dostarczanie raportów dla wiadomości SMS.
 
-`tag`Parametr jest opcjonalnym parametrem, za pomocą którego można skonfigurować znakowanie niestandardowe.
+`tag`Parametr jest opcjonalnym parametrem, za pomocą którego można zastosować tag do raportu dostarczania.
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 Uruchom aplikację z katalogu aplikacji za pomocą `python` polecenia.

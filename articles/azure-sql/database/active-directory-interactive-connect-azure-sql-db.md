@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e2fa09ac8609310d4579590214bc25e5d7ee309f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94841652"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641561"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu usługi Azure AD Multi-Factor Authentication
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,7 +113,7 @@ Przykład w języku C# opiera się na [`System.Data.SqlClient`](/dotnet/api/syst
   Użyj tej wartości do uwierzytelniania, które wymaga nazwy użytkownika i hasła usługi Azure AD. Azure SQL Database wykonuje uwierzytelnianie. Ta metoda nie obsługuje Multi-Factor Authentication.
 
 > [!NOTE]
-> W przypadku korzystania z platformy .NET Core należy użyć przestrzeni nazw [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) . Aby uzyskać więcej informacji, zobacz następujący [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
+> W przypadku korzystania z platformy .NET Core należy użyć przestrzeni nazw [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient) . Aby uzyskać więcej informacji, zobacz następujący [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>Ustaw wartości parametrów C# z Azure Portal
 
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji, zobacz [konfigurowanie Multi-Factor Authenticat
 ## <a name="c-code-example"></a>Przykład kodu w języku C#
 
 > [!NOTE]
-> W przypadku korzystania z platformy .NET Core należy użyć przestrzeni nazw [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) . Aby uzyskać więcej informacji, zobacz następujący [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
+> W przypadku korzystania z platformy .NET Core należy użyć przestrzeni nazw [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient) . Aby uzyskać więcej informacji, zobacz następujący [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 Przykładowy program w języku C# opiera się na zestawie dll [*Microsoft. IdentityModel. clients. ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) .
 

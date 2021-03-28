@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/24/2021
-ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740379"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644682"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -36,7 +36,20 @@ Gdy dane są odbierane do tabeli SQL i jeśli tabela docelowa jeszcze nie istnie
 Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania danych ze źródła SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące udostępniania z usług Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
-Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/hIE-TjJD8Dc) .
+
+
+Aby udostępnić dane przy użyciu uwierzytelniania Azure Active Directory, poniżej przedstawiono listę wymagań wstępnych:
+
+* Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW) z tabelami i widokami, które chcesz udostępnić.
+* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli **Współautor**.
+* **Administrator Azure Active Directory** SQL Server
+* SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do programu SQL Server. Wybierz *zapory i sieci wirtualne* z nawigacji po lewej stronie.
+    1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
+    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+    1. Kliknij pozycję **Zapisz**. 
+
+Aby udostępnić dane przy użyciu uwierzytelniania SQL, poniżej znajduje się lista wymagań wstępnych. Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/hIE-TjJD8Dc) .
 
 * Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW) z tabelami i widokami, które chcesz udostępnić.
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli **Współautor**.
@@ -132,7 +145,9 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![Adddatasets](./media/add-datasets.png "Dodaj zestawy danych")    
 
-1. Wybierz obszar roboczy programu SQL Server lub Synapse, podaj poświadczenia, jeśli zostanie wyświetlony monit, a następnie wybierz pozycję **dalej** , aby przejść do obiektu, który chcesz udostępnić, i wybierz pozycję "Dodaj zestawy danych". Możesz wybrać tabele i widoki z Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL DW) lub tabel z dedykowanej puli SQL usługi Azure Synapse Analytics (Workspace). 
+1. Wybierz swój obszar roboczy programu SQL Server lub Synapse. Jeśli korzystasz z uwierzytelniania usługi AAD, a pole wyboru Zezwalaj na udział danych w tym samym imieniu, będzie wyświetlane **Powyższy skrypt SQL "Utwórz użytkownika"** . Zaznacz pole wyboru. Jeśli używasz uwierzytelniania SQL, podaj poświadczenia i postępuj zgodnie z instrukcjami w sekcji wymagania wstępne, aby uruchomić skrypt pojawia się na ekranie. Daje to uprawnienie do zasobów udziału danych do odczytu z bazy danych SQL. 
+
+   Wybierz pozycję **dalej** , aby przejść do obiektu, który chcesz udostępnić, i wybierz pozycję "Dodaj zestawy danych". Możesz wybrać tabele i widoki z Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL DW) lub tabel z dedykowanej puli SQL usługi Azure Synapse Analytics (Workspace). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Wybierz zestawy danych")    
 
@@ -176,7 +191,18 @@ W przypadku wybrania opcji odbierania danych do usługi Azure Storage poniżej z
 Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Azure Synapse Analytics poniżej stanowi listę wymagań wstępnych. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Wymagania wstępne dotyczące otrzymywania danych w usłudze Azure SQL Database lub Azure Synapse Analytics (dawniej: Azure SQL DW)
-Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/aeGISgK1xro) .
+
+Aby odbierać dane do programu SQL Server, w którym jesteś **Azure Active Directory administratorem** programu SQL Server, poniżej przedstawiono listę wymagań wstępnych:
+
+* Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW).
+* Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli **Współautor**.
+* SQL Server dostęp do zapory. Można to zrobić, wykonując następujące czynności: 
+    1. W Azure Portal przejdź do programu SQL Server. Wybierz *zapory i sieci wirtualne* z nawigacji po lewej stronie.
+    1. Kliknij  przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
+    1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
+    1. Kliknij pozycję **Zapisz**. 
+    
+Aby odbierać dane do programu SQL Server, w którym nie jesteś **administratorem Azure Active Directory**, poniżej znajduje się lista wymagań wstępnych. Aby skonfigurować wymagania wstępne, można wykonać [pokaz krok po kroku](https://youtu.be/aeGISgK1xro) .
 
 * Azure SQL Database lub usługa Azure Synapse Analytics (dawniej usługa Azure SQL DW).
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli **Współautor**. 
@@ -264,11 +290,11 @@ Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywa�
 
    ![Mapuj do elementu docelowego](./media/dataset-map-target.png "Mapuj do elementu docelowego") 
 
-1. Wybierz docelowy magazyn danych, w którym chcesz umieścić dane. Wszystkie pliki danych lub tabele w docelowym magazynie danych o tej samej ścieżce i nazwie zostaną zastąpione. 
+1. Wybierz docelowy magazyn danych, w którym chcesz umieścić dane. Wszystkie pliki danych lub tabele w docelowym magazynie danych o tej samej ścieżce i nazwie zostaną zastąpione. Jeśli otrzymujesz dane do obiektu docelowego SQL i zostanie wyświetlone pole wyboru **Zezwalaj na uruchamianie udziału danych z powyższego skryptu SQL "Utwórz użytkownika" w moim imieniu** , zaznacz pole wyboru. W przeciwnym razie postępuj zgodnie z instrukcjami w sekcji wymagania wstępne, aby uruchomić skrypt na ekranie. Spowoduje to przyznanie uprawnienia do zapisu zasobów udostępniania danych do docelowej bazy danych SQL.
 
    ![Docelowe konto magazynu](./media/dataset-map-target-sql.png "Docelowy magazyn danych") 
 
-1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych utworzył harmonogram migawek w celu zapewnienia regularnej aktualizacji danych, można również włączyć harmonogram migawek, wybierając kartę **harmonogram migawek** . Zaznacz pole wyboru obok harmonogramu migawek i wybierz pozycję **+ Włącz**.
+1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych utworzył harmonogram migawek w celu zapewnienia regularnej aktualizacji danych, można również włączyć harmonogram migawek, wybierając kartę **harmonogram migawek** . Zaznacz pole wyboru obok harmonogramu migawek i wybierz pozycję **+ Włącz**. Należy pamiętać, że pierwsza zaplanowana migawka rozpocznie się w ciągu minuty od czasu zaplanowanego, a kolejne migawki rozpocznie się w ciągu kilku sekund od zaplanowanego czasu.
 
    ![Włącz harmonogram migawek](./media/enable-snapshot-schedule.png "Włącz harmonogram migawek")
 

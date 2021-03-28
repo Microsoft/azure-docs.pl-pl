@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 6383c0fa3aad15da8abaea79136a75732ce9ea01
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605777"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639482"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzowanie dostępu do bazy danych w usługach SQL Database, SQL Managed Instance i Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ W tym momencie serwer lub wystąpienie zarządzane jest konfigurowane tylko na p
 
   - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
   - Dodaj nazwę logowania do [stałej roli serwera sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) przy użyciu instrukcji [ALTER Server role](/sql/t-sql/statements/alter-server-role-transact-sql) . Ta nazwa logowania będzie miała pełne uprawnienia administracyjne.
-  - Alternatywnie możesz utworzyć [Identyfikator logowania usługi Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) przy użyciu składni [tworzenia nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
+  - Alternatywnie możesz utworzyć [Identyfikator logowania usługi Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) przy użyciu składni [tworzenia nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) .
 
 - **W SQL Database Utwórz nazwy logowania SQL z ograniczonymi uprawnieniami administracyjnymi**
 
@@ -122,9 +122,9 @@ Można utworzyć konta dla użytkowników niebędących administratorami przy u�
 
 Przykłady pokazujące sposób tworzenia logowań i użytkowników znajdują się w temacie:
 
-- [Utwórz nazwę logowania dla Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Utwórz nazwę logowania dla wystąpienia zarządzanego Azure SQL](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Utwórz nazwę logowania dla usługi Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Utwórz nazwę logowania dla Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Utwórz nazwę logowania dla wystąpienia zarządzanego Azure SQL](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Utwórz nazwę logowania dla usługi Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Utwórz użytkownika](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Tworzenie użytkowników zawartych w usłudze Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 

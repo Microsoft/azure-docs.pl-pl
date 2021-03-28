@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d6b7b298e7e4d18e68985ec3cf536c90ef773608
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499139"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644388"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrowanie z rozpoznawanie mowy Bing do usługi mowy
 
@@ -26,7 +26,7 @@ W tym artykule opisano różnice między interfejsami API rozpoznawanie mowy Bin
 Pojedynczy klucz subskrypcji usługi mowy umożliwia dostęp do następujących funkcji. Każda z tych funkcji jest mierzona oddzielnie, dlatego opłaty są naliczane tylko za funkcje, których używasz.
 
 * [Zamiana mowy na tekst](speech-to-text.md)
-* [Niestandardowa zamiana mowy na tekst](https://cris.ai)
+* [Niestandardowa zamiana mowy na tekst](/azure/cognitive-services/speech-service/custom-speech-overview)
 * [Zamiana tekstu na mowę](text-to-speech.md)
 * [Niestandardowe głosy funkcji zamiany tekstu na mowę](./how-to-custom-voice-create-voice.md)
 * [Tłumaczenie mowy](speech-translation.md) (nie obejmuje funkcji [Tłumaczenie tekstu](../translator/translator-info-overview.md))

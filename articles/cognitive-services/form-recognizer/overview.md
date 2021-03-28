@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: 4465f88e3b0ccab8eace1936f426af8dd32af27b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8d6c2ea760b85e3170b26c63a28d4ac2b3a2ef5a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872255"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639466"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -185,5 +185,5 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 
 Skorzystaj z naszego narzędzia online i przewodnika Szybki Start, aby dowiedzieć się więcej na temat usługi aparat rozpoznawania formularzy.
 
-* [**Narzędzie do rozpoznawania formularzy**](https://fott-preview.microsoft.com/)
+* [**Narzędzie do rozpoznawania formularzy**](https://fott-preview.azurewebsites.net/)
 * [**Biblioteka klienta i interfejs API REST — Szybki Start**](quickstarts/client-library.md)

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16cd14aa447fb56af4cd9dd809696aecdc0c47a5
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8b08231f254ea47fc3c9d65de42966301bd3378f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105557840"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640061"
 ---
 # <a name="securing-managed-identities"></a>Zabezpieczanie tożsamości zarządzanych
 
@@ -100,7 +100,7 @@ Możesz uzyskać listę wszystkich zarządzanych tożsamości w dzierżawie przy
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-Można filtrować te żądania. Aby uzyskać więcej informacji, zobacz dokumentację wykresu dla [Get serviceprincipal](/graph/api/serviceprincipal-get?view=).
+Można filtrować te żądania. Aby uzyskać więcej informacji, zobacz dokumentację wykresu dla [Get serviceprincipal](/graph/api/serviceprincipal-get).
 
 ## <a name="assess-the-security-of-managed-identities"></a>Ocenianie zabezpieczeń tożsamości zarządzanych 
 

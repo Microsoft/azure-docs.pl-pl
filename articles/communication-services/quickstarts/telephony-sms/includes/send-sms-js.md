@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: b0a173d605da859830e288aebf355117b928090a
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 8fe8b853fe07af40603950a61c0dd2a1df74d14e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110372"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644324"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK SMS usługi komunikacyjnej do wysyłania wiadomości SMS.
 
@@ -72,15 +72,15 @@ Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SMS 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | Ta klasa jest wymagana dla wszystkich funkcji programu SMS. Utwórz wystąpienie go przy użyciu informacji o subskrypcji i użyj go do wysyłania wiadomości SMS. |
-| SmsSendResult               | Ta klasa zawiera wynik z usługi SMS.                                          |
-| SmsSendOptions | Ten interfejs zapewnia opcje konfigurowania raportowania dostarczania. Jeśli `enableDeliveryReport` jest ustawiona na `true` , zdarzenie będzie emitowane po pomyślnym dostarczeniu. |
 | SmsSendRequest | Ten interfejs jest modelem do kompilowania żądania programu SMS (np. Skonfiguruj do i numery telefonów oraz zawartość SMS). |
+| SmsSendOptions | Ten interfejs zapewnia opcje konfigurowania raportowania dostarczania. Jeśli `enableDeliveryReport` jest ustawiona na `true` , zdarzenie będzie emitowane po pomyślnym dostarczeniu. |
+| SmsSendResult               | Ta klasa zawiera wynik z usługi SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 Zaimportuj **SmsClient** z zestawu SDK i Utwórz wystąpienie go przy użyciu parametrów połączenia. Poniższy kod pobiera parametry połączenia dla zasobu ze zmiennej środowiskowej o nazwie `COMMUNICATION_SERVICES_CONNECTION_STRING` . Dowiedz się, jak [zarządzać parametrami połączenia zasobu](../../create-communication-resource.md#store-your-connection-string).
 
-Dodaj następujący kod do **send-sms.js**:
+Utwórz i Otwórz plik o nazwie **send-sms.js** i Dodaj następujący kod:
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -118,7 +118,10 @@ async function main() {
 
 main();
 ```
-Należy zastąpić `<from-phone-number>` numerem telefonu z obsługą programu SMS skojarzonym z zasobem usługi komunikacyjnej oraz `<to-phone-number>` numerem telefonu, na który chcesz wysłać wiadomość.
+Należy zamienić `<from-phone-number>` na numer telefonu z włączonym programem SMS skojarzony z zasobem usługi komunikacyjnej oraz `<to-phone-number-1>` `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość.
+
+> [!WARNING]
+> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
 
 ## <a name="send-a-1n-sms-message-with-options"></a>Wyślij wiadomość SMS z opcją 1: N z opcjami
 
@@ -127,12 +130,12 @@ Możesz również przekazać obiekt Options, aby określić, czy raport dostarcz
 ```javascript
 
 async function main() {
-  await smsClient.send({
+  const sendResults = await smsClient.send({
     from: "<from-phone-number>",
     to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Weekly Promotion!"
   }, {
-    //Optional parameter
+    //Optional parameters
     enableDeliveryReport: true,
     tag: "marketing"
   });
@@ -150,6 +153,11 @@ async function main() {
 
 main();
 ```
+
+Należy zamienić `<from-phone-number>` na numer telefonu z włączoną funkcją SMS skojarzony z zasobem usług komunikacyjnych `<to-phone-number-1>` i `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość.
+
+> [!WARNING]
+> Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
 
 `enableDeliveryReport`Parametr jest opcjonalnym parametrem, którego można użyć w celu skonfigurowania raportowania dostarczania. Jest to przydatne w scenariuszach, w których chcesz emitować zdarzenia podczas dostarczania wiadomości SMS. Zapoznaj się z tematem [Obsługa zdarzeń programu SMS](../handle-sms-events.md) — Szybki Start, aby skonfigurować dostarczanie raportów dla wiadomości SMS.
 `tag` jest opcjonalnym parametrem, za pomocą którego można zastosować tag do raportu dostarczania.

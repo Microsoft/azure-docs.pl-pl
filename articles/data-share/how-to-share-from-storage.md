@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739266"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644653"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
 
@@ -178,7 +178,7 @@ Wykonaj kroki opisane w tej sekcji, aby skonfigurować lokalizację do odbierani
 
    ![Zrzut ekranu przedstawiający lokalizację, w której ma zostać wybrane docelowe konto magazynu.](./media/map-target.png "Magazyn docelowy.") 
 
-1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych używa harmonogramu migawek do regularnego aktualizowania danych, można włączyć harmonogram na karcie **harmonogram migawek** . Zaznacz pole obok harmonogramu migawek. Następnie wybierz pozycję **Włącz**.
+1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych używa harmonogramu migawek do regularnego aktualizowania danych, można włączyć harmonogram na karcie **harmonogram migawek** . Zaznacz pole obok harmonogramu migawek. Następnie wybierz pozycję **Włącz**. Należy pamiętać, że pierwsza zaplanowana migawka rozpocznie się w ciągu minuty od czasu zaplanowanego, a kolejne migawki rozpocznie się w ciągu kilku sekund od zaplanowanego czasu.
 
    ![Zrzut ekranu przedstawiający sposób włączania harmonogramu migawek.](./media/enable-snapshot-schedule.png "Włącz harmonogram migawek.")
 

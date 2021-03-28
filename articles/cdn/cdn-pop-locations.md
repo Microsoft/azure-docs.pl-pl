@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: b2c191c508aaa613d6846aebdc5a15a213918e52
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ba6710629f52abd13ef84f2a814c10c6dca18837
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567274"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641741"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN pokrycia według Metro 
 > [!div class="op_single_selector"]
@@ -49,4 +49,5 @@ W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obec
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać najnowsze adresy IP na potrzeby listy dozwolonych, zobacz [Azure CDN interfejsu API węzłów krawędzi](/rest/api/cdn/edgenodes).
+
+* Aby uzyskać najnowsze adresy IP na potrzeby listy dozwolonych, zobacz [Azure CDN interfejsu API węzłów krawędzi](/rest/api/cdn/cdn/edgenodes).

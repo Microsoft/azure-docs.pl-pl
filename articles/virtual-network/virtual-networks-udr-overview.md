@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605216"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645269"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -96,10 +96,12 @@ Podczas tworzenia tras zdefiniowanych przez użytkownika możesz określić poni
 
 Typu **Komunikacja równorzędna sieci wirtualnej** lub **VirtualNetworkServiceEndpoint** nie możesz określić jako typu następnego przeskoku w trasach zdefiniowanych przez użytkownika. Trasy z typami następnego przeskoku **Komunikacja równorzędna sieci wirtualnej** lub **VirtualNetworkServiceEndpoint** są tworzone tylko przez platformę Azure podczas konfigurowania komunikacji równorzędnej sieci wirtualnej lub punktu końcowego usługi.
 
-### <a name="service-tags-for-user-defined-routes-public-preview"></a>Znaczniki usługi dla tras zdefiniowanych przez użytkownika (publiczna wersja zapoznawcza)
+### <a name="service-tags-for-user-defined-routes-preview"></a>Tagi usług dla tras zdefiniowanych przez użytkownika (wersja zapoznawcza)
 
 Teraz można określić [tag usługi](service-tags-overview.md) jako prefiks adresu dla trasy zdefiniowanej przez użytkownika zamiast jawnego zakresu adresów IP. Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, co minimalizuje złożoność częstych aktualizacji tras zdefiniowanych przez użytkownika i zmniejsza liczbę tras, które należy utworzyć. W każdej tabeli tras można obecnie utworzyć 25 lub mniej tras za pomocą tagów usługi. </br>
 
+> [!IMPORTANT]
+> Znaczniki usługi dla tras zdefiniowanych przez użytkownika są obecnie dostępne w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 #### <a name="exact-match"></a>Dokładne dopasowanie
 W przypadku dokładnego dopasowania prefiksu między trasą z jawnym prefiksem IP a trasą z tagiem usługi preferencja jest przyznawana trasie z jawnym prefiksem. Gdy wiele tras z tagami usług ma pasujące prefiksy IP, trasy będą oceniane w następującej kolejności: 
