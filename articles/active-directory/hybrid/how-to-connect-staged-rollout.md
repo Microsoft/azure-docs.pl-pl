@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176862"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709722"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -98,7 +98,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 Aby przetestować logowanie do *synchronizacji skrótów haseł* przy użyciu wdrożenia etapowego, postępuj zgodnie z instrukcjami w następnej sekcji.
 
-Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz temat [Azure AD 2,0 Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz temat [Azure AD 2,0 Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pre-Work dla synchronizacji skrótów haseł
 
@@ -251,9 +251,9 @@ Odp.: nie, ta funkcja została zaprojektowana na potrzeby testowania uwierzyteln
 
 **P: Czy można użyć programu PowerShell, aby wykonać etapowe wdrażanie?**
 
-Odp. Tak. Aby dowiedzieć się, jak używać programu PowerShell do wdrażania etapowego, zobacz [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Odp. Tak. Aby dowiedzieć się, jak używać programu PowerShell do wdrażania etapowego, zobacz [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## <a name="next-steps"></a>Następne kroki
-- [Azure AD 2,0 — wersja zapoznawcza](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2,0 — wersja zapoznawcza](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [Zmień metodę logowania na synchronizację skrótów haseł](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [Zmień metodę logowania na uwierzytelnianie przekazywane](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

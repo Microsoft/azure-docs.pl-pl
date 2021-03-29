@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73251fcbe9f149979d3fd62d14bbca86d77027f2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657540"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640146"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -72,7 +72,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    
    |Właściwość  |Typ danych  |Filtr  |
    |---------|---------|---------|
-   |_ts     |   Numeryczny      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
+   |_ts        |   Numeryczny      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |Data (na przykład:-2019-08-19)     |   Ciąg      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
    |Data (na przykład:-2019-08-11 12:00:00)   |  Ciąg       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
 
@@ -100,7 +100,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 1. **Tworzenie nowego klastra Azure Analysis Services**  -  [Utwórz wystąpienie usług Azure Analysis Services](../analysis-services/analysis-services-create-server.md) w tym samym regionie, w którym znajduje się konto usługi Azure Cosmos i klaster datakostki.
 
-1. **Tworzenie nowego projektu Analysis Services tabelarycznego w programie Visual Studio**  -   [Zainstaluj narzędzia SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true) i Utwórz Analysis Services Projekt tabelaryczny w programie Visual Studio.
+1. **Tworzenie nowego projektu Analysis Services tabelarycznego w programie Visual Studio**  -   [Zainstaluj narzędzia SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) i Utwórz Analysis Services Projekt tabelaryczny w programie Visual Studio.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Utwórz projekt Azure Analysis Services":::
 

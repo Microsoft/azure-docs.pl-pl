@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592364"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709926"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitoruj operacje i działania Wyszukiwanie poznawcze platformy Azure
 
@@ -38,9 +38,9 @@ Poniższy zrzut ekranu ułatwia lokalizowanie informacji o monitorowaniu w porta
 
 * Karta **monitorowanie** na głównej stronie przeglądu pokazuje ilość zapytań, opóźnienia i informacje o tym, czy usługa podlega ciśnieniu.
 * **Dziennik aktywności** w okienku nawigacji po lewej stronie jest połączony z Azure Resource Manager. Dziennik aktywności raportuje działania podejmowane przez Menedżer zasobów: dostępność i stan usługi, zmiany pojemności (repliki i partycje) oraz działania związane z kluczami interfejsu API.
-* Ustawienia **monitorowania** , w dalszej postaci, umożliwiają Konfigurowanie alertów, metryk i dzienników diagnostycznych. Utwórz je, gdy będą potrzebne. Po zebraniu i zapisaniu danych można wykonywać zapytania lub wizualizować informacje w celu uzyskania szczegółowych informacji.
+* Ustawienia **monitorowania** , w dalszej postaci, umożliwiają Konfigurowanie alertów, wizualizacji metryk i dzienników diagnostycznych. Utwórz je, gdy będą potrzebne. Po zebraniu i zapisaniu danych można wykonywać zapytania lub wizualizować informacje w celu uzyskania szczegółowych informacji.
 
-![Azure Monitor integrację w usłudze wyszukiwania](./media/search-monitor-usage/azure-monitor-search.png
+  ![Azure Monitor integrację w usłudze wyszukiwania](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integrację w usłudze wyszukiwania")
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Azure Monitor ma własną strukturę rozliczeń i dzienniki diagnostyczne, do kt
 
 ## <a name="monitor-user-access"></a>Monitorowanie dostępu użytkowników
 
-Ponieważ indeksy wyszukiwania są składnikiem większej aplikacji klienckiej, nie ma żadnej wbudowanej metodologii do kontrolowania i monitorowania dostępu dla poszczególnych użytkowników do indeksu. Założono, że żądania pochodzą z aplikacji klienckiej dla żądań administratora lub zapytania. Operacje odczytu i zapisu administratora obejmują tworzenie, aktualizowanie i usuwanie obiektów w całej usłudze. Operacje tylko do odczytu są zapytania względem kolekcji dokumentów, w zakresie do pojedynczego indeksu. 
+Ponieważ indeksy wyszukiwania są składnikiem większej aplikacji klienckiej, nie ma żadnej wbudowanej metodologii do kontrolowania i monitorowania dostępu dla poszczególnych użytkowników do indeksu. Założono, że żądania pochodzą z aplikacji klienckiej, która wyświetla żądanie administratora lub zapytania. Operacje odczytu i zapisu administratora obejmują tworzenie, aktualizowanie i usuwanie obiektów w całej usłudze. Operacje tylko do odczytu są zapytania względem kolekcji dokumentów, w zakresie do pojedynczego indeksu. 
 
 W związku z tym informacje widoczne w dziennikach aktywności są odwołaniami do wywołań przy użyciu kluczy administracyjnych lub kluczy zapytań. Odpowiedni klucz jest uwzględniany w żądaniach pochodzących z kodu klienta. Usługa nie jest wyposażona w obsługę tokenów tożsamości ani personifikacji.
 

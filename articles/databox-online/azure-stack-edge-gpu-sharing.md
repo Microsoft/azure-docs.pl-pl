@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6683e39cfa3601b1ae1fbbe02e69e4dc0a54e8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565022"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645240"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>Udostępnianie procesora GPU na urządzeniu z systemem Azure Stack Edge z procesorem GPU
 
-Procesor graficzny (GPU) to wyspecjalizowany procesora zaprojektowany w celu przyspieszenia renderowania grafiki. Procesory GPU mogą jednocześnie przetwarzać wiele części danych, dzięki czemu są one przydatne do uczenia maszynowego, edycji wideo i aplikacji do gier. Oprócz procesora CPU do obliczeń ogólnego przeznaczenia, urządzenia GPU z systemem Azure Stack Edge mogą zawierać jeden lub dwa procesory GPU w technologii NVIDIA Tesla T4 dla obciążeń intensywnie korzystających z obliczeń, takich jak akceleracja inferencing. Aby uzyskać więcej informacji, zobacz [procesor GPU Tesla T4 firmy NVIDIA](https://www.nvidia.com/data-center/tesla-t4/).
+Procesor graficzny (GPU) to wyspecjalizowany procesora zaprojektowany w celu przyspieszenia renderowania grafiki. Procesory GPU mogą jednocześnie przetwarzać wiele części danych, dzięki czemu są one przydatne do uczenia maszynowego, edycji wideo i aplikacji do gier. Oprócz procesora CPU do obliczeń ogólnego przeznaczenia, urządzenia GPU z systemem Azure Stack Edge mogą zawierać jeden lub dwa procesory GPU w technologii NVIDIA Tesla T4 dla obciążeń intensywnie korzystających z obliczeń, takich jak akceleracja inferencing. Aby uzyskać więcej informacji, zobacz [procesor GPU Tesla T4 firmy NVIDIA](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 
 
 ## <a name="about-gpu-sharing"></a>Udostępnianie GPU — informacje

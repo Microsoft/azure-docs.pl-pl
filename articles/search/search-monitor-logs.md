@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592469"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709943"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Wyszukiwanie poznawcze
 
-Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie niektóre informacje o systemie znajdują się w zapleczu przez krótki czas, co jest wystarczające do zbadania i analizy, jeśli zostanie umieszczony bilet pomocy technicznej. Jeśli jednak chcesz mieć własny kierunek danych operacyjnych, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
+Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie firma Microsoft zachowuje informacje o systemie w zasobie przez krótki czas (około 30 dni), co jest wystarczające do badania i analizy w przypadku utworzenia biletu pomocy technicznej. Jeśli jednak chcesz mieć własność przez dane operacyjne, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
 
 Rejestrowanie diagnostyczne jest włączane w ramach integracji z [Azure monitor](../azure-monitor/index.yml). 
 
@@ -76,14 +76,14 @@ Dwie tabele zawierają dzienniki i metryki dla usługi Azure Wyszukiwanie poznaw
 
 1. Wprowadź następujące zapytanie, aby zwrócić tabelaryczny zestaw wyników.
 
-   ```
+   ```kusto
    AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
+   | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
 1. Powtórz poprzednie kroki, rozpoczynając od **AzureDiagnostics** , aby zwrócić wszystkie kolumny do celów informacyjnych, a następnie bardziej selektywne zapytanie, które wyodrębnia bardziej interesujące informacje.
 
-   ```
+   ```kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search" 
@@ -99,7 +99,7 @@ Jeśli włączono rejestrowanie diagnostyczne, można wysłać zapytanie do **Az
 
 Zwróć listę operacji i liczbę każdej z nich.
 
-```
+```kusto
 AzureDiagnostics
 | summarize count() by OperationName
 ```
@@ -108,7 +108,7 @@ AzureDiagnostics
 
 Skorelować żądanie zapytania z operacjami indeksowania i Renderuj punkty danych na wykresie czasu, aby zobaczyć operacje, które się pokrywają.
 
-```
+```kusto
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')

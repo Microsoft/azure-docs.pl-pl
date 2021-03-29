@@ -1,24 +1,21 @@
 ---
-title: Monitorowanie słownika Windows Virtual Desktop w wersji zapoznawczej — Azure
+title: Monitorowanie słownika wirtualnego systemu Windows — Azure
 description: Słownik terminów i koncepcji związanych z Azure Monitor dla pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 3/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627136"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709535"
 ---
-# <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Słownik Azure Monitor dla systemu Windows Virtual Desktop (wersja zapoznawcza)
-
->[!IMPORTANT]
->Azure Monitor dla pulpitu wirtualnego systemu Windows jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Azure Monitor słownika wirtualnego systemu Windows
 
 W tym artykule wymieniono i krótko opisano najważniejsze pojęcia i koncepcje dotyczące Azure Monitor dla pulpitu wirtualnego systemu Windows (wersja zapoznawcza).
 

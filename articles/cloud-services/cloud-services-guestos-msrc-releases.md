@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2021
+ms.date: 3/28/2021
 ms.author: gunnarc
-ms.openlocfilehash: 8cdec61b971e7028326a22ac7f7bd6046376427b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559115"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709909"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
 ## <a name="march-2021-guest-os"></a>System operacyjny gościa 2021 marca
 
->[!NOTE] 
-
->System operacyjny gościa w marcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w marcu uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
 
 | Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 21-03 |  [5000822]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,29 | Mar 9, 2021 |
-|  Rel 21-03 |  [4580325]  |  Aktualizacja Flash | 3,95, 4,88, 5,53, 6,29 | 13 października 2020 |
-|  Rel 21-03 |  [5000800]  |  Aktualizacje zbiorcze programu IE | 2,108, 3,95, 4,88 | Mar 9, 2021 |
-|  Rel 21-03 |  [5000803]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,53 | Mar 9, 2021 |
-|  Rel 21-03 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości  | 2,108 | 13 października 2020 |
-|  Rel 21-03 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości  | 2,108 | 13 października 2020 |
-|  Rel 21-03 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości  | 4,88 | 13 października 2020 |
-|  Rel 21-03 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości  | 4,88 | 13 października 2020 |
-|  Rel 21-03 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości  | 3,95 | 13 października 2020 |
-|  Rel 21-03 |  [4578954]  |  . Zestawienie zabezpieczeń i jakości platformy .NET Framework 4.5.2  | 3,95 | 13 października 2020 |
-|  Rel 21-03 |  [4601060]  |  . .NET Framework 3,5 i 4.7.2 — aktualizacja zbiorcza  | 6,29 | 9 lutego 2021 |
-|  Rel 21-03 |  [5000841]  |  Zestawienie miesięczne  | 2,108 | Mar 9, 2021 |
-|  Rel 21-03 |  [5000847]  |  Zestawienie miesięczne  | 3,95 | Mar 9, 2021 |
-|  Rel 21-03 |  [5000848]  |  Zestawienie miesięczne  | 4,88 | Mar 9, 2021 |
-|  Rel 21-03 |  [4566426]  |  Obsługa aktualizacji stosu  | 3,95 | 14 lipca 2020 r. |
-|  Rel 21-03 |  [4566425]  |  Obsługa aktualizacji stosu  | 4,88 | 14 lipca 2020 r. |
-|  Rel 21-03 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń  | 4,88 | 19 sierpnia 2020 |
-|  Rel 21-03 |  [4592510]  |  Obsługa aktualizacji stosu  | 2,108 | 8 grudnia 2020 |
-|  Rel 21-03 |  [5000859]  |  Obsługa aktualizacji stosu  | 6,29 | Mar 9, 2021 |
-|  Rel 21-03 |  [4494175]  |  Włączenia mikrokodu  | 5,53 | 1, 2020 |
-|  Rel 21-03 |  [4494174]  |  Włączenia mikrokodu  | 6,29 | 1, 2020 |
+|  Rel 21-03 |  [5000822]  |  Najnowsza aktualizacja zbiorcza (LCU) | [6,29] | Mar 9, 2021 |
+|  Rel 21-03 |  [4580325]  |  Aktualizacja Flash | [3,95], [4,88], [5,53], [6,29] | 13 października 2020 |
+|  Rel 21-03 |  [5000800]  |  Aktualizacje zbiorcze programu IE | [2,108], [3,95], [4,88] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000803]  |  Najnowsza aktualizacja zbiorcza (LCU) | [5,53] | Mar 9, 2021 |
+|  Rel 21-03 |  [4578952]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości  | [2,108] | 13 października 2020 |
+|  Rel 21-03 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości  | [2,108] | 13 października 2020 |
+|  Rel 21-03 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości  | [4,88] | 13 października 2020 |
+|  Rel 21-03 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości  | [4,88] | 13 października 2020 |
+|  Rel 21-03 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości  | [3,95] | 13 października 2020 |
+|  Rel 21-03 |  [4578954]  |  . Zestawienie zabezpieczeń i jakości platformy .NET Framework 4.5.2  | [3,95] | 13 października 2020 |
+|  Rel 21-03 |  [4601060]  |  . .NET Framework 3,5 i 4.7.2 — aktualizacja zbiorcza  | [6,29] | 9 lutego 2021 |
+|  Rel 21-03 |  [5000841]  |  Zestawienie miesięczne  | [2,108] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000847]  |  Zestawienie miesięczne  | [3,95] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000848]  |  Zestawienie miesięczne  | [4,88] | Mar 9, 2021 |
+|  Rel 21-03 |  [4566426]  |  Obsługa aktualizacji stosu  | [3,95] | 14 lipca 2020 r. |
+|  Rel 21-03 |  [4566425]  |  Obsługa aktualizacji stosu  | [4,88] | 14 lipca 2020 r. |
+|  Rel 21-03 OOB |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń  | [4,88] | 19 sierpnia 2020 |
+|  Rel 21-03 |  [4592510]  |  Obsługa aktualizacji stosu  | [2,108] | 8 grudnia 2020 |
+|  Rel 21-03 |  [5000859]  |  Obsługa aktualizacji stosu  | [6,29] | Mar 9, 2021 |
+|  Rel 21-03 |  [4494175]  |  Włączenia mikrokodu  | [5,53] | 1, 2020 |
+|  Rel 21-03 |  [4494174]  |  Włączenia mikrokodu  | [6,29] | 1, 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,7 +70,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [5000859]: https://support.microsoft.com/kb/5000859
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2,108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="february-2021-guest-os"></a>System operacyjny gościa z lutego 2021
 

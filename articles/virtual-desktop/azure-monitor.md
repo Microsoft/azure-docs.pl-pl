@@ -1,24 +1,21 @@
 ---
-title: Korzystanie z monitora systemu Windows Virtual Desktop monitor (wersja zapoznawcza) — Azure
+title: Korzystanie z monitora systemu Windows Virtual Desktop monitor — Azure
 description: Jak używać Azure Monitor dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1c87763cb2ca482fc8ee15588d7287f0d9275fff
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627170"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709552"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Monitorowanie wdrożenia (wersja zapoznawcza) za pomocą Azure Monitor dla pulpitu wirtualnego systemu Windows
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Monitorowanie wdrożenia przy użyciu Azure Monitor dla pulpitu wirtualnego systemu Windows
 
->[!IMPORTANT]
->Azure Monitor dla pulpitu wirtualnego systemu Windows jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Monitor dla systemu Windows Virtual Desktop (wersja zapoznawcza) to pulpit nawigacyjny oparty na Azure Monitor skoroszytach, które pomagają specjalistom IT zrozumieć swoje środowiska pulpitu wirtualnego systemu Windows. W tym artykule opisano sposób konfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu monitorowania środowisk pulpitu wirtualnego systemu Windows.
+Azure Monitor dla pulpitu wirtualnego systemu Windows to pulpit nawigacyjny oparty na Azure Monitor skoroszytach, które pomagają specjalistom IT zrozumieć swoje środowiska pulpitu wirtualnego systemu Windows. W tym temacie opisano sposób konfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu monitorowania środowisk pulpitu wirtualnego systemu Windows.
 
 ## <a name="requirements"></a>Wymagania
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100585420"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641974"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Usługi i technologie zabezpieczeń dostępne na platformie Azure
 
@@ -59,8 +59,8 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [&nbsp;Zapora Azure SQL &nbsp;](../../azure-sql/database/firewall-configure.md)|Funkcja kontroli dostępu do sieci chroniąca przed atakami opartymi na sieci do bazy danych programu. |
 |[&nbsp;Szyfrowanie na &nbsp; poziomie komórek SQL &nbsp; Azure](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| Technologia zabezpieczeń bazy danych, która zapewnia szyfrowanie na poziomie szczegółowości.  |
 | [&nbsp; &nbsp; Szyfrowanie połączenia usługi Azure SQL](../../azure-sql/database/logins-create-manage.md)|Aby zapewnić bezpieczeństwo, usługa SQL Database kontroluje dostęp za pomocą reguł zapory, ograniczając adresy IP dla połączeń, stosując mechanizmy uwierzytelniania wymagające potwierdzenia tożsamości przez użytkowników oraz mechanizmy autoryzacji ograniczające użytkowników do określonych działań i danych. |
-| [Zawsze szyfrowanie w usłudze Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Chroni dane poufne, takie jak numery kart kredytowych lub krajowe numery identyfikacyjne (na przykład numery ubezpieczenia społecznego w Stanach Zjednoczonych), przechowywane w bazie danych Azure SQL Database lub SQL Server.  |
-| [&nbsp;Transparent Data Encryption Azure SQL &nbsp;](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Funkcja zabezpieczeń bazy danych, która szyfruje magazyn całej bazy danych. |
+| [Zawsze szyfrowanie w usłudze Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Chroni dane poufne, takie jak numery kart kredytowych lub krajowe numery identyfikacyjne (na przykład numery ubezpieczenia społecznego w Stanach Zjednoczonych), przechowywane w bazie danych Azure SQL Database lub SQL Server.  |
+| [&nbsp;Transparent Data Encryption Azure SQL &nbsp;](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| Funkcja zabezpieczeń bazy danych, która szyfruje magazyn całej bazy danych. |
 | [Inspekcja Azure SQL Database](../../azure-sql/database/auditing-overview.md)|Funkcja inspekcji bazy danych, która śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji na koncie usługi Azure Storage.  |
 
 

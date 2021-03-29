@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 7402172473056f191c2c50fa8aa8bd99d4e948eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 880185a33ec16ffc30d6412d3f27a69ce81a7880
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101095915"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642168"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services
 
@@ -265,12 +265,3 @@ Jeśli pojawią się błędy, upewnij się `_NOT_SPECIFIED_IN_URL` , że w adres
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
-
-## <a name="next-steps"></a>Następne kroki
-
-* [Ochrona przy użyciu szyfrowania AES](protect-with-aes128.md)
-* [Ochrona przy użyciu technologii DRM](protect-with-drm.md)
-* [Projektowanie systemu ochrony zawartości z obsługą technologii DRM z użyciem kontroli dostępu](design-multi-drm-system-with-access-control.md)
-* [Szyfrowanie po stronie magazynu](storage-account-concept.md#storage-side-encryption)
-* [Często zadawane pytania](frequently-asked-questions.md)
-* [Program obsługi tokenów sieci Web JSON](/dotnet/framework/security/json-web-token-handler)
