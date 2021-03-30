@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu komputer
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91332897"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure

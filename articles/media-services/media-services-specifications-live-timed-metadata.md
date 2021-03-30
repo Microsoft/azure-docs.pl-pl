@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91336398"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Sygnalizowanie metadanych w czasie przesyłania strumieniowego na żywo 
@@ -67,7 +67,7 @@ Ta specyfikacja zawiera kilka trybów, które są obsługiwane przez Media Servi
 Następujące dokumenty zawierają postanowienia, które za pomocą odwołania w tym tekście stanowią postanowienia tego dokumentu. Wszystkie dokumenty podlegają zmianom w treści standardów, a czytelnicy są zachęcani do zbadania możliwości zastosowania najnowszych wersji dokumentów wymienionych poniżej. Czytelnicy są również przypomnili, że nowsze wersje dokumentów, do których istnieją odwołania, mogą nie być zgodne z tą wersją specyfikacji metadanych czasowych dla Azure Media Services.
 
 
-| Standardowa          | Definicja                                                                                                                                                                                                     |
+| Standardowa (Standard)          | Definicja                                                                                                                                                                                                     |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Adobe-Primetime] | [Specyfikacja sygnalizowania Primetime Digital Programs 1,2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
 | [Adobe-Flash AS]  | [Dokumentacja języka FLASH ActionScript](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |

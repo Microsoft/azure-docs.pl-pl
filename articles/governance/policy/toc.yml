@@ -46,6 +46,9 @@
     - name: Zarządzanie ładem tagów
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Zdarzenia zmiany stanu zasad trasy
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./tutorials/route-state-change-events.md
     - name: Implementowanie zasad platformy Azure jako kodu w usłudze GitHub
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./tutorials/policy-as-code-github.md
@@ -126,6 +129,9 @@
     - name: Struktura przypisania
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Reagowanie na zdarzenia zmiany stanu zasad
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./concepts/event-overview.md
     - name: Struktura wykluczenia
       displayName: 'waiver, mitigated, compliance'
       href: ./concepts/exemption-structure.md

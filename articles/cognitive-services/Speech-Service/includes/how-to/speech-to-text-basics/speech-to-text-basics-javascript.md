@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 7649f9c13db1a10bdb48d19f1019ec3b31244f45
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104562"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729869"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -62,7 +62,7 @@ Rozpoznawanie mowy z mikrofonu **nie jest obsługiwane w Node.js** i jest obsłu
 
 ## <a name="recognize-from-file"></a>Rozpoznaj z pliku 
 
-Aby rozpoznać mowę z pliku audio, należy utworzyć `AudioConfig` użycie, `fromWavFileInput()` które akceptuje `Buffer` obiekt. Następnie zainicjuj [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) , przekazując `audioConfig` i `speechConfig` .
+Aby rozpoznać mowę z pliku audio, należy utworzyć `AudioConfig` użycie, `fromWavFileInput()` które akceptuje `Buffer` obiekt. Następnie zainicjuj [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer) , przekazując `audioConfig` i `speechConfig` .
 
 ```javascript
 const fs = require('fs');
