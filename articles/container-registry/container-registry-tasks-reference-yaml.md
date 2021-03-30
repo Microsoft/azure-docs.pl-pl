@@ -4,10 +4,10 @@ description: Dokumentacja dotycząca definiowania zadań w YAML dla zadań ACR, 
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88067587"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Informacje o zadaniach ACR: YAML
@@ -576,7 +576,7 @@ steps:
 
 Każdy z następujących aliasów wskazuje stabilny obraz w programie Microsoft Container Registry (MCR). Można odwołać się do każdego z nich w `cmd` sekcji pliku zadania bez używania dyrektywy.
 
-| Alias | Image (Obraz) |
+| Alias | Obraz |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |

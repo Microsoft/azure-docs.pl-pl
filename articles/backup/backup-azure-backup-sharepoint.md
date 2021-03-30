@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie ochrony programu DPM/Azure Backup s
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91254435"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure przy użyciu programu DPM

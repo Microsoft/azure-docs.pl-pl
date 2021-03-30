@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90985532"
 ---
 # <a name="core-reports-from-verizon"></a>Raporty podstawowe z usługi Verizon
@@ -27,7 +27,7 @@ ms.locfileid: "90985532"
 
 Korzystając z raportów Verizon Core za pośrednictwem portalu zarządzania dla profilów Verizon, można wyświetlić wzorce użycia dla sieci CDN przy użyciu następujących raportów:
 
-* Szerokość pasma
+* Przepustowość
 * Przesłane dane
 * Trafienia
 * Stany pamięci podręcznej
@@ -50,7 +50,7 @@ Korzystając z raportów Verizon Core za pośrednictwem portalu zarządzania dla
 
 4. Jeśli chcesz wyeksportować dane w formacie programu Excel, kliknij ikonę programu Excel nad przyciskiem **Przejdź** .
 
-## <a name="bandwidth"></a>Szerokość pasma
+## <a name="bandwidth"></a>Przepustowość
 Raport o przepustowości składa się z wykresu i tabeli danych, która wskazuje użycie przepustowości sieci CDN dla protokołów HTTP i HTTPS w określonym przedziale czasu, w MB/s. Możesz wyświetlić użycie przepustowości dla wszystkich punktów obecności lub dla określonego punktu obecności. Ten raport umożliwia wyświetlenie wartości szczytowych i rozkładu ruchu dla punktów obecności.
 
 Z listy **węzły krawędzi** zaznacz pozycję **wszystkie węzły krawędzi** , aby wyświetlić ruch ze wszystkich węzłów, lub wybierz konkretny region.

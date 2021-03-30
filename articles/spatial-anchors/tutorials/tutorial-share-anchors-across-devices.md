@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ed9b18144bb727af751fbcbbdd5cc6631afc40f
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185391"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105727233"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Samouczek: udostępnianie kotwic przestrzenny między sesjami i urządzeniami
 
@@ -56,7 +56,7 @@ Otwórz program Visual Studio, a następnie otwórz projekt w folderze *Sharing\
 
 Przed wdrożeniem usługi w programie Visual Studio Code należy utworzyć grupę zasobów i plan App Service.
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>, a następnie zaloguj się do swojej subskrypcji platformy Azure.
 
@@ -86,7 +86,7 @@ Wybierz przycisk **OK**.
 
 Otwórz Visual Studio Code, a następnie otwórz projekt w folderze *Sharing\SharingServiceSample* . 
 
-Aby wdrożyć usługę udostępniania za pomocą Visual Studio Code, postępuj zgodnie z instrukcjami zawartymi w temacie <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">publikowanie aplikacji ASP.NET Core na platformie Azure przy użyciu Visual Studio Code</a>. Zacznij od sekcji "Otwieranie za pomocą Visual Studio Code". Nie twórz innego projektu ASP.NET, jak wyjaśniono w poprzednim kroku, ponieważ masz już projekt do wdrożenia i opublikowania: SharingServiceSample.
+Aby wdrożyć usługę udostępniania za pomocą Visual Studio Code, postępuj zgodnie z instrukcjami zawartymi w temacie <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2&preserve-view=true#open-it-with-visual-studio-code" target="_blank">publikowanie aplikacji ASP.NET Core na platformie Azure przy użyciu Visual Studio Code</a>. Zacznij od sekcji "Otwieranie za pomocą Visual Studio Code". Nie twórz innego projektu ASP.NET, jak wyjaśniono w poprzednim kroku, ponieważ masz już projekt do wdrożenia i opublikowania: SharingServiceSample.
 
 ---
 
