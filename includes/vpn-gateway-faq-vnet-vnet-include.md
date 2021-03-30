@@ -9,10 +9,10 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "67183052"
 ---
 Często zadawane pytania dotyczące połączenia między sieciami wirtualnymi są stosowane do połączeń z usługą VPN Gateway. Informacje o wirtualnych sieciach równorzędnych znajdują się w temacie [Komunikacja równorzędna sieci wirtualnej](../articles/virtual-network/virtual-network-peering-overview.md).

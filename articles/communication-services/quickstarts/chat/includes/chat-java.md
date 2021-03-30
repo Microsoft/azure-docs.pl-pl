@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3cbed124963fe6e56d6721669d0feedc6e34ffc6
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 800acddcb3527b9ca16d7fc664c2a3c27b528c25
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107063"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105726682"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,7 +56,7 @@ W pliku pliku pom odwołuje się do `azure-communication-chat` pakietu za pomoc�
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0-beta.7</version> 
 </dependency>
 ```
 
@@ -89,12 +89,17 @@ Dowiedz się więcej o [architekturze rozmowy](../../../concepts/chat/concepts.m
 Podczas dodawania instrukcji import należy pamiętać, aby tylko dodać importy z przestrzeni nazw com. Azure. Communications. chat i com. Azure. Communications. chat. Models, a nie z obszaru nazw com. Azure. Communications. chat. Implementation. W pliku App. Java, który został wygenerowany za pośrednictwem Maven, można użyć następującego kodu, aby rozpocząć od:
 
 ```Java
+package com.communication.quickstart;
+
 import com.azure.communication.chat.*;
 import com.azure.communication.chat.models.*;
 import com.azure.communication.common.*;
 import com.azure.core.http.HttpClient;
+import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
+import com.azure.core.http.rest.PagedIterable;
 
 import java.io.*;
+import java.util.*;
 
 public class App
 {
@@ -126,36 +131,51 @@ public class App
 }
 ```
 
-
 ## <a name="start-a-chat-thread"></a>Rozpocznij wątek rozmowy
 
 Użyj `createChatThread` metody, aby utworzyć wątek rozmowy.
 `createChatThreadOptions` służy do opisywania żądania wątku.
 
-- Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
+- Użyj `topic` parametru konstruktora, aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
 - Użyj, `participants` Aby wyświetlić listę uczestników wątku, które mają zostać dodane do wątku. `ChatParticipant` Pobiera użytkownika utworzonego w ramach [tokenu dostępu użytkownika](../../access-tokens.md) — Szybki Start.
 
-Odpowiedź `chatThreadClient` jest używana do wykonywania operacji na utworzonym wątku czatu: Dodawanie uczestników do wątku rozmowy, wysyłanie wiadomości, usuwanie wiadomości itd. Zawiera `chatThreadId` Właściwość, która jest unikatowym identyfikatorem wątku rozmowy. Właściwość jest dostępna dla metody publicznej. getChatThreadId ().
+`CreateChatThreadResult` czy odpowiedź została zwrócona przez utworzenie wątku rozmowy. Zawiera metodę, `getChatThread()` która zwraca `ChatThread` obiekt, którego można użyć w celu uzyskania klienta wątku, z którego można uzyskać `ChatThreadClient` wykonywanie operacji w utworzonym wątku: Dodaj uczestników, Wyślij wiadomość itd. `ChatThread` Obiekt zawiera również `getId()` metodę, która pobiera unikatowy identyfikator wątku.
 
 ```Java
-List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
-
 ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
-    
+
 ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
+    .addParticipant(firstThreadParticipant)
+    .addParticipant(secondThreadParticipant);
 
-CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
-    .setTopic("Topic")
-    .setParticipants(participants);
-ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
-String chatThreadId = chatThreadClient.getChatThreadId();
+CreateChatThreadResult result = chatClient.createChatThread(createChatThreadOptions);
+String chatThreadId = result.getChatThread().getId();
+```
+
+## <a name="list-chat-threads"></a>Wyświetl listę wątków czatu
+
+Użyj `listChatThreads` metody, aby pobrać listę istniejących wątków rozmowy.
+
+```java
+PagedIterable<ChatThreadItem> chatThreads = chatClient.listChatThreads();
+
+chatThreads.forEach(chatThread -> {
+    System.out.printf("ChatThread id is %s.\n", chatThread.getId());
+});
+```
+
+## <a name="get-a-chat-thread-client"></a>Pobierz klienta wątku rozmowy
+
+`getChatThreadClient`Metoda zwraca klienta wątku dla wątku, który już istnieje. Może służyć do wykonywania operacji w utworzonym wątku: Dodaj uczestników, Wyślij wiadomość itd. `chatThreadId` jest unikatowym IDENTYFIKATORem istniejącego wątku rozmowy.
+
+```Java
+ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Wyślij wiadomość do wątku rozmowy
@@ -179,84 +199,66 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
-
-## <a name="get-a-chat-thread-client"></a>Pobierz klienta wątku rozmowy
-
-`getChatThreadClient`Metoda zwraca klienta wątku dla wątku, który już istnieje. Może służyć do wykonywania operacji w utworzonym wątku: Dodaj uczestników, Wyślij wiadomość itd. `chatThreadId` jest unikatowym IDENTYFIKATORem istniejącego wątku rozmowy.
-
-```Java
-String chatThreadId = "Id";
-ChatThread chatThread = chatClient.getChatThread(chatThreadId);
-```
-
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Odbieranie komunikatów rozmowy z wątku rozmowy
 
 Komunikaty czatu można pobrać, sondowanie `listMessages` metody na kliencie wątku rozmowy w określonych odstępach czasu.
 
 ```Java
-chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
-    System.out.printf("Response headers are %s. Url %s  and status code %d %n", resp.getHeaders(),
-        resp.getRequest().getUrl(), resp.getStatusCode());
-    resp.getItems().forEach(message -> {
-        System.out.printf("Message id is %s.", message.getId());
-    });
+chatThreadClient.listMessages().forEach(message -> {
+    System.out.printf("Message id is %s.\n", message.getId());
 });
 ```
 
 `listMessages` zwraca najnowszą wersję komunikatu, w tym wszelkie edycje lub usunięcia, które wystąpiły w komunikacie przy użyciu. editMessage () i. deleteMessage (). W przypadku usuniętych komunikatów `chatMessage.getDeletedOn()` Funkcja zwraca wartość typu DateTime wskazującą, kiedy ten komunikat został usunięty. W przypadku edytowanych wiadomości `chatMessage.getEditedOn()` zwraca wartość typu DateTime wskazującą, kiedy wiadomość była edytowana. Pierwotny czas tworzenia wiadomości można uzyskać za pomocą polecenia `chatMessage.getCreatedOn()` i można go użyć do porządkowania komunikatów.
 
-`listMessages` zwraca różne typy komunikatów, które mogą być identyfikowane przez `chatMessage.getType()` . Są to następujące typy:
+Przeczytaj więcej o typach komunikatów tutaj: [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
 
-- `text`: Zwykły komunikat rozmowy Wysłany przez uczestnika wątku.
+## <a name="send-read-receipt"></a>Wyślij potwierdzenie odczytania
 
-- `html`: Komunikat rozmowy HTML Wysłany przez uczestnika wątku.
+Użyj `sendReadReceipt` metody do publikowania zdarzenia odbioru do wątku rozmowy w imieniu użytkownika.
+`chatMessageId` jest unikatowym IDENTYFIKATORem wiadomości czatu, która została odczytana.
 
-- `topicUpdated`: Komunikat systemowy wskazujący, że Zaktualizowano temat.
+```Java
+String chatMessageId = message.getId();
+chatThreadClient.sendReadReceipt(chatMessageId);
+```
 
-- `participantAdded`: Komunikat systemowy wskazujący, że co najmniej jeden uczestnik został dodany do wątku rozmowy.
+## <a name="list-chat-participants"></a>Wyświetl listę uczestników rozmowy
 
-- `participantRemoved`: Komunikat systemowy wskazujący, że uczestnik został usunięty z wątku rozmowy.
+Służy `listParticipants` do pobierania kolekcji stronicowanej zawierającej uczestników wątku rozmowy identyfikowanego przez chatThreadId.
 
-Aby uzyskać więcej informacji, zobacz [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
+```Java
+PagedIterable<ChatParticipant> chatParticipantsResponse = chatThreadClient.listParticipants();
+chatParticipantsResponse.forEach(chatParticipant -> {
+    System.out.printf("Participant id is %s.\n", ((CommunicationUserIdentifier) chatParticipant.getCommunicationIdentifier()).getId());
+});
+```
 
 ## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Dodawanie użytkownika jako uczestnika do wątku czatu
 
 Po utworzeniu wątku rozmowy można z niego dodawać i usuwać użytkowników. Przez dodanie użytkowników można udzielić im dostępu do wysyłania komunikatów do wątku rozmowy i dodawania/usuwania innych uczestników. Musisz zacząć od pobrania nowego tokenu dostępu i tożsamości dla tego użytkownika. Przed wywołaniem metody adduczestniks upewnij się, że uzyskano nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu, aby można było zainicjować klienta rozmowy.
 
-Użyj `addParticipants` metody, aby dodać uczestników do wątku identyfikowanego przez ThreadID.
+Użyj `addParticipants` metody, aby dodać uczestników do wątku.
 
-- Użyj, `listParticipants` Aby wyświetlić listę uczestników, którzy mają zostać dodani do wątku rozmowy.
 - `communicationIdentifier`, wymagane, to CommunicationIdentifier, który został utworzony przez CommunicationIdentityClient w [tokenie dostępu użytkownika](../../access-tokens.md) — Szybki Start.
-- `display_name`, opcjonalnie, jest nazwą wyświetlaną uczestnika wątku.
-- `share_history_time`, opcjonalnie, to czas, po którym historia rozmowy jest udostępniana uczestnikowi. Aby udostępnić historię od momentu rozpoczęcia wątku rozmowy, należy ustawić tę właściwość na dowolną datę równą lub mniejszą niż godzina utworzenia wątku. Aby po dodaniu uczestnika nie była udostępniona żadna historia, ustaw ją na bieżącą datę. Aby udostępnić historię częściową, ustaw ją na wymaganą datę.
+- `displayName`, opcjonalnie, jest nazwą wyświetlaną uczestnika wątku.
+- `shareHistoryTime`, opcjonalnie, to czas, po którym historia rozmowy jest udostępniana uczestnikowi. Aby udostępnić historię od momentu rozpoczęcia wątku rozmowy, należy ustawić tę właściwość na dowolną datę równą lub mniejszą niż godzina utworzenia wątku. Aby po dodaniu uczestnika nie była udostępniona żadna historia, ustaw ją na bieżącą datę. Aby udostępnić historię częściową, ustaw ją na wymaganą datę.
 
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity1)
-    .setDisplayName("Display Name 1");
+ChatParticipant thirdThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user3)
+    .setDisplayName("Display Name 3");
 
-ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity2)
-    .setDisplayName("Display Name 2");
+ChatParticipant fourthThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user4)
+    .setDisplayName("Display Name 4");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+participants.add(thirdThreadParticipant);
+participants.add(fourthThreadParticipant);
 
-AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
-    .setParticipants(participants);
-chatThreadClient.addParticipants(addChatParticipantsOptions);
-```
-
-## <a name="remove-participant-from-a-chat-thread"></a>Usuwanie uczestnika z wątku rozmowy
-
-Podobnie jak w przypadku dodawania uczestnika do wątku, można usunąć uczestników z wątku rozmowy. W tym celu należy śledzić tożsamości dodanych uczestników.
-
-Użyj `removeParticipant` , gdzie `identifier` to CommunicationIdentifier, który został utworzony.
-
-```Java
-chatThreadClient.removeParticipant(identity);
+chatThreadClient.addParticipants(participants);
 ```
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
