@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,14 +9,14 @@ author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
 ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "75659880"
 ---
 >[!IMPORTANT]
->Możesz użyć zasobów utworzonych jako wymagania wstępne dla innych samouczków Azure Machine Learning i artykułów z przewodnikiem.
+>Utworzone zasoby możesz wykorzystać na potrzeby wymagań wstępnych innych samouczków i artykułów dotyczących usługi Azure Machine Learning.
 
 ### <a name="delete-everything"></a>Usuń wszystko
 
@@ -36,7 +36,7 @@ Usunięcie grupy zasobów spowoduje również usunięcie wszystkich zasobów utw
 
 W projektancie, w którym został utworzony eksperyment, Usuń pojedyncze zasoby, zaznaczając je, a następnie wybierając przycisk **Usuń** .
 
-Obiekt docelowy obliczeń, który został utworzony w tym miejscu, *automatycznie przeskaluje* się do zerowych węzłów, gdy nie jest używany. To działanie jest podejmowane w celu zminimalizowania opłat.Jeśli chcesz usunąć element docelowy obliczeń, wykonaj następujące czynności:
+Obiekt docelowy obliczeń, który został utworzony w tym miejscu, *automatycznie przeskaluje* się do zerowych węzłów, gdy nie jest używany. To działanie jest podejmowane w celu zminimalizowania opłat. Jeśli chcesz usunąć element docelowy obliczeń, wykonaj następujące czynności:
 
 ![Usuń zasoby](./media/aml-ui-cleanup/delete-asset.png)
 
