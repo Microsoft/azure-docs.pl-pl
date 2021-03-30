@@ -10,10 +10,10 @@ author: sivethe
 ms.author: sivethe
 ms.custom: devx-track-js
 ms.openlocfilehash: c2117c535cca679d3a7a3b75491bf60ab9567ceb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93098216"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Tworzenie aplikacji przy użyciu środowiska Node.js i interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB 
