@@ -4,10 +4,10 @@ description: W tym artykule opisano funkcje zabezpieczeń sieci, takie jak Tagi 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92310461"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Zabezpieczenia sieci dla Azure Service Bus 

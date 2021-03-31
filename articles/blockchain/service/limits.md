@@ -5,10 +5,10 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80676514"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limity w usłudze Azure łańcucha bloków Service
@@ -22,7 +22,7 @@ Maksymalne limity dotyczące transakcji i węzłów modułu sprawdzania poprawno
 | Warstwa cenowa | Maksymalna liczba węzłów transakcji | Maksymalna liczba węzłów modułu sprawdzania poprawności |
 |:---|:---:|:---:|
 | Podstawowa | 10 | 1 |
-| Standardowa | 10 | 2 |
+| Standardowa (Standard) | 10 | 2 |
 
 Sieć konsorcjum powinna mieć co najmniej dwa węzły warstwy Standardowa usługi Azure łańcucha bloków. Węzły warstwy standardowej obejmują dwa węzły modułu sprawdzania poprawności. Cztery węzły modułu sprawdzania poprawności są wymagane do zaspokojenia [Byzantine z odpornością na uszkodzenia Stambuł](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 

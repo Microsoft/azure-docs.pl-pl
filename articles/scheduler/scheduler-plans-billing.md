@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "78898475"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Plany i rozliczenia w usłudze Azure Scheduler
@@ -33,7 +33,7 @@ W usłudze Azure Scheduler kolekcja zadań zawiera określoną liczbę zadań. K
 | **P20 Premium** | 1000 zadań na kolekcję | Jeden na minutę. Nie można uruchamiać zadań częściej niż jeden na minutę. | Każda subskrypcja platformy Azure może mieć do 5 000 P20 Premium kolekcji zadań. Aby uzyskać więcej kolekcji, <a href="mailto:wapteams@microsoft.com">skontaktuj się z nami</a>. | Dostęp do pełnego zestawu funkcji usługi Scheduler |
 |||||| 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Scheduler](https://azure.microsoft.com/pricing/details/scheduler/).
 

@@ -172,7 +172,7 @@
           displayName: 'connections, Purdue, zoom, delete device'
         - name: Praca z alertami wykrytymi przez czujnik
           items:
-            - name: Informacje o alertach czujników
+            - name: Omówienie alertów czujnika
               href: how-to-work-with-alerts-on-your-sensor.md
             - name: Filtrowanie alertów i zarządzanie nimi na stronie alertów
               href: how-to-view-alerts.md
@@ -181,11 +181,11 @@
               displayName: 'PCAP, metadata, alerts, link, device map,'
             - name: Typy alertów i opisy
               href: alert-engine-messages.md
-              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational'
-            - name: Zarządzanie zdarzeniem alertu
+              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts,'
+            - name: Zarządzanie zdarzeniami alertów
               href: how-to-manage-the-alert-event.md
               displayName: 'PCAP, acknowledge, learn, mute, policy'
-            - name: Skracanie czasu reakcji na incydent zgłaszany przez alert
+            - name: Przyspiesz przepływy pracy alertów
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
             - name: Przekazywanie informacji o alercie

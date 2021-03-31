@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91313624"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync: wyjaśnienie aprowizacji deklaracyjnej
@@ -66,7 +66,7 @@ Moduł Scope obsługuje następujące operacje.
 | ISBITSET, ISNOTBITSET |Oblicza, czy określony bit jest ustawiony. Na przykład można użyć do obliczenia bitów w kontroli konta użytkownika, aby sprawdzić, czy użytkownik jest włączony lub wyłączony. |
 | ISMEMBEROF, ISNOTMEMBEROF |Wartość powinna zawierać nazwę DN do grupy w obszarze łącznika. Jeśli obiekt jest członkiem określonej grupy, reguła znajduje się w zakresie. |
 
-## <a name="join"></a>Join
+## <a name="join"></a>Dołączanie
 Moduł JOIN w potoku synchronizacji jest odpowiedzialny za znalezienie relacji między obiektem w obiekcie źródłowym a obiektem w obiekcie docelowym. W regule ruchu przychodzącego ta relacja powinna być obiektem w obszarze łącznika, który umożliwia znalezienie relacji do obiektu w obiekcie Metaverse.  
 ![Dołącz do między cs i MV](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
 Celem jest sprawdzenie, czy istnieje obiekt znajdujący się już w magazynie Metaverse utworzonym przez inny łącznik, powinien zostać skojarzony z. Na przykład w lesie zasobów konta użytkownik z lasu kont powinien być przyłączony do użytkownika z lasu zasobów.

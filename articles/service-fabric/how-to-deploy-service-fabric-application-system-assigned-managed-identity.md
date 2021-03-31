@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób przypisywania tożsamości zarządza
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81415655"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej przypisanej przez system
