@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784312"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
@@ -825,7 +825,7 @@ Poniżej przedstawiono niektóre powszechnie używane typy akcji:
 | [**HTTP**](#http-action) | Wywołuje punkt końcowy HTTP. | 
 | [**Dołączanie**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
 | [**Analiza JSON**](#parse-json-action) | Tworzy przyjazne dla użytkownika tokeny na podstawie właściwości w zawartości JSON. Następnie można odwołać się do tych właściwości, dołączając tokeny w aplikacji logiki. | 
-| [**Zapytanie**](#query-action) | Tworzy tablicę z elementów w innej tablicy na podstawie warunku lub filtru. | 
+| [**Dotyczących**](#query-action) | Tworzy tablicę z elementów w innej tablicy na podstawie warunku lub filtru. | 
 | [**Odpowiedź**](#response-action) | Tworzy odpowiedź na wywołanie przychodzące lub żądanie. | 
 | [**Wybierz pozycję**](#select-action) | Tworzy tablicę z obiektami JSON przez transformowanie elementów z innej tablicy na podstawie określonej mapy. | 
 | [**Tabela**](#table-action) | Tworzy tabelę CSV lub HTML z tablicy. | 

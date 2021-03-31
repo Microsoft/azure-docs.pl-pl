@@ -9,10 +9,10 @@ ms.date: 04/06/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0b185d545e129c941d5df2e8ce86ee684174b666
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81008355"
 ---
 Obecnie tylko usługi Ultra disks i Premium dysków SSD mogą włączyć dyski udostępnione. Różne rozmiary dysków mogą mieć inny `maxShares` limit, którego nie można przekroczyć podczas ustawiania `maxShares` wartości. W przypadku wersji Premium dysków SSD rozmiary dysków, które obsługują udostępnianie ich dysków, są P15 i większe.

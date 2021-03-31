@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: 948b5aa0ad015f9f3c693e13219ec034724687c0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95913168"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Korzystanie z identyfikatora URI usługi Azure Data Lake Storage Gen2

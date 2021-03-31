@@ -8,10 +8,10 @@ ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: bb07adafbc68ff1e9b7d3ee49bb7631dc4395d77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97033463"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>Rozwiązywanie problemów podczas korzystania z emulatora Azure Cosmos DB

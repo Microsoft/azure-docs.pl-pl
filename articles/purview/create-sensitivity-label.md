@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102502450"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
@@ -198,7 +198,7 @@ Skanuj dane w usłudze Azure kontrolą, aby automatycznie zastosować utworzone 
 
 Aby uzyskać więcej informacji na temat sposobu konfigurowania skanowania dla różnych zasobów w usłudze Azure kontrolą, zobacz:
 
-|Element źródłowy  |Dokumentacja  |
+|Element źródłowy  |Odwołanie  |
 |---------|---------|
 |**Azure Blob Storage**     |[Rejestrowanie i skanowanie Blob Storage platformy Azure](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Rejestruj i Skanuj Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Rejestruj i Skanuj Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |

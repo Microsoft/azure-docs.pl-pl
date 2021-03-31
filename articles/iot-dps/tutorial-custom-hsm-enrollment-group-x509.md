@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: b178aa4a524cb7fcc85c7fc68ac5f772747787a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99052366"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Samouczek: Inicjowanie obsługi wielu urządzeń X. 509 przy użyciu grup rejestracji
