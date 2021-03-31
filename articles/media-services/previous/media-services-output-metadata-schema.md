@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 519aa158d60eae97eb4c1b792bcecfc8a6c066e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008296"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
@@ -101,7 +101,7 @@ Określona ścieżka wideo w AssetFile nadrzędnym.
 | --- | --- | --- |
 | **#C1**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**XS: int** |Indeks tej ścieżki wideo liczony od zera. **Uwaga:**  Ten **Identyfikator** nie musi być TrackID używany w pliku MP4. |
 | **FourCC**<br/><br/> Wymagane |**XS: ciąg** |Kod kodera-dekoder wideo FourCC. |
-| **Profilu** |**XS: ciąg** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264). |
+| **Profil** |**XS: ciąg** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264). |
 | **Poziomie** |**XS: ciąg** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec). |
 | **Width**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**XS: int** |Zakodowana Szerokość wideo (w pikselach). |
 | **Height**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**XS: int** |Zakodowana wysokość wideo w pikselach. |

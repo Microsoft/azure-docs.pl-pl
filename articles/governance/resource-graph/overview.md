@@ -4,10 +4,10 @@ description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwi
 ms.date: 01/27/2021
 ms.topic: overview
 ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919145"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?

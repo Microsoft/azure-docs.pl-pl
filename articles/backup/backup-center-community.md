@@ -4,10 +4,10 @@ description: Korzystanie z centrum kopii zapasowych w celu uzyskiwania dostępu 
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.openlocfilehash: b5173f916341497620d521af1bc7e973e0b6e507
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102506274"
 ---
 # <a name="access-community-resources-using-backup-center"></a>Dostęp do zasobów społeczności za pomocą centrum kopii zapasowych

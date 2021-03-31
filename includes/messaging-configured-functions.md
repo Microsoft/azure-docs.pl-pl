@@ -9,10 +9,10 @@ ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98901100"
 ---
 Azure Functions umożliwia tworzenie zadań replikacji przeznaczonych tylko do konfiguracji, które są pochylenie w przedbudowanym punkcie wejścia. [Przykłady replikacji opartej na konfiguracji dla Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) ilustrują sposób korzystania z [prebudowanych pomocników](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) w własnym kodzie lub uniknąć całkowitego obsługi kodu i samego użycia konfiguracji.

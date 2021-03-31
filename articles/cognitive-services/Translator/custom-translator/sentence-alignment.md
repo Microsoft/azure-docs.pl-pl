@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98897955"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Parowanie i wyrównanie zdań w dokumentach równoległych
@@ -36,7 +36,7 @@ Aby szkolenie powiodło się, w poniższej tabeli przedstawiono minimalną liczb
 
 | Typ dokumentu   | Sugerowana minimalna liczba zdań | Maksymalna liczba zdań |
 |------------|--------------------------------------------|--------------------------------|
-| Szkolenia   | 10 000                                     | Brak górnego limitu                 |
+| Szkolenie   | 10 000                                     | Brak górnego limitu                 |
 | Dostrajanie     | 500                                      | 2500       |
 | Testowanie    | 500                                      | 2500  |
 | Słownik | 0                                          | Brak górnego limitu                 |

@@ -4,10 +4,10 @@ description: W tym samouczku utworzysz zapytanie grafu zasobów i udostępnisz n
 ms.date: 01/27/2021
 ms.topic: tutorial
 ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98916682"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy wykresu zasobów platformy Azure w Azure Portal

@@ -63,7 +63,7 @@ Podczas tworzenia publicznego adresu IP przy użyciu **standardowej** jednostki 
 
 W przypadku tworzenia publicznego adresu IP przy użyciu **podstawowej** jednostki SKU publicznego adresu IP Brama jest wdrażana jako brama regionalna i nie ma żadnej wbudowanej ze strefą nadmiarowości w bramie.
 
-## <a name="faq"></a><a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Co zmienią się, gdy wdrażam te nowe jednostki SKU?
 
