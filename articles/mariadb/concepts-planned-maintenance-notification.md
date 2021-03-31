@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664269"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Powiadomienie o planowanej konserwacji w Azure Database for MariaDB
@@ -23,9 +23,9 @@ Usługa Azure Database for MariaDB wykonuje zautomatyzowane stosowanie poprawek 
 
 Planowana konserwacja to okno obsługi, gdy aktualizacje usługi są wdrażane na serwerach w danym regionie świadczenia usługi Azure. Podczas planowanej konserwacji jest tworzone zdarzenie powiadomienia informujące klientów o wdrożeniu aktualizacji usługi w regionie świadczenia platformy Azure, w którym serwery są hostowane. Minimalny czas trwania między dwoma planowanymi konserwacjami to 30 dni. 72 godziny wcześniej otrzymasz powiadomienie o następnym oknie obsługi.
 
-## <a name="planned-maintenance---duration-and-customer-impact"></a>Planowana konserwacja — czas trwania i wpływ klienta
+## <a name="planned-maintenance---duration-and-customer-impact"></a>Planowana konserwacja — czas trwania i wpływ na klientów
 
-Planowana konserwacja dla danego regionu świadczenia usługi Azure zazwyczaj oczekuje na 15 godzin. W razie potrzeby okno zawiera również czas buforowania w celu wykonania planu wycofywania. Podczas planowanej konserwacji mogą wystąpić ponowne uruchomienia serwera bazy danych lub przełączenia w tryb failover, co może prowadzić do krótkich niedostępności serwerów baz danych dla użytkowników końcowych. Serwery Azure Database for MariaDB są uruchomione w kontenerach, więc ponowne uruchomienia serwera bazy danych są zwykle szybkie, oczekiwane zwykle w ciągu 60-120 sekund. Całe planowane zdarzenie konserwacji, w tym każde ponowne uruchomienie serwera, jest starannie monitorowane przez Zespół inżynieryjny. Czas pracy awaryjnej serwera zależy od czasu odzyskiwania bazy danych, co może spowodować, że baza danych będzie przełączona w tryb online, jeśli na serwerze w momencie przejścia w tryb failover występuje intensywna aktywność transakcyjna. Aby uniknąć dłuższego czasu ponownego uruchomienia, zaleca się uniknięcie wolnych długotrwałych transakcji (ładowania zbiorczego) podczas planowanych zdarzeń konserwacji.
+Planowana konserwacja dla danego regionu świadczenia platformy Azure zazwyczaj trwa 15 godzin. W razie potrzeby okno zawiera również czas buforowania w celu wykonania planu wycofywania. Podczas planowanej konserwacji mogą wystąpić ponowne uruchomienia serwera bazy danych lub przełączenia w tryb failover, co może prowadzić do krótkich niedostępności serwerów baz danych dla użytkowników końcowych. Serwery Azure Database for MariaDB są uruchomione w kontenerach, więc ponowne uruchomienia serwera bazy danych są zwykle szybkie, oczekiwane zwykle w ciągu 60-120 sekund. Całe planowane zdarzenie konserwacji, w tym każde ponowne uruchomienie serwera, jest starannie monitorowane przez Zespół inżynieryjny. Czas pracy awaryjnej serwera zależy od czasu odzyskiwania bazy danych, co może spowodować, że baza danych będzie przełączona w tryb online, jeśli na serwerze w momencie przejścia w tryb failover występuje intensywna aktywność transakcyjna. Aby uniknąć dłuższego czasu ponownego uruchomienia, zaleca się uniknięcie wolnych długotrwałych transakcji (ładowania zbiorczego) podczas planowanych zdarzeń konserwacji.
 
 Podsumowując, podczas gdy planowane zdarzenie konserwacji działa przez 15 godzin, wpływ na serwer jest zazwyczaj trwa 60 sekund w zależności od aktywności transakcyjnej na serwerze. Powiadomienie jest wysyłane 72 godzin kalendarzowych przed rozpoczęciem zaplanowanej konserwacji i innym, gdy konserwacja jest w toku dla danego regionu.
 
@@ -67,7 +67,7 @@ Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji u
 
 Aby zapewnić bezpieczeństwo i stabilność serwera, należy przeprowadzić konserwację. Nie można anulować lub odłożyć planowanego zdarzenia konserwacji. Po wysłaniu powiadomienia do danego regionu świadczenia usługi Azure nie można zmienić harmonogramu poprawek dla każdego serwera w tym regionie. Poprawka jest rzutowana na cały region jednocześnie. Usługa Azure Database for MariaDB jest przeznaczona dla natywnej aplikacji w chmurze, która nie wymaga szczegółowej kontroli ani dostosowywania usługi.
 
-## <a name="are-all-the-azure-regions-patched-at-the-same-time"></a>Czy wszystkie regiony platformy Azure są poprawiane w tym samym czasie?
+## <a name="are-all-the-azure-regions-patched-at-the-same-time"></a>Czy we wszystkich regionach świadczenia platformy Azure poprawki są stosowane w tym samym czasie?
 
 Nie. wszystkie regiony platformy Azure są poprawiane w czasie trwania okna wdrożenia. Przeważnie okno wdrożenia zazwyczaj rozciąga się od 5 PM-8 czasu lokalnego na dzień w danym regionie świadczenia usługi Azure. Wielowymiarowe regiony platformy Azure są poprawione w różnych dniach. Aby zapewnić wysoką dostępność i ciągłość działania serwerów baz danych, zaleca się korzystanie z [replik odczytu między regionami](./concepts-read-replicas.md#cross-region-replication) .
 

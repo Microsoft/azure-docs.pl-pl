@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018566"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Use Job Browser and Job View for Azure Data Lake Analytics (Korzystanie z przeglądarki zadań i widoku zadań dla usługi Azure Data Lake Analytics)

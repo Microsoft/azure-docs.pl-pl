@@ -10,10 +10,10 @@ ms.date: 05/26/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895715"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
