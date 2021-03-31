@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 446a3b786686d96f68d2d0a09d00a75e176a7661
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86218177"
 ---
 Za pomocą Azure Cloud Shell można uruchamiać większość poleceń cmdlet programu PowerShell i poleceń interfejsu wiersza polecenia, a nie instalować Azure PowerShell lub interfejsu CLI lokalnie. Azure Cloud Shell to bezpłatna interaktywna powłoka, która ma wspólne narzędzia platformy Azure preinstalowane i jest skonfigurowana do użycia z Twoim kontem.

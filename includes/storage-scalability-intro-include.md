@@ -9,10 +9,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8c5c0c8f649e7cbab2c16688717de1aaabfb93c5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75477150"
 ---
 Ta dokumentacja zawiera szczegóły dotyczące skalowalności i wydajności dla usługi Azure Storage. Elementy docelowe skalowalności i wydajności wymienione w tym miejscu są obiektami docelowymi wysokiej klasy, ale są osiągalne. We wszystkich przypadkach częstotliwość żądań i przepustowość osiągnięta przez konto magazynu zależy od rozmiaru przechowywanych obiektów, użytych wzorców dostępu oraz typu obciążenia wykonywanego przez aplikację.
