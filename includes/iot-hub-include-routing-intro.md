@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85128192"
 ---
 [Routing komunikatów](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) umożliwia wysyłanie danych telemetrycznych z urządzeń IoT do wbudowanych punktów końcowych zgodnych z centrum zdarzeń lub niestandardowych punktów końcowych, takich jak BLOB storage, Service Bus Queues, tematy Service Bus i Event Hubs. Aby skonfigurować niestandardowy Routing komunikatów, tworzysz [zapytania routingu](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) w celu dostosowania trasy zgodnej z określonym warunkiem. Po zakończeniu konfiguracji dane przychodzące są automatycznie rozsyłane do punktów końcowych przez usługę IoT Hub. Jeśli komunikat nie jest zgodny z żadną z określonych zapytań routingu, jest kierowany do domyślnego punktu końcowego.

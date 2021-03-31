@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 3af2e849aa6658e539b0b5bdbda4428cc28e5ce5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84887230"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN
@@ -51,7 +51,7 @@ Dostępne są następujące wykresy:
 
 Na każdym z wykresów są wyświetlane statystyki w czasie rzeczywistym dla wybranego przedziału czasu, rozpoczynając od ładowania strony.  Wykresy są aktualizowane automatycznie co kilka sekund.  Przycisk **Odśwież wykres** , jeśli jest obecny, spowoduje wyczyszczenie grafu, po którym będą wyświetlane tylko wybrane dane.
 
-## <a name="bandwidth"></a>Szerokość pasma
+## <a name="bandwidth"></a>Przepustowość
 ![Wykres przepustowości](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
 Wykres **przepustowości** przedstawia ilość przepustowości używanej przez bieżącą platformę w wybranym przedziale czasu. Zacieniona część wykresu wskazuje użycie przepustowości. Dokładna ilość aktualnie używanej przepustowości jest wyświetlana bezpośrednio pod wykresem liniowym.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92536763"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
@@ -146,7 +146,7 @@ Poniższa tabela zawiera właściwości i opisy często używanych parametrów p
 | ResourceGroupName |Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna | |
 | Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |PAMIĘCI |
 | ShardCount |Liczba fragmentów do utworzenia podczas tworzenia pamięci podręcznej Premium z włączoną obsługą klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standardowa |
+| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standardowa (Standard) |
 | RedisConfiguration |Określa ustawienia konfiguracji Redis. Aby uzyskać szczegółowe informacje na temat każdego ustawienia, zobacz następującą tabelę [Właściwości RedisConfiguration](#redisconfiguration-properties) . | |
 | EnableNonSslPort |Wskazuje, czy port bez obsługi protokołu SSL jest włączony. |Fałsz |
 | MaxMemoryPolicy |Ten parametr jest przestarzały — zamiast tego należy użyć RedisConfiguration. | |

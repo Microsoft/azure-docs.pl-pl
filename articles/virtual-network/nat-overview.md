@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
 ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91667201"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
@@ -123,7 +123,7 @@ Można monitorować operacje NAT za pomocą wielowymiarowych metryk uwidoczniony
 
 Przy ogólnej dostępności ścieżka danych NAT jest dostępna co najmniej 99,9%.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network).
 
