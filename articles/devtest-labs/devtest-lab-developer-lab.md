@@ -4,10 +4,10 @@ description: Dowiedz się więcej o funkcjach Azure DevTest Labs, których możn
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4f195f843e30ad1a56bad7d5b9ca9e73888783b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89296247"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Użyj Azure DevTest Labs dla deweloperów
