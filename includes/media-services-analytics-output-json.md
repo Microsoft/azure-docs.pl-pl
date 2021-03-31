@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "67183645"
 ---
 Zadanie tworzy plik wyjściowy JSON zawierający metadane dotyczące wykrytych i śledzonych twarzy. Metadane obejmują współrzędne wskazujące lokalizację powierzchni, a także numer IDENTYFIKACYJNy twarzy wskazujący na śledzenie tej osoby. Numery IDENTYFIKACYJNe kroju są podatne na zresetowanie w warunkach, gdy czołowa powierzchnia zostanie utracona lub nakłada się w ramkę, co oznacza, że niektóre osoby mogą uzyskać przypisane wiele identyfikatorów.

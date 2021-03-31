@@ -4,10 +4,10 @@ description: Ten artykuł zawiera procedury tworzenia kopii zapasowych i odzyski
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: a020559229771fff1ecc8fb512a5b2af70240cdd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102509510"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą Azure Backup Server

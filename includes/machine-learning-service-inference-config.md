@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: a03f71adc99063fee4374b1436b08adf5bab783d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102510655"
 ---
 Wpisy w dokumencie są `inferenceconfig.json` mapowane na parametry klasy [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) . W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
