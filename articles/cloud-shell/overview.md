@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
 ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89468661"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie usługi Azure Cloud Shell
@@ -113,7 +113,7 @@ Przeczytaj więcej, aby dowiedzieć się, jak zainstalować [nowe lub istniejąc
 
 Dowiedz się więcej o funkcjach w programie [Bash Cloud Shell](features.md) i [programu PowerShell w programie Cloud Shell](./features.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Cloud Shell hostingu maszynowego jest bezpłatny z warunkiem wstępnym udziału Azure Files zainstalowanego. Obowiązują standardowe koszty magazynowania.
 
