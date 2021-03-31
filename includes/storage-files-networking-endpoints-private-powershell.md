@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 1c8ccc1e1ee8c8c1b1a1e27443d27b2140a91649
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84465017"
 ---
 Aby utworzyć prywatny punkt końcowy dla konta magazynu, najpierw musisz uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zamień `<storage-account-resource-group-name>` ,  `<storage-account-name>` , `<vnet-resource-group-name>` , `<vnet-name>` i `<vnet-subnet-name>` poniżej:

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.openlocfilehash: d6a6c8b49582b34c2603e0ddf78b76736f97c183
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92445583"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z programem obsługi

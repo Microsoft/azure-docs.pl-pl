@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 011bbbda07806f1493ae27fbeef8509f0d12c44b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92518454"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Samouczek: integracja RunMyProcess z usługą Azure Active Directory
@@ -158,7 +158,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze RunMyPr
 
 1. W sekcji **Ustawienia użytkownika** wykonaj następujące czynności:
 
-    ![Profilu](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profil")
+    ![Profil](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profil")
   
     a. Wpisz **nazwę** i **adres E-mail** prawidłowego konta usługi Azure AD, które chcesz udostępnić do powiązanych pól tekstowych.
 

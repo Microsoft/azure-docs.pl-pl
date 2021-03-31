@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84712449"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Przykłady kodu operacji danych dla usługi Azure Logic Apps
@@ -222,7 +222,7 @@ Aby wypróbować [przykład operacji **filtrowania tablicy**](../logic-apps/logi
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Join
+## <a name="join"></a>Dołączanie
 
 Aby wypróbować [przykład operacji **Join**](../logic-apps/logic-apps-perform-data-operations.md#join-action), poniżej przedstawiono definicje akcji, których można użyć:
 
