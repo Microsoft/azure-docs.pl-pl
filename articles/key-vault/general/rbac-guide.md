@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100527068"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach na platformie Azure
@@ -227,7 +227,7 @@ Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zob
 
 -   Opóźnienie przypisań ról: w bieżącej oczekiwanej wydajności zajmie to 10 minut (600 sekund) po zmianie przypisań ról dla roli do zastosowania
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Przegląd RBAC platformy Azure](../../role-based-access-control/overview.md)
 - [Samouczek ról niestandardowych](../../role-based-access-control/tutorial-custom-role-cli.md)

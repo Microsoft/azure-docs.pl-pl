@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100526956"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrowanie z zasad dostępu do magazynu do modelu uprawnień kontroli dostępu opartej na rolach na platformie Azure
@@ -118,7 +118,7 @@ Istnieje wiele różnic między modelem uprawnień usługi Azure RBAC i zasadami
 -  Przypisanie roli nie działa po kilku minutach — istnieją sytuacje, w których może upłynąć więcej czasu. Ważne jest zapisanie logiki ponawiania w kodzie, aby uwzględnić te przypadki.
 - Przypisania ról zniknęły po usunięciu Key Vault (usuwanie nietrwałe) i odzyskanych — obecnie ograniczenie funkcji usuwania nietrwałego w ramach wszystkich usług platformy Azure. Wymagane jest ponowne utworzenie wszystkich przypisań ról po odzyskaniu.    
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Przegląd RBAC platformy Azure](../../role-based-access-control/overview.md)
 - [Samouczek ról niestandardowych](../../role-based-access-control/tutorial-custom-role-cli.md)

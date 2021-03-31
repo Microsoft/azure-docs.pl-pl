@@ -4,10 +4,10 @@ description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzys
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101699610"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru

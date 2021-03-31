@@ -15,7 +15,7 @@ ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "75864183"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Azure Data Lake przewodniki dotyczące analizy danych przy użyciu języka U-SQL

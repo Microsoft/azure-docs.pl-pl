@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 0ed41cc01fcf5aa35b3d2195518b8e2bb0f3b9c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104588243"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
@@ -47,7 +47,7 @@ Instalowanie udziałów plików platformy Azure w systemie plików NFS 4,1 jest 
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
-#### <a name="regional-availability"></a>Dostępność regionalna
+#### <a name="regional-availability"></a>Dostępność w regionach
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 

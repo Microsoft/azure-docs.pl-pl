@@ -4,10 +4,10 @@ description: Ten artykuł zawiera Azure Monitor metryki obsługiwane przez usłu
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.openlocfilehash: 321e318f9dab87fde20b33a6a3a906b020ada622
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104588736"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Metryki obsługiwane przez Azure Event Grid

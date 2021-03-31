@@ -11,10 +11,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104588260"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side szyfrowanie i Azure Key Vault Microsoft Azure Storage
@@ -85,7 +85,7 @@ Podczas szyfrowania Biblioteka klienta generuje losową część IV 16 bajtów w
 
 Podczas odszyfrowywania, opakowany klucz jest wyodrębniany z komunikatu kolejki i nieopakowany. IV jest również wyodrębniany z komunikatu kolejki i używany razem z nieopakowanym kluczem do odszyfrowania danych komunikatu w kolejce. Należy pamiętać, że metadane szyfrowania są małe (poniżej 500 bajtów), więc w miarę jak licznik KB dla komunikatu kolejki, wpływ powinien być zarządzany. Należy pamiętać, że zaszyfrowany komunikat będzie kodowany algorytmem Base64, jak pokazano w powyższym fragmencie kodu, co spowoduje również powiększenie rozmiaru wysyłanej wiadomości.
 
-### <a name="tables"></a>Tabele
+### <a name="tables"></a>tabelami
 
 > [!NOTE]
 > Table service jest obsługiwana w bibliotece klienta usługi Azure Storage tylko w wersji 9. x.
