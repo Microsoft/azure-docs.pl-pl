@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
 ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98234192"
 ---
 # <a name="azure-networking-services-overview"></a>Omówienie usług sieciowych platformy Azure
@@ -93,7 +93,7 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają oc
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDoS Protection":::
 
-### <a name="azure-private-link"></a><a name="privatelink"></a>Prywatny link do platformy Azure
+### <a name="azure-private-link"></a><a name="privatelink"></a>Link prywatny platformy Azure
 [Link prywatny platformy Azure](../private-link/private-link-overview.md) umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach prywatnego punktu końcowego w sieci wirtualnej.
 Ruch między siecią wirtualną a usługą porusza się w sieci szkieletowej firmy Microsoft. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne. Możesz utworzyć własną prywatną usługę linku w sieci wirtualnej i dostarczyć jej klientom.
 

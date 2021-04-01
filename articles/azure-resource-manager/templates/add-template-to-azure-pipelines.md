@@ -4,10 +4,10 @@ description: Opisuje sposób konfigurowania ciągłej integracji w programie Azu
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561946"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów usługi ARM z usługą Azure Pipelines
