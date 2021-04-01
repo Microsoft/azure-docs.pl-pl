@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
 ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96499683"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Praca zdalna: zagadnienia dotyczące sieciowego urządzenia wirtualnego (urządzenie WUS) na potrzeby pracy zdalnej
@@ -35,7 +35,7 @@ Wszyscy urządzenie WUS dostawcy w witrynie Azure Marketplace powinni mieć zale
 - **Liczba wystąpień** — jeśli oczekujesz dużej liczby użytkowników i połączeń, istnieją ograniczenia skalowania rozmiaru wystąpienia urządzenie WUS.  Rozważ wdrożenie wielu wystąpień maszyn wirtualnych.
 - **IPsec sieci** VPN i sieci VPN SSL — ogólne implementacje protokołu IPsec sieci VPN wykonują lepsze niż IMPLEMENTACJE protokołu SSL sieci VPN.  
 - **Licencjonowanie** — upewnij się, że licencje na oprogramowanie zakupione w ramach rozwiązania urządzenie WUS będą obejmować nagły wzrost, który można napotkać podczas epidemii COVID-19.  Wiele programów licencjonowania urządzenie WUS ogranicza liczbę połączeń lub przepustowość, do których rozwiązanie jest możliwe.
-- **Przyspieszona sieć** — Rozważ rozwiązanie urządzenie WUS, które obsługuje przyspieszone sieci.  Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta ze ścieżki danych, skracając czas opóźnienia, wahania i użycie procesora CPU w przypadku najbardziej wymagających obciążeń sieciowych na obsługiwanych typach maszyn wirtualnych. Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych vCPU.
+- **Przyspieszona sieć** — Rozważ rozwiązanie urządzenie WUS, które obsługuje przyspieszone sieci.  Przyspieszona sieć obsługuje wirtualizację we/wy z pojedynczym elementem głównym (SR-IOV) dla maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta ze ścieżki danych, skracając czas opóźnienia, wahania i użycie procesora CPU w przypadku najbardziej wymagających obciążeń sieciowych na obsługiwanych typach maszyn wirtualnych. Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych vCPU.
 
 ## <a name="monitoring-resources"></a>Monitorowanie zasobów
 

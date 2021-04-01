@@ -7,10 +7,10 @@ ms.date: 09/29/2020
 ms.author: normesta
 ms.custom: include file
 ms.openlocfilehash: 9750eabf2aa5af4f431f2db17e113b07d3bce863
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017689"
 ---
 Zawsze używaj [grup zabezpieczeń usługi Azure AD](../articles/active-directory/fundamentals/active-directory-manage-groups.md) jako przypisanego podmiotu zabezpieczeń w pozycji listy ACL. Odporne na możliwość bezpośredniego przypisywania poszczególnych użytkowników lub podmiotów usługi. Użycie tej struktury umożliwi Dodawanie i usuwanie użytkowników lub jednostek usług bez konieczności ponownego stosowania list kontroli dostępu do całej struktury katalogów. Zamiast tego można po prostu dodać lub usunąć użytkowników i jednostki usługi z odpowiedniej grupy zabezpieczeń usługi Azure AD. 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonwertować zasady grupy z linii bazowej zabezp
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93348648"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows

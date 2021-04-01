@@ -12,10 +12,10 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 5717c2479c1d894117bae44826a814c3cfeaa98a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96493393"
 ---
 # <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoruj magazyn In-Memory OLTP w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
