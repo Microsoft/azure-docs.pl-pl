@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/8/2020
 ms.author: allensu
 ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89596311"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Ustawienia portalu usługi Azure Load Balancer
@@ -107,7 +107,7 @@ Jeśli chcesz dodać sondę kondycji do modułu równoważenia obciążenia, prz
 | Ustawienie | Szczegóły |
 | ---------- | ---------- |
 | Nazwa | Nazwa sondy kondycji. |
-| Protokół | Wybrany protokół określa typ sprawdzania używany do określenia, czy wystąpienia zaplecza są w dobrej kondycji. </br> Dostępne opcje to: </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> Upewnij się, że używasz odpowiedniego protokołu. Wybór ten będzie zależeć od charakteru aplikacji. </br> Konfiguracja sondy kondycji i odpowiedzi sondy określa, które wystąpienia puli zaplecza będą odbierać Nowe przepływy. </br> Sond kondycji można użyć do wykrywania awarii aplikacji w punkcie końcowym zaplecza. </br> Dowiedz się więcej o [sondach kondycji](load-balancer-custom-probe-overview.md). |
+| Protokół | Wybrany protokół określa typ sprawdzania używany do określenia, czy wystąpienia zaplecza są w dobrej kondycji. </br> Dostępne opcje to: </br> **TCP** </br> **Schemat** </br> **HTTP** </br> Upewnij się, że używasz odpowiedniego protokołu. Wybór ten będzie zależeć od charakteru aplikacji. </br> Konfiguracja sondy kondycji i odpowiedzi sondy określa, które wystąpienia puli zaplecza będą odbierać Nowe przepływy. </br> Sond kondycji można użyć do wykrywania awarii aplikacji w punkcie końcowym zaplecza. </br> Dowiedz się więcej o [sondach kondycji](load-balancer-custom-probe-overview.md). |
 | Port | Port docelowy sondy kondycji. </br> To ustawienie jest portem w wystąpieniu zaplecza, którego będzie używać sonda kondycji w celu określenia kondycji wystąpienia. |
 | Interwał | Liczba sekund między próbami sondowania. </br> Interwał określi, jak często sonda kondycji podejmie próbę nawiązania połączenia z wystąpieniem zaplecza. </br> W przypadku wybrania opcji 5 druga próba sondowania zostanie wykonana po 5 sekundach itd. |
 | Próg złej kondycji | Liczba kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.</br> W przypadku wybrania 2 nie zostaną ustawione żadne nowe przepływy dla tego wystąpienia wewnętrznej bazy danych po dwóch kolejnych błędach. |
