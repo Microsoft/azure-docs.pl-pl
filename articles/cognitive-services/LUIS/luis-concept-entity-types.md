@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91316566"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
@@ -53,7 +53,7 @@ Weź pod uwagę następujące cztery wyrażenia długości:
 
 |Wypowiedź|Przewidywany cel|Wyodrębnione jednostki|Wyjaśnienie|
 |--|--|--|--|
-|Pomoc|Pomoc|-|Brak elementów do wyodrębnienia.|
+|Help|Pomoc|-|Brak elementów do wyodrębnienia.|
 |Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie ma wymaganej funkcji do wyodrębnienia `something` w tym kontekście i nie podano odbiorcy.|
 |Wyślij Roberta|sendSomething|`Bob`, `present`|Model wyodrębnia `Bob` przez dodanie wymaganej funkcji wstępnie skompilowanej jednostki `personName` . Jednostka uczenia maszynowego została użyta do wyodrębnienia `present` .|
 |Wyślij Roberta do pudełka czekolady|sendSomething|`Bob`, `box of chocolates`|Dwie ważne fragmenty danych `Bob` i, które zostały `box of chocolates` wyodrębnione przez jednostki uczenia maszynowego.|

@@ -4,10 +4,10 @@ description: W tym artykule podsumowano typowe pytania dotyczące konfigurowania
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98879448"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Często zadawane pytania — odzyskiwanie po awarii z funkcji Hyper-V do platformy Azure

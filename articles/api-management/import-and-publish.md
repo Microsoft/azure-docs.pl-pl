@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91626975"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Samouczek: Importowanie i publikowanie pierwszego interfejsu API
@@ -57,7 +57,7 @@ W tej sekcji przedstawiono sposób importowania i publikowania interfejsu API za
    |**Nazwa wyświetlana**|Po wprowadzeniu powyższego adresu URL usługi API Management wypełnia to pole na podstawie kodu JSON.|Nazwa wyświetlana w portalu dla [deweloperów](api-management-howto-developer-portal.md).|
    |**Nazwa**|Po wprowadzeniu powyższego adresu URL usługi API Management wypełnia to pole na podstawie kodu JSON.|Unikatowa nazwa interfejsu API.|
    |**Opis**|Po wprowadzeniu powyższego adresu URL usługi API Management wypełnia to pole na podstawie kodu JSON.|Opcjonalny opis interfejsu API.|
-   |**Schemat adresu URL**|**HTTPS**|Protokoły, które mogą uzyskać dostęp do interfejsu API.|
+   |**Schemat adresu URL**|**Schemat**|Protokoły, które mogą uzyskać dostęp do interfejsu API.|
    |**Sufiks adresu URL interfejsu API**|*conference*|Sufiks dołączany do podstawowego adresu URL usługi API Management. API Management odróżnia interfejsy API według ich sufiksów, więc sufiks musi być unikatowy dla każdego interfejsu API dla danego wydawcy.|
    |**Tagi**| |Tagi służące do organizowania interfejsów API do wyszukiwania, grupowania lub filtrowania.|
    |**Produkty**|**Nieograniczona liczba**|Skojarzenie jednego lub więcej interfejsów API. Każde wystąpienie API Management zawiera dwa przykładowe produkty: **Starter** i **nieograniczone**. Interfejs API jest publikowany przez skojarzenie interfejsu API z produktem, **nieograniczoną** w tym przykładzie.<br/><br/> Możesz dołączyć kilka interfejsów API w produkcie i zaoferować je deweloperom za pomocą portalu dla deweloperów. Aby dodać ten interfejs API do innego produktu, wpisz lub wybierz nazwę produktu. Powtórz ten krok, aby dodać interfejs API do wielu produktów. Możesz również dodać interfejsy API do produktów później ze strony **ustawień** .<br/><br/>  Aby uzyskać więcej informacji na temat produktów, zobacz [Tworzenie i publikowanie produktu](api-management-howto-add-products.md).|
