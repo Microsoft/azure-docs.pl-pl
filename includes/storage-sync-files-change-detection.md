@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.openlocfilehash: 1387933dc82c07e73b7715d6593238ea8c993e93
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96005337"
 ---
 Zmiany wprowadzone w udziale plików platformy Azure przy użyciu Azure Portal lub protokołu SMB nie są natychmiast wykrywane i replikowane, podobnie jak zmiany w punkcie końcowym serwera. Azure Files nie ma jeszcze powiadomień o zmianach ani rejestrowania, dlatego nie ma możliwości automatycznego inicjowania sesji synchronizacji w przypadku zmiany plików. W systemie Windows Server Azure File Sync używa [rejestrowania numerów USN systemu Windows](/windows/win32/fileio/change-journals) do automatycznego inicjowania sesji synchronizacji, gdy pliki zostaną zmienione.
