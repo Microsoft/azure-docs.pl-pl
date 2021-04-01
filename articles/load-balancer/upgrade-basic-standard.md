@@ -7,11 +7,11 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 125d4a02d06e2792f9a2a4e646c3788dcf223318
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102612834"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnij Load Balancer publicznej platformy Azure
@@ -21,9 +21,6 @@ Uaktualnienie obejmuje dwa etapy:
 
 1. Zmień metodę alokacji adresu IP z dynamicznej na statyczną.
 2. Uruchom skrypt programu PowerShell, aby zakończyć uaktualnianie i migrację ruchu.
-
-> [!IMPORTANT]
-> Skrypt jest obecnie objęty konserwacją. W [tym miejscu](../virtual-network/virtual-network-public-ip-address-upgrade.md) można zapoznać się z instrukcjami dotyczącymi uaktualniania publicznych adresów IP z podstawowej jednostki SKU i standardowej jednostki SKU.
 
 ## <a name="upgrade-overview"></a>Omówienie uaktualnienia
 
