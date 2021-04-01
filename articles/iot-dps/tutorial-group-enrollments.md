@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94968098"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Samouczek: Tworzenie i Inicjowanie symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzeń i usług Java oraz rejestracji grup dla IoT Hub Device Provisioning Service

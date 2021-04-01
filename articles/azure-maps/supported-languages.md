@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96904520"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
@@ -75,8 +75,8 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | nb-NO      | Norweski (bokmål)       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Neutralne Języki w języku prawdy dla wszystkich regionów w lokalnych skryptach, jeśli są dostępne |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | Neutralna obudowa prawdy-łacińskiego exonyms. Skrypt łaciński zostanie użyty, jeśli jest dostępny |   ✓     |        |         |         |                |        ✓         |
-| pl-PL      | polski                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| pt-BR      | portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
+| pl-PL      | Polski                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| pt-BR      | Portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
 | pt-PT      | Portugalski (Portugalia)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | PA-IN      | Pendżabski                 |       |       |         |     ✓    |                   |                |
 | ro-RO      | Rumuński               |       |    ✓    |         |     ✓    |         ✓         |                |

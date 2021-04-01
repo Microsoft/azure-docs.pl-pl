@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: eb178e38001e54ac39a269c8b8cdef12c77d74cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96901953"
 ---
-# <a name="azure-database-for-mysql-server-firewall-rules"></a>Reguły zapory serwera Azure Database for MySQL
+# <a name="azure-database-for-mysql-server-firewall-rules"></a>Reguły zapory serwera usługi Azure Database for MySQL
 Zapory uniemożliwiają dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
 
 Aby skonfigurować zaporę, należy utworzyć reguły zapory określające zakresy akceptowalnych adresów IP. Reguły zapory można tworzyć na poziomie serwera.

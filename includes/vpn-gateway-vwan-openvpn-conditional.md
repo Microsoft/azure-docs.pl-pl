@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77471556"
 ---
 Dostęp warunkowy umożliwia uzyskanie szczegółowej kontroli dostępu dla poszczególnych aplikacji. Aby można było korzystać z dostępu warunkowego, należy mieć Azure AD — wersja Premium 1 lub większą licencję dla użytkowników, którzy będą objęci regułami dostępu warunkowego.
