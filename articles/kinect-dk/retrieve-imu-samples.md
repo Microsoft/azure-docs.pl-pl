@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, konfiguracja, Głębokość, kolor, RBG, kamera, czujnik, zestaw SDK, IMU, czujnik ruchu, ruch, żyroskop, Gyro, przyspieszeniomierz, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85277499"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Pobierz przykłady usługi Azure urządzenia Kinect IMU

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, urządzenia Kinect, RGB, IR, nagrywanie, czujnik, zestaw SDK, dostęp, Głębokość, wideo, kamera, IMU, ruch, czujnik, dźwięk, mikrofon, Matroska, zestaw SDK czujnika, pobieranie
 ms.openlocfilehash: 17c1b33120eacb5d0c6d3c02e692d1488ef474e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85277531"
 ---
 # <a name="about-azure-kinect-sensor-sdk"></a>Informacje o zestawie SDK czujnika usługi Azure urządzenia Kinect
@@ -30,7 +30,7 @@ Zestaw SDK czujnika usługi Azure urządzenia Kinect zapewnia Międzyplatformowy
 - Ramka aparatu — dostęp do metadanych dla rozdzielczości obrazu, sygnatury czasowej itp. 
 - Dostęp do danych kalibracji urządzenia 
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 - [Usługa Azure urządzenia Kinect Viewer](azure-kinect-viewer.md) do monitorowania strumieni danych urządzenia i konfigurowania różnych trybów.
 - Interfejs API [usługi Azure urządzenia Kinect Recorder](azure-kinect-recorder.md) i czytnika odtwarzania, który używa [formatu kontenera Matroska](record-file-format.md).

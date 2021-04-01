@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 7098f23e9b5b6f56fbbe761335afc65375aea680
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96509180"
 ---
 **Azure Data Lake Storage Gen2** nie jest dedykowanym typem konta usługi lub magazynu. Jest to Najnowsza wersja możliwości, która jest przeznaczona do analizy danych Big Data.  Te funkcje są dostępne w ramach konta magazynu ogólnego przeznaczenia w wersji 2 lub BlockBlobStorage i można je uzyskać, włączając funkcję **hierarchicznej przestrzeni nazw** konta. W przypadku elementów docelowych skalowania Zobacz te artykuły. 
