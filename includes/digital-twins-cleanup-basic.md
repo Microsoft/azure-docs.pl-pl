@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 2/4/2021
 ms.author: baanders
 ms.openlocfilehash: 9a02c4f5c5699b4a6308bfaa519fa9eb776414d6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102244578"
 ---
 * **Jeśli nie potrzebujesz żadnych zasobów utworzonych w tym samouczku**, możesz usunąć wystąpienie usługi Azure Digital bliźniaczych reprezentacji i wszystkie inne zasoby z tego artykułu za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) . Spowoduje to usunięcie wszystkich zasobów platformy Azure w grupie zasobów, a także samej grupy zasobów.

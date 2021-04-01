@@ -4,10 +4,10 @@ description: Dowiedz się, jak raportować użycie Azure DevTest Labs w wielu la
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1e4d1f0abb5596c7fd9d22740bf052827c2ca666
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102452649"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Raportowanie użycia Azure DevTest Labs w wielu laboratoriach i subskrypcjach
