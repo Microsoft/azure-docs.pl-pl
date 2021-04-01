@@ -8,13 +8,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 89673c14c38947dc5aeb91cacde1eb2755e84138
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94542613"
 ---
-# <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Obsługa błędów przejściowych i wydajne łączenie się z Azure Database for MySQL
+# <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Obsługa przejściowych błędów i wydajne łączenie się z usługą Azure Database for MySQL
 
 W tym artykule opisano, jak obsługiwać błędy przejściowe i wydajnie łączyć się z Azure Database for MySQL.
 
