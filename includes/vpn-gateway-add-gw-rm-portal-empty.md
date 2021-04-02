@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6cb30b96f9c2094e6d690b565edf487d6508d520
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92487120"
 ---
 1. Z poziomu [Azure Portal](https://portal.azure.com)w obszarze **zasoby wyszukiwania, usługi i dokumenty (G +/)** wpisz **Brama sieci wirtualnej**. Znajdź **bramę sieci wirtualnej** w wynikach wyszukiwania i wybierz ją.
