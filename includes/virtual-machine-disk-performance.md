@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 4770ac0181c64ef800aa02ba87284c8add357e36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92518078"
 ---
 Ten artykuł pomaga w wyjaśnieniu wydajności dysku i sposobie jego działania w przypadku łączenia usługi Azure Virtual Machines i dysków platformy Azure. Opisano w nim również, jak można zdiagnozować wąskie gardła dla operacji we/wy dysku oraz zmiany, które można zoptymalizować pod kątem wydajności.
