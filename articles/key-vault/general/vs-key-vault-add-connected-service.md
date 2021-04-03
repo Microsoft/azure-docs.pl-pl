@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92792399"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Dodawanie Key Vault do aplikacji sieci Web przy użyciu usług połączonych programu Visual Studio
@@ -148,7 +148,7 @@ W tej sekcji przedstawiono dokładne zmiany wprowadzone w projekcie ASP.NET podc
 
 Ma wpływ na odwołania do pliku projektu i odwołania do pakietu NuGet.
 
-| Typ | Dokumentacja |
+| Typ | Odwołanie |
 | --- | --- |
 | NuGet | Microsoft. AspNetCore. AzureKeyVault. HostingStartup |
 
@@ -184,7 +184,7 @@ W tej sekcji przedstawiono dokładne zmiany wprowadzone w projekcie ASP.NET podc
 
 Ma wpływ na odwołania do pliku projektu i `packages.config` (odwołania NuGet).
 
-| Typ | Dokumentacja |
+| Typ | Odwołanie |
 | --- | --- |
 | Waga NuGet | Azure. Identity |
 | Waga NuGet | Azure. Security. Keys — klucze |
