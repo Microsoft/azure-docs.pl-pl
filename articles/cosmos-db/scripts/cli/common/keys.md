@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/29/2020
 ms.openlocfilehash: af5f92168e6bcc23345e3a11727eefe76615422c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94563260"
 ---
 # <a name="work-with-account-keys-and-connection-strings-for-an-azure-cosmos-account-using-azure-cli"></a>Korzystanie z kluczy konta i parametrów połączenia dla konta usługi Azure Cosmos przy użyciu interfejsu wiersza polecenia platformy Azure

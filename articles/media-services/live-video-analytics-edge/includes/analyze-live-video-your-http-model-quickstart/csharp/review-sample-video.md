@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 69fd32c1569dbd1f08815be156585b0cce9f10d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98061040"
 ---
 Po skonfigurowaniu zasobów platformy Azure do maszyny wirtualnej z systemem Linux na platformie Azure jest kopiowany krótki film wideo dotyczący ruchu drogowego, który jest używany jako urządzenie IoT Edge. Ten przewodnik Szybki Start używa pliku wideo do symulowania strumienia na żywo.

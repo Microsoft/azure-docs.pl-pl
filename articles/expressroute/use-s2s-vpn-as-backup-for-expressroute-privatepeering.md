@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: duau
 ms.openlocfilehash: 752edea8078cf55fc3965bdc7aa9e1b4269dee34
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92207924"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Używanie sieci VPN S2S jako kopii zapasowej dla prywatnej komunikacji równorzędnej ExpressRoute
@@ -58,7 +58,7 @@ W poniższej tabeli wymieniono WPW dla topologii:
 
 | **System autonomiczny** | **Właściwość** |
 | --- | --- |
-| Magazyn lokalny | 65020 |
+| Lokalnie | 65020 |
 | Microsoft Enterprise Edge | 12076 |
 | Virtual Network GW (ExR) | 65515 |
 | Virtual Network GW (VPN) | 65515 |
