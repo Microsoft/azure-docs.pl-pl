@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
 ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87420230"
 ---
 # <a name="create-or-modify-an-offer"></a>Tworzenie lub modyfikowanie oferty
@@ -309,7 +309,7 @@ Te kategorie i odpowiednie klucze mają zastosowanie do aplikacji platformy Azur
 | Akceleratory aplikacji | Akceleratory aplikacji | Akceleratory aplikacji | Akceleratory aplikacji |
 | Księga z jednym węzłem | Księga jednowęzłowa | Księga jednowęzłowa | Księga jednowęzłowa |
 | Księga wielowęzłowa | Księga wielowęzłowa | Księga wielowęzłowa | Księga wielowęzłowa |
-| narzędzia | tools | tools | tools |
+| Narzędzia | tools | tools | tools |
 | Inne | other | other | other |
 | ***Obliczenia** _ | _*_obliczenia — SaaS_*_ | _*_obliczenia — Azure — aplikacje_*_ | _ *_obliczeń_** |
 | Infrastruktura aplikacji | appInfra | appInfrastructure | Infrastruktura aplikacji |
@@ -329,7 +329,7 @@ Te kategorie i odpowiednie klucze mają zastosowanie do aplikacji platformy Azur
 | programu Operations Manager | Magazyn danych | Magazyn danych | Magazyn danych |
 | Inne | inne — bazy danych | inne — bazy danych | other |
 | ***Narzędzia deweloperskie** _ | _*_Developer Tools — SaaS_*_ | _*_Developer-Tools-Azure — aplikacje_*_ | _ *_— Narzędzia dla deweloperów_** |
-| narzędzia | Narzędzia — Developer Tools | Narzędzia — Developer Tools | Narzędzia — Developer Tools |
+| Narzędzia | Narzędzia — Developer Tools | Narzędzia — Developer Tools | Narzędzia — Developer Tools |
 | Skrypty | skrypty | skrypty | skrypty |
 | Usługa dla deweloperów | devService | devService | Deweloper — usługa |
 | Inne | Inne — narzędzia dla deweloperów | Inne — narzędzia dla deweloperów | other |
