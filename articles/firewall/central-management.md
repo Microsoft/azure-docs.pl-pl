@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: victorh
 ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87084674"
 ---
 # <a name="azure-firewall-central-management"></a>Centralne zarządzanie zaporą platformy Azure
@@ -31,7 +31,7 @@ Zasady zapory to zasób platformy Azure, który zawiera kolekcje reguł translat
  
 Zasady zapory i skojarzenia można utworzyć za pomocą Menedżera zapory platformy Azure. Można jednak tworzyć zasady i zarządzać nimi za pomocą interfejsu API REST, szablonów, Azure PowerShell i interfejsu wiersza polecenia. Po utworzeniu zasad można je skojarzyć z zaporą w wirtualnym koncentratorze sieci WAN, aby *zabezpieczyć ją koncentratorem wirtualnym* i/lub zaporą w sieci wirtualnej tworzącą *Virtual Network centrum* IT.
 
-### <a name="pricing"></a>Cennik
+### <a name="pricing"></a>Ceny
 
 Zasady są rozliczane na podstawie skojarzeń zapory. Zasady z nierównym lub jednym skojarzeniem zapory są bezpłatne. Zasady z wieloma skojarzeniami zapory są rozliczane według ustalonej stawki. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
 
