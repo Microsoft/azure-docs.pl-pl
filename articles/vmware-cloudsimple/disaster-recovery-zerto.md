@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5dd1f157984cdb300cc3b375d71654e5da54d1ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97898134"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Skonfiguruj chmurę prywatną CloudSimple jako lokację odzyskiwania po awarii dla lokalnych obciążeń programu VMware
@@ -93,6 +93,6 @@ Aby włączyć replikację wirtualną Zerto z poziomu środowiska lokalnego do c
 6. W razie potrzeby dostosuj ustawienia sieci dla poszczególnych maszyn wirtualnych i Utwórz VPG.
 7. Test pracy w trybie failover po zakończeniu replikacji.
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Odwołanie
 
 [Dokumentacja Zerto](https://www.zerto.com/myzerto/technical-documentation/)
