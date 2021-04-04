@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92152135"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagowanie na zdarzenia IoT Hub przy użyciu Event Grid do wyzwalania akcji
@@ -27,7 +27,7 @@ Usługa Azure IoT Hub jest zintegrowana z usługą Azure Event Grid, co umożliw
 
 ![Architektura Azure Event Grid](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>Dostępność regionalna
+## <a name="regional-availability"></a>Dostępność w regionach
 
 Integracja Event Grid jest dostępna dla centrów IoT znajdujących się w regionach, w których Event Grid jest obsługiwana. Aby uzyskać najnowszą listę regionów, zapoznaj [się z wprowadzeniem do Azure Event Grid](../event-grid/overview.md).
 
