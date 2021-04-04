@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96002351"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Ograniczenia dotyczące kontenerów Language Understanding (LUIS)
@@ -58,7 +58,7 @@ Kontenery LUIS obsługują podzbiór [języków obsługiwanych](luis-language-su
 | Włoski |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Koreański |`ko-KR` | ✔️ | ❌ | ❌ | Tylko *fraza klucza* |
 | Marathi | `mr-IN`|❌|❌|❌|❌|
-| portugalski (Brazylia) |`pt-BR` | ✔️ | ✔️ | ✔️ | nie wszystkie hodowle podrzędne |
+| Portugalski (Brazylia) |`pt-BR` | ✔️ | ✔️ | ✔️ | nie wszystkie hodowle podrzędne |
 | hiszpański (Hiszpania) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Hiszpański (Meksyk)|`es-MX` | ❌ | ❌ |✔️|✔️|
 | Tamilski | `ta-IN`|❌|❌|❌|❌|
