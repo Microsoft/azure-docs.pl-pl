@@ -4,10 +4,10 @@ description: W tym artykule opisano zestaw sugestii dotyczących rozwiązywania 
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.openlocfilehash: 20948cd1626c02d73fb6e9ef096b552bbab627fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575911"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Troubleshoot your local development cluster setup (Rozwiązywanie problemów z lokalną konfiguracją klastra programowania)
