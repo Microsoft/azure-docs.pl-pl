@@ -10,10 +10,10 @@ ms.custom:
 - references_regions
 ms.date: 12/3/2020
 ms.openlocfilehash: 3f2297ae619145ec19b53ba79d70b7c085cbcaab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361455"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Wypchnij Data Factory dane pochodzenie do usługi Azure kontrolą (wersja zapoznawcza)

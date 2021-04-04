@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
 ms.openlocfilehash: 71a2ad5b8d09812eb999ab75a3522caf5a8dd20a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664554"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Monitorowanie i skalowanie serwera usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure

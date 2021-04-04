@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
 ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93325300"
 ---
 Skrypt wejściowy odbiera dane przesyłane do wdrożonej usługi internetowej i przekazuje je do modelu. Następnie pobiera odpowiedź zwróconą przez model i zwraca ją do klienta. *Skrypt jest specyficzny dla modelu*. Musi on zrozumieć dane, które są oczekiwane i zwracane przez model.
