@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 11d2172d085fe9b47587f4084908f99d7b54437e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92103241"
 ---
 Po utworzeniu klasycznego sieci wirtualnych w Azure Portal nazwa wyświetlana nie jest pełną nazwą używaną dla programu PowerShell. Na przykład Sieć wirtualna o nazwie **sieci testvnet1** w portalu może mieć znacznie dłuższą nazwę w pliku konfiguracyjnym sieci. Nazwa sieci wirtualnej w grupie zasobów "ClassicRG" może wyglądać następująco: **Group ClassicRG sieci testvnet1**. Podczas tworzenia połączeń ważne jest, aby użyć wartości widocznych w pliku konfiguracji sieci.
