@@ -10,15 +10,15 @@ ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100390361"
 ---
 # <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
-Nietrwałe usuwanie obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Gdy usuwanie nietrwałe dla obiektów BLOB jest włączone dla konta magazynu, obiekty blob, wersje obiektów blob i migawki na tym koncie magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
+Usuwanie nietrwałe dla obiektów blob chroni dane przed przypadkową lub błędną modyfikacją lub usunięciem. Gdy usuwanie nietrwałe dla obiektów blob jest włączone dla konta magazynu, obiekty blob, wersje obiektów blob i migawki na tym koncie magazynu mogą zostać odzyskane po usunięciu w okresie przechowywania określonym przez użytkownika.
 
 Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego. Aby uzyskać więcej informacji na temat włączania usuwania nietrwałego, zobacz [enable and Manage unsoft Delete for Blobs](./soft-delete-blob-enable.md).
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
 ms.openlocfilehash: d003a512ebde626b8726dfccc58110e53f1cd467
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96180918"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie globalnej synchronizacji tożsamości przekaźnika dla automatycznej aprowizacji użytkowników
@@ -153,7 +153,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: proxyAddresses|Ciąg|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute1|Ciąg|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute2|Ciąg|
