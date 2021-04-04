@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat opcji blokowania w planach platformy 
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920194"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
