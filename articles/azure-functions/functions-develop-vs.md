@@ -1,17 +1,17 @@
 ---
-title: Tworzenie funkcji usługi Azure Functions w programie Visual Studio
+title: Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio
 description: Dowiedz się, jak opracowywać i testować Azure Functions przy użyciu narzędzi Azure Functions Tools for Visual Studio 2019.
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97655819"
 ---
-# <a name="develop-azure-functions-using-visual-studio"></a>Tworzenie funkcji usługi Azure Functions w programie Visual Studio  
+# <a name="develop-azure-functions-using-visual-studio"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio  
 
 Program Visual Studio umożliwia tworzenie, testowanie i wdrażanie funkcji biblioteki klas w języku C# na platformie Azure. Jeśli to środowisko jest pierwsze z Azure Functions, zobacz [wprowadzenie do Azure Functions](functions-overview.md).
 
