@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98746513"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Zasady i reguły reguły KSR zapory aplikacji sieci Web
@@ -45,7 +45,7 @@ Program KSR 3,1 zawiera 13 grup reguł, jak pokazano w poniższej tabeli. Każda
 
 |Grupa reguł|Opis|
 |---|---|
-|**[Ogólne](#general-31)**|Grupa ogólna|
+|**[Główny](#general-31)**|Grupa ogólna|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Metody blokowania (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Ochrona przed skanerami portów i środowisk|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-31)**|Ochrona przed problemami z protokołem i kodowaniem|
@@ -65,7 +65,7 @@ Program KSR 3,0 obejmuje 12 grup reguł, jak pokazano w poniższej tabeli. Każd
 
 |Grupa reguł|Opis|
 |---|---|
-|**[Ogólne](#general-30)**|Grupa ogólna|
+|**[Główny](#general-30)**|Grupa ogólna|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Metody blokowania (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Ochrona przed skanerami portów i środowisk|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-30)**|Ochrona przed problemami z protokołem i kodowaniem|
