@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 02/09/2021
 ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361659"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrowanie Azure SQL Database z modelu opartego na jednostkach DTU do modelu opartego na rdzeń wirtualny
@@ -176,10 +176,10 @@ W poniższej tabeli przedstawiono wskazówki dotyczące określonych scenariuszy
 
 |Bieżąca warstwa usługi|Docelowa warstwa usługi|Typ migracji|Akcje użytkownika|
 |---|---|---|---|
-|Standardowa|Ogólnego przeznaczenia|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
+|Standardowa (Standard)|Ogólnego przeznaczenia|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
 |Premium|Krytyczne dla działania firmy|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
-|Standardowa|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
-|Krytyczne dla działania firmy|Standardowa|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
+|Standardowa (Standard)|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
+|Krytyczne dla działania firmy|Standardowa (Standard)|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
 |Premium|Ogólnego przeznaczenia|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
 |Ogólnego przeznaczenia|Premium|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
 |Krytyczne dla działania firmy|Ogólnego przeznaczenia|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
