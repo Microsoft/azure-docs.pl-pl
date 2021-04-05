@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92788829"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database i wystąpienie zarządzane SQL
@@ -37,7 +37,7 @@ Poniższa tabela i wykres porównują i różnią się w zależności od modelu 
 |**Model zakupów**|**Opis**|**Optymalne zastosowanie**|
 |---|---|---|
 |Oparty na jednostkach DTU|Ten model jest oparty na podstawie miary zasobów obliczeniowych, magazynu i operacji we/wy. Rozmiary obliczeniowe są wyrażane w jednostkach DTU w przypadku pojedynczych baz danych, a w jednostkach transakcji elastycznej bazy danych (eDTU) w przypadku pul elastycznych. Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to są jednostki DTU i eDTU?](purchasing-models.md#dtu-based-purchasing-model).|Klienci, którzy chcą mieć proste, wstępnie skonfigurowane opcje zasobów|
-|Rdzeń wirtualny|Ten model umożliwia niezależne wybieranie zasobów obliczeniowych i magazynu. Model zakupu oparty na rdzeniach wirtualnych umożliwia również obniżenie kosztów dzięki [korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) dla programu SQL Server.|Klienci, którzy mają elastyczność, kontrolę i przezroczystość|
+|Oparty na rdzeniach wirtualnych|Ten model umożliwia niezależne wybieranie zasobów obliczeniowych i magazynu. Model zakupu oparty na rdzeniach wirtualnych umożliwia również obniżenie kosztów dzięki [korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) dla programu SQL Server.|Klienci, którzy mają elastyczność, kontrolę i przezroczystość|
 ||||  
 
 ![Porównanie modelu cen](./media/purchasing-models/pricing-model.png)
