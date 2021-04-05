@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3fc1e39bc0a397329ed1bd83c8b9e8184f9961bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181989"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MyDay na potrzeby automatycznego aprowizacji użytkowników
@@ -128,7 +128,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |roles[primary eq "True"].value|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.

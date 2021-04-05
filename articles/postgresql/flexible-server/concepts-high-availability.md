@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94366727"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncepcje wysokiej dostępności na serwerze elastycznym Azure Database for PostgreSQL
@@ -97,7 +97,7 @@ Elastyczne serwery z konfiguracją wysokiej dostępności umożliwiają replikac
 
 ## <a name="zone-redundant-high-availability---limitations"></a>Strefa nadmiarowa wysokiej dostępności — ograniczenia
 
--   Wysoka dostępność nie jest obsługiwana w warstwie obliczeniowej z możliwością naliczania.
+-   Wysoka dostępność nie jest obsługiwana w przypadku warstwy obliczeniowej z możliwością zwiększania szybkości.
 -   Wysoka dostępność jest obsługiwana tylko w regionach, w których jest dostępnych wiele stref.
 -   Ze względu na replikację synchroniczną do innej strefy dostępności aplikacje mogą mieć podwyższony czas oczekiwania na zapis i zatwierdzenie.
 
