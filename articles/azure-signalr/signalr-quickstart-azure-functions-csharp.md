@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/25/2020
 ms.author: zhshang
 ms.openlocfilehash: 1f28058a766144ada3326b3ee4ce09ca503d1896
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94873883"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Szybki Start: Tworzenie pokoju rozmów z usługami Azure Functions i sygnalizacyjnymi przy użyciu języka C\#

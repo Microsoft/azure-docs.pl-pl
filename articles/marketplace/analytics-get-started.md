@@ -1,5 +1,5 @@
 ---
-title: Rozpoczynanie pracy z dostępem programistycznym do danych analitycznych
+title: Wprowadzenie do dostępu programistycznego do danych analitycznych
 description: Dowiedz się, jak używać interfejsu API do uzyskiwania dostępu do komercyjnych danych analitycznych portalu Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: fdb2c47781312505a62c5e95d25c9d9364e3b610
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102584018"
 ---
-# <a name="get-started-with-programmatic-access-to-analytics-data"></a>Rozpoczynanie pracy z dostępem programistycznym do danych analitycznych
+# <a name="get-started-with-programmatic-access-to-analytics-data"></a>Wprowadzenie do dostępu programistycznego do danych analitycznych
 
 Ten przewodnik pomaga uzyskać dostęp programistyczny do komercyjnych danych analitycznych portalu Marketplace. Dowiesz się, jak programowo uzyskiwać dostęp do raportów analitycznych w celu monitorowania sprzedaży, oceny wydajności i optymalizowania ofert w portalu komercyjnym. Udoskonalone narzędzia analityczne umożliwiają wykonywanie działań na wynikach wydajności i obsługę lepszych relacji z klientami i odsprzedawcami.
 
@@ -24,7 +24,7 @@ Możesz użyć tego przewodnika, aby programowo uzyskać dostęp do komercyjnych
 
 Interfejs API służący do uzyskiwania dostępu do komercyjnych raportów portalu Marketplace umożliwia asynchroniczne planowanie raportów niestandardowych danych analitycznych. Ta funkcja umożliwia definiowanie zapytań/szablonów raportowania w zależności od potrzeb, Ustawianie harmonogramu i szybkie i wiarygodne raporty w zaplanowanych odstępach czasu.
 
-Kluczową wartością dostępu programistycznego do komercyjnych danych analitycznych portalu Marketplace jest dostosowanie raportów i integracji z wewnętrznymi systemami i platformami analizy biznesowej.
+Kluczową wartością dostępu programistycznego do danych analitycznych komercyjnej platformy handlowej są dostosowane raporty i integracja z wewnętrznymi systemami i platformami analizy biznesowej.
 
 > [!NOTE]
 > Partnerzy będą potrzebować dedykowanych zasobów inżynieryjnych, aby wykonać jednorazowe dołączenie interfejsu API.

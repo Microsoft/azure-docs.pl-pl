@@ -1,5 +1,5 @@
 ---
-title: Dostęp programistyczny typowych pytań dotyczących danych analizy
+title: Często zadawane pytania dotyczące dostępu programistycznego do danych analizy
 description: Często zadawane pytania dotyczące programistycznego uzyskiwania dostępu do danych analitycznych w centrum partnerskim dla ofert komercyjnych w portalu Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 393a718632138f4ffcf26e4875eea9ba3d886897
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583973"
 ---
-# <a name="programmatic-access-of-analytics-data-common-questions"></a>Dostęp programistyczny typowych pytań dotyczących danych analizy
+# <a name="programmatic-access-of-analytics-data-common-questions"></a>Często zadawane pytania dotyczące dostępu programistycznego do danych analizy
 
 W tym artykule opisano często zadawane pytania dotyczące sposobu programistycznego dostępu do danych analitycznych w centrum partnerskim dla ofert komercyjnych w portalu Marketplace.
 
