@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010706"
 ---
 Ten artykuł zawiera następny poziom szczegółowości w zakresie zabezpieczania infrastruktury Internet rzeczy (IoT) opartej na usłudze Azure IoT. Łączy się on z szczegółowymi informacjami na temat konfigurowania i wdrażania każdego składnika. Zawiera również porównania i wybory między różnymi metodami konkurującymi.

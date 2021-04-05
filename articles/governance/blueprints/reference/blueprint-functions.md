@@ -4,10 +4,10 @@ description: Zawiera opis funkcji dostępnych do użycia z artefaktami strategii
 ms.date: 01/27/2021
 ms.topic: reference
 ms.openlocfilehash: 92cb906e87179073b7a69aa0bd4eab22c77087f9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919278"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funkcje do użycia z planami platformy Azure

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919973"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows z przyspieszoną siecią przy użyciu programu Azure PowerShell
@@ -28,7 +28,7 @@ W tym samouczku dowiesz się, jak utworzyć maszynę wirtualną z systemem Windo
 > [!NOTE]
 > Aby używać przyspieszonej sieci z maszyną wirtualną z systemem Linux, zobacz [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu przyspieszonej sieci](create-vm-accelerated-networking-cli.md).
 
-Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta ze ścieżki danych, co zmniejsza opóźnienia, wahania i użycie procesora dla najbardziej wymagających obciążeń sieciowych na obsługiwanych typach maszyn wirtualnych. Na poniższym diagramie przedstawiono, jak dwie maszyny wirtualne komunikują się z usługą i bez przyspieszonej sieci:
+Przyspieszona sieć obsługuje wirtualizację we/wy z pojedynczym elementem głównym (SR-IOV) dla maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta na ścieżce danych, co zmniejsza opóźnienie, zakłócenia i użycie procesora w przypadku najbardziej wymagających obciążeń sieciowych na obsługiwanych typach maszyn wirtualnych. Na poniższym diagramie przedstawiono, jak dwie maszyny wirtualne komunikują się z usługą i bez przyspieszonej sieci:
 
 ![Komunikacja między maszynami wirtualnymi platformy Azure z usługą i bez przyspieszonej sieci](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -57,7 +57,7 @@ Następujące dystrybucje są obsługiwane bezpośrednio z galerii platformy Azu
 - **Windows Server 2016 Datacenter** 
 - **Windows Server 2012 R2 Datacenter**
 
-## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
+## <a name="limitations-and-constraints"></a>Limity i ograniczenia
 
 ### <a name="supported-vm-instances"></a>Obsługiwane wystąpienia maszyn wirtualnych
 

@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start wykonaj kroki w celu wywołania punk
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920075"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu interfejsu API REST
