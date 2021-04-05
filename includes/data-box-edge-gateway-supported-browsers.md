@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: b5fa444e223991ba6f7e6587a66df858fb7f9c31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99831584"
 ---
 Poniżej znajduje się lista przeglądarek obsługiwanych przez lokalny interfejs użytkownika sieci Web dla urządzenia wirtualnego.

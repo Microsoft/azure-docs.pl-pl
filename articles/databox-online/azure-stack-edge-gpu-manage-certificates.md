@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 534870e6bd67b7aa5273289f3154a794a2b9bd22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519014"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
