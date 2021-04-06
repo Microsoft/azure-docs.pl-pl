@@ -4,10 +4,10 @@ description: Dowiedz się, jak kupić wystąpienie zarezerwowane dla rozwiązań
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99550979"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Oszczędność kosztów dzięki rozwiązaniu VMware platformy Azure

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 27503d1d60d961bac6dd41ebfe4fb083948cb251
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96582443"
 ---
 Można również wyświetlić metryki do monitorowania wydajności urządzenia i w niektórych przypadkach rozwiązywania problemów z urządzeniami.

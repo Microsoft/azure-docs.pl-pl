@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 39750a86ccf781a10109e299e27a55a03173acb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98901086"
 ---
 Migawki przyrostowe są kopiami zapasowymi punktu w czasie dla dysków zarządzanych, które w razie potrzeby składają się tylko z zmian od ostatniej migawki. Po przywróceniu dysku z migawki przyrostowej system rekonstruuje pełny dysk, który reprezentuje punkt w czasie kopii zapasowej dysku podczas tworzenia przyrostowej migawki. Ta nowa możliwość dla migawek dysków zarządzanych potencjalnie pozwala im zwiększyć koszty, ponieważ, o ile nie zostanie wybrana opcja, nie trzeba przechowywać całego dysku przy każdej pojedynczej migawce. Podobnie jak w przypadku pełnych migawek, przyrostowe migawki mogą służyć do tworzenia pełnego dysku zarządzanego lub pełnej migawki.
