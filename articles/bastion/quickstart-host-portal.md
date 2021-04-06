@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
 ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101707183"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Szybki Start: łączenie z maszyną wirtualną bezpiecznie za pośrednictwem przeglądarki za pomocą prywatnego adresu IP
@@ -61,7 +61,7 @@ Podczas tworzenia tej konfiguracji można użyć następujących przykładowych 
 | Adresy AzureBastionSubnet | Podsieć w przestrzeni adresowej sieci wirtualnej z maską podsieci/27. Na przykład 10.1.1.0/27.  |
 | Publiczny adres IP |  Tworzenie nowego elementu |
 | Nazwa publicznego adresu IP | VNet1 — IP  |
-| Jednostka SKU publicznego adresu IP |  Standardowa  |
+| Jednostka SKU publicznego adresu IP |  Standardowa (Standard)  |
 | Przypisanie  | Static |
 
 ## <a name="create-a-bastion-host"></a><a name="createvmset"></a>Tworzenie hosta bastionu
@@ -100,7 +100,7 @@ Istnieje kilka różnych sposobów konfigurowania hosta bastionu. W poniższych 
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Zrzut ekranu kroku 3.":::
 1. Po zakończeniu wartości wybierz pozycję **Utwórz usługę Azure bastionu przy użyciu wartości domyślnych**. Platforma Azure weryfikuje ustawienia, a następnie tworzy hosta. Tworzenie i wdrażanie hosta i jego zasobów trwa około 5 minut.
 
-## <a name="connect"></a><a name="connect"></a>Nawiązywanie połączenia
+## <a name="connect"></a><a name="connect"></a>Łączone
 
 Po wdrożeniu bastionu w sieci wirtualnej, ekran zmieni się na stronę Połącz.
 

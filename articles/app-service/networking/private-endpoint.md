@@ -10,10 +10,10 @@ ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104655907"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure
@@ -108,7 +108,7 @@ W przypadku konsoli usługi kudu lub interfejsu API REST (na przykład wdrożeni
 
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link][pricing].
 
