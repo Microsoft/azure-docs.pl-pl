@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 11b0260eb6c1f5edfb246dcf97a43bdd874bf337
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98217281"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Przenoszenie sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure do innego regionu przy użyciu Azure Portal

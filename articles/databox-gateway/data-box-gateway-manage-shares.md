@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8a6bfb1c6aa268914e6dd1157115067b15bfa404
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98786914"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Zarządzanie udziałami w usłudze Azure Data Box Gateway przy użyciu witryny Azure Portal 

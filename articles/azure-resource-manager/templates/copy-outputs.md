@@ -4,10 +4,10 @@ description: Użyj operacji kopiowania w szablonie Azure Resource Manager (szabl
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 5ae20ed9ec3fdb3b76adbd370f5ba22f9386d613
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96905948"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteracja danych wyjściowych w szablonach ARM

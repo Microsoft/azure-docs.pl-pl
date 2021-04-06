@@ -10,10 +10,10 @@ ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 91e89eaf215468f171974e5f3fd383691fdd6ebe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93096984"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Szybki Start: Tworzenie aplikacji do zrobienia za pomocą platformy Xamarin przy użyciu Azure Cosmos DB konta interfejsu API SQL
