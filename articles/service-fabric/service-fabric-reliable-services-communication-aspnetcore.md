@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791598"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core na platformie Azure Service Fabric Reliable Services
@@ -472,7 +472,7 @@ W przypadku udostępnienia Internetu usługa bezstanowa powinna używać dobrze 
 | Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Kestrel to preferowany serwer sieci Web, który jest obsługiwany w systemach Windows i Linux. |
-| Konfiguracja portu | static | Dobrze znany port statyczny powinien zostać skonfigurowany w `Endpoints` konfiguracji ServiceManifest.xml, na przykład 80 dla http lub 443 dla protokołu HTTPS. |
+| Konfiguracja portów | static | Dobrze znany port statyczny powinien zostać skonfigurowany w `Endpoints` konfiguracji ServiceManifest.xml, na przykład 80 dla http lub 443 dla protokołu HTTPS. |
 | ServiceFabricIntegrationOptions | Brak | Użyj `ServiceFabricIntegrationOptions.None` opcji podczas konfigurowania oprogramowania pośredniczącego integracji Service Fabric, aby usługa nie podjęła próby zweryfikowania żądań przychodzących dla unikatowego identyfikatora. Użytkownicy zewnętrzni Twojej aplikacji nie będą znać unikatowych informacji identyfikacyjnych używanych przez oprogramowanie pośredniczące. |
 | Liczba wystąpień | -1 | W typowych przypadkach użycia ustawienie liczba wystąpień powinna mieć wartość *-1*. Dzieje się tak, aby wystąpienie było dostępne we wszystkich węzłach, które odbierają ruch z modułu równoważenia obciążenia. |
 
@@ -497,7 +497,7 @@ W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy
 | Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Chociaż można używać HTTP.sys dla wewnętrznych usług bezstanowych, Kestrel jest najlepszym serwerem, aby umożliwić wielu wystąpieniem usługi Udostępnianie hosta.  |
-| Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
+| Konfiguracja portów | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | W przypadku dynamicznego przypisywania portów to ustawienie uniemożliwia opisywany wcześniej problem dotyczący tożsamości. |
 | InstanceCount | dowolny | Ustawienie liczby wystąpień można ustawić na dowolną wartość potrzebną do obsługi usługi. |
 
@@ -507,7 +507,7 @@ Usługi stanowe, które są wywoływane tylko z poziomu klastra, powinny używa�
 | Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | `HttpSysCommunicationListener`Nie jest przeznaczony do użycia przez usługi stanowe, w których repliki współużytkują proces hosta. |
-| Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
+| Konfiguracja portów | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | W przypadku dynamicznego przypisywania portów to ustawienie uniemożliwia opisywany wcześniej problem dotyczący tożsamości. |
 
 ## <a name="next-steps"></a>Następne kroki
