@@ -9,10 +9,10 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93406638"
 ---
 1. Aby utworzyć zasób usługi Azure sygnalizujący, najpierw Zaloguj się do [Azure Portal](https://portal.azure.com). W lewym górnym rogu strony wybierz pozycję **+ Utwórz zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** wprowadź wartość **Usługa sygnalizująca**.
