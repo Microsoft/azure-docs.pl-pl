@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94700693"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Omówienie protokołu IPv6 dla Azure Load Balancer
@@ -40,12 +40,12 @@ Na poniższej ilustracji przedstawiono funkcje protokołu IPv6 dla Azure Load Ba
 
 Po wdrożeniu Klient internetowy z obsługą protokołu IPv4 lub IPv6 może komunikować się z publicznymi adresami IPv4 lub IPv6 (lub nazwami hostów) Load Balancer internetowego na platformie Azure. Moduł równoważenia obciążenia kieruje pakiety IPv6 do prywatnych adresów IPv6 maszyn wirtualnych przy użyciu translatora adresów sieciowych (NAT). Klient internetowy IPv6 nie może komunikować się bezpośrednio z adresem IPv6 maszyn wirtualnych.
 
-## <a name="features"></a>Funkcje
+## <a name="features&quot;></a>Funkcje
 
 Natywna obsługa protokołu IPv6 dla maszyn wirtualnych wdrożonych za pośrednictwem Azure Resource Manager zapewnia następujące możliwości:
 
 1. Usługi IPv6 o zrównoważonym obciążeniu dla klientów IPv6 w Internecie
-2. Natywne punkty końcowe protokołu IPv6 i IPv4 na maszynach wirtualnych ("podwójne piętro")
+2. Natywne punkty końcowe protokołu IPv6 i IPv4 na maszynach wirtualnych (&quot;podwójne piętro")
 3. Przychodzące i wychodzące połączenia natywne protokołu IPv6
 4. Obsługiwane protokoły, takie jak TCP, UDP i HTTP (S), zapewniają pełny zakres architektur usługi
 
