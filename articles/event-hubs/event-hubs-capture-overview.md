@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie funkcji przechwytywania, która umo
 ms.topic: article
 ms.date: 02/16/2021
 ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100595956"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608820"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą TimeOffManager
@@ -140,13 +140,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-timeoffmanager-sso"></a>Konfigurowanie logowania jednokrotnego TimeOffManager
+## <a name="configure-timeoffmanager-sso&quot;></a>Konfigurowanie logowania jednokrotnego TimeOffManager
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny TimeOffManager jako administrator.
 
 2. Przejdź do **\> opcji konta konta \> Ustawienia pojedyncze Sign-On**.
    
-    ![Zrzut ekranu przedstawia ustawienia pojedynczych Sign-On wybranych z opcji konta.](./media/timeoffmanager-tutorial/ic795917.png "Ustawienia pojedynczego Sign-On")
+    ![Zrzut ekranu przedstawia ustawienia pojedynczych Sign-On wybranych z opcji konta.](./media/timeoffmanager-tutorial/ic795917.png &quot;Ustawienia pojedynczego Sign-On")
 
 3. W sekcji **Ustawienia pojedynczej Sign-On** wykonaj następujące czynności:
    
