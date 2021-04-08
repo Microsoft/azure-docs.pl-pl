@@ -4,10 +4,10 @@ description: Opisuje sposób użycia właściwości Scope podczas wdrażania typ
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99492165"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Ustawianie zakresu dla zasobów rozszerzenia w szablonach ARM
