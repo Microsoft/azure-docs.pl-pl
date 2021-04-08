@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: eebe1c77c9af6791be94c16f0f792a9e7deb9a6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017413"
 ---
 # <a name="input-metadata"></a>Metadane wejściowe
@@ -127,7 +127,7 @@ Zapoznaj się z przykładem XML na końcu tego artykułu: [przykład XML](media-
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Wymagane |**XS: ciąg** |Kod kodera-dekoder wideo FourCC. |
-| **Profilu** |**XS: ciąg** |Profil ścieżki wideo. |
+| **Profil** |**XS: ciąg** |Profil ścieżki wideo. |
 | **Poziomie** |**XS: ciąg** |Poziom ścieżki wideo. |
 | **PixelFormat** |**XS: ciąg** |Format piksela ścieżki wideo. |
 | **Width**<br /><br /> Wymagane |**XS: int** |Zakodowana Szerokość wideo (w pikselach). |

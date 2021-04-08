@@ -8,10 +8,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100377214"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copy Activity performance and tuning guide (Przewodnik dotyczący wydajności i dostosowywania działania kopiowania)
@@ -408,7 +408,7 @@ W takim przypadku kompresja danych bzip2 może spowalniać cały potok. Przełą
 
 ![Scenariusz 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Odwołanie
 Poniżej znajdują się informacje dotyczące monitorowania wydajności i dostrajania dla niektórych obsługiwanych magazynów danych:
 
 * Azure Blob Storage: [elementy docelowe skalowalności i wydajności dla magazynu obiektów BLOB](../../storage/blobs/scalability-targets.md) i [wydajności i skalowalności dla usługi BLOB Storage](../../storage/blobs/storage-performance-checklist.md).
