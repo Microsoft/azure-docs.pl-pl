@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
 ms.openlocfilehash: 7893d0fa113408378b832779d7ca2c38032e6f58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92522550"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myvr"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą MyVR

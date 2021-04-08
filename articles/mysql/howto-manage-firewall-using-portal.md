@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 032db324f9dd2f0d6a5dce5c4fd5c64342fed59f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94540488"
 ---
-# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Tworzenie reguł zapory Azure Database for MySQL i zarządzanie nimi za pomocą Azure Portal
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Tworzenie reguł zapory usługi Azure Database for MySQL i zarządzanie nimi za pomocą witryny Azure Portal
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MySQL z określonego adresu IP lub zakresu adresów IP. 
 
 Reguły Virtual Network (VNet) mogą również służyć do zabezpieczania dostępu do serwera. Dowiedz się więcej o [tworzeniu i zarządzaniu Virtual Network punktów końcowych usługi i reguł przy użyciu Azure Portal](howto-manage-vnet-using-portal.md).

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Samouczek: integracja Azure Active Directory z usługą TeamSeer
@@ -120,13 +120,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TeamSeer, w
 
     c. Adres URL wylogowywania
 
-### <a name="configure-teamseer-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On TeamSeer
+### <a name="configure-teamseer-single-sign-on&quot;></a>Konfigurowanie pojedynczego Sign-On TeamSeer
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny TeamSeer jako administrator.
 
 1. Przejdź do pozycji **administrator kadr**.
 
-    ![Zrzut ekranu przedstawia administratora H R wybranego z okna TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administrator HR")
+    ![Zrzut ekranu przedstawia administratora H R wybranego z okna TeamSeer.](./media/teamseer-tutorial/ic789634.png &quot;Administrator HR")
 
 1. Kliknij przycisk **Setup (Konfiguracja**).
 
@@ -205,7 +205,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-teamseer-test-user"></a>Utwórz użytkownika testowego TeamSeer
+### <a name="create-teamseer-test-user&quot;></a>Utwórz użytkownika testowego TeamSeer
 
 Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze TeamSeer, muszą one być obsługiwane w systemie do ShiftPlanning. W przypadku TeamSeer, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
@@ -215,7 +215,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze TeamSee
 
 1. Przejdź do pozycji **administratorzy \> kadry** , a następnie kliknij przycisk **Uruchom Kreatora nowego użytkownika**.
 
-    ![Zrzut ekranu przedstawia kartę H R admin, na której można wybrać kreatora do uruchomienia.](./media/teamseer-tutorial/ic789640.png "Administrator HR")
+    ![Zrzut ekranu przedstawia kartę H R admin, na której można wybrać kreatora do uruchomienia.](./media/teamseer-tutorial/ic789640.png &quot;Administrator HR")
 
 1. W sekcji **szczegóły użytkownika** wykonaj następujące czynności:
 
