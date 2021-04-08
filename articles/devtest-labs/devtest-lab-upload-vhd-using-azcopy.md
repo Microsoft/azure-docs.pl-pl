@@ -4,10 +4,10 @@ description: Ten artykuł zawiera Przewodnik po użyciu narzędzia wiersza polec
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1d8ede0f78726b04ac862a00b559b8d42c3ed1cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88650778"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Przekaż plik VHD do konta magazynu laboratorium przy użyciu AzCopy
