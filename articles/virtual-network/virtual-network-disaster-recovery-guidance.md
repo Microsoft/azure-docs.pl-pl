@@ -16,10 +16,10 @@ ms.date: 05/16/2016
 ms.author: narayan
 ms.reviewer: aglick
 ms.openlocfilehash: 3f91d24bff0bec540ff0e7964f21c2f47c03638c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67876167"
 ---
 # <a name="virtual-network--business-continuity"></a>Virtual Network — ciągłość działania firmy
@@ -29,7 +29,7 @@ Virtual Network (VNet) to logiczna reprezentacja sieci w chmurze. Pozwala on def
 
 Sieć wirtualna jest tworzona w ramach zakresu regionu. Można *utworzyć* sieci wirtualnych z tą samą przestrzenią adresową w dwóch różnych regionach (na przykład Wschodnie stany USA i stany USA), ale ponieważ mają one taką samą przestrzeń adresową, nie można połączyć się ze sobą. 
 
-## <a name="business-continuity"></a>Ciągłość działalności biznesowej
+## <a name="business-continuity"></a>Ciągłość prowadzenia działalności biznesowej
 
 Może istnieć kilka różnych sposobów zakłócania działania aplikacji. Region można całkowicie wyciąć z powodu klęski żywiołowej lub częściowej awarii z powodu awarii wielu urządzeń lub usług. Wpływ na usługę sieci wirtualnej różni się w każdej z tych sytuacji.
 

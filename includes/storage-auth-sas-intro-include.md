@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75371784"
 ---
 Sygnatura dostępu współdzielonego umożliwia przyznanie ograniczonego dostępu do kontenerów i obiektów BLOB na koncie magazynu. Podczas tworzenia sygnatury dostępu współdzielonego należy określić jego ograniczenia, w tym zasoby usługi Azure Storage, do których klient może uzyskać dostęp, jakie mają uprawnienia do tych zasobów oraz czas ważności sygnatury dostępu współdzielonego.

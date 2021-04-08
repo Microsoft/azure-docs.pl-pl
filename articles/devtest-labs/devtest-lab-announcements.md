@@ -4,10 +4,10 @@ description: Dowiedz się, jak opublikować niestandardowy anons w istniejącym 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 72c6ed7ab691ece094673ff5a158ffa769a9f7a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88270771"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Opublikuj anons w laboratorium w Azure DevTest Labs
