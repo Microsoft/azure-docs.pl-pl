@@ -4,10 +4,10 @@ description: Ulepsz przepływy pracy alertów i zdarzeń.
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779124"
 ---
 # <a name="accelerate-alert-workflows"></a>Przyspiesz przepływy pracy alertów

@@ -16,10 +16,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733303"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -196,15 +196,15 @@ Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezen
 
 ![Zrzut ekranu pokazujący dane wyjściowe aplikacji zaplecza oraz informacje o sposobie wysyłania aktualizacji.](./media/tutorial-device-twins/BackEnd1.png)
 
-## <a name="receive-state-information"></a>Odbieranie informacji o stanie
+## <a name="receive-state-information&quot;></a>Odbieranie informacji o stanie
 
 Aplikacja zaplecza otrzymuje informacje o stanie z urządzenia jako zgłaszane właściwości. Urządzenie ustawia zgłaszane właściwości, a następnie wysyła je do centrum. Aplikacja zaplecza może odczytywać bieżące wartości zgłaszanych właściwości bliźniaczej reprezentacji urządzenia przechowywanej w centrum.
 
-### <a name="send-reported-properties-from-a-device"></a>Wysyłanie zgłaszanych właściwości z urządzenia
+### <a name=&quot;send-reported-properties-from-a-device&quot;></a>Wysyłanie zgłaszanych właściwości z urządzenia
 
 Aktualizacje można wysłać do wartości zgłaszanych właściwości jako poprawki. Poniższy fragment kodu przedstawia szablon poprawki wysyłanej przez urządzenie symulowane. Urządzenie symulowane aktualizuje pola poprawki przed wysłaniem jej do centrum:
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 &quot;Reported properties patches")]
 
 Urządzenie symulowane używa następującej funkcji do wysyłania poprawki, która zawiera zgłaszane właściwości centrum:
 

@@ -9,10 +9,10 @@ ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596012"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
@@ -169,7 +169,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Azure Cognitive Services: Personalizacja               |
 > | Cognitive Services platformy Azure: QnA Maker                  |
 > | Azure Database for MariaDB                           |
-> | Azure Database Migration Service                     |
+> | Usługa Azure Database Migration Service                     |
 > | Dedykowany moduł HSM platformy Azure                                  |
 > | Azure Digital Twins                                  |
 > | Azure Health Bot                                     |

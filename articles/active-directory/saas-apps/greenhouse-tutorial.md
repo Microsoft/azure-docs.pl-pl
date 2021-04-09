@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
 ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98731923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Samouczek: integracja Azure Active Directory z szklarnią
@@ -146,7 +146,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     >[!NOTE]
     >Alternatywnie można również przekazać plik **XML metadanych Federacji** , klikając opcję **Wybierz plik** .
 
-### <a name="create-greenhouse-test-user"></a>Tworzenie użytkownika testowego aplikacji Greenhouse
+### <a name="create-greenhouse-test-user&quot;></a>Tworzenie użytkownika testowego aplikacji Greenhouse
 
 Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Greenhouse, należy ich aprowizować w aplikacji Greenhouse. W przypadku aplikacji Greenhouse aprowizacja jest zadaniem ręcznym.
 
@@ -159,7 +159,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Green
 
 2. Przejdź do pozycji **konfiguruj > użytkownicy > nowych użytkowników**
    
-    ![Użytkownicy](./media/greenhouse-tutorial/create-user-1.png "Użytkownicy")
+    ![Użytkownicy](./media/greenhouse-tutorial/create-user-1.png &quot;Użytkownicy")
 
 4. W sekcji **Dodaj nowych użytkowników** wykonaj następujące czynności:
    

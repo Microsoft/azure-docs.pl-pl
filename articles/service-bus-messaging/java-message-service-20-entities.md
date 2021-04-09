@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie Azure Service Bus jednostek komunik
 ms.topic: article
 ms.date: 07/20/2020
 ms.openlocfilehash: ee4e0124dced16b86d5292c647e129aa87645f22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100652585"
 ---
 # <a name="java-message-service-jms-20-entities"></a>Jednostki usługi wiadomości Java (JMS) 2,0

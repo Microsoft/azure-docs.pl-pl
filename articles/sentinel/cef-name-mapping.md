@@ -9,10 +9,10 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 03/16/2021
 ms.openlocfilehash: 6c23fe86af030d371e12914062bb9558e8db3484
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104776302"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>CEF i CommonSecurityLog, Mapowanie pól
