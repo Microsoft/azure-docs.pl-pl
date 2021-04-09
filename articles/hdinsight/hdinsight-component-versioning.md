@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: 53ca2ac73fdec9d3b39ffc04cbb24aca707a72eb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbd5b507fd4a7b2434158dbdc80584a7fd348732
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490453"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726587"
 ---
 # <a name="azure-hdinsight-versions"></a>Wersje usługi Azure HDInsight
 
@@ -21,12 +21,12 @@ Usługa HDInsight umożliwia łączenie składników środowiska Apache Hadoop i
 
 W tej tabeli wymieniono wersje usługi HDInsight, które są dostępne w Azure Portal i innych metod wdrażania, takich jak program PowerShell, interfejs wiersza polecenia i zestaw SDK platformy .NET.
 
-| Wersja usługi HDInsight | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |
-| --- | --- | --- | --- | --- | --- |
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Tak |
-| [HDInsight 3,6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |4 kwietnia 2017      | * 30 czerwca 2021 |30 czerwca 2021 |Tak |
+| Wersja usługi HDInsight | System operacyjny maszyny wirtualnej | Data wydania| Typ pomocy technicznej | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |
+| --- | --- | --- | --- | --- | --- | ---|
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | [Standardowa](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Tak |
+| [HDInsight 3,6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |4 kwietnia 2017      | [Podstawowa](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Wygaśnięcie pomocy technicznej Standard — 30 czerwca 2021 <br> Wygaśnięcie pomoc techniczna Basic — 3 kwietnia 2022 |4 kwietnia 2022 |Tak |
 
-* Rozszerzamy przedział czasu pomocy technicznej dla niektórych typów klastrów usługi HDInsight 3,6. Zobacz [wersje składników usługi HDInsight 3,6](hdinsight-36-component-versioning.md).
+* Od 1 lipca 2021 firma Microsoft będzie oferować pomoc techniczna Basic dla niektórych typów klastrów HDI 3,6. Zobacz [wersje składników usługi HDInsight 3,6](hdinsight-36-component-versioning.md).
 
 ## <a name="release-notes"></a>Informacje o wersji
 
@@ -34,9 +34,13 @@ Aby uzyskać dodatkowe informacje o wersji dotyczące najnowszych wersji usługi
 
 ## <a name="support-options-for-hdinsight-versions"></a>Opcje pomocy technicznej dla wersji usługi HDInsight
 
-Usługa HDInsight oferuje standardową pomoc techniczną, która jest definiowana jako czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft.
+Pomoc techniczna jest definiowana jako czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft. Usługa HDInsight oferuje dwa typy obsługi: 
+- **Pomoc techniczna Standard** to okres, w którym firma Microsoft udostępnia aktualizacje i pomoc techniczną dla klastrów usługi HDInsight.  
+    Zalecamy Kompilowanie rozwiązań przy użyciu najnowszej w pełni obsługiwanej wersji. 
+- **Pomoc techniczna Basic** to okres, w którym firma Microsoft zapewni ograniczoną obsługę dostawcy zasobów usługi HDInsight. Obrazy HDInsight i składniki oprogramowania typu Open Source (OSS) nie będą obsługiwane.   W klastrach usługi HDInsight zostaną poprawione tylko krytyczne poprawki zabezpieczeń.  
+  Firma Microsoft nie zachęca do tworzenia nowych klastrów ani tworzenia jakichkolwiek świeżych rozwiązań, gdy wersja jest w pomoc techniczna Basic. Zalecamy Migrowanie istniejących klastrów do najnowszej w pełni obsługiwanej wersji. 
 
-**Wygaśnięcie pomocy technicznej** oznacza, że firma Microsoft nie zapewnia już pomocy technicznej dotyczącej określonej wersji usługi HDInsight. Nie jest już dostępny w Azure Portal na potrzeby tworzenia klastra.
+**Wygaśnięcie pomocy technicznej** oznacza, że firma Microsoft nie zapewnia już pomocy technicznej dotyczącej określonej wersji usługi HDInsight. Program może nie być już dostępny w Azure Portal na potrzeby tworzenia klastra.
 
 **Wycofanie** oznacza, że istniejące klastry wersji usługi HDInsight nadal działają zgodnie z oczekiwaniami. Nowych klastrów tej wersji nie można utworzyć za pomocą żadnych metod, które obejmują interfejs wiersza polecenia i zestawy SDK. Inne funkcje płaszczyzny kontroli, takie jak skalowanie ręczne i skalowanie automatyczne, nie są gwarantowane przed upływem daty wycofania. Pomoc techniczna nie jest dostępna dla wycofanych wersji.
 

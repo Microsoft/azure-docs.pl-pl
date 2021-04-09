@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 44091cda479f2c0ccbe77bb9989ee2eda4c40f9d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109016"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727097"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -167,7 +167,7 @@ Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówie
 
 Zmiany zasad wprowadzone przez administratorów mogą zająć do jednego dnia. Dokonano pewnej optymalizacji, aby skrócić opóźnienie do dwóch godzin. Nie dotyczy to jednak wszystkich scenariuszy. 
 
-Jeśli występują sytuacje awaryjne i konieczne będzie zastosowanie zaktualizowanych zasad do określonych użytkowników natychmiast, należy użyć tego [polecenia programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) lub "odwołaj sesję" na stronie profil użytkownika, aby odwołać się do sesji użytkowników, co spowoduje, że zaktualizowane zasady zostaną zastosowane natychmiast.
+Jeśli występują sytuacje awaryjne i konieczne będzie zastosowanie zaktualizowanych zasad do określonych użytkowników natychmiast, należy użyć tego [polecenia programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) lub "odwołaj sesję" na stronie profil użytkownika, aby odwołać się do sesji użytkowników, co spowoduje, że zaktualizowane zasady zostaną zastosowane natychmiast.
 
 ### <a name="coauthoring-in-office-apps"></a>Współtworzenie w aplikacjach pakietu Office
 

@@ -4,12 +4,12 @@ description: Przechwytuj wyjątki z aplikacji ASP.NET wraz z danymi telemetryczn
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 926516075c7d43e6e800403a69ff3ab8f1233fcd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88936507"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726995"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach internetowych za pomocą usługi Application Insights
 Wyjątki w aplikacji sieci Web na żywo są zgłaszane przez [Application Insights](./app-insights-overview.md). Możliwe jest skorelowanie żądań zakończonych niepowodzeniem z wyjątkami i innymi zdarzeniami zarówno na kliencie, jak i na serwerze, dzięki czemu można szybko zdiagnozować przyczyny.
@@ -215,7 +215,7 @@ Nieobsłużone wyjątki pochodzące z kontrolerów zwykle powodują, że odpowie
 ### <a name="prior-versions-support"></a>Obsługa wcześniejszych wersji
 W przypadku używania MVC 4 (i wcześniejszych) Application Insights Web SDK 2,5 (i starszych) zapoznaj się z poniższymi przykładami, aby śledzić wyjątki.
 
-Jeśli konfiguracja [customErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) ma wartość `Off` , wyjątki będą dostępne dla [modułu http](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)) do zbierania. Jednak jeśli jest `RemoteOnly` (domyślnie) lub `On` , wyjątek zostanie wyczyszczony i nie będzie dostępny do Application Insights do automatycznego zbierania. Można to naprawić, zastępując [klasę System. Web. MVC. HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2)i stosując przesłoniętą klasę, jak pokazano w różnych wersjach MVC poniżej ([Źródło GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Jeśli konfiguracja [customErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) ma wartość `Off` , wyjątki będą dostępne dla [modułu http](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)) do zbierania. Jednak jeśli jest `RemoteOnly` (domyślnie) lub `On` , wyjątek zostanie wyczyszczony i nie będzie dostępny do Application Insights do automatycznego zbierania. Można to naprawić, zastępując [klasę System. Web. MVC. HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute)i stosując przesłoniętą klasę, jak pokazano w różnych wersjach MVC poniżej ([Źródło GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;

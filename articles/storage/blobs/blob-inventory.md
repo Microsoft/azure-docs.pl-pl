@@ -11,10 +11,10 @@ ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
 ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950930"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Używanie spisu obiektów BLOB usługi Azure Storage do zarządzania danymi obiektów BLOB (wersja zapoznawcza)

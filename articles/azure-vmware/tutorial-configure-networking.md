@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wd
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.openlocfilehash: c609d191191cd9de111e83fe62761b149405cccc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103494370"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b3dd9ae4113c3c9fe4b0547f990dc7e912b99f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634706"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726417"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -298,8 +298,8 @@ Aby zapewnić spójne środowisko dla wszystkich użytkowników, niezależnie od
 
 |Ujednolicone zalecenie|Zmień opis|
 |----|:----|
-|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**|Zastępuje dwa następujące zalecenia:<br> **•** Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys (obecnie przestarzałe) (dołączone do warstwy Standardowa)<br> **•** Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych (obecnie przestarzałe) (warstwy Standardowa i bezpłatna)|
-|**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**|Zastępuje dwa następujące zalecenia:<br>**•** Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys) (obecnie przestarzałe)<br>**•** Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach (obecnie przestarzałe)|
+|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**|Zastępuje dwa następujące zalecenia:<br> Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys (obecnie przestarzałe) (dołączone do warstwy Standardowa)<br> Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych (obecnie przestarzałe) (warstwy Standardowa i bezpłatna)|
+|**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**|Zastępuje dwa następujące zalecenia:<br>Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys) (obecnie przestarzałe)<br>Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach (obecnie przestarzałe)|
 |||
 
 Teraz użyjesz tego samego zalecenia do wdrożenia rozszerzenia oceny luk w zabezpieczeniach Security Center lub rozwiązania z licencją prywatną ("BYOL") od partnera, takiego jak Qualys lub Rapid7.
@@ -312,20 +312,20 @@ Jeśli masz skrypty, zapytania lub automatyzacje odwołujące się do poprzednic
 
 ##### <a name="before-august-2020"></a>Przed 2020 sierpnia
 
-|Zalecenie|Zakres|
+| Zalecenie|Zakres|
 |----|:----|
 |**Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)**<br>Klucz: 550e890b-e652-4d22-8274-60b3bdb24c63|Wbudowane|
 |**Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)**<br>Klucz: 1195afff-c881-495e-9bc5-1486211ae03f|Wbudowane|
 |**Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych**<br>Klucz: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
 |**Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach**<br>Klucz: 71992a2a-D168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
+|||
 
 
 |Zasady|Zakres|
 |----|:----|
 |**Ocena luk w zabezpieczeniach powinna być włączona na maszynach wirtualnych**<br>Identyfikator zasad: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Wbudowane|
 |**Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach**<br>Identyfikator zasad: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
+|||
 
 
 ##### <a name="from-august-2020"></a>Od sierpnia 2020
@@ -334,12 +334,12 @@ Jeśli masz skrypty, zapytania lub automatyzacje odwołujące się do poprzednic
 |----|:----|
 |**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**<br>Klucz: ffff0522-1e88-47fc-8382-2a80ba848f5d|Wbudowane + BYOL|
 |**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**<br>Klucz: 1195afff-c881-495e-9bc5-1486211ae03f|Wbudowane + BYOL|
-||||
+|||
 
 |Zasady|Zakres|
 |----|:----|
 |[**Ocena luk w zabezpieczeniach powinna być włączona na maszynach wirtualnych**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Identyfikator zasad: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Wbudowane + BYOL|
-||||
+|||
 
 
 ### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Nowe zasady zabezpieczeń AKS dodane do inicjatywy ASC_default — wyłącznie do użytku przez klientów prywatnej wersji zapoznawczej
@@ -899,7 +899,7 @@ Ochrona przed zagrożeniami dla usługi Azure Storage oferuje nowe wykrycia obs�
 
 Organizacje z centralnie zarządzanymi zabezpieczeniami i działem IT/Operations implementują wewnętrzne procesy przepływu pracy, aby zapewnić wymaganą akcję w organizacji w przypadku wykrycia niezgodności w swoich środowiskach. W wielu przypadkach te przepływy pracy są powtarzalnymi procesami, a Automatyzacja może znacznie usprawnić procesy w organizacji.
 
-Dzisiaj wprowadzamy nową funkcję w Security Center, która umożliwia klientom Tworzenie konfiguracji automatyzacji wykorzystujących Azure Logic Apps i tworzenie zasad, które będą automatycznie wyzwalać je na podstawie określonych ustaleń ASC, takich jak zalecenia lub alerty. Aplikację logiki platformy Azure można skonfigurować w taki sposób, aby wykonać dowolną akcję niestandardową obsługiwaną przez rozległą społeczność łączników aplikacji logiki lub użyć jednego z szablonów dostarczonych przez Security Center, takich jak wysyłanie wiadomości e-mail lub otwieranie biletu usługi usługi ServiceNow™.
+Dzisiaj wprowadzamy nową funkcję w Security Center, która umożliwia klientom Tworzenie konfiguracji automatyzacji wykorzystujących Azure Logic Apps i tworzenie zasad, które będą automatycznie wyzwalać je na podstawie określonych ustaleń ASC, takich jak zalecenia lub alerty. Aplikację logiki platformy Azure można skonfigurować w taki sposób, aby wykonać dowolną akcję niestandardową obsługiwaną przez rozległą społeczność łączników aplikacji logiki lub użyć jednego z szablonów dostarczonych przez Security Center, takich jak wysyłanie wiadomości e-mail lub otwieranie &trade; biletu usługi ServiceNow.
 
 Aby uzyskać więcej informacji o automatycznym i ręcznym Security Center możliwości uruchamiania przepływów pracy, zobacz [Automatyzacja przepływu pracy](workflow-automation.md).
 
