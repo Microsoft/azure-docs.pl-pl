@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772556"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
@@ -36,11 +36,11 @@ Istnieją trzy dedykowane wbudowane role wskaźnikowe platformy Azure.
 
 **Wszystkie wbudowane role funkcji wskaźnikowej platformy Azure umożliwiają dostęp do odczytu do danych w obszarze roboczym wskaźnikowego platformy Azure.**
 
-- [Czytnik wskaźnikowy platformy Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) może wyświetlać dane, zdarzenia, skoroszyty i inne zasoby wskaźnikowe platformy Azure.
+- [Czytelnik usługi Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) może wyświetlać dane, incydenty, skoroszyty i inne zasoby usługi Azure Sentinel.
 
-- [Obiekt odpowiadający wskaźnikowi platformy Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) może, oprócz powyższych, zarządzać zdarzeniami (przypisywać, odrzucać itp.).
+- [Odpowiadający usługi Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) może, oprócz wykonywania powyższych działań, zarządzać incydentami (przypisywać, odrzucać itp.)
 
-- [Współautorzy danych platformy Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) może, oprócz powyższych, tworzyć i edytować skoroszyty, reguły analizy i inne zasoby wskaźnikowe platformy Azure.
+- [Współautor usługi Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) może, oprócz wykonywania powyższych działań, tworzyć i edytować skoroszyty, reguły analityczne i inne zasoby usługi Azure Sentinel.
 
 - [Współautor usługi Azure wskaźnikowej automatyzacji](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) pozwala na dodawanie elementy PlayBook do reguł automatyzacji na platformie Azure. Nie jest przeznaczona do kont użytkowników.
 
