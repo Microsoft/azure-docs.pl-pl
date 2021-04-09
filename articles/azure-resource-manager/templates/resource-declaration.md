@@ -4,10 +4,10 @@ description: Opisuje sposób deklarowania zasobów do wdrożenia w szablonie Azu
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: 13f4a08162c40cbb36173627d88a4a8202a4ed26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101746660"
 ---
 # <a name="resource-declaration-in-arm-templates"></a>Deklaracja zasobów w szablonach ARM

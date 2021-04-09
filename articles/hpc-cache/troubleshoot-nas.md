@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
 ms.openlocfilehash: bb17918774d23dbeb2747fa55eefc4956812e254
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775701"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Rozwiązywanie problemów z konfiguracją serwera NAS i miejscem docelowym magazynu NFS
