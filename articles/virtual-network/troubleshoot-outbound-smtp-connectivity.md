@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
 ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102607615"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure

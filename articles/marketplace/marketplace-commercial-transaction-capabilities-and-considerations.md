@@ -8,10 +8,10 @@ ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98986466"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
@@ -46,7 +46,7 @@ Opcja publikowania Transact jest obecnie obsługiwana dla następujących typów
 
 ### <a name="billing-infrastructure-costs"></a>Koszty infrastruktury rozliczeń
 
-W przypadku **maszyn wirtualnych** i **aplikacji platformy** Azure opłaty za użycie infrastruktury platformy Azure są naliczane zgodnie z subskrypcją platformy Azure klienta. Opłaty za użycie infrastruktury są wyceniane i prezentowane niezależnie od opłat za Licencjonowanie dostawcy oprogramowania na fakturze klienta.
+W przypadku **maszyn wirtualnych** i **aplikacji platformy** Azure opłaty za użycie infrastruktury platformy Azure są naliczane zgodnie z subskrypcją platformy Azure klienta. Opłaty za użycie infrastruktury są określane i prezentowane na fakturze klienta niezależnie od opłat licencyjnych dostawcy oprogramowania.
 
 W przypadku **aplikacji SaaS** Wydawca musi uwzględnić opłaty za użycie infrastruktury platformy Azure i opłaty za licencję na oprogramowanie jako pojedynczy koszt.  Jest ona reprezentowana jako stała opłata dla klienta. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio przez wydawcę. Klient nie widzi rzeczywistych opłat za użycie infrastruktury. Wydawcy zwykle wybierają opłaty za użycie infrastruktury platformy Azure do cen licencji na oprogramowanie. Opłaty za licencje na oprogramowanie nie są naliczane lub oparte na zużyciu użytkownika.
 
