@@ -11,10 +11,10 @@ author: justinha
 manager: daveba
 ms.reviewer: calui
 ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99255971"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
@@ -250,7 +250,7 @@ Musisz mieć uprawnienia *administratora dzierżawy* , aby wykonać następując
 6. Dodaj grupę do zasad wdrażania etapowego, jak pokazano w poniższym przykładzie. Zastąp wartość w parametrze *-ID* wartością zwróconą dla identyfikatora zasad w kroku 4 i Zastąp wartość w parametrze *-RefObjectId* *identyfikatorem* zanotowanym w kroku 5. Może upłynąć do 1 godziny, zanim użytkownicy w grupie będą mogli korzystać z adresów serwera proxy w celu zalogowania.
 
    ```powershell
-   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID&quot; -RefObjectId &quot;GROUP_OBJECT_ID"
    ```
    
 Nowe elementy członkowskie dodane do grupy mogą potrwać do 24 godzin, zanim będą mogły korzystać z adresów serwera proxy w celu zalogowania się.
@@ -260,7 +260,7 @@ Nowe elementy członkowskie dodane do grupy mogą potrwać do 24 godzin, zanim b
 Aby usunąć grupę z zasad wdrażania etapowego, uruchom następujące polecenie:
 
 ```powershell
-Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID&quot; -ObjectId &quot;GROUP_OBJECT_ID" 
 ```
 
 ### <a name="removing-policies"></a>Usuwanie zasad
