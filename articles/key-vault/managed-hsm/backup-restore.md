@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100093492"
 ---
 # <a name="full-backup-and-restore"></a>Pełna kopia zapasowa i przywracanie
@@ -23,16 +23,16 @@ ms.locfileid: "100093492"
 
 Zarządzany moduł HSM obsługuje tworzenie pełnej kopii zapasowej całej zawartości modułu HSM, w tym wszystkich kluczy, wersji, atrybutów, tagów i przypisań ról. Kopia zapasowa jest zaszyfrowana przy użyciu kluczy kryptograficznych skojarzonych z domeną zabezpieczeń modułu HSM.
 
-Kopia zapasowa jest operacją płaszczyzny danych. Obiekt wywołujący inicjujący operację tworzenia kopii zapasowej musi mieć uprawnienia do wykonywania akcji elementu **Microsoft., magazynu/managedHsm/tworzenia kopii zapasowej/uruchamiania/akcji**.
+Tworzenie kopii zapasowej to operacja na płaszczyźnie danych. Obiekt wywołujący inicjujący operację tworzenia kopii zapasowej musi mieć uprawnienia do wykonywania akcji elementu **Microsoft., magazynu/managedHsm/tworzenia kopii zapasowej/uruchamiania/akcji**.
 
 Tylko następujące wbudowane role mają uprawnienia do wykonywania pełnej kopii zapasowej:
-- Zarządzany administrator modułu HSM
+- Administrator zarządzanego modułu HSM
 - Zarządzana kopia zapasowa modułu HSM
 
 Aby wykonać pełną kopię zapasową, należy podać następujące informacje:
 - Nazwa lub adres URL modułu HSM
 - Nazwa konta magazynu
-- Kontener magazynu obiektów BLOB konta magazynu
+- Kontener magazynu obiektów blob konta magazynu
 - Token SAS kontenera magazynu z uprawnieniami `crdw`
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

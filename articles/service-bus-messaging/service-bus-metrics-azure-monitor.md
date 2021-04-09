@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorow
 ms.topic: article
 ms.date: 02/12/2021
 ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100570567"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
@@ -79,7 +79,7 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 | Komunikaty| Liczba komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
 | Aktywne komunikaty| Liczba aktywnych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
 | Wiadomości utracone| Liczba utraconych wiadomości w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/>Wymiar: Nazwa jednostki |
-| Zaplanowane wiadomości| Liczba zaplanowanych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia  <br/> Wymiar: Nazwa jednostki |
+| Zaplanowane komunikaty| Liczba zaplanowanych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia  <br/> Wymiar: Nazwa jednostki |
 | Zakończone komunikaty| Liczba ukończonych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
 | Komunikaty porzucone| Liczba porzuconych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
 | Rozmiar | Rozmiar jednostki (kolejki lub tematu) w bajtach. <br/><br/>Jednostka: liczba <br/>Typ agregacji: Średnia <br/>Wymiar: Nazwa jednostki | 

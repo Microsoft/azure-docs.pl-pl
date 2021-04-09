@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: e7d6156fe5cd8ab32ff159bda64e0c06cfbac406
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100654228"
 ---
 # <a name="use-java-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka Java do zarządzania listami ACL w Azure Data Lake Storage Gen2
@@ -215,6 +215,6 @@ Ten przykład ustawia cyklicznie wpisy listy ACL. Jeśli ten kod napotyka błąd
 - [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 - [Mapowanie Gen1 do Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Prześlij opinię](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Przekaż opinię](https://github.com/Azure/azure-sdk-for-java/issues)
 - [Model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
 - [Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

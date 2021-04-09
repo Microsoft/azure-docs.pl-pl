@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97937097"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
@@ -282,7 +282,7 @@ Jeśli Twoja organizacja korzysta ze starszych zasad usługi MFA dla użytkownik
 >[!NOTE]
  > Konfigurowanie [zaufanych adresów IP](./howto-mfa-mfasettings.md) dla usługi Azure AD MFA jest dostępne tylko z [licencjami Azure AD — wersja Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Dokumentacja uwierzytelniania usługi Azure AD](./howto-mfaserver-iis.md)
 * [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)

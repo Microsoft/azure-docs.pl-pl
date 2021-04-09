@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 8c3d76f24cce860538dc3bd5dcf29b59708bdb5d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98726262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Samouczek: Azure Active Directory integrację z usługą rozwiązania Zscaler dwa
@@ -200,14 +200,14 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
     b. Kliknij pozycję **Aktywuj**.
 
-## <a name="configuring-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Konfigurowanie ustawień serwera proxy w programie Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Konfigurowanie ustawień serwera proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Konfigurowanie ustawień serwera proxy w programie Internet Explorer
 
 1. Uruchom program **Internet Explorer**.
 
 2. Wybierz pozycję **Opcje internetowe** z menu **Narzędzia**, aby otworzyć okno dialogowe **Opcje internetowe**.   
     
-     ![Opcje internetowe](./media/zscaler-two-tutorial/ic769492.png "Opcje internetowe")
+     ![Opcje internetowe](./media/zscaler-two-tutorial/ic769492.png &quot;Opcje internetowe")
 
 3. Kliknij kartę **Połączenia**.   
   
