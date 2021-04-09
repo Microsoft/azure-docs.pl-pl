@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100417662"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Przekształcanie danych w usłudze Delta Lake przy użyciu mapowania przepływów danych
@@ -68,11 +68,11 @@ W tym kroku utworzysz potok zawierający działanie przepływu danych.
 
     ![Zrzut ekranu pokazujący lokalizację przepływu danych podczas tworzenia nowego przepływu danych.](media/tutorial-data-flow/activity2.png)
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Logika transformacji kompilacji na kanwie przepływu danych
+## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Logika transformacji kompilacji na kanwie przepływu danych
 
 W tym samouczku zostaną wygenerowane dwa przepływy danych. Przepływ danych Fist jest prostym źródłem do ujścia w celu wygenerowania nowej usługi Delta z pliku CSV filmów z powyżej. Na koniec utworzysz następujący projekt przepływu, aby zaktualizować dane w usłudze Delta Lake.
 
-![Końcowy przepływ](media/data-flow/data-flow-tutorial-6.png "Końcowy przepływ")
+![Końcowy przepływ](media/data-flow/data-flow-tutorial-6.png &quot;Końcowy przepływ")
 
 ### <a name="tutorial-objectives"></a>Cele samouczka
 
