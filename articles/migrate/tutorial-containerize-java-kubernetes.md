@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
 ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105561070"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Aplikacja internetowa języka Java kontenerach i migracja do usługi Azure Kubernetes Service

@@ -1,5 +1,5 @@
 ---
-title: Dołącz Opis pliku: Dołącz usługi plików: Event-Hub Author: spelluru MS. Service: Event-Hubs MS. temat: include MS. Date: 02/01/2021 MS. Author: spelluru MS. Custom: "include File", "FastTrack-Edit", "IoT", "Event-Hubs"
+title: Dołącz Opis pliku: Dołącz usługi plików: Event-Hub Author: spelluru MS. Service: Event-Hubs MS. temat: include MS. Date: 03/31/2021 MS. Author: spelluru MS. Custom: "include File", "FastTrack-Edit", "IoT", "Event-Hubs"
 
 ---
 
@@ -13,13 +13,12 @@ Poniższe limity są wspólne dla wszystkich warstw.
 | Liczba przestrzeni nazw Event Hubs na subskrypcję |- |100 |
 | Liczba centrów zdarzeń na przestrzeń nazw | Kolejne żądania utworzenia nowego centrum zdarzeń są odrzucane. |10 |
 | Rozmiar nazwy centrum zdarzeń |- | 256 znaków |
-| Rozmiar nazwy grupy odbiorców |- | 256 znaków |
+| Rozmiar nazwy grupy odbiorców | Protokół Kafka nie wymaga tworzenia grupy odbiorców. | <p>Kafka: 256 znaków</p><p>AMQP: 50 znaków |
 | Liczba odbiorników niezwiązanych z nieepoką na grupę konsumentów |- |5 |
 | Liczba reguł autoryzacji na przestrzeń nazw | Kolejne żądania utworzenia reguły autoryzacji są odrzucane.|12 |
 | Liczba wywołań metody GetRuntimeInformation — |  - | 50 na sekundę | 
 | Liczba sieci wirtualnych (VNet) | - | 128 | 
 | Liczba reguł konfiguracji adresu IP | - | 128 | 
-
 
 ### <a name="basic-vs-standard-tiers"></a>Warstwy Podstawowa i Standardowa
 W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw Podstawowa i standardowa. 
@@ -43,9 +42,9 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 
 Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
 
-| Cecha | Standardowa | Dedykowane |
+| Cecha | Standardowa (Standard) | Dedykowane |
 | --- |:---|:---|
-| Szerokość pasma | 20 TUs (do 40 TUs) | 20 jednostek |
+| Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
 | Przestrzenie nazw |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
@@ -72,7 +71,7 @@ Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-clu
 
 #### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Limity różne dla warstw standardowa i dedykowana 
 
-| Limit | Standardowa | Dedykowane | 
+| Limit | Standardowa (Standard) | Dedykowane | 
 |---|---|--|
 | Rozmiar rejestru schematu (przestrzeń nazw) w bajtach. | 25 |  1024 |
 | Liczba grup schematu w rejestrze lub przestrzeni nazw schematu | 1 — wykluczanie grupy domyślnej | 1000 |

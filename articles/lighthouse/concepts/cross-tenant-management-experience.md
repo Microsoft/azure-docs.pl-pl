@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559914"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934329"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -77,7 +77,7 @@ Większość zadań i usług można wykonywać w ramach delegowanych zasobów w 
 
 [Azure Cost Management i rozliczanie](../../cost-management-billing/index.yml):
 
-- Od dzierżawy zarządzającej partnerzy CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów, którzy podlegają planowi Azure. Koszt będzie uzależniony od stawek detalicznych i dostępu do kontroli dostępu opartej na rolach (Azure RBAC) dla partnera klienta.
+- Od dzierżawy zarządzającej partnerzy CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów, którzy podlegają planowi Azure. Koszt będzie uzależniony od stawek detalicznych i dostępu do kontroli dostępu opartej na rolach (Azure RBAC) dla partnera klienta. Obecnie można wyświetlać koszty użycia według stawek detalicznych dla każdej indywidualnej subskrypcji klienta w oparciu o dostęp do usługi Azure RBAC.
 
 [Azure Key Vault](../../key-vault/general/index.yml):
 

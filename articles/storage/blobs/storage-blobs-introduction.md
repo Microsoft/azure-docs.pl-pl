@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d71fc7931db77f0cf19a4e7ea70731ba19d1f6d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703593"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937315"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Wprowadzenie do usługi Azure Blob Storage
 
@@ -55,7 +55,7 @@ Kontener porządkuje zestaw obiektów blob, pełniąc funkcję podobną do katal
 
 Usługa Azure Storage obsługuje trzy typy obiektów blob:
 
-- **Blokowe obiekty blob** przechowują dane tekstowe i binarne. Blokowe obiekty blob składają się z bloków danych, którymi można zarządzać indywidualnie. Blokowe obiekty blob przechowują do około 4,75 TiB danych. Większe blokowe obiekty blob są dostępne w wersji zapoznawczej, do około 190,7 TiB
+- **Blokowe obiekty blob** przechowują dane tekstowe i binarne. Blokowe obiekty blob składają się z bloków danych, którymi można zarządzać indywidualnie. Blokowe obiekty blob mogą przechowywać do około 190,7 TiB.
 - **Uzupełnialne obiekty blob** również składają się z bloków, podobnie jak blokowe obiekty blob, lecz są zoptymalizowane pod kątem operacji dołączania. Uzupełnialne obiekty blob doskonale sprawdzają się w sytuacjach takich jak zapisywanie danych dzienników z maszyn wirtualnych.
 - **Stronicowe obiekty blob** przechowują pliki o dostępie losowym o rozmiarze do 8 TIB. Stronicowe obiekty blob przechowują pliki wirtualnych dysków twardych (VHD) i stanowią dyski dla maszyn wirtualnych platformy Azure. Aby uzyskać więcej informacji na temat stronicowych obiektów blob, zobacz [Overview of Azure page blobs (Omówienie stronicowych obiektów blob platformy Azure)](storage-blob-pageblob-overview.md)
 

@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700477"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934176"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -599,7 +599,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | komputerów | grupa zasobów | 1-64 | Alfanumeryczne, podkreślenia, nawiasy, łączniki i kropki. |
-> | ResourceGroups | subskrypcja | 1-90 | Alfanumeryczne, podkreślenia, nawiasy, łączniki, kropki i znaki Unicode, które pasują do [dokumentacji wyrażenia regularnego](/rest/api/resources/resourcegroups/createorupdate).<br><br>Nie może kończyć się kropką. |
+> | ResourceGroups | subskrypcja | 1-90 | Alfanumeryczne, podkreślenia, nawiasy, łączniki, kropki i znaki Unicode, które pasują do [dokumentacji wyrażenia regularnego](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>Nie może kończyć się kropką. |
 > | tagNames | zasób | 1-512 | Nie można użyć:<br>`<>%&\?/` |
 > | tagNames/tagValues | nazwa tagu | 1-256 | Wszystkie znaki. |
 > | templateSpecs | grupa zasobów | 1-90 | Alfanumeryczne, podkreślenia, nawiasy, łączniki i kropki. |

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 801d810a82e4e484ca1ab30c5c6d510860dbab6b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: fe42b98813f1687c78827b355a707b0147d6d2a4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566017"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067286"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -252,7 +252,7 @@ Zespół zestawu Azure SDK opublikował nową wersję [zestawu Azure SDK dla pak
 Aby uzyskać więcej informacji, zobacz:
 
 * Poniższe [przykłady kodu](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) ułatwiają szybkie rozpoczęcie pracy:
-  * **vodworkflow_aes. php**: ten plik php pokazuje, jak korzystać z szyfrowania dynamicznego aes-128 i usługi Key Delivery. Jest on oparty na przykładzie programu .NET opisanym w temacie [Korzystanie z szyfrowania dynamicznego AES-128 i usługi Key Delivery](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes. php**: ten plik php pokazuje, jak korzystać z szyfrowania dynamicznego aes-128 i usługi Key Delivery. Jest on oparty na przykładzie programu .NET opisanym w temacie [Korzystanie z szyfrowania dynamicznego AES-128 i usługi Key Delivery](media-services-playready-license-template-overview.md).
   * **vodworkflow_aes. php**: ten plik php pokazuje, jak używać szyfrowania dynamicznego PlayReady i usługi dostarczania licencji. Jest on oparty na przykładowym środowisku .NET opisanym w temacie [Korzystanie z szyfrowania Common Encryption Widevine](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units. php**: ten plik php przedstawia sposób skalowania jednostek zarezerwowanych kodowania.
 

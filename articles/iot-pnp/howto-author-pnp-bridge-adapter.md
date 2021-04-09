@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9a7028dfaeb94e87366de7acfa8cebc4c2f4c767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac359e73ae71fd2163fb178caab4a2b5f908a008
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98746832"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057460"
 ---
 # <a name="extend-the-iot-plug-and-play-bridge"></a>Poszerzanie mostka Plug and Play IoT
 [Mostek Plug and Play IoT](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) umożliwia podłączenie istniejących urządzeń podłączonych do bramy do centrum IoT Hub. Za pomocą mostka można mapować interfejsy Plug and Play IoT na dołączone urządzenia. Interfejs Plug and Play IoT definiuje dane telemetryczne wysyłane przez urządzenie, właściwości zsynchronizowane między urządzeniem a chmurą oraz polecenia, na które odpowiada urządzenie. Możesz zainstalować i skonfigurować aplikację mostka "open source" w bramach systemu Windows lub Linux. Dodatkowo mostek można uruchomić jako moduł środowiska uruchomieniowego Azure IoT Edge.

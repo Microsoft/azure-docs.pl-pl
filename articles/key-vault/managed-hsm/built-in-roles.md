@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 01e96922d9c0c47eaf4d430e92eafcd9d0964e13
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105557228"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Lokalne wbudowane role kontroli dostępu w zarządzanym module HSM
@@ -23,7 +23,7 @@ Lokalna RBAC modułu HSM ma kilka wbudowanych ról. Te role można przypisać do
 
 |Nazwa roli|Opis|ID (Identyfikator)|
 |---|---|---|
-|Zarządzany administrator modułu HSM| Przyznaje uprawnienia do wykonywania wszystkich operacji związanych z domeną zabezpieczeń, pełną kopią zapasową/przywracaniem i zarządzaniem rolami. Nie można wykonać żadnych operacji zarządzania kluczami.|a290e904-7015-4bba-90c8-60543313cdb4|
+|Administrator zarządzanego modułu HSM| Przyznaje uprawnienia do wykonywania wszystkich operacji związanych z domeną zabezpieczeń, pełną kopią zapasową/przywracaniem i zarządzaniem rolami. Nie można wykonać żadnych operacji zarządzania kluczami.|a290e904-7015-4bba-90c8-60543313cdb4|
 |Zarządzany oficer kryptograficzny modułu HSM|Przyznaje uprawnienia do wykonywania wszystkich ról zarządzania, przeczyszczania i odzyskiwania usuniętych kluczy oraz eksportowania kluczy. Nie można wykonać żadnych innych operacji zarządzania kluczami.|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
 |Zarządzany użytkownik kryptograficzny modułu HSM|Przyznaje uprawnienia do wykonywania wszystkich operacji zarządzania kluczami z wyjątkiem przeczyszczania lub odzyskiwania usuniętych kluczy oraz eksportowania kluczy.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Administrator zarządzanych zasad modułu HSM| Przyznaje uprawnienia do tworzenia i usuwania przypisań ról|4bd23610-CDCF-4971-bdee-bdc562cc28e4|

@@ -3,17 +3,18 @@ title: Azure Cloud Services (klasyczny) def. NetworkTrafficRules schemat | Micro
 description: Dowiedz się więcej na temat NetworkTrafficRules, który ogranicza role, które mogą uzyskiwać dostęp do wewnętrznych punktów końcowych roli. Łączy się z rolami w pliku definicji usługi.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 499b0f2b7e02dabbde906e0d347a17389b2e5753
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98739772"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934108"
 ---
 # <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Schemat NetworkTrafficRules definicji platformy Cloud Services Azure (klasyczny)
 

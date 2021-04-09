@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
-ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e176c0399b191c7a511ea1d26388219b2cef1df8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034901"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107150"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -422,10 +422,11 @@ Poniższa tabela mapuje typowe objawy na ich prawdopodobne przyczyny.
 * [Szybki start: zdarzenia rozszerzone w programie SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych](intelligent-insights-overview.md)
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Azure SQL Database: ulepszanie dostrajania wydajności za pomocą dostrajania automatycznego](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Poprawianie wydajności Azure SQL Database przy użyciu dostrajania automatycznego](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)
 * [Zapewnianie spójnej wydajności za pomocą usługi Azure SQL](/learn/modules/azure-sql-performance/)
 * [Rozwiązywanie problemów z łącznością i innych błędów przy użyciu Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL](troubleshoot-common-errors-issues.md)
 * [Obsługa błędów przejściowych](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)
+* [Skonfiguruj maksymalny stopień równoległości (MAXDOP) w Azure SQL Database](configure-max-degree-of-parallelism.md)
