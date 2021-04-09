@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
 ms.openlocfilehash: 058873df989c444ebe06fc20a2f8a40fd2d3c594
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594550"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
@@ -177,7 +177,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Witryna Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [Program PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [ZESTAWIE](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-digital-twins"></a>Azure Digital Twins
 

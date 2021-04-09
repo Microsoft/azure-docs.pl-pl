@@ -1,5 +1,5 @@
 ---
-title: Często zadawane pytania dotyczące maszyn wirtualnych w portalu Azure Marketplace
+title: Często zadawane pytania dotyczące maszyn wirtualnych w witrynie Azure Marketplace
 description: Często zadawane pytania występujące podczas tworzenia maszyny wirtualnej w portalu Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593428"
 ---
-# <a name="common-questions-about-vm-in-azure-marketplace"></a>Często zadawane pytania dotyczące maszyn wirtualnych w portalu Azure Marketplace
+# <a name="common-questions-about-vm-in-azure-marketplace"></a>Często zadawane pytania dotyczące maszyn wirtualnych w witrynie Azure Marketplace
 
 Te często zadawane pytania obejmują typowe problemy, które można napotkać podczas tworzenia oferty maszyny wirtualnej w portalu Azure Marketplace.
 

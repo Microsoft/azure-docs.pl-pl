@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
 ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98673238"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów dotyczących niewyświetlania danych z urządzeń w usłudze Azure IoT Central

@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
 ms.openlocfilehash: f8090ea9c0d307d1bd290c4cf4dac9bfaabf7c4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104576325"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Samouczek: kierowanie ruchem sieciowym za pomocą tabeli tras z użyciem witryny Azure Portal
@@ -106,7 +106,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     | Nazwa maszyny wirtualnej | Wprowadź **myVMNVA** |
     | Region (Region) | Wybierz **(US) Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -235,7 +235,7 @@ Utwórz publiczną i prywatną maszynę wirtualną w sieci wirtualnej. Później
     | Nazwa maszyny wirtualnej | Wprowadź **myVMPublic** |
     | Region (Region) | Wybierz **(US) Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -278,7 +278,7 @@ Utwórz publiczną i prywatną maszynę wirtualną w sieci wirtualnej. Później
     | Nazwa maszyny wirtualnej | Wprowadź **myVMPrivate** |
     | Region (Region) | Wybierz **(US) Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
