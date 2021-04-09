@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487189"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726366"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Odnawianie certyfikatów Azure Key Vault
 
@@ -29,7 +29,7 @@ W tym artykule omówiono sposób odnawiania certyfikatów Azure Key Vault.
 Aby otrzymywać powiadomienia o zdarzeniach dotyczących okresu istnienia certyfikatu, należy dodać kontakt z certyfikatem. Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współużytkowane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie zostanie wysłane do wszystkich określonych kontaktów dla zdarzenia dowolnego certyfikatu w magazynie kluczy.
 
 ### <a name="steps-to-set-certificate-notifications"></a>Procedura ustawiania powiadomień dotyczących certyfikatów:
-Najpierw Dodaj kontakt z certyfikatem do magazynu kluczy. Możesz dodać za pomocą Azure Portal lub polecenia cmdlet programu PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
+Najpierw Dodaj kontakt z certyfikatem do magazynu kluczy. Możesz dodać za pomocą Azure Portal lub polecenia cmdlet programu PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact) .
 
 Następnie skonfiguruj, Kiedy chcesz otrzymywać powiadomienia o wygaśnięciu certyfikatu. Aby skonfigurować atrybuty cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji certyfikatów w Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
@@ -41,9 +41,9 @@ Jeśli zasada certyfikatu jest ustawiona na automatyczne odnawianie, zostanie wy
   Gdy zasady certyfikatu ustawione do ręcznego odnawiania (tylko wiadomości e-mail), po chwili odnowienia certyfikatu zostanie wysłane powiadomienie.  
 
 W Key Vault istnieją trzy kategorie certyfikatów:
--   Certyfikaty utworzone przy użyciu zintegrowanego urzędu certyfikacji (CA), takie jak DigiCert lub GlobalSign
--   Certyfikaty utworzone przy użyciu niezintegrowanego urzędu certyfikacji
--   Certyfikaty z podpisem własnym
+-    Certyfikaty utworzone przy użyciu zintegrowanego urzędu certyfikacji (CA), takie jak DigiCert lub GlobalSign
+-    Certyfikaty utworzone przy użyciu niezintegrowanego urzędu certyfikacji
+-    Certyfikaty z podpisem własnym
 
 ## <a name="renew-an-integrated-ca-certificate"></a>Odnawianie certyfikatu zintegrowanego urzędu certyfikacji 
 Azure Key Vault obsługuje kompleksową konserwację certyfikatów wystawionych przez zaufanych urzędów certyfikacji firmy Microsoft DigiCert i GlobalSign. Dowiedz się, jak [zintegrować zaufany urząd certyfikacji z Key Vault](./how-to-integrate-certificate-authority.md).
@@ -89,5 +89,5 @@ Utwórz certyfikat o ważności **1 miesiąca**, a następnie ustaw akcję okres
 Tak, Tagi są replikowane po autoodnowieniu.
 
 ## <a name="next-steps"></a>Następne kroki
-*   [Integracja Key Vault z urzędem certyfikacji DigiCert](how-to-integrate-certificate-authority.md)
-*   [Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault](tutorial-rotate-certificates.md)
+*    [Integracja Key Vault z urzędem certyfikacji DigiCert](how-to-integrate-certificate-authority.md)
+*    [Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault](tutorial-rotate-certificates.md)

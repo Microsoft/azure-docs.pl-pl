@@ -9,10 +9,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-python-uiex
 ms.openlocfilehash: 3dfafd4412110d8d12a656fbae587087745677f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101723728"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji na platformie Azure przy użyciu języka Python za pomocą Visual Studio Code

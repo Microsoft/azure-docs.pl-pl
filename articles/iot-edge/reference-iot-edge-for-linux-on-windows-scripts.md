@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 41827c5db58f3d4755fb34e46067357cd0255676
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: a24b39107d8f78c049afa230fe678ec92852eeb0
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612776"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959691"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Skrypty programu PowerShell dla IoT Edge dla systemu Linux w systemie Windows
 
@@ -41,7 +41,7 @@ Polecenie **Deploy-eFlow** to główna Metoda wdrażania. Polecenie wdrożenia t
 | Identyfikator rejestracji | Identyfikator rejestracji istniejącego urządzenia IoT Edge | Identyfikator rejestracji na potrzeby aprowizacji urządzenia IoT Edge (**x509** lub **symetryczny**). |
 | identityCertLocVm | Ścieżka katalogu; musi znajdować się w folderze, który może należeć do `iotedge` usługi | Bezwzględna ścieżka docelowa certyfikatu tożsamości na maszynie wirtualnej w celu aprowizacji urządzenia IoT Edge (**x509** lub **symetryczny**). |
 | identityCertLocWin | Ścieżka katalogu | Bezwzględna ścieżka źródła certyfikatu tożsamości w systemie Windows do aprowizacji urządzenia IoT Edge (**x509** lub **symetryczny**). |
-| identityPkLocVm |  | Ścieżka katalogu; musi znajdować się w folderze, który może należeć do `iotedge` usługi | Bezwzględna ścieżka docelowa prywatnego klucza tożsamości na maszynie wirtualnej na potrzeby aprowizacji urządzenia IoT Edge (**x509** lub **symetryczny**). |
+| identityPkLocVm | Ścieżka katalogu; musi znajdować się w folderze, który może należeć do `iotedge` usługi | Bezwzględna ścieżka docelowa prywatnego klucza tożsamości na maszynie wirtualnej na potrzeby aprowizacji urządzenia IoT Edge (**x509** lub **symetryczny**). |
 | identityPkLocWin | Ścieżka katalogu | Bezwzględna ścieżka źródłowa klucza prywatnego tożsamości w systemie Windows do aprowizacji urządzenia IoT Edge (**x509** lub **symetryczny**). |
 | vmSizeDefintion | Nie więcej niż 30 znaków | Definicja liczby rdzeni i dostępnej pamięci RAM dla maszyny wirtualnej. **Wartość domyślna**: Standard_K8S_v1. |
 | vmDiskSize | Od 8 GB do 256 GB | Maksymalny rozmiar dysku dynamicznego powiększający się wirtualny dysk twardy. **Wartość domyślna**: 16 GB. |
@@ -74,7 +74,7 @@ Polecenie **EflowVm —** umożliwia dodanie informacji o aprowizacji urządzeni
 | Identyfikator rejestracji | Identyfikator rejestracji istniejącego urządzenia IoT Edge | Identyfikator rejestracji na potrzeby aprowizacji urządzenia IoT Edgeowego (**DPS**). |
 | identityCertLocVm | Ścieżka katalogu; musi znajdować się w folderze, który może należeć do `iotedge` usługi | Bezwzględna ścieżka docelowa certyfikatu tożsamości na maszynie wirtualnej na potrzeby aprowizacji urządzenia IoT Edge (**DPS**, **x509**). |
 | identityCertLocWin | Ścieżka katalogu | Bezwzględna ścieżka źródła certyfikatu tożsamości w systemie Windows do aprowizacji urządzenia IoT Edge (**DPS**, **x509**). |
-| identityPkLocVm |  | Ścieżka katalogu; musi znajdować się w folderze, który może należeć do `iotedge` usługi | Bezwzględna ścieżka docelowa prywatnego klucza tożsamości na maszynie wirtualnej na potrzeby aprowizacji urządzenia IoT Edge (**DPS**, **x509**). |
+| identityPkLocVm  | Ścieżka katalogu; musi znajdować się w folderze, który może należeć do `iotedge` usługi | Bezwzględna ścieżka docelowa prywatnego klucza tożsamości na maszynie wirtualnej na potrzeby aprowizacji urządzenia IoT Edge (**DPS**, **x509**). |
 | identityPkLocWin | Ścieżka katalogu | Bezwzględna ścieżka źródłowa klucza prywatnego tożsamości w systemie Windows do aprowizacji urządzenia IoT Edge (**DPS**, **x509**). |
 
 ## <a name="get-eflowvmname"></a>Get-EflowVmName

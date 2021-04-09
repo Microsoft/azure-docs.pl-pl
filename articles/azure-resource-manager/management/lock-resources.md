@@ -4,12 +4,12 @@ description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zas
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6d989f2077618ce80382b38acc651553cb331d5a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102619175"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932764"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -324,7 +324,7 @@ az lock delete --ids $lockid
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](/rest/api/resources/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
+Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](/rest/api/resources/managementlocks/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
 
 Aby utworzyć blokadę, uruchom polecenie:
 

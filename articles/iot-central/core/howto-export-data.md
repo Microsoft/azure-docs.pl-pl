@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
 ms.openlocfilehash: 7152012c7c4a342c7491e5f8b835eaede4269c4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100522618"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
@@ -96,9 +96,9 @@ Jeśli nie masz istniejącego konta usługi Azure Storage do eksportowania, wyko
 
     |Warstwa wydajności|Typ konta|
     |-|-|
-    |Standardowa|Ogólnego przeznaczenia v2|
-    |Standardowa|Ogólnego przeznaczenia v1|
-    |Standardowa|Blob Storage|
+    |Standardowa (Standard)|Ogólnego przeznaczenia v2|
+    |Standardowa (Standard)|Ogólnego przeznaczenia v1|
+    |Standardowa (Standard)|Blob Storage|
     |Premium|Blokuj Magazyn obiektów BLOB|
 
 1. Aby utworzyć kontener na koncie magazynu, przejdź do konta magazynu. W obszarze **BLOB Service** wybierz pozycję **Przeglądaj obiekty blob**. Wybierz pozycję **+ kontener** u góry, aby utworzyć nowy kontener.

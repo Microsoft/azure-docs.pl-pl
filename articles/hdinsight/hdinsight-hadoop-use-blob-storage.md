@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945427"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight

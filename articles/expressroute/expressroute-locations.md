@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 404970873a468707e2e9de47de80b438f358474a
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: bb5efa11bcc723d0f373ae00cf7629a59b4a2ca9
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565048"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959810"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partnerzy łączności i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -167,7 +167,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[Telehouse — KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Obsługiwane |Obsługiwane |Londyn, London2, Singapur2 |
 | **Telenor** |Obsługiwane |Obsługiwane |Amsterdam, Londyn, Oslo |
 | **[Telia](https://www.teliacarrier.com/)** | Obsługiwane | Obsługiwane |Amsterdam, Chicago, Dallas, Frankfurt, Hongkong, Londyn, Oslo, Paryż, Dolina Krzemowa, Sztokholm, Waszyngton |
-| **[Telin](https://www.telin.net/)** | Obsługiwane | Obsługiwane |Dżakarta |
+| **[Telin](https://www.telin.net/product/data-connectivity/telin-cloud-exchange)** | Obsługiwane | Obsługiwane |Dżakarta |
 | **Telmex Uninet**| Obsługiwane | Obsługiwane | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Obsługiwane |Obsługiwane |Melbourne, Singapur, Sydney |
 | **[Telus](https://www.telus.com)** |Obsługiwane |Obsługiwane |Montrealu, Seattle, Quebec City, Toronto, Vancouver |

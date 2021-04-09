@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 20087fbf4d5c37f1501df08cc294a10ddb9118e1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c44e0570b08bba852d57fbb25da05d778ea8a0d
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601818"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960116"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Zarządzanie obliczeniami dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
@@ -92,6 +92,7 @@ W przypadku wstrzymania dedykowanej puli SQL (dawniej SQL DW):
 - Koszt jednostkowy magazynu danych jest równy zero przez czas wstrzymania.
 - Nie dotyczy to przechowywania danych, a Twoje dane pozostają nienaruszone.
 - Wszystkie operacje uruchomione lub w kolejce zostały anulowane.
+- Liczniki DMV są resetowane.
 
 Po wznowieniu dedykowanej puli SQL (dawniej SQL DW):
 

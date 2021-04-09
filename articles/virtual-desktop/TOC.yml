@@ -160,8 +160,6 @@
       href: fslogix-containers-azure-files.md
     - name: Opcje magazynu dla kontenerów profilów FSLogix
       href: store-fslogix-profile.md
-    - name: Integracje partnerów
-      href: partners.md
     - name: Często zadawane pytania na temat usługi Windows Virtual Desktop
       href: faq.md
     - name: Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania

@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 24ff39fba5ce4b484f23595a9f7d718b12faae10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c4ab8c9f4e1f9dae8c10e155729c639c089fb77a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037272"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727119"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Role administratora klasycznej subskrypcji, role platformy Azure i role usługi Azure AD
 
@@ -115,7 +115,7 @@ Na wysokim poziomie role platformy Azure kontrolują uprawnienia do zarządzania
 | --- | --- |
 | Zarządzanie dostępem do zasobów platformy Azure | Zarządzanie dostępem do zasobów usługi Azure Active Directory |
 | Obsługa ról niestandardowych | Obsługa ról niestandardowych |
-| Możliwość określenia zakresu na wielu poziomach (grupa zarządzania, subskrypcja, grupa zasobów, zasób) | Zakres znajduje się na poziomie dzierżawy |
+| Możliwość określenia zakresu na wielu poziomach (grupa zarządzania, subskrypcja, grupa zasobów, zasób) | [Zakres](../active-directory/roles/custom-overview.md#scope) może być określony na poziomie dzierżawy (w całej organizacji) lub na pojedynczym obiekcie (na przykład konkretną aplikacją). |
 | Informacje o rolach można uzyskać w witrynie Azure Portal, interfejsie wiersza polecenia platformy Azure, programie Azure PowerShell, szablonach usługi Azure Resource Manager, interfejsie API REST | Dostęp do informacji o rolach można uzyskać w portalu administracyjnym platformy Azure, Microsoft 365 centrum administracyjnym, Microsoft Graph, AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Czy role platformy Azure i role usługi Azure AD nakładają się?

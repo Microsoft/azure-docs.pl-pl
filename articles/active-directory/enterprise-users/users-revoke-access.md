@@ -10,19 +10,19 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 12/02/2020
+ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 578e8f5f3126542c579cd573c82b732049d407b6
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860579"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959827"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Odwołaj dostęp użytkownika w Azure Active Directory
 
-Wśród scenariuszy, które mogą wymagać od administratora odpowiedzenia wszystkich dostępu dla użytkownika, zalicza się do nich naruszone konta, zakończenie pracownika i inne zagrożenia. W zależności od stopnia złożoności środowiska Administratorzy mogą wykonać kilka czynności, aby upewnić się, że dostęp został odwołany. W niektórych scenariuszach może istnieć okres między inicjacją odwołania dostępu a faktycznym odwołaniem dostępu.
+Scenariusze, które mogą wymagać od administratora odwołania wszystkich dostępu dla użytkownika, obejmują naruszone konta, zakończenie pracownika i inne zagrożenia niejawnego programu. W zależności od stopnia złożoności środowiska Administratorzy mogą wykonać kilka czynności, aby upewnić się, że dostęp został odwołany. W niektórych scenariuszach może istnieć okres między inicjacją odwołania dostępu a faktycznym odwołaniem dostępu.
 
 Aby zmniejszyć ryzyko, należy zrozumieć, jak działają tokeny. Istnieje wiele rodzajów tokenów, które znajdują się w jednym z wzorców wymienionych w poniższych sekcjach.
 
@@ -36,9 +36,9 @@ Tokeny dostępu i tokeny odświeżania są często używane w przypadku aplikacj
 
 - Tokeny dostępu wystawione przez usługę Azure AD są domyślnie ostatnie przez 1 godzinę. Jeśli protokół uwierzytelniania zezwala, aplikacja może w trybie dyskretnym ponownie uwierzytelnić użytkownika przez przekazanie tokenu odświeżania do usługi Azure AD po wygaśnięciu tokenu dostępu.
 
-Usługa Azure AD następnie ponownie oceni swoje zasady autoryzacji. Jeśli użytkownik nadal jest autoryzowany, usługa Azure AD wystawia nowy token dostępu i Odśwież token.
+Usługa Azure AD następnie ponownie oceni swoje zasady autoryzacji. Jeśli użytkownik nadal jest autoryzowany, usługa Azure AD wystawia nowy token dostępu i odświeża token.
 
-Tokeny dostępu mogą stanowić zagrożenie bezpieczeństwa, jeśli dostęp musi zostać odwołany w czasie krótszym niż okres istnienia tokenu, który zwykle trwa około godziny. Z tego powodu firma Microsoft aktywnie pracuje nad przeprowadzeniem [ciągłej oceny dostępu](../conditional-access/concept-continuous-access-evaluation.md) do aplikacji Microsoft 365, co pomaga zapewnić unieważnienie tokenów dostępu w czasie niemal rzeczywistym.  
+Tokeny dostępu mogą stanowić zagrożenie bezpieczeństwa, jeśli dostęp musi zostać odwołany w czasie krótszym niż okres istnienia tokenu, który zwykle trwa około godziny. Z tego powodu firma Microsoft aktywnie pracuje nad przeprowadzeniem [ciągłej oceny dostępu](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) do aplikacji pakietu Office 365, co pomaga zapewnić unieważnienie tokenów dostępu w czasie niemal rzeczywistym.  
 
 ## <a name="session-tokens-cookies"></a>Tokeny sesji (pliki cookie)
 
@@ -60,18 +60,18 @@ W przypadku środowiska hybrydowego z Active Directorym lokalnym synchronizowany
 
 Jako administrator w Active Directory połączyć się z siecią lokalną, Otwórz program PowerShell i wykonaj następujące czynności:
 
-1. Wyłącz użytkownika w Active Directory. Zapoznaj się z tematem [disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
+1. Wyłącz użytkownika w Active Directory. Zapoznaj się z tematem [disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Zresetuj hasło użytkownika dwa razy w Active Directory. Zapoznaj się z [ustawieniem Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
+2. Zresetuj hasło użytkownika dwa razy w Active Directory. Zapoznaj się z [ustawieniem Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > Powodem, że zmiana hasła użytkownika jest dwa razy, ma na celu ograniczenie ryzyka związanego z przekazywaniem skrótu, szczególnie w przypadku opóźnień w lokalnej replikacji haseł. Jeśli możesz bezpiecznie założyć, że to konto nie zostało naruszone, możesz zresetować hasło tylko raz.
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > W poniższych poleceniach cmdlet nie należy używać przykładowych haseł. Należy koniecznie zmienić hasła na ciąg losowy.
 
     ```PowerShell
@@ -83,32 +83,23 @@ Jako administrator w Active Directory połączyć się z siecią lokalną, Otwó
 
 Jako administrator w Azure Active Directory Otwórz program PowerShell, uruchom ``Connect-AzureAD`` polecenie i wykonaj następujące czynności:
 
-1. Wyłącz użytkownika w usłudze Azure AD. Zapoznaj się z [ustawieniem Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
+1. Wyłącz użytkownika w usłudze Azure AD. Zapoznaj się z [ustawieniem Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Odwołaj tokeny odświeżania usługi Azure AD użytkownika. Odwołaj się do [odwołania do AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
+
+2. Odwołaj tokeny odświeżania usługi Azure AD użytkownika. Odwołaj się do [odwołania do AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Wyłącz urządzenia użytkownika. Zapoznaj się z tematem [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
+3. Wyłącz urządzenia użytkownika. Zapoznaj się z tematem [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
     ```
-
-## <a name="optional-steps"></a>Kroki opcjonalne
-
-- [Czyszczenie danych firmowych z aplikacji zarządzanych przez usługę Intune](/mem/intune/apps/apps-selective-wipe).
-
-- [Wyczyść ustawienia fabryczne urządzeń należących do firmy](/mem/intune/remote-actions/devices-wipe).
-
-> [!NOTE]
-> Nie można odzyskać danych z urządzenia po wyczyszczeniu.
-
 ## <a name="when-access-is-revoked"></a>Po odwołaniu dostępu
 
 Po wykonaniu powyższych czynności Administratorzy nie mogą uzyskać nowych tokenów dla żadnej aplikacji powiązanej z Azure Active Directory. Czas upływający między odwołaniem a użytkownikiem, który utraci dostęp, zależy od tego, w jaki sposób aplikacja udziela dostępu:
@@ -117,7 +108,25 @@ Po wykonaniu powyższych czynności Administratorzy nie mogą uzyskać nowych to
 
 - W przypadku aplikacji korzystających z **tokenów sesji** istniejące sesje kończą się zaraz po wygaśnięciu tokenu. Jeśli wyłączony stan użytkownika zostanie zsynchronizowany z aplikacją, aplikacja może automatycznie odwołać istniejące sesje użytkownika, jeśli jest ono skonfigurowane.  Czas trwania zależy od częstotliwości synchronizacji między aplikacją a usługą Azure AD.
 
+## <a name="best-practices"></a>Najlepsze rozwiązania
+
+- Wdróż zautomatyzowane rozwiązanie aprowizacji i cofania obsługi administracyjnej. Anulowanie aprowizacji użytkowników z aplikacji jest efektywnym sposobem odwoływania dostępu, szczególnie w przypadku aplikacji korzystających z tokenów sesji. Opracowywanie procesu w celu anulowania aprowizacji użytkowników w aplikacjach, które nie obsługują automatycznej obsługi i anulowania obsługi. Upewnij się, że aplikacje odwołują własne tokeny sesji i nie akceptują tokenów dostępu usługi Azure AD, nawet jeśli są nadal ważne.
+
+  - Korzystanie z [aprowizacji aplikacji usługi Azure AD SaaS](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning). Inicjowanie obsługi aplikacji usługi Azure AD SaaS zazwyczaj przebiega automatycznie co 20-40 minut. [Skonfiguruj Inicjowanie obsługi usługi Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) , aby anulować obsługę administracyjną lub dezaktywować wyłączonych użytkowników w aplikacjach.
+  
+  - W przypadku aplikacji, które nie korzystają z aprowizacji aplikacji usługi Azure AD SaaS, użyj programu [Identity Manager (MIM)](https://docs.microsoft.com/microsoft-identity-manager/mim-how-provision-users-adds) lub rozwiązania innej firmy w celu zautomatyzowania anulowania aprowizacji użytkowników.  
+  - Zidentyfikuj i opracuj proces dla aplikacji, które wymagają ręcznego anulowania aprowizacji. Upewnij się, że administratorzy mogą szybko uruchomić wymagane ręczne zadania w celu anulowania aprowizacji użytkownika z tych aplikacji w razie potrzeby.
+  
+- [Zarządzanie urządzeniami i aplikacjami przy użyciu Microsoft Intune](https://docs.microsoft.com/mem/intune/remote-actions/device-management). Urządzenia zarządzane przez usługę Intune [można resetować do ustawień fabrycznych](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe). Jeśli urządzenie jest niezarządzane, możesz [wyczyścić dane firmowe z zarządzanych aplikacji](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe). Te procesy są skuteczne do usuwania potencjalnie poufnych danych z urządzeń użytkowników końcowych. Jednak dla każdego procesu, który ma zostać wyzwolony, urządzenie musi być połączone z Internetem. Jeśli urządzenie jest w trybie offline, urządzenie nadal będzie miało dostęp do wszystkich danych przechowywanych lokalnie.
+
+> [!NOTE]
+> Nie można odzyskać danych z urządzenia po wyczyszczeniu.
+
+- Użyj [Microsoft Cloud App Security (MCAS), aby zablokować pobieranie danych,](https://docs.microsoft.com/cloud-app-security/use-case-proxy-block-session-aad) gdy jest to konieczne. Jeśli dostęp do danych jest możliwy tylko w trybie online, organizacje mogą monitorować sesje i osiągać wymuszanie zasad w czasie rzeczywistym.
+
+- Włącz [ocenę ciągłego dostępu (CAE) w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation). CAE umożliwia administratorom odwoływanie tokenów sesji i tokenów dostępu dla aplikacji, które są CAE.  
+
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zasady bezpiecznego dostępu dla administratorów usługi Azure AD](../roles/security-planning.md)
+- [Zasady bezpiecznego dostępu dla administratorów usługi Azure AD](https://docs.microsoft.com/azure/active-directory/roles/security-planning)
 - [Dodawanie lub aktualizowanie informacji o profilu użytkownika](../fundamentals/active-directory-users-profile-azure-portal.md)

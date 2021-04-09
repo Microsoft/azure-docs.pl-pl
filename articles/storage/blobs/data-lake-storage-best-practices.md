@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 937048ce14b9b05b55cd8d76e7a8c1fd67c63e4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95913559"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933712"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen2
 
-Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związanych z pracą z usługą Azure Data Lake Storage Gen2. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania Data Lake Storage Gen2. Przed Data Lake Storage Gen2, praca z naprawdę dużą ilością danych w usługach, takich jak usługa Azure HDInsight, została złożona. Fragmentu dane na wielu kontach magazynu obiektów blob, dzięki czemu można osiągnąć magazyn petabajtów i optymalną wydajność w tej skali. Data Lake Storage Gen2 obsługuje pojedyncze rozmiary plików, tak jakby 5TB i większość stałych limitów wydajności został usunięty. Jednak nadal istnieją pewne zagadnienia, które opisano w tym artykule, aby uzyskać najlepszą wydajność dzięki Data Lake Storage Gen2.
+Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związanych z pracą z usługą Azure Data Lake Storage Gen2. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania Data Lake Storage Gen2. Przed Data Lake Storage Gen2, praca z naprawdę dużą ilością danych w usługach, takich jak usługa Azure HDInsight, została złożona. Fragmentu dane na wielu kontach magazynu obiektów blob, dzięki czemu można osiągnąć magazyn petabajtów i optymalną wydajność w tej skali. Data Lake Storage Gen2 obsługuje pojedyncze rozmiary plików jako 190,7 TiB i większość stałych limitów wydajności został usunięty. Jednak nadal istnieją pewne zagadnienia, które opisano w tym artykule, aby uzyskać najlepszą wydajność dzięki Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 

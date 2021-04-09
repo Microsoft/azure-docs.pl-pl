@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589548"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
@@ -449,13 +449,13 @@ Próbkowanie do pozyskiwania nie działa, gdy jest wykonywane próbkowanie adapt
 > [!WARNING]
 > Wartość wyświetlana na kafelku portalu wskazuje wartość ustawioną dla pobierania próbek. Nie reprezentuje rzeczywistej częstotliwości próbkowania w przypadku, gdy jest wykonywane jakiekolwiek Sortowanie próbek zestawu SDK (próbkowanie adaptacyjne lub stałe).
 
-## <a name="when-to-use-sampling"></a>Kiedy należy używać próbkowania
+## <a name="when-to-use-sampling&quot;></a>Kiedy należy używać próbkowania
 
 Ogólnie rzecz biorąc, w przypadku aplikacji o małych i średnich rozmiarach nie jest wymagane próbkowanie. Najbardziej przydatne informacje diagnostyczne i najbardziej dokładne statystyki są uzyskiwane przez zbieranie danych na wszystkich działaniach użytkownika. 
 
 Główne zalety pobierania próbek są następujące:
 
-* Usługa Application Insights odrzuca punkty danych ("dławienia"), gdy aplikacja wysyła bardzo wysokie dane telemetryczne w krótkim czasie. Próbkowanie zmniejsza prawdopodobieństwo wystąpienia ograniczenia przez aplikację.
+* Usługa Application Insights odrzuca punkty danych (&quot;dławienia"), gdy aplikacja wysyła bardzo wysokie dane telemetryczne w krótkim czasie. Próbkowanie zmniejsza prawdopodobieństwo wystąpienia ograniczenia przez aplikację.
 * Aby zachować [limit przydziału](pricing.md) punktów danych w warstwie cenowej. 
 * Aby zmniejszyć ruch sieciowy z kolekcji telemetrii. 
 

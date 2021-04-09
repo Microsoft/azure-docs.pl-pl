@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fe1b9fc8754ae959abf088526b5d71e0e43c158e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 164c5e199bcb17dfe7a8ce92b169b26ecd389703
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466235"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958179"
 ---
-W tej kategorii istnieją **64** rekomendacji.
+W tej kategorii istnieją **65** rekomendacji.
 
 |Zalecenie |Opis |Ważność |
 |---|---|---|
@@ -24,6 +24,7 @@ W tej kategorii istnieją **64** rekomendacji.
 |Wartość przechowywania inspekcji dla serwerów SQL powinna wynosić co najmniej 90 dni |Inspekcja serwerów SQL skonfigurowanych z okresem przechowywania inspekcji krótszym niż 90 dni.<br />(Powiązane zasady: [serwery SQL powinny być skonfigurowane z zachowaniem inspekcji na 90 dni lub więcej).](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f89099bee-89e0-4b26-a5f4-165451757743) |Niski |
 |Inspekcja w programie SQL Server powinna być włączona |Włącz inspekcję SQL Server, aby śledzić działania bazy danych we wszystkich bazach danych na serwerze i zapisywać je w dzienniku inspekcji.<br />(Powiązane zasady: [inspekcja w programie SQL Server powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9)) |Niski |
 |Funkcja autoaprowizacji agenta Log Analytics powinna być włączona w ramach subskrypcji |W celu monitorowania luk w zabezpieczeniach i zagrożeń Azure Security Center zbiera dane z maszyn wirtualnych platformy Azure. Dane są zbierane przez agenta Log Analytics, dawniej znany jako Microsoft Monitoring Agent (MMA), który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego Log Analytics na potrzeby analizy. Zalecamy włączenie automatycznej aprowizacji, aby automatycznie wdrażać agenta na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych.<br />(Powiązane zasady: [Funkcja autoaprowizacji agenta log Analytics powinna być włączona w ramach subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f475aae12-b88a-4572-8b36-9b712b2b3a17)) |Niski |
+|W klastrach Kubernetes z obsługą usługi Azure Arc należy zainstalować rozszerzenie usługi Azure Defender |Rozszerzenie usługi Azure Defender dla usługi Azure Arc zapewnia ochronę przed zagrożeniami dla klastrów Kubernetes z włączonym łukiem. Rozszerzenie zbiera dane ze wszystkich węzłów płaszczyzny kontroli (Master) w klastrze i wysyła je do usługi Azure Defender for Kubernetes zaplecza w chmurze w celu dalszej analizy. Dowiedz się więcej w temacie https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc .<br />(Brak powiązanych zasad) |Wys. |
 |Pamięć podręczna platformy Azure dla Redis powinna znajdować się w sieci wirtualnej |Wdrożenie usługi Azure Virtual Network (VNet) zapewnia ulepszone zabezpieczenia i izolację pamięci podręcznej platformy Azure dla usługi Redis, a także podsieci, zasady kontroli dostępu i inne funkcje w celu dodatkowego ograniczenia dostępu. Gdy usługa Azure cache for Redis jest skonfigurowana przy użyciu sieci wirtualnej, nie jest ona publicznie adresowana i można uzyskać do niej dostęp tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej.<br />(Powiązane zasady: [usługa Azure cache for Redis powinna znajdować się w sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7d092e0a-7acd-40d2-a975-dca21cae48c4)) |Śred. |
 |Konta Azure Cosmos DB powinny mieć reguły zapory |Reguły zapory należy definiować na kontach Azure Cosmos DB, aby uniemożliwić ruch z nieautoryzowanych źródeł. Konta, które mają co najmniej jedną regułę adresu IP zdefiniowaną z włączonym filtrem sieci wirtualnej, są uznawane za zgodne. Konta, które wyłączają dostęp publiczny, są również uznawane za zgodne.<br />(Powiązane zasady: [konta Azure Cosmos DB powinny mieć reguły zapory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb)) |Śred. |
 |Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych |Klucze zarządzane przez klienta służą do zarządzania szyfrowaniem w pozostałej części Azure Cosmos DB. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez usługę, ale klucze zarządzane przez klienta (CMK) są często wymagane do spełnienia standardów zgodności z przepisami. CMKs umożliwiają szyfrowanie danych przy użyciu klucza Azure Key Vault utworzonego i należącego do użytkownika. Użytkownik ma pełną kontrolę i odpowiedzialność za kluczowy cykl życia, włącznie z rotacją i zarządzaniem. Dowiedz się więcej o szyfrowaniu CMK w https://aka.ms/cosmosdb-cmk .<br />(Powiązane zasady: [konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f905d99-2ab7-462c-a6b0-f709acca6c8f)) |Wys. |

@@ -4,14 +4,14 @@ description: Przekształcanie i przenoszenie danych z programu Delta Lake przy u
 author: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/26/2020
 ms.author: daperlov
-ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 74df809f2206a105b405ba184949ef887096ebc2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386496"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932509"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta w Azure Data Factory
 
@@ -75,6 +75,8 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia ró�
 | Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Vacuum | Określ próg przechowywania w godzinach dla starszych wersji tabeli. Wartość 0 lub mniej wartością domyślną jest 30 dni | tak | Liczba całkowita | ciśnienie |
 | Update — Metoda | Określ, które operacje aktualizacji są dozwolone w ramach delty Lake. W przypadku metod, które nie są wstawiane, do oznaczania wierszy wymagane jest przekształcenie poprzedzające zmianę wiersza. | tak | `true` lub `false` | usuwaln <br> wstawialny <br> aktualizowalne <br> Scalanie |
+| Zoptymalizowany zapis | Osiągnięcie większej przepływności dla operacji zapisu poprzez optymalizację wewnętrznego rozłożonego w modułach wykonujących testy. W związku z tym może być zauważalna mniejsza liczba partycji i plików o większym rozmiarze | nie | `true` lub `false` | optimizedWrite: true |
+| Autokompaktowanie | Po zakończeniu dowolnej operacji zapisu platforma Spark automatycznie wykona ```OPTIMIZE``` polecenie, aby ponownie zorganizować dane, co w razie potrzeby umożliwi zwiększenie wydajności w przyszłości. | nie | `true` lub `false` |   autokompaktowanie: prawda |
 
 ### <a name="delta-sink-script-example"></a>Przykład skryptu ujścia różnicowego
 

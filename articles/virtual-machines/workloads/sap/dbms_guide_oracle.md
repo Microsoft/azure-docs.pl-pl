@@ -16,10 +16,10 @@ ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 29b1bcec58d6350d0f63c3fe0ce11ef99a648019
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668982"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines wdrożenie Oracle DBMS dla obciążeń SAP
@@ -379,7 +379,7 @@ Minimalna konfiguracja jest następująca:
 | \oracle \<SID> \origlogaA & mirrlogB | Premium lub Ultra Disk | Brak | Nie jest wymagany |
 | \oracle \<SID> \origlogaB & mirrlogA | Premium lub Ultra Disk | Brak | Nie jest wymagany |
 | \oracle \<SID> \sapdata1... Azotan | Premium lub Ultra Disk | Tylko odczyt | Może być używany w przypadku wersji Premium |
-| \oracle \<SID> \oraarch | Standardowa | Brak | Nie jest wymagany |
+| \oracle \<SID> \oraarch | Standardowa (Standard) | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, `saptrace` ,... | Dysk systemu operacyjnego (Premium) | | Nie jest wymagany |
 
 
