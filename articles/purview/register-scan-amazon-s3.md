@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/21/2021
 ms.custom: references_regions
 ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773457"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Łącznik usługi Azure kontrolą dla systemu Amazon S3

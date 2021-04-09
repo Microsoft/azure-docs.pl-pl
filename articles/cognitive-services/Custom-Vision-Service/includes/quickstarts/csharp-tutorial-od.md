@@ -4,10 +4,10 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.openlocfilehash: 6a09d435613a715d4ae4e162f42f59402d0bc5cd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102444551"
 ---
 Wprowadzenie do biblioteki klienta Custom Vision dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod służący do tworzenia modelu wykrywania obiektów. Utworzysz projekt, dodajesz znaczniki, nauczysz projekt na przykładowych obrazach i użyjemy adresu URL prognozowania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.

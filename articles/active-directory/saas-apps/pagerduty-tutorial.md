@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
 ms.openlocfilehash: 9a3117b64c516120f8556b7b63b24e5ef906f973
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101648564"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi PagerDuty
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Tworzenie użytkownika testowego usługi Azure AD
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
@@ -107,7 +107,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij pozycję **Utwórz**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi usługi PagerDuty.
 
@@ -119,13 +119,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-pagerduty-sso"></a>Konfigurowanie logowania jednokrotnego usługi PagerDuty
+## <a name=&quot;configure-pagerduty-sso&quot;></a>Konfigurowanie logowania jednokrotnego usługi PagerDuty
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny usługi PagerDuty jako administrator.
 
 2. W menu u góry kliknij pozycję **Ustawienia konta**.
 
-    ![Ustawienia konta](./media/pagerduty-tutorial/ic778535.png "Ustawienia konta")
+    ![Ustawienia konta](./media/pagerduty-tutorial/ic778535.png &quot;Ustawienia konta")
 
 3. Kliknij pozycję **Logowanie jednokrotne**.
 
