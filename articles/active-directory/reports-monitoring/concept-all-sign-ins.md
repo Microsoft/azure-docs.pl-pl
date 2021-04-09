@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103574564"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Raporty dotyczące działań związanych z logowaniem Azure Active Directory — wersja zapoznawcza
@@ -102,7 +102,7 @@ W bloku raport logowania można przełączać się między:
 
 
 
-## <a name="user-sign-ins"></a>Logowania użytkowników
+## <a name="user-sign-ins&quot;></a>Logowania użytkowników
 
 Każda karta w bloku logowania pokazuje domyślne kolumny poniżej. Niektóre karty mają dodatkowe kolumny:
 
@@ -120,7 +120,7 @@ Każda karta w bloku logowania pokazuje domyślne kolumny poniżej. Niektóre ka
 
 
 
-### <a name="interactive-user-sign-ins"></a>Logowania użytkowników interakcyjnych
+### <a name=&quot;interactive-user-sign-ins&quot;></a>Logowania użytkowników interakcyjnych
 
 
 Logowania użytkowników interakcyjnych to logowania, w przypadku których użytkownik udostępnia rolę uwierzytelniania do usługi Azure AD lub współdziała bezpośrednio z usługą Azure AD lub aplikacją pomocnika, taką jak aplikacja Microsoft Authenticator. Czynniki, które użytkownicy zapewniają, obejmują hasła, odpowiedzi na wyzwania usługi MFA, czynniki biometryczne lub kody QR, które użytkownik udostępni w usłudze Azure AD lub do aplikacji pomocnika.
@@ -155,7 +155,7 @@ Oprócz domyślnych pól raport interakcyjnego logowania zawiera również nast�
 
 Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
 
-![Interaktywne kolumny logowania użytkowników](./media/concept-all-sign-ins/columns-interactive.png "Interaktywne kolumny logowania użytkowników")
+![Interaktywne kolumny logowania użytkowników](./media/concept-all-sign-ins/columns-interactive.png &quot;Interaktywne kolumny logowania użytkowników")
 
 
 
