@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7356fb90914e948b6a74a478ce1e19722b224346
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7d6b0d01ec3de1cb4ce91b1c81cd8a0ccd73b1d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488061"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105825802"
 ---
 # <a name="quickstart-get-started-with-ui-framework-composite-components"></a>Szybki Start: Rozpoczynanie pracy ze składnikami złożonymi struktury interfejsu użytkownika
 
@@ -47,7 +47,7 @@ Po zakończeniu tego procesu powinna istnieć pełna aplikacja w folderze `my-ap
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Użyj `npm install` polecenia, aby zainstalować bibliotekę klienta wywołującego usługi Azure Communications Services dla języka JavaScript. Przenieś podaną plik tar (prywatna wersja zapoznawcza) do katalogu my-app.
+Użyj `npm install` polecenia, aby zainstalować zestaw SDK wywoływania usługi Azure Communications Services dla języka JavaScript. Przenieś podaną plik tar (prywatna wersja zapoznawcza) do katalogu my-app.
 
 ```console
 
@@ -71,7 +71,7 @@ npm run start
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta interfejsu użytkownika usługi Azure Communication Services:
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK interfejsu użytkownika usługi Azure Communication Services:
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |

@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864044"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
@@ -200,9 +200,9 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
 
    ![Obraz mapy pokazujący renderowany wynik](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Lokalizowanie mapy
+## <a name="localizing-the-map&quot;></a>Lokalizowanie mapy
 
-Azure Maps oferuje dwa różne sposoby ustawiania języka i widoku regionalnego dla renderowanej mapy. Pierwsza opcja polega na dodaniu tych informacji do globalnej `atlas` przestrzeni nazw, co spowoduje, że wszystkie wystąpienia formantów mapy w aplikacji domyślnie przeprowadzą do tych ustawień. Poniżej ustawia język francuski ("fr-FR") i widok regionalny na "Auto":
+Azure Maps oferuje dwa różne sposoby ustawiania języka i widoku regionalnego dla renderowanej mapy. Pierwsza opcja polega na dodaniu tych informacji do globalnej `atlas` przestrzeni nazw, co spowoduje, że wszystkie wystąpienia formantów mapy w aplikacji domyślnie przeprowadzą do tych ustawień. Poniżej ustawia język francuski (&quot;fr-FR") i widok regionalny na "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');

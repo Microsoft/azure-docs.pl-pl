@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób tworzenia alertów dotyczących Azur
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 48cb402e31435cb3e9390e8aeb461fcc5f90702f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100572012"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Ustawianie alertów dotyczących Azure Event Grid metryk i dzienników aktywności

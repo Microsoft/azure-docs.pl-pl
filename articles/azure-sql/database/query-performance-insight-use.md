@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98222347"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Szczegółowe informacje o wydajności zapytań Azure SQL Database
@@ -186,7 +186,7 @@ Aby zidentyfikować długotrwałe zapytania:
    > Zalecamy użycie niestandardowego wykresu jednostek DTU do porównania z wykresem wydajności zapytań.
    >
 
-## <a name="review-top-queries-per-execution-count"></a>Przejrzyj najpopularniejsze zapytania na liczbę wykonań
+## <a name="review-top-queries-per-execution-count&quot;></a>Przejrzyj najpopularniejsze zapytania na liczbę wykonań
 
 Aplikacja użytkownika korzystająca z bazy danych może działać powoli, nawet jeśli duża liczba wykonań może nie wpływać na samą bazę danych, a użycie zasobów jest niskie.
 
@@ -194,7 +194,7 @@ W niektórych przypadkach duża liczba wykonań może prowadzić do większej li
 
 Na przykład wiele witryn sieci Web opartych na danych intensywnie uzyskuje dostęp do bazy danych dla każdego żądania użytkownika. Mimo że pule połączeń pomagają, zwiększony ruch sieciowy i obciążenie na serwerze mogą spowalniać działanie. Ogólnie rzecz biorąc, Przechowaj do minimum.
 
-Aby zidentyfikować często wykonywane zapytania ("rozmawianie"):
+Aby zidentyfikować często wykonywane zapytania (&quot;rozmawianie"):
 
 1. Otwórz kartę **niestandardową** w szczegółowe informacje o wydajności zapytań dla wybranej bazy danych.
 2. Zmień metryki na **liczbę wykonań**.

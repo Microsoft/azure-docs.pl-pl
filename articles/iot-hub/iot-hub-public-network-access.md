@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.openlocfilehash: fbbdaeb796dfa23906c8010a54af14eff6df0b97
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105026644"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Zarządzanie dostępem do sieci publicznej dla Centrum IoT Hub

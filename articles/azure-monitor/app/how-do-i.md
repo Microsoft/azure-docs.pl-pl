@@ -4,10 +4,10 @@ description: Często zadawane pytania w Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584169"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
@@ -65,7 +65,7 @@ Będziesz otrzymywać wiadomości e-mail zarówno wtedy, gdy Metryka spadnie pow
 
 Oto niektóre ważne kwestie:
 
-* Alert ma dwa Stany ("Alert" i "dobra kondycja"). Stan jest oceniany tylko wtedy, gdy otrzymano metrykę.
+* Alert ma dwa Stany ("Alert&quot; i &quot;dobra kondycja"). Stan jest oceniany tylko wtedy, gdy otrzymano metrykę.
 * Wiadomość e-mail jest wysyłana tylko wtedy, gdy stan zmieni się. Jest to dlatego, że konieczne jest wysłanie metryk o wysokiej i niskiej wartości.
 * Aby oszacować alert, średnia jest pobierana z wartości odebranych w poprzednim okresie. Jest to wykonywane za każdym razem, gdy otrzymasz metrykę, więc wiadomości e-mail mogą być wysyłane częściej niż ustawiony okres.
 * Ponieważ wiadomości e-mail są wysyłane zarówno w "alertach", jak i w dobrej kondycji, warto rozważyć przemyśleć wydarzenie z jednym z nich jako warunek dwustanowy. Na przykład zamiast zdarzenia "ukończenie zadania" występuje warunek "zadanie w toku", w którym można otrzymywać wiadomości e-mail na początku i na końcu zadania.
