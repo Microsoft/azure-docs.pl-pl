@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011760"
 ---
 Udziały plików platformy Azure są wdrażane na *kontach magazynu*, które są obiektami najwyższego poziomu reprezentującymi udostępnioną pulę magazynu. Ta pula magazynu może służyć do wdrażania wielu udziałów plików, a także innych zasobów magazynu, takich jak kontenery obiektów blob, kolejki lub tabele. Wszystkie zasoby magazynu, które są wdrożone na koncie magazynu, współużytkują limity, które mają zastosowanie do tego konta magazynu. Aby wyświetlić bieżące limity dla konta magazynu, zobacz [Azure Files cele dotyczące skalowalności i wydajności](../articles/storage/files/storage-files-scale-targets.md).

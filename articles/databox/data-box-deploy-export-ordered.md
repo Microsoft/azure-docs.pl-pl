@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98789199"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box
