@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopi
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733574"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
@@ -89,7 +89,7 @@ W poniższej tabeli objaśniono różne typy spójności migawek:
 
 **Kwestie do rozważenia** | **Szczegóły**
 --- | ---
-**3,5** | Tworzenie kopii zapasowych dysków maszyny wirtualnej jest równoległe. Na przykład jeśli maszyna wirtualna ma cztery dyski, usługa tworzenia kopii zapasowych próbuje wykonać kopię zapasową wszystkich czterech dysków równolegle. Kopia zapasowa jest przyrostowa (dotyczy tylko zmienionych danych).
+**Dysk** | Tworzenie kopii zapasowych dysków maszyny wirtualnej jest równoległe. Na przykład jeśli maszyna wirtualna ma cztery dyski, usługa tworzenia kopii zapasowych próbuje wykonać kopię zapasową wszystkich czterech dysków równolegle. Kopia zapasowa jest przyrostowa (dotyczy tylko zmienionych danych).
 **Planowanie** |  Aby zmniejszyć ruch kopii zapasowych, wykonaj kopię zapasową różnych maszyn wirtualnych w różnych porach dnia i upewnij się, że czasy nie nakładają się na siebie. Tworzenie kopii zapasowych maszyn wirtualnych w tym samym czasie powoduje korki.
 **Przygotowywanie kopii zapasowych** | Należy pamiętać o czasie potrzebnym do przygotowania kopii zapasowej. Czas przygotowania obejmuje instalowanie lub aktualizowanie rozszerzenia kopii zapasowej oraz wyzwolenie migawki zgodnie z harmonogramem tworzenia kopii zapasowych.
 **Transfer danych** | Należy wziąć pod uwagę czas wymagany do Azure Backup identyfikować przyrostowe zmiany z poprzedniej kopii zapasowej.<br/><br/> W przyrostowej kopii zapasowej usługa Azure Backup określa zmiany, obliczając sumę kontrolną bloku. Jeśli blok ulegnie zmianie, zostanie oznaczony do przesłania do magazynu. Usługa analizuje zidentyfikowane bloki i próbuje jeszcze bardziej zminimalizować ilość danych do przesłania. Po dokonaniu oceny wszystkich zmienionych bloków usługa Azure Backup przesyła zmiany do magazynu.<br/><br/> Może wystąpić opóźnienie między tworzeniem migawki i kopiowaniem jej do magazynu. W godzinach szczytu przekazanie migawek do magazynu może trwać do ośmiu godzin. Czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny w przypadku codziennie wykonywanej kopii zapasowej.
@@ -137,7 +137,7 @@ Podobnie opłata za magazyn kopii zapasowych zależy od ilości danych przechowy
 
 Załóżmy na przykład, że maszyna wirtualna o rozmiarze a2 ma dwa dodatkowe dyski z danymi o maksymalnym rozmiarze 32 TB. W poniższej tabeli przedstawiono rzeczywiste dane przechowywane na każdym z tych dysków:
 
-**3,5** | **Maksymalny rozmiar** | **Rzeczywiste dane obecne**
+**Dysk** | **Maksymalny rozmiar** | **Rzeczywiste dane obecne**
 --- | --- | ---
 Dysk systemu operacyjnego | 32 TB | 17 GB
 Dysk lokalny/tymczasowy | 135 GB | 5 GB (nie uwzględniono w kopii zapasowej)

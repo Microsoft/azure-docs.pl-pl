@@ -48,9 +48,9 @@ Na przykład SumCost jest nazwą kolumny, która jest wybierana w powyższym prz
 
 ![Obraz przedstawiający kolumny ZZ, dostawcy i owoce przed i po unipivot transformację przy użyciu kolumny owoce jako klucza unipivot.](media/data-flow/unpivot3.png)
 
-Ustawienie kolumny "normalny" spowoduje grupowanie wszystkich nowych kolumn, które nie zostały przestawiane z jednej wartości. Ustawienie kolumn rozmieszczenia na "boczne" spowoduje grupowanie nowych kolumn, które nie są wystawiane, wygenerowanych na podstawie istniejącej kolumny.
+Ustawienie kolumny "normalny&quot; spowoduje grupowanie wszystkich nowych kolumn, które nie zostały przestawiane z jednej wartości. Ustawienie kolumn rozmieszczenia na &quot;boczne&quot; spowoduje grupowanie nowych kolumn, które nie są wystawiane, wygenerowanych na podstawie istniejącej kolumny.
 
-![Zrzut ekranu przedstawia wynik transformacji.](media/data-flow//unpivot7.png "Opcje UNPIVOT 5")
+![Zrzut ekranu przedstawia wynik transformacji.](media/data-flow//unpivot7.png &quot;Opcje UNPIVOT 5")
 
 W końcowym zestawie wyników nieprzestawionych danych są wyświetlane sumy kolumn, które są teraz oddzielone do oddzielnych wartości wierszy.
 
