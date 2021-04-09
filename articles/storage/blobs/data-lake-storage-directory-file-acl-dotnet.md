@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 52e993a22a512a94c8b5b8b050205db0c4ce0b1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100650324"
 ---
 # <a name="use-net-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Zarządzanie katalogami i plikami w programie Azure Data Lake Storage Gen2 przy użyciu platformy .NET
@@ -148,4 +148,4 @@ W tym przykładzie program drukuje nazwy poszczególnych plików znajdujących s
 - [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 - [Mapowanie Gen1 do Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Prześlij opinię](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Przekaż opinię](https://github.com/Azure/azure-sdk-for-net/issues)

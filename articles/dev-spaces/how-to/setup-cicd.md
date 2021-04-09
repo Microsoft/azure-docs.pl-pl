@@ -9,10 +9,10 @@ manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps z Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 ms.openlocfilehash: 142f01a04066b919a81e1ad1ea95efa31f51f6ca
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102548737"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
