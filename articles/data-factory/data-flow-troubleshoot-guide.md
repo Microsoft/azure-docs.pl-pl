@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/18/2021
-ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.date: 03/25/2021
+ms.openlocfilehash: 72ab685b58f7d940fe4d682cacba6212fe80ced8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640222"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933087"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z mapowaniem przepływów danych w Azure Data Factory
 
@@ -341,6 +341,110 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych
 1. Sprawdź stan połączeń zestawu danych. W każdym transformację źródła i ujścia przejdź do połączonej usługi dla każdego zestawu danych, którego używasz, i przetestuj połączenia.
 2. Sprawdź stan połączeń plików i tabel w Projektancie przepływu danych. W obszarze tryb debugowania wybierz pozycję **Podgląd danych** dla przekształceń źródłowych, aby upewnić się, że możesz uzyskać dostęp do danych.
 3. Jeśli wszystko wygląda poprawnie w wersji zapoznawczej, przejdź do projektanta potoku i umieść przepływ danych w działaniu potoku. Debuguj potok na potrzeby kompleksowego testu.
+
+### <a name="improvement-on-csvcdm-format-in-data-flow"></a>Poprawa formatu CSV/CDM w przepływie danych 
+
+Jeśli używasz **rozdzielanego tekstu lub formatowania CDM do mapowania przepływu danych w Azure Data Factory v2**, możesz zmienić zachowanie na istniejące potoki ze względu na poprawę rozdzielonego tekstu/CDM w przepływie danych, rozpoczynając od **1 maja 2021**. 
+
+Przed wprowadzeniem ulepszeń mogą wystąpić następujące problemy, ale po dokonaniu ulepszeń te problemy zostały rozwiązane. Przeczytaj poniższą zawartość, aby określić, czy to ulepszenie ma wpływ na użytkownika. 
+
+#### <a name="scenario-1-encounter-the-unexpected-row-delimiter-issue"></a>Scenariusz 1: Wystąpił nieoczekiwany problem z ogranicznikiem wiersza
+
+ Dotyczy to następujących warunków:
+ - Użycie rozdzielanego tekstu z ustawieniem wielowierszowym ma wartość true lub CDM jako źródło.
+ - Pierwszy wiersz ma więcej niż 128 znaków. 
+ - Ogranicznik wiersza w plikach danych nie jest `\n` .
+
+ Przed ulepszeniem, domyślny ogranicznik wiersza `\n` może być nieoczekiwanie używany do analizowania rozdzielanych plików tekstowych, ponieważ jeśli ustawienie wielowierszowy ma wartość true, unieważnia ono ustawienie ogranicznika wiersza, a ogranicznik wiersza zostanie automatycznie wykryty na podstawie pierwszych 128 znaków. Jeśli nie wykryjesz faktycznego ogranicznika wierszy, powrócisz do `\n` .  
+
+ Po dokonaniu ulepszeń należy mieć jeden z trzech ograniczników wierszy: `\r` , `\n` `\r\n` .
+ 
+ Poniższy przykład pokazuje zmianę zachowania potoku po wprowadzeniu ulepszeń:
+
+ **Przykład:**<br/>
+   Dla następującej kolumny:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Przed zwiększeniem `\r` wartość jest przechowywana w wartości kolumny. Wynikiem przeanalizowanej kolumny jest:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   Po wprowadzeniu ulepszeń wynik przeanalizowanej kolumny powinien być:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### <a name="scenario-2-encounter-an-issue-of-incorrectly-reading-column-values-containing-rn"></a>Scenariusz 2. Wystąpił problem niepoprawnego odczytu wartości kolumny zawierającej element "\r\n"
+
+ Dotyczy to następujących warunków:
+ - Użycie rozdzielanego tekstu z ustawieniem wielowierszowym o wartości true lub CDM jako źródło. 
+ - Ogranicznik wiersza to `\r\n` .
+
+ Przed zwiększeniem, podczas odczytywania wartości kolumny, `\r\n` w polu może być niepoprawnie zastępowana przez `\n` . 
+
+ Po zakończeniu poprawy `\r\n` wartość w kolumnie nie zostanie zastąpiona przez `\n` .
+
+ Poniższy przykład pokazuje zmianę zachowania potoku po wprowadzeniu ulepszeń:
+ 
+ **Przykład:**<br/>
+  
+ Dla następującej kolumny:<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Przed ulepszeniem wynik przeanalizowanej kolumny to:<br/>
+  **`A\n`**` B C`<br/>
+
+ Po wprowadzeniu ulepszeń wynik przeanalizowanej kolumny powinien być:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### <a name="scenario-3-encounter-an-issue-of-incorrectly-writing-column-values-containing-n"></a>Scenariusz 3: Wystąpił problem niepoprawnego zapisu wartości kolumn zawierających ' \n '
+
+ Dotyczy to następujących warunków:
+ - Używanie rozdzielonego tekstu jako ujścia.
+ - Wartość kolumny zawiera `\n` .
+ - Ogranicznik wiersza jest ustawiony na `\r\n` .
+ 
+ Przed zwiększeniem, podczas zapisywania wartości kolumny, w polu `\n` może być niepoprawnie zastępowana przez `\r\n` . 
+
+ Po zakończeniu poprawy `\n` wartość w kolumnie nie zostanie zastąpiona przez `\r\n` .
+ 
+ Poniższy przykład pokazuje zmianę zachowania potoku po wprowadzeniu ulepszeń:
+
+ **Przykład:**<br/>
+
+ Dla następującej kolumny:<br/>
+ **`A\n`**` B C`<br/>
+
+ Przed wprowadzeniem ulepszeń ujścia woluminów CSV jest następujące:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ Po wprowadzeniu ulepszeń ujścia woluminów CSV powinien:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### <a name="scenario-4-encounter-an-issue-of-incorrectly-reading-empty-string-as-null"></a>Scenariusz 4. Wystąpił problem podczas nieprawidłowego odczytywania pustego ciągu jako wartości NULL
+ 
+ Dotyczy to następujących warunków:
+ - Używanie rozdzielonego tekstu jako źródła. 
+ - Wartość zerowa jest ustawiona na niepustą wartość. 
+ - Wartość kolumny jest pustym ciągiem i jest bez cudzysłowu. 
+ 
+ Przed zwiększeniem wartość kolumny pustego ciągu z cudzysłowem jest odczytywana jako wartość NULL. 
+
+ Po dokonaniu ulepszeń pusty ciąg nie zostanie przeanalizowany jako wartość NULL. 
+ 
+ Poniższy przykład pokazuje zmianę zachowania potoku po wprowadzeniu ulepszeń:
+
+ **Przykład:**<br/>
+
+ Dla następującej kolumny:<br/>
+  `A, ,B, `<br/>
+
+ Przed ulepszeniem wynik przeanalizowanej kolumny to:<br/>
+  `A null B null`<br/>
+
+ Po wprowadzeniu ulepszeń wynik przeanalizowanej kolumny powinien być:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
 
 ## <a name="next-steps"></a>Następne kroki
 

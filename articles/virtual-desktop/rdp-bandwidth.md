@@ -6,18 +6,19 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325183"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932339"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Wymagania dotyczące przepustowości Remote Desktop Protocol (RDP)
 
 Remote Desktop Protocol (RDP) to zaawansowana technologia, która używa różnych technik do doskonałego dostarczania zdalnej grafiki serwera do urządzenia klienckiego. W zależności od przypadku użycia, dostępności zasobów obliczeniowych i przepustowości sieci protokół RDP dynamicznie dostosowuje różne parametry w celu zapewnienia najlepszego środowiska użytkownika.
 
-Remote Desktop Protocol multipleksuje wiele dynamicznych kanałów wirtualnych (DVCs) do pojedynczego kanału danych wysyłanego przez różne transporty sieciowe. Istnieją osobne DVCs do zdalnej grafiki, danych wejściowych, przekierowywania urządzeń, drukowania i innych. Partnerzy WVD mogą również zaimplementować rozszerzenia, które używają interfejsów WSPÓŁBIEŻNE.
+Remote Desktop Protocol multipleksuje wiele dynamicznych kanałów wirtualnych (DVCs) do pojedynczego kanału danych wysyłanego przez różne transporty sieciowe. Istnieją osobne DVCs do zdalnej grafiki, danych wejściowych, przekierowywania urządzeń, drukowania i nie tylko. Partnerzy pulpitu wirtualnego systemu Windows mogą również korzystać z rozszerzeń, które używają interfejsów WSPÓŁBIEŻNE.
+
 Ilość danych przesyłanych za pośrednictwem protokołu RDP zależy od działania użytkownika. Na przykład użytkownik może pracować z podstawową zawartością tekstową w przypadku większości sesji i zużywać minimalną przepustowość, ale następnie generować wydruk dokumentu ze strony 200 do drukarki lokalnej. To zadanie drukowania będzie używać znacznej przepustowości sieci.
 
 W przypadku korzystania z sesji zdalnej dostępna przepustowość sieci znacznie ma wpływ na jakość środowiska. Różne aplikacje i rozdzielczości ekranu wymagają różnych konfiguracji sieci, dlatego należy się upewnić, że konfiguracja sieci spełnia Twoje potrzeby.

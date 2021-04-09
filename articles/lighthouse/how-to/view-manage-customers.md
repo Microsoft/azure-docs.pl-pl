@@ -4,10 +4,10 @@ description: Jako dostawca usług lub przedsiębiorstwo korzystające z usługi 
 ms.date: 03/12/2021
 ms.topic: how-to
 ms.openlocfilehash: 78344015ee027b9844b6339fa7cd95d348488a54
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419334"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Wyświetlaj klientów i delegowane zasoby w Azure Portal i zarządzaj nimi

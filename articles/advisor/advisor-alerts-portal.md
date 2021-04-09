@@ -4,10 +4,10 @@ description: Utwórz alerty Azure Advisor dla nowego zalecenia
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 3c51479821914ef34edcd13d8708344169f17aae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100590105"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Utwórz Azure Advisor alerty dotyczące nowych zaleceń przy użyciu Azure Portal 

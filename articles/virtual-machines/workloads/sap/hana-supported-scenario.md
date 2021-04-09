@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666687"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Obsługiwane scenariusze dla dużych wystąpień HANA
@@ -406,7 +406,7 @@ Ta topologia obsługuje dwa węzły w konfiguracji automatycznej pracy awaryjnej
 
 ![Przełączenie w tryb failover hosta (1 + 1)](media/hana-supported-scenario/scaleup-with-standby.png)
 
-### <a name="ethernet"></a>Sieć Ethernet
+### <a name="ethernet&quot;></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -420,7 +420,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -433,9 +433,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 
 
-### <a name="key-considerations"></a>Najważniejsze zagadnienia
+### <a name=&quot;key-considerations&quot;></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W stanie wstrzymania: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane na potrzeby instalacji platformy HANA") dla instalacji wystąpienia HANA w jednostce rezerwy.
+- W stanie wstrzymania: woluminy i punkty instalacji są skonfigurowane (oznaczone jako &quot;wymagane na potrzeby instalacji platformy HANA") dla instalacji wystąpienia HANA w jednostce rezerwy.
  
 
 ## <a name="scale-out-with-standby"></a>Skalowanie w poziomie przy użyciu rezerwy
@@ -522,7 +522,7 @@ Ta topologia obsługuje wiele węzłów w skalowaniu w poziomie przy użyciu fun
 ![Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
-### <a name="ethernet"></a>Sieć Ethernet
+### <a name="ethernet&quot;></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -536,7 +536,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -552,9 +552,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 |/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
 
 
-### <a name="key-considerations"></a>Najważniejsze zagadnienia
+### <a name=&quot;key-considerations&quot;></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
--  W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
+-  W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako &quot;wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
 - W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](./hana-overview-high-availability-disaster-recovery.md). 
 - Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
@@ -658,7 +658,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ![Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
 
-### <a name="ethernet"></a>Sieć Ethernet
+### <a name="ethernet&quot;></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -672,7 +672,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -689,9 +689,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 |/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
 
 
-### <a name="key-considerations"></a>Najważniejsze zagadnienia
+### <a name=&quot;key-considerations&quot;></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako &quot;produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
 - Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
 - [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
@@ -703,7 +703,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ![Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR (zoptymalizowane pod kątem kosztów)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
 
-### <a name="ethernet"></a>Sieć Ethernet
+### <a name="ethernet&quot;></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -717,7 +717,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -737,9 +737,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 |/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID usługi pytania i odpowiedzi |
 |/hana/logbackups/QA-SID | Dzienniki ponownego wykonywania dla identyfikatora SID usługi pytania i odpowiedzi |
 
-### <a name="key-considerations"></a>Najważniejsze zagadnienia
+### <a name=&quot;key-considerations&quot;></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako &quot;produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
 - W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
 - Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
 - [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.

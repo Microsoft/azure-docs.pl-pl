@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 99263695aa0842daf59f23cda115dcb5b27b7add
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804135"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930238"
 ---
 # <a name="teams-embed"></a>Osadź zespoły
 
@@ -21,7 +21,7 @@ ms.locfileid: "104804135"
 
 Osadź zespoły to funkcja usług komunikacyjnych platformy Azure, która koncentruje się na typowych interakcjach połączeń między firmami i biznesem. Rdzeń systemu osadzania zespołów to [wideo i głosowe połączenie](../voice-video-calling/calling-sdk-features.md), ale zespoły są osadzane przez system na platformie Azure wywołujące elementy podstawowe, aby zapewnić pełne środowisko użytkownika na podstawie spotkań Microsoft Teams.
 
-Zespoły Osadź biblioteki klienckie są zamknięte i umożliwiają dostęp do tych funkcji w formacie gotowe, złożonym. Zespoły są osadzane na kanwie swojej aplikacji, a Biblioteka kliencka generuje pełne środowisko użytkownika. Ze względu na to, że środowisko użytkownika jest bardzo podobne do spotkań firmy Microsoft Teams, możesz skorzystać z zalet:
+Zespoły Osadź zestawy SDK są zamknięte jako źródło i udostępniaj je w gotowe, w formacie złożonym. Zespoły są osadzane na kanwie swojej aplikacji, a zestaw SDK generuje pełne środowisko użytkownika. Ze względu na to, że środowisko użytkownika jest bardzo podobne do spotkań firmy Microsoft Teams, możesz skorzystać z zalet:
 
 - Skrócenie czasu projektowania i złożoności inżynieryjnej
 - Znajomość zespołów przez użytkowników końcowych

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 0e60ac6da55c11d45e8b691b4883b0f5f93a2498
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 313cca7a0db81502ac68a2cb7e9981f712a82548
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563938"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933116"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Wyrażenia transformacji danych w mapowaniu przepływu danych
 
@@ -143,13 +143,6 @@ Zwraca pierwszą wartość spoza wartości null z zestawu danych wejściowych. W
 * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
 ___
-### <code>collect</code>
-<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Zbiera wszystkie wartości wyrażenia w agregowanej grupie do tablicy. Struktury mogą być zbierane i przekształcane w alternatywne struktury w trakcie tego procesu. Liczba elementów będzie równa liczbie wierszy w tej grupie i może zawierać wartości null. Liczba zebranych elementów powinna być mała.  
-* ``collect(salesPerson)``
-* ``collect(firstName + lastName))``
-* ``collect(@(name = salesPerson, sales = salesAmount) )``
-___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
 Pobiera nazwy wszystkich kolumn wyjściowych dla strumienia. Opcjonalną nazwę strumienia można przekazać jako drugi argument.  
@@ -277,6 +270,10 @@ ___
 <code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
 Wyprowadza ciąg zgodnie z formatem. Wartości literałów dla akceptowalnego formatu to "JSON", "XML", "ECMAScript", "HTML", "Java".
 ___
+### <code>expr</code>
+<code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
+Wyniki w wyrażeniu z ciągu. Jest to takie samo jak zapisanie tego wyrażenia w postaci niebędącej literałem. Może to służyć do przekazywania parametrów jako reprezentacji ciągów.
+*   wyrażenie ("Price * Discount") => dowolne ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
 Oblicza silnię liczby.  
@@ -856,6 +853,13 @@ ___
 Na podstawie kryteriów pobiera średnią wartości kolumny.  
 * ``avgIf(region == 'West', sales)``  
 ___
+### <code>collect</code>
+<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Zbiera wszystkie wartości wyrażenia w agregowanej grupie do tablicy. Struktury mogą być zbierane i przekształcane w alternatywne struktury w trakcie tego procesu. Liczba elementów będzie równa liczbie wierszy w tej grupie i może zawierać wartości null. Liczba zebranych elementów powinna być mała.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Pobiera zagregowaną liczbę wartości. Jeśli kolumny opcjonalne są określone, ignoruje wartości NULL w liczbie.  
@@ -900,6 +904,10 @@ Pobiera pierwszą wartość grupy kolumn. Jeśli drugi parametr ignoreNulls zost
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+### <code>isDistinct</code>
+<code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
+Znajduje czy kolumna lub zestaw kolumn jest różny. Nie liczy wartości null jako wartości odrębnej *   ``isDistinct(custId, custName) => boolean``
+*   ___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Pobiera wartość kurtoza kolumny.  
@@ -1217,6 +1225,14 @@ ___
 
 Funkcje konwersji służą do konwertowania danych i testowania dla typów danych
 
+### <code>isBitSet</code>
+<code><b>isBitSet (<value1> : array, <value2>:integer ) => boolean</b></code><br/><br/>
+Sprawdza, czy pozycja bitu została ustawiona w tym bitset * ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
+___
+### <code>setBitSet</code>
+<code><b>setBitSet (<value1> : array, <value2>:array) => array</b></code><br/><br/>
+Ustawia pozycje bitowe w tym bitset * ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
+___  
 ### <code>isBoolean</code>
 <code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
 Sprawdza, czy wartość ciągu jest wartością logiczną, zgodnie z regułami ``toBoolean()``
@@ -1431,6 +1447,11 @@ Wybierz tablicę kolumn według nazwy w strumieniu. Opcjonalną nazwę strumieni
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
+### <code>byPath</code>
+<code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
+Znajduje ścieżkę hierarchiczną według nazwy w strumieniu. Opcjonalną nazwę strumienia można przekazać jako drugi argument. Jeśli ścieżka nie zostanie znaleziona, zwraca wartość null. Nazwy kolumn/ścieżki znane w czasie projektowania powinny być rozkierowane tylko według ich nazwy lub ścieżki zapisu kropki. Obliczane dane wejściowe nie są obsługiwane, ale można użyć podstawiania parametrów.  
+* ``byPath('grandpa.parent.child') => column`` 
+___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Wybiera wartość kolumny według pozycji względnej (w oparciu o 1) w strumieniu. Jeśli pozycja jest poza zakresem, zwraca wartość NULL. Zwracana wartość musi być typu konwertowana przez jedną z funkcji konwersji typu (TO_DATE, TO_STRING...) Obliczane dane wejściowe nie są obsługiwane, ale można użyć podstawiania parametrów.  
@@ -1439,6 +1460,11 @@ Wybiera wartość kolumny według pozycji względnej (w oparciu o 1) w strumieni
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+___
+### <code>hasPath</code>
+<code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
+Sprawdza, czy w strumieniu istnieje określona ścieżka hierarchiczna. Opcjonalną nazwę strumienia można przekazać jako drugi argument. Nazwy kolumn/ścieżki znane w czasie projektowania powinny być rozkierowane tylko według ich nazwy lub ścieżki zapisu kropki. Obliczane dane wejściowe nie są obsługiwane, ale można użyć podstawiania parametrów.  
+* ``hasPath('grandpa.parent.child') => boolean``
 ___
 ### <code>hex</code>
 <code><b>hex(<value1>: binary) => string</b></code><br/><br/>
