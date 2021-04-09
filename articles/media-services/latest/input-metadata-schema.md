@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 0acb882410d103cf6f6c34bbecf2006094437b04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102634689"
 ---
 # <a name="input-metadata"></a>Metadane wejściowe
@@ -66,7 +66,7 @@ Zawiera kolekcję elementów AssetFile dla zadania kodowania.
 | Nazwa | Opis |
 | --- | --- |
 | **FourCC**<br />Wymagane |Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.<br /><br />Przykład: `"FourCC": "avc1" | "hev1" | "hvc1"` |
-| **Profilu** |Profil ścieżki wideo. <br /><br />Przykład: `"Profile": "Main"`|
+| **Profil** |Profil ścieżki wideo. <br /><br />Przykład: `"Profile": "Main"`|
 | **Poziomie** |Poziom ścieżki wideo. <br /><br />Przykład: `"Level": "3.2"`|
 | **PixelFormat** |Format piksela ścieżki wideo. <br /><br />Przykład: `"PixelFormat": "yuv420p"`|
 | **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|

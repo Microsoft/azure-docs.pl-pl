@@ -3,12 +3,12 @@ title: Replikowanie Azure Stack maszyn wirtualnych na platformę Azure przy uży
 description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych Azure Stack przy użyciu usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 300b239de74c7d21e03eb0c3b059663b5074964c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96016912"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728389"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
 
@@ -314,7 +314,7 @@ Następnie uruchom tryb failover w następujący sposób:
 
 ### <a name="fail-back-to-azure-stack"></a>Powrót po awarii do Azure Stack
 
-Gdy lokacja główna zostanie uruchomiona ponownie, możesz wrócić z powrotem z platformy Azure do Azure Stack. Aby to zrobić, wykonaj kroki opisane w [tym miejscu](/azure-stack/operator/site-recovery-failback?view=azs-2005).
+Gdy lokacja główna zostanie uruchomiona ponownie, możesz wrócić z powrotem z platformy Azure do Azure Stack. Aby to zrobić, wykonaj kroki opisane w [tym miejscu](/azure-stack/operator/site-recovery-failback).
 
 ## <a name="conclusion"></a>Podsumowanie
 

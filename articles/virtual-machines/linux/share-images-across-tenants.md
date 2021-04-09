@@ -11,10 +11,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 2ef788659c871a9bcef6f519664689eacda94daa
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552885"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Udostępnianie obrazów maszyn wirtualnych galerii w ramach dzierżawców platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
