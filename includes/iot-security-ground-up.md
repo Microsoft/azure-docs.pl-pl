@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 234407e6973657ba3ad0d78189e7cb1d363c15e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95556525"
 ---
 Internet rzeczy (IoT) stanowi unikatowe wyzwania w zakresie zabezpieczeń, prywatności i zgodności dla firm na całym świecie. W przeciwieństwie do tradycyjnej technologii cybernetycznymi, w której te problemy są nanoszone wokół oprogramowania i sposobu ich implementacji, IoT ma wpływ na to, co się dzieje w przypadku zbieżności cybernetycznymi i fizycznych rozwiązań. Ochrona rozwiązań IoT wymaga zapewnienia bezpiecznego aprowizacji urządzeń, bezpiecznej łączności między tymi urządzeniami i chmurą oraz zapewnienia bezpiecznej ochrony danych w chmurze podczas przetwarzania i przechowywania. Korzystanie z tych funkcji jest jednak urządzeniami z ograniczeniami zasobów, dystrybucją geograficzną wdrożeń i dużą liczbą urządzeń w ramach rozwiązania.

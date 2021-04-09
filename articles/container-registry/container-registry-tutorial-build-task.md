@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
 ms.openlocfilehash: 139acf60ba20fd613b2dd2b190881d6bd574c21f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919500"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzowanie kompilacji obrazu kontenera w chmurze po zatwierdzeniu kodu źródłowego
@@ -89,7 +89,7 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
     ],
     "isPushEnabled": true,
     "noCache": false,
-    "type": "Docker"
+    "type&quot;: &quot;Docker"
   },
   "tags": null,
   "timeout": 3600,
@@ -97,7 +97,7 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
     "baseImageTrigger": {
       "baseImageTriggerType": "Runtime",
       "name": "defaultBaseimageTriggerName",
-      "status": "Enabled"
+      "status&quot;: &quot;Enabled"
     },
     "sourceTriggers": [
       {
@@ -106,16 +106,16 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
           "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node#main",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "GitHub"
+          "sourceControlType&quot;: &quot;GitHub"
         },
         "sourceTriggerEvents": [
           "commit"
         ],
-        "status": "Enabled"
+        "status&quot;: &quot;Enabled"
       }
     ]
   },
-  "type": "Microsoft.ContainerRegistry/registries/tasks"
+  "type&quot;: &quot;Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
