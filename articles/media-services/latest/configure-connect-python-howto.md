@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: de78008a4645690cfc900f77670204bb892daf51
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 24e2ba4027dc818256dc9572f697fe7ec5a5a56b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105042972"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960711"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Nawiązywanie połączenia z interfejsem API programu Media Services v3 — Python
 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK języka
 
 - Pobierz Język Python z [Python.org](https://www.python.org/downloads/)
 - Upewnij się, że ustawienie `PATH` zmienna środowiskowa
-- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
+- [Utwórz konto Media Services](./account-create-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 - Postępuj zgodnie z instrukcjami w temacie [interfejsy API dostępu](./access-api-howto.md) , wybierając metodę uwierzytelniania nazwy głównej usługi. Zapisz identyfikator subskrypcji ( `SubscriptionId` ), identyfikator klienta aplikacji () `AadClientId` , klucz uwierzytelniania ( `AadSecret` ) i identyfikator dzierżawy ( `AadTenantId` ), który będzie potrzebny w kolejnych krokach.
 
 > [!IMPORTANT]

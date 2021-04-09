@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2922586d586dbbb98ae85fb86f3f76889a75aa6b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016767"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067405"
 ---
 # <a name="content-protection-overview"></a>Omówienie ochrony zawartości
 
@@ -36,7 +36,7 @@ Na poniższej ilustracji przedstawiono przepływ pracy Media Services Content Pr
 
 W tym artykule wyjaśniono pojęcia i Terminologia dotycząca ochrony zawartości za pomocą Media Services. Artykuł zawiera również linki do artykułów, w których omówiono sposób ochrony zawartości. 
 
-## <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
+## <a name="dynamic-encryption&quot;></a>Szyfrowanie dynamiczne
 
 Możesz użyć Media Services, aby zapewnić zaszyfrowaną zawartość dynamicznie przy użyciu klucza Clear AES lub szyfrowania DRM za pomocą oprogramowania PlayReady, Widevine lub FairPlay. Jeśli zawartość jest zaszyfrowana przy użyciu klucza Clear AES i jest wysyłana za pośrednictwem protokołu HTTPS, nie jest to jasne, dopóki nie osiągnie klienta. 
 
@@ -55,8 +55,8 @@ Należy również skonfigurować zasady dostarczania elementu zawartości. Jeśl
 
 Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu klucza Wyczyść AES lub szyfrowania DRM. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy Media Services. Aby zdecydować, czy użytkownik ma uprawnienia do uzyskiwania klucza, usługa szacuje zasady autoryzacji określone dla klucza.
 
-## <a name="aes-128-clear-key-vs-drm"></a>AES-128 Wyczyść klucz a DRM
-Klienci często zastanawiają się, czy powinni używać szyfrowania AES, czy systemu DRM. Podstawowa różnica między tymi dwoma systemami polega na tym, że szyfrowanie AES klucza zawartości jest przesyłane do klienta w nieszyfrowanym formacie ("w czyszczeniu"). W związku z tym klucz użyty do zaszyfrowania zawartości może być wyświetlany w wyniku śledzenia sieci na kliencie w postaci zwykłego tekstu. Szyfrowanie za pomocą klucza AES-128 jest odpowiednie do przypadków użycia, w których przeglądarka jest zaufaną stroną (na przykład w przypadku szyfrowania wideo firmowych dystrybuowanych przez pracowników).
+## <a name=&quot;aes-128-clear-key-vs-drm&quot;></a>AES-128 Wyczyść klucz a DRM
+Klienci często zastanawiają się, czy powinni używać szyfrowania AES, czy systemu DRM. Podstawowa różnica między tymi dwoma systemami polega na tym, że szyfrowanie AES klucza zawartości jest przesyłane do klienta w nieszyfrowanym formacie (&quot;w czyszczeniu"). W związku z tym klucz użyty do zaszyfrowania zawartości może być wyświetlany w wyniku śledzenia sieci na kliencie w postaci zwykłego tekstu. Szyfrowanie za pomocą klucza AES-128 jest odpowiednie do przypadków użycia, w których przeglądarka jest zaufaną stroną (na przykład w przypadku szyfrowania wideo firmowych dystrybuowanych przez pracowników).
 
 Technologie PlayReady, Widevine i FairPlay zapewniają wyższy poziom szyfrowania w porównaniu z szyfrowaniem klucza AES-128. Klucz zawartości jest przesyłany w postaci zaszyfrowanej. Ponadto odszyfrowywanie jest obsługiwane w bezpiecznym środowisku na poziomie systemu operacyjnego, co utrudnia złośliwemu użytkownikowi ataki. Funkcja DRM jest zalecana w przypadku przypadków użycia, w których przeglądarka może nie być stroną zaufaną i wymagany jest najwyższy poziom zabezpieczeń.
 
@@ -117,7 +117,7 @@ Obowiązują następujące zastrzeżenia:
 Poniższe artykuły zawierają opis następnych kroków, które ułatwią rozpoczęcie pracy z usługą Content Protection:
 
 * [Ochrona przy użyciu szyfrowania magazynu](media-services-rest-storage-encryption.md)
-* [Ochrona przy użyciu szyfrowania AES](media-services-protect-with-aes128.md)
+* [Ochrona przy użyciu szyfrowania AES](media-services-playready-license-template-overview.md)
 * [Ochrona za pomocą oprogramowania PlayReady i/lub Widevine](media-services-protect-with-playready-widevine.md)
 * [Ochrona za pomocą FairPlay](media-services-protect-hls-with-FairPlay.md)
 

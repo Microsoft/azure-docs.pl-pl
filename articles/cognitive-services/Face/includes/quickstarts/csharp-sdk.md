@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: b06a35274082e09ec0973c5123b39935a93e354d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab99d574588989c84783e532fcf801dcaffdd54d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445425"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958310"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -22,7 +22,7 @@ Użyj biblioteki klienta programu Front for .NET, aby:
 
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
-* [Tworzenie grupy osób](#create-a-person-group)
+* [Tworzenie elementu](#create-a-persongroup)
 * [Identyfikowanie kroju](#identify-a-face)
 
 [Dokumentacja](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)  |  [Przykłady](/samples/browse/?products=azure&term=face)
@@ -124,7 +124,7 @@ Poniższe fragmenty kodu przedstawiają sposób wykonywania następujących zada
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
-* [Tworzenie grupy osób](#create-a-person-group)
+* [Tworzenie elementu](#create-a-persongroup)
 * [Identyfikowanie kroju](#identify-a-face)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
@@ -186,7 +186,7 @@ Poniższy kod drukuje szczegóły dopasowania do konsoli programu:
 
 Operacja identyfikowania pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z **osobą**, która jest bazą danych różnych obiektów **osób** , których funkcje twarzy są znane. Aby wykonać operację identyfikowania, należy najpierw utworzyć i przeszkolić **odbiorcę**
 
-### <a name="create-a-person-group"></a>Tworzenie grupy osób
+### <a name="create-a-persongroup"></a>Tworzenie elementu
 
 Poniższy kod tworzy **odbiorcę** z sześciu różnych obiektów **osób** . Kojarzy każdej **osoby** z zestawem przykładowych obrazów, a następnie pociąga, aby rozpoznać każdą osobę według ich cech twarzy. Obiekty **osób** i **osób** są używane w operacjach sprawdzania, identyfikowania i grupowania.
 

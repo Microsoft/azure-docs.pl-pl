@@ -6,10 +6,10 @@ ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
 ms.openlocfilehash: b012ac558c3a286dbf7382dbbae99aa5098d139e
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105031339"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |

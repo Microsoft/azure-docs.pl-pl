@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 5a0389b1074737728bd0ffa5d6db90d077a9f45f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49a697e6c3a6a6c931f2bb9c545647e2d6f1322d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652175"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056661"
 ---
 # <a name="about-azure-cache-for-redis"></a>Informacje o usłudze Azure Cache for Redis
 Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci oparty na oprogramowaniu [Redis](https://redis.io/) . Redis poprawia wydajność i skalowalność aplikacji, która jest wielokrotnie wykorzystywana w magazynach danych zaplecza. Jest w stanie przetwarzać duże ilości żądań aplikacji przez zachowywanie często używanych danych w pamięci serwera, które mogą być zapisywane i odczytywane szybko. Redis zapewnia krytyczne rozwiązanie do przechowywania danych o małym opóźnieniu i wysokiej przepływności dla nowoczesnych aplikacji.
@@ -42,7 +42,7 @@ Usługa Azure Cache for Redis jest dostępna w następujących warstwach:
 | Warstwa | Opis |
 |---|---|
 | Podstawowa | Pamięć podręczna Redis usługi OSS działa na jednej maszynie wirtualnej. Ta warstwa nie ma umowy dotyczącej poziomu usług (SLA) i doskonale nadaje się do tworzenia i testowania oraz obciążeń niekrytycznych. |
-| Standardowa | Pamięć podręczna Redis usługi OSS uruchomiona na dwóch maszynach wirtualnych w zreplikowanej konfiguracji. |
+| Standardowa (Standard) | Pamięć podręczna Redis usługi OSS uruchomiona na dwóch maszynach wirtualnych w zreplikowanej konfiguracji. |
 | Premium | Wysokiej wydajności pamięci podręczne OSS Redis. Ta warstwa oferuje wyższą przepływność, mniejsze opóźnienia, lepszą dostępność i więcej funkcji. Pamięć podręczna w warstwie Premium jest wdrażana na bardziej zaawansowanych maszynach wirtualnych w porównaniu do tych w przypadku pamięci podręcznych Basic i Standard. |
 | Przedsiębiorstwa | Pamięci podręczne o wysokiej wydajności obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa obsługuje moduły Redis, w tym RediSearch, RedisBloom i RedisTimeSeries. Dodatkowo oferuje jeszcze wyższą dostępność niż warstwa Premium. |
 | Lampa błyskowa przedsiębiorstwa | Ekonomiczne duże pamięci podręczne obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa rozszerza magazyn danych Redis do pamięci nieulotnej, który jest tańszy niż DRAM na maszynie wirtualnej. Zmniejsza całkowity koszt za GB pamięci. |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779940"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932458"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -153,7 +153,9 @@ Aby dodać filtr zdarzeń podczas tworzenia trasy zdarzeń, użyj sekcji _Dodawa
 Możesz wybrać jedną z podstawowych opcji standardowych filtrów lub użyć zaawansowanych opcji filtru, aby napisać własne filtry niestandardowe.
 
 >[!NOTE]
-> W filtrach jest **rozróżniana wielkość** liter i należy je dopasować do przypadku ładunku (co może nie być zgodne z wielkością liter w modelu).
+> W filtrach jest **rozróżniana wielkość** liter i musi być zgodna z wielkością ładunku. 
+>
+> W przypadku filtrów telemetrii oznacza to, że wielkość liter musi być zgodna z wielkością liter w telemetrii wysyłanej przez urządzenie, a nie do wielkości liter zdefiniowanych w modelu sznurka.
 
 #### <a name="use-the-basic-filters"></a>Korzystanie z filtrów podstawowych
 

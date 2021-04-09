@@ -5,10 +5,10 @@ ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
 ms.openlocfilehash: 7d26825e3e401984b52216c6827b8a3baf44ad62
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105032518"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usługi CIS Microsoft Azure testy porównawcze 1.1.0 zgodności z przepisami

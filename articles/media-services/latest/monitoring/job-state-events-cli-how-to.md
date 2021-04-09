@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 47d079aa5038a5ef09df30f0561c258bfbf6a9f7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 967b509ff4832bb8c70c5802699d62f1b209c516
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609747"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959657"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Tworzenie i monitorowanie zdarzeń Media Services za pomocą Event Grid przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ W tym artykule opisano korzystanie z interfejsu wiersza polecenia platformy Azur
 
     Obecnie nie wszystkie polecenia [interfejsu wiersza polecenia usługi Media Services w wersji 3](/cli/azure/ams) działają w usłudze Azure Cloud Shell. Zaleca się używanie interfejsu wiersza polecenia lokalnie.
 
-- [Utwórz konto Media Services](../create-account-howto.md).
+- [Utwórz konto Media Services](../account-create-how-to.md).
 
     Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
 

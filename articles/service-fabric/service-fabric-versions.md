@@ -4,10 +4,10 @@ description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fa
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010205"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Uaktualnij wersję klastra usługi Azure Service Fabric

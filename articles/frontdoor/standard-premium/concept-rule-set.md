@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101099971"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067558"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>Co to jest zestaw reguł dla usług Azure Front-Standard/Premium (wersja zapoznawcza)?
 
 > [!Note]
 > Ta dokumentacja dotyczy platformy Azure — Standard/Premium (wersja zapoznawcza). Szukasz informacji na temat zewnętrznych drzwi platformy Azure? [Tutaj](../front-door-overview.md)Wyświetl.
 
-Zestaw reguł to dostosowany aparat reguł, który grupuje kombinację reguł w jeden zestaw, który można skojarzyć z wieloma trasami. Zestaw reguł umożliwia dostosowanie sposobu przetwarzania żądań na brzegu oraz sposobu, w jaki usługa Azure Front drzwiczki obsługuje te żądania.
+Zestaw reguł to dostosowany aparat reguł, który grupuje kombinację reguł w jeden zestaw. Istnieje możliwość skojarzenia zestawu reguł z wieloma trasami. Zestaw reguł umożliwia dostosowanie sposobu przetwarzania żądań na brzegu oraz sposobu, w jaki usługa Azure Front-drzwiczk obsługuje te żądania.
 
 > [!IMPORTANT]
 > Platforma Azure Front-Standard/Premium (wersja zapoznawcza) jest obecnie dostępna w publicznej wersji zapoznawczej.
@@ -32,7 +32,7 @@ Zestaw reguł to dostosowany aparat reguł, który grupuje kombinację reguł w 
 
 * Kierowanie żądań do wersji mobilnych lub klasycznych aplikacji na podstawie typu urządzenia klienckiego.
 
-* Używanie funkcji przekierowania do zwracania do klienta 301, 302, 307 i 308 przekierowania, aby skierować je do nowych nazw hostów, ścieżek, ciągu zapytania lub protokołów.
+* Używanie funkcji przekierowania do zwracania do klienta 301, 302, 307 i 308 przekierowania, aby skierować je do nowych nazw hostów, ścieżek, ciągów zapytań lub protokołów.
 
 * Dynamicznie Modyfikuj konfigurację buforowania trasy na podstawie żądań przychodzących.
 
@@ -60,16 +60,19 @@ Za pomocą zestawu reguł dla drzwi frontonu platformy Azure można utworzyć ko
 
 Aby uzyskać więcej informacji na temat limitu przydziału, zapoznaj się z tematem [subskrypcje i limitów usługi Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Zestaw reguł*: zestaw reguł, które są skojarzone z jedną lub wieloma [trasami](concept-route.md). Każda konfiguracja jest ograniczona do 25 reguł. Można utworzyć maksymalnie 10 konfiguracji.
+* *Zestaw reguł*: zestaw reguł, które są skojarzone z jedną lub wieloma [trasami](concept-route.md).
 
-* *Reguła zestawu reguł*: reguła złożona z maksymalnie 10 warunków dopasowania i 5 akcji. Reguły są lokalne dla zestawu reguł i nie mogą być eksportowane do użycia w różnych zestawach reguł. Użytkownicy mogą utworzyć tę samą regułę w wielu zestawach reguł.
+* *Reguła zestawu reguł*: reguła złożona z maksymalnie 10 warunków dopasowywania i 5 akcji. Reguły są lokalne dla zestawu reguł i nie mogą być eksportowane do użycia w różnych zestawach reguł. Użytkownicy mogą utworzyć tę samą regułę w wielu zestawach reguł.
 
-* *Warunek dopasowania*: istnieje wiele warunków dopasowania, których można użyć do analizowania żądań przychodzących. Reguła może zawierać maksymalnie 10 warunków dopasowywania. Warunki dopasowania są oceniane przy użyciu operatora **i** . *Wyrażenie regularne jest obsługiwane w warunkach*. Pełną listę warunków dopasowania można znaleźć w [warunku zestawu reguł](concept-rule-set-match-conditions.md).
+* *Warunek dopasowania*: istnieje wiele warunków dopasowania, których można użyć do analizowania żądań przychodzących. Reguła może zawierać maksymalnie 10 warunków dopasowywania. Warunki dopasowania są oceniane przy użyciu operatora **i** . *Wyrażenie regularne jest obsługiwane w warunkach*. Pełną listę warunków dopasowania można znaleźć w [warunkach dopasowania zestawu reguł](concept-rule-set-match-conditions.md).
 
 * *Akcja*: akcje wskazują, jak AFD obsługuje przychodzące żądania na podstawie pasujących warunków. Można modyfikować zachowania pamięci podręcznej, modyfikować nagłówki żądań/nagłówki odpowiedzi, wykonywać ponowne zapisywanie adresów URL i przekierowania adresów URL. *Zmienne serwera są obsługiwane w akcji*. Reguła może zawierać maksymalnie 10 warunków dopasowywania. Pełną listę akcji można znaleźć w obszarze [Akcje zestawu reguł](concept-rule-set-actions.md).
+
+## <a name="arm-template-support"></a>Obsługa szablonów ARM
+
+Zestawy reguł można skonfigurować przy użyciu szablonów Azure Resource Manager. [Zobacz przykładowy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). Zachowanie można dostosować za pomocą fragmentów kodu JSON lub Bicep zawartych w przykładach dokumentacji, aby [dopasować warunki](concept-rule-set-match-conditions.md) i [Akcje](concept-rule-set-actions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się [, jak utworzyć warstwę przednią/standardową](create-front-door-portal.md).
 * Dowiedz się, jak skonfigurować swój pierwszy [zestaw reguł](how-to-configure-rule-set.md).
- 

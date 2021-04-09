@@ -4,10 +4,10 @@ description: Opisuje sposób definiowania modułu i korzystania z nich oraz uży
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105611739"
 ---
 # <a name="use-bicep-modules-preview"></a>Korzystanie z modułów Bicep (wersja zapoznawcza)
