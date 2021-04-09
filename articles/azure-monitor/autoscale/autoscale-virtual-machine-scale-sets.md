@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101717744"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets
@@ -38,13 +38,13 @@ W tym instruktażu użyjemy [Azure Resource Explorer](https://resources.azure.co
 
     | Profile & reguł | Opis |
     |--- | --- |
-    | **Profilu** |**Wydajność/oparta na metrykach** |
+    | **Profil** |**Wydajność/oparta na metrykach** |
     | Reguła |Liczba komunikatów w kolejce Service Bus > x |
     | Reguła |Liczba komunikatów w kolejce Service Bus < y |
     | Reguła |Procesor% > n |
     | Reguła |Procesor CPU% < p |
-    | **Profilu** |**Dni tygodnia rano (bez reguł)** |
-    | **Profilu** |**Dzień uruchamiania produktu (brak reguł)** |
+    | **Profil** |**Dni tygodnia rano (bez reguł)** |
+    | **Profil** |**Dzień uruchamiania produktu (brak reguł)** |
 
 4. Oto hipotetyczny scenariusz skalowania, który jest używany do tego przewodnika.
 

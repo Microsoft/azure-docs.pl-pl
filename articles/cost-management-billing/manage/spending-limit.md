@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: df5c5ed74a5e0a63727962fa86d261cfb588a384
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 47f1a1ed182420852682e908c7cd8b5e094bc085
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690565"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932560"
 ---
 # <a name="azure-spending-limit"></a>Azure — limit wydatków
 
-Dzięki limitowi wydatków na platformie Azure nie można wydawać więcej niż wynosi kwota środków. Wszyscy nowi klienci, którzy rejestrują się w celu założenia bezpłatnego konta platformy Azure lub skorzystania z typów subskrypcji obejmujących środki na wiele miesięcy, mają domyślnie włączony limit wydatków. Limit wydatków jest równy kwocie środków i nie można go zmienić. Jeśli na przykład zarejestrujesz się w celu założenia bezpłatnego konta platformy Azure, Twój limit wydatków będzie wynosić 200 USD i nie będzie można go zmienić na 500 USD. Limit wydatków można jednak usunąć. Więc albo nie masz limitu, albo masz limit równy kwocie środków. Pozwala to uniknąć większości rodzajów wydatków. Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z cenami po stawkach płatności zgodnie z rzeczywistym użyciem. Zobacz [pełną listę typów subskrypcji platformy Azure i dostępność limitu wydatków](https://azure.microsoft.com/support/legal/offer-details/).
+Dzięki limitowi wydatków na platformie Azure nie można wydawać więcej niż wynosi kwota środków. Wszyscy nowi klienci, którzy rejestrują się w celu założenia bezpłatnego konta platformy Azure lub skorzystania z typów subskrypcji obejmujących środki na wiele miesięcy, mają domyślnie włączony limit wydatków. Limit wydatków jest równy kwocie kredytu. Nie można zmienić wartości limitu wydatków. Jeśli na przykład zarejestrujesz się w celu założenia bezpłatnego konta platformy Azure, Twój limit wydatków będzie wynosić 200 USD i nie będzie można go zmienić na 500 USD. Limit wydatków można jednak usunąć. Więc albo nie masz limitu, albo masz limit równy kwocie środków. Pozwala to uniknąć większości rodzajów wydatków. Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z cenami po stawkach płatności zgodnie z rzeczywistym użyciem. Zobacz [pełną listę typów subskrypcji platformy Azure i dostępność limitu wydatków](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="reaching-a-spending-limit"></a>Osiąganie limitu wydatków
 

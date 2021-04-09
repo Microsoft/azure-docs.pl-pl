@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 3644f26f989fec05ee76afd9f930c31b25234c7f
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ede0d279b8769f49afcdae1cb9352c1b47fb59b5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608531"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932407"
 ---
 # <a name="import-new-update"></a>Importuj nową aktualizację
 Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia dla IoT Hub. Jeśli jeszcze tego nie zrobiono, pamiętaj o zapoznaniu się z podstawowymi [pojęciami dotyczącymi importu](import-concepts.md).
@@ -35,7 +35,7 @@ Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia 
 
 2. Utwórz plik tekstowy o nazwie **AduUpdate. PSM1** w katalogu, w którym znajduje się plik obrazu aktualizacji lub plik manifestu apt. Następnie otwórz polecenie cmdlet programu PowerShell [AduUpdate. PSM1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) , skopiuj zawartość do pliku tekstowego, a następnie Zapisz plik tekstowy.
 
-3. W programie PowerShell przejdź do katalogu, w którym utworzono polecenie cmdlet programu PowerShell w kroku 2. Następnie uruchom polecenie:
+3. W programie PowerShell przejdź do katalogu, w którym utworzono polecenie cmdlet programu PowerShell w kroku 2. Użyj opcji Kopiuj poniżej, a następnie wklej do programu PowerShell, aby uruchomić polecenia:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -63,7 +63,7 @@ Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia 
     | aktualizacjaname | Identyfikator klasy aktualizacji. Klasa może być dowolna. Często będzie to nazwa urządzenia lub modelu.
     | updateVersion | Numer wersji odróżniający tę aktualizację od innych, które mają tego samego dostawcę i nazwę. Nie ma dopasowania do wersji pojedynczego składnika oprogramowania na urządzeniu (ale można go wybrać).
     | Typ aktualizacji | <ul><li>Określ `microsoft/swupdate:1` dla aktualizacji obrazu</li><li>Określ `microsoft/apt:1` dla aktualizacji pakietu</li></ul>
-    | installedCriteria | <ul><li>Określ wartość SWVersion dla `microsoft/swupdate:1` typu aktualizacji</li><li>Określ zalecaną wartość dla `microsoft/apt:1` typu aktualizacji.
+    | installedCriteria | <ul><li>Określ wartość SWVersion dla `microsoft/swupdate:1` typu aktualizacji</li><li>Określ nazwę **-Version**, gdzie _name_ to nazwa manifestu apt, a _wersja_ to wersja manifestu apt. Na przykład contoso-IoT-Edge-1.0.0.0.
     | updateFilePath | Ścieżka do plików aktualizacji na komputerze
 
 

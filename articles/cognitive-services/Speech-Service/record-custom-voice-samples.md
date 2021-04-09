@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101722317"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Rejestruj przykłady głosu, aby utworzyć niestandardowy głos
@@ -163,14 +163,14 @@ Rejestruj o 44,1 kHz 16-bitowej monophonic (jakość dysku CD) lub lepiej. Bież
 
 Najlepiej, aby inne osoby mogły korzystać z ról dyrektorów, inżynierów i talentów. Nie próbuj nic robić. W szczypania, jedna osoba może być zarówno dyrektorem, jak i inżynierem.
 
-### <a name="before-the-session"></a>Przed sesją
+### <a name="before-the-session&quot;></a>Przed sesją
 
 Aby uniknąć marnowania czasu Studio, uruchom skrypt za pomocą talent głosu przed sesją rejestrowania. Gdy talent głosu zapoznaje się z tekstem, może wyjaśnić odmowę dowolnego nieznanego wyrazu.
 
 > [!NOTE]
 > Większość rejestrowania Studios oferuje elektroniczny sposób wyświetlania skryptów w kabinie nagrywania. W takim przypadku wpisz notatki do wykonania bezpośrednio w dokumencie skryptu. Nadal chcesz, aby kopia papieru była zanotować w trakcie sesji, chociaż. Większość inżynierów będzie mieć również twardą kopię. I nadal chcesz utworzyć trzecią drukowaną kopię jako kopię zapasową dla talent w przypadku, gdy komputer nie działa.
 
-Talent głosu może zażądać, który wyraz ma zostać wyróżniony w wypowiedź ("słowo operacyjne"). Poinformuj ich o tym, że chcesz czytać naturalny bez określonego nacisku. Można dodać wyróżnienie w przypadku, gdy funkcja rozpoznawania mowy jest syntezą; nie powinna być częścią oryginalnego nagrywania.
+Talent głosu może zażądać, który wyraz ma zostać wyróżniony w wypowiedź (&quot;słowo operacyjne"). Poinformuj ich o tym, że chcesz czytać naturalny bez określonego nacisku. Można dodać wyróżnienie w przypadku, gdy funkcja rozpoznawania mowy jest syntezą; nie powinna być częścią oryginalnego nagrywania.
 
 Skieruj talent, aby wymawiał słowa odrębnie. Każdy wyraz skryptu powinien znajdować się jako zapisany. DYwięki nie należy pomijać ani następować ze sobą, jak często jest to bardzo popularne, chyba że zostały *one zapisaną w skrypcie*.
 

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/29/2021
+ms.openlocfilehash: fcf533ad95e2567e62d44d6997752df6f3145ecb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100364243"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726791"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopiuj dane do i z Azure Databricks delty Lake przy użyciu Azure Data Factory
 
@@ -42,7 +42,7 @@ Aby użyć tego Azure Databricks różnicowego, należy skonfigurować klaster w
 
 Klaster datakostki musi mieć dostęp do obiektu blob platformy Azure lub konta Azure Data Lake Storage Gen2, kontenera/systemu plików używanego dla źródła/ujścia/przemieszczania oraz kontenera/systemu plików, w którym mają zostać zapisane tabele różnicowych Lake.
 
-- Aby skorzystać z **Azure Data Lake Storage Gen2**, można skonfigurować jednostkę **usługi** lub **klucz dostępu konta magazynu** w klastrze datakostki jako część konfiguracji Apache Spark. Postępuj zgodnie z instrukcjami [dostępnymi bezpośrednio z](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) użyciem jednostki usługi lub [uzyskaj dostęp bezpośrednio przy użyciu klucza dostępu konta magazynu](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- Aby użyć **Azure Data Lake Storage Gen2**, można skonfigurować **nazwę główną usługi** w klastrze datakostki jako część konfiguracji Apache Spark. Postępuj zgodnie z instrukcjami [dostępnymi bezpośrednio z](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20)jednostką usługi.
 
 - Aby korzystać z **usługi Azure Blob Storage**, można skonfigurować **klucz dostępu konta magazynu** lub **token SAS** w klastrze datakostki jako część konfiguracji Apache Spark. Wykonaj kroki opisane w temacie [dostęp do usługi Azure Blob Storage za pomocą interfejsu API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 

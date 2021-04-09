@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 5824457a9f2ce411a871b5e76802ecf2e2f106c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9d917b3682d3b503743e706e8c952854e86fbc5e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099509"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727046"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alerty i zdarzenia zabezpieczeń w Azure Security Center
 
@@ -73,13 +73,12 @@ Security Center przypisuje ważność do alertów, ułatwiając określanie prio
 > [!NOTE]
 > Ważność alertu jest wyświetlana w różny sposób w portalu i wersjach interfejsu API REST, który jest przedstawiony jako 01-01-2019. Jeśli używasz starszej wersji interfejsu API, Uaktualnij środowisko pod kątem spójnego środowiska opisanego poniżej.
 
-| Ważność          | Zalecana odpowiedź                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ważność          | Zalecana odpowiedź      |
+|---|---|
 | **Wysoki**          | Istnieje duże prawdopodobieństwo naruszenia bezpieczeństwa zasobu. Należy od razu przyjrzeć się do niego. Security Center ma wysoki poziom zaufania zarówno w złośliwym zamiarach, jak i w ustaleniach używanych do wystawiania alertu. Na przykład alert, który wykrywa wykonywanie znanego złośliwego narzędzia, takiego jak program mimikatz, typowego narzędzia używanego do kradzieży poświadczeń.                                                                                                               |
 | **Średni**        | Prawdopodobnie podejrzane działanie może wskazywać na naruszenie bezpieczeństwa zasobu. Stopień zaufania Security Center w analitycznym lub wyszukiwaniu jest średni, a wiarygodność złośliwego celu jest wysoka. Zazwyczaj mogą to być Uczenie maszynowe lub wykryte anomalie. Na przykład próba logowania z nietypowej lokalizacji.                                                                                                                |
 | **Niski**           | Może to być niegroźne pozytywne lub zablokowany atak. Security Center nie ma wystarczającej pewności, że zamiar jest złośliwy, a działanie może być nieszkodliwe. Na przykład dziennik czyszczenie jest akcją, która może wystąpić, gdy osoba atakująca próbuje ukryć swoje ścieżki, ale w wielu przypadkach jest to procedura wykonywana przez administratorów. Security Center zazwyczaj nie informuje użytkownika o zablokowaniu ataków, chyba że jest to interesujący przypadek, który sugerujemy. |
-| **Informacyjne** | Podczas przechodzenia do szczegółów zdarzenia związanego z bezpieczeństwem będą wyświetlane tylko alerty informacyjne lub użycie interfejsu API REST z określonym IDENTYFIKATORem alertu. Zdarzenie zwykle składa się z wielu alertów, a niektóre z nich mogą być wyświetlane tylko w celu uzyskania informacji, ale w kontekście innych alertów może być zaufanego bliższego wyglądu.                                                                                                                         |  |
-|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Informacyjne** | Podczas przechodzenia do szczegółów zdarzenia związanego z bezpieczeństwem będą wyświetlane tylko alerty informacyjne lub użycie interfejsu API REST z określonym IDENTYFIKATORem alertu. Zdarzenie zwykle składa się z wielu alertów, a niektóre z nich mogą być wyświetlane tylko w celu uzyskania informacji, ale w kontekście innych alertów może być zaufanego bliższego wyglądu.                                                                                                                         |
 
 ## <a name="export-alerts"></a>Eksportowanie alertów
 

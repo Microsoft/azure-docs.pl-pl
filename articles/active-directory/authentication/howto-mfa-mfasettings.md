@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 4625b0a750c2b3ff63879bb9ea306bc69b1bb64e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 78972c4db1802b479a698a22c456561170add4bf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471645"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932917"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurowanie ustawień Multi-Factor Authentication usługi Azure AD
 
@@ -231,7 +231,7 @@ Ustawienia usługi są dostępne z poziomu Azure Portal, przechodząc do **Azure
 
 ## <a name="trusted-ips"></a>Zaufane adresy IP
 
-Funkcja _Zaufane adresy IP_ w usłudze Azure AD Multi-Factor Authentication pomija w przypadku użytkowników logujących się ze zdefiniowanego zakresu adresów IP. Możesz ustawić zaufane zakresy adresów IP dla środowisk lokalnych, gdy użytkownicy znajdują się w jednej z tych lokalizacji, nie ma monitu o Multi-Factor Authentication usługi Azure AD.
+Funkcja _Zaufane adresy IP_ w usłudze Azure AD Multi-Factor Authentication pomija w przypadku użytkowników logujących się ze zdefiniowanego zakresu adresów IP. Możesz ustawić zaufane zakresy adresów IP dla środowisk lokalnych, aby w przypadku użytkowników znajdujących się w jednej z tych lokalizacji nie będzie wyświetlany monit Multi-Factor Authentication usługi Azure AD. Funkcja _zaufanych adresów IP_ usługi Azure AD Multi-Factor Authentication wymaga Azure AD — wersja Premium wersji P1. 
 
 > [!NOTE]
 > W przypadku korzystania z serwera MFA Zaufane adresy IP mogą zawierać prywatne zakresy adresów IPv4. W przypadku usługi Azure AD Multi-Factor Authentication opartej na chmurze można używać tylko zakresów publicznych adresów IP.

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: 3292f337a39e2adb7dc5e78f12785ead8759f5d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102611950"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Używanie programu Windows PowerShell dla usługi StorSimple do administrowania urządzeniem
@@ -53,7 +53,7 @@ Aby nawiązać połączenie z interfejsem programu Windows PowerShell z poziomu 
    | Element klawiatury | Wybierz pozycję |
    | --- | --- |
    | Klawisz Backspace |Kontrolka-? (127) |
-   | Główne i końcowe klawisze |Standardowa |
+   | Główne i końcowe klawisze |Standardowa (Standard) |
    | Klawisze funkcyjne i klawiatura |ESC [n ~ |
    | Początkowy stan kluczy kursora |Normalne |
    | Początkowy stan klawiatury numerycznej |Normalne |
