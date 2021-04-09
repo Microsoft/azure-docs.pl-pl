@@ -12,10 +12,10 @@ ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
 ms.openlocfilehash: 17511778f63a2d7270178042c4bb414cdd6630c3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955469"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy

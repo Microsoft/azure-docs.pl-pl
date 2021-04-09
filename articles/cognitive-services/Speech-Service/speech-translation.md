@@ -13,10 +13,10 @@ ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tłumaczenie mowy
 ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954964"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?

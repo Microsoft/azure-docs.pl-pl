@@ -147,7 +147,7 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
 1. W polu tekstowym **skrypt języka r** wpisz lub wklej prawidłowy skrypt języka r.
 
     > [!NOTE]
-    > Należy zachować ostrożność podczas pisania skryptu. Upewnij się, że nie ma błędów składniowych, takich jak użycie niezadeklarowanych zmiennych lub nieimportowanych modułów lub funkcji. Zanotuj dodatkową uwagę na listę wstępnie zainstalowanych pakietów na końcu tego artykułu. Aby użyć pakietów, które nie znajdują się na liście, zainstaluj je w skrypcie. Może to być na przykład `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Należy zachować ostrożność podczas pisania skryptu. Upewnij się, że nie ma błędów składniowych, takich jak użycie niezadeklarowanych zmiennych lub nieimportowanych modułów lub funkcji. Zanotuj dodatkową uwagę na listę wstępnie zainstalowanych pakietów na końcu tego artykułu. Aby użyć pakietów, które nie znajdują się na liście, zainstaluj je w skrypcie. Może to być na przykład `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
     
     Aby ułatwić rozpoczęcie pracy, w polu tekstowym **skryptu języka R** zostanie wstępnie wypełniony przykładowy kod, który można edytować lub zamienić.
     
