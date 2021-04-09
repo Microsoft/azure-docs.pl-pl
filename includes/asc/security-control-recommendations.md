@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 14655abc403248e0ce22d22aeca342032b930fb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 635ce116509204726762127210923a408b62ea78
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467979"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958124"
 ---
 <table class="tg">
 <thead>
@@ -99,7 +99,7 @@ ms.locfileid: "103467979"
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">2,0</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Włącz zaawansowaną ochronę przed zagrożeniami</p></strong>Opcjonalne Azure Security Center plany ochrony przed zagrożeniami w usłudze Azure Defender zapewniają kompleksowe zabezpieczenia dla danego środowiska. Gdy Security Center wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi.<br>Każdy plan usługi Azure Defender jest oddzielną, opcjonalną ofertą, którą można włączyć przy użyciu odpowiedniego zalecenia w tej kontroli zabezpieczeń.<br><a href="/azure/security-center/threat-protection">Dowiedz się więcej o ochronie przed zagrożeniami w programie Security Center</a>.</td>
-    <td class="tg-lboi"; width=55%>- Usługa Azure Defender dla App Service powinna być włączona<br />- Usługa Azure Defender dla serwerów Azure SQL Database powinna być włączona<br />- Usługa Azure Defender dla rejestrów kontenerów powinna być włączona<br />- Usługa Azure Defender dla Key Vault powinna być włączona<br />- Usługa Azure Defender for Kubernetes powinna być włączona<br />- Usługa Azure Defender dla serwerów powinna być włączona<br />- Usługa Azure Defender dla serwerów SQL na maszynach powinna być włączona<br />- Usługa Azure Defender dla magazynu powinna być włączona</td>
+    <td class="tg-lboi"; width=55%>- W klastrach Kubernetes z obsługą usługi Azure Arc należy zainstalować rozszerzenie usługi Azure Defender<br />- Usługa Azure Defender dla App Service powinna być włączona<br />- Usługa Azure Defender dla serwerów Azure SQL Database powinna być włączona<br />- Usługa Azure Defender dla rejestrów kontenerów powinna być włączona<br />- Usługa Azure Defender dla Key Vault powinna być włączona<br />- Usługa Azure Defender for Kubernetes powinna być włączona<br />- Usługa Azure Defender dla serwerów powinna być włączona<br />- Usługa Azure Defender dla serwerów SQL na maszynach powinna być włączona<br />- Usługa Azure Defender dla magazynu powinna być włączona</td>
   </tr>
 </tbody>
 </table>

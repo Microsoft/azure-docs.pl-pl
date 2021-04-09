@@ -3,32 +3,30 @@ title: Integracja Azure Service Bus z usługą konsolidacji prywatnej platformy 
 description: Dowiedz się, jak zintegrować Azure Service Bus z usługą Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 10/07/2020
+ms.date: 03/29/2021
 ms.topic: article
-ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 833d7e9fb4d517b71aab5039ae9081407eed84cd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427151"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960541"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus za pośrednictwem prywatnych punktów końcowych
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Service Bus, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
-
-> [!IMPORTANT]
-> Ta funkcja jest obsługiwana w warstwie **premium** Azure Service Bus. Aby uzyskać więcej informacji na temat warstwy Premium, zobacz artykuł [Service Bus warstwy Premium i Standard Messaging](service-bus-premium-messaging.md) .
 
 Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
 
 Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?](../private-link/private-link-overview.md)
 
->[!WARNING]
-> Implementacja prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Service Bus. Jako wyjątek, można zezwolić na dostęp do Service Bus zasobów z niektórych zaufanych usług nawet wtedy, gdy są włączone prywatne punkty końcowe. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
->
-> Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
-> - Azure App Service
-> - Azure Functions
+## <a name="important-points"></a>Ważne punkty
+- Ta funkcja jest obsługiwana w warstwie **premium** Azure Service Bus. Aby uzyskać więcej informacji na temat warstwy Premium, zobacz artykuł [Service Bus warstwy Premium i Standard Messaging](service-bus-premium-messaging.md) .
+- Implementacja prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Service Bus. Jako wyjątek, można zezwolić na dostęp do Service Bus zasobów z niektórych **zaufanych usług** nawet wtedy, gdy są włączone prywatne punkty końcowe. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
 
+    Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
+    - Azure App Service
+    - Azure Functions
+- Określ **co najmniej jedną regułę IP lub regułę sieci wirtualnej** dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej. W przypadku braku reguł adresów IP i sieci wirtualnych można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu). 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Dodawanie prywatnego punktu końcowego przy użyciu Azure Portal
@@ -51,15 +49,16 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Na pasku wyszukiwania wpisz w **Service Bus**.
 3. Wybierz **przestrzeń nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
-2. W menu po lewej stronie wybierz opcję **Sieć** w obszarze **Ustawienia**. 
-
+2. W menu po lewej stronie wybierz opcję **Sieć** w obszarze **Ustawienia**.     Domyślnie wybrana jest opcja **wybrane sieci** .
+ 
     > [!NOTE]
     > Karta **Sieć** zawiera tylko obszary nazw w **warstwie Premium** .  
-    
-    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
-
+   
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Strona sieci — domyślna" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
+
+    > [!WARNING]
+    > Jeśli nie dodasz co najmniej jednej reguły zapory IP lub sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznej sieci Internet (przy użyciu klucza dostępu).
+   
     W przypadku wybrania opcji **wszystkie sieci** Service Bus przestrzeń nazw akceptuje połączenia z dowolnego adresu IP (przy użyciu klucza dostępu). To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
 
     ![Zapora — wybrana opcja Wszystkie sieci](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)

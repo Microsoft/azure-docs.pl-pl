@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0939216e1d96e898d7c45b9e7a3ec72453b263d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444825"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105957998"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -22,7 +22,7 @@ Użyj biblioteki klienta programu Front dla języka Python, aby:
 
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
-* [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
+* [Tworzenie i uczenie użytkownika](#create-and-train-a-persongroup)
 * [Identyfikowanie kroju](#identify-a-face)
 * [Weryfikuj twarze](#verify-faces)
 
@@ -86,7 +86,7 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań przy
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
-* [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
+* [Tworzenie i uczenie użytkownika](#create-and-train-a-persongroup)
 * [Identyfikowanie kroju](#identify-a-face)
 * [Weryfikuj twarze](#verify-faces)
 
@@ -133,7 +133,7 @@ Użyj poniższego kodu, aby wydrukować szczegóły dopasowania do konsoli.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
-## <a name="create-and-train-a-person-group"></a>Tworzenie i uczenie grupy osób
+## <a name="create-and-train-a-persongroup"></a>Tworzenie i uczenie użytkownika
 
 Poniższy kod tworzy obiekt **Person** z trzema różnymi obiektami **osób** . Kojarzy każdej **osoby** z zestawem przykładowych obrazów, a następnie pociąga za sobą możliwość rozpoznawania każdej osoby. 
 
@@ -174,7 +174,7 @@ Po przypisaniu twarzy należy przeszkolić **osobę** , aby mogła ona identyfik
 Operacja identyfikowania pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z **osobą**, która jest bazą danych różnych obiektów **osób** , których funkcje twarzy są znane.
 
 > [!IMPORTANT]
-> Aby można było uruchomić ten przykład, należy najpierw uruchomić kod w temacie [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group).
+> Aby uruchomić ten przykład, należy najpierw uruchomić kod w [Tworzenie i uczenie osoby](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Pobierz obraz testowy
 

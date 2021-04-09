@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6e5de3cdec7a9c503f4b7bf7056bd62f1ddf682d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100594026"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
@@ -61,7 +61,7 @@ Aby uzyskać informacje na temat skalowania aplikacji, zobacz [Ręczne lub autom
 
 <a name="cost"></a>
 
-## <a name="how-much-does-my-app-service-plan-cost"></a>Jak dużo kosztu App Service planować?
+## <a name="how-much-does-my-app-service-plan-cost"></a>Ile kosztuje mój plan usługi App Service?
 
 W tej sekcji opisano sposób rozliczania App Service aplikacji. Aby uzyskać szczegółowe informacje o cenach specyficznych dla regionu, zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
 

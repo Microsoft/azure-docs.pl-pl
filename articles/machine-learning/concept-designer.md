@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: e6738bf944c5a80d0cb54432ade7555ebdcfbd51
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102503544"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Co to jest projektant usługi Azure Machine Learning? 
@@ -90,7 +90,7 @@ Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algor
 
 Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
+| Docelowy zasób obliczeniowy | Szkolenie | Wdrożenie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
 | Wystąpienie obliczeniowe usługi Azure Machine Learning | ✓ | |

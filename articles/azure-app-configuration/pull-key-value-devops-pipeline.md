@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c01984f6a359c0fd1f5d06d26d97d4a84973f57
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99979576"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056791"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia ściągnięcia do konfiguracji aplikacji z Azure Pipelines
 
@@ -33,7 +33,10 @@ Zadanie [konfiguracji aplikacji platformy Azure](https://marketplace.visualstudi
 1. W obszarze **potoki** wybierz pozycję **połączenia usługi**.
 1. Jeśli nie masz żadnych istniejących połączeń usług, kliknij przycisk **Utwórz połączenie z usługą** w środku ekranu. W przeciwnym razie kliknij pozycję **nowe połączenie usługi** w prawym górnym rogu strony.
 1. Wybierz **Azure Resource Manager**.
-1. Wybierz **nazwę główną usługi (automatycznie)**.
+![Zrzut ekranu przedstawia Wybieranie Azure Resource Manager z listy rozwijanej nowe połączenie z usługą.](./media/new-service-connection.png)
+1. W oknie dialogowym **Metoda uwierzytelniania** wybierz pozycję Nazwa **główna usługi (automatycznie)**.
+    > [!NOTE]
+    > Uwierzytelnianie **tożsamości zarządzanej** nie jest obecnie obsługiwane w przypadku zadania konfiguracji aplikacji.
 1. Wypełnij swoją subskrypcję i zasób. Nadaj nazwę połączeniu z usługą.
 
 Po utworzeniu połączenia usługi Znajdź nazwę przypisanej do niej nazwy głównej usługi. W następnym kroku dodasz nowe przypisanie roli do tej jednostki usługi.
@@ -49,9 +52,11 @@ Przypisz odpowiednią rolę konfiguracji aplikacji do połączenia z usługą u�
 
 1. Przejdź do magazynu konfiguracji aplikacji docelowej. Przewodnik konfigurowania magazynu konfiguracji aplikacji można znaleźć w temacie [Tworzenie magazynu konfiguracji aplikacji](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) w jednej z przewodników szybki start dotyczących konfiguracji aplikacji platformy Azure.
 1. Po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)**.
-1. W górnej części wybierz pozycję **+ Dodaj** i wybierz opcję **Dodaj przypisanie roli**.
+1. Po prawej stronie kliknij przycisk **Dodaj przypisania roli** .
+![Zrzut ekranu przedstawia przycisk Dodaj przypisania ](./media/add-role-assignment-button.png) roli.
 1. W obszarze **rola** wybierz pozycję **czytnik danych konfiguracji aplikacji**. Ta rola pozwala zadanie odczytać z magazynu konfiguracji aplikacji. 
 1. Wybierz nazwę główną usługi skojarzoną z połączeniem usługi, które zostało utworzone w poprzedniej sekcji.
+![Zrzut ekranu przedstawia okno dialogowe Dodawanie przypisania roli.](./media/add-role-assignment-reader.png)
 
 > [!NOTE]
 > Aby rozwiązać Azure Key Vault odwołań w ramach konfiguracji aplikacji, połączenie z usługą musi również mieć uprawnienia do odczytu wpisów tajnych w odwołaniach do magazynów kluczy platformy Azure, do których się odwołuje.
@@ -61,12 +66,17 @@ Przypisz odpowiednią rolę konfiguracji aplikacji do połączenia z usługą u�
 W tej sekcji zawarto informacje dotyczące korzystania z zadania konfiguracji aplikacji platformy Azure w potoku kompilacji usługi Azure DevOps.
 
 1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  . Aby zapoznać się z dokumentacją potoku kompilacji, zobacz  [Tworzenie pierwszego potoku](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
-      - W przypadku tworzenia nowego potoku kompilacji kliknij pozycję **Nowy potok**, wybierz repozytorium dla potoku. Wybierz pozycję **Pokaż asystenta** po prawej stronie potoku, a następnie wyszukaj zadanie **konfiguracji aplikacji platformy Azure** .
-      - Jeśli używasz istniejącego potoku kompilacji, wybierz pozycję **Edytuj** , aby edytować potok. Na karcie **zadania** Wyszukaj zadanie **Konfiguracja aplikacji platformy Azure** .
+      - Jeśli tworzysz nowy potok kompilacji, w ostatnim kroku procesu na karcie **Przegląd** wybierz pozycję **Pokaż asystenta** po prawej stronie potoku.
+      ![Zrzut ekranu przedstawia przycisk Pokaż Asystenta dla nowego potoku.](./media/new-pipeline-show-assistant.png)
+      - Jeśli używasz istniejącego potoku kompilacji, kliknij przycisk **Edytuj** w prawym górnym rogu.
+      ![Zrzut ekranu przedstawia przycisk Edytuj dla istniejącego potoku.](./media/existing-pipeline-show-assistant.png)
+1. Wyszukaj zadanie **konfiguracji aplikacji platformy Azure** .
+![Zrzut ekranu przedstawia okno dialogowe Dodawanie zadania z konfiguracją aplikacji platformy Azure w polu wyszukiwania.](./media/add-azure-app-configuration-task.png)
 1. Skonfiguruj parametry niezbędne do wykonania zadania w celu ściągnięcia wartości klucza z magazynu konfiguracji aplikacji. Opisy parametrów są dostępne w poniższej sekcji **Parametry** i w etykietce narzędzia obok każdego parametru.
       - Ustaw parametr **subskrypcji platformy Azure** na nazwę połączenia usługi utworzonego w poprzednim kroku.
       - W polu **nazwa konfiguracji aplikacji** Ustaw nazwę zasobu magazynu konfiguracji aplikacji.
       - Pozostaw wartości domyślne pozostałych parametrów.
+![Zrzut ekranu przedstawia parametry zadania konfiguracji aplikacji.](./media/azure-app-configuration-parameters.png)
 1. Zapisz i zakolejkowaniaj kompilację. W dzienniku kompilacji zostaną wyświetlone wszystkie błędy, które wystąpiły podczas wykonywania zadania.
 
 ## <a name="use-in-releases"></a>Użyj w wersjach
@@ -76,8 +86,12 @@ W tej sekcji zawarto informacje dotyczące korzystania z zadania konfiguracji ap
 1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  . Aby uzyskać dokumentację potoku wydania, zobacz temat [potoki wersji](/azure/devops/pipelines/release).
 1. Wybierz istniejący potok wersji. Jeśli go nie masz, kliknij pozycję **Nowy potok** , aby utworzyć nowy.
 1. Wybierz przycisk **Edytuj** w prawym górnym rogu, aby edytować potoku wydania.
-1. Wybierz **etap** , aby dodać zadanie. Aby uzyskać więcej informacji na temat etapów, zobacz [Dodawanie etapów, zależności, & warunków](/azure/devops/pipelines/release/environments).
-1. Kliknij pozycję **+** "Uruchom w agencie", a następnie Dodaj zadanie **konfiguracji aplikacji platformy Azure** na karcie **Dodawanie zadań** .
+1. Z listy rozwijanej **zadania** wybierz **etap** , do którego chcesz dodać zadanie. Więcej informacji na temat etapów można znaleźć [tutaj](/azure/devops/pipelines/release/environments).
+![Zrzut ekranu przedstawia wybrany etap na liście rozwijanej zadania.](./media/pipeline-stage-tasks.png)
+1. Kliknij **+** obok zadania, do którego chcesz dodać nowe zadanie.
+![Zrzut ekranu przedstawia przycisk plus obok zadania.](./media/add-task-to-job.png)
+1. Wyszukaj zadanie **konfiguracji aplikacji platformy Azure** .
+![Zrzut ekranu przedstawia okno dialogowe Dodawanie zadania z konfiguracją aplikacji platformy Azure w polu wyszukiwania.](./media/add-azure-app-configuration-task.png)
 1. Skonfiguruj niezbędne parametry w ramach zadania, aby ściągnąć kluczowe wartości z magazynu konfiguracji aplikacji. Opisy parametrów są dostępne w poniższej sekcji **Parametry** i w etykietce narzędzia obok każdego parametru.
       - Ustaw parametr **subskrypcji platformy Azure** na nazwę połączenia usługi utworzonego w poprzednim kroku.
       - W polu **nazwa konfiguracji aplikacji** Ustaw nazwę zasobu magazynu konfiguracji aplikacji.

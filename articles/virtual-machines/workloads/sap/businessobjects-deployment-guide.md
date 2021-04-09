@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
 ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102505906"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Przewodnik planowania i implementacji platformy SAP BusinessObjects BI na platformie Azure
@@ -154,7 +154,7 @@ Platforma Azure obsługuje dwie DBaaS oferty dla warstwy danych platformy SAP BO
 
 Azure SQL Database oferuje następujące trzy modele zakupu:
 
-- Rdzeń wirtualny
+- Oparty na rdzeniach wirtualnych
 
   Pozwala wybrać liczbę rdzeni wirtualnych, ilość pamięci oraz ilość i szybkość magazynu. Model zakupu oparty na rdzeń wirtualny umożliwia również korzystanie z [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) w celu uzyskania oszczędności kosztów. Ten model jest odpowiedni dla klienta, który zapewnia elastyczność, kontrolę i przezroczystość.
 

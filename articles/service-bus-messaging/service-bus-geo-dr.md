@@ -3,12 +3,12 @@ title: Azure Service Bus odzyskiwania po awarii geograficznej | Microsoft Docs
 description: Jak używać regionów geograficznych do przełączania awaryjnego i odzyskiwania po awarii w Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035398"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933759"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
 
@@ -156,7 +156,7 @@ Należy zwrócić uwagę na następujące kwestie, które należy wziąć pod uw
 
 4. Synchronizowanie jednostek może zająć trochę czasu, około 50-100 jednostek na minutę. Subskrypcje i reguły są również liczone jako jednostki.
 
-### <a name="availability-zones"></a>Strefy dostępności
+## <a name="availability-zones"></a>Strefy dostępności
 
 Jednostka SKU Service Bus Premium obsługuje [strefy dostępności](../availability-zones/az-overview.md), zapewniając izolowane lokalizacje w ramach tego samego regionu świadczenia usługi Azure. Service Bus zarządza trzema kopiami magazynu komunikatów (1 Podstawowa i 2). Service Bus synchronizuje wszystkie trzy kopie na potrzeby operacji związanych z danymi i zarządzaniem. Jeśli podstawowa kopia nie powiedzie się, jedna z kopii pomocniczych jest podwyższana do podstawowej bez postrzeganego przestoju. Jeśli aplikacje Zobacz przejściowe odłączenia od Service Bus, logika ponowień w zestawie SDK automatycznie ponownie nawiąże połączenie z Service Bus. 
 
