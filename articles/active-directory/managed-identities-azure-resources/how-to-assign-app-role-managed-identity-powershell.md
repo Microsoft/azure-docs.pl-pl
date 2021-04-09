@@ -16,10 +16,10 @@ ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98732103"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Przypisywanie zarządzanej tożsamości dostępu do roli aplikacji przy użyciu programu PowerShell
