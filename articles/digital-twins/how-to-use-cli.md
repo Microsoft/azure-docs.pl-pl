@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a24b8b18dd109f1d8ed5acaa7de55ce5a3cc1eb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 261dceb70a6059c76dbe3bd1d7636eee5d9d77bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201111"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936295"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
 
@@ -50,9 +50,13 @@ Aby uzyskać instrukcje dotyczące instalowania lub aktualizowania interfejsu wi
 
 ### <a name="get-the-extension"></a>Pobierz rozszerzenie
 
-Aby upewnić się, że masz najnowszą wersję rozszerzenia, `azure-iot` wykonaj te kroki. Te polecenia można uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md) lub [lokalnego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Interfejs wiersza polecenia platformy Azure automatycznie wyświetli monit o zainstalowanie rozszerzenia przy pierwszym użyciu poleceń, które go wymagają.
 
-[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
+Alternatywnie możesz użyć poniższego polecenia, aby samodzielnie zainstalować rozszerzenie w dowolnym momencie (lub zaktualizować je, jeśli jest już używana Starsza wersja). Polecenie można uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md) lub [lokalnego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
+```azurecli-interactive
+az extension add --upgrade -n azure-iot
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

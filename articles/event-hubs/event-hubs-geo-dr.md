@@ -4,10 +4,10 @@ description: Jak używać regionów geograficznych do przełączania awaryjnego 
 ms.topic: article
 ms.date: 02/10/2021
 ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104602642"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
@@ -52,10 +52,10 @@ Obsługiwane są następujące kombinacje podstawowych i pomocniczych przestrzen
 
 | Podstawowa przestrzeń nazw | Pomocnicza przestrzeń nazw | Obsługiwane | 
 | ----------------- | -------------------- | ---------- |
-| Standardowa | Standardowa | Tak | 
-| Standardowa | Dedykowane | Tak | 
+| Standardowa (Standard) | Standardowa (Standard) | Tak | 
+| Standardowa (Standard) | Dedykowane | Tak | 
 | Dedykowane | Dedykowane | Tak | 
-| Dedykowane | Standardowa | Nie | 
+| Dedykowane | Standardowa (Standard) | Nie | 
 
 > [!NOTE]
 > Nie można sparować przestrzeni nazw, które znajdują się w tym samym dedykowanym klastrze. Można sparować przestrzenie nazw, które znajdują się w osobnych klastrach. 
@@ -66,7 +66,7 @@ Poniższa sekcja zawiera omówienie procesu pracy w trybie failover i wyjaśnia,
 
 ![1][]
 
-### <a name="setup"></a>Konfigurowanie
+### <a name="setup"></a>Konfiguracja
 
 Najpierw należy utworzyć lub użyć istniejącej głównej przestrzeni nazw oraz nowej pomocniczej przestrzeni nazw, a następnie sparować te dwa. Ta parowanie zapewnia alias, którego można użyć do nawiązania połączenia. Ponieważ używasz aliasu, nie musisz zmieniać parametrów połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. 
 

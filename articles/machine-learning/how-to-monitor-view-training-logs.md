@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c258ac62617cb6ac954e0b8c59928225c7f477b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518742"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935581"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -110,15 +110,16 @@ Możesz również edytować tabelę listy uruchamiania, aby wybrać wiele urucho
 
 ![Szczegóły uruchamiania w programie Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="view-log-files-for-a-run"></a>Wyświetl pliki dziennika dla przebiegu 
+### <a name="view-and-download-log-files-for-a-run"></a>Wyświetlanie i pobieranie plików dzienników dla przebiegu 
 
 Pliki dziennika są podstawowym zasobem do debugowania obciążeń związanych z platformą Azure ML. Przejdź do szczegółów określonego uruchomienia, aby wyświetlić jego dzienniki i dane wyjściowe:  
 
 1. Przejdź do karty **eksperymenty** .
 1. Wybierz runID dla określonego uruchomienia.
 1. W górnej części strony wybierz pozycję dane **wyjściowe i dzienniki** .
+2. Wybierz pozycję **Pobierz wszystko** , aby pobrać wszystkie dzienniki do folderu zip.
 
-:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Zrzut ekranu przedstawiający sekcję danych wyjściowych i dzienników przebiegu":::
+:::image type="content" source="media/how-to-monitor-view-training-logs/download-logs.png" alt-text="Zrzut ekranu przedstawiający sekcję danych wyjściowych i dzienników przebiegu.":::
 
 W poniższych tabelach przedstawiono zawartość plików dziennika w folderach, które znajdują się w tej sekcji.
 

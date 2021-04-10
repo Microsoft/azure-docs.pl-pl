@@ -13,10 +13,10 @@ ms.date: 03/02/2021
 ms.author: aahi
 keywords: lokalna, Docker, kontener
 ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102040196"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla usługi LUIS
@@ -60,7 +60,7 @@ Tworzenie interfejsów API dla spakowanych aplikacji:
 
 W poniższej tabeli wymieniono minimalne i zalecane wartości dla hosta kontenerów. Wymagania mogą ulec zmianie w zależności od ilości ruchu sieciowego.
 
-|Kontener| Minimum | Zalecane | TPS<br>(Minimum, maksimum)|
+|Kontener| Minimum | Zalecane | DODATEK<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |LUIS|1 rdzeń, 2 GB pamięci|1 rdzeń, 4 GB pamięci|20, 40|
 
