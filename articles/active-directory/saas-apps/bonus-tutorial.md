@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Samouczek: integracja Azure Active Directory z dodatkowymi
@@ -124,13 +124,13 @@ Aby skonfigurować usługę Azure AD Logowanie jednokrotne, wykonaj następując
 
     c. Adres URL wylogowywania
 
-### <a name="configure-bonusly-single-sign-on"></a>Konfigurowanie bezSign-Onych pojedynczych
+### <a name="configure-bonusly-single-sign-on&quot;></a>Konfigurowanie bezSign-Onych pojedynczych
 
 1. W innym oknie przeglądarki Zaloguj się do dzierżawy z **premią** .
 
 1. Na pasku narzędzi u góry kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **integracje i aplikacje**.
 
-    ![Sekcja z dodatkowymi kwestiami społecznościowymi](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Sekcja z dodatkowymi kwestiami społecznościowymi](./media/bonus-tutorial/ic773686.png &quot;Bonusly")
 1. W obszarze **Logowanie jednokrotne** wybierz pozycję **SAML**.
 
 1. Na stronie okno dialogowe **SAML** wykonaj następujące czynności:
@@ -197,7 +197,7 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-bonusly-test-user"></a>Utwórz użytkownika z dodatkowym testem
+### <a name="create-bonusly-test-user&quot;></a>Utwórz użytkownika z dodatkowym testem
 
 Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania dodatkowych potrzeb, muszą one zostać zainicjowane w sposób dodatkowy. W przypadku zainicjowania obsługi administracyjnej jest to zadanie ręczne.
 
@@ -210,7 +210,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania d
 
 1. Kliknij polecenie **Ustawienia**.
 
-    ![Ustawienia](./media/bonus-tutorial/ic781041.png "Ustawienia")
+    ![Ustawienia](./media/bonus-tutorial/ic781041.png &quot;Ustawienia")
 
 1. Kliknij kartę **Użytkownicy i premie** .
 

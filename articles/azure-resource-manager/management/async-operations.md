@@ -4,12 +4,12 @@ description: Opisuje sposób śledzenia operacji asynchronicznych na platformie 
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5823bc8f6c0d5b334a638d4ad350eb2f9ef2b28
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88723456"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932747"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Śledź asynchroniczne operacje na platformie Azure
 
@@ -123,7 +123,7 @@ Treść odpowiedzi zawiera stan operacji:
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Wdrażanie zasobów (201 przy użyciu platformy Azure — AsyncOperation)
 
-Ten przykład pokazuje, jak określić stan operacji wdrażania [na potrzeby wdrażania zasobów](/rest/api/resources/deployments/createorupdate) na platformie Azure. Początkowe żądanie ma następujący format:
+Ten przykład pokazuje, jak określić stan operacji wdrażania [na potrzeby wdrażania zasobów](/rest/api/resources/resources/deployments/createorupdate) na platformie Azure. Początkowe żądanie ma następujący format:
 
 ```HTTP
 PUT

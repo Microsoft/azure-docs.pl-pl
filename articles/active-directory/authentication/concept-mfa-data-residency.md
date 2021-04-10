@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7381ab62eb39c555c6b4eb34f150fc71bea1f10f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 26c8df67a8cfed92e478caacca1171b7a48fa9ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932900"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multifactor-authentication"></a>Dane w miejscu zamieszkania i dane klienta dotyczące uwierzytelniania wieloskładnikowego usługi Azure AD
 
@@ -37,7 +37,7 @@ Dane osobowe to informacje na poziomie użytkownika, które są skojarzone z okr
 * Zablokowani użytkownicy
 * Pominięte użytkownicy
 * Microsoft Authenticator żądania zmiany tokenu urządzenia
-* Raporty dotyczące aktywności z uwierzytelnianiem wieloskładnikowym
+* Raporty dotyczące aktywności uwierzytelniania wieloskładnikowego — należy przechowywać aktywność uwierzytelniania wieloskładnikowego z poziomu uwierzytelniania wieloskładnikowego: rozszerzenia serwera NPS, karty AD FS i serwera MFA.
 * Microsoft Authenticator aktywacje
 
 Te informacje są przechowywane przez 90 dni.

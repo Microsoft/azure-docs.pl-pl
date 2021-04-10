@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: bdfd4dfef57721a24b4c6981ae653ab4f17562fa
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: aabb8bdf4105702aa623c45bc291770b05b8279e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644724"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726775"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Szybki Start: Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub zestawu .NET Management SDK. Zestaw SDK zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów przy użyciu [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w zestawach SDK są dostępne w Azure Portal. 
 

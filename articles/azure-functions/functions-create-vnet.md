@@ -4,10 +4,10 @@ description: W tym samouczku pokazano, jak połączyć funkcję z siecią wirtua
 ms.topic: article
 ms.date: 2/22/2021
 ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027418"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Samouczek: Integrowanie Azure Functions z siecią wirtualną platformy Azure za pomocą prywatnych punktów końcowych
@@ -87,7 +87,7 @@ Twoje sieci wirtualne będą potrzebować konta magazynu innego niż to, które 
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. | 
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Grupa zasobów utworzona za pomocą aplikacji funkcji. |
     | **Nazwa** | mysecurestorage| Nazwa konta magazynu, do którego zostanie zastosowany prywatny punkt końcowy. |
-    | **[Okolicy](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym została utworzona aplikacja funkcji. |
+    | **[Region (Region)](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym została utworzona aplikacja funkcji. |
 
 1. Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
 
@@ -104,7 +104,7 @@ Twoje sieci wirtualne będą potrzebować konta magazynu innego niż to, które 
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. |
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Grupa zasobów utworzona za pomocą aplikacji funkcji. |
     | **Nazwa** | myServiceBus| Nazwa magistrali usług, do której zostanie zastosowany prywatny punkt końcowy. |
-    | **[Okolicy](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym została utworzona aplikacja funkcji. |
+    | **[Region (Region)](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym została utworzona aplikacja funkcji. |
     | **Warstwa cenowa** | Premium | Wybierz tę warstwę, aby używać prywatnych punktów końcowych z Azure Service Bus. |
 
 1. Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
@@ -130,7 +130,7 @@ Utwórz sieć wirtualną, z którą integruje się aplikacja funkcji:
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. | 
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Grupa zasobów utworzona za pomocą aplikacji funkcji. |
     | **Nazwa** | myVirtualNet| Nazwa sieci wirtualnej, z którą zostanie nawiązane połączenie aplikacja funkcji. |
-    | **[Okolicy](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym została utworzona aplikacja funkcji. |
+    | **[Region (Region)](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym została utworzona aplikacja funkcji. |
 
 1. Na karcie **adresy IP** wybierz pozycję **Dodaj podsieć**. Skorzystaj z poniższej tabeli, aby skonfigurować ustawienia podsieci.
 
@@ -162,7 +162,7 @@ Utwórz prywatne punkty końcowe dla usług Azure Files Storage i Azure Blob Sto
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. | 
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Wybierz grupę zasobów utworzoną za pomocą aplikacji funkcji. | |
     | **Nazwa** | plik — punkt końcowy | Nazwa prywatnego punktu końcowego dla plików z konta magazynu. |
-    | **[Okolicy](https://azure.microsoft.com/regions/)** | myFunctionRegion | Wybierz region, w którym utworzono konto magazynu. |
+    | **[Region (Region)](https://azure.microsoft.com/regions/)** | myFunctionRegion | Wybierz region, w którym utworzono konto magazynu. |
 
 1. Na karcie **zasób** Użyj ustawień prywatnych punktów końcowych przedstawionych w poniższej tabeli.
 
@@ -203,7 +203,7 @@ Utwórz prywatny punkt końcowy, aby zablokować usługę Service Bus:
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której są tworzone zasoby. | 
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Grupa zasobów utworzona za pomocą aplikacji funkcji. |
     | **Nazwa** | SB — punkt końcowy | Nazwa prywatnego punktu końcowego dla plików z konta magazynu. |
-    | **[Okolicy](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym utworzono konto magazynu. |
+    | **[Region (Region)](https://azure.microsoft.com/regions/)** | myFunctionRegion | Region, w którym utworzono konto magazynu. |
 
 1. Na karcie **zasób** Użyj ustawień prywatnych punktów końcowych przedstawionych w poniższej tabeli.
 

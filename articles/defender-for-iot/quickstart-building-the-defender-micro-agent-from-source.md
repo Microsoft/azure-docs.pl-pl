@@ -4,10 +4,10 @@ description: Micro Agent obejmuje infrastrukturę, która może służyć do dos
 ms.date: 1/18/2021
 ms.topic: quickstart
 ms.openlocfilehash: aac9bf224064dd8393acfeb2928f5ed2d1f84381
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781113"
 ---
 # <a name="build-the-defender-micro-agent-from-source-code-preview"></a>Kompilowanie programu Defender Micro Agent z kodu źródłowego (wersja zapoznawcza)

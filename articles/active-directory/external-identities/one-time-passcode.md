@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688471"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
@@ -66,13 +66,13 @@ Możesz sprawdzić, czy użytkownik-Gość uwierzytelnia się przy użyciu jedno
 > [!NOTE]
 > Gdy użytkownik zrealizuje jednorazowy kod dostępu, a następnie uzyska konto MSA, konta usługi Azure AD lub inne konto federacyjne, będzie nadal uwierzytelniane przy użyciu jednorazowego kodu dostępu. Jeśli chcesz zaktualizować metodę uwierzytelniania, możesz usunąć konto użytkownika-gościa i je zaprosić.
 
-### <a name="example"></a>Przykład
+### <a name="example&quot;></a>Przykład
 
 Użytkownik teri@gmail.com -gość jest zapraszany do firmy Fabrikam, która nie ma skonfigurowanej usługi Google Federation. Teri nie ma konto Microsoft. Otrzymają one jednorazowy kod dostępu do uwierzytelniania.
 
-## <a name="disable-email-one-time-passcode"></a>Wyłącz jednorazowy kod dostępu wiadomości e-mail
+## <a name=&quot;disable-email-one-time-passcode&quot;></a>Wyłącz jednorazowy kod dostępu wiadomości e-mail
 
-Od października 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. W tym czasie firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych ("wirusowego" lub "just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta.
+Od października 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. W tym czasie firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych (&quot;wirusowego&quot; lub &quot;just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta.
 
 > [!NOTE]
 >
