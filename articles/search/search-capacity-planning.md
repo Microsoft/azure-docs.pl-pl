@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99537225"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580034"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Oszacuj i Zarządzaj pojemnością usługi Wyszukiwanie poznawcze platformy Azure
 
@@ -48,17 +48,19 @@ W Wyszukiwanie poznawcze zarządzanie fragmentuem jest szczegółami implementac
 
 + Anomalie autouzupełniania: zapytania autouzupełniania, gdzie dopasowań są wykonywane na pierwszych kilku znakach częściowo wprowadzonego terminu, akceptują parametr rozmyty, który forgives małe odchylenia w pisowni. W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do warunków w bieżącym fragmentu. Na przykład jeśli fragmentu zawiera "Microsoft" i zostanie wprowadzony częściowy termin "micor", aparat wyszukiwania będzie pasował do "Microsoft" w tym fragmentu, ale nie w innych fragmentów, który przechowuje pozostałe części indeksu.
 
-## <a name="how-to-evaluate-capacity-requirements"></a>Jak oszacować wymagania dotyczące pojemności
+## <a name="approaching-estimation"></a>Podejście szacowania
 
-Pojemność i koszty uruchomienia usługi są dostępne. Warstwy nakładają limity na dwa poziomy: Magazyn i zawartość (na przykład liczba indeksów w usłudze). Ważne jest, aby wziąć pod uwagę zarówno, ponieważ w zależności od tego, który limit osiągnął, że obowiązuje limit.
+Pojemność i koszty uruchomienia usługi są dostępne. Warstwy nakładają limity na dwa poziomy: zawartość (liczba indeksów na usłudze, na przykład) i magazyn. Ważne jest, aby wziąć pod uwagę zarówno, ponieważ w zależności od tego, który limit osiągnął, że obowiązuje limit.
 
-Liczby indeksów i innych obiektów są zwykle określone przez wymagania biznesowe i inżynieryjne. Na przykład może istnieć wiele wersji tego samego indeksu na potrzeby aktywnego programowania, testowania i produkcji.
+Liczba indeksów i innych obiektów jest zwykle określana przez wymagania biznesowe i inżynieryjne. Na przykład może istnieć wiele wersji tego samego indeksu na potrzeby aktywnego programowania, testowania i produkcji.
 
 Wymagania dotyczące magazynu są określane przez rozmiar indeksów, które należy skompilować. Nie ma żadnych stałych heurystycznych lub ogólnych, które pomagają oszacować. Jedynym sposobem określenia rozmiaru indeksu jest [kompilacja](search-what-is-an-index.md). Jego rozmiar będzie oparty na zaimportowanych danych, analizie tekstu i konfiguracji indeksu, takich jak włączenie sugestii, filtrowanie i sortowanie.
 
 W przypadku wyszukiwania pełnotekstowego podstawowa struktura danych jest [odwrotną](https://en.wikipedia.org/wiki/Inverted_index) strukturą indeksu, która ma inne cechy niż dane źródłowe. W przypadku odwróconego indeksu rozmiar i złożoność są określane przez zawartość, a nie niekoniecznie ilość danych, które są do niego strumieniowo. Duże źródło danych o wysokiej nadmiarowości może spowodować zmniejszenie indeksu niż mniejszy zestaw danych, który zawiera wysoce zmienną zawartość. Jest to rzadko możliwe do wywnioskowania rozmiaru indeksu na podstawie rozmiaru oryginalnego zestawu danych.
 
-> [!NOTE] 
+Atrybuty w indeksie, takie jak Włączanie filtrów i sortowania, mają wpływ na wymagania dotyczące magazynu. Użycie sugestii ma także wpływ na przestrzeń dyskową. Aby uzyskać więcej informacji, zobacz [atrybuty i rozmiar indeksu](search-what-is-an-index.md#index-size).
+
+> [!NOTE]
 > Chociaż oszacowanie przyszłych potrzeb dotyczących indeksów i magazynu może wyglądać podobnie jak wątpliwości, warto wykonać te czynności. Jeśli pojemność warstwy wyzostanie zbyt niska, należy udostępnić nową usługę w wyższej warstwie, a następnie [ponownie załadować indeksy](search-howto-reindex.md). Nie istnieje uaktualnienie w miejscu usługi z jednej warstwy do innej.
 >
 
@@ -87,7 +89,7 @@ Dedykowane zasoby mogą obsługiwać większe próbkowanie i czasy przetwarzania
     + Zacznij od warstwy S2 lub nawet S3, jeśli testowanie obejmuje indeksowanie dużej skali i ładowanie zapytań.
     + Zacznij od magazynu zoptymalizowanego pod kątem technologii L1 lub L2, jeśli indeksowanie dużej ilości danych jest stosunkowo niskie, podobnie jak w przypadku wewnętrznej aplikacji biznesowej.
 
-1. [Utwórz początkowy indeks](search-what-is-an-index.md) , aby określić sposób, w jaki dane źródłowe są tłumaczone na indeks. Jest to jedyny sposób oszacowania rozmiaru indeksu.
+1. [Utwórz początkowy indeks](search-what-is-an-index.md) , aby określić sposób, w jaki dane źródłowe są tłumaczone na indeks. Jest to jedyny sposób oszacowania rozmiaru indeksu. 
 
 1. [Monitoruj magazyn, limity usług, woluminy zapytań i opóźnienia](search-monitor-usage.md) w portalu. W portalu są wyświetlane zapytania na sekundę, ograniczone zapytania i opóźnienie wyszukiwania. Wszystkie te wartości mogą pomóc zdecydować, czy wybrano odpowiednią warstwę.
 
@@ -111,7 +113,7 @@ Warstwy zoptymalizowane pod kątem magazynu są przydatne w przypadku obciąże�
 
 **Umowy dotyczące poziomu usług**
 
-Funkcje warstwy Bezpłatna i wersja zapoznawcza nie zapewniają [umów dotyczących poziomu usług (umowy SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). W przypadku wszystkich warstw rozliczanych umowy SLA zacznie obowiązywać po wprowadzeniu wystarczającej nadmiarowości dla usługi. Musisz mieć co najmniej dwie repliki dla zapytania (Read) umowy SLA. Musisz mieć trzy lub więcej replik na potrzeby zapytań i indeksowania (do odczytu i zapisu) umowy SLA. Liczba partycji nie ma wpływu na umowy SLA.
+Funkcje warstwy Bezpłatna i wersji zapoznawczej nie są objęte [umowami dotyczącymi poziomu usług (umowy SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). W przypadku wszystkich warstw rozliczanych umowy SLA zacznie obowiązywać po wprowadzeniu wystarczającej nadmiarowości dla usługi. Musisz mieć co najmniej dwie repliki dla zapytania (Read) umowy SLA. Musisz mieć trzy lub więcej replik na potrzeby zapytań i indeksowania (do odczytu i zapisu) umowy SLA. Liczba partycji nie ma wpływu na umowy SLA.
 
 ## <a name="tips-for-capacity-planning"></a>Wskazówki dotyczące planowania pojemności
 
@@ -119,24 +121,30 @@ Funkcje warstwy Bezpłatna i wersja zapoznawcza nie zapewniają [umów dotycząc
 
 + Należy pamiętać, że jedyną minusem w ramach aprowizacji jest to, że może zajść potrzeba odrywania usługi, jeśli rzeczywiste wymagania są większe niż Twoje prognozy. Aby uniknąć przerw w działaniu usługi, należy utworzyć nową usługę w wyższej warstwie i uruchamiać ją równolegle do momentu, gdy wszystkie aplikacje i żądania będą kierowane do nowego punktu końcowego.
 
-## <a name="when-to-add-partitions-and-replicas"></a>Kiedy należy dodać partycje i repliki
+## <a name="when-to-add-capacity"></a>Kiedy należy dodać pojemność
 
-Początkowo do usługi przydzielono minimalny poziom zasobów składający się z jednej partycji i jednej repliki.
+Początkowo do usługi przydzielono minimalny poziom zasobów składający się z jednej partycji i jednej repliki. [Wybrana warstwa](search-sku-tier.md) określa rozmiar partycji i szybkość, a każda warstwa jest zoptymalizowana wokół zestawu właściwości, które pasują do różnych scenariuszy. W przypadku wybrania warstwy wyższej można potrzebować mniejszej liczby partycji niż w przypadku przechodzenia z S1. Jednym z pytań, które należy odpowiedzieć przez testowanie samodzielne, jest to, czy większa i bardziej kosztowna partycja zapewnia lepszą wydajność niż dwie tańsze partycje w ramach usługi, która została zainicjowana w niższej warstwie.
 
 Pojedyncza usługa musi mieć wystarczającą ilość zasobów do obsługi wszystkich obciążeń (indeksowanie i zapytania). Żadne obciążenie nie jest uruchamiane w tle. Można zaplanować indeksowanie razy, gdy żądania zapytań są naturalnie rzadko, ale w przeciwnym razie usługa nie będzie określać priorytetów jednego zadania. Ponadto pewna ilość nadmiarowości wygładza wydajność zapytań, gdy usługi lub węzły są aktualizowane wewnętrznie.
 
-Zgodnie z ogólną regułą wyszukiwanie aplikacji może wymagać większej liczby replik niż partycje, szczególnie w przypadku, gdy operacje usługi są wliczane do obciążeń zapytań. W sekcji o [wysokiej dostępności](#HA) wyjaśniono, dlaczego.
+Niektóre wskazówki dotyczące określania, czy należy dodać pojemność:
 
-[Wybrana warstwa](search-sku-tier.md) określa rozmiar partycji i szybkość, a każda warstwa jest zoptymalizowana wokół zestawu właściwości, które pasują do różnych scenariuszy. W przypadku wybrania warstwy wyższej można potrzebować mniejszej liczby partycji niż w przypadku przechodzenia z S1. Jednym z pytań, które należy odpowiedzieć przez testowanie samodzielne, jest to, czy większa i bardziej kosztowna partycja zapewnia lepszą wydajność niż dwie tańsze partycje w ramach usługi, która została zainicjowana w niższej warstwie.
++ Spełnianie kryteriów wysokiej dostępności dla umowy dotyczącej poziomu usług
++ Częstotliwość błędów HTTP 503 wzrasta
++ Oczekiwane są duże ilości zapytań
+
+Zgodnie z ogólną regułą wyszukiwanie aplikacji może wymagać większej liczby replik niż partycje, szczególnie w przypadku, gdy operacje usługi są wliczane do obciążeń zapytań. Każda replika to kopia indeksu, dzięki czemu usługa może równoważyć obciążenie żądaniami do wielu kopii. Wszystkie Równoważenie obciążenia i replikacja indeksu jest zarządzane przez usługę Azure Wyszukiwanie poznawcze i można w dowolnym momencie zmienić liczbę replik przyznanych dla usługi. Możesz przydzielić maksymalnie 12 replik w standardowej usłudze wyszukiwania i 3 replikach w podstawowej usłudze wyszukiwania. Alokację repliki można wykonać z poziomu [Azure Portal](search-create-service-portal.md) lub jednej z opcji programistycznych.
 
 Wyszukiwanie aplikacji, które wymagają odświeżenia danych w czasie rzeczywistym, będzie wymagało jeszcze większej liczby partycji niż repliki. Dodawanie partycji powoduje rozłożenie operacji odczytu/zapisu na większą liczbę zasobów obliczeniowych. Zapewnia również więcej miejsca na dysku do przechowywania dodatkowych indeksów i dokumentów.
 
-Więcej indeksów trwa dłużej. W związku z tym może się okazać, że każdy wzrost przyrostowy partycji wymaga mniejszego, ale proporcjonalnego wzrostu w replikach. Złożoność zapytań i woluminu zapytania polega na tym, jak szybko wykonywanie zapytań jest wyłączone.
+Co więcej, dłuższe indeksy pobierają więcej zapytań. W związku z tym może się okazać, że każdy wzrost przyrostowy partycji wymaga mniejszego, ale proporcjonalnego wzrostu w replikach. Złożoność zapytań i woluminu zapytania polega na tym, jak szybko wykonywanie zapytań jest wyłączone.
 
 > [!NOTE]
 > Dodanie większej liczby replik lub partycji zwiększa koszt działania usługi i może wprowadzać niewielkie różnice w sposobie uporządkowania wyników. Należy sprawdzić [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/) , aby zrozumieć implikacje rozliczeń związanych z dodawaniem kolejnych węzłów. [Wykres poniżej](#chart) może pomóc w odniesieniu do liczby jednostek wyszukiwania wymaganych dla określonej konfiguracji. Aby uzyskać więcej informacji o tym, jak dodatkowe repliki wpływają na przetwarzanie zapytań, zobacz [porządkowanie wyników](search-pagination-page-layout.md#ordering-results).
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Jak przydzielić repliki i partycje
+<a name="adjust-capacity"></a>
+
+## <a name="add-or-reduce-replicas-and-partitions"></a>Dodawanie lub zmniejszanie replik i partycji
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i wybierz usługę wyszukiwania.
 
@@ -158,7 +166,7 @@ Więcej indeksów trwa dłużej. W związku z tym może się okazać, że każdy
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Zapisz zmiany" border="true":::
 
-   Zmiany pojemności mogą trwać do kilku godzin. Nie można anulować po rozpoczęciu procesu i nie ma monitorowania w czasie rzeczywistym dla zmian replik i partycji. Jednak następujący komunikat pozostanie widoczny w czasie trwania zmian.
+   Zmiany pojemności mogą zająć od 15 minut do kilku godzin. Nie można anulować po rozpoczęciu procesu i nie ma monitorowania w czasie rzeczywistym dla zmian replik i partycji. Jednak następujący komunikat pozostanie widoczny w czasie trwania zmian.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Komunikat o stanie w portalu" border="true":::
 
@@ -192,31 +200,7 @@ W witrynie sieci Web systemu Azure szczegółowo objaśniono usługi SUs, cennik
 > Liczba replik i partycji jest dzielona równomiernie na 12 (w odnoszącym się do 1, 2, 3, 4, 6, 12). Jest to spowodowane tym, że platforma Azure Wyszukiwanie poznawcze wstępnie dzieli każdy indeks na 12 fragmentów, tak aby można go było rozłożyć w równe fragmenty we wszystkich partycjach. Na przykład jeśli usługa ma trzy partycje i tworzysz indeks, każda partycja będzie zawierać cztery fragmentów indeksu. Sposób, w jaki usługa Azure Wyszukiwanie poznawcze fragmentów indeks, to szczegóły implementacji, które mogą ulec zmianie w przyszłych wersjach. Mimo że liczba to 12 dzisiaj, nie należy oczekiwać, że ta liczba będzie zawsze 12 w przyszłości.
 >
 
-<a id="HA"></a>
-
-## <a name="high-availability"></a>Wysoka dostępność
-
-Ponieważ jest to łatwe i stosunkowo szybkie skalowanie, zazwyczaj zalecamy rozpoczęcie od jednej partycji i jednej lub dwóch replik, a następnie skalowanie w górę jako kompilacja woluminów zapytań. Obciążenia zapytań są uruchamiane głównie w replikach. Jeśli potrzebujesz większej przepływności lub wysokiej dostępności, prawdopodobnie będziesz potrzebować dodatkowych replik.
-
-Ogólne zalecenia dotyczące wysokiej dostępności są następujące:
-
-+ Dwie repliki w celu zapewnienia wysokiej dostępności obciążeń tylko do odczytu (zapytania)
-
-+ Trzy lub więcej replik w celu zapewnienia wysokiej dostępności obciążeń odczytu/zapisu (zapytania i indeksowania jako pojedyncze dokumenty są dodawane, aktualizowane lub usuwane)
-
-Umowy dotyczące poziomu usług (SLA) dla usługi Azure Wyszukiwanie poznawcze są przeznaczone dla operacji zapytań i aktualizacji indeksu, które obejmują dodawanie, aktualizowanie lub usuwanie dokumentów.
-
-Warstwa Podstawowa jest przeznaczona dla jednej partycji i trzech replik. Jeśli chcesz, aby elastyczność natychmiast reagować na wahania popytu dla indeksowania i przepływności zapytań, weź pod uwagę jedną z warstw standardowych.  Jeśli okaże się, że wymagania dotyczące magazynu rośnie znacznie szybciej niż przepływność zapytań, należy rozważyć jedną z warstw zoptymalizowanych pod kątem magazynu.
-
-## <a name="about-queries-per-second-qps"></a>Zapytania na sekundę (zapytań) — informacje
-
-Ze względu na dużą liczbę czynników, które przechodzą na wydajność zapytań, firma Microsoft nie publikuje oczekiwanych liczb zapytań. Oszacowania zapytań muszą być opracowywane niezależnie przez każdego klienta przy użyciu warstwy usług, konfiguracji, indeksu i konstrukcji zapytań, które są prawidłowe dla danej aplikacji. Rozmiar indeksu i złożoność, rozmiar zapytania i złożoność oraz wielkość ruchu to podstawowe znaczniki zapytań. Nie ma możliwości zaoferowania znaczących szacunków, gdy takie czynniki są nieznane.
-
-Oszacowania są bardziej przewidywalne, gdy są obliczane w usługach uruchomionych na dedykowanych zasobach (warstwach Podstawowa i standardowa). Możesz oszacować zapytań bardziej blisko, ponieważ masz kontrolę nad większymi parametrami. Aby uzyskać wskazówki dotyczące sposobu podejścia do oceny, zobacz temat [wydajność i optymalizacja na platformie wyszukiwanie poznawcze Azure](search-performance-optimization.md).
-
-W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczekiwać mniejszej przepływności zapytań i wyższych opóźnień niż w przypadku warstw standardowych.
-
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Jak oszacować koszty i zarządzać nimi](search-sku-manage-costs.md)
+> [Zarządzanie kosztami](search-sku-manage-costs.md)

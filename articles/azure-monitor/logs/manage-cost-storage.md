@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/28/2021
 ms.author: bwren
-ms.openlocfilehash: 5048364aed1eea8d0c32d9134a4ba5a22d28b989
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 64b794f4a749816af71f9c5f14dddf2bbcbc6512
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560458"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279616"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -41,7 +41,7 @@ Oprócz modelu "płatność zgodnie z rzeczywistym użyciem" Log Analytics ma wa
 
 We wszystkich warstwach cenowych rozmiar danych zdarzenia jest obliczany na podstawie ciągu reprezentującego właściwości, które są przechowywane w Log Analytics dla tego zdarzenia, niezależnie od tego, czy dane są wysyłane z agenta, czy dodawane podczas procesu pozyskiwania. Obejmuje to wszystkie [pola niestandardowe](custom-fields.md) , które są dodawane jako dane są zbierane, a następnie przechowywane w log Analytics. Niektóre właściwości wspólne dla wszystkich typów danych, w tym niektóre [log Analytics właściwości standardowe](./log-standard-columns.md), są wykluczone w obliczaniu rozmiaru zdarzenia. Obejmuje to `_ResourceId` ,,, `_SubscriptionId` `_ItemId` `_IsBillable` `_BilledSize` i `Type` . Wszystkie inne właściwości przechowywane w Log Analytics są uwzględniane podczas obliczania rozmiaru zdarzenia. Niektóre typy danych są bezpłatne od opłat za pozyskiwanie danych, na przykład na platformie Azure, pulsu i typach użycia. Aby określić, czy zdarzenie zostało wykluczone z rozliczeń na potrzeby pozyskiwania danych, można użyć `_IsBillable` właściwości, jak pokazano [poniżej](#data-volume-for-specific-events). Użycie jest raportowane w GB (1,0 E9 bajtów). 
 
-Należy również pamiętać, że niektóre rozwiązania, takie jak [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [wskaźnik platformy Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/) i [Zarządzanie konfiguracją](https://azure.microsoft.com/pricing/details/automation/) mają własne modele cen. 
+Należy również pamiętać, że niektóre rozwiązania, takie jak [usługa Azure Defender (Security Center)](https://azure.microsoft.com/pricing/details/azure-defender/), [wskaźnik platformy Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/) i [Zarządzanie konfiguracją](https://azure.microsoft.com/pricing/details/automation/) mają własne modele cenowe. 
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics dedykowanych klastrów
 
@@ -51,9 +51,9 @@ Poziom rezerwacji pojemności klastra jest konfigurowany za pomocą programu pro
 
 Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas [konfigurowania klastra](customer-managed-keys.md#customer-managed-key-operations). Dwa dostępne tryby są następujące: 
 
-1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](../../security-center/index.yml) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. 
+1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł z [usługi Azure Defender (Security Center)](../../security-center/index.yml) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. 
 
-2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego). Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest mniejsza niż rezerwacja pojemności, w każdym obszarze roboczym zostanie naliczona opłata za pobrane dane z zastosowaniem stawki za ilość zarezerwowaną za GB, rozliczenie ich na część rezerwacji pojemności, a niewykorzystana część rezerwacji pojemności jest rozliczana z zasobem klastra. Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest większa niż rezerwacja pojemności, w każdym obszarze roboczym jest naliczana część rezerwacji zdolności produkcyjnych na podstawie jej ułamka za dane pobranego dnia i każdego obszaru roboczego dla części pozyskanych danych powyżej rezerwacji pojemności. Nie są naliczane opłaty za zasób klastra, jeśli całkowita ilość danych pozyskana do obszaru roboczego na dzień przekracza rezerwację pojemności.
+2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [usługi Azure Defender (Security Center)](../../security-center/index.yml) dla każdego obszaru roboczego). Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest mniejsza niż rezerwacja pojemności, w każdym obszarze roboczym zostanie naliczona opłata za pobrane dane z zastosowaniem stawki za ilość zarezerwowaną za GB, rozliczenie ich na część rezerwacji pojemności, a niewykorzystana część rezerwacji pojemności jest rozliczana z zasobem klastra. Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest większa niż rezerwacja pojemności, w każdym obszarze roboczym jest naliczana część rezerwacji zdolności produkcyjnych na podstawie jej ułamka za dane pobranego dnia i każdego obszaru roboczego dla części pozyskanych danych powyżej rezerwacji pojemności. Nie są naliczane opłaty za zasób klastra, jeśli całkowita ilość danych pozyskana do obszaru roboczego na dzień przekracza rezerwację pojemności.
 
 W opcjach rozliczania klastra przechowywanie danych jest rozliczane w poszczególnych obszarach roboczych. Należy pamiętać, że podczas tworzenia klastra rozliczenia są rozliczane, niezależnie od tego, czy obszary robocze zostały skojarzone z klastrem. Należy również pamiętać, że obszary robocze skojarzone z klastrem nie mają już warstwy cenowej.
 
@@ -77,7 +77,7 @@ Opłaty za Log Analytics są dodawane do rachunku na korzystanie z platformy Azu
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Wyświetlanie Log Analytics użycia na rachunku na platformie Azure 
 
-Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Najpierw Dodaj filtr "typ zasobu" (do Microsoft. operationalinsights/Workspace dla Log Analytics i Microsoft. operationalinsights/Cluster for Log Analytics klastrów) umożliwi śledzenie wydatków Log Analytics. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  Należy zauważyć, że inne usługi, takie jak Azure Security Center i Azure — wskaźnik użytkowania, również rozliczają swoje użycie względem zasobów Log Analytics obszaru roboczego. Aby wyświetlić mapowanie do nazwy usługi, można wybrać widok tabeli zamiast wykresu. 
+Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Najpierw Dodaj filtr "typ zasobu" (do Microsoft. operationalinsights/Workspace dla Log Analytics i Microsoft. operationalinsights/Cluster for Log Analytics klastrów) umożliwi śledzenie wydatków Log Analytics. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  Należy zauważyć, że inne usługi, takie jak Azure Defender (Security Center) i Azure, również rozliczają ich użycie w odniesieniu do Log Analytics zasobów obszaru roboczego. Aby wyświetlić mapowanie do nazwy usługi, można wybrać widok tabeli zamiast wykresu. 
 
 Aby lepiej zrozumieć użycie, można [pobrać informacje o użyciu z witryny Azure Portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Pobrany arkusz kalkulacyjny zawiera dane o użyciu poszczególnych zasobów platformy Azure (np. obszaru roboczego usługi Log Analytics) na dzień. W tym arkuszu kalkulacyjnym programu Excel można znaleźć użycie z obszarów roboczych Log Analytics, wybierając najpierw filtrowanie w kolumnie "kategoria licznika", aby pokazać "Log Analytics", "Insight and Analytics" (używane przez niektóre starsze warstwy cenowe) i "Azure Monitor" (używane w warstwach cenowych rezerwacji pojemności), a następnie Dodaj filtr w kolumnie "identyfikator wystąpienia", która jest "zawiera obszar roboczy" lub "zawiera klaster" (to drugie, aby uwzględnić użycie klastra Log Analytics). Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Temat dotyczący [interpretacji rachunku za platformę Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md) zawiera więcej szczegółowych informacji. 
 
@@ -97,7 +97,7 @@ Możesz również [ustawić warstwę cenową za pośrednictwem Azure Resource Ma
 
 ## <a name="legacy-pricing-tiers"></a>Starsze warstwy cenowe
 
-Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Enterprise Agreement, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna**, **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez [Azure Security Center](../../security-center/index.yml)), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
+Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Enterprise Agreement, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna**, **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez [usługę Azure Defender (Security Center)](../../security-center/index.yml)), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
 
 Użycie w ramach autonomicznej warstwy cenowej jest rozliczane przez pozyskiwany wolumin danych. Jest on raportowany w usłudze **log Analytics** i miernik ma nazwę "dane analizowane". 
 
@@ -105,18 +105,18 @@ Opłaty za warstwę cenową na węzeł na monitorowaną maszynę wirtualną (wę
 
 1. Węzeł: jest to użycie dla liczby monitorowanych węzłów (maszyn wirtualnych) w jednostkach węzła * miesiące.
 2. Nadwyżka danych na węzeł: jest to liczba GB danych pobieranych z przekroczeniem zagregowanej alokacji danych.
-3. Dane uwzględnione na węzeł: to ilość danych uzyskanych w ramach zagregowanego przydziału danych. Ten licznik jest również używany, gdy obszar roboczy znajduje się w obszarze wszystkie warstwy cenowe, aby pokazać ilość danych objętych przez Azure Security Center.
+3. Dane uwzględnione na węzeł: to ilość danych uzyskanych w ramach zagregowanego przydziału danych. Ten licznik jest również używany, gdy obszar roboczy znajduje się w obszarze wszystkie warstwy cenowe, aby pokazać ilość danych objętych przez usługę Azure Defender (Security Center).
 
 > [!TIP]
 > Jeśli Twój obszar roboczy ma dostęp do warstwy cenowej **węzła** , ale zastanawiasz się, czy w warstwie płatność zgodnie z rzeczywistym użyciem jest to tańsze, możesz [użyć poniższego zapytania](#evaluating-the-legacy-per-node-pricing-tier) , aby łatwo uzyskać zalecenie. 
 
 Obszary robocze utworzone przed kwietnia 2016 mogą również uzyskiwać dostęp do oryginalnych warstw cenowych **Standard** i **Premium** , które mają odpowiednio stałe okresy 30 i 365. Nie można tworzyć nowych obszarów roboczych w warstwach cenowych **standardowa** lub **Premium** , a jeśli obszar roboczy jest przenoszony z tych warstw, nie można go przenieść z powrotem. Liczniki pozyskiwania danych dla tych starszych warstw są nazywane "danymi analizowanymi".
 
-Istnieją także pewne zachowania między użyciem starszych warstw Log Analytics i sposobu rozliczania użycia dla [Azure Security Center](../../security-center/index.yml). 
+Istnieją także pewne zachowania między użyciem starszych warstw Log Analytics i sposobu rozliczania użycia [usługi Azure Defender (Security Center)](../../security-center/index.yml). 
 
-1. Jeśli obszar roboczy znajduje się w starszej wersji warstwy Standardowa lub Premium, Azure Security Center będzie rozliczany tylko w przypadku Log Analytics pozyskiwania danych, a nie na węzeł.
-2. Jeśli obszar roboczy znajduje się w starszej warstwie węzła, Azure Security Center będzie rozliczany przy użyciu bieżącego [Azure Security Center modelu cenowego opartego na węźle](https://azure.microsoft.com/pricing/details/security-center/). 
-3. W przypadku innych warstw cenowych (w tym rezerwacji pojemności), jeśli Azure Security Center została włączona przed 19 czerwca 2017, Azure Security Center zostanie naliczona tylko za pozyskiwanie danych Log Analytics. W przeciwnym razie Azure Security Center będzie rozliczany przy użyciu bieżącego Azure Security Center modelu cen opartego na węzłach.
+1. Jeśli obszar roboczy jest w starszej wersji warstwy Standardowa lub Premium, usługa Azure Defender będzie rozliczana tylko za Log Analytics pozyskiwania danych, a nie na węzeł.
+2. Jeśli obszar roboczy znajduje się w starszej warstwie węzła, usługa Azure Defender będzie rozliczana przy użyciu bieżącego [modelu cenowego opartego na węzłach usługi Azure Defender](https://azure.microsoft.com/pricing/details/security-center/). 
+3. W przypadku innych warstw cenowych (w tym rezerwacji pojemności), jeśli usługa Azure Defender została włączona przed 19 czerwca 2017, usługa Azure Defender będzie rozliczana tylko za Log Analytics pozyskiwania danych. W przeciwnym razie usługa Azure Defender zostanie rozliczona przy użyciu bieżącego modelu cenowego opartego na węzłach usługi Azure Defender.
 
 Dodatkowe szczegóły ograniczeń warstwy cenowej są dostępne w [ramach subskrypcji platformy Azure i ograniczeń usługi, przydziałów i ograniczeń](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
 
@@ -125,9 +125,9 @@ Dodatkowe szczegóły ograniczeń warstwy cenowej są dostępne w [ramach subskr
 > [!NOTE]
 > Aby użyć uprawnień pochodzących z zakupu pakietu OMS E1, pakietu OMS E2 lub Add-On OMS dla programu System Center, wybierz warstwę cenową Log Analytics *na węzeł* .
 
-## <a name="log-analytics-and-security-center"></a>Log Analytics i Security Center
+## <a name="log-analytics-and-azure-defender-security-center"></a>Log Analytics i usługa Azure Defender (Security Center)
 
-Rozliczanie [Azure Security Center](../../security-center/index.yml) jest ściśle powiązane z log Analytics rozliczeniami. Security Center zapewnia alokację 500 MB/węzeł/dzień dla następującego podzestawu [typów danych zabezpieczeń](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) i typów danych Update i UpdateSummary, gdy rozwiązanie Update Management nie jest uruchomione w obszarze roboczym lub jest włączona funkcja określania wartości docelowej rozwiązania. Jeśli obszar roboczy znajduje się w starszej warstwie cenowej węzła, alokacje Security Center i Log Analytics są łączone i stosowane wspólnie do wszystkich danych pozyskanych z rozliczeniami.  
+Rozliczenia [usługi Azure Defender (Security Center)](../../security-center/index.yml) są ściśle powiązane z log Analytics rozliczeniami. Usługa Azure Defender udostępnia alokację 500 MB/węzeł/dzień dla następującego podzestawu [typów danych zabezpieczeń](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) i typów danych Update i UpdateSummary, gdy rozwiązanie Update Management nie jest uruchomione w obszarze roboczym lub funkcja określania wartości docelowej rozwiązania jest włączona [więcej informacji](https://docs.microsoft.com/azure/security-center/security-center-pricing#what-data-types-are-included-in-the-500-mb-free-data-limit). Jeśli obszar roboczy znajduje się w starszej warstwie cenowej węzła, przydziały usług Azure Defender i Log Analytics są łączone i stosowane wspólnie do wszystkich danych pozyskanych z rozliczeniami.  
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
@@ -215,7 +215,7 @@ Wkrótce po osiągnięciu dziennego limitu w pozostałej części dnia zostanie 
 > Dzienny limit nie może zatrzymać zbierania danych zgodnie z dokładnością określonego poziomu, a niektóre nadmierne dane są oczekiwane, zwłaszcza jeśli obszar roboczy otrzymuje duże ilości danych. Zapoznaj się z [poniższymi](#view-the-effect-of-the-daily-cap) tematami zapytania, które ułatwia badanie dziennego zachowania Cap. 
 
 > [!WARNING]
-> Dzienny limit nie zatrzymuje kolekcji typów danych WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update i UpdateSummary, z wyjątkiem obszarów roboczych, w których zainstalowano Azure Security Center przed 19 czerwca 2017. 
+> Dzienny limit nie zatrzymuje kolekcji typów danych WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update i UpdateSummary, z wyjątkiem obszarów roboczych, w których zainstalowano usługę Azure Defender (Security Center) przed 19 czerwca 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Określ dzienny limit danych do zdefiniowania
 
@@ -232,6 +232,14 @@ W poniższych krokach opisano sposób konfigurowania limitu zarządzania ilości
 :::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics skonfigurować limit danych":::
     
 Dzienny limit można skonfigurować za pośrednictwem ARM, ustawiając `dailyQuotaGb` parametr w obszarze w obszarze `WorkspaceCapping` [roboczym — Tworzenie lub aktualizowanie](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+
+Można śledzić zmiany wprowadzone w codziennym Cap przy użyciu tego zapytania:
+
+```kusto
+_LogOperation | where Operation == "Workspace Configuration" | where Detail contains "Daily quota"
+```
+
+Dowiedz się więcej o funkcji [_LogOperation](https://docs.microsoft.com/azure/azure-monitor/logs/monitor-workspace) . 
 
 ### <a name="view-the-effect-of-the-daily-cap"></a>Wyświetlanie efektu dziennego limitu
 
@@ -253,7 +261,7 @@ Usage
 
 Podczas prezentowania wizualnej wskazówki w Azure Portal po spełnieniu progu limitu danych takie zachowanie nie musi być dostosowane do sposobu zarządzania problemami operacyjnymi wymagającymi natychmiastowej uwagi.  Aby otrzymać powiadomienie o alercie, można utworzyć nową regułę alertu w Azure Monitor.  Aby dowiedzieć się więcej, zobacz [jak tworzyć, wyświetlać i zarządzać alertami](../alerts/alerts-metric.md).
 
-Aby rozpocząć, poniżej przedstawiono zalecane ustawienia alertu dotyczącego `Operation` tabeli przy użyciu `_LogOperation` funkcji. 
+Aby rozpocząć, poniżej przedstawiono zalecane ustawienia alertów dotyczących `Operation` tabeli przy użyciu `_LogOperation` funkcji ([Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/logs/monitor-workspace)). 
 
 - Cel: wybierz zasób Log Analytics
 - Określonych 
@@ -344,7 +352,7 @@ Należy zauważyć, że klauzula `where _IsBillable = true` filtruje typy danych
 
 ### <a name="data-volume-by-solution"></a>Ilość danych wg rozwiązania
 
-Zapytanie używane do wyświetlania ilości danych do rozliczenia według rozwiązania w ciągu ostatniego miesiąca (z wyjątkiem ostatniego częściowego dnia) to:
+Zapytanie używane do wyświetlania ilości danych do rozliczenia według rozwiązania w ciągu ostatniego miesiąca (z wyjątkiem ostatniego częściowego dnia) można utworzyć za pomocą typu danych [użycia](https://docs.microsoft.com/azure/azure-monitor/reference/tables/usage) jako:
 
 ```kusto
 Usage 
@@ -383,26 +391,26 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Ilość danych według komputera
 
-`Usage`Typ danych nie zawiera informacji na poziomie komputera. Aby wyświetlić **rozmiar** pobieranych danych na komputer, użyj `_BilledSize` [Właściwości](./log-standard-columns.md#_billedsize), która zapewnia rozmiar w bajtach:
+`Usage`Typ danych nie zawiera informacji na poziomie komputera. Aby wyświetlić **rozmiar** pozyskanych danych rozliczanych na komputer, użyj `_BilledSize` [Właściwości](./log-standard-columns.md#_billedsize), która zapewnia rozmiar w bajtach:
 
 ```kusto
-find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
-| where _IsBillable == true 
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, Type
+| where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
-| sort by BillableDataBytes nulls last
+| sort by BillableDataBytes desc nulls last
 ```
 
-`_IsBillable` [Właściwość](./log-standard-columns.md#_isbillable) określa, czy pozyskane dane będą naliczane opłaty. 
+`_IsBillable` [Właściwość](./log-standard-columns.md#_isbillable) określa, czy pozyskane dane będą naliczane opłaty. Typ użycia został pominięty, ponieważ jest to tylko analiza trendów danych. 
 
 Aby zobaczyć **liczbę** zdarzeń rozliczanych pobieranych na komputer, użyj 
 
 ```kusto
 find where TimeGenerated > ago(24h) project _IsBillable, Computer
-| where _IsBillable == true 
+| where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
-| sort by eventCount nulls last
+| sort by eventCount desc nulls last
 ```
 
 > [!TIP]
@@ -478,6 +486,7 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 
 | Źródło dużego woluminu danych | Jak zmniejszyć wolumin danych |
 | -------------------------- | ------------------------- |
+| Reguły zbierania danych      | [Agent Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) używa reguł zbierania danych do zarządzania kolekcją danych. [Kolekcję danych można ograniczyć](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent#limit-data-collection-with-custom-xpath-queries) za pomocą niestandardowych zapytań XPath. | 
 | Analizy kontenerów         | [Skonfiguruj usługi Container Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) , aby zbierać tylko wymagane dane. |
 | Zdarzenia zabezpieczeń            | Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](../../security-center/security-center-enable-data-collection.md#data-collection-tier). <br> Zmień zasady inspekcji zabezpieczeń w celu zbierania tylko potrzebnych zdarzeń. W szczególności zastanów się nad koniecznością zbierania następujących zdarzeń: <br> - [inspekcja platformy filtrowania](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [inspekcja rejestru](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [inspekcja systemu plików](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [inspekcja obiektu jądra](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [inspekcja manipulowania dojściem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> Inspekcja magazynu wymiennego |
 | Liczniki wydajności       | Zmień [konfigurację licznika wydajności](../agents/data-sources-performance-counters.md) w następujący sposób: <br> — Zmniejsz częstotliwość gromadzenia <br> — Zmniejsz liczbę liczników wydajności |
@@ -548,7 +557,7 @@ Decyzja o tym, czy obszary robocze z dostępem do starszej warstwy cenowej **na 
 
 Aby ułatwić tę ocenę, można użyć następującego zapytania, aby zastosować zalecenie dotyczące optymalnej warstwy cenowej na podstawie wzorców użytkowania obszaru roboczego.  To zapytanie przegląda monitorowane węzły i dane pozyskane w obszarze roboczym w ciągu ostatnich 7 dni, a dla każdego dnia szacuje się, która warstwa cenowa byłaby optymalna. Aby użyć zapytania, należy określić
 
-1. czy obszar roboczy używa Azure Security Center przez ustawienie `workspaceHasSecurityCenter` na `true` lub `false` , 
+1. czy obszar roboczy korzysta z usługi Azure Defender (Security Center), `workspaceHasSecurityCenter` ustawiając `true` opcję na lub. `false` 
 2. Zaktualizuj ceny, jeśli masz określone zniżki i
 3. Określ liczbę dni, przez którą ma zostać wyszukane i przeanalizowanie według ustawienia `daysToEvaluate` . Jest to przydatne, jeśli zapytanie trwa zbyt długo, próbując przeglądać dane przez 7 dni. 
 
@@ -556,7 +565,7 @@ Oto zapytanie o rekomendacje warstwy cenowej:
 
 ```kusto
 // Set these parameters before running query
-// Pricing details available at https://azure.microsoft.com/en-us/pricing/details/monitor/
+// Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
 let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
@@ -676,6 +685,10 @@ Jeśli zbieranie danych jest zatrzymane, stan OperationStatus ma wartość **Ost
 
 Aby otrzymywać powiadomienia, gdy zbieranie danych zostanie zatrzymane, wykonaj kroki opisane w temacie Tworzenie alertu *dziennego zakończenia danych* , aby otrzymywać powiadomienia o zatrzymaniu zbierania danych. Wykonaj kroki opisane w sekcji [Tworzenie grupy akcji](../alerts/action-groups.md) , aby skonfigurować akcję poczty e-mail, elementu webhook lub elementu Runbook dla reguły alertu. 
 
+## <a name="late-arriving-data"></a>Późne nadejście danych   
+
+Sytuacje mogą wystąpić w przypadku, gdy dane są pozyskiwane przy użyciu bardzo starych sygnatur czasowych, na przykład jeśli Agent nie może komunikować się z Log Analytics z powodu problemu z łącznością lub sytuacji, gdy host ma nieprawidłową datę/godzinę. Aby zdiagnozować te problemy, użyj `_TimeReceived` kolumny ([Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_timereceived)) poza `TimeGenerated` kolumną. `TimeReceived` Czas odebrania rekordu przez punkt pozyskiwania Azure Monitor w chmurze platformy Azure.  
+
 ## <a name="limits-summary"></a>Podsumowanie limitów
 
 Istnieją pewne dodatkowe limity Log Analytics, które są zależne od warstwy cenowej Log Analytics. Są one udokumentowane w [ramach subskrypcji platformy Azure i ograniczeń usługi, przydziałów i ograniczeń](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
@@ -686,7 +699,7 @@ Istnieją pewne dodatkowe limity Log Analytics, które są zależne od warstwy c
 - Zobacz [Wyszukiwanie w dzienniku w](../logs/log-query-overview.md) dziennikach Azure monitor, aby dowiedzieć się, jak używać języka wyszukiwania. Możesz użyć zapytań wyszukiwania w celu przeprowadzenia dodatkowej analizy danych użycia.
 - Wykonaj kroki opisane w sekcji dotyczącej [tworzenia nowego alertu dziennika](../alerts/alerts-metric.md), aby otrzymywać powiadomienie, gdy kryteria wyszukiwania zostaną spełnione.
 - Użyj funkcji [określania celu rozwiązania](../insights/solution-targeting.md) , aby zbierać dane tylko z wymaganych grup komputerów.
-- Aby skonfigurować efektywne zasady zbierania zdarzeń, przejrzyj [zasady filtrowania Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+- Aby skonfigurować efektywne zasady zbierania zdarzeń, przejrzyj [zasady filtrowania usługi Azure Defender (Security Center)](../../security-center/security-center-enable-data-collection.md).
 - Zmień [konfigurację licznika wydajności](../agents/data-sources-performance-counters.md).
 - Aby zmodyfikować ustawienia zbierania zdarzeń, przejrzyj [konfigurację dziennika zdarzeń](../agents/data-sources-windows-events.md).
 - Aby zmodyfikować ustawienia kolekcji dziennika systemowego, zapoznaj się z tematem [Konfiguracja dziennika](../agents/data-sources-syslog.md)systemu.

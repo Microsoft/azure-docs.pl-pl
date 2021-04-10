@@ -11,18 +11,21 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 257fc6544061c2ef9c3fdbfb8c33bc06ed2db6e3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566339"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066215"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Uruchamianie notesów Jupyter w obszarze roboczym
 
 Dowiedz się, jak uruchamiać notesy Jupyter bezpośrednio w obszarze roboczym w programie Azure Machine Learning Studio. Chociaż możesz uruchomić [Jupyter](https://jupyter.org/) lub [JupyterLab](https://jupyterlab.readthedocs.io), możesz również edytować i uruchamiać notesy bez opuszczania obszaru roboczego.
 
 Aby uzyskać informacje na temat tworzenia plików i zarządzania nimi, w tym notesów, zobacz [Tworzenie plików i zarządzanie nimi w obszarze roboczym](how-to-manage-files.md).
+
+> [!IMPORTANT]
+> Funkcje oznaczone jako (wersja zapoznawcza) są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,17 +51,27 @@ Użyj trybu koncentracji uwagi, aby rozwinąć bieżący widok, dzięki czemu mo
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Przełącz tryb koncentracji uwagi/widok standardowy":::
 
-## <a name="use-intellisense"></a>Korzystanie z funkcji IntelliSense
+## <a name="code-completion-intellisense"></a>Uzupełnianie kodu (IntelliSense)
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Te funkcje pozwalają dowiedzieć się więcej o kodzie, którego używasz, śledzić parametry, które wpisujesz, i dodawać wywołania do właściwości i metod za pomocą tylko kilku naciśnięć klawiszy.  
 
-Podczas wpisywania kodu naciśnij klawisze CTRL + SPACJA, aby wyzwolić funkcję IntelliSense.
+### <a name="use-code-snippets-preview"></a>Użyj fragmentów kodu (wersja zapoznawcza)
+
+Użyj **klawiszy CTRL + SPACJA** , aby wyzwolić fragmenty kodu IntelliSense.  Przewiń sugestie lub zacznij pisać, aby znaleźć kod, który chcesz wstawić.  Po wstawieniu kodu, tabulatora przez argumenty, aby dostosować kod do własnego użytku.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Wstaw fragment kodu":::
+
+Te same fragmenty kodu są dostępne po otwarciu notesu w programie VS Code. Aby zapoznać się z pełną listą dostępnych fragmentów, zobacz [Azure Machine Learning vs Code fragmenty kodu](https://github.com/Azure/azureml-snippets/blob/main/snippets/snippets.md).
+
+Możesz przeglądać i przeszukiwać listę fragmentów kodu za pomocą paska narzędzi notesu, aby otworzyć panel wstawki.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Otwórz narzędzie panel fragmentów na pasku narzędzi notesu":::
+
+Z panelu fragmenty kodu można także przesłać żądanie dodania nowych fragmentów kodu.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Panel fragment kodu umożliwia zaproponowanie nowego fragmentu kodu":::
 
 ## <a name="clean-your-notebook-preview"></a>Oczyść Notes (wersja zapoznawcza)
-
-> [!IMPORTANT]
-> Funkcja zbierania jest obecnie w publicznej wersji zapoznawczej.
-> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W trakcie tworzenia notesu zazwyczaj możesz kończyć się komórkami używanymi do eksploracji lub debugowania danych. Funkcja *zbierania* pomoże Ci w wykorzystaniu czystego notesu bez takich niezbędnych komórek.
 
@@ -158,7 +171,7 @@ Te akcje spowodują zresetowanie stanu notesu i zresetowanie wszystkich zmiennyc
 
 ## <a name="add-new-kernels"></a>Dodaj nowe jądra
 
-[Użyj terminalu ](how-to-access-terminal.md#add-new-kernels) , aby utworzyć i dodać nowe jądra do wystąpienia obliczeniowego. W notesie zostaną automatycznie znalezione wszystkie jądra Jupyter zainstalowane w połączonym wystąpieniu obliczeniowym.
+[Użyj terminalu](how-to-access-terminal.md#add-new-kernels) , aby utworzyć i dodać nowe jądra do wystąpienia obliczeniowego. W notesie zostaną automatycznie znalezione wszystkie jądra Jupyter zainstalowane w połączonym wystąpieniu obliczeniowym.
 
 Użyj listy rozwijanej jądra po prawej stronie, aby zmienić dowolne z zainstalowanych jądra.  
 
