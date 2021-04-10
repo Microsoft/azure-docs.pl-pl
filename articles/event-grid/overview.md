@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Event Grid?
 description: Wysyłaj dane zdarzenia ze źródła do procedury obsługi za pomocą usługi Azure Event Grid. Twórz aplikacje oparte na zdarzeniach i integruj z usługami platformy Azure.
 ms.topic: overview
 ms.date: 01/28/2021
-ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99055142"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934872"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 
@@ -22,7 +22,8 @@ Ten artykuł zawiera omówienie usługi Azure Event Grid. Aby rozpocząć pracę
 
 :::image type="content" source="./media/overview/functional-model.png" alt-text="Model źródeł i procedur obsługi usługi Event Grid" lightbox="./media/overview/functional-model-big.png":::
 
-Poniżej przedstawiono połączenie źródeł i procedur obsługi w usłudze Event Grid. Ilustracja nie zawiera pełnej listy obsługiwanych integracji.
+> [!NOTE]
+> Poniżej przedstawiono połączenie źródeł i procedur obsługi w usłudze Event Grid. Ilustracja nie zawiera pełnej listy obsługiwanych integracji. Aby uzyskać listę wszystkich obsługiwanych źródeł zdarzeń, zobacz następującą sekcję. 
 
 ## <a name="event-sources"></a>Źródła zdarzeń
 
@@ -38,6 +39,7 @@ Obecnie następujące usługi platformy Azure obsługują wysyłanie zdarzeń do
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Grupa zasobów platformy Azure](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

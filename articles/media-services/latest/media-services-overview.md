@@ -64,8 +64,8 @@ W samouczkach przedstawiono procedury oparte na scenariuszu dla niektórych najw
 * [Kodowanie pliku zdalnego i strumieniowe przesyłanie wideo — REST](stream-files-tutorial-with-rest.md)
 * [Kodowanie przekazanego pliku i strumieniowe przesyłanie wideo — .NET](stream-files-tutorial-with-api.md)
 * [Przesyłanie strumieniowe na żywo — .NET](stream-live-tutorial-with-api.md)
-* [Analizowanie wideo — .NET](analyze-videos-tutorial-with-api.md)
-* [Szyfrowanie dynamiczne AES-128 — .NET](protect-with-aes128.md)
+* [Analizowanie wideo — .NET](analyze-videos-tutorial.md)
+* [Szyfrowanie dynamiczne AES-128 — .NET](drm-playready-license-template-concept.md)
 
 ### <a name="samples"></a>Samples
 
@@ -75,12 +75,12 @@ Użyj [tej przeglądarki przykładów](/samples/browse/?products=azure-media-ser
 
 Przewodniki z poradnikami zawierają przykłady kodu, które pokazują, jak wykonać zadanie. W tej sekcji znajdziesz wiele przykładów. Oto kilka z nich:
 
-* [Tworzenie konta — interfejs wiersza polecenia](./create-account-howto.md)
+* [Tworzenie konta — interfejs wiersza polecenia](./account-create-how-to.md)
 * [Dostęp do interfejsów API — interfejs wiersza polecenia](./access-api-howto.md)
 * [Koduj przy użyciu protokołu HTTPS jako dane wejściowe zadania — .NET](job-input-from-http-how-to.md)  
 * [Monitorowanie zdarzeń — portal](monitoring/monitor-events-portal-how-to.md)
-* [Szyfrowanie dynamiczne za pomocą technologii wielowątkowości platformy .NET](protect-with-drm.md) 
-* [Jak kodować przy użyciu niestandardowego przekształcenia interfejsu wiersza polecenia](custom-preset-cli-howto.md)
+* [Szyfrowanie dynamiczne za pomocą technologii wielowątkowości platformy .NET](drm-protect-with-drm-tutorial.md) 
+* [Jak kodować przy użyciu niestandardowego przekształcenia interfejsu wiersza polecenia](encode-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 

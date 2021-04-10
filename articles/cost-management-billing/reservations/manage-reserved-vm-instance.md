@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1523ca77b06281b84ed57fbc0e2e49ffede85fb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392276"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934346"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -57,8 +57,8 @@ Zakres ma zastosowanie tylko do pojedynczych subskrypcji płatności zgodnie z r
 
 Domyślnie rezerwacje mogą wyświetlać i zarządzać nimi następujący użytkownicy:
 
-- Do zamówienia rezerwacji jest dodawana osoba, która kupuje rezerwację, i administrator konta subskrypcji rozliczeniowej używanej do zakupu rezerwacji.
-- Administratorzy rozliczeń w umowie Enterprise Agreement i umowie klienta firmy Microsoft.
+- Osoba, która zakupiła rezerwację i właściciel konta dla subskrypcji rozliczeń, uzyskuje dostęp do zamówienia usługi Azure RBAC.
+-  Współautorzy rozliczeń Enterprise Agreement i umowy klienta Microsoft mogą zarządzać wszystkimi rezerwacjami z Cost Management i rozliczeń > transakcji rezerwacji > wybrać niebieski baner.
 
 Jeśli chcesz umożliwić innym osobom zarządzanie rezerwacjami, masz dwie możliwości:
 

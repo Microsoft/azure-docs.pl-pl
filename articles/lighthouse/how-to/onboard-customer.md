@@ -1,14 +1,14 @@
 ---
 title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 02/16/2021
+ms.date: 03/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556113"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934312"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -143,7 +143,7 @@ Wybrany szablon będzie zależeć od tego, czy dołączysz całą subskrypcję, 
 |Subskrypcja (w przypadku korzystania z oferty opublikowanej w portalu Azure Marketplace)   |[marketplaceDelegatedResourceManagement.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!TIP]
-> Chociaż nie można dołączyć całej grupy zarządzania w jednym wdrożeniu, można [wdrożyć zasady na poziomie grupy zarządzania](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Zasady te sprawdzają, czy każda subskrypcja w grupie zarządzania została oddelegowana do określonej dzierżawy zarządzającej, a jeśli nie, program utworzy przypisanie na podstawie podanych wartości.
+> Chociaż nie można dołączyć całej grupy zarządzania w jednym wdrożeniu, można [wdrożyć zasady na poziomie grupy zarządzania](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Zasady używają [efektu deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) do sprawdzenia, czy każda subskrypcja w grupie zarządzania została oddelegowana do określonej dzierżawy zarządzającej, a jeśli nie, utworzy przypisanie na podstawie podanych wartości. Następnie będziesz mieć dostęp do wszystkich subskrypcji w grupie zarządzania, mimo że będzie konieczne korzystanie z nich jako indywidualnych subskrypcji (a nie podejmowanie akcji w grupie zarządzania jako całości).
 
 Poniższy przykład przedstawia zmodyfikowaną **delegatedResourceManagement.parameters.jsw** pliku, którego można użyć do dołączenia subskrypcji. Pliki parametrów grupy zasobów (znajdujące się w folderze [RG-delegowani-Resource-Management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) ) są podobne, ale zawierają także parametr **rgName** w celu zidentyfikowania określonych grup zasobów, które mają zostać dołączone.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e5a1f727f32fda7740b958cb3f03a3a4a3ae03f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95999216"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727556"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Raport szacowania kosztów przez Planistę wdrażania usługi Azure Site Recovery 
 
@@ -168,13 +168,13 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 Planista wdrażania usługi Site Recovery może wygenerować raport kosztów z użyciem dowolnej spośród poniższych walut.
 
 |Waluta|Nazwa|Waluta|Nazwa|Waluta|Nazwa|
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 |ARS|Peso argentyńskie ($)|AUD|Dolar australijski ($)|BRL|Real brazylijski (R$)|
 |CAD|Dolar kanadyjski ($)|CHF|Frank szwajcarski (chf)|DKK|Korona duńska (kr)|
-|EUR|Euro (€)|GBP|Funt brytyjski (l)|HKD|Dolar hongkoński (HK$)|
+|EUR|Euro ( &euro; )|GBP|Funt brytyjski (l)|HKD|Dolar hongkoński (HK$)|
 |IDR|Rupia indonezyjska (Rp)|INR|Rupia indyjska (₹)|JPY|Japoński (y)|
 |KRW|Koreański (₩)|MXN|Peso meksykańskie (MX$)|MYR|Ringgit malezyjski (RM$)|
-|NOK|Korona norweska (kr)||NZD|Dolar nowozelandzki ($)||RUB|Rubel rosyjski (руб)|
+|NOK|Korona norweska (kr)|NZD|Dolar nowozelandzki ($)|RUB|Rubel rosyjski (руб)|
 |SAR|Rial saudyjski (SR)|SEK|Korona szwedzka (kr)|TWD|Dolar tajwański (NT$)|
 |TRY|Lira turecka (TL)|USD| Dolar amerykański ($)|ZAR|Rand południowoafrykański (R)|
 

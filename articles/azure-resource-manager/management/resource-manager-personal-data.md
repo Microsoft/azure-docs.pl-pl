@@ -3,12 +3,12 @@ title: Dane osobowe
 description: Dowiedz się, jak zarządzać danymi osobowymi skojarzonymi z Azure Resource Manager operacjami.
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 1e531f7cd9992536bcc191637111761c5bbdefa2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f616fa58c53a7f666978bd1db60d10a9266e342
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693691"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934210"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Zarządzanie danymi osobowymi skojarzonymi z Azure Resource Manager
 
@@ -24,13 +24,13 @@ W przypadku wdrożeń Menedżer zasobów zachowuje wartości parametrów i komun
 
 Aby wyświetlić listę **wdrożeń** w historii, użyj:
 
-* [Lista według grupy zasobów](/rest/api/resources/deployments/listbyresourcegroup)
+* [Lista według grupy zasobów](/rest/api/resources/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
 * [Lista AZ Deployment Group list](/cli/azure/deployment/group#az_deployment_group_list)
 
 Aby usunąć **wdrożenia** z historii, użyj:
 
-* [Usuwanie](/rest/api/resources/deployments/delete)
+* [Usuwanie](/rest/api/resources/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [AZ Deployment Group Delete](/cli/azure/deployment/group#az_deployment_group_delete)
 
@@ -40,13 +40,13 @@ Nazwa grupy zasobów będzie trwała do momentu usunięcia grupy zasobów. Aby s
 
 Aby wyświetlić listę **grup zasobów**, użyj:
 
-* [Lista](/rest/api/resources/resourcegroups/list)
+* [Lista](/rest/api/resources/resources/resourcegroups/list)
 * [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
 * [AZ Group list](/cli/azure/group#az-group-list)
 
 Aby usunąć **grupy zasobów**, użyj:
 
-* [Usuwanie](/rest/api/resources/resourcegroups/delete)
+* [Usuwanie](/rest/api/resources/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
@@ -56,13 +56,13 @@ Tagi i nazwy są zachowywane do momentu usunięcia lub zmodyfikowania znacznika.
 
 Aby wyświetlić listę **tagów**, użyj:
 
-* [Lista](/rest/api/resources/tags/list)
+* [Lista](/rest/api/resources/resources/tags/list)
 * [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
 * [AZ tag list](/cli/azure/tag#az-tag-list)
 
 Aby usunąć **Tagi**, użyj:
 
-* [Usuwanie](/rest/api/resources/tags/delete)
+* [Usuwanie](/rest/api/resources/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [Wyczyść tag Delete](/cli/azure/tag#az-tag-delete)
 

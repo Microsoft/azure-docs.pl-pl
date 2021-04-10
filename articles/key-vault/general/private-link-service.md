@@ -9,10 +9,10 @@ ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 78a57cb896f09b686d35bedd79442025ebcb7c67
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104604597"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrowanie usługi Key Vault z usługą Azure Private Link
@@ -77,7 +77,7 @@ Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonu
 1. Wybierz przycisk "+ prywatny punkt końcowy" w górnej części strony.
 
     ![Zrzut ekranu pokazujący przycisk "+ prywatny punkt końcowy" na stronie "Sieć".](../media/private-link-service-3.png)
-    ![Zrzut ekranu pokazujący kartę "podstawowe" na stronie "Tworzenie prywatnego punktu końcowego (wersja zapoznawcza").](../media/private-link-service-4.png)
+    ![Zrzut ekranu pokazujący kartę "podstawowe&quot; na stronie &quot;Tworzenie prywatnego punktu końcowego (wersja zapoznawcza").](../media/private-link-service-4.png)
 
 Za pomocą tego bloku można utworzyć prywatny punkt końcowy dla dowolnego zasobu platformy Azure. Możesz użyć menu rozwijanych, aby wybrać typ zasobu i wybrać zasób w katalogu, lub połączyć się z dowolnym zasobem platformy Azure przy użyciu identyfikatora zasobu. Pozostaw opcję "Zintegruj z usługą DNS strefy prywatnej" bez zmian.  
 
@@ -106,7 +106,7 @@ Istnieją cztery Stany aprowizacji:
 1. Wybierz przycisk Zatwierdź.
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to oczekujące żądanie, czy istniejące połączenie, wybierz połączenie i kliknij przycisk Odrzuć.
 
-    ![Image (Obraz)](../media/private-link-service-7.png)
+    ![Obraz](../media/private-link-service-7.png)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1961d86e55f59233b1dc168e2de48b6b42b0cff0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93285199"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728117"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Przenoszenie magazynu kluczy platformy Azure między regionami
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem należy pamiętać o następujących pojęciach:
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Opcja 1: użycie poleceń tworzenia kopii zapasowej i przywracania magazynu kluczy
 
-Można utworzyć kopię zapasową poszczególnych wpisów tajnych, kluczy i certyfikatów w magazynie przy użyciu polecenia Backup. Wpisy tajne są pobierane jako zaszyfrowane obiekty blob. Następnie można przywrócić obiekt BLOB do nowego magazynu kluczy. Aby zapoznać się z listą poleceń, zobacz [Azure Key Vault polecenia](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+Można utworzyć kopię zapasową poszczególnych wpisów tajnych, kluczy i certyfikatów w magazynie przy użyciu polecenia Backup. Wpisy tajne są pobierane jako zaszyfrowane obiekty blob. Następnie można przywrócić obiekt BLOB do nowego magazynu kluczy. Aby zapoznać się z listą poleceń, zobacz [Azure Key Vault polecenia](/powershell/module/azurerm.keyvault#key_vault).
 
 Użycie poleceń tworzenia kopii zapasowej i przywracania ma dwa ograniczenia:
 
