@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 9dd3525f4efec3c49950839306ee5419c7850c69
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559761"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275417"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Krok 1. zapoznanie się z zaletami migracji do Media Services API v3
 
@@ -44,21 +44,21 @@ Wprowadzono znaczne ulepszenia Media Services w wersji 3.
 | Obsługa linków prywatnych | Klienci będą uzyskiwać dostęp do Media Services punktów końcowych w celu dostarczania kluczy, LiveEvents i StreamingEndpoints za pośrednictwem PrivateEndpoint w swojej sieci wirtualnej. |
 | [Klucze zarządzane przez klienta](concept-use-customer-managed-keys-byok.md) lub zapewniają obsługę własnych kluczy (BYOK) | Klienci mogą szyfrować dane na koncie Media Services przy użyciu klucza w ich Azure Key Vault. |
 | **Elementy zawartości** | |
-| Element zawartości może zawierać wiele [lokalizatorów przesyłania strumieniowego](streaming-locators-concept.md) z różnymi [pakietami dynamicznymi](dynamic-packaging-overview.md) i dynamicznymi ustawieniami szyfrowania. | W każdym elemencie zawartości jest dozwolony limit 100y lokalizatorów przesyłania strumieniowego. Klienci mogą przechowywać jedną kopię zawartości multimedialnej w ramach zasobu, ale udostępniać różne adresy URL przesyłania strumieniowego z różnymi zasadami przesyłania strumieniowego lub zasadami ochrony zawartości, które są oparte na docelowych odbiorców.
+| Element zawartości może zawierać wiele [lokalizatorów przesyłania strumieniowego](stream-streaming-locators-concept.md) z różnymi [pakietami dynamicznymi](encode-dynamic-packaging-concept.md) i dynamicznymi ustawieniami szyfrowania. | W każdym elemencie zawartości jest dozwolony limit 100y lokalizatorów przesyłania strumieniowego. Klienci mogą przechowywać jedną kopię zawartości multimedialnej w ramach zasobu, ale udostępniać różne adresy URL przesyłania strumieniowego z różnymi zasadami przesyłania strumieniowego lub zasadami ochrony zawartości, które są oparte na docelowych odbiorców.
 | **Przetwarzanie zadania** ||
-| V3 wprowadza koncepcję [transformacji](transforms-jobs-concept.md)   dla przetwarzania zadań opartych na plikach. | Przekształcenie może służyć do kompilowania konfiguracji do wielokrotnego użytku, tworzenia Azure Resource Manager szablonów i izolowania ustawień przetwarzania między wieloma klientami lub dzierżawcami. |
+| V3 wprowadza koncepcję [transformacji](transform-jobs-concept.md)   dla przetwarzania zadań opartych na plikach. | Przekształcenie może służyć do kompilowania konfiguracji do wielokrotnego użytku, tworzenia Azure Resource Manager szablonów i izolowania ustawień przetwarzania między wieloma klientami lub dzierżawcami. |
 | W przypadku przetwarzania zadań opartych na plikach można użyć adresu URL HTTP (S) jako danych wejściowych. | Nie musisz mieć już przechowywanej zawartości na platformie Azure ani nie musisz tworzyć zasobów wejściowych. |
 | **Zdarzenia na żywo** ||
 | Zdarzenia na żywo w warstwie Premium 1080p | Nowe jednostki SKU zdarzenia na żywo umożliwiają klientom pobieranie kodowania w chmurze z danymi wyjściowymi do wersji 1080p. |
-| Obsługa przesyłania strumieniowego na żywo w przypadku nowych [małych opóźnień](live-event-latency.md) na żywo. | Pozwala to użytkownikom na oglądanie zdarzeń na żywo bliżej czasu rzeczywistego niż w przypadku, gdy to ustawienie nie zostało włączone. |
-| Usługa Live Event Preview obsługuje [dynamiczne pakowanie](dynamic-packaging-overview.md)   i szyfrowanie dynamiczne. | Umożliwia to ochronę zawartości w przypadku wersji zapoznawczej, ŁĄCZNIKa i HLS. |
+| Obsługa przesyłania strumieniowego na żywo w przypadku nowych [małych opóźnień](live-event-latency-reference.md) na żywo. | Pozwala to użytkownikom na oglądanie zdarzeń na żywo bliżej czasu rzeczywistego niż w przypadku, gdy to ustawienie nie zostało włączone. |
+| Usługa Live Event Preview obsługuje [dynamiczne pakowanie](encode-dynamic-packaging-concept.md)   i szyfrowanie dynamiczne. | Umożliwia to ochronę zawartości w przypadku wersji zapoznawczej, ŁĄCZNIKa i HLS. |
 | Zamiana danych wyjściowych na żywo | Użycie danych wyjściowych na żywo jest łatwiejsze niż w przypadku jednostki programu w interfejsach API v2. |
 | Ulepszono obsługę protokołu RTMP dla zdarzeń na żywo z obsługą większej liczby koderów | Zwiększa stabilność i zapewnia elastyczność kodera źródłowego. |
 | Zdarzenia na żywo mogą przesyłać strumieniowo 24x7 | Możesz obsługiwać wydarzenie na żywo i utrzymywać odbiorców przez dłuższy okres. |
 | Transkrypcja dynamiczna dla zdarzeń na żywo | Transkrypcja dynamiczna umożliwia klientom automatyczne Transkrypcja języka mówionego do tekstu w czasie rzeczywistym podczas emisji zdarzeń na żywo. Znacznie poprawia to dostępność zdarzeń na żywo. |
-| [Tryb gotowości](live-events-outputs-concept.md#standby-mode) dla zdarzeń na żywo | Zdarzenia na żywo, które są w stanie wstrzymania, są tańsze niż uruchomione zdarzenia na żywo. Dzięki temu klienci mogą utrzymywać zestaw wydarzeń na żywo, które są gotowe do rozpoczęcia w ciągu kilku sekund od utrzymania zestawu uruchomionych wydarzeń na żywo. Obniżone ceny dla zdarzeń na żywo w stanie gotowości będą obowiązywać w lutym 2021 dla większości regionów, a pozostałe do przestrzegania w kwietniu 2021.
+| [Tryb gotowości](live-event-outputs-concept.md#standby-mode) dla zdarzeń na żywo | Zdarzenia na żywo, które są w stanie wstrzymania, są tańsze niż uruchomione zdarzenia na żywo. Dzięki temu klienci mogą utrzymywać zestaw wydarzeń na żywo, które są gotowe do rozpoczęcia w ciągu kilku sekund od utrzymania zestawu uruchomionych wydarzeń na żywo. Obniżone ceny dla zdarzeń na żywo w stanie gotowości będą obowiązywać w lutym 2021 dla większości regionów, a pozostałe do przestrzegania w kwietniu 2021.
 |**Ochrona zawartości** ||
-| [Ochrona zawartości](content-key-policy-concept.md)   obsługuje funkcje wielokluczowe. | Klienci mogą teraz używać wielu kluczy szyfrowania zawartości w swoich lokalizatorach przesyłania strumieniowego. |
+| [Ochrona zawartości](drm-content-key-policy-concept.md)   obsługuje funkcje wielokluczowe. | Klienci mogą teraz używać wielu kluczy szyfrowania zawartości w swoich lokalizatorach przesyłania strumieniowego. |
 | **Monitorowanie** | |
 | Obsługa powiadomień [usługi Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Powiadomienia EventGrid są rozbudowane. Istnieje więcej typów powiadomień, szerokiej obsługi zestawu SDK do otrzymywania powiadomień w aplikacji i innych istniejących usług platformy Azure, które mogą działać jako programy obsługi zdarzeń. |
 | [Azure Monitor pomoc techniczną i integrację w Azure Portal](monitoring/monitor-events-portal-how-to.md) | Dzięki temu klienci mogą wizualizować Media Services użycia przydziału kont, statystyk w czasie rzeczywistym dla punktów końcowych przesyłania strumieniowego oraz pozyskiwanie i archiwizowanie statystyk dla wydarzeń na żywo. Klienci mogą teraz ustawiać alerty i wykonywać niezbędne działania na podstawie danych metryk w czasie rzeczywistym. |

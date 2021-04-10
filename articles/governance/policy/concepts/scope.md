@@ -1,20 +1,19 @@
 ---
 title: Opis zakresu w Azure Policy
 description: Opisuje koncepcję zakresu w Azure Resource Manager i sposób, w jaki ma zastosowanie do Azure Policy do kontrolowania, które zasoby Azure Policy oceniane.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90984430"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167740"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Opis zakresu w Azure Policy
 
-Istnieje kilka ustawień, które określają, które zasoby mogą być oceniane i które zasoby są oceniane przez Azure Policy. Podstawową koncepcją dla tych formantów jest _zakres_.
-Aby zapoznać się z ogólnym omówieniem, zobacz [zakres w Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
-W tym artykule wyjaśniono wpływ _zakresu_ w Azure Policy i powiązane obiekty i właściwości.
+Istnieje wiele ustawień, które określają, które zasoby mogą być oceniane i które zasoby są oceniane przez Azure Policy. Podstawową koncepcją dla tych formantów jest _zakres_. Zakres w Azure Policy jest oparty na tym, jak zakres działa w Azure Resource Manager. Aby zapoznać się z ogólnym omówieniem, zobacz [zakres w Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
+W tym artykule opisano znaczenie _zakresu_ w Azure Policy i powiązane z nim obiekty i właściwości.
 
 ## <a name="definition-location"></a>Lokalizacja definicji
 

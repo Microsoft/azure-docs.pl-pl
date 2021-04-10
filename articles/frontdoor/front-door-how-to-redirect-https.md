@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 19908b3cba63bc76a205097ef8d16e612d58503b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edc1ebe53969ceac0452818bee016e35de1e9322
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91626646"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167842"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Utwórz tylne drzwi z przekierowaniami HTTP do HTTPS przy użyciu Azure Portal
 
@@ -29,7 +29,7 @@ Za pomocą Azure Portal można [utworzyć tylne drzwi](quickstart-create-front-d
 1. Wybierz *subskrypcję* , a następnie Użyj istniejącej grupy zasobów lub Utwórz nową. Wybierz pozycję **dalej** , aby wprowadzić kartę Konfiguracja.
 
     > [!NOTE]
-    > Lokalizacja wyświetlana w interfejsie użytkownika dotyczy tylko grupy zasobów. Konfiguracja z drzwiami wstępnymi zostanie wdrożona we wszystkich [lokalizacjach pop zewnętrznych drzwi platformy Azure](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
+    > Lokalizacja wyświetlana w interfejsie użytkownika dotyczy tylko grupy zasobów. Konfiguracja z drzwiami wstępnymi zostanie wdrożona we wszystkich [lokalizacjach pop zewnętrznych drzwi platformy Azure](front-door-faq.yml#what-are-the-pop-locations-for-azure-front-door-).
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych":::
 

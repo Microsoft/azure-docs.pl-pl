@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702321"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279820"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -426,7 +426,7 @@ Możesz przeanalizować Media Services element zawartości, który został utwor
 1. W otwartym Kreatorze Zaakceptuj opcje domyślne i wybierz pozycję **Dodaj**. Aby uzyskać więcej informacji, zobacz [odtwarzanie wideo](video-playback-concept.md).
 
     > [!TIP]
-    > Upewnij się, że [punkt końcowy przesyłania strumieniowego jest uruchomiony](../latest/streaming-endpoint-concept.md).
+    > Upewnij się, że [punkt końcowy przesyłania strumieniowego jest uruchomiony](../latest/stream-streaming-endpoint-concept.md).
 1. Gracz powinien załadować wideo. Wybierz opcję **Odtwórz** , aby ją wyświetlić.
 
 > [!NOTE]

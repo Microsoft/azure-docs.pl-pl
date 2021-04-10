@@ -6,19 +6,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 10/06/2020
-ms.openlocfilehash: 3be967b611f6b75705a60bfa14523832b0652931
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 381ee45bd678ef22222483675ddf001e16970628
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879228"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552057"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Podręcznik publikowania dla różnych typów ofert
 
 W tym artykule opisano typy ofert, które są dostępne w portalu komercyjnym. *Typ oferty* definiuje strukturę oferty, która obejmuje metadane, artefakty i inną zawartość prezentowaną w komercyjnym portalu Marketplace.
 
 Po wybraniu [opcji publikowania](determine-your-listing-type.md)musisz wybrać typ oferty przed rozpoczęciem tworzenia oferty w centrum partnerskim. Typ oferty będzie odpowiadać typowi rozwiązania, aplikacji lub oferty usługi, którą chcesz opublikować, a także jego wyrównaniem do produktów i usług firmy Microsoft.
+
+> [!NOTE]
+> Po wybraniu typu oferty nie można zmienić oferty na inny typ. Aby utworzyć inny typ oferty, należy utworzyć nową ofertę.
 
 Możesz skonfigurować pojedynczy typ oferty na różne sposoby, aby włączyć różne opcje publikowania, opcję wyświetlania, Inicjowanie obsługi lub Cennik. Opcja publikowania i konfiguracja typu oferty są również zgodne z wymaganiami dotyczącymi ofert i wymaganiami technicznymi.
 

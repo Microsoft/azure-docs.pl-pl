@@ -13,12 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 55cecc658b11b7a09665af7128df25fbbff800ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90e81e30e26846bf05032dddf1441e8428bc7158
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559522"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550986"
 ---
 # <a name="overview-of-the-microsoft-authentication-library-msal"></a>Omówienie biblioteki uwierzytelniania firmy Microsoft (MSAL)
 Biblioteka Microsoft Authentication Library (MSAL) umożliwia deweloperom pozyskiwanie [tokenów](developer-glossary.md#security-token) z platformy tożsamości firmy Microsoft w celu uwierzytelniania użytkowników i uzyskiwania dostępu do zabezpieczonych interfejsów API sieci Web. Może służyć do zapewnienia bezpiecznego dostępu do Microsoft Graph, innych interfejsów API firmy Microsoft, interfejsów API sieci Web innych firm lub własnych interfejsów API sieci Web. Program MSAL obsługuje wiele różnych architektur i platform aplikacji, takich jak .NET, JavaScript, Java, Python, Android i iOS.
@@ -53,6 +53,7 @@ MSAL można używać w wielu scenariuszach aplikacji, w tym następujących:
 | [MSAL dla systemu Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL kątowy](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular)| Aplikacje jednostronicowe ze strukturami kątowymi i Angular.js|
 | [Biblioteka MSAL dla systemów iOS i macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS i macOS|
+| [MSAL (wersja zapoznawcza)](https://github.com/AzureAD/microsoft-authentication-library-for-go)|Windows, macOS, Linux|
 | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)| Struktury języka JavaScript/TypeScript, takie jak Vue.js, Ember.js lub Durandal.js|
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, platforma uniwersalna systemu Windows|

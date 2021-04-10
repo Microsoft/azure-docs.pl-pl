@@ -188,8 +188,6 @@
           href: rest-text-to-speech.md
     - name: Zasoby
       items:
-        - name: Obsługa standardowego modelu głosu
-          href: language-support.md#standard-voices
         - name: Obsługa neuronowego modelu głosu
           href: language-support.md#neural-voices
         - name: Obsługa regionów
@@ -249,7 +247,7 @@
     - name: Omówienie rozpoznawania intencji
       href: intent-recognition.md
     - name: Szybki start — rozpoznawanie intencji
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Rozpoznawanie intencji mowy przy użyciu usługi LUIS i środowiska C#
@@ -464,6 +462,8 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Włączanie prywatnego punktu końcowego
       href: speech-services-private-link.md
+    - name: Włącz punkt końcowy usługi sieci wirtualnej
+      href: speech-service-vnet-service-endpoint.md
     - name: Konfigurowanie biblioteki OpenSSL dla systemu Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md

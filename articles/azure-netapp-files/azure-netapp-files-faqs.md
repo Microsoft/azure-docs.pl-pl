@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 3ca4938d8666fd60ebac9e75bb2da1780e0914d3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 81c28a3c64c81da8f6939d821c2bd61ba8617a7b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608004"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935247"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -191,6 +191,10 @@ Rozmiar woluminu zgłoszonego przez klienta SMB to maksymalny rozmiar, do które
 ### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Mam problemy z nawiązywaniem połączenia z udziałem SMB. Co mam zrobić?
 
 Najlepszym rozwiązaniem jest ustawienie maksymalnej tolerancji synchronizacji zegara komputera na pięć minut. Aby uzyskać więcej informacji, zobacz [maksymalna tolerancja synchronizacji zegara komputera](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
+### <a name="can-i-manage-smb-shares-sessions-and-open-files-through-computer-management-console-mmc"></a>Czy mogę zarządzać `SMB Shares` `Sessions` `Open Files` konsolą zarządzania komputerem,, i za nią?
+
+Zarządzanie `SMB Shares` programem, `Sessions` , i `Open Files` przez konsolę zarządzania komputerem (MMC) nie jest obecnie obsługiwane.
 
 ### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Jak mogę uzyskać adres IP woluminu SMB za pośrednictwem portalu?
 

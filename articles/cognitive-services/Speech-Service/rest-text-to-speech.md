@@ -12,10 +12,10 @@ ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
 ms.openlocfilehash: 9da83746cdaf693922b88841cd9c0fac432611c9
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104870844"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę

@@ -7,15 +7,15 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/15/2020
+ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 605e3f0451cc2029ecc98e42741f30a2d3ef190b
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94357576"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167961"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Co to jest Azure Key Vault zarządzanym modułem HSM (wersja zapoznawcza)?
 
@@ -36,6 +36,7 @@ Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w ch
 - **Izolowana kontrola dostępu**: zarządzany model modułu HSM "Local RBAC" modelu kontroli dostępu umożliwia Wyznaczeni administratorom klastrów modułu HSM pełną kontrolę nad sprzętowych modułów zabezpieczeńem, że nawet Administratorzy grupy zarządzania, subskrypcji lub grupy zasobów nie mogą przesłonić.
 - **Fips 140-2 Level 3 sprawdzony sprzętowych modułów zabezpieczeń**: Chroń dane i spełniaj wymagania dotyczące zgodności z FIPS ((Federal Information Protection standard)) 140-2 zweryfikowane sprzętowych modułów zabezpieczeń poziomu 3. Zarządzane sprzętowych modułów zabezpieczeń używają kart HSM LiquidSecurity firmy Marvell.
 - **Monitorowanie i inspekcja**: w pełni zintegrowana z usługą Azure monitor. Pobierz pełne dzienniki wszystkich działań za pośrednictwem Azure Monitor. Użyj usługi Azure Log Analytics na potrzeby analiz i alertów.
+- Miejsce **zamieszkania**: ZARZĄDZANY moduł HSM nie zapisuje/nie przetwarza danych klienta poza regionem, w którym klient wdraża wystąpienie modułu HSM.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integracja z platformą Azure i usługami Microsoft PaaS/SaaS 
 

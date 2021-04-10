@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 84d5f1e4035fb730d33b7bc8dd375273610f0bfb
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4601f2d6eddbbe8809dfd46a7e0cc5aa3c40c722
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771944"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209574"
 ---
 # <a name="data-source-schema-reference"></a>Odwołanie do schematu źródła danych
 
@@ -51,7 +51,7 @@ W poniższej tabeli znajduje się lista obsługiwanych dostawców innych firm, i
 | **Sieć** | Fortigate   | ALL   | CommonSecurityLog | [Struktura schematu dziennika](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-log-message-reference/738142/log-schema-structure)         |
 | **Sieć** | Barracuda | Web Application Firewall |  CommonSecurityLog   | [Jak skonfigurować dziennik systemowy i inne dzienniki](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259935/how-to-configure-syslog-and-other-logs/)  |
 | **Sieć** | Cisco | ASA | CommonSecurityLog | [Komunikaty dziennika systemowego z serii Cisco ASA](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/b_syslog/about.html)    |
-| **Sieć** | Cisco | Firepower   | CommonSecurityLog | [Komunikaty dziennika systemowego ochrony Cisco Firepower Threat](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.pdf)    |
+| **Sieć** | Cisco | Firepower   | CommonSecurityLog | [Komunikaty dziennika systemowego ochrony Cisco Firepower Threat](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.html)    |
 | **Sieć** | Cisco   | Macierzyst  | Tabela dzienników niestandardowych  | [Formaty i przechowywanie wersji dzienników](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)   |
 | **Sieć**   | Cisco | Meraki    | CommonSecurityLog |   [Typy zdarzeń dziennika systemu i przykłady dzienników](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Event_Types_and_Log_Samples)    |
 | **Sieć**   | Zscaler | Usługa przesyłania strumieniowego nano (NSS)|   CommonSecurityLog | [Formatowanie kanałów NSS](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds) (tylko w sieci Web, zapory, DNS i dzienników tunelu) |
