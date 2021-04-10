@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
 ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104601503"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Dropbox Business z Azure Active Directory
@@ -133,7 +133,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Jeśli chcesz skonfigurować usługi Dropbox firmy ręcznie, Otwórz nowe okno przeglądarki sieci Web i przejdź do dzierżawy biznesowej usługi Dropbox i zaloguj się do dzierżawy biznesowej usługi Dropbox. i wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawiający stronę "Logowanie w usłudze Dropbox".](./media/dropboxforbusiness-tutorial/account.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający stronę "Logowanie w usłudze Dropbox&quot;.](./media/dropboxforbusiness-tutorial/account.png &quot;Konfigurowanie logowania jednokrotnego")
 
 4. Kliknij **ikonę użytkownika** i wybierz kartę **Settings** (Ustawienia).
 

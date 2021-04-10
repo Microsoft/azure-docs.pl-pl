@@ -3,17 +3,18 @@ title: Konfigurowanie skalowania dla usługi Azure Cloud Services (obsługa rozs
 description: Jak włączyć opcje skalowania dla usługi Azure Cloud Services (obsługa rozszerzona)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
+ms.subservice: autoscale
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dab3411319f40a111144a3e1c1f02f1b67d011b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728165"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935655"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Konfigurowanie opcji skalowania przy użyciu usługi Azure Cloud Services (obsługa rozszerzona) 
 

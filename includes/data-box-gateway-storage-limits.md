@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 624df1185f86004b48bcca921e76d55bfb14c48d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98901090"
 ---
 Ta sekcja zawiera opis limitów usługi Azure Storage oraz wymaganych konwencji nazewnictwa dla Azure Files, blokowych obiektów blob platformy Azure i obiektów BLOB na stronie platformy Azure, które dotyczą usługi Azure Stack Edge/Data Box Gateway. Uważnie Przejrzyj limity magazynu i postępuj zgodnie ze wszystkimi zaleceniami.

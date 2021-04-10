@@ -4,10 +4,10 @@ description: Omówienie przykładowych 1.3.0 planów testów porównawczych usł
 ms.date: 03/11/2021
 ms.topic: sample
 ms.openlocfilehash: 7030b4e9e9ddd3d5bbf1a5a7deaf1e1aa241b38e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105566000"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v130-blueprint-sample"></a>Przykłady usługi CIS Microsoft Azure 1.3.0 plan testu porównawczego

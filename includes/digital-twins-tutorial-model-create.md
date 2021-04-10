@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 3/5/2021
 ms.author: baanders
 ms.openlocfilehash: a94b9304ecd6c6630f6ad45652e76d2879bbc1b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103463923"
 ---
 1. **Zaktualizuj numer wersji**, aby wskazać, że dostarczasz nowszą wersję tego modelu. W tym celu należy zmienić *1* na końcu `@id` wartości na *2*. Dowolna liczba większa niż bieżący numer wersji również będzie działała.

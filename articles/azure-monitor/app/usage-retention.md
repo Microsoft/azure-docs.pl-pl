@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025615"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analiza przechowywania użytkowników dla aplikacji sieci Web za pomocą Application Insights
@@ -36,7 +36,7 @@ Jeśli nie widzisz jeszcze danych w narzędziu do przechowywania w portalu Appli
 
 Użytkownicy mogą przemieszczać się nad komórkami w narzędziu do przechowywania, aby uzyskać dostęp do przycisku analizy i etykietek narzędzi objaśniających znaczenie komórki. Przycisk analiza umożliwia użytkownikom narzędzia do analizy z wstępnie wypełnionym zapytaniem, które generuje użytkowników z komórki. 
 
-## <a name="use-business-events-to-track-retention"></a>Śledzenie przechowywania przy użyciu zdarzeń służbowych
+## <a name="use-business-events-to-track-retention&quot;></a>Śledzenie przechowywania przy użyciu zdarzeń służbowych
 
 Aby uzyskać najbardziej przydatną analizę przechowywania, należy mierzyć zdarzenia reprezentujące znaczące działania biznesowe. 
 
@@ -45,7 +45,7 @@ Na przykład wielu użytkowników może otworzyć stronę w aplikacji bez odtwar
 Dobrym sposobem jest kod zdarzeń niestandardowych, które reprezentują kluczowe akcje biznesowe i służą do analizy przechowywania. Aby przechwycić wynik gry, należy napisać wiersz kodu w celu wysłania niestandardowego zdarzenia do Application Insights. Jeśli napiszesz go w kodzie strony sieci Web lub w Node.JS, będzie to wyglądać następująco:
 
 ```JavaScript
-    appinsights.trackEvent("won game");
+    appinsights.trackEvent(&quot;won game");
 ```
 
 Lub w kodzie serwera ASP.NET:

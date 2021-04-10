@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46796573e14dfc33d02d4faddd5504f3e8b7ee7b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743121"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935724"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -120,7 +120,7 @@ Po zainstalowaniu usługi WebSocket i aplikacji Team Desktop wykonaj następują
 
 3. Wybierz **wersję**.
 
-      W przypadku załadowania optymalizacji multimediów transparent będzie przedstawiał **WVD nośnik zoptymalizowany**. Jeśli transparent pokazuje, że **multimedia WVD nie są połączone**, zamknij aplikację Teams i spróbuj ponownie.
+      W przypadku załadowania optymalizacji multimediów transparent będzie przedstawiał **zoptymalizowane multimedia pulpitu wirtualnego systemu Windows**. Jeśli na transparencie widać, że **multimedia pulpitu wirtualnego systemu Windows nie są połączone**, zamknij aplikację Teams i spróbuj ponownie.
 
 4. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **Ustawienia**.
 
