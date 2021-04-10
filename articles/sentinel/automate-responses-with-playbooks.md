@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: yelevin
 ms.openlocfilehash: 0158c9f5b9debf0c47978e816951e25634621645
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104609807"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatyzowanie odpowiedzi na zagrożenia za pomocą elementy PlayBook na platformie Azure — wskaźnik
@@ -81,7 +81,7 @@ Azure Logic Apps komunikują się z innymi systemami i usługami za pomocą łą
 - Rola **obiektu odpowiadającego wskaźnikowi systemu Azure** — pozwala ręcznie uruchomić element PlayBook.
 - **Współautor usługi Azure wskaźnikowej automatyzacji** pozwala regułom automatyzacji uruchamiać elementy PlayBook. Nie jest używany do żadnego innego celu.
 
-#### <a name="learn-more"></a>Dowiedz się więcej
+#### <a name="learn-more"></a>Więcej tutaj
 
 - [Dowiedz się więcej na temat ról platformy Azure w Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations).
 - [Dowiedz się więcej na temat ról platformy Azure na platformie Azure — wskaźnik](roles.md).

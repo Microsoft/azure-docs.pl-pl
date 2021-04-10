@@ -4,10 +4,10 @@ description: Dowiedz się więcej o sposobie wdrażania agenta zabezpieczeń us�
 ms.topic: conceptual
 ms.date: 1/30/2020
 ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784224"
 ---
 # <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Wdrażanie programu Defender-IoT-Micro-Agent na urządzeniu IoT Edge

@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: fe8714f38c6a04b311a748f3eb081be82eb86635
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024136"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937247"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
@@ -60,7 +60,7 @@ Azure Monitor może zbierać dane z [różnych źródeł](monitor-reference.md).
 - **Dane monitorowania subskrypcji platformy Azure**: dane dotyczące operacji i zarządzania subskrypcją platformy Azure, a także dane dotyczące kondycji i działania samej platformy Azure. 
 - **Dane monitorowania dzierżawy platformy Azure**: dane dotyczące działania usług platformy Azure na poziomie dzierżawy, takie jak Azure Active Directory.
 
-Zaraz po utworzeniu subskrypcji platformy Azure i rozpoczęciu dodawania zasobów, takich jak maszyny wirtualne i aplikacje internetowe, usługa Azure Monitor rozpoczyna zbieranie danych.  [Rejestruje dzienniki aktywności](essentials/platform-logs-overview.md) podczas tworzenia lub modyfikowania zasobów. [Metryki](data-platform.md) informują o sposobie wykonywania zasobów i zasobach, których zużywa. 
+Zaraz po utworzeniu subskrypcji platformy Azure i rozpoczęciu dodawania zasobów, takich jak maszyny wirtualne i aplikacje internetowe, usługa Azure Monitor rozpoczyna zbieranie danych.  [Rejestruje dzienniki aktywności](essentials/platform-logs-overview.md) podczas tworzenia lub modyfikowania zasobów. [Metryki](essentials/data-platform-metrics.md) informują o sposobie wykonywania zasobów i zasobach, których zużywa. 
 
 [Włącz diagnostykę](essentials/platform-logs-overview.md) , aby rozszerzać dane zbierane do wewnętrznej operacji zasobów.  [Dodaj agenta](agents/agents-overview.md) do zasobów obliczeniowych, aby zbierać dane telemetryczne z systemów operacyjnych gościa. 
 

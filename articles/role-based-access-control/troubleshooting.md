@@ -2,7 +2,6 @@
 title: Rozwiązywanie problemów z usługą Azure RBAC
 description: Rozwiązywanie problemów z kontrolą dostępu opartą na rolach (Azure RBAC).
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555890"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580109"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem.
+
+    Aby rozwiązać ten scenariusz, należy ustawić `principalType` Właściwość na `ServicePrincipal` przy tworzeniu przypisania roli. Należy również ustawić `apiVersion` przypisanie roli do `2018-09-01-preview` lub nowszego. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure do nowej jednostki usługi przy użyciu interfejsu API REST](role-assignments-rest.md#new-service-principal) lub [Przypisywanie ról platformy Azure do nowej nazwy głównej usługi przy użyciu szablonów Azure Resource Manager](role-assignments-template.md#new-service-principal)
+
 - Jeśli spróbujesz usunąć przypisanie ostatniego właściciela roli dla subskrypcji, może zostać wyświetlony komunikat o błędzie "nie można usunąć ostatniego przypisania administratora RBAC". Usuwanie przypisania roli ostatniego właściciela subskrypcji nie jest obsługiwane, aby uniknąć oddzielenia subskrypcji. Jeśli chcesz anulować subskrypcję, zobacz sekcję [Anulowanie subskrypcji platformy Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemy z rolami niestandardowymi
 
-- Aby dowiedzieć się, jak utworzyć rolę niestandardową, zapoznaj się z samouczkami ról niestandardowych przy użyciu [Azure Portal](custom-roles-portal.md) (obecnie w wersji zapoznawczej), [Azure PowerShell](tutorial-custom-role-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
+- Aby dowiedzieć się, jak utworzyć rolę niestandardową, zapoznaj się z samouczkami ról niestandardowych za pomocą [Azure Portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
 - Jeśli nie można zaktualizować istniejącej roli niestandardowej, należy sprawdzić, czy użytkownik jest zalogowany przy użyciu przypisanej do roli `Microsoft.Authorization/roleDefinition/write` uprawnienia, takiej jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator).
 - Jeśli nie możesz usunąć niestandardowej roli i otrzymujesz komunikat o błędzie „Istnieją przypisania ról odwołujące się do roli (kod: RoleDefinitionHasAssignments)”, wówczas istnieją przypisania ról nadal używające roli niestandardowej. Usuń te przypisania ról i spróbuj ponownie usunąć rolę niestandardową.
 - Jeśli otrzymujesz komunikat o błędzie „Przekroczono limit definicji ról. Nie można utworzyć więcej definicji ról (kod: RoleDefinitionLimitExceeded) "podczas próby utworzenia nowej roli niestandardowej, Usuń wszystkie niestandardowe role, które nie są używane. Platforma Azure obsługuje do **5000** ról niestandardowych w katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2000 ról niestandardowych).

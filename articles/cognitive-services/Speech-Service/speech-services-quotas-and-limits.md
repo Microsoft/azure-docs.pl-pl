@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645121"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937060"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -63,19 +63,19 @@ Użycie [zestawu Speech SDK](speech-sdk.md) i/lub [interfejsu API REST zamiany m
 ### <a name="text-to-speech-quotas-and-limits-per-speech-resource"></a>Przydziały zamiany tekstu na mowę i limity dla zasobu mowy
 W tabeli poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywany do wszystkich warstw cenowych.
 
-| limit przydziału | Bezpłatna (F0)<sup>3</sup> | Standardowa (S0) |
-|--|--|--|
-| **Maksymalna liczba transakcji na sekundę (TPS) dla głosów standardowych i neuronowych** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Limit współbieżnych żądań dla niestandardowego głosu** |  |  |
-| Wartość domyślna | 10 | 10 |
-| Wraz | Nr<sup>5</sup> | Tak<sup>5</sup> |
-| **Przydziały dotyczące protokołu HTTP** |  |
-| Maksymalna długość audio wystawiona na żądanie | 10 min | 10 min |
-| Maksymalna liczba unikatowych `<voice>` tagów w SSML | 50 | 50 |
-| **Przydziały określone dla protokołu WebSocket** |  |  |
-|Maksymalna długość audio wyprodukowanych na drodze | 10 min | 10 min |
-|Maksymalny rozmiar komunikatu SSML na przekształcenie |64 KB |64 KB |
-| **Limit interfejsu API REST** | 20 żądań na minutę | 300 żądań na minutę |
+| limit przydziału                                                                          | Bezpłatna (F0)<sup>3</sup>  | Standardowa (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Maksymalna liczba transakcji na sekundę (TPS) dla głosów standardowych i neuronowych** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Limit współbieżnych żądań dla niestandardowego głosu**                                  |                        |                 |
+| Wartość domyślna                                                                  | 10                     | 10              |
+| Wraz                                                                     | Nr<sup>5</sup>         | Tak<sup>5</sup> |
+| **Przydziały dotyczące protokołu HTTP**                                                       |                        |                 |
+| Maksymalna długość audio wystawiona na żądanie                                          | 10 min                 | 10 min          |
+| Maksymalna liczba unikatowych `<voice>` tagów w SSML                                  | 50                     | 50              |
+| **Przydziały określone dla protokołu WebSocket**                                                  |                        |                 |
+| Maksymalna długość audio wyprodukowanych na drodze                                             | 10 min                 | 10 min          |
+| Maksymalny rozmiar komunikatu SSML na przekształcenie                                                 | 64 KB                  | 64 KB           |
+| **Limit interfejsu API REST**                                                             | 20 żądań na minutę | 300 żądań na minutę |
 
 
 <sup>3</sup> dla warstwy cenowej **bezpłatna (F0)** Zobacz również miesięczne diety na [stronie cennika](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

@@ -62,9 +62,9 @@
           href: how-to-view-telemetry.md
     - name: Programowanie rozwiązań mowy przy użyciu usługi Azure Percept DK
       items:
-        - name: Konfigurowanie asystenta głosowego w usłudze Azure Percept Studio
-          href: how-to-configure-voice-assistant.md
         - name: Konfigurowanie asystenta głosowego w IoT Hub
+          href: how-to-configure-voice-assistant.md
+        - name: Konfigurowanie asystenta głosowego w usłudze Azure Percept Studio
           href: how-to-manage-voice-assistant.md
     - name: Aktualizowanie urządzeń z platformą Azure Percept
       items:
@@ -80,9 +80,9 @@
           href: how-to-ssh-into-percept-dk.md
         - name: Łączenie za pośrednictwem numeru seryjnego
           href: how-to-connect-to-percept-dk-over-serial.md
-    - name: narzędzia
+    - name: Narzędzia
       items:
-        - name: Instalator pakietu devtools
+        - name: Instalator pakietu narzędzi deweloperskich
           href: dev-tools-installer.md
     - name: Rozwiązywanie problemów
       items:

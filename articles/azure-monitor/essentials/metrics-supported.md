@@ -4,14 +4,14 @@ description: Lista metryk dostępnych dla każdego typu zasobu z Azure Monitor.
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/06/2021
+ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0854d56930dbc8decfcf8f96a814f082e361de62
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033507"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167247"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -55,7 +55,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 > [!IMPORTANT] 
 > Ta najnowsza aktualizacja dodaje nową kolumnę i ponownie porządkuje metryki jako alfabetyczne. Dodatkowe informacje oznaczają, że poniższe tabele mogą mieć poziomy pasek przewijania u dołu, w zależności od szerokości okna przeglądarki. Jeśli uważasz, że brakuje informacji, użyj paska przewijania, aby wyświetlić całości tabeli.
-
 ## <a name="microsoftaadiamazureadmetrics"></a>Microsoft. aadiam/azureADMetrics
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
@@ -148,7 +147,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |HttpIncomingRequestDuration|Tak|HttpIncomingRequestDuration|Liczba|Średnia|Opóźnienie dla żądania HTTP.|StatusCode, uwierzytelnianie|
 |ThrottledHttpRequestCount|Tak|ThrottledHttpRequestCount|Liczba|Liczba|Żądania HTTP z ograniczeniami.|Brak wymiarów|
 
-
 ## <a name="microsoftappplatformspring"></a>Microsoft. AppPlatform/Sprężyna
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
@@ -203,7 +201,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Tomcat. Threads. Current|Tak|Tomcat. Threads. Current|Liczba|Łącznie|Tomcat bieżąca liczba wątków|Wdrożenie, nazwa_aplikacji, pod|
 |łącznie — żądania|Tak|łącznie — żądania|Liczba|Średnia|Łączna liczba żądań w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
 |zestaw roboczy|Tak|zestaw roboczy|Liczba|Średnia|Ilość zestawu roboczego używanego przez proces (MB)|Wdrożenie, nazwa_aplikacji, pod|
-
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft. Automation/automationAccounts
 
@@ -376,8 +373,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|RequestLatency|Tak|Opóźnienie żądania|)|Łącznie|Czas przetwarzania żądania przez serwer|Operacja, uwierzytelnianie, protokół|
-|RequestsTraffic|Tak|Ruch żądań|Procent|Liczba|Liczba wykonanych żądań|Operacja, uwierzytelnianie, protokół, StatusCode, StatusCodeClass|
+|RequestLatency|Tak|Opóźnienie żądania|)|Łącznie|Czas przetwarzania żądania przez serwer|Operacja, uwierzytelnianie, protokół, centrum danych|
+|RequestsTraffic|Tak|Ruch żądań|Procent|Liczba|Liczba wykonanych żądań|Operacja, uwierzytelnianie, protokół, StatusCode, StatusCodeClass, DataCenter|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft. cache/Redis
@@ -604,7 +601,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |totalkeys|Tak|Łączna liczba kluczy|Liczba|Maksimum||Brak wymiarów|
 |usedmemory|Tak|Użyta pamięć|Bajty|Maksimum||Brak wymiarów|
 |usedmemorypercentage|Tak|Procentowe użycie pamięci|Procent|Maksimum||InstanceId|
-|usedmemoryRss|Tak|Używana pamięć RSS|Bajty|Maksimum||InstanceId|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
@@ -619,7 +615,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
 |ByteHitRatio|Tak|Współczynnik trafień bajtów|Procent|Średnia|Jest to stosunek łącznej liczby bajtów obsłużonych z pamięci podręcznej w porównaniu do całkowitej liczby bajtów odpowiedzi|Punkt końcowy|
-|OriginHealthPercentage|Tak|Procent kondycji pochodzenia|Procent|Średnia|Procent pomyślnych sond kondycji od AFDX do końca.|Źródło, OriginPool|
+|OriginHealthPercentage|Tak|Procent kondycji pochodzenia|Procent|Średnia|Procent pomyślnych sond kondycji od AFDX do końca.|Źródło, Źródło|
 |OriginLatency|Tak|Opóźnienie pochodzenia|)|Średnia|Czas obliczony od momentu wysłania żądania przez AFDX Edge do zaplecza do momentu odebrania przez AFDX ostatniego bajtu odpowiedzi z zaplecza.|Źródło, punkt końcowy|
 |OriginRequestCount|Tak|Liczba żądań pochodzenia|Liczba|Łącznie|Liczba żądań wysłanych z AFDX do źródła.|Wartości httpStatus, HttpStatusGroup, pochodzenie, punkt końcowy|
 |Percentage4XX|Tak|Wartość procentowa 4XX|Procent|Średnia|Procent wszystkich żądań klientów, dla których kod stanu odpowiedzi to 4XX|Punkt końcowy, ClientRegion, ClientCountry|
@@ -804,8 +800,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną|Brak wymiarów|
-|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii|Brak wymiarów|
+|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną. Dostępne tylko na maszynach wirtualnych z serii B|Brak wymiarów|
+|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii. Dostępne tylko na maszynach wirtualnych z serii B|Brak wymiarów|
 |Procent wykorzystania przepustowości dysku danych|Tak|Procent wykorzystania przepustowości dysku danych|Procent|Średnia|Procent zużywanej przepustowości dysku danych na minutę|TWORZONA|
 |Procent zużytych operacji we/wy dysku danych|Tak|Procent zużytych operacji we/wy dysku danych|Procent|Średnia|Procent zajętego miejsca na dysku danych na minutę|TWORZONA|
 |Maksymalna przepustowość dysku danych|Tak|Maksymalna przepustowość dysku danych|Liczba|Średnia|Maksymalna liczba bajtów na dysk danych o przepływności na sekundę może osiągnąć przy użyciu serii|TWORZONA|
@@ -859,8 +855,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną|Brak wymiarów|
-|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii|Brak wymiarów|
+|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną. Dostępne tylko na maszynach wirtualnych z serii B|Brak wymiarów|
+|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii. Dostępne tylko na maszynach wirtualnych z serii B|Brak wymiarów|
 |Procent wykorzystania przepustowości dysku danych|Tak|Procent wykorzystania przepustowości dysku danych|Procent|Średnia|Procent zużywanej przepustowości dysku danych na minutę|Jednostka LUN, VMName|
 |Procent zużytych operacji we/wy dysku danych|Tak|Procent zużytych operacji we/wy dysku danych|Procent|Średnia|Procent zajętego miejsca na dysku danych na minutę|Jednostka LUN, VMName|
 |Maksymalna przepustowość dysku danych|Tak|Maksymalna przepustowość dysku danych|Liczba|Średnia|Maksymalna liczba bajtów na dysk danych o przepływności na sekundę może osiągnąć przy użyciu serii|Jednostka LUN, VMName|
@@ -914,8 +910,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną|Brak wymiarów|
-|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii|Brak wymiarów|
+|Wykorzystane środki CPU|Tak|Wykorzystane środki CPU|Liczba|Średnia|Łączna liczba kredytów zużytych przez maszynę wirtualną. Dostępne tylko na maszynach wirtualnych z serii B|Brak wymiarów|
+|Pozostałe kredyty procesora CPU|Tak|Pozostałe kredyty procesora CPU|Liczba|Średnia|Łączna liczba kredytów dostępnych dla serii. Dostępne tylko na maszynach wirtualnych z serii B|Brak wymiarów|
 |Procent wykorzystania przepustowości dysku danych|Tak|Procent wykorzystania przepustowości dysku danych|Procent|Średnia|Procent zużywanej przepustowości dysku danych na minutę|TWORZONA|
 |Procent zużytych operacji we/wy dysku danych|Tak|Procent zużytych operacji we/wy dysku danych|Procent|Średnia|Procent zajętego miejsca na dysku danych na minutę|TWORZONA|
 |Maksymalna przepustowość dysku danych|Tak|Maksymalna przepustowość dysku danych|Liczba|Średnia|Maksymalna liczba bajtów na dysk danych o przepływności na sekundę może osiągnąć przy użyciu serii|TWORZONA|
@@ -992,11 +988,25 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
 |apiserver_current_inflight_requests|Nie|Żądania numerów porządkowych określających|Liczba|Średnia|Maksymalna liczba aktualnie używanych żądań numerów porządkowych określających w elemencie apiserver na żądanie w ciągu ostatniej sekundy|requestKind|
+|cluster_autoscaler_cluster_safe_to_autoscale|Nie|Kondycja klastra|Liczba|Średnia|Określa, czy automatyczne skalowanie klastra będzie podejmować działania w klastrze||
+|cluster_autoscaler_scale_down_in_cooldown|Nie|Skalowanie w dół cooldown|Liczba|Średnia|Określa, czy skalowanie w dół jest w cooldown — w tym przedziale czasowym nie zostaną usunięte żadne węzły||
+|cluster_autoscaler_unneeded_nodes_count|Nie|Niepotrzebne węzły|Liczba|Średnia|Auotscaler klastra oznacza te węzły jako kandydatów do usunięcia i ostatecznie usunięte||
+|cluster_autoscaler_unschedulable_pods_count|Nie|Unschedulable|Liczba|Średnia|Liczba zasobników, które są obecnie unschedulable w klastrze||
 |kube_node_status_allocatable_cpu_cores|Nie|Łączna liczba dostępnych rdzeni procesora CPU w zarządzanym klastrze|Liczba|Średnia|Łączna liczba dostępnych rdzeni procesora CPU w zarządzanym klastrze||
 |kube_node_status_allocatable_memory_bytes|Nie|Łączna ilość dostępnej pamięci w zarządzanym klastrze|Bajty|Średnia|Łączna ilość dostępnej pamięci w zarządzanym klastrze||
 |kube_node_status_condition|Nie|Stany różnych warunków węzła|Liczba|Średnia|Stany różnych warunków węzła|warunek, stan, status2, węzeł|
 |kube_pod_status_phase|Nie|Liczba etapów według fazy|Liczba|Średnia|Liczba etapów według fazy|faza, przestrzeń nazw, pod|
 |kube_pod_status_ready|Nie|Liczba zasobników w stanie gotowe|Liczba|Średnia|Liczba zasobników w stanie gotowe|Przestrzeń nazw, pod, warunek|
+|node_cpu_usage_millicores|Tak|Użycie procesora CPU Millicores|MilliCores|Średnia|Zagregowane pomiary użycia procesora CPU w millicores przez klaster|węzeł, nodepool|
+|node_cpu_usage_percentage|Tak|Procent użycia procesora CPU|Procent|Średnia|Zagregowane średnie użycie procesora CPU wyrażone w procentach w klastrze|węzeł, nodepool|
+|node_disk_usage_bytes|Tak|Zajęte bajty dysku|Bajty|Średnia|Miejsce na dysku używane w bajtach według urządzenia|Node, nodepool, urządzenie|
+|node_disk_usage_percentage|Tak|Procent użycia dysku|Procent|Średnia|Miejsce na dysku używane w procentach przez urządzenie|Node, nodepool, urządzenie|
+|node_memory_rss_bytes|Tak|Bajty RSS pamięci|Bajty|Średnia|Pamięć RSS kontenera użyta w bajtach|węzeł, nodepool|
+|node_memory_rss_percentage|Tak|Wartość procentowa RSS pamięci|Procent|Średnia|Pamięć RSS kontenera użyta w procentach|węzeł, nodepool|
+|node_memory_working_set_bytes|Tak|Bajty zestawu roboczego pamięci|Bajty|Średnia|Pamięć zestawu roboczego kontenera użyta w bajtach|węzeł, nodepool|
+|node_memory_working_set_percentage|Tak|Procent zestawu roboczego pamięci|Procent|Średnia|Pamięć zestawu roboczego kontenera użyta w procentach|węzeł, nodepool|
+|node_network_in_bytes|Tak|Sieć w bajtach|Bajty|Średnia|Bajty odebrane przez sieć|węzeł, nodepool|
+|node_network_out_bytes|Tak|Bajty wychodzące z sieci|Bajty|Średnia|Bajty przesłane w sieci|węzeł, nodepool|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
@@ -1199,6 +1209,20 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |txlogs_storage_used|Tak|Używany magazyn dziennika transakcji|Bajty|Średnia|Używany magazyn dziennika transakcji|Brak wymiarów|
 |write_iops|Tak|Zapisz operacje we/wy|Liczba|Średnia|Liczba operacji zapisu we/wy dysku danych na sekundę|Brak wymiarów|
 |write_throughput|Tak|Bajty przepustowości zapisu/s|Liczba|Średnia|Bajty zapisywane na sekundę na dysku z danymi w okresie monitorowania|Brak wymiarów|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft. DBForPostgreSQL/serverGroupsv2
+
+|Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
+|---|---|---|---|---|---|---|
+|active_connections|Tak|Aktywne połączenia|Liczba|Średnia|Aktywne połączenia|ServerName|
+|cpu_percent|Tak|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|ServerName|
+|Wejścia|Tak|Liczba operacji we/wy na sekundę|Liczba|Średnia|Operacje we/wy na sekundę|ServerName|
+|memory_percent|Tak|Procent pamięci|Procent|Średnia|Procent pamięci|ServerName|
+|network_bytes_egress|Tak|Sieć — wyjście|Bajty|Łącznie|Sieć poza aktywnymi połączeniami|ServerName|
+|network_bytes_ingress|Tak|Sieć — wejście|Bajty|Łącznie|Sieć w ramach aktywnych połączeń|ServerName|
+|storage_percent|Tak|Procent magazynu|Procent|Średnia|Procent magazynu|ServerName|
+|storage_used|Tak|Używany magazyn|Bajty|Średnia|Używany magazyn|ServerName|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft. DBforPostgreSQL/serwery
@@ -1444,6 +1468,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |CassandraTableUpdate|Nie|Zaktualizowano tabelę Cassandra|Liczba|Liczba|Zaktualizowano tabelę Cassandra|ResourceName, ChildResourceName, |
 |Konto|Tak|Utworzono konto|Liczba|Liczba|Utworzono konto|Brak wymiarów|
 |Datausage|Nie|Użycie danych|Bajty|Łącznie|Całkowite użycie danych zgłoszone z dokładnością do 5 minut|CollectionName, DatabaseName, region|
+|DedicatedGatewayRequests|Tak|DedicatedGatewayRequests|Liczba|Liczba|Żądania w dedykowanej bramie|DatabaseName, CollectionName, CacheExercised, OperationName, region|
 |DeleteAccount|Tak|Konto zostało usunięte|Liczba|Liczba|Konto zostało usunięte|Brak wymiarów|
 |DocumentCount|Nie|Liczba dokumentów|Liczba|Łącznie|Łączna liczba dokumentów raportowana z dokładnością do 5 minut|CollectionName, DatabaseName, region|
 |DocumentQuota|Nie|Przydział dokumentu|Bajty|Łącznie|Łączny przydział magazynu zgłoszony z dokładnością do 5 minut|CollectionName, DatabaseName, region|
@@ -1679,12 +1704,16 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |CategorizedGatewayRequests|Tak|Skategoryzowane żądania bramy|Liczba|Łącznie|Liczba żądań bramy według kategorii (1XX/2xx/3xx/4xx/5xx)|Wartości httpStatus|
 |GatewayRequests|Tak|Żądania bramy|Liczba|Łącznie|Liczba żądań bramy|Wartości httpStatus|
 |KafkaRestProxy.ConsumerRequest.m1_delta|Tak|RequestThroughput klienta serwera proxy REST|CountPerSecond|Łącznie|Liczba żądań klientów do serwera proxy REST Kafka|Maszyna, temat|
+|KafkaRestProxy.ConsumerRequestFail.m1_delta|Tak|Nieudane żądania klienta serwera proxy REST|CountPerSecond|Łącznie|Wyjątki żądań klientów|Maszyna, temat|
 |KafkaRestProxy.ConsumerRequestTime.p95|Tak|RequestLatency klienta serwera proxy REST|)|Średnia|Opóźnienie komunikatów w żądaniu odbiorcy za pomocą serwera proxy REST Kafka|Maszyna, temat|
+|KafkaRestProxy.ConsumerRequestWaitingInQueueTime.p95|Tak|Zaległość żądania klienta serwera proxy REST|)|Średnia|Długość kolejki serwera proxy REST klienta|Maszyna, temat|
 |KafkaRestProxy.MessagesIn.m1_delta|Tak|MessageThroughput producenta serwera proxy REST|CountPerSecond|Łącznie|Liczba komunikatów produkcyjnych za poorednictwem serwera proxy REST Kafka|Maszyna, temat|
 |KafkaRestProxy.MessagesOut.m1_delta|Tak|MessageThroughput klienta serwera proxy REST|CountPerSecond|Łącznie|Liczba komunikatów konsumenckich za poorednictwem serwera proxy REST Kafka|Maszyna, temat|
 |KafkaRestProxy.OpenConnections|Tak|ConcurrentConnections serwera proxy REST|Liczba|Łącznie|Liczba równoczesnych połączeń za poorednictwem serwera proxy REST Kafka|Maszyna, temat|
 |KafkaRestProxy.ProducerRequest.m1_delta|Tak|RequestThroughput producenta serwera proxy REST|CountPerSecond|Łącznie|Liczba żądań producentów do serwera proxy REST Kafka|Maszyna, temat|
+|KafkaRestProxy.ProducerRequestFail.m1_delta|Tak|Żądania niepowodzeń producenta serwera proxy REST|CountPerSecond|Łącznie|Wyjątki żądań producentów|Maszyna, temat|
 |KafkaRestProxy.ProducerRequestTime.p95|Tak|RequestLatency producenta serwera proxy REST|)|Średnia|Opóźnienie komunikatów w żądaniu producenta za pomocą serwera proxy REST Kafka|Maszyna, temat|
+|KafkaRestProxy.ProducerRequestWaitingInQueueTime.p95|Tak|Zaległość żądania producenta serwera proxy REST|)|Średnia|Długość kolejki serwera proxy REST producenta|Maszyna, temat|
 |NumActiveWorkers|Tak|Liczba aktywnych procesów roboczych|Liczba|Maksimum|Liczba aktywnych procesów roboczych|MetricName|
 
 
@@ -1790,18 +1819,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |DataExport. messages. filters|Tak|Przefiltrowane komunikaty eksportu danych|Liczba|Łącznie|Liczba komunikatów, które przechodzą przez filtry podczas eksportowania danych|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |DataExport. messages. Receives|Tak|Odebrane komunikaty eksportu danych|Liczba|Łącznie|Liczba komunikatów przychodzących do eksportu danych przed filtrowaniem i przetwarzaniem wzbogacenia|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |DataExport. messages. Zapisano|Tak|Zapisano komunikaty eksportu danych|Liczba|Łącznie|Liczba komunikatów zapisywana w miejscu docelowym|exportId, exportDisplayName, destinationId, destinationDisplayName|
-
-
-## <a name="microsoftiotspacesgraph"></a>Microsoft. IoTSpaces/Graph
-
-|Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
-|---|---|---|---|---|---|---|
-|ApiLatency|Nie|ApiLatency|6|0|Mierzy opóźnienie żądań interfejsu API wykonanych w elemencie Microsoft. IoTSpaces w milisekundach|Brak wymiarów|
-|FunctionExecutionLatency|Nie|FunctionExecutionLatency|6|0|Mierzy opóźnienie wykonywania funkcji zdefiniowanej przez użytkownika w milisekundach dla Microsoft. IoTSpaces|Brak wymiarów|
-|MessageEgressFailure|Nie|MessageEgressFailure|2|3|Wyszukuje zlokalizowany ciąg podobny do przedstawionego dla miary liczba błędnych zdarzeń w liczbie dla Microsoft. IoTSpaces|Brak wymiarów|
-|MessageEgressLatency|Nie|MessageEgressLatency|6|0|Mierzy opóźnienie od dyspozytora do innych punktów końcowych w milisekundach dla Microsoft. IoTSpaces|Brak wymiarów|
-|MessageEgressSuccess|Nie|MessageEgressSuccess|2|3|Wyszukuje zlokalizowany ciąg podobny do przedstawionego w polu Liczba zakończonych zdarzeń zliczania dla elementu Microsoft. IoTSpaces|Brak wymiarów|
-|ProcessingLatency|Nie|ProcessingLatency|6|0|Mierzy opóźnienie od komunikatu przekazanego do wysłanego zdarzenia w milisekundach dla Microsoft. IoTSpaces|Brak wymiarów|
 
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>Microsoft./Magazyn kluczy/managedhsms
@@ -2021,6 +2038,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |ContentKeyPolicyCount|Tak|Liczba zasad dotyczących kluczy zawartości|Liczba|Średnia|Ile zasad kluczy zawartości zostało już utworzonych na bieżącym koncie usługi multimediów|Brak wymiarów|
 |ContentKeyPolicyQuota|Tak|Przydział zasad dotyczących kluczy zawartości|Liczba|Średnia|Ile zasad kluczy zawartości jest dozwolonych dla bieżącego konta usługi multimediów|Brak wymiarów|
 |ContentKeyPolicyQuotaUsedPercentage|Tak|Procent użycia przydziału zasad klucza zawartości|Procent|Średnia|Procent użycia zasad klucza zawartości w bieżącym koncie usługi multimediów|Brak wymiarów|
+|MaxChannelsAndLiveEventsCount|Tak|Maksymalny przydział zdarzeń na żywo|Liczba|Maksimum|Maksymalna liczba zdarzeń na żywo dozwolonych na bieżącym koncie usługi Media Services|Brak wymiarów|
+|MaxRunningChannelsAndLiveEventsCount|Tak|Maksymalny limit przydziału zdarzeń na żywo|Liczba|Maksimum|Maksymalna liczba uruchomionych zdarzeń na żywo dozwolonych na bieżącym koncie usługi Media Services|Brak wymiarów|
 |RunningChannelsAndLiveEventsCount|Tak|Liczba uruchomionych zdarzeń na żywo|Liczba|Średnia|Łączna liczba uruchomionych zdarzeń na żywo w bieżącym koncie usługi Media Services|Brak wymiarów|
 |StreamingPolicyCount|Tak|Liczba zasad przesyłania strumieniowego|Liczba|Średnia|Ile zasad przesyłania strumieniowego zostało już utworzonych na bieżącym koncie usługi multimediów|Brak wymiarów|
 |StreamingPolicyQuota|Tak|Limit przydziału zasad przesyłania strumieniowego|Liczba|Średnia|Ile zasad przesyłania strumieniowego jest dozwolonych dla bieżącego konta usługi multimediów|Brak wymiarów|
@@ -2041,9 +2060,9 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Procesor CPU|Tak|Użycie procesora|Procent|Średnia|Użycie procesora dla punktów końcowych przesyłania strumieniowego w warstwie Premium. Te dane nie są dostępne dla standardowych punktów końcowych przesyłania strumieniowego.|VmId|
+|Procesor CPU|Tak|Użycie procesora|Procent|Średnia|Użycie procesora dla punktów końcowych przesyłania strumieniowego w warstwie Premium. Te dane nie są dostępne dla standardowych punktów końcowych przesyłania strumieniowego.|Brak wymiarów|
 |Ruch wychodzący|Tak|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach.|OutputFormat|
-|EgressBandwidth|Nie|Przepustowość ruchu wychodzącego|BitsPerSecond|Średnia|Przepustowość w bitach na sekundę.|VmId|
+|EgressBandwidth|Nie|Przepustowość ruchu wychodzącego|BitsPerSecond|Średnia|Przepustowość w bitach na sekundę.|Brak wymiarów|
 |Żądania|Tak|Żądania|Liczba|Łącznie|Żądania do punktu końcowego przesyłania strumieniowego.|OutputFormat, HttpStatusCode, ErrorCode|
 |SuccessE2ELatency|Tak|Pomyślne zakończenie oczekiwania|)|Średnia|Średnie opóźnienie dla pomyślnych żądań w milisekundach.|OutputFormat|
 
@@ -2086,7 +2105,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |---|---|---|---|---|---|---|
 |AverageReadLatency|Tak|Średnie opóźnienie odczytu|)|Średnia|Średnie opóźnienie odczytu w milisekundach na operację|Brak wymiarów|
 |AverageWriteLatency|Tak|Średnie opóźnienie zapisu|)|Średnia|Średnie opóźnienie zapisu w milisekundach na operację|Brak wymiarów|
-|CbsVolumeBackupActive|Tak|Czy kopia zapasowa woluminu została wstrzymana|Liczba|Średnia|Czy zasady tworzenia kopii zapasowej są zawieszone dla woluminu? 1 Jeśli tak, 0 Jeśli nie.|Brak wymiarów|
+|CbsVolumeBackupActive|Tak|Czy kopia zapasowa woluminu została wstrzymana|Liczba|Średnia|Czy zasady tworzenia kopii zapasowej są zawieszone dla woluminu? 0, jeśli tak, 1, jeśli nie.|Brak wymiarów|
 |CbsVolumeLogicalBackupBytes|Tak|Bajty kopii zapasowej woluminu|Bajty|Średnia|Łączna liczba bajtów, których kopia zapasowa jest wykonywana dla tego woluminu.|Brak wymiarów|
 |CbsVolumeOperationComplete|Tak|Ukończono operację tworzenia kopii zapasowej woluminu|Liczba|Średnia|Czy Ostatnia operacja tworzenia kopii zapasowej woluminu lub przywracania została ukończona pomyślnie? 1 Jeśli tak, 0 Jeśli nie.|Brak wymiarów|
 |CbsVolumeOperationTransferredBytes|Tak|Bajty ostatniego transferu kopii zapasowej woluminu|Bajty|Średnia|Łączna liczba bajtów przesłanych dla ostatniej operacji tworzenia kopii zapasowej lub przywracania.|Brak wymiarów|
@@ -2154,6 +2173,17 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Przepływność|Nie|Przepływność|BitsPerSecond|Średnia|Przepływność przetwarzana przez tę zaporę|Brak wymiarów|
 
 
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionHosts
+
+|Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
+|---|---|---|---|---|---|---|
+|pingmesh|Nie|Stan komunikacji bastionu|Liczba|Średnia|Stan komunikacji pokazuje 1, jeśli cała komunikacja jest dobra i 0, jeśli jej wartość jest nieprawidłowa.||
+|sesje|Nie|Liczba sesji|Liczba|Łącznie|Liczba sesji dla bastionu. Wyświetl w obszarze sum i na wystąpienie.|host|
+|suma|Tak|Całkowita ilość pamięci|Liczba|Średnia|Łączna Statystyka pamięci.|host|
+|usage_user|Nie|Używany procesor CPU|Liczba|Średnia|Statystyka użycia procesora CPU.|procesor CPU, Host|
+|protokoły|Tak|Użyta pamięć|Liczba|Średnia|Statystyka użycia pamięci.|host|
+
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft. Network/Connections
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
@@ -2201,10 +2231,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |ErGatewayConnectionBitsOutPerSecond|Nie|BitsOutPerSecond|BitsPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|ConnectionName|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Tak|Liczba tras anonsowanych do elementu równorzędnego (wersja zapoznawcza)|Liczba|Maksimum|Liczba tras anonsowanych do elementu równorzędnego przez ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Tak|Liczba tras poznania z elementu równorzędnego (wersja zapoznawcza)|Liczba|Maksimum|Liczba tras uzyskiwanych z elementu równorzędnego przez ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Tak|Użycie procesora CPU (wersja zapoznawcza)|Liczba|Średnia|Użycie procesora CPU przez bramę ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Tak|Wykorzystanie procesora|Liczba|Średnia|Użycie procesora CPU przez bramę ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|Nie|Częstotliwość zmian tras (wersja zapoznawcza)|Liczba|Łącznie|Częstotliwość zmian tras w bramie ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|Nie|Liczba maszyn wirtualnych w Virtual Network (wersja zapoznawcza)|Liczba|Maksimum|Liczba maszyn wirtualnych w Virtual Network|Brak wymiarów|
-|ExpressRouteGatewayPacketsPerSecond|Nie|Pakiety na sekundę (wersja zapoznawcza)|CountPerSecond|Średnia|Liczba pakietów bramy ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|Nie|Liczba pakietów na sekundę|CountPerSecond|Średnia|Liczba pakietów bramy ExpressRoute|roleInstance|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft. Network/expressRoutePorts
@@ -2366,10 +2396,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |AverageBandwidth|Tak|Przepustowość S2S bramy|BytesPerSecond|Średnia|Średnia przepustowość lokacja-lokacja bramy w bajtach na sekundę|Brak wymiarów|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Tak|Liczba tras anonsowanych do elementu równorzędnego (wersja zapoznawcza)|Liczba|Maksimum|Liczba tras anonsowanych do elementu równorzędnego przez ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Tak|Liczba tras poznania z elementu równorzędnego (wersja zapoznawcza)|Liczba|Maksimum|Liczba tras uzyskiwanych z elementu równorzędnego przez ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Tak|Użycie procesora CPU (wersja zapoznawcza)|Liczba|Średnia|Użycie procesora CPU przez bramę ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Tak|Wykorzystanie procesora|Liczba|Średnia|Użycie procesora CPU przez bramę ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|Nie|Częstotliwość zmian tras (wersja zapoznawcza)|Liczba|Łącznie|Częstotliwość zmian tras w bramie ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|Nie|Liczba maszyn wirtualnych w Virtual Network (wersja zapoznawcza)|Liczba|Maksimum|Liczba maszyn wirtualnych w Virtual Network|Brak wymiarów|
-|ExpressRouteGatewayPacketsPerSecond|Nie|Pakiety na sekundę (wersja zapoznawcza)|CountPerSecond|Średnia|Liczba pakietów bramy ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|Nie|Liczba pakietów na sekundę|CountPerSecond|Średnia|Liczba pakietów bramy ExpressRoute|roleInstance|
 |P2SBandwidth|Tak|Przepustowość P2S bramy|BytesPerSecond|Średnia|Średnia przepustowość typu punkt-lokacja bramy w bajtach na sekundę|Brak wymiarów|
 |P2SConnectionCount|Tak|Liczba połączeń typu P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protokół|
 |TunnelAverageBandwidth|Tak|Przepustowość tunelu|BytesPerSecond|Średnia|Średnia przepustowość tunelu w bajtach na sekundę|ConnectionName, RemoteIP|
@@ -2379,6 +2409,13 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |TunnelIngressBytes|Tak|Liczba bajtów ruchu przychodzącego dla tunelu|Bajty|Łącznie|Liczba bajtów przychodzących tunelu|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Tak|Porzucone pakiety ruchu przychodzącego tunelu z powodu niezgodności TS|Liczba|Łącznie|Liczba porzuconych pakietów przychodzących z powodu niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Tak|Pakiety przychodzące tunelu|Liczba|Łącznie|Liczba pakietów przychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelNatAllocations|Nie|Tunelowanie alokacji NAT|Liczba|Łącznie|Liczba alokacji dla reguły NAT w tunelu|— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelNatedBytes|Nie|Bajty w tunelie|Bajty|Łącznie|Liczba bajtów, które były używane w tunelu przez regułę NAT |— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelNatedPackets|Nie|Pakiety w tunelach|Liczba|Łącznie|Liczba pakietów, które były używane w tunelu przez regułę NAT|— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelNatFlowCount|Nie|Tunelowanie przepływów NAT|Liczba|Łącznie|Liczba przepływów NAT na tunelu według typu przepływu i reguły NAT|— Obiekt natrule, ConnectionName, RemoteIP, Flowtype|
+|TunnelNatPacketDrop|Nie|Pakiet NAT tunelu spadnie|Liczba|Łącznie|Liczba pakietów z pakietem w tunelu porzuconych przez typ drop i regułę NAT|— Obiekt natrule, ConnectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|Nie|Odwróć bajty w tunelu|Bajty|Łącznie|Liczba bajtów, które zostały odtworzone w tunelu przez regułę NAT|— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelReverseNatedPackets|Nie|Tunele odwrotne pakiety|Liczba|Łącznie|Liczba pakietów w tunelu, które zostały wycofane z reguły NAT|— Obiekt natrule, ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft. Network/virtualNetworks
@@ -2408,6 +2445,13 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |TunnelIngressBytes|Tak|Liczba bajtów ruchu przychodzącego dla tunelu|Bajty|Łącznie|Liczba bajtów przychodzących tunelu|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Tak|Porzucone pakiety ruchu przychodzącego tunelu z powodu niezgodności TS|Liczba|Łącznie|Liczba porzuconych pakietów przychodzących z powodu niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Tak|Pakiety przychodzące tunelu|Liczba|Łącznie|Liczba pakietów przychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelNatAllocations|Nie|Tunelowanie alokacji NAT|Liczba|Łącznie|Liczba alokacji dla reguły NAT w tunelu|— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelNatedBytes|Nie|Bajty w tunelie|Bajty|Łącznie|Liczba bajtów, które były używane w tunelu przez regułę NAT |— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelNatedPackets|Nie|Pakiety w tunelach|Liczba|Łącznie|Liczba pakietów, które były używane w tunelu przez regułę NAT|— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelNatFlowCount|Nie|Tunelowanie przepływów NAT|Liczba|Łącznie|Liczba przepływów NAT na tunelu według typu przepływu i reguły NAT|— Obiekt natrule, ConnectionName, RemoteIP, Flowtype|
+|TunnelNatPacketDrop|Nie|Pakiet NAT tunelu spadnie|Liczba|Łącznie|Liczba pakietów z pakietem w tunelu porzuconych przez typ drop i regułę NAT|— Obiekt natrule, ConnectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|Nie|Odwróć bajty w tunelu|Bajty|Łącznie|Liczba bajtów, które zostały odtworzone w tunelu przez regułę NAT|— Obiekt natrule, ConnectionName, RemoteIP|
+|TunnelReverseNatedPackets|Nie|Tunele odwrotne pakiety|Liczba|Łącznie|Liczba pakietów w tunelu, które zostały wycofane z reguły NAT|— Obiekt natrule, ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft. NotificationHubs/przestrzenie nazw/NotificationHubs
@@ -2574,16 +2618,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |QueryPoolJobQueueLength|Tak|Długość kolejki zadań puli zapytań (zbiory danych) (Gen1)|Liczba|Średnia|Liczba zadań w kolejce puli wątków zapytań. Obsługiwane tylko w przypadku zasobów Power BI Embedded generacji 1.|Brak wymiarów|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft. ProjectBabylon/konta
-
-|Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
-|---|---|---|---|---|---|---|
-|ScanCancelled|Tak|Anulowano skanowanie|Liczba|Łącznie|Wskazuje liczbę anulowanych skanów.|ResourceId|
-|ScanCompleted|Tak|Ukończono skanowanie|Liczba|Łącznie|Wskazuje, ile skanów zostało ukończonych pomyślnie.|ResourceId|
-|ScanFailed|Tak|Skanowanie nie powiodło się|Liczba|Łącznie|Wskazuje liczbę operacji skanowania zakończonych niepowodzeniem.|ResourceId|
-|ScanTimeTaken|Tak|Czas skanowania|Sekundy|Łącznie|Wskazuje łączny czas (w sekundach) skanowania.|ResourceId|
-
-
 ## <a name="microsoftpurviewaccounts"></a>Microsoft. kontrolą/konta
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
@@ -2682,6 +2716,15 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |OutboundTraffic|Tak|Ruch wychodzący|Bajty|Łącznie|Ruch wychodzący usługi|Brak wymiarów|
 |SystemErrors|Tak|Błędy systemu|Procent|Maksimum|Procent błędów systemu|Brak wymiarów|
 |Błędy usererrors|Tak|Błędy użytkownika|Procent|Maksimum|Procent błędów użytkownika|Brak wymiarów|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft. SignalRService/WebPubSub
+
+|Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
+|---|---|---|---|---|---|---|
+|ConnectionCount|Tak|Liczba połączeń|Liczba|Maksimum|Ilość połączenia użytkownika.|Brak wymiarów|
+|InboundTraffic|Tak|Ruch przychodzący|Bajty|Łącznie|Ruch przychodzący usługi|Brak wymiarów|
+|OutboundTraffic|Tak|Ruch wychodzący|Bajty|Łącznie|Ruch wychodzący usługi|Brak wymiarów|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
@@ -2902,6 +2945,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |---|---|---|---|---|---|---|
 |ServerSyncSessionResult|Tak|Wynik synchronizacji sesji|Liczba|Średnia|Metryka, która rejestruje wartość 1 za każdym razem, gdy punkt końcowy serwera pomyślnie ukończy sesję synchronizacji z punktem końcowym w chmurze|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncBatchTransferredFileBytes|Tak|Zsynchronizowane bajty|Bajty|Łącznie|Łączny rozmiar pliku transferowanego dla sesji synchronizacji|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncRecallComputedSuccessRate|Tak|Częstotliwość powodzeń odwoływania się do warstw w chmurze|Procent|Średnia|Procent wszystkich operacji odwoływania zakończonych powodzeniem|SyncGroupName, ServerName|
 |StorageSyncRecalledNetworkBytesByApplication|Tak|Rozmiar odwołania do warstw w chmurze według aplikacji|Bajty|Łącznie|Rozmiar danych, które zostały wywołane przez aplikację|SyncGroupName, ServerName, ApplicationName|
 |StorageSyncRecalledTotalNetworkBytes|Tak|Rozmiar odwołania do warstw w chmurze|Bajty|Łącznie|Rozmiar danych, które zostały odwołane|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Tak|Odwołanie do warstw w chmurze|Bajty|Łącznie|Łączny rozmiar danych, które zostały wywołane przez serwer|ServerName|
@@ -2956,6 +3000,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |LateInputEvents|Tak|Opóźnione zdarzenia wejściowe|Liczba|Łącznie|Opóźnione zdarzenia wejściowe|Logicznaname, PartitionId|
 |OutputEvents|Tak|Zdarzenia wyjściowe|Liczba|Łącznie|Zdarzenia wyjściowe|Logicznaname, PartitionId|
 |OutputWatermarkDelaySeconds|Tak|Opóźnienie znaku wodnego|Sekundy|Maksimum|Opóźnienie znaku wodnego|Logicznaname, PartitionId|
+|ProcessCPUUsagePercentage|Tak|Użycie procesora CPU (%) (wersja zapoznawcza)|Procent|Maksimum|Użycie procesora CPU (%) (wersja zapoznawcza)|Logicznaname, PartitionId|
 |ResourceUtilization|Tak|Użycie SU%|Procent|Maksimum|Użycie SU%|Logicznaname, PartitionId|
 
 
@@ -3136,7 +3181,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |AverageResponseTime|Tak|Średni czas odpowiedzi (przestarzałe)|Sekundy|Średnia|Średni czas, w którym aplikacja będzie obsługiwała żądania (w sekundach).|Wystąpienie|
 |BytesReceived|Tak|Dane w|Bajty|Łącznie|Ilość przychodzącej przepustowości zużywanej przez aplikację w usłudze MiB.|Wystąpienie|
 |BytesSent|Tak|Dane wychodzące|Bajty|Łącznie|Ilość wychodzącej przepustowości zużywanej przez aplikację w usłudze MiB.|Wystąpienie|
-|CpuTime|Tak|Czas procesora CPU|Sekundy|Łącznie|Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki. Zobacz https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (czas procesora CPU a procent procesora). Nie ma zastosowania do Azure Functions.|Wystąpienie|
+|CpuTime|Tak|Czas procesora CPU|Sekundy|Łącznie|Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki. Nie ma zastosowania do Azure Functions. Zobacz https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (czas procesora CPU a procent procesora).|Wystąpienie|
 |CurrentAssemblies|Tak|Bieżące zestawy|Liczba|Średnia|Bieżąca liczba zestawów załadowanych we wszystkich domenach aplikacji.|Wystąpienie|
 |FileSystemUsage|Tak|Użycie systemu plików|Bajty|Średnia|Procent przydziału systemu plików zużywany przez aplikację.|Brak wymiarów|
 |FunctionExecutionCount|Tak|Liczba wykonań funkcji|Liczba|Łącznie|Licznik wykonywania funkcji. Obecne tylko dla Azure Functions.|Wystąpienie|
@@ -3180,7 +3225,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |AverageResponseTime|Tak|Średni czas odpowiedzi (przestarzałe)|Sekundy|Średnia|Średni czas, w którym aplikacja będzie obsługiwała żądania (w sekundach).|Wystąpienie|
 |BytesReceived|Tak|Dane w|Bajty|Łącznie|Ilość przychodzącej przepustowości zużywanej przez aplikację w usłudze MiB.|Wystąpienie|
 |BytesSent|Tak|Dane wychodzące|Bajty|Łącznie|Ilość wychodzącej przepustowości zużywanej przez aplikację w usłudze MiB.|Wystąpienie|
-|CpuTime|Tak|Czas procesora CPU|Sekundy|Łącznie|Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki. Zobacz https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (czas procesora CPU a procent procesora).|Wystąpienie|
+|CpuTime|Tak|Czas procesora CPU|Sekundy|Łącznie|Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki. Nie ma zastosowania do Azure Functions. Zobacz https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (czas procesora CPU a procent procesora).|Wystąpienie|
 |CurrentAssemblies|Tak|Bieżące zestawy|Liczba|Średnia|Bieżąca liczba zestawów załadowanych we wszystkich domenach aplikacji.|Wystąpienie|
 |FileSystemUsage|Tak|Użycie systemu plików|Bajty|Średnia|Procent przydziału systemu plików zużywany przez aplikację.|Brak wymiarów|
 |FunctionExecutionCount|Tak|Liczba wykonań funkcji|Liczba|Łącznie|Liczba wykonań funkcji|Wystąpienie|
@@ -3224,7 +3269,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |FunctionHits|Tak|FunctionHits|Liczba|Łącznie|FunctionHits|Wystąpienie|
 |SiteErrors|Tak|SiteErrors|Liczba|Łącznie|SiteErrors|Wystąpienie|
 |SiteHits|Tak|SiteHits|Liczba|Łącznie|SiteHits|Wystąpienie|
-
 
 ## <a name="next-steps"></a>Następne kroki
 

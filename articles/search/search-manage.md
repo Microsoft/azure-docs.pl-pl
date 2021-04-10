@@ -8,13 +8,13 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/24/2020
-ms.openlocfilehash: 814a5afbde548891a30d941365cdd71d227b4767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 98e0137c8e48696737cd5d8d1fd4d3de925b9f7f
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674403"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579792"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -27,123 +27,60 @@ ms.locfileid: "101674403"
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Wyszukiwanie poznawcze to w pełni zarządzana usługa wyszukiwania oparta na chmurze służąca do tworzenia bogatego środowiska wyszukiwania w aplikacjach niestandardowych. W tym artykule omówiono zadania administracyjne usługi, które można wykonać w [Azure Portal](https://portal.azure.com) dla usługi wyszukiwania, która została już zainicjowana. Administrowanie usługami jest lekkie przez projektowanie, ograniczone do następujących zadań:
+Azure Wyszukiwanie poznawcze to w pełni zarządzana usługa wyszukiwania oparta na chmurze służąca do tworzenia bogatego środowiska wyszukiwania w aplikacjach niestandardowych. W tym artykule opisano zadania administracyjne, które można wykonać w [Azure Portal](https://portal.azure.com) dla usługi wyszukiwania, która została już utworzona. Portal umożliwia wykonywanie wszystkich [zadań zarządzania](#management-tasks) związanych z usługą, a także zarządzanie zawartością i eksplorację. W związku z tym Portal zapewnia szeroki dostęp do wszystkich aspektów operacji usługi wyszukiwania.
 
-* Sprawdź magazyn przy użyciu linku **użycie** na średnim poziomie strony.
-* Sprawdź woluminy zapytań i czas oczekiwania przy użyciu linku **monitorowania** średniej strony i czy żądania zostały ograniczone.
-* Zarządzanie dostępem przy użyciu strony **klucze** po lewej stronie.
-* Dostosuj pojemność przy użyciu strony **skalowanie** po lewej stronie.
+Każda usługa wyszukiwania jest zarządzana jako zasób autonomiczny. Na poniższej ilustracji przedstawiono strony portalu dla pojedynczej bezpłatnej usługi wyszukiwania o nazwie "Demonstracja-Search-svc". Mimo że można korzystać z usługi Azure PowerShell lub interfejsu wiersza polecenia platformy Azure do zarządzania usługami, warto zapoznać się z narzędziami i funkcjami udostępnianymi przez strony portalu. Niektóre zadania są znacznie łatwiejsze i szybsze do wykonania w portalu niż za pomocą kodu. 
 
-Te same zadania wykonywane w portalu mogą być również obsługiwane programowo za pomocą [interfejsów API zarządzania](/rest/api/searchmanagement/) i polecenia [AZ. Search programu PowerShell](search-manage-powershell.md). Zadania administracyjne są w pełni reprezentowane przez portal i Interfejsy programistyczne. Nie ma żadnych określonych zadań administracyjnych, które są dostępne tylko w jednym elemencie modalnym.
+## <a name="overview-home-page"></a>Strona przeglądu (Strona główna)
 
-Usługa Azure Wyszukiwanie poznawcze wykorzystuje inne usługi platformy Azure w celu lepszego monitorowania i zarządzania. Same dane przechowywane w usłudze wyszukiwania to zawartość (indeksy, indeksator i definicje źródeł danych oraz inne obiekty). Metryki zgłoszone do stron portalu są pobierane z dzienników wewnętrznych w ramach 30-dniowego cyklu. W przypadku przechowywania dzienników sterowanych przez użytkownika i zdarzeń dodatkowych konieczne będzie [Azure monitor](../azure-monitor/index.yml). 
+Strona przegląd jest stroną "Strona główna" każdej usługi. Poniżej znajdują się obszary na ekranie ujęte w czerwone pola wskazują zadania, narzędzia i kafelki, które mogą być często używane, zwłaszcza jeśli dopiero zaczynasz korzystać z usługi.
 
-## <a name="fixed-service-properties"></a>Właściwości stałej usługi
+:::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Strony portalu dla usługi wyszukiwania" border="true":::
 
-Niektóre aspekty usługi wyszukiwania są określane podczas aprowizacji usługi i nie można ich zmienić później:
+| Obszar | Opis |
+|------|-------------|
+| 1  | Sekcja **podstawowe** informacje zawiera właściwości usługi, w tym punkt końcowy używany podczas konfigurowania połączeń. Pokazuje także, jak również warstwy, repliki i liczby partycji. |
+| 2 | W górnej części strony znajdują się serie poleceń służących do wywoływania interaktywnych narzędzi lub zarządzania usługą. Zarówno [Importowanie danych](search-get-started-portal.md) , jak i [Eksplorator wyszukiwania](search-explorer.md) są często używane do tworzenia prototypów i eksploracji. |
+| 3 | Poniżej sekcji **podstawowe** jest seria podstron z kartami umożliwiająca szybki dostęp do statystyk użycia, metryki kondycji usług oraz dostęp do wszystkich istniejących indeksów, indeksatorów, źródeł danych i umiejętności w usłudze. W przypadku wybrania indeksu lub innego obiektu stają się dostępne dodatkowe strony umożliwiające wyświetlenie kompozycji, ustawień i stanu obiektu (jeśli dotyczy). |
+| 4 | Po lewej stronie możesz uzyskać dostęp do linków umożliwiających otwieranie dodatkowych stron na potrzeby uzyskiwania dostępu do kluczy interfejsu API używanych w połączeniach, konfigurowania usługi, konfigurowania zabezpieczeń, operacji monitorowania, automatyzowania zadań i uzyskiwania pomocy technicznej. |
 
-* Nazwa usługi (nie można zmienić nazwy usługi)
-* Lokalizacja usługi (obecnie nie można przenieść nienaruszonej usługi do innego regionu)
-* Maksymalna liczba replik i partycji (określona przez warstwę, podstawowa lub standardowa)
+### <a name="read-only-service-properties"></a>Właściwości usługi tylko do odczytu
 
-Jeśli zaczniesz od warstwy Podstawowa z maksymalną jedną partycją i potrzebujesz więcej partycji, musisz [utworzyć nową usługę](search-create-service-portal.md) w wyższej warstwie i ponownie utworzyć zawartość w nowej usłudze. 
+Niektóre aspekty usługi wyszukiwania są określane podczas aprowizacji usługi i nie można jej zmienić:
 
-## <a name="administrator-rights"></a>Prawa administratora
+* Nazwa usługi (nie można zmienić nazwy usługi wyszukiwania)
+* Lokalizacja usługi (nie można łatwo przenieść nienaruszonej usługi wyszukiwania do innego regionu. Chociaż istnieje szablon, przeniesienie zawartości jest procesem ręcznym)
+* Warstwa usług (nie można przełączyć z S1 na S2, na przykład bez tworzenia nowej usługi)
 
-Inicjowanie obsługi administracyjnej lub likwidowanie samej usługi może odbywać się przez administratora subskrypcji platformy Azure lub współadministratora.
+## <a name="management-tasks"></a>Zadania zarządzania
 
-W przypadku dostępu do punktu końcowego każda osoba mająca dostęp do adresu URL usługi i klucza API-Key ma dostęp do zawartości. Aby uzyskać więcej informacji na temat kluczy, zobacz [Zarządzanie kluczami API-Keys](search-security-api-keys.md).
+Administracja usługi jest lekkim projektem i często jest definiowana przez zadania, które można wykonywać względem samej usługi:
 
-* Dostęp tylko do odczytu do usługi to prawa do zapytania, zwykle przyznawane aplikacji klienckiej przez nadanie jej adresu URL i klucza zapytania API-Key.
-* Uprawnienia do odczytu i zapisu umożliwiają dodawanie, usuwanie i modyfikowanie obiektów serwera, w tym kluczy API, indeksów, indeksatorów, źródeł danych i harmonogramów. Dostęp do odczytu i zapisu jest przyznawany przez podanie adresu URL, klucza interfejsu API administratora.
+* [Dostosuj pojemność](search-capacity-planning.md) przez dodanie lub usunięcie replik i partycji
+* [Zarządzanie kluczami interfejsu API](search-security-api-keys.md) używanymi na potrzeby operacji administratorów i zapytań
+* [Kontrola dostępu do operacji administracyjnych](search-security-rbac.md) za pośrednictwem zabezpieczeń opartych na rolach
+* [Konfigurowanie reguł zapory adresów IP](service-configure-firewall.md) w celu ograniczenia dostępu przy użyciu adresu IP
+* [Skonfiguruj prywatny punkt końcowy](service-create-private-endpoint.md) przy użyciu prywatnego linku platformy Azure i prywatnej sieci wirtualnej
+* [Monitorowanie kondycji usługi](search-monitor-usage.md): Magazyn, woluminy zapytań i czas oczekiwania
 
-Prawa do aparatu aprowizacji usług są udzielane za pomocą przypisań ról. [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. 
+Można również wyliczyć wszystkie obiekty utworzone w usłudze: indeksy, indeksatory, źródła danych, umiejętności i tak dalej. Na stronie Przegląd w portalu jest wyświetlana cała zawartość, która istnieje w usłudze. Większość operacji w usłudze wyszukiwania jest związanych z zawartością.
 
-W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról platformy Azure](search-security-rbac.md) określają, kto może wykonywać zadania, bez względu na to, czy korzystają z [portalu](search-manage.md), [programu POWERSHELL](search-manage-powershell.md), czy [interfejsów API REST zarządzania](/rest/api/searchmanagement/search-howto-management-rest-api):
+Te same zadania zarządzania wykonywane w portalu mogą być również obsługiwane programowo za pomocą [interfejsów API REST zarządzania](/rest/api/searchmanagement/), [AZ. Search module PowerShell](search-manage-powershell.md), [AZ Search module interfejsu wiersza polecenia platformy Azure](search-manage-azure-cli.md)i zestawów Azure SDK dla platformy .NET, Python, Java i JavaScript. Zadania administracyjne są w pełni reprezentowane przez portal i wszystkie interfejsy programistyczne. Nie ma żadnych określonych zadań administracyjnych, które są dostępne tylko w jednym elemencie modalnym.
 
-* Tworzenie lub usuwanie usługi
-* Skalowanie usługi
-* Usuwanie lub ponowne generowanie kluczy interfejsu API
-* Włącz rejestrowanie diagnostyczne (Utwórz usługi)
-* Włączanie analizy ruchu (tworzenie usług)
+Wyszukiwanie poznawcze wykorzystuje inne usługi platformy Azure w celu lepszego monitorowania i zarządzania. Same dane przechowywane w usłudze wyszukiwania to zawartość obiektów (indeksy, indeksator i definicje źródeł danych oraz inne obiekty). Metryki zgłoszone do stron portalu są pobierane z dzienników wewnętrznych w ramach 30-dniowego cyklu. W przypadku przechowywania dzienników sterowanych przez użytkownika i zdarzeń dodatkowych konieczne będzie [Azure monitor](../azure-monitor/index.yml). Aby uzyskać więcej informacji o konfigurowaniu rejestrowania diagnostycznego dla usługi wyszukiwania, zobacz [zbieranie i analizowanie danych dziennika](search-monitor-logs.md).
+
+## <a name="administrator-permissions"></a>Uprawnienia administratora
+
+Po otwarciu strony Przegląd usługi wyszukiwania uprawnienia przypisane do konta określają, które strony są dostępne dla użytkownika. Na stronie Przegląd na początku artykułu są wyświetlane strony portalu, które będą widoczne dla administratora lub współautora.
+
+W obszarze zasób platformy Azure prawa administracyjne są udzielane za pomocą przypisań ról. W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról](search-security-rbac.md) określają, kto może przydzielić repliki i partycje lub zarządzać kluczami interfejsu API, niezależnie od tego, czy korzystają z portalu, [programu PowerShell](search-manage-powershell.md), [interfejsu wiersza polecenia platformy Azure](search-manage-azure-cli.md), czy też [interfejsów API REST zarządzania](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 > [!TIP]
-> Korzystając z mechanizmów opartych na platformie Azure, można zablokować subskrypcję lub zasób, aby zapobiec przypadkowemu lub nieautoryzowanemu usunięciu usługi wyszukiwania przez użytkowników z uprawnieniami administratora. Aby uzyskać więcej informacji, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanemu usunięciu](../azure-resource-manager/management/lock-resources.md).
-
-## <a name="logging-and-system-information"></a>Rejestrowanie i informacje o systemie
-
-W warstwie Podstawowa i powyżej firma Microsoft monitoruje wszystkie usługi Wyszukiwanie poznawcze platformy Azure pod kątem dostępności na 99,9% według umów dotyczących poziomu usług (SLA). Jeśli usługa działa wolno lub żądanie przepływności spadnie poniżej progów SLA, zespoły pomocy technicznej Przejrzyj pliki dziennika dostępne dla nich i rozwiąż problem.
-
-Usługa Azure Wyszukiwanie poznawcze wykorzystuje [Azure monitor](../azure-monitor/index.yml) do gromadzenia i przechowywania działań związanych z indeksowaniem i wykonywaniem zapytań. Usługa wyszukiwania sama przechowuje tylko swoją zawartość (indeksy, definicje indeksatorów, definicje źródeł danych, definicje zestawu umiejętności, mapy synonimów). Buforowanie i zarejestrowane informacje są przechowywane poza usługą, często na koncie usługi Azure Storage. Aby uzyskać więcej informacji na temat rejestrowania obciążeń indeksowania i zapytań, zobacz [zbieranie i analizowanie danych dziennika](search-monitor-logs.md).
-
-W oparciu o ogólne informacje o usłudze, korzystając tylko z udogodnień wbudowanych w platformę Azure Wyszukiwanie poznawcze, możesz uzyskać informacje w następujący sposób:
-
-* Korzystając ze strony **Przegląd** usługi, za pośrednictwem powiadomień, właściwości i komunikatów o stanie.
-* [Pobieranie właściwości usługi](/rest/api/searchmanagement/services)przy użyciu [programu PowerShell](search-manage-powershell.md) lub [interfejsu API REST zarządzania](/rest/api/searchmanagement/) . Nie ma nowych informacji ani operacji dostępnych w warstwie programistycznej. Interfejsy istnieją, aby można było pisać skrypty.
-
-## <a name="monitor-resource-usage"></a>Monitorowanie użycia zasobów
-
-Na pulpicie nawigacyjnym monitorowanie zasobów jest ograniczone do informacji wyświetlanych na pulpicie nawigacyjnym usługi i kilku metryk, które można uzyskać, wykonując zapytania dotyczące usługi. Na pulpicie nawigacyjnym usługi, w sekcji użycie, można szybko określić, czy poziomy zasobów partycji są odpowiednie dla aplikacji. Możesz zainicjować obsługę zasobów zewnętrznych, takich jak monitorowanie platformy Azure, jeśli chcesz przechwytywać i utrwalać zarejestrowane zdarzenia. Aby uzyskać więcej informacji, zobacz [monitorowanie platformy Azure wyszukiwanie poznawcze](search-monitor-usage.md).
-
-Korzystając z interfejsu API REST usługi Search, można programowo uzyskać liczbę dokumentów i indeksów: 
-
-* [Pobierz statystyki indeksu](/rest/api/searchservice/Get-Index-Statistics)
-* [Liczenie dokumentów](/rest/api/searchservice/count-documents)
-
-## <a name="disaster-recovery-and-service-outages"></a>Odzyskiwanie po awarii i awaria usługi
-
-Mimo że możemy odzyskać Twoje dane, usługa Azure Wyszukiwanie poznawcze nie zapewnia natychmiastowej pracy w trybie failover w przypadku wystąpienia awarii w klastrze lub na poziomie centrum danych. Jeśli klaster ulegnie awarii w centrum danych, zespół operacyjny wykryje i zacznie działać do przywracania usługi. Podczas przywracania usługi możesz zażądać kredytów na korzystanie z usługi, aby wyrównać niedostępność usługi na [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
-
-Jeśli ciągła usługa jest wymagana w przypadku wystąpienia awarii poza kontrolą firmy Microsoft, można [zainicjować obsługę administracyjną dodatkowej usługi](search-create-service-portal.md) w innym regionie i wdrożyć strategię replikacji geograficznej w celu zapewnienia, że indeksy są w pełni nadmiarowe dla wszystkich usług.
-
-Klienci używający [indeksatorów](search-indexer-overview.md) do wypełniania i odświeżania indeksów mogą obsługiwać odzyskiwanie po awarii za pomocą indeksatorów specyficznych dla lokalizacji geograficznych wykorzystujących to samo źródło danych. Dwie usługi w różnych regionach, z których każdy uruchamia indeksator, może indeksować to samo źródło danych w celu zapewnienia nadmiarowości geograficznej. W przypadku indeksowania ze źródeł danych, które są również geograficznie nadmiarowe, należy pamiętać, że indeksatory usługi Azure Wyszukiwanie poznawcze mogą wykonywać tylko indeksowanie przyrostowe (Scalanie aktualizacji z nowych, zmodyfikowanych lub usuniętych dokumentów) z replik podstawowych. W przypadku zdarzenia trybu failover Pamiętaj, aby ponownie wskazać indeksator do nowej repliki podstawowej. 
-
-Jeśli nie używasz indeksatorów, użyj kodu aplikacji do wypychania obiektów i danych do różnych usług wyszukiwania równolegle. Aby uzyskać więcej informacji, zobacz [wydajność i optymalizacja na platformie Azure wyszukiwanie poznawcze](search-performance-optimization.md).
-
-## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
-
-Ponieważ platforma Azure Wyszukiwanie poznawcze nie jest podstawowym rozwiązaniem do przechowywania danych, firma Microsoft nie udostępnia formalnego mechanizmu tworzenia kopii zapasowych i przywracania samoobsługowego. Można jednak użyć przykładowego kodu do **przywracania kopii zapasowej** w ramach tego [przykładowego repozytorium platformy Azure wyszukiwanie poznawcze .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) , aby utworzyć kopię zapasową definicji indeksu i migawki do serii plików JSON, a następnie użyć tych plików do przywrócenia indeksu, w razie potrzeby. To narzędzie umożliwia również przenoszenie indeksów między warstwami usług.
-
-W przeciwnym razie kod aplikacji używany do tworzenia i wypełniania indeksu jest opcją przywracania de facto w przypadku usunięcia indeksu przez pomyłkę. Aby ponownie skompilować indeks, należy go usunąć (przy założeniu, że istnieje), ponownie utworzyć indeks w usłudze i załadować ponownie przez pobranie danych z podstawowego magazynu danych.
-
-## <a name="scale-up-or-down"></a>Skalowanie w górę lub w dół
-
-Każda usługa wyszukiwania jest uruchamiana z co najmniej jedną repliką i jedną partycją. Jeśli zarejestrowano się w celu uzyskania [większej pojemności](search-limits-quotas-capacity.md), kliknij pozycję **Skaluj** w okienku nawigacji po lewej stronie, aby dostosować użycie zasobów.
-
-Po dodaniu pojemności za pośrednictwem dowolnego zasobu usługa korzysta z nich automatycznie. W Twojej części nie są wymagane żadne dalsze działania, ale istnieje niewielkie opóźnienie przed zrealizowaniem nowego zasobu. Udostępnienie dodatkowych zasobów może potrwać 15 minut lub dłużej.
-
-### <a name="add-replicas"></a>Dodaj repliki
-
-Rosnące zapytania na sekundę (zapytań) lub osiąganie wysokiej dostępności są wykonywane przez dodanie replik. Każda replika ma jedną kopię indeksu, więc dodanie jednej repliki tłumaczy do jednego indeksu dostępnego do obsługi żądań zapytań usługi. Aby zapewnić wysoką dostępność, wymagane są co najmniej 3 repliki (zobacz [Dostosowywanie pojemności](search-capacity-planning.md) do szczegółów).
-
-Usługa wyszukiwania mająca więcej replik może równoważyć obciążenie żądaniami zapytań w większej liczbie indeksów. Uwzględniając poziom woluminu zapytania, przepływność zapytań jest szybsza, gdy istnieje więcej kopii indeksu dostępnych do obsługi żądania. Jeśli występują opóźnienia zapytań, można spodziewać się pozytywnego wpływu na wydajność, gdy dodatkowe repliki są w trybie online.
-
-Mimo że przepływność zapytań jest dodawana podczas dodawania replik, nie jest ona dokładnie podwójna ani potrójna podczas dodawania replik do usługi. Wszystkie aplikacje wyszukiwania podlegają zewnętrznym czynnikom, które mogą wykonywać pingowanie względem wydajności zapytań. Złożone zapytania i opóźnienia sieci to dwa czynniki, które przyczyniają się do wahań czasów odpowiedzi na zapytanie.
-
-### <a name="add-partitions"></a>Dodawanie partycji
-
-Jest to bardziej powszechne w przypadku dodawania replik, ale w przypadku ograniczenia magazynu można dodać partycje, aby uzyskać więcej pojemności. Warstwa, w której zainicjowano obsługę partycji, określa, czy można dodać partycje. Warstwa Podstawowa jest zablokowana na jednej partycji. Warstwy Standardowa i nowsze obsługują dodatkowe partycje.
-
-Partycje są dodawane w dzielnikach 12 (w odróżnieniu od 1, 2, 3, 4, 6 lub 12). To jest artefakt fragmentowania. Indeks jest tworzony w 12 fragmentów, który może być przechowywany na 1 partycji lub równo podzielony na 2, 3, 4, 6 lub 12 partycji (jedną fragmentu na partycję).
-
-### <a name="remove-replicas"></a>Usuwanie replik
-
-Po upływie okresów dużych ilości zapytań można użyć suwaka, aby zmniejszyć liczbę replik po ukończeniu obciążeń zapytań wyszukiwania. W Twojej części nie są wymagane żadne dalsze czynności. Zmniejszenie liczby replik zwalnia maszyny wirtualne w centrum danych. Wykonywanie zapytań i operacji pozyskiwania danych zostanie teraz uruchomione na mniejszej liczbie maszyn wirtualnych niż wcześniej. Minimalnym wymaganiem jest jedna replika.
-
-### <a name="remove-partitions"></a>Usuwanie partycji
-
-W przeciwieństwie do usuwania replik, które nie wymagają żadnych dodatkowych nakładów pracy, może być konieczne wykonanie pewnych zadań w przypadku używania większej ilości miejsca niż można je zmniejszyć. Na przykład jeśli Twoje rozwiązanie używa trzech partycji, downsizing do jednej lub dwóch partycji wygeneruje błąd, jeśli nowe miejsce do magazynowania jest mniejsze niż wymagane do hostowania Twojego indeksu. Jak można się spodziewać, wybrane opcje polegają na usunięciu indeksów lub dokumentów w skojarzonym indeksie, aby zwolnić miejsce lub zachować bieżącą konfigurację.
-
-Nie ma metody wykrywania informującej, który indeks fragmentów jest przechowywany w określonych partycjach. Każda partycja zapewnia około 25 GB miejsca w magazynie, dlatego należy zmniejszyć ilość miejsca w magazynie do rozmiaru, który można obsłużyć przez liczbę posiadanych partycji. Jeśli chcesz przywrócić jedną partycję, należy dopasować wszystkie 12 fragmentów.
-
-Aby ułatwić planowanie w przyszłości, warto sprawdzić magazyn (przy użyciu [statystyk Get index](/rest/api/searchservice/Get-Index-Statistics)), aby zobaczyć, ile faktycznie używasz. 
+> Inicjowanie obsługi administracyjnej lub likwidowanie samej usługi może odbywać się przez administratora subskrypcji platformy Azure lub współadministratora. Korzystając z mechanizmów opartych na platformie Azure, można zablokować subskrypcję lub zasób, aby zapobiec przypadkowemu lub nieautoryzowanemu usunięciu usługi wyszukiwania przez użytkowników z uprawnieniami administratora. Aby uzyskać więcej informacji, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanemu usunięciu](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Przegląd [możliwości monitorowania](search-monitor-usage.md) dostępnych w portalu
 * Automatyzowanie przy użyciu [programu PowerShell](search-manage-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](search-manage-azure-cli.md)
-
-* Przegląd technik [wydajności i optymalizacji](search-performance-optimization.md)
-
 * Przejrzyj [funkcje zabezpieczeń](search-security-overview.md) , aby chronić zawartość i operacje
-
 * Włączanie [rejestrowania diagnostycznego](search-monitor-logs.md) w celu monitorowania obciążeń zapytań i indeksowania

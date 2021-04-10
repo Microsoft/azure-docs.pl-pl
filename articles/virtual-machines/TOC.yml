@@ -1258,31 +1258,31 @@
         - name: Interfejs wiersza polecenia
           items:
             - name: Tworzenie dysku zarządzanego na podstawie dysku VHD
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
             - name: Tworzenie dysku zarządzanego na podstawie migawki
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
             - name: Kopiowanie dysku zarządzanego do tej samej lub innej subskrypcji
               href: 'https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh'
             - name: Kopiowanie migawki do tej samej lub innej subskrypcji
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
             - name: Eksportowanie dysku zarządzanego jako dysk VHD do konta magazynu
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
         - name: PowerShell
           items:
             - name: Tworzenie dysku zarządzanego na podstawie dysku VHD
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
             - name: Tworzenie dysku zarządzanego na podstawie migawki
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot
             - name: Kopiowanie migawki do tej samej lub innej subskrypcji
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account
             - name: Eksportowanie dysku zarządzanego jako dysk VHD do konta magazynu
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd
             - name: Tworzenie migawki z dysku VHD
-              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
+              href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
 - name: Sieć
   items:
     - name: Omówienie
@@ -1720,12 +1720,10 @@
             - name: Windows
               displayName: Enable disaster recovery
               href: ./windows/tutorial-disaster-recovery.md
-        - name: Włączanie odzyskiwania po awarii dla maszyny wirtualnej
-          href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
-        - name: Uruchamianie próbnego odzyskiwania po awarii dla maszyny wirtualnej
-          href: ../site-recovery/azure-to-azure-tutorial-dr-drill.md
         - name: Przełączanie maszyny wirtualnej do pracy w trybie failover w innym regionie
           href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
+        - name: Powrót po awarii maszyny wirtualnej do regionu podstawowego
+          href: ../site-recovery/azure-to-azure-tutorial-failback.md
     - name: Przenoszenie i migrowanie maszyn wirtualnych
       items:
         - name: Zmienianie subskrypcji lub grupy zasobów

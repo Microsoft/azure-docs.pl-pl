@@ -137,6 +137,8 @@
           href: how-to-setup-lab-gpu.md
         - name: Przygotowywanie maszyny wirtualnej szablonu z systemem Windows
           href: how-to-prepare-windows-template.md
+        - name: Korzystanie z zewnętrznego magazynu plików
+          href: how-to-attach-external-storage.md
         - name: Sterowanie zachowaniem zamykania systemu Windows
           href: how-to-windows-shutdown.md
         - name: Wyświetlanie informacji pomocy technicznej (nauczyciel)

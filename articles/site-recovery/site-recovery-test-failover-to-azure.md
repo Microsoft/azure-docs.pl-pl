@@ -1,18 +1,15 @@
 ---
 title: Uruchamianie testu pracy w trybie failover (do testowania odzyskiwania po awarii) na platformie Azure w Azure Site Recovery
 description: Dowiedz się więcej o uruchamianiu testowej pracy w trybie failover z poziomu lokalnego na platformę Azure przy użyciu usługi Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 815a35c167bbcd3ac03dfdaaf6d699e58a791f33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 840243bd5a67bc97bdc1903908c4e25adad93062
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369390"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579309"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Uruchamianie testu pracy w trybie failover (do testowania odzyskiwania po awarii) na platformie Azure 
 

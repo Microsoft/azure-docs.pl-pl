@@ -5,13 +5,14 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/12/2020
-ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/10/2021
+ms.subservice: metrics
+ms.openlocfilehash: 93d30663034c7560550160960af20f0a465d93c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031399"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936176"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor agregowania metryk metryk i wyświetlenia
 
@@ -26,6 +27,7 @@ Po dodaniu metryki do wykresu Eksplorator metryk automatycznie wybiera swoją do
 Najpierw zdefiniujemy kilka warunków:
 
 - **Wartość metryki** — pojedyncza wartość miary zebrana dla określonego zasobu.
+- **Baza danych szeregów czasowych** — baza danych zoptymalizowana pod kątem przechowywania i pobierania punktów danych, które zawierają wartość i odpowiadającą jej sygnaturę czasową. 
 - **Okres** — czas ogólny.
 - **Przedział czasu** — okres między zbieraniem dwóch wartości metryk. 
 - **Zakres czasu** — okres wyświetlany na wykresie. Typowa wartość domyślna to 24 godziny. Dostępne są tylko określone zakresy. 
@@ -33,7 +35,9 @@ Najpierw zdefiniujemy kilka warunków:
 - **Typ agregacji** — typ statystyki obliczanej na podstawie wielu wartości metryk.  
 - **Agreguj** — proces pobierania wielu wartości wejściowych, a następnie używania ich do generowania pojedynczej wartości wyjściowej za pomocą reguł zdefiniowanych przez typ agregacji. Na przykład pobieranie średniej z wielu wartości.  
 
-Metryki są serią wartości metryk przechwytywane w regularnych odstępach czasu. Podczas wykreślania wykresu wartości wybranej metryki są agregowane na poziomie szczegółowości czasu (nazywanego również ziarnem czasu). Możesz wybrać rozmiar stopnia szczegółowości, korzystając z [panelu wyboru Eksplorator metrykego czasu](../essentials/metrics-getting-started.md#select-a-time-range). Jeśli nie utworzysz jawnie zaznaczenia, stopień szczegółowości czasu zostanie automatycznie wybrany na podstawie aktualnie wybranego zakresu czasu. Po wybraniu wartości metryk, które zostały przechwycone podczas każdego interwału szczegółowości, są agregowane i umieszczane na wykresie — jeden punkt danych na interwał.
+## <a name="summary-of-process"></a>Podsumowanie procesu
+
+Metryki są serią wartości przechowywanych z sygnaturą czasową. Na platformie Azure większość metryk są przechowywane w bazie danych szeregów czasowych metryk platformy Azure. Podczas kreolenia wykresu wartości wybranych metryk są pobierane z bazy danych, a następnie oddzielnie agregowane w oparciu o wybrany stopień szczegółowości czasu (znany również jako ziarno czasu). Możesz wybrać rozmiar stopnia szczegółowości, korzystając z [panelu wyboru Eksplorator metrykego czasu](../essentials/metrics-getting-started.md#select-a-time-range). Jeśli nie utworzysz jawnie zaznaczenia, stopień szczegółowości czasu zostanie automatycznie wybrany na podstawie aktualnie wybranego zakresu czasu. Po wybraniu wartości metryk, które zostały przechwycone podczas każdego interwału szczegółowości, są agregowane i umieszczane na wykresie — jeden punkt danych na interwał.
 
 ## <a name="aggregation-types"></a>Typy agregacji 
 
@@ -82,9 +86,11 @@ Ważne jest, aby określić, co jest "normalne" dla obciążenia, aby dowiedzie�
 
 ## <a name="how-the-system-collects-metrics"></a>Jak system zbiera metryki
 
-Zbieranie danych zależy od metryki. Istnieją dwa typy okresów zbierania danych.
+Zbieranie danych zależy od metryki. 
 
 ### <a name="measurement-collection-frequency"></a>Częstotliwość zbierania pomiarów 
+
+Istnieją dwa typy okresów zbierania danych.
 
 - **Regularna** — Metryka jest zbierana w spójnym przedziale czasu, który nie jest różny.
 

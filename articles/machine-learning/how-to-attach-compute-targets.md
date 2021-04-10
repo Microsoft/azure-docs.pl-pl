@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 9fa6a1758bc2e2a76291efc3bb239c5249a6e21e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3a70ac5d5603cad98c199cbd8e3b98bb095d131
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149345"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167672"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Skonfiguruj cele obliczeniowe dla szkolenia i wdrażania modelu
 
@@ -53,7 +53,7 @@ Aby używać obiektów docelowych obliczeń zarządzanych przez Azure Machine Le
 
 ## <a name="whats-a-compute-target"></a>Co to jest obiekt docelowy obliczeń?
 
-Dzięki Azure Machine Learning można nauczyć model na różnych zasobach lub środowiskach, zbiorczo nazywanymi [__obiektami docelowymi obliczeń__](concept-azure-machine-learning-architecture.md#compute-targets). Obiekt docelowy obliczeń może być maszyną lokalną lub zasobem w chmurze, takim jak Azure Machine Learning COMPUTE, Azure HDInsight lub zdalną maszynę wirtualną.  Elementy docelowe obliczeń są również używane do wdrażania modelu, zgodnie z opisem w artykule ["gdzie i jak wdrażać modele"](how-to-deploy-and-where.md).
+Dzięki Azure Machine Learning można uczenie modelu w różnych zasobach lub środowiskach, zbiorczo nazywanymi [__obiektami docelowymi obliczeń__](concept-azure-machine-learning-architecture.md#compute-targets). Obiekt docelowy obliczeń może być maszyną lokalną lub zasobem w chmurze, takim jak Azure Machine Learning COMPUTE, Azure HDInsight lub zdalną maszynę wirtualną.  Elementy docelowe obliczeń są również używane do wdrażania modelu, zgodnie z opisem w artykule ["gdzie i jak wdrażać modele"](how-to-deploy-and-where.md).
 
 
 ## <a name="local-computer"></a><a id="local"></a>Komputer lokalny
@@ -64,9 +64,12 @@ W przypadku korzystania z komputera lokalnego do **wnioskowania** należy zainst
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Zdalne maszyny wirtualne
 
-Azure Machine Learning również obsługuje dołączanie maszyny wirtualnej platformy Azure. Maszyna wirtualna musi być Data Science Virtual Machineem platformy Azure (DSVM). Ta maszyna wirtualna jest wstępnie skonfigurowanym środowiskiem programistycznym do analizy danych i AI na platformie Azure. Maszyna wirtualna oferuje świadome wybór narzędzi i struktur na potrzeby tworzenia uczenia maszynowego w pełnym cyklu życia. Aby uzyskać więcej informacji na temat używania DSVM z Azure Machine Learning, zobacz [Konfigurowanie środowiska deweloperskiego](./how-to-configure-environment.md#dsvm).
+Azure Machine Learning również obsługuje dołączanie maszyny wirtualnej platformy Azure. Maszyna wirtualna musi być Data Science Virtual Machineem platformy Azure (DSVM). Maszyna wirtualna oferuje świadome wybór narzędzi i struktur na potrzeby tworzenia uczenia maszynowego w pełnym cyklu życia. Aby uzyskać więcej informacji na temat używania DSVM z Azure Machine Learning, zobacz [Konfigurowanie środowiska deweloperskiego](./how-to-configure-environment.md#dsvm).
 
-1. **Utwórz**: Utwórz DSVM przed użyciem go do uczenia modelu. Aby utworzyć ten zasób, zapoznaj [się z tematem obsługa Data Science Virtual Machine dla systemu Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
+> [!TIP]
+> Zamiast zdalnej maszyny wirtualnej zalecamy korzystanie z [wystąpienia obliczeniowego Azure Machine Learning](concept-compute-instance.md). Jest to w pełni zarządzane rozwiązanie obliczeniowe oparte na chmurze, które jest specyficzne dla Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim](how-to-create-manage-compute-instance.md).
+
+1. **Utwórz**: Azure Machine Learning nie może utworzyć zdalnej maszyny wirtualnej. Zamiast tego należy utworzyć maszynę wirtualną, a następnie dołączyć ją do obszaru roboczego Azure Machine Learning. Aby uzyskać informacje na temat tworzenia DSVM, zobacz temat [udostępnianie Data Science Virtual Machine dla systemu Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning obsługuje tylko maszyny wirtualne z systemem **Ubuntu**. Podczas tworzenia maszyny wirtualnej lub wybrania istniejącej maszyny wirtualnej należy wybrać maszynę wirtualną, która używa Ubuntu.
@@ -120,11 +123,16 @@ Azure Machine Learning również obsługuje dołączanie maszyny wirtualnej plat
    src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
    ```
 
+> [!TIP]
+> Jeśli chcesz __usunąć__ (odłączyć) maszynę wirtualną z obszaru roboczego, użyj metody [RemoteCompute. Odłącz ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remotecompute#detach--) .
+>
+> Azure Machine Learning nie powoduje usunięcia maszyny wirtualnej. Należy ręcznie usunąć maszynę wirtualną przy użyciu Azure Portal, interfejsu wiersza polecenia lub zestawu SDK dla maszyny wirtualnej platformy Azure.
+
 ## <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platforma zapewnia Apache Spark, która może służyć do uczenia modelu.
 
-1. **Utwórz**: Utwórz klaster usługi HDInsight przed użyciem go do uczenia modelu. Aby utworzyć klaster platformy Spark w usłudze HDInsight, zobacz [Tworzenie klastra Spark w usłudze HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+1. **Tworzenie**: Azure Machine Learning nie może utworzyć klastra usługi HDInsight. Zamiast tego należy utworzyć klaster, a następnie dołączyć go do obszaru roboczego Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra Spark w usłudze HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning wymaga, aby klaster usługi HDInsight miał __publiczny adres IP__.
@@ -165,8 +173,10 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
-
-Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](how-to-set-up-training-targets.md).
+> [!TIP]
+> Jeśli chcesz __usunąć__ (odłączyć) klaster usługi HDInsight z obszaru roboczego, użyj metody [HDInsightCompute. Odłącz ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--) .
+>
+> Azure Machine Learning nie usuwa klastra usługi HDInsight. Należy ręcznie usunąć go przy użyciu Azure Portal, interfejsu wiersza polecenia lub zestawu SDK dla usługi Azure HDInsight.
 
 ## <a name="azure-batch"></a><a id="azbatch"></a>Usługa Azure Batch 
 
@@ -215,7 +225,7 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 
 Azure Databricks jest środowiskiem opartym na Apache Spark w chmurze platformy Azure. Może służyć jako obiekt docelowy obliczeń z potokiem Azure Machine Learning.
 
-Utwórz obszar roboczy Azure Databricks, zanim go użyjesz. Aby utworzyć zasób obszaru roboczego, zobacz dokument [Uruchamianie zadania Spark na Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) .
+> [! Ważne} Azure Machine Learning nie można utworzyć Azure Databricks celu obliczeń. Zamiast tego należy utworzyć obszar roboczy Azure Databricks, a następnie dołączyć go do Azure Machine Learning obszaru roboczego. Aby utworzyć zasób obszaru roboczego, zobacz dokument [Uruchamianie zadania Spark na Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) .
 
 Aby dołączyć Azure Databricks jako element docelowy obliczeń, podaj następujące informacje:
 
@@ -330,7 +340,6 @@ Azure Container Instances (ACI) są tworzone dynamicznie podczas wdrażania mode
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
 Usługa Azure Kubernetes Service (AKS) umożliwia korzystanie z różnych opcji konfiguracji w przypadku korzystania z Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [jak utworzyć i dołączyć usługę Azure Kubernetes](how-to-create-attach-kubernetes.md).
-
 
 ## <a name="notebook-examples"></a>Przykłady notesu
 

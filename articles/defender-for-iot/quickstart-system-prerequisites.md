@@ -1,17 +1,22 @@
 ---
-title: Wymagania wstępne systemu
-description: Pobierz wymagania wstępne systemu wymagane do uruchomienia usługi Azure Defender dla IoT.
+title: 'Szybki Start: wymagania wstępne systemu'
+description: W tym przewodniku szybki start Pobierz wymagania wstępne systemu wymagane do uruchomienia usługi Azure Defender for IoT.
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2aae849b6ee772c2aa29c680f3b107af3ed600b0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780943"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382950"
 ---
-# <a name="system-prerequisites"></a>Wymagania wstępne systemu
+# <a name="quickstart-system-prerequisites"></a>Szybki Start: wymagania wstępne systemu
+
 W tym artykule wymieniono wymagania wstępne dotyczące uruchamiania usługi Azure Defender for IoT.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Brak
 
 ## <a name="minimum-requirements"></a>Minimalne wymagania
 
@@ -27,7 +32,7 @@ Usługa Defender for IoT kieruje cały ruch ze wszystkich regionów Europy do re
 
 Aby uzyskać więcej informacji, zobacz [IoT Hub obsługiwanych regionów](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
-- [Identyfikowanie wymaganych urządzeń](how-to-identify-required-appliances.md)
-- [Informacje o usłudze Azure Defender dla sieci IoT — konfiguracja](how-to-set-up-your-network.md)
+> [!div class="nextstepaction"]
+> [Identyfikowanie wymaganych urządzeń](how-to-identify-required-appliances.md)

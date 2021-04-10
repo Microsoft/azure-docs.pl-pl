@@ -13,10 +13,10 @@ ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
 ms.openlocfilehash: 3be01c304a40317e0d21baf6789ef1376cd89b80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104608082"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatyzowanie zadań zarządzania przy użyciu zadań programu SQL Agent w wystąpieniu zarządzanym usługi Azure SQL
@@ -200,7 +200,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
 GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Co to jest wystąpienie zarządzane Azure SQL?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)

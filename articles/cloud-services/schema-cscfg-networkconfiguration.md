@@ -3,18 +3,19 @@ title: Azure Cloud Services (klasyczny) schemat NetworkConfiguration | Microsoft
 description: Dowiedz się więcej na temat elementów podrzędnych elementu NetworkConfiguration w pliku konfiguracji usługi, który określa Virtual Network i wartości DNS.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 '---thor': tagore
-ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3e9d5ebc7e4e2aa1119f4b840aa1d8b94d93aa4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743461"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935128"
 ---
 # <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Schemat NetworkConfiguration konfiguracji platformy Cloud Services Azure (klasyczny)
 
