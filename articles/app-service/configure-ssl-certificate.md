@@ -7,10 +7,10 @@ ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104577788"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
@@ -377,11 +377,11 @@ Znajdź blokadę certyfikatu z typem blokady **delete**. Z prawej strony wybierz
 
 Teraz możesz usunąć certyfikat App Service. W lewym okienku nawigacji wybierz pozycję **Przegląd**  >  **Usuń**. W oknie dialogowym potwierdzenia wpisz nazwę certyfikatu i wybierz **przycisk OK**.
 
-## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
+## <a name="automate-with-scripts&quot;></a>Automatyzowanie przy użyciu skryptów
 
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+### <a name=&quot;azure-cli&quot;></a>Interfejs wiersza polecenia platformy Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
