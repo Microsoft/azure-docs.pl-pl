@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d3b84756f390930be5124c6bda54d07078d29053
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579311"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166925"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service — FAQ
 
@@ -62,13 +62,13 @@ W przypadku nowych aplikacji należy użyć tylko domyślnego i bezserwerowego t
 
 Tryb klasyczny został zaprojektowany w celu zapewnienia zgodności z poprzednimi wersjami dla istniejących aplikacji, dlatego nie należy używać go w przypadku nowych aplikacji.
 
-Aby uzyskać więcej informacji na temat trybu usługi w [tym dokumencie](concept-service-mode.md).
+Aby uzyskać więcej informacji na temat trybu usługi, zobacz temat [tryb usługi w usłudze Azure Signal Service](concept-service-mode.md).
 
 ## <a name="can-i-send-message-from-client-in-serverless-mode"></a>Czy mogę wysłać komunikat z klienta w trybie bezserwerowym?
 
 Komunikat można wysłać z klienta w przypadku skonfigurowania nadrzędnego w wystąpieniu sygnalizującego. Nadrzędny to zbiór punktów końcowych, które mogą odbierać komunikaty i zdarzenia połączeń z usługi sygnalizującego. Jeśli nie skonfigurowano żadnego strumienia, komunikaty z klienta zostaną zignorowane.
 
-Aby uzyskać więcej informacji na temat nadrzędnego, zobacz [ten dokument](concept-upstream.md).
+Aby uzyskać więcej informacji na temat nadrzędnego, zobacz [Ustawienia nadrzędne](concept-upstream.md).
 
 Nadrzędny jest obecnie w publicznej wersji zapoznawczej.
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/13/2021
+ms.date: 03/29/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f467fc739b3120fd43bec4e21e1e336c1cdf186f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955243"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935417"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
@@ -241,7 +241,7 @@ Rola [administrator zasad uwierzytelniania](#authentication-policy-administrator
 >* Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
 > [!IMPORTANT]
-> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) polecenia cmdlet.
+> Ta rola nie może zarządzać ustawieniami usługi MFA w starszym portalu zarządzania usługi MFA lub sprzętowym tokenem OATH. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) polecenia cmdlet.
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -267,7 +267,7 @@ Role [administrator uwierzytelniania](#authentication-administrator) i [administ
 | Administrator zasad uwierzytelniania | Nie | Nie | Tak | Tak | Tak |
 
 > [!IMPORTANT]
-> Ta rola nie jest obecnie w stanie zarządzać ustawieniami usługi MFA w starszym portalu zarządzania usługi MFA.
+> Ta rola nie może zarządzać ustawieniami usługi MFA w starszym portalu zarządzania usługi MFA lub sprzętowym tokenem OATH. 
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |

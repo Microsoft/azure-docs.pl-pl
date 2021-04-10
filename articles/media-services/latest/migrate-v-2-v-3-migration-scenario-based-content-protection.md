@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7ef41b76f343d8997feebc4a366deda7ce6a2afa
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9141fb025cb2c7976f88d894768972b10ea3a3d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644073"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729409"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu ochrony zawartości
 
@@ -38,11 +38,11 @@ W trakcie migracji do interfejsu API v3 należy uzyskać dostęp do niektórych 
 
 Na przykład jeśli wcześniej miało się element zawartości w wersji 2 o IDENTYFIKATORze **"NB: CID: UUID: 8cb39104-122c-496e-9ac5-7f9e2c2547b8"**, wówczas podczas wyświetlania listy starych zasobów w wersji 2 za pomocą interfejsu API v3 nazwa będzie teraz częścią identyfikatora GUID na końcu (w tym przypadku **"8cb39104-122c-496e-9ac5-7f9e2c2547b8"**).
 
-Można wysyłać zapytania dotyczące **StreamingLocators** skojarzonych z zasobami UTWORZONYMI w interfejsie API v2 przy użyciu nowej metody v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) w jednostce zasobów.  Odwołuje się również do wersji zestawu SDK klienta .NET [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet)
+Można wysyłać zapytania dotyczące **StreamingLocators** skojarzonych z zasobami UTWORZONYMI w interfejsie API v2 przy użyciu nowej metody v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) w jednostce zasobów.  Odwołuje się również do wersji zestawu SDK klienta .NET [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
 
 Wyniki metody **ListStreamingLocators** zapewniają **nazwę** i **StreamingLocatorId** lokalizatora wraz z **StreamingPolicyName**.
 
-Aby znaleźć **ContentKeys** używany w **StreamingLocators** na potrzeby ochrony zawartości, można wywołać metodę [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet) .  
+Aby znaleźć **ContentKeys** używany w **StreamingLocators** na potrzeby ochrony zawartości, można wywołać metodę [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) .  
 
 Wszystkie **zasoby** , które zostały utworzone i opublikowane przy użyciu interfejsu API v2, będą mieć zarówno [zasadę klucza zawartości](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept) , jak i klucz zawartości zdefiniowany w interfejsie API v3, zamiast korzystać z domyślnych zasad kluczy zawartości w ramach [zasad przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
 
@@ -98,7 +98,7 @@ Podczas migrowania zawartości z wersji 2 do V3 zaleca się zainstalowanie [Narz
 
 Możesz również [porównać kod v2 i V3 w przykładach kodu](migrate-v-2-v-3-migration-samples.md).
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 - [Narzędzie Eksploratora Azure Media Services w wersji 3](https://github.com/Azure/Azure-Media-Services-Explorer)
 - [Narzędzie Eksploratora Azure Media Services w wersji 2](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0)

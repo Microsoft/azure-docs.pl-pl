@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123041"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166891"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Wdrażanie Cloud Services (obsługa rozszerzona) przy użyciu zestawu Azure SDK
 
@@ -156,7 +156,8 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Utwórz publiczny adres IP i (opcjonalnie) ustaw właściwość etykieta DNS publicznego adresu IP. Jeśli używasz statycznego adresu IP, musi on być przywoływany jako zastrzeżony adres IP w pliku konfiguracji usługi.
+7. Utwórz publiczny adres IP i ustaw właściwość etykieta DNS publicznego adresu IP. Cloud Services (obsługa rozszerzona) obsługuje tylko [podstawowe] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) publiczne adresy IP jednostki SKU). Publiczne adresy IP jednostki SKU nie działają z Cloud Services.
+Jeśli używasz statycznego adresu IP, musisz odwołać się do niego jako Zastrzeżony adres IP w pliku konfiguracji usługi (. cscfg)
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia utworzonego na platformie.
+8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia. Platforma Azure automatycznie tworzy zasób "klasyczny moduł równoważenia obciążenia" w tej samej subskrypcji co zasób usługi w chmurze. Zasób modułu równoważenia obciążenia jest zasobem tylko do odczytu w usłudze ARM. Wszystkie aktualizacje zasobu są obsługiwane tylko za pośrednictwem plików wdrożenia usługi w chmurze (. cscfg & csdef).
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 

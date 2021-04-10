@@ -3,18 +3,20 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950063"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166704"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
 Update Management w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla maszyn wirtualnych z systemami Windows i Linux na platformie Azure, w środowiskach lokalnych i w innych środowiskach w chmurze. Można szybko ocenić stan dostępnych aktualizacji na wszystkich komputerach agentów i zarządzać procesem instalowania wymaganych aktualizacji dla serwerów.
+
+Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../../lighthouse/overview.md). Usługa Azure Lighthouse umożliwia wykonywanie operacji na dużą skalę w wielu dzierżawach Azure Active Directory (Azure AD) jednocześnie, co sprawia, że zadania zarządzania, takie jak Update Management bardziej wydajne dla tych dzierżawców.
 
 > [!NOTE]
 > Nie można użyć komputera skonfigurowanego przy użyciu Update Management do uruchamiania skryptów niestandardowych z Azure Automation. Na tym komputerze można uruchomić tylko skrypt aktualizacji podpisany przez firmę Microsoft.
@@ -24,7 +26,7 @@ Update Management w Azure Automation służy do zarządzania aktualizacjami syst
 
 Aby automatycznie pobierać i instalować dostępne poprawki *krytyczne* i *zabezpieczenia* na maszynie wirtualnej platformy Azure, przejrzyj [automatyczną poprawkę gościa maszyny wirtualnej](../../virtual-machines/automatic-vm-guest-patching.md) dla maszyn wirtualnych z systemem Windows.
 
-Przed wdrożeniem Update Management i włączeniem maszyn w celu zarządzania należy zapoznać się z informacjami w poniższych sekcjach.  
+Przed wdrożeniem Update Management i włączeniem maszyn w celu zarządzania należy zapoznać się z informacjami w poniższych sekcjach.
 
 ## <a name="about-update-management"></a>Informacje o Update Management
 
@@ -40,7 +42,7 @@ Na poniższym diagramie przedstawiono, w jaki sposób Update Management oceniać
 
 ![Przepływ pracy Update Management](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management może służyć do natywnego wdrażania na maszynach w wielu subskrypcjach w ramach tej samej dzierżawy.
+Update Management może służyć do natywnego wdrażania na maszynach w wielu subskrypcjach w ramach tej samej dzierżawy lub między dzierżawcami przy użyciu funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 Po wydaniu pakietu trwa od 2 do 3 godzin, aby poprawka była wyświetlana dla maszyn z systemem Linux na potrzeby oceny. W przypadku maszyn z systemem Windows trwa od 12 do 15 godzin, aby poprawka była wyświetlana na potrzeby oceny po jej udostępnieniu. Gdy maszyna ukończy skanowanie pod kątem zgodności aktualizacji, Agent przekazuje informacje zbiorczo do Azure Monitor dzienników. Na komputerze z systemem Windows skanowanie zgodności jest domyślnie uruchamiane co 12 godzin. W przypadku maszyny z systemem Linux skanowanie zgodności jest wykonywane co godzinę domyślnie. Jeśli Agent Log Analytics zostanie uruchomiony ponownie, skanowanie zgodności zostanie rozpoczęte w ciągu 15 minut.
 
@@ -207,7 +209,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

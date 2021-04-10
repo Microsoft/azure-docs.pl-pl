@@ -1,0 +1,133 @@
+### YamlMime:Landing
+title: Dokumentacja podstawy sieci platformy Azure
+summary: Usługi sieci platformy Azure umożliwiają dostęp do łączenia zasobów platformy Azure i zasobów lokalnych, ochrony, dostarczania i monitorowania aplikacji w sieci platformy Azure.
+metadata:
+  title: Dokumentacja podstawy sieci platformy Azure
+  description: Dowiedz się więcej na temat usług sieciowych na platformie Azure, które zapewniają łączność między zasobami platformy Azure, łącznością z siecią lokalną i zasobami platformy Azure, chronią zasoby sieciowe, skaluje dostarczanie aplikacji i ułatwiają monitorowanie sieci.
+  ms.service: networking
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 03/30/2021
+  ms.openlocfilehash: 69017e082491b784ada194a0d0bab7ac6ed50274
+  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106166585"
+landingContent:
+- title: Informacje o sieci platformy Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to są usługi Azure Networking?
+      url: networking-overview.md
+  - linkListType: concept
+    links:
+    - text: Co to jest Microsoft Global Network?
+      url: ../microsoft-global-network.md
+  - linkListType: learn
+    links:
+    - text: Tworzenie infrastruktury sieciowej na platformie Azure
+      url: /learn/paths/architect-network-infrastructure/
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Virtual Network?
+      url: ../../virtual-network/virtual-networks-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie sieci wirtualnej
+      url: ../../virtual-network/quick-create-portal.md
+- title: Komunikacja z Internetem
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest publiczny adres IP?
+      url: ../../virtual-network/virtual-networks-overview.md
+    - text: Co to jest brama NAT sieci wirtualnej?
+      url: ../../virtual-network/nat-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tworzenie publicznego adresu IP
+      url: ../../virtual-network/create-public-ip-portal.md
+    - text: Tworzenie bramy translatora adresów sieciowych
+      url: ../../virtual-network/tutorial-create-nat-gateway-portal.md
+- title: Łączenie sieci wirtualnych
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Wirtualne sieci równorzędne
+      url: ../../virtual-network/virtual-network-peering-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnych
+      url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
+- title: Prywatny dostęp do zasobów sieciowych
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest prywatny punkt końcowy platformy Azure?
+      url: ../../private-link/private-endpoint-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie prywatnego punktu końcowego
+      url: ../../private-link/create-private-endpoint-portal.md
+- title: Równoważenie obciążenia aplikacji
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Moduł równoważenia obciążenia sieciowego
+      url: ../../load-balancer/load-balancer-overview.md
+    - text: Zabezpieczanie sieci CDN i globalnego modułu równoważenia obciążenia w chmurze
+      url: ../../frontdoor/front-door-overview.md
+    - text: Moduł równoważenia obciążenia aplikacji internetowych
+      url: ../../application-gateway/overview.md
+    - text: Moduł równoważenia obciążenia oparty na systemie DNS
+      url: ../../traffic-manager/traffic-manager-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie modułu równoważenia obciążenia sieciowego
+      url: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md
+    - text: Wdrażanie bezpiecznej sieci CDN w chmurze i globalnego modułu równoważenia obciążenia
+      url: ../../frontdoor/quickstart-create-front-door.md
+    - text: Tworzenie modułu równoważenia obciążenia aplikacji sieci Web
+      url: ../../application-gateway/quick-create-portal.md
+    - text: Tworzenie modułu równoważenia obciążenia opartego na systemie DNS
+      url: ../../traffic-manager/quickstart-create-traffic-manager-profile.md
+- title: Zabezpieczanie sieci wirtualnej
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Grupy zabezpieczeń sieci
+      url: ../../virtual-network/network-security-groups-overview.md
+    - text: Usługa Azure DDoS Protection w warstwie Standardowa
+      url: ../../ddos-protection/ddos-protection-overview.md
+    - text: Azure Firewall
+      url: ../../firewall/overview.md
+  - linkListType: tutorial
+    links:
+    - text: Ograniczanie dostępu sieciowego do zasobów PaaS
+      url: ../../virtual-network/tutorial-restrict-network-access-to-resources.md
+    - text: Tworzenie i Konfigurowanie Azure DDoS Protection Standard
+      url: ../../ddos-protection/manage-ddos-protection.md
+    - text: Wdrażanie i konfigurowanie usługi Azure Firewall
+      url: ../../firewall/tutorial-firewall-deploy-portal.md
+- title: Łączenie sieci lokalnych z sieciami wirtualnymi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Połączenia sieci VPN — VPN Gateway
+      url: ../../vpn-gateway/vpn-gateway-about-vpngateways.md
+    - text: Dedykowane połączenia prywatne — ExpressRoute
+      url: ../../expressroute/expressroute-introduction.md
+    - text: VPN i dedykowane połączenia prywatne — wirtualna sieć WAN
+      url: ../../virtual-wan/virtual-wan-about.md
+  - linkListType: tutorial
+    links:
+    - text: Łączenie sieci lokalnej z siecią wirtualną — szyfrowanie sieci VPN
+      url: ../../vpn-gateway/tutorial-site-to-site-portal.md
+    - text: Poszerzanie sieci lokalnej na platformę Azure przy użyciu usługi ExpressRoute
+      url: ../../expressroute/expressroute-howto-circuit-portal-resource-manager.md

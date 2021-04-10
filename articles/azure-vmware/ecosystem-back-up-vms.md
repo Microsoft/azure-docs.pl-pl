@@ -3,12 +3,12 @@ title: Rozwiązania do tworzenia kopii zapasowych dla maszyn wirtualnych rozwią
 description: Dowiedz się więcej na temat wiodących rozwiązań do tworzenia kopii zapasowych i przywracania dla maszyn wirtualnych rozwiązań VMware platformy Azure.
 ms.topic: how-to
 ms.date: 03/17/2021
-ms.openlocfilehash: 368c5f600527ea564eb168cad0e9681ebf0b6fc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92726cae8a6f99140e4401763d14506f71884cc1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586135"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166347"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -22,5 +22,5 @@ Więcej informacji na temat tych rozwiązań do tworzenia kopii zapasowych możn
 - [CommVault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
 - [Firmę](https://vrt.as/nb4avs)
 - [Veeam](https://www.veeam.com/kb4012)
-- [Cohesity](https://www.cohesity.com/resource-assets/solution-brief/Cohesity-Azure-Solution-Brief.pdf)
+- [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
 - [Technologie firmy Dell](https://www.delltechnologies.com/resources/en-us/asset/briefs-handouts/solutions/dell-emc-data-protection-for-avs.pdf)
