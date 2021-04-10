@@ -9,10 +9,10 @@ author: amjads1
 ms.collection: linux
 ms.date: 10/17/2016
 ms.openlocfilehash: e8851ddd5211536394614727d990a2b52d32bfcc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565381"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Zrozumienie i używanie agenta systemu Linux platformy Azure

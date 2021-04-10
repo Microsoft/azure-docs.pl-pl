@@ -26,8 +26,10 @@
           href: quickstarts/chat/meeting-interop.md
     - name: Telefonia i wiadomości SMS
       items:
-        - name: Zarządzanie numerami telefonów
+        - name: Uzyskiwanie numeru telefonu
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Przenoszenie numeru telefonu na platformę Azure
+          href: quickstarts/telephony-sms/port-phone-number.md
         - name: Dodawanie połączenia telefonicznego do aplikacji
           href: quickstarts/voice-video-calling/pstn-call.md
         - name: Wysyłanie wiadomości SMS
@@ -92,6 +94,8 @@
           href: concepts/telephony-sms/messaging-policy.md
     - name: Połączenia głosowe i wideo
       items:
+        - name: Znane problemy
+          href: concepts/known-issues.md
         - name: Omówienie wywoływania zestawu SDK
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Pojęcia dotyczące głosu i wideo
@@ -135,8 +139,6 @@
       href: concepts/notifications.md
     - name: Współdziałanie usługi Teams
       href: concepts/teams-interop.md
-    - name: Znane problemy
-      href: concepts/known-issues.md
 - name: Samples
   items:
     - name: Omówienie
@@ -151,6 +153,8 @@
   items:
     - name: Przegląd dokumentacji referencyjnej
       href: concepts/reference.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/communication/communication
     - name: Dokumentacja interfejsu API REST
       href: /rest/api/communication/
     - name: Wywoływanie bibliotek
@@ -158,7 +162,7 @@
         - name: Wywoływanie (JavaScript)
           href: /javascript/api/azure-communication-services/@azure/communication-calling/
         - name: Wywoływanie (Android/Java)
-          href: /java/api/com.azure.communication.calling
+          href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
         - name: Wywoływanie (iOS)
           href: /objectivec/communication-services/calling/
     - name: Biblioteki czatu

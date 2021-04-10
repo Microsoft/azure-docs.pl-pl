@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e955c6b760c06ce802dfae0193d34954eab99892
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96490112"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731092"
 ---
 # <a name="what-are-security-partner-providers"></a>Kim są dostawcy partnerów w zakresie zabezpieczeń?
 
@@ -30,17 +30,22 @@ Obsługiwanymi partnerami zabezpieczeń są **rozwiązania Zscaler**, **[Check P
 
 Korzystając z partnerów zabezpieczeń, można filtrować ruch internetowy w następujących scenariuszach:
 
-- Virtual Network (VNet) do Internetu
+- Virtual Network (Sieć wirtualna) — do Internetu
 
-   Korzystaj z zaawansowanej, opartej na użytkownikach internetowej ochrony obciążeń w chmurze działających na platformie Azure.
+   Zapoznaj się z zaawansowaną ochroną za pomocą Internetu dla obciążeń w chmurze działających na platformie Azure.
 
 - Rozgałęzienie do Internetu
 
-   Korzystaj z łączności z platformą Azure i globalnej dystrybucji, aby łatwo dodać filtrowanie NSaaS innych firm do scenariuszy internetowych. Możesz skompilować globalną sieć tranzytową i krawędź zabezpieczeń przy użyciu wirtualnej sieci WAN platformy Azure.
+   Używaj łączności z platformą Azure i globalnej dystrybucji, aby łatwo dodawać filtrowanie NSaaS innych firm do scenariuszy internetowych. Możesz skompilować globalną sieć tranzytową i krawędź zabezpieczeń przy użyciu wirtualnej sieci WAN platformy Azure.
 
 Obsługiwane są następujące scenariusze:
-- Sieć wirtualna/gałąź do Internetu za pośrednictwem dostawcy usługi Security partner oraz inny ruch (szprych do rozgałęzienia, gałąź do szprych) za pośrednictwem zapory platformy Azure.
-- Sieć wirtualna/gałąź do Internetu przez dostawcę partnera zabezpieczeń
+- Dwaj dostawcy zabezpieczeń w centrum
+
+   Sieć wirtualna/odgałęzienie do Internetu za pośrednictwem dostawcy partnera zabezpieczeń oraz inny ruch (szprych-to-szprych, Branch-to-szprych) za pośrednictwem zapory platformy Azure.
+- Pojedynczy dostawca w centrum
+
+   - Cały ruch (szprych-to-szprych, szprychy do gałęzi, gałąź-do-szprych, Sieć wirtualna/gałąź-Internet) zabezpieczony przez zaporę platformy Azure
+   - Sieć wirtualna/odgałęzienie do Internetu przez dostawcę partnera zabezpieczeń
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Najlepsze rozwiązania dotyczące filtrowania ruchu internetowego w zabezpieczonych centrach wirtualnych
 

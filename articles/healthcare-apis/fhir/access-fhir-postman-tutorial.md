@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 03/16/2021
-ms.openlocfilehash: e9031dc77054a2bbac8015bbbdd7b9ed2a35e84f
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.date: 03/26/2021
+ms.openlocfilehash: 59847f745037acec47415489cdf61d119a7807af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043346"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936278"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster
 
@@ -24,12 +24,13 @@ Aplikacja kliencka może uzyskać dostęp do interfejsu API platformy Azure dla 
 
 - Punkt końcowy FHIR na platformie Azure. 
 
-   Aby wdrożyć interfejs API platformy Azure dla FHIR (usługi zarządzanej), możesz użyć [Azure Portal](fhir-paas-portal-quickstart.md), [programu PowerShell](fhir-paas-powershell-quickstart.md)lub [interfejsu wiersza polecenia platformy Azure](fhir-paas-cli-quickstart.md).
+  Aby wdrożyć interfejs API platformy Azure dla FHIR (usługi zarządzanej), możesz użyć [Azure Portal](fhir-paas-portal-quickstart.md), [programu PowerShell](fhir-paas-powershell-quickstart.md)lub [interfejsu wiersza polecenia platformy Azure](fhir-paas-cli-quickstart.md).
+
 - Zarejestrowana [poufna aplikacja kliencka](register-confidential-azure-ad-client-app.md) do uzyskiwania dostępu do usługi FHIR.
 - Przyznano uprawnienia do poufnej aplikacji klienckiej, na przykład "Współautor danych FHIR", aby uzyskać dostęp do usługi FHIR. Aby uzyskać więcej informacji, zobacz [Konfigurowanie usługi Azure RBAC dla FHIR](./configure-azure-rbac.md).
 - Zainstalowano notkę. 
     
-    Aby uzyskać więcej informacji na temat programu Poster, zobacz [Rozpoczynanie pracy z programem Poster](https://www.getpostman.com).
+  Aby uzyskać więcej informacji na temat programu Poster, zobacz [Rozpoczynanie pracy z programem Poster](https://www.getpostman.com).
 
 ## <a name="fhir-server-and-authentication-details"></a>FHIR serwer i szczegóły uwierzytelniania
 
@@ -62,6 +63,8 @@ W przypadku próby uzyskania dostępu do zasobów z ograniczeniami wystąpi odpo
 ![Uwierzytelnianie nie powiodło się](media/tutorial-postman/postman-authentication-failed.png)
 
 ## <a name="obtaining-an-access-token"></a>Uzyskiwanie tokenu dostępu
+Wybierz pozycję **Get New Access Token** (Uzyskaj nowy token dostępu).
+
 Aby uzyskać prawidłowy token dostępu, wybierz pozycję **autoryzacja** i wybierz pozycję **OAuth 2,0** z menu rozwijanego **Typ** .
 
 ![Ustawianie protokołu OAuth 2,0](media/tutorial-postman/postman-select-oauth2.png)
@@ -76,13 +79,13 @@ W oknie dialogowym **pobieranie nowego tokenu dostępu** wprowadź następujące
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Nazwa tokenu            | Mój TOKEN                                                                                                         | Wybrana nazwa          |
 | Typ udzielenia            | Kod autoryzacji                                                                                              |                            |
-| Adres URL wywołania zwrotnego          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
+| Adres URL wywołania zwrotnego          | `https://www.getpostman.com/oauth2/callback`                                                                    |                            |
 | Adres URL uwierzytelniania              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` jest `https://MYACCOUNT.azurehealthcareapis.com` przeznaczony dla interfejsu API platformy Azure dla FHIR |
-| Adres URL tokenu dostępu      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
-| Identyfikator klienta             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Identyfikator aplikacji             |
-| Klucz tajny klienta         | `XXXXXXXX`                                                                                                        | Klucz klienta tajnego          |
-| Zakres | `<Leave Blank>` |
-| Stan                |  `1234`                                                                                                           |                            |
+| Adres URL tokenu dostępu      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                    |                            |
+| Identyfikator klienta             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | Identyfikator aplikacji             |
+| Klucz tajny klienta         | `XXXXXXXX`                                                                                                      | Klucz klienta tajnego          |
+| Zakres | `<Leave Blank>` | Zakres nie jest używany; w związku z tym może pozostać puste.  
+| Stan                 | `1234`     | [Stan](https://learning.postman.com/docs/sending-requests/authorization/) jest wartością nieprzezroczystą, aby zapobiec fałszerstwu żądania między lokacjami. Jest to opcjonalne i może przyjmować dowolną wartość, taką jak "1234".                           |
 | Uwierzytelnianie klienta | Wyślij poświadczenia klienta w treści                                                                                 |                 
 
 Wybierz **token żądania** , który ma być kierowany przez przepływ uwierzytelniania Azure Active Directory, a token zostanie zwrócony do programu Poster. W przypadku wystąpienia błędu uwierzytelniania zapoznaj się z konsolą programu Poster, aby uzyskać więcej informacji. **Uwaga**: na wstążce wybierz pozycję **Widok**, a następnie wybierz pozycję **Pokaż konsolę programu post**. Skrót klawiaturowy do konsoli programu Poster jest **Alt-Ctrl + C**.
@@ -133,7 +136,7 @@ Wybierz pozycję **Wyślij** , aby określić, że pacjent został pomyślnie ut
 
 ![Zrzut ekranu pokazujący, że pacjent został pomyślnie utworzony.](media/tutorial-postman/postman-patient-created.png)
 
-W przypadku powtórzenia wyszukiwania pacjenta należy teraz zobaczyć rekord pacjenta:
+Jeśli ponowisz wyszukiwanie pacjenta, zobaczysz rekord pacjenta.
 
 ![Utworzono pacjenta](media/tutorial-postman/postman-patient-found.png)
 

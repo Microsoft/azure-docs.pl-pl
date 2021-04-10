@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 4f6dc61b0e05fcb16a03a1183518069b98aa575f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17740763777372a5eaed6941974c120860839279
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771417"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382713"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Samouczek: odnajdywanie serwerów fizycznych za pomocą Azure Migrate: odnajdywanie i Ocena
 
@@ -80,6 +80,9 @@ Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś w�
 Skonfiguruj konto, za pomocą którego urządzenie może uzyskać dostęp do serwerów fizycznych.
 
 - W przypadku **serwerów z systemem Windows** należy użyć konta domeny dla serwerów przyłączonych do domeny oraz konta lokalnego dla serwera, który nie jest przyłączony do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności.
+    > [!Note]
+    > W przypadku systemów Windows Server 2008 i 2008 R2 upewnij się, że na serwerach jest zainstalowana wartość WMF 3,0, a konto domeny/lokalnego używane do uzyskiwania dostępu do serwerów jest dodawane do tych grup: Użytkownicy monitora wydajności, Użytkownicy dzienników wydajności i WinRMRemoteWMIUsers.
+
 - W przypadku **serwerów z systemem Linux** wymagane jest konto główne na serwerach z systemem Linux, które mają zostać odnajdywane. Alternatywnie można ustawić konto inne niż główne z wymaganymi możliwościami przy użyciu następujących poleceń:
 
 **Polecenie** | **Cel**

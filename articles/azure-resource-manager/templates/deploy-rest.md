@@ -3,12 +3,12 @@ title: Wdrażanie zasobów za pomocą interfejsu API REST i szablonu
 description: Użyj Azure Resource Manager i Menedżer zasobów interfejsu API REST do wdrażania zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: e688d7abfaca442c3de395d25961b4e81e6c7b24
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 90e50598176ddc0327a81df105740f58afd930bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889199"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732571"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Azure Resource Manager
 
@@ -20,13 +20,13 @@ Możesz dołączyć szablon do treści żądania lub połączyć się z plikiem.
 
 Wdrożenie można określić w grupie zasobów, subskrypcji platformy Azure, grupie zarządzania lub dzierżawie. W zależności od zakresu wdrożenia używane są inne polecenia.
 
-- Aby wdrożyć w **grupie zasobów**, użyj [wdrożeń — Utwórz](/rest/api/resources/deployments/createorupdate). Żądanie jest wysyłane do:
+- Aby wdrożyć w **grupie zasobów**, użyj [wdrożeń — Utwórz](/rest/api/resources/resources/deployments/createorupdate). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
-- Aby wdrożyć w **ramach subskrypcji**, użyj [wdrożeń — Utwórz zakres subskrypcji](/rest/api/resources/deployments/createorupdateatsubscriptionscope). Żądanie jest wysyłane do:
+- Aby wdrożyć w **ramach subskrypcji**, użyj [wdrożeń — Utwórz zakres subskrypcji](/rest/api/resources/resources/deployments/createorupdateatsubscriptionscope). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -34,7 +34,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji platformy Azure, gru
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
 
-- Aby wdrożyć w **grupie zarządzania**, należy użyć [wdrożenia — tworzenie w zakresie grupy zarządzania](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). Żądanie jest wysyłane do:
+- Aby wdrożyć w **grupie zarządzania**, należy użyć [wdrożenia — tworzenie w zakresie grupy zarządzania](/rest/api/resources/resources/deployments/createorupdateatmanagementgroupscope). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -42,7 +42,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji platformy Azure, gru
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
 
-- Aby wdrożyć w **dzierżawie**, użyj [wdrożeń — Utwórz lub zaktualizuj w zakresie dzierżawy](/rest/api/resources/deployments/createorupdateattenantscope). Żądanie jest wysyłane do:
+- Aby wdrożyć w **dzierżawie**, użyj [wdrożeń — Utwórz lub zaktualizuj w zakresie dzierżawy](/rest/api/resources/resources/deployments/createorupdateattenantscope). Żądanie jest wysyłane do:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -56,7 +56,7 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
 
 1. Ustaw [wspólne parametry i nagłówki](/rest/api/azure/), w tym tokeny uwierzytelniania.
 
-1. Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów. Podaj identyfikator subskrypcji, nazwę nowej grupy zasobów i lokalizację potrzebną dla Twojego rozwiązania. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy zasobów](/rest/api/resources/resourcegroups/createorupdate).
+1. Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów. Podaj identyfikator subskrypcji, nazwę nowej grupy zasobów i lokalizację potrzebną dla Twojego rozwiązania. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy zasobów](/rest/api/resources/resources/resourcegroups/createorupdate).
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2020-06-01
@@ -189,7 +189,7 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
    }
    ```
 
-1. Aby uzyskać stan wdrożenia szablonu, należy użyć [wdrożeń — Get](/rest/api/resources/deployments/get).
+1. Aby uzyskać stan wdrożenia szablonu, należy użyć [wdrożeń — Get](/rest/api/resources/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01

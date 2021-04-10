@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: dd1440cd7bda8d40a81290cd9f633264b9641dc5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1ed37ebd798f7ebef59ea48ce7e2084b331d2bba
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502556"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065416"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych Azure Machine Learning przy użyciu otwartych zestawów danych platformy Azure
 
@@ -54,7 +54,7 @@ W tym artykule potrzebne są:
     * Pracuj nad własnym środowiskiem Python i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](/python/api/azureml-dataprep/) , który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) i CentOS (7).
+> Niektóre klasy zestawu danych mają zależności w pakiecie Azure preprodukcyjnym, który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) i CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Tworzenie zestawów danych przy użyciu zestawu SDK
 

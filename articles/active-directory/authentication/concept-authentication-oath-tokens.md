@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b3d5155befe005a6af68355426883b63a8c410
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 44016d81b18e8df7b6e2ed7c14559cf19ac0c07d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105611790"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106640"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metody uwierzytelniania w tokenach OATH Azure Active Directory 
 
@@ -57,7 +57,7 @@ Proces może potrwać kilka minut, w zależności od rozmiaru pliku CSV. Wybierz
 
 Po rozwiązaniu jakichkolwiek błędów administrator może aktywować każdy klucz, wybierając pozycję **Aktywuj** dla tokenu i wprowadzając uwierzytelnianie OTP wyświetlane na tokenie. Maksymalnie 200 tokenów OATH można aktywować co 5 minut. 
 
-Użytkownicy mogą mieć kombinację maksymalnie pięciu tokenów sprzętowych OATH lub aplikacji uwierzytelniania, takich jak Microsoft Authenticator aplikacji skonfigurowanych do użycia w dowolnym momencie.
+Użytkownicy mogą mieć kombinację maksymalnie pięciu tokenów sprzętowych OATH lub aplikacji uwierzytelniania, takich jak Microsoft Authenticator aplikacji skonfigurowanych do użycia w dowolnym momencie. Tokeny OATH sprzętu nie mogą być przypisane do użytkowników-Gości w dzierżawie zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 

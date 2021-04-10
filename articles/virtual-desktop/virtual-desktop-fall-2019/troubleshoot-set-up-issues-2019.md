@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1695e7aa0a202a5946f9038049b51c6a8fd45ad5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95014836"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934669"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Tworzenie dzierżawy i puli hostów w systemie Windows Virtual Desktop (klasyczny)
 
@@ -31,11 +31,11 @@ Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający wybór systemu Windows 10 Enterprise dla pulpitów wirtualnych, wersja 1809.](../media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Tworzenie dzierżawy pulpitu wirtualnego systemu Windows
+## <a name="creating-windows-virtual-desktop-tenant&quot;></a>Tworzenie dzierżawy pulpitu wirtualnego systemu Windows
 
 W tej sekcji omówiono potencjalne problemy podczas tworzenia dzierżawy pulpitu wirtualnego systemu Windows.
 
-### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Błąd: AADSTS650052 aplikacja musi mieć dostęp do usługi.
+### <a name=&quot;error-aadsts650052-the-app-needs-access-to-a-service&quot;></a>Błąd: AADSTS650052 aplikacja musi mieć dostęp do usługi.
 
 Przykład nieprzetworzonego błędu:
 
@@ -406,7 +406,7 @@ Jeśli uruchamiasz szablon Azure Resource Manager GitHub, podaj wartości nastę
 
 ### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Błąd: podsieć vmSubnet jest niedostępna podczas konfigurowania sieci wirtualnych
 
-**Przyczyna:** W szablonie WVD Marketplace interfejs użytkownika wyświetla tylko podsieci, które mają co najmniej tyle adresów IP jako łączną liczbę maszyn wirtualnych określonych w szablonie. Rzeczywista liczba dostępnych adresów IP w podsieci musi być równa liczbie wdrożonych nowych maszyn wirtualnych, ale nie może ona być obliczana przez bieżący interfejs użytkownika.
+**Przyczyna:** W szablonie portalu Windows Virtual Desktop Marketplace interfejs użytkownika wyświetla tylko podsieci, które mają co najmniej tyle adresów IP jako łączną liczbę maszyn wirtualnych określonych w szablonie. Rzeczywista liczba dostępnych adresów IP w podsieci musi być równa liczbie wdrożonych nowych maszyn wirtualnych, ale nie może ona być obliczana przez bieżący interfejs użytkownika.
 
 **Poprawka:** Można określić podsieć z co najmniej tylu adresami IP dostępnymi jako liczba maszyn wirtualnych, które są dodawane przy użyciu interfejsu użytkownika portalu Marketplace, można to zrobić przez określenie nazwy podsieci w parametrze "**existingSubnetName**" podczas [ponownego wdrażania istniejącego wdrożenia](expand-existing-host-pool-2019.md#redeploy-from-azure) lub [wdrożenia przy użyciu podstawowego szablonu ARM z usługi GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 

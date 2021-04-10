@@ -456,7 +456,84 @@
                   href: windows-voice-assistants-best-practices.md
                 - name: Przykłady i często zadawane pytania
                   href: windows-voice-assistants-faq.md
-- name: Narzędzia
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Włącz rejestrowanie
+      href: how-to-use-logging.md
+    - name: Śledzenie użycia pamięci
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Włączanie prywatnego punktu końcowego
+      href: speech-services-private-link.md
+    - name: Konfigurowanie biblioteki OpenSSL dla systemu Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Konfigurowanie systemu RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Kontenery
+      items:
+        - name: Instalowanie i uruchamianie kontenerów usługi Mowa
+          displayName: 'containers,install container,run container'
+          href: speech-container-howto.md
+        - name: Konfigurowanie kontenerów usługi Mowa
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
+        - name: Przetwarzanie wsadowe przy użyciu kontenerów mowy
+          href: speech-container-batch-processing.md
+        - name: Kontenery usługi Mowa z usługami Kubernetes i Helm
+          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+          href: speech-container-howto-on-premises.md
+        - name: Kontenery usługi Mowa w wystąpieniach kontenerów na platformie Azure
+          displayName: 'ACI,azure container instances,container instances,containers'
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Kontenery — często zadawane pytania
+          href: speech-container-faq.md
+        - name: Dokumentacja kontenerów usługi Cognitive Services
+          href: ../containers/index.yml
+    - name: Migracja
+      items:
+        - name: Z rozpoznawania mowy Bing
+          href: how-to-migrate-from-bing-speech.md
+        - name: Z interfejsu API tłumaczenia mowy w usłudze Translator
+          href: how-to-migrate-from-translator-speech-api.md
+- name: Urządzenia
+  items:
+    - name: Dokumentacja urządzeń usługi Mowa
+      href: index-devices.yml
+    - name: Omówienie
+      items:
+        - name: Co to jest zestaw Speech Devices SDK?
+          href: speech-devices-sdk.md
+        - name: Pobieranie zestawu Speech Devices SDK
+          href: get-speech-devices-sdk.md
+        - name: Przykłady dla zestawu Speech Devices SDK (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+    - name: Sprzęt
+      items:
+        - name: Zalecenia dotyczące zestawu mikrofonów
+          href: speech-devices-sdk-microphone.md
+        - name: Szczegóły urządzenia Roobo v1
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Szczegóły urządzenia Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
+    - name: Przewodniki z instrukcjami
+      items:
+        - name: Jak skonfigurować macierz mikrofonów
+          href: how-to-devices-microphone-array-configuration.md
+    - name: Szybki start
+      items:
+        - name: Używanie zestawu Speech Devices SDK
+          href: speech-devices-sdk-quickstart.md
+    - name: Zasoby
+      items:
+        - name: Rozwiązywanie problemów z zestawem Speech Devices SDK
+          href: speech-devices-sdk-troubleshooting.md
+    - name: Dokumentacja
+      items:
+        - name: Informacje o wersji zestawu Speech Devices SDK
+          href: devices-sdk-release-notes.md
+- name: Zasoby
   items:
     - name: Zestaw SDK rozpoznawania mowy
       items:
@@ -505,85 +582,6 @@
           href: 'https://speech.microsoft.com'
         - name: Tworzenie aplikacji z poleceniami niestandardowymi przy użyciu usługi Speech Studio
           href: ./quickstart-custom-commands-application.md
-- name: Wdróż
-  items:
-    - name: Włącz rejestrowanie
-      href: how-to-use-logging.md
-    - name: Śledzenie użycia pamięci
-      href: how-to-track-speech-sdk-memory-usage.md
-    - name: Włączanie prywatnego punktu końcowego
-      href: speech-services-private-link.md
-    - name: Konfigurowanie biblioteki OpenSSL dla systemu Linux
-      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-      href: how-to-configure-openssl-linux.md
-    - name: Konfigurowanie systemu RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Kontenery
-      items:
-        - name: Instalowanie i uruchamianie kontenerów usługi Mowa
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: Konfigurowanie kontenerów usługi Mowa
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
-        - name: Przetwarzanie wsadowe przy użyciu kontenerów mowy
-          href: speech-container-batch-processing.md
-        - name: Kontenery usługi Mowa z usługami Kubernetes i Helm
-          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-          href: speech-container-howto-on-premises.md
-        - name: Kontenery usługi Mowa w wystąpieniach kontenerów na platformie Azure
-          displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Kontenery — często zadawane pytania
-          href: speech-container-faq.md
-        - name: Dokumentacja kontenerów usługi Cognitive Services
-          href: ../containers/index.yml
-- name: Urządzenia
-  items:
-    - name: Dokumentacja urządzeń usługi Mowa
-      href: index-devices.yml
-    - name: Omówienie
-      items:
-        - name: Co to jest zestaw Speech Devices SDK?
-          href: speech-devices-sdk.md
-        - name: Pobieranie zestawu Speech Devices SDK
-          href: get-speech-devices-sdk.md
-        - name: Przykłady dla zestawu Speech Devices SDK (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: Sprzęt
-      items:
-        - name: Zalecenia dotyczące zestawu mikrofonów
-          href: speech-devices-sdk-microphone.md
-        - name: Szczegóły urządzenia Roobo v1
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Szczegóły urządzenia Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-    - name: Przewodniki z instrukcjami
-      items:
-        - name: Jak skonfigurować macierz mikrofonów
-          href: how-to-devices-microphone-array-configuration.md
-    - name: Szybki start
-      items:
-        - name: Używanie zestawu Speech Devices SDK
-          href: speech-devices-sdk-quickstart.md
-    - name: Zasoby
-      items:
-        - name: Rozwiązywanie problemów z zestawem Speech Devices SDK
-          href: speech-devices-sdk-troubleshooting.md
-    - name: Dokumentacja
-      items:
-        - name: Informacje o wersji zestawu Speech Devices SDK
-          href: devices-sdk-release-notes.md
-- name: Migracja
-  items:
-    - name: Z rozpoznawania mowy Bing
-      href: how-to-migrate-from-bing-speech.md
-    - name: Z interfejsu API tłumaczenia mowy w usłudze Translator
-      href: how-to-migrate-from-translator-speech-api.md
-- name: Zasoby
-  items:
     - name: Opcje pomocy technicznej
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Dokumentacja platformy Swagger

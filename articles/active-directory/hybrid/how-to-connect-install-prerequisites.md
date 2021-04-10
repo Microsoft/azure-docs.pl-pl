@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 108f81be678eb666b6f79ebbecc93f7bc88dc1d6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426794"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107915"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -37,7 +37,7 @@ Przed zainstalowaniem Azure AD Connect istnieje kilka rzeczy, które są potrzeb
 * Dzierżawa usługi Azure AD zezwala domyślnie na 50 000 obiektów. Po zweryfikowaniu domeny limit rośnie do 300 000 obiektów. Jeśli potrzebujesz jeszcze więcej obiektów w usłudze Azure AD, otwórz sprawę pomocy technicznej, aby limit został jeszcze bardziej zwiększony. Jeśli potrzebujesz więcej niż 500 000 obiektów, potrzebujesz licencji, takiej jak Microsoft 365, Azure AD — wersja Premium lub Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Przygotowywanie danych lokalnych
-* Użyj [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) , aby zidentyfikować błędy, takie jak duplikaty i problemy z formatowaniem w katalogu przed synchronizacją do usługi Azure AD i Microsoft 365.
+* Użyj [IdFix](https://github.com/Microsoft/idfix) , aby zidentyfikować błędy, takie jak duplikaty i problemy z formatowaniem w katalogu przed [synchronizacją do usługi Azure AD i Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Zapoznaj [się z opcjonalnymi funkcjami synchronizacji, które można włączyć w usłudze Azure AD](how-to-connect-syncservice-features.md), i Oceń, które funkcje należy włączyć.
 
 ### <a name="on-premises-active-directory"></a>Lokalna usługa Active Directory

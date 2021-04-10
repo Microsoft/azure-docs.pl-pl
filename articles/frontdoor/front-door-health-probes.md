@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449244"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550747"
 ---
 # <a name="health-probes"></a>Sondy kondycji
 
@@ -24,6 +24,9 @@ Aby określić kondycję i bliskość każdego zaplecza dla danego środowiska z
 
 > [!WARNING]
 > Ze względu na to, że drzwi z przodu zawierają wiele środowisk brzegowych, ilość sondy kondycji dla zakończyeń może być dość duża od 25 żądań co minutę do 1200 żądań na minutę, w zależności od skonfigurowanej częstotliwości sondowania kondycji. Domyślna częstotliwość sondy wynosząca 30 sekund, objętość sondy w zasobie powinna wynosić około 200 żądań na minutę.
+
+> [!NOTE]
+> Sondy HTTP/HTTPS z przodu są wysyłane z `User-Agent` nagłówkiem ustawionym z wartością: `Edge Health Probes` . 
 
 ## <a name="supported-protocols"></a>Obsługiwane protokoły
 

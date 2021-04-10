@@ -234,6 +234,8 @@
           href: troubleshoot-changed-block-tracking-replication.md
 - name: Dokumentacja
   items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/offazure/offazure
     - name: Azure PowerShell
       href: /powershell/module/az.migrate/
     - name: Elementy wbudowane usługi Azure Policy
