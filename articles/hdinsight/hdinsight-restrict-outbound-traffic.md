@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06990a5bd1d6619f07952e84870a01f5cd5068df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872085"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384429"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -32,7 +32,7 @@ Podsumowanie kroków służących do blokowania ruchu wychodzącego z istniejąc
 
 1. Utwórz podsieć.
 1. Utwórz zaporę.
-1. Dodawanie reguł aplikacji do zapory
+1. Dodaj reguły aplikacji do zapory.
 1. Dodaj reguły sieci do zapory.
 1. Utwórz tabelę routingu.
 
@@ -76,7 +76,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Zezwala na działanie logowania systemu Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Zezwala na działanie logowania systemu Windows |
-    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. NET | Zamień `storage_account_name` na rzeczywistą nazwę konta magazynu. Aby korzystać tylko z połączeń HTTPS, upewnij się, że na koncie magazynu jest włączone polecenie ["wymagany bezpieczny transfer"](../storage/common/storage-require-secure-transfer.md) . W przypadku korzystania z prywatnego punktu końcowego w celu uzyskania dostępu do kont magazynu ten krok nie jest wymagany, a ruch magazynu nie jest przekazywany do zapory.|
+    | Rule_4 | * | https:443 | storage_account_name. blob. Core. Windows. NET | Zamień `storage_account_name` na rzeczywistą nazwę konta magazynu. Upewnij się, że na koncie magazynu jest włączone [żądanie bezpiecznego transferu](../storage/common/storage-require-secure-transfer.md) . W przypadku korzystania z prywatnego punktu końcowego w celu uzyskania dostępu do kont magazynu ten krok nie jest wymagany, a ruch magazynu nie jest przekazywany do zapory.|
 
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Wprowadź szczegóły kolekcji reguł aplikacji":::
 
@@ -84,7 +84,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Konfigurowanie zapory przy użyciu reguł sieci
 
-Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDInsight.
+Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDInsight. 
 
 1. Kontynuując poprzedni krok, przejdź do sekcji **Kolekcja reguł sieciowych**  >  **+ Dodawanie kolekcji reguł sieci**.
 
@@ -102,14 +102,14 @@ Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDIns
 
     | Nazwa | Protokół | Adresy źródłowe | Tagi usługi | Porty docelowe | Uwagi |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | Jeśli używasz domyślnych serwerów SQL udostępnianych przez usługę HDInsight, skonfiguruj regułę sieci w sekcji Tagi usług dla programu SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. Jeśli używasz niestandardowego programu SQL Server do obsługi Ambari, Oozie, Ranger i metadanych Hive, musisz zezwolić na ruch tylko do własnych niestandardowych serwerów SQL.|
+    | Rule_5 | TCP | * | SQL | 1433, 11000-11999 | Jeśli używasz domyślnych serwerów SQL udostępnianych przez usługę HDInsight, skonfiguruj regułę sieci w sekcji Tagi usług dla programu SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. Jeśli używasz niestandardowego programu SQL Server do obsługi Ambari, Oozie, Ranger i metadanych Hive, musisz zezwolić na ruch tylko do własnych niestandardowych serwerów SQL. Zapoznaj się z tematem [Architektura łączności Azure SQL Database i usługi Azure Synapse Analytics](../azure-sql/database/connectivity-architecture.md) , aby zobaczyć, dlaczego jest również wymagany zakres portów 11000-11999 oprócz 1433. |
     | Rule_6 | TCP | * | Azure Monitor | * | obowiązkowe Klienci, którzy planują korzystanie z funkcji automatycznego skalowania, powinni dodać tę regułę. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: wprowadzanie kolekcji reguł aplikacji":::
 
 1. Wybierz pozycję **Dodaj**.
 
-### <a name="create-and-configure-a-route-table"></a>Tworzenie i Konfigurowanie tabeli tras
+### <a name="create-and-configure-a-route-table"></a>Tworzenie i Konfigurowanie tabeli tras 
 
 Utwórz tabelę tras z następującymi wpisami:
 

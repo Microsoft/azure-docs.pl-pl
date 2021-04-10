@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 039332a8728e5d7e5b605f51f4bb53e6dcbb6381
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217230"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109173"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w usłudze Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -139,7 +139,7 @@ Ponowna kompilacja (lub Nowa kompilacja po wykluczeniu pamięci podręcznej) nad
 
 - **Zmieniony projekt fizyczny**: na przykład nowo utworzone indeksy bardziej efektywnie obejmują wymagania zapytania. Nowe indeksy mogą być używane w nowej kompilacji, jeśli optymalizator zapytań zdecyduje, że użycie tego nowego indeksu jest bardziej optymalne niż użycie struktury danych, która została pierwotnie wybrana dla pierwszej wersji wykonywania zapytania. Wszelkie zmiany fizyczne obiektów, do których istnieją odwołania, mogą spowodować powstanie nowego planu w czasie kompilacji.
 
-- **Różnice zasobów serwera**: gdy plan w jednym systemie różni się od planu w innym systemie, dostępność zasobów, taka jak liczba dostępnych procesorów, może mieć wpływ na sposób generowania planu. Na przykład jeśli jeden system ma więcej procesorów, można wybrać plan równoległy.
+- **Różnice zasobów serwera**: gdy plan w jednym systemie różni się od planu w innym systemie, dostępność zasobów, taka jak liczba dostępnych procesorów, może mieć wpływ na sposób generowania planu. Na przykład jeśli jeden system ma więcej procesorów, można wybrać plan równoległy. Aby uzyskać więcej informacji na temat równoległości w Azure SQL Database, zobacz [Konfigurowanie maksymalnego stopnia równoległości (MAXDOP) w Azure SQL Database](database/configure-max-degree-of-parallelism.md).
 
 - **Różne statystyki**: Statystyka skojarzona z obiektami, do których istnieją odwołania, mogła ulec zmianie lub może być istotnie różna od statystyk oryginalnego systemu. W przypadku zmiany statystyk i ponownej kompilacji optymalizator zapytań używa statystyk rozpoczynających się od momentu zmiany. Dane statystyczne i częstotliwości dla zaktualizowanych statystyk mogą się różnić od tych, które zostały oryginalnie skompilowane. Te zmiany są używane do tworzenia oszacowań kardynalności. (*Oszacowania kardynalności* to liczba wierszy, które powinny przepływać przez drzewo zapytania logicznego). Zmiany w oszacowaniach kardynalności mogą prowadzić do wyboru różnych operatorów fizycznych i skojarzonych z nimi zamówień. Nawet niewielkie zmiany w statystyce mogą spowodować zmianę planu wykonywania zapytania.
 
@@ -181,6 +181,8 @@ Nie zawsze można łatwo zidentyfikować zmiany woluminu obciążenia, który za
 
 Użyj Intelligent Insights, aby wykrywać [wzrost obciążeń](database/intelligent-insights-troubleshoot-performance.md#workload-increase) i [planować regresje](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
+- **Równoległość**: nadmierna równoległość może spowodować pogorszenie wydajności innych współbieżnych obciążeń, blokują inne zapytania o zasoby procesora i wątków roboczych. Aby uzyskać więcej informacji na temat równoległości w Azure SQL Database, zobacz [Konfigurowanie maksymalnego stopnia równoległości (MAXDOP) w Azure SQL Database](database/configure-max-degree-of-parallelism.md).
+
 ## <a name="waiting-related-problems"></a>Problemy związane z oczekiwaniem
 
 Gdy zostanie wyeliminowany nieoptymalny plan i problemy *związane* z uruchamianiem, które są związane z problemami z wykonywaniem, problem z wydajnością zazwyczaj jest oczekiwany w przypadku niektórych zasobów. Problemy zależne mogą być spowodowane przez:
@@ -220,6 +222,11 @@ Widoków DMV, który śledzi magazyn zapytań i statystyki oczekiwania, pokazuj�
 > - [TigerToolbox czeka i Zamky](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
+## <a name="see-also"></a>Zobacz też
+
+* [Skonfiguruj maksymalny stopień równoległości (MAXDOP) w Azure SQL Database](database/configure-max-degree-of-parallelism.md)
+* [Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database w programie Azure SQL Database](database/understand-resolve-blocking.md)
+
 ## <a name="next-steps"></a>Następne kroki
 
-[Przegląd SQL Database monitorowania i dostrajania](database/monitor-tune-overview.md)
+* [Przegląd SQL Database monitorowania i dostrajania](database/monitor-tune-overview.md)

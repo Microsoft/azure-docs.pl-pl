@@ -13,16 +13,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: f11aec770818cd4ceeeda1ae7decf30acb9ca92b
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: fc3717436619468e2db0bf4b408059112dae24cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630713"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384157"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Samouczek: używanie skryptów dostarczonych przez firmę Microsoft do tworzenia certyfikatów testowych
 
-Firma Microsoft udostępnia skrypty programu PowerShell i bash, które ułatwiają zrozumienie sposobu tworzenia własnych certyfikatów X. 509 i uwierzytelniania ich w IoT Hub. Skrypty znajdują się w serwisie [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates). Są one dostępne tylko w celach demonstracyjnych. Certyfikaty utworzone przez nie mogą być używane w środowisku produkcyjnym. Certyfikaty zawierają zakodowane hasła ("1234") i wygasają po upływie 30 dni. W środowisku produkcyjnym należy użyć własnych najlepszych rozwiązań w zakresie tworzenia certyfikatów i zarządzania okresem istnienia.
+Firma Microsoft udostępnia skrypty programu PowerShell i bash, które ułatwiają zrozumienie sposobu tworzenia własnych certyfikatów X. 509 i uwierzytelniania ich w IoT Hub. Skrypty znajdują się w [repozytorium](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)GitHub. Są one dostępne tylko w celach demonstracyjnych. Certyfikaty utworzone przez nie mogą być używane w środowisku produkcyjnym. Certyfikaty zawierają zakodowane hasła ("1234") i wygasają po upływie 30 dni. W środowisku produkcyjnym należy użyć własnych najlepszych rozwiązań w zakresie tworzenia certyfikatów i zarządzania okresem istnienia.
 
 ## <a name="powershell-scripts"></a>Skrypty środowiska PowerShell
 
@@ -30,7 +30,7 @@ Firma Microsoft udostępnia skrypty programu PowerShell i bash, które ułatwiaj
 
 Pobierz OpenSSL dla systemu Windows. Zapoznaj się z tematem <https://www.openssl.org/docs/faq.html#MISC4> miejsca, aby pobrać go lub <https://www.openssl.org/source/> skompilować ze źródła. Następnie Uruchom skrypty wstępne:
 
-1. Skopiuj skrypty z usługi [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) do katalogu lokalnego, w którym chcesz korzystać z programu. Wszystkie pliki zostaną utworzone jako elementy podrzędne tego katalogu.
+1. Skopiuj skrypty z tego [repozytorium](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) GitHub do katalogu lokalnego, w którym chcesz się zadziałała. Wszystkie pliki zostaną utworzone jako elementy podrzędne tego katalogu.
 
 1. Uruchom program PowerShell jako administrator.
 

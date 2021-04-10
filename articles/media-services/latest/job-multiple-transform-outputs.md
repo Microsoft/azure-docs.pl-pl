@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fc3ab64a35c24df2af9d90a5ad348f840610d188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ada86e0ce44977789eaa5d6327c0aad2883b47d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102635845"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108850"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Tworzenie zadania z wieloma wyjściami transformacji
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-W tym temacie pokazano, jak utworzyć transformację z dwoma wyjściami transformacji. Pierwsze wywołanie dla danych wejściowych jest kodowane na potrzeby przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów przy użyciu wbudowanego ustawienia wstępnego [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) . Druga z nich wywołuje sygnał audio w wejściowym wideo do przetworzenia przy użyciu [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Po utworzeniu przekształcenia można przesłać zadanie, które będzie odpowiednio przetwarzać wideo. Ponieważ w tym przykładzie określono dwa wyjścia transformacji, należy określić dwa dane wyjściowe zadania. Można zdecydować się na kierowanie obu zadań do tego samego zasobu (jak pokazano poniżej) lub zapisanie wyników w osobnych zasobach.
+W tym temacie pokazano, jak utworzyć transformację z dwoma wyjściami transformacji. Pierwsze wywołanie dla danych wejściowych jest kodowane na potrzeby przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów przy użyciu wbudowanego ustawienia wstępnego [AdaptiveStreaming](encode-concept.md#builtinstandardencoderpreset) . Druga z nich wywołuje sygnał audio w wejściowym wideo do przetworzenia przy użyciu [AudioAnalyzerPreset](analyze-video-audio-files-concept.md#built-in-presets). Po utworzeniu przekształcenia można przesłać zadanie, które będzie odpowiednio przetwarzać wideo. Ponieważ w tym przykładzie określono dwa wyjścia transformacji, należy określić dwa dane wyjściowe zadania. Można zdecydować się na kierowanie obu zadań do tego samego zasobu (jak pokazano poniżej) lub zapisanie wyników w osobnych zasobach.
 
 > [!TIP]
 > Przed rozpoczęciem opracowywania, zobacz [Tworzenie aplikacji przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md) (w tym informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa itp.).

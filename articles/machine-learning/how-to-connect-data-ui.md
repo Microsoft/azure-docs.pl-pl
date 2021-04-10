@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0265984c4ae83b8869071017e2fb571a7ff548c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102508235"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027656"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -69,7 +69,7 @@ Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazyn
 Po utworzeniu magazynu danych Utwórz zestaw danych, który będzie współpracujący z danymi. Zestawy danych pakują dane do opóźnieniemego, który można z niego korzystać na potrzeby zadań uczenia maszynowego, takich jak szkolenie. [Dowiedz się więcej o zestawach danych](how-to-create-register-datasets.md).
 
 Istnieją dwa typy zestawów danych, FileDataset i TabularDataset. 
-[FileDatasets](how-to-create-register-datasets.md#filedataset) tworzyć odwołania do jednego lub wielu plików lub publicznych adresów URL. W związku z tym [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) dane są reprezentowane w formacie tabelarycznym. 
+[FileDatasets](how-to-create-register-datasets.md#filedataset) tworzyć odwołania do jednego lub wielu plików lub publicznych adresów URL. W związku z tym [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) dane są reprezentowane w formacie tabelarycznym. Można tworzyć TabularDatasets z plików CSV,. tsv,. Parquet,. JSON oraz z wyników zapytań SQL.
 
 Poniższe kroki i animacje pokazują, jak utworzyć zestaw danych w programie [Azure Machine Learning Studio](https://ml.azure.com).
 

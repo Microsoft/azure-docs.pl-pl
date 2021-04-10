@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 59cd364e5568b3509d0c06d439d39b132b202df6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 3c667fe20b392bfb52b8300ce4b8b59d15a13b9a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641757"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385432"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu zestawu SDK .NET
 
@@ -106,14 +106,13 @@ Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
 > [!NOTE]
-> W przypadku kont US gov platformy Azure należy użyć BaseUri  *https://management.usgovcloudapi.net* zamiast *https://management.azure.com/* , a następnie utworzyć klienta zarządzania fabryki danych. 
-> 
+> W przypadku Niesuwerennych chmur należy użyć odpowiednich punktów końcowych specyficznych dla chmury dla ActiveDirectoryAuthority i ResourceManagerUrl (BaseUri). Na przykład w usłudze Azure gov należy użyć uwierzytelniania https://login.microsoftonline.us zamiast https://login.microsoftonline.com , i użyć https://management.usgovcloudapi.net zamiast https://management.azure.com/ , a następnie utworzyć klienta zarządzania fabryki danych. Za pomocą programu PowerShell możesz łatwo uzyskać adresy URL punktów końcowych dla różnych chmur, wykonując polecenia "Get-AzEnvironment | Lista formatów ", która zwróci listę punktów końcowych dla każdego środowiska chmury.
 
 3. Dodaj do metody **Main** następujący kod, który tworzy wystąpienie klasy **DataFactoryManagementClient** . Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;

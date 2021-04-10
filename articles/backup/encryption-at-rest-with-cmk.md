@@ -2,13 +2,13 @@
 title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
-ms.date: 07/08/2020
-ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/01/2021
+ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716741"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167894"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -33,7 +33,7 @@ W tym artykule omówiono następujące zagadnienia:
 
 - Ta funkcja nie odnosi się do [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), która korzysta z szyfrowania na podstawie gościa dysków maszyny wirtualnej za pomocą funkcji BitLocker (dla systemu Windows) i DM-Crypt (w systemie Linux)
 
-- Magazyn Recovery Services może być szyfrowany tylko z kluczami przechowywanymi w Azure Key Vault, które znajdują się w **tym samym regionie**. Ponadto klucze muszą zawierać tylko **klucze RSA 2048** i powinny być w stanie **włączony** .
+- Magazyn Recovery Services może być szyfrowany tylko z kluczami przechowywanymi w Azure Key Vault, które znajdują się w **tym samym regionie**. Ponadto klucze muszą być tylko **kluczami RSA** i powinny być w stanie **włączonym** .
 
 - Przeniesienie CMK szyfrowanego magazynu Recovery Services między grupami zasobów i subskrypcjami nie jest obecnie obsługiwane.
 - Po przeniesieniu magazynu Recovery Services już zaszyfrowanego przy użyciu kluczy zarządzanych przez klienta do nowej dzierżawy należy zaktualizować magazyn Recovery Services, aby ponownie utworzyć i ponownie skonfigurować tożsamość zarządzaną magazynu i CMK (który powinien znajdować się w nowej dzierżawie). Jeśli to nie zrobisz, operacje tworzenia kopii zapasowej i przywracania zakończą się niepowodzeniem. Ponadto należy zmienić konfigurację wszystkich uprawnień kontroli dostępu opartej na rolach (RBAC) skonfigurowanych w ramach subskrypcji.
@@ -42,6 +42,9 @@ W tym artykule omówiono następujące zagadnienia:
 
     >[!NOTE]
     >Użyj AZ module 5.3.0 lub nowszego, aby używać kluczy zarządzanych przez klienta do tworzenia kopii zapasowych w magazynie Recovery Services.
+    
+    >[!Warning]
+    >Jeśli używasz programu PowerShell do zarządzania kluczami szyfrowania dla kopii zapasowej, nie zalecamy aktualizowania kluczy z portalu.<br></br>W przypadku zaktualizowania klucza z portalu nie można użyć programu PowerShell do zaktualizowania klucza szyfrowania, dopóki Aktualizacja programu PowerShell obsługuje nowy model. Można jednak kontynuować aktualizowanie klucza z Azure Portal.
 
 Jeśli magazyn Recovery Services nie został utworzony i skonfigurowany, możesz [zapoznać się z](backup-create-rs-vault.md)artykułem jak to zrobić.
 
@@ -59,22 +62,32 @@ Ta sekcja obejmuje następujące kroki:
 
 W celu osiągnięcia zamierzonych wyników należy wykonać wszystkie te kroki w podanej powyżej kolejności. Każdy krok został szczegółowo omówiony poniżej.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Włącz zarządzaną tożsamość magazynu Recovery Services
+## <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Włącz zarządzaną tożsamość magazynu Recovery Services
 
-Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierzytelniania magazynu Recovery Services w celu uzyskania dostępu do kluczy szyfrowania przechowywanych w Azure Key Vault. Aby włączyć zarządzaną tożsamość magazynu Recovery Services, wykonaj czynności opisane poniżej.
+Azure Backup używa tożsamości zarządzanych przypisanych przez system i tożsamości zarządzanych przypisanych przez użytkownika w celu uwierzytelnienia magazynu Recovery Services w celu uzyskania dostępu do kluczy szyfrowania przechowywanych w Azure Key Vault. Aby włączyć zarządzaną tożsamość magazynu Recovery Services, wykonaj czynności opisane poniżej.
 
 >[!NOTE]
 >Po włączeniu **nie** można wyłączyć zarządzanej tożsamości (nawet tymczasowo). Wyłączenie zarządzanej tożsamości może prowadzić do niespójnych zachowań.
+
+### <a name="enable-system-assigned-managed-identity-for-the-vault"></a>Włącz tożsamość zarządzaną przypisaną przez system do magazynu
 
 **W portalu:**
 
 1. Przejdź do magazynu Recovery Services — > **tożsamość**
 
-    ![Ustawienia tożsamości](./media/encryption-at-rest-with-cmk/managed-identity.png)
+    ![Ustawienia tożsamości](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
 
-1. Zmień **stan** na **włączone** i wybierz pozycję **Zapisz**.
+1. Przejdź do karty **przypisane do systemu** .
 
-1. Generowany jest identyfikator obiektu, który jest zarządzaną przez system tożsamością magazynową.
+1. Zmień **stan** na **włączone**.
+
+1. Kliknij przycisk **Zapisz** , aby włączyć tożsamość magazynu.
+
+Generowany jest identyfikator obiektu, który jest zarządzaną przez system tożsamością magazynową.
+
+>[!NOTE]
+>Po włączeniu nie można wyłączyć zarządzanej tożsamości (nawet tymczasowo). Wyłączenie zarządzanej tożsamości może prowadzić do niespójnych zachowań.
+
 
 **Za pomocą programu PowerShell:**
 
@@ -98,7 +111,28 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Przypisz uprawnienia do magazynu Recovery Services, aby uzyskać dostęp do klucza szyfrowania w Azure Key Vault
+### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Przypisywanie tożsamości zarządzanej przypisanej przez użytkownika do magazynu
+
+Aby przypisać tożsamość zarządzaną przypisaną przez użytkownika do magazynu Recovery Services, wykonaj następujące czynności:
+
+1.  Przejdź do magazynu Recovery Services — > **tożsamość**
+
+    ![Przypisywanie tożsamości zarządzanej przypisanej przez użytkownika do magazynu](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+
+1.  Przejdź do karty **przypisane przez użytkownika** .
+
+1.  Kliknij pozycję **+ Dodaj** , aby dodać tożsamość zarządzaną przypisaną przez użytkownika.
+
+1.  W otwartym bloku **Dodaj tożsamość zarządzaną przez użytkownika** wybierz subskrypcję dla swojej tożsamości.
+
+1.  Wybierz tożsamość z listy. Można również filtrować według nazwy tożsamości lub grupy zasobów.
+
+1.  Po zakończeniu kliknij przycisk **Dodaj** , aby zakończyć przypisywanie tożsamości.
+
+## <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Przypisz uprawnienia do magazynu Recovery Services, aby uzyskać dostęp do klucza szyfrowania w Azure Key Vault
+
+>[!Note]
+>Jeśli używasz tożsamości przypisanej do użytkownika, te same uprawnienia muszą być przypisane do tożsamości przypisanej do użytkownika.
 
 Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vault, który zawiera klucz szyfrowania. Jest to realizowane przez umożliwienie zarządzanej tożsamości magazynu Recovery Services dostępu do Key Vault.
 
@@ -120,7 +154,7 @@ Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vaul
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany wprowadzone w zasadach dostępu Azure Key Vault.
 
-### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Włącz ochronę przed usuwaniem i przeczyszczaniem na Azure Key Vault
+## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Włącz ochronę przed usuwaniem i przeczyszczaniem na Azure Key Vault
 
 Musisz **włączyć nietrwałe usuwanie i przeczyszczanie ochrony** na Azure Key Vault, w którym jest przechowywany klucz szyfrowania. Można to zrobić z poziomu interfejsu użytkownika Azure Key Vault, jak pokazano poniżej. (Można również ustawić te właściwości podczas tworzenia Key Vault). Więcej informacji na temat tych Key Vaultch właściwości można znaleźć [tutaj](../key-vault/general/soft-delete-overview.md).
 
@@ -160,7 +194,7 @@ Możesz również włączyć nietrwałe usuwanie i ochronę przed przeczyszczani
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-### <a name="assign-encryption-key-to-the-rs-vault"></a>Przypisywanie klucza szyfrowania do magazynu RS
+## <a name="assign-encryption-key-to-the-rs-vault"></a>Przypisywanie klucza szyfrowania do magazynu RS
 
 >[!NOTE]
 > Przed kontynuowaniem upewnij się, że:
@@ -172,7 +206,7 @@ Możesz również włączyć nietrwałe usuwanie i ochronę przed przeczyszczani
 
 Po upewnieniu się, że można kontynuować wybieranie klucza szyfrowania dla magazynu.
 
-#### <a name="to-assign-the-key-in-the-portal"></a>Aby przypisać klucz w portalu
+### <a name="to-assign-the-key-in-the-portal"></a>Aby przypisać klucz w portalu
 
 1. Przejdź do Recovery Services magazynu — **właściwości** >
 
@@ -192,7 +226,7 @@ Po upewnieniu się, że można kontynuować wybieranie klucza szyfrowania dla ma
     1. Przeglądaj i wybierz klucz z Key Vault w okienku selektora kluczy.
 
         >[!NOTE]
-        >Przy określaniu klucza szyfrowania za pomocą okienka selektora kluczy, klucz zostanie przeobrócony przy każdym włączeniu nowej wersji klucza.
+        >Przy określaniu klucza szyfrowania za pomocą okienka selektora kluczy, klucz zostanie przeobrócony przy każdym włączeniu nowej wersji klucza. [Dowiedz się więcej](#enabling-auto-rotation-of-encryption-keys) na temat włączania funkcji autorotacji kluczy szyfrowania.
 
         ![Wybierz klucz z magazynu kluczy](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -206,7 +240,7 @@ Po upewnieniu się, że można kontynuować wybieranie klucza szyfrowania dla ma
 
     ![Dziennik aktywności](./media/encryption-at-rest-with-cmk/activity-log.png)
 
-#### <a name="to-assign-the-key-with-powershell"></a>Aby przypisać klucz przy użyciu programu PowerShell
+### <a name="to-assign-the-key-with-powershell"></a>Aby przypisać klucz przy użyciu programu PowerShell
 
 Użyj polecenia [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) , aby włączyć szyfrowanie przy użyciu kluczy zarządzanych przez klienta oraz przypisać lub zaktualizować klucz szyfrowania, który ma być używany.
 
@@ -249,8 +283,8 @@ Przed przystąpieniem do konfigurowania ochrony zdecydowanie zalecamy upewnienie
 > Przed przystąpieniem do konfigurowania ochrony należy **pomyślnie** wykonać następujące czynności:
 >
 >1. Tworzenie magazynu kopii zapasowych
->1. Włączono tożsamość zarządzaną przez magazyn kopii zapasowych przypisanej do systemu
->1. Przypisano uprawnienia do magazynu kopii zapasowych w celu uzyskania dostępu do kluczy szyfrowania z Key Vault
+>1. Włączono tożsamość zarządzaną przez magazyn Recovery Services lub przypisaną do magazynu tożsamość zarządzaną przez użytkownika
+>1. Przypisane uprawnienia do magazynu kopii zapasowych (lub tożsamości zarządzanej przypisanej przez użytkownika) w celu uzyskania dostępu do kluczy szyfrowania z Key Vault
 >1. Włączone trwałe usuwanie i przeczyszczanie ochrony dla Key Vault
 >1. Przypisano prawidłowy klucz szyfrowania dla magazynu kopii zapasowych
 >
@@ -311,6 +345,44 @@ Podczas przywracania pliku przywrócone dane zostaną zaszyfrowane przy użyciu 
 ### <a name="restoring-sap-hanasql-databases-in-azure-vms"></a>Przywracanie baz danych SAP HANA/SQL na maszynach wirtualnych platformy Azure
 
 W przypadku przywracania z kopii zapasowej SAP HANA/bazy danych SQL działającej na maszynie wirtualnej platformy Azure przywrócone dane zostaną zaszyfrowane przy użyciu klucza szyfrowania używanego w docelowej lokalizacji magazynu. Może to być klucz zarządzany przez klienta lub klucz zarządzany przez platformę służący do szyfrowania dysków maszyny wirtualnej.
+
+## <a name="additional-topics"></a>Tematy dodatkowe
+
+### <a name="enable-encryption-using-customer-managed-keys-at-vault-creation-in-preview"></a>Włącz szyfrowanie przy użyciu kluczy zarządzanych przez klienta podczas tworzenia magazynu (w wersji zapoznawczej)
+
+>[!NOTE]
+>Włączenie szyfrowania przy tworzeniu magazynu przy użyciu kluczy zarządzanych przez klienta ma ograniczoną publiczną wersję zapoznawczą i wymaga listy dozwolonych subskrypcji. Aby utworzyć konto w wersji zapoznawczej, Wypełnij [formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) i Zapisz go na stronie [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
+Gdy subskrypcja jest dozwolona na liście, zostanie wyświetlona karta **szyfrowanie kopii zapasowej** . Pozwala to włączyć szyfrowanie kopii zapasowej przy użyciu kluczy zarządzanych przez klienta podczas tworzenia nowego magazynu Recovery Services. Aby włączyć szyfrowanie, wykonaj następujące czynności:
+
+1. Obok karty **podstawowe** na karcie **szyfrowanie kopii zapasowej** Określ klucz szyfrowania i tożsamość do użycia na potrzeby szyfrowania.
+
+   ![Włącz szyfrowanie na poziomie magazynu](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
+
+
+   >[!NOTE]
+   >Ustawienia dotyczą tylko kopii zapasowej i są opcjonalne.
+
+1. Wybierz opcję **Użyj klucza zarządzanego przez klienta** jako typu szyfrowania.
+
+1. Aby określić klucz, który ma być używany do szyfrowania, wybierz odpowiednią opcję.
+
+   Możesz podać identyfikator URI klucza szyfrowania lub wyszukać i wybrać klucz. Po określeniu klucza przy użyciu opcji **wybierz Key Vault** automatyczne obracanie klucza szyfrowania zostanie włączone automatycznie. [Dowiedz się więcej na temat autorotacji](#enabling-auto-rotation-of-encryption-keys). 
+
+1. Określ tożsamość zarządzaną przypisaną przez użytkownika, aby zarządzać szyfrowaniem przy użyciu kluczy zarządzanych przez klienta. Kliknij przycisk **Wybierz** , aby przeglądać i wybrać wymaganą tożsamość.
+
+1. Po wykonaniu tych czynności przejdź do Dodaj Tagi (opcjonalne) i Kontynuuj tworzenie magazynu.
+
+### <a name="enabling-auto-rotation-of-encryption-keys"></a>Włączanie funkcji autorotacji kluczy szyfrowania
+
+W przypadku określenia klucza zarządzanego przez klienta, który ma być używany do szyfrowania kopii zapasowych, należy określić następujące metody:
+
+- Wprowadź identyfikator URI klucza
+- Wybierz z Key Vault
+
+Użycie opcji **Wybierz z Key Vault** pomaga włączyć funkcję autorotacji dla wybranego klucza. Eliminuje to ręczny nakład pracy w celu zaktualizowania do kolejnej wersji. Jednak przy użyciu tej opcji:
+- Aktualizacja wersji klucza może zająć do godziny.
+- Gdy nowa wersja klucza zacznie obowiązywać, stara wersja powinna być również dostępna (w stanie włączonym) dla co najmniej jednego kolejnego zadania tworzenia kopii zapasowej po zastosowaniu aktualizacji klucza.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 

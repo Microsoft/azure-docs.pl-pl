@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98675190"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382469"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Rejestrowanie aplikacji programu Microsoft Graph
 
@@ -56,31 +56,38 @@ Zanim skrypty i aplikacje będą mogły korzystać z [interfejsu API Microsoft G
 1. Wybierz pozycję **Zarejestruj**.
 1. Zanotuj **Identyfikator aplikacji (klienta)** , który pojawia się na stronie przeglądu aplikacji. Ta wartość jest używana w późniejszym kroku.
 
-### <a name="grant-api-access"></a>Udzielanie dostępu do interfejsu API
+## <a name="grant-api-access"></a>Udzielanie dostępu do interfejsu API
 
-Następnie udziel zarejestrowanej aplikacji uprawnień do manipulowania zasobami dzierżawy za pomocą wywołań interfejsu API Microsoft Graph.
+Aby aplikacja mogła uzyskać dostęp do danych w Microsoft Graph, udziel zarejestrowanej aplikacji odpowiednich [uprawnień aplikacji](https://docs.microsoft.com/graph/permissions-reference). Czynne uprawnienia aplikacji to pełny poziom uprawnień implikowany przez uprawnienie. Aby na przykład *utworzyć*, *odczytywać*, *aktualizować* i *usuwać* każdego użytkownika w dzierżawie Azure AD B2C, należy dodać uprawnienie **User. ReadWrite. All** . 
+
+> [!NOTE]
+> Uprawnienie **User. ReadWrite. All** nie obejmuje możliwości aktualizowania haseł konta użytkownika. Jeśli aplikacja wymaga aktualizacji haseł kont użytkowników, [Udziel roli administratora użytkowników](#optional-grant-user-administrator-role). W przypadku przyznania roli [administratora użytkownika](../active-directory/roles/permissions-reference.md#user-administrator) **użytkownik. ReadWrite. All** nie jest wymagany. Rola administratora użytkownika obejmuje wszystko, czego potrzebujesz do zarządzania użytkownikami.
+
+Można przyznać aplikacji wiele uprawnień aplikacji. Jeśli na przykład aplikacja musi zarządzać grupami w dzierżawie Azure AD B2C, należy również dodać uprawnienie **Grupa. ReadWrite. wszystkie** . 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Utwórz klucz tajny klienta
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+## <a name="optional-grant-user-administrator-role"></a>Obowiązkowe Udziel roli administratora użytkowników
 
-Masz teraz aplikację, która ma uprawnienia do *tworzenia*, *odczytywania*, *aktualizowania* i *usuwania* użytkowników w dzierżawie Azure AD B2C. Przejdź do następnej sekcji, aby dodać uprawnienia do *aktualizacji haseł* .
+Jeśli aplikacja lub skrypt musi zaktualizować hasła użytkowników, należy przypisać rolę *administratora użytkownika* do aplikacji. Rola [administratora użytkownika](../active-directory/roles/permissions-reference.md#user-administrator) ma stały zestaw uprawnień, które są przyznawane aplikacji. 
 
-## <a name="enable-user-delete-and-password-update"></a>Włącz usuwanie i aktualizowanie haseł użytkowników
-
-Uprawnienie *Odczyt i zapis danych katalogu* **nie** obejmuje możliwości usuwania użytkowników ani aktualizowania haseł kont użytkowników.
-
-Jeśli aplikacja lub skrypt musi usunąć użytkowników lub zaktualizować swoje hasła, należy przypisać rolę *administratora użytkownika* do aplikacji:
+Aby dodać rolę *administrator użytkowników* , wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Użyj filtru **Directory + Subscription** , aby przełączyć się do dzierżawy Azure AD B2C.
 1. Wyszukaj i wybierz **Azure AD B2C**.
 1. W obszarze **Zarządzanie** wybierz pozycję **role i Administratorzy**.
-1. Wybierz rolę **administratora użytkowników** .
+1. Wybierz rolę **administratora użytkowników** . 
 1. Wybierz pozycję **Dodaj przypisania**.
-1. W polu tekstowym **Wybierz** wpisz nazwę wcześniej zarejestrowanej aplikacji, na przykład *managementapp1*. Wybierz aplikację, gdy zostanie ona wyświetlona w wynikach wyszukiwania.
+1. W polu tekstowym **Wybierz** wpisz nazwę lub identyfikator wcześniej zarejestrowanej aplikacji, na przykład *managementapp1*. Gdy pojawi się w wynikach wyszukiwania, wybierz aplikację.
 1. Wybierz pozycję **Dodaj**. Pełne propagowanie uprawnień może potrwać kilka minut.
+
+## <a name="create-client-secret"></a>Utwórz klucz tajny klienta
+
+Aplikacja wymaga klucza tajnego klienta, aby potwierdzić swoją tożsamość podczas żądania tokenu. Aby dodać klucz tajny klienta, wykonaj następujące kroki:
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie sznurka modułu zabezpieczeń'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć sznurek modułu Defender for IoT do użycia z usługą Azure Defender dla IoT.
 ms.topic: quickstart
 ms.date: 1/21/2021
-ms.openlocfilehash: 2ee88bd23b7d125ef9244f8ff630ee5eb8cdd015
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27447f00546ab0d01a33b286f4bb1fbc810c260b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782677"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384565"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Szybki Start: Tworzenie sznurka modułu azureiotsecurity
 
@@ -16,7 +16,7 @@ W tym przewodniku szybki start wyjaśniono, jak utworzyć pojedynczy moduł _azu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Brak
+- Brak
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Zrozumienie modułu azureiotsecurity bliźniaczych reprezentacji
 

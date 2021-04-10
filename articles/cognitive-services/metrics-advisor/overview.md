@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 901d86b5569be61f89178dac460b8750bce9ea73
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: dfdd7286013bbb6462fb8e5b1bdf52e6ed738029
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605539"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384684"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Co to jest klasyfikator metryk (wersja zapoznawcza)? 
 
@@ -27,6 +27,11 @@ Doradca metryk jest częścią Cognitive Services platformy Azure, która używa
 * Diagnozuj anomalie i pomoc przy analizie przyczyny głównej
 
 :::image type="content" source="media/metrics-advisor-overview.png" alt-text="Omówienie klasyfikatora metryk":::
+
+Ta dokumentacja zawiera następujące typy artykułów:
+* [Przewodniki Szybki Start](./Quickstarts/web-portal.md) to instrukcje krok po kroku, które umożliwiają wykonywanie wywołań do usługi i uzyskiwanie wyników w krótkim czasie. 
+* [Przewodniki z](./how-tos/onboard-your-data.md) instrukcjami zawiera instrukcje dotyczące korzystania z usługi w bardziej specyficzny lub dostosowany sposób.
+* [Artykuły koncepcyjne](glossary.md) zawierają szczegółowe omówienie funkcji i funkcji usługi.
 
 ## <a name="connect-to-a-variety-of-data-sources"></a>Łączenie się z różnymi źródłami danych
 

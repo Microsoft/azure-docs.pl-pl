@@ -2,24 +2,24 @@
 title: Ponowne zapisywanie adresu URL i ciągu zapytania za pomocą usługi Azure Application Gateway — Azure Portal
 description: Dowiedz się, jak za pomocą Azure Portal skonfigurować Application Gateway platformy Azure, aby ponownie napisać adres URL i ciąg zapytania
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
-ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/05/2021
+ms.author: azhussai
+ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215777"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384761"
 ---
-# <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Ponowne zapisywanie adresu URL za pomocą usługi Azure Application Gateway — Azure Portal (wersja zapoznawcza)
+# <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Napisz ponownie adres URL za pomocą usługi Azure Application Gateway — Azure Portal
 
 W tym artykule opisano sposób użycia Azure Portal w celu skonfigurowania wystąpienia [jednostki SKU Application Gateway v2](application-gateway-autoscaling-zone-redundant.md) w celu ponownego zapisania adresu URL.
 
 >[!NOTE]
-> Funkcja ponownego zapisywania adresu URL jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 jednostki SKU Application Gateway. Nie jest to zalecane do użycia w środowisku produkcyjnym. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Funkcja ponownego zapisywania adresów URL jest dostępna tylko dla Standard_v2 i WAF_v2 SKU Application Gateway. W przypadku skonfigurowania ponownego zapisywania adresów URL na bramie z włączoną obsługą WAF oceny WAF zostaną wykonane w nagłówkach i adresach URL zarejestrowanego żądania. [Dowiedz się więcej](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

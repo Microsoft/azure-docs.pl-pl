@@ -2,21 +2,20 @@
 title: Get-Metric w Azure Monitor Application Insights
 description: Dowiedz się, jak efektywnie używać wywołania GetMetric () do przechwytywania lokalnie wstępnie zagregowanych metryk dla aplikacji .NET i .NET Core za pomocą Azure Monitor Application Insights
 ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22baa1ae9554601a72ffdb848b87d99281067967
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719784"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384293"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
 Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metody zbierania niestandardowych metryk, `TrackMetric()` i `GetMetric()` . Kluczową różnicą między tymi dwoma metodami jest agregacja lokalna. `TrackMetric()` Brak agregacji wstępnej podczas `GetMetric()` agregacji wstępnej. Zalecanym podejściem jest użycie agregacji, dlatego `TrackMetric()` nie jest już preferowaną metodą zbierania metryk niestandardowych. W tym artykule przedstawiono sposób użycia metody GetMetric () i niektóre racjonalne uzasadnienie jego działania.
 
-## <a name="trackmetric-versus-getmetric"></a>TrackMetric a GetMetric
+## <a name="pre-aggregating-vs-non-pre-aggregating-api"></a>Wstępne agregowanie interfejsu API, który nie jest wstępnie agregowany
 
 `TrackMetric()` wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()` jest również nieefektywna pod względem wydajności, ponieważ każdy `TrackMetric(item)` przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W przeciwieństwie `TrackMetric()` `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
 
@@ -286,7 +285,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` to maksymalna liczba szeregów czasowych danych, które może zawierać Metryka. Po osiągnięciu tego limitu wywołania `TrackValue()` nie będą śledzone.
+* `seriesCountLimit` to maksymalna liczba szeregów czasowych danych, które może zawierać Metryka. Po osiągnięciu tego limitu wywołania, `TrackValue()` które zwykle spowodują, że nowa seria zwróci wartość false.
 * `valuesPerDimensionLimit` ogranicza liczbę unikatowych wartości na wymiar w podobny sposób.
 * `restrictToUInt32Values` Określa, czy mają być śledzone tylko nieujemne wartości całkowite.
 

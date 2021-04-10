@@ -2,19 +2,19 @@
 title: 'Szybki Start: usługa Azure Blob Storage dla języka JavaScript v10 w przeglądarce'
 description: Dowiedz się, jak przekazywać, wyświetlać i usuwać obiekty blob za pomocą zestawu SDK języka JavaScript v10 na stronie HTML.
 services: storage
-author: mhopkins-msft
+author: twooley
 ms.custom: mvc, devx-track-js
 ms.service: storage
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: d212029936bcd257ef5a78eeedc98c2d6e1df514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3cca61fe272b61f2227e7546b37e4ea37cfd693
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012786"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280143"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

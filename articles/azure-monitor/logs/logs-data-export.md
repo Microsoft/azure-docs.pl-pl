@@ -1,18 +1,17 @@
 ---
 title: Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 description: Log Analytics eksportu danych umożliwia ciągłe eksportowanie danych z wybranych tabel z obszaru roboczego Log Analytics do konta usługi Azure Storage lub Event Hubs platformy Azure w miarę ich zbierania.
-ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: ea33eff30e712c1597c3606d74cb6d56683211ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 981ebbecd4783ae529c5b0d97c82ea052511f77f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615588"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384191"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.

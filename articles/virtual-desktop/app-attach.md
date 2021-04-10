@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98185771"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448274"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Tworzenie skryptów programu PowerShell na potrzeby dołączania aplikacji MSIX (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ W tym temacie opisano sposób konfigurowania skryptów programu PowerShell na po
 
 ## <a name="install-certificates"></a>Instalowanie certyfikatów
 
-Należy zainstalować certyfikaty na wszystkich hostach sesji w puli hostów, które będą hostować punkty dostępu z dołączanych pakietów aplikacji MSIX.
+Należy zainstalować certyfikaty na wszystkich hostach sesji w puli hostów, które będą hostować aplikacje z dołączanych pakietów aplikacji MSIX.
 
 Jeśli aplikacja używa certyfikatu, który nie jest zaufany lub został podpisany z podpisem własnym, poniżej przedstawiono sposób jego instalacji:
 

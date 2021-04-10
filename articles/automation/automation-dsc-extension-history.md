@@ -6,12 +6,12 @@ keywords: dsc, powershell, azure, extension
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: e51bce6e015ef7367625b010b74e5d2422b35051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b272993cdb1b89e63190d2c8c9ef80db2327ccc1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651806"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167519"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 
@@ -274,7 +274,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Środowisko:** Azure
 - **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
-  - W przypadku rozszerzenia w wersji 2,14 wprowadzono zmiany w celu zainstalowania pakietu WMF RTM. Podczas uaktualniania z rozszerzenia Version 2.13.2.0 do 2.14.0.0 można zauważyć, że niektóre polecenia cmdlet DSC kończą się niepowodzeniem lub Konfiguracja kończy się niepowodzeniem z powodu błędu — "nie znaleziono wystąpienia z podaną wartością właściwości". Aby uzyskać więcej informacji, zobacz informacje o [wersji DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc). Obejścia tych problemów zostały dodane w wersji 2,15. 
+  - W przypadku rozszerzenia w wersji 2,14 wprowadzono zmiany w celu zainstalowania pakietu WMF RTM. Podczas uaktualniania z rozszerzenia z wersji 2.13.2.0 do 2.14.0.0 można zauważyć, że niektóre polecenia cmdlet DSC kończą się niepowodzeniem lub Konfiguracja kończy się niepowodzeniem z powodu błędu — "nie znaleziono wystąpienia z podaną wartością właściwości". Aby uzyskać więcej informacji, zobacz informacje o [wersji DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc). Obejścia tych problemów zostały dodane w wersji 2,15. 
   - Jeśli zainstalowano już wersję 2,14 i uruchomiono jeden z powyższych dwóch problemów, należy wykonać te kroki ręcznie. W sesji programu PowerShell z podwyższonym poziomem uprawnień uruchom następujące polecenia:
     - `Remove-Item -Path $env:SystemRoot\system32\Configuration\DSCEngineCache.mof`
     - `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
