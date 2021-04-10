@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102634196"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Azure Stack graniczny R wymagania systemowe
@@ -42,7 +42,7 @@ Następujące konta magazynu brzegowego są obsługiwane w interfejsie REST urz�
 
 |Typ  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|
-|Standardowa     |GPv1: blokowy obiekt BLOB         |         |
+|Standardowa (Standard)     |GPv1: blokowy obiekt BLOB         |         |
 
 
 * Stronicowe obiekty blob i Azure Files nie są obecnie obsługiwane.
@@ -53,7 +53,7 @@ Te konta magazynu są za pośrednictwem lokalnych interfejsów API urządzenia, 
 
 |Typ  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|
-|Standardowa     |GPv1: blokowy obiekt BLOB, stronicowy obiekt BLOB         | Typ jednostki SKU to Standard_LRS        |
+|Standardowa (Standard)     |GPv1: blokowy obiekt BLOB, stronicowy obiekt BLOB         | Typ jednostki SKU to Standard_LRS        |
 |Premium   |GPv1: blokowy obiekt BLOB, stronicowy obiekt BLOB         |Typ jednostki SKU to Premium_LRS         |
 
 
