@@ -5,24 +5,24 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: f4e900c8bcdcb5febec39421e098b19ad10b8b00
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558894"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166409"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
 
-Azure static Web Apps to usługa, która automatycznie kompiluje i wdraża aplikacje sieci Web w pełnym stosie na platformie Azure z repozytorium GitHub.
+Azure static Web Apps to usługa, która automatycznie kompiluje i wdraża aplikacje sieci Web w pełnym stosie na platformie Azure z repozytorium kodu.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Statyczne Web Apps — Omówienie":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Diagram omówienia Web Apps statycznej platformy Azure":::
 
-Przepływ pracy Web Apps statycznej platformy Azure jest dostosowany do codziennego przepływu pracy dewelopera. Aplikacje są kompilowane i wdrażane w oparciu o interakcje w serwisie GitHub.
+Przepływ pracy Web Apps statycznej platformy Azure jest dostosowany do codziennego przepływu pracy dewelopera. Aplikacje są kompilowane i wdrażane na podstawie zmian w kodzie.
 
-Po utworzeniu zasobu usługi Azure Static Web Apps platforma Azure skonfiguruje przepływ pracy funkcji GitHub Actions w repozytorium kodu źródłowego aplikacji, które monitoruje wybraną przez Ciebie gałąź. Za każdym razem, gdy wypychanie zatwierdzeń lub zaakceptowanie żądań ściągnięcia do rozgałęzienia obserwowane, Akcja GitHub automatycznie kompiluje i wdraża aplikację oraz jej interfejs API na platformie Azure.
+Po utworzeniu zasobu statycznego Web Apps platformy Azure współdziała bezpośrednio z usługą GitHub lub Azure DevOps w celu monitorowania wybranej gałęzi. Przy każdym wypchnięciu zatwierdzeń lub zaakceptowaniu żądań ściągnięcia do rozgałęzienia czujka kompilacja jest uruchamiana automatycznie, a aplikacja i interfejs API są wdrażane na platformie Azure.
 
 Statyczne aplikacje sieci Web są często kompilowane przy użyciu bibliotek i platform, takich jak kątowy, reaguje, Svelte, VUE lub Blazor, gdzie renderowanie po stronie serwera nie jest wymagane. Te aplikacje obejmują zasoby HTML, CSS, JavaScript i obrazy, które tworzą aplikację. W przypadku tradycyjnego serwera sieci Web te zasoby są obsługiwane z jednego serwera wraz z dowolnym wymaganym punktami końcowymi interfejsu API.
 
@@ -32,7 +32,7 @@ W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego
 
 - **Hosting internetowy** dla zawartości statycznej, takiej jak HTML, CSS, JavaScript i obrazy.
 - **Zintegrowana obsługa interfejsu API** zapewniana przez Azure Functions.
-- **Pierwsza klasa integracja** z usługą GitHub, w której zmiany repozytorium wyzwala kompilacje i wdrożenia.
+- **Pierwsza klasa Integracja usług GitHub i Azure DevOps, w** której zmiany repozytorium wyzwala kompilacje i wdrożenia.
 - **Globalnie dystrybuowana** zawartość statyczna, która umieszcza zawartość bliżej użytkowników.
 - **Bezpłatne certyfikaty SSL**, które są automatycznie odnawiane.
 - **Domeny niestandardowe** umożliwiające dostosowanie marką do aplikacji.

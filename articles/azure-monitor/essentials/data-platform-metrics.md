@@ -7,14 +7,14 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 02/20/2021
 ms.author: bwren
-ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3c99002a4f8613ff40a116eeceded4b3bada1c15
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562974"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936159"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Przegląd metryk Azure Monitor
 Metryki Azure Monitor są funkcją Azure Monitor, która zbiera dane liczbowe z [monitorowanych zasobów](../monitor-reference.md) do bazy danych szeregów czasowych. Metryki to wartości liczbowe, które są zbierane w regularnych odstępach czasu i opisują kilka aspektów systemu w danym momencie. Metryki w Azure Monitor są lekkie i mogą obsługiwać niemal scenariusze w czasie rzeczywistym, dzięki czemu są szczególnie przydatne w przypadku alertów i szybkiego wykrywania problemów. Możesz przeanalizować je interaktywnie przy użyciu Eksploratora metryk, otrzymywać powiadomienia o alertach, gdy wartość przekroczy próg lub Wizualizuj je w skoroszycie lub pulpicie nawigacyjnym.
@@ -33,7 +33,7 @@ W poniższej tabeli przedstawiono różne sposoby używania metryk w Azure Monit
 | **Alert** | Skonfiguruj [regułę alertu metryki](../alerts/alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](../alerts/action-groups.md) , gdy wartość metryki przekroczy próg. |
 | **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../app/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../visualize/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](../visualize/grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
 | **Automatyzacja** |  Użyj funkcji [automatycznego skalowania](../autoscale/autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
-| **Odczytać** | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu  [poleceń cmdlet programu PowerShell](/powershell/module/az.applicationinsights)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](./rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu  [interfejsu CLI](/cli/azure/monitor/metrics). |
+| **Odczytać** | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu  [poleceń cmdlet programu PowerShell](/powershell/module/az.monitor)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](./rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu  [interfejsu CLI](/cli/azure/monitor/metrics). |
 | **Eksportowanie** | [Kierowanie metryk do dzienników](./resource-logs.md#send-to-azure-storage) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](./stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
 | **Archiwum** | [Archiwizuj](./platform-logs-overview.md) historię wydajności lub kondycji zasobu w celu zapewnienia zgodności, inspekcji lub raportowania w trybie offline. |
 
@@ -104,7 +104,7 @@ Ta Metryka może odpowiedzieć na takie pytania, jak "co to jest przepływność
 W przypadku większości zasobów na platformie Azure metryki są przechowywane przez 93 dni. Istnieją pewne wyjątki:
 
 **Metryki systemu operacyjnego gościa**
--   **Metryki klasycznych systemów operacyjnych gościa**. Są to liczniki wydajności zbierane przez [rozszerzenie diagnostyki systemu Windows (funkcji wad)](../agents/diagnostics-extension-overview.md) lub [rozszerzenie diagnostyki Linux (lad)](../../virtual-machines/extensions/diagnostics-linux.md) i kierowane do konta usługi Azure Storage. Przechowywanie tych metryk wynosi 14 dni.
+-   **Metryki klasycznych systemów operacyjnych gościa**. Są to liczniki wydajności zbierane przez [rozszerzenie diagnostyki systemu Windows (funkcji wad)](../agents/diagnostics-extension-overview.md) lub [rozszerzenie diagnostyki Linux (lad)](../../virtual-machines/extensions/diagnostics-linux.md) i kierowane do konta usługi Azure Storage. Przechowywanie tych metryk jest gwarantowane przez co najmniej 14 dni, ale nie jest zapisywana rzeczywista data wygaśnięcia na koncie magazynu. Ze względu na wydajność Portal ogranicza ilość wyświetlanych danych na podstawie woluminu. W związku z tym rzeczywista liczba dni pobrana przez portal może być dłuższa niż 14 dni, jeśli ilość zapisywanych danych jest niewielka.  
 -   **Metryki systemu operacyjnego gościa wysyłane do metryk Azure monitor**. Są to liczniki wydajności zbierane przez [rozszerzenie diagnostyki systemu Windows (funkcji wad)](../agents/diagnostics-extension-overview.md) i wysyłane do [ujścia danych Azure monitor](../agents/diagnostics-extension-overview.md#data-destinations)lub za pośrednictwem [agenta InfluxData telegraf](https://www.influxdata.com/time-series-platform/telegraf/) na maszynach z systemem Linux. Przechowywanie tych metryk to 93 dni.
 -   **Metryki systemu operacyjnego gościa zebrane przez agenta log Analytics**. Są to liczniki wydajności zbierane przez agenta Log Analytics i wysyłane do Log Analytics obszaru roboczego. Przechowywanie tych metryk wynosi 31 dni i można je przedłużyć do 2 lat.
 

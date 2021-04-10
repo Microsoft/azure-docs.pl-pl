@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 378d341ee867b69fac22f5eb15952d104a7bf19d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221214"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167332"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Informacje o łączności z siecią pulpitu wirtualnego systemu Windows
 
@@ -50,7 +50,7 @@ Sekwencja połączeń klienta opisana poniżej:
 
 ## <a name="connection-security"></a>Zabezpieczenia połączeń
 
-Protokół TLS 1,2 jest używany dla wszystkich połączeń inicjowanych od klientów i hostów sesji do składników infrastruktury pulpitów wirtualnych systemu Windows. Pulpit wirtualny systemu Windows używa tych samych szyfrów TLS 1,2 co [drzwi platformy Azure](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). Ważne jest, aby upewnić się, że zarówno komputery klienckie, jak i hosty sesji mogą korzystać z tych szyfrów.
+Protokół TLS 1,2 jest używany dla wszystkich połączeń inicjowanych od klientów i hostów sesji do składników infrastruktury pulpitów wirtualnych systemu Windows. Pulpit wirtualny systemu Windows używa tych samych szyfrów TLS 1,2 co [drzwi platformy Azure](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Ważne jest, aby upewnić się, że zarówno komputery klienckie, jak i hosty sesji mogą korzystać z tych szyfrów.
 W przypadku transportowego łączenia zwrotnego zarówno klient, jak i Host sesji nawiązują połączenie z bramą usług pulpitu wirtualnego systemu Windows. Po ustanowieniu połączenia TCP klient lub Host sesji sprawdza poprawność certyfikatu bramy usług pulpitu wirtualnego systemu Windows.
 Po ustanowieniu transportu podstawowego protokół RDP ustanawia zagnieżdżone połączenie TLS między klientem i hostem sesji przy użyciu certyfikatów hosta sesji. Domyślnie certyfikat używany na potrzeby szyfrowania RDP jest generowany automatycznie przez system operacyjny podczas wdrażania. W razie potrzeby klienci mogą wdrażać centralne certyfikaty zarządzane przez urząd certyfikacji przedsiębiorstwa. Więcej informacji o konfigurowaniu certyfikatów znajduje się w [dokumentacji systemu Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

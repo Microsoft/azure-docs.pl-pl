@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: willzhan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 828895894464eafc53f74e7c8b5798db4db03533
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016138"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10

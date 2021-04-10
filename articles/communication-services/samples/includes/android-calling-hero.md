@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f71f394f190c5de1c3d64d02fd6113817ecda1ea
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: e8ef354480c69fa9b0b5407c88209b368485127d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152773"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729790"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Grupa usługi Azure Communication Services **wywołująca przykład Hero dla systemu Android** pokazuje, jak usługi komunikacyjne wywołujące Android SDK mogą być używane do tworzenia środowiska wywołującego grupę, która zawiera głos i wideo. W tym przykładowym samouczku szybki start dowiesz się, jak skonfigurować i uruchomić przykład. Przegląd przykładu jest dostępny dla kontekstu.
 
 ## <a name="download-code"></a>Pobieranie kodu

@@ -1,0 +1,144 @@
+- name: Dokumentacja dotycząca sieci
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o sieci platformy Azure
+      href: networking-overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie sieci wirtualnej
+      href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+- name: Samouczki
+  items:
+    - name: Ograniczanie dostępu sieciowego
+      href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: Pojęcia
+  expanded: true
+  items:
+    - name: Architektura
+      href: architecture-guides.md
+    - name: Planowanie i projektowanie
+      items:
+        - name: Platforma Azure dla inżynierów sieci
+          href: ../azure-for-network-engineers.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Praca zdalna
+          href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Sieci wirtualne
+          href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Połączenia obejmujące wiele lokalizacji — sieć VPN
+          href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Połączenia obejmujące wiele lokalizacji — dedykowane połączenie prywatne
+          href: ../../expressroute/expressroute-workflows.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Globalna sieć firmy Microsoft
+      items:
+        - name: Omówienie
+          href: ../microsoft-global-network.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Opóźnienia sieci na platformie Azure
+          href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Preferencja routingu internetowego na platformie Azure
+          href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Łączność sieciowa w chmurze
+      items:
+        - name: Sieć wirtualna
+          href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Publiczny adres IP
+          href: ../../virtual-network/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DNS
+          href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Routing ruchu sieciowego
+          href: ../../virtual-network/virtual-networks-udr-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Łączenie sieci wirtualnych
+          href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Prywatny dostęp do zasobów
+          href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Łączenie środowiska lokalnego z platformą Azure — szyfrowanie sieci wirtualnej
+          href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Rozszerzanie środowiska lokalnego na platformę Azure — połączenie prywatne
+          href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Tylko wychodzące połączenie internetowe
+          href: ../../virtual-network/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Bezpieczeństwo sieci
+      items:
+        - name: Grupy zabezpieczeń sieci
+          href: ../../virtual-network/network-security-groups-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Prywatny punkt końcowy
+          href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Zapora sieciowa
+          href: ../../firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Ochrona przed atakami DDOS
+          href: ../../ddos-protection/ddos-protection-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Zapora aplikacji internetowej
+          href: ../../web-application-firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+    - name: Skalowalne dostarczanie aplikacji
+      items:
+        - name: Opcje równoważenia obciążenia na platformie Azure
+          href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/fundamentals/toc.json
+        - name: Moduł równoważenia obciążenia sieciowego
+          href: ../../load-balancer/load-balancer-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Zabezpieczanie sieci CDN i globalnego modułu równoważenia obciążenia w chmurze
+          href: ../../frontdoor/front-door-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Moduł równoważenia obciążenia aplikacji internetowych
+          href: ../../application-gateway/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Moduł równoważenia obciążenia oparty na systemie DNS
+          href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Monitorowanie sieci
+      items:
+        - name: Monitorowanie sieci za pomocą Azure Monitor
+          href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Monitorowanie i naprawa kondycji sieci
+          href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Tworzenie sieci w chmurze i łączenie się z nimi
+      items:
+        - name: Tworzenie sieci wirtualnej
+          href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Tworzenie publicznego adresu IP
+          href: ../../virtual-network/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Optymalizowanie kosztów routingu
+          href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Tworzenie bramy NAT dla połączenia wychodzącego
+          href: ../../virtual-network/tutorial-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Tworzenie strefy i rekordu usługi Azure DNS
+          href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Kierowanie ruchu przy użyciu tabel tras
+          href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Łączenie sieci wirtualnych
+          href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Prywatny dostęp do zasobów
+          href: ../../private-link/create-private-endpoint-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Łączenie sieci lokalnej z siecią wirtualną — szyfrowanie sieci VPN
+          href: ../../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Łączność między lokalizacjami — dedykowana
+          href: ../../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Zabezpieczanie sieci
+      items:
+        - name: Ograniczanie dostępu sieciowego
+          href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Filtrowanie ruchu sieciowego
+          href: ../../virtual-network/tutorial-filter-network-traffic.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Wdrażanie zapory sieciowej
+          href: ../../firewall/tutorial-firewall-deploy-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Ochrona sieci przed atakami DDoS
+          href: ../../ddos-protection/manage-ddos-protection.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Skalowanie dostarczania aplikacji
+      items:
+        - name: Tworzenie modułu równoważenia obciążenia sieciowego
+          href: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Wdrażanie bezpiecznej sieci CDN w chmurze i globalnego modułu równoważenia obciążenia
+          href: ../../frontdoor/quickstart-create-front-door.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Tworzenie modułu równoważenia obciążenia aplikacji sieci Web
+          href: ../../application-gateway/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Tworzenie modułu równoważenia obciążenia opartego na systemie DNS
+          href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Monitorowanie sieci
+      items:
+        - name: Monitorowanie kondycji sieci
+          href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Monitorowanie komunikacji między zasobami platformy Azure
+          href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure Monitor szczegółowe informacje o sieci
+          href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
