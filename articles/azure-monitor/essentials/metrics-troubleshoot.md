@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: bc1978f6ed0aa3e38f25fa03fc54ddc7d4efb9c3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033337"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961068"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Rozwiązywanie problemów z wykresami metryk
 
@@ -43,7 +43,7 @@ Niektóre zasoby nie emitują stale swoich metryk. Na przykład platforma Azure 
 
 [Większość metryk na platformie Azure jest przechowywanych przez 93 dni](../essentials/data-platform-metrics.md#retention-of-metrics). Jednak na dowolnym pojedynczym wykresie można wykonywać zapytanie o dane z nie więcej niż 30 dni. To ograniczenie nie ma zastosowania do [metryk opartych na dzienniku](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Rozwiązanie:** Jeśli widzisz pusty wykres lub Wykres wyświetla część danych metryk, sprawdź, czy różnica między datą początkową i końcową w selektorze czasu nie przekracza 30-dniowego interwału.
+**Rozwiązanie:** Jeśli widzisz pusty wykres lub Wykres wyświetla część danych metryk, sprawdź, czy różnica między datą początkową i końcową w selektorze czasu nie przekracza 30-dniowego interwału. Po wybraniu 30-dniowego interwału można [przesunąć](metrics-charts.md#pan) wykres, aby wyświetlić pełne okno przechowywania.
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Wszystkie wartości metryk były poza zablokowanym zakresem osi y
 

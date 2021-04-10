@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698862"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068000"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Przenoszenie własnych kluczy (kluczy zarządzanych przez klienta) za pomocą Media Services
 
@@ -51,4 +51,4 @@ Media Services automatycznie obsługuje podwójne szyfrowanie. W przypadku danyc
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services](content-protection-overview.md)
+[Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services](drm-content-protection-concept.md)

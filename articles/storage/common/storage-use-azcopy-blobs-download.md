@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 20da05399eed4cb9c5a4b69a82b0b1e799997751
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa9a415e7bf33409e804fb5503d7b608430098fb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880122"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728916"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Pobieranie obiektów blob z usługi Azure Blob Storage za pomocą AzCopy v10
 
@@ -37,7 +37,7 @@ Pobierz obiekt BLOB za pomocą polecenia [copy AzCopy](storage-ref-azcopy-copy.m
 > [!TIP]
 > Ten przykład obejmuje argumenty ścieżki z pojedynczym cudzysłowem (' '). Używaj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd.exe). Jeśli używasz powłoki poleceń systemu Windows (cmd.exe), argumenty ścieżki należy ująć w podwójne cudzysłowy ("") zamiast pojedynczego cudzysłowu ("").
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
@@ -53,7 +53,7 @@ Pobierz katalog za pomocą polecenia [copy AzCopy](storage-ref-azcopy-copy.md) .
 > [!TIP]
 > Ten przykład obejmuje argumenty ścieżki z pojedynczym cudzysłowem (' '). Używaj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd.exe). Jeśli używasz powłoki poleceń systemu Windows (cmd.exe), argumenty ścieżki należy ująć w podwójne cudzysłowy ("") zamiast pojedynczego cudzysłowu ("").
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
@@ -71,7 +71,7 @@ Możesz pobrać zawartość katalogu bez kopiowania samego katalogu, korzystają
 > [!NOTE]
 > Obecnie ten scenariusz jest obsługiwany tylko w przypadku kont, które nie mają hierarchicznej przestrzeni nazw.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
@@ -89,7 +89,7 @@ Konkretne obiekty blob można pobrać przy użyciu pełnych nazw plików, częś
 
 Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-path` opcją. Oddziel poszczególne nazwy obiektów BLOB za pomocą semicolin ( `;` ).
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
@@ -103,7 +103,7 @@ Można również wykluczyć obiekty blob przy użyciu `--exclude-path` opcji. Ab
 
 Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` opcją. Określ częściowe nazwy, które zawierają symbole wieloznaczne. Oddziel nazwy przy użyciu semicolin ( `;` ).
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
@@ -119,7 +119,7 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-before` `
 
 Poniższe przykłady pobierają pliki, które zostały zmodyfikowane w określonym dniu lub po nim.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
@@ -145,7 +145,7 @@ Następnie użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--list-o
 
 [Migawkę obiektu BLOB](../blobs/snapshots-overview.md) można pobrać, odwołując się do wartości **DateTime** migawki obiektu BLOB. 
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>?sharesnapshot=<DateTime-of-snapshot>' '<local-file-path>'` |
 | **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |

@@ -4,12 +4,12 @@ description: Dowiedz się, jak obsługiwać zdarzenia zewnętrzne w rozszerzeniu
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a7625a6fcd1000595c2c582935c839ba6d26b20d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99576333"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728491"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Obsługa zdarzeń zewnętrznych w Durable Functions (Azure Functions)
 
@@ -20,7 +20,7 @@ Funkcje programu Orchestrator mają możliwość oczekiwania i nasłuchiwania zd
 
 ## <a name="wait-for-events"></a>Zaczekaj na zdarzenia
 
-Metody [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.NET), `waitForExternalEvent` (JavaScript) i `wait_for_external_event` (Python) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) pozwalają funkcji programu Orchestrator na asynchroniczne oczekiwanie i nasłuchiwanie zewnętrznego zdarzenia. Funkcja programu Orchestrator nasłuchiwanie deklaruje *nazwę* zdarzenia i *kształt danych* , które oczekuje na odebranie.
+Metody [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy&preserve-view=true) (.NET), `waitForExternalEvent` (JavaScript) i `wait_for_external_event` (Python) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) pozwalają funkcji programu Orchestrator na asynchroniczne oczekiwanie i nasłuchiwanie zewnętrznego zdarzenia. Funkcja programu Orchestrator nasłuchiwanie deklaruje *nazwę* zdarzenia i *kształt danych* , które oczekuje na odebranie.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,7 +230,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń
 
-Możesz użyć metod [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.NET) lub `raiseEventAsync` (JavaScript) do wysyłania zdarzenia zewnętrznego do aranżacji. Te metody są udostępniane przez powiązanie [klienta aranżacji](durable-functions-bindings.md#orchestration-client) . Możesz również użyć wbudowanego [interfejsu API protokołu HTTP zdarzenia](durable-functions-http-api.md#raise-event) do wysyłania zdarzenia zewnętrznego do aranżacji.
+Możesz użyć metod [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy&preserve-view=true) (.NET) lub `raiseEventAsync` (JavaScript) do wysyłania zdarzenia zewnętrznego do aranżacji. Te metody są udostępniane przez powiązanie [klienta aranżacji](durable-functions-bindings.md#orchestration-client) . Możesz również użyć wbudowanego [interfejsu API protokołu HTTP zdarzenia](durable-functions-http-api.md#raise-event) do wysyłania zdarzenia zewnętrznego do aranżacji.
 
 Zdarzenie wywoływane zawiera *Identyfikator wystąpienia*, *EventName* i *eventData* jako parametry. Funkcje programu Orchestrator obsługują te zdarzenia przy użyciu `WaitForExternalEvent` interfejsów API (.NET) lub `waitForExternalEvent` (JavaScript). Nazwa *zdarzenia* musi być zgodna zarówno po stronie wysyłającej, jak i odbiorczej, aby można było przetworzyć zdarzenie. Dane zdarzenia muszą być również serializowane w formacie JSON.
 

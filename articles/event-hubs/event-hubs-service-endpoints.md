@@ -2,27 +2,26 @@
 title: Punkty końcowe usługi Virtual Network — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje na temat dodawania punktu końcowego usługi Microsoft. EventHub do sieci wirtualnej.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/29/2021
+ms.openlocfilehash: f7f0f3ff480018c9bfc5d9c6f34cf7e2935f8d6a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959963"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs z określonych sieci wirtualnych 
 
-Integracja Event Hubs z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do możliwości obsługi komunikatów z obciążeń, takich jak maszyny wirtualne powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach. Sieci wirtualne są obsługiwane w warstwach **Standardowa** i **Dedykowana** usługi Event Hubs. Ta wartość nie jest obsługiwana w warstwie **podstawowa** .
+Integracja Event Hubs z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do możliwości obsługi komunikatów z obciążeń, takich jak maszyny wirtualne powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach. 
 
 Po skonfigurowaniu powiązania z co najmniej jednym punktem końcowym usługi podsieci sieci wirtualnej odpowiednia przestrzeń nazw Event Hubs nie akceptuje już ruchu z dowolnego miejsca, ale autoryzowanych podsieci w sieciach wirtualnych. Z punktu widzenia sieci wirtualnej powiązanie przestrzeni nazw Event Hubs z punktem końcowym usługi konfiguruje odizolowany tunel sieciowy z podsieci sieci wirtualnej do usługi obsługi komunikatów. 
 
 Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowiadającą jej przestrzenią nazw Event Hubs, w odróżnieniu od pozostałego adresu sieciowego punktu końcowego usługi obsługi komunikatów znajdującego się w zakresie publicznego adresu IP. Wystąpił wyjątek dotyczący tego zachowania. Domyślnie włączenie punktu końcowego usługi powoduje włączenie `denyall` reguły w [zaporze IP](event-hubs-ip-filtering.md) skojarzonej z siecią wirtualną. Można dodać określone adresy IP w zaporze IP, aby umożliwić dostęp do publicznego punktu końcowego centrum zdarzeń. 
 
->[!WARNING]
-> Włączenie sieci wirtualnych dla Event Hubs przestrzeni nazw domyślnie blokuje przychodzące żądania, chyba że żądania pochodzą z usługi z dozwolonych sieci wirtualnych. Zablokowane żądania obejmują te z innych usług platformy Azure, z Azure Portal z usług rejestrowania i metryk i tak dalej. Jako wyjątek, można zezwolić na dostęp do Event Hubs zasobów z niektórych zaufanych usług nawet wtedy, gdy są włączone sieci wirtualne. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
-
-> [!IMPORTANT]
-> Określ co najmniej jedną regułę IP lub regułę sieci wirtualnej dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej. W przypadku braku reguł adresów IP i sieci wirtualnych można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu).  
+## <a name="important-points"></a>Ważne punkty
+- Ta funkcja jest obsługiwana dla warstw **standardowa** i **dedykowana** . Ta wartość nie jest obsługiwana w warstwie **podstawowa** .
+- Włączenie sieci wirtualnych dla Event Hubs przestrzeni nazw domyślnie blokuje przychodzące żądania, chyba że żądania pochodzą z usługi z dozwolonych sieci wirtualnych. Zablokowane żądania obejmują te z innych usług platformy Azure, z Azure Portal z usług rejestrowania i metryk i tak dalej. Jako wyjątek, można zezwolić na dostęp do Event Hubs zasobów z niektórych **zaufanych usług** nawet wtedy, gdy są włączone sieci wirtualne. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
+- Określ **co najmniej jedną regułę IP lub regułę sieci wirtualnej** dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej. W przypadku braku reguł adresów IP i sieci wirtualnych można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Zaawansowane scenariusze zabezpieczeń obsługujące integrację sieci wirtualnej 
 

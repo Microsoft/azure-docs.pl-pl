@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 2c693c9e972cdfc66cce0d52323c113b6006bd97
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab3fdd24446448e9c21a1e4867c26c960f814c7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445005"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958190"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla języka go. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -22,7 +22,7 @@ Korzystanie z biblioteki klienta usługi Front Service dla języka go:
 
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
-* [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
+* [Tworzenie i uczenie użytkownika](#create-and-train-a-persongroup)
 * [Identyfikowanie kroju](#identify-a-face)
 
 [Dokumentacja](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  źródłowy biblioteki [Pobieranie zestawu SDK](https://github.com/Azure/azure-sdk-for-go)
@@ -106,7 +106,7 @@ Te przykłady kodu pokazują, jak wykonać podstawowe zadania przy użyciu bibli
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Wykrywanie twarzy na obrazie](#detect-faces-in-an-image)
 * [Znajdź podobne twarze](#find-similar-faces)
-* [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
+* [Tworzenie i uczenie użytkownika](#create-and-train-a-persongroup)
 * [Identyfikowanie kroju](#identify-a-face)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
@@ -161,7 +161,7 @@ Poniższy kod drukuje szczegóły dopasowania do konsoli.
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
-## <a name="create-and-train-a-person-group"></a>Tworzenie i uczenie grupy osób
+## <a name="create-and-train-a-persongroup"></a>Tworzenie i uczenie użytkownika
 
 Aby wykonać czynności opisane w tym scenariuszu, należy zapisać następujące obrazy w katalogu głównym projektu: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
@@ -202,11 +202,11 @@ Po przypisaniu twarzy nauczysz się, że ta **osoba** będzie mogła identyfikow
 Operacja identyfikowania pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z **osobą**, która jest bazą danych różnych obiektów **osób** , których funkcje twarzy są znane.
 
 > [!IMPORTANT]
-> Aby można było uruchomić ten przykład, należy najpierw uruchomić kod w temacie [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group).
+> Aby uruchomić ten przykład, należy najpierw uruchomić kod w [Tworzenie i uczenie osoby](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Pobierz obraz testowy
 
-Poniższy kod szuka obrazu w folderze głównym projektu _test-image-person-group.jpg_ i ładuje go do pamięci programu. Ten obraz można znaleźć w tym samym repozytorium, co obrazy używane w [tworzeniu i uczeniu grupy osób](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
+Poniższy kod szuka obrazu w folderze głównym projektu _test-image-person-group.jpg_ i ładuje go do pamięci programu. Ten obraz można znaleźć w tym samym repozytorium, co obrazy używane w [tworzeniu i uczeniu osoby](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
