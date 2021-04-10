@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/25/2021
 ms.author: aahi
 keywords: Analiza lokalna, Docker, kontener, tonacji, przetwarzanie języka naturalnego
-ms.openlocfilehash: ac82781ed4a05fbbca7f5b16edb0b5349dfc400a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc5406cec54defd118ba350ba59b8d7311cff563
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432064"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089732"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalowanie i uruchamianie kontenerów analizy tekstu
 
@@ -49,6 +49,8 @@ Przed użyciem kontenerów analiza tekstu należy spełnić następujące wymaga
 |Zasób analiza tekstu |Aby można było używać kontenera, musisz mieć:<br><br>[Zasób analiza tekstu](../../cognitive-services-apis-create-account.md) platformy Azure z bezpłatną [warstwą cenową](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)(F0) lub standardową. Musisz uzyskać skojarzony klucz interfejsu API i identyfikator URI punktu końcowego, przechodząc do strony **klucz zasobu i punkt końcowy** w Azure Portal. <br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów. <br><br>**{ENDPOINT_URI}**: punkt końcowy zasobu. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+Jeśli używasz analiza tekstu dla kontenera kondycji, odpowiednie potwierdzenie [AI](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health)  (Rai) muszą również być obecne z wartością `accept` .
 
 ## <a name="the-host-computer"></a>Komputer-host
 

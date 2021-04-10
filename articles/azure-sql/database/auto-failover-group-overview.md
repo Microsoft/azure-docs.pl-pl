@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 12/26/2020
-ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 4d497adf5229819527608157a7a840d514f4292c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594261"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732350"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,6 +178,12 @@ Podczas wykonywania operacji OLTP Użyj `<fog-name>.database.windows.net` jako a
 
 Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. W przypadku sesji tylko do odczytu Użyj `<fog-name>.secondary.database.windows.net` jako adresu URL serwera, a połączenie jest automatycznie przekierowywane do pomocniczego. Zalecane jest również, aby wskazać cel odczytu w parametrach połączenia przy użyciu `ApplicationIntent=ReadOnly` .
 
+> [!NOTE]
+> W warstwach usług w warstwie Premium, Krytyczne dla działania firmy i skalowania SQL Database obsługuje użycie [replik tylko do odczytu](read-scale-out.md) w celu odciążenia obciążeń zapytań tylko do odczytu przy użyciu `ApplicationIntent=ReadOnly` parametru w parametrach połączenia. Jeśli skonfigurowano pomocnicze wystąpienie replikowane geograficznie, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
+>
+> - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji głównej, użyj `ApplicationIntent=ReadOnly` i `<fog-name>.database.windows.net` .
+> - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji pomocniczej, użyj `ApplicationIntent=ReadOnly` i `<fog-name>.secondary.database.windows.net` .
+
 ### <a name="preparing-for-performance-degradation"></a>Przygotowanie do obniżenia wydajności
 
 Typowa aplikacja platformy Azure używa wielu usług platformy Azure i składa się z wielu składników. Automatyczna praca awaryjna grupy trybu failover jest wyzwalana na podstawie stanu samych składników usługi Azure SQL. Awaria może nie wpływać na inne usługi platformy Azure w regionie podstawowym, a ich składniki nadal mogą być dostępne w tym regionie. Po przełączeniu podstawowych baz danych do regionu DR opóźnienie między składnikami zależnymi może się zwiększyć. Aby uniknąć wpływu większego opóźnienia na wydajność aplikacji, należy upewnić się, że nadmiarowość wszystkich składników aplikacji w regionie odzyskiwania po awarii jest zgodna z tymi [wskazówkami dotyczącymi zabezpieczeń sieci](#failover-groups-and-network-security).
@@ -267,7 +273,7 @@ Podczas wykonywania operacji OLTP Użyj `<fog-name>.zone_id.database.windows.net
 Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. Aby nawiązać bezpośrednie połączenie z replikacją geograficzną, użyj `<fog-name>.secondary.<zone_id>.database.windows.net` jako adresu URL serwera, a połączenie jest nawiązywane bezpośrednio z bazą replikacji geograficznej.
 
 > [!NOTE]
-> W warstwach usług premium, Krytyczne dla działania firmy i skalowania, SQL Database obsługuje używanie [replik tylko](read-scale-out.md) do odczytu do uruchamiania obciążeń zapytań tylko do odczytu przy użyciu pojemności co najmniej jednej repliki tylko do odczytu, przy użyciu `ApplicationIntent=ReadOnly` parametru w parametrach połączenia. Jeśli skonfigurowano pomocnicze wystąpienie replikowane geograficznie, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
+> W warstwie Krytyczne dla działania firmy wystąpienie zarządzane SQL obsługuje korzystanie z [replik tylko do odczytu](read-scale-out.md) w celu odciążenia obciążeń zapytań tylko do odczytu przy użyciu `ApplicationIntent=ReadOnly` parametru w parametrach połączenia. Jeśli skonfigurowano pomocnicze wystąpienie replikowane geograficznie, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
 >
 > - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji głównej, użyj `ApplicationIntent=ReadOnly` i `<fog-name>.<zone_id>.database.windows.net` .
 > - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji pomocniczej, użyj `ApplicationIntent=ReadOnly` i `<fog-name>.secondary.<zone_id>.database.windows.net` .

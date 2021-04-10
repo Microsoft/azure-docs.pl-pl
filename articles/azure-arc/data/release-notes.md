@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f41034331ed21e194fc2b86c2902c5957333313
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121953"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010602"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -22,11 +22,48 @@ W tym artykule przedstawiono możliwości, funkcje i ulepszenia ostatnio wydane 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>Marzec 2021
+
+Wydanie z marca 2021 zostało wprowadzone w dniu 6 kwietnia 2021.
+
+Przejrzyj ograniczenia tej wersji w [znanych problemach — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)](known-issues.md).
+
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.2. Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+### <a name="data-controller"></a>Kontroler danych
+
+- Wdróż kontroler danych usług danych z obsługą usługi Azure Arc w trybie bezpośredniego połączenia w portalu. Rozpocznij od [wdrożenia programu Data Controller — bezpośredni tryb łączenia — wymagania wstępne](deploy-data-controller-direct-mode-prerequisites.md).
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Usługa Azure ARC z włączonym skalowaniem PostgreSQL
+
+Zarówno niestandardowe definicje zasobów (CRD) dla PostgreSQL zostały skonsolidowane w jeden CRD. Zobacz poniższą tabelę.
+
+|Release |CRD |
+|-----|-----|
+|Luty 2021 i wcześniejsza| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+|Od marca 2021 | postgresqls.arcdata.microsoft.com
+
+Poprzedni CRDs zostanie usunięty podczas czyszczenia wcześniejszych instalacji. Zobacz [oczyszczanie z wcześniejszych instalacji](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
+
+### <a name="azure-arc-enabled-managed-instance"></a>Wystąpienie zarządzane usługi Azure Arc włączone
+
+- Teraz można przywrócić bazę danych do wystąpienia zarządzanego SQL z 3 replikami i zostanie ona automatycznie dodana do grupy dostępności. 
+
+- Teraz można nawiązać połączenie z pomocniczym punktem końcowym tylko do odczytu w wystąpieniach zarządzanych SQL wdrożonych za pomocą 3 replik. Użyj `azdata arc sql endpoint list` , aby zobaczyć pomocniczy punkt końcowy połączenia tylko do odczytu.
+
+### <a name="known-issues"></a>Znane problemy
+
+- W trybie połączonym bezpośrednim przekazywanie użycia, metryki i dzienników przy użyciu `azdata arc dc upload` jest obecnie zablokowane. Użycie jest przekazywane automatycznie. Przekazywanie dla kontrolera danych utworzonego w trybie połączonego pośredniego powinno być nadal wykonywane.
+- Wdrożenie kontrolera danych w trybie bezpośrednim można wykonać tylko z poziomu Azure Portal i nie jest dostępne z poziomu narzędzi klienckich, takich jak azdata, Azure Data Studio lub polecenia kubectl.
+- Wdrożenie zarządzanego wystąpienia usługi Azure Arc w trybie bezpośrednim można wykonać tylko z poziomu Azure Portal i nie jest dostępne w narzędziach takich jak azdata, Azure Data Studio lub polecenia kubectl.
+- Wdrożenie usługi Azure ARC z włączonym skalowaniem PostgeSQL w trybie bezpośrednim jest obecnie niedostępne.
+- Automatyczne przekazywanie danych użycia w trybie bezpośredniej łączności nie powiedzie się, jeśli używany jest serwer proxy za pośrednictwem programu `–proxy-cert <path-t-cert-file>` .
+
 ## <a name="february-2021"></a>Luty 2021 r.
 
 ### <a name="new-capabilities-and-features"></a>Nowe możliwości i funkcje
 
-Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.1. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) . Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.1. Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 Dodatkowe aktualizacje obejmują:
 
@@ -44,7 +81,7 @@ Problemy związane z tą wersją zawiera temat [znane problemy — usługi danyc
 
 ### <a name="new-capabilities-and-features"></a>Nowe możliwości i funkcje
 
-Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.0. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) . Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.0. Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 Dodatkowe aktualizacje obejmują:
 - Zlokalizowany portal dostępny dla 17 nowych języków
@@ -70,7 +107,7 @@ Dodatkowe aktualizacje obejmują:
 
 ### <a name="new-capabilities--features"></a>Nowe możliwości & funkcje
 
-Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.5. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) .
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.5. Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 Wyświetlaj punkty końcowe dla wystąpienia zarządzanego SQL i PostgreSQL na potrzeby skalowania przy użyciu interfejsu wiersza polecenia platformy Azure ( `azdata` ) za pomocą `azdata arc sql endpoint list` `azdata arc postgres endpoint list` poleceń i.
 
@@ -127,16 +164,9 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Wyczyść pola wyboru dla każdej strefy, aby określić brak.":::
 
-#### <a name="postgresql"></a>PostgreSQL
-
-- Usługa Azure ARC z włączonym PostgreSQLem nie zwraca niedokładnego komunikatu o błędzie, gdy nie można go przywrócić do punktu względnego w czasie. Jeśli na przykład do przywracania określono punkt w czasie, który jest starszy niż zawiera kopie zapasowe, przywracanie zakończy się niepowodzeniem z komunikatem o błędzie: błąd: (404). Przyczyna: nie znaleziono. Treść odpowiedzi HTTP: {"Code": 404, "internalStatus": "NOT_FOUND", "Przyczyna": "nie można przywrócić kopii zapasowej serwera...}
-W takim przypadku należy ponownie uruchomić polecenie po wskazaniu punktu w czasie, który znajduje się w zakresie dat, dla których istnieją kopie zapasowe. Ten zakres zostanie określony przez wystawienie kopii zapasowych i przejrzenie dat, w których zostały wykonane.
-- Przywracanie do punktu w czasie jest obsługiwane tylko w grupach serwerów. Serwer docelowy operacji przywracania do punktu w czasie nie może być serwerem, z którego została wykonana kopia zapasowa. Musi to być inna grupa serwerów. Jednak pełne przywracanie jest obsługiwane przez tę samą grupę serwerów.
-- Podczas wykonywania pełnego przywracania wymagany jest identyfikator kopii zapasowej. Domyślnie, jeśli nie jest wskazywany identyfikator kopii zapasowej, zostanie użyta najnowsza kopia zapasowa. To nie działa w tej wersji.
-
 ## <a name="october-2020"></a>Październik 2020 r. 
 
-Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.3. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) .
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.3. Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 ### <a name="breaking-changes"></a>Fundamentalne zmiany
 

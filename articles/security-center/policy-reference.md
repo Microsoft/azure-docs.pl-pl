@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Security Center
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Security Center. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a96dcc3b6f4abafd6cf72c11b2f52480fe3780ec
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 82fd5a9a0bdf9a37535796af8f72c2c4238cdc9c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036711"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089574"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Wbudowane definicje usługi Azure Policy dla usługi Azure Security Center
 

@@ -1,19 +1,16 @@
 ---
 title: Przygotuj platformę Azure do lokalnego odzyskiwania po awarii za pomocą Azure Site Recovery
 description: Dowiedz się, jak przygotować platformę Azure do odzyskiwania po awarii maszyn lokalnych przy użyciu usługi Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/09/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 340b60cccbabeef404f0de13d493e171a5132331
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88653821"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579266"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Przygotowywanie platformy Azure do lokalnego odzyskiwania po awarii na platformie Azure
 

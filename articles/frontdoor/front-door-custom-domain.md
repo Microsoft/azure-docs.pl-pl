@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: 6abed66a5fbd9987e5a8a677dde7b4a77589e907
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065049"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550765"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Samouczek: dodawanie domeny niestandardowej do usługi Front Door
 
@@ -70,7 +70,7 @@ Aby utworzyć rekord CNAME z poziomu domeny podrzędnej afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Źródło: Wprowadź nazwę domeny niestandardowej, w tym poddomenę afdverify, w następującym formacie: afdverify. _&lt; niestandardowa &gt; nazwa domeny_. Na przykład afdverify.www.contoso.com.
+    - Źródło: Wprowadź nazwę domeny niestandardowej, w tym poddomenę afdverify, w następującym formacie: afdverify. _&lt; niestandardowa &gt; nazwa domeny_. Na przykład afdverify.www.contoso.com. W przypadku mapowania domeny symboli wieloznacznych, takich jak \* contoso.com, wartość źródłowa jest taka sama jak w przypadku symboli wieloznacznych: afdverify.contoso.com.
 
     - Typ: wprowadź wartość *CNAME*.
 

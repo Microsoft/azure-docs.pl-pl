@@ -4,10 +4,10 @@ description: Mostkowanie możliwości usługi Defender for IoT za pomocą rozwi�
 ms.date: 12/28/2020
 ms.topic: how-to
 ms.openlocfilehash: 00151f2e407c65d024f3bd59bdaa85a08ae677f4
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784088"
 ---
 # <a name="about-the-cisco-ise-pxgrid-integration"></a>Informacje o integracji Cisco ISE pxGrid

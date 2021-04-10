@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: c81e40f769ab9eefdd919f3336591dc065d6cfc9
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: b2f7ae79cf43e257c3e13d2da7fec5c83dd3fab0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564117"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937281"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -33,6 +33,8 @@ W tym artykule wyjaśniono, w jaki sposób można uzyskać dostęp do zasobów S
     * Jeśli używasz aplikacji logiki w [środowisku usługi integracji na poziomie Premium (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), zobacz [wymagania wstępne ISE](#ise-prerequisites).
 
 * [Serwer aplikacji SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) lub [serwer komunikatów SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) , do którego chcesz uzyskać dostęp z Logic Apps. Aby uzyskać informacje o serwerach SAP i akcjach SAP, których można używać z łącznikiem, zobacz [zgodność SAP](#sap-compatibility).
+
+    * Serwer SAP należy skonfigurować tak, aby zezwalał na korzystanie z specyfikacji RFC. Aby uzyskać więcej informacji, zobacz następujące tematy SAP Uwaga: [460089-minimalne profile autoryzacji dla zewnętrznych programów RFC](https://launchpad.support.sap.com/#/notes/460089). 
 
 * Zawartość wiadomości do wysłania do serwera SAP, na przykład plik przykładowej IDoc. Ta zawartość musi być w formacie XML i zawierać przestrzeń nazw akcji SAP, która ma być używana. Można [wysłać IDocs z płaskim schematem pliku, umieszczając je w KOPERCIE XML](#send-flat-file-idocs).
 

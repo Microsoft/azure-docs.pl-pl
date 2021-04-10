@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97fad1b984ad34722a952a31d8245eb68417a2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779974"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936312"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -158,7 +158,7 @@ Po skonfigurowaniu punktu końcowego z utraconymi komunikatami wiadomości utrac
 
 Wiadomości utracone będą zgodne ze schematem oryginalnego zdarzenia, które było przeznaczone do dostarczenia do oryginalnego punktu końcowego.
 
-Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o tworzeniu sznurka](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o tworzeniu sznurka](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -234,12 +234,14 @@ Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia i d
 Bez filtrowania punkty końcowe otrzymują wiele zdarzeń z usługi Azure Digital bliźniaczych reprezentacji:
 * Dane telemetryczne wywoływane przez [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji platformy Azure
 * Powiadomienia o zmianie właściwości przędzy, generowane dla zmian właściwości dla dowolnej przędzy w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji
-* Zdarzenia cyklu życiowego, wywoływane podczas tworzenia lub usuwania bliźniaczych reprezentacji lub relacji
+* Zdarzenia cyklu życia wyzwalane podczas tworzenia lub usuwania bliźniaczych reprezentacji lub relacji
 
 Można ograniczyć wysyłane zdarzenia, dodając **Filtr** dla punktu końcowego do trasy zdarzenia.
 
 >[!NOTE]
-> W filtrach jest **rozróżniana wielkość** liter i należy je dopasować do przypadku ładunku (co może nie być zgodne z wielkością liter w modelu).
+> W filtrach jest **rozróżniana wielkość** liter i musi być zgodna z wielkością ładunku. 
+>
+> W przypadku filtrów telemetrii oznacza to, że wielkość liter musi być zgodna z wielkością liter w telemetrii wysyłanej przez urządzenie, a nie do wielkości liter zdefiniowanych w modelu sznurka. 
 
 Aby dodać filtr, można użyć żądania PUT do *protokołu https://{The-Azure-Digital-bliźniaczych reprezentacji-hostname}/eventRoutes/{Event-Route-Name}? API-Version = 2020-10-31* z następującą treścią:
 

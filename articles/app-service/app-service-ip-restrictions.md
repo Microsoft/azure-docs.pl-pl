@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 420dade645d1a4ee32bb888aecb76b033d5756e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889904"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731307"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurowanie ograniczeń dostępu Azure App Service
 
@@ -178,7 +178,7 @@ Oprócz możliwości kontrolowania dostępu do aplikacji można ograniczyć dost
 ### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Ograniczanie dostępu do określonego wystąpienia usługi Azure front-drzwi
 Ruch z usług frontonu platformy Azure do aplikacji pochodzi z dobrze znanego zestawu zakresów adresów IP zdefiniowanych w tagu usługi AzureFrontDoor. zaplecza. Korzystając z reguły ograniczeń tagu usługi, można ograniczyć ruch do programu pochodzącego tylko z usług frontonu platformy Azure. Aby zapewnić, że ruch pochodzi tylko z określonego wystąpienia, należy dodatkowo filtrować przychodzące żądania na podstawie unikatowego nagłówka HTTP, który wysyła z przodu z platformy Azure.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Zrzut ekranu strony &quot;ograniczenia dostępu&quot; w Azure Portal, w którym pokazano, jak dodać ograniczenie dotyczące drzwi platformy Azure.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Zrzut ekranu strony &quot;ograniczenia dostępu&quot; w Azure Portal, w którym pokazano, jak dodać ograniczenie dotyczące drzwi platformy Azure.":::
 
 Przykład programu PowerShell:
 

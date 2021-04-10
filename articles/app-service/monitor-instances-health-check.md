@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
 ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104871201"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorowanie wystąpień App Service przy użyciu kontroli kondycji

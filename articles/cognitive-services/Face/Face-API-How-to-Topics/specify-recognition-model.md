@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd4ed992557a3c333919b63cc36757beb2f70454
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d22f2fb0bb550d966cbc5e181882552514513b2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433560"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936584"
 ---
 # <a name="specify-a-face-recognition-model"></a>Określanie modelu rozpoznawania twarzy
 
@@ -87,7 +87,7 @@ Nie wprowadzono zmian w interfejsie API [identyfikacji czołowej] . wystarczy ok
 
 ## <a name="find-similar-faces-with-specified-model"></a>Znajdź podobne twarze z określonym modelem
 
-Możesz również określić model rozpoznawania dla wyszukiwania podobieństwa. Wersję modelu można przypisać do programu `recognitionModel` podczas tworzenia listy czołowej za pomocą interfejsu API [FaceList-Create] lub [LargeFaceList-Create]. Jeśli ten parametr nie jest określony, `recognition_01` model jest używany domyślnie. Lista twarzy zawsze będzie używać modelu rozpoznawania, który został utworzony za pomocą programu, a nowe twarze zostaną skojarzone z tym modelem, gdy zostaną dodane do listy. nie można zmienić tego po utworzeniu. Aby sprawdzić model, z którym jest skonfigurowana lista czołowa, użyj interfejsu API [FaceList-Get] z parametrem _returnRecognitionModel_ ustawionym jako **true**.
+Możesz również określić model rozpoznawania dla wyszukiwania podobieństwa. Wersję modelu można przypisać do programu `recognitionModel` podczas tworzenia **FaceList** za pomocą interfejsu API [FaceList-Create] lub [LargeFaceList-Create]. Jeśli ten parametr nie jest określony, `recognition_01` model jest używany domyślnie. **FaceList** zawsze będzie używać modelu rozpoznawania, który został utworzony za pomocą, a nowe twarze zostaną skojarzone z tym modelem, gdy zostaną dodane do listy; nie można zmienić tego po utworzeniu. Aby sprawdzić model, z którym jest konfigurowana **FaceList** , użyj interfejsu API [FaceList-Get] z parametrem _returnRecognitionModel_ ustawionym na **wartość true**.
 
 Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
@@ -95,7 +95,7 @@ Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-Ten kod tworzy listę czołową o nazwie `My face collection` przy użyciu modelu _recognition_04_ do wyodrębniania funkcji. Po przeszukiwaniu tej listy twarzy pod kątem podobnych twarzy na nowej wykrytej powierzchni należy wykrycie tej twarzy ([Wykrywanie twarzy]) przy użyciu modelu _recognition_04_ . Jak w poprzedniej sekcji, model musi być spójny.
+Ten kod tworzy **FaceList** o nazwie `My face collection` przy użyciu modelu _recognition_04_ do wyodrębniania funkcji. W przypadku przeszukiwania tej **FaceList** pod kątem podobnych twarzy na nowej wykrytej powierzchni należy wykrycie tej twarzy ([Wykrywanie twarzy]) przy użyciu modelu _recognition_04_ . Jak w poprzedniej sekcji, model musi być spójny.
 
 Nie wprowadzono zmian w funkcji [Front-Find podobnego] interfejsu API; należy określić wersję modelu tylko do wykrywania.
 

@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec616047a99465bace0b401f659765e4399634b
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 8a25f69019e194650bb6aa2f5b8ae19dd37fbc48
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604570"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729171"
 ---
 # <a name="voice-and-video-concepts"></a>Pojęcia dotyczące głosu i wideo
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 Usługi Azure Communications Services umożliwiają udostępnianie i odbieranie jednego do jednego lub grupy wywołań głosowych i wideo. Twoje wywołania mogą być nawiązywane z innymi urządzeniami połączonymi z Internetem i zwykłymi numerami telefonów. Korzystając z usług komunikacyjnych w języku JavaScript, Android lub iOS SDK, można tworzyć aplikacje, które umożliwiają użytkownikom głosowanie na siebie w prywatnych konwersacjach lub w dyskusjach grupowych. Usługi komunikacyjne platformy Azure obsługują wywołania do i z usług lub botów.
 

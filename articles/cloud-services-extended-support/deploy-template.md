@@ -8,34 +8,33 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564759"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381778"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
 W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsługa rozszerzona) przy użyciu [szablonów ARM](../azure-resource-manager/templates/overview.md). 
-
-> [!IMPORTANT]
-> Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 1. Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby.
 
 2. Utwórz nową grupę zasobów przy użyciu [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) lub [programu PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Ten krok jest opcjonalny, jeśli używasz istniejącej grupy zasobów.
+
+3. Utwórz publiczny adres IP i ustaw właściwość etykieta DNS publicznego adresu IP. Cloud Services (obsługa rozszerzona) obsługuje tylko [podstawowe] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) publiczne adresy IP jednostki SKU). Publiczne adresy IP jednostki SKU nie działają z Cloud Services.
+Jeśli używasz statycznego adresu IP, należy do niego odwoływać się jako Zastrzeżony adres IP w pliku konfiguracji usługi (cscfg). Jeśli używany jest istniejący adres IP, Pomiń ten krok i Dodaj informacje o adresie IP bezpośrednio do ustawień konfiguracji usługi równoważenia obciążenia dla szablonu ARM.
+
+4. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia. Platforma Azure automatycznie tworzy zasób "klasyczny moduł równoważenia obciążenia" w tej samej subskrypcji co zasób usługi w chmurze. Zasób modułu równoważenia obciążenia jest zasobem tylko do odczytu w usłudze ARM. Wszystkie aktualizacje zasobu są obsługiwane tylko za pośrednictwem plików wdrożenia usługi w chmurze (. cscfg & csdef).
  
-3. Utwórz nowe konto magazynu przy użyciu [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) lub [programu PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
+5. Utwórz nowe konto magazynu przy użyciu [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) lub [programu PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
 
-4. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
+6. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
 
-5. Obowiązkowe Utwórz magazyn kluczy i przekaż certyfikaty.
+6. Obowiązkowe Utwórz magazyn kluczy i przekaż certyfikaty.
 
     -  Certyfikaty mogą być dołączane do usług w chmurze w celu zapewnienia bezpiecznej komunikacji z usługą i z niej. Aby można było korzystać z certyfikatów, ich odciski palców muszą być określone w pliku konfiguracji usługi (. cscfg) i przekazywane do magazynu kluczy. Magazyn kluczy można utworzyć za pomocą [Azure Portal](../key-vault/general/quick-create-portal.md) lub [programu PowerShell](../key-vault/general/quick-create-powershell.md).
     - Skojarzony Magazyn kluczy musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze.
@@ -351,7 +350,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",

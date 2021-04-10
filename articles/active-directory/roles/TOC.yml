@@ -22,6 +22,8 @@
       href: groups-concept.md
     - name: Jednostki administracyjne
       href: administrative-units.md
+    - name: Najlepsze rozwiązania
+      href: best-practices.md
     - name: Zabezpieczenia
       items:
         - name: Planowanie zabezpieczeń roli

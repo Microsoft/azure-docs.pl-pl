@@ -3,12 +3,12 @@ title: Schemat zdarzeń Azure Event Grid
 description: Opisuje właściwości i schemat, które są obecne dla wszystkich zdarzeń. Zdarzenia składają się z zestawu pięciu wymaganych właściwości ciągu i wymaganego obiektu danych.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ff7b41a45cf467074e18a50be398b2a3c9866a4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86105884"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732163"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schemat zdarzeń Azure Event Grid
 
@@ -88,6 +88,7 @@ Wszystkie zdarzenia mają takie same dane jak najwyższego poziomu:
 
 Aby dowiedzieć się więcej o właściwościach w obiekcie danych, zobacz Źródło zdarzenia:
 
+* [Azure Policy](./event-schema-policy.md)
 * [Subskrypcje platformy Azure (operacje zarządzania)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
 * [Blob Storage](event-schema-blob-storage.md)
