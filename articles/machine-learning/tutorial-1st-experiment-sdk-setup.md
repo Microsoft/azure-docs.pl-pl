@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: b597c483354a4bc1763e7b6a4bb3727aaaaf0c51
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f00a5efb01ea59b04495747ffd93d9f15ad5f76e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369207"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935536"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Samouczek: wprowadzenie do Azure Machine Learning w notesach Jupyter
 

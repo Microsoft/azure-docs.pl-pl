@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
 ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864112"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Przewodnik programowania SCP dla Apache Storm w usłudze Azure HDInsight

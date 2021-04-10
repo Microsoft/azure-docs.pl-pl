@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/09/2020
 ms.openlocfilehash: 8bd1e312463cf89ae30d54bc4a32a497fc7a9a78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98249656"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database słownik terminów
@@ -29,7 +29,7 @@ ms.locfileid: "98249656"
 |Usługa platformy Azure|Azure SQL Database lub SQL Database|[Azure SQL Database](database/sql-database-paas-overview.md)|
 |Model zakupów|Model zakupu oparty na jednostkach DTU|[Model zakupu oparty na jednostkach DTU](database/service-tiers-dtu.md)|
 ||Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|
-|Opcja wdrażania |Pojedyncza baza danych|[Pojedyncze bazy danych](database/single-database-overview.md)|
+|Opcja wdrożenia |Pojedyncza baza danych|[Pojedyncze bazy danych](database/single-database-overview.md)|
 ||Pula elastyczna|[Pula elastyczna](database/elastic-pool-overview.md)|
 |Warstwa usług|Basic, standard, Premium, Ogólnego przeznaczenia, skalowanie Krytyczne dla działania firmy|Aby uzyskać warstwy usług w modelu rdzeń wirtualny, zobacz [SQL Database warstwy usług](database/service-tiers-vcore.md#service-tiers). Aby uzyskać warstwy usług w modelu DTU, zobacz [model DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
 |Warstwa zasobów obliczeniowych|Bezserwerowe usługi obliczeniowe|[Bezserwerowe usługi obliczeniowe](database/service-tiers-vcore.md#compute-tiers)
@@ -45,7 +45,7 @@ ms.locfileid: "98249656"
 |:---|:---|:---|
 |Usługa platformy Azure|Wystąpienie zarządzane Azure SQL|[Wystąpienie zarządzane SQL](managed-instance/sql-managed-instance-paas-overview.md)|
 |Model zakupów|Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|
-|Opcja wdrażania |Jedno wystąpienie|[Pojedyncze wystąpienie](managed-instance/sql-managed-instance-paas-overview.md)|
+|Opcja wdrożenia |Jedno wystąpienie|[Pojedyncze wystąpienie](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Pula wystąpień (wersja zapoznawcza)|[Pule wystąpień](managed-instance/instance-pools-overview.md)|
 |Warstwa usług|Ogólnego przeznaczenia, Krytyczne dla działania firmy|[Warstwy usługi wystąpienia zarządzanego SQL](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
 |Warstwa zasobów obliczeniowych|Zainicjowane obliczenie|[Zainicjowane obliczenie](database/service-tiers-vcore.md#compute-tiers)|

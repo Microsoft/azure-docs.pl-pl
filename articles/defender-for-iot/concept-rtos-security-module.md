@@ -4,10 +4,10 @@ description: Poznaj podstawowe informacje o usłudze Defender-IoT-Micro-Agent dl
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.openlocfilehash: 83557930aeeccbb557382583e4d6666a000ce52c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779277"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-preview"></a>Defender-IoT-Micro-Agent for Azure RTO (wersja zapoznawcza)

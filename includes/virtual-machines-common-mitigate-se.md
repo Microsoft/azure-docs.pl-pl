@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96509484"
 ---
 **Ostatnia aktualizacja dokumentu**: 12 listopada 2019 10:00 am.
@@ -148,7 +148,7 @@ W przypadku korzystania z maszyny wirtualnej z funkcją Hyper-Threading należy 
 **Krok 2**. Aby wyeliminować poniższe luki w zabezpieczeniach, Skorzystaj z dokumentacji dostawcy systemu operacyjnego:   
  
 - [RedHat i CentOS](https://access.redhat.com/security/vulnerabilities) 
-- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [SZŁO](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 
