@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100383232"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>Jak utworzyć plany dla oferty usługi zarządzanej
@@ -79,12 +79,12 @@ Aby dodać do 10 000 identyfikatorów subskrypcji przy użyciu. Plik CSV:
 
 ## <a name="technical-configuration"></a>Konfiguracja techniczna
 
-Ta sekcja tworzy manifest z informacjami o autoryzacji do zarządzania zasobami klienta. Te informacje są wymagane w celu włączenia [zarządzania zasobami delegowanymi przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+Ta sekcja tworzy manifest z informacjami o autoryzacji do zarządzania zasobami klienta. Te informacje są wymagane w celu włączenia [zarządzania zasobami delegowanymi na platformie Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
 Zapoznaj się z [dzierżawcami, rolami i użytkownikami w scenariuszach usługi Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) , aby zrozumieć, które role są obsługiwane, oraz najlepsze rozwiązania dotyczące definiowania autoryzacji.
 
 > [!NOTE]
-> Użytkownicy i role w wpisach autoryzacji będą stosowane do każdego klienta, który aktywuje plan. Jeśli chcesz ograniczyć dostęp do określonego klienta, musisz opublikować plan prywatny do ich wyłącznego użytku.
+> Użytkownicy i role we wpisach autoryzacji będą mieć zastosowanie do każdego klienta, który aktywuje plan. Jeśli chcesz ograniczyć dostęp do określonego klienta, musisz opublikować plan prywatny do jego wyłącznego użytku.
 
 ### <a name="manifest"></a>Manifest
 

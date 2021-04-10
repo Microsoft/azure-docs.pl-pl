@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
 ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518338"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Użyj Azure Machine Learning Studio (klasyczne) parametrów usługi sieci Web
@@ -58,11 +58,11 @@ Załóżmy na przykład, że mamy eksperyment z modułem [danych eksportu][write
    
    ![Ikona parametru usługi sieci Web](./media/web-service-parameters/icon.png)
    
-   Wybierz pozycję "Ustaw jako parametr usługi sieci Web".
+   Wybierz pozycję "Ustaw jako parametr usługi sieci Web&quot;.
    
-   Wpis jest dodawany w obszarze **Parametry usługi sieci Web** u dołu okienka właściwości o nazwie "ścieżka do obiektu BLOB rozpoczynającego się od kontenera". Jest to parametr usługi sieci Web, który jest teraz skojarzony z tym parametrem modułu [eksportowania danych][writer] .
-4. Aby zmienić nazwę parametru usługi sieci Web, kliknij nazwę, wprowadź "Ścieżka obiektu BLOB" i naciśnij klawisz **Enter** . 
-5. Aby podać wartość domyślną dla parametru usługi sieci Web, kliknij ikonę z prawej strony nazwy, wybierz opcję "Podaj wartość domyślną", wprowadź wartość (na przykład "container1/output1.csv"), a następnie naciśnij klawisz **Enter** .
+   Wpis jest dodawany w obszarze **Parametry usługi sieci Web** u dołu okienka właściwości o nazwie &quot;ścieżka do obiektu BLOB rozpoczynającego się od kontenera&quot;. Jest to parametr usługi sieci Web, który jest teraz skojarzony z tym parametrem modułu [eksportowania danych][writer] .
+4. Aby zmienić nazwę parametru usługi sieci Web, kliknij nazwę, wprowadź &quot;Ścieżka obiektu BLOB&quot; i naciśnij klawisz **Enter** . 
+5. Aby podać wartość domyślną dla parametru usługi sieci Web, kliknij ikonę z prawej strony nazwy, wybierz opcję &quot;Podaj wartość domyślną&quot;, wprowadź wartość (na przykład &quot;container1/output1.csv"), a następnie naciśnij klawisz **Enter** .
    
    ![Parametr usługi sieci Web](./media/web-service-parameters/parameter.png)
 6. Kliknij przycisk **Uruchom**. 

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
 ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105563416"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
@@ -66,7 +66,7 @@ Wybierz opcję **kopiowania binarnego** podczas tworzenia działania kopiowania.
 
 ### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime-for-data-flow"></a>Uruchomienie potoku kończy się niepowodzeniem po osiągnięciu limitu pojemności środowiska Integration Runtime dla przepływu danych
 
-**Wykonaj**
+**Problem**
 
 Komunikat o błędzie:
 
@@ -135,7 +135,7 @@ Znane fakty dotyczące instrukcji *foreach*
  **Rozwiązanie**
  
 * Limit współbieżności: Jeśli potok ma zasady współbieżności, sprawdź, czy nie ma żadnych starych uruchomień potoków w toku. Maksymalna wartość współbieżności potoku w Azure Data Factory wynosi 10 potoków. 
-* Limity monitorowania: Przejdź do kanwy tworzenia ADF, wybierz potok i ustal, czy ma do niej przypisaną Właściwość współbieżności. Jeśli tak, przejdź do widoku monitorowanie i upewnij się, że nie ma żadnych danych w ciągu ostatnich 45 dni, które są w toku. Jeśli coś jest w toku, można je anulować i rozpocząć nowe uruchomienie potoku.
+* Limity monitorowania: Przejdź do kanwy tworzenia ADF, wybierz potok i ustal, czy ma do niej przypisaną Właściwość współbieżności. Jeśli tak, przejdź do widoku Monitorowanie i upewnij się, że nie ma żadnych przebiegów w toku z ostatnich 45 dni. Jeśli coś jest w toku, można je anulować i rozpocząć nowe uruchomienie potoku.
 * Problemy przejściowe: możliwe, że w danym przebiegu wystąpił przejściowy problem z siecią, niepowodzenia poświadczeń, przestoje usług itp.  W takim przypadku Azure Data Factory ma wewnętrzny proces odzyskiwania, który monitoruje wszystkie uruchomienia i uruchamia je po zauważeniu błędu. Ten proces odbywa się co godzinę, więc jeśli przebieg jest zablokowany przez więcej niż godzinę, utwórz przypadek pomocy technicznej.
  
 ### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Dłuższe czasy uruchamiania działań w ramach kopiowania i przepływu danych usługi ADF

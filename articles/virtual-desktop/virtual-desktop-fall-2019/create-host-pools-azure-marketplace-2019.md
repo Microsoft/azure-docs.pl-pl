@@ -3,15 +3,15 @@ title: Pula hostów systemu Windows Virtual Desktop (klasyczny) Azure Marketplac
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows (klasyczny) przy użyciu portalu Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7e0862bd7519f59602f1e769301614895bd6e09
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008597"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121884"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie puli hostów w programie Virtual Desktop systemu Windows (klasyczny)
 
@@ -80,10 +80,10 @@ Na karcie **Konfiguruj maszyny wirtualne** :
 1. Zaakceptuj wartości domyślne lub Dostosuj liczbę i rozmiar maszyn wirtualnych.
 
     >[!NOTE]
-    >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru, oznacza to, że nie zostało to jeszcze zrobione przez nas do narzędzia Azure Marketplace. Aby zażądać rozmiaru, Utwórz żądanie lub zagłosuj na istniejące żądanie na [forum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru, oznacza to, że nie zostało to jeszcze zrobione przez nas do narzędzia Azure Marketplace.
 
-1. Wprowadź prefiks nazw maszyn wirtualnych. Na przykład, jeśli wprowadzisz *prefiks*, maszyny wirtualne będą nazywane **prefiksem-0**, **prefiks-1** i tak dalej.
-1. Wybierz pozycję **Dalej: ustawienia maszyny wirtualnej**.
+2. Wprowadź prefiks nazw maszyn wirtualnych. Na przykład, jeśli wprowadzisz *prefiks*, maszyny wirtualne będą nazywane **prefiksem-0**, **prefiks-1** i tak dalej.
+3. Wybierz pozycję **Dalej: ustawienia maszyny wirtualnej**.
 
 ### <a name="virtual-machine-settings"></a>Ustawienia maszyny wirtualnej
 

@@ -9,10 +9,10 @@ ms.author: shasb
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Arc Kubernetes
 keywords: Kubernetes, łuk, Azure, kontenery, konfiguracja, GitOps, często zadawane pytania
 ms.openlocfilehash: 84368cc63bd9aaf1df4fb281395b47a6e886cb7f
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025853"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Często zadawane pytania — usługa Azure ARC z włączonym Kubernetes
