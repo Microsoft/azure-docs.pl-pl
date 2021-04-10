@@ -13,10 +13,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96349943"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Azure AD Connect: konfigurowanie konta łącznika usługi AD DS 
@@ -92,34 +92,34 @@ Możesz również ustawić uprawnienia dla konkretnej jednostki organizacyjnej l
 
 Wyjątkami od tych typowych parametrów jest `Set-ADSyncRestrictedPermissions` polecenie cmdlet, które służy do ustawiania uprawnień na samym koncie łącznika AD DS, a `Set-ADSyncPasswordHashSyncPermissions` polecenie cmdlet, ponieważ uprawnienia wymagane do synchronizacji skrótów haseł są ustawiane tylko w katalogu głównym domeny, dlatego to polecenie cmdlet nie zawiera `-ObjectDN` `-SkipAdminSdHolders` parametrów lub.
 
-### <a name="determine-your-ad-ds-connector-account"></a>Określanie konta łącznika AD DS 
+### <a name="determine-your-ad-ds-connector-account&quot;></a>Określanie konta łącznika AD DS 
 W przypadku Azure AD Connect jest już zainstalowany i chcesz sprawdzić, co to jest konto łącznika AD DS aktualnie używane przez Azure AD Connect, można wykonać polecenie cmdlet: 
 
 ``` powershell
 Get-ADSyncADConnectorAccount 
 ```
-### <a name="locate-ad-ds-objects-with-permission-inheritance-disabled"></a>Lokalizowanie obiektów AD DS z wyłączonym dziedziczeniem uprawnień 
+### <a name=&quot;locate-ad-ds-objects-with-permission-inheritance-disabled&quot;></a>Lokalizowanie obiektów AD DS z wyłączonym dziedziczeniem uprawnień 
 Jeśli chcesz sprawdzić, czy istnieje AD DS obiekt z wyłączonym dziedziczeniem uprawnień, możesz uruchomić następujące polecenie: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' 
 ```
-Domyślnie to polecenie cmdlet wyszukuje jednostki organizacyjne z wyłączonym dziedziczeniem, ale można określić inne klasy obiektów AD DS w `-ObjectClass` parametrze lub użyć "*" dla wszystkich klas obiektów w następujący sposób: 
+Domyślnie to polecenie cmdlet wyszukuje jednostki organizacyjne z wyłączonym dziedziczeniem, ale można określić inne klasy obiektów AD DS w `-ObjectClass` parametrze lub użyć &quot;*&quot; dla wszystkich klas obiektów w następujący sposób: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -ObjectClass * 
 ```
  
-### <a name="view-ad-ds-permissions-of-an-object"></a>Wyświetlanie uprawnień AD DS obiektu 
+### <a name=&quot;view-ad-ds-permissions-of-an-object&quot;></a>Wyświetlanie uprawnień AD DS obiektu 
 Możesz użyć poniższego polecenia cmdlet, aby wyświetlić listę uprawnień aktualnie ustawionych na obiekcie Active Directory, podając jego wyróżniającą: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
 ```
 
-## <a name="configure-ad-ds-connector-account-permissions"></a>Azure AD Connect: konfigurowanie konta łącznika usługi AD DS 
+## <a name=&quot;configure-ad-ds-connector-account-permissions&quot;></a>Azure AD Connect: konfigurowanie konta łącznika usługi AD DS 
  
-### <a name="configure-basic-read-only-permissions"></a>Skonfiguruj podstawowe uprawnienia Read-Only 
+### <a name=&quot;configure-basic-read-only-permissions&quot;></a>Skonfiguruj podstawowe uprawnienia Read-Only 
 Aby ustawić podstawowe uprawnienia tylko do odczytu dla konta łącznika AD DS, gdy nie jest używana żadna funkcja Azure AD Connect, uruchom polecenie: 
 
 ``` powershell
@@ -148,8 +148,8 @@ To polecenie cmdlet ustawi następujące uprawnienia:
 |Zezwalaj |Konto łącznika AD DS |Odczyt wszystkich właściwości |Podrzędne obiekty Contact| 
 
  
-### <a name="configure-ms-ds-consistency-guid-permissions"></a>Konfigurowanie uprawnień usługi MS-DS-spójności-identyfikatora GUID 
-Aby ustawić uprawnienia dla konta łącznika AD DS przy użyciu atrybutu MS-ds-Consistency-GUID jako kotwicy źródłowej (znanej również jako opcja "Zezwól na platformę Azure do zarządzania zakotwiczeniem źródła"), uruchom polecenie: 
+### <a name=&quot;configure-ms-ds-consistency-guid-permissions&quot;></a>Konfigurowanie uprawnień usługi MS-DS-spójności-identyfikatora GUID 
+Aby ustawić uprawnienia dla konta łącznika AD DS przy użyciu atrybutu MS-ds-Consistency-GUID jako kotwicy źródłowej (znanej również jako opcja &quot;Zezwól na platformę Azure do zarządzania zakotwiczeniem źródła"), uruchom polecenie: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
