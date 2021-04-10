@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9c4ffee437e3049f8e480375f0b1373fce09fe77
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: dc8f8f7ced1c5915c2ea54390685806cfcdd257f
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105646201"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280313"
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
 
@@ -34,7 +34,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Med
 - Dodatkowe dane skojarzone z kontem Media Services (w tym klucze szyfrowania zawartości, klucze weryfikacji tokenu, adresy URL JobInputHttp i inne metadane jednostki) są przechowywane w magazynie firmy Microsoft w ramach regionu wybranego dla konta Media Services.
     - Ze względu na [wymagania dotyczące miejsca zamieszkania danych](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) w Brazylii Południowo-Wschodnia Azja, dodatkowe dane konta są przechowywane w strefie nadmiarowej i znajdują się w jednym regionie. W przypadku Azja Południowo-Wschodnia wszystkie dodatkowe dane konta są przechowywane w Singapurze i w Brazylii Południowej, dane są przechowywane w Brazylii.
     - W regionach innych niż Brazylia Południowa i Południowo-Wschodnia dane konta mogą być również przechowywane w magazynie należącym do firmy Microsoft w [sparowanym regionie](../../best-practices-availability-paired-regions.md).
-- Azure Media Services to usługa regionalna i nie zapewnia [wysokiej dostępności](media-services-high-availability-encoding.md) ani replikacji danych. Klienci, którzy potrzebują tych funkcji, są zdecydowanie zachęcani do tworzenia rozwiązań przy użyciu kont Media Services w wielu regionach.  Przykład przedstawiający sposób tworzenia rozwiązania wysokiej dostępności dzięki Media Services wideo na żądanie jest dostępny jako przewodnik.
+- Azure Media Services to usługa regionalna i nie zapewnia [wysokiej dostępności](architecture-high-availability-encoding-concept.md) ani replikacji danych. Klienci, którzy potrzebują tych funkcji, są zdecydowanie zachęcani do tworzenia rozwiązań przy użyciu kont Media Services w wielu regionach.  Przykład przedstawiający sposób tworzenia rozwiązania wysokiej dostępności dzięki Media Services wideo na żądanie jest dostępny jako przewodnik.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Jakie są ograniczenia Azure Portal dla Media Services v3?
 
@@ -44,15 +44,15 @@ Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy u
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Jakie role platformy Azure mogą wykonywać akcje na Azure Media Services zasobach? 
 
-Zobacz [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services](rbac-overview.md).
+Zobacz [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services](security-rbac-concept.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Jak mogę strumieniowo z urządzeniami Apple iOS?
 
-Upewnij się, że masz **(format = M3U8-AAPL)** na końcu ścieżki (po części **/manifest** adresu URL), aby poinformować serwer źródłowy przesyłania strumieniowego, aby ZWRACAŁ zawartość http Live Streaming (HLS) do użycia na urządzeniach natywnych Apple iOS. Aby uzyskać szczegółowe informacje, zobacz [dostarczanie zawartości](dynamic-packaging-overview.md).
+Upewnij się, że masz **(format = M3U8-AAPL)** na końcu ścieżki (po części **/manifest** adresu URL), aby poinformować serwer źródłowy przesyłania strumieniowego, aby ZWRACAŁ zawartość http Live Streaming (HLS) do użycia na urządzeniach natywnych Apple iOS. Aby uzyskać szczegółowe informacje, zobacz [dostarczanie zawartości](encode-dynamic-packaging-concept.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Jaka jest zalecana metoda przetwarzania wideo?
 
-Za pomocą [transformacji](/rest/api/media/transforms) można skonfigurować typowe zadania związane z kodowaniem lub analizowaniem filmów wideo. Każde przekształcenie opisuje przepis lub przepływ pracy zadań do przetwarzania plików wideo lub audio. [Zadanie](/rest/api/media/jobs) to rzeczywiste żądanie Media Services, aby zastosować transformację do wejściowej zawartości wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania za pomocą interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transforms-jobs-concept.md).
+Za pomocą [transformacji](/rest/api/media/transforms) można skonfigurować typowe zadania związane z kodowaniem lub analizowaniem filmów wideo. Każde przekształcenie opisuje przepis lub przepływ pracy zadań do przetwarzania plików wideo lub audio. [Zadanie](/rest/api/media/jobs) to rzeczywiste żądanie Media Services, aby zastosować transformację do wejściowej zawartości wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania za pomocą interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transform-jobs-concept.md).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Wideo zostało przekazane, zakodowane i opublikowane. Dlaczego film wideo nie jest odtwarzany podczas próby przesyłania strumieniowego?
 
@@ -60,7 +60,7 @@ Jedną z najczęstszych przyczyn jest to, że nie masz punktu końcowego przesy�
 
 ### <a name="how-does-pagination-work"></a>Jak działa stronicowanie?
 
-W przypadku korzystania z stronicowania należy zawsze używać następnego linku do wyliczania kolekcji i nie zależy od określonego rozmiaru strony. Aby uzyskać szczegółowe informacje i przykłady, zobacz [filtrowanie, porządkowanie, stronicowanie](entities-overview.md).
+W przypadku korzystania z stronicowania należy zawsze używać następnego linku do wyliczania kolekcji i nie zależy od określonego rozmiaru strony. Aby uzyskać szczegółowe informacje i przykłady, zobacz [filtrowanie, porządkowanie, stronicowanie](filter-order-page-entitites-how-to.md).
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Jakie funkcje nie są jeszcze dostępne w wersji Azure Media Services v3?
 
@@ -68,7 +68,7 @@ Aby uzyskać szczegółowe informacje, zobacz [Przewodnik migracji](migrate-v-2-
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Jaki jest proces przechodzenia konta Media Services między subskrypcjami?  
 
-Aby uzyskać szczegółowe informacje, zobacz [Przechodzenie do konta Media Services między subskrypcjami](media-services-account-concept.md).
+Aby uzyskać szczegółowe informacje, zobacz [Przechodzenie do konta Media Services między subskrypcjami](account-move-account-how-to.md).
 
 ## <a name="live-streaming"></a>Transmisja strumieniowa na żywo 
 
@@ -93,7 +93,7 @@ Można:
 
 Kodowanie na żywo w programie Media Services V3 nie obsługuje jeszcze wstawiania obrazów wideo lub obrazu podczas przesyłania strumieniowego na żywo. 
 
-Możesz użyć [lokalnego kodera](recommended-on-premises-live-encoders.md) do przełączania źródłowego wideo. Wiele aplikacji zapewnia możliwość przełączania źródeł, w tym Wirecast Telestream, przełączników Studio (w systemach iOS) i OBS Studio (bezpłatna aplikacja).
+Możesz użyć [lokalnego kodera](encode-recommended-on-premises-live-encoders.md) do przełączania źródłowego wideo. Wiele aplikacji zapewnia możliwość przełączania źródeł, w tym Wirecast Telestream, przełączników Studio (w systemach iOS) i OBS Studio (bezpłatna aplikacja).
 
 ## <a name="content-protection"></a>Ochrona zawartości
 
@@ -109,7 +109,7 @@ Nie musisz używać żadnego określonego dostawcy tokenów, takiego jak Azure A
 
 Upewnij się, że wystawcy, odbiorcy i oświadczenia wszystkie pasują dokładnie do tych, które są używane w tokenach JWT, i `ContentKeyPolicyRestriction` Wartość użyta w `ContentKeyPolicy` .
 
-Aby uzyskać więcej informacji, zobacz [Ochrona zawartości przy użyciu Media Services szyfrowania dynamicznego](content-protection-overview.md).
+Aby uzyskać więcej informacji, zobacz [Ochrona zawartości przy użyciu Media Services szyfrowania dynamicznego](drm-content-protection-concept.md).
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Jak i gdzie uzyskać token JWT przed użyciem go w celu zażądania licencji lub klucza?
 
@@ -127,8 +127,8 @@ Użyj Azure Media Services interfejsów API do konfigurowania dostarczania licen
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Omówienie ochrony zawartości](content-protection-overview.md)
-- [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)
+- [Omówienie ochrony zawartości](drm-content-protection-concept.md)
+- [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](architecture-design-multi-drm-system.md)
 
 ### <a name="should-i-use-http-or-https"></a>Czy należy używać protokołu HTTP, czy HTTPS?
 Aplikacja odtwarzacza ASP.NET MVC musi obsługiwać następujące elementy:
@@ -163,11 +163,11 @@ Często klienci zainwestowali w farmę serwerów licencji we własnym centrum da
 
 Obecnie można użyć [Azure Portal](https://portal.azure.com/) , aby:
 
-* Zarządzanie [zdarzeniami na żywo](live-events-outputs-concept.md) w Media Services v3. 
+* Zarządzanie [zdarzeniami na żywo](live-event-outputs-concept.md) w Media Services v3. 
 * Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj). 
 * [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). 
 
-W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transform-jobs-concept.md) oraz [ochrony zawartości](drm-content-protection-concept.md)) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Czy istnieje koncepcja AssetFile w wersji 3?
 
@@ -207,7 +207,7 @@ Pobrana struktura plików na urządzeniu z systemem iOS wygląda podobnie do pon
 
 Pierwszy folder o nazwie kończącej się znakiem łącznika, po którym następuje cyfra, zawiera zawartość wideo. Wartość liczbowa to Szczytowa przepustowość odwzorowania wideo. Drugi folder o nazwie kończącej się znakiem łącznika, po którym następuje 0, zawiera zawartość audio. Trzeci folder o nazwie `Data` zawiera główną listę odtwarzania zawartości fps. Na koniec boot.xml zawiera pełny opis `.movpkg` zawartości folderu. 
 
-![Struktura plików trybu offline dla przykładowej aplikacji FairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Struktura plików trybu offline dla przykładowej aplikacji FairPlay iOS](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-file-structure.png)
 
 Oto przykładowy plik boot.xml:
 
@@ -253,7 +253,7 @@ W zależności od logiki biznesowej niestandardowej usługi STS różne oświadc
 
 #### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Co to jest mapowanie między poziomami zabezpieczeń Widevine i Media Services DRM?
 
-"Przegląd architektury DRM" Widevine "definiuje trzy poziomy zabezpieczeń. Jednak [dokumentacja Azure Media Services na szablonie licencji Widevine](widevine-license-template-overview.md) zawiera pięć poziomów zabezpieczeń (wymagania dotyczące niezawodności klientów na potrzeby odtwarzania). W tej sekcji opisano sposób mapowania poziomów zabezpieczeń.
+"Przegląd architektury DRM" Widevine "definiuje trzy poziomy zabezpieczeń. Jednak [dokumentacja Azure Media Services na szablonie licencji Widevine](drm-widevine-license-template-concept.md) zawiera pięć poziomów zabezpieczeń (wymagania dotyczące niezawodności klientów na potrzeby odtwarzania). W tej sekcji opisano sposób mapowania poziomów zabezpieczeń.
 
 Oba zestawy poziomów zabezpieczeń są definiowane przez firmę Google Widevine. Różnica jest na poziomie użycia: architektura lub interfejs API. W interfejsie API Widevine są używane pięć poziomów zabezpieczeń. `content_key_specs`Obiekt, który zawiera `security_level` , jest deserializowany i przeszedł do usługi dostarczania globalnego Widevine przez usługę licencji Widevine Azure Media Services. W poniższej tabeli przedstawiono mapowanie między dwoma zestawami poziomów zabezpieczeń.
 

@@ -6,22 +6,19 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
+adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+adobe-target-content: ./quickstart-python-portal
+ms.openlocfilehash: e0542d47ff2c687f5f9470edb0cbb34ebc79554c
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592357"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010868"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu Azure App Service w systemie Linux
 
-W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Za pomocą lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows można wdrożyć przykład za pomocą kolby lub platform Django. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
-
-> [!TIP]
-> Jeśli wolisz używać Visual Studio Code zamiast tego, postępuj zgodnie z naszymi **[Visual Studio Code App Service przewodnika Szybki Start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
+W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Za pomocą lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows można wdrożyć przykład za pomocą kolby lub platform Django. Skonfigurowana aplikacja sieci Web używa warstwy Podstawowa App Service, która wiąże się z niewielkim kosztem subskrypcji platformy Azure.
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurowanie środowiska początkowego
 

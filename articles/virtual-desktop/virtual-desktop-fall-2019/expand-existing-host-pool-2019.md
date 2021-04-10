@@ -3,15 +3,15 @@ title: Rozwiń istniejącą pulę hostów systemu Windows Virtual Desktop (klasy
 description: Jak rozszerzyć istniejącą pulę hostów na nowe hosty sesji na pulpicie wirtualnym systemu Windows (klasyczny).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88009175"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551955"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Rozszerzanie istniejącej puli hostów na nowe hosty sesji na pulpicie wirtualnym systemu Windows (klasyczny)
 
@@ -39,7 +39,7 @@ Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymag
 Kolejne trzy sekcje to trzy metody, których można użyć do rozszerzenia puli hostów. Możesz to zrobić za pomocą dowolnego narzędzia do wdrażania, z którym masz doświadczenie.
 
 >[!NOTE]
->W fazie wdrażania zostaną wyświetlone komunikaty o błędach dotyczące zasobów maszyn wirtualnych z poprzednimi hostami sesji, jeśli są one obecnie wyłączone. Przyczyną tego błędu jest to, że platforma Azure nie może uruchomić rozszerzenia DSC programu PowerShell w celu sprawdzenia, czy maszyny wirtualne hosta sesji są poprawnie zarejestrowane w istniejącej puli hostów. Można bezpiecznie zignorować te błędy lub uniknąć błędów, uruchamiając wszystkie maszyny wirtualne hosta sesji w istniejącej puli hostów przed rozpoczęciem procesu wdrażania.
+>W fazie wdrażania zostaną wyświetlone komunikaty o błędach dotyczące zasobów maszyn wirtualnych z poprzednimi hostami sesji, jeśli są one obecnie wyłączone. Przyczyną tego błędu jest to, że platforma Azure nie może uruchomić rozszerzenia DSC programu PowerShell w celu sprawdzenia, czy maszyny wirtualne hosta sesji są poprawnie zarejestrowane w istniejącej puli hostów. Host sesji, którego nazwa kończy się znakiem "-0", musi być uruchomiona, ale można bezpiecznie zignorować te błędy dla innych hostów sesji lub uniknąć błędów, uruchamiając wszystkie maszyny wirtualne hosta sesji w istniejącej puli hostów przed rozpoczęciem procesu wdrażania.
 
 ## <a name="redeploy-from-azure"></a>Ponowne wdrażanie z platformy Azure
 
@@ -96,7 +96,7 @@ Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami 
 1. Wybierz rozmiar maszyny wirtualnej odpowiadający istniejącym maszynom wirtualnym hosta sesji.
 
     >[!NOTE]
-    >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru maszyny wirtualnej, jest to spowodowane tym, że nie zostało to jeszcze zrobione w narzędziu Azure Marketplace. Aby zażądać rozmiaru maszyny wirtualnej, Utwórz żądanie lub zagłosuj na istniejące żądanie na [forum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru maszyny wirtualnej, jest to spowodowane tym, że nie zostało to jeszcze zrobione w narzędziu Azure Marketplace.
 
 2. Dostosuj *profil użycia*, *łącznego użytkownika* i *liczbę parametrów maszyn wirtualnych* , aby wybrać łączną liczbę hostów sesji, które mają być używane w puli hostów. Na przykład, jeśli rozszerzasz pulę hostów z pięciu sesji na osiem, skonfiguruj te opcje, aby uzyskać dostęp do 8 maszyn wirtualnych.
 3. Wprowadź prefiks nazw maszyn wirtualnych. Na przykład w przypadku wprowadzenia nazwy "prefiks" maszyny wirtualne będą nazywane "prefiksem-0", "prefiksem-1" i tak dalej.

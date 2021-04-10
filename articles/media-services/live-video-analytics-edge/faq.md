@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge często zadawane pytania — A
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące analizy filmów wideo na żywo na IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105032804"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275961"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Analiza filmów wideo na żywo na IoT Edge często zadawane pytania
 
@@ -57,7 +57,7 @@ Nie, nie obsługujemy funkcji "Open Network Video Interface forum" (ONVIF) odnaj
 
 **Czy mogę odtworzyć zasoby zarejestrowane do Azure Media Services od brzegu przy użyciu technologii przesyłania strumieniowego, takich jak HLS czy łącznik?**
 
-Tak. Można przesyłać strumieniowo zarejestrowane zasoby, takie jak każdy inny zasób w Azure Media Services. Aby przesłać strumieniowo zawartość, musisz mieć utworzony punkt końcowy przesyłania strumieniowego i w stanie uruchomienia. Użycie standardowego procesu tworzenia lokalizatora przesyłania strumieniowego zapewnia dostęp do programu Apple HTTP Live Streaming (HLS) lub dynamicznego adaptacyjnego przesyłania strumieniowego za pośrednictwem protokołu HTTP (PAUZy, znanego również jako MPEG-myślnik) do przesyłania strumieniowego do dowolnej platformy odtwarzacza. Aby uzyskać więcej informacji o tworzeniu i publikowaniu manifestów HLS lub PAUZ, zobacz [dynamiczne pakowanie](../latest/dynamic-packaging-overview.md).
+Tak. Można przesyłać strumieniowo zarejestrowane zasoby, takie jak każdy inny zasób w Azure Media Services. Aby przesłać strumieniowo zawartość, musisz mieć utworzony punkt końcowy przesyłania strumieniowego i w stanie uruchomienia. Użycie standardowego procesu tworzenia lokalizatora przesyłania strumieniowego zapewnia dostęp do programu Apple HTTP Live Streaming (HLS) lub dynamicznego adaptacyjnego przesyłania strumieniowego za pośrednictwem protokołu HTTP (PAUZy, znanego również jako MPEG-myślnik) do przesyłania strumieniowego do dowolnej platformy odtwarzacza. Aby uzyskać więcej informacji o tworzeniu i publikowaniu manifestów HLS lub PAUZ, zobacz [dynamiczne pakowanie](../latest/encode-dynamic-packaging-concept.md).
 
 **Czy można używać standardowych funkcji ochrony zawartości i technologii DRM Media Services na zarchiwizowanym elemencie zawartości?**
 
@@ -69,7 +69,7 @@ Obsługiwane są wszystkie standardowe odtwarzacze obsługujące zgodną HLS w w
 
 Zalecane gracze do testowania obejmują:
 
-* [Azure Media Player](../latest/use-azure-media-player.md)
+* [Azure Media Player](../latest/player-use-azure-media-player-how-to.md)
 * [HLS.js](https://hls-js.netlify.app/demo/)
 * [Video.js](https://videojs.com/)
 * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)

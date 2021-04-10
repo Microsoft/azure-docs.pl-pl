@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 9ced4da7f71a0499e538e499644d89240611f1ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96917b805640f0cfe38f28ba263e2e7ce55bce7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956217"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066164"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Dołącz pule Apache Spark (obsługiwane przez usługę Azure Synapse Analytics) dla danych przetwarzanie (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak dołączać i uruchamiać pulę Apache Spark, która jest obsługiwana przez [usługę Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) na potrzeby przetwarzanie danych na dużą skalę. 
+W tym artykule dowiesz się, jak dołączać i uruchamiać pulę Apache Spark, która jest obsługiwana przez [usługę Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) na potrzeby przetwarzanie danych na dużą skalę. 
 
 Ten artykuł zawiera wskazówki dotyczące interaktywnego wykonywania zadań przetwarzanie danych w ramach dedykowanej sesji Synapse w notesie Jupyter. Jeśli wolisz używać potoków Azure Machine Learning, zobacz [jak używać Apache Spark (obsługiwane przez usługę Azure Synapse Analytics) w potoku uczenia maszynowego (wersja zapoznawcza)](how-to-use-synapsesparkstep.md).
 
@@ -310,7 +310,7 @@ input1 = train_ds.as_mount()
 
 ## <a name="example-notebook"></a>Przykładowy notes
 
-Zapoznaj [się z tym kompleksowym notesem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) , aby zapoznać się z szczegółowym przykładem dotyczącym sposobu wykonywania przygotowywania i wybierania modeli z jednego notesu za pomocą usługi Azure Synapse Analytics i Azure Machine Learning.
+Zapoznaj [się z tym kompleksowym notesem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) , aby zapoznać się z szczegółowym przykładem dotyczącym sposobu wykonywania przygotowywania i wybierania modeli z jednego notesu za pomocą usługi Azure Synapse Analytics i Azure Machine Learning.
 
 ## <a name="next-steps"></a>Następne kroki
 

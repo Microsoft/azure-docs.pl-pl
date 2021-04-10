@@ -4,13 +4,13 @@ description: W tym przewodniku szybki start pokazano, jak wdrożyć aplikację, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/06/2020
-ms.openlocfilehash: b051f349716b5597adee4509cfe774978a8f61aa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: f7d5d473b8fe24d8dd5018a718ea96f286b1c030
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972519"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275842"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Szybki Start: wdrażanie aplikacji w portalu LUIS
 
@@ -121,4 +121,4 @@ Po zakończeniu pracy z tym przewodnikiem Szybki Start wybierz pozycję **Moje a
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [identyfikowanie typowych intencji i jednostek](./tutorial-machine-learned-entity.md)
+> [Iteracyjne opracowywanie aplikacji dla LUIS](./luis-concept-app-iteration.md)

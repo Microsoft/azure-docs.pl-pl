@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 903147b6c9f102b83f65d67cf41d4df0c62c7b54
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599004"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280568"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
@@ -206,7 +206,7 @@ Wersja 3,0 zawiera tylko operację synchroniczną. Poniższy kod JSON jest przyk
 
 ## <a name="post-the-request"></a>Wysłanie żądania
 
-Analiza jest wykonywana po odebraniu żądania. Zapoznaj się z sekcją [limity danych](../overview.md#data-limits) w temacie Omówienie dotyczącej rozmiaru i liczby żądań wysyłanych na minutę i sekundę.
+Analiza jest wykonywana po odebraniu żądania. Zobacz artykuł dotyczący [limitów danych](../overview.md#data-limits) , aby uzyskać informacje na temat rozmiaru i liczby żądań wysyłanych na minutę i sekundę.
 
 Interfejs API analizy tekstu jest bezstanowy. Na Twoim koncie nie są przechowywane żadne dane, a wyniki są zwracane natychmiast w odpowiedzi.
 

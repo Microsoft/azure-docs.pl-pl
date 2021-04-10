@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ceb105409ff218cd633eb36d793e8fc16c7d135c
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87047333"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961544"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Porównanie ustawień wstępnych Azure Media Services v3 i Video Indexer 
 
@@ -31,7 +31,7 @@ Obecnie istnieje nakładanie się między funkcjami oferowanymi przez [interfejs
 
 |Cecha|Interfejsy API Video Indexer |Analizator wideo i ustawienia wstępne analizatora dźwięku<br/>w interfejsach API Media Services v3|
 |---|---|---|
-|Szczegółowe informacje o multimediach|[Rozszerzone](video-indexer-output-json-v2.md) |[Podstawy](../latest/analyzing-video-audio-files-concept.md)|
+|Szczegółowe informacje o multimediach|[Rozszerzone](video-indexer-output-json-v2.md) |[Podstawy](../latest/analyze-video-audio-files-concept.md)|
 |Możliwości|Zapoznaj się z pełną listą obsługiwanych funkcji: <br/> [Omówienie](video-indexer-overview.md)|Zwraca tylko wgląd w dane wideo|
 |Rozliczenia|[Cennik Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Cennik Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Zgodność|Aby zapoznać się z najnowszymi aktualizacjami zgodności, odwiedź stronę [zgodność platformy Azure Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) i wyszukaj ciąg "Video Indexer", aby sprawdzić, czy jest on zgodny z certyfikatem zainteresowań.|Aby zapoznać się z najnowszymi aktualizacjami zgodności, odwiedź stronę [zgodność platformy Azure Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) i wyszukaj ciąg "Media Services", aby sprawdzić, czy jest on zgodny z certyfikatem zainteresowań.|

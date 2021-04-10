@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0e2f3296eb6d4286bb4ef7081c1459109c40915f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656842"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962309"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i archiwalna
 
@@ -86,7 +86,7 @@ Przykładowe scenariusze użycia dla warstwy dostępu archiwalnego obejmują:
 - Dane dotyczące zgodności i archiwizowania, które muszą być przechowywane przez długi czas i są trudne do użycia
 
 > [!NOTE]
-> Warstwa archiwum nie jest obsługiwana w przypadku kont ZRS, GZRS i RA-GZRS. Migrowanie z LRS do GRS nie jest obsługiwane, jeśli konto magazynu zawiera obiekty blob w warstwie archiwum.
+> Warstwa archiwum nie jest obsługiwana w przypadku kont ZRS, GZRS i RA-GZRS. Migrowanie z LRS do GRS jest obsługiwane, o ile nie zostały przeniesione obiekty blob do warstwy archiwum, gdy konto zostało ustawione na LRS. Konto można przenieść z powrotem do GRS, jeśli aktualizacja zostanie wykonana krócej niż 30 dni od momentu, gdy konto stało się LRS, a obiekty blob nie zostały przeniesione do warstwy archiwum, gdy konto zostało ustawione na LRS.
 
 ## <a name="account-level-tiering"></a>Obsługa warstw na poziomie konta
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44091cda479f2c0ccbe77bb9989ee2eda4c40f9d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727097"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055777"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -163,11 +163,11 @@ Jeśli ten scenariusz istnieje w Twoim środowisku, aby uniknąć nieskończonyc
 
 Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówienie kanałów aktualizacji dla aplikacji Microsoft 365](/deployoffice/overview-update-channels). Zalecane jest, aby organizacje nie wyłączać Menedżera kont sieci Web (WAM).
 
-### <a name="policy-change-timing"></a>Chronometraż zmiany zasad
+### <a name="group-membership-and-policy-update-effective-time"></a>Członkostwo w grupie i czas obowiązywania aktualizacji zasad
 
-Zmiany zasad wprowadzone przez administratorów mogą zająć do jednego dnia. Dokonano pewnej optymalizacji, aby skrócić opóźnienie do dwóch godzin. Nie dotyczy to jednak wszystkich scenariuszy. 
+Członkostwo w grupach i aktualizacja zasad podejmowanych przez administratorów może zająć do jednego dnia. Niektóre optymalizacje zostały wykonane w przypadku aktualizacji zasad, co zmniejsza opóźnienie do dwóch godzin. Nie dotyczy to jednak wszystkich scenariuszy. 
 
-Jeśli występują sytuacje awaryjne i konieczne będzie zastosowanie zaktualizowanych zasad do określonych użytkowników natychmiast, należy użyć tego [polecenia programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) lub "odwołaj sesję" na stronie profil użytkownika, aby odwołać się do sesji użytkowników, co spowoduje, że zaktualizowane zasady zostaną zastosowane natychmiast.
+Jeśli występują sytuacje awaryjne i konieczne jest zaktualizowanie zasad lub zmiana członkostwa w grupie w celu natychmiastowego zastosowania do określonych użytkowników, należy użyć tego [polecenia programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) lub "odwołaj sesję" na stronie profilu użytkownika, aby odwołać sesję użytkowników, co spowoduje, że zaktualizowane zasady zostaną zastosowane natychmiast.
 
 ### <a name="coauthoring-in-office-apps"></a>Współtworzenie w aplikacjach pakietu Office
 

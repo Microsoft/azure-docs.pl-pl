@@ -3,12 +3,12 @@ title: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
 description: Aktywowanie konsoli zarządzania gwarantuje, że czujniki są zarejestrowane na platformie Azure i wysyłają informacje do lokalnej konsoli zarządzania oraz że lokalna Konsola zarządzania wykonuje zadania zarządzania w połączonych czujników.
 ms.date: 3/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 89ce6da3521248ff7373e23ae8831106cbee74de
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 86bbebb54753145e087865acd8c0d4690a53aa99
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784632"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383849"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktywowanie i konfigurowanie lokalnej konsoli zarządzania 
 
@@ -33,29 +33,37 @@ Aby zalogować się do konsoli zarządzania:
 
 Jeśli nie pamiętasz hasła, wybierz opcję **Odzyskaj hasło**  i zobacz [Odzyskiwanie hasła](how-to-manage-the-on-premises-management-console.md#password-recovery) , aby uzyskać instrukcje dotyczące sposobu odzyskania hasła.
 
-## <a name="get-and-upload-an-activation-file"></a>Pobieranie i przekazywanie pliku aktywacji
+## <a name="activate-the-on-premises-management-console"></a>Aktywowanie lokalnej konsoli zarządzania
 
 Po zalogowaniu się po raz pierwszy należy aktywować lokalną konsolę zarządzania przez pobranie i przekazanie pliku aktywacji. 
 
-Aby uzyskać plik aktywacji:
+Aby aktywować lokalną konsolę zarządzania:
 
-1. Przejdź do strony **Cennik** portalu usługi Azure Defender dla IoT. 
-1. Wybierz subskrypcję, w której ma zostać skojarzona lokalna Konsola zarządzania.
-1. Wybierz pozycję **Pobierz plik aktywacji na karcie Konsola zarządzania** . Plik aktywacji zostanie pobrany.
+1. Zaloguj się do lokalnej konsoli zarządzania.
+
+1. W oknie powiadomienia o alertach w górnej części ekranu wybierz łącze **Wykonaj akcję** .
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Wybierz łącze Przejmij akcję z alertu w górnej części ekranu.":::
+
+1. Na ekranie podręcznym aktywacji wybierz łącze **Azure Portal** .
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Wybierz łącze Azure Portal z komunikatu podręcznego.":::
+ 
+1. Wybierz subskrypcję, aby skojarzyć lokalną konsolę zarządzania z usługą, a następnie wybierz przycisk **Pobierz plik aktywacji lokalnej konsoli zarządzania** . Plik aktywacji zostanie pobrany.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Pobierz plik aktywacji.":::
 
-Aby przekazać plik aktywacji:
+   Jeśli subskrypcja nie została jeszcze dołączona, Dołącz [do niej subskrypcję](how-to-manage-subscriptions.md#onboard-a-subscription).
 
-1. Przejdź do strony **Ustawienia systemu** w lokalnej konsoli zarządzania.
-1. Wybierz ikonę **Aktywacja** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false"::: .
-1. Wybierz pozycję **Wybierz plik**, a następnie wybierz pobrany plik.
+1. Przejdź z powrotem do ekranu podręcznego **aktywacji** i wybierz pozycję **Wybierz plik**.
+
+1. Wybierz pobrany plik.
 
 Po początkowej aktywacji liczba monitorowanych urządzeń może przekroczyć liczbę zatwierdzonych urządzeń zdefiniowanych podczas dołączania. Dzieje się tak, jeśli połączysz więcej czujników z konsolą zarządzania. Jeśli występuje rozbieżność między liczbą monitorowanych urządzeń i liczbą zatwierdzonych urządzeń, w konsoli zarządzania zostanie wyświetlone ostrzeżenie. Jeśli tak się stanie, Przekaż nowy plik aktywacji.
 
 ## <a name="set-up-a-certificate"></a>Konfigurowanie certyfikatu
 
-Po zainstalowaniu konsoli zarządzania zostanie wygenerowany lokalny certyfikat z podpisem własnym, który będzie używany do uzyskiwania dostępu do konsoli programu. Gdy administrator zaloguje się po raz pierwszy, użytkownik zostanie poproszony o dołączenie certyfikatu SSL/TLS. 
+Po zainstalowaniu konsoli zarządzania zostanie wygenerowany lokalny certyfikat z podpisem własnym. Ten certyfikat służy do uzyskiwania dostępu do konsoli programu. Gdy administrator zaloguje się po raz pierwszy, użytkownik zostanie poproszony o dołączenie certyfikatu SSL/TLS. 
 
 Dostępne są dwa poziomy zabezpieczeń:
 
@@ -76,7 +84,9 @@ Konsola obsługuje następujące typy certyfikatów:
 Aby przekazać certyfikat:
 
 1. Po wyświetleniu monitu po zalogowaniu Zdefiniuj nazwę certyfikatu.
+
 1. Przekaż pliki CRT i Key.
+
 1. Wprowadź hasło i w razie potrzeby Przekaż plik PEM.
 
 Po przekazaniu certyfikatu podpisanego przez urząd certyfikacji może być konieczne odświeżenie ekranu.
@@ -84,6 +94,7 @@ Po przekazaniu certyfikatu podpisanego przez urząd certyfikacji może być koni
 Aby wyłączyć weryfikację między konsolą zarządzania i połączonymi czujnikami:
 
 1. Wybierz opcję **Dalej**.
+
 1. Wyłącz opcję **Włącz tryb walidacji całego systemu** .
 
 Aby uzyskać informacje o przekazywaniu nowego certyfikatu, obsługiwanych plikach certyfikatów i powiązanych elementach, zobacz [Zarządzanie lokalną konsolą zarządzania](how-to-manage-the-on-premises-management-console.md).
@@ -100,21 +111,23 @@ Dostępne są dwie opcje łączenia usług Azure Defender for IoT z lokalną kon
 
 Po nawiązaniu połączenia należy skonfigurować lokację za pomocą tych czujników.
 
-### <a name="connect-sensors-from-the-sensor-console"></a>Łączenie czujników z poziomu konsoli czujnika
+### <a name="connect-sensors-to-the-on-premises-management-console-from-the-sensor-console"></a>Łączenie czujników z lokalną konsolą zarządzania z poziomu konsoli czujnika
 
-Aby połączyć konkretne czujniki z lokalną konsolą zarządzania z poziomu konsoli czujnika:
+Czujniki można połączyć z lokalną konsolą zarządzania z poziomu konsoli czujnika:
 
-1. W lewym okienku konsoli czujnika wybierz pozycję **Ustawienia systemowe**.
+1. W lokalnej konsoli zarządzania wybierz pozycję **Ustawienia systemowe**.
 
-2. Wybierz pozycję **połączenie z zarządzaniem**.
+1. Skopiuj **Parametry połączenia Kopiuj**.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-not-connected.png" alt-text="Zrzut ekranu przedstawiający okno stanu lokalnej konsoli zarządzania z niepołączonym programem.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-string.png" alt-text="Skopiuj parametry połączenia dla czujnika.":::
 
-3. W polu tekstowym **adres** wprowadź adres IP lokalnej konsoli zarządzania, z którą chcesz nawiązać połączenie.
+1. Na czujniku przejdź do **ustawień systemowych** i wybierz pozycję **połączenie z konsolą zarządzania**:::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-to-management-console.png" border="false":::
 
-4. Wybierz pozycję **Połącz**. Stan zmieni się:
+1. Wklej skopiowane parametry połączenia z lokalnej konsoli zarządzania do pola **Parametry połączenia** .
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-connected.png" alt-text="Zrzut ekranu przedstawiający okno stanu lokalnej konsoli zarządzania z połączoną.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/paste-connection-string.png" alt-text="Wklej skopiowany ciąg połączenia do pola parametry połączenia.":::
+
+1. Wybierz pozycję **Połącz**.
 
 ### <a name="connect-sensors-by-using-tunneling"></a>Łączenie czujników przy użyciu tunelowania
 
@@ -161,61 +174,55 @@ Grupy dostępu umożliwiają lepszą kontrolę nad tym, gdzie użytkownicy zarz�
 
 ### <a name="how-it-works"></a>Jak to działa
 
-Dla każdej lokacji można zdefiniować jednostkę biznesową i region. Następnie można dodać strefy, które są jednostkami logicznymi w sieci. 
+Można zdefiniować jednostkę biznesową i region dla każdej lokacji w organizacji. Następnie można dodać strefy, które są jednostkami logicznymi istniejącymi w sieci. 
 
-Dla każdej strefy należy przypisać co najmniej jeden czujnik. Model pięciu poziomów zapewnia elastyczność i stopień szczegółowości, który jest wymagany do zapewnienia systemu ochrony, który odzwierciedla strukturę organizacji.
-
-Można edytować witryny bezpośrednio z dowolnego widoku mapy. W przypadku otwierania lokacji z widoku mapy liczba otwartych alertów pojawia się obok każdej strefy.
-
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Zrzut ekranu przedstawiający lokalną mapę konsoli zarządzania z nakładką danych Berlin.":::
+Należy przypisać co najmniej jeden czujnik dla każdej strefy. Model pięciu poziomów zapewnia elastyczność i stopień szczegółowości, który jest wymagany do zapewnienia systemu ochrony, który odzwierciedla strukturę organizacji.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagram przedstawiający czujniki i relacje regionalne.":::
+
+Za pomocą widoku przedsiębiorstwa można edytować witryny bezpośrednio. Po wybraniu witryny z widoku przedsiębiorstwa liczba otwartych alertów pojawia się obok każdej strefy.
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Zrzut ekranu przedstawiający lokalną mapę konsoli zarządzania z nakładką danych Berlin.":::
 
 Aby skonfigurować lokację:
 
 1. Dodaj nowe jednostki biznesowe, aby odzwierciedlały strukturę logiczną organizacji.
 
-2. Dodawanie nowych regionów w celu odzwierciedlenia regionów organizacji.
+   1. W widoku przedsiębiorstwa wybierz pozycję **Wszystkie lokacje**  >  **Zarządzaj jednostkami biznesowymi**.
 
-3. Dodaj lokację.
+      :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/manage-business-unit.png" alt-text="Wybierz pozycję Zarządzaj jednostką biznesową z menu rozwijanego Wszystkie lokacje na ekranie widok przedsiębiorstwa.":::
 
-4. Dodaj strefy do lokacji.
+   1. Wprowadź nową nazwę jednostki biznesowej i wybierz pozycję **Dodaj**.
 
-5. Połącz czujniki.
+1. Dodawanie nowych regionów w celu odzwierciedlenia regionów organizacji.
 
-6. Przypisywanie czujnika do stref lokacji.
+   1. W widoku przedsiębiorstwa wybierz pozycję **wszystkie regiony**  >  **Zarządzaj regionami**.
 
-Aby dodać jednostki biznesowe:
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/manage-regions.png" alt-text="Wybierz pozycję Wszystkie regiony, a następnie Zarządzaj regionami, aby zarządzać regionami w przedsiębiorstwie.":::
 
-1. W widoku przedsiębiorstwa wybierz pozycję **Wszystkie lokacje**  >  **Zarządzaj jednostkami biznesowymi**.
+   1. Wprowadź nazwę nowego regionu i wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/manage-business-unit-screen.png" alt-text="Zrzut ekranu przedstawiający widok Zarządzanie jednostkami biznesowymi.":::
+1. Dodaj lokację.
 
-2. Wprowadź nową nazwę jednostki biznesowej i wybierz pozycję **Dodaj**.
+   1. W widoku przedsiębiorstwa wybierz :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/new-site-icon.png" border="false"::: górny pasek. Kursor zostanie wyświetlony jako znak plusa ( **+** ).
 
-Aby dodać nowy region:
+   1. Umieść kursor **+** w miejscu nowej lokacji i wybierz ją. Zostanie otwarte okno dialogowe **Utwórz nową lokację** .
 
-1. W widoku przedsiębiorstwa wybierz pozycję **wszystkie regiony**  >  **Zarządzaj regionami**.
+      :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-site-screen.png" alt-text="Zrzut ekranu przedstawiający widok Tworzenie nowej witryny.":::
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/manage-regions-screen.png" alt-text="Zrzut ekranu przedstawiający widok zarządzanie regionami.":::
+   1. Zdefiniuj nazwę i adres fizyczny nowej witryny, a następnie wybierz pozycję **Zapisz**. Nowa lokacja zostanie wyświetlona na mapie witryny.
 
-2. Wprowadź nazwę nowego regionu i wybierz pozycję **Dodaj**.
+4. [Dodaj strefy do lokacji](#create-enterprise-zones).
 
-Aby dodać nową lokację:
+5. [Połącz czujniki](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console).
 
-1. W widoku przedsiębiorstwa wybierz :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/new-site-icon.png" border="false"::: górny pasek. Kursor zostanie wyświetlony jako znak plusa ( **+** ).
-
-2. Umieść kursor **+** w miejscu nowej lokacji i wybierz ją. Zostanie otwarte okno dialogowe **Utwórz nową lokację** .
-
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-site-screen.png" alt-text="Zrzut ekranu przedstawiający widok Tworzenie nowej witryny.":::
-
-3. Zdefiniuj nazwę i adres fizyczny nowej witryny, a następnie wybierz pozycję **Zapisz**. Nowa lokacja zostanie wyświetlona na mapie witryny.
+6. [Przypisywanie czujnika do stref lokacji](#assign-sensors-to-zones).
 
 Aby usunąć lokację:
 
 1. W oknie **Zarządzanie lokacją** wybierz :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: z paska, który zawiera nazwę lokacji, a następnie wybierz pozycję **Usuń lokację**. Zostanie wyświetlone okno dialogowe potwierdzające, czy chcesz usunąć lokację.
 
-2. W polu potwierdzenia wybierz pozycję **tak**. Pole potwierdzenia zostanie zamknięte, a okno **Zarządzanie lokacją** zostanie wyświetlone bez usuniętej lokacji.
+2. W polu potwierdzenia wybierz pozycję **Potwierdź**.
 
 ## <a name="create-enterprise-zones"></a>Utwórz strefy przedsiębiorstwa
 
@@ -250,11 +257,11 @@ Aby dodać strefę do lokacji:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-zone-screen.png" alt-text="Zrzut ekranu przedstawiający widok Utwórz nową strefę.":::
 
-2. Wprowadź nazwę strefy.
+1. Wprowadź nazwę strefy.
 
-3. Wprowadź opis nowej strefy, która jasno określa charakterystykę, która została użyta do podziału lokacji na strefy.
+1. Wprowadź opis nowej strefy, która jasno określa charakterystykę, która została użyta do podziału lokacji na strefy.
 
-4. Wybierz pozycję **Zapisz**. Nowa strefa zostanie wyświetlona w oknie **Zarządzanie lokacją** w ramach lokacji, do której należy Ta strefa.
+1. Wybierz pozycję **Zapisz**. Nowa strefa zostanie wyświetlona w oknie **Zarządzanie lokacją** w ramach lokacji, do której należy Ta strefa.
 
 Aby edytować strefę:
 
@@ -262,13 +269,13 @@ Aby edytować strefę:
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/zone-edit-screen.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Edytowanie strefy.":::
 
-2. Edytuj parametry strefy i wybierz pozycję **Zapisz**.
+1. Edytuj parametry strefy i wybierz pozycję **Zapisz**.
 
 Aby usunąć strefę:
 
 1. W oknie **Zarządzanie lokacją** wybierz :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: z paska, który zawiera nazwę strefy, a następnie wybierz pozycję **Usuń strefę**.
 
-2. W polu potwierdzenia wybierz pozycję **tak**.
+1. W polu potwierdzenia wybierz pozycję **tak**.
 
 Aby filtrować według stanu łączności:
 
@@ -302,23 +309,23 @@ Aby przypisać Czujnik:
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassigned-sensors-view.png" alt-text="Zrzut ekranu przedstawiający widok czujników nieprzypisane.":::
 
-2. Sprawdź, czy stan **łączności** jest połączony. Jeśli nie, zobacz sekcję [łączenie czujników z lokalną konsolą zarządzania,](#connect-sensors-to-the-on-premises-management-console) Aby uzyskać szczegółowe informacje na temat nawiązywania połączenia. 
+1. Sprawdź, czy stan **łączności** jest połączony. Jeśli nie, zobacz sekcję [łączenie czujników z lokalną konsolą zarządzania,](#connect-sensors-to-the-on-premises-management-console) Aby uzyskać szczegółowe informacje na temat nawiązywania połączenia. 
 
-3. Wybierz :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: dla czujnika, który chcesz przypisać.
+1. Wybierz :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: dla czujnika, który chcesz przypisać.
 
-4. W oknie dialogowym **przypisywanie czujnika** wybierz jednostkę biznesową, region, witrynę i strefę do przypisania.
+1. W oknie dialogowym **przypisywanie czujnika** wybierz jednostkę biznesową, region, witrynę i strefę do przypisania.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-sensor-screen.png" alt-text="Zrzut ekranu przedstawiający widok czujnika przypisywania.":::
 
-5. Wybierz pozycję **Przypisz**.
+1. Wybierz pozycję **Przypisz**.
 
 Aby cofnąć przypisanie i usunięcie czujnika:
 
 1. Odłącz czujnik od lokalnej konsoli zarządzania. Aby uzyskać szczegółowe informacje [, zobacz czujniki połączeń z lokalną konsolą zarządzania](#connect-sensors-to-the-on-premises-management-console) .
 
-2. W oknie **Zarządzanie lokacją** wybierz czujnik i wybierz opcję :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: . Czujnik pojawia się na liście nieprzypisanych czujników po kilku chwilach.
+1. W oknie **Zarządzanie lokacją** wybierz czujnik i wybierz opcję :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: . Czujnik pojawia się na liście nieprzypisanych czujników po kilku chwilach.
 
-3. Aby usunąć nieprzypisany czujnik z lokacji, wybierz czujnik z listy nieprzypisanych czujników i wybierz opcję :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
+1. Aby usunąć nieprzypisany czujnik z lokacji, wybierz czujnik z listy nieprzypisanych czujników i wybierz opcję :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
 ## <a name="see-also"></a>Zobacz też
 

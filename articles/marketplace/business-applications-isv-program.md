@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: ce9927a66da64d64e83f10e3dfd906005635e5ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4cd22418c4f8a2f9504baf665c67a4a57f7f6f5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99507540"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103389"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -25,7 +25,7 @@ Aby zarejestrować się i korzystać ze wszystkich korzyści związanych z zapew
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Skonfiguruj konto Centrum partnerskiego firmy Microsoft
 
-Aby skonfigurować konto i zarządzać nim dla programu ISV Connect, wykonaj kroki opisane w artykule: [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](./partner-center-portal/create-account.md). Ten artykuł zawiera wszystkie kroki umożliwiające utworzenie nowego konta, a także informacje na temat dodawania nowych wydawców do komercyjnego programu w portalu Marketplace.
+Aby skonfigurować konto i zarządzać nim dla programu ISV Connect, wykonaj kroki opisane w artykule: [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](create-account.md). Ten artykuł zawiera wszystkie kroki umożliwiające utworzenie nowego konta, a także informacje na temat dodawania nowych wydawców do komercyjnego programu w portalu Marketplace.
 
 > [!NOTE]
 > Ten krok wymaga roli *właściciela* lub *Menedżera* w centrum partnerskim.

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7eca7d8f3cd40f4a3961f0ac478fba290be3041
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561895"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279667"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -129,7 +129,7 @@ W zależności od typu tworzonego konta magazynu można wybrać warstwę wydajno
 | Ogólnego przeznaczenia w wersji 1 | Standard, Premium<sup>1</sup> |
 | BlockBlobStorage | Premium |
 | FileStorage | Premium |
-| BlobStorage | Standardowa |
+| BlobStorage | Standardowa (Standard) |
 
 <sup>1</sup> Wydajność warstwy Premium dla kont ogólnego przeznaczenia w wersji 2 i ogólnego przeznaczenia w wersji 1 jest dostępna tylko dla dysków i stron obiektów BLOB. Wydajność warstwy Premium dla obiektów BLOB bloków lub dołączania jest dostępna tylko na kontach BlockBlobStorage. Wydajność warstwy Premium dla plików jest dostępna tylko na kontach FileStorage.
 
@@ -175,10 +175,6 @@ W poniższej tabeli przedstawiono warstwy dostępu dostępne dla obiektów BLOB 
 > [!IMPORTANT]
 > Zmiana warstwy dostępu dla istniejącego konta magazynu lub obiektu BLOB może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zobacz [rozliczenia kont magazynu](#storage-account-billing).
 
-## <a name="encryption"></a>Szyfrowanie
-
-Wszystkie dane na koncie magazynu są szyfrowane po stronie usługi. Aby uzyskać więcej informacji na temat szyfrowania, zobacz [Azure szyfrowanie usługi Storage w przypadku danych przechowywanych w spoczynku](storage-service-encryption.md).
-
 ## <a name="storage-account-endpoints"></a>Punkty końcowe konta usługi Storage
 
 Konto magazynu zapewnia unikatową przestrzeń nazw na platformie Azure dla danych użytkownika. Każdy obiekt przechowywany w usłudze Azure Storage ma adres, który zawiera unikatową nazwę konta. Kombinacja nazwy konta i punktu końcowego usługi Azure Storage stanowi punkty końcowe konta magazynu.
@@ -200,22 +196,17 @@ Utwórz adres URL do uzyskiwania dostępu do obiektu na koncie magazynu, dołąc
 
 Możesz również skonfigurować konto magazynu tak, aby korzystało z domeny niestandardowej dla obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla konta usługi Azure Storage](../blobs/storage-custom-domain-name.md).  
 
-## <a name="control-access-to-account-data"></a>Kontrolowanie dostępu do danych konta
+## <a name="migrating-a-storage-account"></a>Migrowanie konta magazynu
 
-Domyślnie dane na Twoim koncie są dostępne tylko dla Ciebie, tj. właściciela konta. Masz kontrolę nad tym, kto może uzyskiwać dostęp do danych i jakie posiadane uprawnienia.
+Poniższa tabela zawiera podsumowanie i wskazówki dotyczące przechodzenia, uaktualniania lub migrowania konta magazynu:
 
-Każde żądanie skierowane do konta magazynu musi mieć autoryzację. Na poziomie usługi żądanie musi zawierać prawidłowy nagłówek *autoryzacji* . W tym nagłówku uwzględniono wszystkie informacje niezbędne do zweryfikowania żądania przed jego wykonaniem przez usługę.
-
-Dostęp do danych na koncie magazynu można udzielić przy użyciu dowolnych z następujących metod:
-
-- **Azure Active Directory:** Użyj poświadczeń usługi Azure Active Directory (Azure AD) w celu uwierzytelnienia użytkownika, grupy lub innej tożsamości w celu uzyskania dostępu do danych obiektów blob i kolejek. W przypadku pomyślnego uwierzytelnienia tożsamości usługa Azure AD zwraca token do użycia w celu autoryzowania żądania do magazynu obiektów blob platformy Azure lub magazynu kolejek. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie dostępu do usługi Azure Storage przy użyciu Azure Active Directory](storage-auth-aad.md).
-- **Autoryzacja klucza współużytkowanego:** Użyj klucza dostępu do konta magazynu, aby utworzyć parametry połączenia używane przez aplikację w czasie wykonywania w celu uzyskania dostępu do usługi Azure Storage. Wartości w parametrach połączenia są używane do konstruowania nagłówka *autoryzacji* , który jest przesyłany do usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [Konfigurowanie parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md).
-- **Sygnatura dostępu współdzielonego:** Sygnatura dostępu współdzielonego (SAS) to token, który umożliwia delegowany dostęp do zasobów na koncie magazynu. Token sygnatury dostępu współdzielonego hermetyzuje wszystkie informacje, które są konieczne do autoryzowania żądania do usługi Azure Storage przy użyciu adresu URL. Podczas tworzenia sygnatury dostępu współdzielonego można określić, które uprawnienia są przyznawane dla zasobu, a także interwał, w jakim uprawnienia są prawidłowe. Token sygnatury dostępu współdzielonego może być podpisany przy użyciu poświadczeń usługi Azure AD lub klucza współużytkowanego. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
-
-> [!NOTE]
-> Uwierzytelnianie użytkowników lub aplikacji przy użyciu poświadczeń usługi Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w innych sposobach autoryzacji. Mimo że można nadal korzystać z autoryzacji klucza współużytkowanego w aplikacjach, korzystanie z usługi Azure AD powoduje obejście konieczności przechowywania klucza dostępu do konta w kodzie. Możesz również nadal używać sygnatur dostępu współdzielonego, aby udzielać szczegółowego dostępu do zasobów na koncie magazynu, ale usługa Azure AD oferuje podobne możliwości bez konieczności zarządzania tokenami SAS ani martwić się o odwoływanie złamanych SAS.
->
-> Firma Microsoft zaleca korzystanie z autoryzacji usługi Azure AD dla obiektów BLOB usługi Azure Storage i kolejkowanie aplikacji, o ile jest to możliwe.
+| Scenariusz migracji | Szczegóły |
+|--|--|
+| Przenoszenie konta magazynu do innej subskrypcji | Azure Resource Manager udostępnia opcje przeniesienia zasobu do innej subskrypcji. Aby uzyskać więcej informacji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Przenoszenie konta magazynu do innej grupy zasobów | Azure Resource Manager udostępnia opcje przeniesienia zasobu do innej grupy zasobów. Aby uzyskać więcej informacji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Przenoszenie konta magazynu do innego regionu | Aby przenieść konto magazynu, utwórz kopię konta magazynu w innym regionie. Następnie Przenieś dane do tego konta za pomocą AzCopy lub innego wybranego narzędzia. Aby uzyskać więcej informacji, zobacz [Przenoszenie konta usługi Azure Storage do innego regionu](storage-account-move.md). |
+| Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2 | Możesz uaktualnić konto magazynu ogólnego przeznaczenia w wersji 1 lub konto magazynu obiektów BLOB do konta ogólnego przeznaczenia w wersji 2. Tej akcji nie można cofnąć. Aby uzyskać więcej informacji, zobacz [uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2](storage-account-upgrade.md). |
+| Migrowanie klasycznego konta magazynu do Azure Resource Manager | Model wdrażania Azure Resource Manager jest wyższy do klasycznego modelu wdrażania w zakresie funkcjonalności, skalowalności i zabezpieczeń. Aby uzyskać więcej informacji na temat migrowania klasycznego konta magazynu do Azure Resource Manager, zobacz [Migrowanie kont magazynu](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) w **ramach migracji obsługiwanej przez platformę zasobów IaaS z klasycznej do Azure Resource Manager**. |
 
 ## <a name="copying-data-into-a-storage-account"></a>Kopiowanie danych do konta magazynu
 
@@ -239,6 +230,10 @@ Aby uzyskać więcej informacji na temat interfejsu API REST usługi Azure Stora
 
 > [!IMPORTANT]
 > Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem w ramach obiektu blob. W przypadku kopiowania obiektu blob zaszyfrowanego przy użyciu szyfrowania po stronie klienta upewnij się, że podczas operacji kopiowania są zachowywane metadane obiektu blob, a w szczególności metadane związane z szyfrowaniem. W przypadku kopiowania obiektu blob bez metadanych szyfrowania nie można ponownie pobrać zawartości tego obiektu. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption (Szyfrowanie po stronie klienta usługi Azure Storage)](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+## <a name="encryption"></a>Szyfrowanie
+
+Wszystkie dane na koncie magazynu są szyfrowane po stronie usługi. Aby uzyskać więcej informacji na temat szyfrowania, zobacz [Azure szyfrowanie usługi Storage w przypadku danych przechowywanych w spoczynku](storage-service-encryption.md).
 
 ## <a name="storage-account-billing"></a>Rozliczanie konta usługi Storage
 

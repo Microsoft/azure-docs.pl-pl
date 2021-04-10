@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 6465acc0d4ce760e0bf89c73dace7c8c66d37c49
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869943"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Porady i wskazówki dotyczące korzystania z narzędzia migawek spójnych z aplikacjami platformy Azure (wersja zapoznawcza)
@@ -223,7 +223,7 @@ W niektórych przypadkach klienci mają już narzędzia do ochrony SAP HANA i ch
                   {
                     "backupName": "shoasnap",
                     "ipAddress": "10.1.1.10",
-                    "volume": "t210_sles_boot_azsollabbl20a31_vol"
+                    "volume&quot;: &quot;t210_sles_boot_azsollabbl20a31_vol"
                   }
                 ]
               }

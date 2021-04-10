@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
 ms.openlocfilehash: 540f6ca165c80dd90f5004fb53e1577cdc35d770
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104656043"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu tagów indeksu obiektów BLOB (wersja zapoznawcza)
@@ -279,7 +279,7 @@ W poniższej tabeli zestawiono różnice między metadanymi i tagami indeksów o
 | **Uprawnienia**  | Uprawnienia do odczytu lub zapisu danych obiektu BLOB rozszerzają się do metadanych | Do odczytywania, filtrowania lub zapisywania tagów indeksu są wymagane dodatkowe uprawnienia |
 | **Nazewnictwo** | Nazwy metadanych muszą być zgodne z regułami nazewnictwa dla identyfikatorów C# | Tagi indeksu obiektów BLOB obsługują szerszego zakresu znaków alfanumerycznych |
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Cennik indeksów obiektów BLOB jest dostępny w publicznej wersji zapoznawczej i może ulec zmianie w zakresie ogólnej dostępności. Opłata jest naliczana za miesięczną średnią liczbę tagów indeksu w ramach konta magazynu. Aparat indeksowania nie ma kosztu. Żądania do `Set Blob Tags` , `Get Blob Tags` i `Find Blobs by Tags` są naliczone zgodnie z ich odpowiednimi typami operacji. [Aby dowiedzieć się więcej, zobacz temat Zablokuj ceny obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

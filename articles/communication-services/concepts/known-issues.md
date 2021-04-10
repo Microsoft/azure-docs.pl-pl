@@ -8,15 +8,15 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: 7be40ac5f6cda7a81d68ca0b17f377891dd58480
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: b9ed71a8fc9346ecd454eba98dcbb3b13186eba2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606049"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276046"
 ---
-# <a name="known-issues-azure-communication-services-sdks"></a>Znane problemy: zestawy SDK usług Azure Communication Services
-Ten artykuł zawiera informacje o ograniczeniach i znanych problemach związanych z zestawami SDK usług Azure Communication Services.
+# <a name="known-issues-azure-communication-services-calling-sdks"></a>Znane problemy: usługi komunikacyjne Azure wywołujące zestawy SDK
+Ten artykuł zawiera informacje o ograniczeniach i znanych problemach związanych z zestawami SDK wywołujących usługi Azure Communications Services.
 
 > [!IMPORTANT]
 > Istnieje wiele czynników, które mogą mieć wpływ na jakość wywoływania. Zapoznaj się z dokumentacją **[dotyczącą wymagań sieciowych](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** , aby dowiedzieć się więcej na temat konfiguracji sieci usług komunikacyjnych i najlepszych rozwiązań dotyczących testowania.
@@ -47,7 +47,10 @@ Aplikacje nie mogą wyliczyć/wybrać urządzeń MIC/prelegenta (takich jak Blue
 Jeśli korzystasz z przeglądarki Safari w systemie macOS, aplikacja nie będzie mogła wyliczać ani wybierać głośników za pośrednictwem usług komunikacyjnych Device Manager. W tym scenariuszu urządzenia muszą być wybierane za pośrednictwem systemu operacyjnego. Jeśli używasz programu Chrome w systemie macOS, aplikacja będzie mogła wyliczyć/wybrać urządzenia za pomocą Device Manager usług komunikacyjnych.
 
 ### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>Połączenie audio jest tracone podczas otrzymywania wiadomości SMS lub wywołań podczas trwającego wywołania usługi VoIP
-Przeglądarki mobilne nie zachowują łączności w tle. Może to prowadzić do pogorszenia wydajności połączeń, jeśli wywołanie VoIP zostało przerwane przez zdarzenie, które wypycha aplikację do tła.
+Ten problem może wystąpić z kilku powodów:
+
+- Niektóre przeglądarki dla urządzeń przenośnych nie utrzymują łączności w tle. Może to prowadzić do pogorszenia wydajności połączeń, jeśli wywołanie VoIP zostało przerwane przez zdarzenie, które wypycha aplikację do tła. 
+- Czasami wywołanie programu SMS lub PSTN przechwytuje dźwięk audio i nie zwalnia dźwięku z powrotem do wywołania VoIP. Firma Apple rozwiązała ten problem w systemie iOS w wersji 14.4.1 +. 
 
 <br/>Biblioteka kliencka: wywoływanie (JavaScript)
 <br/>Przeglądarki: Safari, Chrome
@@ -95,9 +98,16 @@ Jeśli użytkownicy zdecydują się szybko włączyć/wyłączyć wideo, gdy wyw
  - Jeśli użytkownik rozpoczyna pracę od dźwięk, a następnie uruchomi i zatrzyma wideo, gdy wywołanie jest w `Connecting` stanie.
  - Jeśli użytkownik rozpoczyna pracę od dźwięk, a następnie uruchomi i zatrzyma wideo, gdy wywołanie jest w `Lobby` stanie.
 
-
 #### <a name="possible-causes"></a>Możliwe przyczyny
 W trakcie badania.
+
+### <a name="enumeratingaccessing-devices-for-safari-on-macos-and-ios"></a>Wyliczanie/uzyskiwanie dostępu do urządzeń dla przeglądarki Safari w systemach MacOS i iOS 
+Jeśli dostęp do urządzeń zostanie udzielony po pewnym czasie, uprawnienia urządzenia są resetowane. Przeglądarka Safari w systemach MacOS i iOS nie zachowuje uprawnień przez dłuższy czas, chyba że zostanie pobrany strumień. Najprostszym sposobem obejścia tego problemu jest wywoływanie interfejsu API devicemanager. askDevicePermission () przed wywołaniem interfejsów API wyliczania urządzeń Menedżera urządzeń (devicemanager. getcameras (), devicemanager. getgłośnikis () i devicemanager. getmicrophones ()). Jeśli w tym miejscu znajdują się uprawnienia, użytkownik nie będzie widział żadnych elementów, a jeśli nie, zostanie ponownie wyświetlony monit.
+
+<br/>Urządzenia, których to dotyczy: iPhone
+<br/>Biblioteka kliencka: wywoływanie (JavaScript)
+<br/>Przeglądarki: Safari
+<br/>System operacyjny: iOS
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>Czasami renderowanie zdalnych filmów wideo trwa zbyt długo
 Podczas trwającego wywołania grupy _użytkownik a_ wysyła wideo, a następnie _użytkownik B_ dołącza wywołanie. Czasami użytkownik B nie widzi wideo od użytkownika A lub użytkownik A wideo rozpoczyna renderowanie po długim opóźnieniu. Przyczyną tego problemu może być środowisko sieciowe, które wymaga dalszej konfiguracji. Wskazówki dotyczące konfiguracji sieci znajdują się w dokumentacji [dotyczącej wymagań sieciowych](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) .

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: d5d694820c2ffd09868d81693d4f98f839a139d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1c85a07a3d61c80f3871f04c399263a8e210254e
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591881"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010795"
 ---
 # <a name="connect-to-azure-database-for-mysql-using-dbforge-studio-for-mysql"></a>Nawiązywanie połączenia z usługą Azure Database for MySQL przy użyciu programu dbfałszerstw Studio for MySQL
 
@@ -78,9 +78,7 @@ W wyniku naszych działań związanych z migracją bazy danych pomyślnie pojawi
 Program dbfałszerstw Studio for MySQL obejmuje kilka narzędzi, które umożliwiają Migrowanie baz danych MySQL, schematy MySQL and\or dane na platformę Azure. Wybór funkcjonalności zależy od potrzeb i wymagań projektu. Jeśli musisz wybiórczo przenieść bazę danych, czyli zmigrować pewne tabele MySQL na platformę Azure, najlepiej użyć funkcji porównywania schematu i danych.
 W tym przykładzie Migrujemy *światową* bazę danych, która znajduje się na serwerze MySQL, aby Azure Database for MySQL. Logika w ramach procesu migracji przy użyciu funkcji porównywania schematów i danych w programie dbfałszerstw Studio for MySQL polega na utworzeniu pustej bazy danych w Azure Database for MySQL, zsynchronizuj ją z wymaganą bazą danych MySQL, najpierw używając narzędzia do porównywania schematów, a następnie używając narzędzia do porównywania danych. Dzięki temu schematy i dane programu MySQL są prawidłowo przenoszone na platformę Azure.
 
-### <a name="connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Nawiązywanie połączenia z Azure Database for MySQL i tworzenie pustej bazy danych
-
-Połącz się z Azure Database for MySQL i Utwórz pustą bazę danych.
+### <a name="step-1-connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Krok 1. Nawiązywanie połączenia z Azure Database for MySQL i tworzenie pustej bazy danych
 
 ### <a name="step-2-schema-synchronization"></a>Krok 2. Synchronizacja schematu
 

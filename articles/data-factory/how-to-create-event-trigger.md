@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d9012c2bb56b7936b627063be2e9c5b7aa33541e
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889131"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962734"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie magazynu
 
@@ -71,9 +71,12 @@ W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Fa
 
 1. Jeśli potok zawiera parametry, można je określić dla wyzwalacza uruchamia po stronie parametru. Wyzwalacz zdarzenia magazynu przechwytuje ścieżkę folderu i nazwę pliku obiektu BLOB do właściwości `@triggerBody().folderPath` i `@triggerBody().fileName` . Aby użyć wartości tych właściwości w potoku, należy zmapować właściwości na parametry potoku. Po zamapowaniu właściwości na parametry można uzyskać dostęp do wartości przechwytywanych przez wyzwalacz za pomocą `@pipeline().parameters.parameterName` wyrażenia w ramach potoku. Aby uzyskać szczegółowe wyjaśnienie, zobacz [odwołania do metadanych wyzwalacza w potokach](how-to-use-trigger-parameterization.md)
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Zrzut ekranu przedstawiający właściwości mapowania wyzwalacza zdarzeń magazynu na parametry potoku.":::
+   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Zrzut ekranu przedstawiający właściwości mapowania wyzwalacza zdarzeń magazynu na parametry potoku.":::
 
-    W poprzednim przykładzie wyzwalacz jest skonfigurowany do uruchamiania, gdy ścieżka obiektu BLOB kończąca się w. csv zostanie utworzona w folderze _Event-Tests_ w kontenerze _przykład — dane_. Właściwości **folderPath** i **filename** przechwytują lokalizację nowego obiektu BLOB. Na przykład po dodaniu MoviesDB.csv do przykładowej ścieżki-dane/testowanie zdarzeń `@triggerBody().folderPath` ma wartość `sample-data/event-testing` i `@triggerBody().fileName` ma wartość `moviesDB.csv` . Te wartości są mapowane, w przykładzie, do parametrów potoku `sourceFolder` i `sourceFile` , które mogą być używane w całym potoku odpowiednio w zależności od siebie `@pipeline().parameters.sourceFolder` `@pipeline().parameters.sourceFile` .
+   W poprzednim przykładzie wyzwalacz jest skonfigurowany do uruchamiania, gdy ścieżka obiektu BLOB kończąca się w. csv zostanie utworzona w folderze _Event-Tests_ w kontenerze _przykład — dane_. Właściwości **folderPath** i **filename** przechwytują lokalizację nowego obiektu BLOB. Na przykład po dodaniu MoviesDB.csv do przykładowej ścieżki-dane/testowanie zdarzeń `@triggerBody().folderPath` ma wartość `sample-data/event-testing` i `@triggerBody().fileName` ma wartość `moviesDB.csv` . Te wartości są mapowane, w przykładzie, do parametrów potoku `sourceFolder` i `sourceFile` , które mogą być używane w całym potoku odpowiednio w zależności od siebie `@pipeline().parameters.sourceFolder` `@pipeline().parameters.sourceFile` .
+
+   > [!NOTE]
+   > Jeśli tworzysz potok i wyzwalacz w [usłudze Azure Synapse Analytics](/synapse-analytics), musisz użyć `@trigger().outputs.body.fileName` `@trigger().outputs.body.folderPath` parametrów i. Te dwie właściwości przechwytują informacje o obiektach Blob. Użyj tych właściwości zamiast używania `@triggerBody().fileName` i `@triggerBody().folderPath` .
 
 1. Po zakończeniu kliknij przycisk **Zakończ** .
 

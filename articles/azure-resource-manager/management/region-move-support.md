@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9229fca9f98aac4ca628c0bb25c13c9ba1989626
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100094019"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962598"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -503,7 +503,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | możliwości | Nie | 
-> | domainnames | Tak | Nie |
+> | domainnames | Nie |
 > | quotas | Nie | 
 > | resourcetypes | Nie |
 > | validatesubscriptionmoveavailability | Nie | 
@@ -1061,7 +1061,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | Konta | Nie. [Dowiedz się więcej](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
+> | Konta | Nie. [Dowiedz się więcej](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups |  Nie | 
 > | activitylogalerts | Nie | 
 > | alertrules |  Nie | 
@@ -1073,12 +1073,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | diagnosticsettingscategories | Nie | 
 > | eventcategories | Nie | 
 > | Typ zdarzenia | Nie | 
-> | extendeddiagnosticsettings | Nie | |
+> | extendeddiagnosticsettings | Nie |
 > | guestdiagnosticsettings | Nie | 
 > | listmigrationdate | Nie | 
 > | logdefinitions | Nie | 
 > | logprofiles | Nie | 
-> | dzienniki | Nie | Nie |
+> | dzienniki | Nie |
 > | metricalerts | Nie | 
 > | metricbaselines | Nie | 
 > | metricbatch | Nie | 
@@ -1399,7 +1399,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | networkwatchers / pingmeshes |  Nie | 
 > | p2svpngateways | Nie | 
 > | privatednszones |  Nie |  
-> | privatednszones / virtualnetworklinks | Nie |> | privatednszonesinternal | Nie |
+> | privatednszones / virtualnetworklinks | Nie |
+> | privatednszonesinternal | Nie |
 > | privateendpointredirectmaps | Nie |
 > | privateendpoints | Nie | 
 > | privatelinkservices | Nie | 

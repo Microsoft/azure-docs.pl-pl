@@ -3,16 +3,16 @@ title: Usługa Azure Defender dla rejestrów kontenerów — korzyści i funkcje
 description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender dla rejestrów kontenerów.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176641"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010696"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -47,7 +47,7 @@ Istnieją trzy wyzwalacze do skanowania obrazu:
 
 - **W przypadku wypychania** — za każdym razem, gdy obraz jest wypychany do rejestru, Security Center automatycznie skanuje ten obraz. Aby wyzwolić skanowanie obrazu, wypchnij go do repozytorium.
 
-- **Ostatnio ściągane** — ponieważ nowe luki są wykrywane codziennie, **usługa Azure Defender dla rejestrów kontenerów** również skanuje wszystkie obrazy, które zostały pobrane w ciągu ostatnich 30 dni. Nie ma dodatkowej opłaty za ponowne skanowanie; Jak wspomniano powyżej, opłaty są naliczane raz na obraz.
+- **Ostatnio ściągane** — ponieważ nowe luki są wykrywane codziennie, **usługa Azure Defender dla rejestrów kontenerów również przeprowadza** skanowanie co tydzień, dowolnego obrazu, który został usunięty w ciągu ostatnich 30 dni. Za te ponowne skanowania nie ma dodatkowych opłat. Jak wspomniano powyżej, opłaty są naliczane raz na obraz.
 
 - **Przy imporcie** Azure Container Registry zawiera narzędzia do importowania, które umożliwiają przenoszenie obrazów do rejestru z usługi Docker Hub, Microsoft Container Registry lub innego rejestru kontenerów platformy Azure. **Usługa Azure Defender dla rejestrów kontenerów** skanuje wszystkie obsługiwane obrazy, które zaimportowano. Dowiedz się więcej w temacie [Importowanie obrazów kontenera do rejestru kontenerów](../container-registry/container-registry-import-images.md).
  

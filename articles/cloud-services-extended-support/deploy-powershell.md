@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf6b2f6b964a056b9d90f08c0586fcbdec5b260
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865625"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167281"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu Azure PowerShell
 
 W tym artykule pokazano, jak za pomocą `Az.CloudService` modułu PowerShell wdrożyć Cloud Services (rozszerzoną obsługę) na platformie Azure, która ma wiele ról (webrole i rola procesu roboczego) i rozszerzenie pulpitu zdalnego. 
-
-> [!IMPORTANT]
-> Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -73,13 +69,14 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. Utwórz publiczny adres IP i (opcjonalnie) ustaw właściwość etykieta DNS publicznego adresu IP. Jeśli używasz statycznego adresu IP, musi on być przywoływany jako Zastrzeżony adres IP w pliku konfiguracji usługi.  
+7. Utwórz publiczny adres IP i ustaw właściwość etykieta DNS publicznego adresu IP. Cloud Services (obsługa rozszerzona) obsługuje tylko [podstawowe] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) publiczne adresy IP jednostki SKU). Publiczne adresy IP jednostki SKU nie działają z Cloud Services.
+Jeśli używasz statycznego adresu IP, musisz odwołać się do niego jako Zastrzeżony adres IP w pliku konfiguracji usługi (. cscfg) 
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem usługi równoważenia obciążenia utworzoną przez platformę.  
+8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia. Platforma Azure automatycznie tworzy zasób "klasyczny moduł równoważenia obciążenia" w tej samej subskrypcji co zasób usługi w chmurze. Zasób modułu równoważenia obciążenia jest zasobem tylko do odczytu w usłudze ARM. Wszystkie aktualizacje zasobu są obsługiwane tylko za pośrednictwem plików wdrożenia usługi w chmurze (. cscfg & csdef).
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  

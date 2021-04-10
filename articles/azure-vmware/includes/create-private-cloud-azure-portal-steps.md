@@ -2,13 +2,13 @@
 title: Utwórz chmurę prywatną rozwiązania Azure VMware
 description: Procedura tworzenia chmury prywatnej rozwiązania VMware platformy Azure przy użyciu Azure Portal.
 ms.topic: include
-ms.date: 02/17/2021
-ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 6b4e5631d1a4b6c5bf56b01aba12752595ef63b8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725408"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073422"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -34,7 +34,7 @@ ms.locfileid: "101725408"
 1. Po zakończeniu wybierz pozycję **Przegląd + Utwórz**. Na następnym ekranie Sprawdź wprowadzone informacje. Jeśli wszystkie informacje są poprawne, wybierz pozycję **Utwórz**.
 
    > [!NOTE]
-   > Ten krok zajmuje mniej niż dwie godziny. 
+   > Ten krok zajmie około 3-4 godzin. Dodawanie jednego węzła w istniejącym/tym samym klastrze trwa od 30-45 minut.
 
 1. Sprawdź, czy wdrożenie zakończyło się pomyślnie. Przejdź do utworzonej grupy zasobów i wybierz chmurę prywatną.  Po zakończeniu wdrażania zostanie wyświetlony stan **powodzenie** . 
 
