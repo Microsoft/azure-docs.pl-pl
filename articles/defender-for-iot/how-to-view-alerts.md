@@ -7,10 +7,10 @@ ms.author: shhazam
 ms.date: 3/22/2021
 ms.topic: how-to
 ms.openlocfilehash: 391d1872124c7332bdaa6008a244490b47df4bf7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781589"
 ---
 # <a name="filter-and-manage-alerts-from-the-alerts-page"></a>Filtrowanie alertów i zarządzanie nimi na stronie alertów 

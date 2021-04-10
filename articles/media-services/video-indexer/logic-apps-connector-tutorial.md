@@ -100,9 +100,9 @@ Przejdź do akcji "Pobierz indeks wideo" i Wypełnij wymagane parametry. Dla ide
 
 ![Informacje o akcji indeksatora wideo](./media/logic-apps-connector-tutorial/video-indexer-action-info.jpg)
 
-To wyrażenie nakazuje programowi connecter uzyskanie identyfikatora wideo z danych wyjściowych wyzwalacza. W takim przypadku dane wyjściowe wyzwalacza będą danymi wyjściowymi "Przekaż wideo i indeks" w pierwszym wyzwalaczu. 
+To wyrażenie nakazuje programowi connecter uzyskanie identyfikatora wideo z danych wyjściowych wyzwalacza. W takim przypadku dane wyjściowe wyzwalacza będą danymi wyjściowymi "Przekaż wideo i indeks&quot; w pierwszym wyzwalaczu. 
 
-Przejdź do akcji "Utwórz obiekt BLOB" i wybierz ścieżkę do folderu, w którym będziesz zapisywać szczegółowe dane. Ustaw nazwę tworzonego obiektu BLOB. W przypadku zawartości obiektu BLOB Umieść w następującym wyrażeniu: Body ("Get_Video_Index") 
+Przejdź do akcji &quot;Utwórz obiekt BLOB&quot; i wybierz ścieżkę do folderu, w którym będziesz zapisywać szczegółowe dane. Ustaw nazwę tworzonego obiektu BLOB. W przypadku zawartości obiektu BLOB Umieść w następującym wyrażeniu: Body (&quot;Get_Video_Index") 
 
 ![Akcja tworzenia obiektu BLOB](./media/logic-apps-connector-tutorial/create-blob-action.jpg)
 

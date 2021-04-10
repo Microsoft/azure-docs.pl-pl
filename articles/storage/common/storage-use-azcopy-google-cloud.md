@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0f030683954ede013f769bf8584e6cf82bab69f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c6a53acd63b6aa882674f6aa29e1f7152f5b0a30
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103555670"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728814"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Kopiowanie danych z magazynu Google Cloud Storage do usługi Azure Storage za pomocą AzCopy (wersja zapoznawcza)
 
@@ -63,7 +63,7 @@ AzCopy korzysta z interfejsu API [Put Block z adresu URL](/rest/api/storageservi
 
 Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Przykład** | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
@@ -74,7 +74,7 @@ Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które
 
 Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Przykład** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -87,7 +87,7 @@ Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które
 
 Zawartość katalogu można skopiować bez kopiowania samego katalogu zawierającego symbol wieloznaczny (*).
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Przykład** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -97,7 +97,7 @@ Zawartość katalogu można skopiować bez kopiowania samego katalogu zawierają
 
 Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Przykład** | `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -109,7 +109,7 @@ Najpierw ustaw `GOOGLE_CLOUD_PROJECT` Identyfikator projektu na projekt Google C
 
 Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Przykład** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -121,7 +121,7 @@ Najpierw ustaw `GOOGLE_CLOUD_PROJECT` Identyfikator projektu na projekt Google C
 
 Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie zasobnika. Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
 
-|    |     |
+| Składnia/przykład  |  Kod |
 |--------|-----------|
 | **Składnia** | `azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Przykład** | `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |

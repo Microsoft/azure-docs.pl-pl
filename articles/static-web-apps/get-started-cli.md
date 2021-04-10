@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: f3ac1c8076650a4075c33aeaa9128133b5b90296
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a95e1658c3633f4ae8d09b71e9d3b0c82446754a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046083"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727590"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Szybki Start: Tworzenie pierwszej witryny statycznej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -110,7 +110,7 @@ Po utworzeniu repozytorium możesz utworzyć statyczną aplikację sieci Web prz
 
     - `<RESOURCE_GROUP_NAME>`: Zastąp tę wartość nazwą istniejącej [grupy zasobów platformy Azure](../azure-resource-manager/management/manage-resources-cli.md).
 
-      - Zobacz [AZ Group](/cli/azure/group?view=azure-cli-latest#az_group_list) documentation, aby uzyskać szczegółowe informacje na temat listy grup zasobów.
+      - Zobacz [AZ Group](/cli/azure/group#az_group_list) documentation, aby uzyskać szczegółowe informacje na temat listy grup zasobów.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Zastąp tę wartość nazwą użytkownika usługi GitHub.
 

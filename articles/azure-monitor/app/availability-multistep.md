@@ -4,10 +4,10 @@ description: Konfigurowanie wieloetapowych testów sieci Web w celu monitorowani
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101719852"
 ---
 # <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
