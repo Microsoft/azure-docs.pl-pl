@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101670700"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Użyj serwera Apache Spark History, aby debugować i diagnozować aplikacje Apache Spark
@@ -42,11 +42,11 @@ Serwer historii Apache Spark jest interfejsem użytkownika sieci Web dla ukończ
 
     ![Otwórz serwer historii platformy Spark.](./media/apache-spark-history-server/open-spark-history-server.png)
 
-### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>Otwórz interfejs użytkownika sieci Web serwera historii platformy Spark z węzła danych
+### <a name="open-the-spark-history-server-web-ui-from-data-node&quot;></a>Otwórz interfejs użytkownika sieci Web serwera historii platformy Spark z węzła danych
 
 1. W notesie usługi Azure Synapse Studio wybierz pozycję **serwer historii platformy Spark** z komórki wyjściowej wykonywania zadania lub z panelu stanu w dolnej części dokumentu notesu. Wybierz pozycję **Szczegóły sesji**.
 
-   ![Uruchom serwer historii Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Uruchom serwer historii platformy Spark")
+   ![Uruchom serwer historii Spark 1](./media/apache-spark-history-server/launch-history-server2.png &quot;Uruchom serwer historii platformy Spark")
 
 2. Wybierz pozycję **serwer historii platformy Spark** z panelu slajdy.
 

@@ -9,26 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f52d907c36c7900d5f5eada3ca4a7328e42f9729
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 5ee33c032293329a6af69a0b2be691092c2a8da4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110852"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729647"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Need to add security best practices for token management here
-> - Reference docs:
-> - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
-> - https://docs.microsoft.com/azure/aks/operator-best-practices-identity
-> - https://docs.microsoft.com/cloud-app-security/api-tokens?view=gestures-1.0-->
 
 Każda aplikacja usług Azure Communications Services będzie miała **aplikacje klienckie** korzystające z **usług** w celu ułatwienia łączności między osobami. Na tej stronie przedstawiono typowe elementy architektury w różnych scenariuszach.
 

@@ -3,22 +3,22 @@ title: Importowanie obrazów kontenerów
 description: Zaimportuj obrazy kontenerów do usługi Azure Container Registry za pomocą interfejsów API platformy Azure bez konieczności uruchamiania poleceń platformy Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b481a2b4f0a08f0ccbfd33f7059e5d8e0c04f5f0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988247"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221504"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenera do rejestru kontenerów
 
 Można łatwo importować (kopiować) obrazy kontenerów do usługi Azure Container Registry bez używania poleceń platformy Docker. Na przykład zaimportuj obrazy z rejestru projektowego do rejestru produkcyjnego lub skopiuj obrazy podstawowe z rejestru publicznego.
 
-Azure Container Registry obsługuje wiele typowych scenariuszy kopiowania obrazów z istniejącego rejestru:
+Azure Container Registry obsługuje wiele typowych scenariuszy kopiowania obrazów i innych artefaktów z istniejącego rejestru:
 
-* Importuj z rejestru publicznego
+* Importuj obrazy z rejestru publicznego
 
-* Importuj z innego rejestru kontenera platformy Azure, w ramach tej samej lub innej subskrypcji lub dzierżawy platformy Azure
+* Importuj obrazy lub artefakty OCI, w tym wykresy Helm 3 z innego rejestru kontenera platformy Azure, w tej samej lub innej subskrypcji lub dzierżawie platformy Azure
 
 * Importuj z rejestru kontenerów prywatnych spoza platformy Azure
 

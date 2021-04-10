@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15aab28b7dfbaf305412f1080346b54cc6827437
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 870b567d5917c405a3eef70a27b1a19c021d7a80
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009644"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055148"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Ochrona zawartości HLS za pomocą oprogramowania Apple FairPlay lub Microsoft PlayReady
 
@@ -33,7 +33,7 @@ Azure Media Services umożliwia dynamiczne szyfrowanie zawartości HTTP Live Str
 
 * **Przezroczysty klucz koperty AES-128**
 
-    Cały fragment jest szyfrowany przy użyciu trybu **CBC AES-128** . Odszyfrowywanie strumienia jest obsługiwane przez program iOS i system OS X Player natywnie. Aby uzyskać więcej informacji, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
+    Cały fragment jest szyfrowany przy użyciu trybu **CBC AES-128** . Odszyfrowywanie strumienia jest obsługiwane przez program iOS i system OS X Player natywnie. Aby uzyskać więcej informacji, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-playready-license-template-overview.md).
 * **Apple FairPlay**
 
     Poszczególne próbki wideo i audio są szyfrowane przy użyciu trybu **CBC AES-128** . **FairPlay Streaming** (FPS) jest zintegrowany z systemami operacyjnymi urządzeń z natywną obsługą systemu iOS i Apple TV. Przeglądarka Safari w systemie OS X umożliwia korzystanie z funkcji FPS przy użyciu interfejsu EME (Encrypted Media Extensions).

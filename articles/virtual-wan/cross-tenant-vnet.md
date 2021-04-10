@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
 ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104585421"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Łączenie wielu dzierżawców sieci wirtualnych z wirtualnym koncentratorem sieci WAN
@@ -98,7 +98,7 @@ W poniższych krokach nastąpi przełączenie między kontekstem dwóch subskryp
    * Program **PowerShell:** Metadane z nowo utworzonego połączenia będą wyświetlane w konsoli programu PowerShell, jeśli połączenie zostało pomyślnie utworzone.
    * **Azure Portal:** Przejdź do centrum wirtualnego, **> połączenia Virtual Network połączeń**. Możesz wyświetlić wskaźnik do połączenia. Aby wyświetlić rzeczywisty zasób, potrzebne są odpowiednie uprawnienia.
    
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Rozwiązywanie problemów z
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Rozwiązywanie problemów
 
 * Sprawdź, czy metadane w $remote (z poprzedniej [sekcji](#connect)) są zgodne z informacjami z Azure Portal.
 * Możesz sprawdzić uprawnienia przy użyciu ustawień usługi IAM dla zdalnej grupy zasobów dzierżawy lub za pomocą poleceń Azure PowerShell (Get-AzSubscription).

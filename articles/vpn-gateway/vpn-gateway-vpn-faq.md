@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 03/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 3d29e99f3b539fdbea2a19df7ffc25d4e41a5376
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953480"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731262"
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
 
@@ -195,6 +195,10 @@ Ta sekcja dotyczy modelu wdrażania przy użyciu usługi Resource Manager.
 ## <a name="vnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Połączenia między sieciami wirtualnymi i połączenia obejmujące wiele lokacji
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Jak mogę włączyć routing między moim połączeniem sieci VPN typu lokacja-lokacja a moją ExpressRoute?
+
+Jeśli chcesz włączyć routing między gałęzią połączoną z usługą ExpressRoute i gałęzią połączoną z połączeniem sieci VPN typu lokacja-lokacja, musisz skonfigurować [serwer usługi Azure Route](../route-server/expressroute-vpn-support.md).
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Czy można używać bramy Azure VPN do przekazywania ruchu między lokacjami lokalnymi lub do innej sieci wirtualnej?
 

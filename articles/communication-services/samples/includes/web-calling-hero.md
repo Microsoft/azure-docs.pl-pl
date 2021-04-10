@@ -10,15 +10,13 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: c1ad467dcd27bb48d7b1472d8cfb829dcd005f4f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152810"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729863"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 **Przykład Hero grupy** usług komunikacyjnych platformy Azure demonstruje, jak usługi komunikacyjne WYWOŁUJĄCE zestaw SDK sieci Web mogą być używane do tworzenia środowiska wywołującego grupę.
 
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.

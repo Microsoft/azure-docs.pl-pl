@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102485423"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932373"
 ---
 # <a name="azure-route-server-preview-faq"></a>Azure Route Server (wersja zapoznawcza) — często zadawane pytania
 
@@ -36,6 +36,9 @@ Serwer tras platformy Azure obsługuje tylko Border Gateway Protocol (BGP). URZ�
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>Czy serwer tras platformy Azure kieruje ruchem danych między moją urządzenie WUS i maszynami wirtualnymi?
 
 Nie. Serwer usługi Azure Route wymienia tylko trasy BGP z urządzenie WUS. Ruch danych przechodzi bezpośrednio z urządzenie WUS na wybraną maszynę wirtualną i bezpośrednio z maszyny wirtualnej do urządzenie WUS.
+
+### <a name="does-azure-route-server-store-customer-data"></a>Czy serwer tras platformy Azure przechowuje dane klienta?
+Nie. Serwer usługi Azure Route wymienia tylko trasy BGP z urządzenie WUS, a następnie propaguje je do sieci wirtualnej.
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Jeśli usługa Azure Route Server odbiera tę samą trasę z więcej niż jednego urządzenie WUS, będzie programować wszystkie kopie trasy (ale z innym następnym przeskokiem) do maszyn wirtualnych w sieci wirtualnej?
 

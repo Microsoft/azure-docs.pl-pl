@@ -8,19 +8,20 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d5e4920dcc422e848266f35c8a59175b5149b924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7aebb10fb3855936d930685f1a8eef2588140ad1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492748"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930459"
 ---
 # <a name="telephony-concepts"></a>Koncepcje dotyczące telefonii
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Korzystając z usług Azure Communications Services, można dodawać do aplikacji usługi telefonii i sieci PSTN. Ta strona zawiera podsumowanie najważniejszych koncepcji i możliwości związanych z telefonem. Zapoznaj się z [biblioteką wywołującą](../../quickstarts/voice-video-calling/calling-client-samples.md) , aby dowiedzieć się więcej o określonych językach i możliwościach biblioteki klienta.
+Przy użyciu zestawów SDK wywołujących usługi Azure Communication Services można dodawać do aplikacji telefonię i Sieć PSTN. Ta strona zawiera podsumowanie najważniejszych koncepcji i możliwości związanych z telefonem. Zapoznaj się z [biblioteką wywoływania](../../quickstarts/voice-video-calling/calling-client-samples.md) , aby dowiedzieć się więcej o określonych językach i możliwościach zestawu SDK.
 
 ## <a name="overview-of-telephony"></a>Omówienie telefonii
 Za każdym razem, gdy użytkownicy współpracują z tradycyjnym numerem telefonu, wywołania są obsługiwane przez telefonię PSTN (publiczne przełączane sieci telefoniczne). Aby móc tworzyć i odbierać wywołania PSTN, należy dodać funkcje telefonii do zasobu usług Azure Communications Services. W takim przypadku sygnalizowanie i nośniki używają kombinacji technologii opartych na protokole IP i PSTN do łączenia użytkowników. Usługi komunikacyjne oferują dwa dyskretne sposoby docierania do sieci PSTN: wywołanie w chmurze platformy Azure i interfejs SIP.

@@ -1,5 +1,5 @@
 ---
-title: Informacje o użyciu maszyny wirtualnej platformy Azure
+title: Omówienie użycia maszyny wirtualnej platformy Azure
 description: Informacje o użyciu maszyny wirtualnej
 services: virtual-machines
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550951"
 ---
-# <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
+# <a name="understanding-azure-virtual-machine-usage"></a>Omówienie użycia maszyny wirtualnej platformy Azure
 Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacje o zużyciu — szczegółowe informacje umożliwiające zarządzanie kosztami i alokację w całej organizacji. Ten dokument zawiera szczegółowe informacje o szczegółowe na temat użycia obliczeń na platformie Azure. Aby uzyskać więcej informacji na temat ogólnego użycia platformy Azure, przejdź do opisu [rachunku](../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Pobieranie szczegółowego zestawienia użycia
