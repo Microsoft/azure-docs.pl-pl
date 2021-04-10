@@ -37,17 +37,17 @@ W większości przypadków dobrym sposobem jest skompilowanie przepływów danyc
 > [!NOTE]
 > Każda sesja debugowania uruchamiana przez użytkownika z poziomu interfejsu użytkownika przeglądarki ADF jest nową sesją z własnym klastrem Spark. Możesz użyć widoku monitorowanie dla sesji debugowania powyżej, aby wyświetlić sesje debugowania na fabrykę i zarządzać nimi. Opłaty są naliczane za każdą godzinę wykonywania każdej sesji debugowania, w tym czas TTL.
 
-## <a name="cluster-status"></a>Stan klastra
+## <a name="cluster-status&quot;></a>Stan klastra
 
 Wskaźnik stanu klastra w górnej części powierzchni projektowej zmieni kolor na zielony, gdy klaster jest gotowy do debugowania. Jeśli klaster jest już grzany, zielony wskaźnik zostanie wyświetlony niemal natychmiast. Jeśli klaster nie był już uruchomiony po wprowadzeniu trybu debugowania, klaster Spark przeprowadzi rozruch zimny. Wskaźnik zostanie zastosowany do momentu, aż środowisko będzie gotowe do debugowania interaktywnego.
 
 Po zakończeniu debugowania należy wyłączyć przełącznik debugowania, aby klaster Spark mógł zakończyć pracę i nie będzie już rozliczany dla działania debugowania.
 
-## <a name="debug-settings"></a>Ustawienia debugowania
+## <a name=&quot;debug-settings&quot;></a>Ustawienia debugowania
 
-Po włączeniu trybu debugowania można edytować sposób, w jaki przepływ danych przegląda dane. Ustawienia debugowania można edytować, klikając pozycję "ustawienia debugowania" na pasku narzędzi kanwy przepływu danych. W tym miejscu możesz wybrać limit wierszy lub źródło pliku do użycia dla każdego z przekształceń źródłowych. Limity wierszy w tym ustawieniu są tylko dla bieżącej sesji debugowania. Możesz również wybrać połączoną usługę, która ma być używana dla źródła analizy usługi Azure Synapse. 
+Po włączeniu trybu debugowania można edytować sposób, w jaki przepływ danych przegląda dane. Ustawienia debugowania można edytować, klikając pozycję &quot;ustawienia debugowania&quot; na pasku narzędzi kanwy przepływu danych. W tym miejscu możesz wybrać limit wierszy lub źródło pliku do użycia dla każdego z przekształceń źródłowych. Limity wierszy w tym ustawieniu są tylko dla bieżącej sesji debugowania. Możesz również wybrać połączoną usługę, która ma być używana dla źródła analizy usługi Azure Synapse. 
 
-![Ustawienia debugowania](media/data-flow/debug-settings.png "Ustawienia debugowania")
+![Ustawienia debugowania](media/data-flow/debug-settings.png &quot;Ustawienia debugowania")
 
 Jeśli masz parametry w przepływie danych lub w dowolnym z nich, do których istnieją odwołania, możesz określić wartości, które mają być używane podczas debugowania, wybierając kartę **Parametry** .
 

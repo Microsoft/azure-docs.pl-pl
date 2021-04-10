@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014846"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Praca z kanałami odbierającymi strumień na żywo o wysokiej szybkości transmisji bitów z koderów lokalnych
@@ -196,7 +196,7 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Napisy i wstawianie AD
 W poniższej tabeli przedstawiono obsługiwane standardy dla podpisów kodowanych i wstawiania do usługi AD.
 
-| Standardowa | Uwagi |
+| Standardowa (Standard) | Uwagi |
 | --- | --- |
 | CEA-708 i EIA-608 (708/608) |CEA-708 i EIA-608 to standardy zamykania podpisów dla Stany Zjednoczone i Kanady.<p><p>Obecnie podpisy są obsługiwane tylko wtedy, gdy są wykonywane w zakodowanym strumieniu wejściowym. Musisz użyć kodera multimediów na żywo, który może wstawić 608 lub 708 podpisy w zakodowanym strumieniu, który jest wysyłany do Media Services. Media Services dostarcza zawartość z wstawionymi napisami do Twoich przeglądających. |
 | TTML wewnątrz. ISMT (Smooth Streaming ścieżek tekstowych) |Media Services dynamiczne pakowanie umożliwia klientom przesyłanie strumieniowe zawartości w jednym z następujących formatów: PAUZy, HLS lub Smooth Streaming. Jeśli jednak pozyskasz pofragmentowany plik MP4 (Smooth Streaming) z napisami wewnątrz. ISMT (Smooth Streaming ścieżki tekstowe), możesz dostarczyć strumień tylko do Smooth Streaming klientów. |

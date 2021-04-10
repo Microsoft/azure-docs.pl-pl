@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b59276cc340f133c0f270e8ab95051b3c392e1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e45a0eefff3a6a7f7dd37bde3ee3bffaedd93dcd
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581290"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166619"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Uzyskiwanie poświadczeń w celu uzyskania dostępu do interfejsu API Media Services
 
@@ -38,7 +38,7 @@ W tym artykule opisano procedurę uzyskiwania poświadczeń w celu uzyskania dos
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure. Jeśli nie masz konta, Zacznij od [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-- Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Azure Media Services przy użyciu Azure Portal](create-account-howto.md).
+- Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Azure Media Services przy użyciu Azure Portal](account-create-how-to.md).
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
 

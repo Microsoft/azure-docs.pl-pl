@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 480b8ef401387863693bc88c3d508ce296636c93
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093467"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107606"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji
 
@@ -29,7 +29,7 @@ W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i
 
 ## <a name="prerequisite"></a>Wymaganie wstępne
 
-Podgląd [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md)
+Podgląd [dynamicznego tworzenia pakietów](encode-dynamic-packaging-concept.md)
 
 ## <a name="java"></a>Java
 
@@ -165,10 +165,10 @@ Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.co
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-howto.md)
+* [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-how-to.md)
 * [Tworzenie filtrów za pomocą wzorca REST](filters-dynamic-manifest-rest-howto.md)
-* [Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-howto.md)
+* [Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-how-to.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Ochrona zawartości za pomocą technologii DRM](protect-with-drm.md).
+[Ochrona zawartości za pomocą technologii DRM](drm-protect-with-drm-tutorial.md).

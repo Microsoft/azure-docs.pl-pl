@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 676e5f03c8d0085a4d041662a80c63d385071919
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485541"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166721"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
@@ -158,7 +158,7 @@ Zadania poprzedzające i zadania wykonywane w kontekście platformy Azure i nie 
 * Element Runbook, który ma być uruchamiany lokalnie
 * Nadrzędny element Runbook
 
-Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zapoznaj się z przykładem elementu Runbook [Update Management — uruchom skrypt lokalnie](https://github.com/azureautomation/update-management-run-script-locally).
+Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zobacz przykład elementu Runbook [Update Management — uruchom skrypt lokalnie](https://github.com/azureautomation/update-management-run-script-locally).
 
 ## <a name="abort-patch-deployment"></a>Przerwij wdrożenie poprawki
 
@@ -238,9 +238,9 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccount -Name $runId -Value "" -Encrypted $false
 #Set value of variable
-Set-AutomationVariable –Name $runId -Value $vmIds
+Set-AutomationVariable -Name $runId -Value $vmIds
 #>
 
 #Example: How to retrieve information from a variable set during the pre-script

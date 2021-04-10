@@ -4,12 +4,12 @@ description: Typy węzłów, trwałość, niezawodność i inne zagadnienia, kt�
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714939"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732588"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -111,7 +111,7 @@ Postępuj zgodnie z tymi zaleceniami, aby zarządzać typami węzłów o trwało
 * Należy zachować minimalną liczbę pięciu węzłów dla dowolnego zestawu skalowania maszyn wirtualnych z włączonym poziomem trwałości Gold lub Silver. W przypadku skalowania poniżej tego progu klaster przejdzie w stan błędu i trzeba będzie ręcznie oczyścić stan ( `Remove-ServiceFabricNodeState` ) dla usuniętych węzłów.
 * Każdy zestaw skalowania maszyn wirtualnych z poziomem trwałości Silver lub Gold musi być mapowany na własny typ węzła w klastrze Service Fabric. Mapowanie wielu zestawów skalowania maszyn wirtualnych na jeden typ węzła uniemożliwi prawidłowe działanie koordynacji między klastrem Service Fabric i infrastrukturą platformy Azure.
 * Nie usuwaj losowych wystąpień maszyn wirtualnych, zawsze używaj funkcji skalowania w ramach zestawu skalowania maszyn wirtualnych. Usuwanie losowych wystąpień maszyn wirtualnych ma potencjalne możliwości tworzenia nierównowagi w rozmieszczenia wystąpień maszyn wirtualnych w [domenach uaktualnienia](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) i [domenach błędów](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Takie niezrównoważone może mieć negatywny wpływ na zdolność systemów do prawidłowego równoważenia obciążenia między wystąpieniami usługi/replikami usługi.
-* W przypadku korzystania z funkcji automatycznego skalowania należy ustawić reguły, takie jak skalowanie w górę (usuwanie wystąpień maszyn wirtualnych), tylko jeden węzeł w danym momencie. Skalowanie w dół więcej niż jedno wystąpienie w czasie jest niebezpieczne.
+* W przypadku korzystania z funkcji automatycznego skalowania należy ustawić reguły, takie jak skalowanie w górę (usuwanie wystąpień maszyn wirtualnych), tylko jeden węzeł w danym momencie. Skalowanie w więcej niż jednym wystąpieniu jednocześnie jest niebezpieczne.
 * W przypadku usuwania lub cofania przydziału maszyn wirtualnych w typie węzła podstawowego nigdy nie Zmniejsz liczby przyznanych maszyn wirtualnych poniżej tego, co jest wymagane przez warstwę niezawodności. Te operacje będą blokowane w nieskończoność w zestawie skalowania z poziomem trwałości Silver lub Gold.
 
 ### <a name="changing-durability-levels"></a>Zmienianie poziomów trwałości

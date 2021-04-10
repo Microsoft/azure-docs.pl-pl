@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87f52bef07644370c268168c984a452d5ae3f9bd
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585397"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279463"
 ---
 # <a name="trusted-storage-for-media-services"></a>Zaufany magazyn dla Media Services
 
@@ -29,7 +29,7 @@ Jeśli jednak chcesz użyć zapory do zabezpieczenia konta magazynu i włączeni
 
 ## <a name="tutorial"></a>Samouczek
 
-Możesz dowiedzieć się więcej na temat włączania zaufanego magazynu za pomocą samouczka [Media Services zaufanego magazynu](tutorial-trusted-storage-rest.md) .
+Możesz dowiedzieć się więcej na temat włączania zaufanego magazynu za pomocą samouczka [Media Services zaufanego magazynu](security-trusted-storage-rest-tutorial.md) .
 
 > [!NOTE]
 > Aby Media Services mieć możliwość odczytywania i zapisywania danych w ramach konta magazynu, należy przyznać funkcji dostępu współautora dla magazynu tożsamości zarządzanego przez usługi AMS.  Przyznanie roli współautor generycznemu nie będzie możliwe, ponieważ nie spowoduje to włączenia prawidłowych uprawnień do płaszczyzny danych.

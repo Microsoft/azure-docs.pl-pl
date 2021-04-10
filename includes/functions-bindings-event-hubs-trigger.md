@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 4bea0f6091c02f80e381217ab7894ec4ad90d0ed
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 32f98eb9b98168bdab270ecff07446c31f8d706d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104480"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729841"
 ---
 Użyj wyzwalacza funkcji, aby odpowiedzieć na zdarzenie wysłane do strumienia zdarzeń centrum zdarzeń. Aby skonfigurować wyzwalacz, musisz mieć dostęp do odczytu do odpowiedniego centrum zdarzeń. Gdy funkcja jest wyzwalana, komunikat przeszedł do funkcji jest wpisywany jako ciąg.
 
@@ -375,12 +375,12 @@ Dla wyzwalającego centrum zdarzeń można użyć następujących typów paramet
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 ### <a name="additional-types"></a>Dodatkowe typy 
-Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
+Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
 
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
@@ -391,12 +391,12 @@ Dla wyzwalającego centrum zdarzeń można użyć następujących typów paramet
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` -Domyślne właściwości EventData są podane w [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 ### <a name="additional-types"></a>Dodatkowe typy 
-Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
+Aplikacje korzystające z 5.0.0 lub nowszej wersji rozszerzenia centrum zdarzeń używają `EventData` typu na [platformie Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) zamiast w ramach [przestrzeni nazw Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata). Ta wersja porzuca obsługę starszego `Body` typu na korzyść następujących typów:
 
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="java"></a>[Java](#tab/java)
 

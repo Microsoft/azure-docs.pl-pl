@@ -10,26 +10,23 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96487681"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729137"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas projektowania aplikacji w chmurze. Zasoby szkoleniowe wraz z pytaniami i pojęciami związanymi z bezpieczeństwem, które należy wziąć pod uwagę podczas wymagań i fazy projektowania [cyklu życia Microsoft Security Development (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do zaprojektowania bezpieczniejszej aplikacji.
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
-- Szkolenia
+- Szkolenie
 - Wymagania
 - Projekt
 
-## <a name="training"></a>Szkolenia
+## <a name="training"></a>Szkolenie
 Przed rozpoczęciem opracowywania aplikacji w chmurze należy zapoznać się z tematem bezpieczeństwo i prywatność na platformie Azure. Wykonując ten krok, można zmniejszyć liczbę i ważność luk w zabezpieczeniach w aplikacji. Zostanie przygotowana do odpowiedniej reakcji na stale zmieniający się poziom zagrożenia.
 
 Skorzystaj z następujących zasobów na etapie uczenia, aby zaznajomić się z usługami platformy Azure, które są dostępne dla deweloperów i z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń na platformie Azure:
@@ -153,7 +150,7 @@ Modelowanie projektu aplikacji i wyliczanie [zagrożeń dotyczących](https://do
 
 | Zagrożenie | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Fałszowanie               | Uwierzytelnianie        | [Wymagaj połączeń HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Fałszowanie               | Uwierzytelnianie        | [Wymagaj połączeń HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
 | Manipulowanie              | Integralność             | Sprawdź poprawność certyfikatów SSL/TLS. Aplikacje korzystające z protokołu SSL/TLS muszą w pełni weryfikować certyfikaty X. 509 jednostek, z którymi się łączą. Użyj Azure Key Vault certyfikatów do [zarządzania certyfikatami x509](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Wypieranie się            | Weryfikacja tożsamości       | Włącz [monitorowanie i diagnostykę](/azure/architecture/best-practices/monitoring)platformy Azure.|
 | Ujawnienie informacji | Poufność       | Szyfruj [poufne dane przechowywane](../fundamentals/encryption-atrest.md) [i przesyłane](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -233,7 +230,7 @@ Zaimplementuj dostęp *just-in-Time* (JIT), aby jeszcze bardziej obniżyć czas 
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Wymagaj ponownego uwierzytelniania dla ważnych transakcji
 
-[Sfałszowanie żądań między lokacjami](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (znane również jako *XSRF* lub *CSRF*) jest atakiem na aplikacje hostowane w sieci Web, w których złośliwa aplikacja internetowa ma wpływ na interakcję między przeglądarką klienta a aplikacją sieci Web, która ufa tej przeglądarce. Możliwe jest ataki między lokacjami, ponieważ przeglądarki sieci Web wysyłają automatyczne typy tokenów uwierzytelniania przy użyciu każdego żądania do witryny sieci Web.
+[Sfałszowanie żądań między lokacjami](/aspnet/core/security/anti-request-forgery) (znane również jako *XSRF* lub *CSRF*) jest atakiem na aplikacje hostowane w sieci Web, w których złośliwa aplikacja internetowa ma wpływ na interakcję między przeglądarką klienta a aplikacją sieci Web, która ufa tej przeglądarce. Możliwe jest ataki między lokacjami, ponieważ przeglądarki sieci Web wysyłają automatyczne typy tokenów uwierzytelniania przy użyciu każdego żądania do witryny sieci Web.
 Ta forma wykorzystywania jest również znana jako *atak dwukrotnego kliknięcia* lub *sesji* , ponieważ atakujący wykorzystuje wcześniej uwierzytelnioną sesję użytkownika.
 
 Najlepszym sposobem obrony przed tym rodzajem ataku jest poproszenie użytkownika o coś, że tylko użytkownik może podać przed każdą ważną transakcją, taką jak zakup, Dezaktywacja konta lub zmiana hasła. Użytkownik może poproszony o ponowne wprowadzenie hasła, wykonanie CAPTCHA lub przesłanie klucza tajnego, który będzie miał tylko użytkownik. Najbardziej typowym podejściem jest token tajny.
@@ -303,7 +300,7 @@ Upewnij się, że:
 
 ### <a name="use-logging-and-alerting"></a>Korzystanie z rejestrowania i alertów
 
-[Rejestruj](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) problemy dotyczące zabezpieczeń i Wyzwalaj alerty dotyczące problemów, aby upewnić się, że ludzie wiedzą o problemach w odpowiednim czasie. Włącz inspekcję i rejestrowanie na wszystkich składnikach. Dzienniki inspekcji powinny przechwytywać kontekst użytkownika i identyfikować wszystkie ważne zdarzenia.
+[Rejestruj](/aspnet/core/fundamentals/logging/) problemy dotyczące zabezpieczeń i Wyzwalaj alerty dotyczące problemów, aby upewnić się, że ludzie wiedzą o problemach w odpowiednim czasie. Włącz inspekcję i rejestrowanie na wszystkich składnikach. Dzienniki inspekcji powinny przechwytywać kontekst użytkownika i identyfikować wszystkie ważne zdarzenia.
 
 Sprawdź, czy nie są rejestrowane żadne poufne dane przesyłane przez użytkownika do witryny. Przykładowe dane poufne to:
 

@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1c40102f8815cf7299a99d290b7f57b386ede401
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685542"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055131"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Ponowne uaktywnianie wyłączonej subskrypcji platformy Azure
 
@@ -23,7 +23,7 @@ Twoja subskrypcja platformy Azure może zostać wyłączona, ponieważ środki w
 
 ## <a name="your-credit-is-expired"></a>Twoje środki wygasły
 
-Po zarejestrowaniu się w celu korzystania z bezpłatnego konta platformy Azure uzyskujesz subskrypcję w bezpłatnej wersji próbnej, w ramach której masz 200 USD środków na korzystanie z platformy Azure przez 30 dni i 12 miesięcy bezpłatnych usług. Na końcu 30-dniowego okresu platforma Azure wyłączy subskrypcję. Twoja subskrypcja jest wyłączona, aby chronić Cię przed przypadkowym naliczeniem opłat za użycie wykraczające poza posiadane środki i bezpłatne usługi zawarte w subskrypcji. Aby nadal korzystać z usług Azure, musisz [uaktualnić subskrypcję](upgrade-azure-subscription.md). Po uaktualnieniu subskrypcja nadal ma dostęp do bezpłatnych usług przez 12 miesięcy. Opłata jest naliczana tylko za użycie wykraczające poza limity ilości bezpłatnych usług.
+Po zarejestrowaniu się w celu korzystania z bezpłatnego konta platformy Azure uzyskasz bezpłatną subskrypcję próbną, która zapewnia 200 USD kredytu na korzystanie z platformy Azure w walucie rozliczeniowej przez 30 dni i 12 miesięcy bezpłatnych usług. Na końcu 30-dniowego okresu platforma Azure wyłączy subskrypcję. Twoja subskrypcja jest wyłączona, aby chronić Cię przed przypadkowym naliczeniem opłat za użycie wykraczające poza posiadane środki i bezpłatne usługi zawarte w subskrypcji. Aby nadal korzystać z usług Azure, musisz [uaktualnić subskrypcję](upgrade-azure-subscription.md). Po uaktualnieniu subskrypcja nadal ma dostęp do bezpłatnych usług przez 12 miesięcy. Opłata jest naliczana tylko za użycie wykraczające poza limity ilości bezpłatnych usług.
 
 ## <a name="you-reached-your-spending-limit"></a>Osiągnięto limit wydatków
 

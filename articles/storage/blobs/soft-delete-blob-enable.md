@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c89e42736f5b8de65ed93ccb57f8d034d4240bc8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95995305"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729086"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -146,7 +146,7 @@ Aby odzyskać obiekty blob, które zostały przypadkowo usunięte, wywołaj Cofn
 
 Aby odzyskać do określonej wersji obiektu BLOB, najpierw Wywołaj metodę Undelete na obiekcie blob, a następnie skopiuj żądaną migawkę na obiekt BLOB. Poniższy przykład odzyskuje blokowy obiekt BLOB do ostatnio wygenerowanej migawki:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 

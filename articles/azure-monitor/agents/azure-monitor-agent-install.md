@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: b2f91f0036a86151588c8c138dac5421ad54e18e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db9ad08f9a939a22e1e0e1cfba0537e6356394ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586424"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731539"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Zainstaluj agenta Azure Monitor (wersja zapoznawcza)
 W tym artykule opisano różne opcje, które są obecnie dostępne do zainstalowania [agenta Azure monitor](azure-monitor-agent-overview.md) na maszynach wirtualnych platformy Azure i serwerach z obsługą usługi Azure ARC, a także opcje tworzenia [skojarzeń z regułami zbierania danych](data-collection-rule-azure-monitor-agent.md) , które określają, które dane mają być zbierane przez agenta.
@@ -20,6 +20,9 @@ Przed zainstalowaniem agenta Azure Monitor wymagane są następujące wymagania 
 
 - [Tożsamość systemu zarządzanego](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) musi być włączona na maszynach wirtualnych platformy Azure. Nie jest to wymagane w przypadku serwerów z obsługą usługi Azure Arc. Tożsamość systemowa zostanie włączona automatycznie, jeśli agent zostanie zainstalowany w ramach procesu [tworzenia i przypisywania reguły zbierania danych przy użyciu Azure Portal](#install-with-azure-portal).
 - W sieci wirtualnej dla maszyny wirtualnej musi być włączony [tag usługi AzureResourceManager](../../virtual-network/service-tags-overview.md) .
+
+> [!IMPORTANT]
+> Agent Azure Monitor nie obsługuje obecnie serwerów proxy sieci.
 
 ## <a name="virtual-machine-extension-details"></a>Szczegóły rozszerzenia maszyny wirtualnej
 Agent Azure Monitor jest zaimplementowany jako [rozszerzenie maszyny wirtualnej platformy Azure](../../virtual-machines/extensions/overview.md) ze szczegółami podanymi w poniższej tabeli. Można go zainstalować przy użyciu dowolnej metody instalacji rozszerzeń maszyn wirtualnych, w tym tych opisanych w tym artykule.

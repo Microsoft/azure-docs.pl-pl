@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a51aa15e1338380d4b4179e7fb8899273750c374
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122582"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107184"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Konfigurowanie zaświadczania platformy Azure dla serwera logicznego usługi Azure SQL
 
@@ -100,7 +100,7 @@ Użyj następującego skryptu, aby określić adres URL zaświadczania:
 
 ```powershell
 $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
+$attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
 Write-Host "Your attestation URL is: " $attestationUrl 
 ```
 
@@ -137,7 +137,7 @@ Przykład można znaleźć na poniższym zrzucie ekranu.
 ```powershell
 $serverResourceGroupName = "<server resource group name>"
 $serverName = "<server name>" 
-$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName
+$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
 ```
  
 2. Przypisz serwer do roli czytelnik zaświadczania dla grupy zasobów zawierającej dostawcę zaświadczania.

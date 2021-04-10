@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015662"
 ---
 # <a name="media-encoder-standard-schema"></a>Schemat usługi Media Encoder Standard
@@ -94,7 +94,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profilu**<br/><br/> minOccurs = "0"<br/><br/> Domyślnie = "Auto" |**XS: ciąg** |Może być jedną z następujących wartości **typu xs: String** : **Auto,** **Baseline**, **Main**, **High**. |
+| **Profil**<br/><br/> minOccurs = "0"<br/><br/> Domyślnie = "Auto" |**XS: ciąg** |Może być jedną z następujących wartości **typu xs: String** : **Auto,** **Baseline**, **Main**, **High**. |
 | **Poziomie**<br/><br/> minOccurs = "0"<br/><br/> Domyślnie = "Auto" |**XS: ciąg** | |
 | **Multimedia**<br/><br/> minOccurs = "0" |**XS: int** |Szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **MaxBitrate**<br/><br/> minOccurs = "0" |**XS: int** |Maksymalna szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
@@ -117,7 +117,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profilu**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "AACLC" |**XS: ciąg** |Może to być jedna z następujących wartości: **AACLC**, **HEAACV1** lub **HEAACV2**. |
+| **Profil**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "AACLC" |**XS: ciąg** |Może to być jedna z następujących wartości: **AACLC**, **HEAACV1** lub **HEAACV2**. |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -127,7 +127,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 ### <a name="groups"></a>Grupy
 
-| Dokumentacja | Opis |
+| Odwołanie | Opis |
 | --- | --- |
 | [Audio](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = "0" |Zobacz opis obiektu [audio](media-services-mes-schema.md#AudioGroup) , aby poznać odpowiednią liczbę kanałów, częstotliwość próbkowania i szybkość transmisji bitów, które można ustawić dla każdego profilu. |
 
@@ -199,7 +199,7 @@ Jeśli wejściowe wideo zostało przechwycone z rotacją różną od zera (na pr
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić ją na wartość "true" (domyślna to "false"). Tak więc, jeśli ustawienie ma wartość Width = "100%", Height = "100%" i PreserveResolutionAfterRotation ma wartość "true", wejściowy film wideo, który jest 1280 pikseli o szerokości i rozdzielczości 720 pikseli 90, a wielkość liter na pikselach jest wysoka. Zapoznaj się z poniższym obrazem:  
+Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić ją na wartość "true&quot; (domyślna to &quot;false"). Tak więc, jeśli ustawienie ma wartość Width = "100%", Height = "100%" i PreserveResolutionAfterRotation ma wartość "true", wejściowy film wideo, który jest 1280 pikseli o szerokości i rozdzielczości 720 pikseli 90, a wielkość liter na pikselach jest wysoka. Zapoznaj się z poniższym obrazem:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
