@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5134c0eeaf3ebd1467b35cf825aa64bd1b445bd5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653817"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010583"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -88,7 +88,7 @@ Obowiązują następujące podstawowe wymagania:
 * Usługa dystrybucji kluczy musi być włączona na wszystkich kontrolerach domeny w domenie z systemem Windows Server 2012 lub nowszym. Domyślnie ta usługa jest włączona za pośrednictwem uruchomienia wyzwalacza ręcznego.
 
 * Połączenie sieciowe musi istnieć między co najmniej jednym kontrolerem domeny w każdej domenie i co najmniej jednym serwerem, który obsługuje usługę proxy dla ochrony hasłem usługi Azure AD. Ta łączność musi zezwalać kontrolerowi domeny na dostęp do portu mapowania punktów końcowych wywołań RPC 135 i portu serwera RPC w usłudze serwera proxy.
-    * Domyślnie port serwera RPC to dynamiczny port RPC, ale można go skonfigurować do [korzystania z portu statycznego](#static).
+    * Domyślnie port serwera RPC to dynamiczny port RPC z zakresu (49152-65535), ale można go skonfigurować do [korzystania z portu statycznego](#static).
 * Wszystkie maszyny, na których zostanie zainstalowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą mieć dostęp sieciowy do następujących punktów końcowych:
 
     |**Punkt końcowy**|**Cel**|

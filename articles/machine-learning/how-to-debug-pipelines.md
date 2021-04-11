@@ -11,10 +11,10 @@ ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
 ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102522091"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Rozwiązywanie problemów z potokami uczenia maszynowego
@@ -27,8 +27,8 @@ Poniższa tabela zawiera typowe problemy podczas tworzenia potoku z potencjalnym
 
 | Problem | Możliwe rozwiązanie |
 |--|--|
-| Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odnosi się do miejsca, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy określi katalog wyjściowy, a następnie utworzysz katalog jawnie. Użyj polecenia `os.makedirs(args.output_dir, exist_ok=True)` , aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
-| Błędy zależności | Jeśli w potoku zdalnym widoczne są błędy zależności, które nie były wykonywane podczas lokalnego testowania, potwierdź zależności środowiska zdalnego i wersje zgodne z wymaganiami w środowisku testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](./concept-environments.md#environment-building-caching-and-reuse)|
+| Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odpowiada miejscu, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy zdefiniuje katalog wyjściowy, a następnie jawnie utworzysz katalog. Użyj polecenia `os.makedirs(args.output_dir, exist_ok=True)`, aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
+| Błędy zależności | Jeśli w potoku zdalnym widoczne są błędy zależności, które nie wystąpiły podczas testowania lokalnego, potwierdź, że zależności i wersje w środowisku zdalnym są zgodne z tymi w środowisku testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](./concept-environments.md#environment-building-caching-and-reuse)|
 | Niejednoznaczne błędy z obiektami docelowymi obliczeń | Spróbuj usunąć i ponownie utworzyć cele obliczeniowe. Ponowne tworzenie obiektów docelowych obliczeń jest szybkie i może rozwiązać pewne problemy przejściowe. |
 | Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False` . |
 | Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi kodu źródłowego dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz tej samej `source_directory` ścieżki dla wielu kroków. |

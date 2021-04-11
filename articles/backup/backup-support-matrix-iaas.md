@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609791"
+ms.locfileid: "105967833"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -153,6 +153,7 @@ Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z blokadami | Nieo
 [Maszyny wirtualne typu spot](../virtual-machines/spot-vms.md) | Ich. Azure Backup przywraca maszyny wirtualne maszyn wirtualnych jako zwykłe maszyny wirtualne platformy Azure.
 [Dedykowany Host platformy Azure](../virtual-machines/dedicated-hosts.md) | Obsługiwane
 Konfiguracja funkcji miejsca do magazynowania systemu Windows dla autonomicznych maszyn wirtualnych platformy Azure | Obsługiwane
+[VM Scale Sets platformy Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Obsługiwane w przypadku zarówno jednolitych, jak i elastycznych modeli aranżacji do tworzenia kopii zapasowych i przywracania pojedynczej maszyny wirtualnej platformy Azure.
 
 ## <a name="vm-storage-support"></a>Obsługa magazynu maszyn wirtualnych
 

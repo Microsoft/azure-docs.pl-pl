@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 973bd1ac121513a297574bbb37d1663b5a18c345
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643536"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276913"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -70,6 +70,8 @@ Jeśli włączysz Autozarządzanie przy użyciu nowego konta autozarządzania:
 Jeśli włączysz Autozarządzanie przy użyciu istniejącego konta autozarządzania:
 * Rola **współautor** w grupie zasobów zawierającej maszyny wirtualne
 
+Do konta automanage zostanie przyznany **współautor** i uprawnienia **współautora zasad zasobów** w celu wykonywania działań na zarządzanych maszynach.
+
 > [!NOTE]
 > Jeśli chcesz używać autozarządzania na maszynie wirtualnej, która jest połączona z obszarem roboczym w innej subskrypcji, musisz mieć uprawnienia opisane powyżej dla każdej subskrypcji.
 
@@ -94,6 +96,19 @@ Jeśli po raz pierwszy włączysz Autozarządzanie dla maszyny wirtualnej, może
 
 Jedyną czynnością, którą należy wykonać, aby móc korzystać z tej maszyny wirtualnej w celu zarządzania tymi usługami, jest to, że podjęto próbę skorygowania maszyny wirtualnej, ale to nie powiodło się. W przypadku pomyślnego skorygowania maszyny wirtualnej nastąpi powrót do zgodności bez nawet powiadamiania użytkownika. Aby uzyskać więcej informacji, zobacz [stan maszyn wirtualnych](#status-of-vms).
 
+## <a name="enabling-automanage-for-vms-using-azure-policy"></a>Włączanie autozarządzania dla maszyn wirtualnych przy użyciu Azure Policy
+Możesz również włączyć automatyczne zarządzanie na maszynach wirtualnych na dużą skalę przy użyciu wbudowanej Azure Policy. Zasady mają efekt DeployIfNotExists, co oznacza, że wszystkie kwalifikujące się maszyny wirtualne znajdujące się w zakresie zasad będą automatycznie dołączane do nowych najlepszych rozwiązań dotyczących maszyn wirtualnych.
+
+Bezpośredni link do zasad znajduje się w [tym miejscu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3).
+
+### <a name="how-to-apply-the-policy"></a>Jak zastosować zasady
+1. Kliknij przycisk **Przypisz** podczas wyświetlania definicji zasad
+1. Wybierz zakres, w którym chcesz zastosować zasady (mogą to być grupy zarządzania, subskrypcja lub Grupa zasobów).
+1. W obszarze **Parametry** Określ parametry dla konta autozarządzaj, profil konfiguracji i efekt (efekt powinien być zazwyczaj DeployIfNotExists).
+    1. Jeśli nie masz konta Autozarządzanie, musisz go [utworzyć](#create-an-automanage-account).
+1. W obszarze **korygowanie** zaznacz pole wyboru "kliknij zadanie korygowania". Spowoduje to przeprowadzenie dołączania do autozarządzania.
+1. Kliknij przycisk **Przegląd + Utwórz** i upewnij się, że wszystkie ustawienia wyglądają dobrze.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="environment-configuration"></a>Konfiguracja środowiska
 
@@ -142,6 +157,43 @@ Jeśli włączysz Autozarządzanie przy użyciu istniejącego konta Autozarządz
 > [!NOTE]
 > Po wyłączeniu najlepszych rozwiązań z zakresu autozarządzania uprawnienia konta Autozarządzanie dla wszystkich skojarzonych subskrypcji pozostaną. Ręcznie usuń uprawnienia, przechodząc do strony usługi IAM subskrypcji lub Usuń konto autozarządzaj. Konta automanage nie można usunąć, jeśli nadal zarządza wszystkimi maszynami.
 
+### <a name="create-an-automanage-account"></a>Utwórz konto autozarządzania
+Konto usługi automanage można utworzyć przy użyciu portalu lub szablonu usługi ARM.
+
+#### <a name="portal"></a>Portal
+1. Przejdź do bloku **Autozarządzanie** w portalu
+1. Kliknij pozycję **Włącz na istniejącej maszynie**
+1. W obszarze **Zaawansowane** kliknij pozycję "Utwórz nowe konto".
+1. Wypełnij pola wymagane i kliknij pozycję **Utwórz** .
+
+#### <a name="arm-template"></a>Szablon ARM
+Zapisz następujący szablon ARM jako `azuredeploy.json` i uruchom następujące polecenie: `az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automanageAccountName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2020-06-30-preview",
+            "type": "Microsoft.Automanage/accounts",
+            "name": "[parameters('automanageAccountName')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "SystemAssigned"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="status-of-vms"></a>Stan maszyn wirtualnych
 

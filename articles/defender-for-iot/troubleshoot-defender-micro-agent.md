@@ -1,18 +1,18 @@
 ---
 title: Rozwiązywanie problemów z usługą Defender IoT Micro Agent (wersja zapoznawcza)
 description: Dowiedz się, jak obsłużyć nieoczekiwane lub niewyjaśnione błędy.
-ms.date: 1/24/2021
+ms.date: 4/5/2021
 ms.topic: reference
-ms.openlocfilehash: 51550a4d3e5042fed7cadc4eac10a0074e954f19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d52c4093c01d7e449c68b1c8143249b51f7061a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782456"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011423"
 ---
 # <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Rozwiązywanie problemów z usługą Defender IoT Micro Agent (wersja zapoznawcza)
 
-W przypadku nieoczekiwanych lub niewyjaśnionych błędów Użyj następujących metod rozwiązywania problemów, aby spróbować rozwiązać problemy. Możesz również skontaktować się z zespołem produktu usługi Azure Defender for IoT, aby uzyskać pomoc w razie potrzeby.   
+W przypadku wystąpienia nieoczekiwanego błędu można użyć tych metod rozwiązywania problemów w celu rozwiązania problemu. Możesz również skontaktować się z zespołem produktu usługi Azure Defender for IoT, aby uzyskać pomoc w razie potrzeby.   
 
 ## <a name="service-status"></a>Stan usługi 
 
@@ -34,9 +34,9 @@ Jeśli usługa jest wymieniona jako `inactive` , użyj następującego polecenia
 systemctl start defender-iot-micro-agent.service 
 ```
 
-Wiadomo, że usługa ulega awarii, jeśli czas działania procesu jest zbyt krótki. Aby rozwiązać ten problem, należy przejrzeć dzienniki.
+Wiadomo, że usługa jest nieprzerwana, jeśli proces działania procesu jest krótszy niż 2 minuty. Aby rozwiązać ten problem, należy [przejrzeć dzienniki](#review-the-logs).
 
-## <a name="review-logs"></a>Przeglądanie dzienników 
+## <a name="validate-micro-agent-root-privileges"></a>Weryfikowanie uprawnień głównych w programie Micro Agent
 
 Użyj poniższego polecenia, aby sprawdzić, czy usługa Defender IoT Micro agent działa z uprawnieniami głównymi.
 
@@ -45,12 +45,25 @@ ps -aux | grep " defender-iot-micro-agent"
 ```
 
 :::image type="content" source="media/troubleshooting/root-privileges.png" alt-text="Sprawdź, czy usługa Defender for IoT Micro agent działa z uprawnieniami głównymi.":::
+## <a name="review-the-logs"></a>Przejrzyj dzienniki 
 
-Aby wyświetlić dzienniki, użyj następującego polecenia:  
+Aby przejrzeć dzienniki, użyj następującego polecenia:  
 
 ```azurecli
 sudo journalctl -u defender-iot-micro-agent | tail -n 200 
 ```
+
+### <a name="quick-log-review"></a>Szybkie przeglądy dzienników
+
+Jeśli wystąpi problem podczas uruchamiania programu Micro Agent, można uruchomić program Micro Agent w stanie tymczasowym, który umożliwi wyświetlenie dzienników przy użyciu następującego polecenia:
+
+```azurecli
+sudo systectl stop defender-iot-micro-agent
+cd /var/defender_iot_micro_agent/
+sudo ./defender_iot_micro_agent
+```
+
+## <a name="restart-the-service"></a>Uruchom ponownie usługę
 
 Aby ponownie uruchomić usługę, użyj następującego polecenia: 
 

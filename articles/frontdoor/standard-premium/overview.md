@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 574340825567dcd512a5da1b311c57fe12954e34
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c3ae5c7b1c45d170548f6fa00481094117e1737
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030549"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937366"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Co to jest wersja Standard/Premium systemu Azure (wersja zapoznawcza)?
 
@@ -28,7 +28,7 @@ Korzystając z platformy Azure w warstwie Standardowa/Premium, możesz przekszta
 
 Platforma Azure Front-at Standard/Premium działa w warstwie 7 (warstwie protokołu HTTP/HTTPS) przy użyciu protokołu emisji pojedynczej z podziałem sieci globalnej TCP i Microsoft, aby zwiększyć łączność globalną. Na podstawie dostosowanej metody routingu za pomocą zestawu reguł można zapewnić kierowanie żądań klientów do najszybszych i najbardziej dostępnych źródeł na platformie Azure. Pochodzenie aplikacji to dowolna usługa internetowa hostowana w ramach platformy Azure lub poza nią. Platforma Azure Front-Standard/Premium zapewnia szereg metod routingu ruchu i opcji monitorowania kondycji pochodzenia, aby dopasować różne potrzeby aplikacji i automatyczne scenariusze trybu failover. Podobnie jak w przypadku Traffic Manager, tylne drzwi są odporne na awarie, w tym niepowodzenia w całym regionie świadczenia usługi Azure.
 
-Drzwi frontonu platformy Azure chronią również aplikację na krawędziach z integracją ochrony zapory aplikacji sieci Web, ochrony bot oraz wbudowanej ochrony typu "odmowa usługi" (DDoS) w warstwie 4. Zabezpiecza on także zaplecza prywatne z usługą link prywatny. Drzwi frontonu platformy Azure zapewniają najlepsze w firmie Microsoft zabezpieczenia na skalę globalną.  
+Drzwi frontonu platformy Azure chronią również aplikację na krawędziach ze zintegrowaną ochroną zapory aplikacji sieci Web, ochroną bot i wbudowaną ochronę "odmowa usługi" w warstwie 3/warstwy 4. Zabezpiecza on także zaplecza prywatne z usługą link prywatny. Drzwi frontonu platformy Azure zapewniają najlepsze w firmie Microsoft zabezpieczenia na skalę globalną.  
 
 >[!NOTE]
 > Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy.

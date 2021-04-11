@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726431"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729511"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Samouczek: używanie flag funkcji w aplikacji ASP.NET Core
 
@@ -218,7 +218,7 @@ Zgodnie z Konwencją, `FeatureManagement` sekcja tego dokumentu JSON jest używa
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Użyj iniekcji zależności, aby uzyskać dostęp do IFeatureManager 
 
-W przypadku niektórych operacji, takich jak ręczne sprawdzanie wartości flag funkcji, należy uzyskać wystąpienie [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). W ASP.NET Core MVC można uzyskać dostęp do Menedżera funkcji `IFeatureManager` za pomocą iniekcji zależności. W poniższym przykładzie argument typu `IFeatureManager` jest dodawany do podpisu konstruktora dla kontrolera. Środowisko uruchomieniowe automatycznie rozpoznaje odwołanie i udostępnia interfejs podczas wywoływania konstruktora. Jeśli używasz szablonu aplikacji, w którym kontroler ma już jeden lub więcej argumentów iniekcji zależności w konstruktorze, takich jak, możesz `ILogger` po prostu dodać `IFeatureManager` jako dodatkowy argument:
+W przypadku niektórych operacji, takich jak ręczne sprawdzanie wartości flag funkcji, należy uzyskać wystąpienie [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview). W ASP.NET Core MVC można uzyskać dostęp do Menedżera funkcji `IFeatureManager` za pomocą iniekcji zależności. W poniższym przykładzie argument typu `IFeatureManager` jest dodawany do podpisu konstruktora dla kontrolera. Środowisko uruchomieniowe automatycznie rozpoznaje odwołanie i udostępnia interfejs podczas wywoływania konstruktora. Jeśli używasz szablonu aplikacji, w którym kontroler ma już jeden lub więcej argumentów iniekcji zależności w konstruktorze, takich jak, możesz `ILogger` po prostu dodać `IFeatureManager` jako dodatkowy argument:
 
 ### <a name="net-5x"></a>[.NET 5. x](#tab/core5x)
     
@@ -322,7 +322,7 @@ public IActionResult Index()
 }
 ```
 
-Gdy kontroler MVC lub akcja jest blokowana, ponieważ flaga funkcji kontrolującej jest *wyłączona*, zostanie wywołany zarejestrowany Interfejs [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) . Domyślny `IDisabledFeaturesHandler` interfejs zwraca kod stanu 404 do klienta bez treści odpowiedzi.
+Gdy kontroler MVC lub akcja jest blokowana, ponieważ flaga funkcji kontrolującej jest *wyłączona*, zostanie wywołany zarejestrowany Interfejs [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) . Domyślny `IDisabledFeaturesHandler` interfejs zwraca kod stanu 404 do klienta bez treści odpowiedzi.
 
 ## <a name="mvc-views"></a>Widoki MVC
 

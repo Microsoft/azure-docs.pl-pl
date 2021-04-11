@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 02/04/2021
 ms.openlocfilehash: 4c04dd5a2b41b3db54b20c9e514767453951cc35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103565046"
 ---
 # <a name="migrate-a-studio-classic-dataset-to-azure-machine-learning"></a>Migrowanie zestawu danych programu Studio (klasycznego) do Azure Machine Learning

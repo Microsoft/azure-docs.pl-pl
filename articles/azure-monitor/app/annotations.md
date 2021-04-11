@@ -3,12 +3,12 @@ title: Adnotacje wydania dla Application Insights | Microsoft Docs
 description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora metryk w Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 776efd56aaa523d1c2621c51cba0446a42bb7411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9132e65e4705fd9125d97a5e095fe5f0850229a2
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461916"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011054"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
 
@@ -96,7 +96,10 @@ Aby włączyć adnotacje w skoroszycie, przejdź do pozycji **Ustawienia zaawans
 Wybierz dowolny znacznik adnotacji, aby otworzyć szczegółowe informacje o wydaniu, w tym żądający, gałąź kontroli źródła, potok wersji i środowisko.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Tworzenie adnotacji niestandardowych w programie PowerShell
-Możesz użyć skryptu programu CreateReleaseAnnotation PowerShell z usługi GitHub, aby utworzyć adnotacje z dowolnego procesu, który ma być używany, bez używania platformy Azure DevOps.
+Za pomocą skryptu programu PowerShell CreateReleaseAnnotation można tworzyć adnotacje z dowolnego procesu, który ma być używany, bez korzystania z usługi Azure DevOps.
+
+> [!IMPORTANT]
+> Jeśli używasz programu PowerShell 7,1, Dodaj `-SkipHttpErrorCheck` na końcu wiersza 26. Na przykład: `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
 
 1. Wykonaj kopię lokalną CreateReleaseAnnotation.ps1:
 
@@ -256,8 +259,8 @@ Możesz użyć skryptu programu CreateReleaseAnnotation PowerShell z usługi Git
 
 Możesz zmodyfikować skrypt, na przykład aby utworzyć adnotacje dla przeszłości.
 
+
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie elementów roboczych](./diagnostic-search.md#create-work-item)
 * [Automatyzacja przy użyciu programu PowerShell](./powershell.md)
-
