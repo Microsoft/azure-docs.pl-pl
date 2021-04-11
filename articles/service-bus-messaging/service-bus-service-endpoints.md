@@ -2,14 +2,14 @@
 title: Skonfiguruj punkty końcowe usługi sieci wirtualnej dla Azure Service Bus
 description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu końcowego usługi Microsoft. ServiceBus do sieci wirtualnej.
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 03/29/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b5aba6c5ad4e1e6d0c90b99ebcdf441bb35cc39
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559574"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960456"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych sieci wirtualnych
 Integracja Service Bus z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do funkcji obsługi komunikatów z obciążeń takich jak maszyny wirtualne, które są powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach.
@@ -18,16 +18,14 @@ Po skonfigurowaniu do powiązania z co najmniej jednym punktem końcowym usługi
 
 Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowiadającą jej przestrzenią nazw Service Bus, w odróżnieniu od pozostałego adresu sieciowego punktu końcowego usługi obsługi komunikatów znajdującego się w zakresie publicznego adresu IP.
 
-Implementowanie integracji sieci wirtualnych może uniemożliwić innym usługom platformy Azure interakcję z usługą Service Bus. Jako wyjątek, można zezwolić na dostęp do Service Bus zasobów z niektórych zaufanych usług nawet wtedy, gdy są włączone punkty końcowe usługi sieciowej. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
+## <a name="important-points"></a>Ważne punkty
+- Sieci wirtualne są obsługiwane tylko w [warstwie Premium](service-bus-premium-messaging.md) Service Bus przestrzenie nazw. W przypadku korzystania z punktów końcowych usługi sieci wirtualnej z Service Bus nie należy włączać tych punktów końcowych w aplikacjach, które mieszają warstwy Standardowa i Premium Service Bus przestrzenie nazw. Ponieważ warstwa standardowa nie obsługuje sieci wirtualnych. Punkt końcowy jest ograniczony tylko do przestrzeni nazw warstwy Premium.
+- Implementowanie integracji sieci wirtualnych może uniemożliwić innym usługom platformy Azure interakcję z usługą Service Bus. Jako wyjątek, można zezwolić na dostęp do Service Bus zasobów z niektórych **zaufanych usług** nawet wtedy, gdy są włączone punkty końcowe usługi sieciowej. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
 
-Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
-- Azure App Service
-- Azure Functions
-
-Sieci wirtualne są obsługiwane tylko w [warstwie Premium](service-bus-premium-messaging.md) Service Bus przestrzenie nazw. W przypadku korzystania z punktów końcowych usługi sieci wirtualnej z Service Bus nie należy włączać tych punktów końcowych w aplikacjach, które mieszają warstwy Standardowa i Premium Service Bus przestrzenie nazw. Ponieważ warstwa standardowa nie obsługuje sieci wirtualnych. Punkt końcowy jest ograniczony tylko do przestrzeni nazw warstwy Premium.
-
-> [!IMPORTANT]
-> Określ co najmniej jedną regułę IP lub regułę sieci wirtualnej dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej. W przypadku braku reguł adresów IP i sieci wirtualnych można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu).  
+    Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
+    - Azure App Service
+    - Azure Functions
+- Określ **co najmniej jedną regułę IP lub regułę sieci wirtualnej** dla przestrzeni nazw, aby zezwalać na ruch tylko z określonych adresów IP lub podsieci sieci wirtualnej. W przypadku braku reguł adresów IP i sieci wirtualnych można uzyskać dostęp do przestrzeni nazw za pośrednictwem publicznego Internetu (przy użyciu klucza dostępu).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Zaawansowane scenariusze zabezpieczeń obsługujące integrację sieci wirtualnej 
 

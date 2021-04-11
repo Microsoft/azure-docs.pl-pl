@@ -4,10 +4,10 @@ description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzen
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802356"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk

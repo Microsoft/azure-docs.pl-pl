@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/09/2021
-ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/30/2021
+ms.openlocfilehash: 54880f22fae7f9a193a13745702345f5f7efdc32
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889335"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210921"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w programie Azure Logic Apps
 
@@ -19,9 +19,13 @@ Aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure 
 
 Azure Logic Apps obsługuje zarządzane tożsamości [*przypisane przez system*](../active-directory/managed-identities-azure-resources/overview.md) i [*przypisane przez użytkownika*](../active-directory/managed-identities-azure-resources/overview.md) . Aplikacja logiki lub poszczególne połączenia mogą korzystać z tożsamości przypisanej do systemu lub *jednej* tożsamości przypisanej do użytkownika, którą można udostępnić w ramach grupy aplikacji logiki, ale nie obu.
 
+<a name="triggers-actions-managed-identity"></a>
+
 ## <a name="where-can-logic-apps-use-managed-identities"></a>Gdzie Aplikacje logiki mogą korzystać z zarządzanych tożsamości?
 
 Obecnie tylko [określone wbudowane wyzwalacze i akcje](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) oraz [określone łączniki zarządzane](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) obsługujące usługę Azure AD OAuth mogą używać tożsamości zarządzanej na potrzeby uwierzytelniania. Na przykład:
+
+<a name="built-in-managed-identity"></a>
 
 **Wbudowane wyzwalacze i akcje**
 
@@ -33,6 +37,8 @@ Obecnie tylko [określone wbudowane wyzwalacze i akcje](../logic-apps/logic-apps
 
 > [!NOTE]
 > Wyzwalacz i akcja protokołu HTTP mogą uwierzytelniać połączenia z kontami usługi Azure Storage za zaporami platformy Azure przy użyciu tożsamości zarządzanej przypisanej do systemu, ale nie mogą uwierzytelniać tych samych połączeń przy użyciu tożsamości zarządzanej przypisanej przez użytkownika.
+
+<a name="managed-connectors-managed-identity"></a>
 
 **Łączniki zarządzane**
 
@@ -402,55 +408,6 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
 
      Aby uzyskać więcej informacji, zobacz [przykład: uwierzytelnianie wyzwalacza lub akcji łącznika zarządzanego przy użyciu tożsamości zarządzanej](#authenticate-managed-connector-managed-identity).
 
-### <a name="connections-that-use-managed-identities"></a>Połączenia korzystające z tożsamości zarządzanych
-
-Połączenia korzystające z tożsamości zarządzanej są specjalnym typem połączenia, który działa tylko z tożsamością zarządzaną. W czasie wykonywania połączenie używa zarządzanej tożsamości, która jest włączona w aplikacji logiki. Ta konfiguracja jest zapisywana w obiekcie definicji zasobu aplikacji logiki `parameters` , który zawiera `$connections` obiekt, który zawiera wskaźniki do identyfikatora zasobu połączenia wraz z identyfikatorem zasobu tożsamości, jeśli jest włączona tożsamość przypisana przez użytkownika.
-
-Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez system:
-
-```json
-"parameters": {
-   "$connections": {
-      "value": {
-         "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
-            "connectionProperties": {
-               "authentication": {
-                  "type": "ManagedServiceIdentity"
-               }
-            },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-         }
-      }
-   }
-}
- ```
-
-Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez użytkownika:
-
-```json
-"parameters": {
-   "$connections": {
-      "value": {
-         "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
-            "connectionProperties": {
-               "authentication": {
-                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                  "type": "ManagedServiceIdentity"
-               }
-            },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-         }
-      }
-   }
-}
-```
-
-Podczas wykonywania usługa Logic Apps sprawdza, czy wszystkie wyzwalacze i akcje zarządzanego łącznika w aplikacji logiki są skonfigurowane do korzystania z tożsamości zarządzanej oraz czy wszystkie wymagane uprawnienia są skonfigurowane do używania tożsamości zarządzanej do uzyskiwania dostępu do zasobów docelowych określonych przez wyzwalacz i akcje. W przypadku powodzenia usługa Logic Apps pobiera token usługi Azure AD skojarzony z zarządzaną tożsamością i używa tej tożsamości do uwierzytelniania dostępu do zasobu docelowego i wykonywania skonfigurowanej operacji w wyzwalaczu i akcjach.
-
 <a name="authenticate-built-in-managed-identity"></a>
 
 #### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>Przykład: uwierzytelnianie wbudowanego wyzwalacza lub akcji przy użyciu tożsamości zarządzanej
@@ -477,7 +434,7 @@ Aby uruchomić [operację tworzenia migawek obiektów BLOB](/rest/api/storageser
 |----------|----------|---------------|-------------|
 | **Metoda** | Tak | `PUT`| Metoda HTTP, której używa operacja obiektu BLOB Snapshot |
 | **URI** | Tak | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Identyfikator zasobu dla pliku Blob Storage platformy Azure w środowisku globalnym (publicznym) platformy Azure, który używa tej składni |
-| **Nagłówki** | Dla usługi Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | `x-ms-blob-type` `x-ms-version` Wartości nagłówka, i `x-ms-date` są wymagane dla operacji usługi Azure Storage. <p><p>**Ważne**: w wychodzących wyzwalaczach http i żądaniach akcji dla usługi Azure Storage nagłówek wymaga `x-ms-version` właściwości i wersji interfejsu API dla operacji, która ma zostać uruchomiona. Wartość `x-ms-date` musi być datą bieżącą. W przeciwnym razie aplikacja logiki zakończy się niepowodzeniem z `403 FORBIDDEN` powodu błędu. Aby uzyskać bieżącą datę w wymaganym formacie, można użyć wyrażenia w przykładowej wartości. <p>Więcej informacji można znaleźć w następujących tematach: <p><p>- [Nagłówki żądań — obiekt BLOB migawek](/rest/api/storageservices/snapshot-blob#request) <br>- [Przechowywanie wersji usług Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Nagłówki** | Dla usługi Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | `x-ms-blob-type` `x-ms-version` Wartości nagłówka, i `x-ms-date` są wymagane dla operacji usługi Azure Storage. <p><p>**Ważne**: w wychodzących wyzwalaczach http i żądaniach akcji dla usługi Azure Storage nagłówek wymaga `x-ms-version` właściwości i wersji interfejsu API dla operacji, która ma zostać uruchomiona. Wartość `x-ms-date` musi być datą bieżącą. W przeciwnym razie aplikacja logiki zakończy się niepowodzeniem z `403 FORBIDDEN` powodu błędu. Aby uzyskać bieżącą datę w wymaganym formacie, można użyć wyrażenia w przykładowej wartości. <p>Więcej informacji można znaleźć w następujących tematach: <p><p>- [Nagłówki żądań — obiekt BLOB migawek](/rest/api/storageservices/snapshot-blob#request) <br>- [Przechowywanie wersji usług Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
 | **Zapytania** | Tylko dla operacji migawki obiektu BLOB | `comp` = `snapshot` | Nazwa i wartość parametru zapytania dla operacji. |
 |||||
 
@@ -549,6 +506,83 @@ Akcja Azure Resource Manager, **Odczytaj zasób**, może korzystać z zarządzan
 1. Po pomyślnym utworzeniu połączenia Projektant może pobrać wszystkie wartości dynamiczne, zawartość lub schemat przy użyciu uwierzytelniania tożsamości zarządzanej.
 
 1. Kontynuuj tworzenie aplikacji logiki w żądany sposób.
+
+<a name="logic-app-resource-definition-connection-managed-identity"></a>
+
+### <a name="logic-app-resource-definition-and-connections-that-use-a-managed-identity"></a>Definicja zasobu aplikacji logiki i połączenia korzystające z tożsamości zarządzanej
+
+Połączenie, które umożliwia i używa tożsamości zarządzanej, jest specjalnym typem połączenia, który działa tylko z tożsamością zarządzaną. W czasie wykonywania połączenie używa zarządzanej tożsamości, która jest włączona w aplikacji logiki. Ta konfiguracja jest zapisywana w obiekcie definicji zasobu aplikacji logiki `parameters` , który zawiera `$connections` obiekt, który zawiera wskaźniki do identyfikatora zasobu połączenia wraz z identyfikatorem zasobu tożsamości, jeśli jest włączona tożsamość przypisana przez użytkownika.
+
+Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez system:
+
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Ten przykład pokazuje, jak wygląda konfiguracja, gdy aplikacja logiki włącza tożsamość zarządzaną przypisaną przez użytkownika:
+
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Podczas wykonywania usługa Logic Apps sprawdza, czy wszystkie wyzwalacze i akcje zarządzanego łącznika w aplikacji logiki są skonfigurowane do korzystania z tożsamości zarządzanej oraz czy wszystkie wymagane uprawnienia są skonfigurowane do używania tożsamości zarządzanej do uzyskiwania dostępu do zasobów docelowych określonych przez wyzwalacz i akcje. W przypadku powodzenia usługa Logic Apps pobiera token usługi Azure AD skojarzony z zarządzaną tożsamością i używa tej tożsamości do uwierzytelniania dostępu do zasobu docelowego i wykonywania skonfigurowanej operacji w wyzwalaczu i akcjach.
+
+<a name="arm-templates-connection-resource-managed-identity"></a>
+
+## <a name="arm-template-for-managed-connections-and-managed-identities"></a>Szablon ARM dla zarządzanych połączeń i tożsamości zarządzanych
+
+W przypadku automatyzowania wdrażania przy użyciu szablonu ARM, gdy aplikacja logiki zawiera wyzwalacz łącznika zarządzanego lub akcję, która używa tożsamości zarządzanej, należy sprawdzić, czy podstawowa definicja zasobu połączenia zawiera `parameterValueType` Właściwość z `Alternative` wartością właściwości. W przeciwnym razie wdrożenie usługi ARM nie skonfiguruje połączenia do korzystania z tożsamości zarządzanej na potrzeby uwierzytelniania, a połączenie nie będzie działało w przepływie pracy aplikacji logiki. To wymaganie dotyczy tylko [określonych wyzwalaczy łączników zarządzanych i akcji](#managed-connectors-managed-identity) , w których wybrano [opcję **Połącz z zarządzaną tożsamością**](#authenticate-managed-connector-managed-identity).
+
+Poniżej przedstawiono na przykład podstawową definicję zasobu połączenia dla akcji Azure Automation, która używa tożsamości zarządzanej, w której definicja zawiera `parameterValueType` Właściwość, która jest ustawiona `Alternative` jako wartość właściwości:
+
+```json
+{
+    "type": "Microsoft.Web/connections",
+    "name": "[variables('automationAccountApiConnectionName')]",
+    "apiVersion": "2016-06-01",
+    "location": "[parameters('location')]",
+    "kind": "V1",
+    "properties": {
+        "api": {
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('automationAccountApiConnectionName')]",
+        "parameterValueType": "Alternative"
+    }
+},
+```
 
 <a name="remove-identity"></a>
 

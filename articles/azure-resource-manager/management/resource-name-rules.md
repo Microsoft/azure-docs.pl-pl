@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: a1dbe409eb5479c4027834cd33e095d12c31e238
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934176"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210197"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -16,7 +16,7 @@ Ten artykuł podsumowuje reguły nazewnictwa i ograniczenia dotyczące zasobów 
 
 W tym artykule wymieniono zasoby według przestrzeni nazw dostawcy zasobów. Aby uzyskać listę sposobu, w jaki dostawcy zasobów są zgodni z usługami platformy Azure, zobacz [dostawcy zasobów dla usług platformy Azure](azure-services-resource-providers.md).
 
-W nazwach zasobów nie jest rozróżniana wielkość liter, o ile nie zaznaczono inaczej w kolumnie nieprawidłowe znaki.
+W nazwach zasobów nie jest rozróżniana wielkość liter, o ile nie zaznaczono w kolumnie prawidłowe znaki.
 
 W poniższych tabelach termin alfanumeryczny odnosi się do:
 
@@ -110,7 +110,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | batchAccounts | Region (Region) | 3-24 | Małe litery i cyfry. |
+> | batchAccounts | Region | 3-24 | Małe litery i cyfry. |
 > | batchAccounts/aplikacje | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/certyfikaty | konto wsadowe | 5-45 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/pule | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
@@ -177,11 +177,18 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Galerie/obrazy/wersje | image (obraz) | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | images | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | Migawki | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
-> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Maszyny wirtualne z systemem Windows nie mogą zawierać kropki ani kończyć się łącznikiem.<br><br>Maszyny wirtualne z systemem Linux nie mogą kończyć się kropką ani łącznikiem. |
-> | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
+> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Maszyny wirtualne z systemem Windows nie mogą zawierać kropki ani kończyć się łącznikiem.<br><br>Maszyny wirtualne z systemem Linux nie mogą kończyć się kropką ani łącznikiem. |
+> | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
 
 > [!NOTE]
 > Maszyny wirtualne platformy Azure mają dwie odrębne nazwy: nazwę zasobu i nazwę hosta. Podczas tworzenia maszyny wirtualnej w portalu ta sama wartość jest używana dla obu nazw. Ograniczenia w powyższej tabeli dotyczą nazwy hosta. Rzeczywista nazwa zasobu może mieć długość maksymalnie 64 znaków.
+
+## <a name="microsoftcommunication"></a>Microsoft. Communication
+
+> [!div class="mx-tableFixed"]
+> | Jednostka | Zakres | Długość | Prawidłowe znaki |
+> | --- | --- | --- | --- |
+> | communicationServices | global | 1-63 | Alfanumeryczne, łączniki i podkreślenia. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -599,7 +606,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | komputerów | grupa zasobów | 1-64 | Alfanumeryczne, podkreślenia, nawiasy, łączniki i kropki. |
-> | ResourceGroups | subskrypcja | 1-90 | Alfanumeryczne, podkreślenia, nawiasy, łączniki, kropki i znaki Unicode, które pasują do [dokumentacji wyrażenia regularnego](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>Nie może kończyć się kropką. |
+> | ResourceGroups | subskrypcja | 1-90 | Alfanumeryczne, podkreślenia, nawiasy, łączniki, kropki i znaki Unicode, które pasują do [dokumentacji wyrażenia regularnego](/rest/api/resources/resourcegroups/createorupdate).<br><br>Nie może kończyć się kropką. |
 > | tagNames | zasób | 1-512 | Nie można użyć:<br>`<>%&\?/` |
 > | tagNames/tagValues | nazwa tagu | 1-256 | Wszystkie znaki. |
 > | templateSpecs | grupa zasobów | 1-90 | Alfanumeryczne, podkreślenia, nawiasy, łączniki i kropki. |
@@ -706,10 +713,12 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | --- | --- | --- | --- |
 > | certyfikaty | grupa zasobów | 1-260 | Nie można użyć:<br>`/` <br><br>Nie można kończyć się spacją ani kropką.  | 
 > | dopuszczalna | grupa zasobów | 1-40 | Alfanumeryczne i łączniki. |
-> | lokacje | global | 2-60 | Zawiera znaki alfanumeryczne i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
+> | lokacje | globalne lub na domenę. Zobacz uwagę poniżej. | 2-60 | Zawiera znaki alfanumeryczne i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
 > | Lokacje/miejsca | lokacja | 2-59 | Alfanumeryczne i łączniki. |
 
 > [!NOTE]
+> Witryna sieci Web musi mieć globalnie unikatowy adres URL. W przypadku tworzenia witryny sieci Web, która korzysta z planu hostingu, adres URL to `http://<app-name>.azurewebsites.net` . Nazwa aplikacji musi być globalnie unikatowa. Podczas tworzenia witryny sieci Web, która używa App Service Environment, nazwa aplikacji musi być unikatowa w obrębie [domeny dla App Service Environment](../../app-service/environment/using-an-ase.md#app-access). W obu przypadkach adres URL witryny jest unikatowy globalnie.
+>
 > Azure Functions ma takie same reguły nazewnictwa i ograniczenia jak Microsoft. Web/Sites.
 
 ## <a name="next-steps"></a>Następne kroki

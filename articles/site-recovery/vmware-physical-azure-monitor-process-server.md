@@ -1,18 +1,15 @@
 ---
 title: Monitoruj serwer przetwarzania Azure Site Recovery
 description: W tym artykule opisano sposób monitorowania Azure Site Recovery serwera przetwarzania używanego na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware/serwera fizycznego
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dcee641a2de73238557a6a29173f71ee1c4312a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86134732"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580565"
 ---
 # <a name="monitor-the-process-server"></a>Monitorowanie serwera przetwarzania
 

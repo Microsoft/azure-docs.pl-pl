@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: a14f8e0ba3ae5cca75cf6518320023703a6d1700
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: fbf2a30d029a579026fa9c590f59bedff594f4b8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626388"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109207"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji na temat wysokiej dostępności w ramach skalowa
 
 ## <a name="testing-application-fault-resiliency"></a>Testowanie odporności błędów aplikacji
 
-Wysoka dostępność to podstawowa część usługi SQL Database i platformy SQL Managed Instance, która działa w sposób przejrzysty dla aplikacji bazy danych. Jednak wiemy, że można sprawdzić, jak automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń wpływają na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych, puli elastycznej lub wystąpienia zarządzanego. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 15 minut dla każdej bazy danych, elastycznej puli lub wystąpienia zarządzanego.
+Wysoka dostępność to podstawowa część usługi SQL Database i platformy SQL Managed Instance, która działa w sposób przejrzysty dla aplikacji bazy danych. Jednak wiemy, że można sprawdzić, jak automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń wpływają na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych, puli elastycznej lub wystąpienia zarządzanego. W przypadku strefy nadmiarowej bezserwerowej lub aprowizacji Ogólnego przeznaczenia bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 15 minut dla każdej bazy danych, elastycznej puli lub wystąpienia zarządzanego.
 
 Przejście w tryb failover można zainicjować przy użyciu programu PowerShell, interfejsu API REST lub wiersza polecenia platformy Azure:
 

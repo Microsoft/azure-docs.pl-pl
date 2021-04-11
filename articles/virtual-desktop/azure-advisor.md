@@ -3,15 +3,15 @@ title: Integrowanie pulpitu wirtualnego systemu Windows z Azure Advisor — Azur
 description: Jak używać Azure Advisor z wdrożeniem pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: b141d3829e9d98cb793d2038e93331804d2e6b8f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89147537"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448291"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Używanie Azure Advisor z pulpitem wirtualnym systemu Windows
 
@@ -61,5 +61,3 @@ Po wybraniu kategorii nastąpi przejście do strony aktywne zalecenia. Na tej st
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się, jak rozwiązać zalecenia, zobacz [temat jak rozwiązać Azure Advisor zalecenia](azure-advisor-recommendations.md).
-
-Jeśli masz sugestie dotyczące nowych zaleceń, Opublikuj je na naszym [Forum usługi Azure Advisor User Voice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations).

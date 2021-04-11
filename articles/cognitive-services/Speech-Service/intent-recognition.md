@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: Rozpoznawanie intencji
-ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018705"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210379"
 ---
 # <a name="what-is-intent-recognition"></a>Co to jest rozpoznawanie intencji?
 
@@ -33,7 +33,7 @@ Korzystając z rozpoznawania intencji, Twoje aplikacje, narzędzia i urządzenia
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Zapoznaj się z [przewodnikiem Szybki Start](quickstarts/intent-recognition.md) , aby rozpocząć pracę z rozpoznawaniem intencji.
+Zapoznaj się z [przewodnikiem Szybki Start](get-started-intent-recognition.md) , aby rozpocząć pracę z rozpoznawaniem intencji.
 
 ## <a name="sample-code"></a>Przykładowy kod
 
@@ -53,6 +53,6 @@ Przykładowy kod do rozpoznawania intencji:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Ukończ [Przewodnik Szybki Start](quickstarts/intent-recognition.md) dotyczący rozpoznawania intencji
+* Ukończ [Przewodnik Szybki Start](get-started-intent-recognition.md) dotyczący rozpoznawania intencji
 * [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)

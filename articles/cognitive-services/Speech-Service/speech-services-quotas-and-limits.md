@@ -1,25 +1,25 @@
 ---
-title: Przydziały i limity usługi Mowa
+title: Przydziały i limity usługi Speech
 titleSuffix: Azure Cognitive Services
-description: Krótki przewodnik, szczegółowy opis i najlepsze rozwiązania dotyczące przydziałów i limitów związanych z usługą Azure poznawcze usługi rozpoznawania mowy
+description: Krótki przewodnik, szczegółowy opis i najlepsze rozwiązania dotyczące przydziałów i ograniczeń usługi Azure poznawczej
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f851d7999b063a2b1334564902d81343e3789439
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937060"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011177"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
+# <a name="speech-service-quotas-and-limits"></a>Przydziały i limity usługi Speech
 
-Ten artykuł zawiera krótkie informacje i **szczegółowy opis** przydziałów i limitów związanych z usługą Azure poznawcze usługi rozpoznawania mowy dla wszystkich [warstw cenowych](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Zawiera również kilka najlepszych rozwiązań, aby uniknąć ograniczania żądań. 
+Ten artykuł zawiera krótkie informacje i **szczegółowy opis** przydziałów i limitów usługi Azure poznawczych dla wszystkich [warstw cenowych](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Zawiera również kilka najlepszych rozwiązań, aby uniknąć ograniczania żądań. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Przydziały i limity — Krótki przewodnik
 Przechodzenie do [przydziałów i ograniczeń zamiany tekstu na mowę](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -98,9 +98,13 @@ W następnych sekcjach opisano konkretne przypadki dostosowywania przydziałów.
 Przejdź do [zamiany tekstu na mowę. Zwiększanie współbieżnych limitów żądań transkrypcji dla niestandardowego głosu](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice)
 
 ### <a name="speech-to-text-increasing-online-transcription-concurrent-request-limit"></a>Zamiana mowy na tekst: zwiększanie współbieżnych żądań transkrypcji online
-Domyślnie liczba współbieżnych żądań jest ograniczona do 20 dla zasobu mowy (model podstawowy) lub na niestandardowy punkt końcowy (model niestandardowy). W przypadku warstwy cenowej standardowa można zwiększyć tę kwotę. Przed przesłaniem żądania upewnij się, że znasz materiał w [tej sekcji](#detailed-description-quota-adjustment-and-best-practices) i zapoznaj się z [najlepszymi rozwiązaniami](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+Domyślnie liczba współbieżnych żądań jest ograniczona do 100 dla zasobu mowy (model podstawowy) i do 20 dla niestandardowego punktu końcowego (model niestandardowy). W przypadku warstwy cenowej standardowa można zwiększyć tę kwotę. Przed przesłaniem żądania upewnij się, że znasz materiał w [tej sekcji](#detailed-description-quota-adjustment-and-best-practices) i zapoznaj się z [najlepszymi rozwiązaniami](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-Zwiększenie limitu współbieżnych **żądań nie wpływa bezpośrednio na** koszty. Usługi mowy korzystają z modelu "płatność tylko za rzeczywiste użycie". Limit definiuje, jak wysoka wydajność może być skalowana przed rozpoczęciem ograniczania żądań.
+>[!NOTE]
+> Jeśli używasz modeli niestandardowych, weź pod uwagę, że jeden zasób mowy może być skojarzony z wieloma niestandardowymi punktami końcowymi hostującym wiele niestandardowych wdrożeń modeli. Każdy niestandardowy punkt końcowy ma domyślną liczbę równoczesnych żądań (20) ustawioną przez tworzenie. Jeśli trzeba ją dostosować, należy **oddzielnie** wprowadzić korektę każdego niestandardowego punktu końcowego. Należy również pamiętać, że wartość liczby współbieżnych limitów żądań dla modelu podstawowego zasobu mowy **nie** ma wpływu na niestandardowe punkty końcowe skojarzone z tym zasobem.
+
+
+Zwiększenie limitu współbieżnych **żądań nie wpływa bezpośrednio na** koszty. Usługa Speech wykorzystuje model "płatność tylko za rzeczywiste użycie". Limit definiuje, jak wysoka wydajność może być skalowana przed rozpoczęciem ograniczania żądań.
 
 Współbieżne limity żądań dla modeli **podstawowych** i **niestandardowych** muszą zostać dostosowane **osobno**.
 
@@ -112,9 +116,9 @@ Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest wi
 #### <a name="have-the-required-information-ready"></a>Przygotuj wymagane informacje:
 - Dla **modelu podstawowego**:
   - Identyfikator zasobu mowy
-  - Region (Region)
+  - Region
 - Dla **modelu niestandardowego**: 
-  - Region (Region)
+  - Region
   - Identyfikator niestandardowego punktu końcowego
 
 - **Jak uzyskać informacje (model podstawowy)**:  
@@ -168,7 +172,7 @@ Ogólnie rzecz biorąc, zdecydowanie zaleca się przetestowanie obciążenia i w
 ### <a name="text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice"></a>Zamiana tekstu na mowę: zwiększenie liczby równoczesnych żądań transkrypcji dla niestandardowego głosu
 Domyślnie liczba współbieżnych żądań dla niestandardowego punktu końcowego głosu jest ograniczona do 10. W przypadku warstwy cenowej standardowa można zwiększyć tę kwotę. Przed przesłaniem żądania upewnij się, że znasz materiał w [tej sekcji](#detailed-description-quota-adjustment-and-best-practices) i zapoznaj się z [najlepszymi rozwiązaniami](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-Zwiększenie limitu współbieżnych **żądań nie wpływa bezpośrednio na** koszty. Usługi mowy korzystają z modelu "płatność tylko za rzeczywiste użycie". Limit definiuje, jak wysoka wydajność może być skalowana przed rozpoczęciem ograniczania żądań.
+Zwiększenie limitu współbieżnych **żądań nie wpływa bezpośrednio na** koszty. Usługa Speech wykorzystuje model "płatność tylko za rzeczywiste użycie". Limit definiuje, jak wysoka wydajność może być skalowana przed rozpoczęciem ograniczania żądań.
 
 Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, Command-Line narzędzi lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
 

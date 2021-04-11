@@ -1,18 +1,15 @@
 ---
 title: Obsługa odzyskiwania po awarii macierzy z funkcją Hyper-V w dodatkowej lokacji programu VMM z Azure Site Recovery
 description: Podsumowuje obsługę replikacji maszyny wirtualnej funkcji Hyper-V w chmurach programu VMM do lokacji dodatkowej z Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
-ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f34d660c4012e192a157dc836574bc1ab25233
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86131166"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579946"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matryca obsługi odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
 

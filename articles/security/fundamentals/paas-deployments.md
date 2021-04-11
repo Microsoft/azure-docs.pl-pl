@@ -4,7 +4,7 @@ description: Poznaj najlepsze rozwiązania dotyczące projektowania, tworzenia i
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d28d55c8dff16df987f6535b0f1452b840b35c43
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841992"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960507"
 ---
 # <a name="securing-paas-deployments"></a>Zabezpieczanie wdrożeń typu PaaS
 
@@ -127,10 +127,8 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące korzystania z App Servi
 **Najlepsze rozwiązanie**: monitorowanie stanu zabezpieczeń środowisk App Serviceych.   
 **Szczegóły**: Aby monitorować środowiska App Service, użyj Azure Security Center. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy [zalecenia](../../security-center/asset-inventory.md) , które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek.
 
-> [!NOTE]
-> App Service monitorowania jest w wersji zapoznawczej i jest dostępna tylko w [warstwie standardowa](../../security-center/security-center-pricing.md) Security Center.
->
->
+## <a name="azure-cloud-services"></a>usług Azure Cloud Services
+[Cloud Services platformy Azure](../../cloud-services/cloud-services-choose-me.md) to przykład PaaS. Podobnie jak Azure App Service, Technologia ta została zaprojektowana do obsługi aplikacji, które są skalowalne, niezawodne i niedrogie do działania. W taki sam sposób, w jaki App Service jest hostowany na maszynach wirtualnych, tak więc usługa Azure Cloud Services. Jednak masz większą kontrolę nad maszynami wirtualnymi. Możesz zainstalować własne oprogramowanie na maszynach wirtualnych korzystających z usługi Azure Cloud Services i uzyskać do nich dostęp zdalnie.
 
 ## <a name="install-a-web-application-firewall"></a>Zainstaluj zaporę aplikacji sieci Web
 Aplikacje internetowe coraz częściej stają się obiektami złośliwych ataków wykorzystujących znane luki w zabezpieczeniach. Wśród nich często zdarzają się np. ataki polegające na iniekcji SQL i ataki z użyciem skryptów wykorzystywanych w wielu witrynach. Zapobieganie takim atakom z poziomu kodu aplikacji może być trudne. Może też wymagać rygorystycznego przestrzegania harmonogramu konserwacji, poprawek i monitorowania na wielu warstwach topologii aplikacji. Scentralizowana zapora aplikacji internetowej ułatwia zarządzanie zabezpieczeniami oraz zapewnia lepszą ochronę administratorów aplikacji przed zagrożeniami i intruzami. Zapora aplikacji internetowej może reagować na zagrożenia bezpieczeństwa szybciej — poprzez wdrażanie poprawek zapobiegających wykorzystaniu znanych luk w zabezpieczeniach w centralnej lokalizacji zamiast w poszczególnych aplikacjach internetowych. Istniejące bramy Application Gateway można łatwo przekonwertować na bramę Application Gateway obsługującą zaporę aplikacji internetowej.
@@ -149,13 +147,13 @@ Sprawdzanie poprawności zabezpieczeń ochrony jest tak ważne jak testowanie ws
 
 Testowanie rozmyte to metoda odnajdywania awarii programu (błędy kodu) przez dostarczanie nieprawidłowo sformułowanych danych wejściowych do interfejsów programu (punktów wejścia), które analizują i zużywają te dane. [Wykrywanie zagrożeń zabezpieczeń firmy Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) jest narzędziem opartym na chmurze, które służy do wyszukiwania usterek i innych luk w zabezpieczeniach oprogramowania przed wdrożeniem go na platformie Azure. Narzędzie jest przeznaczone do przechwytywania luk w zabezpieczeniach przed wdrożeniem oprogramowania, dzięki czemu nie trzeba poprawiać usterki, rozwiązywać awarii ani reagować na ataki po wydaniu oprogramowania.
 
-
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule koncentrujemy się na zaletach zabezpieczeń wdrożenia usługi Azure PaaS i najlepszych rozwiązaniach dotyczących zabezpieczeń dla aplikacji w chmurze. Następnie zapoznaj się z zalecanymi rozwiązaniami dotyczącymi zabezpieczania rozwiązań sieci Web i urządzeń przenośnych PaaS przy użyciu określonych usług platformy Azure. Zaczniemy od Azure App Service, Azure SQL Database i usługi Azure Synapse Analytics oraz usługi Azure Storage. Ponieważ artykuły dotyczące zalecanych praktyk dla innych usług platformy Azure stają się dostępne, linki zostaną podane na poniższej liście:
+W tym artykule koncentrujemy się na zaletach zabezpieczeń wdrożenia usługi Azure PaaS i najlepszych rozwiązaniach dotyczących zabezpieczeń dla aplikacji w chmurze. Następnie zapoznaj się z zalecanymi rozwiązaniami dotyczącymi zabezpieczania rozwiązań sieci Web i urządzeń przenośnych PaaS przy użyciu określonych usług platformy Azure. Zaczniemy od Azure App Service, Azure SQL Database i Azure Synapse Analytics, Azure Storage i Azure Cloud Services. Ponieważ artykuły dotyczące zalecanych praktyk dla innych usług platformy Azure stają się dostępne, linki zostaną podane na poniższej liście:
 
 - [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database i analiza Synapse Azure](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
+- [usług Azure Cloud Services](../../cloud-services/security-baseline.md)
 - Azure Cache for Redis
 - Usługa Azure Service Bus
 - Zapory aplikacji sieci Web
@@ -165,5 +163,6 @@ Zapoznaj się z tematem [opracowywanie bezpiecznych aplikacji na platformie Azur
 Zobacz [najlepsze rozwiązania i wzorce dotyczące zabezpieczeń platformy Azure](best-practices-and-patterns.md) , aby uzyskać więcej najlepszych rozwiązań w zakresie zabezpieczeń, które są używane podczas projektowania i wdrażania rozwiązań w chmurze oraz zarządzania nimi przy użyciu platformy Azure.
 
 Dostępne są następujące zasoby umożliwiające dostarczenie bardziej ogólnych informacji na temat zabezpieczeń platformy Azure i powiązanych usług firmy Microsoft:
-* [Blog zespołu ds. zabezpieczeń platformy Azure](/archive/blogs/azuresecurity/) — na bieżąco z najnowszymi informacjami na temat zabezpieczeń platformy Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mail secure@microsoft.com
+
+- [Blog zespołu ds. zabezpieczeń platformy Azure](/archive/blogs/azuresecurity/) — na bieżąco z najnowszymi informacjami na temat zabezpieczeń platformy Azure
+- [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mail secure@microsoft.com

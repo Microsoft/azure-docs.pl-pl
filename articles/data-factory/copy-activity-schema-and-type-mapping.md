@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68d90fa56d5dce902a44a32b322e582a81e419d5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392786"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011643"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,7 +22,7 @@ W tym artykule opisano sposób, w jaki działanie Copy Azure Data Factory wykonu
 
 ### <a name="default-mapping"></a>Mapowanie domyślne
 
-Domyślnie działanie Copy mapuje dane źródłowe na ujścia **według nazw kolumn** w sposób uwzględniający wielkość liter. Jeśli ujścia nie istnieje, na przykład zapisu do plików, nazwy pól źródłowych zostaną utrwalone jako nazwy ujścia. Takie mapowanie domyślne obsługuje elastyczne schematy i dryf ze źródła, aby ujścia od wykonania do wykonania — wszystkie dane zwrócone przez magazyn danych źródłowych można skopiować do ujścia.
+Domyślnie działanie Copy mapuje dane źródłowe na ujścia **według nazw kolumn** w sposób uwzględniający wielkość liter. Jeśli ujścia nie istnieje, na przykład zapisu do plików, nazwy pól źródłowych zostaną utrwalone jako nazwy ujścia. Jeśli ujścia już istnieje, musi zawierać wszystkie kolumny kopiowane ze źródła. Takie mapowanie domyślne obsługuje elastyczne schematy i dryf ze źródła, aby ujścia od wykonania do wykonania — wszystkie dane zwrócone przez magazyn danych źródłowych można skopiować do ujścia.
 
 Jeśli źródło jest plikiem tekstowym bez wiersza nagłówka, wymagane jest [jawne mapowanie](#explicit-mapping) , ponieważ źródło nie zawiera nazw kolumn.
 

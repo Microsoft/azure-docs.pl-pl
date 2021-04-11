@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
-ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56da006dc5a0eef46d5b13984983ca680359b968
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87846041"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168097"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Rozwiązywanie problemów z błędami języka Python w usłudze Azure Functions
 
@@ -19,6 +19,8 @@ Poniżej znajduje się lista przewodników rozwiązywania problemów dotyczącyc
 
 * [ModuleNotFoundError i ImportError](#troubleshoot-modulenotfounderror)
 * [Nie można zaimportować "cygrpc"](#troubleshoot-cannot-import-cygrpc)
+* [Język Python zakończył pracę z kodem 137](#troubleshoot-python-exited-with-code-137)
+* [Język Python zakończył pracę z kodem 139](#troubleshoot-python-exited-with-code-139)
 
 ## <a name="troubleshoot-modulenotfounderror"></a>Rozwiązywanie problemów z ModuleNotFoundError
 
@@ -26,22 +28,22 @@ Ta sekcja ułatwia rozwiązywanie problemów związanych z modułami w aplikacji
 
 > `Exception: ModuleNotFoundError: No module named 'module_name'.`
 
-Ten problem występuje, gdy aplikacja funkcji języka Python nie może załadować modułu języka Python. Główną przyczyną tego błędu jest jeden z następujących problemów:
+Ten błąd występuje, gdy aplikacja funkcji języka Python nie może załadować modułu języka Python. Główną przyczyną tego błędu jest jeden z następujących problemów:
 
-- [Nie można znaleźć pakietu](#the-package-cant-be-found)
-- [Pakiet nie jest rozpoznawany przy użyciu prawidłowego kółka systemu Linux](#the-package-isnt-resolved-with-proper-linux-wheel)
-- [Pakiet jest niezgodny z wersją interpretera języka Python](#the-package-is-incompatible-with-the-python-interpreter-version)
-- [Pakiet jest w konflikcie z innymi pakietami](#the-package-conflicts-with-other-packages)
-- [Pakiet obsługuje tylko platformy Windows lub macOS](#the-package-only-supports-windows-or-macos-platforms)
+* [Nie można znaleźć pakietu](#the-package-cant-be-found)
+* [Pakiet nie jest rozpoznawany przy użyciu prawidłowego kółka systemu Linux](#the-package-isnt-resolved-with-proper-linux-wheel)
+* [Pakiet jest niezgodny z wersją interpretera języka Python](#the-package-is-incompatible-with-the-python-interpreter-version)
+* [Pakiet jest w konflikcie z innymi pakietami](#the-package-conflicts-with-other-packages)
+* [Pakiet obsługuje tylko platformy Windows lub macOS](#the-package-only-supports-windows-or-macos-platforms)
 
 ### <a name="view-project-files"></a>Wyświetlanie plików projektu
 
 Aby zidentyfikować rzeczywistą przyczynę problemu, należy uzyskać pliki projektu w języku Python, które są uruchamiane w aplikacji funkcji. Jeśli nie masz plików projektu na komputerze lokalnym, możesz je uzyskać w jeden z następujących sposobów:
 
-- Jeśli aplikacja funkcji ma `WEBSITE_RUN_FROM_PACKAGE` ustawienie aplikacji i jej wartość jest adresem URL, Pobierz plik przez skopiowanie i wklejenie adresu URL do przeglądarki.
-- Jeśli aplikacja funkcji ma `WEBSITE_RUN_FROM_PACKAGE` i jest ustawiona na `1` , przejdź do `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` pliku i Pobierz go z najnowszego `href` adresu URL.
-- Jeśli aplikacja funkcji nie ma wymienionego powyżej ustawienia aplikacji, przejdź do `https://<app-name>.scm.azurewebsites.net/api/settings` adresu URL i Znajdź go `SCM_RUN_FROM_PACKAGE` . Pobierz plik przez skopiowanie i wklejenie adresu URL do przeglądarki.
-- Jeśli żadna z tych elementów nie działa, przejdź do lokalizacji `https://<app-name>.scm.azurewebsites.net/DebugConsole` i odkryj jej zawartość `/home/site/wwwroot` .
+* Jeśli aplikacja funkcji ma `WEBSITE_RUN_FROM_PACKAGE` ustawienie aplikacji i jej wartość jest adresem URL, Pobierz plik przez skopiowanie i wklejenie adresu URL do przeglądarki.
+* Jeśli aplikacja funkcji ma `WEBSITE_RUN_FROM_PACKAGE` i jest ustawiona na `1` , przejdź do `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` pliku i Pobierz go z najnowszego `href` adresu URL.
+* Jeśli aplikacja funkcji nie ma wymienionego powyżej ustawienia aplikacji, przejdź do `https://<app-name>.scm.azurewebsites.net/api/settings` adresu URL i Znajdź go `SCM_RUN_FROM_PACKAGE` . Pobierz plik przez skopiowanie i wklejenie adresu URL do przeglądarki.
+* Jeśli żadna z tych elementów nie działa, przejdź do lokalizacji `https://<app-name>.scm.azurewebsites.net/DebugConsole` i odkryj jej zawartość `/home/site/wwwroot` .
 
 Pozostała część tego artykułu pomaga rozwiązać potencjalne przyczyny tego błędu przez sprawdzenie zawartości aplikacji funkcji, zidentyfikowanie głównej przyczyny i rozwiązanie określonego problemu.
 
@@ -177,6 +179,42 @@ Proces roboczy Azure Functions Python obsługuje tylko Języki Python 3,6, 3,7 i
 Sprawdź, czy interpreter języka Python jest zgodny z naszą oczekiwaną wersją `py --version` w systemie Windows lub `python3 --version` w systemach opartych na systemie UNIX. Upewnij się, że zwracany wynik to Python 3.6. x, Python 3.7. x lub Python 3.8. x.
 
 Jeśli Twoja wersja interpretera języka Python nie spełnia oczekiwań, Pobierz interpreter Python 3,6, 3,7 lub 3,8 z platformy [Python Software Foundation](https://python.org/downloads/release).
+
+---
+
+## <a name="troubleshoot-python-exited-with-code-137"></a>Rozwiązywanie problemów z językiem Python zakończone z kodem 137
+
+Błędy kodu 137 są zwykle przyczyną problemów braku pamięci w aplikacji funkcji języka Python. W związku z tym otrzymujesz następujący komunikat o błędzie Azure Functions:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 137`
+
+Ten błąd występuje, gdy aplikacja funkcji języka Python jest zmuszona do zakończenia przez system operacyjny z sygnałem SIGKILL. Ten sygnał zwykle wskazuje na błąd braku pamięci w procesie języka Python. Platforma Azure Functions ma [ograniczenie usługi](functions-scale.md#service-limits) , które spowoduje zakończenie wszystkich aplikacji funkcji, które przekroczyły ten limit.
+
+Zapoznaj się z sekcją samouczka w temacie [Profilowanie pamięci w funkcjach języka Python](python-memory-profiler-reference.md#memory-profiling-process) , aby analizować wąskie gardła pamięci w aplikacji funkcji.
+
+---
+
+## <a name="troubleshoot-python-exited-with-code-139"></a>Rozwiązywanie problemów z językiem Python zakończone z kodem 139
+
+Ta sekcja ułatwia rozwiązywanie problemów z błędami segmentacji w aplikacji funkcji języka Python. Te błędy zwykle powodują następujący komunikat o błędzie Azure Functions:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
+
+Ten błąd występuje, gdy aplikacja funkcji języka Python jest zmuszona do zakończenia przez system operacyjny z sygnałem SIGSEGV. Ten sygnał wskazuje na naruszenie segmentu pamięci, który może być spowodowany nieoczekiwanym odczytem lub zapisem w chronionym regionie pamięci. W poniższych sekcjach przedstawiono listę typowych przyczyn głównych.
+
+### <a name="a-regression-from-third-party-packages"></a>Regresja z pakietów innych firm
+
+W requirements.txt aplikacji funkcji przypięty pakiet zostanie uaktualniony do najnowszej wersji we wszystkich Azure Functions wdrożeniach. Dostawcy tych pakietów mogą wprowadzać regresje w najnowszej wersji. Aby rozwiązać ten problem, spróbuj dodać komentarz do instrukcji importu, wyłączyć odwołania do pakietu lub przypinać pakiet do poprzedniej wersji w requirements.txt.
+
+### <a name="unpickling-from-a-malformed-pkl-file"></a>Cofnięcie wyboru z nieprawidłowo utworzonego pliku PKL
+
+Jeśli aplikacja funkcji korzysta z biblioteki Pickel języka Python do załadowania obiektu Python z pliku. PKL, istnieje możliwość, że. PKL zawiera źle sformułowany ciąg bajty lub nieprawidłowe odwołanie do adresu. Aby rozwiązać ten problem, spróbuj dodać komentarz do funkcji pakietu pickle. Load ().
+
+### <a name="pyodbc-connection-collision"></a>Kolizja połączeń moduł pyodbc
+
+Jeśli aplikacja funkcji korzysta ze popularnego sterownika bazy danych ODBC [moduł pyodbc](https://github.com/mkleehammer/pyodbc), możliwe jest, że wiele połączeń zostanie otwartych w ramach jednej aplikacji funkcji. Aby uniknąć tego problemu, użyj wzorca singleton i upewnij się, że w aplikacji funkcji jest używane tylko jedno połączenie moduł pyodbc.
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

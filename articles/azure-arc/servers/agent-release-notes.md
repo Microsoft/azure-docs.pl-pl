@@ -2,13 +2,13 @@
 title: Co nowego w agencie serwerów z włączonym usługą Azure Arc
 description: W tym artykule znajdują się informacje o wersji agenta usługi Azure ARC z obsługą serwerów. W przypadku wielu problemów podsumowujących istnieją linki do dalszych szczegółów.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: ecff23225f4d482cc1e9a4f7b7724c8ffe0a1d73
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470510"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109071"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Co nowego w agencie serwerów z włączonym usługą Azure Arc
 
@@ -24,9 +24,9 @@ Wersja 1,4
 
 ## <a name="new-feature"></a>Nowa funkcja
 
-- Dodano obsługę prywatnych punktów końcowych.
+- Dodano obsługę prywatnych punktów końcowych, która jest obecnie w ograniczonej wersji zapoznawczej.
 - Rozwinięta lista kodów zakończenia dla azcmagent.
-- Parametry konfiguracji agenta można teraz odczytać z pliku z parametrem--config.
+- Parametry konfiguracji agenta mogą teraz zostać odczytane z pliku z `--config` parametrem.
 
 ## <a name="fixed"></a>Stałe
 

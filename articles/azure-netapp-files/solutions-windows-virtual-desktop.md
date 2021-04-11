@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a765d689307b7f56e5100e75d9f7121e944cea14
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91932468"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168284"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Korzyści związane z używaniem usługi Azure NetApp Files w usłudze Windows Virtual Desktop 
 
@@ -29,7 +29,7 @@ Azure NetApp Files to wysoce wydajna usługa magazynu plików z platformy Azure.
 
 ## <a name="sample-blueprints"></a>Przykładowe plany
 
-Następujące przykładowe plany pokazują integrację pulpitu wirtualnego systemu Windows z Azure NetApp Files. W scenariuszu pulpitu w puli użytkownicy są kierowani do najlepszej dostępnej sesji (w [trybie szerokiej](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) w puli przy użyciu [maszyn wirtualnych wielosesyjnych](../virtual-desktop/windows-10-multisession-faq.md#what-is-windows-10-enterprise-multi-session). Z drugiej strony pulpity osobiste są zastrzeżone dla scenariuszy, w których każdy użytkownik ma własną maszynę wirtualną.
+Następujące przykładowe plany pokazują integrację pulpitu wirtualnego systemu Windows z Azure NetApp Files. W scenariuszu pulpitu w puli użytkownicy są kierowani do najlepszej dostępnej sesji (w [trybie szerokiej](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) w puli przy użyciu [maszyn wirtualnych wielosesyjnych](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). Z drugiej strony pulpity osobiste są zastrzeżone dla scenariuszy, w których każdy użytkownik ma własną maszynę wirtualną.
 
 ### <a name="pooled-desktop-scenario"></a>Scenariusz związany z pulpitem w puli
 

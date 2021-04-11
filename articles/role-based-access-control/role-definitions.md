@@ -12,10 +12,10 @@ ms.date: 03/22/2021
 ms.author: rolyon
 ms.custom: ''
 ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801761"
 ---
 # <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 16a8aecae70d73399acb3878d7088e5086c053a1
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105110495"
 ---
 # <a name="iot-central-administrator-guide"></a>Podręcznik administratora IoT Central
@@ -76,7 +76,7 @@ Aby wyświetlić metryki, administrator może używać wykresów w Azure Portal,
 
 Aby dowiedzieć się więcej, zobacz [monitorowanie ogólnej kondycji aplikacji IoT Central](howto-monitor-application-health.md).
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 Wiele narzędzi używanych jako administrator jest dostępnych w sekcji **Administracja** każdej IoT Central aplikacji. Do wykonania niektórych zadań administracyjnych można także użyć następujących narzędzi:
 

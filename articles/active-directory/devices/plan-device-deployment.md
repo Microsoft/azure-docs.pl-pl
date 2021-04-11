@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faa18b619c785ad23e1da037621597684b1c5c63
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936451"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551785"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -54,7 +54,7 @@ Najważniejsze zalety nadawania urządzeniom tożsamości usługi Azure AD:
 
 Wideo:  [dostęp warunkowy z kontrolkami urządzeń](https://youtu.be/NcONUf-jeS4)
 
-Często zadawane pytania: NZP i [Ustawienia](enterprise-state-roaming-faqs.md) [usługi Azure AD Device Management](faq.md) 
+Często zadawane pytania: NZP i [Ustawienia](enterprise-state-roaming-faqs.md) [usługi Azure AD Device Management](faq.yml) 
 
 ## <a name="plan-the-deployment-project"></a>Planowanie projektu wdrożenia
 
@@ -239,9 +239,9 @@ Przejrzyj obsługiwane i nieobsługiwane platformy dla urządzeń zintegrowanych
 
 | Narzędzia do zarządzania urządzeniami| Zarejestrowane w usłudze Azure AD| Dołączenie do usługi Azure AD| Dołączenie hybrydowe do usługi Azure AD|
 | - | - | - | - |
-| [Zarządzanie urządzeniami przenośnymi (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Przykład: Microsoft Intune| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|  |
-| [Zarządzanie przy użyciu Microsoft Intune i Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(System Windows 10 i nowsze)| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|  |
-| [Zasady grupy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Tylko system Windows)| | | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|  |
+| [Zarządzanie urządzeniami przenośnymi (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Przykład: Microsoft Intune| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| 
+| [Zarządzanie przy użyciu Microsoft Intune i Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(System Windows 10 i nowsze)| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| 
+| [Zasady grupy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Tylko system Windows)| | | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| 
 
 
 

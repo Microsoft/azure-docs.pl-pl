@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
 ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801897"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Zasady API Management do weryfikowania żądań i odpowiedzi

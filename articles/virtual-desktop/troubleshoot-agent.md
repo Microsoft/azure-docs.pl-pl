@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604189"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168216"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Rozwiązywanie typowych problemów z agentem pulpitu wirtualnego systemu Windows
 
@@ -106,7 +106,7 @@ Aby rozwiązać ten problem, sprawdź, czy można nawiązać połączenie z Brok
    > ![Zrzut ekranu przedstawiający niepowodzenie załadowanego dostępu globalnego brokera](media/unsuccessful-broker-global.png)
 
 8. Jeśli sieć blokuje te adresy URL, konieczne będzie odblokowanie wymaganych adresów URL. Aby uzyskać więcej informacji, zobacz [Lista wymaganych adresów URL](safe-url-list.md).
-9. Jeśli to nie rozwiąże problemu, upewnij się, że nie masz żadnych zasad grupy z szyframi, które blokują połączenie z brokerem. Pulpit wirtualny systemu Windows używa tych samych szyfrów TLS 1,2 co [drzwi platformy Azure](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Aby uzyskać więcej informacji, zobacz [zabezpieczenia połączeń](network-connectivity.md#connection-security).
+9. Jeśli to nie rozwiąże problemu, upewnij się, że nie masz żadnych zasad grupy z szyframi, które blokują połączenie z brokerem. Pulpit wirtualny systemu Windows używa tych samych szyfrów TLS 1,2 co [drzwi platformy Azure](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Aby uzyskać więcej informacji, zobacz [zabezpieczenia połączeń](network-connectivity.md#connection-security).
 
 ## <a name="error-3703"></a>Błąd: 3703
 
