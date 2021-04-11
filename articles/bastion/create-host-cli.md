@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8654b557de8242910c665596ca8bfd29fe86d1ff
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92079126"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106578822"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Tworzenie hosta usługi Azure Bastion przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,6 +25,10 @@ Opcjonalnie można utworzyć hosta usługi Azure bastionu przy użyciu [Azure Po
 Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 
 [!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
+
+ >[!NOTE]
+ >Korzystanie z usługi Azure bastionu z strefami Prywatna strefa DNS platformy Azure nie jest w tej chwili obsługiwane. Przed rozpoczęciem upewnij się, że sieć wirtualna, w której planujesz wdrożyć zasób bastionu, nie jest połączona z prywatną strefą DNS.
+ >
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Tworzenie hosta bastionu
 

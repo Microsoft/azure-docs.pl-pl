@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/12/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q3
-ms.openlocfilehash: c3f21471e486f88daf8d79b74633c076d27ac8e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9021c3f70c9fc053998d1b31271a1ca3b0124b4d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557585"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169542"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Jak używać obszaru roboczego z niestandardowym serwerem DNS
 
-W przypadku korzystania z obszaru roboczego Azure Machine Learning z prywatnym punktem końcowym istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../private-link/private-endpoint-dns.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jeśli zamiast tego _używasz własnego niestandardowego serwera DNS_ _, musisz ręcznie utworzyć wpisy DNS lub użyć usług przesyłania dalej warunkowego dla obszaru roboczego.
+W przypadku korzystania z obszaru roboczego Azure Machine Learning z prywatnym punktem końcowym istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../private-link/private-endpoint-dns.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jeśli zamiast tego __używasz własnego niestandardowego serwera DNS__, musisz ręcznie utworzyć wpisy DNS lub użyć usług przesyłania dalej warunkowego dla obszaru roboczego.
 
 > [!IMPORTANT]
 > W tym artykule opisano, jak znaleźć w pełni kwalifikowaną nazwę domeny (FQDN) i adresy IP dla tych wpisów, które nie zawierają informacji na temat konfigurowania rekordów DNS dla tych elementów. Zapoznaj się z dokumentacją oprogramowania DNS, aby uzyskać informacje na temat dodawania rekordów.
@@ -46,11 +46,12 @@ Poniższa lista zawiera w pełni kwalifikowane nazwy domen (FQDN) używane przez
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > Nazwa obszaru roboczego dla tej nazwy FQDN może zostać obcięta. Obcinanie jest wykonywane w celu zachowania nazwy FQDN mniejszej lub równej 63 znaków.
+    > Nazwa obszaru roboczego dla tej nazwy FQDN może zostać obcięta. Obcinanie jest wykonywane, aby zachować `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 znaków.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
-    > Wystąpienia obliczeniowe są dostępne tylko w sieci wirtualnej.
+    > * Wystąpienia obliczeniowe są dostępne tylko w sieci wirtualnej.
+    > * Adres IP dla tej nazwy FQDN **nie** jest adresem IP wystąpienia obliczeniowego. Zamiast tego należy użyć prywatnego adresu IP prywatnego punktu końcowego obszaru roboczego (adres IP `*.api.azureml.ms` wpisów).
 
 ## <a name="azure-china-21vianet-regions"></a>Regiony 21Vianet platformy Azure w Chinach
 
@@ -61,7 +62,7 @@ Następujące nazwy FQDN są przeznaczone dla regionów firmy 21Vianet z Chin:
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > Nazwa obszaru roboczego dla tej nazwy FQDN może zostać obcięta. Obcinanie jest wykonywane w celu zachowania nazwy FQDN mniejszej lub równej 63 znaków.
+    > Nazwa obszaru roboczego dla tej nazwy FQDN może zostać obcięta. Obcinanie jest wykonywane, aby zachować `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 znaków.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Znajdowanie adresów IP
 
@@ -108,7 +109,7 @@ Informacje zwracane przez wszystkie metody są takie same; Lista nazw FQDN i pry
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Jeśli masz wystąpienie obliczeniowe, użyj `<instance-name>.<region>.instances.azureml.ms` , gdzie `<instance-name>` jest nazwą wystąpienia obliczeniowego. Użyj prywatnego adresu IP prywatnego punktu końcowego obszaru roboczego. Uwaga do wystąpienia obliczeniowego można uzyskać dostęp tylko z poziomu sieci wirtualnej.
+> * Jeśli masz wystąpienie obliczeniowe, użyj `<instance-name>.<region>.instances.azureml.ms` , gdzie `<instance-name>` jest nazwą wystąpienia obliczeniowego. Użyj prywatnego adresu IP prywatnego punktu końcowego obszaru roboczego. Do wystąpienia obliczeniowego można uzyskać dostęp tylko z poziomu sieci wirtualnej.
 >
 > Dla wszystkich tych adresów IP Użyj tego samego adresu jako `*.api.azureml.ms` wpisów zwróconych z poprzednich kroków.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1035f43642f3884e7cc0f6ab47e9c9afd1f29170
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 97718fef0aecd07dd364677ce1b72eb5bba78475
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107516"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384276"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -78,15 +78,35 @@ Aby utworzyć relację zaufania między aplikacją i Azure AD B2C, obie usługi 
 
 | Użycie | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Podpisywanie odpowiedzi SAML | Tak | Certyfikat z kluczem prywatnym przechowywanym w Azure AD B2C. Ten certyfikat jest używany przez Azure AD B2C do podpisania odpowiedzi SAML wysyłanej do aplikacji. Aplikacja odczytuje klucz publiczny metadanych Azure AD B2C, aby zweryfikować podpis odpowiedzi SAML. |
+| Podpisywanie odpowiedzi SAML | Tak  | Certyfikat z kluczem prywatnym przechowywanym w Azure AD B2C. Ten certyfikat jest używany przez Azure AD B2C do podpisania odpowiedzi SAML wysyłanej do aplikacji. Aplikacja odczytuje klucz publiczny metadanych Azure AD B2C, aby zweryfikować podpis odpowiedzi SAML. |
+| Podpisywanie potwierdzenia SAML | Tak | Certyfikat z kluczem prywatnym przechowywanym w Azure AD B2C. Ten certyfikat jest używany przez Azure AD B2C do podpisywania potwierdzenia odpowiedzi SAML. `<saml:Assertion>`Część odpowiedzi SAML.  |
 
 W środowisku produkcyjnym zalecamy używanie certyfikatów wystawionych przez publiczny urząd certyfikacji. Można jednak również wykonać tę procedurę przy użyciu certyfikatów z podpisem własnym.
 
-### <a name="prepare-a-self-signed-certificate-for-saml-response-signing"></a>Przygotuj certyfikat z podpisem własnym dla podpisywania odpowiedzi SAML
+### <a name="create-a-policy-key"></a>Tworzenie klucza zasad
 
-Należy utworzyć certyfikat podpisywania odpowiedzi SAML, aby aplikacja mogła ufać potwierdzeniu z Azure AD B2C.
+Aby mieć relację zaufania między aplikacją i Azure AD B2C, Utwórz certyfikat podpisywania odpowiedzi SAML. Azure AD B2C używa tego certyfikatu do podpisania odpowiedzi SAML wysyłanej do aplikacji. Aplikacja odczytuje klucz publiczny metadanych Azure AD B2C, aby zweryfikować podpis odpowiedzi SAML. 
+
+> [!TIP]
+> Do innych celów, takich jak logowanie [potwierdzenie SAML](saml-service-provider-options.md#saml-assertions-signature), można użyć klucza zasad utworzonego w tej sekcji. 
+
+### <a name="obtain-a-certificate"></a>Uzyskaj certyfikat
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
+
+### <a name="upload-the-certificate"></a>Przekazywanie certyfikatu
+
+Musisz przechowywać certyfikat w dzierżawie Azure AD B2C.
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog, w którym znajduje się Twoja dzierżawa.
+1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
+1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
+1. W obszarze **Opcje** wybierz opcję `Upload` .
+1. Wprowadź **nazwę** klucza zasad. Na przykład `SamlIdpCert`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
+1. Przejdź do pliku certyfikatu PFX z kluczem prywatnym i wybierz go.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="enable-your-policy-to-connect-with-a-saml-application"></a>Włączanie połączenia z aplikacją SAML przy użyciu zasad
 
@@ -111,6 +131,7 @@ Znajdź `<ClaimsProviders>` sekcję i Dodaj następujący fragment kodu XML, aby
       </Metadata>
       <CryptographicKeys>
         <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
+        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
@@ -147,51 +168,6 @@ Można zmienić wartość `IssuerUri` elementu metadanych w profilu technicznym 
     </TechnicalProfile>
 ```
 
-#### <a name="sign-the-azure-ad-b2c-idp-saml-metadata-optional"></a>Podpisywanie metadanych SAML Azure AD B2C dostawcy tożsamości (opcjonalnie)
-
-Możesz wydać Azure AD B2C, aby podpisać swój dokument metadanych SAML dostawcy tożsamości, jeśli jest to wymagane przez aplikację. W tym celu należy wygenerować i przekazać klucz zasad podpisywania metadanych SAML dostawcy tożsamości, jak pokazano w temacie [przygotowanie certyfikatu z podpisem własnym na potrzeby podpisywania odpowiedzi SAML](#prepare-a-self-signed-certificate-for-saml-response-signing). Następnie skonfiguruj `MetadataSigning` element metadanych w profilu technicznym wystawcy tokenów SAML. `StorageReferenceId`Musi odwoływać się do nazwy klucza zasad.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlMetadataCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
-
-#### <a name="sign-the-azure-ad-b2c-idp-saml-response-element-optional"></a>Podpisywanie Azure AD B2C dostawcy tożsamości element odpowiedzi SAML (opcjonalnie)
-
-Możesz określić certyfikat, który ma być używany do podpisywania komunikatów SAML. Komunikat jest `<samlp:Response>` elementem w odpowiedzi SAML wysyłanym do aplikacji.
-
-Aby określić certyfikat, wygeneruj i przekaż klucz zasad, jak pokazano w temacie [przygotowanie certyfikatu z podpisem własnym dla podpisywania odpowiedzi SAML](#prepare-a-self-signed-certificate-for-saml-response-signing). Następnie skonfiguruj `SamlMessageSigning` element metadanych w profilu technicznym wystawcy tokenów SAML. `StorageReferenceId`Musi odwoływać się do nazwy klucza zasad.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
 ## <a name="configure-your-policy-to-issue-a-saml-response"></a>Konfigurowanie zasad w celu wystawiania odpowiedzi SAML
 
 Teraz, gdy zasady mogą tworzyć odpowiedzi SAML, należy skonfigurować zasady w celu wydawania odpowiedzi SAML zamiast domyślnej odpowiedzi JWT do aplikacji.

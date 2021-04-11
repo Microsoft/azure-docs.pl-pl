@@ -1,23 +1,18 @@
 ---
-title: Zabezpieczenia kontenera w Azure Security Center | Microsoft Docs
-description: Dowiedz się więcej o funkcjach zabezpieczeń kontenerów Azure Security Center.
-services: security-center
-documentationcenter: na
+title: Zabezpieczanie kontenerów za pomocą Azure Security Center i usługi Azure Defender
+description: Informacje o funkcjach zabezpieczeń kontenera Azure Security Center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/07/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 3b5204f1d390388c2dc9a10ac2ca0234f6b0499b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9fddb27ee6a1139fa8b07c6c19dd4fdf1a20096e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101345"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029146"
 ---
 # <a name="container-security-in-security-center"></a>Zabezpieczenia kontenerów w usłudze Security Center
 
@@ -27,9 +22,9 @@ Security Center może chronić następujące typy zasobów kontenera:
 
 | Typ zasobu | Zabezpieczenia oferowane przez Security Center |
 |:--------------------:|-----------|
-| ![Usługa Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Klastry usługi Azure Kubernetes Service (AKS)** | — Ciągła Ocena konfiguracji klastrów AKS w celu zapewnienia wglądu w błędy konfiguracji oraz wskazówek ułatwiających rozwiązywanie problemów.<br>[Dowiedz się więcej o ograniczaniu funkcjonalności środowiska poprzez zalecenia dotyczące zabezpieczeń](#environment-hardening).<br><br>-Ochrona przed zagrożeniami dla klastrów AKS i węzłów systemu Linux. Alerty dotyczące podejrzanych działań są udostępniane przez opcjonalną  [usługę Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md).<br>[Dowiedz się więcej o ochronie w czasie wykonywania dla węzłów i klastrów AKS](#run-time-protection-for-aks-nodes-and-clusters).|
-| ![Host kontenerów](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Hosty kontenerów**<br>(Maszyny wirtualne z systemem Docker) | — Ciągła Ocena konfiguracji platformy Docker w celu zapewnienia wglądu w błędy konfiguracji oraz wskazówki pomagające w rozwiązaniu wszystkich odnalezionych problemów z opcjonalną  [usługą Azure Defender dla serwerów](defender-for-servers-introduction.md).<br>[Dowiedz się więcej o ograniczaniu funkcjonalności środowiska poprzez zalecenia dotyczące zabezpieczeń](#environment-hardening).|
-| ![Rejestr kontenerów](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Rejestry Azure Container Registry (ACR)** | — Oceny luk w zabezpieczeniach i narzędziach do zarządzania dla obrazów w rejestrach ACR opartych na Azure Resource Manager z opcjonalnym [usługą Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md).<br>[Dowiedz się więcej o skanowaniu obrazów kontenerów pod kątem luk w zabezpieczeniach](#vulnerability-management---scanning-container-images). |
+| ![Usługa Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Klastry Kubernetes** | Ciągła ocena klastrów w celu zapewnienia wglądu w nieprzerwane konfiguracje i wskazówki, które ułatwiają ograniczenie zidentyfikowanych zagrożeń. Dowiedz się więcej o [ograniczaniu funkcjonalności środowiska poprzez zalecenia dotyczące zabezpieczeń](#environment-hardening).<br><br>Ochrona przed zagrożeniami dla klastrów i węzłów systemu Linux. Alerty dotyczące podejrzanych działań są udostępniane przez [usługę Azure Defender dla Kubernetes](defender-for-kubernetes-introduction.md). Ten plan usługi Azure Defender umożliwia obronę klastrów Kubernetes, niezależnie od tego, czy są one hostowane w usłudze Azure Kubernetes Service (AKS), lokalnie czy w innych dostawcach chmury. oparty. <br>Dowiedz się więcej o [ochronie w czasie wykonywania dla węzłów i klastrów Kubernetes](#run-time-protection-for-kubernetes-nodes-and-clusters).|
+| ![Host kontenerów](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Hosty kontenerów**<br>(Maszyny wirtualne z systemem Docker) | Ciągła ocena środowisk platformy Docker w celu zapewnienia wglądu w niezmienione konfiguracje i wskazówki, które ułatwiają ograniczanie zagrożeń zidentyfikowanych przez opcjonalną [usługę Azure Defender dla serwerów](defender-for-servers-introduction.md).<br>Dowiedz się więcej o [ograniczaniu funkcjonalności środowiska poprzez zalecenia dotyczące zabezpieczeń](#environment-hardening).|
+| ![Rejestr kontenerów](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Rejestry Azure Container Registry (ACR)** | Narzędzia do oceny luk w zabezpieczeniach i zarządzania nimi dla obrazów w rejestrach ACR opartych na Azure Resource Manager z opcjonalnym [usługą Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md).<br>Dowiedz się więcej o [skanowaniu obrazów kontenerów pod kątem luk w zabezpieczeniach](#vulnerability-management---scanning-container-images). |
 |||
 
 W tym artykule opisano, jak można użyć Security Center wraz z opcjonalnymi planami usługi Azure Defender dla rejestrów kontenerów, serwerów i Kubernetes, aby usprawnić, monitorować i obsługiwać zabezpieczenia kontenerów oraz ich aplikacji.
@@ -38,7 +33,7 @@ Dowiesz się, jak Security Center ułatwiają następujące podstawowe aspekty z
 
 - [Zarządzanie lukami w zabezpieczeniach — skanowanie obrazów kontenerów](#vulnerability-management---scanning-container-images)
 - [Ograniczanie funkcjonalności środowiska](#environment-hardening)
-- [Ochrona w czasie wykonywania dla węzłów i klastrów AKS](#run-time-protection-for-aks-nodes-and-clusters)
+- [Ochrona w czasie wykonywania dla węzłów i klastrów Kubernetes](#run-time-protection-for-kubernetes-nodes-and-clusters)
 
 Poniższy zrzut ekranu przedstawia stronę spisu zasobów i różne typy zasobów kontenera chronione przez Security Center.
 
@@ -103,7 +98,7 @@ Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powi
 Dowiedz się więcej w temacie [Ochrona obciążeń Kubernetes](kubernetes-workload-protections.md).
 
 
-## <a name="run-time-protection-for-aks-nodes-and-clusters"></a>Ochrona w czasie wykonywania dla węzłów i klastrów AKS
+## <a name="run-time-protection-for-kubernetes-nodes-and-clusters"></a>Ochrona w czasie wykonywania dla węzłów i klastrów Kubernetes
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 

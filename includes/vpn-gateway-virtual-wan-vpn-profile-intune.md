@@ -5,17 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 04/01/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c9568c51fe3a59dba83a66fc35c8d9112ade167f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101750046"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178351"
 ---
 Profile dla klientów sieci VPN platformy Azure (Windows 10) można wdrożyć przy użyciu Microsoft Intune. W tym artykule opisano tworzenie profilu usługi Intune przy użyciu ustawień niestandardowych.
+
+> [!NOTE]
+>* Ten artykuł dotyczy wdrażania profilów używających Azure Active Directory tylko do uwierzytelniania.
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

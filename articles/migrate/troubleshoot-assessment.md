@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ms.openlocfilehash: 78e54543c94cd6e8434023b61516242c2491f353
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863602"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
@@ -22,7 +22,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależn
 
 Rozwiąż problemy z gotowością do oceny w następujący sposób:
 
-**Wykonaj** | **Wprowadzanie poprawek**
+**Problem** | **Wprowadzanie poprawek**
 --- | ---
 Nieobsługiwany typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zalecamy przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Do obsługi migracji takich maszyn wirtualnych można użyć migracji serwera Azure Migrate. Spowoduje to przekonwertowanie typu rozruchowego maszyny wirtualnej na system BIOS podczas migracji.
 Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedłł datę końca okresu obsłudze i potrzebuje niestandardowej umowy pomocy technicznej (CSA) w celu uzyskania [pomocy technicznej na platformie Azure](/troubleshoot/azure/virtual-machines/server-software-support). Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie. Przejrzyj informacje na temat [przygotowywania serwerów z systemem Windows Server 2003](prepare-windows-server-2003-migration.md) do migracji na platformę Azure.

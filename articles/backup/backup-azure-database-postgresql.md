@@ -2,14 +2,14 @@
 title: Tworzenie kopii zapasowej usługi Azure Database for PostgreSQL
 description: Dowiedz się więcej o Azure Database for PostgreSQL kopii zapasowej z długoterminowym przechowywaniem (wersja zapoznawcza)
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5eba9d78dda45197c0d1e92195980f3d731734a8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737576"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011720"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL kopii zapasowej z długoterminowym przechowywaniem (wersja zapoznawcza)
 
@@ -135,10 +135,9 @@ Poniższe instrukcje to przewodnik krok po kroku dotyczący konfigurowania kopii
 
 1. Zdefiniuj ustawienia **przechowywania** . Można dodać co najmniej jedną regułę przechowywania. Każda reguła przechowywania przyjmuje dane wejściowe dla określonych kopii zapasowych oraz czas przechowywania i przechowywania danych dla tych kopii zapasowych.
 
-1. Możesz zapisywać kopie zapasowe w jednym z dwóch magazynów danych (lub warstw): **zapasowe magazyny danych** (warstwa standardowa) lub **Magazyn danych archiwalnych** (w wersji zapoznawczej). Można wybrać jedną z **dwóch opcji warstwowych** , aby zdefiniować, kiedy kopie zapasowe mają być warstwowe między dwoma magazynami danych:
+1. Możesz zapisywać kopie zapasowe w jednym z dwóch magazynów danych (lub warstw): **zapasowe magazyny danych** (warstwa standardowa) lub **Magazyn danych archiwalnych** (w wersji zapoznawczej).
 
-    - Wybierz opcję kopiowania **natychmiast** , jeśli wolisz utworzyć kopię zapasową zarówno dla magazynu danych kopii zapasowej, jak i archiwum.
-    - Wybierz przeniesienie **na wygaśnięcie** , jeśli wolisz przenieść kopię zapasową w celu zarchiwizowania magazynu danych w magazynie danych kopii zapasowej.
+   Możesz wybrać opcję **wygaśnięcia** , aby przenieść kopię zapasową do magazynu danych archiwalnego po jego wygaśnięciu w magazynie danych kopii zapasowej.
 
 1. **Domyślna reguła przechowywania** jest stosowana w przypadku braku innej reguły przechowywania i ma wartość domyślną trzy miesiące.
 
@@ -197,7 +196,21 @@ Postępuj zgodnie z tym przewodnikiem krok po kroku, aby wyzwolić przywracanie:
 
     ![Przywróć jako pliki](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. Jeśli punkt odzyskiwania znajduje się w warstwie archiwum, przed przystąpieniem do przywracania należy przywrócić punkt odzyskiwania.
+   
+   ![Ustawienia uzupełniania](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Podaj następujące dodatkowe parametry wymagane do oddania:
+   - **Priorytet** uzupełniania: Wartość domyślna to **standardowa**.
+   - **Czas trwania** ponownego wypełniania: Maksymalny czas trwania ponownego wypełniania wynosi 30 dni, a minimalny czas jego wypełniania wynosi 10 dni. Wartość domyślna to **15**.
+   
+   Punkt odzyskiwania jest przechowywany w **magazynie danych kopii zapasowej** dla określonego czasu trwania odzyskania.
+
+
 1. Przejrzyj informacje i wybierz pozycję **Przywróć**. Spowoduje to wyzwolenie odpowiedniego zadania przywracania, które może być śledzone w obszarze **zadania tworzenia kopii zapasowej**.
+
+>[!NOTE]
+>Obsługa Archiwum dla Azure Database for PostgreSQL jest w ograniczonej publicznej wersji zapoznawczej.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Wstępnie wymagane uprawnienia do konfigurowania kopii zapasowych i przywracania
 
@@ -220,7 +233,7 @@ Wybierz z listy reguły przechowywania zdefiniowane w ramach skojarzonych zasad 
 
 ### <a name="stop-protection"></a>Zatrzymywanie ochrony
 
-Można zatrzymać ochronę dla elementu kopii zapasowej. Spowoduje to również usunięcie skojarzonych punktów odzyskiwania dla tego elementu kopii zapasowej. Nie zapewniamy jeszcze opcji zatrzymania ochrony przy zachowaniu istniejących punktów odzyskiwania.
+Można zatrzymać ochronę dla elementu kopii zapasowej. Spowoduje to również usunięcie skojarzonych punktów odzyskiwania dla tego elementu kopii zapasowej. Jeśli punkty odzyskiwania nie znajdują się w warstwie archiwum przez co najmniej sześć miesięcy, Usunięcie tych punktów odzyskiwania spowoduje naliczenie opłaty za wczesne usunięcie. Nie zapewniamy jeszcze opcji zatrzymania ochrony przy zachowaniu istniejących punktów odzyskiwania.
 
 ![Zatrzymywanie ochrony](./media/backup-azure-database-postgresql/stop-protection.png)
 

@@ -5,15 +5,15 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616404"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058956"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN
 
@@ -172,15 +172,18 @@ Udziel usłudze Azure CDN uprawnień dostępu do certyfikatów (wpisów tajnych)
 
 3. W obszarze Typ zarządzania certyfikatami wybierz pozycję **Użyj własnego certyfikatu**. 
 
-    ![Konfigurowanie własnego certyfikatu](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania certyfikatu dla punktu końcowego usługi CDN.":::
 
-4. Wybierz magazyn kluczy, certyfikat (klucz tajny) i wersję certyfikatu.
+4. Wybierz magazyn kluczy, certyfikat/klucz tajny oraz wersję certyfikatu/wpisu tajnego.
 
     Usługa Azure CDN wyświetli następujące informacje: 
     - Konta magazynów kluczy dla Twojego identyfikatora subskrypcji. 
-    - Certyfikaty (klucze tajne) dla wybranego magazynu kluczy. 
-    - Dostępne wersje certyfikatów. 
+    - Certyfikaty/wpisy tajne w wybranym magazynie kluczy. 
+    - Dostępne wersje certyfikatu/wpisu tajnego.
  
+    > [!NOTE]
+    > Aby certyfikat został automatycznie obrócony do najnowszej wersji, gdy w Key Vault jest dostępna nowsza wersja certyfikatu, ustaw wartość Certificate/Secret na "Najnowsza". W przypadku wybrania określonej wersji należy ręcznie wybrać nową wersję do rotacji certyfikatu. Do wdrożenia nowej wersji certyfikatu/wpisu tajnego trwa 24 godziny. 
+   
 5. Wybierz pozycję **Wł.**, aby włączyć protokół HTTPS.
   
 6. W przypadku korzystania z certyfikatu Walidacja domeny nie jest wymagana. Kontynuuj [oczekiwanie na propagację](#wait-for-propagation).
@@ -234,7 +237,7 @@ DigiCert wysyła wiadomość e-mail weryfikacyjną na następujące adresy e-mai
 * **hostmaster@your-domain-name.com**  
 * **postmaster@your-domain-name.com**  
 
-Aby można było zatwierdzić żądanie, w ciągu kilku minut powinna zostać wysłana wiadomość e-mail. W przypadku korzystania z filtru spamu Dodaj verification@digicert.com do listy dozwolonych. Jeśli w ciągu 24 godzin nie otrzymasz wiadomości e-mail, skontaktuj się z działem pomocy technicznej firmy Microsoft.
+Aby można było zatwierdzić żądanie, w ciągu kilku minut powinna zostać wysłana wiadomość e-mail. W przypadku korzystania z filtru spamu Dodaj verification@digicert.com do jego dozwolonych. Jeśli w ciągu 24 godzin nie otrzymasz wiadomości e-mail, skontaktuj się z działem pomocy technicznej firmy Microsoft.
     
 ![Wiadomość e-mail dotycząca weryfikacji domeny](./media/cdn-custom-ssl/domain-validation-email.png)
 

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: d35535c87ca20bfc573995bf15f79bc149619776
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a94bdfd03d4e48495601b5c494204ac1ad50378
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611593"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168335"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Omówienie i używanie zestawów SDK usługi Azure IoT Hub
 
@@ -41,7 +41,7 @@ Poznaj [zalety programowania przy użyciu zestawów SDK usługi Azure IoT](https
 
 Obsługiwane platformy dla zestawów SDK można znaleźć w temacie [Obsługa Platform SDK usługi Azure IoT](iot-hub-device-sdk-platform-support.md).
 
-Aby uzyskać więcej informacji na temat zgodności zestawu SDK z określonymi urządzeniami sprzętowymi, zobacz [katalog urządzeń certyfikatu platformy Azure dla IoT](https://catalog.azureiotsolutions.com/) lub pojedyncze repozytorium.
+Aby uzyskać więcej informacji na temat zgodności zestawu SDK z określonymi urządzeniami sprzętowymi, zobacz [katalog urządzeń certyfikatu platformy Azure dla IoT](https://devicecatalog.azure.com/) lub pojedyncze repozytorium.
 
 ## <a name="azure-iot-hub-device-sdks"></a>Zestawy SDK urządzeń IoT Hub platformy Azure
 

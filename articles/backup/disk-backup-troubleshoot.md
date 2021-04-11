@@ -4,10 +4,10 @@ description: Informacje o rozwiązywaniu problemów z błędami kopii zapasowych
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105107248"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Rozwiązywanie problemów z błędami kopii zapasowych na dysku Azure

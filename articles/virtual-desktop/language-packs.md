@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc7892db2ca11ab7970835f8979360961ee01104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bac5ef9805dba5f06befeae3049566cb0483306
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463344"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169559"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Dodawanie pakietów językowych do obrazu wielosesyjnego systemu Windows 10
 
@@ -265,4 +265,4 @@ Gdy użytkownik zmieni ustawienia języka, musi wylogować się z sesji pulpitu 
 
 Jeśli chcesz wiedzieć o znanych problemach dotyczących pakietów językowych, zobacz [Dodawanie pakietów językowych w systemie Windows 10, wersja 1803 i nowsze wersje: znane problemy](/windows-hardware/manufacture/desktop/language-packs-known-issue).
 
-Jeśli masz jakieś pytania dotyczące wielu sesji systemu Windows 10 Enterprise, zapoznaj się z naszymi [często zadawanymi pytaniami](windows-10-multisession-faq.md).
+Jeśli masz jakieś pytania dotyczące wielu sesji systemu Windows 10 Enterprise, zapoznaj się z naszymi [często zadawanymi pytaniami](windows-10-multisession-faq.yml).

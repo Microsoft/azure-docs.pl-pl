@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dfddc024255d90e8a89f49454e42eb5e94df083a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51a9635d42b07eb27b05312d292ca890c7963b4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579981"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028234"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -221,7 +221,7 @@ Dodaj element **BuildingBlocks** w górnej części pliku *TrustFrameworkExtensi
 ## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
 
 1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
-1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](tutorial-register-applications.md)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz przycisk **Uruchom teraz** .
 1. Na stronie rejestracji lub logowania wybierz pozycję **LinkedIn** , aby zalogować się przy użyciu konta usługi LinkedIn.
 

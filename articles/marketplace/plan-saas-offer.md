@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627062"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552159"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
-W tym artykule opisano różne opcje i wymagania dotyczące publikowania oprogramowania jako usługi (SaaS) w portalu komercyjnym firmy Microsoft. Oferty SaaS umożliwiają dostarczanie klientom i Licencjonowanie rozwiązań programowych za pośrednictwem subskrypcji online. Jako wydawca SaaS możesz zarządzać infrastrukturą wymaganą do obsługi Twojej oferty przez klientów i korzystać z niej. Ten artykuł pomoże Ci w przygotowaniu oferty publikowania na rynku komercyjnym z centrum partnerskim.
+W tym artykule opisano różne opcje i wymagania dotyczące publikowania oprogramowania jako usługi (SaaS) w portalu komercyjnym firmy Microsoft. SaaS oferują możliwość dostarczania klientom i licencjonowania rozwiązań programowych za pośrednictwem subskrypcji online. Jako wydawca SaaS możesz zarządzać infrastrukturą wymaganą do obsługi Twojej oferty przez klientów i korzystać z niej. Ten artykuł pomoże Ci w przygotowaniu oferty publikowania na rynku komercyjnym z centrum partnerskim.
 
 ## <a name="listing-options"></a>Opcje ofert
 
@@ -134,6 +134,28 @@ Jeśli zdecydujesz się na korzystanie z kontraktu standardowego, możesz dodać
 > [!NOTE]
 > Po opublikowaniu oferty przy użyciu standardowej umowy dotyczącej komercyjnej witryny Marketplace nie można użyć własnych niestandardowych warunków i postanowień. Jest to scenariusz "lub". Możesz zaoferować swoje rozwiązanie w ramach standardowej umowy lub własnych warunków i postanowień. Jeśli chcesz zmodyfikować warunki kontraktu standardowego, możesz to zrobić za pomocą standardowych poprawek kontraktu.
 
+
+## <a name="microsoft-365-integration"></a>Integracja z platformą Microsoft 365
+
+Dzięki integracji z usługą Microsoft 365 oferta SaaS umożliwia udostępnianie połączonego środowiska w wielu Microsoft 365ych stronach aplikacji za pomocą powiązanych bezpłatnych dodatków, takich jak aplikacje zespołów, Dodatki pakietu Office i rozwiązania programu SharePoint Framework. Możesz pomóc klientom w łatwym wykrywaniu wszystkich aspektów rozwiązania E2E (usługi sieci Web + powiązane dodatki) i wdrażać je w ramach jednego procesu, dostarczając poniższe informacje. 
+  - Jeśli oferta SaaS jest zintegrowana z usługą Microsoft Graph, podaj identyfikator aplikacji Azure Active Directory (AAD) używany przez ofertę SaaS do integracji. Administratorzy mogą przeglądać uprawnienia dostępu wymagane do prawidłowego działania oferty SaaS zgodnie z ustawieniem w IDENTYFIKATORze aplikacji usługi AAD i udzielać dostępu, jeśli podczas wdrażania wymagane jest zaawansowane uprawnienie administratora. 
+    
+     Jeśli wybierzesz opcję sprzedaży oferty przez firmę Microsoft, jest to ten sam identyfikator aplikacji usługi AAD, który został zarejestrowany do użycia na stronie docelowej, aby uzyskać podstawowe informacje o użytkowniku potrzebne do ukończenia aktywacji subskrypcji klienta. Aby uzyskać szczegółowe wskazówki, zobacz [Tworzenie strony docelowej dla oferowanej przez Ciebie oferty SaaS w komercyjnej witrynie Marketplace](azure-ad-transactable-saas-landing-page.md). 
+    
+   -    Podaj listę powiązanych dodatków, które współpracują z ofertą SaaS, którą chcesz połączyć. Klienci będą mogli odnaleźć rozwiązanie E2E na AppSource, a administratorzy mogą wdrożyć zarówno SaaS, jak i wszystkie powiązane dodatki, które zostały połączone w tym samym procesie za pośrednictwem Centrum administracyjnego Microsoft 365.
+    
+        Aby połączyć powiązane dodatki, należy podać link AppSource dodatku, co oznacza, że dodatek musi być najpierw opublikowany w AppSource. Obsługiwane typy dodatków, których można użyć, to: aplikacje zespołów, Dodatki pakietu Office i rozwiązania programu SharePoint Framework (SPFx). Każdy połączony dodatek musi być unikatowy dla oferty SaaS. 
+
+W przypadku połączonych produktów wyszukiwanie w witrynie AppSource zwróci jeden wynik, który obejmuje zarówno SaaS, jak i wszystkie połączone dodatki. Klient może nawigować między stronami szczegółów produktu oferty SaaS i połączonymi dodatkami. Administratorzy IT mogą przeglądać i wdrażać zarówno SaaS, jak i połączone dodatki w ramach tego samego procesu poprzez zintegrowane i połączone środowisko w centrum administracyjnym Microsoft 365. Aby dowiedzieć się więcej, zobacz [testowanie i wdrażanie aplikacji Microsoft 365 — Microsoft 365 administratorem](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
+
+### <a name="microsoft-365-integration-support-limitations"></a>Ograniczenia dotyczące Microsoft 365 integracji
+Odnajdywanie jako pojedyncze rozwiązanie E2E jest obsługiwane w AppSource we wszystkich przypadkach, ale uproszczone wdrażanie rozwiązania E2E, jak opisano powyżej za pośrednictwem Centrum administracyjnego Microsoft 365, nie jest obsługiwane w następujących scenariuszach:
+
+   - Ten sam dodatek jest połączony z więcej niż jedną ofertą SaaS.
+   - Oferta SaaS jest połączona z dodatkami, ale nie jest zintegrowana z Microsoft Graph i nie podano identyfikatora aplikacji usługi AAD.
+  - Oferta SaaS jest połączona z dodatkami, ale identyfikator aplikacji usługi AAD podany na potrzeby integracji Microsoft Graph jest udostępniany w wielu ofertach SaaS.
+
+ 
 ## <a name="offer-listing-details"></a>Szczegóły listy ofert
 
 Gdy tworzysz [nową ofertę SaaS](create-new-saas-offer.md) w centrum partnerskim, wprowadzisz tekst, obrazy, opcjonalne filmy wideo i inne szczegóły na stronie z **listą ofert** . Są to informacje, które użytkownicy zobaczą po znalezieniu oferty w portalu komercyjnym, jak pokazano w poniższym przykładzie.

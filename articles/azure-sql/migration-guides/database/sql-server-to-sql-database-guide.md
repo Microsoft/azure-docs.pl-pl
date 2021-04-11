@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9f7df4889d1d54605ab2b5cd79f3039f06fab197
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564929"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027877"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>Przewodnik migracji: SQL Server do Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przewodnik pomaga migrować wystąpienie SQL Server do Azure SQL Database. 
+W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) wystąpienie SQL Server, aby Azure SQL Database. 
 
 Możesz migrować SQL Server uruchomione lokalnie lub na: 
 
@@ -36,7 +36,7 @@ Aby uzyskać więcej informacji dotyczących migracji, zobacz [Omówienie migrac
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Aby przeprowadzić migrację SQL Server do Azure SQL Database, upewnij się, że masz następujące wymagania wstępne: 
+Aby przeprowadzić [migrację SQL Server](https://azure.microsoft.com/migration/migration-journey) do Azure SQL Database, upewnij się, że masz następujące wymagania wstępne: 
 
 - Wybrana [Metoda migracji](sql-server-to-sql-database-overview.md#compare-migration-options) i odpowiednie narzędzia.
 - [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) zainstalowany na komputerze, który może nawiązać połączenie ze źródłem SQL Server.
@@ -47,7 +47,7 @@ Aby przeprowadzić migrację SQL Server do Azure SQL Database, upewnij się, że
 
 ## <a name="pre-migration"></a>Przed migracją
 
-Po zweryfikowaniu, że środowisko źródłowe jest obsługiwane, należy zacząć od etapu migracji wstępnej. Odkryj wszystkie istniejące źródła danych, Oceń wykonalność migracji i zidentyfikuj wszelkie problemy z blokowaniem, które mogą uniemożliwiać migrację. 
+Po zweryfikowaniu, że środowisko źródłowe jest obsługiwane, należy zacząć od etapu migracji wstępnej. Odkryj wszystkie istniejące źródła danych, Oceń wykonalność migracji i zidentyfikuj wszelkie problemy z blokowaniem, które mogą uniemożliwić [migrację w chmurze platformy Azure](https://azure.microsoft.com/migration).
 
 ### <a name="discover"></a>Odnajdywanie
 
@@ -200,14 +200,19 @@ Aby dowiedzieć się więcej, zobacz [zarządzanie Azure SQL Database po migracj
 
 - Macierz usług i narzędzi firmy Microsoft i innych firm, które są dostępne w celu ułatwienia pracy z różnymi scenariuszami bazy danych i migracji danych oraz zadaniami specjalistycznymi, można znaleźć w temacie [Usługa i narzędzia do migracji danych](../../../dms/dms-tools-matrix.md).
 
+
+- Aby dowiedzieć się więcej na temat [Azure Migrate](https://azure.microsoft.com/services/azure-migrate) Zobacz
+   - [Azure Migrate](../../../migrate/migrate-services-overview.md)
+
 - Aby dowiedzieć się więcej na temat SQL Database, zobacz:
     - [Omówienie Azure SQL Database](../../database/sql-database-paas-overview.md)
    - [Kalkulator całkowitego kosztu posiadania na platformę Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
 - Aby dowiedzieć się więcej na temat platformy i cyklu wdrażania migracji w chmurze, zobacz
-   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Najlepsze rozwiązania związane z wyceną i ustalaniem wielkości obciążeń migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Najlepsze rozwiązania dotyczące kosztów i rozmiarów obciążeń na potrzeby migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Zasoby Migracja do chmury](https://azure.microsoft.com/migration/resources)
 
 - Aby ocenić warstwę dostępu do aplikacji, zobacz [Data Access Migration Toolkit (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - Aby uzyskać szczegółowe informacje na temat przeprowadzania testów warstwy dostępu do danych A/B, zobacz [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).

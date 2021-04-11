@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511148"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167808"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Obsługa protokołu dla nagłówków HTTP w ramach zewnętrznych drzwi platformy Azure
 W tym artykule opisano protokół, który obsługuje drzwiczki z częściami ścieżki wywołania (Zobacz obraz). Poniższe sekcje zawierają więcej informacji na temat nagłówków HTTP obsługiwanych przez tylne drzwi.
@@ -40,7 +40,7 @@ Przód drzwi obejmuje nagłówki dla żądania przychodzącego, o ile nie zosta�
 | X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Reprezentuje adres IP gniazda skojarzonego z połączeniem TCP, z którego pochodzi bieżące żądanie. Adres IP klienta żądania może nie być taki sam jak adres IP gniazda, ponieważ może zostać zawolnie nadpisany przez użytkownika.|
 | X-Azure-ref | *X-Azure-ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi. Jest on używany do wyszukiwania dzienników dostępu i do rozwiązywania problemów.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: przeskoki = 1* </br> Nagłówek, za pomocą którego Poprzednia drzwi wykrywa pętle żądań, a użytkownicy nie będą na niej zależni. |
-| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4B06-4bf1-b40e-4638452104da* <br/> Ciąg odwołania, który identyfikuje żądanie dostarczone z określonego zasobu z przodu. Wartość może być widoczna w Azure Portal lub pobrana za pomocą interfejsu API zarządzania. Tego nagłówka można użyć w połączeniu z listami ACL protokołu IP w celu zablokowania punktu końcowego w celu akceptowania tylko żądań z określonego zasobu z przodu. Zobacz często zadawane pytania, aby uzyskać [więcej szczegółów](front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door) |
+| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4B06-4bf1-b40e-4638452104da* <br/> Ciąg odwołania, który identyfikuje żądanie dostarczone z określonego zasobu z przodu. Wartość może być widoczna w Azure Portal lub pobrana za pomocą interfejsu API zarządzania. Tego nagłówka można użyć w połączeniu z listami ACL protokołu IP w celu zablokowania punktu końcowego w celu akceptowania tylko żądań z określonego zasobu z przodu. Zobacz często zadawane pytania, aby uzyskać [więcej szczegółów](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> Pole nagłówka HTTP X-Forwarded-For (XFF) często identyfikuje źródłowy adres IP klienta łączącego się z serwerem sieci Web za pośrednictwem serwera proxy HTTP lub modułu równoważenia obciążenia. Jeśli istnieje nagłówek XFF, następnie drzwi do przodu dołącza do niego adres IP gniazda klienta lub dodaje nagłówek XFF z adresem IP gniazda klienta. |
 | X-Forward-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> Pole nagłówka HTTP X-forwardd-host jest wspólną metodą służącą do identyfikowania oryginalnego hosta żądanego przez klienta w nagłówku żądania HTTP hosta. Wynika to z faktu, że nazwa hosta z drzwi przednich może się różnić w przypadku serwera wewnętrznej bazy danych obsługującego żądanie. |
 | X-Forwarded-proto | *X-Forwarded-proto: http* </br> Pole nagłówka HTTP X-Forwarded-proto jest często używane do identyfikowania źródłowego protokołu żądania HTTP. Drzwi z przodu na podstawie konfiguracji mogą komunikować się z zapleczem przy użyciu protokołu HTTPS. Jest to prawdziwe, nawet jeśli żądanie do zwrotnego serwera proxy jest HTTP. |

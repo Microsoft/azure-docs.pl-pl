@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d9e2f02eadec9fac93f14a0fe137c72a35224be
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 35c3bd0213b6d895a81605f5858f924182e1e307
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727913"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168862"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
@@ -25,7 +25,7 @@ Ten przykład został skompilowany dla deweloperów i ułatwia rozpoczęcie prac
 ## <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
 > [!IMPORTANT]
-> [Ten przykład jest dostępny w witrynie GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
+> [Ten przykład jest dostępny **w witrynie GitHub**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 Postępuj zgodnie z/Project/Readme.MD, aby skonfigurować projekt i uruchomić go lokalnie na komputerze.
 Po uruchomieniu [przykładowego wywoływania sieci Web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) na komputerze zostanie wyświetlona następująca strona docelowa:

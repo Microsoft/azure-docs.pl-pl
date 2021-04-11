@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea9d8a4899b0d725c9791192d68373b44acee11f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101723813"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168743"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -90,9 +90,9 @@ Aby określić, co się stało, wykonaj następujące czynności:
    ```powershell
    $Cred = Get-Credential
    #Using Azure Service Management
-   Add-AzureAccount –Credential $Cred
+   Add-AzureAccount -Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzAccount –Credential $Cred
+   Connect-AzAccount -Credential $Cred
    ```
 
 1. Jeśli uwierzytelnienie nie powiedzie się lokalnie, poświadczenia usługi Azure Active Directory (Azure AD) nie zostały prawidłowo skonfigurowane. Aby poprawnie skonfigurować konto usługi Azure AD, zapoznaj się z artykułem [uwierzytelnianie na platformie Azure przy użyciu Azure Active Directory](../automation-use-azure-ad.md).
@@ -201,11 +201,11 @@ Wykonaj następujące kroki, aby określić, czy masz uwierzytelnienie na platfo
 
 1. Aby upewnić się, że skrypt działa autonomicznie, przetestuj go poza Azure Automation.
 1. Przed uruchomieniem polecenia cmdlet upewnij się, że skrypt uruchamia polecenie cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) `Select-*` .
-1. Dodaj `Disable-AzContextAutosave –Scope Process` do początku elementu Runbook. To polecenie cmdlet zapewnia, że wszystkie poświadczenia mają zastosowanie tylko do wykonywania bieżącego elementu Runbook.
+1. Dodaj `Disable-AzContextAutosave -Scope Process` do początku elementu Runbook. To polecenie cmdlet zapewnia, że wszystkie poświadczenia mają zastosowanie tylko do wykonywania bieżącego elementu Runbook.
 1. Jeśli nadal widzisz komunikat o błędzie, zmodyfikuj swój kod przez dodanie `AzContext` parametru do `Connect-AzAccount` , a następnie wykonaj kod.
 
    ```powershell
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -242,7 +242,7 @@ Kontekst subskrypcji może zostać utracony, gdy element Runbook wywoła wiele e
 * Aby uniknąć odwoływania się do nieprawidłowej subskrypcji, należy wyłączyć zapisywanie kontekstu w elementach Runbook usługi Automation przy użyciu następującego kodu na początku każdego elementu Runbook.
 
    ```azurepowershell-interactive
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
    ```
 
 * Polecenia cmdlet Azure PowerShell obsługują `-DefaultProfile` parametr. Ta funkcja została dodana do wszystkich poleceń cmdlet AZ i AzureRm w celu obsługi wielu skryptów programu PowerShell w tym samym procesie, co pozwala określić kontekst i subskrypcję używaną dla każdego polecenia cmdlet. Przy użyciu elementów Runbook, należy zapisać obiekt kontekstu w elemencie Runbook po utworzeniu elementu Runbook (to oznacza, gdy logowanie do konta) i za każdym razem, gdy zostanie on zmieniony, i odwołać się do kontekstu po określeniu polecenia AZ cmdlet.

@@ -2,28 +2,28 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: f1d49aa0583f34327afff229b46d7a366202aded
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.author: dademath
+ms.openlocfilehash: 287520f2964fba7c3c3804853e9356a8c77b2d06
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152799"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498833"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
 
 Grupa usługi Azure Communication Services **wywołująca przykład Hero dla systemu iOS** pokazuje, w jaki sposób usługi komunikacyjne WYWOŁUJĄCE zestaw SDK dla systemu iOS mogą być używane do tworzenia środowiska wywołującego grupę, które zawiera głos i wideo. W tym przykładowym samouczku szybki start dowiesz się, jak skonfigurować i uruchomić przykład. Przegląd przykładu jest dostępny dla kontekstu.
 
 ## <a name="download-code"></a>Pobieranie kodu
 
-Znajdź końcowy kod dla tego przewodnika Szybki Start w witrynie [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+Znajdź projekt dla tego przykładu w witrynie [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). Wersja przykładu z [zespołem międzyoperacyjności](../../concepts/teams-interop.md) można znaleźć w oddzielnym [rozgałęzieniu](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop).
 
 ## <a name="overview"></a>Omówienie
 
@@ -33,7 +33,7 @@ Oto jak wygląda przykład:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
 
-Po naciśnięciu przycisku "Rozpocznij nowe wywołanie" aplikacja systemu iOS utworzy nowe wywołanie i przyłączy je. Aplikacja umożliwia dołączenie do istniejącego wywołania usług Azure Communications Services przez określenie istniejącego identyfikatora wywołania. Możesz również przyłączyć się do spotkania zespołów, podając link do sprzężenia znalezionego w zaproszeniu do spotkania.  (Link do sprzężenia ma następujący format: `https://teams.microsoft.com/l/meetup-join/` ). Aby uzyskać więcej informacji na temat zespołów międzyoperacyjnych, odwiedź [dokumentację dotyczącą koncepcji zespołów międzyoperacyjnych](../../concepts/teams-interop.md).
+Po naciśnięciu przycisku "Rozpocznij nowe wywołanie" aplikacja systemu iOS utworzy nowe wywołanie i przyłączy je. Aplikacja umożliwia dołączenie do istniejącego wywołania usług Azure Communications Services przez określenie istniejącego identyfikatora wywołania.
 
 Po dołączeniu wywołania zostanie wyświetlony monit o przyznanie aplikacji uprawnienia dostępu do aparatu i mikrofonu. Zostanie również wyświetlony monit o podanie nazwy wyświetlanej.
 
