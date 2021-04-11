@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2b80dfa091d6a2b892c8baf8e9c35084c5bee4e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386853"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076392"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Samouczek: Migrowanie usługi sieci Web ze sklepu Google Maps
 
@@ -46,11 +46,11 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 | Geokodowanie               | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
 | Wyszukiwanie miejsc           | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
 | Umieść Autouzupełnianie      | [Wyszukiwanie](/rest/api/maps/search)                                   |                         
-| Przyciągaj do drogi            | Zobacz sekcję [obliczanie tras i wskazówek](#calculate-routes-and-directions) .            
-| Limity szybkości            | Zobacz sekcję [Odwróć do kodu współrzędnej](#reverse-geocode-a-coordinate) .                  
+| Przyciągaj do drogi            | Zobacz sekcję [obliczanie tras i wskazówek](#calculate-routes-and-directions) .  |        
+| Limity szybkości            | Zobacz sekcję [Odwróć do kodu współrzędnej](#reverse-geocode-a-coordinate) .         |         
 | Mapa statyczna              | [Renderowanie](/rest/api/maps/render/getmapimage)                       |                         
 | Strefa czasowa               | [Strefa czasowa](/rest/api/maps/timezone)                              |                         
-| Noszeniu               | [Podniesienie uprawnień (wersja zapoznawcza)](/rest/api/maps/elevation)                   |                         |
+| Noszeniu               | [Podniesienie uprawnień (wersja zapoznawcza)](/rest/api/maps/elevation)                   | 
 
 Następujące interfejsy API usługi nie są obecnie dostępne w Azure Maps:
 

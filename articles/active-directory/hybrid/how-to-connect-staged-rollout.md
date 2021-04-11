@@ -10,14 +10,14 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709722"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385585"
 ---
-# <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
+# <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wprowadzania etapowego
 
 Wdrażanie etapowe pozwala na selektywne testowanie grup użytkowników z możliwościami uwierzytelniania w chmurze, takimi jak usługa Azure AD Multi-Factor Authentication (MFA), dostęp warunkowy, Ochrona tożsamości na potrzeby przecieków poświadczeń, zarządzania tożsamościami i innych, przed wycinaniem domen.  W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
     
@@ -79,7 +79,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 - Administratorzy mogą wdrożyć uwierzytelnianie w chmurze przy użyciu grup zabezpieczeń. Aby uniknąć opóźnienia synchronizacji w przypadku używania lokalnych grup zabezpieczeń Active Directory, zalecamy korzystanie z grup zabezpieczeń w chmurze. Mają zastosowanie następujące warunki:
 
     - Można użyć maksymalnie 10 grup na funkcję. Oznacza to, że można użyć 10 grup dla każdej *synchronizacji skrótów haseł*, *uwierzytelniania przekazywanego* i *BEZproblemowego logowania jednokrotnego*.
-    - Zagnieżdżone grupy *nie są obsługiwane*. Ten zakres ma również zastosowanie do publicznej wersji zapoznawczej.
+    - Zagnieżdżone grupy *nie są obsługiwane*. 
     - Grupy dynamiczne *nie są obsługiwane* w przypadku wdrażania etapowego.
     - Obiekty Contact wewnątrz grupy blokują Dodawanie grupy.
 
@@ -168,19 +168,19 @@ Jedną z następujących opcji można wdrożyć:
 
 Wykonaj następujące czynności:
 
-1. Aby uzyskać dostęp do środowiska wersji zapoznawczej, zaloguj się do [portalu usługi Azure AD](https://aka.ms/stagedrolloutux).
+1. Aby uzyskać dostęp do środowiska użytkownika, zaloguj się do [portalu usługi Azure AD](https://aka.ms/stagedrolloutux).
 
-2. Wybierz łącze **Włącz wdrażanie etapowe dla konta zarządzanego użytkownika (wersja zapoznawcza)** .
+2. Wybierz pozycję **Włącz wdrażanie etapowe dla linku logowania użytkownika zarządzanego** .
 
    Na przykład jeśli chcesz włączyć *opcję A*, przesuń **skrót hasła** i **bezproblemowo** kontroluje Logowanie jednokrotne do **włączenia**, jak pokazano na poniższych ilustracjach.
 
-   ![Strona Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![Strona "Włączanie przemieszczonych funkcji wdrożenia (wersja zapoznawcza)"](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Dodaj grupy do funkcji, aby włączyć *uwierzytelnianie przekazywane* i *bezproblemowe logowanie jednokrotne*. Aby uniknąć limitu czasu środowiska użytkownika, upewnij się, że grupy zabezpieczeń nie zawierają początkowo więcej niż 200 członków.
 
-   ![Strona "Zarządzanie grupami do synchronizacji skrótów haseł (wersja zapoznawcza)"](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >Członkowie w grupie są automatycznie włączeni do wdrożenia etapowego. Grupy zagnieżdżone i dynamiczne nie są obsługiwane w przypadku wdrażania etapowego.

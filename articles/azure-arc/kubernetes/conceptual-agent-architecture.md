@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Ten artykuł zawiera omówienie architektury agentów Kubernetes włączonych przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f59a897e4868d7b16d0a50c28ce2142320992f71
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953072"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442545"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Architektura agenta Kubernetes z włączoną funkcją Azure Arc
 
@@ -49,7 +49,10 @@ Większość Premium centrów danych wymusza ścisłe reguły sieciowe uniemożl
         | `deployment.apps/cluster-metadata-operator` | Zbiera metadane klastra, w tym wersję klastra, liczbę węzłów i wersję agenta usługi Azure Arc. |
         | `deployment.apps/resource-sync-agent` | Synchronizuje powyższe metadane klastra z platformą Azure. |
         | `deployment.apps/flux-logs-agent` | Zbiera dzienniki z operatorów strumienia wdrożonych w ramach konfiguracji kontroli źródła. |
-    
+        | `deployment.apps/extension-manager` | Instaluje i zarządza cyklem życia Helm na wykresach rozszerzeń |  
+        | `deployment.apps/clusterconnect-agent` | Odwrotny Agent proxy, który umożliwia funkcji Połącz z klastrem w celu zapewnienia dostępu do `apiserver` klastra. Jest to opcjonalny składnik wdrożony tylko wtedy `cluster-connect` , gdy funkcja jest włączona w klastrze   |
+        | `deployment.apps/guard` | Serwer elementów webhook uwierzytelniania i autoryzacji używany przez funkcję RBAC usługi AAD. Jest to opcjonalny składnik wdrożony tylko wtedy `azure-rbac` , gdy funkcja jest włączona w klastrze   |
+
 1. Gdy wszystkie usługi Azure ARC z włączonym modułem Agent Kubernetes są w `Running` stanie, sprawdź, czy klaster jest połączony z usługą Azure Arc. Powinny pojawić się następujące tematy:
     * Zasób Kubernetes z włączoną funkcją Azure Arc w [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Platforma Azure śledzi ten zasób jako projekcję klastra Kubernetes zarządzanego przez klienta, a nie rzeczywistego klastra Kubernetes.
     * Metadane klastra (takie jak wersja Kubernetes, wersja agenta i liczba węzłów) pojawiają się na zasobie usługi Azure ARC z włączonym zasobem Kubernetes jako metadane.

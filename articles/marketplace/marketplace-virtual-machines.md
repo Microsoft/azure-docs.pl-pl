@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879330"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060737"
 ---
-# <a name="how-to-plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
+# <a name="plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
 W tym artykule opisano różne opcje i wymagania dotyczące publikowania oferty maszyny wirtualnej w portalu komercyjnym. Oferty maszyn wirtualnych to oferty transakcyjne wdrożone i rozliczane za pomocą witryny Azure Marketplace.
 
@@ -102,7 +102,7 @@ Możesz ograniczyć odnajdywanie i wdrażanie maszyny wirtualnej do określonego
 
 Aby uzyskać więcej informacji, zobacz [plany i cenniki dla ofert komercyjnych](plans-pricing.md) i prywatnych ofert w portalu Marketplace [w witrynie Microsoft Commercial Marketplace](private-offers.md).
 
-## <a name="test-drives"></a>Wersje testowe
+## <a name="test-drive"></a>Wersja testowa
 
 Możesz włączyć test dla maszyny wirtualnej. Dyski testowe zapewniają klientom dostęp do wstępnie skonfigurowanego środowiska przez określoną liczbę godzin. Możesz włączyć dyski testowe dla dowolnej opcji publikowania, jednak ta funkcja ma dodatkowe wymagania. Aby dowiedzieć się więcej na temat dysków testowych, zobacz [co to jest dysk testowy?](what-is-test-drive.md) Aby uzyskać informacje o konfigurowaniu różnych rodzajów dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](test-drive-technical-configuration.md).
 

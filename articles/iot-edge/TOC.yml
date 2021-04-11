@@ -298,7 +298,7 @@
         - name: Platforma systemu iOS
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń
-      href: 'https://catalog.azureiotsolutions.com/'
+      href: 'https://devicecatalog.azure.com/'
     - name: Centrum deweloperów Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Harmonogram działania dla platformy Azure

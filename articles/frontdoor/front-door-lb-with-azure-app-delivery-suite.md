@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/06/2021
 ms.author: duau
-ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019467"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552584"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Równoważenie obciążenia za pomocą pakietu dostarczania aplikacji platformy Azure
 
@@ -40,8 +40,8 @@ Te usługi są podzielone na dwie kategorie:
 
 ## <a name="global-load-balancing"></a>Globalne Równoważenie obciążenia
 **Traffic Manager** zapewnia globalne Równoważenie obciążenia DNS. Sprawdza przychodzące żądania DNS i reaguje na w dobrej wewnętrznej bazie danych, zgodnie z zasadami routingu wybranymi przez klienta. Opcje dotyczące metod routingu są następujące:
-- * * Routing wydajności wysyła żądania do najbliższej wewnętrznej bazy danych z najmniejszym opóźnieniem.
-- **Kierowanie priorytetów** kieruje cały ruch do zaplecza, z innymi zakończonymi jako kopia zapasowa.
+- **Routing wydajności** wysyła żądania do najbliższej wewnętrznej bazy danych z najmniejszym opóźnieniem.
+- **Priorytetowe** kierowanie kieruje cały ruch do zaplecza, z innymi zakończonymi jako kopia zapasowa.
 - **Rozważone Routing** działający w trybie okrężnym dystrybuuje ruch na podstawie wagi przypisanej do każdego zaplecza.
 - **Routing geograficzny** gwarantuje, że żądania, które pochodzą z określonych regionów geograficznych, są obsługiwane przez aukcje zamapowane dla tych regionów. (Na przykład wszystkie żądania z Hiszpanii powinny być kierowane do regionu centralnego platformy Azure)
 - **Routing podsieci** umożliwia mapowanie zakresów adresów IP na zaplecza, dzięki czemu żądania przychodzące dla tych adresów IP będą wysyłane do określonego zaplecza. (Na przykład wszyscy użytkownicy, którzy łączą się z zakresu adresów IP firmowej firmy CENTRALĄ, powinni uzyskać inną zawartość sieci Web niż ogólna użytkownicy)

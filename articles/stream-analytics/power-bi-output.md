@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/7/2021
+ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020064"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030010"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI dane wyjściowe z Azure Stream Analytics
 
@@ -73,9 +73,10 @@ Double | Double | String (ciąg) | String (ciąg) | Double
 String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) 
 Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | Ciąg
 
-## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
+## <a name="limitations-and-best-practices"></a>Ograniczenia i najlepsze rozwiązania
+Obecnie Power BI można wywołać w dowolnym momencie na sekundę. Wizualizacje przesyłania strumieniowego obsługują pakiety o wartości 15 KB. Poza tym, wizualizacje przesyłania strumieniowego kończą się niepowodzeniem (ale wypchnięcie kontynuuje pracę). Ze względu na te ograniczenia Power BI się w sytuacji, w której wystąpiły najczęstsze sytuacje, w których Azure Stream Analytics znaczący spadek obciążenia danych. Zalecamy korzystanie z okna wirowania lub okna przeskoku w celu zapewnienia, że wypychanie danych jest co najwyżej jedną wypychaną na sekundę, oraz że zapytanie jest używane w ramach wymagań dotyczących przepływności.
 
-W przypadku wyjściowego rozmiaru partii zobacz [Power BI limity interfejsu API REST](/power-bi/developer/automation/api-rest-api-limitations).
+Aby uzyskać więcej informacji na temat rozmiaru wsadu danych wyjściowych, zobacz [Power BI limitów interfejsu API REST](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Następne kroki
 

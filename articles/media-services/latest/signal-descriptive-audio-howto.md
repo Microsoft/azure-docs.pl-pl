@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596726"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277406"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Śledzenie sygnałów dźwiękowych
 
@@ -29,9 +29,9 @@ W tym artykule pokazano, jak zakodować wideo, przekazać plik MP4 tylko w forma
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto Media Services](./create-account-howto.md).
+- [Utwórz konto Media Services](./account-create-how-to.md).
 - Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Będą one potrzebne w celu uzyskania dostępu do interfejsu API.
-- Przejrzyj [dynamiczne pakowanie](dynamic-packaging-overview.md).
+- Przejrzyj [dynamiczne pakowanie](encode-dynamic-packaging-concept.md).
 - Zapoznaj się z samouczkiem [przekazywanie, kodowanie i przesyłanie strumieniowe wideo](stream-files-tutorial-with-api.md) .
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Tworzenie zasobu wejściowego i przekazywanie do niego pliku lokalnego 
@@ -64,7 +64,7 @@ W przypadku tego artykułu Przekaż `outputAsset.Name` wartość do `SubmitJobAs
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Tworzenie transformacji i zadania, które kodują przekazany plik
 
-W przypadku kodowania lub przetwarzania zawartości w usłudze Media Services typowym wzorcem postępowania jest skonfigurowanie ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesłanie nowego zadania dla każdego nowego wideo powoduje zastosowanie tego przepisu do wszystkich wideo w bibliotece. Przepis w usłudze Media Services nazywa się **przekształceniem**. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](./transforms-jobs-concept.md). Przykład opisany w tym samouczku definiuje przepis, który umożliwia kodowanie wideo w celu jego przesyłania strumieniowego do różnych urządzeń z systemami iOS i Android. 
+W przypadku kodowania lub przetwarzania zawartości w usłudze Media Services typowym wzorcem postępowania jest skonfigurowanie ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesłanie nowego zadania dla każdego nowego wideo powoduje zastosowanie tego przepisu do wszystkich wideo w bibliotece. Przepis w usłudze Media Services nazywa się **przekształceniem**. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](./transform-jobs-concept.md). Przykład opisany w tym samouczku definiuje przepis, który umożliwia kodowanie wideo w celu jego przesyłania strumieniowego do różnych urządzeń z systemami iOS i Android. 
 
 Poniższy przykład tworzy transformację (jeśli nie istnieje).
 
@@ -245,4 +245,4 @@ Usługi Azure Media Player można użyć do testowania, ale nie należy jej uży
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Analizowanie wideo](analyze-videos-tutorial-with-api.md)
+[Analizowanie wideo](analyze-videos-tutorial.md)

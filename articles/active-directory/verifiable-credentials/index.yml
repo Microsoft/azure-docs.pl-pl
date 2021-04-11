@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Dokumentacja z poświadczeniami Azure Active Directory do zweryfikowania
+summary: Zweryfikowane poświadczenia ułatwiają tworzenie rozwiązań, które umożliwiają klientom zarządzanie swoimi danymi.
+metadata:
+  author: barclayn
+  description: Dowiedz się, jak dołączać poświadczenia do zweryfikowania do rozwiązań umożliwiających klientom kontrolowanie informacji o sobie
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 03/30/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 13eb88e8e8613c913f66185eba751a1fe3c36e1e
+  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106175705"
+landingContent:
+- title: Informacje o zweryfikowaniu poświadczeń
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Wprowadzenie do Azure Active Directory poświadczenia do zweryfikowania
+      url: decentralized-identifier-overview.md
+  - linkListType: video
+    links:
+    - text: Nadzorowanie dostępu do zasobów
+      url: https://www.youtube.com/watch?v=r20hCF9NbTo
+- title: Zweryfikowane poświadczenia powodują, że osoby mają kontrolę nad swoimi informacjami osobistymi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Wprowadzenie do zweryfikowania poświadczeń
+      url: get-started-verifiable-credentials.md
+  - linkListType: concept
+    links:
+    - text: Przykłady komunikacji usługi wystawcy
+      url: issuer-openid.md
+- title: Jak połączyć się z Twoją usługą
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Łączenie domeny z identyfikatorem rozproszonym
+      url: how-to-dnsbind.md

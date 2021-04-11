@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: nowe przypisanie zasad z platformą .NET Core'
 description: W tym przewodniku szybki start użyjesz platformy .NET Core do utworzenia przypisania Azure Policy, aby zidentyfikować niezgodne zasoby.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b89a0db419b1e7213e9742e4a39d073445d05189
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91604692"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091790"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu platformy .NET Core
 

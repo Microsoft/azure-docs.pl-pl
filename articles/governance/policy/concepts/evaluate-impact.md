@@ -1,18 +1,18 @@
 ---
 title: Oceń wpływ nowej definicji Azure Policy
 description: Zapoznaj się z procesem tworzenia nowej definicji zasad w środowisku platformy Azure.
-ms.date: 10/05/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 187a64ce3581c4aaa893e2a805ce787a0bfd6c79
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590810"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091722"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Oceń wpływ nowej definicji Azure Policy
 
-Azure Policy to zaawansowane narzędzie do zarządzania zasobami platformy Azure z normami biznesowymi i w celu spełnienia wymagań dotyczących zgodności. Gdy użytkownicy, procesy lub potoki tworzą lub aktualizują zasoby, Azure Policy przegląda żądanie. Gdy efekt definicji zasad to [Modify](./effects.md#modify), [append](./effects.md#deny) lub [DeployIfNotExists](./effects.md#deployifnotexists), zasady zmieniają żądanie lub dodaje do niego. Gdy działanie definicji zasad ma wartość [Audit](./effects.md#audit) lub [AuditIfNotExists](./effects.md#auditifnotexists), zasady spowodują utworzenie wpisu dziennika aktywności dla nowych i zaktualizowanych zasobów. W przypadku [odmowy](./effects.md#deny)działania definicji zasad zasady zatrzymają Tworzenie lub zmianę żądania.
+Azure Policy to zaawansowane narzędzie do zarządzania zasobami platformy Azure z normami biznesowymi i w celu spełnienia wymagań dotyczących zgodności. Gdy użytkownicy, procesy lub potoki tworzą lub aktualizują zasoby, Azure Policy przegląda żądanie. Gdy efekt definicji zasad to [Modify](./effects.md#modify), [append](./effects.md#deny)lub [DeployIfNotExists](./effects.md#deployifnotexists), zasady zmieniają żądanie lub dodaje do niego. Gdy działanie definicji zasad ma wartość [Audit](./effects.md#audit) lub [AuditIfNotExists](./effects.md#auditifnotexists), zasady spowodują utworzenie wpisu dziennika aktywności dla nowych i zaktualizowanych zasobów. W przypadku [odmowy](./effects.md#deny)działania definicji zasad zasady zatrzymają Tworzenie lub zmianę żądania.
 
 Te wyniki są dokładnie wymagane, gdy wiadomo, że zasady są prawidłowo zdefiniowane. Należy jednak sprawdzić, czy nowe zasady działają zgodnie z założeniami przed zezwoleniem na zmianę lub zablokowanie pracy. Sprawdzanie poprawności musi upewnić się, że tylko odpowiednie zasoby są określone jako niezgodne, a żadne zgodne zasoby nie są prawidłowo uwzględniane (znane jako _fałszywe pozytywne_) w wynikach.
 

@@ -1,0 +1,50 @@
+- name: Dokumentacja z poświadczeniami do zweryfikowania usługi Azure AD
+  href: index.yml
+- name: Omówienie
+  expanded: true
+  items:
+    - name: Wprowadzenie do Azure Active Directory poświadczenia do zweryfikowania
+      href: decentralized-identifier-overview.md
+- name: Samouczki
+  expanded: true
+  items:
+    - name: Wprowadzenie do zweryfikowania poświadczeń
+      href: get-started-verifiable-credentials.md
+    - name: Konfigurowanie zweryfikowanych poświadczeń w dzierżawie
+      items:
+        - name: 1 — Konfigurowanie wystawcy zweryfikowanych poświadczeń w usłudze Azure AD
+          href: enable-your-tenant-verifiable-credentials.md
+        - name: 2 — łączenie wystawcy poświadczeń do zweryfikowania z własną usługą Azure AD
+          href: issue-verify-verifiable-credentials-your-tenant.md
+- name: Pojęcia
+  expanded: true
+  items:
+    - name: Szczegóły protokołu OpenID Connect Connect
+      href: issuer-openid.md
+- name: Przewodniki z instrukcjami
+  expanded: true
+  items:
+    - name: Jak dostosować swoje poświadczenia
+      href: credential-design.md
+    - name: Zarządzanie odwołaniem poświadczeń
+      href: how-to-issuer-revoke.md
+    - name: Łączenie domeny z usługą
+      href: how-to-dnsbind.md
+    - name: Rezygnacja z zweryfikowania poświadczeń
+      href: how-to-opt-out.md
+- name: Samples
+  expanded: true
+  items:
+    - name: Przykładowa aplikacja Node
+      href: 'https://github.com/Azure-Samples/active-directory-verifiable-credentials'
+    - name: Przykładowy wystawca
+      href: 'https://didvc-issuer-sample.azurewebsites.net/'
+    - name: Przykładowy weryfikator
+      href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: Zasoby
+  expanded: true
+  items:
+    - name: Często zadawane pytania
+      href: verifiable-credentials-faq.md
+    - name: Jak utworzyć konto dewelopera
+      href: how-to-create-a-free-developer-account.md

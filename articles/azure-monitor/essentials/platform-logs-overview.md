@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2b22746b7a78349580220f4aa7579876fd21c33
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033303"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074594"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Omówienie dzienników platformy Azure
 Dzienniki platformy zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. Są one generowane automatycznie, mimo że konieczne jest skonfigurowanie niektórych dzienników platformy do przechowania do co najmniej jednego miejsca docelowego, które ma zostać zachowane. Ten artykuł zawiera omówienie dzienników platformy, w tym informacje, które zapewnia i jak można je skonfigurować do zbierania i analizy.
@@ -45,8 +45,8 @@ Można wysłać dzienniki platformy do co najmniej jednego miejsca docelowego w 
 
 | Element docelowy | Opis |
 |:---|:---|
-| Obszar roboczy usługi Log Analytics | Analizuj dzienniki wszystkich zasobów platformy Azure i korzystaj ze wszystkich funkcji dostępnych do [Azure monitor dzienników](../logs/data-platform-logs.md) , w tym [zapytań dzienników](../logs/log-query-overview.md) i [alertów dzienników](../alerts/alerts-log.md). Przypnij wyniki zapytania dziennika do pulpitu nawigacyjnego platformy Azure lub Dołącz go w skoroszycie jako część raportu interaktywnego. |  |
-| Centrum zdarzeń | Wyślij dane dziennika platformy poza platformę Azure, na przykład do wieloSIEMowej lub niestandardowej platformy telemetrii.
+| Obszar roboczy usługi Log Analytics | Analizuj dzienniki wszystkich zasobów platformy Azure i korzystaj ze wszystkich funkcji dostępnych do [Azure monitor dzienników](../logs/data-platform-logs.md) , w tym [zapytań dzienników](../logs/log-query-overview.md) i [alertów dzienników](../alerts/alerts-log.md). Przypnij wyniki zapytania dziennika do pulpitu nawigacyjnego platformy Azure lub Dołącz go w skoroszycie jako część raportu interaktywnego. | 
+| Centrum zdarzeń | Wyślij dane dziennika platformy poza platformę Azure, na przykład do wieloSIEMowej lub niestandardowej platformy telemetrii. |
 | Azure Storage | Archiwizuj dzienniki na potrzeby inspekcji lub tworzenia kopii zapasowych. |
 
 - Aby uzyskać szczegółowe informacje dotyczące tworzenia ustawień diagnostycznych dla dziennika aktywności lub dzienników zasobów, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../essentials/diagnostic-settings.md). 

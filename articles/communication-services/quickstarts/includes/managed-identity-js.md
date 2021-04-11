@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 0f775f97a204bc758e632c92702b93227b47bc15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ce250b19478c70109fe28d199ac771a77c42c7dc
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645382"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112861"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Dodawanie tożsamości zarządzanej do rozwiązania usług komunikacyjnych (JS)
 
@@ -29,7 +29,7 @@ import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 
 Poniższe przykłady używają [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych.
 
-Aby zarejestrować aplikację w środowisku deweloperskim i skonfigurować zmienne środowiskowe, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md)  
+Aby zarejestrować aplikację w środowisku deweloperskim i skonfigurować zmienne środowiskowe, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md)
 
 ### <a name="create-an-identity-and-issue-a-token-with-managed-identity"></a>Tworzenie tożsamości i wystawianie tokenu z tożsamością zarządzaną
 
@@ -51,16 +51,14 @@ Poniższy przykład kodu pokazuje, jak utworzyć obiekt klienta usługi z tożsa
 export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumber: any, message: string) {
      let credential = new DefaultAzureCredential();
      const smsClient = new SmsClient(resourceEndpoint, credential);
-     const sendRequest: SmsSendRequest = { 
-          from: fromNumber, 
-          to: [toNumber], 
-          message: message 
+     const sendRequest: SmsSendRequest = {
+          from: fromNumber,
+          to: [toNumber],
+          message: message
      };
-
      const response = await smsClient.send(
-          sendRequest, 
+          sendRequest,
           {} //Optional SendOptions
           );
 }
 ```
-

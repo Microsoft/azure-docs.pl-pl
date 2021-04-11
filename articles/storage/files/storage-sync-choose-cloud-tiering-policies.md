@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/24/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2ed1b8162c49ccc26cb98dd02897a9c40f809d14
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 01bf9ac6a3bfcb30fb6e6a6f9d56de3f9f516f03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204478"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059279"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Wybieranie zasad obsługi warstw w chmurze
 
@@ -34,8 +34,13 @@ W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536)    | 128 KB  |
+|128 KB (131072) | 256 KB |
+|256 KB (262144) | 512 KB |
+|512 KB (524288) | 1 MB |
+|1 MB (1048576) | 2 MB |
+|2 MB (2097152) | 4 MB |
 
-Rozmiary klastrów o rozmiarze do 64 KB są obecnie obsługiwane, ale w przypadku większych rozmiarów Obsługa warstw w chmurze nie działa.
+Obsługiwane są rozmiary klastrów do 2 MB, Azure File Sync Agent w wersji 12, ale w przypadku większych rozmiarów Usługa Cloud warstw nie działa.
 
 Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Gdy rozmiary plików nie są dostępne nawet dla wielu rozmiarów klastra, należy użyć dodatkowego miejsca do przechowywania plików do kolejnej wielokrotności rozmiaru klastra.
 

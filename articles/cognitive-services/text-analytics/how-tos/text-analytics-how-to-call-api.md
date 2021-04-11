@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599218"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029781"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -34,6 +34,14 @@ Przed użyciem interfejs API analizy tekstu należy utworzyć zasób platformy A
 2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
 
 3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" w lewej części strony. Skopiuj klucz, który będzie używany później podczas wywoływania interfejsów API. Ten element zostanie później dodany jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
+
+4. Aby sprawdzić liczbę rekordów tekstowych, które zostały wysłane za pomocą zasobu analiza tekstu:
+
+    1. Przejdź do zasobu analiza tekstu w Azure Portal. 
+    2. Kliknij pozycję **metryki** znajdujące się w obszarze **monitorowanie** w menu nawigacji po lewej stronie. 
+    3. W polu listy rozwijanej wybierz pozycję *przetworzone rekordy tekstowe* dla **metryki**.
+    
+Rekord tekstowy ma 1000 znaków.
 
 ## <a name="change-your-pricing-tier"></a>Zmień warstwę cenową 
 

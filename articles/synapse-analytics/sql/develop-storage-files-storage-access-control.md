@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 254f424694df72a290a07369fe910587fadf58d4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501574"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385551"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Użytkownik zalogowany do bezserwerowej puli SQL musi mieć autoryzację, aby uz
 **Tożsamość użytkownika**, znana również jako "przekazywanie usługi Azure AD", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która została zarejestrowana w puli SQL bezserwerowej, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Zgodnie z poniższą tabelą, nie jest obsługiwana w przypadku typu użytkownika SQL.
 
 > [!IMPORTANT]
-> Aby móc uzyskiwać dostęp do danych, musisz mieć rolę właściciel danych obiektów BLOB/współautor/czytelnik.
-> Nawet jeśli jesteś właścicielem konta magazynu, nadal musisz dodać siebie do jednej z ról danych obiektów blob magazynu.
->
-> Aby dowiedzieć się więcej na temat kontroli dostępu w Azure Data Lake Store Gen2, zapoznaj się z informacjami na temat [kontroli dostępu w Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artykule.
->
+> Token uwierzytelniania usługi AAD może być buforowany przez aplikacje klienckie. Przykładowo usługi PowerBI buforuje token usługi AAD i ponownie używa tego samego tokenu przez godzinę. Długie zapytania rozpoczęciem mogą się nie powieść, jeśli token wygaśnie w trakcie wykonywania zapytania. Jeśli występują błędy zapytań spowodowane przez token dostępu usługi AAD, który wygasa w trakcie wykonywania zapytania, rozważ przełączenie na [tożsamość zarządzaną](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) lub [sygnaturę dostępu współdzielonego](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Aby móc uzyskiwać dostęp do danych, musisz mieć rolę właściciel danych obiektów BLOB/współautor/czytelnik. Alternatywnie można określić szczegółowe reguły listy kontroli dostępu, aby uzyskać dostęp do plików i folderów. Nawet jeśli jesteś właścicielem konta magazynu, nadal musisz dodać siebie do jednej z ról danych obiektów blob magazynu.
+Aby dowiedzieć się więcej na temat kontroli dostępu w Azure Data Lake Store Gen2, zapoznaj się z informacjami na temat [kontroli dostępu w Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artykule.
+
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **ko
 > Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
 Aby włączyć dostęp przy użyciu tokenu SAS, należy utworzyć poświadczenia w zakresie bazy danych lub serwera 
+
+
+> [!IMPORTANT]
+> Nie można dostęp do prywatnych kont magazynu za pomocą tokenu SAS. Rozważ przełączenie na [zarządzaną tożsamość](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) lub uwierzytelnianie [przekazywane usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) w celu uzyskania dostępu do chronionego magazynu.
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 03/29/2021
-ms.openlocfilehash: 186f1e085cecdc92e345231d50d06195bba55504
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/31/2021
+ms.openlocfilehash: 8e78db5b9d496c2ac13c9f1214b386770c11e21e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732962"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075904"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrowanie baz danych z SQL Server do wystąpienia zarządzanego SQL za pomocą usługi powtarzania dzienników (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,6 +34,7 @@ Można rozważyć użycie LRS w następujących przypadkach:
 - Database Migration Service pliku wykonywalnego nie ma dostępu do plików kopii zapasowych bazy danych.
 - Dostęp do systemu operacyjnego hosta nie jest dostępny lub nie ma uprawnień administratora.
 - Nie można otworzyć portów sieciowych z Twojego środowiska na platformie Azure.
+- Ograniczanie sieci lub problemy z blokowaniem serwerów proxy w danym środowisku.
 - Kopie zapasowe są przechowywane bezpośrednio w usłudze Azure Blob Storage przy użyciu `TO URL` opcji.
 - Należy użyć różnicowych kopii zapasowych.
 

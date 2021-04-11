@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9678648b6417138e216ba2dce3a3605bb4c1bce4
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582718"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169236"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT
 
@@ -450,7 +450,7 @@ Więcej informacji na temat protokołu MQTT można znaleźć w [dokumentacji MQT
 
 Aby dowiedzieć się więcej o planowaniu wdrożenia IoT Hub, zobacz:
 
-* [Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń](https://catalog.azureiotsolutions.com/)
+* [Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń](https://devicecatalog.azure.com/)
 * [Obsługa dodatkowych protokołów](iot-hub-protocol-gateway.md)
 * [Porównaj z Event Hubs](iot-hub-compare-event-hubs.md)
 * [Skalowanie, HA i DR](iot-hub-scaling.md)
