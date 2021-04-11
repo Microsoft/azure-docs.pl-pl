@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 349a48b6178d5e4618aa62d9f0c3a150fe561e05
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564470"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284395"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -151,8 +151,8 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Maszyna wirtualna platformy Azure               | Obsługiwane w przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi i niezarządzanymi. Nieobsługiwane w przypadku klasycznych maszyn wirtualnych. | Dostępne we wszystkich regionach publicznych platformy Azure i w suwerennych regionach, z wyjątkiem Francji środkowe, Australia Środkowa, Północna Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, Szwajcaria Północna, Niemcy Środkowo-Zachodnie Norwegia Wschodnia. <br>Aby uzyskać informacje o używaniu w tych regionach, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL/SAP HANA | W wersji zapoznawczej                                                      | Dostępne we wszystkich regionach publicznych platformy Azure i w suwerennych regionach, z wyjątkiem Francji środkowe, Australia Środkowa, Północna Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, Szwajcaria Północna, Niemcy Środkowo-Zachodnie Norwegia Wschodnia. <br>Aby uzyskać informacje o używaniu w tych regionach, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Maszyna wirtualna platformy Azure               | Obsługiwane w przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi i niezarządzanymi. Nieobsługiwane w przypadku klasycznych maszyn wirtualnych. | Dostępne we wszystkich regionach publicznych platformy Azure i w suwerennych regionach, z wyjątkiem Francji środkowe, Australia Środkowa, Północna Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, Szwajcaria Północna, Niemcy Środkowo-Zachodnie, Norwegia Wschodnia, g IOWA i g Wirginia. <br>Aby uzyskać informacje o używaniu w tych regionach, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL/SAP HANA | W wersji zapoznawczej                                                      | Dostępne we wszystkich regionach publicznych platformy Azure i w suwerennych regionach, z wyjątkiem Francji środkowe, Australia Środkowa, Północna Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, Szwajcaria Północna, Niemcy Środkowo-Zachodnie, Norwegia Wschodnia, g IOWA i g Wirginia. <br>Aby uzyskać informacje o używaniu w tych regionach, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agent MARS/lokalnie  | Nie                                                           | Nie dotyczy               |
 | AFS (udziały plików platformy Azure)                 | Nie                                                           | Nie dotyczy               |
 

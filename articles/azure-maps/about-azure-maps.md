@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: fc70e6370f53848e9f3672611a3dfda685bcb9fe
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011780"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256127"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
 
@@ -169,7 +169,7 @@ Usługa Traffic Service to zestaw usług sieci Web, których deweloperzy mogą u
 
 Aby uzyskać więcej informacji, zobacz [dokumentację usługi Traffic Service](/rest/api/maps/traffic).
 
-### <a name="weather-services-preview"></a>Usługi pogodowe (wersja zapoznawcza) 
+### <a name="weather-services"></a>Usługi pogodowe
 
 Usługi pogody oferują interfejsy API, których deweloperzy mogą używać do pobierania informacji o pogodzie dla określonej lokalizacji. Informacje te zawierają szczegóły, takie jak Data i godzina obserwacji, Krótki opis warunków pogodowych, ikona Pogoda, flagi wskaźnika opadów, temperatura i informacje o szybkości wiatru. Zwracane są również dodatkowe szczegóły, takie jak RealFeel™ temperatura i indeks UV.
 

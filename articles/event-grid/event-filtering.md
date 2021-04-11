@@ -3,12 +3,12 @@ title: Filtrowanie zdarzeń dla Azure Event Grid
 description: Opisuje sposób filtrowania zdarzeń podczas tworzenia subskrypcji Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419851"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256093"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Opis filtrowania zdarzeń dla subskrypcji Event Grid
 
@@ -454,7 +454,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringin"></a>Ciąg w
-Operator **String** sprawdza, czy wartość **klucza** **dokładnie pasuje** do jednej z określonych wartości **filtru** . W poniższym przykładzie sprawdza, czy wartość `key1` atrybutu w `data` sekcji jest `exact` lub `string` lub `matches` . 
+Operator **String** sprawdza, czy wartość **klucza** **dokładnie pasuje** do jednej z określonych wartości **filtru** . W poniższym przykładzie sprawdza, czy wartość `key1` atrybutu w `data` sekcji jest `contoso` lub `fabrikam` lub `factory` . 
 
 ```json
 "advancedFilters": [{

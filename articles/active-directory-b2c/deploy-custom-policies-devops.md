@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ca4464f40c0807e51adffca8e3e68c622314de6
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928736"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256892"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Wdrażanie zasad niestandardowych przy użyciu Azure Pipelines
 
@@ -34,7 +34,7 @@ Aby umożliwić Azure Pipelines Zarządzanie zasadami niestandardowymi w ramach 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Azure AD B2C dzierżawy](tutorial-create-tenant.md)i poświadczenia dla użytkownika w katalogu z rolą [administratora zasad B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Zasady niestandardowe](custom-policy-get-started.md) przekazane do dzierżawy
+* [Zasady niestandardowe](tutorial-create-user-flows.md?pivots=b2c-custom-policy) przekazane do dzierżawy
 * [Aplikacja zarządzania](microsoft-graph-get-started.md) zarejestrowana w dzierżawie przy użyciu zasad uprawnień interfejsu API Microsoft Graph *. ReadWrite. TrustFramework*
 * [Potok platformy Azure](https://azure.microsoft.com/services/devops/pipelines/)i dostęp do [projektu Azure DevOps Services][devops-create-project]
 

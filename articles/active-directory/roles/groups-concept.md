@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a71a53cd2aff16102a54f5a24063615e02d11872
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 051963060531283b868a5a20e13e871de1919ccb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169525"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256076"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -59,7 +59,6 @@ Następujące scenariusze nie są obecnie obsługiwane:
 - *Tylko licencjonowani klienci usługi Azure AD P2*: Nie przypisuj grupy jako aktywnej do roli za pomocą usługi Azure AD i PRIVILEGED Identity Management (PIM). W przeciwnym razie nie przypisuj roli do grupy możliwej do przypisania, gdy zostanie ona utworzona, *i* przypiszesz rolę do grupy przy użyciu usługi PIM później. Dzięki temu użytkownicy nie mogą zobaczyć aktywnych przypisań ról w programie PIM, jak również uniemożliwić usunięcie tego przypisania programu PIM. W tym scenariuszu nie ma żadnych zmian w kwalifikujących się przypisaniach. Jeśli podjęto próbę wykonania tego przypisania, może wystąpić nieoczekiwane zachowanie, takie jak:
   - Godzina zakończenia przypisywania roli może być błędnie wyświetlana.
   - W portalu PIM **role** mogą wyświetlać tylko jedno przypisanie roli bez względu na liczbę metod, do których przypisano przypisanie (za pomocą jednej lub kilku grup i bezpośrednio).
-- **Włączenie wdrażania etapowego dla funkcji logowania użytkownika zarządzanego** nie obsługuje przypisywania przez grupę.
 - *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.  
 - Użyj nowego [Centrum administracyjnego programu Exchange](https://admin.exchange.microsoft.com/) do przypisywania ról za pośrednictwem członkostwa w grupie. Stare centrum administracyjne programu Exchange nie obsługuje jeszcze tej funkcji. Polecenia cmdlet programu Exchange PowerShell będą działały zgodnie z oczekiwaniami.
 - Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.

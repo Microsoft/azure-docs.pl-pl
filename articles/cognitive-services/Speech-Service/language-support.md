@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 443c6960b88fb8eeb5cdee43de6c87bf4fe2ac7b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 52dd642c661aa60157876a89d41c771cabfe2f1d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581477"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256161"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -38,7 +38,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Język                 | Ustawienia regionalne (BCP-47) | Dostosowania  | [Wykrywanie języka](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
-| Arabski (Bahrajn), nowoczesny Standard  | `ar-BH` | Tekst                                   | Tak                           | 
+| Arabski (Bahrajn), nowoczesny Standard  | `ar-BH` | Tekst                                   |                           | 
 | Arabski (Egipt)                     | `ar-EG` | Tekst                                   | Tak                          |
 | Arabski (Irak)                      | `ar-IQ` | Tekst                                   |                           |
 | Arabski (Izrael)                    | `ar-IL` | Tekst                                   |                           |
@@ -47,9 +47,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabski (Liban)                   | `ar-LB` | Tekst                                   |                           |
 | Arabski (Oman)                      | `ar-OM` | Tekst                                   |                           |
 | Arabski (katar)                     | `ar-QA` | Tekst                                   |                           |
-| Arabski (Arabia Saudyjska)              | `ar-SA` | Tekst                                   | Tak                          |
+| Arabski (Arabia Saudyjska)              | `ar-SA` | Tekst                                   |                           |
 | Arabski (stan Palestyny)        | `ar-PS` | Tekst                                   |                           |
-| Arabski (Syria)                     | `ar-SY` | Tekst                                   | Tak                          |
+| Arabski (Syria)                     | `ar-SY` | Tekst                                   |                           |
 | Arabski (Zjednoczone Emiraty Arabskie)      | `ar-AE` | Tekst                                   |                           |
 | Bułgarski (Bułgaria)               | `bg-BG` | Tekst                                   |                           |
 | Kataloński                    | `ca-ES` | Tekst                                   | Tak                          |
@@ -64,10 +64,10 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Angielski (Kanada)                   | `en-CA` | Audio (20201019)<br>Tekst                 | Tak                          |
 | Angielski (Ghana)                    | `en-GH` | Tekst                                   |                           |
 | Angielski (Hongkong SAR)                | `en-HK` | Tekst                                   |                           |
-| Angielski (Indie)                    | `en-IN` | Audio (20200923)<br>Tekst                 | Tak                          |
+| Angielski (Indie)                    | `en-IN` | Audio (20200923)<br>Tekst                 |                          |
 | Angielski (Irlandia)                  | `en-IE` | Tekst                                   |                           |
 | Angielski (Kenia)                    | `en-KE` | Tekst                                   |                           |
-| Angielski (Nowa Zelandia)              | `en-NZ` | Audio (20201019)<br>Tekst                 |  Tak                         |
+| Angielski (Nowa Zelandia)              | `en-NZ` | Audio (20201019)<br>Tekst                 |                          |
 | Angielski (Nigeria)                  | `en-NG` | Tekst                                   |                           |
 | Angielski (Filipiny)              | `en-PH` | Tekst                                   |                           |
 | Angielski (Singapur)                | `en-SG` | Tekst                                   |                           |
@@ -83,7 +83,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Francuski (Szwajcaria)               | `fr-CH` | Tekst<br>Fonetyczn                  |                           |
 | Niemiecki (Austria)                   | `de-AT` | Tekst<br>Fonetyczn                  |                           |
 | Niemiecki (Niemcy)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Tekst<br>Fonetyczn|  Tak                         |
-| Grecki (Grecja)                     | `el-GR` | Tekst                                   |                           |
+| Grecki (Grecja)                     | `el-GR` | Tekst                                   |  Tak                         |
 | Gudżarati (Indyjski)                  | `gu-IN` | Tekst                                   |                           |
 | Hindi (Indie)                      | `hi-IN` | Audio (20200701)<br>Tekst                 |     Tak                      |
 | Węgierski (Węgry)                | `hu-HU` | Tekst                                   |                           |
@@ -101,7 +101,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Polski (Polska)                    | `pl-PL` | Tekst                                   |       Tak                    |
 | Portugalski (Brazylia)                | `pt-BR` | Audio (20190620, 20201015)<br>Tekst<br>Fonetyczn|          Tak                 |
 | Portugalski (Portugalia)              | `pt-PT` | Tekst<br>Fonetyczn                  |             Tak              |
-| Rumuński (Rumunia)                 | `ro-RO` | Tekst                                   |                           |
+| Rumuński (Rumunia)                 | `ro-RO` | Tekst                                   |  Tak                         |
 | Rosyjski (Rosja)                   | `ru-RU` | Audio (20200907)<br>Tekst                 |                Tak           |
 | Słowacki (Słowacja)                  | `sk-SK` | Tekst                                   |                           |
 | Słoweński (Słowenia)               | `sl-SI` | Tekst                                   |                           |
@@ -283,10 +283,10 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 | Tajski (Tajlandia) | `th-TH` | Mężczyźni | `th-TH-NiwatNeural` | Ogólne |
 | Turecki (Turcja) | `tr-TR` | Kobiety | `tr-TR-EmelNeural` | Ogólne |
 | Turecki (Turcja) | `tr-TR` | Mężczyźni | `tr-TR-AhmetNeural` | Ogólne |
-| Ukraiński (Ukraina) | `uk-UA` | Kobiety | `en-ZA-LeahNeural` <sup>Nowy</sup> | Ogólne | 
-| Ukraiński (Ukraina) | `uk-UA` | Mężczyźni | `en-ZA-LukeNeural` <sup>Nowy</sup> | Ogólne | 
-| Urdu (Pakistan) | `ur-PK` | Kobiety | `uk-UA-PolinaNeural` <sup>Nowy</sup> | Ogólne | 
-| Urdu (Pakistan) | `ur-PK` | Mężczyźni | `uk-UA-OstapNeural` <sup>Nowy</sup> | Ogólne | 
+| Ukraiński (Ukraina) | `uk-UA` | Kobiety | `uk-UA-PolinaNeural` <sup>Nowy</sup> | Ogólne | 
+| Ukraiński (Ukraina) | `uk-UA` | Mężczyźni | `uk-UA-OstapNeural` <sup>Nowy</sup> | Ogólne | 
+| Urdu (Pakistan) | `ur-PK` | Kobiety | `ur-PK-UzmaNeural` <sup>Nowy</sup>  | Ogólne | 
+| Urdu (Pakistan) | `ur-PK` | Mężczyźni | `ur-PK-AsadNeural` <sup>Nowy</sup> | Ogólne | 
 | Wietnamski (Wietnam) | `vi-VN` | Kobiety | `vi-VN-HoaiMyNeural` | Ogólne |
 | Wietnamski (Wietnam) | `vi-VN` | Mężczyźni | `vi-VN-NamMinhNeural` | Ogólne |
 | Walijski (Wielka Brytania) | `cy-GB` | Kobiety | `cy-GB-NiaNeural` <sup>Nowy</sup> | Ogólne | 

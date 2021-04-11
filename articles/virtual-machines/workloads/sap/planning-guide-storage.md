@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 329e09221467c2602355e091876c95f305db3578
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0605c8d6cb3f650a1955688d95ece62fb56d06bc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673744"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256042"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -236,6 +236,7 @@ Magazyn ANF jest obecnie obsługiwany w kilku scenariuszach obciążeń SAP:
     - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP](./high-availability-guide-suse-netapp-files.md)
     - [Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP](./high-availability-guide-rhel-netapp-files.md)
 - SAP HANA wdrożenia przy użyciu udziałów NFS v 4.1 dla woluminów/Hana/Data i/Hana/log oraz woluminów NFS v 4.1 lub NFS v3 dla woluminów/Hana/Shared, zgodnie z opisem w artykule [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md)
+- Wdrożenia Oracle w Oracle Linux systemie operacyjnym gościa przy użyciu [dNFS] (( https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) dOracle danych i powtórzeń dzienników. Więcej informacji można znaleźć w artykule [Azure Virtual Machines wdrożenie Oracle DBMS dla obciążeń SAP](./dbms_guide_oracle.md)
 
 > [!NOTE]
 > Żadne inne obciążenia systemu DBMS nie są obsługiwane w przypadku udziałów opartych na Azure NetApp Filesach NFS i SMB. Aktualizacje i zmiany zostaną podane w przypadku zmiany.

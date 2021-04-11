@@ -3,22 +3,18 @@ title: Dynamiczne pakowanie w Azure Media Services v3
 description: Ten artykuł zawiera omówienie tworzenia pakietów dynamicznych w programie Azure Media Services.
 author: myoungerman
 manager: femila
-editor: ''
 services: media-services
-documentationcenter: ''
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4f4f53d4a20397f38b565cb73e74b01d15cc3022
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e396841231659c27f199a7353565c5d69e02877
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102633057"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061999"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -41,7 +37,7 @@ Aby udostępnić wideo w zakodowanym elemencie zawartości klientom do odtwarzan
 
 Dzięki temu wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services utworzy oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
 
-Jeśli planujesz ochronę zawartości przy użyciu Media Services szyfrowania dynamicznego, zobacz [protokoły przesyłania strumieniowego i typy szyfrowania](content-protection-overview.md#streaming-protocols-and-encryption-types).
+Jeśli planujesz ochronę zawartości przy użyciu Media Services szyfrowania dynamicznego, zobacz [protokoły przesyłania strumieniowego i typy szyfrowania](drm-content-protection-concept.md#streaming-protocols-and-encryption-types).
 
 ### <a name="hls-protocol"></a>Protokół HLS
 
@@ -49,9 +45,9 @@ Twój klient przesyłania strumieniowego może określić następujące formaty 
 
 |Protokół|Przykład|
 |---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
 
 > [!NOTE]
 > W poprzednich wytycznych firmy Apple zaleca się, aby rezerwa dla sieci o niskiej przepustowości zapewniała strumień tylko audio.  W tej chwili koder Media Services automatycznie generuje śledzenie tylko audio.  Wytyczne firmy Apple teraz stwierdzają, że *nie* należy uwzględniać ścieżki tylko audio, szczególnie w przypadku dystrybucji TV firmy Apple.  Aby uniemożliwić odtwarzaczowi domyślne śledzenie tylko audio, zalecamy użycie tagu "audio-Only = false" w adresie URL, który usuwa tylko odwzorowanie tylko audio w HLS, lub po prostu używa HLS-v3. Na przykład `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
@@ -62,8 +58,8 @@ Twój klient przesyłania strumieniowego może określić następujące formaty 
 
 |Protokół|Przykład|
 |---|---|
-|MPEG-KRESKA CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
-|CMAF MPEG-KRESKA|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+|MPEG-KRESKA CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|CMAF MPEG-KRESKA|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 
 ### <a name="smooth-streaming-protocol"></a>Protokół Smooth Streaming
 
@@ -71,7 +67,7 @@ Twój klient przesyłania strumieniowego może określić następujące formaty 
 
 |Protokół|Uwagi/przykłady| 
 |---|---|
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 |Smooth Streaming 2,0 (starsza wersja manifestu)|Domyślnie Smooth Streaming format manifestu zawiera tag Repeat (tag języka r). Jednak niektórzy gracze nie obsługują programu `r-tag` . Klienci z tymi graczami mogą używać formatu, który wyłącza tag języka r:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 > [!NOTE]
@@ -115,7 +111,7 @@ Oto typowy przepływ pracy przesyłania strumieniowego na żywo z *pakietem dyna
 1. Uzyskaj adres URL wersji zapoznawczej i użyj go do sprawdzenia, czy dane wejściowe kodera są odbierane.
 1. Utwórz nowy element zawartości.
 1. Utwórz na żywo wyjście i użyj utworzonej nazwy zasobu.<br />Na żywo dane wyjściowe archiwizują strumień do elementu zawartości.
-1. Utwórz lokalizator przesyłania strumieniowego z wbudowanymi typami zasad przesyłania strumieniowego.<br />Jeśli zamierzasz zaszyfrować zawartość, zapoznaj się z tematem [Omówienie ochrony zawartości](content-protection-overview.md).
+1. Utwórz lokalizator przesyłania strumieniowego z wbudowanymi typami zasad przesyłania strumieniowego.<br />Jeśli zamierzasz zaszyfrować zawartość, zapoznaj się z tematem [Omówienie ochrony zawartości](drm-content-protection-concept.md).
 1. Wyświetl listę ścieżek w lokalizatorze przesyłania strumieniowego, aby uzyskać adresy URL do użycia.
 1. Pobierz nazwę hosta dla punktu końcowego przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo.
 1. Tworzenie adresów URL przeznaczonych dla różnych formatów (HLS, MPEG-KRESKa i Smooth Streaming). *Punkt końcowy przesyłania strumieniowego* zajmuje się zachowaniem prawidłowego manifestu i żądań dla różnych formatów.
@@ -312,7 +308,7 @@ Aby kontrolować liczbę ścieżek, formatów, szybkości transmisji bitów i ok
 
 ## <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
 
-Przy użyciu *szyfrowania dynamicznego* można dynamicznie szyfrować zawartość na żywo lub na żądanie za pomocą algorytmu AES-128 lub z jednego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługę do dostarczania kluczy AES i licencji DRM do autoryzowanych klientów. Aby uzyskać więcej informacji, zobacz [szyfrowanie dynamiczne](content-protection-overview.md).
+Przy użyciu *szyfrowania dynamicznego* można dynamicznie szyfrować zawartość na żywo lub na żądanie za pomocą algorytmu AES-128 lub z jednego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługę do dostarczania kluczy AES i licencji DRM do autoryzowanych klientów. Aby uzyskać więcej informacji, zobacz [szyfrowanie dynamiczne](drm-content-protection-concept.md).
 
 > [!NOTE]
 > Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.

@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: cdfc54b1eca3b07202148b7099884a04f35939ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2f044ab267365885260b031638572846184bc83
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698148"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063189"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurowanie usługi Azure Defender dla usługi Storage
 
@@ -50,7 +50,7 @@ Usługę Azure Defender Storage można skonfigurować na kilka sposobów, co opi
 
 ### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
-Gdy subskrybujesz warstwę Standardowa w Azure Security Center, usługa Azure Defender zostanie automatycznie skonfigurowana na wszystkich kontach magazynu. Usługę Azure Defender można włączyć lub wyłączyć dla kont magazynu w ramach określonej subskrypcji w następujący sposób:
+Usługa Azure Defender jest wbudowana w Azure Security Center. Po włączeniu usługi Azure Defender w ramach subskrypcji usługa Azure Defender dla usługi Azure Storage jest automatycznie włączana dla wszystkich kont magazynu. Usługę Azure Defender można włączyć lub wyłączyć dla kont magazynu w ramach określonej subskrypcji w następujący sposób:
 
 1. Uruchom **Azure Security Center** w [Azure Portal](https://portal.azure.com).
 1. Z menu głównego w obszarze **Zarządzanie** wybierz pozycję **Cennik ustawienia &**.
@@ -94,20 +94,38 @@ Użyj Azure Policy, aby włączyć usługę Azure Defender na kontach magazynu w
 
     :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Przypisywanie zasad w celu włączenia usługi Azure Defender dla magazynu":::
 
-### <a name="rest-api"></a>[Interfejs API REST](#tab/rest-api)
-
-Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać ustawienie usługi Azure Defender dla określonego konta magazynu.
-
-- [Zaawansowana ochrona przed zagrożeniami — tworzenie](/rest/api/securitycenter/advancedthreatprotection/create)
-- [Zaawansowana ochrona przed zagrożeniami — Pobierz](/rest/api/securitycenter/advancedthreatprotection/get)
-
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Użyj następujących poleceń cmdlet programu PowerShell:
+Aby włączyć usługę Azure Defender dla konta magazynu przy użyciu programu PowerShell, najpierw upewnij się, że zainstalowano moduł [AZ. Security](https://www.powershellgallery.com/packages/Az.Security) . Następnie Wywołaj polecenie [enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) . Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
 
-- [Włącz zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Uzyskaj zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Wyłącz zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+```azurepowershell
+Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
+```
+
+Aby sprawdzić ustawienie usługi Azure Defender dla konta magazynu za pomocą programu PowerShell, wywołaj polecenie [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection) . Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
+
+```azurepowershell
+Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
+```
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby włączyć usługę Azure Defender dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Security ATP Storage Update](/cli/azure/security/atp/storage#az_security_atp_storage_update) . Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
+
+```azurecli
+az security atp storage update \
+    --resource-group <resource-group> \
+    --storage-account <storage-account> \
+    --is-enabled true
+```
+
+Aby sprawdzić ustawienie usługi Azure Defender dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Security ATP Storage show](/cli/azure/security/atp/storage#az_security_atp_storage_show) . Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
+
+```azurecli
+az security atp storage show \
+    --resource-group <resource-group> \
+    --storage-account <storage-account>
+```
 
 ---
 
@@ -137,5 +155,6 @@ Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby dostępu d
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [dziennikach na kontach usługi Azure Storage](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Dowiedz się więcej o [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Wprowadzenie do usługi Azure Defender dla magazynu](../../security-center/defender-for-storage-introduction.md)
+- [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Dzienniki na kontach usługi Azure Storage](/rest/api/storageservices/About-Storage-Analytics-Logging)

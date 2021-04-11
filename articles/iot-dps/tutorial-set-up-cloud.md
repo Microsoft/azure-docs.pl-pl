@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5707d873bbf67add78f9a8e29fcb9135898486d6
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91316073"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226841"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Samouczek: Konfigurowanie zasobów w chmurze na potrzeby aprowizacji urządzeń przy użyciu IoT Hub Device Provisioning Service
 
@@ -120,7 +120,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Połączenie centrum IoT z usługą Device Provisioning
 > * Ustawienie zasad alokacji w usłudze Device Provisioning
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować urządzenie pod kątem aprowizacji.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować urządzenie pod kątem aprowizacji
 
 > [!div class="nextstepaction"]
 > [Set up device for provisioning (Konfigurowanie urządzenia pod kątem aprowizacji)](tutorial-set-up-device.md)

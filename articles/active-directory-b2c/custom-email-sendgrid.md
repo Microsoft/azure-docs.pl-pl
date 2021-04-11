@@ -8,19 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 44ba2e39de37703de66aefd1fe843d0ca5002b6b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031311"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256977"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Niestandardowa Weryfikacja poczty e-mail za pomocą SendGrid
 
-Użyj niestandardowych wiadomości e-mail w programie Azure Active Directory B2C (Azure AD B2C), aby wysyłać niestandardowe wiadomości e-mail do użytkowników, którzy logują się w celu korzystania z aplikacji. Korzystając z usługi [DisplayControls](display-controls.md) (obecnie w wersji zapoznawczej) i dostawcy poczty e-mail innej firmy SendGrid, można użyć własnego szablonu wiadomości e-mail oraz adresu *:* adres i temat, a także do obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Użyj niestandardowych wiadomości e-mail w programie Azure Active Directory B2C (Azure AD B2C), aby wysyłać niestandardowe wiadomości e-mail do użytkowników, którzy logują się w celu korzystania z aplikacji. Korzystając z SendGrid dostawcy poczty e-mail innej firmy, można użyć własnego szablonu wiadomości e-mail oraz adresu *:* adres i temat, a także do obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Niestandardowa Weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com)lub [SPARKPOST](https://sparkpost.com), niestandardowy interfejs API REST lub dowolny dostawca poczty e-mail oparty na protokole HTTP (w tym własny). W tym artykule opisano konfigurowanie rozwiązania korzystającego z SendGrid.
 
@@ -556,3 +567,5 @@ Przykład niestandardowych zasad weryfikacji poczty e-mail można znaleźć w wi
 
 - [Niestandardowa Weryfikacja poczty e-mail — DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - Aby uzyskać informacje o korzystaniu z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail opartego na protokole HTTP, zobacz [Definiowanie profilu technicznego RESTful w zasadach niestandardowych Azure AD B2C](restful-technical-profile.md).
+
+::: zone-end

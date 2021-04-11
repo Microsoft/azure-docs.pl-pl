@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 92db62622c37241a76d7847931df030162de8f00
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209835"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504230"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -137,12 +137,16 @@ Usługi utworzone po 15 lipca 2020 będą zapewniały inne środowisko wyróżni
 
 Z nowym zachowaniem:
 
-* Zostaną zwrócone tylko frazy pasujące do zapytania o pełną frazę. Zapytanie "Super" zwróci następujące informacje:
++ Zostaną zwrócone tylko frazy pasujące do zapytania o pełną frazę. Fraza zapytania "pucharowa" zwróci następujące elementy:
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Należy zauważyć, że termin " *pucharowe wióry* " nie ma żadnego wyróżnienia, ponieważ nie pasuje do pełnej frazy.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Należy zauważyć, że inne wystąpienia funkcji *Super* i *Puchar* nie mają żadnego wyróżnienia, ponieważ te wystąpienia nie pasują do pełnej frazy.
 
 Podczas pisania kodu klienta, który implementuje podświetlanie trafień, należy pamiętać o tej zmianie. Należy zauważyć, że nie będzie to miało wpływu na to, chyba że zostanie utworzona zupełnie nowa usługa wyszukiwania.
 

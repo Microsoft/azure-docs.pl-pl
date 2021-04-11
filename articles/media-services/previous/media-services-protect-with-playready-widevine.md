@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a0e8a513023c093157a3f14a64de9f87de543ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd544b9eec0c1839ad94ede65e9d4ccde6df81dc
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009457"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063359"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine
 
@@ -46,9 +46,9 @@ Aby uzyskać więcej informacji, zapoznaj się z integracją z usługami [Axinom
 
 Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń: ograniczenia otwarte lub ograniczenia tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje następujące formaty tokenów: [prosty token sieci Web](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) i [token sieci Web JSON](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT). 
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad autoryzacji klucza zawartości](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad autoryzacji klucza zawartości](media-services-portal-configure-content-key-auth-policy.md).
 
-Aby można było skorzystać z szyfrowania dynamicznego, potrzebny jest element zawartości zawierający zestaw plików MP4 o różnych szybkościach transmisji bitów lub pliki źródłowe Smooth Streaming o różnych szybkościach transmisji bitów. Należy również skonfigurować zasady dostarczania tego elementu zawartości (opisane w dalszej części niniejszego tematu). Następnie na podstawie formatu określonego w adresie URL przesyłanego strumienia serwer przesyłania strumieniowego na żądanie zapewnia, że strumień jest dostarczany za pomocą wybranego protokołu. W efekcie przechowujesz i opłacasz pliki tylko w jednym formacie magazynu. Usługa Media Services tworzy i udostępnia właściwą odpowiedź HTTP na podstawie każdego żądania klienta.
+Aby skorzystać z szyfrowania dynamicznego, należy utworzyć element zawartości zawierający zestaw plików MP4 o wysokiej szybkości transmisji bitów lub pliki źródłowe z wieloszybkościową Smooth Streaming. Należy również skonfigurować zasady dostarczania tego elementu zawartości (opisane w dalszej części niniejszego tematu). Następnie na podstawie formatu określonego w adresie URL przesyłanego strumienia serwer przesyłania strumieniowego na żądanie zapewnia, że strumień jest dostarczany za pomocą wybranego protokołu. W efekcie przechowujesz i opłacasz pliki tylko w jednym formacie magazynu. Usługa Media Services tworzy i udostępnia właściwą odpowiedź HTTP na podstawie każdego żądania klienta.
 
 Ten artykuł jest przydatny dla deweloperów pracujących nad aplikacjami, które dostarczają zawartość chronioną przy użyciu wielu protokołów DRM, takich jak PlayReady i Widevine. W tym artykule opisano sposób konfigurowania usługi dostarczania licencji PlayReady przy użyciu zasad autoryzacji, tak aby tylko autoryzowani klienci mogli odbierać licencje PlayReady lub Widevine. Przedstawiono także sposób korzystania z szyfrowania przy użyciu usług PlayReady lub Widevine DRM dla strumienia DASH.
 

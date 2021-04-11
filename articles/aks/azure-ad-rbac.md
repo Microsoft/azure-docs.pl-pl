@@ -5,12 +5,12 @@ description: Dowiedz się, jak korzystać z członkostwa w grupie Azure Active D
 services: container-service
 ms.topic: article
 ms.date: 03/17/2021
-ms.openlocfilehash: 72b2c456d62b899f2b04041929434da668cad82d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9a3340d6ff0a9818ba92b94b345bd86a78d426
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583534"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106024"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach Kubernetes i tożsamości Azure Active Directory w usłudze Azure Kubernetes Service
 
@@ -434,5 +434,5 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

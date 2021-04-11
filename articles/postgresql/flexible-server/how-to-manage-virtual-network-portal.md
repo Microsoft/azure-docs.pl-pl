@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie sieciami wirtualnymi — Azure Portal-Azure Database for PostgreSQL-elastyczny serwer
 description: Tworzenie sieci wirtualnych i zarządzanie nimi dla Azure Database for PostgreSQL-elastyczny serwer przy użyciu Azure Portal
-author: rothja
-ms.author: jroth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 8a3c983a60dc542cf83f9e818b7f9c1f20265b49
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: d5b60cfeb3bfce1253ece3708e6b48ce6bcb0b4f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552363"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226909"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Tworzenie sieci wirtualnych i zarządzanie nimi dla Azure Database for PostgreSQL-elastyczny serwer przy użyciu Azure Portal
 

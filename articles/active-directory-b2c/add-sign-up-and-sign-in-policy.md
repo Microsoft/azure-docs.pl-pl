@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 047b295d68e872b4dc334e53b5b9da0ec07d5826
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043754"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257079"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Konfigurowanie przepływu rejestracji i logowania w Azure Active Directory B2C
 
@@ -91,7 +91,7 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
 
 ## <a name="create-a-sign-up-and-sign-in-policy"></a>Tworzenie zasad tworzenia konta i logowania
 
-Zasady niestandardowe są zestawem plików XML przekazywanym do dzierżawy Azure AD B2C w celu zdefiniowania podróży użytkowników. Udostępniamy pakiety początkowe z kilkoma wstępnie utworzonymi zasadami, takimi jak: rejestrowanie i logowanie, resetowanie haseł i zasady edytowania profilu. Aby uzyskać więcej informacji, zobacz Wprowadzenie [do zasad niestandardowych w Azure AD B2C](custom-policy-get-started.md).
+Zasady niestandardowe są zestawem plików XML przekazywanym do dzierżawy Azure AD B2C w celu zdefiniowania podróży użytkowników. Udostępniamy pakiety początkowe z kilkoma wstępnie utworzonymi zasadami, takimi jak: rejestrowanie i logowanie, resetowanie haseł i zasady edytowania profilu. Aby uzyskać więcej informacji, zobacz Wprowadzenie [do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

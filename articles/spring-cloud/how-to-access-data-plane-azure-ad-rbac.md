@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 23e24e562ea6fa10eee82c54c9ab2a701dd10351
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 16433d5b148d7bc441e375591c64af497cd7b8de
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170085"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505337"
 ---
 # <a name="access-config-server-and-service-registry"></a>Serwer konfiguracji dostępu i rejestr usługi
 
@@ -49,6 +49,9 @@ Po przypisaniu roli czytnika danych w chmurze Azure wiosny klienci mogą uzyska�
 
     * *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
     * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
+
+>[!NOTE]
+> Jeśli używasz Chin platformy Azure, Zastąp ciąg `*.azuremicroservices.io` opcją `*.microservices.azure.cn` , [Dowiedz się więcej](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Dostęp do składowego punktu końcowego z tokenem dostępu. Umieść token dostępu w nagłówku, aby zapewnić autoryzację.  Obsługiwana jest tylko Metoda "GET".
 

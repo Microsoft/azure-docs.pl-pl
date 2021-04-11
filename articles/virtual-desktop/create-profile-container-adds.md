@@ -3,15 +3,15 @@ title: Tworzenie kontenera profilu FSLogix Azure Files Active Directory Domain S
 description: W tym artykule opisano sposób tworzenia kontenera profilu FSLogix z Azure Files i Azure Active Directory Domain Services.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db49ade3b6727775c10321e10aff2e0bf231f1
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 59e2fc1f528040515398e51d359840f6ef1bbefc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447951"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255804"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
 
@@ -110,7 +110,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
     Na przykład:
 
      ```cmd
-     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
+     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
 8. Uruchom następujące polecenia, aby umożliwić użytkownikom pulpitu wirtualnego systemu Windows Tworzenie własnego kontenera profilu podczas blokowania dostępu do kontenerów profilów od innych użytkowników.
