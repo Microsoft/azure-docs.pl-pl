@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure API Management
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla API Management platformy Azure. Te wbudowane definicje zasad udostępniają podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a4d8fdb59e8427b2a515a650487752a9b6265b7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0956ccd28909b985c86666712330d19bfaa88a43
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035386"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095888"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Azure Policy wbudowane definicje zasad dla platformy Azure API Management
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 0854d56930dbc8decfcf8f96a814f082e361de62
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 6f664450d5450782d9a01d75abfb5a96b3e0bba6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167247"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221198"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -1734,9 +1734,6 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |IoTConnectorMeasurementIngestionLatencyMs|Tak|Średnie opóźnienie etapu grupy|)|Średnia|Czas od momentu odebrania przez łącznik IoT danych urządzenia i gdy dane są przetwarzane przez etap konwersji FHIR.|Operacja, Łącznikname|
 |IoTConnectorNormalizedEvent|Tak|Liczba znormalizowanych komunikatów|Liczba|Sum|Całkowita liczba mapowanych znormalizowanych wartości podanego na etapie normalizacji łącznika usługi Azure IoT dla FHIR.|Operacja, Łącznikname|
 |IoTConnectorTotalErrors|Tak|Łączna liczba błędów|Liczba|Sum|Całkowita liczba błędów rejestrowanych przez łącznik usługi Azure IoT dla FHIR|Nazwa, operacja, Błądtype, ErrorSeverity, Łącznikname|
-|ServiceApiErrors|Tak|Błędy usługi|Liczba|Sum|Całkowita liczba błędów wewnętrznego serwera wygenerowanych przez usługę.|Protokół, uwierzytelnianie, operacja, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiLatency|Tak|Opóźnienie usługi|)|Średnia|Opóźnienie odpowiedzi usługi.|Protokół, uwierzytelnianie, operacja, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiRequests|Tak|Service Requests|Liczba|Sum|Całkowita liczba żądań odebranych przez usługę.|Protokół, uwierzytelnianie, operacja, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalErrors|Tak|Całkowita liczba błędów|Liczba|Sum|Całkowita liczba wewnętrznych błędów serwera napotykanych przez usługę.|Protokół, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Tak|Łączne opóźnienie|)|Średnia|Opóźnienie odpowiedzi usługi.|Protokół|
 |TotalRequests|Tak|Łączna liczba żądań|Liczba|Sum|Całkowita liczba żądań odebranych przez usługę.|Protokół|

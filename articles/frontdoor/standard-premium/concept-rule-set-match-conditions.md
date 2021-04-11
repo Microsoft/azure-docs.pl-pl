@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 039effb885463c1c53085535a6980601be890340
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9e8defa9e929d21f210c48ffbd3b22e44195c17d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561515"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061625"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-match-conditions"></a>Warunki dopasowania zestawu reguł (wersja zapoznawcza) usługi Azure Front-Standard/Premium
 
@@ -685,7 +685,7 @@ W tym przykładzie są zgodne wszystkie żądania, w przypadku których żądani
 
 ## <a name="request-url"></a><a name="RequestUrl"></a> Adres URL żądania
 
-Identyfikuje żądania zgodne z określonym adresem URL. Cały adres URL jest oceniany. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
+Identyfikuje żądania zgodne z określonym adresem URL. Zostanie oszacowany cały adres URL, łącznie z protokołem i ciągiem zapytania, ale nie fragmentem. Można określić wiele wartości do dopasowania, które zostaną połączone przy użyciu logiki lub.
 
 > [!TIP]
 > Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu protokołu. Na przykład użyj `https://www.contoso.com` zamiast tylko `www.contoso.com` .
@@ -790,10 +790,6 @@ Wyrażenia regularne nie obsługują następujących operacji:
 * `\K`Dyrektywa początku resetowania dopasowania.
 * Wywołania i kod osadzony.
 * Grupowanie niepodzielne i Kwantyfikatory Possessive.
-
-## <a name="arm-template-support"></a>Obsługa szablonów ARM
-
-Zestawy reguł można skonfigurować przy użyciu szablonów Azure Resource Manager. [Zobacz przykładowy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). Możesz dodać warunki dopasowania przy użyciu fragmentów kodu JSON lub Bicep zawartych w powyższych przykładach.
 
 ## <a name="next-steps"></a>Następne kroki
 

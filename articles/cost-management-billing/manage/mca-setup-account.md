@@ -1,19 +1,19 @@
 ---
 title: Konfigurowanie rozliczeń dla umowy klienta firmy Microsoft — Azure
-description: Dowiedz się, jak skonfigurować konto rozliczeniowe dla umowy klienta firmy Microsoft. Zapoznaj się z wymaganiami wstępnymi dotyczącymi konfiguracji i wyświetl dodatkowe dostępne zasoby.
+description: Dowiedz się, jak skonfigurować konto rozliczeniowe dla umowy klienta firmy Microsoft. Zapoznaj się z wymaganiami wstępnymi dotyczącymi instalacji i wyświetlaj inne dostępne zasoby.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 03/19/2021
 ms.author: banders
-ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.openlocfilehash: 15aa3acab9fe98a4c2f5103ba211dde34220c54e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316407"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255688"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurowanie konta rozliczeniowego dla umowy klienta firmy Microsoft
 
@@ -24,7 +24,7 @@ Procedura odnowienia obejmuje następujące kroki:
 1. Zaakceptowanie nowej umowy klienta firmy Microsoft. Skontaktowanie się z przedstawicielem firmy Microsoft w celu poznania szczegółów nowej umowy i zaakceptowania jej.
 2. Skonfigurowanie nowego konta rozliczeniowego utworzonego dla nowej Umowy z Klientem Microsoft.
 
-Aby skonfigurować konto rozliczeniowe, musisz przenieść rozliczanie Twoich subskrypcji platformy Azure z rejestracji umowy Enterprise Agreement do nowego konta. Konfiguracja nie wpływa na usługi platformy Azure, które działają w ramach Twoich subskrypcji. Jednak zmienia sposób zarządzania rozliczeniami dla subskrypcji.
+Aby skonfigurować konto rozliczeniowe, musisz przenieść rozliczanie Twoich subskrypcji platformy Azure z rejestracji umowy Enterprise Agreement do nowego konta. Instalator nie ma wpływu na usługi platformy Azure, które działają w Twoich subskrypcjach. Jednak zmienia sposób zarządzania rozliczeniami dla subskrypcji.
 
 - Zamiast w witrynie [EA Portal](https://ea.azure.com), będziesz zarządzać usługami i rozliczeniami platformy Azure w witrynie [Azure Portal](https://portal.azure.com).
 - Będziesz otrzymywać miesięczne faktury cyfrowe z naliczonymi opłatami. Fakturę możesz wyświetlić i przeanalizować na stronie Zarządzanie kosztami i rozliczenia platformy Azure.
@@ -49,31 +49,54 @@ Przed rozpoczęciem konfigurowania zalecamy wykonanie następujących akcji:
 
 Do wykonania konfiguracji jest wymagany następujący poziom dostępu:
 
-- Właściciel profilu rozliczeniowego utworzonego podczas podpisywania umowy klienta firmy Microsoft. Aby dowiedzieć się więcej o profilach rozliczeniowych, zobacz [Omówienie profilów rozliczeniowych](../understand/mca-overview.md#billing-profiles).
-
+- Właściciel profilu rozliczeniowego utworzonego podczas podpisywania umowy klienta firmy Microsoft. Aby dowiedzieć się więcej o profilach rozliczeniowych, zobacz [Omówienie profilów rozliczeniowych](../understand/mca-overview.md#billing-profiles).  
+&mdash; Lub &mdash;
 - Administrator przedsiębiorstwa dla odnawianej rejestracji.
+
+### <a name="start-migration-and-get-permission-needed-to-complete-setup"></a>Rozpocznij migrację i uzyskaj odpowiednie uprawnienia do ukończenia instalacji
+
+Możesz użyć następujących opcji, aby rozpocząć migrację dla rejestracji EA do umowy klienta firmy Microsoft.
+
+
+- Zaloguj się do witryny Azure Portal przy użyciu linku w wiadomości e-mail wysłanej do Ciebie po podpisaniu umowy klienta firmy Microsoft.
+
+- Jeśli nie masz wiadomości e-mail, zaloguj się przy użyciu poniższego linku. Zastąp ciąg `enrollmentNumber` numerem rejestracyjnym odnowionej umowy Enterprise Agreement.
+
+  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+
+Jeśli masz zarówno role administratora przedsiębiorstwa, jak i właściciela konta rozliczeń lub profilu rozliczeń, zobaczysz następującą stronę w Azure Portal. Możesz kontynuować konfigurowanie rejestracji umowy EA i konta rozliczeniowego umowy klienta firmy Microsoft na potrzeby przejścia.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="Zrzut ekranu przedstawiający stronę Konfigurowanie konta rozliczeniowego" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
+
+Jeśli nie masz roli administratora przedsiębiorstwa dla umowy Enterprise Agreement lub roli właściciela profilu rozliczania dla umowy klienta firmy Microsoft, Skorzystaj z poniższych informacji, aby uzyskać dostęp wymagany do ukończenia instalacji.
 
 ### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>Jeśli nie jesteś administratorem przedsiębiorstwa dla rejestracji
 
-Możesz zwrócić się do administratorów przedsiębiorstwa dla rejestracji o wykonanie konfiguracji Twojego konta rozliczeniowego.
+W Azure Portal zostanie wyświetlona następująca strona, jeśli masz konto rozliczeń lub właściciela profilu rozliczeń, ale nie jesteś administratorem przedsiębiorstwa.
 
-1. Zaloguj się do witryny Azure Portal przy użyciu linku w wiadomości e-mail wysłanej do Ciebie po podpisaniu umowy klienta firmy Microsoft.
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Zrzut ekranu przedstawiający stronę Konfigurowanie konta rozliczeniowego — przygotowanie Enterprise Agreement rejestracji dla przejścia." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
-2. Jeśli nie masz wiadomości e-mail, zaloguj się przy użyciu poniższego linku. Zastąp ciąg `<enrollmentNumber>` numerem rejestracyjnym odnowionej umowy Enterprise Agreement.
+Dostępne są dwie opcje:
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+- Skontaktuj się z administratorem przedsiębiorstwa rejestracji, aby uzyskać rolę administratora przedsiębiorstwa. Aby uzyskać więcej informacji, zobacz [Tworzenie innego administratora przedsiębiorstwa](ea-portal-administration.md#create-another-enterprise-administrator).
+-  Można przyznać administratorowi przedsiębiorstwa rolę właściciela konta rozliczeń lub właściciela profilu rozliczeń. Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami rozliczeń w Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-3. Wybierz administratorów przedsiębiorstwa, do których chcesz wysłać wniosek.
-
-   ![Zrzut ekranu pokazujący zaproszenie dla administratorów przedsiębiorstwa](./media/mca-setup-account/ea-mca-invite-admins.png)
-
-4. Wybierz pozycję **Wyślij wniosek** .
-
-   Administratorzy otrzymają wiadomość e-mail z instrukcjami wykonania konfiguracji.
+Jeśli masz rolę administratora przedsiębiorstwa, skopiuj link na stronie Konfigurowanie konta rozliczeniowego. Otwórz go w przeglądarce sieci Web, aby kontynuować konfigurowanie umowy klienta firmy Microsoft. W przeciwnym razie Wyślij ją do administratora przedsiębiorstwa.
 
 ### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>Jeśli nie jesteś właścicielem profilu rozliczeniowego
 
-Użytkownik organizacji, który podpisał umowę klienta firmy Microsoft, jest dodawany jako właściciel profilu rozliczeniowego. Zwróć się do tego użytkownika o dodanie Cię jako właściciela, aby umożliwić Ci wykonanie konfiguracji.
+Jeśli jesteś administratorem przedsiębiorstwa, ale nie masz konta rozliczeniowego lub roli właściciela profilu rozliczania dla umowy klienta firmy Microsoft, zobaczysz następującą stronę w Azure Portal.
+
+Jeśli uważasz, że masz właściciela profilu rozliczeniowego dostęp do odpowiedniej umowy klienta firmy Microsoft i zobaczysz następujący komunikat, upewnij się, że jesteś w odpowiedniej dzierżawie dla swojej organizacji. Może zajść konieczność zmiany katalogów.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="Zrzut ekranu przedstawiający stronę Konfigurowanie konta rozliczeniowego — konto rozliczeniowe umowy klienta firmy Microsoft." lightbox="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
+
+Dostępne są dwie opcje:
+
+- Poproszenie istniejącego właściciela konta rozliczeniowego o przyznanie roli właściciela konta rozliczeń lub właściciela profilu rozliczeń. Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami rozliczeń w Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+- Nadaj roli administratora przedsiębiorstwa istniejącemu właścicielowi konta rozliczeniowego. Aby uzyskać więcej informacji, zobacz [Tworzenie innego administratora przedsiębiorstwa](ea-portal-administration.md#create-another-enterprise-administrator).
+
+Jeśli otrzymujesz rolę właściciela konta rozliczeń lub właściciela profilu rozliczania, skopiuj link na stronie Konfigurowanie konta rozliczeniowego. Otwórz go w przeglądarce sieci Web, aby kontynuować konfigurowanie umowy klienta firmy Microsoft. W przeciwnym razie Wyślij link do właściciela konta rozliczeniowego.
 
 ## <a name="understand-changes-to-your-billing-hierarchy"></a>Omówienie zmian w hierarchii rozliczeń
 
@@ -184,10 +207,10 @@ Aby wykonać konfigurację, musisz mieć dostęp do nowego konta rozliczeniowego
 
     - Hierarchia rozliczeń odpowiadająca hierarchii umowy Enterprise Agreement zostanie utworzona na nowym koncie rozliczeniowym. Aby uzyskać więcej informacji, zobacz [Omówienie zmian w hierarchii rozliczeń](#understand-changes-to-your-billing-hierarchy).
     - Administratorzy rejestracji umowy Enterprise Agreement uzyskają dostęp do nowego konta rozliczeniowego, aby nadal zarządzać rozliczeniami dla organizacji.
-    - Rozliczenia subskrypcji platformy Azure są przenoszone do nowego konta. **Wykonywanie tego przenoszenia nie ma żadnego wpływu na usługi platformy Azure. Będą one nadal działać bez żadnych przerw** .
+    - Rozliczenia subskrypcji platformy Azure są przenoszone do nowego konta. **Wykonywanie tego przenoszenia nie ma żadnego wpływu na usługi platformy Azure. Będą one nadal działać bez żadnych przerw**.
     - Jeśli masz rezerwacje platformy Azure, są one przenoszone do nowego konta rozliczeniowego z zachowaniem korzyści i terminu.
 
-4. Stan przenoszenia można monitorować na stronie **Stan przenoszenia** .
+4. Stan przenoszenia można monitorować na stronie **Stan przenoszenia**.
 
    ![Zrzut ekranu pokazujący stan przenoszenia](./media/mca-setup-account/ea-mca-set-up-status.png)
 
@@ -199,11 +222,11 @@ Aby wykonać konfigurację, musisz mieć dostęp do nowego konta rozliczeniowego
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
+2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
    ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/mca-setup-account/search-cmb.png)
 
-3. Wybierz konto rozliczeniowe. Typ konta rozliczeniowego to **umowa klienta firmy Microsoft** .
+3. Wybierz konto rozliczeniowe. Typ konta rozliczeniowego to **umowa klienta firmy Microsoft**.
 
 4. Wybierz **subskrypcje platformy Azure** z lewej strony.
 
@@ -219,11 +242,11 @@ Rezerwacje platformy Azure w ramach rejestracji umowy Enterprise Agreement będ�
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
+2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
    ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/mca-setup-account/search-cmb.png)
 
-3. Wybierz konto rozliczeniowe dla **umowy klienta firmy Microsoft** .
+3. Wybierz konto rozliczeniowe dla **umowy klienta firmy Microsoft**.
 
 4. Po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)** .
 
@@ -235,7 +258,7 @@ Administratorzy przedsiębiorstwa są wyświetlani jako właściciele konta rozl
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
+2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
    ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/mca-setup-account/search-cmb.png)
 
@@ -251,11 +274,11 @@ Administratorzy przedsiębiorstwa są wyświetlani jako właściciele profilu ro
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
+2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
    ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/mca-setup-account/search-cmb.png).
 
-3. Wybierz sekcję faktury. Sekcje faktur mają takie same nazwy jak odpowiadające im działy w ramach rejestracji umowy Enterprise Agreement. W zależności od praw dostępu może być konieczne wybranie konta rozliczeniowego. Z poziomu konta rozliczeniowego wybierz pozycję **Profile rozliczeniowe** , a następnie wybierz pozycję **Sekcje faktur** . Z listy sekcji faktur wybierz sekcję faktur.
+3. Wybierz sekcję faktury. Sekcje faktur mają takie same nazwy jak odpowiadające im działy w ramach rejestracji umowy Enterprise Agreement. W zależności od praw dostępu może być konieczne wybranie konta rozliczeniowego. Z poziomu konta rozliczeniowego wybierz pozycję **Profile rozliczeniowe**, a następnie wybierz pozycję **Sekcje faktur**. Z listy sekcji faktur wybierz sekcję faktur.
 
    ![Zrzut ekranu przedstawiający listę sekcji faktur po przeniesieniu](./media/mca-setup-account/mca-invoice-sections-post-transition.png)
 
@@ -263,7 +286,7 @@ Administratorzy przedsiębiorstwa są wyświetlani jako właściciele profilu ro
 
     ![Zrzut ekranu pokazujący dostęp administratorów działu i konta po przeniesieniu](./media/mca-setup-account/mca-department-account-admins-access-post-transition.png)
 
-Administratorzy przedsiębiorstwa i administratorzy działu są wyświetlani jako właściciele lub czytelnicy sekcji faktur, a właściciele konta w dziale są wyświetlani jako twórcy subskrypcji platformy Azure. Powtórz kroki dla wszystkich sekcji faktur, aby sprawdzić dostęp dla wszystkich działów w ramach rejestracji umowy Enterprise Agreement. Właściciele konta, którzy nie należeli do żadnego działu, otrzymają uprawnienie do sekcji faktur o nazwie **Domyślna sekcja faktur** . Jeśli uważasz, że administratorzy nie mają odpowiedniego dostępu, możesz udzielić im dostępu w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami rozliczeń w witrynie Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Administratorzy przedsiębiorstwa i administratorzy działu są wyświetlani jako właściciele lub czytelnicy sekcji faktur, a właściciele konta w dziale są wyświetlani jako twórcy subskrypcji platformy Azure. Powtórz kroki dla wszystkich sekcji faktur, aby sprawdzić dostęp dla wszystkich działów w ramach rejestracji umowy Enterprise Agreement. Właściciele konta, którzy nie należeli do żadnego działu, otrzymają uprawnienie do sekcji faktur o nazwie **Domyślna sekcja faktur**. Jeśli uważasz, że administratorzy nie mają odpowiedniego dostępu, możesz udzielić im dostępu w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami rozliczeń w witrynie Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 

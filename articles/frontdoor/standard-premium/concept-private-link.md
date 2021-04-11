@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c927682231bab1fc92f198c56a2f6aeff2f4c516
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799939"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553536"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Zabezpiecz swoje źródło za pomocą prywatnego linku na platformie Azure Front-Standard/Premium (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Po włączeniu prywatnego linku do źródła w konfiguracji Premium drzwi platfo
 
 ## <a name="limitations"></a>Ograniczenia
 
-Prywatne punkty końcowe platformy Azure są dostępne w następujących regionach w trakcie publicznej wersji zapoznawczej: Wschodnie stany USA, zachodnie stany USA i Południowo-środkowe stany USA.
+Prywatne punkty końcowe platformy Azure są dostępne w następujących regionach w trakcie publicznej wersji zapoznawczej: Wschodnie stany USA, zachodnie stany USA, Południowo-środkowe stany USA i Południowe Zjednoczone Królestwo.
 
 W celu uzyskania najlepszego opóźnienia należy zawsze wybrać region platformy Azure znajdujący się najbliżej źródła, wybierając opcję włączania prywatnego linku tylnego drzwi.
 
