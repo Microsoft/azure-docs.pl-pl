@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: 8f18e19eca8895549f17c9f0f6822ecb4da2914b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb10e2023187c74a9e8b9a2e4c72115841e89a84
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773508"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552601"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie wielu puli węzłów dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nimi
 
@@ -738,6 +738,34 @@ W przypadku istniejących klastrów AKS można również dodać nową pulę węz
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
+### <a name="use-a-public-ip-prefix"></a>Użyj publicznego prefiksu adresu IP
+
+Istnieje wiele [korzyści związanych z używaniem publicznego prefiksu adresu IP][public-ip-prefix-benefits]. AKS obsługuje używanie adresów z istniejącego publicznego prefiksu IP dla węzłów przez przekazanie identyfikatora zasobu z flagą `node-public-ip-prefix` podczas tworzenia nowego klastra lub dodawania puli węzłów.
+
+Najpierw utwórz publiczny prefiks adresu IP za pomocą polecenia [AZ Network Public-IP prefix Create][az-public-ip-prefix-create]:
+
+```azurecli-interactive
+az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
+```
+
+Wyświetl dane wyjściowe i zanotuj `id` dla prefiksu:
+
+```output
+{
+  ...
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
+  ...
+}
+```
+
+Na koniec podczas tworzenia nowego klastra lub dodawania nowej puli węzłów Użyj flagi `node-public-ip-prefix` i przekaż identyfikator zasobu prefiksu:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+```
+
+### <a name="locate-public-ips-for-nodes"></a>Lokalizowanie publicznych adresów IP dla węzłów
+
 Publiczne adresy IP dla węzłów można znaleźć na różne sposoby:
 
 * Użyj interfejsu wiersza polecenia platformy Azure [AZ VMSS list-instance-Public-IP][az-list-ips].
@@ -821,3 +849,5 @@ Używaj [grup umieszczania w sąsiedztwie][reduce-latency-ppg] , aby ograniczyć
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create

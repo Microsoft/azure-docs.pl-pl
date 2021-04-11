@@ -10,22 +10,29 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/16/2021
+ms.date: 4/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2aba8d9de5e068cd98675f67cb26b0eac8d1ad6d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592800"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552833"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Tworzenie przeglądu dostępu do ról usługi Azure AD w Privileged Identity Management
 
 Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularnie przeglądać dostęp. Możesz użyć Azure AD Privileged Identity Management (PIM), aby utworzyć przeglądy dostępu dla ról uprzywilejowanych usługi Azure AD. Istnieje również możliwość skonfigurowania cyklicznych przeglądów dostępu, które są wykonywane automatycznie.
 
 W tym artykule opisano sposób tworzenia co najmniej jednej oceny dostępu dla uprzywilejowanych ról usługi Azure AD.
+
+## <a name="prerequisite-license"></a>Wstępnie wymagana licencja
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Aby uzyskać więcej informacji o licencjach dla usługi PIM, zapoznaj się z [wymaganiami dotyczącymi licencji, aby użyć Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Obecnie można ograniczyć przegląd dostępu do jednostek usługi przy użyciu dostępu do usługi Azure AD i ról zasobów platformy Azure (wersja zapoznawcza) z aktywną Azure Active Directory — wersja Premium P2 w dzierżawie. Model licencjonowania dla jednostek usługi zostanie sfinalizowany do ogólnej dostępności tej funkcji, a dodatkowe licencje mogą być wymagane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,9 +42,11 @@ W tym artykule opisano sposób tworzenia co najmniej jednej oceny dostępu dla u
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który jest członkiem roli administrator ról uprzywilejowanych.
 
-1. Otwórz **Azure AD Privileged Identity Management**.
-
-1. Wybierz pozycję **role usługi Azure AD**.
+1. Wybierz **Zarządzanie tożsamościami**
+ 
+1. Wybierz pozycję **role usługi Azure AD** w obszarze **Azure AD Privileged Identity Management**.
+ 
+1. Wybierz pozycję **role usługi Azure AD** ponownie w obszarze **Zarządzaj**.
 
 1. W obszarze Zarządzaj wybierz pozycję **przeglądy dostępu**, a następnie wybierz pozycję **Nowy**.
 
@@ -57,9 +66,11 @@ Kliknij pozycję **Nowy** , aby utworzyć nowy przegląd dostępu.
 
 1. Użyj ustawienia **End** , aby określić, jak zakończyć cykliczne serie przeglądu dostępu. Seria może kończyć się na trzy sposoby: działa stale, aby rozpocząć przeglądy w nieskończoność, aż do określonej daty lub po zakończeniu zdefiniowanej liczby wystąpień. Po utworzeniu seria może zostać zatrzymana przez innego administratora lub innego administratora globalnego, zmieniając datę w **ustawieniach**, aby zakończyć działanie.
 
-1. W sekcji **Użytkownicy** wybierz co najmniej jedną rolę, w której chcesz przejrzeć członkostwo.
+1. W sekcji **zakres użytkowników** wybierz zakres przeglądu. Aby przejrzeć użytkowników i grupy z dostępem do roli usługi Azure AD, wybierz pozycję **Użytkownicy i grupy** lub wybierz **(wersja zapoznawcza) jednostki usługi** , aby przejrzeć konta maszyn z dostępem do roli usługi Azure AD.
 
     ![Zakres użytkowników do przeglądania członkostwa w roli](./media/pim-how-to-start-security-review/users.png)
+
+1. W obszarze **Przegląd członkostwa w roli** wybierz role usługi Azure AD do przejrzenia. 
 
     > [!NOTE]
     > - Role wybrane w tym miejscu obejmują zarówno [role trwałe, jak i kwalifikujące się](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +88,9 @@ Kliknij pozycję **Nowy** , aby utworzyć nowy przegląd dostępu.
 
     ![Lista recenzentów wybranych użytkowników lub członków (własnych)](./media/pim-how-to-start-security-review/reviewers.png)
 
-    - **Wybrani użytkownicy** — Użyj tej opcji, jeśli nie wiesz, kto potrzebuje dostępu. Po wybraniu tej opcji można przypisać przegląd do właściciela zasobu lub Menedżera grupy, aby zakończyć.
-    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról. Grupy przypisane do roli nie będą częścią przeglądu, gdy ta opcja jest zaznaczona.
-    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu. Grupy przypisane do roli będą przeglądane przez recenzenta powrotu, jeśli został wybrany. 
+    - **Wybrani użytkownicy** — Użyj tej opcji, aby wyznaczyć określonego użytkownika w celu ukończenia przeglądu. Ta opcja jest dostępna niezależnie od zakresu przeglądu, a wybrani Recenzenci mogą przeglądać użytkowników, grupy i jednostki usługi. 
+    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról. Grupy przypisane do roli nie będą częścią przeglądu, gdy ta opcja jest zaznaczona. Ta opcja jest dostępna tylko wtedy, gdy przegląd został objęty zakresem **użytkowników i grup**.
+    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Ta opcja jest dostępna tylko wtedy, gdy przegląd został objęty zakresem **użytkowników i grup**. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu. Grupy przypisane do roli będą przeglądane przez recenzenta powrotu, jeśli został wybrany. 
 
 ### <a name="upon-completion-settings"></a>Po zakończeniu ustawień
 

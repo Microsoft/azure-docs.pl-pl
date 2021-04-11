@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dad46e21b35225855d787c367d112362fc95a463
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90527211"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010545"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Praktyki dotyczące zabezpieczeń dla producentów urządzeń usługi Azure IoT
 Ponieważ większa producenci wydają urządzenia IoT, warto zidentyfikować wskazówki dotyczące typowych praktyk. W tym artykule przedstawiono podsumowanie zalecanych zasad zabezpieczeń, które należy wziąć pod uwagę podczas produkcji urządzeń do użycia z usługą Azure IoT Device Provisioning Service (DPS).  
@@ -177,7 +177,7 @@ W tym momencie procesu należy zainstalować klienta usługi DPS wraz z zakresem
     > Jeśli używasz oprogramowania TPM, możesz go zainstalować teraz.  Wyodrębnij EK_pub w tym samym czasie.
 
 #### <a name="step-4-device-is-packaged-and-sent-to-the-warehouse"></a>Krok 4. urządzenie jest spakowane i wysyłane do magazynu
-Urządzenie może należeć do magazynu przez 6-12 miesięcy przed wdrożeniem. 
+Urządzenie może czasami należeć do magazynu przez maksymalnie rok przed wdrożeniem i udostępnieniem usługi DPS.  Jeśli urządzenie znajduje się w magazynie przez długi czas przed wdrożeniem, klienci, którzy wdrażają urządzenie, mogą potrzebować aktualizacji oprogramowania układowego, oprogramowania lub wygasłych poświadczeń.
 
 #### <a name="step-5-device-is-installed-into-the-location"></a>Krok 5. urządzenie jest zainstalowane w lokalizacji
 Po odebraniu urządzenia w jego końcowej lokalizacji odbywa się to przez automatyczne Inicjowanie obsługi przy użyciu funkcji DPS.

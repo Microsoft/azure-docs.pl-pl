@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1366f24ec3bd35ec23d5bf0879fced367c9f6a45
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095558"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552443"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
 
@@ -67,14 +67,11 @@ Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę po włą
 Włącz źródło zmian na koncie magazynu przy użyciu Azure Portal:
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz konto magazynu.
+1. Przejdź do opcji **Ochrona danych** w obszarze **BLOB Service**.
+1. W obszarze **śledzenie** wybierz pozycję **Włącz źródło zmian obiektów BLOB**.
+1. Wybierz przycisk **Zapisz** , aby potwierdzić ustawienia ochrony danych.
 
-2. Przejdź do opcji **Ochrona danych** w obszarze **BLOB Service**.
-
-3. Kliknij pozycję **włączone** w obszarze **źródła zmian obiektu BLOB**.
-
-4. Wybierz przycisk **Zapisz** , aby potwierdzić ustawienia **ochrony danych** .
-
-    ![Zrzut ekranu pokazujący ustawienia ochrony danych.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania źródła zmian w Azure Portal":::
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

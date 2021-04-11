@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11182b8331f218b970d867764f575ba5b7854d62
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023439"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550697"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -66,7 +66,7 @@ Obie opcje umożliwiają administratorom:
 > [!TIP]
 > - Hybrydowe urządzenia z systemem Windows 10 połączone z usługą Azure AD nie mają właściciela. Jeśli szukasz urządzenia według właściciela i nie znajdziesz go, wyszukaj identyfikator urządzenia.
 >
-> - Jeśli zostanie wyświetlone urządzenie z informacją o stanie "oczekujące" w ramach zarejestrowanej kolumny, oznacza to, że urządzenie zostało zsynchronizowane z programu Azure AD Connect i oczekuje na ukończenie rejestracji z poziomu klienta. Przeczytaj więcej na temat [planowania implementacji hybrydowego dołączania do usługi Azure AD](hybrid-azuread-join-plan.md). Dodatkowe informacje znajdują się w artykule [często zadawane pytania dotyczące urządzeń](faq.md).
+> - Jeśli zostanie wyświetlone urządzenie z informacją o stanie "oczekujące" w ramach zarejestrowanej kolumny, oznacza to, że urządzenie zostało zsynchronizowane z programu Azure AD Connect i oczekuje na ukończenie rejestracji z poziomu klienta. Przeczytaj więcej na temat [planowania implementacji hybrydowego dołączania do usługi Azure AD](hybrid-azuread-join-plan.md). Dodatkowe informacje znajdują się w artykule [często zadawane pytania dotyczące urządzeń](faq.yml).
 >
 > - W przypadku niektórych urządzeń z systemem iOS nazwy urządzeń zawierające apostrofy mogą potencjalnie używać różnych znaków, które wyglądają jak apostrofy. Dlatego wyszukiwanie takich urządzeń jest nieco trudne — jeśli wyniki wyszukiwania nie są prawidłowo wyświetlane, upewnij się, że ciąg wyszukiwania zawiera pasujący znak apostrofu.
 

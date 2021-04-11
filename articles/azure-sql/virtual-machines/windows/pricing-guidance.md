@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102615605"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure
@@ -59,7 +59,7 @@ W przypadku nielekkiego obciążenia produkcyjnego należy użyć jednej z nast�
 | Wydanie programu SQL Server | Obciążenie |
 |-----|-----|
 | Internet | Małe witryny sieci Web |
-| Standardowa | Małe i średnie obciążenia |
+| Standardowa (Standard) | Małe i średnie obciążenia |
 | Przedsiębiorstwa | Duże lub krytyczne dla działalności obciążenia|
 
 Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następujących wersji: *płatność za użycie* lub dostarczenie *własnej licencji (BYOL)*.

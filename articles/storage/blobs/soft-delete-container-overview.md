@@ -10,16 +10,16 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800748"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552381"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
-Nietrwałe usuwanie kontenerów (wersja zapoznawcza) chroni dane przed przypadkowym lub złośliwym usunięciem. Po włączeniu usuwania nietrwałego kontenerów dla konta magazynu wszystkie usunięte kontenery i ich zawartość są przechowywane w usłudze Azure Storage przez określony przez Ciebie okres. W okresie przechowywania można przywrócić wcześniej usunięte kontenery. Przywrócenie kontenera przywraca wszystkie obiekty blob znajdujące się w tym kontenerze w momencie jego usunięcia.
+Nietrwałe usuwanie kontenerów (wersja zapoznawcza) chroni dane przed przypadkowym lub złośliwym usunięciem. Po włączeniu usuwania nietrwałego kontenera dla konta magazynu usunięty kontener i jego zawartość są przechowywane w usłudze Azure Storage przez określony okres. W okresie przechowywania można przywrócić wcześniej usunięte kontenery. Przywrócenie kontenera przywraca wszystkie obiekty blob znajdujące się w tym kontenerze w momencie jego usunięcia.
 
 Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie następujących funkcji ochrony danych:
 
@@ -37,7 +37,7 @@ Po włączeniu usuwania nietrwałego kontenera można określić okres przechowy
 Podczas przywracania kontenera są również przywracane obiekty blob kontenera i wszystkie wersje obiektów BLOB. Można jednak używać tylko nietrwałego usuwania kontenera do przywracania obiektów blob, jeśli kontener został usunięty. Aby przywrócić usunięty obiekt BLOB, gdy jego kontener nadrzędny nie został usunięty, należy użyć usuwania nietrwałego obiektu BLOB lub przechowywania wersji obiektów BLOB.
 
 > [!WARNING]
-> Usuwanie nietrwałe kontenera może przywrócić tylko całe kontenery i obiekty blob, które znajdują się w czasie usuwania. Nie można przywrócić usuniętego obiektu BLOB w kontenerze za pomocą usuwania nietrwałego kontenera.
+> Usuwanie nietrwałe kontenera może przywrócić tylko całe kontenery i ich zawartość w czasie usuwania. Nie można przywrócić usuniętego obiektu BLOB w kontenerze za pomocą usuwania nietrwałego kontenera. Firma Microsoft zaleca również włączenie funkcji usuwania nietrwałego obiektów blob i przechowywania wersji obiektów BLOB w celu ochrony poszczególnych obiektów BLOB w kontenerze.
 
 Na poniższym diagramie przedstawiono sposób przywracania usuniętego kontenera, gdy jest włączone usuwanie nietrwałe kontenera:
 
@@ -50,7 +50,7 @@ Po upływie okresu przechowywania kontener zostanie trwale usunięty z usługi A
 Wyłączenie usuwania nietrwałego kontenera nie powoduje trwałego usunięcia kontenerów, które zostały wcześniej usunięte. Wszystkie nietrwałe kontenery usunięte zostaną trwale usunięte po upływie okresu przechowywania, który obowiązywał w momencie usunięcia kontenera.
 
 > [!IMPORTANT]
-> Usuwanie nietrwałe kontenera nie chroni przed usunięciem konta magazynu, ale tylko w odniesieniu do usuwania kontenerów na tym koncie. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów Azure Resource Manager, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+> Usuwanie nietrwałe kontenera nie chroni przed usunięciem konta magazynu. Chroni tylko przed usunięciem kontenerów w ramach tego konta. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania konta magazynu, zobacz temat [stosowanie blokady Azure Resource Manager na koncie magazynu](../common/lock-account-resource.md).
 
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: fa5ecd19863e8a37efdf533e68aeaed053c552f8
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: a5ba50b65cea573b8dbfdb17f671caee37cba459
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625683"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731500"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -59,7 +59,7 @@ Wykonaj następujące kroki, aby utworzyć rejestrację aplikacji:
 Po zakończeniu rejestracji Azure Portal wyświetla okienko **Przegląd** rejestracji aplikacji. Zobaczysz **Identyfikator aplikacji (klienta)**. Ta wartość jest nazywana również *identyfikatorem klienta*, a ta wartością jednoznacznie identyfikuje aplikację na platformie tożsamości firmy Microsoft. 
 
 > [!IMPORTANT]
-> Nowe rejestracje aplikacji są domyślnie ukryte dla użytkowników. Gdy wszystko będzie gotowe do wyświetlania aplikacji na [stronie Moje aplikacje](../user-help/my-apps-portal-end-user-access.md) , możesz ją włączyć. Aby włączyć aplikację, w Azure Portal przejdź do aplikacji **Azure Active Directory**  >  **Enterprise** i wybierz aplikację. Następnie na stronie **Właściwości** przełączenie jest **widoczne dla użytkowników?**
+> Nowe rejestracje aplikacji są domyślnie ukryte dla użytkowników. Gdy wszystko będzie gotowe do wyświetlania aplikacji na [stronie Moje aplikacje](../user-help/my-apps-portal-end-user-access.md) , możesz ją włączyć. Aby włączyć aplikację, w Azure Portal przejdź do **Azure Active Directory**  >  **aplikacji dla przedsiębiorstw** i wybierz aplikację. Następnie na stronie **Właściwości** przełączenie jest **widoczne dla użytkowników?**
 
 Kod aplikacji lub zwykle Biblioteka uwierzytelniania używana w aplikacji używa również identyfikatora klienta. Identyfikator jest używany w ramach walidacji tokenów zabezpieczających odbieranych z platformy tożsamości.
 

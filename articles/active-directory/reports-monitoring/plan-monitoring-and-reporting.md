@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c37c672f8784052424e058837d31bc1d22fcfc57
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577759"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552618"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planowanie wdrożenia Azure Active Directory raportowanie i monitorowanie
 
@@ -47,7 +47,7 @@ Usługa Azure AD monitoring umożliwia kierowanie dzienników do:
 * centrum zdarzeń platformy Azure, w którym można przeprowadzić integrację z istniejącymi narzędziami SIEM, takimi jak Splunk, SumoLogic lub QRadar.
 
 > [!NOTE]
-Ostatnio rozpoczęto korzystanie z dzienników Azure Monitor, a nie Log Analytics. Dane dziennika nadal są przechowywane w obszarze roboczym Log Analytics i są nadal zbierane i analizowane przez tę samą usługę Log Analytics. Aktualizujemy terminologię, aby lepiej odzwierciedlić rolę [dzienników w Azure monitor](../../azure-monitor/data-platform.md). Aby uzyskać szczegółowe informacje, zobacz [Azure monitor terminologia](../../azure-monitor/terminology.md) .
+> Ostatnio rozpoczęto korzystanie z dzienników Azure Monitor, a nie Log Analytics. Dane dziennika nadal są przechowywane w obszarze roboczym Log Analytics i są nadal zbierane i analizowane przez tę samą usługę Log Analytics. Aktualizujemy terminologię, aby lepiej odzwierciedlić rolę [dzienników w Azure monitor](../../azure-monitor/data-platform.md). Aby uzyskać szczegółowe informacje, zobacz [Azure monitor terminologia](../../azure-monitor/terminology.md) .
 
 [Dowiedz się więcej na temat zasad przechowywania raportów](./reference-reports-data-retention.md).
 
