@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f1653158f7a181ad2d61bc726ba7765eab934341
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577261"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107469"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -426,7 +426,7 @@ Po ukończeniu tego samouczka możesz wybrać zasoby, które chcesz usunąć, w 
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które zostało skonfigurowane w tym artykule, ale wyczyść niektóre lub wszystkie modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [AZ DT](/cli/azure/ext/azure-iot/dt) CLI w oknie [Azure Cloud Shell](https://shell.azure.com) , aby usunąć elementy, które chcesz usunąć.
+* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które zostało skonfigurowane w tym artykule, ale wyczyść niektóre lub wszystkie modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [AZ DT](/cli/azure/dt) CLI w oknie [Azure Cloud Shell](https://shell.azure.com) , aby usunąć elementy, które chcesz usunąć.
 
     Ta opcja nie spowoduje usunięcia żadnych innych zasobów platformy Azure utworzonych w tym samouczku (IoT Hub, Azure Functions aplikacji itp.). Można je usunąć pojedynczo za pomocą [poleceń DT](/cli/azure/reference-index) odpowiednich dla każdego typu zasobu.
 

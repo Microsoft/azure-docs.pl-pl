@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf7940af03c02d96f6ed2ca452322ad012bc6a2d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175392"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105361"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
@@ -124,6 +124,12 @@ Aby mieć pewność, że rozmiar tokenu nie przekracza limitów rozmiaru nagłó
   ...
 }
 ```
+
+## <a name="id-token-lifetime"></a>Okres istnienia tokenu identyfikatora
+
+Domyślnie token identyfikatora jest ważny przez 1 godzinę — po 1 godzinie klient musi uzyskać nowy token ID.
+
+Można dostosować okres istnienia tokenu identyfikatora, aby określić, jak często aplikacja kliencka wygaśnie sesję aplikacji i jak często wymaga ponownego uwierzytelnienia użytkownika (w trybie dyskretnym lub interaktywnie). Aby uzyskać więcej informacji, Przeczytaj [konfigurowalne okresy istnienia tokenu](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-an-id_token"></a>Sprawdzanie poprawności id_token
 

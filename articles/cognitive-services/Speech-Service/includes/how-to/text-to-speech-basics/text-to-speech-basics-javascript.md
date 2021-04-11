@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 95bc737f8a1b9b0a35b80ca2a80a7245ba407b18
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4d228388d951314b03ecd950052f76a20b6e4166
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105165"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107108896"
 ---
 W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
@@ -230,9 +230,6 @@ Aby zmienić format dźwięku, należy użyć `speechSynthesisOutputFormat` wła
 
 Istnieją różne opcje dla różnych typów plików, w zależności od wymagań. Należy pamiętać, że zgodnie z definicją, formaty nieprzetworzone, takie jak `Raw24Khz16BitMonoPcm` nie obejmują nagłówków audio. Używaj formatów nieprzetworzonych tylko wtedy, gdy wiesz, że wdrożenie podrzędne może zdekodować surową Bitstream lub jeśli planujesz ręczne tworzenie nagłówków na podstawie głębi bitowej, szybkości próbkowania, liczby kanałów itd.
 
-> [!NOTE]
-> Głosy **en-us-AriaRUS** i **en-us-GuyRUS** są tworzone na podstawie przykładów zakodowanych w `Riff24Khz16BitMonoPcm` współczynniku próbkowania.
-
 W tym przykładzie należy określić format RIFF o wysokiej wierności, `Riff24Khz16BitMonoPcm` ustawiając `speechSynthesisOutputFormat` dla `SpeechConfig` obiektu. Podobnie jak w przypadku przykładu w poprzedniej sekcji, Pobierz `ArrayBuffer` dane audio i pracuj z nimi.
 
 ```javascript
@@ -263,15 +260,15 @@ Ponowne uruchomienie programu spowoduje zapisanie `.wav` pliku w określonej śc
 
 ## <a name="use-ssml-to-customize-speech-characteristics"></a>Użyj SSML, aby dostosować charakterystykę mowy
 
-Język znaczników syntezy mowy (SSML) umożliwia precyzyjne dostosowanie wielkości liter, wymowy, liczby głosu i większej liczby danych wyjściowych zamiany tekstu na mowę przez przesłanie żądań ze schematu XML. W tej sekcji przedstawiono kilka praktycznych przykładów użycia, ale w celu uzyskania bardziej szczegółowego przewodnika zapoznaj się z [artykułem How to SSML](../../../speech-synthesis-markup.md).
+Język znaczników syntezy mowy (SSML) umożliwia precyzyjne dostosowanie wielkości liter, wymowy, liczby głosu i większej liczby danych wyjściowych zamiany tekstu na mowę przez przesłanie żądań ze schematu XML. W tej sekcji przedstawiono przykład zmiany głosu, ale w celu uzyskania bardziej szczegółowego przewodnika można znaleźć w [artykule How to SSML](../../../speech-synthesis-markup.md). 
 
 Aby rozpocząć korzystanie z SSML do dostosowywania, należy wprowadzić prostą zmianę, która przełącza głos.
-Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projektu, w tym przykładzie `ssml.xml` . Element główny jest zawsze `<speak>` , a Zawijanie tekstu w `<voice>` elemencie pozwala na zmianę głosu przy użyciu `name` parametru. Ten przykład zmienia głos na styk brytyjski (Zjednoczone Królestwo). Należy zauważyć, że ten głos jest **standardowym** głosem, który ma inne ceny i dostępność niż **neuronowych** głosów. Zapoznaj się z [pełną listą](../../../language-support.md#standard-voices) obsługiwanych głosów **standardowych** .
+Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projektu, w tym przykładzie `ssml.xml` . Element główny jest zawsze `<speak>` , a Zawijanie tekstu w `<voice>` elemencie pozwala na zmianę głosu przy użyciu `name` parametru. Zapoznaj się z [pełną listą](../../../language-support.md#neural-voices) obsługiwanych głosów **neuronowych** . 
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-GB-George-Apollo">
-    When you're on the motorway, it's a good idea to use a sat-nav.
+  <voice name="en-US-AriaNeural">
+    When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
 ```
@@ -311,37 +308,8 @@ function synthesizeSpeech() {
 }
 ```
 
-Dane wyjściowe działają, ale wprowadzono kilka prostych dodatkowych zmian, które ułatwiają bardziej naturalny dźwięk. Ogólna szybkość mówienia jest nieco zbyt szybka, dlatego dodamy `<prosody>` znacznik i obniży szybkość do **90%** częstotliwości domyślnej. Ponadto wstrzymanie po przecinku w zdaniu jest nieco zbyt krótkie i nienaturalne. Aby rozwiązać ten problem, Dodaj `<break>` znacznik, aby opóźnić mowę i ustawić parametry czasu na **200ms**. Uruchom ponowną syntezę, aby zobaczyć, jak te dostosowania wpłynęły na dane wyjściowe.
-
-```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-GB-George-Apollo">
-    <prosody rate="0.9">
-      When you're on the motorway,<break time="200ms"/> it's a good idea to use a sat-nav.
-    </prosody>
-  </voice>
-</speak>
-```
-
-## <a name="neural-voices"></a>Głosy neuronowych
-
-Głosy neuronowych są algorytmami syntezy mowy obsługiwanymi przez głębokie sieci neuronowych. W przypadku korzystania z głosu neuronowych, synteza mowy jest niemal nieczytelna w odróżnieniu od nagrań ludzkich. Podobnie jak naturalna prosodya i wyraźny zbiór wyrazów, głosy neuronowych znacząco zmniejszają zmęczenie nasłuchiwania, gdy użytkownicy współpracują z systemami AI.
-
-Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji głosu neuronowych](../../../language-support.md#neural-voices). Następnie Dodaj przestrzeń nazw XML dla `mstts` i zawiń tekst w `<mstts:express-as>` tagu. Użyj `style` parametru, aby dostosować styl mówiący. Ten przykład używa `cheerful` , ale spróbuje ustawić `customerservice` lub, `chat` Aby zobaczyć różnicę w stylu mówiącym.
-
-> [!IMPORTANT]
-> Głosy neuronowych są obsługiwane **tylko** w przypadku zasobów mowy utworzonych w regionach *Wschodnie stany usa*, *Południowe Azja Wschodnia* i *Europa Zachodnia* .
-
-```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
-    xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
-    <mstts:express-as style="cheerful">
-      This is awesome!
-    </mstts:express-as>
-  </voice>
-</speak>
-```
+> [!NOTE]
+> Aby zmienić głos bez używania SSML, można ustawić właściwość przy `SpeechConfig` użyciu `SpeechConfig.speechSynthesisVoiceName = "en-US-AriaNeural";`
 
 ## <a name="get-facial-pose-events"></a>Pobierz zdarzenia ułożenia twarzy
 

@@ -1,14 +1,14 @@
 ---
 title: Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Dowiedz się, jak opublikować ofertę usługi zarządzanej, która dołączy klientów do usługi Azure Lighthouse.
-ms.date: 02/17/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092154"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107452"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 
@@ -16,7 +16,7 @@ W tym artykule dowiesz się, jak opublikować publiczną lub prywatną ofertę u
 
 ## <a name="publishing-requirements"></a>Wymagania dotyczące publikowania
 
-Musisz mieć prawidłowe [konto w centrum partnerskim](../../marketplace/partner-center-portal/create-account.md) , aby tworzyć i publikować oferty. Jeśli nie masz jeszcze konta, [proces rejestracji](https://aka.ms/joinmarketplace) przeprowadzi Cię przez kroki tworzenia konta w centrum partnerskim i rejestrowania się w komercyjnym programie Marketplace.
+Musisz mieć prawidłowe [konto w centrum partnerskim](../../marketplace/create-account.md) , aby tworzyć i publikować oferty. Jeśli nie masz jeszcze konta, [proces rejestracji](https://aka.ms/joinmarketplace) przeprowadzi Cię przez kroki tworzenia konta w centrum partnerskim i rejestrowania się w komercyjnym programie Marketplace.
 
 Zgodnie z [wymaganiami dotyczącymi certyfikacji oferty usługi zarządzanej](/legal/marketplace/certification-policies#700-managed-services)musisz mieć [poziom kompetencji w chmurze Silver lub Gold](/partner-center/learn-about-competencies) , aby opublikować ofertę [](https://partner.microsoft.com/membership/azure-expert-msp) usługi zarządzanej. Należy również [wprowadzić miejsce docelowe potencjalnego klienta, które utworzy rekord w systemie CRM przy](../../marketplace/plan-managed-service-offer.md#customer-leads) każdym wdrożeniu oferty przez klienta.
 
@@ -26,13 +26,14 @@ Poniższa tabela może pomóc w ustaleniu, czy klienci mają zostać dołączeni
 
 |**Kwestie do rozważenia**  |**Oferta usługi zarządzanej**  |**Szablony usługi ARM**  |
 |---------|---------|---------|
-|Wymaga [konta Centrum partnerskiego](../../marketplace/partner-center-portal/create-account.md)   |Tak         |Nie        |
+|Wymaga [konta Centrum partnerskiego](../../marketplace/create-account.md)   |Tak         |Nie        |
 |Wymaga [poziomu kompetencji dla platformy Cloud Platform Silver lub Gold](/partner-center/learn-about-competencies) lub [msp dla systemu Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Tak         |Nie         |
 |Dostępne dla nowych klientów w portalu Azure Marketplace     |Tak     |Nie       |
 |Może ograniczać ofertę do określonych klientów     |Tak (tylko z ofertami prywatnymi, których nie można używać w przypadku subskrypcji ustanowionych przez odsprzedawcę programu dostawcy rozwiązań w chmurze (CSP))         |Tak         |
 |Wymaga akceptacji klienta w Azure Portal     |Tak     |Nie   |
 |Może używać automatyzacji do dołączania wielu subskrypcji, grup zasobów lub klientów |Nie     |Tak    |
 |Natychmiastowy dostęp do nowych ról wbudowanych i funkcji usługi Azure Lighthouse     |Nie zawsze (zazwyczaj dostępne po pewnym opóźnieniu)         |Tak         |
+|Klienci mogą przeglądać i akceptować zaktualizowane oferty w Azure Portal | Tak | Nie |
 
 > [!NOTE]
 > Oferty usług zarządzanych mogą nie być dostępne w Azure Government i innych chmurach narodowych.
@@ -62,6 +63,8 @@ Po dodaniu oferty przez klienta będzie można [delegować co najmniej jedną ok
 > Delegowanie musi odbywać się na koncie niegościa w dzierżawie klienta mającym rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](../../role-based-access-control/built-in-roles.md#owner), dla dołączanej subskrypcji (lub zawierającej grupy zasobów, które są dołączane). Aby znaleźć użytkowników, którzy mogą delegować subskrypcję, użytkownik w dzierżawie klienta może wybrać subskrypcję w Azure Portal, otworzyć funkcję **Kontrola dostępu (IAM)** i [wyświetlić wszystkich użytkowników z rolą właściciela](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Gdy klient deleguje subskrypcję (lub co najmniej jedną grupę zasobów w ramach subskrypcji), dostawca zasobów **Microsoft. ManagedServices** zostanie zarejestrowany dla tej subskrypcji, a użytkownicy w Twojej dzierżawie będą mogli uzyskiwać dostęp do delegowanych zasobów zgodnie z autoryzacjami w ofercie.
+
+W przypadku opublikowania zaktualizowanej wersji oferty klient może [przejrzeć zmiany w Azure Portal i zaakceptować nową wersję](view-manage-service-providers.md#update-service-provider-offers).
 
 ## <a name="next-steps"></a>Następne kroki
 

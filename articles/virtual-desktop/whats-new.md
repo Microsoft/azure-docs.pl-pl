@@ -3,21 +3,21 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: acb9b6d9d2080c63243ec4b924d07a927d6ccdfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774443"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107061"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
-Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znajdują się informacje o tym, jak:
+Aktualizacje pulpitu wirtualnego systemu Windows są regularnie aktualizowane. W tym artykule znajdują się informacje o tym, jak:
 
 - Najnowsze aktualizacje
 - Nowe funkcje
@@ -42,12 +42,62 @@ Agent pulpitu wirtualnego systemu Windows aktualizuje co najmniej raz miesięczn
 
 W tym miejscu nowości zmieniono w agencie pulpitu wirtualnego systemu Windows:
 
-- Wersja 1.0.2800.2800: Ta aktualizacja została wydana w marcu 2021 i rozwiązała problem z połączeniem odwrotnym.
-- Wersja 1.0.2800.2700: Ta aktualizacja została wydana w lutym 2021 i Naprawiono problem z aranżacją w przypadku odmowy dostępu.
+- Wersja 1.0.2866.1500: Ta aktualizacja została wydana 26 marca 2021 i rozwiązała problem związany ze sprawdzaniem kondycji stosu.
+- Wersja 1.0.2800.2802: Ta aktualizacja została wydana 10 marca 2021 i zawiera ogólne ulepszenia i poprawki błędów.
+- Wersja 1.0.2800.2800: Ta aktualizacja została wydana 2 marca 2021 i rozwiązała problem z połączeniem odwrotnym.
+- Wersja 1.0.2800.2700: Ta aktualizacja została wydana 10 lutego 2021 i zawiera ogólne ulepszenia i poprawki.
+- Wersja 1.0.2800.2700: Ta aktualizacja została wydana 4 lutego 2021 i Naprawiono problem z aranżacją w przypadku odmowy dostępu.
 
 ## <a name="fslogix-updates"></a>Aktualizacje FSLogix
 
 Chcesz wiedzieć o najnowszych aktualizacjach dla FSLogix? Zapoznaj się z [nowościami w witrynie FSLogix](/fslogix/whats-new).
+
+## <a name="march-2021"></a>Marzec 2021
+
+Poniżej przedstawiono zmiany w marcu 2021.
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Aktualizacje interfejsu użytkownika Azure Portal dla pulpitu wirtualnego systemu Windows
+
+Następujące aktualizacje zostały wprowadzone do pulpitu wirtualnego systemu Windows dla Azure Portal:
+
+- Włączono nowe opcje dostępności (zestaw dostępności i strefy) dla przepływów pracy do tworzenia pul hostów i dodawania maszyn wirtualnych.
+- Rozwiązano problem polegający na tym, że host o stanie "wymaga pomocy" był dostępny jako niedostępny. Teraz obok hosta będzie wyświetlana ikona ostrzeżenia.
+- Włączono sortowanie dla aktywnych sesji.
+- Teraz możesz wysyłać komunikaty do określonych użytkowników lub wylogować ich z karty szczegóły hosta.
+- Zmieniono wartość pola maksymalny limit sesji.
+- Dodaliśmy do przepływu pracy ścieżkę weryfikacji jednostki organizacyjnej w celu utworzenia puli hostów.
+- Teraz można użyć najnowszej wersji obrazu systemu Windows 10 podczas tworzenia osobistej puli hostów.
+
+### <a name="generation-2-images-and-trusted-launch"></a>Obrazy generacji 2 i zaufane uruchomienia
+
+Portal Azure Marketplace ma teraz obrazy generacji 2 dla wielu sesji dla systemu Windows 10 Enterprise i Windows 10 Enterprise. Te obrazy umożliwiają używanie zaufanych maszyn wirtualnych uruchamiania. Dowiedz się więcej o maszynach wirtualnych 2. generacji w [przypadku tworzenia maszyny wirtualnej generacji 1 lub 2](../virtual-machines/generation-2.md). Aby dowiedzieć się, jak zainicjować obsługę maszyn wirtualnych zaufanych uruchomień pulpitu wirtualnego systemu Windows, zobacz [nasze TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix jest teraz wstępnie zainstalowany w obrazach wielosesyjnych systemu Windows 10 Enterprise
+
+Na podstawie opinii klientów skonfigurowano nową wersję wielosesyjnego obrazu systemu Windows 10 Enterprise, który ma już zainstalowaną nieskonfigurowaną wersję programu FSLogix. Mamy nadzieję, że wdrożenie pulpitu wirtualnego systemu Windows jest łatwiejsze.
+
+### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>Azure Monitor dla pulpitu wirtualnego systemu Windows jest teraz ogólnie dostępna
+
+Azure Monitor dla pulpitu wirtualnego systemu Windows jest teraz ogólnie dostępny publicznie. Ta funkcja jest zautomatyzowaną usługą, która monitoruje wdrożenia i umożliwia wyświetlanie sugestii dotyczących zdarzeń, kondycji i rozwiązywania problemów w jednym miejscu. Aby uzyskać więcej informacji, zapoznaj się z [naszą dokumentacją](azure-monitor.md) lub zapoznaj się z [naszą TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+
+### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Aktualizacje z marca 2021 dla zespołów na pulpicie wirtualnym systemu Windows
+
+Wprowadziliśmy następujące aktualizacje dla zespołów w systemie Windows Virtual Desktop:
+
+- Ulepszono jakość wideo dla wywołań i trybu 2x2.
+- Obniżono wykorzystanie procesora CPU o 5-10% (w zależności od generacji procesora) przy użyciu sprzętowego odciążania przetwarzania wideo (XVP).
+- Starsze maszyny mogą teraz korzystać z XVP i dekodowania sprzętowego w celu płynnego wyświetlania większej liczby przychodzących strumieni wideo w trybie 2x2.
+- Zaktualizowaliśmy stos protokołu WebRTC z M74 na M88, aby uzyskać lepszą wydajność synchronizacji AV i zmniejszyć liczbę problemów przejściowych.
+- Zamienimy koder wielokrotna H264 oprogramowania z OpenH264 (OSS używany w zespołach w sieci Web), który zwiększył jakość wideo dla kamery wychodzącej.
+- Włączono tryb 2x2 dla zespołów serwerowych na ogół publicznie w dniu 30 marca. Tryb 2x2 pokazuje maksymalnie cztery przychodzące strumienie wideo.
+
+### <a name="start-vm-on-connect-public-preview"></a>Uruchom maszynę wirtualną przy połączeniu z publiczną wersją zapoznawczą
+
+Nowe ustawienie puli hostów, uruchom maszynę wirtualną w programie Connect, jest teraz dostępne w publicznej wersji zapoznawczej. To ustawienie umożliwia włączenie maszyn wirtualnych zawsze wtedy, gdy będą potrzebne. Jeśli chcesz zaoszczędzić koszty, musisz przystąpić do cofnięcia przydziału maszyn wirtualnych, konfigurując ustawienia obliczeń na platformie Azure. Aby uzyskać więcej informacji, zapoznaj się z [naszym wpisem w blogu](https://aka.ms/wvdstartvmonconnect) i [naszą dokumentacją](start-virtual-machine-connect.md).
+
+### <a name="windows-virtual-desktop-specialty-certification"></a>Specjalistyczna Certyfikacja pulpitu wirtualnego systemu Windows
+
+Udostępnimy wersję beta egzaminu AZ-140, która pozwoli Ci udowodnić swoją wiedzę na temat pulpitu wirtualnego systemu Windows na platformie Azure. Aby dowiedzieć się więcej, zapoznaj się z [naszym wpisem TechCommunity](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
 ## <a name="february-2021"></a>Luty 2021 r.
 

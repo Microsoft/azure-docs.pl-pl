@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 03/26/2021
+ms.date: 04/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 74f15fc302a8499e41a1413dd8915e6442d4bbe7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a481759da3f1e7d67accdca7b4322db53abbcb0c
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064498"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490951"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu ochrony zawartości
 
@@ -30,46 +30,62 @@ Ten artykuł zawiera szczegółowe informacje i wskazówki dotyczące migracji p
 
 Użyj obsługi funkcji [wielokluczowych](architecture-design-multi-drm-system.md) w nowym interfejsie API v3.
 
-Zapoznaj się z pojęciami dotyczącymi ochrony zawartości, samouczkami i instrukcjami przedstawionymi poniżej.
+Zapoznaj się z pojęciami dotyczącymi ochrony zawartości, samouczkami i przewodnikami na końcu tego artykułu.
 
-## <a name="visibility-of-v2-assets-streaminglocators-and-properties-in-the-v3-api-for-content-protection-scenarios"></a>Widoczność zasobów w wersji 2, StreamingLocators i właściwości w interfejsie API v3 dla scenariuszy ochrony zawartości
+> [!NOTE]
+> W dalszej części tego artykułu omówiono, jak przeprowadzić migrację ochrony zawartości w wersji 2 na wersję 3 przy użyciu platformy .NET.  Jeśli potrzebujesz instrukcji lub przykładowego kodu w innym języku lub metodzie, Utwórz problem z usługą GitHub dla tej strony.
 
-W trakcie migracji do interfejsu API v3 należy uzyskać dostęp do niektórych właściwości lub kluczy zawartości z zasobów w wersji 2. Jedną z kluczowych różnic polega na tym, że interfejs v2 używa **AssetID** jako podstawowego klucza identyfikacji, a nowy interfejs API v3 używa nazwy jednostki jako podstawowego identyfikatora usługi Azure Resource Management.  Właściwość **Asset.Name** v2 nie jest zwykle używana jako unikatowy identyfikator, więc w przypadku migrowania do wersji 3 w polu element **zawartości. Description** zostaną wyświetlone nazwy elementów zawartości v2.
+## <a name="v3-visibility-of-v2-assets-streaminglocators-and-properties"></a>widoczność v3 zasobów, StreamingLocators i właściwości w wersji 2
 
-Na przykład jeśli wcześniej miało się element zawartości w wersji 2 o IDENTYFIKATORze **"NB: CID: UUID: 8cb39104-122c-496e-9ac5-7f9e2c2547b8"**, wówczas podczas wyświetlania listy starych zasobów w wersji 2 za pomocą interfejsu API v3 nazwa będzie teraz częścią identyfikatora GUID na końcu (w tym przypadku **"8cb39104-122c-496e-9ac5-7f9e2c2547b8"**).
+W interfejsie API v2,, `Assets` `StreamingLocators` i `ContentKeys` były używane do ochrony zawartości przesyłania strumieniowego. Podczas migracji do interfejsu API v3, interfejsu API v2 `Assets` , `StreamingLocators` i `ContentKeys` są automatycznie uwidaczniane w interfejsie API v3, a wszystkie dane na nich są dostępne do uzyskania dostępu.
 
-Można wysyłać zapytania dotyczące **StreamingLocators** skojarzonych z zasobami UTWORZONYMI w interfejsie API v2 przy użyciu nowej metody v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) w jednostce zasobów.  Odwołuje się również do wersji zestawu SDK klienta .NET [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+Nie można jednak *zaktualizować* żadnych właściwości na jednostkach w wersji 2 za pomocą interfejsu API v3, który został utworzony w wersji 2.
 
-Wyniki metody **ListStreamingLocators** zapewniają **nazwę** i **StreamingLocatorId** lokalizatora wraz z **StreamingPolicyName**.
+Jeśli musisz zaktualizować, zmienić lub zmodyfikować zawartość przechowywaną w systemie v2, zaktualizuj je za pomocą interfejsu API v2 lub Utwórz nowe jednostki interfejsu API v3, aby je zmigrować.
 
-Aby znaleźć **ContentKeys** używany w **StreamingLocators** na potrzeby ochrony zawartości, można wywołać metodę [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) .  
+## <a name="asset-identifier-differences"></a>Różnice identyfikatorów zasobów
 
-Wszystkie **zasoby** , które zostały utworzone i opublikowane przy użyciu interfejsu API v2, będą mieć zarówno [zasadę klucza zawartości](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) , jak i klucz zawartości zdefiniowany w interfejsie API v3, zamiast korzystać z domyślnych zasad kluczy zawartości w ramach [zasad przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
+Aby przeprowadzić migrację, należy uzyskać dostęp do właściwości lub kluczy zawartości z zasobów w wersji 2.  Ważne jest, aby zrozumieć, że interfejs API v2 używa `AssetId` jako podstawowego klucza identyfikacji, ale nowy interfejs API v3 używa nazwy jednostki jako podstawowego identyfikatora *usługi Azure Resource Management* .  (Właściwość v2 `Asset.Name` nie jest używana jako unikatowy identyfikator). W przypadku interfejsu API v3 nazwa zasobu w wersji 2 jest teraz wyświetlana jako `Asset.Description` .
+
+Na przykład jeśli poprzednio miało element zawartości w wersji 2 o IDENTYFIKATORze `nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8` , identyfikator znajduje się teraz na końcu identyfikatora GUID `8cb39104-122c-496e-9ac5-7f9e2c2547b8` . Zobaczysz to podczas wyświetlania listy zasobów w wersji 2 za pomocą interfejsu API v3.
+
+Wszystkie zasoby, które zostały utworzone i opublikowane przy użyciu interfejsu API v2, będą mieć zarówno `ContentKeyPolicy` a, jak i `ContentKey` w interfejsie API v3 zamiast domyślnego zasad klucza zawartości w programie `StreamingPolicy` .
+
+Aby uzyskać więcej informacji, zobacz dokumentację [zasad dotyczących kluczy zawartości](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) i dokumentację [zasad przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept) .
+
+## <a name="use-azure-media-services-explorer-amse-v2-and-amse-v3-tools-side-by-side"></a>Używaj narzędzi Azure Media Services Explorer (AMSE) v2 i AMSE v3 obok siebie
+
+Użyj [Narzędzia eksplorator Azure Media Services w wersji 2](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) wraz z [narzędziem Eksplorator Azure Media Services v3](https://github.com/Azure/Azure-Media-Services-Explorer) , aby porównać dane obok siebie dla elementu zawartości utworzonego i opublikowanego za pomocą interfejsów API v2. Wszystkie właściwości powinny być widoczne, ale w różnych lokalizacjach.
+
+## <a name="use-the-net-content-protection-migration-sample"></a>Korzystanie z przykładu migracji zawartości .NET Content Protection
+
+Możesz znaleźć przykładowy kod, aby porównać różnice w identyfikatorach zasobów przy użyciu [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration) w obszarze ContentProtection w przykładach kodu Media Services.
+
+## <a name="list-the-streaming-locators"></a>Wyświetl listę lokalizatorów przesyłania strumieniowego
+
+Można wykonać zapytanie dotyczące `StreamingLocators` skojarzonych z zasobami utworzonymi w interfejsie API v2 przy użyciu nowej metody v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) w jednostce zasobów.  Odwołuje się również do wersji zestawu SDK klienta .NET [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+
+Wyniki `ListStreamingLocators` metody zapewniają do `Name` i `StreamingLocatorId` lokalizatora wraz z `StreamingPolicyName` .
+
+## <a name="find-the-content-keys"></a>Znajdowanie kluczy zawartości
+
+Aby znaleźć `ContentKeys` używany z elementem `StreamingLocators` , można wywołać metodę [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) .  
 
 Aby uzyskać więcej informacji na temat ochrony zawartości w interfejsie API v3, zapoznaj się z artykułem [Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
 
-## <a name="how-to-list-your-v2-assets-and-content-protection-settings-using-the-v3-api"></a>Jak wyświetlić listę zasobów i ustawień ochrony zawartości w wersji 2 za pomocą interfejsu API v3
+## <a name="change-the-v2-contentkeypolicy-keeping-the-same-contentkey"></a>Zmień ContentKeyPolicy v2, zachowując te same ContentKey
 
-W interfejsie API v2 zwykle używasz **zasobów**, **StreamingLocators** i **ContentKeys** do ochrony zawartości przesyłanej strumieniowo.
-W przypadku migrowania do interfejsu API V3 wszystkie zasoby interfejsu API v2, StreamingLocators i ContentKeys są automatycznie uwidaczniane w interfejsie API v3, a wszystkie dane na nich są dostępne do uzyskania dostępu.
+Najpierw należy cofnąć publikację (usunąć wszystkie lokalizatory przesyłania strumieniowego) dla zasobu za pomocą zestawu v2 SDK. Oto kroki tej procedury:
 
-## <a name="can-i-update-v2-properties-using-the-v3-api"></a>Czy mogę zaktualizować właściwości wersji 2 przy użyciu interfejsu API v3?
+1. Usuń lokalizator.
+1. Odłącz `ContentKeyAuthorizationPolicy` .
+1. Odłącz `AssetDeliveryPolicy` .
+1. Odłącz `ContentKey` .
+1. Usuń `ContentKey` .
+1. Utwórz nowy `StreamingLocator` w wersji 3 przy użyciu wersji 3 `StreamingPolicy` i `ContentKeyPolicy` , określając odpowiedni identyfikator klucza zawartości i wymaganą wartość klucza.
 
-Nie, nie można zaktualizować żadnych właściwości w jednostkach v2 za pośrednictwem interfejsu API v3, który został utworzony przy użyciu StreamingLocators, StreamingPolicies, zasad klucza zawartości i kluczy zawartości w wersji 2.
-Jeśli trzeba zaktualizować, zmienić lub zmodyfikować zawartość przechowywaną w systemie v2, należy ją zaktualizować za pośrednictwem interfejsu API v2 lub utworzyć nowe jednostki interfejsu API V3 w celu przeprowadzenia migracji do przodu.
-
-## <a name="how-do-i-change-the-contentkeypolicy-used-for-a-v2-asset-that-is-published-and-keep-the-same-content-key"></a>Jak mogę zmienić ContentKeyPolicy używany dla elementu zawartości w wersji 2, który jest opublikowany i zachować ten sam klucz zawartości?
-
-W takiej sytuacji należy najpierw cofnąć publikację (usunąć wszystkie lokalizatory przesyłania strumieniowego) dla zasobu za pomocą zestawu v2 SDK (usunąć lokalizator, odłączyć zasady autoryzacji klucza zawartości, odłączyć zasady dostarczania zasobów, odłączyć klucz zawartości, usunąć klucz zawartości), a następnie utworzyć nowy **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** w wersji 3 przy użyciu [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) v3 i [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept).
-
-Podczas tworzenia **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** należy określić konkretny identyfikator klucza zawartości i wartość klucza.
-
-Należy zauważyć, że istnieje możliwość usunięcia lokalizatora v2 przy użyciu interfejsu API v3, ale nie spowoduje to usunięcia klucza zawartości ani użytej zasady klucza zawartości, jeśli zostały utworzone w interfejsie API v2.  
-
-## <a name="using-amse-v2-and-amse-v3-side-by-side"></a>Korzystanie z AMSE v2 i AMSE v3 obok siebie
-
-Podczas migrowania zawartości z wersji 2 do V3 zaleca się zainstalowanie [Narzędzia eksplorator Azure Media Services w wersji 2](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) wraz z [narzędziem Eksplorator Azure Media Services v3](https://github.com/Azure/Azure-Media-Services-Explorer) , aby pomóc porównać dane wyświetlane obok siebie dla zasobu, który jest tworzony i publikowany za pośrednictwem interfejsów API v2. Wszystkie właściwości powinny być widoczne, ale w nieco różnych lokalizacjach.  
-
+> [!NOTE]
+> Istnieje możliwość usunięcia lokalizatora v2 przy użyciu interfejsu API v3, ale nie spowoduje to usunięcia klucza zawartości ani zasad klucza zawartości, jeśli zostały utworzone w interfejsie API v2.
 
 ## <a name="content-protection-concepts-tutorials-and-how-to-guides"></a>Pojęcia dotyczące ochrony zawartości, samouczki i przewodniki
 
@@ -80,7 +96,7 @@ Podczas migrowania zawartości z wersji 2 do V3 zaleca się zainstalowanie [Narz
 - [Media Services v3 z szablonem licencji PlayReady](drm-playready-license-template-concept.md)
 - [Omówienie szablonu licencji Media Services v3 with Widevine](drm-widevine-license-template-concept.md)
 - [Wymagania licencyjne i konfiguracja technologii FairPlay firmy Apple](drm-fairplay-license-overview.md)
-- [Zasady przesyłania strumieniowego](streaming-policy-concept.md)
+- [Zasady przesyłania strumieniowego](stream-streaming-policy-concept.md)
 - [Zasady kluczy zawartości](drm-content-key-policy-concept.md)
 
 ### <a name="tutorials"></a>Samouczki
@@ -96,7 +112,8 @@ Podczas migrowania zawartości z wersji 2 do V3 zaleca się zainstalowanie [Narz
 
 ## <a name="samples"></a>Samples
 
-Możesz również [porównać kod v2 i V3 w przykładach kodu](migrate-v-2-v-3-migration-samples.md).
+- [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration)
+- Możesz również [porównać kod v2 i V3 w przykładach kodu](migrate-v-2-v-3-migration-samples.md).
 
 ## <a name="tools"></a>Narzędzia
 

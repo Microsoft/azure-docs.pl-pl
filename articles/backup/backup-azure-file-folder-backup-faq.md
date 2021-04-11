@@ -2,13 +2,13 @@
 title: Agent Microsoft Azure Recovery Services (MARS) — często zadawane pytania
 description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów za pomocą Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 98f558c091f1680c165ee26ffb20a8022ab15520
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917362"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107180"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Często zadawane pytania — agent Microsoft Azure Recovery Services (MARS)
 
@@ -100,6 +100,10 @@ To ostrzeżenie może wystąpić, mimo że skonfigurowano zasady tworzenia kopii
 
 * Gdy serwer lub ustawienia zostały odzyskane do znanego dobrego stanu, harmonogramy tworzenia kopii zapasowych mogą stać się niezsynchronizowane.
 * Jeśli zostanie wyświetlone to ostrzeżenie, należy ponownie [skonfigurować](backup-azure-manage-windows-server.md) zasady tworzenia kopii zapasowych, a następnie uruchomić kopię zapasową na żądanie w celu ponownej synchronizacji serwera lokalnego z platformą Azure.
+
+### <a name="i-see-a-few-jobs-are-stuck-in-the-in-progress-state-for-a-long-time-under-backup-jobs-in-the-azure-portal-how-can-i-resolve-these"></a>Widzę kilka zadań w stanie w toku przez długi czas w obszarze zadania tworzenia kopii zapasowej w Azure Portal. Jak można je rozwiązać?
+
+Może się tak zdarzyć, jeśli zadanie nie mogło zostać wykonane z przyczyn, takich jak problemy z łącznością sieciową, wyłączenie komputera lub zakończenie procesu. W tym miejscu nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika. Te zadania zostaną automatycznie oznaczone jako **zakończone niepowodzeniem** po upływie 30 dni. [Dowiedz się więcej](backup-windows-with-mars-agent.md#run-an-on-demand-backup) , aby uruchomić zadanie tworzenia kopii zapasowej na żądanie przy użyciu agenta Mars.
 
 ## <a name="manage-the-backup-cache-folder"></a>Zarządzanie folderem pamięci podręcznej kopii zapasowej
 

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467395"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285336"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Wbudowany model faktury aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z faktur sprzedaży przy użyciu wbudowanych modeli faktur. Interfejs API faktur umożliwia klientom korzystanie z faktur w różnych formatach i zwracanie danych strukturalnych w celu zautomatyzowania przetwarzania faktur. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z fakturą zrozumienie modeli uczenia głębokiego, aby wyodrębnić informacje o kluczu z faktur w języku angielskim. Wyodrębnia tekst, tabele i informacje, takie jak klient, dostawca, Identyfikator faktury, Data płatności faktury, suma, kwota faktury należna, kwota podatku, Wysyłka do, rachunek za wiersz i wiele innych. Prekompilowany interfejs API fakturowania jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej.
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z faktur sprzedaży przy użyciu wbudowanych modeli faktur. Interfejs API faktur umożliwia klientom korzystanie z faktur w różnych formatach i zwracanie danych strukturalnych w celu zautomatyzowania przetwarzania faktur. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/overview-ocr.md) z fakturą zrozumienie modeli uczenia głębokiego, aby wyodrębnić informacje o kluczu z faktur w języku angielskim. Wyodrębnia tekst, tabele i informacje, takie jak klient, dostawca, Identyfikator faktury, Data płatności faktury, suma, kwota faktury należna, kwota podatku, Wysyłka do, rachunek za wiersz i wiele innych. Prekompilowany interfejs API fakturowania jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej.
 
 ## <a name="what-does-the-invoice-service-do"></a>Co robi usługa Invoice?
 

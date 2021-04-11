@@ -3,20 +3,20 @@ title: Microsoft Teams na pulpicie wirtualnym systemu Windows — Azure
 description: Jak korzystać z programu Microsoft Teams na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 46796573e14dfc33d02d4faddd5504f3e8b7ee7b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 0c528f183106472850d6b5d2a8b492ea8939eda6
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935724"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285262"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
 >[!IMPORTANT]
->Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej i GCC-High. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku GCC-High i DoD.
+>Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej i GCC-High. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku Microsoft 365 DoD.
 
 >[!NOTE]
 >Optymalizacja multimediów dla programu Microsoft Teams jest dostępna tylko dla klienta klasycznego systemu Windows na komputerach z systemem Windows 10. Optymalizacje multimediów wymagają klienta klasycznego systemu Windows w wersji 1.2.1026.0 lub nowszej.
@@ -148,11 +148,7 @@ Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używani
 - Aplikacja Teams nie obsługuje przycisków HID ani kontrolek LED z innymi urządzeniami.
 - Nowe środowisko spotkań (NME) nie jest obecnie obsługiwane w środowiskach infrastruktury VDI.
 
-Znane problemy dotyczące zespołów, które nie są związane z zwirtualizowanymi środowiskami, można znaleźć [w temacie zespoły pomocy technicznej w Twojej organizacji](/microsoftteams/known-issues) .
-
-## <a name="uservoice-site"></a>Witryna UserVoice
-
-Prześlij opinię na temat zespołów Microsoft Teams na pulpicie wirtualnym systemu Windows w witrynie Teams [UserVoice](https://microsoftteams.uservoice.com/).
+Znane problemy dotyczące zespołów, które nie są związane z zwirtualizowanymi środowiskami, można znaleźć [w temacie zespoły pomocy technicznej w Twojej organizacji](/microsoftteams/known-issues).
 
 ## <a name="collect-teams-logs"></a>Zbierz dzienniki zespołów
 

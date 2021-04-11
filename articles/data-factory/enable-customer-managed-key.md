@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a18d06e3a0324889a4cb9936fb339fd9d8f9b816
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443888"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222701"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Szyfrowanie Azure Data Factory przy użyciu kluczy zarządzanych przez klienta
 
@@ -137,6 +137,23 @@ Aby zmienić klucz używany do szyfrowania Data Factory, należy ręcznie zaktua
 ## <a name="disable-customer-managed-keys"></a>Wyłącz klucze zarządzane przez klienta
 
 Po włączeniu funkcji klucz zarządzany przez klienta nie można usunąć dodatkowego kroku zabezpieczeń. Zawsze oczekujemy, że klucz dostarczony przez klienta zaszyfruje fabrykę i dane.
+
+## <a name="customer-managed-key-and-continuous-integration-and-continuous-deployment"></a>Klucz zarządzany przez klienta i ciągła integracja i ciągłe wdrażanie
+
+Domyślnie konfiguracja CMK nie jest uwzględniona w szablonie fabryki Azure Resource Manager (ARM). Aby uwzględnić ustawienia szyfrowania klucza zarządzanego przez klienta w szablonie ARM na potrzeby ciągłej integracji (CI/CD):
+
+1. Upewnij się, że fabryka jest w trybie git
+1. Przejdź do portalu zarządzania — sekcja klucz zarządzany przez klienta
+1. Opcja zaznacz opcję _szablonu w usłudze ARM_
+
+  :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Zrzut ekranu przedstawiający ustawienie klucza zarządzanego przez klienta w szablonie ARM.":::
+
+Następujące ustawienia zostaną dodane w szablonie ARM. Te właściwości można sparametryzowane w potoku ciągłej integracji i dostarczania, edytując [konfigurację parametrów Azure Resource Manager](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)
+
+  :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Zrzut ekranu przedstawiający ustawienia klucza zarządzanego przez klienta w szablonie Azure Resource Manager.":::
+
+> [!NOTE]
+> Dodanie ustawienia szyfrowania do szablonów ARM powoduje dodanie ustawienia poziomu fabryki, które zastąpi inne ustawienia poziomu fabryki, takie jak konfiguracje git, w innych środowiskach. Jeśli te ustawienia są włączone w środowisku z podwyższonym poziomem uprawnień, takim jak przeprowadzających lub PRODUKCYJNy, zapoznaj się z [parametrami globalnymi w obszarze](author-global-parameters.md#cicd)ciągłej integracji/ciągłego wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 

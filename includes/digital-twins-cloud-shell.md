@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: ab5c71b787876c31aaa70fbbfb04fc86721dd168
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4d9efd99a60c93dbfef2d6f45971781d71e83fb
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958108"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105067"
 ---
 Aby rozpocząć pracę z usługą Azure Digital bliźniaczych reprezentacji w otwartym oknie [Azure Cloud Shell](https://shell.azure.com) , najpierw należy się zalogować i ustawić kontekst powłoki dla tej sesji. Uruchom następujące polecenia w Cloud Shell:
 
@@ -27,7 +27,7 @@ Jeśli korzystasz z tej subskrypcji po raz pierwszy przy użyciu usługi Azure D
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Następnie dodasz do Cloud Shell [**Microsoft Azure IoT Extension dla interfejsu wiersza polecenia platformy Azure**](/cli/azure/ext/azure-iot/iot) , aby włączyć obsługę komunikacji z usługą Azure Digital bliźniaczych reprezentacji i innymi usługami IoT. Uruchom to polecenie, aby upewnić się, że masz najnowszą wersję rozszerzenia:
+Następnie dodasz do Cloud Shell [**Microsoft Azure IoT Extension dla interfejsu wiersza polecenia platformy Azure**](/cli/azure/service-page/azure%20iot) , aby włączyć obsługę komunikacji z usługą Azure Digital bliźniaczych reprezentacji i innymi usługami IoT. Uruchom to polecenie, aby upewnić się, że masz najnowszą wersję rozszerzenia:
 
 ```azurecli-interactive
 az extension add --upgrade -n azure-iot

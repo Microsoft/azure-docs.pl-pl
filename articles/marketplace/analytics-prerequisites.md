@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563824"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106806"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Wymagania wstępne dotyczące programistycznego dostępu do danych analitycznych
 
@@ -20,7 +20,7 @@ Zanim będzie można programowo uzyskać dostęp do komercyjnych danych analityc
 
 ## <a name="commercial-marketplace-enrollment"></a>Komercyjna Rejestracja w portalu Marketplace
 
-Aby programistycznie uzyskiwać dostęp do komercyjnych danych analitycznych portalu Marketplace, należy zarejestrować się w komercyjnym programie Marketplace i dysponować kontem Centrum partnerskiego. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](./partner-center-portal/create-account.md).
+Aby programistycznie uzyskiwać dostęp do komercyjnych danych analitycznych portalu Marketplace, należy zarejestrować się w komercyjnym programie Marketplace i dysponować kontem Centrum partnerskiego. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](create-account.md).
 
 ## <a name="create-azure-active-directory-application"></a>Tworzenie aplikacji Azure Active Directory
 

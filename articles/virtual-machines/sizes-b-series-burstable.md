@@ -3,17 +3,17 @@ title: Seria B — Virtual Machines platformy Azure
 description: Opisuje serię B pojemności maszyn wirtualnych platformy Azure z możliwością przełożenia.
 services: virtual-machines
 ms.subservice: vm-sizes-general
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: sttsinar
-ms.openlocfilehash: c19c47ac64f1e41fa998a29d3ea0480bf0d92a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: risverma
+ms.openlocfilehash: e0797dfd8c4bf1cf86e2eeafb824298c412e5f1f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554466"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491818"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 

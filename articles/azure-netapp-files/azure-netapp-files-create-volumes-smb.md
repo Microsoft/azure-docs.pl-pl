@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: c673f7a9556193fb05e05ea372bfccd17cd3c5ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868515"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259629"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
-Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin protokołu SMB3.
+Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. 
+
+W tym artykule pokazano, jak utworzyć wolumin protokołu SMB3. Woluminy systemu plików NFS można znaleźć w temacie [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md). W przypadku woluminów z podwójnym protokołem zobacz [Tworzenie dwuprotokołowego woluminu](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
@@ -128,10 +130,12 @@ Dostęp do woluminu SMB jest zarządzany przez uprawnienia.
 
 ### <a name="share-permissions"></a>Uprawnienia do udostępniania  
 
-Domyślnie nowy wolumin ma uprawnienia **Wszyscy/Pełna kontrola** . Członkowie grupy Administratorzy domeny mogą zmieniać uprawnienia udziału za pomocą przystawki Zarządzanie komputerem na koncie komputera, które jest używane dla woluminu Azure NetApp Files.
+Domyślnie nowy wolumin ma uprawnienia **Wszyscy/Pełna kontrola** . Członkowie grupy Administratorzy domeny mogą zmieniać uprawnienia udziału w następujący sposób:  
 
-![Ścieżka instalacji SMB ](../media/azure-netapp-files/smb-mount-path.png) 
- ![ Ustawianie uprawnień udziału](../media/azure-netapp-files/set-share-permissions.png) 
+1. Zamapuj udział na dysk.  
+2. Kliknij prawym przyciskiem myszy dysk, wybierz polecenie **Właściwości**, a następnie przejdź do karty **zabezpieczenia** .
+
+[![Ustawianie uprawnień udziału](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Uprawnienia plików i folderów systemu plików NTFS  
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f102bbe45fd5eea853ba63def4f1c1a92888ca46
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487104"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285947"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
@@ -40,7 +40,7 @@ Informacje o wersji zapoznawczej interfejsu API v 3.2 przetwarzanie obrazów dos
 * Wyodrębnij tekst tylko dla wybranych stron dla dokumentu wielostronicowego.
 * Dostępne jako [kontener Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) dla wdrożenia lokalnego.
 
-[Dowiedz się więcej](concept-recognizing-text.md) o interfejsie API odczytu.
+Aby dowiedzieć się więcej, zobacz [Przeczytaj Przewodnik po interfejsie API](Vision-API-How-to-Topics/call-read-api.md) .
 
 > [!div class="nextstepaction"]
 > [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
@@ -83,7 +83,7 @@ W publicznej wersji zapoznawczej interfejsu API w przetwarzanie obrazów v 3.1 d
 
 * Ta wersja zapoznawcza interfejsu API odczytu obsługuje język angielski, holenderski, francuski, niemiecki, włoski, japoński, portugalski, chiński (uproszczony) i hiszpański.
 
-Zobacz [Omówienie interfejsu API odczytu](concept-recognizing-text.md) , aby dowiedzieć się więcej.
+Aby dowiedzieć się więcej, zobacz [Przeczytaj Przewodnik po interfejsie API](Vision-API-How-to-Topics/call-read-api.md) .
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o funkcji Read API v 3.1 w publicznej wersji zapoznawczej 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -95,18 +95,20 @@ W publicznej wersji zapoznawczej interfejsu API usługi przetwarzanie obrazów R
 
 * Ta wersja zapoznawcza interfejsu API odczytu obsługuje język angielski, holenderski, francuski, niemiecki, włoski, portugalski, chiński (uproszczony) i hiszpański.
 
-Zobacz [Omówienie interfejsu API odczytu](concept-recognizing-text.md) , aby dowiedzieć się więcej.
+Aby dowiedzieć się więcej, zobacz [Przeczytaj Przewodnik po interfejsie API](Vision-API-How-to-Topics/call-read-api.md) .
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o wersji Read API v 3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maj 2020 r.
-W interfejs API przetwarzania obrazów v 3.0 wprowadzono ogólną dostępność z aktualizacjami [interfejsu API odczytu](concept-recognizing-text.md):
+W interfejs API przetwarzania obrazów v 3.0 wprowadzono ogólną dostępność z aktualizacjami interfejsu API odczytu:
 
 * Obsługa języków angielskim, holenderskim, francuskim, niemieckim, włoskim, portugalskim i hiszpańskim
 * Ulepszona dokładność
 * Wynik pewności dla każdego wyodrębnionego wyrazu
 * Nowy format danych wyjściowych
+
+Zobacz [Omówienie OCR](overview-ocr.md) , aby dowiedzieć się więcej.
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 

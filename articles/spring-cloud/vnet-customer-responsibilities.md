@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 32b41c1c4446ba34e3bfad52f1d3cbd7ed72096d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 91c8834b48625aac0f279f84648d374df15fbdd0
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108813"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285398"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej
 Ten dokument zawiera specyfikacje dotyczące korzystania z chmury Azure wiosennej w sieci wirtualnej.
@@ -33,7 +33,7 @@ Poniżej znajduje się lista wymagań dotyczących zasobów dla usług Azure wio
 ## <a name="azure-spring-cloud-network-requirements"></a>Wymagania dotyczące sieci w chmurze ze sprężyną na platformie Azure
 
   | Docelowy punkt końcowy | Port | Zastosowanie | Uwaga |
-  |------|------|------|
+  |------|------|------|------|
   | *: 1194 *lub* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -AzureCloud: 1194 | UDP: 1194 | Podstawowe Zarządzanie klastrem Kubernetes. | |
   | *: 443 *lub* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -AzureCloud: 443 | TCP: 443 | Zarządzanie usługą w chmurze Azure wiosną. | Informacje o wystąpieniu usługi "requiredTraffics" mogą być znane w ładunku zasobów w sekcji "networkProfile". |
   | *: 9000 *lub* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -AzureCloud: 9000 | TCP: 9000 | Podstawowe Zarządzanie klastrem Kubernetes. |
@@ -43,9 +43,9 @@ Poniżej znajduje się lista wymagań dotyczących zasobów dla usług Azure wio
   | *. servicebus.windows.net:443 *lub* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -EventHub: 443 | TCP: 443 | Centrum zdarzeń platformy Azure. | Można je zastąpić, włączając  [punkt końcowy usługi Azure Event Hubs w sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md). |
   
 
-## <a name="azure-spring-cloud-fqdn-requirements--application-rules"></a>Wymagania/reguły aplikacji w chmurze ze sprężyną Azure
+## <a name="azure-spring-cloud-fqdn-requirementsapplication-rules"></a>Wymagania/reguły aplikacji w chmurze ze sprężyną Azure
 
-Zapora systemu Azure udostępnia w pełni kwalifikowaną nazwę domeny (FQDN) **AzureKubernetesService** , aby uprościć następujące konfiguracje.
+Zapora platformy Azure udostępnia tag nazwy FQDN **AzureKubernetesService** , aby uprościć następujące konfiguracje:
 
   | Docelowa nazwa FQDN | Port | Zastosowanie |
   |------|------|------|
@@ -61,6 +61,15 @@ Zapora systemu Azure udostępnia w pełni kwalifikowaną nazwę domeny (FQDN) **
   | *mscrl.microsoft.com* | HTTPS: 80 | Wymagane ścieżki łańcucha certyfikatów firmy Microsoft. |
   | *crl.microsoft.com* | HTTPS: 80 | Wymagane ścieżki łańcucha certyfikatów firmy Microsoft. |
   | *crl3.digicert.com* | HTTPS: 80 | Ścieżki łańcucha certyfikatów SSL innej firmy. |
+  
+## <a name="azure-spring-cloud-optional-fqdn-for-third-party-application-performance-management"></a>Chmura sprężynowa platformy Azure opcjonalna nazwa FQDN dla zarządzania wydajnością aplikacji innych firm
+
+Zapora platformy Azure udostępnia tag nazwy FQDN **AzureKubernetesService** , aby uprościć następujące konfiguracje:
+
+  | Docelowa nazwa FQDN | Port | Zastosowanie                                                          |
+  | ---------------- | ---- | ------------------------------------------------------------ |
+  | Moduł zbierający *. newrelic. com | TCP: 443/80 | Wymagane sieci nowych agentów APM usługi Relic z regionu US (Stany USA) zawierają również [sieci agentów APM](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+  | Moduł zbierający *. EU01. nr-data.net | TCP: 443/80 | Wymagane sieci nowych agentów APM Relic z regionu UE, zobacz też [sieci agentów APM](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
 
 ## <a name="see-also"></a>Zobacz też
 * [Uzyskiwanie dostępu do aplikacji w sieci prywatnej](access-app-virtual-network.md)

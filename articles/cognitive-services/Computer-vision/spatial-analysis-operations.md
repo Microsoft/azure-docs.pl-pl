@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bdcbb38a56e46d01a5580f6d32ef733df8911b67
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108340"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284706"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
-Analiza przestrzenna analizowanie wideo przesyłanego strumieniowo w czasie rzeczywistym z urządzeń typu kamery. Dla każdego skonfigurowanego urządzenia kamery operacje analizy przestrzennej spowodują wygenerowanie strumienia wyjściowego komunikatów JSON wysyłanych do wystąpienia usługi Azure IoT Hub. 
+Analiza przestrzenna umożliwia analizę wideo przesyłania strumieniowego w czasie rzeczywistym z urządzeń kamer. Dla każdego skonfigurowanego urządzenia z kamerą operacje związane z analizą przestrzenną spowodują wygenerowanie strumienia wyjściowego komunikatów JSON wysyłanych do wystąpienia usługi Azure IoT Hub. 
 
 Kontener analizy przestrzennej implementuje następujące operacje:
 
@@ -107,16 +107,16 @@ Jest to przykład parametrów DETECTOR_NODE_CONFIG dla wszystkich operacji anali
 ```json
 {
 "zones":[{
-    "name": "lobbycamera",
-    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "events":[{
-        "type": "count",
-        "config":{
-            "trigger": "event",
+       "name": "lobbycamera",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+              "type": "count",
+              "config":{
+                     "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
       }
-    }]
+       }]
 }
 ```
 
@@ -231,17 +231,17 @@ Jest to przykład danych wejściowych JSON dla parametru SPACEANALYTICS_CONFIG, 
    "name": "lobbycamera",
    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
    "events":[{
-    "type": "persondistance",
-    "config":{
-        "trigger": "event",
-        "output_frequency":1,
-        "minimum_distance_threshold":6.0,
-        "maximum_distance_threshold":35.0,
+       "type": "persondistance",
+       "config":{
+           "trigger": "event",
+           "output_frequency":1,
+           "minimum_distance_threshold":6.0,
+           "maximum_distance_threshold":35.0,
         "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
-            }
-    }]
+                   }
+          }]
    }]
 }
 ```
@@ -431,7 +431,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
             "face_nomask": 0.99
             }
             }
-    }
+       }
     ],
     "schemaVersion": "1.0"
 }
@@ -635,7 +635,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację z `
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-        "durationMs": 7132.0
+              "durationMs": 7132.0
             },
             "zone": "queuecamera"
         }

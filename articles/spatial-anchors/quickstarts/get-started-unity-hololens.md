@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b99c2efcb746a056adc76fdc161c8d8a8e2799e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c0cce7717dda73a381ec977c3bf520bf8db5bbb3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670124"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105854"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji HoloLens Unity wykorzystującej kotwice przestrzenne platformy Azure
 
@@ -43,6 +43,8 @@ Aby ukończyć ten przewodnik Szybki start:
 ## <a name="download-and-open-the-unity-sample-project"></a>Pobieranie i otwieranie przykładowego projektu środowiska Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](../how-tos/setup-unity-project.md#download-asa-packages) , aby pobrać i ZAIMPORTOWAĆ pakiety SDK ASA wymagane przez platformę HoloLens.
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 

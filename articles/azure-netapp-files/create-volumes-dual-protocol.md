@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574632"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258422"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
-Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol. W tym artykule opisano sposób tworzenia woluminu korzystającego z dwóch protokołów NFSv3 i SMB z obsługą mapowania użytkowników LDAP.  
+Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol. W tym artykule opisano sposób tworzenia woluminu korzystającego z dwóch protokołów NFSv3 i SMB z obsługą mapowania użytkowników LDAP. 
 
+Aby utworzyć woluminy NFS, zobacz [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md). Aby utworzyć woluminy SMB, zobacz [Tworzenie woluminu SMB](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
@@ -39,7 +40,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient sieciowego systemu plików jest aktualny i ma najnowsze aktualizacje systemu operacyjnego.
 * Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
-* Woluminy podwójnego protokołu nie obsługują obecnie Azure Active Directory Domain Services (AADDS).  
+* Woluminy podwójnego protokołu nie obsługują obecnie Azure Active Directory Domain Services (AADDS). Nie można włączyć protokołu LDAP over TLS, jeśli używasz AADDS.
 * Wersja systemu plików NFS używana przez dwuprotokołowy wolumin to NFSv3. W związku z tym obowiązują następujące zagadnienia:
     * Protokół Dual nie obsługuje rozszerzonych atrybutów list ACL systemu Windows `set/get` z klientów NFS.
     * Klienci NFS nie mogą zmieniać uprawnień do stylu zabezpieczeń systemu plików NTFS, a klienci systemu Windows nie mogą zmieniać uprawnień dla woluminów z podwójnym protokołem w stylu systemu UNIX.   
@@ -121,6 +122,17 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
  
     Wolumin dziedziczy atrybuty Subskrypcja, Grupa zasobów i Lokalizacja z puli pojemności. Stan wdrożenia woluminu możesz monitorować na karcie Powiadomienia.
 
+## <a name="allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume"></a>Zezwalaj lokalnym użytkownikom NFS z protokołem LDAP na dostęp do dwuprotokołowego woluminu 
+
+Możesz włączyć lokalnych użytkowników systemu NFS nieobecnych na serwerze Windows LDAP, aby uzyskać dostęp do dwuprotokołowego woluminu z włączoną usługą LDAP z włączonymi grupami rozszerzonymi. W tym celu należy włączyć opcję **Zezwalaj lokalnym użytkownikom NFS przy użyciu protokołu LDAP** w następujący sposób:
+
+1. Kliknij przycisk **Active Directory połączenia**.  Na istniejącym połączeniu Active Directory kliknij menu kontekstowe (trzy kropki `…` ), a następnie wybierz pozycję **Edytuj**.  
+
+2. W wyświetlonym oknie **Edytowanie ustawień Active Directory** wybierz opcję **Zezwalaj lokalnym użytkownikom NFS z protokołem LDAP** .  
+
+    ![Zrzut ekranu przedstawiający opcję Zezwalaj użytkownikom lokalnym NFS z protokołem LDAP](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
+
+
 ## <a name="manage-ldap-posix-attributes"></a>Zarządzanie atrybutami LDAP POSIX
 
 Można zarządzać atrybutami POSIX, takimi jak UID, katalogiem macierzystym i innymi wartościami, za pomocą przystawki MMC Użytkownicy i komputery Active Directory.  Poniższy przykład pokazuje Edytor atrybutów Active Directory:  
@@ -129,9 +141,9 @@ Można zarządzać atrybutami POSIX, takimi jak UID, katalogiem macierzystym i i
 
 Należy ustawić następujące atrybuty dla użytkowników LDAP i grup LDAP: 
 * Wymagane atrybuty dla użytkowników LDAP:   
-    `uid`: Alicja, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
 * Wymagane atrybuty dla grup LDAP:   
-    `objectClass`: "POSIX", `gidNumber` : 555
+    `objectClass: posixGroup`, `gidNumber: 555`
 
 ## <a name="configure-the-nfs-client"></a>Konfigurowanie klienta NFS 
 
@@ -141,3 +153,4 @@ Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie klienta NFS dla Azure
 
 * [Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files](configure-nfs-clients.md)
 * [Rozwiązywanie problemów z woluminami SMB lub Dual-Protocol](troubleshoot-dual-protocol-volumes.md)
+* [Rozwiązywanie problemów z woluminami LDAP](troubleshoot-ldap-volumes.md)

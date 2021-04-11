@@ -67,6 +67,8 @@
       href: ../../application-gateway/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Automation
       href: ../../automation/security-baseline.md
+    - name: Linia bazowa zabezpieczeń Azure Active Directory
+      href: ../../active-directory/fundamentals/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Advisor
       href: ../../advisor/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure App Configuration

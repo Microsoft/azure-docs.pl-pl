@@ -20,6 +20,8 @@
       href: walkthrough-exchange-all.md
     - name: Przewodnik partnera usługi Peering Service
       href: walkthrough-peering-service-all.md
+    - name: Przewodnik po partnerze usług komunikacyjnych
+      href: walkthrough-communications-services-partner.md
     - name: Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure
       items:
         - name: Portal

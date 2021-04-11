@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/16/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener, Kubernetes
-ms.openlocfilehash: 3b0a39e9d84a56bac3117df9279954e3756d465a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 007dfe6d67d504286b9546fe0139055b58dc700f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065824"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285607"
 ---
 # <a name="azure-cognitive-services-containers"></a>Kontenery usługi Azure Cognitive Services
 
@@ -76,7 +76,7 @@ Kontenery usługi Azure Cognitive Services oferują następujący zestaw kontene
 
 | Usługa |  Kontener | Opis | Dostępność |
 |--|--|--|--|
-| [Przetwarzanie obrazów][cv-containers] | **Odczytaj OCR** ([obraz](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Kontener OCR do odczytu umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](./computer-vision/concept-recognizing-text.md). | Wersja zapoznawcza. [Zażądaj dostępu][request-access]. |
+| [Przetwarzanie obrazów][cv-containers] | **Odczytaj OCR** ([obraz](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Kontener OCR do odczytu umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](./computer-vision/overview-ocr.md). | Wersja zapoznawcza. [Zażądaj dostępu][request-access]. |
 | [Analiza przestrzenna][spa-containers] | **Analiza przestrzenna** ([obraz](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analizuje wideo w czasie rzeczywistym, aby zrozumieć relacje przestrzenne między osobami, ich przenoszeniem i interakcją z obiektami w środowiskach fizycznych. | Wersja zapoznawcza. [Zażądaj dostępu][request-access]. |
 | [Rozpoznawanie twarzy][fa-containers] | **Rozpoznawanie twarzy** | Wykrywa ludzkie twarze w obrazach i identyfikuje atrybuty, w tym dzielnice twarzy (takie jak nos i oczy), płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny pewności, czy też można porównać twarze z bazą danych, aby zobaczyć, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych. | Niedostępny |
 | [Aparat rozpoznawania formularzy][fr-containers] | **Rozpoznawanie formularzy** | Zrozumienie formularza stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy. | Niedostępny | 

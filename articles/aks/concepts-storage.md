@@ -3,70 +3,120 @@ title: Pojęcia — Storage w usłudze Azure Kubernetes Services (AKS)
 description: Informacje o magazynie w usłudze Azure Kubernetes Service (AKS), w tym woluminy, woluminy trwałe, klasy magazynu i oświadczenia
 services: container-service
 ms.topic: conceptual
-ms.date: 08/17/2020
-ms.openlocfilehash: bf910c66694a62505f259c0a95a88f7dfed05d19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/11/2021
+ms.openlocfilehash: a1f68b06c31597a1d2d044686274e86a79e6e9a3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127961"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105786"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje magazynu dla aplikacji w usłudze Azure Kubernetes Service (AKS)
 
-Aplikacje działające w usłudze Azure Kubernetes Service (AKS) mogą wymagać przechowywania i pobierania danych. W przypadku niektórych obciążeń aplikacji ten magazyn danych może korzystać z lokalnego, szybkiego magazynu w węźle, który nie jest już wymagany po usunięciu z nich. Inne obciążenia aplikacji mogą wymagać magazynu, który utrzymuje więcej zwykłych woluminów danych w ramach platformy Azure. Może być konieczne udostępnienie wielu zasobników z tymi samymi woluminami danych lub ponowne dołączenie woluminów danych, jeśli na innym węźle zostanie ponownie zaplanowana. Na koniec może zajść potrzeba dodania poufnych danych lub informacji konfiguracyjnych aplikacji do zasobników.
+Aplikacje działające w usłudze Azure Kubernetes Service (AKS) mogą wymagać przechowywania i pobierania danych. Niektóre obciążenia aplikacji mogą korzystać z lokalnego, szybkiego magazynu w niepotrzebnych, opróżnionych węzłach, a inne wymagają magazynu, który utrzymuje więcej zwykłych woluminów danych na platformie Azure. 
 
-![Opcje magazynu dla aplikacji w klastrze usługi Azure Kubernetes Services (AKS)](media/concepts-storage/aks-storage-options.png)
+Może być potrzebne wiele zasobników:
+* Współużytkowanie tych samych woluminów danych. 
+* Ponownie Dołącz woluminy danych, jeśli na innym węźle zostanie przeplanowane ponowne zaplanowanie. 
+
+Na koniec może zajść potrzeba dodania poufnych danych lub informacji konfiguracyjnych aplikacji do zasobników.
 
 W tym artykule przedstawiono podstawowe koncepcje zapewniające magazyn dla aplikacji w AKS:
 
 - [Woluminy](#volumes)
-- [Woluminy trwałe](#persistent-volumes)
+- [Trwałe woluminy](#persistent-volumes)
 - [Klasy magazynu](#storage-classes)
 - [Trwałe woluminy — oświadczenia](#persistent-volume-claims)
 
+![Opcje magazynu dla aplikacji w klastrze usługi Azure Kubernetes Services (AKS)](media/concepts-storage/aks-storage-options.png)
+
 ## <a name="volumes"></a>Woluminy
 
-Aplikacje często muszą mieć możliwość przechowywania i pobierania danych. Ponieważ Kubernetes zazwyczaj traktuje poszczególne z nich w postaci tymczasowych, jednorazowych zasobów, różne podejścia są dostępne dla aplikacji, które będą w razie potrzeby używać i utrwalać dane. *Wolumin* reprezentuje sposób przechowywania, pobierania i utrwalania danych w różnych magazynach i za pośrednictwem cyklu życia aplikacji.
+Kubernetes zazwyczaj traktuje poszczególne zasobniki jako tymczasowe, jednorazowe zasoby. Aplikacje mają różne podejścia do użycia i utrwalania danych. *Wolumin* reprezentuje sposób przechowywania, pobierania i utrwalania danych w różnych magazynach i za pośrednictwem cyklu życia aplikacji.
 
-Tradycyjne woluminy do przechowywania i pobierania danych są tworzone jako zasoby Kubernetes, które są obsługiwane przez usługę Azure Storage. Można ręcznie tworzyć te woluminy danych do przypisania do zasobników bezpośrednio lub Kubernetes je automatycznie. Te woluminy danych mogą korzystać z usługi Azure disks lub Azure Files:
+Tradycyjne woluminy są tworzone jako zasoby Kubernetes, które są obsługiwane przez usługę Azure Storage. Można ręcznie tworzyć woluminy danych do przypisania do zasobników bezpośrednio lub Kubernetes je automatycznie. Woluminy danych mogą korzystać z dysków lub Azure Files platformy Azure.
 
-- Za pomocą *usługi Azure disks* można utworzyć zasób Kubernetes *Datadisk* . Dyski mogą korzystać z usługi Azure Premium Storage, obsługiwanej przez dysków SSD o wysokiej wydajności lub magazynu w warstwie Standardowa platformy Azure, z obsługą regularnego HDD. W przypadku większości obciążeń produkcyjnych i programistycznych należy użyć usługi Premium Storage. Dyski platformy Azure są instalowane jako *ReadWriteOnce*, więc są dostępne tylko dla jednego pod. W przypadku woluminów magazynu, do których można uzyskać dostęp jednocześnie przez wiele zasobników, użyj Azure Files.
-- *Azure Files* można użyć do zainstalowania udziału SMB 3,0 obsługiwanego przez konto usługi Azure Storage w ramach platformy. Pliki umożliwiają udostępnianie danych między wieloma węzłami i zasobnikami. Pliki mogą korzystać z usługi Azure Storage w warstwie Standardowa w ramach regularnego HDD lub Azure Premium Storage, które są obsługiwane przez dysków SSD o wysokiej wydajności.
+### <a name="azure-disks"></a>Azure Disks
 
-W Kubernetes woluminy mogą reprezentować więcej niż tradycyjny dysk, na którym można przechowywać informacje i je pobierać. Woluminy Kubernetes mogą być również używane jako sposób wstrzykiwania danych do użycia przez kontenery. Wspólne dodatkowe typy woluminów w Kubernetes obejmują:
+Użyj *usługi Azure disks* , aby utworzyć zasób Kubernetes *Datadisk* . Dyski mogą używać:
+* Usługa Azure Premium Storage, obsługiwana przez dysków SSD o wysokiej wydajności, lub 
+* Usługa Azure Standard Storage, obsługiwana za pomocą regularnego HDD. 
 
-- *emptyDir* — ten wolumin jest często używany jako miejsce tymczasowe dla pod. Wszystkie kontenery w ramach programu mogą uzyskiwać dostęp do danych w woluminie. Dane zapisywane do tego typu woluminu są utrwalane tylko dla cykl życia w miejscu — gdy zostanie usunięty, wolumin zostanie usunięty. Ten wolumin zazwyczaj używa bazowego magazynu dysku lokalnego, chociaż może również istnieć tylko w pamięci węzła.
-- *Secret* — ten wolumin służy do iniekcji danych poufnych do zasobników, takich jak hasła. Najpierw utwórz wpis tajny przy użyciu interfejsu API Kubernetes. Podczas definiowania użytkownika lub wdrożenia można żądać określonego klucza tajnego. Wpisy tajne są dostarczane tylko do węzłów, które mają zaplanowaną w tym, że wymagają, a wpis tajny jest przechowywany w *tmpfs*, a nie zapisywany na dysku. Po usunięciu ostatniego elementu na węźle, który wymaga wpisu tajnego, wpis tajny jest usuwany z tmpfs węzła. Wpisy tajne są przechowywane w danym obszarze nazw i można do nich uzyskiwać dostęp tylko w obrębie tego samego obszaru nazw.
-- *configMap* — ten typ woluminu służy do iniekcji właściwości pary klucz-wartość do zasobników, takich jak informacje o konfiguracji aplikacji. Zamiast definiować informacje o konfiguracji aplikacji w ramach obrazu kontenera, można zdefiniować go jako zasób Kubernetes, który można łatwo aktualizować i stosować do nowych wystąpień w miarę ich wdrażania. Podobnie jak przy użyciu klucza tajnego, należy najpierw utworzyć ConfigMap za pomocą interfejsu API Kubernetes. Tego ConfigMap można następnie żądać podczas definiowania wdrożenia pod lub. ConfigMaps są przechowywane w obrębie danego obszaru nazw i można do nich uzyskać dostęp tylko w obrębie tego samego obszaru nazw.
+> [!TIP]
+>W przypadku większości obciążeń produkcyjnych i programistycznych należy użyć usługi Premium Storage. 
 
-## <a name="persistent-volumes"></a>Woluminy trwałe
+Ponieważ dyski platformy Azure są zainstalowane jako *ReadWriteOnce*, są one dostępne tylko dla jednego z nich. W przypadku woluminów magazynu, do których można uzyskać dostęp jednocześnie przez wiele zasobników, użyj Azure Files.
 
-Woluminy, które są zdefiniowane i tworzone w ramach cyklu życia, są dostępne tylko do momentu usunięcia elementu. W przypadku, gdy na innym hoście w ramach zdarzeń konserwacyjnych, w szczególności w StatefulSets. *Wolumin trwały* (PV) jest zasobem magazynu utworzonym i zarządzanym przez interfejs API Kubernetes, który może istnieć poza okresem istnienia poszczególnych elementów.
+### <a name="azure-files"></a>Azure Files
+Użyj *Azure Files* , aby zainstalować udział SMB 3,0 w ramach konta usługi Azure Storage w jednostkach pojemności. Pliki umożliwiają udostępnianie danych między wieloma węzłami i zasobnikami oraz korzystanie z nich:
+* Usługa Azure Premium Storage, obsługiwana przez dysków SSD o wysokiej wydajności, lub 
+* Usługa Azure Standard Storage obsługiwana za pomocą zwykłego HDD.
 
-Do udostępnienia PersistentVolume są używane dyski lub pliki platformy Azure. Jak wskazano w poprzedniej sekcji woluminów, wybór dysków lub plików jest często określany na podstawie potrzeby jednoczesnego dostępu do danych lub warstwy wydajności.
+### <a name="volume-types"></a>Typy woluminów
+Woluminy Kubernetes reprezentują więcej niż tradycyjny dysk do przechowywania i pobierania informacji. Woluminy Kubernetes mogą być również używane jako sposób wstrzykiwania danych do użycia przez kontenery. 
+
+Typy wspólnych woluminów w Kubernetes obejmują:
+
+#### <a name="emptydir"></a>emptyDir
+
+Często używane jako tymczasowe miejsce dla. Wszystkie kontenery w ramach programu mogą uzyskiwać dostęp do danych w woluminie. Dane zapisywane do tego typu woluminu są utrwalane tylko dla cykl życia pod. Po usunięciu pod, wolumin zostanie usunięty. Ten wolumin zazwyczaj używa bazowego magazynu dysku lokalnego, chociaż może również istnieć tylko w pamięci węzła.
+
+#### <a name="secret"></a>wpis tajny
+
+Można użyć woluminów *tajnych* , aby wstrzyknąć dane poufne do zasobników, takich jak hasła. 
+1. Utwórz wpis tajny przy użyciu interfejsu API Kubernetes. 
+1. Zdefiniuj element lub wdrożenie i Żądaj określonego klucza tajnego. 
+    * Wpisy tajne są dostarczane tylko do węzłów z zaplanowanym terminem, które ich wymagają.
+    * Wpis tajny jest przechowywany w *tmpfs*, nie jest zapisywany na dysku. 
+1. Po usunięciu ostatniego elementu znajdującego się w węźle wymagającym wpisu tajnego, wpis tajny jest usuwany z tmpfs węzła. 
+   * Wpisy tajne są przechowywane w danym obszarze nazw i można do nich uzyskiwać dostęp tylko w obrębie tego samego obszaru nazw.
+
+#### <a name="configmap"></a>configMap
+
+Można użyć *configMap* , aby wstrzyknąć właściwości pary klucz-wartość do zasobników, takich jak informacje o konfiguracji aplikacji. Zdefiniuj informacje o konfiguracji aplikacji jako zasób Kubernetes, które są łatwo aktualizowane i stosowane do nowych wystąpień w miarę ich wdrażania. 
+
+Jak przy użyciu klucza tajnego:
+1. Utwórz element ConfigMap przy użyciu interfejsu API Kubernetes. 
+1. Zażądaj ConfigMap przy definiowaniu lub wdrożeniu. 
+   * ConfigMaps są przechowywane w obrębie danego obszaru nazw i można do nich uzyskać dostęp tylko w obrębie tego samego obszaru nazw.
+
+## <a name="persistent-volumes"></a>Trwałe woluminy
+
+Woluminy zdefiniowane i utworzone w ramach cyklu życia w programie istnieją dopiero po usunięciu obszaru pod. W przypadku, gdy na innym hoście w ramach zdarzeń konserwacyjnych, w szczególności w StatefulSets. *Wolumin trwały* (PV) jest zasobem magazynu utworzonym i zarządzanym przez interfejs API Kubernetes, który może istnieć poza okresem istnienia poszczególnych elementów.
+
+Aby zapewnić PersistentVolume, możesz użyć dysków lub plików platformy Azure. Jak wspomniano w sekcji [woluminy](#volumes) , wybór dysków lub plików jest często określany na podstawie potrzeby jednoczesnego dostępu do danych lub warstwy wydajności.
 
 ![Woluminy trwałe w klastrze usługi Azure Kubernetes Services (AKS)](media/concepts-storage/persistent-volumes.png)
 
-PersistentVolume może być *statycznie* tworzony przez administratora klastra lub tworzony *dynamicznie* przez serwer interfejsu API Kubernetes. W przypadku zaplanowania i żądania magazynu, który nie jest obecnie dostępny, Kubernetes może utworzyć podstawowy magazyn dyskowy lub plików platformy Azure i dołączyć go do usługi pod. Dynamiczna obsługa administracyjna używa *StorageClass* , aby określić, jakiego typu usługi Azure Storage należy utworzyć.
+PersistentVolume może być *statycznie* tworzony przez administratora klastra lub tworzony *dynamicznie* przez serwer interfejsu API Kubernetes. W przypadku zaplanowania i żądania aktualnie niedostępnego magazynu program Kubernetes może utworzyć podstawowy magazyn dyskowy lub plików platformy Azure, a następnie dołączyć go do usługi pod. Dynamiczna obsługa administracyjna używa *StorageClass* , aby określić, jakiego typu usługi Azure Storage należy utworzyć.
 
 ## <a name="storage-classes"></a>Klasy magazynu
 
-Aby zdefiniować różne warstwy magazynu, takie jak Premium i Standard, można utworzyć *StorageClass*. StorageClass również definiuje *reclaimPolicy*. Ta reclaimPolicy kontroluje zachowanie bazowego zasobu usługi Azure Storage, gdy jest on usunięty, a wolumin trwały może nie być już wymagany. Podstawowy zasób magazynu można usunąć lub zachować do użycia w przyszłości.
+Aby zdefiniować różne warstwy magazynu, takie jak Premium i Standard, można utworzyć *StorageClass*. 
+
+StorageClass również definiuje *reclaimPolicy*. Po usunięciu elementu pod i trwały wolumin nie jest już wymagany, reclaimPolicy kontroluje zachowanie bazowego zasobu usługi Azure Storage. Podstawowy zasób magazynu można usunąć lub zachować do użycia w przyszłości.
 
 W AKS cztery inicjały `StorageClasses` są tworzone dla klastra przy użyciu wtyczek magazynu w drzewie:
 
-- `default` — Używa usługi Azure StandardSSD Storage do utworzenia dysku zarządzanego. Zasady odzyskiwania zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
-- `managed-premium` — Używa usługi Azure Premium Storage do utworzenia dysku zarządzanego. Zasady odzyskiwania ponownie zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
-- `azurefile` — Używa usługi Azure Standard Storage, aby utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
-- `azurefile-premium` — Używa usługi Azure Premium Storage do utworzenia udziału plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
+| Uprawnienie | Przyczyna |
+|---|---|
+| `default` | Program używa usługi Azure StandardSSD Storage do tworzenia dysku zarządzanego. Zasady odzyskiwania zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. |
+| `managed-premium` | Używa usługi Azure Premium Storage do utworzenia dysku zarządzanego. Zasady odzyskiwania ponownie zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. |
+| `azurefile` | Za pomocą usługi Azure Standard Storage można utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. |
+| `azurefile-premium` | Za pomocą usługi Azure Premium Storage można utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.|
 
 W przypadku klastrów korzystających z nowych wtyczek usługi Container Storage Interface (CSI) tworzone są następujące dodatkowe elementy `StorageClasses` :
-- `managed-csi` — Program Azure StandardSSD Storage lokalnie nadmiarowy (LRS) do utworzenia dysku zarządzanego. Zasady odzyskiwania zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. Klasa magazynu konfiguruje również woluminy trwałe do rozwijania, więc wystarczy zmienić wartość w polu trwały zbiorcze żądania o nowy rozmiar.
-- `managed-csi-premium` — Usługa Azure Premium Storage lokalnie nadmiarowy (LRS) umożliwia utworzenie dysku zarządzanego. Zasady odzyskiwania ponownie zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. Podobnie ta Klasa magazynu pozwala na rozszerzanie woluminów trwałych.
-- `azurefile-csi` — Używa usługi Azure Standard Storage, aby utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
-- `azurefile-csi-premium` — Używa usługi Azure Premium Storage do utworzenia udziału plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
 
-Jeśli dla trwałego woluminu nie określono StorageClass, zostanie użyta wartość domyślna StorageClass. Należy zachować ostrożność podczas żądania woluminów trwałych, aby korzystały z odpowiedniego magazynu, którego potrzebujesz. Można utworzyć StorageClass do dodatkowych potrzeb przy użyciu `kubectl` . Poniższy przykład używa Managed Disks Premium i określa, że podstawowy dysk platformy Azure powinien zostać *zachowany* po usunięciu:
+| Uprawnienie | Przyczyna |
+|---|---|
+| `managed-csi` | Program używa platformy Azure StandardSSD lokalnie nadmiarowego magazynu (LRS) w celu utworzenia dysku zarządzanego. Zasady odzyskiwania zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. Klasa magazynu konfiguruje również woluminy trwałe do rozwijania, więc wystarczy zmienić wartość w polu trwały zbiorcze żądania o nowy rozmiar. |
+| `managed-csi-premium` | Do utworzenia dysku zarządzanego używa usługi Azure Premium Storage lokalnie nadmiarowy (LRS). Zasady odzyskiwania ponownie zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. Podobnie ta Klasa magazynu pozwala na rozszerzanie woluminów trwałych. |
+| `azurefile-csi` | Za pomocą usługi Azure Standard Storage można utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. |
+| `azurefile-csi-premium` | Za pomocą usługi Azure Premium Storage można utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.|
+
+Jeśli nie określisz StorageClass dla woluminu trwałego, zostanie użyta wartość domyślna StorageClass. Upewnij się, że woluminy używają odpowiedniego magazynu potrzebnego podczas żądania woluminów trwałych. 
+
+Można utworzyć StorageClass do dodatkowych potrzeb przy użyciu `kubectl` . Poniższy przykład używa Managed Disks Premium i określa, że podstawowy dysk platformy Azure powinien zostać *zachowany* po usunięciu:
 
 ```yaml
 kind: StorageClass
@@ -85,11 +135,13 @@ parameters:
 
 ## <a name="persistent-volume-claims"></a>Trwałe woluminy — oświadczenia
 
-PersistentVolumeClaim żąda dysku lub magazynu plików dla konkretnej StorageClass, trybu dostępu i rozmiaru. Serwer interfejsu API Kubernetes umożliwia dynamiczne Inicjowanie obsługi bazowego zasobu magazynu na platformie Azure, jeśli nie ma istniejącego zasobu do spełnienia tego żądania na podstawie zdefiniowanego StorageClassu. Definicja pod obejmuje instalację woluminu, gdy wolumin został połączony z pod.
+PersistentVolumeClaim żąda dysku lub magazynu plików dla konkretnej StorageClass, trybu dostępu i rozmiaru. Serwer interfejsu API Kubernetes umożliwia dynamiczne Inicjowanie obsługi bazowego zasobu usługi Azure Storage, jeśli żaden istniejący zasób nie może spełnić tego żądania na podstawie zdefiniowanego StorageClassu. 
+
+Definicja pod obejmuje instalację woluminu, gdy wolumin został połączony z pod.
 
 ![Trwałe oświadczenia woluminów w klastrze usługi Azure Kubernetes Services (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-PersistentVolume jest *powiązany* z PersistentVolumeClaim po przypisaniu dostępnego zasobu magazynu do żądania. Istnieje 1:1 mapowanie woluminów trwałych na oświadczenia.
+Po przypisaniu dostępnego zasobu magazynu do magazynu żądania PersistentVolume jest on *powiązany* z PersistentVolumeClaim. Woluminy trwałe są 1:1 mapowane na oświadczenia.
 
 Poniższy przykład manifestu YAML przedstawia trwałe żądanie woluminu, które korzysta z StorageClass *Managed-Premium* i żąda *5Gi* dysku:
 
@@ -107,7 +159,11 @@ spec:
       storage: 5Gi
 ```
 
-W przypadku tworzenia definicji na podstawie trwałego żądania woluminu jest określona w celu zażądanie żądanego magazynu. Następnie należy określić *volumeMount* dla aplikacji, aby odczytywać i zapisywać dane. Poniższy przykład manifestu YAML pokazuje, jak poprzednie trwałego żądania woluminu można użyć do zainstalowania woluminu w */mnt/Azure*:
+Podczas tworzenia definicji pod należy również określić:
+* Żądanie trwałego woluminu w celu zażądania odpowiedniego magazynu. 
+* *VolumeMount* dla aplikacji, aby odczytywać i zapisywać dane. 
+
+Poniższy przykład manifestu YAML pokazuje, jak poprzednie trwałego żądania woluminu można użyć do zainstalowania woluminu w */mnt/Azure*:
 
 ```yaml
 kind: Pod
@@ -150,7 +206,7 @@ Aby dowiedzieć się, jak tworzyć dynamiczne i statyczne woluminy korzystające
 - [Tworzenie woluminu dynamicznego przy użyciu dysków platformy Azure][aks-dynamic-disks]
 - [Tworzenie woluminu dynamicznego przy użyciu Azure Files][aks-dynamic-files]
 
-Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz następujące artykuły:
 
 - [Kubernetes/AKS klastrów i obciążeń][aks-concepts-clusters-workloads]
 - [Kubernetes/AKS tożsamość][aks-concepts-identity]

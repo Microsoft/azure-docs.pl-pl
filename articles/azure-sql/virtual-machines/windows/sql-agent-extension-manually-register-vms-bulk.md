@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 558daede55f6563155d3f54e97d77c0a3ca4de59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebf835cad79f8c011be2fec91f6f4644ecd0941f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97357232"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284128"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu rozszerzenia programu SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,7 @@ Proces rejestracji nie wiąże się z ryzykiem, nie ma żadnego przestoju i nie 
 
 Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia, potrzebne są następujące elementy: 
 
-- [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) , która została [zarejestrowana przez dostawcę **Microsoft. SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) i zawiera niezarejestrowane SQL Server maszyn wirtualnych. 
+- [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) , która została [zarejestrowana przez dostawcę **Microsoft. SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-resource-provider) i zawiera niezarejestrowane SQL Server maszyn wirtualnych. 
 - Poświadczenia klienta używane do rejestrowania maszyn wirtualnych istnieją w żadnej z następujących ról platformy Azure: współautor, **współautor** lub **właściciel** **maszyny wirtualnej**. 
 - Najnowsza wersja polecenia [AZ PowerShell (5,0 minimum)](/powershell/azure/new-azureps-module-az). 
 

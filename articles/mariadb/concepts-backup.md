@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b46efa53bba3b845fa5837b91a3707f4a85d298e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659941"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258779"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MariaDB
 
@@ -19,33 +19,47 @@ Azure Database for MariaDB automatycznie tworzy kopie zapasowe serwera i przecho
 
 ## <a name="backups"></a>Tworzenie kopii zapasowych
 
-Azure Database for MariaDB pobiera pełne, różnicowe i transakcyjne kopie zapasowe dziennika. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
+Azure Database for MariaDB wykonuje kopie zapasowe plików danych i dziennika transakcji. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można [skonfigurować ją](howto-restore-server-portal.md#set-backup-configuration) do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
-Te pliki kopii zapasowej nie są uwidaczniane dla użytkownika i nie można ich wyeksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MariaDB. Możesz użyć [mysqldump](howto-migrate-dump-restore.md) , aby skopiować bazę danych.
+Te pliki kopii zapasowej nie są uwidaczniane dla użytkownika i nie można ich wyeksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MySQL. Możesz użyć [mysqldump](howto-migrate-dump-restore.md) , aby skopiować bazę danych.
 
-### <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
+Typ kopii zapasowej i częstotliwość są zależne od magazynu zaplecza serwerów.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Serwery z do 4 TB magazynu
+### <a name="backup-type-and-frequency"></a>Typ i częstotliwość tworzenia kopii zapasowych
 
-W przypadku serwerów, które obsługują maksymalnie 4 TB magazynu, pełne kopie zapasowe są wykonywane co tydzień. Różnicowe kopie zapasowe są wykonywane dwa razy dziennie. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut.
+#### <a name="basic-storage-servers"></a>Podstawowe serwery magazynu
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Serwery z maksymalnie 16 TBm pamięci masowej
-W podzestawie [regionów świadczenia usługi Azure](concepts-pricing-tiers.md#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać do 16 TB pamięci masowej. Kopie zapasowe na tych dużych serwerach magazynu są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi. 
+Magazyn podstawowy to magazyn zaplecza obsługujący [serwery warstwy podstawowej](concepts-pricing-tiers.md). Kopie zapasowe na podstawowych serwerach magazynu są oparte na migawce. Pełna migawka bazy danych jest wykonywana codziennie. Nie ma różnicowych kopii zapasowych wykonywanych dla podstawowych serwerów magazynu, a wszystkie kopie zapasowe migawki to tylko pełne kopie zapasowe bazy danych.
 
-Różnicowe kopie zapasowe migawek są tworzone co najmniej raz dziennie. Różnicowe kopie zapasowe migawek nie są tworzone zgodnie z ustalonym harmonogramem. Kopie zapasowe migawek różnicowych są wykonywane co 24 godziny, chyba że dziennik transakcji (binlog w MariaDB) przekracza 50 GB od czasu ostatniej różnicowej kopii zapasowej. W ciągu dnia dozwolonych jest maksymalnie sześć migawek różnicowych. 
+Kopie zapasowe dziennika transakcji są wykonywane co pięć minut.
 
-Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. 
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z do 4 TB magazynu
+
+Magazyn ogólnego przeznaczenia to magazyn zaplecza obsługujący [ogólnego przeznaczenia](concepts-pricing-tiers.md) i serwer [warstwy zoptymalizowanej pod kątem pamięci](concepts-pricing-tiers.md) . W przypadku serwerów z magazynem ogólnego przeznaczenia do 4 TB kopie zapasowe są wykonywane co tydzień. Różnicowe kopie zapasowe są wykonywane dwa razy dziennie. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. Kopie zapasowe w magazynie ogólnego przeznaczenia o pojemności do 4 TB nie są oparte na migawce i zużywają przepustowość we/wy w momencie tworzenia kopii zapasowej. W przypadku dużych baz danych (> 1 TB) w przypadku magazynu z 4 TB Zalecamy rozważenie
+
+- Inicjowanie obsługi większej liczby IOPs na potrzeby tworzenia kopii zapasowych systemu IOs lub
+- Alternatywnie można przeprowadzić migrację do magazynu ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB magazynu, jeśli podstawowa infrastruktura magazynu jest dostępna w preferowanych [regionach platformy Azure](./concepts-pricing-tiers.md#storage). Nie ma dodatkowych kosztów związanych z magazynem ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB pamięci masowej. Aby uzyskać pomoc dotyczącą migracji do magazynu o pojemności 16 TB, należy otworzyć bilet pomocy technicznej z Azure Portal.
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z magazynem do 16 TB
+
+W podzestawie [regionów świadczenia usługi Azure](./concepts-pricing-tiers.md#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](concepts-pricing-tiers.md#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
+
+Różnicowe kopie zapasowe migawek są tworzone co najmniej raz dziennie. Różnicowe kopie zapasowe migawek nie są tworzone zgodnie z ustalonym harmonogramem. Tworzenie kopii zapasowych migawek różnicowych odbywa się co 24 godziny, chyba że dziennik transakcji (binlog w MariaDB) przekracza 50 GB od czasu ostatniej różnicowej kopii zapasowej. W ciągu dnia dozwolonych jest maksymalnie sześć migawek różnicowych.
+
+Kopie zapasowe dziennika transakcji są wykonywane co pięć minut.
+ 
 
 ### <a name="backup-retention"></a>Przechowywanie kopii zapasowej
 
 Kopie zapasowe są zachowywane na podstawie ustawienia okresu przechowywania kopii zapasowej na serwerze. Można wybrać okres przechowywania wynoszący od 7 do 35 dni. Domyślny okres przechowywania wynosi 7 dni. Okres przechowywania można ustawić podczas tworzenia serwera lub później, aktualizując konfigurację kopii zapasowej za pomocą [Azure Portal](howto-restore-server-portal.md#set-backup-configuration) lub [interfejsu wiersza polecenia platformy Azure](howto-restore-server-cli.md#set-backup-configuration). 
 
 Okres przechowywania kopii zapasowej decyduje o tym, jak daleko w czasie można pobrać przywracanie do punktu w czasie, ponieważ jest ono oparte na dostępnych kopiach zapasowych. Okres przechowywania kopii zapasowej może być również traktowany jako okno odzyskiwania z perspektywy przywracania. Wszystkie kopie zapasowe wymagane do przeprowadzenia przywracania do punktu w czasie w ramach okresu przechowywania kopii zapasowych są zachowywane w magazynie kopii zapasowych. Na przykład jeśli okres przechowywania kopii zapasowej jest ustawiony na 7 dni, okno odzyskiwania jest uznawane za ostatnie 7 dni. W tym scenariuszu zachowywane są wszystkie kopie zapasowe wymagane do przywrócenia serwera w ciągu ostatnich 7 dni. Z oknem przechowywania kopii zapasowej siedmiu dni:
+
 - Serwery z magazynem o pojemności do 4 TB przechowują do 2 kopii zapasowych pełnych baz danych, wszystkie różnicowe kopie zapasowe i kopie zapasowe dziennika transakcji wykonane od najwcześniejszej pełnej kopii zapasowej bazy danych.
 -   Serwery z magazynem do 16 TB będą zachować pełną migawkę bazy danych, wszystkie migawki różnicowe i kopie zapasowe dziennika transakcji w ciągu ostatnich 8 dni.
 
 #### <a name="long-term-retention-of-backups"></a>Długoterminowe przechowywanie kopii zapasowych
-Długoterminowe przechowywanie kopii zapasowych poza 35 dni nie jest obecnie obsługiwane w sposób natywny przez usługę. Możesz użyć mysqldump, aby tworzyć kopie zapasowe i przechowywać je do długoterminowego przechowywania. Nasz zespół pomocy technicznej Blogged [krok po kroku,](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) aby udostępnić, jak można to osiągnąć. 
+Długoterminowe przechowywanie kopii zapasowych powyżej 35 dni nie jest obecnie obsługiwane przez usługę. Możesz użyć mysqldump, aby tworzyć kopie zapasowe i przechowywać je do długoterminowego przechowywania. Nasz zespół pomocy technicznej Blogged [krok po kroku,](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) aby udostępnić, jak można to osiągnąć. 
 
 ### <a name="backup-redundancy-options"></a>Opcje nadmiarowości kopii zapasowej
 

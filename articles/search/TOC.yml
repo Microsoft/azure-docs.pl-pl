@@ -392,6 +392,8 @@
       items:
         - name: Analiza wydajności
           href: search-performance-analysis.md
+        - name: Testy porównawcze wydajności
+          href: performance-benchmarks.md
         - name: Porady dotyczące lepszej wydajności
           href: search-performance-tips.md
         - name: Rejestrowanie diagnostyczne

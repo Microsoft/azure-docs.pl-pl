@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: f186acbe030dcbb0c2bad22586a8b2a5d1aa520d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218944"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259799"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -64,6 +64,16 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby 
 
 * Otwórz obszar roboczy Synapse w [Azure Portal](https://portal.azure.com)w sekcji **Omówienie** obszaru roboczego Synapse wybierz pozycję **Otwórz** w polu Otwórz Synapse Studio.
 * Przejdź do `https://web.azuresynapse.net` obszaru roboczego i zaloguj się do niego.
+
+## <a name="place-sample-data-into-the-primary-storage-account"></a>Umieść przykładowe dane na podstawowym koncie magazynu
+Zamierzamy użyć małego zestawu danych przykładowego wiersza 100 000 z danymi z kabiny NYX, aby zapoznać się z wieloma przykładami w tym przewodniku wprowadzającym. Zaczynamy od umieszczenia jej w podstawowym koncie magazynu utworzonym dla obszaru roboczego.
+
+* Pobierz ten plik na komputer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* W Synapse Studiio przejdź do centrum danych. 
+* Kliknij pozycję **połączone**.
+* W kategorii **Azure Data Lake Storae Gen2** zobaczysz element z nazwą, taką jak mój **obszar roboczy (Primary-contosolake)**
+* Kliknij kontener o nazwie **Users (podstawowa)**
+* Kliknij przycisk **Przekaż** i wybierz `NYCTripSmall.parquet` pobrany plik
 
 ## <a name="next-steps"></a>Następne kroki
 

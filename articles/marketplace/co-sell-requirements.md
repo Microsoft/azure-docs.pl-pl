@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593394"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107095"
 ---
 # <a name="co-sell-requirements"></a>Wymagania dotyczące wspólnych transakcji
 
@@ -35,7 +35,7 @@ Aby uzyskać ofertę osiągnięcia stanu gotowości do sprzedaży, musisz spełn
 
 **Wszyscy partnerzy**:
 
-- Mieć identyfikator MPN i aktywne [komercyjne konto portalu Marketplace w centrum partnerskim](./partner-center-portal/create-account.md).
+- Mieć identyfikator MPN i aktywne [komercyjne konto portalu Marketplace w centrum partnerskim](create-account.md).
 - Upewnij się, że masz pełny [profil biznesowy](/partner-center/create-a-marketing-profile) w centrum partnerskim. Jako uprawniony partner firmy Microsoft Twój profil biznesowy pomaga klientom, którzy poszukują Twoich unikatowych rozwiązań i wiedzą, w zakresie zaspokajania potrzeb firmy, co wynika z [odwołań](/partner-center/referrals).
 - Ukończ **sprzedawanie z kartami firmy Microsoft** i Opublikuj ofertę na komercyjnym rynku.
 - Podaj kontakt dotyczący sprzedaży dla każdej sprzedawanej lokalizacji geograficznej i wymaganego BOM.
@@ -59,7 +59,7 @@ Udostępniamy szablony ułatwiające tworzenie tych dokumentów. Aby uzyskać wi
 
 ### <a name="publish-your-offer-live"></a>Publikuj swoją ofertę na żywo
 
-Aby można było zakwalifikować się do sprzedaży w stanie gotowości, oferta lub rozwiązanie musi zostać opublikowane na żywo co najmniej jednego sklepu online Marketplace: Azure Marketplace lub Microsoft AppSource. Aby uzyskać informacje o publikowaniu ofert do komercyjnej witryny Marketplace, zobacz [Publikowanie przewodnika według typu oferty](publisher-guide-by-offer-type.md). Jeśli jeszcze nie opublikowano oferty w komercyjnej witrynie Marketplace, upewnij się, że masz [komercyjne konto w portalu Marketplace](./partner-center-portal/create-account.md).
+Aby można było zakwalifikować się do sprzedaży w stanie gotowości, oferta lub rozwiązanie musi zostać opublikowane na żywo co najmniej jednego sklepu online Marketplace: Azure Marketplace lub Microsoft AppSource. Aby uzyskać informacje o publikowaniu ofert do komercyjnej witryny Marketplace, zobacz [Publikowanie przewodnika według typu oferty](publisher-guide-by-offer-type.md). Jeśli jeszcze nie opublikowano oferty w komercyjnej witrynie Marketplace, upewnij się, że masz [komercyjne konto w portalu Marketplace](create-account.md).
 
 ## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Wymagania dotyczące usługi Azure IP zachęcani
 

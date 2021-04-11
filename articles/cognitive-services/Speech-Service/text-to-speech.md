@@ -12,18 +12,18 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 73e37fde4b3c2dd1aeb6ab171c3726f1b4353949
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449362"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106092"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany tekstu na mowę, która umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na mowę, którą daje człowiek. Wybieraj spośród standardowych i neuronowych głosów lub Utwórz niestandardowy głos unikatowy dla danego produktu lub marki. 75 standardowych głosów jest dostępnych w więcej niż 45 językach i ustawieniach regionalnych oraz 5 neuronowych głosów jest dostępnych w wybranej liczbie języków i ustawieniach regionalnych. Aby zapoznać się z pełną listą obsługiwanych głosów, języków i ustawień regionalnych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
+Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany tekstu na mowę, która umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na mowę, którą daje człowiek. Używaj głosów przypominających neuronowych, lub Utwórz niestandardowy głos unikatowy dla danego produktu lub marki. Aby zapoznać się z pełną listą obsługiwanych głosów, języków i ustawień regionalnych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
 
 Ta dokumentacja zawiera następujące typy artykułów:
 
@@ -42,8 +42,6 @@ Ta dokumentacja zawiera następujące typy artykułów:
 
 * Asynchroniczna synteza długiego dźwięku — korzystaj z [długiego interfejsu API audio](long-audio-api.md) , aby asynchronicznie wyszukiwać pliki zamiany tekstu na mowę dłużej niż 10 minut (na przykład książki audio lub wykłady). W przeciwieństwie do syntezy przy użyciu zestawu Speech SDK lub interfejsu API REST zamiany mowy na tekst, odpowiedzi nie są zwracane w czasie rzeczywistym. Oczekuje się, że żądania są wysyłane asynchronicznie, odpowiedzi są sondowane i w przypadku, gdy jest ona pobierana z usługi. Obsługiwane są tylko niestandardowe głosy neuronowych.
 
-* Standardowe głosy — tworzone przy użyciu statystycznych metod syntezowania i/lub łączenia technik syntezy. Głosy te są bardzo zrozumiałe i naturalne. Aplikacje można łatwo włączyć w więcej niż 45 językach z szeroką gamą opcji głosowych. Głosy te zapewniają wysoką dokładność odmowy, w tym obsługę skrótów, rozwinięcia akronimów, interpretacje daty/godziny, telefony i inne. Aby uzyskać pełną listę głosów standardowych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
-
 * Głosy neuronowych — głębokie sieci neuronowych są używane do pokonania granic tradycyjnej syntezy mowy, w odniesieniu do obciążenia i intonation w języku mówionym. Funkcja przewidywania Prosody i syntezy głosu są wykonywane jednocześnie, co daje w wyniku bardziej płynne i naturalne wyprowadzanie danych wyjściowych. Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotów i asystentów głosowych bardziej naturalnych i atrakcyjnych, konwertowanie cyfrowych tekstów, takich jak książki elektroniczne, na Audiobooks i ulepszanie systemów nawigacji między samochodami. Podobnie jak naturalna prosodya i wyraźny zbiór wyrazów, głosy neuronowych znacząco zmniejszają zmęczenie nasłuchiwania podczas pracy z systemami AI. Aby uzyskać pełną listę głosów neuronowych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
 
 * Dopasowywanie stylów mówiących za pomocą SSML-Speech SSMLing Language languageing jest językiem znaczników opartym na języku XML używanym do dostosowywania danych wyjściowych zamiany mowy na tekst. Za pomocą SSML można dostosować gęstość, dodać pauzy, poprawić wymowę, przyspieszyć lub spowalniać liczbę mówienia, zwiększyć lub zmniejszyć ilość, a także dodać wiele głosów do jednego dokumentu. Zapoznaj się z [tematem jak to zrobić](speech-synthesis-markup.md) , aby dopasować style odmowy.
@@ -51,7 +49,7 @@ Ta dokumentacja zawiera następujące typy artykułów:
 * Visemes- [visemes](how-to-speech-synthesis-viseme.md) to klucz dotyczący zaobserwowanej mowy, w tym pozycja pakietów lip, szczęki i języka podczas tworzenia określonego fonem. Visemes mają silną korelację z głosymi i fonemów. Przy użyciu zdarzeń viseme w zestawie mowy SDK można generować dane animacji twarzy, które mogą służyć do animowania twarze na potrzeby komunikacji, edukacji, rozrywki i obsługi klienta w programie lip.
 
 > [!NOTE]
-> Viseme działa tylko dla `en-US-AriaNeural` głosu.
+> Zdarzenia viseme są obecnie obsługiwane tylko dla `en-US-AriaNeural` głosu.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
@@ -66,7 +64,7 @@ Przykładowy kod dla zamiany tekstu na mowę jest dostępny w witrynie GitHub. T
 
 ## <a name="customization"></a>Dostosowywanie
 
-Oprócz odgłosów standardowych i neuronowych, można tworzyć i dostrajać niestandardowe głosy unikatowe dla danego produktu lub marki. Wszystkie potrzebne do rozpoczęcia pracy to kilku plików audio i skojarzonych transkrypcji. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z niestandardowym głosem](how-to-custom-voice.md)
+Oprócz głosów neuronowych można tworzyć i dostrajać niestandardowe głosy unikatowe dla danego produktu lub marki. Wszystkie potrzebne do rozpoczęcia pracy to kilku plików audio i skojarzonych transkrypcji. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z niestandardowym głosem](how-to-custom-voice.md)
 
 ## <a name="pricing-note"></a>Uwaga dotycząca cen
 

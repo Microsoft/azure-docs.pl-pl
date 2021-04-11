@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5d08bc216157fce9ad81eaf3c0f540c7a4d8c3f2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108336"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259833"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
@@ -32,7 +32,7 @@ W tym samouczku przedstawiono podstawowe kroki służące do ładowania i analiz
 
 ## <a name="understanding-serverless-apache-spark-pools"></a>Informacje o pulach Apache Spark bezserwerowych
 
-Bezserwerowa Pula platformy Spark jest sposobem wskazywania, w jaki sposób użytkownik chce współpracować z platformą Spark. Po rozpoczęciu korzystania z puli w razie konieczności tworzona jest sesja Spark. Pula kontroluje, ile zasobów platformy Spark będzie używanych przez daną sesję, oraz czas, przez jaki sesja była przed chwilą wstrzymywana automatycznie. Płacisz za zasoby platformy Spark używane podczas tej sesji, a nie dla samej puli. W ten sposób pula platformy Spark umożliwia współpracę z platformą Spark, bez konieczności zarządzania klastrami. Jest to podobne do tego, jak działa Pula SQL bezserwerowa.
+Bezserwerowa Pula platformy Spark jest sposobem wskazywania, w jaki sposób użytkownik chce współpracować z platformą Spark. Po rozpoczęciu korzystania z puli w razie konieczności tworzona jest sesja Spark. Pula kontroluje, ile zasobów platformy Spark będzie używanych przez daną sesję oraz czas, po upływie którego sesja zostanie automatycznie wstrzymana. Płacisz za zasoby platformy Spark używane podczas tej sesji, a nie dla samej puli. W ten sposób pula platformy Spark umożliwia współpracę z platformą Spark, bez konieczności zarządzania klastrami. Jest to podobne do tego, jak działa Pula SQL bezserwerowa.
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analizowanie danych z NYC taksówki w usłudze BLOB Storage przy użyciu platformy Spark
 
@@ -41,11 +41,7 @@ Bezserwerowa Pula platformy Spark jest sposobem wskazywania, w jaki sposób uży
 3. Utwórz nową komórkę kodu i wklej poniższy kod do tej komórki.
     ```py
     %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
 1. W notesie w menu **Dołącz do** wybierz **Spark1** pulę platformy Spark bezserwerową utworzoną wcześniej.
@@ -60,7 +56,7 @@ Bezserwerowa Pula platformy Spark jest sposobem wskazywania, w jaki sposób uży
 
 Dane są dostępne za pośrednictwem Dataframe o nazwie **Data**. Załaduj je do bazy danych Spark o nazwie **nyctaxi**.
 
-1. Dodaj nowy element do notesu, a następnie wprowadź następujący kod:
+1. Dodaj nową komórkę kodu do notesu, a następnie wprowadź następujący kod:
 
     ```py
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
