@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2021
-ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772471"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031005"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partycjonowanie i skalowanie w poziomie w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,9 +26,9 @@ W tym artykule opisano relację między partycjami logicznymi a fizycznymi. Omó
 
 ## <a name="logical-partitions"></a>Partycje logiczne
 
-Partycja logiczna składa się z zestawu elementów, które mają ten sam klucz partycji. Na przykład w kontenerze zawierającym dane dotyczące żywienia żywności wszystkie elementy zawierają `foodGroup` Właściwość. Można użyć `foodGroup` jako klucza partycji dla kontenera. Grupy elementów, dla których określone wartości `foodGroup` , takie jak `Beef Products` , `Baked Products` , i `Sausages and Luncheon Meats` , tworzą odrębne partycje logiczne. Nie trzeba martwić się o usunięcie partycji logicznej, gdy dane podstawowe są usuwane.
+Partycja logiczna składa się z zestawu elementów, które mają ten sam klucz partycji. Na przykład w kontenerze zawierającym dane dotyczące żywienia żywności wszystkie elementy zawierają `foodGroup` Właściwość. Można użyć `foodGroup` jako klucza partycji dla kontenera. Grupy elementów, dla których określone wartości `foodGroup` , takie jak `Beef Products` , `Baked Products` , i `Sausages and Luncheon Meats` , tworzą odrębne partycje logiczne.
 
-Partycja logiczna definiuje również zakres transakcji bazy danych. Można aktualizować elementy w ramach partycji logicznej przy użyciu [transakcji z izolacją migawki](database-transactions-optimistic-concurrency.md). Gdy nowe elementy są dodawane do kontenera, nowe partycje logiczne są w sposób niewidoczny dla użytkownika tworzone przez system.
+Partycja logiczna definiuje również zakres transakcji bazy danych. Można aktualizować elementy w ramach partycji logicznej przy użyciu [transakcji z izolacją migawki](database-transactions-optimistic-concurrency.md). Gdy nowe elementy są dodawane do kontenera, nowe partycje logiczne są w sposób niewidoczny dla użytkownika tworzone przez system. Nie trzeba martwić się o usunięcie partycji logicznej, gdy dane podstawowe są usuwane.
 
 W kontenerze nie ma żadnego limitu liczby partycji logicznych. Każda partycja logiczna może przechowywać do 20 GB danych. Dobre opcje kluczy partycji mają szeroką gamę możliwych wartości. Na przykład w kontenerze, w którym wszystkie elementy zawierają `foodGroup` Właściwość, dane w ramach `Beef Products` partycji logicznej mogą rosnąć do 20 GB. [Wybór klucza partycji](#choose-partitionkey) z szerokim zakresem możliwych wartości zapewnia możliwość skalowania kontenera.
 
@@ -38,7 +38,8 @@ Kontener jest skalowany przez dystrybuowanie danych i przepływności między pa
 
 Liczba partycji fizycznych w kontenerze zależy od następujących elementów:
 
-* Liczba zainicjowanych przepływności (dla każdej pojedynczej partycji fizycznej można zapewnić przepustowość do 10 000 jednostek żądań na sekundę).
+* Liczba zainicjowanych przepływności (dla każdej pojedynczej partycji fizycznej można zapewnić przepustowość do 10 000 jednostek żądań na sekundę). Limit 10 000 RU/s dla partycji fizycznych oznacza, że partycje logiczne również mają limit 10 000 RU/s, ponieważ poszczególne partycje logiczne są mapowane tylko na jedną partycję fizyczną.
+
 * Łączny magazyn danych (poszczególne partycje fizyczne mogą przechowywać do 50 GB danych).
 
 > [!NOTE]

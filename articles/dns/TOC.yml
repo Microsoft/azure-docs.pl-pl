@@ -126,6 +126,8 @@
       items:
         - name: Ochrona prywatnych stref i rekordów DNS
           href: dns-protect-private-zones-recordsets.md
+        - name: Importowanie i eksportowanie pliku strefy systemu DNS
+          href: private-dns-import-export.md
     - name: Rozwiązywanie problemów
       items:
         - name: Przewodnik rozwiązywania problemów

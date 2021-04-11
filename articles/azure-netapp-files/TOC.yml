@@ -145,6 +145,8 @@
       href: /rest/api/netapp/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/netappfiles
     - name: Narzędzie platformy Azure do tworzenia migawek spójnych na poziomie aplikacji (AzAcSnap)
       items:
         - name: Informacje o wersji dla AzAcSnap

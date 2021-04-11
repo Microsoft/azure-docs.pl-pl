@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010167"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505012"
 ---
 # <a name="how-caching-works"></a>Jak działa buforowanie
 
@@ -75,6 +75,7 @@ Azure CDN obsługuje następujące nagłówki dyrektywy pamięci podręcznej HTT
 - W przypadku użycia w żądaniu HTTP z klienta do punktu POP usługi CDN domyślnie `Cache-Control` jest ignorowana przez wszystkie profile Azure CDN.
 - W przypadku użycia w odpowiedzi HTTP z klienta do punktu POP usługi CDN:
      - **Azure CDN Standard/Premium z Verizon** i **Azure CDN standard firmy Microsoft** wspiera wszystkie `Cache-Control` dyrektywy.
+     - **Azure CDN Standard/Premium od Verizon** i **Azure CDN standard firmy Microsoft** honoruje zachowania buforowania dla dyrektyw Cache-Control w [dokumencie RFC 7234-Hypertext Transfer Protocol (http/1.1): buforowanie (IETF.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **Azure CDN Standard from Akamai** obsługuje tylko następujące `Cache-Control` dyrektywy; wszystkie pozostałe są ignorowane:
          - `max-age`: Pamięć podręczna może przechowywać zawartość przez określoną liczbę sekund. Na przykład `Cache-Control: max-age=5`. Ta dyrektywa określa maksymalny czas, przez jaki zawartość jest uważana za świeżą.
          - `no-cache`: Buforuj zawartość, ale sprawdzaj zawartość za każdym razem przed dostarczeniem jej z pamięci podręcznej. Odpowiednik `Cache-Control: max-age=0` .

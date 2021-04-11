@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0ae5ae4a66ce55da40eae3959945c96013af3ea
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176709"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075648"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — przewodnik informacyjny
 
@@ -510,7 +510,7 @@ Obsługiwane przez Security Center zamiary łańcucha kasowania są oparte na [w
 | **Eksfiltracji**        | Eksfiltracji odnosi się do technik i atrybutów, które powodują lub ułatwiają atakującej usuwanie plików i informacji z sieci docelowej. Ta kategoria obejmuje również lokalizacje w systemie lub sieci, w których atakującej może szukać informacji do wyprowadzać.                                                                                                                                                                                                                                                                                                                                  |
 | **CommandAndControl**   | Taktyką polecenia i kontroli przedstawia sposób, w jaki źródłami ataków komunikują się z systemami w ramach kontroli w sieci docelowej.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Wpływ**              | Zdarzenia wpływu przede wszystkim próbują bezpośrednio ograniczyć dostępność lub integralność systemu, usługi lub sieci; obejmuje to manipulowanie danymi, które mają wpływ na działalność biznesową lub proces operacyjny. Często dotyczy to takich technik jak oprogramowanie wymuszającego okup, rozciąganie, manipulowanie danymi i inne.                                                                                                                                                                                                                                                                                                     |
-|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
 
 > [!NOTE]
 > W przypadku alertów w wersji zapoznawczej: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]

@@ -10,16 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: Zhchia
-ms.openlocfilehash: f1600dfc5705ca97f16e8966a796b54fc556d216
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d9699c564476e116654f700c32dd47b7f6d5b81
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94359266"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504570"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub na potrzeby automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w witrynie GitHub i usłudze Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD w serwisie GitHub.
+
+> [!NOTE]
+> Integracja z obsługą administracyjną usługi Azure AD opiera się na [interfejsie API Standard scim](https://developer.github.com/v3/scim/)w usłudze GitHub, który jest dostępny dla klientów w [chmurze dla przedsiębiorstw](https://help.github.com/articles/github-s-products/#github-enterprise) w serwisie GitHub. [](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +36,7 @@ W scenariuszu opisanym w tym samouczku założono, że masz już następujące e
 * Inicjowanie obsługi administracyjnej Standard scim w pojedynczej organizacji jest obsługiwane tylko wtedy, gdy Logowanie jednokrotne jest włączone na poziomie organizacji
 
 > [!NOTE]
-> Integracja z obsługą administracyjną usługi Azure AD opiera się na [interfejsie API Standard scim](https://developer.github.com/v3/scim/)w usłudze GitHub, który jest dostępny dla klientów w [chmurze dla przedsiębiorstw](https://help.github.com/articles/github-s-products/#github-enterprise) w serwisie GitHub. [](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="assigning-users-to-github"></a>Przypisywanie użytkowników do usługi GitHub
 

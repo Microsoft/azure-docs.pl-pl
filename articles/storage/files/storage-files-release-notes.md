@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/26/2021
+ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4c046129293fcfbcea8ecaf98da72b9126dd540a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074407"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030342"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Informacje o wersji agenta usługi Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -26,6 +26,7 @@ Obsługiwane są następujące wersje agenta Azure File Sync:
 | Rozwoju | Numer wersji agenta | Data wydania | Stan |
 |----|----------------------|--------------|------------------|
 | V12 wydanie — [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 marca 2021 | Obsługiwane — obsługa lotu |
+| Wersja 11.3 — [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 7 kwietnia 2021 | Obsługiwane |
 | Wersja 11.2 — [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 lutego 2021 | Obsługiwane |
 | Wersja v 11.1 — [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 listopada 2020 | Obsługiwane |
 | V 10.1 wydanie- [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 czerwca 2020 | Obsługiwane — wersja agenta wygaśnie w dniu 7 czerwca 2021 |
@@ -76,6 +77,7 @@ Poniższe informacje o wersji dotyczą wersji 12.0.0.0 agenta Azure File Sync (w
     - Ulepszona wydajność wykrywania zmian w celu wykrycia plików, które uległy zmianie w udziale plików platformy Azure.
     - Ulepszenia wydajności dla sesji synchronizacji uzgadniania. 
     - Ulepszenia synchronizacji w celu zmniejszenia ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED i ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED błędów.
+    - Rozwiązano błąd, który powoduje uszkodzenie danych w przypadku włączenia obsługi warstw w chmurze, a pliki warstwowe są kopiowane przy użyciu Robocopy z/B parametrem.
     - Rozwiązano błąd, który może spowodować niepowodzenie plików na serwerze 2019, jeśli Deduplikacja danych jest włączona na woluminie.
     - Rozwiązano błąd, który może spowodować niepowodzenie kompresji plików przez AFSDiag, jeśli plik jest większy niż 2GiB.
 
@@ -131,8 +133,12 @@ Następujące elementy nie są synchronizowane, ale reszta systemu nadal normaln
 ### <a name="cloud-tiering"></a>Obsługa warstw w chmurze
 - Jeśli plik warstwowy jest kopiowany do innej lokalizacji za pomocą rozszerzenia Robocopy, wynikowy plik nie będzie obsługiwany w warstwie. Atrybut offline może być ustawiony, ponieważ rozszerzenie Robocopy niepoprawnie dołącza ten atrybut podczas operacji kopiowania.
 - Podczas kopiowania plików przy użyciu Robocopy, użyj opcji/MIR, aby zachować sygnatury czasowe plików. Zapewni to, że starsze pliki są dostępne wcześniej niż ostatnio używane pliki.
-    > [!Warning]  
-    > Przełącznik Robocopy/B nie jest obsługiwany w przypadku Azure File Sync. Użycie przełącznika Robocopy/B z punktem końcowym serwera Azure File Sync jako źródło może prowadzić do uszkodzenia plików.
+
+## <a name="agent-version-11300"></a>11.3.0.0 wersja agenta
+Poniższe informacje o wersji dotyczą wersji 11.3.0.0 agenta Azure File Sync wydanej 7 kwietnia 2021. Te informacje są uzupełnieniem informacji o wersji wymienionych dla wersji 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Ulepszenia i problemy, które zostały naprawione 
+Rozwiązano błąd, który powoduje uszkodzenie danych w przypadku włączenia obsługi warstw w chmurze, a pliki warstwowe są kopiowane przy użyciu Robocopy z/B parametrem.
 
 ## <a name="agent-version-11200"></a>11.2.0.0 wersja agenta
 Poniższe informacje o wersji dotyczą wersji 11.2.0.0 agenta Azure File Sync wydanej 2 lutego 2021. Te informacje są uzupełnieniem informacji o wersji wymienionych dla wersji 11.1.0.0.

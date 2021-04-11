@@ -10,12 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d75ba091ff634bf613722e3a194407beeeda68fb
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98786008"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967238"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które mają dwa zestawy poświadczeń uwierzytelniania
 
@@ -53,11 +54,17 @@ Tego linku wdrażania można użyć, jeśli nie masz istniejącego magazynu kluc
 
     ![Zrzut ekranu pokazujący sposób tworzenia grupy zasobów.](../media/secrets/rotation-dual/dual-rotation-1.png)
 
-Teraz masz Magazyn kluczy i dwa konta magazynu. Tę konfigurację można sprawdzić w interfejsie wiersza polecenia platformy Azure, uruchamiając następujące polecenie:
-
+Teraz masz Magazyn kluczy i dwa konta magazynu. Możesz sprawdzić tę konfigurację w interfejsie wiersza polecenia platformy Azure lub Azure PowerShell, uruchamiając następujące polecenie:
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az resource list -o table -g vaultrotation
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzResource -Name 'vaultrotation*' | Format-Table
+```
+---
 
 Wynik będzie wyglądać następująco:
 
@@ -111,49 +118,97 @@ Szablony i kod wdrożenia dla funkcji rotacji można znaleźć w [przykładach p
 ## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Dodaj klucze dostępu do konta magazynu do Key Vault
 
 Najpierw ustaw zasady dostępu, aby udzielić uprawnień do zarządzania wpisami **tajnymi** dla podmiotu zabezpieczeń użytkownika:
-
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vaultrotation-kv -PermissionsToSecrets set,delete,get,list
+```
+---
 
 Jako wartość możesz teraz utworzyć nowy klucz tajny z kluczem dostępu konta magazynu. Do wpisów tajnych należy również dodać identyfikator zasobu konta magazynu, tajny okres ważności i identyfikator klucza, aby funkcja rotacji mogła ponownie wygenerować klucz na koncie magazynu.
 
 Określ identyfikator zasobu konta magazynu. Tę wartość można znaleźć we `id` właściwości.
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
+```
+---
 
 Wyświetl listę kluczy dostępu do konta magazynu, aby uzyskać wartości klucza:
-
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
-az storage account keys list -n vaultrotationstorage 
+az storage account keys list -n vaultrotationstorage
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
 
 Dodaj klucz tajny do magazynu kluczy z datą wygaśnięcia ustawioną na jutro, okres ważności dla 60 dni i identyfikator zasobu konta magazynu. Uruchom to polecenie, używając pobranych wartości dla `key1Value` i `storageAccountResourceId` :
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
 az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$tags = @{
+    CredentialId='key1'
+    ProviderAddress='<storageAccountResourceId>'
+    ValidityPeriodDays='60'
+}
+Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+```
+---
 
 Powyżej wpisu tajnego zostanie wyzwolone `SecretNearExpiry` zdarzenie w ciągu kilku minut. To zdarzenie spowoduje wyzwolenie funkcji, aby obrócić wpis tajny o ważności ustawiony na 60 dni. W tej konfiguracji zdarzenie "SecretNearExpiry" zostanie wyzwolone co 30 dni (30 dni przed wygaśnięciem), a funkcja rotacji przejdzie alternatywny obrót między Klucz1 i klucz2.
 
 Można sprawdzić, czy klucze dostępu zostały ponownie wygenerowane, pobierając klucz konta magazynu i klucz tajny Key Vault i porównując je.
 
 Użyj tego polecenia, aby uzyskać informacje o kluczu tajnym:
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
+```
+---
 
 Zwróć uwagę, że `CredentialId` jest ona aktualizowana do alternatywnego `keyName` i `value` wygenerowanego ponownie:
 
 ![Zrzut ekranu, który pokazuje dane wyjściowe z wpisu tajnego magazynu kluczy z, Pokaż polecenie dla pierwszego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Pobierz klucze dostępu, aby porównać wartości:
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
+
 Należy zauważyć, że `value` klucz jest taki sam jak wpis tajny w magazynie kluczy:
 
 ![Zrzut ekranu pokazujący dane wyjściowe polecenia listy kluczy konta magazynu z na pierwszym koncie magazynu.](../media/secrets/rotation-dual/dual-rotation-5.png)
@@ -185,36 +240,77 @@ Aby dodać klucze konta magazynu do istniejącej funkcji rotacji, potrzebne są:
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Dodaj inny klucz dostępu do konta magazynu do Key Vault
 
 Określ identyfikator zasobu konta magazynu. Tę wartość można znaleźć we `id` właściwości.
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
+```
+---
 
 Wyświetl listę kluczy dostępu do konta magazynu, aby uzyskać wartość klucz2:
-
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
-az storage account keys list -n vaultrotationstorage2 
+az storage account keys list -n vaultrotationstorage2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrotation
+```
+---
 
 Dodaj klucz tajny do magazynu kluczy z datą wygaśnięcia ustawioną na jutro, okres ważności dla 60 dni i identyfikator zasobu konta magazynu. Uruchom to polecenie, używając pobranych wartości dla `key2Value` i `storageAccountResourceId` :
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
 az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$tags = @{
+    CredentialId='key2';
+    ProviderAddress='<storageAccountResourceId>';
+    ValidityPeriodDays='60'
+}
+Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+```
+---
 
 Użyj tego polecenia, aby uzyskać informacje o kluczu tajnym:
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
+```
+---
 
 Zwróć uwagę, że `CredentialId` jest ona aktualizowana do alternatywnego `keyName` i `value` wygenerowanego ponownie:
 
 ![Zrzut ekranu, który pokazuje dane wyjściowe z wpisu tajnego magazynu kluczy z, Pokaż polecenie dla drugiego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Pobierz klucze dostępu, aby porównać wartości:
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
 
 Należy zauważyć, że `value` klucz jest taki sam jak wpis tajny w magazynie kluczy:
 

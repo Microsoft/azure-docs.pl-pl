@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0380cf432a1e0de2a8ac274fef7802bee13c58f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643583"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030359"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Przewodnik migracji: dostęp do Azure SQL Database
 
-W tym przewodniku dowiesz się, jak przeprowadzić migrację bazy danych programu Microsoft Access do bazy danych Azure SQL Database przy użyciu Asystent migracji do programu SQL Server dostępu (ASYSTENCIE migracji for Access).
+W tym przewodniku dowiesz się, [Jak przeprowadzić migrację](https://azure.microsoft.com/migration/migration-journey) bazy danych programu Microsoft Access do bazy danych Azure SQL Database przy użyciu Asystenta [migracji SQL Server](https://azure.microsoft.com/migration/migration-journey) , aby uzyskać dostęp (Asystencie migracji for Access).
 
 Aby poznać inne przewodniki dotyczące migracji, zobacz [Przewodnik migracji usługi Azure Database](https://docs.microsoft.com/data-migration). 
 
@@ -32,7 +32,7 @@ Przed rozpoczęciem migrowania bazy danych programu Access do bazy danych SQL wy
 
 ## <a name="pre-migration"></a>Przed migracją
 
-Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności migracji.
+Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności [migracji w chmurze platformy Azure](https://azure.microsoft.com/migration).
 
 
 ### <a name="assess"></a>Ocena 
@@ -183,8 +183,10 @@ Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta teg
 
 
 - Aby dowiedzieć się więcej na temat cyklu i wdrożenia migracji do chmury, zobacz:
-   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania dotyczące kosztów i rozmiarów obciążeń na potrzeby migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Zasoby Migracja do chmury](https://azure.microsoft.com/migration/resources)
+
 
 - Aby ocenić warstwę dostępu do aplikacji, zobacz [zestaw narzędzi do migracji dostępu do danych (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Aby uzyskać informacje o sposobie wykonywania testów warstwy dostępu do danych A/B, zobacz [omówienie asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).

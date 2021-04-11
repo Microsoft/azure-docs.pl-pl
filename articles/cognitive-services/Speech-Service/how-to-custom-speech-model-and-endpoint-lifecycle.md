@@ -8,20 +8,20 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/2/2021
 ms.author: heikora
-ms.openlocfilehash: b8e02071eca139cde02a8bad1b0e0e443db6ab86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82a732533c3d069b519b07c3209d4b96c472900
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555495"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385029"
 ---
 # <a name="model-and-endpoint-lifecycle"></a>Cykl życia modelu i punktu końcowego
 
-Custom Speech używa zarówno *modeli podstawowych* , jak i *modeli niestandardowych*. Każdy język ma jeden lub więcej modeli podstawowych. Ogólnie rzecz biorąc, gdy nowy model mowy jest publikowany do zwykłej usługi mowy, jest również importowany do usługi Custom Speech jako nowy model podstawowy. Są one aktualizowane co 6 – 12 miesięcy. Starsze modele zazwyczaj stają się mniej przydatne w miarę upływu czasu, ponieważ najnowszy model ma zwykle wyższą dokładność.
-
-Z kolei modele niestandardowe są tworzone przez dostosowanie wybranego modelu podstawowego z danymi z określonego scenariusza klienta. Można nadal używać określonego modelu niestandardowego przez dłuższy czas, gdy będzie on spełniał Twoje potrzeby. Ale zalecamy, aby okresowo aktualizować do najnowszego modelu podstawowego i przeszkolić go w czasie z dodatkowymi danymi. 
+Nasz standard (niedostosowany) jest oparty na modelach AI, które wywołują modele podstawowe. W większości przypadków firma Microsoft szkoli inny model podstawowy dla każdego obsługiwanego języka.  Usługa Speech została zaktualizowana o nowe modele podstawowe co kilka miesięcy, aby poprawić dokładność i jakość.  
+Za pomocą Custom Speech modele niestandardowe są tworzone przez dostosowanie wybranego modelu podstawowego z danymi z określonego scenariusza klienta. Po utworzeniu modelu niestandardowego ten model nie zostanie zaktualizowany ani zmieniony, nawet jeśli odpowiedni model podstawowy, z którego został dostosowany, zostanie zaktualizowany w usłudze Standard Speech.  
+Te zasady umożliwiają utrzymywanie użycia określonego modelu niestandardowego przez dłuższy czas po utworzeniu modelu niestandardowego, który spełnia Twoje potrzeby.  Jednak zalecamy okresowe ponowne utworzenie modelu niestandardowego, aby można było dostosować go od najnowszego modelu podstawowego w celu wykorzystania ulepszonej dokładności i jakości.
 
 Inne kluczowe terminy związane z cyklem życia modelu obejmują:
 
@@ -59,7 +59,7 @@ Oto przykład formy podsumowania szkolenia modelu:
 
 Możesz również sprawdzić daty wygaśnięcia za pośrednictwem [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) i [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) niestandardowych interfejsów API mowy we `deprecationDates` właściwości w odpowiedzi JSON.
 
-Oto przykład danych o wygasaniu z wywołania interfejsu API GetMode. "DEPRECATIONDATES" pokazuje: 
+Oto przykład danych o wygasaniu z wywołania interfejsu API GetMode. **DEPRECATIONDATES** Pokaż po wygaśnięciu modelu: 
 ```json
 {
     "SELF": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}",
@@ -80,7 +80,7 @@ Oto przykład danych o wygasaniu z wywołania interfejsu API GetMode. "DEPRECATI
     },
     "PROPERTIES": {
     "DEPRECATIONDATES": {
-        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date this model can be used for adaptation
+        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date the base model can be used for adaptation
         "TRANSCRIPTIONDATETIME": "2023-03-01T21:27:29Z"   // last date this model can be used for decoding
     }
     },
@@ -96,6 +96,13 @@ Oto przykład danych o wygasaniu z wywołania interfejsu API GetMode. "DEPRECATI
 }
 ```
 Należy pamiętać, że można uaktualnić model do niestandardowego punktu końcowego mowy bez przestoju, zmieniając model używany przez punkt końcowy w sekcji Wdrażanie w programie Speech Studio lub za pośrednictwem interfejsu API Custom Speech.
+
+## <a name="what-happens-when-models-expire-and-how-to-update-them"></a>Co się stanie po wygaśnięciu modeli i sposobie ich aktualizacji
+Co się stanie po wygaśnięciu modelu i sposobie aktualizowania modelu, zależy od tego, w jaki sposób jest używany.
+### <a name="batch-transcription"></a>Transkrypcja wsadowa
+Jeśli model wygaśnie, który jest używany z żądaniami transkrypcji [transkrypcji partii](batch-transcription.md) , zakończy się niepowodzeniem z powodu błędu 4xx. Aby zapobiec tej aktualizacji, `model` parametr w formacie JSON wysłanym w treści żądania **Create transkrypcji** wskazuje na nowszy model podstawowy lub nowy model niestandardowy. Możesz również usunąć `model` wpis z pliku JSON, aby zawsze używać najnowszego modelu podstawowego.
+### <a name="custom-speech-endpoint"></a>Niestandardowy punkt końcowy mowy
+Jeśli model wygaśnie, który jest używany przez [niestandardowy punkt końcowy mowy](how-to-custom-speech-train-model.md), usługa automatycznie powróci do korzystania z najnowszego modelu podstawowego dla używanego języka. Możesz wybrać pozycję **wdrożenie** w menu **Custom Speech** w górnej części strony, a następnie kliknąć nazwę punktu końcowego, aby wyświetlić jego szczegóły. W górnej części strony szczegółów zobaczysz przycisk **Aktualizuj model** , który pozwala bezproblemowo zaktualizować model używany przez ten punkt końcowy bez przestoju. Możesz również wprowadzić tę zmianę programowo przy użyciu interfejsu API REST [**modelu aktualizacji**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) .
 
 ## <a name="next-steps"></a>Następne kroki
 
