@@ -49,6 +49,8 @@
       href: ddos-protection-partner-onboarding.md
 - name: Dokumentacja
   items:
+    - name: Elementy wbudowane usługi Azure Policy
+      href: policy-reference.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/network/ddos-protection
     - name: Azure PowerShell

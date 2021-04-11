@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 10812cf97f4f0dfc6f7957608eddf7acf929c3fc
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035431"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579761"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Korzystanie z logstash do łączenia źródeł danych z platformą Azure — wskaźnikiem
 
@@ -44,7 +44,9 @@ Silnik logstash składa się z trzech składników:
 - Wtyczki wyjściowe: dostosowane wysyłanie zebranych i przetworzonych danych do różnych miejsc docelowych.
 
 > [!NOTE]
-> Platforma Azure wskaźnikowa obsługuje tylko własne dostarczone wtyczki. Nie obsługuje wtyczek wyjściowych innych firm dla platformy Azure, ani innych wtyczek logstash dowolnego typu.
+> - Platforma Azure wskaźnikowa obsługuje tylko własne dostarczone wtyczki. Bieżąca wersja tej wtyczki to v 1.0.0, wydana 2020-08-25. Nie obsługuje wtyczek wyjściowych innych firm dla platformy Azure, ani innych wtyczek logstash dowolnego typu.
+>
+> - Wtyczka danych wyjściowych usługi Azure logstash obsługuje tylko **wersje logstash z 7,0 do 7,9**.
 
 Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sformatowane w formacie JSON do obszaru roboczego Log Analytics przy użyciu Log Analytics interfejsu API REST modułu zbierającego dane HTTP. Dane są pozyskiwane w dziennikach niestandardowych.
 
@@ -67,19 +69,21 @@ Skorzystaj z informacji w strukturze logstash dokumentu [pliku konfiguracji](htt
 
 | Nazwa pola | Typ danych | Opis |
 |----------------|---------------|-----------------|
-| `workspace_id` | ciąg | Wprowadź identyfikator GUID identyfikatora obszaru roboczego. * |
-| `workspace_key` | ciąg | Wprowadź identyfikator GUID klucza podstawowego obszaru roboczego. * |
+| `workspace_id` | ciąg | Wprowadź identyfikator GUID identyfikatora obszaru roboczego (zobacz Porada). |
+| `workspace_key` | ciąg | Wprowadź identyfikator GUID klucza podstawowego obszaru roboczego (zobacz Porada). |
 | `custom_log_table_name` | ciąg | Ustaw nazwę tabeli, w której zostaną pozyskane dzienniki. Można skonfigurować tylko jedną nazwę tabeli na wtyczkę wyjściową. Tabela dzienników zostanie wyświetlona w obszarze Azure, w obszarze **dzienniki** **, w tabeli** w kategorii **dzienniki niestandardowe** z `_CL` sufiksem. |
 | `endpoint` | ciąg | Pole opcjonalne. Domyślnie jest to Log Analytics punkt końcowy. To pole służy do ustawiania alternatywnego punktu końcowego. |
 | `time_generated_field` | ciąg | Pole opcjonalne. Ta właściwość zastępuje domyślne pole **TimeGenerated** w log Analytics. Wprowadź nazwę pola sygnatury czasowej w źródle danych. Dane w polu muszą być zgodne z formatem ISO 8601 ( `YYYY-MM-DDThh:mm:ssZ` ) |
 | `key_names` | array | Wprowadź listę Log Analytics pól schematu danych wyjściowych. Każdy element listy powinien być ujęty w apostrofy i elementy oddzielone przecinkami, a cała lista ujęta w nawiasy kwadratowe. Zobacz przykład poniżej. |
 | `plugin_flush_interval` | liczba | Pole opcjonalne. Ustaw, aby określić maksymalny interwał (w sekundach) między transmisjami komunikatów do Log Analytics. Wartość domyślna to 5. |
-    | `amount_resizing` | boolean | TRUE lub FALSE. Włącza lub wyłącza mechanizm skalowania automatycznego, który dostosowuje rozmiar buforu komunikatów zgodnie z odebraną ilością danych dziennika. |
+| `amount_resizing` | boolean | TRUE lub FALSE. Włącza lub wyłącza mechanizm skalowania automatycznego, który dostosowuje rozmiar buforu komunikatów zgodnie z odebraną ilością danych dziennika. |
 | `max_items` | liczba | Pole opcjonalne. Stosuje się tylko wtedy `amount_resizing` , gdy ustawiono wartość "false". Użyj, aby ustawić limit rozmiaru buforu wiadomości (w rekordach). Wartość domyślna to 2000.  |
 | `azure_resource_id` | ciąg | Pole opcjonalne. Określa identyfikator zasobu platformy Azure, w którym znajdują się dane. <br>Wartość identyfikatora zasobu jest szczególnie przydatna, jeśli używasz funkcji [RBAC z kontekstem zasobów](resource-context-rbac.md) w celu zapewnienia dostępu tylko do określonych danych. |
 | | | |
 
-* Identyfikator obszaru roboczego i klucz podstawowy można znaleźć w obszarze zasób obszaru roboczego, w obszarze **Zarządzanie agentami**.
+> [!TIP]
+> - Identyfikator obszaru roboczego i klucz podstawowy można znaleźć w obszarze zasób obszaru roboczego, w obszarze **Zarządzanie agentami**.
+> - Ponieważ **jednak** poświadczenia i inne poufne informacje przechowywane w postaci zwykłego tekstu w plikach konfiguracji nie są zgodne z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń, zdecydowanie zaleca się użycie **magazynu kluczy logstash** w celu bezpiecznego uwzględnienia **identyfikatora obszaru roboczego** i **klucza podstawowego obszaru roboczego** w konfiguracji. Instrukcje można znaleźć w [dokumentacji elastycznej](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html) .
 
 #### <a name="sample-configurations"></a>Konfiguracje przykładowe
 
@@ -175,5 +179,5 @@ Jeśli nie widzisz żadnych danych w tym pliku dziennika, wygeneruj i Wyślij pe
 ## <a name="next-steps"></a>Następne kroki
 
 W tym dokumencie przedstawiono sposób korzystania z programu logstash do łączenia zewnętrznych źródeł danych z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
-- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Dowiedz się [, jak uzyskać wgląd w dane i potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij wykrywanie zagrożeń przy użyciu funkcji wskaźnikowej platformy Azure, korzystając z [wbudowanych](tutorial-detect-threats-built-in.md) lub [niestandardowych](tutorial-detect-threats-custom.md) reguł.

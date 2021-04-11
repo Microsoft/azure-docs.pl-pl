@@ -1,14 +1,14 @@
 ---
 title: Co nowego w usłudze Azure Defender dla IoT
 description: W tym artykule opisano nowości w najnowszej wersji usługi Defender for IoT.
-ms.topic: how-to
+ms.topic: overview
 ms.date: 03/14/2021
-ms.openlocfilehash: 970d46a76f125dcaf82491fdea877e6874e2384f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d8c4ebfc55c80878b780fe9f663aaec62a75f9d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778699"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382916"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Co nowego w usłudze Azure Defender for IoT?
 
@@ -54,7 +54,7 @@ Ten zestaw funkcji jest dostępny w bieżącej publicznej wersji zapoznawczej w 
 - [Dołączanie](#onboarding)
 - [Wykorzystania](#usability)
 - [Inne aktualizacje](#other-updates)
-### <a name="security"></a>Zabezpieczenia
+### <a name="security"></a>Bezpieczeństwo
 
 Ulepszenia odzyskiwania certyfikatu i hasła zostały wprowadzone do tej wersji.
 

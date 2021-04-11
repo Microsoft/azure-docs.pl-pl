@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ef4be54f5c6025a09314a04504cff40fc39478d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363206"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168165"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
@@ -59,7 +59,7 @@ Niektóre [Szablony aplikacji](concepts-app-templates.md) zawierają już szablo
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Tworzenie szablonu urządzenia z poziomu katalogu urządzeń
 
-Jako Konstruktor można szybko rozpocząć tworzenie rozwiązania przy użyciu certyfikowanego urządzenia. Zapoznaj się z listą w [wykazie urządzeń Azure IoT](https://catalog.azureiotsolutions.com/alldevices). IoT Central integruje się z wykazem urządzeń, aby można było zaimportować model urządzenia z dowolnego certyfikowanego urządzenia. Aby utworzyć szablon urządzenia na podstawie jednego z tych urządzeń w IoT Central:
+Jako Konstruktor można szybko rozpocząć tworzenie rozwiązania przy użyciu certyfikowanego urządzenia. Zapoznaj się z listą w [wykazie urządzeń Azure IoT](https://devicecatalog.azure.com). IoT Central integruje się z wykazem urządzeń, aby można było zaimportować model urządzenia z dowolnego certyfikowanego urządzenia. Aby utworzyć szablon urządzenia na podstawie jednego z tych urządzeń w IoT Central:
 
 1. Przejdź do strony **Szablony urządzeń** w aplikacji IoT Central.
 1. Wybierz pozycję **+ Nowy**, a następnie wybierz dowolne z certyfikowanych urządzeń z wykazu. IoT Central tworzy szablon urządzenia oparty na tym modelu urządzenia.

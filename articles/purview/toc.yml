@@ -12,6 +12,10 @@ items:
         href: create-catalog-portal.md
       - name: Tworzenie konta usługi Purview — Azure PowerShell
         href: create-catalog-powershell.md
+      - name: Tworzenie konta kontrolą — zestaw SDK dla platformy .NET
+        href: create-purview-dotnet.md
+      - name: Tworzenie konta kontrolą — Python
+        href: create-purview-python.md
   - name: Samouczki
     items:
       - name: Pakiet startowy

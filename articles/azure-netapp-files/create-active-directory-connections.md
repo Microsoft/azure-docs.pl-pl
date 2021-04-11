@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 27c2ab96106bbfcc05b8fa12daf9b6f7b816c5c7
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048378"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579987"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Tworzenie połączeń Active Directory i zarządzanie nimi dla Azure NetApp Files
 
@@ -215,7 +215,9 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         Na przykład konta użytkowników używane do instalowania SQL Server w niektórych scenariuszach muszą mieć przyznane podwyższone uprawnienia zabezpieczeń. Jeśli do zainstalowania SQL Server używasz konta administratora (domeny), a konto nie ma przypisanego uprawnienia zabezpieczeń, należy dodać do konta uprawnienia zabezpieczeń.  
 
         > [!IMPORTANT]
-        > Konto domeny używane do zainstalowania SQL Server musi już istnieć przed dodaniem go do pola **Użytkownicy uprawnień zabezpieczeń** . Po dodaniu konta Instalatora SQL Server do **użytkowników uprawnień zabezpieczeń** usługa Azure NetApp Files może sprawdzić poprawność konta, kontaktując się z kontrolerem domeny. Polecenie może się nie powieść, jeśli nie można skontaktować się z kontrolerem domeny.  
+        > Korzystanie z funkcji **Użytkownicy uprawnień zabezpieczeń** wymaga przesłania żądania waitlist za pośrednictwem **[strony przesyłania ciągłej publicznej wersji zapoznawczej usługi SMB w Azure NetApp Files](https://aka.ms/anfsmbcasharespreviewsignup)**. Przed rozpoczęciem korzystania z tej funkcji poczekaj na oficjalną wiadomość e-mail z potwierdzeniem z zespołu Azure NetApp Files.        
+        > 
+        > Korzystanie z tej funkcji jest opcjonalne i obsługiwane tylko dla SQL Server. Konto domeny używane do zainstalowania SQL Server musi już istnieć przed dodaniem go do pola **Użytkownicy uprawnień zabezpieczeń** . Po dodaniu konta Instalatora SQL Server do **użytkowników uprawnień zabezpieczeń** usługa Azure NetApp Files może sprawdzić poprawność konta, kontaktując się z kontrolerem domeny. Polecenie może się nie powieść, jeśli nie można skontaktować się z kontrolerem domeny.  
 
         Aby uzyskać więcej informacji na temat `SeSecurityPrivilege` i SQL Server, zobacz [SQL Server Instalacja nie powiedzie się, jeśli konto instalatora nie ma określonych praw użytkownika](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
 

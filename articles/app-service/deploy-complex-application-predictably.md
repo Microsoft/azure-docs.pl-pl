@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951474"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Udostępnianie i wdrażanie mikrousług na platformie Azure
@@ -145,10 +145,10 @@ Parametry połączenia są również zdefiniowane jako zasób zagnieżdżony.
 
 ![Pokazuje, w jaki sposób parametry połączenia są definiowane jako zasób zagnieżdżony w kodzie JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-W `properties` elemencie dla `config/connectionstrings` każdego ciągu połączenia jest również zdefiniowana jako para Name: Value z określonym formatem `"<name>" : {"value": "…", "type": "…"}` . Dla `type` elementu, możliwe wartości to `MySql` ,, `SQLServer` `SQLAzure` , i `Custom` .
+W `properties` elemencie dla `config/connectionstrings` każdego ciągu połączenia jest również zdefiniowana jako para Name: Value z określonym formatem `"<name>&quot; : {&quot;value&quot;: &quot;…&quot;, &quot;type&quot;: &quot;…&quot;}` . Dla `type` elementu, możliwe wartości to `MySql` ,, `SQLServer` `SQLAzure` , i `Custom` .
 
 > [!TIP]
-> Aby uzyskać ostateczną listę typów parametrów połączenia, uruchom następujące polecenie w Azure PowerShell: \[ enum]:: GetNames ("Microsoft. windowsazure. Commands. Utilities. Web. Services. webentities. DatabaseType")
+> Aby uzyskać ostateczną listę typów parametrów połączenia, uruchom następujące polecenie w Azure PowerShell: \[ enum]:: GetNames (&quot;Microsoft. windowsazure. Commands. Utilities. Web. Services. webentities. DatabaseType")
 > 
 > 
 

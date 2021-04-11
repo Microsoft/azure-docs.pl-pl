@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 579a7114a06386fe48fcc074cc1095e980837ba0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587283"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732180"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -265,7 +265,7 @@ Tak. ExpressRoute może współistnieć z sieciami VPN typu lokacja-lokacja. Zob
 
 ### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Jak mogę włączyć routing między moim połączeniem sieci VPN typu lokacja-lokacja a moją ExpressRoute?
 
-Jeśli chcesz włączyć routing między gałęzią połączoną z usługą Expressoute i gałęzią połączoną z połączeniem sieci VPN typu lokacja-lokacja, musisz skonfigurować [serwer usługi Azure Route](../route-server/expressroute-vpn-support.md).
+Jeśli chcesz włączyć routing między gałęzią połączoną z usługą ExpressRoute i gałęzią połączoną z połączeniem sieci VPN typu lokacja-lokacja, musisz skonfigurować [serwer usługi Azure Route](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Dlaczego istnieje Publiczny adres IP skojarzony z bramą ExpressRoute w sieci wirtualnej?
 

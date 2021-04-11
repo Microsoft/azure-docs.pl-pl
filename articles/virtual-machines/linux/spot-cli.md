@@ -10,10 +10,10 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802441"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Wdrażanie Virtual Machines usługi Azure spot przy użyciu interfejsu wiersza polecenia platformy Azure

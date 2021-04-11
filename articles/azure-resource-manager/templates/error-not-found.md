@@ -4,10 +4,10 @@ description: Opisuje sposób rozwiązywania błędów, gdy nie można znaleźć 
 ms.topic: troubleshooting
 ms.date: 03/23/2021
 ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950879"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Rozpoznaj błędy nieznalezionego zasobu

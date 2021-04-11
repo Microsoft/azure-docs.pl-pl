@@ -4,13 +4,13 @@ description: Dowiedz się, jak nawiązać połączenie z klientem Apache Z usłu
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.date: 05/27/2020
-ms.openlocfilehash: ab5dedf6718dad4f16fde59d905e2e59be5c495f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 5dcb6168a263be11410126ff08bd8b015da5af46
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98944466"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103440"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Nawiązywanie połączenia z usługą Apache Z usługi Beeline w usłudze HDInsight lub instalowanie jej lokalnie
 
@@ -77,7 +77,9 @@ Apache Spark udostępnia własną implementację serwera hiveserver2, która jes
 
 #### <a name="through-public-or-private-endpoints"></a>Za poorednictwem publicznych lub prywatnych punktów końcowych
 
-Użyte parametry połączenia są nieco inne. Zamiast z `httpPath=/hive2` niego korzystają `httpPath/sparkhive2` . Element `clustername` należy zastąpić nazwą klastra usługi HDInsight. Zamień na `admin` konto logowania klastra dla klastra. W przypadku klastrów ESP Użyj pełnej nazwy UPN (na przykład user@domain.com ). Zamień na `password` hasło dla konta logowania klastra.
+Użyte parametry połączenia są nieco inne. Zamiast z `httpPath=/hive2` niego korzystają `httpPath/sparkhive2` . Element `clustername` należy zastąpić nazwą klastra usługi HDInsight. Zamień na `admin` konto logowania klastra dla klastra. Zamień na `password` hasło dla konta logowania klastra.
+> [!NOTE]
+> W przypadku klastrów ESP Zamień `admin` na pełną nazwę UPN (na przykład user@domain.com ). 
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'

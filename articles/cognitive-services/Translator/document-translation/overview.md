@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: f84dc66828f2ebf13316b3348fd93933a2223b5a
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 0d9ef13de29ac140d94e9e4c05b14f35b9e5834c
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612283"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968173"
 ---
 # <a name="what-is-document-translation-preview"></a>Co to jest tłumaczenie dokumentu (wersja zapoznawcza)?
 
@@ -54,7 +54,6 @@ Tłumaczenia dokumentów obsługują następujące typy plików dokumentów:
 |Microsoft Word|docx| Plik dokumentu tekstowego.|
 |Wartości rozdzielane tabulatorami/tabulator|. tsv/. karta| Rozdzielany znakami tabulacji plik danych nieprzetworzonych, używany przez programy arkusza kalkulacyjnego.|
 |Tekst|txt| Niesformatowany dokument tekstowy.|
-|Wymiana pamięci translacji|.tmx|Otwarty standard XML używany do wymiany danych pamięci translacji (TM) utworzonych przez aplikacje do przetłumaczenia i lokalizowania komputerów (CAT).|
 
 ## <a name="supported-glossary-formats"></a>Obsługiwane formaty słownika
 

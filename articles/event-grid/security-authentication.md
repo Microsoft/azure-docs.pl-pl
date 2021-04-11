@@ -3,12 +3,12 @@ title: Uwierzytelnianie dostarczania zdarzeń do programów obsługi zdarzeń (A
 description: W tym artykule opisano różne sposoby uwierzytelniania dostarczania do programów obsługi zdarzeń w Azure Event Grid.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f7a105c36b7c924e35c295edc43107353d738d5b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98633124"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968139"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Uwierzytelnianie dostarczania zdarzeń do programów obsługi zdarzeń (Azure Event Grid)
 Ten artykuł zawiera informacje dotyczące uwierzytelniania dostarczania zdarzeń do programów obsługi zdarzeń. Przedstawiono w nim również sposób zabezpieczania punktów końcowych elementu webhook, które są używane do odbierania zdarzeń z Event Grid przy użyciu Azure Active Directory (Azure AD) lub wspólnego klucza tajnego.
@@ -40,7 +40,7 @@ Ponieważ parametry zapytania mogą zawierać wpisy tajne klienta, są one obsł
 Aby uzyskać więcej informacji na temat dostarczania zdarzeń do elementów webhook, zobacz [dostarczanie zdarzeń elementu webhook](webhook-event-delivery.md)
 
 > [!IMPORTANT]
-Azure Event Grid obsługuje tylko punkty końcowe elementu webhook **protokołu HTTPS** . 
+> Azure Event Grid obsługuje tylko punkty końcowe elementu webhook **protokołu HTTPS** . 
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Walidacja punktu końcowego z CloudEvents v 1.0
 Jeśli znasz już Event Grid, może być świadome uzgadniania sprawdzania poprawności punktu końcowego w celu zapobiegania nadużyciom. CloudEvents v 1.0 implementuje własną [semantykę ochrony przed nadużyciami](webhook-event-delivery.md) przy użyciu metody **http Options** . Aby dowiedzieć się więcej na ten temat, zobacz elementy [webhook protokołu HTTP 1,1 dla usługi Event Delivery — wersja 1,0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). W przypadku korzystania ze schematu CloudEvents dla danych wyjściowych Event Grid używa ochrony nadużycia CloudEvents v 1.0 zamiast mechanizmu zdarzenia walidacji Event Grid. Aby uzyskać więcej informacji, zobacz [Używanie schematu CloudEvents v 1.0 z Event Grid](cloudevents-schema.md). 

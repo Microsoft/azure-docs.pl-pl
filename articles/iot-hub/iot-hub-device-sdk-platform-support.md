@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: ab450c6ec6ae32cafcf07e88940736f209973d8d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045658"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168046"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Obsługa platformy zestawów SDK urządzeń Azure IoT
 
@@ -22,7 +22,7 @@ Oprócz zestawów SDK urządzeń firma Microsoft udostępnia kilka innych ście�
 
 * Firma Microsoft współpracuje z kilkoma firmami partnerskimi, aby ułatwić im publikowanie zestawów deweloperskich, w oparciu o zestaw SDK języka C usługi Azure IoT dla swoich platform sprzętowych.
 
-* Firma Microsoft współpracuje z zaufanymi partnerami firmy Microsoft, aby zapewnić kiedykolwiek rozbudowany zestaw urządzeń, które zostały przetestowane i certyfikowane dla usługi Azure IoT. Bieżącą listę tych urządzeń można znaleźć w temacie [certyfikat platformy Azure dla usługi IoT](https://catalog.azureiotsolutions.com/).
+* Firma Microsoft współpracuje z zaufanymi partnerami firmy Microsoft, aby zapewnić kiedykolwiek rozbudowany zestaw urządzeń, które zostały przetestowane i certyfikowane dla usługi Azure IoT. Bieżącą listę tych urządzeń można znaleźć w temacie [certyfikat platformy Azure dla usługi IoT](https://devicecatalog.azure.com/).
 
 * Firma Microsoft zapewnia warstwę abstrakcji platformy (PAL) w zestawie SDK usługi Azure IoT Hub Device, która ułatwia deweloperom łatwe przenoszenie zestawu SDK na swoją platformę. Aby dowiedzieć się więcej, zobacz [wskazówki dotyczące przenoszenia zestawu SDK języka C](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
@@ -114,9 +114,9 @@ Jeśli platforma urządzenia nie jest objęta jedną z poprzednich sekcji, możn
 
 Firma Microsoft współpracuje z partnerami, aby ciągle rozszerzać usługę Azure IoT Universe za pomocą przetestowanych i certyfikowanych urządzeń Azure IoT.
 
-* Aby przeglądać urządzenia z certyfikatem usługi Azure IoT, zobacz [certyfikat platformy Microsoft Azure dla IoT wykaz urządzeń](https://catalog.azureiotsolutions.com/).
+* Aby przeglądać urządzenia z certyfikatem usługi Azure IoT, zobacz [certyfikat platformy Microsoft Azure dla IoT wykaz urządzeń](https://devicecatalog.azure.com/).
 
-* Aby dowiedzieć się więcej o ekosystemie certyfikatu platformy Azure dla IoT, zobacz [dołączanie do ekosystemu Certified for IoT](https://catalog.azureiotsolutions.com/register).
+* Aby dowiedzieć się więcej o ekosystemie certyfikatu platformy Azure dla IoT, zobacz [dołączanie do ekosystemu Certified for IoT](../certification/overview.md).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Nawiązywanie połączenia z IoT Hub bez zestawu SDK
 

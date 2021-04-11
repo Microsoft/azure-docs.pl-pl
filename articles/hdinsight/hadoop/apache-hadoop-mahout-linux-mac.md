@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: c31ffaf094801bdd49e5800bd338a15d8b8315f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4c3484c1e65eb70be484a4a2eebda21a41dbf1ea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946499"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936873"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generowanie rekomendacji przy użyciu oprogramowania Apache Mahout w usłudze Azure HDInsight
 
@@ -18,7 +18,7 @@ Dowiedz się, jak generować zalecenia dotyczące filmu przy użyciu biblioteki 
 
 Mahout to biblioteka [uczenia maszynowego](https://en.wikipedia.org/wiki/Machine_learning) dla Apache Hadoop. Mahout zawiera algorytmy przetwarzania danych, takie jak filtrowanie, klasyfikacja i klastrowanie. W tym artykule opisano użycie aparatu rekomendacji do generowania zaleceń dotyczących filmów, które są oparte na oglądanych przez znajomych filmach.
 
-Aby uzyskać więcej informacji na temat wersji programu Mahout w usłudze HDInsight, zobacz [wersje usługi HDInsight i składniki Apache Hadoop](../hdinsight-component-versioning.md).
+Usługa Mahout jest możliwe w usłudze HDInsight 3,6 i nie jest dostępna w usłudze HDInsight 4,0. Aby uzyskać więcej informacji na temat wersji programu Mahout w usłudze HDInsight, zobacz [wersje składników usługi hdinsight 3,6](../hdinsight-36-component-versioning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
