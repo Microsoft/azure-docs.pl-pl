@@ -8,10 +8,10 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104597419"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w wystąpieniu zarządzanym usługi Azure SQL przy użyciu Azure Data Factory
@@ -42,7 +42,7 @@ W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje na
 
 Aby uzyskać dostęp do [publicznego punktu końcowego](../azure-sql/managed-instance/public-endpoint-overview.md)wystąpienia zarządzanego SQL, możesz użyć Azure Data Factory zarządzanego środowiska Azure Integration Runtime. Upewnij się, że włączono publiczny punkt końcowy, a także Zezwól na ruch publicznego punktu końcowego w sieciowej grupie zabezpieczeń, tak aby Azure Data Factory mógł nawiązać połączenie z bazą danych. Aby uzyskać więcej informacji, zobacz [te wskazówki](../azure-sql/managed-instance/public-endpoint-configure.md).
 
-Aby uzyskać dostęp do prywatnego punktu końcowego wystąpienia zarządzanego SQL, skonfiguruj [własne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) , które może uzyskać dostęp do bazy danych. Jeśli udostępniasz własne środowisko Integration Runtime w tej samej sieci wirtualnej co wystąpienie zarządzane, upewnij się, że maszyna Integration Runtime znajduje się w innej podsieci niż wystąpienie zarządzane. Jeśli udostępniasz własne środowisko Integration Runtime w innej sieci wirtualnej niż wystąpienie zarządzane, możesz użyć komunikacji równorzędnej sieci wirtualnej lub sieci wirtualnej do połączenia sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [łączenie aplikacji z wystąpieniem zarządzanym bazy danych SQL](../azure-sql/managed-instance/connect-application-instance.md).
+Aby uzyskać dostęp do prywatnego punktu końcowego wystąpienia zarządzanego SQL, skonfiguruj [własne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) , które może uzyskać dostęp do bazy danych. Jeśli aprowizujesz własne środowisko Integration Runtime w tej samej sieci wirtualnej co wystąpienie zarządzane, upewnij się, że maszyna ze środowiskiem Integration Runtime znajduje się w innej podsieci niż wystąpienie zarządzane. Jeśli aprowizujesz własne środowisko Integration Runtime w innej sieci wirtualnej niż wystąpienie zarządzane, możesz zastosować komunikację równorzędną sieci wirtualnych lub połączenie między sieciami wirtualnymi. Aby uzyskać więcej informacji, zobacz [łączenie aplikacji z wystąpieniem zarządzanym bazy danych SQL](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

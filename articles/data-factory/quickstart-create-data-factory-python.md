@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 04/06/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889420"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449277"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
@@ -75,9 +75,12 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
     ```
     > [!NOTE] 
     > Pakiet "Azure-Identity" może mieć konflikt z elementem "Azure-CLI" w niektórych typowych zależnościach. Jeśli zapoznajesz się z jakimkolwiek problemem z uwierzytelnianiem, Usuń "Azure-CLI" i jego zależności lub użyj czystej maszyny bez instalowania pakietu "Azure-CLI", aby to zrobić.
+    > W przypadku Niesuwerennych chmur należy użyć odpowiednich stałych specyficznych dla chmury.  Zapoznaj się z tematem [nawiązywanie połączenia ze wszystkimi regionami przy użyciu bibliotek platformy Azure dla języka Python — wiele chmur | Microsoft Docs, aby uzyskać instrukcje dotyczące nawiązywania połączenia z językiem Python w chmurach suwerennych.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
+    
     
 ## <a name="create-a-data-factory-client"></a>Tworzenie klienta fabryki danych
 
+  
 1. Utwórz plik o nazwie **datafactory.py**. Dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
 
     ```python
@@ -122,6 +125,7 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
     ```
 3. Dodaj do metody **Main** poniższy kod, który tworzy wystąpienie klasy DataFactoryManagementClient. Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku. Ustaw zmienną **subscription_id** na identyfikator swojej subskrypcji platformy Azure. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
+        
     ```python
     def main():
 
@@ -136,6 +140,11 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
 
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        
+        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+        # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+        
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 

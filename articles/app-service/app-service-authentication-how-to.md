@@ -2,14 +2,14 @@
 title: Zaawansowane użycie AuthN/autoryzacji
 description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzacji w App Service dla różnych scenariuszy oraz uzyskać oświadczenia użytkowników i inne tokeny.
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: fc2916cbccc21262467533b0b497b14f4f4b941c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b7faf47363a5efee6a60951e67d9ad2bed8bf76f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034881"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076874"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -18,10 +18,9 @@ W tym artykule opisano sposób dostosowywania wbudowanego [uwierzytelniania i au
 Aby szybko rozpocząć pracę, zobacz jeden z następujących samouczków:
 
 * [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service](tutorial-auth-aad.md)
-* [Jak skonfigurować aplikację do używania logowania w usłudze Azure Active Directory](configure-authentication-provider-aad.md)
+* [Jak skonfigurować aplikację do używania logowania do platformy tożsamości firmy Microsoft](configure-authentication-provider-aad.md)
 * [Jak skonfigurować aplikację do używania logowania usługi Facebook](configure-authentication-provider-facebook.md)
 * [Jak skonfigurować aplikację do używania logowania usługi Google](configure-authentication-provider-google.md)
-* [Jak skonfigurować aplikację do używania logowania za pomocą konta Microsoft](configure-authentication-provider-microsoft.md)
 * [Jak skonfigurować aplikację do używania logowania usługi Twitter](configure-authentication-provider-twitter.md)
 * [Jak skonfigurować aplikację do logowania przy użyciu dostawcy połączenia usługi OpenID Connect (wersja zapoznawcza)](configure-authentication-provider-openid-connect.md)
 * [Jak skonfigurować aplikację do logowania przy użyciu logowania za pomocą firmy Apple (wersja zapoznawcza)](configure-authentication-provider-apple.md)
@@ -37,8 +36,7 @@ W obszarze **Akcja do wykonania, gdy żądanie nie zostanie uwierzytelnione**, w
 Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Na przykład:
 
 ```html
-<a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
+<a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -159,7 +157,6 @@ W kodzie serwera tokeny specyficzne dla dostawcy są wstawiane do nagłówka ż�
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
-| Konto Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
@@ -175,7 +172,6 @@ Gdy token dostępu dostawcy (nie [token sesji](#extend-session-token-expiration-
 - **Google**: Dołącz `access_type=offline` parametr ciągu zapytania do `/.auth/login/google` wywołania interfejsu API. Jeśli używasz zestawu SDK Mobile Apps, możesz dodać parametr do jednego z `LogicAsync` przeciążeń (zobacz [tokeny usługi Google Refresh](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: nie udostępnia tokenów odświeżania. Tokeny długotrwałe wygasają w ciągu 60 dni (zobacz temat [wygaśnięcie i rozszerzanie tokenów dostępu w serwisie Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: tokeny dostępu nie wygasną (zobacz [często zadawane pytania dotyczące usługi Twitter OAuth](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Konto Microsoft**: podczas [konfigurowania ustawień uwierzytelniania konta Microsoft](configure-authentication-provider-microsoft.md)wybierz `wl.offline_access` zakres.
 - **Azure Active Directory**: w [https://resources.azure.com](https://resources.azure.com) , wykonaj następujące czynności:
     1. W górnej części strony wybierz pozycję **Odczyt/zapis**.
     2. W lewej przeglądarce przejdź do **subskrypcji** > * *_\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
@@ -280,14 +276,26 @@ Dostawca tożsamości może zapewnić pewną autoryzację klucza. Na przykład:
 
 Jeśli jeden z pozostałych poziomów nie zapewnia autoryzacji lub dostawca tożsamości nie jest obsługiwany, należy napisać kod niestandardowy w celu autoryzowania użytkowników na podstawie [oświadczeń użytkowników](#access-user-claims).
 
-## <a name="updating-the-configuration-version-preview"></a>Aktualizowanie wersji konfiguracji (wersja zapoznawcza)
+## <a name="updating-the-configuration-version"></a>Aktualizowanie wersji konfiguracji
 
-Istnieją dwie wersje interfejsu API zarządzania dla funkcji uwierzytelnianie/autoryzacja. Wersja zapoznawcza v2 jest wymagana w przypadku środowiska "uwierzytelnianie (wersja zapoznawcza)" w Azure Portal. Aplikacja, która korzysta już z interfejsu API V1, może przeprowadzić uaktualnienie do wersji v2 po wprowadzeniu kilku zmian. W szczególnych przypadkach konfiguracja wpisu tajnego musi zostać przeniesiona do ustawień aplikacji miejsca do wykonania. Konfiguracja dostawcy konta Microsoft nie jest również obsługiwana w wersji 2.
+Istnieją dwie wersje interfejsu API zarządzania dla funkcji uwierzytelnianie/autoryzacja. Wersja v2 jest wymagana w przypadku środowiska "Authentication" w Azure Portal. Aplikacja, która korzysta już z interfejsu API V1, może przeprowadzić uaktualnienie do wersji v2 po wprowadzeniu kilku zmian. W szczególnych przypadkach konfiguracja wpisu tajnego musi zostać przeniesiona do ustawień aplikacji miejsca do wykonania. Można to zrobić automatycznie z sekcji "Uwierzytelnianie" w portalu dla aplikacji.
 
 > [!WARNING]
-> Migracja do wersji 2 wersji zapoznawczej uniemożliwi zarządzanie funkcją App Service uwierzytelnianie/autoryzację dla aplikacji za pomocą niektórych klientów, takich jak jej istniejące środowisko Azure Portal, interfejsu wiersza polecenia platformy Azure i Azure PowerShell. Tego nie można cofnąć. W trakcie okresu zapoznawczego migracja obciążeń produkcyjnych nie jest wspierana ani obsługiwana. Należy postępować zgodnie z krokami w tej sekcji dla aplikacji testowych.
+> Migracja do wersji 2 spowoduje wyłączenie zarządzania funkcją App Service uwierzytelnianie/autoryzację dla aplikacji za pomocą niektórych klientów, takich jak jej istniejące środowisko Azure Portal, interfejs wiersza polecenia platformy Azure i Azure PowerShell. Tego nie można cofnąć.
 
-### <a name="moving-secrets-to-application-settings"></a>Przeniesienie kluczy tajnych do ustawień aplikacji
+Interfejs API v2 nie obsługuje tworzenia ani edytowania konta Microsoft jako osobnego dostawcy, jak zostało to zrobione w wersji 1. Zamiast tego wykorzystuje zbieżną [platformę tożsamości firmy Microsoft](../active-directory/develop/v2-overview.md) do logowania użytkowników przy użyciu usługi Azure AD i osobistych kont Microsoft. Podczas przełączania do interfejsu API v2 konfiguracja Azure Active Directory w wersji 1 jest używana do konfigurowania dostawcy platformy tożsamości firmy Microsoft. Dostawca konta Microsoft V1 zostanie przeprowadzony w procesie migracji i nadal będzie działać normalnie, ale zaleca się przejście na nowszy model platformy tożsamości firmy Microsoft. Aby dowiedzieć się więcej, zobacz [Obsługa rejestracji dostawcy kont Microsoft](#support-for-microsoft-account-provider-registrations) .
+
+Proces zautomatyzowanej migracji spowoduje przeniesienie kluczy tajnych dostawcy do ustawień aplikacji, a następnie przekonwertowanie reszty konfiguracji na nowy format. Aby użyć automatycznej migracji:
+
+1. Przejdź do aplikacji w portalu i wybierz opcję menu **uwierzytelnianie** .
+1. Jeśli aplikacja jest skonfigurowana przy użyciu modelu V1, zostanie wyświetlony przycisk **Uaktualnij** .
+1. Przejrzyj opis w monicie o potwierdzenie. Jeśli wszystko jest gotowe do przeprowadzenia migracji, kliknij przycisk **Uaktualnij** w wierszu polecenia.
+
+### <a name="manually-managing-the-migration"></a>Ręczne zarządzanie migracją
+
+Wykonanie poniższych kroków umożliwi ręczne przeprowadzenie migracji aplikacji do interfejsu API v2, jeśli nie chcesz używać automatycznej wersji wymienionej powyżej.
+
+#### <a name="moving-secrets-to-application-settings"></a>Przeniesienie kluczy tajnych do ustawień aplikacji
 
 1. Pobierz istniejącą konfigurację przy użyciu interfejsu API V1:
 
@@ -397,9 +405,7 @@ Istnieją dwie wersje interfejsu API zarządzania dla funkcji uwierzytelnianie/a
 
 Przeprowadzono migrację aplikacji do przechowywania wpisów tajnych dostawcy tożsamości jako ustawień aplikacji.
 
-### <a name="support-for-microsoft-account-registrations"></a>Obsługa rejestracji konto Microsoft
-
-Interfejs API v2 nie obsługuje obecnie konta Microsoft jako osobnego dostawcy. Zamiast tego wykorzystuje zbieżną [platformę tożsamości firmy Microsoft](../active-directory/develop/v2-overview.md) do logowania użytkowników przy użyciu osobistych kont Microsoft. Podczas przełączania do interfejsu API v2 konfiguracja Azure Active Directory w wersji 1 jest używana do konfigurowania dostawcy platformy tożsamości firmy Microsoft.
+#### <a name="support-for-microsoft-account-provider-registrations"></a>Obsługa rejestracji dostawcy kont Microsoft
 
 Jeśli istniejąca konfiguracja zawiera dostawcę konta Microsoft i nie zawiera dostawcy Azure Active Directory, można przełączyć konfigurację do dostawcy Azure Active Directory, a następnie przeprowadzić migrację. W tym celu:
 
@@ -413,12 +419,10 @@ Jeśli istniejąca konfiguracja zawiera dostawcę konta Microsoft i nie zawiera 
 1. W tym momencie pomyślnie skopiowano konfigurację do programu, ale istniejąca konfiguracja dostawcy kont Microsoft pozostanie. Przed jego usunięciem upewnij się, że wszystkie części aplikacji odwołują się do dostawcy Azure Active Directory za pomocą linków logowania itp. Sprawdź, czy wszystkie części aplikacji działają zgodnie z oczekiwaniami.
 1. Po sprawdzeniu, czy elementy działają względem dostawcy Azure Active Directory usługi AAD, możesz usunąć konfigurację dostawcy kont Microsoft.
 
-Niektóre aplikacje mogą mieć już oddzielne rejestracje dla Azure Active Directory i konta Microsoft. W tej chwili nie można migrować tych aplikacji. 
-
 > [!WARNING]
 > Możliwe jest zbieżność dwóch rejestracji, modyfikując [obsługiwane typy kont](../active-directory/develop/supported-accounts-validation.md) dla rejestracji aplikacji usługi AAD. Jednak spowoduje to wymuszenie nowego monitu o zgodę dla użytkowników kont Microsoft, a oświadczenia tożsamości tych użytkowników mogą się różnić w strukturze, a `sub` zwłaszcza zmienić wartości od momentu użycia nowego identyfikatora aplikacji. Takie podejście nie jest zalecane, chyba że zostanie dokładnie zrozumiane. Zamiast tego należy zaczekać na pomoc techniczną dla dwóch rejestracji w powierzchni interfejsu API w wersji 2.
 
-### <a name="switching-to-v2"></a>Przełączanie do wersji 2
+#### <a name="switching-to-v2"></a>Przełączanie do wersji 2
 
 Po wykonaniu powyższych kroków przejdź do aplikacji w Azure Portal. Wybierz sekcję "uwierzytelnianie (wersja zapoznawcza)". 
 

@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95908782"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963261"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Dokumentacja języka SQL przyspieszania zapytań
 
@@ -122,8 +122,8 @@ Język SQL przyspieszania zapytań obsługuje następujące standardowe funkcje 
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Zwraca wyrażenie znaku zawierające dane małych liter konwertowane na wielkie litery.|
 |[PODCIĄG](/sql/t-sql/functions/substring-transact-sql)    |Zwraca część wyrażenia Character, Binary, text lub Image w SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Usuwa znak spacji (32) lub inne określone znaki z początku i końca ciągu.|
-|DOPROWADZA    |Opis|
-|KOŃCOWE    |Opis|
+|DOPROWADZA    |Usuwa znak spacji (32) lub inne określone znaki z początku ciągu.|
+|KOŃCOWE    |Usuwa znak spacji (32) lub inne określone znaki z końca ciągu.|
 
 Oto kilka przykładów:
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33adaf33ba15b49b0a7e4d3e8f1b2a8c435a7966
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650692"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449039"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -218,7 +218,7 @@ Za pomocą Visual Studio Code Zatwierdź i wypchnij zmiany do zdalnego repozytor
 
 ## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji internetowej
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 1. Kliknij pozycję **Utwórz zasób**
 1. Wyszukiwanie **statycznej aplikacji sieci Web**
 1. Kliknij pozycję **statyczna aplikacja internetowa (wersja zapoznawcza)**
@@ -255,7 +255,7 @@ Następnie Dodaj następujące szczegóły kompilacji.
 
     :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Przepływ pracy w usłudze GitHub":::
 
-1. Po zakończeniu wdrożenia jednostki organizacyjnej można przejść do aplikacji sieci Web, klikając link _adresu URL_ na stronie _Przegląd_ .
+1. Po zakończeniu wdrażania możesz przejść do aplikacji sieci Web, klikając link _adresu URL_ widoczny na stronie _Przegląd_ .
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Dostęp do statycznego adresu URL aplikacji z Azure Portal":::
 
@@ -263,7 +263,7 @@ Następnie Dodaj następujące szczegóły kompilacji.
 
 Jeśli nie chcesz zachować tej aplikacji do dalszej pracy, możesz wykonać następujące czynności, aby usunąć statyczną aplikację sieci Web platformy Azure i powiązane z nią zasoby.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 1. Na górnym pasku wyszukiwania wpisz **grupy zasobów**
 1. Kliknij pozycję **grupy zasobów**
 1. Wybierz pozycję Moja **resourceName**

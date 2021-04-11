@@ -83,6 +83,8 @@
           href: /dotnet/api/microsoft.azure.relay
         - name: Microsoft.ServiceBus
           href: /dotnet/api/Microsoft.ServiceBus
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/relay
     - name: Wyjątki
       href: relay-exceptions.md
     - name: Ustawienia portu

@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccc648f06cad46b490ac73fe777066c9de2ff2b9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918098"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551649"
 ---
 # <a name="dynamic-data-masking"></a>Dynamiczne maskowanie danych 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -72,13 +72,13 @@ Za pomocą interfejsu API REST można programowo zarządzać zasadami i regułam
 
 ### <a name="data-masking-policies"></a>Zasady maskowania danych
 
-- [Utwórz lub zaktualizuj](/rest/api/sql/datamaskingpolicies/createorupdate): tworzy lub aktualizuje zasady maskowania danych bazy danych.
-- [Get](/rest/api/sql/datamaskingpolicies/get): Pobiera zasady maskowania danych bazy danych. 
+- [Utwórz lub zaktualizuj](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate): tworzy lub aktualizuje zasady maskowania danych bazy danych.
+- [Get](/rest/api/sql/2014-04-01/datamaskingpolicies/get): Pobiera zasady maskowania danych bazy danych. 
 
 ### <a name="data-masking-rules"></a>Reguły maskowania danych
 
-- [Utwórz lub zaktualizuj](/rest/api/sql/datamaskingrules/createorupdate): tworzy lub aktualizuje regułę maskowania danych bazy danych.
-- [Lista według bazy danych](/rest/api/sql/datamaskingrules/listbydatabase): Pobiera listę reguł maskowania danych bazy danych.
+- [Utwórz lub zaktualizuj](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate): tworzy lub aktualizuje regułę maskowania danych bazy danych.
+- [Lista według bazy danych](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase): Pobiera listę reguł maskowania danych bazy danych.
 
 ## <a name="permissions"></a>Uprawnienia
 

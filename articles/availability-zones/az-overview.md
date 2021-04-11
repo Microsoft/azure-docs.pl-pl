@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596012"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384259"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
@@ -87,8 +87,8 @@ Jeśli oferta usługi nie jest dostępna w określonym regionie, możesz podziel
 Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie: podstawowe, podstawowe i wyspecjalizowane. Kategorie usług są przypisywane w ogólnej dostępności. Często usługi uruchamiają swój cykl życia jako wyspecjalizowaną usługę, a wzrost popytu i użycia może być podniesiony do podstawy lub do podstaw. W poniższej tabeli wymieniono kategorie usług jako podstawowe, podstawowe. Należy zwrócić uwagę na następujące kwestie dotyczące tabeli:
 
 - Niektóre usługi nie są regionalne. Aby uzyskać informacje i listę usług nieregionalnych, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/).
-- Nie ma na liście starszej generacji usług lub maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [wcześniejszych generacji rozmiarów maszyn wirtualnych](../virtual-machines/sizes-previous-gen.md)
-- . Usługi nie mają przypisanej kategorii do momentu ogólnego udostępnienia. Aby uzyskać informacje i listę usług w wersji zapoznawczej, zobacz artykuły [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/). 
+- Nie ma na liście starszej generacji usług lub maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [wcześniejszych generacji rozmiarów maszyn wirtualnych](../virtual-machines/sizes-previous-gen.md).
+- Usługi nie mają przypisanej kategorii do momentu ogólnego udostępnienia. Aby uzyskać informacje i listę usług w wersji zapoznawczej, zobacz artykuły [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
 > | Podstawowe                           | Podstawowa pomoc techniczna                                        | 

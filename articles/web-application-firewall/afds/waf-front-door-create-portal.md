@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 8b1d1007e817bafe3d75f0f0d7c3fc6eb5470854
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7b4544530dc9c0c894ae7a0f2b1d2830f895928
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729474"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122260"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Samouczek: Tworzenie zasad zapory aplikacji sieci Web na platformie Azure front-drzwi przy użyciu Azure Portal
 
@@ -27,32 +27,39 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Utwórz profil z drzwiami wstępnymi, wykonując instrukcje opisane w [przewodniku szybki start: Tworzenie profilu front-drzwi](../../frontdoor/quickstart-create-front-door.md). 
+Utwórz profil z [przodu](../../frontdoor/quickstart-create-front-door.md) lub z [przodu dla warstwy Standardowa/Premium](../../frontdoor/standard-premium/create-front-door-portal.md) . 
 
 ## <a name="create-a-web-application-firewall-policy"></a>Tworzenie zasad zapory aplikacji sieci Web
 
 Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł (DRS) przy użyciu portalu. 
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób**>wyszukaj **WAF**>wybierz opcję **Zapora aplikacji sieci Web (wersja zapoznawcza)** > wybierz pozycję **Utwórz**.
-2. Na karcie **podstawy** na stronie **Tworzenie zasad WAF** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz**:
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > wyszukaj **WAF** > wybierz opcję **Zapora aplikacji sieci Web (WAF)** > wybierz pozycję **Utwórz**.
+
+1. Na karcie **podstawy** na stronie **Tworzenie zasad WAF** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz**:
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
-    | Subskrypcja            |Wybierz nazwę subskrypcji z drzwiami przednimi.|
-    | Grupa zasobów          |Wybierz nazwę grupy zasobów drzwi.|
-    | Nazwa zasady             |Wprowadź unikatową nazwę zasad WAF.|
+    | Zasady dla              | Wybierz pozycję **globalne WAF (tylne drzwi)**. |
+    | Jednostka SKU z przodu          | Wybierz między podstawową, standardową i Premium jednostką SKU. |
+    | Subskrypcja            | Wybierz nazwę subskrypcji z drzwiami przednimi.|
+    | Grupa zasobów          | Wybierz nazwę grupy zasobów drzwi.|
+    | Nazwa zasady             | Wprowadź unikatową nazwę zasad WAF.|
+    | Stan zasad            | Ustaw jako **włączone**. | 
 
-   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
+   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad.":::
 
-3. Na karcie **skojarzenie** na stronie **Tworzenie zasad WAF** wybierz pozycję **Dodaj hosta frontonu**, wprowadź następujące ustawienia, a następnie wybierz pozycję **Dodaj**:
+1. Na karcie **skojarzenie** na stronie **Tworzenie zasad WAF** wybierz pozycję **+ Skojarz profil przeddrzwi**, wprowadź następujące ustawienia, a następnie wybierz pozycję **Dodaj**:
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
-    | Drzwi z przodu              | Wybierz nazwę profilu frontonu.|
-    | Host frontonu           | Wybierz nazwę hosta z drzwiami przednimi, a następnie wybierz pozycję **Dodaj**.|
+    | Profil przeddrzwi              | Wybierz nazwę profilu frontonu. |
+    | Domains          | Wybierz domeny, do których chcesz skojarzyć zasady WAF, a następnie wybierz pozycję **Dodaj**. |
+
+    :::image type="content" source="../media/waf-front-door-create-portal/associate-profile.png" alt-text="Zrzut ekranu przedstawiający stronę profilu z przednim Drzwiem.":::
     
     > [!NOTE]
-    > Jeśli host frontonu jest skojarzony z zasadami WAF, jest pokazywany jako wyszarzony. Najpierw należy usunąć hosta frontonu ze skojarzonych zasad, a następnie ponownie skojarzyć hosta frontonu z nowymi zasadami WAF.
+    > Jeśli domena jest skojarzona z zasadami WAF, jest wyświetlana jako wyszarzona. Najpierw należy usunąć domenę ze skojarzonych zasad, a następnie ponownie skojarzyć domenę z nowymi zasadami WAF.
+
 1. Wybierz pozycję **Przeglądanie i tworzenie**, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="configure-web-application-firewall-rules-optional"></a>Konfigurowanie reguł zapory aplikacji sieci Web (opcjonalnie)
@@ -62,21 +69,25 @@ Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł
 Podczas tworzenia zasad WAFymi domyślne zasady WAF są w trybie **wykrywania** . W trybie **wykrywania** WAF nie blokuje żadnych żądań, a zamiast tego żądania zgodne z regułami WAF są rejestrowane w dziennikach WAF.
 Aby wyświetlić WAF w działaniu, można zmienić ustawienia trybu z **wykrywania** na **zapobieganie**. W trybie **zapobiegania** żądania zgodne z regułami zdefiniowanymi w domyślnym zestawie reguł (DRS) są blokowane i rejestrowane w dziennikach WAF.
 
- :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający sekcję ustawień zasad. Przełącznik trybów jest ustawiony na zapobieganie." border="false":::
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający sekcję ustawień zasad. Przełącznik trybów jest ustawiony na zapobieganie.":::
 
 ### <a name="custom-rules"></a>Reguły niestandardowe
 
-Regułę niestandardową można utworzyć, wybierając pozycję **Dodaj regułę niestandardową** w sekcji **reguły niestandardowe** . Spowoduje to uruchomienie strony Konfiguracja reguły niestandardowej. Poniżej znajduje się przykład konfigurowania reguły niestandardowej do blokowania żądania, jeśli ciąg zapytania zawiera **blockme**.
+Regułę niestandardową można utworzyć, wybierając pozycję **Dodaj regułę niestandardową** w sekcji **reguły niestandardowe** . Spowoduje to uruchomienie strony Konfiguracja reguły niestandardowej. 
 
-:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Zrzut ekranu przedstawiający stronę konfiguracji reguła niestandardowa przedstawiającą ustawienia reguły, która sprawdza, czy zmienna QueryString zawiera wartość blockme." border="false":::
+:::image type="content" source="../media/waf-front-door-create-portal/custom-rules.png" alt-text="Zrzut ekranu strony reguł niestandardowych.":::
+
+Poniżej znajduje się przykład konfigurowania reguły niestandardowej do blokowania żądania, jeśli ciąg zapytania zawiera **blockme**.
+
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Zrzut ekranu przedstawiający stronę konfiguracji reguła niestandardowa przedstawiającą ustawienia reguły, która sprawdza, czy zmienna QueryString zawiera wartość blockme.":::
 
 ### <a name="default-rule-set-drs"></a>Domyślny zestaw reguł (DRS)
 
 Domyślny zestaw reguł zarządzany przez platformę Azure jest domyślnie włączony. Bieżąca wersja domyślna to DefaultRuleSet_1.0. W ramach **reguł zarządzanych** przez program WAF na liście rozwijanej jest dostępny program **Assign**, a ostatnio dostępny zestaw reguł Microsoft_DefaultRuleSet_1 dziesiątki.
 
-Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz **pole wyboru** przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** . Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz powyższą kartę **Zmień akcję** .
+Aby wyłączyć pojedynczą regułę, zaznacz **pole wyboru** przed numerem reguły, a następnie wybierz pozycję **Wyłącz** w górnej części strony. Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz **akcję Zmień** w górnej części strony.
 
- :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Zrzut ekranu strony reguły zarządzane przedstawiający zestaw reguł, grupy reguł, reguły oraz przyciski włączania, wyłączania i zmieniania akcji. Zaznaczono jedną regułę." border="false":::
+:::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Zrzut ekranu strony reguły zarządzane przedstawiający zestaw reguł, grupy reguł, reguły oraz przyciski włączania, wyłączania i zmieniania akcji." lightbox="../media/waf-front-door-create-portal/managed-rules-expanded.png":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -85,4 +96,5 @@ Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o drzwiach frontonu platformy Azure](../../frontdoor/front-door-overview.md)
+> [Dowiedz się więcej o drzwiach](../../frontdoor/front-door-overview.md) 
+>  frontonu platformy Azure [Dowiedz się więcej o usłudze Azure Front-Standard/Premium](../../frontdoor/standard-premium/overview.md)

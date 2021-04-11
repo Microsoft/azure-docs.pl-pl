@@ -99,6 +99,8 @@
           href: how-to-bind-redis.md
         - name: Wiązanie aplikacji z usługą Azure MySQL
           href: how-to-bind-mysql.md
+        - name: Zarządzana tożsamość do łączenia Azure SQL Database
+          href: connect-managed-identity-to-azure-sql.md
         - name: Integracja z rozwiązaniami do równoważenia obciążenia platformy Azure
           href: how-to-integrate-azure-load-balancers.md
     - name: Monitorowanie
@@ -133,6 +135,20 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Tworzenie ról i uprawnień
           href: how-to-permissions.md
+        - name: Włącz kompleksowe Transport Layer Security
+          href: how-to-enable-end-to-end-tls.md
+        - name: Serwer konfiguracji dostępu i rejestr usługi
+          href: how-to-access-data-plane-azure-ad-rbac.md
+    - name: Integracja
+      items:
+        - name: Wiązanie aplikacji z usługą Azure CosmosDB
+          href: how-to-bind-cosmos.md
+        - name: Wiązanie aplikacji z usługą Azure Cache for Redis
+          href: how-to-bind-redis.md
+        - name: Wiązanie aplikacji z usługą Azure MySQL
+          href: how-to-bind-mysql.md
+        - name: Integracja z rozwiązaniami do równoważenia obciążenia platformy Azure
+          href: how-to-integrate-azure-load-balancers.md
     - name: Automatyzacja
       items:
         - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps

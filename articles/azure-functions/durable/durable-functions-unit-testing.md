@@ -3,12 +3,12 @@ title: Testowanie jednostek Durable Functions platformy Azure
 description: Dowiedz się, jak jednostkowe Durable Functions testowe.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 89b6419e95b3971b0d272490e19354f300204e1e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491048"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076636"
 ---
 # <a name="durable-functions-unit-testing"></a>Testowanie jednostkowe Durable Functions
 
@@ -33,13 +33,13 @@ Przykłady w tym artykule wymagają znajomości następujących pojęć i strukt
 
 Symulacja jest obsługiwana za pośrednictwem następującego interfejsu:
 
-* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationClient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.IDurableEntityClient) i [IDurableClient](/dotnet/api/microsoft.azure.webjobs.IDurableClient)
+* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentityclient) i [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient)
 
-* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationContext)
+* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
-* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.IDurableActivityContext)
+* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
   
-* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.IDurableEntityContext)
+* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 Te interfejsy mogą być używane z różnymi wyzwalaczami i powiązaniami obsługiwanymi przez Durable Functions. Podczas wykonywania Azure Functions środowisko uruchomieniowe Functions uruchomi kod funkcji z konkretną implementacją tych interfejsów. Do testowania jednostkowego można przekazać wbudowaną wersję tych interfejsów w celu przetestowania logiki biznesowej.
 

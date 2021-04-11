@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d572509b3b2b3a0fc69f207d005984ee07ce34a4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389182"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076823"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Usługa Azure Private Link dla usługi Azure Data Factory
 
@@ -54,7 +54,7 @@ Włączenie usługi link prywatny dla każdego z powyższych kanałów komunikac
    - Komunikacja między własnym środowiskiem Integration Runtime i usługą Azure Data Factory można przeprowadzić bezpiecznie w środowisku sieci prywatnej. Ruch między własnym hostowanym środowiskiem Integration Runtime i usługą Azure Data Factory odbywa się za pomocą linku prywatnego. 
 - **Nie jest obecnie obsługiwane**:
    - Interaktywne tworzenie, które korzysta z własnego środowiska Integration Runtime, takiego jak połączenie testowe, przeglądanie listy folderów i listy tabel, Pobieranie schematu i Podgląd danych, odbywa się za pośrednictwem prywatnego linku.
-   - Nową wersję środowiska Integration Runtime (własne środowisko) można pobrać automatycznie z centrum pobierania firmy Microsoft w przypadku włączenia automatycznej aktualizacji.
+   - Nowa wersja środowiska Integration Runtime (własne), które można pobrać automatycznie z centrum pobierania firmy Microsoft w przypadku włączenia automatycznej aktualizacji, nie jest obsługiwana w tym momencie.
 
    > [!NOTE]
    > W przypadku funkcji, które nie są obecnie obsługiwane, nadal trzeba skonfigurować wcześniej wymienioną domenę i port w sieci wirtualnej lub zaporze firmowej. 

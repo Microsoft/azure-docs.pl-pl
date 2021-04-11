@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 342c535cadb1a2d3f2d18478d8941d9ea61bdf72
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040247"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448971"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Uaktualnianie z programu Application Insights Java 2. x SDK
 
@@ -45,72 +45,12 @@ W zestawie SDK 2. x nazwy operacji zostały poprzedzone przez metodę http ( `GE
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Nazwy operacji poprzedzone przez metodę http":::
 
-Poniższy fragment kodu umożliwia skonfigurowanie 3 procesorów telemetrycznych, które łączą się, aby replikować poprzednie zachowanie.
-Procesory telemetrii wykonują następujące akcje (w podanej kolejności):
+Począwszy od 3.0.3, można przywrócić to zachowanie 2. x przy użyciu
 
-1. Pierwszy procesor telemetrii jest procesorem zakresu (ma typ `span` ), co oznacza, że ma zastosowanie do `requests` i `dependencies` .
-
-   Będzie pasować do dowolnego zakresu, który ma atrybut o nazwie `http.method` i ma nazwę zakresu rozpoczynającą się od `/` .
-
-   Następnie wyodrębni tę nazwę zakresu do atrybutu o nazwie `tempName` .
-
-2. Drugi procesor telemetrii jest również procesorem.
-
-   Będzie pasować do dowolnego zakresu, który ma atrybut o nazwie `tempName` .
-
-   Następnie zaktualizuje nazwę zakresu przez połączenie dwóch atrybutów `http.method` i `tempName` , rozdzielone spacją.
-
-3. Ostatni procesor telemetrii jest procesorem atrybutów (ma typ `attribute` ), co oznacza, że ma zastosowanie do całej telemetrii, która ma atrybuty (obecnie `requests` `dependencies` i `traces` ).
-
-   Będzie ona pasować do wszystkich danych telemetrycznych, które mają atrybut o nazwie `tempName` .
-
-   Następnie usunie atrybut o nazwie `tempName` , tak aby nie był raportowany jako wymiar niestandardowy.
-
-```
+```json
 {
   "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "attributes": [
-            { "key": "http.method", "value": "" }
-          ],
-          "spanNames": [ "^/" ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [ "^(?<tempName>.*)$" ]
-          }
-        }
-      },
-      {
-        "type": "span",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "name": {
-          "fromAttributes": [ "http.method", "tempName" ],
-          "separator": " "
-        }
-      },
-      {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "actions": [
-          { "key": "tempName", "action": "delete" }
-        ]
-      }
-    ]
+    "httpMethodInOperationName": true
   }
 }
 ```

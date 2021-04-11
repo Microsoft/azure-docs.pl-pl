@@ -512,6 +512,8 @@
               href: database/elastic-pool-resource-management.md
             - name: Diagnostyka wydajności w hiperskali
               href: database/hyperscale-performance-diagnostics.md
+            - name: Blokuj CRUD T-SQL
+              href: database/block-crud-tsql.md
         - name: Bezpieczeństwo
           items:
             - name: Inspekcja na konto magazynu za siecią wirtualną lub zaporą

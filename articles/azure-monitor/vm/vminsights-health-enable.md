@@ -4,14 +4,14 @@ description: W tym artykule opisano, jak włączyć kondycję gościa usługi VM
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/16/2020
+ms.date: 04/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 540f0725427ace4aec76de373556cd6699a1b229
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f6c67e0e9ef1dd2a4092033a9479801cd0e8e7d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732758"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449311"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Włącz kondycję gościa usługi VM Insights (wersja zapoznawcza)
 Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
@@ -26,6 +26,8 @@ W publicznej wersji zapoznawczej kondycja gościa usługi VM Insights ma następ
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 Na maszynie wirtualnej musi działać jeden z następujących systemów operacyjnych: 
 
+  - CentOS 7,5, 7,6, 7,7, 7,8, 7,9
+  - RedHat 7,5, 7,6, 7,7, 7,8, 7,9
   - Ubuntu 16,04 LTS, Ubuntu 18,04 LTS
   - Windows Server 2012 lub nowszy
 
@@ -45,7 +47,7 @@ Maszyna wirtualna musi znajdować się w jednym z następujących regionów:
 - Wschodnie stany USA 2 — EUAP
 - Francja Środkowa
 - Niemcy Środkowo-Zachodnie
-- Japonia Wschodnia
+- Japan East
 - Korea Środkowa
 - Północno-środkowe stany USA
 - Europa Północna
@@ -74,7 +76,7 @@ Obszar roboczy Log Analytics musi znajdować się w jednym z następujących reg
 - Wschodnie stany USA 2
 - Wschodnie stany USA 2 — EUAP
 - Francja Środkowa
-- Japonia Wschodnia
+- Japan East
 - Północno-środkowe stany USA
 - Europa Północna
 - South Central US

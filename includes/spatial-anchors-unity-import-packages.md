@@ -2,15 +2,31 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 2/3/21
+ms.date: 03/30/2021
 ms.author: parkerra
-ms.openlocfilehash: f32c4d24a2799b3f98f7e635748af378be8c560d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fca9efdf0e39157de5cdd6358477e2ce6f93ff29
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99550405"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076709"
 ---
-Otwórz projekt w aparacie Unity. Postępuj zgodnie z instrukcjami w <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">tym miejscu</a> , aby zaimportować pakiety kotwicowe platformy Azure, które zostały pobrane do projektu środowiska Unity przy użyciu Menedżera pakietów aparatu Unity.
+# <a name="web-download"></a>[Pobieranie w sieci Web](#tab/unity-package-web-ui)
 
-Można rozwinąć `Packages` folder w widoku projektu, aby sprawdzić, czy odpowiednie pakiety zostały zaimportowane.
+Postępuj zgodnie z instrukcjami w <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">tym miejscu</a> , aby zaimportować pobrane pakiety kotwicowe platformy Azure do projektu Unity przy użyciu Menedżera pakietów aparatu Unity.
+
+# <a name="npm-download"></a>[Pobieranie NPM](#tab/unity-package-npm)
+
+Postępuj zgodnie z instrukcjami w <a href="https://docs.unity3d.com/Manual/upm-ui-tarball.html" target="_blank">tym miejscu</a> , aby zaimportować pobrane pakiety kotwicowe platformy Azure do projektu Unity przy użyciu Menedżera pakietów aparatu Unity.
+
+# <a name="mixed-reality-feature-tool-beta"></a>[Narzędzie funkcji rzeczywistości mieszanej (beta)](#tab/unity-package-mixed-reality-feature-tool)
+
+Ten krok wymaga pobrania i udostępnienia <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Narzędzia funkcji rzeczywistości mieszanej</a> .
+
+> [!NOTE]
+> <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Narzędzie funkcji rzeczywistości mieszanej</a> obecnie obsługuje tylko system Windows.
+
+1. Aby skonfigurować narzędzie i dowiedzieć się, jak z niego korzystać, Skorzystaj z dokumentacji narzędzia do tworzenia <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">rzeczywistości mieszanej</a> .
+2. Zainstaluj pakiet zestawu SDK dla zakotwiczenia przestrzennego platformy Azure, a także dowolny pakiet specyficzny dla platformy w folderze projektu środowiska Unity.
+
+---

@@ -12,6 +12,8 @@
       href: quickstart-configure-route-server-powershell.md
     - name: Konfigurowanie serwera tras — interfejs wiersza polecenia
       href: quickstart-configure-route-server-cli.md
+    - name: Konfigurowanie serwera tras — szablon ARM
+      href: quickstart-configure-template.md
   expanded: true
 - name: Pojęcia
   items:

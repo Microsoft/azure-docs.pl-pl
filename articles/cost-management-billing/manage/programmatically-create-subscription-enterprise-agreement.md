@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8857582e29da03785427c59277c605b0b4d6c6b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3275fe0a72b70038cf834436e8290b9c55643414
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932577"
+ms.locfileid: "105963295"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Programowe tworzenie subskrypcji umowy Azure Enterprise Agreement przy użyciu najnowszych interfejsów API
 
@@ -31,7 +31,8 @@ Subskrypcja platformy Azure utworzona programowo podlega warunkom umowy, w ramac
 Aby utworzyć subskrypcję, musisz mieć rolę właściciela na koncie rejestracji. Istnieją dwa sposoby, aby uzyskać tę rolę:
 
 * Administrator przedsiębiorstwa Twojej rejestracji może [przyznać Ci rolę właściciela konta](https://ea.azure.com/helpdocs/addNewAccount) (wymagane jest zalogowanie się), dzięki czemu zostaniesz właścicielem konta rejestracji.
-* Aktualny właściciel konta rejestracji może [przyznać Ci dostęp](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Analogicznie, aby utworzyć subskrypcję umowy EA za pomocą jednostki usługi, musisz [przyznać jednostce usługi możliwość tworzenia subskrypcji](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+* Aktualny właściciel konta rejestracji może [przyznać Ci dostęp](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Analogicznie, aby utworzyć subskrypcję umowy EA za pomocą jednostki usługi, musisz [przyznać jednostce usługi możliwość tworzenia subskrypcji](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).  
+    Jeśli korzystasz z nazwy SPN do tworzenia subskrypcji, użyj identyfikatora ObjectId rejestracji aplikacji usługi Azure AD jako nazwy głównej identyfikatora polecenia przy użyciu [programu Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list).
   > [!NOTE]
   > Upewnij się, że używasz prawidłowej wersji interfejsu API, aby nadać uprawnienia właściciela konta rejestracji. Na potrzeby tego artykułu oraz interfejsów API, które opisano w tym artykule, należy użyć interfejsu API w wersji [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). W przypadku migrowania do używania nowszych interfejsów API należy ponownie przyznać uprawnienia właściciela przy użyciu wersji [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Poprzednia konfiguracja, utworzona za pomocą [wersji 2015-07-01](grant-access-to-create-subscription.md), nie jest automatycznie konwertowana do użycia z nowszymi interfejsami API.
 

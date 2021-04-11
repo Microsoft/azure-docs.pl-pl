@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709518"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551632"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurowanie zasad wygasania dla grup Microsoft 365
 
@@ -91,6 +91,7 @@ Aby uzyskać więcej informacji na temat uprawnień do przywracania usuniętej g
 > - Po pierwszym skonfigurowaniu wygaśnięcia wszystkie grupy, które są starsze niż interwał wygaśnięcia, są ustawiane na 35 dni do momentu wygaśnięcia, chyba że grupa zostanie automatycznie odnowiona lub właściciel ją odnowi.
 > - Gdy grupa dynamiczna zostanie usunięta i przywrócona, jest ona traktowana jako nowa grupa i uzupełniana zgodnie z tą regułą. Ten proces może potrwać do 24 godzin.
 > - Powiadomienia o wygaśnięciu dotyczące grup używanych w zespołach są wyświetlane w kanale właściciele zespołów.
+> - Po włączeniu daty wygaśnięcia dla wybranych grup można dodać do listy maksymalnie 500 grup. Jeśli musisz dodać więcej niż 500 grup, możesz włączyć wygasanie dla wszystkich grup. W tym scenariuszu ograniczenie 500 grup nie ma zastosowania.
 
 ## <a name="email-notifications"></a>Powiadomienia e-mail
 

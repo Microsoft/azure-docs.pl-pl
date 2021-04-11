@@ -3,12 +3,12 @@ title: Tematy systemowe w Azure Event Grid
 description: Opisuje tematy systemowe w Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca59dd6bb99b9b7d06f0622e8c0cb4e4234e21ff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99052969"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733047"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tematy systemowe w Azure Event Grid
 Temat systemowy w Event Grid reprezentuje jedno lub więcej zdarzeń opublikowanych przez usługi platformy Azure, takie jak Azure Storage i Azure Event Hubs. Na przykład temat systemowy może reprezentować **wszystkie zdarzenia obiektu BLOB** lub tylko **utworzone** zdarzenia BLOB i **usunięte obiekty blob** dla **określonego konta magazynu**. W tym przykładzie, gdy obiekt BLOB jest przekazywany do konta magazynu, usługa Azure Storage publikuje zdarzenie **utworzone obiektu BLOB** w temacie system w Event Grid, który następnie przekazuje zdarzenie do [subskrybentów](event-handlers.md) tematu, którzy odbierają i przetwarzają zdarzenia. 
@@ -30,6 +30,7 @@ Oto bieżąca lista usług platformy Azure, które obsługują tworzenie na nich
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Grupa zasobów platformy Azure](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbf936370b401a76479c7679499103d083e0752a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578043"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551751"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu 
 
@@ -106,4 +106,4 @@ Informacje o stanie można także znaleźć w dzienniku zdarzeń w obszarze: **a
 
 ## <a name="next-steps"></a>Następne kroki
 
-Pytania można znaleźć w temacie [często zadawane pytania dotyczące zarządzania urządzeniami](faq.md)  
+Pytania można znaleźć w temacie [często zadawane pytania dotyczące zarządzania urządzeniami](faq.yml)  
