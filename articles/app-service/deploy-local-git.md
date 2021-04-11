@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: faf3afc60c8517509199e6a306f511a15b32358c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100560468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732843"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokalne wdrożenie narzędzia Git do Azure App Service
 
@@ -140,6 +140,7 @@ W przypadku publikowania w aplikacji App Service na platformie Azure przy użyci
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|Aplikacja nie działa.|Uruchom aplikację w Azure Portal. Wdrożenie narzędzia Git jest niedostępne, gdy aplikacja sieci Web jest zatrzymana.|
 |`Couldn't resolve host 'hostname'`|Informacje o adresie dla elementu zdalnego "Azure" są nieprawidłowe.|Użyj `git remote -v` polecenia, aby wyświetlić listę wszystkich zdalnych, wraz z skojarzonym adresem URL. Sprawdź, czy adres URL dla zdalnego "Azure" jest prawidłowy. W razie konieczności Usuń i Utwórz ponownie ten zdalny przy użyciu poprawnego adresu URL.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Nie określono gałęzi `git push` w trakcie lub wartość nie została ustawiona `push.default` w `.gitconfig` .|Uruchom `git push` ponownie, określając gałąź główną: `git push azure main` .|
+|`Error - Changes committed to remote repository but deployment to website failed.`|Gałąź lokalna została wypchnięcia, która nie jest zgodna z gałęzią wdrożenia aplikacji na platformie Azure.|Sprawdź, czy bieżąca gałąź to `master` . Aby zmienić gałąź domyślną, użyj `DEPLOYMENT_BRANCH` Ustawienia aplikacji.|
 |`src refspec [branchname] does not match any.`|Podjęto próbę wypchnięcia do gałęzi innej niż główna na pilocie "Azure".|Uruchom `git push` ponownie, określając gałąź główną: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Ten błąd może wystąpić, jeśli spróbujesz wypchnąć duże repozytorium Git za pośrednictwem protokołu HTTPS.|Zmień konfigurację Git na komputerze lokalnym, aby zwiększyć `postBuffer` rozmiar. Na przykład: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Wdrożono aplikację Node.js przy użyciu _package.jsw_ pliku, który określa dodatkowe wymagane moduły.|Sprawdź `npm ERR!` komunikaty o błędach przed tym błędem, aby uzyskać więcej kontekstu w przypadku awarii. Poniżej przedstawiono znane przyczyny tego błędu oraz odpowiadające im `npm ERR!` komunikaty:<br /><br />**Nieprawidłowo sformułowany package.jsw pliku**: `npm ERR! Couldn't read dependencies.`<br /><br />**Moduł macierzysty nie ma dystrybucji binarnej dla systemu Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />lub <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|

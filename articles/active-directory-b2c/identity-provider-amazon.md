@@ -13,12 +13,12 @@ ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e152d9c242a44fe869eb7bfe7a16fbd7dfc8049d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6c0d9d5430d84006b208c50e78b8d875c95b8ac
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580125"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028387"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Amazon i zaloguj się na nim przy użyciu Azure Active Directory B2C
 
@@ -175,7 +175,7 @@ Konto Amazon można zdefiniować jako dostawcę oświadczeń, dodając je do ele
 ## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
 
 1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
-1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](tutorial-register-applications.md)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz przycisk **Uruchom teraz** .
 1. Na stronie rejestracji lub logowania wybierz pozycję **Amazon** , aby zalogować się przy użyciu konta usługi Amazon.
 

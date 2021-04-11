@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f9080b43333168802a72e60751eec2a765c6d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616081"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580823"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Przewodnik dotyczący wydajności i skalowalności działania kopiowania
 
@@ -62,7 +62,10 @@ W tym pełnym wykorzystaniu można oszacować ogólną przepływność, mierząc
 * Docelowy magazyn danych
 * Przepustowość sieci między źródłowym i docelowym magazynem danych
 
-Poniższa tabela oblicza czas trwania kopiowania. Ten czas jest określany na podstawie rozmiaru danych i limitu przepustowości sieci/magazynu danych dla danego środowiska.
+W poniższej tabeli przedstawiono Obliczanie czasu trwania przenoszenia danych. Czas trwania każdej komórki jest obliczany na podstawie danej sieci i przepustowości magazynu danych oraz danego rozmiaru ładunku danych.
+
+> [!NOTE]
+> Czas podany poniżej ma na celu przedstawienie osiągalnej wydajności w ramach kompleksowego rozwiązania do integracji danych zaimplementowanego przy użyciu usługi ADF przy użyciu co najmniej jednej metody optymalizacji wydajności opisanej w [funkcjach optymalizacji wydajności kopiowania](#copy-performance-optimization-features), w tym przy użyciu instrukcji foreach do partycjonowania i duplikowania wielu współbieżnych działań kopiowania. Zalecamy wykonanie kroków opisanych w [krokach dostrajania wydajności](#performance-tuning-steps) w celu zoptymalizowania wydajności kopiowania dla określonego zestawu danych i konfiguracji systemu. Należy używać numerów uzyskanych w testach dostrajania wydajności na potrzeby planowania wdrożenia produkcyjnego, planowania pojemności i projekcji rozliczeń.
 
 &nbsp;
 

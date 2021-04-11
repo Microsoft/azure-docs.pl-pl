@@ -1,20 +1,20 @@
 ---
 title: Jak używać Queue Storage z poziomu języka Java — Azure Storage
 description: Dowiedz się, jak tworzyć i usuwać kolejki za pomocą Queue Storage. Dowiedz się, jak wstawiać, zaglądać, pobierać i usuwać wiadomości za pomocą biblioteki klienckiej usługi Azure Storage dla języka Java.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 08/19/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
-ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ea00adacff1f76eb5ec81728e3a11f703a5fe8c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97585721"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276267"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Jak używać Queue Storage języka Java
 

@@ -618,6 +618,8 @@
               href: active-directory-saml-protocol-reference.md
             - name: Tokeny języka SAML
               href: reference-saml-tokens.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/identity
     - name: Typy aplikacji i protokół OAuth 2.0
       displayName: 'App types, OAuth'
       href: v2-app-types.md

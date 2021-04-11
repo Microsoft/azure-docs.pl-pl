@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c3fa0d8ac4540495e8580fd208507a2c1aaa7ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7bf4ea4beabf9abcc007c101ca5acf79ec919c4e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180691"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732401"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Samouczek: Migrowanie SQL Server do Azure SQL Database za pomocą usługi DMS
 
@@ -245,6 +245,9 @@ Wybierz wszystkie bazy danych lub konkretne bazy danych, które chcesz zmigrowa�
 1. Na ekranie **Wybieranie elementu docelowego** Podaj ustawienia uwierzytelniania dla Azure SQL Database. 
 
    ![Wybieranie obiektu docelowego](media/tutorial-sql-server-to-azure-sql/select-target.png)
+   
+   > [!NOTE]
+   > Obecnie uwierzytelnianie SQL jest jedynym obsługiwanym typem uwierzytelniania.
 
 1. Wybierz pozycję **Dalej: ekran Mapuj na docelowe bazy danych** , Mapuj źródłową i docelową bazę danych na potrzeby migracji.
 

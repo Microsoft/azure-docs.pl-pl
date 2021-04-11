@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5089a289e617aa8c2ec153320763647fc8afac9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d9ba7e3e898da8d5b7d1bb4fbc69554ee205147
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489040"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028338"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania do Azure Active Directory z wieloma dzierżawcami przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -191,7 +191,7 @@ Wykonaj następujące kroki dla każdej dzierżawy usługi Azure AD, która ma z
 ## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
 
 1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
-1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](tutorial-register-applications.md)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz przycisk **Uruchom teraz** .
 1. Na stronie rejestracji lub logowania wybierz pozycję **Common AAD** , aby zalogować się przy użyciu konta usługi Azure AD.
 

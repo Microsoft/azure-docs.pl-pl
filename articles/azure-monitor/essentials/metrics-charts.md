@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: a8a4f84db140ca442371cb71886bebf9214d3e43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026542"
+ms.locfileid: "105959917"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -79,11 +79,28 @@ Aby utworzyć inny wykres, który używa innej metryki, wybierz pozycję **Dodaj
 
 Aby zmienić kolejność lub usunąć wiele wykresów, wybierz przycisk wielokropka (**...**), aby otworzyć menu Wykres. Następnie wybierz pozycję **Przenieś w górę**, **Przenieś w dół** lub **Usuń**.
 
-## <a name="aggregation"></a>Agregacja
+## <a name="time-range-controls"></a>Kontrolki zakresu czasu
+
+Oprócz zmiany zakresu czasu za pomocą [panelu selektora czasu](metrics-getting-started.md#select-a-time-range)można również przesuwać i powiększać przy użyciu kontrolek w obszarze wykresu.
+### <a name="pan"></a>Panoramowanie
+
+Aby przesunąć, kliknij strzałkę w lewo i w prawo na krawędzi wykresu.  Spowoduje to przeniesienie wybranego zakresu czasu do tyłu i do przodu o jedną połowę przedziału czasowego wykresu.  Na przykład jeśli Oglądasz ostatnich 24 godzin, kliknięcie strzałki w lewo spowoduje zmianę zakresu czasu na dzień i połowę na 12 godzin temu.
+
+Większość metryk obsługuje okres przechowywania 93 dni, ale tylko ty wyświetlasz tylko 30 dni.  Korzystając z kontrolek panoramowania, zobaczysz w ciągu ostatnich 30 dni, a następnie łatwo przeprowadzisz 15 dni w czasie, aby wyświetlić resztę okresu przechowywania.
+
+![Animowany plik GIF pokazujący lewy i prawy regulator przesuwania.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### <a name="zoom"></a>Zoom
+
+Możesz kliknąć i przeciągnąć wykres, aby powiększyć do sekcji wykresu.  Powiększanie spowoduje zaktualizowanie zakresu czasu na wykresie, aby objąć wybór, i wybranie mniejszego ziarna, jeśli ziarno jest ustawione na wartość "automatyczny".  Nowy zakres czasu będzie miał zastosowanie do wszystkich wykresów w metrykach.
+
+![Animowany plik GIF przedstawiający funkcję powiększania metryk.](./media/metrics-charts/metrics-zoom-control.gif)
+
+## <a name="aggregation&quot;></a>Agregacja
 
 Po dodaniu metryki do wykresu Eksplorator metryk automatycznie stosuje agregację domyślną. Ustawienie domyślne jest zrozumiałe w scenariuszach podstawowych. Można jednak użyć innej agregacji, aby uzyskać więcej szczegółowych informacji na temat metryki. 
 
-Przed użyciem różnych agregacji na wykresie należy zrozumieć, jak Eksplorator metryk je obsługuje. Metryki to serie pomiarów (lub "wartości metryk"), które są przechwytywane w przedziale czasu. Podczas kreolenia wykresu wartości wybranej metryki są agregowane w postaci *ziarna czasu*. 
+Przed użyciem różnych agregacji na wykresie należy zrozumieć, jak Eksplorator metryk je obsługuje. Metryki to serie pomiarów (lub &quot;wartości metryk"), które są przechwytywane w przedziale czasu. Podczas kreolenia wykresu wartości wybranej metryki są agregowane w postaci *ziarna czasu*. 
 
 Wybierasz rozmiar ziarna czasu przy użyciu [panelu selektora czasu](./metrics-getting-started.md#select-a-time-range)Eksploratora metryk. Jeśli nie wybierzesz jawnie ziarna czasu, domyślnie używany jest obecnie wybrany zakres czasu. Po określeniu ziarna czasu wartości metryk, które zostały przechwycone podczas każdego ziarna, są agregowane na wykresie, jeden punkt danych na ziarno.
 

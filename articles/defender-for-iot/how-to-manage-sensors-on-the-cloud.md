@@ -1,16 +1,16 @@
 ---
-title: Dołączanie czujników i subskrypcji w portalu usługi Defender for IoT oraz zarządzanie nimi
+title: Zarządzanie czujnikami i subskrypcjami w portalu Defender for IoT
 description: Dowiedz się, jak dołączać i wyświetlać czujniki oraz zarządzać nimi w portalu usługi Defender for IoT.
 ms.date: 2/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 5c529a5679e8b3d4879b003fa3d168e911f9b518
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781827"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383052"
 ---
-# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Dołączanie czujników i subskrypcji w portalu usługi Defender for IoT oraz zarządzanie nimi
+# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Zarządzanie czujnikami i subskrypcjami w portalu Defender for IoT
 
 W tym artykule opisano sposób dołączania i wyświetlania czujników oraz zarządzania nimi w [portalu usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -137,6 +137,6 @@ Aby odłączania subskrypcję:
 
 Nie ma to wpływ na środowisko lokalne, ale należy odinstalować czujnik z środowiska lokalnego lub ponownie przypisać czujnik do innej subskrypcji, aby zapobiec przepływaniu wszystkich powiązanych danych do lokalnej konsoli zarządzania. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Aktywowanie i konfigurowanie czujnika](how-to-activate-and-set-up-your-sensor.md)

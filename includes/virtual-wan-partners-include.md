@@ -9,10 +9,10 @@ ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f1d3223114e9f691bfb3802a65abea003a7aec6e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105582256"
 ---
 Możesz sprawdzić linki w tej sekcji, aby uzyskać więcej informacji na temat usług oferowanych przez partnerów. Jeśli partner urządzenia rozgałęzienia nie jest wymieniony w poniższej sekcji, skontaktuj się z nami w celu skontaktowania się z firmą. Mogą skontaktować się z nami, wysyłając wiadomość e-mail na adres azurevirtualwan@microsoft.com .

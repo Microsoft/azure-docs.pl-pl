@@ -12,10 +12,10 @@ author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 2a92fa8fd242482585ab3785e99f8239548ce369
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868345"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiowanie potoków uczenia maszynowego w YAML

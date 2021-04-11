@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40094c00a4b896756c5c0e51116e0ae33ae2a096
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742640"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580730"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
@@ -29,13 +29,14 @@ Ta sekcja obejmuje różne sposoby konfigurowania zapory Azure Key Vault.
 
 ### <a name="key-vault-firewall-disabled-default"></a>Zapora Key Vault wyłączona (wartość domyślna)
 
-Domyślnie podczas tworzenia nowego magazynu kluczy Zapora Azure Key Vault jest wyłączona. Wszystkie aplikacje i usługi platformy Azure mogą uzyskiwać dostęp do magazynu kluczy i wysyłać żądania do magazynu kluczy. Należy pamiętać, że ta konfiguracja nie oznacza, że każdy użytkownik będzie mógł wykonywać operacje w magazynie kluczy. Magazyn kluczy nadal ogranicza do wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy, wymagając Azure Active Directory uprawnień do uwierzytelniania i dostępu. Aby bardziej szczegółowo zrozumieć uwierzytelnianie magazynu kluczy, [zobacz dokument podstawowe](./authentication-fundamentals.md)uwierzytelnianie magazynu kluczy.
+Domyślnie podczas tworzenia nowego magazynu kluczy Zapora Azure Key Vault jest wyłączona. Wszystkie aplikacje i usługi platformy Azure mogą uzyskiwać dostęp do magazynu kluczy i wysyłać żądania do magazynu kluczy. Należy pamiętać, że ta konfiguracja nie oznacza, że każdy użytkownik będzie mógł wykonywać operacje w magazynie kluczy. Magazyn kluczy nadal ogranicza do wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy, wymagając Azure Active Directory uprawnień do uwierzytelniania i dostępu. Aby bardziej szczegółowo zrozumieć uwierzytelnianie magazynu kluczy, [zobacz dokument podstawowe](./authentication-fundamentals.md)uwierzytelnianie magazynu kluczy. Aby uzyskać więcej informacji, zobacz [dostęp Azure Key Vault za zaporą](./access-behind-firewall.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Key Vault włączona Zapora (tylko zaufane usługi)
 
-Po włączeniu Zapory Key Vault zostanie nadana opcja "Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory". Lista zaufanych usług nie obejmuje każdej pojedynczej usługi platformy Azure. Na przykład usługa Azure DevOps nie znajduje się na liście zaufanych usług. **Nie oznacza to, że usługi, które nie znajdują się na liście zaufanych usług, nie są zaufane ani niezabezpieczone.** Lista zaufanych usług obejmuje usługi, w których firma Microsoft kontroluje cały kod, który jest uruchamiany w usłudze. Ponieważ użytkownicy mogą pisać kod niestandardowy w usługach platformy Azure, takich jak Azure DevOps, firma Microsoft nie udostępnia opcji tworzenia zbiorczego zatwierdzenia dla usługi. Ponadto, tylko ponieważ usługa pojawia się na liście zaufanych usług, nie oznacza to, że jest ona dozwolona dla wszystkich scenariuszy.
+Po włączeniu Zapory Key Vault zostanie nadana opcja "Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory". Lista zaufanych usług nie obejmuje każdej pojedynczej usługi platformy Azure. Na przykład usługa Azure DevOps nie znajduje się na liście zaufanych usług. **Nie oznacza to, że usługi, które nie znajdują się na liście zaufanych usług, nie są zaufane ani niezabezpieczone.** Lista zaufanych usług obejmuje usługi, w których firma Microsoft kontroluje cały kod, który jest uruchamiany w usłudze. Ponieważ użytkownicy mogą pisać kod niestandardowy w usługach platformy Azure, takich jak Azure DevOps, firma Microsoft nie udostępnia opcji tworzenia zbiorczego zatwierdzenia dla usługi. Ponadto, tylko ponieważ usługa pojawia się na liście zaufanych usług, nie oznacza to, że jest ona dozwolona dla wszystkich scenariuszy. 
 
 Aby ustalić, czy usługa, której próbujesz użyć, znajduje się na liście zaufanych usług, zapoznaj się z [poniższym dokumentem poniżej.](./overview-vnet-service-endpoints.md#trusted-services)
+Aby zapoznać się z przewodnikiem, postępuj zgodnie z instrukcjami w tym miejscu dla [portalu, interfejsu wiersza polecenia platformy Azure i programu PowerShell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault włączona Zapora (adresy IPv4 i zakresy — statyczne adresy IP)
 

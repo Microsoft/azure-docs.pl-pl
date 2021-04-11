@@ -8,10 +8,10 @@ ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
 ms.openlocfilehash: 7d312e4a00cdd2b62ee219df807f30c22f0c9790
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773950"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory

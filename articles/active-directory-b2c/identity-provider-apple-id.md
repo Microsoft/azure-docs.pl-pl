@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63183eb6a77b3a7aecfb6f3e8a7c9ee7c2544de2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5e4ff93b90c7644c1d1498a14c8b9954041cb34
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543911"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028370"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Skonfiguruj konto i zaloguj się za pomocą identyfikatora Apple ID przy użyciu Azure Active Directory B2C (wersja zapoznawcza)
 
@@ -250,7 +250,7 @@ Identyfikator Apple ID można zdefiniować jako dostawcę oświadczeń, dodając
 ## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
 
 1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
-1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](tutorial-register-applications.md)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz przycisk **Uruchom teraz** .
 1. Na stronie rejestracji lub logowania wybierz pozycję **Apple** , aby zalogować się przy użyciu identyfikatora Apple ID.
 

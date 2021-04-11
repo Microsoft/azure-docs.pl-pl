@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed73c114c015ce38fefa02d2b71e27e8f85dca39
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492561"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028676"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge Security Manager
 
@@ -119,12 +119,17 @@ W celu zakotwiczenia zaufania wewnątrz sprzętowego urządzenia IoT Edge należ
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge integracja i Konserwacja programu Security Manager
 
-IoT Edge Security Manager chce identyfikować i izolować składniki, które chronią zabezpieczenia i integralność platformy Azure IoT Edge w celu zapewnienia niestandardowej funkcjonalności. Osoby trzecie, takie jak twórcy urządzeń, powinny korzystać z niestandardowych funkcji zabezpieczeń dostępnych na urządzeniach.  Zobacz sekcję następne kroki, aby poznać linki, które pokazują, jak zabezpieczyć usługę Azure IoT Security Manager za pomocą Trusted Platform Module (TPM) na platformach Linux i Windows. Te przykłady używają oprogramowania lub wirtualnej moduły TPM, ale bezpośrednio mają zastosowanie do korzystania z dyskretnych urządzeń TPM.  
+IoT Edge Security Manager chce identyfikować i izolować składniki, które chronią zabezpieczenia i integralność platformy Azure IoT Edge w celu zapewnienia niestandardowej funkcjonalności. Osoby trzecie, takie jak twórcy urządzeń, powinny korzystać z niestandardowych funkcji zabezpieczeń dostępnych na urządzeniach.  
+
+Dowiedz się, jak zabezpieczyć usługę Azure IoT Security Manager za pomocą Trusted Platform Module (TPM) przy użyciu oprogramowania lub moduły TPM wirtualnego:  
+
+Utwórz i Udostępnij [urządzenie IoT Edge przy użyciu wirtualnego modułu TPM na maszynie wirtualnej z systemem Linux](how-to-auto-provision-simulated-device-linux.md).
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Utwórz i Udostępnij [urządzenie IoT Edge przy użyciu symulowanego modułu TPM w systemie Windows](how-to-auto-provision-simulated-device-windows.md).
+:::moniker-end
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z blogiem dotyczącym [zabezpieczania inteligentnej krawędzi](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
-
-Utwórz i Udostępnij [urządzenie IoT Edge przy użyciu wirtualnego modułu TPM na maszynie wirtualnej z systemem Linux](how-to-auto-provision-simulated-device-linux.md).
-
-Utwórz i Udostępnij [urządzenie IoT Edge przy użyciu symulowanego modułu TPM w systemie Windows](how-to-auto-provision-simulated-device-windows.md).

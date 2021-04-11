@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
 ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803797"
 ---
 # <a name="data-protection-overview"></a>Omówienie ochrony danych

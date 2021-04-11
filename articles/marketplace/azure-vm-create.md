@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/10/2021
-ms.openlocfilehash: ffc09daa15e742ca2b5b8a2fa9323e33fe317c60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 827e4d883fd9e80ae84845d620cc4ca00816f56e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200386"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551321"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Jak utworzyć ofertę maszyny wirtualnej w witrynie Azure Marketplace
 
@@ -58,20 +58,7 @@ Aby włączyć dysk testowy, zaznacz pole wyboru **Włącz dysk testowy** . Dysk
 
 ## <a name="configure-customer-leads-management"></a>Konfigurowanie zarządzania klientami
 
-Po opublikowaniu oferty na komercyjnym rynku z Centrum partnerskiego połącz ją z systemem zarządzania relacjami z klientami (CRM). Pozwala to na otrzymywanie informacji kontaktowych klienta, gdy tylko ktoś wyrazi zainteresowanie lub skorzysta z produktu. Połączenie z programem CRM jest wymagane, jeśli chcesz włączyć dysk testowy (zobacz poprzednią sekcję). W przeciwnym razie połączenie z programem CRM jest opcjonalne.
-
-1. W obszarze **potencjalni klienci** wybierz łącze **Połącz** .
-1. W oknie dialogowym **szczegóły połączenia** wybierz miejsce docelowe potencjalnego klienta.
-1. Wypełnij pola, które są wyświetlane. Aby uzyskać szczegółowe instrukcje, zobacz następujące artykuły:
-
-   - [Konfigurowanie oferty do wysyłania potencjalnych klientów do tabeli platformy Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-   - [Skonfiguruj ofertę do wysyłania potencjalnych klientów do usługi dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (dawniej Dynamics CRM Online)
-   - [Konfigurowanie oferty do wysyłania potencjalnych klientów do punktu końcowego HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
-   - [Konfigurowanie oferty do wysyłania potencjalnych klientów do programu Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
-   - [Konfigurowanie oferty do wysyłania potencjalnych klientów do usługi Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
-
-1. Aby sprawdzić podaną konfigurację, wybierz link **Weryfikuj** .
-1. Wybierz pozycję **Połącz**.
+[!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
 Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty w menu po lewej stronie, **Właściwości**.
 

@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: b9ae576a2d0ab8aee00be5b755c348806b412bef
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8db1a671904233098610a9ba55ce260e6214c38c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108493"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028506"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -26,9 +26,8 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 | [Wyszukiwanie semantyczne](semantic-search-overview.md) | Kolekcja funkcji związanych z zapytaniami, które znacząco ulepszają znaczenie wyników wyszukiwania przez minimalne modyfikacje żądania zapytania. </br></br>[Klasyfikacja semantyczna](semantic-ranking.md) oblicza oceny przydatności przy użyciu semantyki w postaci wyrazów i zawartości. </br></br>[Podpisy semantyczne](semantic-how-to-query-request.md) zwracają odpowiednie fragmenty z dokumentu, który najlepiej podsumowuje dokument, z wyróżnionymi najważniejszymi terminami lub frazami. </br></br>[Odpowiedzi semantyczne](semantic-answers.md) zwracają kluczowe fragmenty wyodrębnione z dokumentu wyszukiwania, które są formułowane jako bezpośrednia odpowiedź na zapytanie, które wygląda jak pytanie. | Publiczna wersja zapoznawcza ([według żądania](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Użyj usługi [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30 — wersja zapoznawcza lub [eksplorator wyszukiwania](search-explorer.md) w Azure Portal. </br></br>Obowiązują ograniczenia dotyczące regionów i warstw. |
 | [Sprawdzanie pisowni — terminy zapytań](speller-how-to-add.md) | Przed przekazaniem terminów zapytania do aparatu wyszukiwania można sprawdzić, czy pisownia nie jest możliwa. `speller`Opcja działa z dowolnym typem kwerendy (prosty, pełny lub semantyczny). |  Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza|
 | [Indeksator usługi SharePoint Online](search-howto-index-sharepoint-online.md) | Ten indeksator nawiązuje połączenie z witryną usługi SharePoint Online, dzięki czemu można indeksować zawartość z biblioteki dokumentów. | Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |
-| [Normalizer](search-normalizers.md) | Normalizer oferuje proste przetwarzanie tekstu, takie jak wielkość liter, usuwanie akcentów, asciifolding i tak dalej, bez przechodzenia przez cały łańcuch analizy.| Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |
-[**Umiejętność wyszukiwania jednostek niestandardowych**](cognitive-search-skill-custom-entity-lookup.md ) |  Umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne. | Ogólnie dostępna. |
-|
+| [Normalizer](search-normalizers.md) | Normalizer udostępniają proste przetwarzanie tekstu wstępnego: spójna wielkość liter, usuwanie akcentu i łamanie kodu ASCII bez wywoływania łańcucha analizy pełnotekstowego.| Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |
+| [Umiejętność wyszukiwania jednostek niestandardowych](cognitive-search-skill-custom-entity-lookup.md ) |  Umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne. | Ogólnie dostępna. |
 
 ## <a name="february-2021"></a>Luty 2021 r.
 

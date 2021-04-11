@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: efc1438fdc539af278ebff1f292c5fa0a91b7b91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 24298734a46b8339a2a8818692641b4c10812294
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016104"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104885"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -29,7 +29,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 
 |Typ zasobu  |Obsługiwane wymiary |Alerty dotyczące obsługi zasobów| Dostępne metryki|
 |---------|---------|-----|----------|
-|Microsoft. Aadiam/azureADMetrics | Tak | Nie | |
+|Microsoft. Aadiam/azureADMetrics | Tak | Nie | [Azure AD](../essentials/metrics-supported.md#microsoftaadiamazureadmetrics) |
 |Microsoft.ApiManagement/service | Tak | Nie | [API Management](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft. AppConfiguration/configurationStores |Tak | Nie | [Konfiguracja aplikacji](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft. AppPlatform/Sprężyna | Tak | Nie | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
@@ -38,6 +38,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft.Batch/batchAccounts | Tak | Nie | [Konta usługi Batch](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft. BotService/botServices | Tak | Nie | [Usługi bot Services](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft. cache/Redis | Tak | Tak | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|programu. Sieć CDN/profile | Tak | Nie | [Profile sieci CDN](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft. ClassicCompute/domainNames/gniazda/role | Nie | Nie | [Cloud Services klasyczny](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft. ClassicCompute/virtualMachines | Nie | Nie | [Virtual Machines klasyczny](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft. ClassicStorage/storageAccounts | Tak | Nie | [Konta magazynu (klasyczne)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
@@ -49,7 +50,7 @@ Oto pełna lista Azure Monitor źródeł metryk obsługiwanych przez nowsze aler
 |Microsoft. COMPUTE/cloudServices | Tak | Nie |  [Usługi w chmurze](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
 |Microsoft. COMPUTE/cloudServices/role | Tak | Nie |  [Role usługi w chmurze](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Tak | Tak<sup>1</sup> | [Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets | Tak | Nie |[Zestawy skalowania maszyn wirtualnych](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.Compute/virtualMachineScaleSets | Tak | Nie |[Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft. ContainerInstance/containerGroups | Tak| Nie | [Grupy kontenerów](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft. ContainerRegistry/rejestry | Nie | Nie | [Rejestry kontenerów](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft. ContainerService/managedClusters | Tak | Nie | [Zarządzane klastry](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |

@@ -5,16 +5,16 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9dfd29f2265e599f3cc7c412b81c3b7b93af40db
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75445739"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109717"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Zalecenia dotyczące tagowania i przechowywania wersji obrazów kontenerów
 
-Podczas wypychania wdrażania obrazów kontenera do rejestru kontenerów, a następnie wdrażania ich, potrzebna jest strategia dla tagowania obrazów i przechowywania wersji. W tym artykule omówiono dwa podejścia i miejsce, w którym każdy z nich mieści się w cyklu życia kontenera:
+Podczas wypychania obrazów kontenera do rejestru kontenerów, a następnie ich wdrażania potrzebna jest strategia dla tagowania obrazów i przechowywania wersji. W tym artykule omówiono dwa podejścia i miejsce, w którym każdy z nich mieści się w cyklu życia kontenera:
 
 * **Stałe znaczniki** — Tagi, których można użyć, na przykład, aby wskazać wersję główną lub pomocniczą, taką jak *mycontainerimage: 1.0*.
 * **Unikatowe Tagi** — inny tag dla każdego obrazu, który można wypchnąć do rejestru, taki jak *mycontainerimage: abc123*.

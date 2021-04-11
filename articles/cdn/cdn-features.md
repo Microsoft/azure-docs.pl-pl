@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 3a794d8915c820abecd530911f05ac649e5e538c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9aa394cda245bd3a457a16c19660bfe08553d14d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379917"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058888"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Jakie są porównania między funkcjami produktu Azure CDN?
 
@@ -71,7 +71,7 @@ W poniższej tabeli przedstawiono porównanie funkcji dostępnych w poszczególn
 | **Łatwość użycia** | **Microsoft — Standardowa** | **Akamai — Standardowa** | **Verizon — Standardowa** | **Verizon — Premium** | 
 | Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) i [Media Services](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Zarządzanie za pomocą [interfejsu API REST](/rest/api/cdn/), [platformy .NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md)lub [programu PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Typy kompresji MIME](./cdn-improve-performance.md)  |Tylko domyślne |Konfigurowalne |Konfigurowalne  |Konfigurowalne  |
+| [Typy kompresji MIME](./cdn-improve-performance.md)  |Konfigurowalne |Konfigurowalne |Konfigurowalne  |Konfigurowalne  |
 | Kodowania kompresji  |gzip, brotli |gzip |gzip, Wklęśnięcie, BZIP2, brotli  |gzip, Wklęśnięcie, BZIP2, brotli  |
 
 ## <a name="migration"></a>Migracja

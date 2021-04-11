@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647476"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959861"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła do zasobów lokalnych przy użyciu Azure Active Directory 
 
@@ -193,6 +193,8 @@ W przypadku czystej instalacji hybrydowej maszyny połączonej z usługą Azure 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Nie mogę pobrać logowania jednokrotnego do zasobu sieciowego NTLM po zalogowaniu się za pomocą programu FIDO i wyświetleniu monitu o poświadczenia
 
 Upewnij się, że jest wystarczająca liczba kontrolerów domeny w celu uzyskania odpowiedzi na czas na obsługę żądania zasobu. Aby sprawdzić, czy widzisz kontroler domeny z uruchomioną funkcją, Przejrzyj dane wyjściowe `nltest /dsgetdc:contoso /keylist /kdc` .
+
+Uwaga: ten przełącznik/keylist w poleceniu Nltest można znaleźć z poziomu klienta Windows 10 v2004 i nowszego
 
 ## <a name="next-steps"></a>Następne kroki
 

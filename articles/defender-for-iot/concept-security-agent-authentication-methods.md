@@ -4,10 +4,10 @@ description: Poznaj różne metody uwierzytelniania dostępne w przypadku korzys
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.openlocfilehash: bd4d89d8664dae2421ff7f268b3710b5a906427b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784615"
 ---
 # <a name="security-agent-authentication-methods"></a>Metody uwierzytelniania agenta zabezpieczeń

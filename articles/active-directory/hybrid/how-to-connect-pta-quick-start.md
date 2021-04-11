@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3200dc6ad7756f77dc0d74df83a33c7e89d4bedb
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 1c5e71522d53bd4e528b2a5a106a4dcc344df3ab
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044570"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732860"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -73,6 +73,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
      
      Jeśli reguły zapory są stosowane w zależności od użytkowników generujących ruch, otwórz te porty dla ruchu przychodzącego z usług systemu Windows działających jako usługi sieciowe.
    - Jeśli zapora lub serwer proxy umożliwia dodawanie wpisów DNS do dozwolonych, Dodaj połączenia do **\* . msappproxy.NET** i **\* . ServiceBus.Windows.NET**. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
+   - Unikaj wszystkich form inspekcji wbudowanej i kończy się na wychodzącej komunikacji TLS między agentem przekazującym Azure a punkt końcowy platformy Azure. 
    - Jeśli masz wychodzący serwer proxy HTTP, upewnij się, że ten adres URL, autologon.microsoftazuread-sso.com, znajduje się na liście dozwolonych. Należy jawnie określić ten adres URL, ponieważ symbol wieloznaczny nie może zostać zaakceptowany. 
    - Agenci uwierzytelniania muszą mieć dostęp do **login.Windows.NET** i **login.microsoftonline.com** na potrzeby rejestracji wstępnej. Należy również otworzyć Zaporę dla tych adresów URL.
     - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **crl3.DigiCert.com:80**, **crl4.DigiCert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-C3-CA2-2009.OCSP.d-Trust.NET:80**, **CRL.Microsoft.com:80**, **oneocsp.Microsoft.com:80** i **OCSP.msocsp.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.

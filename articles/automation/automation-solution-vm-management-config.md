@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef8b4ddcbf09fa3ec0e3b07ae797693aed095c88
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597744"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104970"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurowanie Start/Stop VMs during off-hours
 

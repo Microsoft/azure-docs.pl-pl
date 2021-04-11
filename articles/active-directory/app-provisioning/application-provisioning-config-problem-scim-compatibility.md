@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 04/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268931715500631ac2d10feacebff1d5c65931bf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256902"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028795"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Znane problemy i rozwiązania z standard scim 2,0 zgodności protokołów aprowizacji użytkowników usługi Azure AD
 
@@ -51,7 +51,7 @@ Użyj flag poniżej w adresie URL dzierżawy aplikacji, aby zmienić domyślne z
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Standard scim flagi do późniejszego zachowania.":::
 
 * Użyj następującego adresu URL, aby zaktualizować zachowanie poprawek i zapewnić zgodność Standard scim (np. aktywna jako wartość logiczna i odpowiednie usunięcia członkostwa w grupie). To zachowanie jest obecnie dostępne tylko wtedy, gdy jest używana flaga, ale będzie zachowaniem domyślnym w ciągu następnych kilku miesięcy. Ta flaga podglądu nie działa obecnie z obsługą administracyjną na żądanie. 
-  * **Adres URL (zgodny z standard scim):** AzureAdScimPatch062020
+  * **Adres URL (zgodny z standard scim):** aadOptscim062020
   * **Odwołania do Standard scim RFC:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
   * **Domyślnie**

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 648003c042d4c8118af566a6c985d2fd6e26b04e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563042"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959674"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Krok 3 — Konfigurowanie do migracji do interfejsu API REST v3 lub zestawu SDK klienta
 
@@ -45,7 +45,7 @@ Klienci, którzy wcześniej korzystali z wersji 2015-10-01 interfejsu API zarzą
 
 Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](how-to-set-azure-subscription.md?tabs=portal) przy użyciu Azure Portal. Wybierz pozycję dostęp do interfejsu API i uwierzytelnianie główne usługi, aby wygenerować nowy identyfikator i wpisy tajne aplikacji usługi Azure AD do użycia z tym kontem testowym.
 
-[Utwórz konto usługi Media Services](create-account-howto.md?tabs=portal).
+[Utwórz konto usługi Media Services](account-create-how-to.md?tabs=portal).
 [Uzyskaj poświadczenia umożliwiające dostęp do interfejsu API Media Services](access-api-howto.md?tabs=portal).
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Pobierz wybrany zestaw SDK klienta i Skonfiguruj swoje środowisko

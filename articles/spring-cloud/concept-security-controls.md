@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 62a0bd19f6b10bbe6561f5587ed85d4d1e5880b3
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878626"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Mechanizmy kontroli zabezpieczeń dla usługi Azure Spring Cloud

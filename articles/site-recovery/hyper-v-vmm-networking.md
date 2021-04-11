@@ -1,18 +1,15 @@
 ---
 title: Skonfiguruj adresowanie IP po przejściu w tryb failover do lokacji dodatkowej za pomocą Azure Site Recovery
 description: Opisuje sposób konfigurowania adresowania IP na potrzeby nawiązywania połączenia z maszynami wirtualnymi w dodatkowej lokacji lokalnej po odzyskiwaniu po awarii i przejściu do trybu failover za pomocą Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1169748d7dae9990728dff91782a20d42e3c860b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87495947"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580250"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurowanie adresowania IP w celu nawiązania połączenia z dodatkową lokacją lokalną po przejściu do trybu failover
 
