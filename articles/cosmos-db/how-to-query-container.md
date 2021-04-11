@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cd90e994e620960e0d974ef7609a67f8a5eb58b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93335895"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448546"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Wykonywanie zapytania dotyczącego kontenera usługi Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,19 +26,19 @@ W przypadku wykonywania zapytań dotyczących danych z kontenerów, jeśli zapyt
 Rozważmy na przykład poniższe zapytanie z filtrem równości `DeviceId` . Jeśli to zapytanie zostanie uruchomione w kontenerze partycjonowanym na `DeviceId` , to zapytanie zostanie przefiltrowane na jedną partycję fizyczną.
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
 Podobnie jak w przypadku wcześniejszego przykładu, to zapytanie będzie również filtrowane na pojedynczej partycji. Dodanie dodatkowego filtru nie `Location` powoduje zmiany:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Oto zapytanie, które ma filtr zakresu w kluczu partycji i nie należy do zakresu jednej partycji fizycznej. Aby można było wykonać zapytanie w ramach partycji, zapytanie musi mieć filtr równości, który zawiera klucz partycji:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## <a name="cross-partition-query"></a>Zapytanie obejmujące wiele partycji
@@ -46,7 +46,7 @@ Oto zapytanie, które ma filtr zakresu w kluczu partycji i nie należy do zakres
 Następujące zapytanie nie ma filtru dla klucza partycji ( `DeviceId` ). W związku z tym musi ona mieć wentylator we wszystkich partycjach fizycznych, w których są uruchamiane względem indeksu każdej partycji:
 
 ```sql
-    SELECT * FROM c WHERE c.Location = 'Seattle`
+SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
 Każda partycja fizyczna ma swój własny indeks. W związku z tym podczas uruchamiania zapytania między partycjami w kontenerze efektywnie działa jedno zapytanie *na* partycję fizyczną. Azure Cosmos DB automatycznie agreguje wyniki w różnych partycjach fizycznych.

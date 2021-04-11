@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5a73f4eba9581965470b95111e6dda1d8014e4cb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604672"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167502"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Konfiguracja selektywnej synchronizacji skrótów haseł dla Azure AD Connect
 
@@ -83,7 +83,7 @@ W poniższej sekcji opisano, jak włączyć selektywną synchronizację skrótó
 - Ustaw wartość atrybutu w usłudze Active Directory, która została zdefiniowana jako atrybut zakresu dla użytkowników, którym chcesz zezwolić na synchronizację skrótów haseł. 
 
 >[!Important]
->Kroki podane w celu skonfigurowania synchronizacji skrótów haseł selektywnych będą miały wpływ tylko na obiekty użytkownika, które mają Active Directory **adminDescriptioną** wartość **PHSFiltered**.
+>Kroki podane w celu skonfigurowania synchronizacji skrótów haseł selektywnych mają wpływ tylko na obiekty użytkownika, które mają Active Directory **adminDescriptioną** wartość **PHSFiltered**.
 Jeśli ten atrybut nie jest wypełniony lub wartość jest inna niż **PHSFiltered** , te reguły nie zostaną zastosowane do obiektów użytkownika.
 
 
@@ -95,7 +95,7 @@ Jeśli ten atrybut nie jest wypełniony lub wartość jest inna niż **PHSFilter
      ![Wybierz regułę](media/how-to-connect-selective-password-hash-synchronization/exclude-2.png)
  3. Pierwsza reguła spowoduje wyłączenie synchronizacji skrótów haseł. Podaj następującą nazwę nowej reguły niestandardowej: **w programie AD-User AccountEnabled-Filter users from PHS**.
  Zmień wartość pierwszeństwa na liczbę mniejszą niż 100 (na przykład **90** lub w zależności od tego, która jest najmniejszą wartością dostępną w środowisku).
- Upewnij się, że pola wyboru **Włącz synchronizację haseł** i **wyłączone** są niezaznaczone i c.
+ Upewnij się, że pola wyboru **Włącz synchronizację haseł** i **wyłączone** nie są zaznaczone.
  Kliknij przycisk **Dalej**.
   ![Edytuj ruch przychodzący](media/how-to-connect-selective-password-hash-synchronization/exclude-3.png)
  4. W obszarze **Filtr określania zakresu** kliknij pozycję **Dodaj klauzulę**.
@@ -155,7 +155,7 @@ Poniżej znajduje się podsumowanie akcji, które zostaną wykonane w poniższyc
 - Ustaw wartość atrybutu w usłudze Active Directory, która została zdefiniowana jako atrybut zakresu dla użytkowników, którym chcesz zezwolić na synchronizację skrótów haseł. 
 
 >[!Important]
->Kroki podane w celu skonfigurowania synchronizacji skrótów haseł selektywnych będą miały wpływ tylko na obiekty użytkownika, które mają Active Directory **adminDescriptioną** wartość **PHSIncluded**.
+>Kroki podane w celu skonfigurowania synchronizacji skrótów haseł selektywnych mają wpływ tylko na obiekty użytkownika, które mają Active Directory **adminDescriptioną** wartość **PHSIncluded**.
 Jeśli ten atrybut nie jest wypełniony lub wartość jest inna niż **PHSIncluded** , te reguły nie zostaną zastosowane do obiektów użytkownika.
 
 

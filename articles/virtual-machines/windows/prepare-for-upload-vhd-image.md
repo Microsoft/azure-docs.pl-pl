@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: a177fc7e17dc91a0d57fa6dee87b80921d7fd8f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043584"
+ms.locfileid: "105967969"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Przygotowywanie dysku VHD lub VHDX systemu Windows do przekazania na platformę Azure
 
@@ -113,6 +113,10 @@ Po zakończeniu skanowania programu SFC Zainstaluj aktualizacje systemu Windows 
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
+1. W przypadku maszyn wirtualnych ze starszymi systemami operacyjnymi (Windows Server 2012 R2 lub Windows 8.1 i poniżej) Upewnij się, że są zainstalowane najnowsze usługi składników integracji funkcji Hyper-V. Aby uzyskać więcej informacji, zobacz [Aktualizacja składników integracji funkcji Hyper-V dla maszyny wirtualnej z systemem Windows](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+
+> [!NOTE]
+> W scenariuszu, w którym maszyny wirtualne mają być skonfigurowane z rozwiązaniem odzyskiwania po awarii między lokalnym serwerem VMware i platformą Azure, nie można używać usług składników integracji funkcji Hyper-V. W takim przypadku należy skontaktować się z pomocą techniczną VMware, aby przeprowadzić migrację maszyny wirtualnej na platformę Azure i wprowadzić ją w programie VMware Server.
 
 ## <a name="check-the-windows-services"></a>Sprawdzanie usług systemu Windows
 
@@ -266,6 +270,8 @@ Upewnij się, że maszyna wirtualna jest w dobrej kondycji, bezpieczna i RDP:
 1. Ustaw ustawienia Dane konfiguracji rozruchu (BCD).
 
    ```powershell
+   cmd
+
    bcdedit.exe /set "{bootmgr}" integrityservices enable
    bcdedit.exe /set "{default}" device partition=C:
    bcdedit.exe /set "{default}" integrityservices enable
@@ -279,6 +285,8 @@ Upewnij się, że maszyna wirtualna jest w dobrej kondycji, bezpieczna i RDP:
    bcdedit.exe /set "{bootmgr}" bootems yes
    bcdedit.exe /ems "{current}" ON
    bcdedit.exe /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+   exit
    ```
 
 1. Dziennik zrzutu może być przydatny podczas rozwiązywania problemów z awarią systemu Windows. Włącz zbieranie dzienników zrzutów:
@@ -351,6 +359,10 @@ Upewnij się, że maszyna wirtualna jest w dobrej kondycji, bezpieczna i RDP:
 1. Odinstaluj wszelkie inne oprogramowanie lub sterowniki innej firmy, które są powiązane ze składnikami fizycznymi lub innymi technologiami wirtualizacji.
 
 ### <a name="install-windows-updates"></a>Zainstaluj aktualizacje systemu Windows
+
+> [!NOTE]
+> Aby uniknąć przypadkowego ponownego uruchomienia podczas aprowizacji maszyny wirtualnej, zalecamy zakończenie wszystkich instalacji aktualizacji Windows Update i upewnienie się, że nie ma żadnych oczekujących ponownych uruchomień. Jednym ze sposobów jest zainstalowanie wszystkich aktualizacji systemu Windows i ponowne uruchomienie maszyny wirtualnej przed przeprowadzeniem migracji na platformę Azure. </br><br>
+>Jeśli konieczne jest również uogólnienie systemu operacyjnego (Sysprep), należy zaktualizować system Windows i ponownie uruchomić maszynę wirtualną przed uruchomieniem polecenia Sysprep.
 
 W idealnym przypadku należy zachować uaktualnienie komputera do *poziomu poprawki*, jeśli nie jest to możliwe, należy się upewnić, że są zainstalowane następujące aktualizacje. Aby uzyskać najnowsze aktualizacje, zobacz strony historii systemu Windows: [Windows 10, Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 i Windows Server 2012 R2](https://support.microsoft.com/help/4009470) oraz [Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 

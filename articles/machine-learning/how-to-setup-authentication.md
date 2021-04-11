@@ -8,15 +8,15 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee767cbeafcce604ecb4a79ce0fdf21c70bbb47c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102210822"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219641"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla zasobów i przepływów pracy usługi Azure Machine Learning
 
@@ -37,7 +37,7 @@ Dowiedz się, jak skonfigurować uwierzytelnianie w obszarze roboczym Azure Mach
 * Utwórz [obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
 * [Skonfiguruj środowisko programistyczne](how-to-configure-environment.md) , aby zainstalować zestaw SDK Azure Machine Learning, lub Użyj [wystąpienia obliczeniowego Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) z już zainstalowanym zestawem SDK.
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Wszystkie przepływy pracy uwierzytelniania dla obszaru roboczego są zależne od Azure Active Directory. Jeśli chcesz, aby użytkownicy byli uwierzytelniani przy użyciu poszczególnych kont, muszą mieć konta w usłudze Azure AD. Jeśli chcesz używać jednostek usługi, muszą one znajdować się w usłudze Azure AD. Tożsamości zarządzane są również funkcją usługi Azure AD. 
 
@@ -70,12 +70,6 @@ Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego j
     Jeśli masz wiele subskrypcji platformy Azure, możesz użyć polecenia, `az account set -s <subscription name or ID>` Aby ustawić subskrypcję. Aby uzyskać więcej informacji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
-
-1. Zainstaluj rozszerzenie Azure Machine Learning:
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
 
 1. Utwórz nazwę główną usługi. W poniższym przykładzie jest tworzone uwierzytelnianie SP o nazwie **ml** :
 
@@ -143,7 +137,7 @@ Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego j
 
 1. W [Azure Portal](https://portal.azure.com)wybierz obszar roboczy, a następnie wybierz pozycję __Access Control (IAM)__, __Dodaj przypisanie roli__ i wybierz pozycję __maszyna wirtualna__ na liście rozwijanej __Przypisz dostęp do__ . Na koniec wybierz tożsamość maszyny wirtualnej.
 
-1. Wybierz rolę, która ma zostać przypisana do tej tożsamości. Na przykład współautor lub rola niestandardowa. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu do zasobów](how-to-assign-roles.md).
+1. Wybierz rolę, która ma zostać przypisana do tej tożsamości. Na przykład współautor lub rola niestandardowa. Aby uzyskać więcej informacji, zobacz [kontrolowanie dostępu do zasobów](how-to-assign-roles.md).
 
 ### <a name="managed-identity-with-compute-cluster"></a>Zarządzana tożsamość z klastrem obliczeniowym
 

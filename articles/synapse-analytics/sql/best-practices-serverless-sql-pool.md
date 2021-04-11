@@ -10,18 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dcd48354372a196ea903c335e5e22caf20e25996
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720393"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219658"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
 W tym artykule znajdziesz zbiór najlepszych rozwiązań dotyczących używania puli SQL bezserwerowej. Pula SQL bezserwerowa jest zasobem w usłudze Azure Synapse Analytics.
 
 Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików na kontach usługi Azure Storage. Nie ma ona lokalnego magazynu ani możliwości pozyskiwania. Dlatego wszystkie pliki docelowe zapytań są spoza puli SQL bezserwerowej. Wszystkie elementy związane z odczytem plików z magazynu mogą mieć wpływ na wydajność zapytań.
+
+Niektóre ogólne wytyczne są następujące:
+- Upewnij się, że aplikacje klienckie mają rozmieszczoną bezserwerową pulę SQL.
+  - Jeśli używasz aplikacji klienckich poza platformą Azure (na przykład Power BI Desktop, SSMS, ADS), upewnij się, że używasz puli bezserwerowej w pewnym regionie blisko komputera klienckiego.
+- Upewnij się, że magazyn (Azure Data Lake, Cosmos DB) i Pula SQL bezserwerowe znajdują się w tym samym regionie.
+- Spróbuj [zoptymalizować układ magazynu](#prepare-files-for-querying) przy użyciu partycjonowania i zachować pliki z zakresu od 100 MB do 10 GB.
+- Jeśli zwracasz dużą liczbę wyników, upewnij się, że używasz programu SSMS lub ADS, a nie Synapse Studio. Synapse Studio to narzędzie sieci Web, które nie jest przeznaczone do dużych zestawów wyników. 
+- Jeśli filtrowanie wyników odbywa się według kolumny ciągów, spróbuj użyć `BIN2_UTF8` sortowania.
+- Spróbuj buforować wyniki po stronie klienta za pomocą trybu importu Power BI lub Azure Analysis Services i okresowo odświeżać je. Pule SQL bezserwerowe nie mogą zapewniać interaktywnego środowiska w Power BI trybie zapytania bezpośredniego, jeśli są używane złożone zapytania lub przetwarzania dużej ilości danych.
 
 ## <a name="client-applications-and-network-connections"></a>Aplikacje klienckie i połączenia sieciowe
 
@@ -66,7 +75,11 @@ Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajnoś
 
 ### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Lokalizowanie magazynu analitycznego CosmosDB i puli SQL bezserwerowej
 
-Upewnij się, że magazyn analityczny CosmosDB jest umieszczony w tym samym regionie co obszar roboczy Synapse. Zapytania obejmujące wiele regionów mogą powodować ogromne opóźnienia.
+Upewnij się, że magazyn analityczny CosmosDB jest umieszczony w tym samym regionie co obszar roboczy Synapse. Zapytania obejmujące wiele regionów mogą powodować ogromne opóźnienia. Użyj właściwości region w parametrach połączenia, aby jawnie określić region, w którym jest umieszczany magazyn analityczny (zobacz [Query CosmosDb, używając bezserwerowej puli SQL](query-cosmos-db-analytical-store.md#overview)):
+
+```
+'account=<database account name>;database=<database name>;region=<region name>'
+```
 
 ## <a name="csv-optimizations"></a>Optymalizacje CSV
 

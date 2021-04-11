@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 09cfdd026105a34db976118f38b011e2c4578a24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fea39388b6b4387dfc4fe95d1cdfb3e523a8089c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470781"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382440"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opcje rejestrowania aplikacji SAML w Azure AD B2C
 
@@ -34,7 +34,86 @@ W tym artykule opisano opcje konfiguracji, które są dostępne podczas łączen
 
 ::: zone pivot="b2c-custom-policy"
 
-## <a name="encrypted-saml-assertions"></a>Zaszyfrowane potwierdzenia SAML
+
+## <a name="saml-response-signature"></a>Sygnatura odpowiedzi SAML
+
+Możesz określić certyfikat, który ma być używany do podpisywania komunikatów SAML. Komunikat jest `<samlp:Response>` elementem w odpowiedzi SAML wysyłanym do aplikacji.
+
+Jeśli nie masz jeszcze klucza zasad, [Utwórz go](saml-service-provider.md#create-a-policy-key). Następnie skonfiguruj `SamlMessageSigning` element metadanych w profilu technicznym wystawcy tokenów SAML. `StorageReferenceId`Musi odwoływać się do nazwy klucza zasad.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <!-- SAML Token Issuer technical profile -->
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+        ...
+      <CryptographicKeys>
+        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
+        ...
+      </CryptographicKeys>
+    ...
+    </TechnicalProfile>
+```
+
+### <a name="saml-response-signature-algorithm"></a>Algorytm podpisu odpowiedzi SAML
+
+Można skonfigurować algorytm podpisu używany do podpisywania potwierdzenia SAML. Możliwe wartości to `Sha256` , `Sha384` , `Sha512` , lub `Sha1` . Upewnij się, że profil techniczny i aplikacja używają tego samego algorytmu podpisu. Używaj tylko algorytmu obsługiwanego przez certyfikat.
+
+Skonfiguruj algorytm podpisu przy użyciu `XmlSignatureAlgorithm` klucza metadanych w elemencie metadanych jednostki uzależnionej.
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="XmlSignatureAlgorithm">Sha256</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## <a name="saml-assertions-signature"></a>Sygnatura potwierdzeń SAML
+
+Gdy aplikacja oczekuje, że sekcja potwierdzenia SAML ma być podpisana, upewnij się, że Dostawca usługi SAML ustawił `WantAssertionsSigned` na `true` . Jeśli jest ustawiona na `false` lub nie istnieje, sekcja potwierdzenia nie będzie podpisywać. Poniższy przykład przedstawia metadane dostawcy usługi SAML z `WantAssertionsSigned` ustawionym na `true` .
+
+```xml
+<EntityDescriptor ID="id123456789" entityID="https://samltestapp2.azurewebsites.net" validUntil="2099-12-31T23:59:59Z" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+  <SPSSODescriptor  WantAssertionsSigned="true" AuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+  ...
+  </SPSSODescriptor>
+</EntityDescriptor>
+```  
+
+### <a name="saml-assertions-signature-certificate"></a>Certyfikat podpisu potwierdzenia SAML
+
+Zasady muszą określać certyfikat, który ma być używany do podpisywania sekcji potwierdzenia SAML odpowiedzi SAML. Jeśli nie masz jeszcze klucza zasad, [Utwórz go](saml-service-provider.md#create-a-policy-key). Następnie skonfiguruj `SamlAssertionSigning` element metadanych w profilu technicznym wystawcy tokenów SAML. `StorageReferenceId`Musi odwoływać się do nazwy klucza zasad.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <!-- SAML Token Issuer technical profile -->
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+        ...
+      <CryptographicKeys>
+        <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
+        ...
+      </CryptographicKeys>
+    ...
+    </TechnicalProfile>
+```
+
+## <a name="saml-assertions-encryption"></a>Szyfrowanie SAML Assertions
 
 Gdy aplikacja oczekuje, że potwierdzenia SAML mają być w szyfrowanym formacie, należy upewnić się, że szyfrowanie jest włączone w zasadach Azure AD B2C.
 
@@ -158,26 +237,6 @@ Oferujemy kompletne przykładowe zasady, których można użyć do testowania z 
 1. Zaktualizuj `TenantId` , aby dopasować nazwę dzierżawy, na przykład *contoso.b2clogin.com*.
 1. Zachowaj nazwę zasad *B2C_1A_signup_signin_saml*.
 
-## <a name="saml-response-signature-algorithm"></a>Algorytm podpisu odpowiedzi SAML
-
-Można skonfigurować algorytm podpisu używany do podpisywania potwierdzenia SAML. Możliwe wartości to `Sha256` , `Sha384` , `Sha512` , lub `Sha1` . Upewnij się, że profil techniczny i aplikacja używają tego samego algorytmu podpisu. Używaj tylko algorytmu obsługiwanego przez certyfikat.
-
-Skonfiguruj algorytm podpisu przy użyciu `XmlSignatureAlgorithm` klucza metadanych w elemencie metadanych jednostki uzależnionej.
-
-```xml
-<RelyingParty>
-  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-  <TechnicalProfile Id="PolicyProfile">
-    <DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="SAML2"/>
-    <Metadata>
-      <Item Key="XmlSignatureAlgorithm">Sha256</Item>
-    </Metadata>
-   ..
-  </TechnicalProfile>
-</RelyingParty>
-```
-
 ## <a name="saml-response-lifetime"></a>Okres istnienia odpowiedzi SAML
 
 Można skonfigurować czas, przez który odpowiedź SAML jest prawidłowa. Ustaw okres istnienia przy użyciu `TokenLifeTimeInSeconds` elementu metadanych w profilu technicznym wystawcy tokenów SAML. Ta wartość to liczba sekund, które mogą upłynąć od `NotBefore` sygnatury czasowej obliczonej w czasie wystawiania tokenu. Domyślny okres istnienia to 300 sekund (5 minut).
@@ -279,7 +338,7 @@ Przykład:
 
 Sesją programu można zarządzać między Azure AD B2C a aplikacją jednostki uzależnionej SAML przy użyciu `UseTechnicalProfileForSessionManagement` elementu i [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
 
-## <a name="force-users-to-re-authenticate"></a>Wymuś ponowną próbę uwierzytelnienia użytkowników 
+## <a name="force-users-to-reauthenticate"></a>Wymuś ponowne uwierzytelnienie użytkowników 
 
 Aby wymusić ponowne uwierzytelnienie użytkowników, aplikacja może uwzględnić `ForceAuthn` atrybut w żądaniu uwierzytelniania SAML. Ten `ForceAuthn` atrybut jest wartością logiczną. Po ustawieniu na wartość true sesja użytkowników zostanie unieważniona w Azure AD B2C i zostanie wymuszone ponowne uwierzytelnienie użytkownika. Poniższe żądanie uwierzytelniania SAML pokazuje, jak ustawić `ForceAuthn` atrybut na true. 
 
@@ -290,6 +349,28 @@ Aby wymusić ponowne uwierzytelnienie użytkowników, aplikacja może uwzględni
        ForceAuthn="true" ...>
     ...
 </samlp:AuthnRequest>
+```
+
+## <a name="sign-the-azure-ad-b2c-idp-saml-metadata"></a>Podpisywanie metadanych SAML Azure AD B2C dostawcy tożsamości
+
+Możesz wydać Azure AD B2C, aby podpisać swój dokument metadanych SAML dostawcy tożsamości, jeśli jest to wymagane przez aplikację. Jeśli nie masz jeszcze klucza zasad, [Utwórz go](saml-service-provider.md#create-a-policy-key). Następnie skonfiguruj `MetadataSigning` element metadanych w profilu technicznym wystawcy tokenów SAML. `StorageReferenceId`Musi odwoływać się do nazwy klucza zasad.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <!-- SAML Token Issuer technical profile -->
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+        ...
+      <CryptographicKeys>
+        <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlMetadataCert"/>
+        ...
+      </CryptographicKeys>
+    ...
+    </TechnicalProfile>
 ```
 
 ## <a name="debug-the-saml-protocol"></a>Debugowanie protokołu SAML

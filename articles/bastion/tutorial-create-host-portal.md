@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 60b49e5b6e103a85d79cf8495f2743b22e434c96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b365e347802824e855797afb8c68e5249bf0adb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586812"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579628"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Samouczek: Konfigurowanie bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows za pomocą przeglądarki
 
@@ -37,6 +37,10 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Porty: Aby nawiązać połączenie z maszyną wirtualną z systemem Windows, należy otworzyć następujące porty na maszynie wirtualnej z systemem Windows:
   * Porty przychodzące: RDP (3389)
+
+ >[!NOTE]
+ >Korzystanie z usługi Azure bastionu z strefami Prywatna strefa DNS platformy Azure nie jest w tej chwili obsługiwane. Przed rozpoczęciem upewnij się, że sieć wirtualna, w której planujesz wdrożyć zasób bastionu, nie jest połączona z prywatną strefą DNS.
+ >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

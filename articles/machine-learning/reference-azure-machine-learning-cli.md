@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jordane
 author: jpe316
-ms.date: 06/22/2020
+ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e073310d62bfb772ea1120bd379cdc277137da0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519116"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219624"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
 
@@ -60,22 +60,7 @@ Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejs
 
 ## <a name="install-the-extension"></a>Instalowanie rozszerzenia
 
-Aby zainstalować rozszerzenie interfejsu wiersza polecenia Machine Learning, użyj następującego polecenia:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-> [!TIP]
-> Przykładowe pliki, których można użyć z poniższymi poleceniami, można znaleźć [tutaj](https://aka.ms/azml-deploy-cloud).
-
-Po wyświetleniu monitu wybierz, `y` Aby zainstalować rozszerzenie.
-
-Aby sprawdzić, czy rozszerzenie zostało zainstalowane, użyj następującego polecenia, aby wyświetlić listę podpoleceń specyficznych dla ML:
-
-```azurecli-interactive
-az ml -h
-```
+Rozszerzenie jest instalowane automatycznie przy pierwszej próbie użycia polecenia, które zaczyna się od `az ml` .
 
 ## <a name="update-the-extension"></a>Aktualizowanie rozszerzenia
 
@@ -84,7 +69,6 @@ Aby zaktualizować rozszerzenie interfejsu wiersza polecenia Machine Learning, u
 ```azurecli-interactive
 az extension update -n azure-cli-ml
 ```
-
 
 ## <a name="remove-the-extension"></a>Usuwanie rozszerzenia
 

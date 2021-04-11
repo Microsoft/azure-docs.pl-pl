@@ -7,13 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+manager: femila
+ms.openlocfilehash: 8ed4c2cffffca79ea545358b8ad639118e87e013
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105709535"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448206"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Azure Monitor słownika wirtualnego systemu Windows
 
@@ -182,10 +182,10 @@ Aby dowiedzieć się więcej na temat dzienników zdarzeń systemu Windows, zoba
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć pracę z usługą Azure Monitor dla pulpitu wirtualnego systemu Windows, zapoznaj się z następującymi artykułami:
+- Aby rozpocząć, zobacz [używanie Azure monitor dla pulpitu wirtualnego systemu Windows do monitorowania wdrożenia](azure-monitor.md).
+- Aby oszacować, zmierzyć i zarządzać kosztami magazynowania danych, zobacz [szacunkowe koszty Azure monitor](azure-monitor-costs.md).
+- W przypadku wystąpienia problemu zapoznaj się z naszym [przewodnikiem rozwiązywania problemów](troubleshoot-azure-monitor.md) , aby uzyskać pomoc i znane problemy.
 
-- [Monitorowanie wdrożenia przy użyciu Azure Monitor dla pulpitu wirtualnego systemu Windows](azure-monitor.md)
-- [Azure Monitor rozwiązywania problemów z pulpitem wirtualnym systemu Windows](troubleshoot-azure-monitor.md)
 
 Możesz również skonfigurować Azure Advisor, aby pomóc w rozwiązaniu problemu lub uniknąć typowych problemów. Dowiedz się więcej o [użyciu Azure Advisor z pulpitem wirtualnym systemu Windows](azure-advisor.md).
 

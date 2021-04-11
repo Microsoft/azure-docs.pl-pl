@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 43ece2cb0f5cb9428d8d73f769018e9fe2408ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70a9e3a69ec9e9a12e2d9ecb765bc995c82c00b6
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655827"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010837"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -59,14 +59,19 @@ Analiza zmian przechwytuje stan wdrożenia i konfiguracji aplikacji co 4 godziny
 ![Zrzut ekranu przedstawiający przycisk "Skanuj zmiany teraz"](./media/change-analysis/scan-changes.png)
 
 Obecnie obsługiwane są wszystkie pliki tekstowe w katalogu głównym witryny **wwwroot** z następującymi rozszerzeniami:
-- plik *. config
-- *. XML
 - *. JSON
-- *. rozwiązania Gem
-- *. yml
-- *. txt
+- *. XML
 - *. ini
-- *. env
+- *. yml
+- plik *. config
+- *. właściwości
+- *. html
+- *. cshtml
+- *. js
+- requirements.txt
+- Gemfile
+- Gemfile. Lock
+- config. gemspec
 
 ### <a name="dependency-changes"></a>Zmiany zależności
 

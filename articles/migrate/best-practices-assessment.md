@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 1bf844dafe450e90213db2e447bb5392064eb245
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fac488ba1881b6b79139eaf2468237e546737177
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786774"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077334"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Najlepsze rozwiązania dotyczące tworzenia ocen
 
@@ -27,6 +27,8 @@ Oceny tworzone przy użyciu Azure Migrate: narzędzie odnajdywania i oceny to mi
 **Azure SQL** | Ocenianie migracji lokalnych serwerów SQL ze środowiska VMware do Azure SQL Database lub wystąpienia zarządzanego Azure SQL. [Więcej informacji](concepts-azure-sql-assessment-calculation.md)
 **Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające migrację serwerów lokalnych do usługi [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
+> [!NOTE]
+> Jeśli liczba ocen dotyczących maszyn wirtualnych lub automatycznej wersji platformy Azure jest nieprawidłowa w narzędziu odnajdywanie i ocenianie, kliknij łączną liczbę ocen, aby przejść do wszystkich ocen i ponownie obliczyć maszyny wirtualne platformy Azure lub oceny automatycznej synchronizacji. Narzędzie odnajdywanie i ocenianie wyświetli poprawną liczbę dla tego typu oceny. 
 
 ### <a name="sizing-criteria"></a>Kryterium określania rozmiaru
 Opcje ustalania rozmiarów kryteriów w Azure Migrate oceny:

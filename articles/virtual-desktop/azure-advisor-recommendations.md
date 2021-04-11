@@ -3,15 +3,15 @@ title: Instruktaż Azure Advisor Windows Virtual Desktop — Azure
 description: Jak rozwiązać Azure Advisor zalecenia dotyczące pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90033034"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448308"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Jak rozwiązać zalecenia dotyczące Azure Advisor
 
@@ -72,10 +72,6 @@ To zalecenie jest wyświetlane w obszarze doskonałości operacyjnej.
 Należy odblokować określone adresy URL, aby upewnić się, że maszyna wirtualna (VM) działa poprawnie. Możesz wyświetlić listę z [bezpiecznym adresem URL](safe-url-list.md). Jeśli adresy URL nie są blokowane, maszyna wirtualna nie będzie działała prawidłowo.
 
 Aby rozwiązać ten problem, upewnij się, że wszystkie adresy URL zostały odblokowane na [liście bezpiecznych adresów URL](safe-url-list.md). W celu odblokowania adresów URL można użyć tagów lub tagów FQDN usługi.
-
-## <a name="propose-new-recommendations"></a>Zaproponuj nowe rekomendacje
-
-Możesz pomóc nam ulepszyć Azure Advisor, przesyłając pomysły dotyczące zaleceń. Twoje zalecenie może pomóc innemu użytkownikowi z trudniejszym miejscem. Aby przesłać sugestię, przejdź do [naszego forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) i wypełnij formularz przesyłania. Po wypełnieniu formularza upewnij się, że podajesz nam więcej szczegółów, jak to możliwe.
 
 ## <a name="next-steps"></a>Następne kroki
 

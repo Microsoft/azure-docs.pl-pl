@@ -4,10 +4,10 @@ description: Pokazuje, jak przekazać klucz tajny z magazynu kluczy jako paramet
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.openlocfilehash: 05749fe2e9179051c3183ea2e592cf7190ddb347
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889862"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Używanie usługi Azure Key Vault do przekazywania bezpiecznej wartości parametru podczas wdrażania

@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 04/05/2021
 ms.author: mimart
-ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a2382146cd8b85b8eef54b924a206dda7107b0f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85200189"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382468"
 ---
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/) 
 
@@ -19,8 +19,9 @@ ms.locfileid: "85200189"
 1. Wybierz kartę **interfejsy API firmy Microsoft** , a następnie wybierz pozycję **Microsoft Graph**.
 1. Wybierz pozycję **Uprawnienia aplikacji**.
 1. Rozwiń odpowiednią grupę uprawnień i zaznacz pole wyboru uprawnienia do udzielenia aplikacji zarządzania. Na przykład:
+    * **Użytkownik**  >  **User. ReadWrite. All**: na potrzeby migracji użytkowników lub scenariuszy zarządzania użytkownikami.
+    * **Grupa**  >  **Group. ReadWrite. All**: w celu tworzenia grup, odczytu i aktualizacji członkostwa w grupach oraz usuwania grup.
     * **Wyauditlog**  >  **AuditLog. Read. All**: na potrzeby odczytywania dzienników inspekcji katalogu.
-    * **Katalog**  >  **Directory. ReadWrite. All**: na potrzeby migracji użytkowników lub scenariuszy zarządzania użytkownikami.
     * **Zasady**  >  **Policy. ReadWrite. TrustFramework**: w scenariuszach ciągłej integracji/ciągłego dostarczania (Ci/CD). Na przykład niestandardowe wdrożenie zasad z Azure Pipelines.
 1. Wybierz pozycję **Dodaj uprawnienia**. Poczekaj kilka minut, zanim przejdziesz do kolejnego kroku.
 1. Wybierz pozycję **Udziel zgody administratora (nazwa dzierżawy)**.

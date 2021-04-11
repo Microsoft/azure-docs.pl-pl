@@ -6,17 +6,17 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024151"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448886"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Przesłaniania próbek (wersja zapoznawcza) — Azure Monitor Application Insights dla środowiska Java
 
 > [!NOTE]
-> Funkcja zastąpień próbkowania jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3-BETA. 2.
+> Funkcja zastąpień próbkowania jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3.
 
 Przesłaniania próbek umożliwiają przesłonięcie [domyślnego procentu próbkowania](./java-standalone-config.md#sampling), na przykład:
  * Ustaw wartość procent próbkowania na 0 (lub niewielką wartość), aby sprawdzić kondycję.
@@ -81,7 +81,7 @@ Jeśli próbkowanie nie zastępuje żadnego dopasowania:
 * Jeśli jest to pierwszy zakres śledzenia, zostanie użyta [Domyślna wartość procentowa próbkowania](./java-standalone-config.md#sampling) .
 * Jeśli nie jest to pierwszy zakres śledzenia, zostanie użyta decyzja dotycząca próbkowania nadrzędnego.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Gdy podjęto decyzję, aby nie zbierać zakresu, wszystkie przedziały podrzędne również nie będą zbierane, nawet jeśli są zastępujące próbki, które pasują do zakresu podrzędnego.
 > To zachowanie jest konieczne, ponieważ w przeciwnym razie ślady przerwania byłyby wynikiem zebrania, ale są zbierane w celu przedziału, które nie zostały zebrane.
 
