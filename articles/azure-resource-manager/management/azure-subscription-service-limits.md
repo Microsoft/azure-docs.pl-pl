@@ -2,15 +2,15 @@
 title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 3ef3e6f3b67e8c92e0137f36e19c62cba79e1c14
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471018"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030829"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure
 
 Ten dokument zawiera listę najbardziej typowych limitów Microsoft Azure, które są również czasami nazywane przydziałami.
 
@@ -34,9 +34,9 @@ Aby dowiedzieć się więcej na temat cen platformy Azure, zobacz [Omówienie ce
 
 Niektóre ograniczenia są zarządzane na poziomie regionalnym.
 
-Użyjmy przydziałów vCPU jako przykładu. Aby zażądać zwiększenia limitu przydziału z obsługą procesorów wirtualnych vCPU, należy określić liczbę procesorów wirtualnych vCPU, które mają być używane w regionach. Następnie należy wykonać określone żądanie dla grupy zasobów platformy Azure vCPU przydziały dla żądanych ilości i regionów. Jeśli konieczne jest użycie 30 procesorów wirtualnych vCPU w Europie Zachodniej, aby uruchomić aplikację, należy zażądać 30 procesorów wirtualnych vCPU w Europie Zachodniej. Limit przydziału vCPU nie został zwiększony w żadnym innym regionie — tylko Europa Zachodnia ma przydział 30-vCPU.
+Użyjmy przydziałów vCPU jako przykładu. Aby zażądać zwiększenia limitu przydziału z obsługą procesorów wirtualnych vCPU, należy określić liczbę procesorów wirtualnych vCPU, które mają być używane w regionach. Następnie należy zażądać zwiększenia limitów przydziału vCPU dla żądanych ilości i regionów. Jeśli konieczne jest użycie 30 procesorów wirtualnych vCPU w Europie Zachodniej, aby uruchomić aplikację, należy zażądać 30 procesorów wirtualnych vCPU w Europie Zachodniej. Limit przydziału vCPU nie został zwiększony w żadnym innym regionie — tylko Europa Zachodnia ma przydział 30-vCPU.
 
-W związku z tym należy określić, jakie limity przydziału grupy zasobów platformy Azure muszą być dla obciążenia w jednym regionie. Następnie Zażądaj tej kwoty w każdym regionie, w którym chcesz wdrożyć. Aby uzyskać pomoc w ustalaniu bieżących przydziałów dla określonych regionów, zobacz [Rozwiązywanie problemów dotyczących przydziałów zasobów](../templates/error-resource-quota.md).
+W związku z tym należy określić, jakie limity przydziału muszą być dla obciążenia w jednym regionie. Następnie Zażądaj tej kwoty w każdym regionie, w którym chcesz wdrożyć. Aby uzyskać pomoc w ustalaniu bieżących przydziałów dla określonych regionów, zobacz [Rozwiązywanie problemów dotyczących przydziałów zasobów](../templates/error-resource-quota.md).
 
 ## <a name="general-limits"></a>Ogólne limity
 

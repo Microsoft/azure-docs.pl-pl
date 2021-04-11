@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88005808"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552635"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Wymagania licencyjne dotyczące używania Privileged Identity Management
 
@@ -30,7 +30,7 @@ Aby można było użyć usługi Azure Active Directory (Azure AD) Privileged Ide
 
 ## <a name="valid-licenses"></a>Prawidłowe licencje
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+Konieczne będzie [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] użycie PIM i wszystkich ustawień. Obecnie można ograniczyć przegląd dostępu do jednostek usługi przy użyciu dostępu do usługi Azure AD i ról zasobów platformy Azure (wersja zapoznawcza) z aktywną Azure Active Directory — wersja Premium P2 w dzierżawie. Model licencjonowania dla jednostek usługi zostanie sfinalizowany do ogólnej dostępności tej funkcji, a dodatkowe licencje mogą być wymagane.
 
 ## <a name="licenses-you-must-have"></a>Licencje, które musisz dysponować
 
@@ -73,3 +73,5 @@ Jeśli licencja na Azure AD — wersja Premium P2, EMS E5 lub wersja próbna wyg
 - [Wdrażanie usługi Privileged Identity Management](pim-deployment-plan.md)
 - [Rozpoczęcie korzystania z usługi Privileged Identity Management](pim-getting-started.md)
 - [Role, którymi nie można zarządzać w Privileged Identity Management](pim-roles.md)
+- [Tworzenie przeglądu dostępu do ról zasobów platformy Azure w usłudze PIM](pim-resource-roles-start-access-review.md)
+- [Tworzenie przeglądu dostępu ról usługi Azure AD w usłudze PIM](pim-how-to-start-security-review.md)

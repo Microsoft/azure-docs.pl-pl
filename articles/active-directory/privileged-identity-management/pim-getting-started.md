@@ -14,12 +14,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c00824e7fb0529cd14e3d7b757d513ee739fe283
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90600725"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504417"
 ---
 # <a name="start-using-privileged-identity-management"></a>Rozpoczęcie korzystania z usługi Privileged Identity Management
 
@@ -70,7 +70,7 @@ Po skonfigurowaniu Privileged Identity Management można dowiedzieć się, jak t
 | Zadanie + zarządzanie | Opis |
 | --- | --- |
 | **Moje role**  | Wyświetla listę kwalifikujących się i aktywnych ról przypisanych do użytkownika. Możesz tu aktywować dowolne przypisane, kwalifikujące się role. |
-| **Moje żądania** | Wyświetla oczekujące żądania aktywowania kwalifikujących się przypisań ról. |
+| **Oczekujące żądania** | Wyświetla oczekujące żądania aktywowania kwalifikujących się przypisań ról. |
 | **Zatwierdzanie żądań** | Przedstawia listę żądań, które umożliwiają aktywowanie kwalifikujących się ról użytkownikom w katalogu wskazanym do zatwierdzenia. |
 | **Przegląd dostępu** | Wyświetla listę aktywnych przeglądów dostępu, które są przypisane do ukończenia, niezależnie od tego, czy przeglądasz dostęp dla siebie, czy do innej osoby. |
 | **Role usługi Azure Active Directory** | Wyświetla pulpit nawigacyjny i ustawienia administratorów ról uprzywilejowanych w celu zarządzania przypisaniami ról usługi Azure AD. Z tego pulpitu nawigacyjnego nie mogą korzystać osoby, które nie są administratorami ról uprzywilejowanych. Tacy użytkownicy mają dostęp do specjalnego pulpitu nawigacyjnego zatytułowanego Mój widok. Na pulpicie nawigacyjnym mój widok są wyświetlane tylko informacje o użytkowniku uzyskujący dostęp do pulpitu nawigacyjnego, a nie całej organizacji. |

@@ -23,6 +23,8 @@
   items:
     - name: Przegląd sprawdzonych partnerów
       href: .\validated-partners\data-management\partner-overview.md
+    - name: Porównanie narzędzi migracji
+      href: ./validated-partners/data-management/migration-tools-comparison.md
   expanded: false
 - name: Partnerzy magazynu podstawowego i dodatkowego
   items:

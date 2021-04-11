@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d691c4c510f5ff00c34d03b7b8d7a7bcaa53c3f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452139"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554097"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
@@ -20,7 +20,7 @@ ms.locfileid: "102452139"
 > Musisz natychmiast włączyć funkcję usuwania nietrwałego w magazynie kluczy. Możliwość rezygnacji z usuwania nietrwałego zostanie wkrótce wycofana. [Tutaj](soft-delete-change.md) Zobacz pełne szczegóły
 
 > [!IMPORTANT]
-> Magazyn usuniętych nietrwale wyzwala ustawienia dla zintegrowanego z usługami Key Vault, np. przypisania ról RBAC platformy Azure, subskrypcje Event Grid, Azure Monitor ustawień diagnostycznych. Po odzyskaniu nieusuwania nietrwałego Key Vault ustawień dla zintegrowanych usług trzeba będzie ręcznie odtworzyć. 
+> Magazyn usuniętych nietrwale wyzwala ustawienia dla zintegrowane z usługami Key Vaultymi, na przykład przypisania ról RBAC platformy Azure, subskrypcje Event Grid. Po odzyskaniu nieusuwania nietrwałego Key Vault ustawień dla zintegrowanych usług trzeba będzie ręcznie odtworzyć. 
 
 Funkcja usuwania nietrwałego Key Vault umożliwia Odzyskiwanie usuniętych magazynów i usuniętych obiektów magazynu kluczy (na przykład kluczy, wpisów tajnych, certyfikatów), znanych jako nietrwałego usuwania. W tym celu należy zająć się następującymi scenariuszami: Ta ochrona oferuje następujące kwestie:
 

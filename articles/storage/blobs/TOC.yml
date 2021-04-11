@@ -821,6 +821,8 @@
           href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
           href: /rest/api/storageservices/data-lake-storage-gen2
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: /cli/azure/dls
         - name: Dokumentacja przyspieszenia zapytań
           href: query-acceleration-sql-reference.md
         - name: AzCopy (wersja 10)

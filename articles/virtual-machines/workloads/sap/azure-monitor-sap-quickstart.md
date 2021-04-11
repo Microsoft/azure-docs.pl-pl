@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: d9febb4efba85d47abe1cc11a3cb52dc0393c036
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 02c0801aa0425db96a1e6f71f248c795e81b5ddf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101672003"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554063"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Wdrażanie Azure Monitor dla rozwiązań SAP z Azure Portal
 
@@ -81,12 +81,23 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 1. Wybierz system operacyjny (Linux) z listy rozwijanej 
 
-> [!IMPORTANT]
-> Aby skonfigurować dostawcę systemu operacyjnego (Linux), upewnij się, że Node_Exporter jest zainstalowany w każdym wystąpieniu BareMetal. Aby uzyskać więcej informacji, zobacz [Node_Exporter](https://github.com/prometheus/node_exporter)
+>[!IMPORTANT]
+> Aby skonfigurować dostawcę systemu operacyjnego (Linux), upewnij się, że Najnowsza wersja Node_Exporter jest zainstalowana na każdym hoście (BareMetal lub maszynie wirtualnej), który ma być monitorowany. Użyj tego [linku] ( https://prometheus.io/download/#node_exporter) Aby znaleźć najnowszą wersję. Aby uzyskać więcej informacji, zobacz [Node_Exporter](https://github.com/prometheus/node_exporter)
 
 2. Wprowadź nazwę, która będzie identyfikatorem wystąpienia BareMetal.
 3. Wprowadź punkt końcowy eksportu węzłów w postaci http://IP:9100/metrics .
-4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie kolejnych dostawców lub wybierz pozycję **Przegląd + Utwórz**,   Aby zakończyć wdrażanie. 
+
+>[!IMPORTANT]
+> Użyj prywatnego adresu IP hosta systemu Linux. Upewnij się, że zasób hosta i AMS znajdują się w tej samej sieci wirtualnej. 
+
+>[!Note]
+> Port zapory "9100" powinien być otwarty na hoście z systemem Linux.
+>Jeśli jest używana Zapora-cmd: Zapora-cmd--trwałe--Add-Port = 9100/TCP Zapora-cmd--reload, jeśli jest używany UFW: UFW Zezwalaj na ponowne załadowanie 9100/TCP UFW
+
+>[!Tip]
+> Jeśli host systemu Linux jest maszyną wirtualną platformy Azure, upewnij się, że wszystkie odpowiednie sieciowych grup zabezpieczeń zezwalają na ruch przychodzący na porcie 9100 z "VirtualNetwork" jako źródło.
+ 
+5. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie kolejnych dostawców lub wybierz pozycję **Przegląd + Utwórz**,   Aby zakończyć wdrażanie. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Dostawca Microsoft SQL Server

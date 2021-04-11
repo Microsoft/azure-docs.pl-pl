@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688471"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552754"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
 
@@ -64,7 +64,7 @@ Możesz sprawdzić, czy użytkownik-Gość uwierzytelnia się przy użyciu jedno
 ![Zrzut ekranu przedstawiający użytkownika jednorazowego kodu dostępu z wartością źródłową OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Gdy użytkownik zrealizuje jednorazowy kod dostępu, a następnie uzyska konto MSA, konta usługi Azure AD lub inne konto federacyjne, będzie nadal uwierzytelniane przy użyciu jednorazowego kodu dostępu. Jeśli chcesz zaktualizować metodę uwierzytelniania, możesz usunąć konto użytkownika-gościa i je zaprosić.
+> Gdy użytkownik zrealizuje jednorazowy kod dostępu, a następnie uzyska konto MSA, konta usługi Azure AD lub inne konto federacyjne, będzie nadal uwierzytelniane przy użyciu jednorazowego kodu dostępu. Jeśli chcesz zaktualizować metodę uwierzytelniania użytkownika, możesz [zresetować swój stan wykupu](reset-redemption-status.md).
 
 ### <a name="example&quot;></a>Przykład
 
@@ -76,7 +76,7 @@ Od października 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zos
 
 > [!NOTE]
 >
-> Jeśli funkcja jednorazowego kodu dostępu w wiadomości e-mail została włączona w dzierżawie i zostanie wyłączona, wszyscy użytkownicy-Goście, którzy wykonali jednorazowy kod dostępu, nie będą mogli się zalogować. Można usunąć użytkownika-gościa, a następnie ponownie je zaprosić, aby mogli się zalogować przy użyciu innej metody uwierzytelniania.
+> Jeśli funkcja jednorazowego kodu dostępu w wiadomości e-mail została włączona w dzierżawie i zostanie wyłączona, wszyscy użytkownicy-Goście, którzy wykonali jednorazowy kod dostępu, nie będą mogli się zalogować. Możesz [zresetować swój stan wykupu](reset-redemption-status.md) , aby można było ponownie zalogować się przy użyciu innej metody uwierzytelniania.
 
 ### <a name="to-disable-the-email-one-time-passcode-feature"></a>Aby wyłączyć funkcję jednorazowego kodu dostępu wiadomości e-mail
 

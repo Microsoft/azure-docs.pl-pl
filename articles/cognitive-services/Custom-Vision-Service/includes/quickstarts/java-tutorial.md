@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 4c789b86c00f28778e94432e21106bd36cc84322
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: c169572e8af8ba992e604fc51b31db1146f11fda
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104803362"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112941"
 ---
 Wprowadzenie do tworzenia modelu klasyfikacji obrazów przy użyciu biblioteki klienta Custom Vision dla języka Java. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -99,7 +99,7 @@ W klasie **CustomVisionQuickstart** aplikacji Utwórz zmienne dla kluczy i punkt
 
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkty końcowe można znaleźć na stronach **klucza i punktu końcowego** zasobów. Musisz pobrać klucze szkoleniowe i prognozowe wraz z punktem końcowym zasobów szkoleniowych.
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkty końcowe można znaleźć na stronach **klucza i punktu końcowego** zasobów. Musisz pobrać klucze dla zasobów szkoleniowych i predykcyjnych wraz z punktem końcowym interfejsu API dla zasobu szkoleniowego.
 >
 > Wartość identyfikatora zasobu przewidywania można znaleźć na karcie **Właściwości** zasobu, na liście jako **Identyfikator subskrypcji**.
 > 

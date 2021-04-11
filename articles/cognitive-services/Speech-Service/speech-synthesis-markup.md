@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c4e70c7f74c202b7de44a259b8a680f57aeaa041
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645041"
+ms.locfileid: "105966949"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -213,14 +213,9 @@ Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy
 * `zh-CN-XiaoxuanNeural` Przeglądania
 * `zh-CN-XiaoruiNeural` Przeglądania
 
-Intensywność stylu mówienia można zmienić w celu lepszego dopasowania do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued.
+Intensywność stylu mówienia można zmienić w celu lepszego dopasowania do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued. Obecnie korekty stylu głosu są obsługiwane w języku chińskim (mandarynki, uproszczone) głosów neuronowych.
 
-Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
-* `zh-CN-XiaoxiaoNeural`
-
-Oprócz dostosowywania stylu i stopnia odmowy można również dostosować `role` parametr tak, aby głos był imitacją innego wieku i płci. Na przykład głos męski może zwiększyć gęstość i zmienić intonation na imitację głosu żeńskiego.
-
-Obecnie w przypadku tych głosów neuronowych są obsługiwane dostosowania dotyczące odtwarzania ról:
+Oprócz dostosowywania stylu i stopnia odmowy można również dostosować `role` parametr tak, aby głos był imitacją innego wieku i płci. Na przykład głos męski może zwiększyć gęstość i zmienić intonation na imitację głosu żeńskiego, ale nazwa głosu nie zostanie zmieniona. Obecnie korekty dotyczące odtwarzania ról są obsługiwane w przypadku następujących neuronowychych (mandarynki, uproszczone) głosów:
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -238,15 +233,15 @@ Powyższe zmiany są stosowane na poziomie zdania, a style i role są odtwarzane
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> W tej chwili `styledegree` obsługuje tylko wartość zh-CN-XiaoxiaoNeural. `role` obsługuje tylko zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural.
+> W tej chwili `styledegree` obsługiwane są tylko chińskie głosy neuronowych. `role` obsługuje tylko zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural.
 
 **Atrybuty**
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `style` | Określa styl wymawiania. Obecnie style wymawiające są specyficzne dla głosu. | Wymagane, jeśli ustawienie stylu wymawiania dla głosu neuronowych. Jeśli używasz `mstts:express-as` , należy podać styl. Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
-| `styledegree` | Określa intensywność stylu wymawiania. **Akceptowane wartości**: od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza intensywność stylu wstępnie zdefiniowanego. Jednostką minimalną jest 0,01, która skutkuje niewielkim tendencją dla stylu docelowego. Wartość 2 powoduje dwustronne zwiększenie intensywności stylu domyślnego.  | Opcjonalnie (w momencie `styledegree` obsługuje tylko wartość zh-CN-XiaoxiaoNeural).|
-| `role` | Określa rolę głosu. Głos będzie pełnić rolę innego wieku i płci.  | Opcjonalne (w tej chwili `role` obsługuje tylko wartość zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural).|
+| `styledegree` | Określa intensywność stylu wymawiania. **Akceptowane wartości**: od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza intensywność stylu wstępnie zdefiniowanego. Jednostką minimalną jest 0,01, która skutkuje niewielkim tendencją dla stylu docelowego. Wartość 2 powoduje dwustronne zwiększenie intensywności stylu domyślnego.  | Opcjonalna (w tym momencie `styledegree` obsługuje tylko w języku chińskim (mandarynki, uproszczone) głosy neuronowych).|
+| `role` | Określa rolę głosu. Głos będzie działać jako inny wiek i płeć, ale nazwa głosu nie zostanie zmieniona.  | Opcjonalne (w tej chwili `role` obsługuje tylko wartość zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural).|
 
 Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla każdego głosu neuronowych.
 
@@ -322,17 +317,19 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
 |                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
 
-Użyj tej tabeli, aby określić, które role są obsługiwane przez każdy głos neuronowych.
+Użyj tej tabeli, aby sprawdzić obsługiwane role i ich definicje.
 
-| Połączenia głosowe                   | Rola                       | Opis                                                 |
-|-------------------------|----------------------------|-------------------------------------------------------------|
-| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | Głos naśladuje na młodych dorosłych samic.                 |
-|                         | `role="OlderAdultMale"`    | Głos naśladuje do starszej osoby dorosłej.                   |
-|                         | `role="Girl"`              | Dźwięk naśladuje dziewczynka.                               |
-|                         | `role="Boy"`               | Głos naśladuje Boy.                                |
-| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | Głos naśladuje na młodych dorosłych samic.                 |
-|                         | `role="OlderAdultFemale"`  | Głos naśladuje do starszej osoby dorosłej.                 |
-|                         | `role="OlderAdultMale"`    | Głos naśladuje do starszej osoby dorosłej.                   |
+|Rola                     | Opis                |
+|-------------------------|----------------------------|
+|`role="Girl"`            | Dźwięk naśladuje dziewczynka. |
+|`role="Boy"`             | Głos naśladuje Boy. |
+|`role="YoungAdultFemale"`| Głos naśladuje na młodych dorosłych samic.|
+|`role="YoungAdultMale"`  | Głos naśladuje na młodych dorosłych samców.|
+|`role="OlderAdultFemale"`| Głos naśladuje do starszej osoby dorosłej.|
+|`role="OlderAdultMale"`  | Głos naśladuje do starszej osoby dorosłej.|
+|`role="SeniorFemale"`    | Głos naśladuje się do wyższych samic.|
+|`role="SeniorMale"`      | Głos styka się ze starszymi wtykami.|
+
 
 **Przykład**
 

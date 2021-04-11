@@ -4,12 +4,12 @@ description: Zadanie Apache Spark działa wolno, gdy kontener usługi Azure Stor
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/21/2019
-ms.openlocfilehash: c26baec66248ca00ef212acf3d773c2566b3aea9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d256292956b42c65722ea5f9c87d6835297d1d40
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946356"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219097"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Zadania platformy Apache Spark działają wolno, gdy kontener usługi Azure Storage zawiera wiele plików w usłudze HDInsight
 
@@ -28,6 +28,8 @@ Aby śledzić partycje, platforma Spark musi obsługiwać, `FileStatusCache` kt�
 W platformie Spark 2,1, chociaż nie potrzebujemy aktualizacji pamięci podręcznej po każdym zapisie, platforma Spark sprawdzi, czy istniejąca kolumna partycji jest zgodna z proponowaną jedną w bieżącym żądaniu zapisu, więc będzie również prowadzić do tworzenia listy operacji na początku każdego zapisu.
 
 W przypadku platformy Spark 2,2 podczas zapisywania danych przy użyciu trybu Append ten problem z wydajnością powinien zostać rozwiązany.
+
+W platformie Spark 2,3 oczekiwane jest takie samo zachowanie jak platforma Spark 2,2.
 
 ## <a name="resolution"></a>Rozwiązanie
 

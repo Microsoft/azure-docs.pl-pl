@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32715ad1a01366d7d56e6fa8129151b15c315e1d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026526"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504179"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Włączanie rejestrowania w zestawie mowy SDK
 
-Logowanie do pliku to opcjonalna funkcja dla zestawu Speech SDK. Podczas rejestrowania programistycznego są dostępne dodatkowe informacje i Diagnostyka z podstawowych składników zestawu Speech SDK. Można ją włączyć, ustawiając właściwość `Speech_LogFilename` obiektu konfiguracji mowy na lokalizację i nazwę pliku dziennika. Rejestrowanie zostanie uaktywnione globalnie, gdy aparat rozpoznawania zostanie utworzony na podstawie tej konfiguracji i nie będzie można go wyłączyć później. Nie można zmienić nazwy pliku dziennika podczas uruchamiania sesji rejestrowania.
+Logowanie do pliku to opcjonalna funkcja dla zestawu Speech SDK. Podczas rejestrowania programistycznego są dostępne dodatkowe informacje i Diagnostyka z podstawowych składników zestawu Speech SDK. Można ją włączyć, ustawiając właściwość `Speech_LogFilename` obiektu konfiguracji mowy na lokalizację i nazwę pliku dziennika. Rejestrowanie jest obsługiwane przez klasę statyczną w natywnej bibliotece zestawu Speech SDK. Rejestrowanie można włączyć dla dowolnego aparatu rozpoznawania zestawu mowy SDK lub wystąpienia syntezatora. Wszystkie wystąpienia w tym samym zapisie dziennika zapisu do tego samego pliku dziennika.
 
 > [!NOTE]
 > Funkcja rejestrowania jest dostępna, ponieważ zestaw SDK mowy w wersji 1.4.0 we wszystkich obsługiwanych językach programowania zestawu SDK mowy, z wyjątkiem języka JavaScript.

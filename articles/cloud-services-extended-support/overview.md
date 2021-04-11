@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618478"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169287"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informacje o usłudze Azure Cloud Services (obsługa rozszerzona)
 
@@ -48,12 +48,9 @@ Główne różnice między Cloud Services (klasyczne) i Cloud Services (obsługa
 - Wszystkie zasoby wdrożone za pomocą [Azure Resource Manager](../azure-resource-manager/templates/overview.md) muszą znajdować się w sieci wirtualnej. Sieci wirtualne i podsieci są tworzone w Azure Resource Manager przy użyciu istniejących interfejsów API Azure Resource Manager i należy się do nich odwoływać w sekcji NetworkConfiguration pliku. cscfg podczas wdrażania Cloud Services (obsługa rozszerzona).   
 
 - Każda usługa w chmurze (obsługa rozszerzona) to pojedyncze niezależne wdrożenie. Usługi Cloud Services (obsługa rozszerzona) nie obsługują wielu gniazd w ramach jednej usługi w chmurze.  
-    - Możliwość wymiany adresów VIP <sup>*</sup> może być używana do wymiany między dwiema usługami w chmurze (obsługa rozszerzona). Aby przetestować i przygotować nową wersję usługi w chmurze, należy wdrożyć usługę w chmurze (obsługę rozszerzoną) i oznaczyć ją jako zamienionej na adresy VIP z inną usługą w chmurze (obsługa rozszerzona)  
+    - Możliwość wymiany adresów VIP może być używana do wymiany między dwiema usługami w chmurze (obsługa rozszerzona). Aby przetestować i przygotować nową wersję usługi w chmurze, należy wdrożyć usługę w chmurze (obsługę rozszerzoną) i oznaczyć ją jako zamienionej na adresy VIP z inną usługą w chmurze (obsługa rozszerzona)  
 
 - Etykieta usługi nazw domen (DNS) jest opcjonalna dla usługi w chmurze (obsługa rozszerzona). W Azure Resource Manager etykieta DNS jest właściwością publicznego zasobu adresu IP skojarzonego z usługą w chmurze. 
-
-
-<sup>*</sup> Zamiana adresu VIP dla Cloud Services (obsługa rozszerzona) nie jest dostępna w publicznej wersji zapoznawczej.  
 
 ## <a name="migration-to-azure-resource-manager"></a>Migracja do Azure Resource Manager
 

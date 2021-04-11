@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linu
 description: W tym artykule opisano sposób instalowania Azure Automation hybrydowego procesu roboczego elementu Runbook w celu uruchamiania elementów Runbook na maszynach z systemem Linux w lokalnym środowisku centrum danych lub w chmurze.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182336"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030053"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -106,6 +106,31 @@ Hybrydowe procesy robocze elementu Runbook systemu Linux obsługują ograniczon�
 Wymagania dotyczące sieci dla hybrydowego procesu roboczego elementu Runbook można znaleźć w temacie [Konfigurowanie sieci](automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Instalowanie hybrydowego procesu roboczego elementu Runbook systemu Linux
+
+Istnieją dwie metody wdrażania hybrydowego procesu roboczego elementu Runbook. Możesz zaimportować i uruchomić element Runbook z galerii elementów Runbook w Azure Portal lub ręcznie uruchomić serię poleceń programu PowerShell, aby wykonać to samo zadanie.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importowanie elementu Runbook z galerii elementów Runbook
+
+Procedura importowania została szczegółowo opisana w artykule [Importowanie elementów Runbook z usługi GitHub za pomocą Azure Portal](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). Nazwa elementu Runbook do zaimportowania to **Tworzenie HybridWorker systemu Linux**.
+
+Element Runbook używa następujących parametrów.
+
+| Parametr | Stan | Opis |
+| ------- | ----- | ----------- |
+| `Location` | Obowiązkowy | Lokalizacja obszaru roboczego Log Analytics. |
+| `ResourceGroupName` | Obowiązkowy | Grupa zasobów konta usługi Automation. |
+| `AccountName` | Obowiązkowy | Nazwa konta usługi Automation, w ramach którego zostanie zarejestrowany proces roboczy przebiegu hybrydowego. |
+| `CreateLA` | Obowiązkowy | W przypadku wartości true program używa wartości, `WorkspaceName` Aby utworzyć obszar roboczy log Analytics. W przypadku wartości false wartość `WorkspaceName` musi odwoływać się do istniejącego obszaru roboczego. |
+| `LAlocation` | Opcjonalne | Lokalizacja, w której zostanie utworzony obszar roboczy Log Analytics lub już istnieje. |
+| `WorkspaceName` | Opcjonalne | Nazwa obszaru roboczego Log Analytics, który ma zostać utworzony lub użyty. |
+| `CreateVM` | Obowiązkowy | W przypadku wartości true należy użyć wartości `VMName` jako nazwy nowej maszyny wirtualnej. W przypadku wartości false Użyj, `VMName` Aby znaleźć i zarejestrować istniejącą maszynę wirtualną. |
+| `VMName` | Opcjonalne | Nazwa maszyny wirtualnej, która została utworzona lub zarejestrowana, w zależności od wartości `CreateVM` . |
+| `VMImage` | Opcjonalne | Nazwa obrazu maszyny wirtualnej, który ma zostać utworzony. |
+| `VMlocation` | Opcjonalne | Lokalizacja maszyny wirtualnej, która została utworzona lub zarejestrowana. Jeśli ta lokalizacja nie jest określona, `LAlocation` zostanie użyta wartość. |
+| `RegisterHW` | Obowiązkowy | W przypadku wartości true Zarejestruj maszynę wirtualną jako hybrydowy proces roboczy. |
+| `WorkerGroupName` | Obowiązkowy | Nazwa grupy hybrydowych procesów roboczych. |
+
+### <a name="manually-run-powershell-commands"></a>Ręczne uruchamianie poleceń programu PowerShell
 
 Aby zainstalować i skonfigurować hybrydowy proces roboczy elementu Runbook systemu Linux, wykonaj następujące czynności.
 

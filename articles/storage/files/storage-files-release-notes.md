@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: a794274248a12af97174dcc4e86bd4231e9d9dda
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727488"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074407"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Informacje o wersji agenta usługi Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -76,8 +76,8 @@ Poniższe informacje o wersji dotyczą wersji 12.0.0.0 agenta Azure File Sync (w
     - Ulepszona wydajność wykrywania zmian w celu wykrycia plików, które uległy zmianie w udziale plików platformy Azure.
     - Ulepszenia wydajności dla sesji synchronizacji uzgadniania. 
     - Ulepszenia synchronizacji w celu zmniejszenia ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED i ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED błędów.
-    - W przypadku włączenia deduplikacji danych na woluminie na serwerze 2019 może się nie powieść.
-    - AFSDiag kompresowanie plików nie powiedzie się, jeśli plik jest większy niż 2GiB.
+    - Rozwiązano błąd, który może spowodować niepowodzenie plików na serwerze 2019, jeśli Deduplikacja danych jest włączona na woluminie.
+    - Rozwiązano błąd, który może spowodować niepowodzenie kompresji plików przez AFSDiag, jeśli plik jest większy niż 2GiB.
 
 ### <a name="evaluation-tool"></a>Narzędzie do oceny
 Przed wdrożeniem Azure File Sync należy ocenić, czy jest on zgodny z systemem przy użyciu narzędzia do oceny Azure File Sync. To narzędzie jest Azure PowerShell poleceniem cmdlet, które sprawdza potencjalne problemy związane z systemem plików i zestawem danych, na przykład nieobsługiwane znaki lub nieobsługiwaną wersję systemu operacyjnego. Instrukcje dotyczące instalacji i użycia znajdują się w sekcji [Narzędzie do oceny](./storage-sync-files-planning.md#evaluation-cmdlet) w przewodniku planowania. 

@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/27/2021
+ms.date: 04/01/2021
 ms.author: tamram
-ms.openlocfilehash: 93a84b26825e98d406aba1ae4bdd4a544a61c76e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16da73fe453760e2dc84e7d683c3a16c12b8a06f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937343"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218615"
 ---
 | Zasób | Cel |
 |-|-|
@@ -33,6 +33,6 @@ W poniższej tabeli opisano maksymalny rozmiar bloków i obiektów BLOB dozwolon
 
 | Wersja usługi | Maksymalny rozmiar bloku (za pośrednictwem bloku Put) | Maksymalny rozmiar obiektu BLOB (za pośrednictwem listy bloków Put) | Maksymalny rozmiar obiektu BLOB za pośrednictwem jednokrotnej operacji zapisu (za pośrednictwem obiektu BLOB Put) |
 |-|-|-|-|
-| Wersja 2019-12-12 i nowsze | 4000 MiB | Około 190,7 TiB (4000 MiB X 50 000 bloków) | 5000 MiB |
+| Wersja 2019-12-12 i nowsze | 4000 MiB | Około 190,7 TiB (4000 MiB X 50 000 bloków) | 5000 MiB (wersja zapoznawcza) |
 | Wersja 2016-05-31 do 2019-07-07 | 100 MiB | Około 4,75 TiB (100 MiB X 50 000 bloków) | 256 MiB |
 | Wersje wcześniejsze niż 2016-05-31 | 4 MiB | Około 195 GiB (4 bloki MiB X 50 000) | 64 MiB |

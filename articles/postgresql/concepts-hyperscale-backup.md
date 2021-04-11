@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92485379"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968309"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -58,7 +58,7 @@ Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginaln
 Po przywróceniu z dowolnego mechanizmu odzyskiwania należy wykonać następujące czynności, aby zapewnić i uruchomić kopie zapasowe użytkowników i aplikacji:
 
 * Jeśli nowy serwer ma zastąpić oryginalny serwer, przekierować klientów i aplikacje klienckie na nowy serwer
-* Upewnij się, że istnieją odpowiednie reguły zapory na poziomie serwera i sieci wirtualnej, aby użytkownicy mogli się łączyć. Te reguły nie są kopiowane z oryginalnej grupy serwerów.
+* Należy upewnić się, że użytkownicy mogą nawiązywać połączenia na poziomie serwera. Te reguły nie są kopiowane z oryginalnej grupy serwerów.
 * Dostosuj parametry serwera PostgreSQL zgodnie z wymaganiami. Parametry nie są kopiowane z oryginalnej grupy serwerów.
 * Upewnij się, że istnieją odpowiednie identyfikatory logowania i uprawnienia na poziomie bazy danych
 * W razie potrzeby skonfiguruj alerty

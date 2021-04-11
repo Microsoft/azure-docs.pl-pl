@@ -5,25 +5,28 @@ description: Możesz użyć własnego klucza szyfrowania do ochrony danych na ko
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 72f7130aad12ee2b5d463195b0b5c7847022bdfd
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645169"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059449"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage
 
 Możesz użyć własnego klucza szyfrowania do ochrony danych na koncie magazynu. Gdy określisz klucz zarządzany przez klienta, ten klucz będzie używany w celu ochrony i kontroli dostępu do klucza szyfrującego dane. Klucze zarządzane przez klienta zapewniają większą elastyczność zarządzania kontrolą dostępu.
 
-Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vault lub Azure Key Vault zarządzanego sprzętowego modułu zabezpieczeń (HSM) (wersja zapoznawcza). Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub zarządzanym module HSM lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Konto magazynu i Magazyn kluczy lub zarządzany moduł HSM muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
+Aby przechowywać klucze zarządzane przez klienta, należy użyć jednego z następujących magazynów kluczy platformy Azure:
 
-Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../../key-vault/general/overview.md).
+- [Usługa Azure Key Vault](../../key-vault/general/overview.md)
+- [Azure Key Vault zarządzanego sprzętowego modułu zabezpieczeń (HSM) (wersja zapoznawcza)](../../key-vault/managed-hsm/overview.md)
+
+Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub zarządzanym module HSM lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Konto magazynu i Magazyn kluczy lub zarządzany moduł HSM muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
 
 > [!IMPORTANT]
 >

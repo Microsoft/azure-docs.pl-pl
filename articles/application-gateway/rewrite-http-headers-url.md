@@ -2,17 +2,17 @@
 title: Zapisz ponownie nagłówki HTTP i adres URL przy użyciu usługi Azure Application Gateway | Microsoft Docs
 description: Ten artykuł zawiera omówienie zapisywania nagłówków HTTP i adresów URL na platformie Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: surmb
-ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.author: azhussai
+ms.openlocfilehash: 7662ef5c2c3f5ed20069f64781d222ae44e52168
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726516"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384843"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway
 
@@ -38,7 +38,7 @@ Aby dowiedzieć się, jak ponownie napisać nagłówki żądań i odpowiedzi z A
 
 Możesz ponownie napisać wszystkie nagłówki w żądaniach i odpowiedziach, z wyjątkiem połączeń, a następnie Uaktualnij nagłówki. Za pomocą bramy aplikacji można także tworzyć niestandardowe nagłówki i dodawać je do żądań i odpowiedzi przesyłanych przez nią.
 
-### <a name="url-path-and-query-string-preview"></a>Ścieżka adresu URL i ciąg zapytania (wersja zapoznawcza)
+### <a name="url-path-and-query-string"></a>Ścieżka adresu URL i ciąg zapytania
 
 Dzięki możliwości ponownego zapisywania adresów URL w Application Gateway można:
 
@@ -51,9 +51,6 @@ Dzięki możliwości ponownego zapisywania adresów URL w Application Gateway mo
 Aby dowiedzieć się, jak ponownie napisać adres URL z Application Gateway przy użyciu Azure Portal, zobacz [tutaj](rewrite-url-portal.md).
 
 ![Diagram opisujący proces ponownego zapisywania adresu URL z Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
-
->[!NOTE]
-> Funkcja ponownego zapisywania adresu URL jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 jednostki SKU Application Gateway. Nie jest to zalecane do użycia w środowisku produkcyjnym. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="rewrite-actions"></a>Akcje ponownego zapisu
 
@@ -129,7 +126,20 @@ Brama aplikacji obsługuje następujące zmienne serwera:
 | ssl_enabled               | "Włączone", jeśli połączenie działa w trybie TLS. W przeciwnym razie pusty ciąg. |
 | uri_path                  | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path wartość zostanie `/article.aspx` |
 
- 
+### <a name="mutual-authentication-server-variables-preview"></a>Zmienne serwera uwierzytelniania wzajemnego (wersja zapoznawcza)
+
+Application Gateway obsługuje następujące zmienne serwera dla scenariuszy wzajemnego uwierzytelniania. Użyj tych zmiennych serwera w taki sam sposób jak powyżej z innymi zmiennymi serwera. 
+
+|   Nazwa zmiennej    |                   Opis                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_certificate        | Certyfikat klienta w formacie PEM dla ustanowionego połączenia SSL. |
+| client_certificate_end_date| Data końcowa certyfikatu klienta. |
+| client_certificate_fingerprint| Odcisk palca SHA1 certyfikatu klienta dla ustanowionego połączenia SSL. |
+| client_certificate_issuer | Ciąg "wystawcy DN" certyfikatu klienta dla ustanowionego połączenia SSL. |
+| client_certificate_serial | Numer seryjny certyfikatu klienta dla ustanowionego połączenia SSL.  |
+| client_certificate_start_date| Data rozpoczęcia certyfikatu klienta. |
+| client_certificate_subject| Ciąg "podmiot DN" certyfikatu klienta dla ustanowionego połączenia SSL. |
+| client_certificate_verification| Wynik weryfikacji certyfikatu klienta: *sukces*, *Niepowodzenie: <reason>* lub *Brak* , jeśli certyfikat był nieobecny. | 
 
 ## <a name="rewrite-configuration"></a>Zapisz ponownie konfigurację
 
@@ -148,6 +158,17 @@ Zestaw reguł ponownego zapisywania zawiera:
       * **Ścieżka URL**: wartość, do której ma zostać zapisywana ścieżka. 
       * **Ciąg zapytania URL**: wartość, w której ma zostać ponownie zapisany ciąg zapytania. 
       * **Ponownie Oceń mapę ścieżek**: służy do określenia, czy mapa ścieżki adresu URL ma zostać ponownie oceniona. Jeśli pole nie jest zaznaczone, oryginalna ścieżka URL zostanie użyta w celu dopasowania jej do wzorca ścieżki w mapie ścieżki URL. W przypadku ustawienia wartości true Mapa ścieżki URL zostanie ponownie oceniona, aby sprawdzić zgodność z zapisaną ścieżką. Włączenie tego przełącznika ułatwia kierowanie żądania do innej puli zaplecza po ponownym zapisaniu.
+
+### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Używanie ponownego zapisywania adresu URL lub zapisywania nagłówka hosta za pomocą zapory aplikacji sieci Web (WAF_v2 SKU)
+
+Po skonfigurowaniu ponownego zapisania adresu URL lub ponownym zapisaniu nagłówka hosta WAF oceny zostanie wykonane po modyfikacji nagłówka żądania lub adresu URL (po ponownym zapisaniu). Po usunięciu konfiguracji ponownego zapisu adresu URL lub zapisania nagłówka do Application Gateway zostanie wykonane obliczenie WAF przed ponownym zapisaniem nagłówka (przed ponownym zapisem). Ta kolejność zapewnia, że reguły WAF są stosowane do ostatecznego żądania, które zostałyby odebrane przez pulę zaplecza.
+
+Załóżmy na przykład, że masz następującą regułę ponownego zapisu nagłówka dla nagłówka `"Accept" : "text/html"` — Jeśli wartość nagłówka `"Accept"` jest równa `"text/html"` , a następnie Zapisz wartość w `"image/png"` .
+
+W tym miejscu, w przypadku skonfigurowania tylko ponownego zapisu nagłówka, obliczanie WAF zostanie wykonane `"Accept" : "text/html"` . Jednak w przypadku skonfigurowania ponownego zapisu adresu URL lub ponownego zapisu w nagłówku hosta zostanie przeprowadzona ocena WAF `"Accept" : "image/png"` .
+
+>[!NOTE]
+> Oczekuje się, że operacje ponownego zapisywania adresów URL powodują niewielki wzrost użycia procesora CPU przez WAF Application Gateway. Zaleca się monitorowanie [metryki użycia procesora CPU](high-traffic-support.md) przez krótki czas po włączeniu reguł ponownego zapisywania adresów URL na WAF Application Gateway.
 
 ### <a name="common-scenarios-for-header-rewrite"></a>Typowe scenariusze ponownego zapisywania nagłówka
 

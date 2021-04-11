@@ -11,16 +11,45 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68136cc259e0be4a2f9449aa9ec15f4a14a63890
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687332"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074985"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Dokumentacja platformy tożsamości firmy Microsoft: co nowego
 
 Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+
+## <a name="march-2021"></a>Marzec 2021
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Przywracanie lub usuwanie ostatnio usuniętej aplikacji za pomocą platformy tożsamości firmy Microsoft](quickstart-restore-app.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Zgoda administratora na platformę tożsamości firmy Microsoft](v2-admin-consent.md)
+- [Wymagania dotyczące konfiguracji i wskazówki dotyczące rozwiązywania problemów z platformą Xamarin Android z MSAL.NET](msal-net-xamarin-android-considerations.md)
+- [Aplikacja demona, która wywołuje interfejsy API sieci Web — pozyskiwanie tokenu](scenario-daemon-acquire-token.md)
+- [Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu](scenario-daemon-app-configuration.md)
+- [Aplikacja demona, która wywołuje interfejsy API sieci Web — wywołuje interfejs API sieci Web z aplikacji](scenario-daemon-call-api.md)
+- [Aplikacja demona, która wywołuje interfejsy API sieci Web — Przenieś do środowiska produkcyjnego](scenario-daemon-production.md)
+- [Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu](scenario-desktop-acquire-token.md)
+- [Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Konfiguracja kodu](scenario-desktop-app-configuration.md)
+- [Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web](scenario-desktop-call-api.md)
+- [Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)](active-directory-claims-mapping.md)
+- [Rejestrowanie w bibliotece MSAL dla języka Python](msal-logging-python.md)
+- [Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)](apple-sso-plugin.md)
+- [Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie interfejsu API Microsoft Graph przy użyciu tożsamości aplikacji konsoli](quickstart-v2-netcore-daemon.md)
+- [Szybki Start: Ochrona ASP.NET Core internetowego interfejsu API za pomocą platformy tożsamości firmy Microsoft](quickstart-v2-aspnet-core-web-api.md)
+- [Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej](quickstart-v2-angular.md)
+- [Pomoc techniczna i opcje pomocy dla deweloperów](developer-support-help-options.md)
+- [Aplikacja internetowa, która loguje użytkowników: Konfiguracja kodu](scenario-web-app-sign-user-app-configuration.md)
+- [Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie](scenario-web-app-sign-user-sign-in.md)
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
@@ -65,25 +94,3 @@ Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wym
 - [Konfigurowanie zasad okresu istnienia tokenu (wersja zapoznawcza)](configure-token-lifetimes.md)
 - [Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft](reference-v2-libraries.md)
 - [Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0](v2-oauth2-auth-code-flow.md)
-
-## <a name="december-2020"></a>Grudzień 2020 r.
-
-### <a name="new-articles"></a>Nowe artykuły
-
-- [Szybki Start: ASP.NET Core aplikacji sieci Web, która umożliwia logowanie użytkowników i wywoływanie Microsoft Graph w ich imieniu](quickstart-v2-aspnet-core-webapp-calls-graph.md)
-- [Obsługa błędów i wyjątków na platformie MSAL.NET](msal-error-handling-dotnet.md)
-- [Obsługa błędów i wyjątków w bibliotece MSAL.js dla systemu iOS/macOS](msal-error-handling-ios.md)
-- [Obsługa błędów i wyjątków w bibliotece MSAL dla języka Java](msal-error-handling-java.md)
-- [Obsługa błędów i wyjątków w bibliotece MSAL.js](msal-error-handling-js.md)
-- [Obsługa błędów i wyjątków w bibliotece MSAL dla języka Python](msal-error-handling-python.md)
-- [Scenariusze wymiany tokenów platformy tożsamości firmy Microsoft z użyciem protokołu SAML i OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
-
-### <a name="updated-articles"></a>Zaktualizowane artykuły
-
-- [Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft](quickstart-v2-java-webapp.md)
-- [Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
-- [Aplikacja sieci Web, która loguje się do użytkowników: Rejestracja aplikacji](scenario-web-app-sign-user-app-registration.md)
-- [Microsoft Identity platform i niejawny przepływ dotacji](v2-oauth2-implicit-grant-flow.md)
-- [Tokeny dostępu platformy tożsamości firmy Microsoft](access-tokens.md)
-- [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji](scenario-web-api-call-api-acquire-token.md)
-

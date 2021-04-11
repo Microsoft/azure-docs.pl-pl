@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780433"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552261"
 ---
-# <a name="reset-redemption-status-for-a-guest-user"></a>Zresetuj stan wykupu dla użytkownika-gościa
+# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Resetowanie stanu wykupu dla użytkownika-gościa (wersja zapoznawcza)
 
 Po wykorzystaniu przez użytkownika-gościa zaproszenia do współpracy B2B mogą wystąpić sytuacje, w których należy zaktualizować informacje logowania, na przykład:
 

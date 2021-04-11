@@ -1,5 +1,5 @@
 ---
-title: Samouczek — problem i weryfikacja zweryfikowanych poświadczeń przy użyciu dzierżawy (wersja zapoznawcza)
+title: Samouczek — problem i weryfikacja zweryfikowanych poświadczeń przy użyciu dzierżawy platformy Azure (wersja zapoznawcza)
 description: Zmiana przykładowego kodu poświadczeń do zweryfikowania do pracy z dzierżawą platformy Azure
 documentationCenter: ''
 author: barclayn
@@ -10,14 +10,14 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 95d3ab19565ed04d9bf7d59ba7262d40b4971d34
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170181"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553383"
 ---
-# <a name="tutorial-issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Samouczek: wystawianie i weryfikowanie poświadczeń do zweryfikowania przy użyciu dzierżawy (wersja zapoznawcza)
+# <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Samouczek — problem i weryfikacja zweryfikowanych poświadczeń przy użyciu dzierżawy (wersja zapoznawcza)
 
 > [!IMPORTANT]
 > Azure Active Directory poświadczenia do zweryfikowania są obecnie dostępne w publicznej wersji zapoznawczej.
@@ -66,7 +66,7 @@ Zarejestruj aplikację o nazwie "aplikacja portfela VC" w usłudze Azure AD i uz
 
    ![punkty końcowe wystawcy](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## <a name="set-up-your-node-app-with-access-to-key-vault"></a>Konfigurowanie aplikacji node z dostępem do Key Vault
+## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Konfigurowanie aplikacji node z dostępem do Azure Key Vault
 
 Aby uwierzytelnić żądanie wystawiania poświadczeń użytkownika, witryna sieci Web wystawcy używa kluczy kryptograficznych w programie Azure Key Vault. Aby uzyskać dostęp do Azure Key Vault, witryna internetowa wymaga identyfikatora klienta i klucza tajnego klienta, którego można użyć do uwierzytelnienia w Azure Key Vault.
 
@@ -183,7 +183,7 @@ Przed wprowadzeniem zmian w naszej przykładowej aplikacji należy wziąć pod s
 
    ![Identyfikator klucza logowania](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
 
-### <a name="did-document"></a>Dokument został przeszedł 
+### <a name="did-document"></a>Dokument został przeszedł
 
 1. Otwórz [Eksplorator sieci jonu DIF](https://identity.foundation/ion/explorer/)
 
@@ -308,7 +308,7 @@ Teraz, gdy wydano zweryfikowane poświadczenia z własnej dzierżawy z oświadcz
     
    ![nowe żądanie uprawnienia](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
 
-8. Twoje poświadczenia nie zostały pomyślnie zweryfikowane, a w witrynie sieci Web powinna być wyświetlana imię i nazwisko z konta użytkownika usługi Azure AD. 
+8. Pomyślnie zweryfikowano poświadczenie, a w witrynie sieci Web powinna być wyświetlana imię i nazwisko z konta użytkownika usługi Azure AD. 
 
 Teraz kończysz samouczek i jesteś oficjalnie zweryfikowanym ekspertem ds. poświadczeń! Twoja Przykładowa aplikacja korzysta z Twojej firmy w celu wystawiania i weryfikowania, podczas zapisywania oświadczeń do zweryfikowanego poświadczenia z usługi Azure AD. 
 

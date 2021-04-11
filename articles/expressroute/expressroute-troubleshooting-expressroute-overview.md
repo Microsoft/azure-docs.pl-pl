@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6213e17f1232bd505ba1edf185a851bf669b9809
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204643"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553434"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Weryfikowanie połączenia usługi ExpressRoute
 Ten artykuł ułatwia sprawdzanie i rozwiązywanie problemów z łącznością ExpressRoute. ExpressRoute rozszerza sieć lokalną do chmury firmy Microsoft przez połączenie prywatne, które jest powszechnie obsługiwane przez dostawcę połączenia. ExpressRoute łączności tradycyjnie obejmuje trzy oddzielne strefy sieciowe w następujący sposób:
@@ -88,7 +88,7 @@ W ExpressRoute Essentials *stan obwodu* wskazuje stan obwodu po stronie firmy Mi
 Aby obwód usługi ExpressRoute był uruchomiony, musi być *włączony* *stan obwodu* , a *stan dostawcy* musi być *zainicjowany*.
 
 > [!NOTE]
-> Po skonfigurowaniu obwodu ExpressRoute, jeśli *stan obwodu* wykreśla się w stanie niewłączonym, skontaktuj się z [Pomoc techniczna firmy Microsoft][Support]. Z drugiej strony, jeśli *stan dostawcy* jest wykreślony w stanie nieaprowizacji, skontaktuj się z dostawcą usług.
+> Po skonfigurowaniu obwodu ExpressRoute, jeśli *stan obwodu* jest zablokowany w stanie niewłączonym, skontaktuj się z [Pomoc techniczna firmy Microsoft][Support]. Z drugiej strony, jeśli *stan dostawcy* jest zablokowany w stanie nieaprowizacji, skontaktuj się z dostawcą usług.
 >
 >
 
@@ -145,7 +145,7 @@ ServiceProviderProvisioningState : Provisioned
 ```
 
 > [!NOTE]
-> Po skonfigurowaniu obwodu ExpressRoute, jeśli *stan obwodu* wykreśla się w stanie niewłączonym, skontaktuj się z [Pomoc techniczna firmy Microsoft][Support]. Z drugiej strony, jeśli *stan dostawcy* jest wykreślony w stanie nieaprowizacji, skontaktuj się z dostawcą usług.
+> Po skonfigurowaniu obwodu ExpressRoute, jeśli *stan obwodu* jest zablokowany w stanie niewłączonym, skontaktuj się z [Pomoc techniczna firmy Microsoft][Support]. Z drugiej strony, jeśli *stan dostawcy* jest zablokowany w stanie nieaprowizacji, skontaktuj się z dostawcą usług.
 >
 >
 

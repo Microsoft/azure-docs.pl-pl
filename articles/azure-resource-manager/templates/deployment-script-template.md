@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: jgao
-ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889386"
+ms.locfileid: "105967340"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -139,8 +139,8 @@ Szczegóły wartości właściwości:
 - `identity`: W przypadku interfejsu API skryptu wdrożenia w wersji 2020-10-01 lub nowszej tożsamość zarządzana przez użytkownika jest opcjonalna, o ile nie trzeba wykonywać żadnych akcji specyficznych dla platformy Azure w skrypcie.  W przypadku interfejsu API w wersji 2019-10-01-Preview wymagana jest tożsamość zarządzana, ponieważ usługa skryptu wdrażania używa jej do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
 - `kind`: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
 - `forceUpdateTag`: Zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne uruchomienie skryptu wdrażania. Jeśli używasz `newGuid()` `utcNow()` funkcji lub, obie funkcje mogą być używane tylko w wartości domyślnej dla parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
-- `containerSettings`: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  `containerGroupName` służy do określania nazwy grupy kontenerów. Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
-- `storageAccountSettings`: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli nie zostanie określony, konto magazynu zostanie utworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
+- `containerSettings`: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure. Skrypt wdrażania wymaga nowego wystąpienia kontenera platformy Azure. Nie można określić istniejącego wystąpienia kontenera platformy Azure. Można jednak dostosować nazwę grupy kontenerów za pomocą polecenia `containerGroupName` . Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
+- `storageAccountSettings`: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli `containerGroupName` nie zostanie określony, konto magazynu jest tworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Określ wersję modułu, która ma zostać użyta. Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]

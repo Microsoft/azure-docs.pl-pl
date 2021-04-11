@@ -181,6 +181,8 @@
           href: active-directory-data-storage-eu.md
         - name: Przechowywanie danych tożsamości na potrzeby Australii i Nowej Zelandii
           href: active-directory-data-storage-australia-newzealand.md
+    - name: Zarządzanie procesami roboczymi teraźniejszości
+      href: frontline-worker-management.md
     - name: Dokumentacja operacji usługi Azure AD
       items:
         - name: Wprowadzenie

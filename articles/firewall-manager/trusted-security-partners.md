@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: victorh
-ms.openlocfilehash: e955c6b760c06ce802dfae0193d34954eab99892
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731092"
+ms.locfileid: "105966915"
 ---
 # <a name="what-are-security-partner-providers"></a>Kim są dostawcy partnerów w zakresie zabezpieczeń?
 
@@ -44,7 +44,8 @@ Obsługiwane są następujące scenariusze:
    Sieć wirtualna/odgałęzienie do Internetu za pośrednictwem dostawcy partnera zabezpieczeń oraz inny ruch (szprych-to-szprych, Branch-to-szprych) za pośrednictwem zapory platformy Azure.
 - Pojedynczy dostawca w centrum
 
-   - Cały ruch (szprych-to-szprych, szprychy do gałęzi, gałąź-do-szprych, Sieć wirtualna/gałąź-Internet) zabezpieczony przez zaporę platformy Azure
+   - Cały ruch (szprych-to-szprych, szprychy do gałęzi, gałąź-do-szprych, Sieć wirtualna/gałąź-Internet) zabezpieczony przez zaporę platformy Azure<br>
+      lub
    - Sieć wirtualna/odgałęzienie do Internetu przez dostawcę partnera zabezpieczeń
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Najlepsze rozwiązania dotyczące filtrowania ruchu internetowego w zabezpieczonych centrach wirtualnych

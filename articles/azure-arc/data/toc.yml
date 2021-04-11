@@ -44,16 +44,24 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Tworzenie kontrolera danych
       items:
-        - name: Azure Data Studio
-          href: create-data-controller-azure-data-studio.md
-        - name: Azure Portal
-          href: create-data-controller-resource-in-azure-portal.md
-        - name: Interfejs wiersza polecenia danych platformy Azure (azdata)
-          href: create-data-controller-using-azdata.md
-        - name: Narzędzia platformy Kubernetes
-          href: create-data-controller-using-kubernetes-native-tools.md
-        - name: Zastosuj SCC (OpenShift)
-          href: how-to-apply-security-context-constraint.md
+        - name: Tryb łączności pośredniej
+          items:
+            - name: Azure Data Studio
+              href: create-data-controller-azure-data-studio.md
+            - name: Azure Portal
+              href: create-data-controller-resource-in-azure-portal.md
+            - name: Interfejs wiersza polecenia danych platformy Azure (azdata)
+              href: create-data-controller-using-azdata.md
+            - name: Narzędzia platformy Kubernetes
+              href: create-data-controller-using-kubernetes-native-tools.md
+            - name: Zastosuj SCC (OpenShift)
+              href: how-to-apply-security-context-constraint.md
+        - name: Tryb łączności bezpośredniej
+          items:
+            - name: Wymagania wstępne
+              href: deploy-data-controller-direct-mode-prerequisites.md
+            - name: Wdróż
+              href: deploy-data-controller-direct-mode.md
     - name: Typowe środowiska usług danych z obsługą usługi Azure Arc
       items:
         - name: Monitorowanie przy użyciu pulpitów nawigacyjnych (Azure Data Studio)

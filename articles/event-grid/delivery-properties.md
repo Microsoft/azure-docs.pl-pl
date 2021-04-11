@@ -3,12 +3,12 @@ title: Azure Event Grid — Ustawianie nagłówków niestandardowych dla dostarc
 description: Opisuje, jak można ustawić niestandardowe nagłówki (lub właściwości dostarczania) dla dostarczonych zdarzeń.
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: e2eff6b0d1dc78f0d558bb8e4e1ad79c62c52657
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6cc6874b7aba6e0696dec21de5b431ca18df3013
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630530"
+ms.locfileid: "105967595"
 ---
 # <a name="delivery-with-custom-headers"></a>Dostarczanie z nagłówkami niestandardowymi
 Subskrypcje zdarzeń umożliwiają konfigurowanie nagłówków HTTP, które są uwzględnione w dostarczonych zdarzeniach. Ta funkcja umożliwia ustawienie niestandardowych nagłówków, które są wymagane przez miejsce docelowe. Podczas tworzenia subskrypcji zdarzeń można skonfigurować maksymalnie 10 nagłówków. Każda wartość nagłówka nie powinna być większa niż 4 096 (4K) bajtów.

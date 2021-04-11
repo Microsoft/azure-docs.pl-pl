@@ -93,6 +93,9 @@
             - name: Przejdź
               href: connect-go.md
               displayName: connect with go
+            - name: Rust
+              href: connect-rust.md
+              displayName: connect with rust
     - name: Samouczki
       items:
         - name: Projektowanie bazy danych
@@ -558,11 +561,15 @@
       items:
         - name: Co to jest Hiperskala (Citus)?
           href: hyperscale-overview.md
+        - name: Funkcje w wersji zapoznawczej
+          href: hyperscale-preview-features.md
     - name: Szybki start
       items:
         - name: Tworzenie grupy serwerów
           items:
-            - name: Azure Portal
+            - name: Warstwa Podstawowa (wersja zapoznawcza)
+              href: quickstart-create-hyperscale-basic-tier.md
+            - name: Warstwa Standardowa
               href: quickstart-create-hyperscale-portal.md
               displayName: 'portal, create hyperscale'
     - name: Samouczki
@@ -581,6 +588,8 @@
           displayName: 'hyperscale, tutorial, real-time'
     - name: Pojęcia
       items:
+        - name: Warstwa Podstawowa
+          href: concepts-hyperscale-tiers.md
         - name: Rozproszone dane
           items:
             - name: Węzły i tabele
@@ -611,26 +620,26 @@
               displayName: 'backup, restore, outage, hyperscale'
             - name: Wysoka dostępność
               href: concepts-hyperscale-high-availability.md
+        - name: Replikacja
+          href: concepts-hyperscale-read-replicas.md
         - name: Monitorowanie i dostrajanie
           items:
             - name: Monitorowanie i dostrajanie
               href: concepts-hyperscale-monitoring.md
             - name: Dzienniki inspekcji
               href: concepts-hyperscale-audit.md
+        - name: Magazyn kolumnowy
+          href: concepts-hyperscale-columnar.md
         - name: Opcje konfiguracji
           href: concepts-hyperscale-configuration-options.md
+        - name: Limity i ograniczenia
+          href: concepts-hyperscale-limits.md
         - name: Opłacanie wydajności rezerwowej z góry
           href: concepts-hyperscale-reserved-pricing.md
+        - name: Wersje programu PostgreSQL
+          href: concepts-hyperscale-versions.md
         - name: Rozszerzenia PostgreSQL
           href: concepts-hyperscale-extensions.md
-    - name: Dokumentacja interfejsu API
-      items:
-        - name: Funkcje interfejsu SQL API
-          href: reference-hyperscale-functions.md
-        - name: Parametry serwera
-          href: reference-hyperscale-parameters.md
-        - name: Tabele systemowe
-          href: reference-hyperscale-metadata.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Rozmiar grupy serwerów
@@ -656,6 +665,11 @@
               href: howto-hyperscale-modify-distributed-tables.md
         - name: Wysoka dostępność
           href: howto-hyperscale-high-availability.md
+        - name: Replikacja
+          items:
+            - name: Azure Portal
+              href: howto-hyperscale-read-replicas-portal.md
+              displayName: 'replication, read replica'
         - name: Monitorowanie
           items:
             - name: Tworzenie alertów dotyczących metryk
@@ -664,6 +678,8 @@
             - name: Uzyskiwanie dostępu do dzienników bazy danych
               href: howto-hyperscale-logging.md
               displayName: 'log, hyperscale'
+        - name: Uaktualnienia wersji głównych
+          href: howto-hyperscale-upgrade.md
         - name: Rozwiązywanie problemów
           items:
             - name: Rozwiązywanie problemów z błędami połączenia
@@ -671,6 +687,14 @@
               displayName: 'connection errors, hyperscale'
             - name: Przydatne zapytania diagnostyczne
               href: howto-hyperscale-useful-diagnostic-queries.md
+    - name: Dokumentacja interfejsu API
+      items:
+        - name: Funkcje interfejsu SQL API
+          href: reference-hyperscale-functions.md
+        - name: Parametry serwera
+          href: reference-hyperscale-parameters.md
+        - name: Tabele systemowe
+          href: reference-hyperscale-metadata.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

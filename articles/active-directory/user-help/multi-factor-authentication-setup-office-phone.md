@@ -10,19 +10,21 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c77672ce895cc63a04973c4cb3e752ca319e269d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83739213"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553417"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Konfigurowanie telefonu biurowego jako metody weryfikacji dwuskładnikowej
 
 Możesz skonfigurować telefon biurowy do działania jako metoda weryfikacji dwuetapowej.
 
->[!Note]
-> Jeśli opcja telefon biurowy jest wyszarzona, istnieje możliwość, że Twoja organizacja nie zezwala na używanie numeru telefonu biurowego do weryfikacji. W takim przypadku należy wybrać inną metodę lub skontaktować się z administratorem w celu uzyskania dodatkowej pomocy.
+> [!Note]
+> Jeśli opcja **telefon biurowy** nie jest dostępna do wybrania, istnieje możliwość, że Twoja organizacja nie zezwala na używanie numeru telefonu biurowego do weryfikacji. W takim przypadku należy wybrać inną metodę lub skontaktować się z administratorem w celu uzyskania dodatkowej pomocy. 
+> 
+> Użytkownicy rejestracji łącznej nie będą widzieć opcji używania rozszerzenia z opcją **telefonu służbowego** .
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Konfigurowanie numeru telefonu biurowego jako metody weryfikacji
 

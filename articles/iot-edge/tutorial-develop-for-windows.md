@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b5ff515f5a6d25285009f6579570aa3afa5a711f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+monikerRange: =iotedge-2018-06
+ms.openlocfilehash: a2d8a215dfc34073783a5d8a6233ec8dbae4ec17
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463361"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218876"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Samouczek: opracowywanie modułów IoT Edge przy użyciu kontenerów systemu Windows
 
@@ -23,7 +24,7 @@ ms.locfileid: "103463361"
 Program Visual Studio umożliwia tworzenie i wdrażanie kodu na urządzeniach z systemem Windows, na których działa IoT Edge.
 
 >[!NOTE]
->IoT Edge 1,1 LTS to ostatni kanał wydania, który będzie obsługiwał kontenery systemu Windows. Począwszy od wersji 1,2, kontenery systemu Windows nie są obsługiwane. Rozważ użycie lub przechodzenie do [IoT Edge dla systemu Linux w systemie Windows](iot-edge-for-linux-on-windows.md) w celu uruchomienia IoT Edge na urządzeniach z systemem Windows.
+>IoT Edge 1,1 LTS to ostatni kanał wydania obsługujący kontenery systemu Windows. Począwszy od wersji 1,2, kontenery systemu Windows nie są obsługiwane. Rozważ użycie lub przechodzenie do [IoT Edge dla systemu Linux w systemie Windows](iot-edge-for-linux-on-windows.md) w celu uruchomienia IoT Edge na urządzeniach z systemem Windows.
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania własnego kodu na urządzeniu IoT Edge. Ten samouczek to przydatne wymagania wstępne dla innych samouczków, które bardziej szczegółowo opisują określone Języki programowania lub usługi platformy Azure.
 

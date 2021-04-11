@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2021
 ms.author: bwren
-ms.openlocfilehash: 64b794f4a749816af71f9c5f14dddf2bbcbc6512
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 975a3ea250307e445e9bf48abdc669f2b035038a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279616"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554046"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -494,7 +494,7 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 | Dziennik systemu                     | Zmień [konfigurację dziennika systemu](../agents/data-sources-syslog.md) w następujący sposób: <br> — Zmniejsz liczbę urządzeń, z których zbierane są dane <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje* i *Debugowanie*. |
 | AzureDiagnostics           | Zmień [kolekcję dzienników zasobów](../essentials/diagnostic-settings.md#create-in-azure-portal) na: <br> — zmniejszyć liczbę dzienników zasobów wysyłanych do usługi Log Analytics, <br> — zbierać tylko wymagane dzienniki. |
 | Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../insights/solution-targeting.md) , aby zbierać dane tylko z wymaganych grup komputerów. |
-| Application Insights | Przejrzyj opcje [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
+| Application Insights | Przegląd opcji [zarządzania woluminem danych Application Insights](../app/pricing.md#managing-your-data-volume) |
 | [Analiza SQL](../insights/azure-sql.md) | Użyj [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) , aby dostosować ustawienia inspekcji. |
 | Usługa Azure Sentinel | Przejrzyj wszystkie [źródła danych wskaźnikowych](../../sentinel/connect-data-sources.md) , które były ostatnio włączone jako źródła dodatkowego woluminu danych. |
 

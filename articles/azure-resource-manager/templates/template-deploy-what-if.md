@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 76469f8b74b119c07374232899302fe1d18fe463
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731466"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074626"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operacja analizy co-jeżeli wdrożenia szablonu usługi Resource Manager
 
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji o instalowaniu modułów, zobacz [Install Azure 
 
 ## <a name="install-azure-cli-module"></a>Instalowanie modułu interfejsu wiersza polecenia platformy Azure
 
-Aby użyć analizy co-jeżeli w interfejsie wiersza polecenia platformy Azure, potrzebny interfejs wiersza polecenia platformy Azure w wersji 2.5.0 lub nowszej. W razie potrzeby [zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Aby użyć tego, co jest dostępne w interfejsie wiersza polecenia platformy Azure, musisz mieć interfejs wiersza polecenia platformy Azure 2.14.0 lub nowszy. W razie potrzeby [zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="see-results"></a>Zobacz wyniki
 
@@ -117,10 +117,10 @@ Jeśli chcesz zwrócić wyniki bez kolorów, Otwórz plik [konfiguracji interfej
 
 W przypadku interfejsu API REST wykonaj następujące czynności:
 
-* [Wdrożenia — What If](/rest/api/resources/resources/deployments/whatif) do wdrożeń grup zasobów
-* [Wdrożenia — What If w zakresie subskrypcji](/rest/api/resources/resources/deployments/whatifatsubscriptionscope) dla wdrożeń subskrypcji
-* [Wdrożenia — What If w zakresie grupy zarządzania](/rest/api/resources/resources/deployments/whatifatmanagementgroupscope) dla wdrożeń grup zarządzania
-* [Wdrożenia — What If w zakresie dzierżawy](/rest/api/resources/resources/deployments/whatifattenantscope) dla wdrożeń dzierżawy.
+* [Wdrożenia — What If](/rest/api/resources/deployments/whatif) do wdrożeń grup zasobów
+* [Wdrożenia — What If w zakresie subskrypcji](/rest/api/resources/deployments/whatifatsubscriptionscope) dla wdrożeń subskrypcji
+* [Wdrożenia — What If w zakresie grupy zarządzania](/rest/api/resources/deployments/whatifatmanagementgroupscope) dla wdrożeń grup zarządzania
+* [Wdrożenia — What If w zakresie dzierżawy](/rest/api/resources/deployments/whatifattenantscope) dla wdrożeń dzierżawy.
 
 ## <a name="change-types"></a>Typy zmian
 

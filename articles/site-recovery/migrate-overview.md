@@ -2,18 +2,15 @@
 title: Porównanie Azure Migrate i Site Recovery migracji na platformę Azure
 description: Podsumowuje zalety używania Azure Migrate do migracji, a nie Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.author: raynew
-ms.openlocfilehash: 358efaa1493aa08fb76c9bb83e0e4289950e0969
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4d30b8b21bf3a0ea27467d2120b04a107f5a73f
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87844324"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581415"
 ---
 # <a name="migrating-to-azure"></a>Migracja na platformę Azure
 

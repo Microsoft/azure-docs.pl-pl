@@ -268,10 +268,14 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Rozwiązywanie problemów z systemem Apache Oozie
               href: ./troubleshoot-oozie.md
+            - name: Rozwiązywanie problemów z programem Apache Sqoop
+              href: ./troubleshoot-sqoop.md
             - name: Informacje na temat błędów usługi WebHCat i ich rozwiązywania
               href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Dokumentacja
       items:
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: /cli/azure/hdinsight
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: Zestaw SDK środowiska .NET

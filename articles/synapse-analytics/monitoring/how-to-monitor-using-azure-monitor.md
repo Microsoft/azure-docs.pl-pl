@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ba730adaa1e3b111586012ba1849c6dc84d6db00
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609262"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553995"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Używanie Azure Monitor z obszarem roboczym usługi Azure Synapse Analytics
 
@@ -103,10 +103,14 @@ Zaloguj się do Azure Portal i wybierz pozycję **Monitoruj**  >  **alerty** , a
 
 Poniżej przedstawiono dzienniki emitowane przez obszary robocze analiz usługi Azure Synapse:
 
-| Nazwa tabeli Log Analytics | Nazwa kategorii dziennika                 | Opis |
-|-------------------------------|-------------------------------------------------|-------------|
-| SynapseGatewayApiRequests     | GatewayApiRequests             | Żądania interfejsu API bramy usługi Azure Synapse. |
-| SynapseRbacOperations         | SynapseRbacOperations          | Operacje kontroli dostępu opartej na rolach (SRBAC) usługi Azure Synapse. |
+| Nazwa tabeli Log Analytics       | Nazwa kategorii dziennika              | Opis          |
+|--------------------------------|--------------------------------|----------------------|
+| SynapseGatewayApiRequests      | GatewayApiRequests             | Żądania interfejsu API bramy usługi Azure Synapse. |
+| SynapseRbacOperations          | SynapseRbacOperations          | Operacje kontroli dostępu opartej na rolach (SRBAC) usługi Azure Synapse. |
+| SynapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Wbudowana usługa Azure Synapse nie ma wbudowanych żądań puli SQL bezserwerowych. |
+| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns        | Uruchomienia potoku integracji z usługą Azure Synapse. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | Działania integracji z usługą Azure Synapse. |
+| SynapseIntegrationTriggerRuns  | IntegrationTriggerRuns         | Uruchomiono wyzwalacz integracji usługi Azure Synapse. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Dedykowane dzienniki puli SQL
 

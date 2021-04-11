@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: c766c78705a1c1e40a9385360d35ac06a3db3a5d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 675e99797a507cdcf96ad33ab13c4f386f6f372c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99252241"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169032"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Przekaż dysk VHD do platformy Azure lub skopiuj go do innego regionu — Azure PowerShell
 
@@ -34,7 +34,7 @@ Aby przekazać dysk VHD na platformę Azure, musisz utworzyć pusty dysk zarząd
 
 Ten rodzaj dysku zarządzanego ma dwa unikatowe Stany:
 
-- ReadToUpload, co oznacza, że dysk jest gotowy do odebrania przekazania, ale nie Wygenerowano [sygnatury bezpiecznego dostępu](../../storage/common/storage-sas-overview.md) (SAS).
+- ReadyToUpload, co oznacza, że dysk jest gotowy do odebrania przekazania, ale nie Wygenerowano [sygnatury bezpiecznego dostępu](../../storage/common/storage-sas-overview.md) (SAS).
 - ActiveUpload, co oznacza, że dysk jest gotowy do odebrania przekazywania i Wygenerowano sygnaturę dostępu współdzielonego.
 
 > [!NOTE]

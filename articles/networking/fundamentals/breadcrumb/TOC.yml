@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Sieć
+      tocHref: /azure/networking/
+      topicHref: /azure/networking/fundamentals/index
+      items:
+        - name: Podstawy
+          tocHref: /azure/networking/fundamentals
+          topicHref: /azure/networking/fundamentals/index
+        - name: Podstawy
+          tocHref: /azure/virtual-network/
+          topicHref: /azure/networking/fundamentals/index

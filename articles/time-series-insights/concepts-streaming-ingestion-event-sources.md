@@ -1,20 +1,20 @@
 ---
 title: Źródła zdarzeń pozyskiwania strumieniowego — Azure Time Series Insights Gen2 | Microsoft Docs
 description: Dowiedz się więcej o przesyłaniu strumieniowym danych do Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: ec41f7503ec179cb1fa6172e94e613933f719c93
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4e22d93d3037c190193f53b7cfdbc87cff2da6ed
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953621"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504400"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -75,7 +75,7 @@ Podczas tworzenia źródła zdarzeń można określić, jakie istniejące dane m
 
 - Stosuj zasadę najniższych uprawnień podczas udostępniania parametrów połączenia źródła zdarzeń. W przypadku Event Hubs Skonfiguruj zasady dostępu współdzielonego tylko przy użyciu tylko żądania *wysyłania* , a dla IoT Hub Użyj tylko uprawnienia *usługi Connect* .
 
-> [!CAUTION] 
+> [!CAUTION]
 > Jeśli usuniesz IoT Hub lub centrum zdarzeń i ponownie utworzysz nowy zasób o tej samej nazwie, musisz utworzyć nowe źródło zdarzenia i dołączyć nowe IoT Hub lub centrum zdarzeń. Dane nie zostaną pozyskane do momentu ukończenia tego kroku.
 
 ## <a name="production-workloads"></a>Obciążenia produkcyjne

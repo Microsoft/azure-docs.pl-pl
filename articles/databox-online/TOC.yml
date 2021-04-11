@@ -244,12 +244,22 @@
               href: azure-stack-edge-gpu-create-virtual-machine-image.md
             - name: Użyj uogólnionego obrazu systemu Windows
               href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+            - name: Korzystanie z obrazu specjalizowanego systemu Windows
+              href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
             - name: Obsługiwane rozmiary i typy maszyn wirtualnych
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
             - name: Łączenie z konsolą maszyny wirtualnej
               href: azure-stack-edge-gpu-connect-virtual-machine-console.md
             - name: Zarządzanie interfejsami sieciowymi
               href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+            - name: Zarządzanie dyskami
+              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+            - name: Zarządzanie rozmiarami maszyn wirtualnych
+              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+            - name: Zarządzanie tagami maszyn wirtualnych
+              href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+            - name: Utwórz przełącznik wirtualny
+              href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: Zarządzanie certyfikatami
           items:
             - name: Wymagania

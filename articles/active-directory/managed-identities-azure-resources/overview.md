@@ -15,16 +15,16 @@ ms.custom: mvc
 ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99db58e39377932608b1c78bac37003432aa4c04
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381909"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504360"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Jakie są zarządzane tożsamości dla zasobów platformy Azure?
 
-Typowym wyzwaniem dla deweloperów jest zarządzanie kluczami tajnymi i poświadczeniami w celu zabezpieczenia komunikacji między różnymi usługami. Na platformie Azure tożsamości zarządzane eliminują konieczność zarządzania poświadczeniami przy użyciu tożsamości dla zasobów platformy Azure w usłudze Azure AD i uzyskiwania tokenów Azure Active Directory (Azure AD). Pozwala to również uzyskać dostęp do [Azure Key Vault](../../key-vault/general/overview.md) , gdzie deweloperzy mogą przechowywać poświadczenia w bezpieczny sposób. Zarządzane tożsamości dla zasobów platformy Azure rozwiązują ten problem, dostarczając usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure AD.
+Typowym wyzwaniem dla deweloperów jest zarządzanie kluczami tajnymi i poświadczeniami używanymi do zabezpieczania komunikacji między różnymi składnikami, które tworzą rozwiązanie. Tożsamości zarządzane eliminują konieczność zarządzania poświadczeniami przez deweloperów. Tożsamości zarządzane zapewniają tożsamość aplikacji, które mają być używane podczas nawiązywania połączenia z zasobami, które obsługują uwierzytelnianie Azure Active Directory (Azure AD). Aplikacje mogą używać tożsamości zarządzanej do uzyskiwania tokenów usługi Azure AD. Na przykład aplikacja może używać tożsamości zarządzanej do uzyskiwania dostępu do zasobów, takich jak [Azure Key Vault](../../key-vault/general/overview.md) , w których deweloperzy mogą przechowywać poświadczenia w bezpieczny sposób lub uzyskiwać dostęp do kont magazynu.
 
 Do czego służy tożsamość zarządzana?
 
@@ -33,7 +33,7 @@ Do czego służy tożsamość zarządzana?
 Oto niektóre korzyści wynikające z używania tożsamości zarządzanych:
 
 - Nie musisz zarządzać poświadczeniami. Poświadczenia nie są jeszcze dostępne dla Ciebie.
-- Przy użyciu tożsamości zarządzanych można uwierzytelniać się w dowolnym zasobie, który obsługuje uwierzytelnianie Azure Active Directory, w tym własne aplikacje.
+- Przy użyciu tożsamości zarządzanych można uwierzytelniać się w dowolnym zasobie, który obsługuje [uwierzytelnianie Azure Active Directory](../authentication/overview-authentication.md) , w tym własne aplikacje.
 - Tożsamości zarządzane mogą być używane bez dodatkowych kosztów.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono różnice między dwoma typami zarządzanych t
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Jak można używać tożsamości zarządzanych dla zasobów platformy Azure?
 
-![Przykłady, w jaki deweloper może używać tożsamości zarządzanych do uzyskiwania dostępu do zasobów z ich kodu bez konieczności zarządzania informacjami o uwierzytelnianiu](media/overview/azure-managed-identities-examples.png)
+![Przykłady, w jaki deweloper może używać tożsamości zarządzanych do uzyskiwania dostępu do zasobów z ich kodu bez konieczności zarządzania informacjami o uwierzytelnianiu](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>Jakie usługi platformy Azure obsługują funkcję?<a name="which-azure-services-support-managed-identity"></a>
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d68011afe044535783dd8a8c56ed5d950c6d06b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9f35a698510f8637c3fe66528e6d64e5cd87b693
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099883"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553825"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurowanie usługi ExpressRoute Direct przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -226,6 +226,14 @@ Po zarejestrowaniu upewnij się, że dostawca zasobów **Microsoft. Network** je
    "type": "Microsoft.Network/expressRoutePorts"
    }  
    ```
+
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="resources"></a>Generuj list autoryzacji (DOWANIU)
+
+Wprowadź ostatnio utworzoną nazwę zasobu ExpressRoute Direct, nazwę grupy zasobów i nazwę klienta, aby zapisać DOWANIU do i (opcjonalnie) zdefiniować lokalizację pliku do przechowywania dokumentu. Jeśli ścieżka do pliku nie jest przywoływana, dokument zostanie pobrany do bieżącego katalogu.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
 
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>Zmień AdminState dla linków
 

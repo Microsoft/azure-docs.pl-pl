@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 604af007e4549716edf8bac63b74351512b438a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a4ddee8262ddc8a573cf83715999f5c12cfd1dd
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102444516"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113375"
 ---
 Rozpocznij pracę z biblioteką klienta Custom Vision dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod służący do tworzenia modelu wykrywania obiektów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
 
@@ -60,7 +60,7 @@ Utwórz zmienne dla punktu końcowego platformy Azure i kluczy subskrypcji dla z
 
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkt końcowy można znaleźć na stronach "klucze zasobów" **i punkt końcowy** w obszarze **Zarządzanie zasobami**. Musisz pobrać klucze szkoleniowe i prognozowe wraz z punktem końcowym zasobów szkoleniowych.
+> Przejdź do witryny Azure Portal. Jeśli pomyślnie wdrożono zasoby Custom Vision utworzone w sekcji **wymagania wstępne** , kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucze i punkt końcowy można znaleźć na stronach "klucze zasobów" **i punkt końcowy** w obszarze **Zarządzanie zasobami**. Musisz pobrać klucze dla zasobów szkoleniowych i predykcyjnych wraz z punktem końcowym interfejsu API dla zasobu szkoleniowego.
 >
 > Wartość identyfikatora zasobu przewidywania można znaleźć na karcie **Przegląd** zasobu, na liście jako **Identyfikator subskrypcji**.
 >

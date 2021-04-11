@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e43c472c939049e5dfd4ec4df909a3178ef8e2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100388587"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553264"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Popraw syntezę przy użyciu narzędzia do tworzenia zawartości audio
 
@@ -44,7 +44,7 @@ Po zarejestrowaniu się do konta platformy Azure musisz utworzyć zasób mowy na
 Wdrożenie nowego zasobu mowy trwa kilka minut. Po zakończeniu wdrażania możesz rozpocząć podróż tworzenia zawartości audio. 
 
  >[!NOTE]
-   > Jeśli planujesz używać głosów neuronowych, upewnij się, że tworzysz zasób w [regionie, który obsługuje głosy neuronowych](regions.md#standard-and-neural-voices).
+   > Jeśli planujesz używać głosów neuronowych, upewnij się, że tworzysz zasób w [regionie, który obsługuje głosy neuronowych](regions.md#neural-and-standard-voices).
  
 ### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>Krok 3. Logowanie do tworzenia zawartości audio przy użyciu konta platformy Azure i zasobu mowy
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 79a070dbd49ed6ee00dd790c8157057aebde30df
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105606742"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu programu PowerShell
