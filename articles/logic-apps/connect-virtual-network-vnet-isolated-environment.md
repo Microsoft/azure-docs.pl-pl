@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: a56a41b704b12da08cf86b450ac1c734409c8032
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97739743"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219318"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
@@ -91,7 +91,7 @@ Aby upewnić się, że ISE jest dostępny i że aplikacje logiki w tym ISE mogą
 
   Po skonfigurowaniu [reguł zabezpieczeń sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules)należy używać *zarówno* protokołów **TCP** , jak i **UDP** . można też wybrać **dowolną** z nich, aby nie trzeba było tworzyć oddzielnych reguł dla każdego protokołu. SIECIOWEJ grupy zabezpieczeń reguły zabezpieczeń zawierają informacje o portach, które muszą być otwarte dla adresów IP, które wymagają dostępu do tych portów. Upewnij się, że wszystkie zapory, routery lub inne elementy, które istnieją między tymi punktami końcowymi, zachowują również dostęp do tych adresów IP.
 
-* W przypadku skonfigurowania wymuszonego tunelowania przez zaporę w celu przekierowania ruchu związanego z Internetem zapoznaj się z [dodatkowymi wymaganiami wymuszonego tunelowania](#forced-tunneling).
+* W przypadku skonfigurowania wymuszonego tunelowania przez zaporę w celu przekierowania ruchu związanego z Internetem należy zapoznać się z [wymaganiami wymuszonego tunelowania](#forced-tunneling).
 
 <a name="network-ports-for-ise"></a>
 
@@ -108,9 +108,9 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Oba: <p>Komunikacja z aplikacją logiki <p><p>Historia uruchamiania aplikacji logiki| ISE wewnętrzny: <br>**VirtualNetwork** <p><p>Zewnętrzna ISE: **Internet** lub zobacz **uwagi** | * | **VirtualNetwork** | 443 | Zamiast korzystać z tagu usługi **internetowej** , można określić źródłowy adres IP dla następujących elementów: <p><p>-Komputer lub usługa, która wywołuje wszystkie wyzwalacze żądań lub elementy webhook w aplikacji logiki <p>-Komputer lub usługa, z której chcesz uzyskać dostęp do historii uruchomień aplikacji logiki <p><p>**Ważne**: zamknięcie lub zablokowanie tego portu uniemożliwia wywołania do aplikacji logiki, które mają wyzwalacze żądań lub elementy webhook. Można również uniemożliwić dostęp do danych wejściowych i wyjściowych dla każdego kroku w historii uruchamiania. Jednak nie masz dostępu do historii uruchomień aplikacji logiki.|
-| Logic Apps Designer — właściwości dynamiczne | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Żądania pochodzą z [przychodzących adresów IP](../logic-apps/logic-apps-limits-and-config.md#inbound) punktu końcowego dostępu Logic Apps dla tego regionu. |
-| Wdrożenie łącznika | **AzureConnectors** | * | **VirtualNetwork** | 454 | Wymagane do wdrażania i aktualizowania łączników. Zamknięcie lub zablokowanie tego portu powoduje, że wdrożenia ISE kończą się niepowodzeniem i uniemożliwiają aktualizacje i poprawki łącznika. |
-| Sprawdzenie kondycji sieci | **LogicApps** | * | **VirtualNetwork** | 454 | Żądania pochodzą z przychodzących [adresów IP](../logic-apps/logic-apps-limits-and-config.md#inbound) punktu końcowego dostępu Logic Apps i [wychodzących adresów IP](../logic-apps/logic-apps-limits-and-config.md#outbound) dla tego regionu. |
+| Logic Apps Designer — właściwości dynamiczne | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Żądania pochodzą z [przychodzących adresów IP](../logic-apps/logic-apps-limits-and-config.md#inbound) punktu końcowego dostępu Logic Apps dla tego regionu. <p><p>**Ważne**: Jeśli pracujesz z chmurą Azure Government, tag usługi **LogicAppsManagement** nie będzie działać. Zamiast tego należy podać Logic Apps [przychodzące adresy IP](../logic-apps/logic-apps-limits-and-config.md#azure-government-inbound) dla Azure Government. |
+| Sprawdzenie kondycji sieci | **LogicApps** | * | **VirtualNetwork** | 454 | Żądania pochodzą z przychodzących [adresów IP](../logic-apps/logic-apps-limits-and-config.md#inbound) punktu końcowego dostępu Logic Apps i [wychodzących adresów IP](../logic-apps/logic-apps-limits-and-config.md#outbound) dla tego regionu. <p><p>**Ważne**: Jeśli pracujesz z chmurą Azure Government, tag usługi **LogicApps** nie będzie działać. Zamiast tego należy podać zarówno Logic Apps [przychodzące adresy IP](../logic-apps/logic-apps-limits-and-config.md#azure-government-inbound) , jak i [wychodzące adresy IP](../logic-apps/logic-apps-limits-and-config.md#azure-government-outbound) dla Azure Government. |
+| Wdrożenie łącznika | **AzureConnectors** | * | **VirtualNetwork** | 454 | Wymagane do wdrażania i aktualizowania łączników. Zamknięcie lub zablokowanie tego portu powoduje, że wdrożenia ISE kończą się niepowodzeniem i uniemożliwiają aktualizacje i poprawki łącznika. <p><p>**Ważne**: Jeśli pracujesz z chmurą Azure Government, tag usługi **AzureConnectors** nie będzie działać. Zamiast tego należy podać [wychodzące adresy IP łącznika zarządzanego](../logic-apps/logic-apps-limits-and-config.md#azure-government-outbound) dla Azure Government. |
 | Zależność zarządzania App Service | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
 | Komunikacja z Traffic Manager platformy Azure | **AzureTrafficManager** | * | **VirtualNetwork** | ISE wewnętrzny: 454 <p><p>ISE zewnętrzne: 443 ||
 | Oba: <p>Wdrożenie zasad łącznika <p>Punkt końcowy zarządzania API Management | **APIManagement** | * | **VirtualNetwork** | 3443 | W przypadku wdrożenia zasad łącznika dostęp do portu jest wymagany do wdrażania i aktualizowania łączników. Zamknięcie lub zablokowanie tego portu powoduje, że wdrożenia ISE kończą się niepowodzeniem i uniemożliwiają aktualizacje i poprawki łącznika. |
@@ -123,7 +123,7 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Komunikacja z aplikacji logiki | **VirtualNetwork** | * | Różni się w zależności od miejsca docelowego | 80, 443 | Lokalizacja docelowa zależy od punktów końcowych usługi zewnętrznej, z którą aplikacja logiki musi się komunikować. |
-| Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
+| Usługa Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
 | Zależność usługi Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Zarządzanie połączeniami | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publikowanie dzienników diagnostycznych & metryki | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
@@ -144,7 +144,7 @@ Ponadto należy dodać reguły ruchu wychodzącego dla [App Service Environment 
 
 #### <a name="forced-tunneling-requirements"></a>Wymagania wymuszonego tunelowania
 
-W przypadku skonfigurowania lub użycia [wymuszonego tunelowania](../firewall/forced-tunneling.md) za pomocą zapory należy zezwolić na dodatkowe zależności zewnętrzne dla ISE. Wymuszone tunelowanie pozwala przekierowywać ruch związany z Internetem do określonego następnego przeskoku, takiego jak wirtualna sieć prywatna (VPN) lub do urządzenia wirtualnego, a nie Internetu, aby umożliwić inspekcję i inspekcję ruchu wychodzącego w sieci.
+W przypadku skonfigurowania lub użycia [wymuszonego tunelowania](../firewall/forced-tunneling.md) przez zaporę należy zezwolić na dodatkowe zależności zewnętrzne dla ISE. Wymuszone tunelowanie pozwala przekierowywać ruch związany z Internetem do określonego następnego przeskoku, takiego jak wirtualna sieć prywatna (VPN) lub do urządzenia wirtualnego, a nie Internetu, aby umożliwić inspekcję i inspekcję ruchu wychodzącego w sieci.
 
 Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE kończy się niepowodzeniem, a wdrożone ISE przestaną działać.
 
@@ -221,7 +221,7 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
      > * 168.63.129.16/32
      > * 169.254.169.254/32
 
-   * Używa `/27` w przestrzeni adresowej, ponieważ każda podsieć wymaga 32 adresów. Na przykład `10.0.0.0/27` ma 32 adresów, ponieważ 2<sup>(32-27)</sup> jest 2<sup>5</sup> lub 32. Więcej adresów nie zapewnia dodatkowych korzyści. Aby dowiedzieć się więcej o obliczaniu adresów, zobacz [bloki protokołu IPv4 w protokole CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Używa `/27` w przestrzeni adresowej, ponieważ każda podsieć wymaga 32 adresów. Na przykład `10.0.0.0/27` ma 32 adresów, ponieważ 2<sup>(32-27)</sup> jest 2<sup>5</sup> lub 32. Dodatkowe adresy nie zapewniają dodatkowych korzyści. Aby dowiedzieć się więcej o obliczaniu adresów, zobacz [bloki protokołu IPv4 w protokole CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * Jeśli używasz [ExpressRoute](../expressroute/expressroute-introduction.md), musisz [utworzyć tabelę tras](../virtual-network/manage-route-table.md) , która ma następującą trasę i połączyć tę tabelę z każdą podsiecią używaną przez ISE:
 

@@ -5,18 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c26a7f53609193bf373c3f7f9b1037405d4e518
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102509034"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122139"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
-
->[!NOTE]
->Zgodnie z Microsoft Operations Management Suite (OMS) przejściami do monitora Microsoft Azure, terminologia zmienia się. Ten artykuł odnosi się do bramy pakietu OMS jako bramy usługi Azure Log Analytics. 
->
 
 W tym artykule opisano sposób konfigurowania komunikacji z Azure Automation i Azure Monitor przy użyciu bramy Log Analytics, gdy komputery połączone bezpośrednio lub monitorowane przez Operations Manager nie mają dostępu do Internetu. 
 
@@ -89,6 +85,9 @@ Brama Log Analytics jest dostępna w następujących językach:
 Brama Log Analytics obsługuje tylko Transport Layer Security (TLS) 1,0, 1,1 i 1,2.  Nie obsługuje Secure Sockets Layer (SSL).  Aby zapewnić bezpieczeństwo danych podczas przesyłania do Log Analytics, skonfiguruj bramę do użycia co najmniej protokołu TLS 1,2. Starsze wersje protokołu TLS lub SSL są narażone na ataki. Chociaż obecnie dopuszczają zgodność z poprzednimi wersjami, unikaj ich używania.  
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](../logs/data-security.md#sending-data-securely-using-tls-12). 
+
+>[!NOTE]
+>Brama jest serwerem proxy przekazującym, w którym nie są przechowywane żadne dane. Gdy Agent nawiąże połączenie z Azure Monitor, następuje ten sam przepływ szyfrowania z bramą lub bez niej. Dane są szyfrowane między klientem a punktem końcowym. Ponieważ Brama jest tylko tuneliem, nie ma możliwości sprawdzenia, co jest wysyłane.
 
 ### <a name="supported-number-of-agent-connections"></a>Obsługiwana liczba połączeń agentów
 

@@ -51,14 +51,26 @@
           href: schema-cscfg-role.md
         - name: Schemat NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
-    - name: Często zadawane pytania
-      href: faq.md
 - name: Instrukcje
   items:
-    - name: Zastosuj rozszerzenie Pulpit zdalny
-      href: enable-rdp.md
-    - name: Zastosuj rozszerzenie funkcji wad
-      href: enable-wad.md
+    - name: Migrowanie do Cloud Services (obsługa rozszerzona)
+      items:
+        - name: Omówienie migracji
+          href: in-place-migration-overview.md
+        - name: Szczegóły techniczne migracji
+          href: in-place-migration-technical-details.md
+        - name: Migrowanie przy użyciu Azure Portal
+          href: in-place-migration-portal.md
+        - name: Migrowanie przy użyciu programu PowerShell
+          href: in-place-migration-powershell.md
+        - name: Typowe błędy i znane problemy
+          href: in-place-migration-common-errors.md
+    - name: Zastosuj rozszerzenia
+      items:
+        - name: Zastosuj rozszerzenie Pulpit zdalny
+          href: enable-rdp.md
+        - name: Zastosuj rozszerzenie funkcji wad
+          href: enable-wad.md
     - name: Włączanie alertów
       href: enable-alerts.md
     - name: Konfiguruj skalowanie
@@ -67,6 +79,16 @@
       href: certificates-and-key-vault.md
     - name: Generowanie szablonu ARM przy użyciu portalu
       href: generate-template-portal.md
+    - name: Wymiana dwóch usług w chmurze
+      href: swap-cloud-service.md
+    - name: Przesłoń szczegóły jednostki SKU
+      href: override-sku.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Niepowodzenie uruchamiania roli
+          href: role-startup-failure.md
+        - name: Często zadawane pytania
+          href: faq.md
 - name: Samples
   items:
     - name: Przykładowe szablony

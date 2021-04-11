@@ -47,6 +47,10 @@
           href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
         - name: Integrowanie wewnętrznego modułu równoważenia obciążenia bramy translatora adresów sieciowych
           href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Zaplecze oparte na protokole IP
+      items:
+        - name: Tworzenie publicznego modułu równoważenia obciążenia przy użyciu zaplecza opartego na protokole IP
+          href: tutorial-load-balancer-ip-backend-portal.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure

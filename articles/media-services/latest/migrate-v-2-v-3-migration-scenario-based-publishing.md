@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3a09e3f2bf29c09066e9414f9aa02a7879375425
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0108cf07f1c734ccf4b6e42c013f7237eb7daf2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563535"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122071"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji i tworzenia pakietów na podstawie scenariusza dostarczania
 
@@ -30,10 +30,10 @@ Najważniejsze zmiany w sposobie publikowania zawartości w interfejsie API v3. 
 
 ## <a name="packaging-and-delivery-in-v3"></a>Pakowanie i dostarczanie w wersji 3
 
-1. Utwórz [Zasady kluczy zawartości](content-key-policy-concept.md).
+1. Utwórz [Zasady kluczy zawartości](drm-content-key-policy-concept.md).
 1. Utwórz [lokalizatory przesyłania strumieniowego](streaming-locators-concept.md).
 1. Pobieranie [ścieżek przesyłania strumieniowego](create-streaming-locator-build-url.md) 
-    1. Skonfiguruj ją dla [łącznika](dynamic-packaging-overview.md#mpeg-dash-protocol) lub odtwarzacza [HLS](dynamic-packaging-overview.md#hls-protocol) .
+    1. Skonfiguruj ją dla [łącznika](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) lub odtwarzacza [HLS](encode-dynamic-packaging-concept.md#hls-protocol) .
 
 Zapoznaj się z tematami dotyczącymi publikowania, samouczkami i przewodnikami poniżej dotyczącymi określonych kroków.
 
@@ -41,9 +41,9 @@ Zapoznaj się z tematami dotyczącymi publikowania, samouczkami i przewodnikami 
 
 ### <a name="concepts"></a>Pojęcia
 
-- [Dynamiczne pakowanie w Media Services v3](dynamic-packaging-overview.md)
+- [Dynamiczne pakowanie w Media Services v3](encode-dynamic-packaging-concept.md)
 - [Filtry](filters-concept.md)
-- [Filtrowanie manifestów przy użyciu Pakowarki dynamicznej](filters-dynamic-manifest-overview.md)
+- [Filtrowanie manifestów przy użyciu Pakowarki dynamicznej](filters-dynamic-manifest-concept.md)
 - [Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services](streaming-endpoint-concept.md)
 - [Przesyłanie strumieniowe zawartości z integracją z usługą CDN](scale-streaming-cdn.md)
 - [Lokalizatory przesyłania strumieniowego](streaming-locators-concept.md)
@@ -53,7 +53,7 @@ Zapoznaj się z tematami dotyczącymi publikowania, samouczkami i przewodnikami 
 - [Zarządzanie punktami końcowymi przesyłania strumieniowego z Media Services v3](manage-streaming-endpoints-howto.md)
 - [Przykład interfejsu wiersza polecenia: publikowanie elementu zawartości](cli-publish-asset.md)
 - [Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji](create-streaming-locator-build-url.md)
-- [Pobierz wyniki zadania](download-results-howto.md)
+- [Pobierz wyniki zadania](job-download-results-how-to.md)
 - [Śledzenie sygnałów dźwiękowych](signal-descriptive-audio-howto.md)
 - [Pełna konfiguracja usługi Azure Media Player](../azure-media-player/azure-media-player-full-setup.md)
 - [Jak używać odtwarzacza Video.js z Azure Media Services](how-to-video-js-player.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 322a599d5ad02ddcf19c61261d968d098b6c9871
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 273a1b5986a72acc1d6725fbb3101c9c1df17e45
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563130"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122054"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu przesyłania strumieniowego na żywo
 
@@ -35,12 +35,12 @@ Azure Portal obsługuje teraz na żywo i zarządzanie nimi.  Zaleca się wyprób
 
 Przetestuj nowy sposób dostarczania zdarzeń na żywo z Media Services przed przeniesieniem zawartości z wersji 2 do v3. Poniżej przedstawiono funkcje wersji v3 do współpracy z usługą i należy rozważyć migrację.
 
-- Utwórz nowe wydarzenie v3 na [żywo](live-events-outputs-concept.md#live-events) na potrzeby kodowania. Można włączyć [Ustawienia zakodowania 1080p i 720](live-event-types-comparison.md#system-presets).
-- Użyj jednostki [wyjściowej na żywo](live-events-outputs-concept.md#live-outputs) zamiast programów
+- Utwórz nowe wydarzenie v3 na [żywo](live-event-outputs-concept.md#live-events) na potrzeby kodowania. Można włączyć [Ustawienia zakodowania 1080p i 720](live-event-types-comparison-reference.md#system-presets).
+- Użyj jednostki [wyjściowej na żywo](live-event-outputs-concept.md#live-outputs) zamiast programów
 - Utwórz [lokalizatory przesyłania strumieniowego](streaming-locators-concept.md).
-- Weź pod uwagę potrzebę [HLS i przerywanie](dynamic-packaging-overview.md) transmisji strumieniowej na żywo.
-- W przypadku konieczności szybkiego uruchamiania zdarzeń na żywo Eksploruj nowe funkcje [trybu wstrzymania](live-events-outputs-concept.md#standby-mode) .
-- Jeśli chcesz transkrypcja wydarzenie na żywo w czasie, Poznaj nową funkcję [transkrypcji na żywo](live-transcription.md) .
+- Weź pod uwagę potrzebę [HLS i przerywanie](encode-dynamic-packaging-concept.md) transmisji strumieniowej na żywo.
+- W przypadku konieczności szybkiego uruchamiania zdarzeń na żywo Eksploruj nowe funkcje [trybu wstrzymania](live-event-outputs-concept.md#standby-mode) .
+- Jeśli chcesz transkrypcja wydarzenie na żywo w czasie, Poznaj nową funkcję [transkrypcji na żywo](live-event-live-transcription-how-to.md) .
 - Utwórz 24x7x365 zdarzenia na żywo w wersji 3, jeśli potrzebujesz dłuższego czasu trwania przesyłania strumieniowego.
 - Użyj [Event Grid](monitoring/monitor-events-portal-how-to.md) do monitorowania wydarzeń na żywo.
 
@@ -50,22 +50,22 @@ Zapoznaj się z pojęciami dotyczącymi wydarzeń na żywo, samouczkami i przewo
 
 ### <a name="concepts"></a>Pojęcia
 
-- [Przesyłanie strumieniowe na żywo z Azure Media Services v3](live-streaming-overview.md)
-- [Zdarzenia na żywo i wyjście na żywo w Media Services](live-events-outputs-concept.md)
+- [Przesyłanie strumieniowe na żywo z Azure Media Services v3](stream-live-streaming-concept.md)
+- [Zdarzenia na żywo i wyjście na żywo w Media Services](live-event-outputs-concept.md)
 - [Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo](recommended-on-premises-live-encoders.md)
-- [Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie](live-event-cloud-dvr.md)
-- [Transkrypcja dynamiczna (wersja zapoznawcza)](live-transcription.md)
-- [Porównanie typów zdarzeń na żywo](live-event-types-comparison.md)
-- [Stany wydarzeń na żywo i rozliczenia](live-event-states-billing.md)
-- [Ustawienia niskiego opóźnienia zdarzenia na żywo](live-event-latency.md)
-- [Kody błędów zdarzeń na żywo Media Services](live-event-error-codes.md)
+- [Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie](live-event-cloud-dvr-time-how-to.md)
+- [Live-Event-Live-transkrypcje-How-to (wersja zapoznawcza)](live-event-live-transcription-how-to.md)
+- [Porównanie typów zdarzeń na żywo](live-event-types-comparison-reference.md)
+- [Stany wydarzeń na żywo i rozliczenia](live-event-states-billing-concept.md)
+- [Ustawienia niskiego opóźnienia zdarzenia na żywo](live-event-latency-reference.md)
+- [Kody błędów zdarzeń na żywo Media Services](live-event-error-codes-reference.md)
 
 ### <a name="tutorials-and-quickstarts"></a>Samouczki i Przewodniki Szybki Start
 
 - [Samouczek: przesyłanie strumieniowe na żywo za pomocą Media Services](stream-live-tutorial-with-api.md)
-- [Tworzenie strumienia Azure Media Services na żywo za pomocą OBS](live-events-obs-quickstart.md)
-- [Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu](manage-assets-quickstart.md)
-- [Szybki Start: Tworzenie Azure Media Services strumienia na żywo za pomocą Wirecast](live-events-wirecast-quickstart.md)
+- [Tworzenie strumienia Azure Media Services na żywo za pomocą OBS](live-event-obs-quickstart.md)
+- [Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu](asset-create-asset-upload-portal-quickstart.md)
+- [Szybki Start: Tworzenie Azure Media Services strumienia na żywo za pomocą Wirecast](live-event-wirecast-quickstart.md)
 
 ## <a name="samples"></a>Samples
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 3c665795325ed3863583eb0f21f3e0d3f534154a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201465"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Samouczek: integracja Syncplicity z usługą Azure Active Directory
@@ -95,13 +95,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-### <a name="configure-syncplicity-sso"></a>Konfigurowanie logowania jednokrotnego Syncplicity
+### <a name="configure-syncplicity-sso&quot;></a>Konfigurowanie logowania jednokrotnego Syncplicity
 
 1. Zaloguj się do dzierżawy **Syncplicity** .
 
 1. W menu u góry kliknij pozycję **Administracja**, wybierz pozycję **Ustawienia**, a następnie kliknij pozycję **domena niestandardowa i logowanie jednokrotne**.
 
-    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
+    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png &quot;Syncplicity")
 
 1. Na stronie okna dialogowego **pojedyncze Sign-On (SSO)** wykonaj następujące czynności:
 

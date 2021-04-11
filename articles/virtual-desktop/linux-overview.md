@@ -3,19 +3,19 @@ title: Obsługa zubożonego klienta Windows Virtual Desktop — Azure
 description: Krótkie omówienie obsługi klienta zubożonego dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90459c3eb171e03b1c28c91e766d3a6b765565b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 905451b4ce9c7a2a7c7aa2331ce3d433a9952223
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491473"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122037"
 ---
 # <a name="linux-support"></a>Obsługa systemu Linux
 
-Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzeń z systemem Linux za pomocą [klienta sieci Web](connect-web.md) lub następujących obsługiwanych klientów udostępnionych przez naszych partnerów z systemem Linux. Pracujemy z wieloma partnerami, aby umożliwić obsługę klientów klasycznych systemu Windows w większej liczbie systemów operacyjnych i urządzeń z systemem Linux. Jeśli potrzebujesz obsługi pulpitu wirtualnego systemu Windows na platformie z systemem Linux, która nie jest wymieniona w tym miejscu, poinformuj nas o naszej [stronie usługi UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzeń z systemem Linux za pomocą [klienta sieci Web](connect-web.md) lub następujących obsługiwanych klientów udostępnionych przez naszych partnerów z systemem Linux. Pracujemy z wieloma partnerami, aby umożliwić obsługę klientów klasycznych systemu Windows w większej liczbie systemów operacyjnych i urządzeń z systemem Linux.
 
 ## <a name="connect-with-your-linux-device"></a>Nawiązywanie połączenia z urządzeniem z systemem Linux
 

@@ -1,14 +1,14 @@
 ---
-title: Informacje o alertach czujników
+title: Omówienie alertów czujnika
 description: Pracuj z alertami, aby zwiększyć bezpieczeństwo i działanie sieci.
-ms.date: 11/30/2020
+ms.date: 3/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a34871342e9a868ba593ae894fdd91b5e99c5a44
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781351"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729426"
 ---
 # <a name="about-sensor-alerts"></a>Informacje o alertach czujników
 
@@ -64,9 +64,10 @@ Na przykład:
 
   - Zdarzenia złośliwego oprogramowania wykryte na urządzeniach sieciowych są zgłaszane w raportach oceny ryzyka. Gdy alerty dotyczące zdarzeń złośliwego oprogramowania są *wyciszone*, zmodyfikowane urządzenia nie zostaną obliczone w raporcie oceny ryzyka.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
-- [Nauka i inteligentne tryby nauki IT](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Wyświetlanie informacji podanych w alertach](how-to-view-information-provided-in-alerts.md)
-- [Zarządzanie zdarzeniem alertu](how-to-manage-the-alert-event.md)
-- [Przyspiesz przepływy pracy alertów](how-to-accelerate-alert-incident-response.md)
+[Nauka i inteligentne tryby](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
+ nauki IT [Wyświetlanie informacji podanych w alertach](how-to-view-information-provided-in-alerts.md) 
+ [Zarządzanie wydarzeniem](how-to-manage-the-alert-event.md) 
+ alertu [Przyspiesz przepływy pracy](how-to-accelerate-alert-incident-response.md) 
+ alertów [Typy alertów i opisy](alert-engine-messages.md)

@@ -8,13 +8,13 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 03/08/2021
 ms.openlocfilehash: 7acf7e8dc9f90c50f3c7d5555e6fe37260b35c93
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103022152"
 ---
-# <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>Powiadomienie firmy Microsoft dotyczące umowy wydawcy
+# <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>Powiadamianie firmy Microsoft w związku z umową wydawcy
 
 Skorzystaj z biletu pomocy technicznej, aby przesłać do firmy Microsoft informacje prawne dotyczące umowy wydawcy firmy Microsoft w celu zapewnienia prawidłowego działania i śledzenia.
 

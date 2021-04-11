@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc054d1294b55ddd3937ebc7b91643aa349cd8ea
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071573"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122190"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
@@ -46,7 +46,7 @@ Podczas tworzenia magazynu kluczy w ramach subskrypcji platformy Azure jest on a
 
 - **Tylko aplikacja**: aplikacja reprezentuje jednostkę usługi lub zarządzaną tożsamość. Ta tożsamość jest najbardziej typowym scenariuszem dla aplikacji, które okresowo potrzebują do uzyskiwania dostępu do certyfikatów, kluczy lub wpisów tajnych z magazynu kluczy. Aby ten scenariusz działał, `objectId` aplikacja musi być określona w zasadach dostępu i `applicationId` _nie_ może być określona lub musi być `null` .
 - **Tylko użytkownik**: użytkownik uzyskuje dostęp do magazynu kluczy z dowolnej aplikacji zarejestrowanej w dzierżawie. Przykłady tego typu dostępu obejmują Azure PowerShell i Azure Portal. Aby ten scenariusz działał, `objectId` użytkownik musi być określony w zasadach dostępu i `applicationId` _nie_ może być określony lub musi być `null` .
-- **Aplikacja-Plus — użytkownik** (czasami określany jako _tożsamość złożona_): użytkownik jest zobowiązany do uzyskania dostępu do magazynu kluczy z określonej aplikacji _, a_ aplikacja musi używać przepływu uwierzytelniania w imieniu (OBO) do personifikacji użytkownika. Aby ten scenariusz działał, oba `applicationId` i `objectId` muszą być określone w zasadach dostępu. `applicationId`Identyfikuje wymaganą aplikację i `objectId` identyfikuje użytkownika. Obecnie ta opcja jest niedostępna w przypadku płaszczyzny danych Azure RBAC (wersja zapoznawcza).
+- **Aplikacja-Plus — użytkownik** (czasami określany jako _tożsamość złożona_): użytkownik jest zobowiązany do uzyskania dostępu do magazynu kluczy z określonej aplikacji _, a_ aplikacja musi używać przepływu uwierzytelniania w imieniu (OBO) do personifikacji użytkownika. Aby ten scenariusz działał, oba `applicationId` i `objectId` muszą być określone w zasadach dostępu. `applicationId`Identyfikuje wymaganą aplikację i `objectId` identyfikuje użytkownika. Obecnie ta opcja jest niedostępna dla płaszczyzny danych RBAC platformy Azure.
 
 W przypadku wszystkich typów dostępu aplikacja uwierzytelnia się za pomocą usługi Azure AD. Aplikacja używa dowolnej [obsługiwanej metody uwierzytelniania](../../active-directory/develop/authentication-vs-authorization.md) na podstawie typu aplikacji. Aplikacja uzyskuje token dla zasobu na płaszczyźnie, aby udzielić dostępu. Zasób jest punktem końcowym w obszarze zarządzania lub płaszczyzny danych w oparciu o środowisko platformy Azure. Aplikacja używa tokenu i wysyła żądanie interfejsu API REST do Key Vault. Aby dowiedzieć się więcej, zapoznaj się z [całym przepływem uwierzytelniania](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -61,14 +61,14 @@ Dostęp do magazynów odbywa się za przez dwa interfejsy lub płaszczyzny. Te p
 - *Płaszczyzny zarządzania* to miejsce, w którym zarządza się Key Vault i jest interfejsem używanym do tworzenia i usuwania magazynów. Można także odczytać właściwości magazynu kluczy i zarządzać zasadami dostępu.
 - *Płaszczyzna danych* umożliwia korzystanie z danych przechowywanych w magazynie kluczy. Możesz dodawać, usuwać i modyfikować klucze, wpisy tajne i certyfikaty.
 
-Aplikacje uzyskują dostęp do płaszczyzn za pomocą punktów końcowych. Kontrole dostępu dla dwóch płaszczyzn działają niezależnie. Aby udzielić aplikacji dostępu do korzystania z kluczy w magazynie kluczy, Udziel dostępu do płaszczyzny danych przy użyciu zasad dostępu Key Vault lub kontroli RBAC platformy Azure (wersja zapoznawcza). Aby udzielić użytkownikowi dostępu do odczytu do Key Vault właściwości i tagów, ale nie do uzyskiwania dostępu do danych (kluczy, wpisów tajnych lub certyfikatów), przyznano dostęp do płaszczyzny zarządzania przy użyciu funkcji RBAC platformy Azure.
+Aplikacje uzyskują dostęp do płaszczyzn za pomocą punktów końcowych. Kontrole dostępu dla dwóch płaszczyzn działają niezależnie. Aby udzielić aplikacji dostępu do korzystania z kluczy w magazynie kluczy, przyznano dostęp do płaszczyzny danych przy użyciu zasad dostępu Key Vault lub kontroli RBAC platformy Azure. Aby udzielić użytkownikowi dostępu do odczytu do Key Vault właściwości i tagów, ale nie do uzyskiwania dostępu do danych (kluczy, wpisów tajnych lub certyfikatów), przyznano dostęp do płaszczyzny zarządzania przy użyciu funkcji RBAC platformy Azure.
 
 W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i płaszczyzny danych.
 
 | &nbsp;Płaszczyzna dostępu | Punkty końcowe dostępu | Operacje | &nbsp;Mechanizm kontroli dostępu |
 | --- | --- | --- | --- |
 | Płaszczyzna zarządzania | **Globalne**<br> management.azure.com:443<br><br> **Azure Chiny 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Administracja USA platformy Azure:**<br> management.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> management.microsoftazure.de:443 | Tworzenie, odczytywanie, aktualizowanie i usuwanie magazynów kluczy<br><br>Ustawianie zasad dostępu Key Vault<br><br>Ustawianie tagów Key Vault | Kontrola dostępu na podstawie ról platformy Azure |
-| Płaszczyzna danych | **Globalne**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Azure Chiny 21Vianet:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Administracja USA platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 | Klucze: szyfrowanie, odszyfrowywanie, wrapKey, unwrapKey, podpisywanie, weryfikowanie, pobieranie, wyświetlanie, tworzenie, aktualizowanie, importowanie, usuwanie, odzyskiwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie<br><br> Certyfikaty: managecontacts, getemitencis, listissuers, setemitencis, deleteissuers, manageissuers, get, list, Create, import, Update, DELETE, Recover, Backup, Restore, przeczyszczanie<br><br>  Wpisy tajne: pobieranie, wyświetlanie, Ustawianie, usuwanie, odzyskiwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie | Zasady dostępu Key Vault lub RBAC platformy Azure (wersja zapoznawcza)|
+| Płaszczyzna danych | **Globalne**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Azure Chiny 21Vianet:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Administracja USA platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 | Klucze: szyfrowanie, odszyfrowywanie, wrapKey, unwrapKey, podpisywanie, weryfikowanie, pobieranie, wyświetlanie, tworzenie, aktualizowanie, importowanie, usuwanie, odzyskiwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie<br><br> Certyfikaty: managecontacts, getemitencis, listissuers, setemitencis, deleteissuers, manageissuers, get, list, Create, import, Update, DELETE, Recover, Backup, Restore, przeczyszczanie<br><br>  Wpisy tajne: pobieranie, wyświetlanie, Ustawianie, usuwanie, odzyskiwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie | Zasady dostępu Key Vault lub kontrola RBAC platformy Azure |
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Zarządzanie dostępem administracyjnym do Key Vault
 

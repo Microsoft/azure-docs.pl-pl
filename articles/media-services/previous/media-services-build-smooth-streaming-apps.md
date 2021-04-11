@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20c7068fa0cb56699fdbc6d75b279abadd583832
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017124"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows
@@ -89,7 +89,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa odwołań |Okna/rozszerzenia |
-    | Dokumentacja |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
+    | Odwołanie |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
 
 1. Kliknij przycisk **OK**. 
 
