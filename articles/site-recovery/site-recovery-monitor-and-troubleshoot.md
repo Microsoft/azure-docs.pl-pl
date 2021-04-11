@@ -1,18 +1,15 @@
 ---
 title: Monitoruj Azure Site Recovery | Microsoft Docs
 description: Monitorowanie i rozwiązywanie problemów z Azure Site Recovery replikacji i operacji przy użyciu portalu
-author: raynew
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: raynew
-ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80f68c230bfed5caad4fd5ce474d8d06fd3d093
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023571"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579312"
 ---
 # <a name="monitor-site-recovery"></a>Monitorowanie usługi Site Recovery
 

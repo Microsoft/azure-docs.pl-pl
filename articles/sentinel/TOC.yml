@@ -291,6 +291,8 @@
   items:
     - name: Najpopularniejsze skoroszyty wskaźnikowe platformy Azure
       href: top-workbooks.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/sentinel/sentinel
     - name: Role RBAC platformy Azure
       items:
         - name: Wszystkie role platformy Azure

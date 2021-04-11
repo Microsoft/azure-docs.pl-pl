@@ -3,12 +3,12 @@ title: Pojęcia — tożsamość i dostęp
 description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 7b1880ccdee1d4c3ce25e264c004b1a949134a96
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1d49ce27ee74621874281a555651c09a73048928
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026908"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109819"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
@@ -93,6 +93,9 @@ Aby zapobiec tworzeniu ról, których nie można przypisać ani usunąć, rozwi�
    Dodane uprawnienie jest wyświetlane w sekcji **uprawnienia** dla obiektu.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Dostęp i tożsamość menedżera NSX-T
+
+>[!NOTE]
+>NSX-T 2,5 jest obecnie obsługiwane.
 
 Użyj konta *administratora* , aby uzyskać dostęp do Menedżera NSX-T. Ma pełne uprawnienia i umożliwia tworzenie bram (T1), segmentów (przełączników logicznych) i wszystkich usług oraz zarządzanie nimi. Uprawnienia zapewniają dostęp do bramy NSX-T warstwy 0 (T0). Zmiana bramy "T0" może spowodować spadek wydajności sieci lub brak dostępu do chmury prywatnej. Otwórz żądanie obsługi w Azure Portal, aby zażądać wszelkich zmian w bramie "T0" NSX-T.
 

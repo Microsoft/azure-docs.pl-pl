@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100618973"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109751"
 ---
 # <a name="programmatically-manage-workbooks"></a>Programowe Zarządzanie skoroszytami
 
@@ -99,19 +99,19 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
 
 ### <a name="galleries"></a>Galerie
 
-| Galeria                                        | Typ zasobu                                      | Typ skoroszytu |
-| :--------------------------------------------- |:---------------------------------------------------|:--------------|
-| Skoroszyty w Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
-| Szczegółowe informacje o maszynie wirtualnej w Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
-| Skoroszyty w obszarze roboczym usługi log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
-| Skoroszyty w Application Insights              | `microsoft.insights/component`                     | `workbook`    |
-| Wskazówki dotyczące rozwiązywania problemów w Application Insights | `microsoft.insights/component`                     | `tsg`         |
-| Użycie w Application Insights                  | `microsoft.insights/component`                     | `usage`       |
-| Skoroszyty w usłudze Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
-| Skoroszyty w grupach zasobów                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
-| Skoroszyty w Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
-| Szczegółowe informacje o maszynie wirtualnej na maszynach wirtualnych                | `microsoft.compute/virtualmachines`                | `insights`    |
-| Szczegółowe informacje o maszynie wirtualnej w zestawach skalowania maszyn wirtualnych      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Galeria                                        | Typ zasobu                                       | Typ skoroszytu |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------|
+| Skoroszyty w Azure Monitor                     | `Azure Monitor`                                     | `workbook`    |
+| Szczegółowe informacje o maszynie wirtualnej w Azure Monitor                   | `Azure Monitor`                                     | `vm-insights` |
+| Skoroszyty w obszarze roboczym usługi log Analytics           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Skoroszyty w Application Insights              | `microsoft.insights/components`                     | `workbook`    |
+| Wskazówki dotyczące rozwiązywania problemów w Application Insights | `microsoft.insights/components`                     | `tsg`         |
+| Użycie w Application Insights                  | `microsoft.insights/components`                     | `usage`       |
+| Skoroszyty w usłudze Kubernetes                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
+| Skoroszyty w grupach zasobów                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Skoroszyty w Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| Szczegółowe informacje o maszynie wirtualnej na maszynach wirtualnych                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| Szczegółowe informacje o maszynie wirtualnej w zestawach skalowania maszyn wirtualnych      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Azure Resource Manager szablon do wdrażania wystąpienia skoroszytu
 

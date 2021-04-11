@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: ec72431d927fd59677075e7adfdf7df171574882
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772947"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110006"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager
 
@@ -67,7 +67,7 @@ W przypadku szablonu aplikacji logiki należy korzystać głównie z tych obiekt
 |-----------|-------------|
 | `parameters` | Deklaruje [Parametry szablonu](../azure-resource-manager/templates/template-syntax.md#parameters) do akceptowania wartości, które mają być używane podczas tworzenia i dostosowywania zasobów do wdrożenia na platformie Azure. Na przykład te parametry akceptują wartości w polu Nazwa i lokalizacja aplikacji logiki, połączenia i inne zasoby niezbędne do wdrożenia. Te wartości parametrów można przechowywać w [pliku parametrów](#template-parameter-files), który jest opisany w dalszej części tego tematu. Aby uzyskać ogólne informacje, zobacz [Parametry — struktura i składnia szablonu Menedżer zasobów](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Definiuje [zasoby](../azure-resource-manager/templates/template-syntax.md#resources) , które mają zostać utworzone lub zaktualizowane i wdrożone w grupie zasobów platformy Azure, takie jak aplikacja logiki, połączenia, konta usługi Azure Storage itd. Ogólne informacje znajdują się w temacie [resources-Menedżer zasobów Template Structure i Syntax](../azure-resource-manager/templates/template-syntax.md#resources). |
-||||
+|||
 
 Szablon aplikacji logiki używa tego formatu nazwy pliku:
 

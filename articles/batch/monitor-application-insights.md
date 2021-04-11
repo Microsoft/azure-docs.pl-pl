@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/25/2021
 ms.openlocfilehash: 251f02f145e8f450b1528bf8676cffdc61a6f051
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105607885"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorowanie i debugowanie Azure Batch aplikacji .NET z Application Insights
@@ -293,7 +293,7 @@ Aby utworzyć przykładowy wykres:
 
 ![Zrzut ekranu przedstawiający wykres pokazujący czas pobierania obiektów BLOB na węzeł.](./media/monitor-application-insights/blobdownloadtime.png)
 
-## <a name="monitor-compute-nodes-continuously"></a>Ciągłe monitorowanie węzłów obliczeniowych
+## <a name="monitor-compute-nodes-continuously&quot;></a>Ciągłe monitorowanie węzłów obliczeniowych
 
 Być może zauważono, że wszystkie metryki, w tym liczniki wydajności, są rejestrowane tylko wtedy, gdy zadania są uruchomione. To zachowanie jest przydatne, ponieważ ogranicza ilość danych, które Application Insights dzienników. Są jednak sytuacje, w których zawsze chcesz monitorować węzły obliczeniowe. Na przykład może być uruchomiona w tle, która nie jest zaplanowana za pośrednictwem usługi Batch. W takim przypadku należy skonfigurować proces monitorowania do uruchomienia w ramach cyklu życia węzła obliczeniowego. 
 
@@ -302,15 +302,15 @@ Jednym ze sposobów osiągnięcia tego zachowania jest zduplikowanie procesu ła
 ```csharp
 ...
  // Batch start task telemetry runner
-private const string BatchStartTaskFolderName = "StartTask";
-private const string BatchStartTaskTelemetryRunnerName = "Microsoft.Azure.Batch.Samples.TelemetryStartTask.exe";
-private const string BatchStartTaskTelemetryRunnerAIConfig = "ApplicationInsights.config";
+private const string BatchStartTaskFolderName = &quot;StartTask&quot;;
+private const string BatchStartTaskTelemetryRunnerName = &quot;Microsoft.Azure.Batch.Samples.TelemetryStartTask.exe&quot;;
+private const string BatchStartTaskTelemetryRunnerAIConfig = &quot;ApplicationInsights.config&quot;;
 ...
 CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
-    virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    virtualMachineSize: &quot;standard_d1_v2&quot;,
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: &quot;5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance

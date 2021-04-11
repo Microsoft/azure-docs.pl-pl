@@ -1,18 +1,22 @@
 ---
-title: Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
-description: Dowiedz się, jak utworzyć poszczególne DefenderIotMicroAgent modułów bliźniaczych reprezentacji dla nowych urządzeń.
+title: 'Szybki Start: Tworzenie sznurka modułu Defender IoT Micro Agent (wersja zapoznawcza)'
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć poszczególne DefenderIotMicroAgent modułów bliźniaczych reprezentacji dla nowych urządzeń.
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5036eefbd77a22d492f6ce7d3c7d15f50a081490
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1bcaa76e9bfbe417bfd0d4b539b8e0c7ff95c7b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781062"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384515"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
+# <a name="quickstart-create-a-defender-iot-micro-agent-module-twin-preview"></a>Szybki Start: Tworzenie sznurka modułu Defender IoT Micro Agent (wersja zapoznawcza)
 
 Można utworzyć pojedynczy moduł **DefenderIotMicroAgent** bliźniaczych reprezentacji dla nowych urządzeń. Można również tworzyć wsadowe bliźniaczych reprezentacji modułów dla wszystkich urządzeń w IoT Hub. 
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Brak
 
 ## <a name="device-twins"></a>Bliźniaczych reprezentacji urządzenia 
 
@@ -70,4 +74,5 @@ Aby sprawdzić, czy dla określonego urządzenia istnieje niezależna usługa De
 
 ## <a name="next-steps"></a>Następne kroki 
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak [zbadać zalecenia dotyczące zabezpieczeń](quickstart-investigate-security-recommendations.md).
+> [!div class="nextstepaction"]
+> [Zbadaj zalecenia dotyczące zabezpieczeń](quickstart-investigate-security-recommendations.md)

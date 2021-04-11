@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze 1.1.0
 description: Szczegółowe informacje na temat usług CIS Microsoft Azure testów porównawczych 1.1.0 zgodności z przepisami. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7d26825e3e401984b52216c6827b8a3baf44ad62
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1d21d04fe4347a2ff7735045e786520c106309c7
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032518"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091756"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usługi CIS Microsoft Azure testy porównawcze 1.1.0 zgodności z przepisami
 
@@ -17,7 +17,7 @@ W poniższym artykule szczegółowo opisano sposób, w jaki Azure Policy wbudowa
 Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artykuł dotyczący usługi [CIS Microsoft Azure 1.1.0](https://www.cisecurity.org/benchmark/azure/). Aby zrozumieć _własność_, zobacz [Azure Policy definicję zasad](../concepts/definition-structure.md#type) i [współdzieloną odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
 
 Poniższe mapowania są do **1.1.0Ch testów porównawczych w programie Microsoft Azure CIS** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do konkretnej **domeny zgodności**. Wiele kontrolek jest implementowanych z definicją inicjatywy [Azure Policy](../overview.md) . Aby zapoznać się z pełną definicją inicjatywy, Otwórz pozycję **zasady** w Azure Portal a następnie wybierz stronę **definicje** .
-Następnie Znajdź i wybierz pozycję **CIS Microsoft Azure fundacje testów porównawczych 1.1.0** zgodności z przepisami.
+Następnie Znajdź i wybierz pozycję **CIS Microsoft Azure fundacje testy porównawcze 1.1.0** zgodności z przepisami.
 
 Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu 1.1.0 planów testów porównawczych usługi Microsoft Azure CIS](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -70,7 +70,14 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu 1.1.0 planów testó
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Należy wybrać Security Center warstwy cenowej Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |Standardowa warstwa cenowa umożliwia wykrywanie zagrożeń dla sieci i maszyn wirtualnych, zapewniając analizę zagrożeń, wykrywanie anomalii i analizę zachowań w Azure Security Center |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
+|[Usługa Azure Defender dla App Service powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2913021d-f2fd-4f3d-b958-22354e2bdbcb) |Usługa Azure Defender dla App Service wykorzystuje skalę chmury oraz widoczność, którą platforma Azure ma jako dostawcę chmury, aby monitorować typowe ataki aplikacji sieci Web. |AuditIfNotExists, wyłączone |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnAppServices_Audit.json) |
+|[Usługa Azure Defender dla serwerów Azure SQL Database powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Usługa Azure Defender dla programu SQL udostępnia funkcje umożliwiające poddanie i łagodzenie potencjalnych luk w zabezpieczeniach bazy danych, wykrywanie nietypowych działań, które mogą wskazywać na zagrożenia baz danych SQL oraz odnajdywanie i klasyfikowanie poufnych danych. |AuditIfNotExists, wyłączone |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
+|[Usługa Azure Defender dla rejestrów kontenerów powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |Usługa Azure Defender dla rejestrów kontenerów zapewnia luki w zabezpieczeniach, które zostały pobrane w ciągu ostatnich 30 dni, wypchnięte do rejestru lub zaimportowane i uwidacznia szczegółowe wyniki na obrazie. |AuditIfNotExists, wyłączone |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
+|[Usługa Azure Defender dla Key Vault powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e6763cc-5078-4e64-889d-ff4d9a839047) |Usługa Azure Defender dla Key Vault oferuje dodatkową warstwę ochrony i analizy zabezpieczeń dzięki wykrywaniu nietypowych i potencjalnie szkodliwych prób dostępu lub korzystania z kont magazynu kluczy. |AuditIfNotExists, wyłączone |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKeyVaults_Audit.json) |
+|[Usługa Azure Defender for Kubernetes powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F523b5cd1-3e23-492f-a539-13118b6d1e3a) |Usługa Azure Defender for Kubernetes zapewnia ochronę przed zagrożeniami w czasie rzeczywistym dla środowisk kontenerów i generuje alerty dla podejrzanych działań. |AuditIfNotExists, wyłączone |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKubernetesService_Audit.json) |
+|[Usługa Azure Defender dla serwerów powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |Usługa Azure Defender dla serwerów zapewnia ochronę przed zagrożeniami w czasie rzeczywistym dla obciążeń serwera i generuje zalecenia dotyczące ograniczania funkcjonalności, a także alerty dotyczące podejrzanych działań. |AuditIfNotExists, wyłączone |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
+|[Usługa Azure Defender dla serwerów SQL na maszynach powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6581d072-105e-4418-827f-bd446d56421b) |Usługa Azure Defender dla programu SQL udostępnia funkcje umożliwiające poddanie i łagodzenie potencjalnych luk w zabezpieczeniach bazy danych, wykrywanie nietypowych działań, które mogą wskazywać na zagrożenia baz danych SQL oraz odnajdywanie i klasyfikowanie poufnych danych. |AuditIfNotExists, wyłączone |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServerVirtualMachines_Audit.json) |
+|[Usługa Azure Defender dla magazynu powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F308fbb08-4ab8-4e67-9b29-592e93fb94fa) |Usługa Azure Defender dla magazynu zapewnia wykrywanie nietypowych i potencjalnie szkodliwych prób dostępu do kont magazynu lub korzystania z nich. |AuditIfNotExists, wyłączone |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnStorageAccounts_Audit.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Upewnij się, że ustawienie "Automatyczna obsługa administracyjna agenta monitorowania" ma wartość "on"
 

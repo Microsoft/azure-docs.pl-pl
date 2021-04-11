@@ -5,10 +5,10 @@ ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
 ms.openlocfilehash: 4c2df952480d2c30de10838c3d0f7714fc7e6126
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628649"
 ---
 # <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, kompilowanie i wdrażanie inteligentnych kontraktów w usłudze Azure łańcucha bloków Service
@@ -81,13 +81,13 @@ Usługa Azure łańcucha bloków Development Kit używa Truffle do wykonania skr
 
 ![Pomyślnie wdrożono kontrakt](./media/send-transaction/deploy-contract.png)
 
-## <a name="call-a-contract-function"></a>Wywoływanie funkcji kontraktu
+## <a name="call-a-contract-function&quot;></a>Wywoływanie funkcji kontraktu
 Funkcja **SendRequest** kontraktu **HelloBlockchain** zmienia zmienną stanu **RequestMessage** . Zmiana stanu sieci łańcucha bloków odbywa się za pośrednictwem transakcji. Możesz utworzyć skrypt, aby wykonać funkcję **SendRequest** za pośrednictwem transakcji.
 
 1. Utwórz nowy plik w katalogu głównym projektu Truffle i nadaj mu nazwę `sendrequest.js` . Dodaj następujący kod JavaScript Web3 do pliku.
 
     ```javascript
-    var HelloBlockchain = artifacts.require("HelloBlockchain");
+    var HelloBlockchain = artifacts.require(&quot;HelloBlockchain");
         
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")

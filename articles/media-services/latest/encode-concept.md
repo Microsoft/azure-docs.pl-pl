@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 22f4c5bba3ea6836a8c9b016315f3cfae36cb52d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 225f1d311739bdafbe39971a2b4ac74917e770e9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111939"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279497"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
 
@@ -31,7 +31,7 @@ Wideo są zwykle dostarczane do urządzeń i aplikacji przez [pobieranie progres
 > W Media Services nie są naliczane opłaty za anulowane lub błędne zadania. Na przykład zadanie, które osiągnęło postęp 50% i anulowane, nie jest rozliczane o 50% minut zadań. Opłata jest naliczana tylko za ukończone zadania.
 
 * Aby zapewnić pobieranie progresywne, można użyć Azure Media Services do przekonwertowania pliku multimediów cyfrowych (Mezzanine) do pliku [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , który zawiera wideo zakodowane za pomocą kodera-dekoder [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) , i dźwięk, który został zakodowany za pomocą kodera-dekoder [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) . Ten plik MP4 jest zapisywana w elemencie zawartości na koncie magazynu. Aby pobrać plik bezpośrednio, można użyć interfejsów API lub zestawów SDK usługi Azure Storage (na przykład [interfejsu API REST magazynu](../../storage/common/storage-rest-api-auth.md) lub [zestawu SDK platformy .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)). Jeśli w magazynie został utworzony zasób wyjściowy z określoną nazwą kontenera, Użyj tej lokalizacji. W przeciwnym razie możesz użyć Media Services, aby [wyświetlić listę adresów URL kontenerów zasobów](/rest/api/media/assets/listcontainersas). 
-* Aby przygotować zawartość do dostarczenia przez przesyłanie strumieniowe z adaptacyjną szybkością transmisji bitów, plik Mezzanine musi być zakodowany na wielu szybkościach transmisji bitów (wysoka do niskich). Aby zapewnić płynne przejście do jakości, rozdzielczość wideo jest obniżana, ponieważ zmniejsza się szybkość transmisji bitów. Powoduje to, że jest to nazywane drabinem kodowania — tabelą rozdzielczości i szybkości transmisji bitów (zobacz [automatycznie wygenerowana drabina szybkość transmisji bitów](encode-autogen-bitrate-ladder.md)). Media Services do kodowania plików mezzanine przy użyciu wielu szybkości transmisji bitów. W tym celu uzyskasz zestaw plików MP4 i skojarzonych z nimi plików konfiguracji przesyłania strumieniowego, które są zapisywane do zasobu na koncie magazynu. Można następnie użyć funkcji tworzenia [pakietów dynamicznych](encode-dynamic-packaging-concept.md) w Media Services, aby dostarczyć wideo za pośrednictwem protokołów przesyłania strumieniowego, takich jak [MPEG-kreska](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) i [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Wymaga to utworzenia [lokalizatora przesyłania strumieniowego](streaming-locators-concept.md) i adresów URL przesyłania strumieniowego, które są zgodne z obsługiwanymi protokołami, które można następnie przełączać do urządzeń/aplikacji na podstawie ich możliwości.
+* Aby przygotować zawartość do dostarczenia przez przesyłanie strumieniowe z adaptacyjną szybkością transmisji bitów, plik Mezzanine musi być zakodowany na wielu szybkościach transmisji bitów (wysoka do niskich). Aby zapewnić płynne przejście do jakości, rozdzielczość wideo jest obniżana, ponieważ zmniejsza się szybkość transmisji bitów. Powoduje to, że jest to nazywane drabinem kodowania — tabelą rozdzielczości i szybkości transmisji bitów (zobacz [automatycznie wygenerowana drabina szybkość transmisji bitów](encode-autogen-bitrate-ladder.md)). Media Services do kodowania plików mezzanine przy użyciu wielu szybkości transmisji bitów. W tym celu uzyskasz zestaw plików MP4 i skojarzonych z nimi plików konfiguracji przesyłania strumieniowego, które są zapisywane do zasobu na koncie magazynu. Można następnie użyć funkcji tworzenia [pakietów dynamicznych](encode-dynamic-packaging-concept.md) w Media Services, aby dostarczyć wideo za pośrednictwem protokołów przesyłania strumieniowego, takich jak [MPEG-kreska](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) i [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Wymaga to utworzenia [lokalizatora przesyłania strumieniowego](stream-streaming-locators-concept.md) i adresów URL przesyłania strumieniowego, które są zgodne z obsługiwanymi protokołami, które można następnie przełączać do urządzeń/aplikacji na podstawie ich możliwości.
 
 Na poniższym diagramie przedstawiono przepływ pracy dla kodowania na żądanie z pakietem dynamicznym.
 
@@ -41,7 +41,7 @@ Ten temat zawiera wskazówki dotyczące sposobu kodowania zawartości przy użyc
 
 ## <a name="transforms-and-jobs"></a>Transformacje i zadania
 
-Aby kodować z Media Services v3, należy utworzyć [transformację](/rest/api/media/transforms) i [zadanie](/rest/api/media/jobs). Transformacja definiuje przepis dla ustawień kodowania i danych wyjściowych. to zadanie jest wystąpieniem przepisu. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transforms-jobs-concept.md).
+Aby kodować z Media Services v3, należy utworzyć [transformację](/rest/api/media/transforms) i [zadanie](/rest/api/media/jobs). Transformacja definiuje przepis dla ustawień kodowania i danych wyjściowych. to zadanie jest wystąpieniem przepisu. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transform-jobs-concept.md).
 
 Przy kodowaniu przy użyciu Media Services należy użyć ustawień wstępnych, aby poinformować koder o sposobie przetwarzania plików multimedialnych. W Media Services v3 używasz kodera standardowego do kodowania plików. Na przykład można określić rozdzielczość wideo i/lub liczbę kanałów audio, które mają być w zakodowanej zawartości.
 
@@ -84,8 +84,8 @@ Możesz określić, aby utworzyć [zadanie](/rest/api/media/jobs/create) z pojed
 
 Zobacz przykłady:
 
-* [Podcinanie wideo za pomocą platformy .NET](subclip-video-dotnet-howto.md)
-* [Podcinanie wideo za pomocą interfejsu REST](subclip-video-rest-howto.md)
+* [Podcinanie wideo za pomocą platformy .NET](transform-subclip-video-dotnet-how-to.md)
+* [Podcinanie wideo za pomocą interfejsu REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="built-in-presets"></a>Wbudowane ustawienia wstępne
 

@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 779a1410641f945dc8dbf38aecf65b97d64971b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5409c30020db2c8d7acf3c23df5a7d709d872341
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593976"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963278"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Programowe tworzenie subskrypcji platformy Azure dla Umowy z Klientem Microsoft przy użyciu najnowszych interfejsów API
 
@@ -28,7 +28,9 @@ Subskrypcja platformy Azure utworzona programowo podlega warunkom umowy, w ramac
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Aby uzyskać więcej informacji, zobacz [Role rozliczeniowe i zadania w subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Możesz również nadać tej samej roli nazwę główną usługi (SPN). Aby uzyskać więcej informacji na temat ról i przypisywania do nich uprawnień, zobacz [role i zadania dotyczące rozliczeń subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+
+Jeśli korzystasz z nazwy SPN do tworzenia subskrypcji, użyj identyfikatora ObjectId rejestracji aplikacji usługi Azure AD jako nazwy głównej identyfikatora polecenia przy użyciu [programu Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
 
 Jeśli nie wiesz, czy masz dostęp do konta Umowy z Klientem Microsoft, zobacz [Sprawdzanie dostępu do Umowy z Klientem Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 

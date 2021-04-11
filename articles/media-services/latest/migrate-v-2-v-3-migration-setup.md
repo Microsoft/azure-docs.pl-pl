@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959674"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279684"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Krok 3 — Konfigurowanie do migracji do interfejsu API REST v3 lub zestawu SDK klienta
 
@@ -43,7 +43,7 @@ Klienci, którzy wcześniej korzystali z wersji 2015-10-01 interfejsu API zarzą
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Utwórz nowe konto usługi Media Services na potrzeby testowania
 
-Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](how-to-set-azure-subscription.md?tabs=portal) przy użyciu Azure Portal. Wybierz pozycję dostęp do interfejsu API i uwierzytelnianie główne usługi, aby wygenerować nowy identyfikator i wpisy tajne aplikacji usługi Azure AD do użycia z tym kontem testowym.
+Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](setup-azure-subscription-how-to.md?tabs=portal) przy użyciu Azure Portal. Wybierz pozycję dostęp do interfejsu API i uwierzytelnianie główne usługi, aby wygenerować nowy identyfikator i wpisy tajne aplikacji usługi Azure AD do użycia z tym kontem testowym.
 
 [Utwórz konto usługi Media Services](account-create-how-to.md?tabs=portal).
 [Uzyskaj poświadczenia umożliwiające dostęp do interfejsu API Media Services](access-api-howto.md?tabs=portal).
@@ -66,7 +66,7 @@ Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](h
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Użyj programu [Poster](./media-rest-apis-with-postman.md) dla wywołań interfejsu API REST usługi Media Services v3.
+Użyj programu [Poster](./setup-postman-rest-how-to.md) dla wywołań interfejsu API REST usługi Media Services v3.
 Przeczytaj [strony dokumentacji interfejsu API REST](/rest/api/media/).
 
 Należy użyć ciągu wersji 2020-05-01 w kolekcji Poster.

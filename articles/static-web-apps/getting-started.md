@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 2d7a2dcbbd0b6e9a10ca8af93798bfddbee94ee3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182659"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449216"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Szybki Start: Tworzenie pierwszej witryny statycznej przy użyciu statycznej Web Apps platformy Azure
 
-Usługa Azure static Web Apps publikuje witrynę sieci Web w środowisku produkcyjnym, tworząc aplikacje z repozytorium GitHub. W tym przewodniku szybki start wdrożono aplikację sieci Web w usłudze Azure static Web Apps przy użyciu rozszerzenia Visual Studio Code.
+Usługa Azure static Web Apps publikuje witrynę sieci Web, tworząc aplikacje z repozytorium kodu. W tym przewodniku szybki start wdrożono aplikację do statycznych aplikacji sieci Web platformy Azure przy użyciu rozszerzenia Visual Studio Code.
 
 Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free).
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto bezpłatnej wersji p
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** , aby otworzyć repozytorium, które zostało właśnie sklonowane do maszyny w edytorze.
+Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** , aby otworzyć repozytorium sklonowane na maszynie w edytorze.
 
 ## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji internetowej
 
@@ -43,7 +43,7 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
     > [!NOTE]
     > Wymagane jest zalogowanie się do platformy Azure i usługi GitHub. Jeśli jeszcze nie zalogowano się do platformy Azure ani usługi GitHub z poziomu programu Visual Studio Code, rozszerzenie wyświetli monit o zalogowanie się do nich podczas procesu tworzenia aplikacji.
 
-1. Umieść kursor myszy na etykiecie usługi _Static Web Apps_ i wybierz **znak plus**.
+1. W etykiecie _Web Apps statycznej_ wybierz znak **Plus**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nazwa aplikacji":::
 
@@ -53,45 +53,34 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Tworzenie statycznej aplikacji internetowej":::
 
-1. Wybierz gałąź **main** i naciśnij klawisz **Enter**.
+1. Wybierz ustawienia wstępne pasujące do typu aplikacji.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nazwa gałęzi":::
+    # <a name="no-framework"></a>[Brak struktury](#tab/vanilla-javascript)
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Ustawienia wstępne aplikacji: brak struktury":::
 
-1. Wybierz **/** jako lokalizację kodu aplikacji, a następnie naciśnij klawisz **Enter**.
+    Wprowadź **./** jako lokalizację plików aplikacji
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Lokalizacja kodu aplikacji":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Lokalizacja plików aplikacji":::
 
-1. Rozszerzenie wyszukuje lokalizację interfejsu API w aplikacji. Ten artykuł nie omawia implementowania interfejsu API.
-
-    Wybierz pozycję **Pomiń teraz** i naciśnij klawisz **Enter**.
+    Wybierz pozycję **Pomiń teraz** jako lokalizację interfejsu API Azure Functions
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Lokalizacja interfejsu API":::
 
-1. Wybierz lokalizację, w której będą kompilowane pliki do wersji produkcyjnej w aplikacji.
+    Wprowadź **./** jako lokalizację wyjściową kompilacji
 
-    # <a name="no-framework"></a>[Brak struktury](#tab/vanilla-javascript)
-
-    Wyczyść pole i naciśnij klawisz **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Ścieżka plików aplikacji":::
+    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Lokalizacja wyjściowa kompilacji aplikacji":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    Wpisz **dist/kątowy — podstawowy** i naciśnij klawisz **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Ścieżka plików aplikacji platformy Angular":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Ustawienia wstępne aplikacji: kątowy":::
 
     # <a name="react"></a>[React](#tab/react)
 
-    Wpisz **build** i naciśnij klawisz **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Ścieżka plików aplikacji platformy React":::
+    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Ustawienia wstępne aplikacji: reagowanie":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    Wpisz **dist** i naciśnij klawisz **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Ścieżka plików aplikacji platformy Vue":::
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Ustawienia wstępne aplikacji: Vue":::
 
     ---
 
@@ -103,11 +92,13 @@ Następnie otwórz Visual Studio Code i przejdź do **pliku > Otwórz folder** ,
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Utworzone potwierdzenie":::
 
-1. W oknie Eksplorator Visual Studio Code przejdź do węzła, który ma swoją nazwę subskrypcji, i rozwiń go. Należy pamiętać, że ukończenie wdrożenia może potrwać kilka minut. Następnie wróć do sekcji statyczne Web Apps i wybierz nazwę aplikacji, a następnie kliknij prawym przyciskiem myszy pozycję My-static-Web-App, a następnie wybierz polecenie Otwórz w portalu, aby wyświetlić aplikację w Azure Portal.
+    Następnie kliknij przycisk **Otwórz akcje w** serwisie GitHub. Na tej stronie jest wyświetlany stan kompilacji aplikacji.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Otwórz portal":::
+    Po zakończeniu akcji usługi GitHub możesz przejść do opublikowanej witryny sieci Web.
 
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+1. Aby wyświetlić witrynę sieci Web w przeglądarce, kliknij prawym przyciskiem myszy projekt w rozszerzeniu Web Apps statycznym, a następnie wybierz polecenie **Przeglądaj witrynę**.
+
+    :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Przeglądaj witrynę":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

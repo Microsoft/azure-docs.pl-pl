@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104600466"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
@@ -132,7 +132,7 @@ Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do
 - [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 - [Konfiguracja DNS dla prywatnych punktów końcowych](../../private-link/private-endpoint-overview.md#dns-configuration)
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link).
 
