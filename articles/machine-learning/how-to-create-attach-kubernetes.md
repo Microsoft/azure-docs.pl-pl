@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
-ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 04/08/2021
+ms.openlocfilehash: 075b02e3e5f2e409298bf31eb0b6720e64af68a0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276658"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210832"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Tworzenie i dołączanie klastra usługi Azure Kubernetes Service
 
@@ -67,6 +67,10 @@ Azure Machine Learning można wdrożyć przeszkolone modele uczenia maszynowego 
     - [Konfigurowanie automatycznego skalowania klastra w AKS](../aks/cluster-autoscaler.md)
 
 - __Nie należy bezpośrednio aktualizować klastra przy użyciu konfiguracji YAML__. Chociaż usługi Azure Kubernetes Services obsługują aktualizacje za pośrednictwem konfiguracji YAML, wdrożenia Azure Machine Learning przesłonią zmiany. Tylko dwa pola YAML, które nie zostaną zastępować, są __limitami żądań__ oraz __procesora CPU i pamięci__.
+
+- Tworzenie klastra AKS przy użyciu interfejsu użytkownika programu Azure Machine Learning Studio, zestawu SDK lub rozszerzenia interfejsu wiersza polecenia __nie__ jest idempotentne. Ponowne utworzenie zasobu spowoduje błąd, że klaster o takiej samej nazwie już istnieje.
+    
+    - Użycie szablonu Azure Resource Manager oraz zasobu [Microsoft. MachineLearningServices/Workspaces/Computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) w celu utworzenia klastra AKS __nie__ jest również idempotentne. Jeśli spróbujesz ponownie użyć szablonu do zaktualizowania istniejącego zasobu, wystąpi ten sam błąd.
 
 ## <a name="azure-kubernetes-service-version"></a>Wersja usługi Azure Kubernetes Service
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: f027b2d41f63b5aa7ea3df87e06224abd629799b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 995f4670b17d55fe04d5c30a834ea4be576a8348
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100535318"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106489982"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Ładunki telemetrii, właściwości i polecenia
 
@@ -51,6 +51,10 @@ IoT Central umożliwia wyświetlenie danych pierwotnych wysyłanych przez urząd
     W tym widoku można wybrać kolumny do wyświetlenia i ustawić zakres czasu do wyświetlenia. W kolumnie **dane niemodelowane** są wyświetlane dane z urządzenia, które nie są zgodne z żadną definicją właściwości lub telemetrii w szablonie urządzenia.
 
 ## <a name="telemetry"></a>Telemetria
+
+### <a name="telemetry-in-components"></a>Dane telemetryczne w składnikach
+
+Jeśli dane telemetryczne są zdefiniowane w składniku programu, Dodaj niestandardową Właściwość komunikatu o nazwie `$.sub` składnika zdefiniowanej w modelu urządzenia. Aby dowiedzieć się więcej, zobacz [Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central](tutorial-connect-device.md).
 
 ### <a name="primitive-types"></a>Typy pierwotne
 
@@ -437,6 +441,21 @@ Klient urządzenia powinien wysłać stan jako kod JSON, który wygląda podobni
 > [!NOTE]
 > Formaty ładunku dla właściwości mają zastosowanie do aplikacji utworzonych w dniu lub po 07/14/2020.
 
+### <a name="properties-in-components"></a>Właściwości w składnikach
+
+Jeśli właściwość jest zdefiniowana w składniku, zawiń właściwość w nazwie składnika. Poniższy przykład ustawia `maxTempSinceLastReboot` w `thermostat2` składniku. Znacznik `__t` wskazuje, że ten składnik:
+
+```json
+{
+  "thermostat2" : {  
+    "__t" : "c",  
+    "maxTempSinceLastReboot" : 38.7
+    } 
+}
+```
+
+Aby dowiedzieć się więcej, zobacz [Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central](tutorial-connect-device.md).
+
 ### <a name="primitive-types"></a>Typy pierwotne
 
 W tej sekcji przedstawiono przykłady typów właściwości pierwotnych wysyłanych przez urządzenie do aplikacji IoT Central.
@@ -715,9 +734,25 @@ Klient urządzenia powinien wysłać ładunek JSON, który wygląda podobnie jak
 }
 ```
 
-### <a name="writeable-property-types"></a>Zapisywalne typy właściwości
+### <a name="writable-property-types"></a>Typy właściwości z możliwością zapisu
 
-W tej sekcji przedstawiono przykłady typów właściwości zapisywalnych odbieranych przez urządzenie z aplikacji IoT Central.
+W tej sekcji przedstawiono przykłady typów właściwości z możliwością zapisu, które urządzenie otrzymuje z aplikacji IoT Central.
+
+Jeśli właściwość do zapisu jest zdefiniowana w składniku, żądany komunikat właściwości zawiera nazwę składnika. Poniższy przykład pokazuje komunikat z żądaniem urządzenia w celu zaktualizowania `targetTemperature` `thermostat2` składnika w składniku. Znacznik `__t` wskazuje, że ten składnik:
+
+```json
+{
+  "thermostat2": {
+    "targetTemperature": {
+      "value": 57
+    },
+    "__t": "c"
+  },
+  "$version": 3
+}
+```
+
+Aby dowiedzieć się więcej, zobacz [Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central](tutorial-connect-device.md).
 
 IoT Central oczekuje odpowiedzi z urządzenia na zapisywalne aktualizacje właściwości. Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjonalne. Przykłady można znaleźć w następujących fragmentach kodu.
 
@@ -734,7 +769,7 @@ IoT Central oczekuje odpowiedzi z urządzenia na zapisywalne aktualizacje właś
 
 `ad` jest opisem ciągu opcji.
 
-Poniższy fragment kodu z modelu urządzenia pokazuje definicję `string` typu właściwości do zapisu:
+Poniższy fragment kodu z modelu urządzenia pokazuje definicję typu właściwości z możliwością zapisu `string` :
 
 ```json
 {
@@ -769,7 +804,7 @@ Urządzenie powinno wysłać następujący ładunek JSON do IoT Central po przet
 }
 ```
 
-Poniższy fragment kodu z modelu urządzenia pokazuje definicję `Enum` typu właściwości do zapisu:
+Poniższy fragment kodu z modelu urządzenia pokazuje definicję typu właściwości z możliwością zapisu `Enum` :
 
 ```json
 {
@@ -834,6 +869,8 @@ Urządzenie powinno wysłać następujący ładunek JSON do IoT Central po przet
 ```
 
 ## <a name="commands"></a>Polecenia
+
+Jeśli polecenie jest zdefiniowane w składniku, nazwa polecenia odbieranego przez urządzenie zawiera nazwę składnika. Na przykład jeśli polecenie jest wywoływane `getMaxMinReport` i składnik jest wywoływany `thermostat2` , urządzenie odbiera żądanie wykonania polecenia o nazwie `thermostat2*getMaxMinReport` .
 
 Poniższy fragment kodu z modelu urządzenia pokazuje definicję polecenia, które nie ma parametrów i która nie oczekuje, że urządzenie nie zwróci żadnego elementu:
 

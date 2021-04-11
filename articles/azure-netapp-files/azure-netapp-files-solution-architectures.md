@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 47c641eedbbe096a75223286563acb0a2405b1a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d5ff0f2444aac153116e8e33a6ed2af74c93f057
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935213"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553519"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -54,10 +54,11 @@ Ta sekcja zawiera odwołania do aplikacji systemu Windows i rozwiązań SQL Serv
 
 ### <a name="sql-server"></a>SQL Server
 
+* [SQL Server w przewodniku wdrażania platformy Azure przy użyciu Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
+* [Zalety korzystania z Azure NetApp Files wdrożenia SQL Server](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Wdrażanie SQL Server za pośrednictwem protokołu SMB z Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
 * [Wdrażanie SQL Server Always-On klastra trybu failover za pośrednictwem protokołu SMB z Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) 
 * [Wdrażanie grup dostępności Always-On przy użyciu Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) 
-* [Zalety korzystania z Azure NetApp Files wdrożenia SQL Server](solutions-benefits-azure-netapp-files-sql-server.md)
 
 ## <a name="sap-on-azure-solutions"></a>Rozwiązania SAP na platformie Azure
 
