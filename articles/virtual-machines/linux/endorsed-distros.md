@@ -2,24 +2,19 @@
 title: Dystrybucje systemu Linux zatwierdzone na platformie Azure
 description: Dowiedz się więcej o dystrybucji z systemem Linux na platformie Azure, w tym wskazówki dotyczące Ubuntu, CentOS, Oracle i SUSE.
 services: virtual-machines
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 01/03/2021
+ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: 091a06fd608763ac7265670733890e93bf71dde1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e602909467ca155beb010c5bdd61e6f6408dd12a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547411"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553791"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
@@ -35,7 +30,7 @@ Agent systemu Azure Linux jest już wstępnie zainstalowany w obrazach portalu A
 
 | Dystrybucja | Wersja | Sterowniki | Agent |
 | --- | --- | --- | --- |
-| CentOS przez oprogramowanie nieautoryzowane Wave |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [pobieranie lis](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: w jądrze |Pakiet: w [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS przez oprogramowanie nieautoryzowane Wave (dawniej znane jako OpenLogic) |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [pobieranie lis](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: w jądrze |Pakiet: w [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS jest teraz [koniec okresu](https://coreos.com/os/eol/) ważności z 26 maja 2020. |Nie jest już dostępne | | |
 | Debian według credativ |8. x, 9. x, 10. x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar kontener systemu Linux przez Kinvolk| Pro, stabilny, beta| W jądrze | wa-Linux — Agent jest już zainstalowany w/usr/share/OEM/bin/waagent |

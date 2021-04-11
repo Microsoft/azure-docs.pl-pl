@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204052"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581825"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault
 
@@ -51,7 +51,7 @@ Utwórz certyfikat lub zaimportuj certyfikat do magazynu kluczy (zobacz [procedu
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Aktualizuj atrybuty cyklu życia certyfikatu
 
-W Azure Key Vault można zaktualizować atrybuty cyklu życia certyfikatu zarówno przed, jak i po chwili utworzenia certyfikatu.
+W Azure Key Vault można aktualizować atrybuty cyklu życia certyfikatu zarówno w momencie tworzenia certyfikatu, jak i po nim.
 
 Certyfikat utworzony w Key Vault może być:
 
@@ -83,7 +83,7 @@ Key Vault automatyczne obracanie certyfikatów poprzez ustalone partnerstwo z ur
         |  Automatycznie Odnów w danym momencie| Wyślij wiadomość e-mail do wszystkich kontaktów w danym momencie |
         |-----------|------|
         |Wybranie tej opcji spowoduje *włączenie* autorotacji. | Wybranie tej opcji *nie* spowoduje przerotacji automatyczne, ale spowoduje tylko wyświetlenie alertu.|
-
+         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
 1. Wybierz przycisk **Utwórz**.
 
 ![Cykl życia certyfikatu](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)

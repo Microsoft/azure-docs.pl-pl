@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100635391"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076789"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Użyj Key Vault odwołań dla App Service i Azure Functions
 
@@ -30,8 +30,19 @@ Aby można było odczytać wpisy tajne z Key Vault, należy utworzyć magazyn i 
 
 1. Utwórz [zasady dostępu w Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) dla utworzonej wcześniej tożsamości aplikacji. Włącz uprawnienie "Pobieranie" klucza tajnego dla tych zasad. Nie należy konfigurować "autoryzowanej aplikacji" ani `applicationId` ustawień, ponieważ nie są one zgodne z zarządzaną tożsamością.
 
-   > [!IMPORTANT]
-   > Odwołania Key Vault nie są obecnie dostępne do rozpoznawania wpisów tajnych przechowywanych w magazynie kluczy z [ograniczeniami sieci](../key-vault/general/overview-vnet-service-endpoints.md) , chyba że aplikacja jest hostowana w [App Service Environment](./environment/intro.md).
+### <a name="access-network-restricted-vaults"></a>Dostęp do magazynów z ograniczeniami w sieci
+
+> [!NOTE]
+> Aplikacje oparte na systemie Linux nie są obecnie w stanie rozpoznać wpisów tajnych z magazynu kluczy z ograniczeniami w sieci, jeśli aplikacja nie jest hostowana w [App Service Environment](./environment/intro.md).
+
+Jeśli magazyn jest skonfigurowany z [ograniczeniami sieci](../key-vault/general/overview-vnet-service-endpoints.md), należy również upewnić się, że aplikacja ma dostęp do sieci.
+
+1. Upewnij się, że aplikacja ma skonfigurowane funkcje sieci wychodzącej, zgodnie z opisem w temacie [App Service funkcje sieciowe](./networking-features.md) i [Azure Functions opcje sieci](../azure-functions/functions-networking-options.md).
+
+2. Upewnij się, że konta konfiguracji magazynu dla sieci lub podsieci, za pomocą których aplikacja będzie uzyskiwać do niej dostęp.
+
+> [!IMPORTANT]
+> Dostęp do magazynu za pomocą integracji z siecią wirtualną jest obecnie niezgodny z [automatycznymi aktualizacjami wpisów tajnych bez określonej wersji](#rotation).
 
 ## <a name="reference-syntax"></a>Składnia odwołania
 
@@ -56,6 +67,9 @@ Inna możliwość:
 ```
 
 ## <a name="rotation"></a>Wymiana
+
+> [!IMPORTANT]
+> [Dostęp do magazynu za pomocą integracji z siecią wirtualną](#access-network-restricted-vaults) jest obecnie niezgodny z automatycznymi aktualizacjami wpisów tajnych bez określonej wersji.
 
 Jeśli w odwołaniu nie określono wersji, aplikacja będzie używać najnowszej wersji, która istnieje w Key Vault. Gdy staną się dostępne nowsze wersje, na przykład w przypadku zdarzenia rotacji, aplikacja zostanie automatycznie zaktualizowana i rozpocznie korzystanie z najnowszej wersji w ciągu jednego dnia. Wszystkie zmiany konfiguracji wprowadzone w aplikacji spowodują natychmiastowe zaktualizowanie najnowszych wersji wszystkich wpisów tajnych, do których się odwołuje.
 

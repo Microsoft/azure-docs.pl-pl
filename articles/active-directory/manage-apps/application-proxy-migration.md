@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7d089d8f57bf8ef1278d262129cc8ddfc81d581
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52cb4480e8b7820d656b8ab66f12486c2062dca5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257747"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443495"
 ---
 # <a name="compare-remote-access-solutions"></a>Porównywanie rozwiązań dostępu zdalnego
 
@@ -64,4 +64,4 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD oferuje unikatowe korzyśc
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Korzystanie z aplikacji usługi Azure AD w celu zapewnienia bezpiecznego dostępu zdalnego do aplikacji lokalnych](application-proxy.md)
+- [Korzystanie z usługi Azure serwer proxy aplikacji usługi Azure AD w celu zapewnienia bezpiecznego dostępu zdalnego do aplikacji lokalnych](application-proxy.md)

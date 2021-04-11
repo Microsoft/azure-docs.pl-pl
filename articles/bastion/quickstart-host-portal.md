@@ -8,18 +8,18 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53f09eed89f9667611ed4d5e0268c889609d560a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707183"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553570"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Szybki Start: łączenie z maszyną wirtualną bezpiecznie za pośrednictwem przeglądarki za pomocą prywatnego adresu IP
 
 Możesz nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglądarki, korzystając z Azure Portal i usługi Azure bastionu. Ten artykuł szybkiego startu pokazuje, jak skonfigurować usługę Azure bastionu na podstawie ustawień maszyny wirtualnej, a następnie połączyć się z maszyną wirtualną za pośrednictwem portalu. Maszyna wirtualna nie wymaga publicznego adresu IP, oprogramowania klienckiego, agenta ani specjalnej konfiguracji. Po aprowizacji usługi środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [co to jest Azure bastionu?](bastion-overview.md).
 
-## <a name="prerequisites"></a><a name="prereq"></a>Wymagania wstępne
+## <a name="prerequisites"></a><a name="prereq"></a>Wymagany
 
 * Konto platformy Azure z aktywną subskrypcją. Jeśli go nie masz, [Utwórz go bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Aby móc nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglądarki za pomocą bastionu, musisz mieć możliwość zalogowania się do Azure Portal.
 
@@ -37,6 +37,10 @@ Możesz nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglą
 * Wymagane porty maszyn wirtualnych:
   * Porty przychodzące: RDP (3389)
 
+ >[!NOTE]
+ >Korzystanie z usługi Azure bastionu z strefami Prywatna strefa DNS platformy Azure nie jest w tej chwili obsługiwane. Przed rozpoczęciem upewnij się, że sieć wirtualna, w której planujesz wdrożyć zasób bastionu, nie jest połączona z prywatną strefą DNS.
+ >
+
 ### <a name="example-values"></a><a name="values"></a>Przykładowe wartości
 
 Podczas tworzenia tej konfiguracji można użyć następujących przykładowych wartości lub można podstawić własne.
@@ -47,7 +51,7 @@ Podczas tworzenia tej konfiguracji można użyć następujących przykładowych 
 | --- | --- |
 | Maszyna wirtualna| TestVM |
 | Grupa zasobów | TestRG1 |
-| Region (Region) | East US |
+| Region | East US |
 | Sieć wirtualna | Sieć wirtualna 1 |
 | Przestrzeń adresowa | 10.1.0.0/16 |
 | Podsieci | Fronton: 10.1.0.0/24 |

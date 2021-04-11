@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 85a3505dd347b96036c28c85c089afa04e3e3bd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609831"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030308"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Rozwiązywanie problemów z usługą SQL Insights (wersja zapoznawcza)
 Aby rozwiązać problemy z zbieraniem danych w usłudze SQL Insights, sprawdź stan maszyny monitorowania na karcie **Zarządzanie profilem** . Będzie to miało jeden z następujących stanów:
@@ -171,10 +171,13 @@ InsightsMetrics
 ```
 
 ```
-Operation 
- | where OperationCategory == "WorkloadInsights" 
- | summarize Errors = countif(OperationStatus == 'Error') 
+WorkloadDiagnosticLogs
+| summarize Errors = countif(Status == 'Error')
 ```
+
+> [!NOTE]
+> Jeśli nie widzisz żadnych danych w typie danych "WorkloadDiagnosticLogs", może być konieczne zaktualizowanie profilu monitorowania w celu zapisania tych danych.  W środowisku użytkownika usługi SQL Insights wybierz pozycję "Zarządzaj profilem", a następnie wybierz pozycję "Edytuj profil", a następnie wybierz pozycję "Aktualizuj profil monitorowania".
+
 
 W przypadku typowych przypadków informacje o rozwiązywaniu problemów znajdują się w naszym widoku dzienników: 
 

@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/12/2020
+ms.date: 04/01/2021
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aadf4000da4ab88a3c3b4dee37d2179eb49d39d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42c53e72de7f6b2943086544f607042957f4b849
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98132068"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220083"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Linux
 
@@ -25,11 +25,12 @@ W tym artykule przyjęto założenie, że maszyna wirtualna została już utworz
 
 
 1. Wybierz maszynę wirtualną w portalu. 
-1. W menu po lewej stronie wybierz pozycję **Konfiguracja** .
-1. W obszarze **etykieta nazwy DNS** wprowadź prefiks, którego chcesz użyć.
-1. Wybierz pozycję **Zapisz** w górnej części strony.
-1. Wróć do bloku przegląd maszyny wirtualnej, wybierając pozycję **Przegląd** w menu po lewej stronie. 
-1. Sprawdź, czy *nazwa DNS* jest wyświetlana poprawnie. 
+1. W menu po lewej stronie wybierz pozycję **Właściwości** .
+1. W obszarze **publiczna nazwa ADDRESS\DNS IP etykieta**, wybierz adres IP.
+2. W polu **etykieta nazwa DNA** wprowadź prefiks, którego chcesz użyć.
+3. Wybierz pozycję **Zapisz** w górnej części strony.
+4. Wybierz pozycję **Przegląd** w menu po lewej stronie, aby wrócić do bloku przegląd maszyny wirtualnej.
+5. Sprawdź, czy **nazwa DNS** jest wyświetlana poprawnie. 
 
 ## <a name="next-steps"></a>Następne kroki
 

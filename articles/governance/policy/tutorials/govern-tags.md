@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: zarządzanie tagami tagów'
 description: W tym samouczku użyjesz efektu Modyfikuj Azure Policy, aby utworzyć i wymusić model ładu znacznika dla nowych i istniejących zasobów.
-ms.date: 10/05/2020
+ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 9efeb27151cd3a32741f1bdb6d1d90d3304c5874
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e8850dd6fe380b0ea38a2a1722734d917c63d0c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91876281"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093286"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Samouczek: Zarządzanie zarządzaniem tagów przy użyciu Azure Policy
 

@@ -2,21 +2,22 @@
 title: Rozwiązywanie problemów z połączeniami — Azure Database for PostgreSQL — pojedynczy serwer
 description: Dowiedz się, jak rozwiązywać problemy z połączeniem do Azure Database for PostgreSQL-jednego serwera.
 keywords: Połączenie PostgreSQL, parametry połączenia, problemy z łącznością, błąd przejściowy, błąd połączenia
-author: niklarin
-ms.author: nlarin
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: ''
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fe8c4b751be174a91a0e2e94991bc63b4b1e5c7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96014622"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504247"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Rozwiązywanie problemów z połączeniem do Azure Database for PostgreSQL-pojedynczego serwera
 
-Problemy z połączeniem mogą być spowodowane różnymi elementami, w tym:
+Problemy z połączeniem mogą być spowodowane różnymi kwestiami, takimi jak:
 
 * Ustawienia zapory
 * Limit czasu połączenia
@@ -47,9 +48,9 @@ Błędy przejściowe występują, gdy konserwacja jest przeprowadzana, system na
 Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for PostgreSQL, zazwyczaj wskazuje problem z jedną z następujących czynności:
 
 * Konfiguracja zapory serwera: Upewnij się, że Zapora serwera Azure Database for PostgreSQL jest skonfigurowana tak, aby zezwalać na połączenia z klienta, w tym serwery proxy i bramy.
-* Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, które nie mogą być dozwolone, a także nazwy aplikacji, takie jak PostgreSQL w niektórych zaporach.
+* Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, z którym nie można nawiązać połączenia, muszą być dozwolone i nazwy aplikacji, takie jak PostgreSQL w niektórych zaporach.
 * Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu *\@ servername* w nazwie użytkownika.
-* Jeśli zobaczysz, że _serwer błędów nie jest skonfigurowany do zezwalania na połączenia IPv6_, pamiętaj, że warstwa podstawowa nie obsługuje punktów końcowych usługi sieci wirtualnej. Musisz usunąć punkt końcowy Microsoft. SQL z podsieci, która próbuje nawiązać połączenie z serwerem podstawowym.
+* Jeśli widzisz, że _serwer błędów nie jest skonfigurowany do zezwalania na połączenia IPv6_, należy pamiętać, że warstwa podstawowa nie obsługuje punktów końcowych usługi sieci wirtualnej. Musisz usunąć punkt końcowy Microsoft. SQL z podsieci, która próbuje nawiązać połączenie z serwerem podstawowym.
 * Jeśli zobaczysz błąd połączenia _sslmode wartość "* * *" nieprawidłowe, gdy obsługa protokołu SSL nie zostanie skompilowana w wyniku_ błędu, oznacza to, że klient PostgreSQL nie obsługuje protokołu SSL. Najprawdopodobniej libpq po stronie klienta nie został skompilowany przy użyciu flagi "--with-OpenSSL". Spróbuj nawiązać połączenie z klientem PostgreSQL z obsługą protokołu SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kroki rozwiązywania problemów z łącznością trwałą

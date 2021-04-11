@@ -3,16 +3,16 @@ title: Konfigurowanie składników sieciowych NSX w rozwiązaniu VMware platform
 description: Informacje na temat konfigurowania segmentów sieci NSX-T przy użyciu konsoli rozwiązań VMware platformy Azure.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a4702efe8ea26234d074f421d2e6eab871eba5f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716992"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733142"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Konfigurowanie składników sieciowych NSX w rozwiązaniu VMware platformy Azure
 
-Chmura prywatna rozwiązania Azure VMware ma domyślnie NSX-T jako sieć zdefiniowaną przez program (SDDC). Jest ona wstępnie zainicjowana za pomocą bramy NSX-T w trybie aktywny/aktywny i domyślnej bramy NSX-T w trybie aktywny/wstrzymanie.  Te bramy pozwalają połączyć segmenty (przełączniki logiczne) i zapewnić East-West i North-South łączność. 
+Chmura prywatna rozwiązania Azure VMware ma domyślnie NSX-T jako sieć zdefiniowaną przez program (SDDC). Jest ona wstępnie zainicjowana za pomocą bramy NSX-T w trybie **aktywny/aktywny** i domyślnej bramy NSX-t w trybie aktywny/wstrzymanie.  Te bramy pozwalają połączyć segmenty (przełączniki logiczne) i zapewnić East-West i North-South łączność. 
 
 Po wdrożeniu chmury prywatnej rozwiązania VMware platformy Azure można skonfigurować niezbędne obiekty NSX-T z poziomu konsoli rozwiązań VMware platformy Azure w obszarze **obciążenie sieci**.  W konsoli programu jest wyświetlany uproszczony widok operacji NSX-T, których administrator oprogramowania VMware potrzebuje codziennie i który jest przeznaczony dla użytkowników, którzy nie znają NSX-T.  
 

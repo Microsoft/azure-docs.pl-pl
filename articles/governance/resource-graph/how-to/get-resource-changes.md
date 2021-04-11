@@ -1,14 +1,14 @@
 ---
 title: Uzyskiwanie zmian zasobów
 description: Dowiedz się, jak znaleźć, kiedy zasób został zmieniony, uzyskać listę właściwości, które uległy zmianie, i Oceń różnice.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594643"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219080"
 ---
 # <a name="get-resource-changes"></a>Uzyskiwanie zmian zasobów
 
@@ -145,6 +145,10 @@ Każde wykryte zdarzenie zmiany dla **ResourceID** ma następujące właściwoś
 - **beforeSnapshot** — zawiera **snapshotId** i **sygnaturę czasową** migawki zasobu, która została wykonana przed wykryciem zmiany.
 - **afterSnapshot** — zawiera **snapshotId** i **sygnaturę czasową** migawki zasobu, która została wykonana po wykryciu zmiany.
 - **ChangeType** — opisuje typ zmiany wykryty dla całego rekordu zmiany między **beforeSnapshot** i **afterSnapshot**. Wartości to: _Tworzenie_, _Aktualizowanie_ i _usuwanie_. Tablica właściwości **propertyChanges** jest uwzględniana tylko wtedy, gdy **ChangeType** jest _aktualizacją_.
+
+  > [!IMPORTANT]
+  > _Tworzenie_ jest dostępne tylko dla zasobów, które wcześniej istniały i zostały usunięte w ciągu ostatnich 14 dni.
+
 - **propertyChanges** — ta tablica właściwości zawiera szczegóły wszystkich właściwości zasobów, które zostały zaktualizowane między **beforeSnapshot** i **afterSnapshot**:
   - **PropertyName** — nazwa właściwości zasobu, która została zmieniona.
   - **changeCategory** — opisuje, jak została wprowadzona zmiana. Wartości to: _system_ i _użytkownik_.

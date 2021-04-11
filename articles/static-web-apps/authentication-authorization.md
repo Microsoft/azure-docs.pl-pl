@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419290"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218638"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure Static Web Apps (wersja zapoznawcza)
 
 Usługa Azure static Web Apps usprawnia proces uwierzytelniania, zarządzając uwierzytelnianiem przy użyciu następujących dostawców:
 
-- Azure Active Directory
+- Usługa Azure Active Directory
 - GitHub
 - Facebook
 - Google<sup>1</sup>
@@ -55,7 +55,7 @@ Zaproszenia są specyficzne dla poszczególnych dostawców autoryzacji, dlatego 
 
 | Dostawca autoryzacji | Uwidacznia użytkownikowi  |
 | ---------------------- | ----------------- |
-| Azure Active Directory | Adres e-mail     |
+| Usługa Azure Active Directory | Adres e-mail     |
 | Facebook               | Adres e-mail     |
 | GitHub                 | nazwa użytkownika          |
 | Google<sup>1</sup>     | Adres e-mail     |
@@ -131,7 +131,7 @@ Skorzystaj z poniższej tabeli, aby znaleźć trasę logowania specyficzną dla 
 
 | Dostawca autoryzacji | Trasa logowania             |
 | ---------------------- | ----------------------- |
-| Azure Active Directory | `/.auth/login/aad`      |
+| Usługa Azure Active Directory | `/.auth/login/aad`      |
 | Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
 | Google<sup>1</sup>     | `/.auth/login/google`   |
@@ -156,7 +156,13 @@ Możesz użyć [reguły trasy](./configuration.md#routes) , aby zamapować domy�
 
 ### <a name="post-login-redirect"></a>Przekierowanie po zalogowaniu
 
-Jeśli chcesz, aby użytkownik powrócił do określonej strony po zalogowaniu, podaj adres URL w `post_login_redirect_uri` parametrze ciągu zapytania.
+Jeśli chcesz, aby użytkownik zwracał do określonej strony po zalogowaniu, podaj pełny adres URL w `post_login_redirect_uri` parametrze ciągu zapytania.
+
+Na przykład:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
 
 ## <a name="logout"></a>Logout
 

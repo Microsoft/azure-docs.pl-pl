@@ -3,12 +3,12 @@ title: Funkcje szablonów
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości, pracy z ciągami i wartościami liczbowymi oraz pobierania informacji o wdrożeniu.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707323"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220185"
 ---
 # <a name="arm-template-functions"></a>Funkcje szablonu ARM
 
@@ -176,7 +176,6 @@ Menedżer zasobów udostępnia następujące funkcje pobierania wartości zasob�
 * [listSecrets](template-functions-resource.md#list)
 * [staw](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
-* [udostępnia](template-functions-resource.md#providers)
 * [odwoła](template-functions-resource.md#reference)
 * Grupa [zasobów — może](template-functions-resource.md#resourcegroup) być używana tylko we wdrożeniach w ramach grupy.
 * [ResourceID](template-functions-resource.md#resourceid) — można użyć w dowolnym zakresie, ale prawidłowe parametry zmieniają się w zależności od zakresu.

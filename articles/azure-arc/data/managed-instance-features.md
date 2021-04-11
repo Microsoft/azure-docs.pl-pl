@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c3f973da688a20fa60f2fb649b2c8d689bc2a98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589223"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076653"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funkcje i możliwości usługi Azure ARC z włączonym wystąpieniem zarządzanym SQL
 
@@ -117,19 +117,19 @@ Wystąpienie zarządzane SQL z włączonym użyciem usługi Azure Arc udostępni
 | Cecha | Usługa SQL Managed Instance z obsługą usługi Azure Arc |
 |--|--|
 | JSON | Tak |
-| Magazyn zapytań | Tak |  |
-| Danych czasowych | Tak |  |
-| Natywna obsługa kodu XML | Tak |  |
-| Indeksowanie XML | Tak |  |
-| Scal & możliwości UPSERT | Tak |  |
-| Typy danych daty i godziny | Tak |  |
-| Obsługa funkcji wielojęzycznych | Tak |  |
+| Magazyn zapytań | Tak | 
+| Danych czasowych | Tak | 
+| Natywna obsługa kodu XML | Tak | 
+| Indeksowanie XML | Tak | 
+| Scal & możliwości UPSERT | Tak | 
+| Typy danych daty i godziny | Tak | 
+| Obsługa funkcji wielojęzycznych | Tak | 
 | Wyszukiwanie pełnotekstowe i semantyczne | Nie |
-| Specyfikacja języka w kwerendzie | Tak |  |
-| Service Broker (obsługa komunikatów) | Tak |  |
-| Punkty końcowe języka Transact-SQL | Tak |  |
-| Graph | Tak |  |
-| Machine Learning Services | Nie |  |
+| Specyfikacja języka w kwerendzie | Tak | 
+| Service Broker (obsługa komunikatów) | Tak | 
+| Punkty końcowe języka Transact-SQL | Tak | 
+| Graph | Tak | 
+| Machine Learning Services | Nie |
 | PolyBase | Nie |
 
 

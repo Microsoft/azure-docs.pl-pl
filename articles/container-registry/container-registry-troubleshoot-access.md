@@ -2,26 +2,27 @@
 title: Rozwiązywanie problemów z siecią przy użyciu rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą
 ms.topic: article
-ms.date: 10/01/2020
-ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699610"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220117"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru
 
-Ten artykuł pomaga rozwiązywać problemy, które mogą wystąpić podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą. 
+Ten artykuł pomaga w rozwiązywaniu problemów, które mogą wystąpić podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą lub serwerem proxy. 
 
 ## <a name="symptoms"></a>Objawy
 
 Może zawierać co najmniej jedną z następujących czynności:
 
 * Nie można wypchnąć ani ściągnąć obrazów i pojawia się błąd `dial tcp: lookup myregistry.azurecr.io`
+* Nie można wypchnąć ani ściągnąć obrazów i pojawia się błąd `Client.Timeout exceeded while awaiting headers`
 * Nie można wypchnąć ani ściągnąć obrazów i uzyskać błędu interfejsu wiersza polecenia platformy Azure `Could not connect to the registry login server`
 * Nie można ściągnąć obrazów z rejestru do usługi Azure Kubernetes lub innej usługi platformy Azure
-* Nie można uzyskać dostępu do rejestru za pośrednictwem serwera proxy HTTPS i pojawia się błąd `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Nie można uzyskać dostępu do rejestru za pośrednictwem serwera proxy HTTPS i pojawia się błąd `Error response from daemon: login attempt failed with status: 403 Forbidden` lub `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
 * Nie można skonfigurować ustawień sieci wirtualnej i pojawia się błąd `Failed to save firewall and virtual network settings for container registry`
 * Nie można uzyskać dostępu do ustawień rejestru w Azure Portal lub zarządzać rejestrem przy użyciu interfejsu wiersza polecenia platformy Azure
 * Nie można dodać lub zmodyfikować ustawień sieci wirtualnej lub reguł dostępu publicznego
@@ -41,7 +42,7 @@ Uruchom polecenie [AZ ACR Check-Health](/cli/azure/acr#az-acr-check-health) , ab
 
 Przykłady poleceń można znaleźć [w temacie Sprawdzanie kondycji usługi Azure Container Registry](container-registry-check-health.md) . W przypadku zgłoszenia błędów Przejrzyj [Informacje o błędzie](container-registry-health-error-reference.md) i poniższe sekcje dotyczące zalecanych rozwiązań.
 
-Jeśli występują problemy przy użyciu rejestru wih usługę Azure Kubernetes, uruchom polecenie [AZ AKS Check-ACR](/cli/azure/aks#az_aks_check_acr) , aby sprawdzić, czy rejestr jest dostępny z klastra AKS.
+Jeśli występują problemy z użyciem usługi Azure Kubernetes z zintegrowanym rejestrem, uruchom polecenie [AZ AKS Check-ACR](/cli/azure/aks#az_aks_check_acr) , aby sprawdzić, czy klaster AKS może dotrzeć do rejestru.
 
 > [!NOTE]
 > Niektóre objawy łączności sieciowej mogą również wystąpić w przypadku problemów z uwierzytelnianiem lub autoryzacją rejestru. Zobacz [Rozwiązywanie problemów z logowaniem do rejestru](container-registry-troubleshoot-login.md).
@@ -57,7 +58,7 @@ Aby uzyskać dostęp do rejestru za pośrednictwem zapory klienta lub serwera pr
 
 W przypadku rejestru z replikacją geograficzną Skonfiguruj dostęp do punktu końcowego danych dla każdej repliki regionalnej.
 
-Za pośrednictwem serwera proxy HTTPS upewnij się, że zarówno klient platformy Docker, jak i demon platformy Docker są skonfigurowane pod kątem zachowania serwera proxy.
+Za pośrednictwem serwera proxy HTTPS upewnij się, że zarówno klient platformy Docker, jak i demon platformy Docker są skonfigurowane pod kątem zachowania serwera proxy. W przypadku zmiany ustawień serwera proxy dla demona platformy Docker należy ponownie uruchomić demona. 
 
 Dzienniki zasobów rejestru w tabeli ContainerRegistryLoginEvents mogą pomóc zdiagnozować próbne połączenie, które zostało zablokowane.
 

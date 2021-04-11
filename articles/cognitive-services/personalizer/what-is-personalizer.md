@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: Personalizacja, Personalizacja platformy Azure, uczenie maszynowe
-ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928550"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169253"
 ---
 # <a name="what-is-personalizer"></a>Co to jest usługa Personalizacja?
 
@@ -21,11 +21,14 @@ Personalizacja Azure to usługa oparta na chmurze, która ułatwia aplikacjom wy
 > [!TIP]
 > Zawartość to dowolna jednostka informacji, taka jak tekst, obrazy, adresy URL, wiadomości e-mail lub inne elementy, które chcesz wybrać i pokazać użytkownikom.
 
-Zanim zaczniesz, możesz wypróbować program [Personalizuj przy użyciu tego interaktywnej demonstracji](https://personalizationdemo.azurewebsites.net/).
+Ta dokumentacja zawiera następujące typy artykułów:  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* Przewodniki [**Szybki Start**](quickstart-personalizer-sdk.md) to instrukcje umożliwiające wykonywanie żądań do usługi.  
+* [**Przewodniki z**](how-to-settings.md) instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.  
+* [**Koncepcje**](how-personalizer-works.md) zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.  
+* [**Samouczki**](tutorial-use-personalizer-web-app.md) są więcej przewodnikami, które pokazują, jak korzystać z usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.  
+
+Przed rozpoczęciem Wypróbuj program [Personalizuj z tym interaktywną prezentacją](https://personalizationdemo.azurewebsites.net/).
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Jak Personalizował wybór najlepszego elementu zawartości?
 
@@ -101,19 +104,7 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
         * Lub w późniejszym czasie w systemie offline
     1. [Oceń pętlę](concepts-offline-evaluation.md) z oceną w trybie offline po upływie okresu użytkowania. Ocena w trybie offline umożliwia testowanie i ocenianie skuteczności usługi personalizacji bez zmiany kodu lub wpływu na środowisko użytkownika.
 
-## <a name="complete-a-quickstart"></a>Kończenie szybkiego startu
-
-Oferujemy Przewodniki Szybki Start w językach C#, JavaScript i Python. Każdy Przewodnik Szybki Start został zaprojektowany w celu pouczenia podstawowych wzorców projektowych i uruchomienia kodu w mniej niż 10 minut. 
-
-* [Szybki Start: jak używać biblioteki klienckiej personalizacji](./quickstart-personalizer-sdk.md)
-
-Gdy masz okazję do rozpoczęcia pracy z usługą personalizacji, wypróbuj nasze samouczki i Dowiedz się, jak używać funkcji personalizacji w aplikacjach sieci Web, rozmowy botów lub notesu platformy Azure.
-
-* [Samouczek: używanie personalizacji w aplikacji sieci Web platformy .NET](tutorial-use-personalizer-web-app.md)
-* [Samouczek: Używanie funkcji personalizacji w programie .NET Chat bot](tutorial-use-personalizer-chat-bot.md)
-* [Samouczek: używanie personalizacji w notesie platformy Azure](tutorial-use-azure-notebook-generate-loop-data.md)
-
-## <a name="reference"></a>Dokumentacja 
+## <a name="reference"></a>Odwołanie 
 
 * [Personalizacja C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
 * [Zestaw SDK go personalizacji](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)

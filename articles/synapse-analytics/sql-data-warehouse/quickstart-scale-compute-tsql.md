@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ffffeb38aeb9d1f01f376d58a52323bb7b84b306
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c105fe217834dc9e0e652a42ebf3b526972b228
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98676327"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961374"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Szybki Start: skalowanie zasobów obliczeniowych dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu języka T-SQL
 
@@ -99,12 +99,12 @@ Aby zmienić liczbę jednostek magazynu danych:
 
 ## <a name="monitor-scale-change-request"></a>Monitorowanie żądania zmiany skali
 
-Aby wyświetlić postęp poprzedniego żądania zmiany, możesz użyć składni T-SQL `WAITFORDELAY` do sondowania dynamicznego widoku zarządzania (DMV, dynamic management view) sys.dm_operation_status.
+Aby zobaczyć postęp poprzedniego żądania zmiany, można użyć `WAITFORDELAY` składni T-SQL do [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) sondowania dynamicznego widoku zarządzania (DMV).
 
 Aby sondować stan zmiany obiektu usługi:
 
 1. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **New Query** (Nowe zapytanie).
-2. Uruchom następujące zapytanie, aby sondować widok DMV sys.dm_operation_status.
+2. Uruchom następujące zapytanie, aby sondować [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV.
 
     ```sql
     WHILE

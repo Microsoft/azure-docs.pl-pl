@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455700"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554286"
 ---
-### <a name="standard-and-neural-voices"></a>Głosy standardowe i neuronowych
+### <a name="neural-and-standard-voices"></a>Neuronowych i głosy standardowe
 
-Użyj tej tabeli, aby określić **dostępność standardowych głosów** według regionu/punktu końcowego:
+Użyj tej tabeli, aby określić **dostępność neuronowych i odgłosów standardowych** według regionu/punktu końcowego:
 
-| Region (Region) | Punkt końcowy |
+| Region | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -34,6 +34,7 @@ Użyj tej tabeli, aby określić **dostępność standardowych głosów** wedłu
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Południowe Zjednoczone Królestwo | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Zachodnio-środkowe stany USA | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Zachodnie stany USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -41,25 +42,11 @@ Użyj tej tabeli, aby określić **dostępność standardowych głosów** wedłu
 > [!TIP]
 > [Głosy w wersji zapoznawczej](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) są dostępne tylko w tych 3 regionach: Wschodnie stany USA, Europa Zachodnia i Azja Południowo-Wschodnia.
 
-Użyj tej tabeli, aby określić **dostępność odgłosów neuronowych** według regionu/punktu końcowego:
-
-| Region (Region) | Punkt końcowy |
-|--------|----------|
-| Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
-| Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Południowe Zjednoczone Królestwo | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
-| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
-
 ### <a name="custom-voices"></a>Głosy niestandardowe
 
 Jeśli utworzono niestandardową czcionkę głosową, użyj utworzonego przez siebie punktu końcowego. Możesz również użyć punktów końcowych wymienionych poniżej, zastępując `{deploymentId}` Identyfikator wdrożenia dla modelu głosu.
 
-| Region (Region) | Punkt końcowy |
+| Region | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Brazylia Południowa | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -97,7 +84,7 @@ W poniższej tabeli przedstawiono obsługę regionalną niestandardowych funkcji
 
 Długi interfejs API audio jest dostępny w wielu regionach z unikatowymi punktami końcowymi.
 
-| Region (Region) | Punkt końcowy |
+| Region | Punkt końcowy |
 |--------|----------|
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Indie Środkowe | `https://centralindia.customvoice.api.speech.microsoft.com` |

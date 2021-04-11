@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: efekty definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład zastosowania różnych efektów definicji zasad.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fa95fdc793e7762c39525a83f38ae952f532a60
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92073040"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092844"
 ---
 # <a name="azure-policy-pattern-effects"></a>Wzorzec Azure Policy: efekty
 

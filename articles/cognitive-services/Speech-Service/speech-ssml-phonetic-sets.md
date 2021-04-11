@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
-ms.openlocfilehash: 580de0112c99eef4ba22ba946f6a2b81bc326001
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e5480b7412291c427c5eaea94a63343f12c62cf
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432047"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077520"
 ---
 # <a name="speech-service-phonetic-sets"></a>Zestawy fonetyczne usługi mowy
 
@@ -234,30 +234,30 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 
 | `sapi` | `ipa` | Przykład 1 | Przykład 2 | Przykład 3 |
 |--|--|--|--|--|
-| b | `b` | **B** Ank |  | [<sup>1</sup>](#de-c-1) PU **b** |  |
+| b | `b` | **B** Ank | | [<sup>1</sup>](#de-c-1) PU **b** | 
 | c | `ç` | **Ch** emie | mögli **ch** St | [<sup>2</sup>](#de-c-2)i **ch** |
-| d | `d` | **d** anken | [<sup>3</sup>](#de-c-3) Len **d** l | [<sup>4</sup>](#de-c-4) Clau **d** e |  |
+| d | `d` | **d** anken | [<sup>3</sup>](#de-c-3) Len **d** l | [<sup>4</sup>](#de-c-4) Clau **d** e | 
 | jh | `ʤ` | EFF **J** | gemana **g** t | [<sup>5</sup>](#de-c-5) Kanał **g** e |
-| f | `f` | Ahrtdauer **F** | Angri **FF** slustig | abbruchrei **f** |  |
-| g | `g` | **g** UT |  | [<sup>6</sup>](#de-c-6) Protokół gre **g** |  |
-| h | `h` | Ausanbau **H** |  |  |  |
-| Y | `j` | **J** od | Reakt **i** na | HU **i** |  |
-| k | `k` | **K** OMA | Aspe **k** t | Flec **k** |  |
-| l | `l` | **l**. | ähne **l** n | zuvie **l** |  |
-| m | `m` | **M** UT | **M** t | Leh **m** |  |
-| n | `n` | **n** Wycofaj | u **n** d | Tak **n** |  |
-| gazu | `ŋ` | [<sup>7</sup>](#de-c-7)**ng** Uyen | Schwa **te** | R **.** |  |
-| p | `p` | **P** Artner | abru **p** t | TI **p** |  |
-| PF | `pf` | Dysk ERD **PF** | Nr **PF** t | Do **PF** |  |
-| r | `ʀ`, `r`, `ʁ` | Eise **R** | KNU **RR** t | Haa **r** |  |
-| s | `s` | taccato [<sup>8</sup>](#de-c-8)**S** | Analiza **biznesowej** t | mie **s** |  |
-| pok | `ʃ` | **SCH** ułę | mi **SCH** t | Lappi **SCH** |  |
-| t | `t` | Raum **T** | S **t** raße | Mu za **t** |  |
-| TS | `ts` | **Z** g | AR **z** t | WIT **z** |  |
-| ch | `tʃ` | **Tsch** echien | aufgepu **Tsch** t | bundesdeu **Tsch** |  |
-| v | `v` | **w** inken | P **u** Alle | [<sup>9</sup>](#de-c-9) Gr **oo** ve |  |
+| f | `f` | Ahrtdauer **F** | Angri **FF** slustig | abbruchrei **f** |  
+| g | `g` | **g** UT |  [<sup>6</sup>](#de-c-6) Protokół gre **g** |  |
+| h | `h` | Ausanbau **H** |  |  | 
+| Y | `j` | **J** od | Reakt **i** na | HU **i** | 
+| k | `k` | **K** OMA | Aspe **k** t | Flec **k** | 
+| l | `l` | **l**. | ähne **l** n | zuvie **l** | 
+| m | `m` | **M** UT | **M** t | Leh **m** | 
+| n | `n` | **n** Wycofaj | u **n** d | Tak **n** | 
+| gazu | `ŋ` | [<sup>7</sup>](#de-c-7)**ng** Uyen | Schwa **te** | R **.** | 
+| p | `p` | **P** Artner | abru **p** t | TI **p** | 
+| PF | `pf` | Dysk ERD **PF** | Nr **PF** t | Do **PF** |
+| r | `ʀ`, `r`, `ʁ` | Eise **R** | KNU **RR** t | Haa **r** | 
+| s | `s` | taccato [<sup>8</sup>](#de-c-8)**S** | Analiza **biznesowej** t | mie **s** | 
+| pok | `ʃ` | **SCH** ułę | mi **SCH** t | Lappi **SCH** | 
+| t | `t` | Raum **T** | S **t** raße | Mu za **t** | 
+| TS | `ts` | **Z** g | AR **z** t | WIT **z** | 
+| ch | `tʃ` | **Tsch** echien | aufgepu **Tsch** t | bundesdeu **Tsch** | 
+| v | `v` | **w** inken | P **u** Alle | [<sup>9</sup>](#de-c-9) Gr **oo** ve | 
 | x | [<sup>10</sup>](#de-c-10) `x` ,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA **ch** erach | Dr **ch** t mögli **ch** St | Schma **ch** "i **ch** |
-| z | `z` | uper **s** |  |  |  |
+| z | `z` | uper **s** |  |  | 
 | zh | `ʒ` | **G** enre | B **ezinski** | EDVI **g** e |
 
 <a id="de-c-1"></a>

@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania dotyczące szablonów
 description: Opisuje zalecane podejścia do tworzenia szablonów Azure Resource Manager (szablony ARM). Oferuje sugestie pozwalające uniknąć typowych problemów związanych z korzystaniem z szablonów.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258001"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219947"
 ---
 # <a name="arm-template-best-practices"></a>Najlepsze praktyki dotyczące szablonów ARM
 
@@ -160,7 +160,7 @@ Gdy szablon działa zgodnie z oczekiwaniami, zalecamy dalsze korzystanie z tej s
 
 Nie używaj parametru dla wersji interfejsu API. Właściwości i wartości zasobów mogą się różnić w zależności od wersji interfejsu API. Funkcja IntelliSense w edytorze kodu nie może określić poprawnego schematu, gdy wersja interfejsu API jest ustawiona na wartość parametru. Jeśli przejdziesz do wersji interfejsu API, która nie jest zgodna z właściwościami w szablonie, wdrożenie zakończy się niepowodzeniem.
 
-Nie używaj zmiennych dla wersji interfejsu API. W szczególności nie należy używać [funkcji Providers](template-functions-resource.md#providers) do dynamicznego pobierania wersji interfejsu API podczas wdrażania. Dynamicznie pobierana wersja interfejsu API może nie być zgodna z właściwościami w szablonie.
+Nie używaj zmiennych dla wersji interfejsu API. 
 
 ## <a name="resource-dependencies"></a>Zależności zasobów
 
