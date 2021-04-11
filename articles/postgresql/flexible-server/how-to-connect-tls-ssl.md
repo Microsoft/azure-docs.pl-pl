@@ -1,17 +1,17 @@
 ---
 title: Połączenie szyfrowane przy użyciu protokołu TLS/SSL w Azure Database for PostgreSQL-elastycznym serwerze
 description: Instrukcje i informacje dotyczące sposobu nawiązywania połączenia przy użyciu protokołu TLS/SSL w Azure Database for PostgreSQL-elastycznym serwerze.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 0ba04ff14e62cd411515a765dc95ef7a3e72b709
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d47c7c6b980df46ee44a44758313571506e79e44
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90938921"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551207"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Zaszyfrowane połączenie przy użyciu Transport Layer Security na serwerze Azure Database for PostgreSQL-elastycznym
 

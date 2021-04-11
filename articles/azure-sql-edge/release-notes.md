@@ -10,17 +10,27 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6218715878ec40fecee79f1c93bf2ca1820af007
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98696383"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277015"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
 
+## <a name="azure-sql-edge-103"></a>Usługa Azure SQL Edge 1.0.3
+
+15.0.2000.1554 kompilacji aparatu SQL
+
+### <a name="fixes"></a>Poprawki
+
+- Uaktualnij środowisko uruchomieniowe ONNX do 1.5.3
+- Aktualizacja do programu Microsoft. SqlServer. DACFx w wersji 150.5084.2
+- Różne poprawki błędów  
+   
 ## <a name="azure-sql-edge-102"></a>Usługa Azure SQL Edge 1.0.2
 
 15.0.2000.1554 kompilacji aparatu SQL

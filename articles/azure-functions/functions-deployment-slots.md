@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73282145abd8bfe804b47fda3bf5f12dc691ff3a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172413"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551360"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions miejsc wdrożenia
 
@@ -20,9 +20,6 @@ Poniżej przedstawiono sposób, w jaki funkcje mają wpływ na zamienienie gniaz
 
 - Przekierowywanie ruchu jest bezproblemowe; żadne żądania nie są usuwane ze względu na zamianę.
 - Jeśli funkcja jest uruchomiona w trakcie wymiany, wykonywanie jest kontynuowane, a następne wyzwalacze są kierowane do zamienionego wystąpienia aplikacji.
-
-> [!NOTE]
-> Gniazda nie są obecnie dostępne dla planu zużycia systemu Linux.
 
 ## <a name="why-use-slots"></a>Dlaczego warto korzystać z gniazd?
 
@@ -229,7 +226,7 @@ Istnieją dwa poziomy wsparcia dla miejsc wdrożenia:
 | Użycie systemu Windows       | Ogólna dostępność |
 | Windows Premium           | Ogólna dostępność  |
 | Dedykowane systemu Windows         | Ogólna dostępność |
-| Użycie systemu Linux         | Nieobsługiwane          |
+| Użycie systemu Linux         | Wersja zapoznawcza          |
 | System Linux Premium             | Ogólna dostępność  |
 | System Linux — dedykowany           | Ogólna dostępność |
 

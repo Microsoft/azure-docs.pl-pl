@@ -7,27 +7,28 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 02/19/2021
-ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 80d1e4f39d69f761b801ccec834c0228057e4847
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461678"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448529"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Funkcja Skrytka klienta dla platformy Microsoft Azure
 
 > [!NOTE]
 > Aby skorzystać z tej funkcji, organizacja musi mieć [Plan pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/) o minimalnym poziomie **dewelopera**.
 
-Funkcja Skrytka klienta dla platformy Microsoft Azure udostępnia klientom interfejs umożliwiający przeglądanie oraz zatwierdzanie lub odrzucanie żądań dotyczących dostępu do danych klientów. Jest ona używana, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów podczas rozpatrywania wniosku o pomoc techniczną.
+Większość operacji, pomocy technicznej i rozwiązywania problemów wykonywanych przez pracowników i podzespołów firmy Microsoft nie wymagają dostępu do danych klienta. W tych rzadkich przypadkach, gdy taki dostęp jest wymagany, Skrytka klienta dla Microsoft Azure udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Jest on używany w przypadkach, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów, niezależnie od tego, czy w odpowiedzi na bilet pomocy technicznej zainicjowanej przez klienta, czy problem zidentyfikowany przez firmę Microsoft.
 
 W tym artykule opisano sposób włączania Skrytka klienta i sposobu, w jaki żądania skrytki są inicjowane, śledzone i przechowywane na potrzeby późniejszych przeglądów i inspekcji.
 
 <a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
-## <a name="supported-services-and-scenarios-general-availability"></a>Obsługiwane usługi i scenariusze (ogólna dostępność)
+## <a name="supported-services-and-scenarios"></a>Obsługiwane usługi i scenariusze
 
-Następujące usługi są teraz ogólnie dostępne dla Skrytka klienta:
+### <a name="general-availability"></a>Ogólna dostępność
+Następujące usługi są ogólnie dostępne dla Skrytka klienta:
 
 - Usługa Azure API Management
 - Azure App Service
@@ -49,6 +50,12 @@ Następujące usługi są teraz ogólnie dostępne dla Skrytka klienta:
 - Azure Synapse Analytics
 - Maszyny wirtualne na platformie Azure (obejmujące dostęp do pulpitu zdalnego, dostęp do zrzutów pamięci i dysków zarządzanych)
 
+### <a name="public-preview"></a>Publiczna wersja zapoznawcza
+Poniższe usługi są obecnie dostępne w wersji zapoznawczej dla Skrytka klienta:
+
+- Azure Machine Learning
+- Usługa Azure Batch
+
 ## <a name="enable-customer-lockbox"></a>Włącz Skrytka klienta
 
 Teraz można włączyć Skrytka klienta z poziomu [modułu administracyjnego](https://aka.ms/customerlockbox/administration) w bloku skrytka klienta.  
@@ -66,7 +73,7 @@ Poniższe kroki przedstawiają typowy przepływ pracy dla żądania Skrytka klie
 
 3. Inżynier pomocy technicznej systemu Azure przegląda żądanie obsługi i określa następne kroki w celu rozwiązania problemu.
 
-4. Jeśli inżynier pomocy technicznej nie może rozwiązać problemu przy użyciu standardowych narzędzi i telemetrii, następnym krokiem jest zażądanie podwyższonego poziomu uprawnień przy użyciu usługi dostępu just-in-Time (JIT). To żądanie może pochodzić z oryginalnego inżyniera pomocy technicznej lub innego inżyniera, ponieważ problem został przekazany do zespołu usługi Azure DevOps.
+4. Jeśli inżynier pomocy technicznej nie może rozwiązać problemu przy użyciu standardowych narzędzi i danych wygenerowanych przez usługę, następnym krokiem jest zażądanie podwyższonego poziomu uprawnień przy użyciu usługi dostępu just-in-Time (JIT). To żądanie może pochodzić z oryginalnego inżyniera pomocy technicznej lub innego inżyniera, ponieważ problem został przekazany do zespołu usługi Azure DevOps.
 
 5. Gdy żądanie dostępu zostanie przesłane przez inżyniera platformy Azure, usługa just in Time obliczy żądanie biorąc pod uwagę czynniki, takie jak:
     - Zakres zasobu
@@ -129,8 +136,10 @@ Wprowadziliśmy nową kontrolkę bazową ([3,13](../benchmarks/security-control-
 
 Żądania Skrytka klienta nie są wyzwalane w następujących scenariuszach obsługi inżynierów:
 
-- Inżynier firmy Microsoft musi wykonać działanie, które wykracza poza standardowe procedury operacyjne. Musi na przykład odzyskać lub odtworzyć usługi w nieoczekiwanych lub nieprzewidywalnych scenariuszach.
-- Inżynier firmy Microsoft uzyskuje dostęp do platformy Azure w ramach procedury rozwiązywania problemów i przypadkowo uzyskuje dostęp do danych klienta. Na przykład zespół ds. sieci platformy Azure wykonuje procedurę rozwiązywania problemów, której rezultatem jest przechwycenie pakietów na urządzeniu sieciowym. W tym scenariuszu, jeśli klient szyfruje dane podczas przesyłania, inżynier nie może odczytać danych.
+- Scenariusze awaryjne, które wykraczają poza standardowe procedury operacyjne. Na przykład główna awaria usługi wymaga natychmiastowej uwagi na odzyskanie lub przywrócenie usług w nieoczekiwanym lub nieprzewidywalnym scenariuszu. Te zdarzenia "ze szkłami Break" są rzadkie i w większości przypadków nie wymagają dostępu do danych klienta, aby rozwiązać ten problem.
+- Inżynier firmy Microsoft uzyskuje dostęp do platformy Azure w ramach rozwiązywania problemów i jest przypadkowo narażony na dane klientów. Na przykład zespół ds. sieci platformy Azure wykonuje procedurę rozwiązywania problemów, której rezultatem jest przechwycenie pakietów na urządzeniu sieciowym. Jest to rzadki, że takie scenariusze spowodują uzyskanie dostępu do znaczących ilości danych klientów. Klienci mogą dodatkowo chronić swoje dane przy użyciu funkcji przesyłania i szyfrowania w czasie spoczynku.
+
+Żądania Skrytka klienta nie są również wyzwalane przez zewnętrzne wymagania prawne dotyczące danych. Aby uzyskać szczegółowe informacje, zobacz Omówienie [wniosków rządowych dotyczących danych](https://www.microsoft.com/trust-center/) w centrum zaufania firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 

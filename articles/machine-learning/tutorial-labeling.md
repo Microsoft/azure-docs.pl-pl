@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 3a86f0eb88ba0a56f0887d71f649cf9b9d5ec7a3
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882470"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227266"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
 
@@ -130,7 +130,7 @@ Wybierz przycisk **Dalej**, aby kontynuować.
 
 1. Możesz również dodać Krótki opis zadania bezpośrednio w formularzu.  **Samouczek typu etykieta — koty & psy.**
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 1. W sekcji **etykieta zatytułowana "ml** " pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
 
@@ -209,7 +209,5 @@ Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono etykietki obrazów.  Teraz Użyj danych z etykietami:
-
 > [!div class="nextstepaction"]
-> [Uczenie modelu rozpoznawania obrazów uczenia maszynowego](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [Utwórz projekt etykietowania danych i Eksportuj etykiety](how-to-create-labeling-projects.md).

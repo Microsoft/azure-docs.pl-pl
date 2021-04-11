@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 11/16/2020
-ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 04/08/2021
+ms.openlocfilehash: 2dc50702113f591075b790878347c4ca47beec4e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547853"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027809"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integracja z usługą git dla Azure Machine Learning
 
@@ -25,6 +25,11 @@ Azure Machine Learning w pełni obsługuje repozytoria Git na potrzeby śledzeni
 Podczas przesyłania zadania do Azure Machine Learning, jeśli pliki źródłowe są przechowywane w lokalnym repozytorium git, informacje o repozytorium są śledzone w ramach procesu szkoleniowego.
 
 Ponieważ Azure Machine Learning śledzi informacje z lokalnego repozytorium git, nie jest ono powiązane z żadnym określonym centralnym repozytorium. Repozytorium można sklonować z witryny GitHub, GitLab, BitBucket, Azure DevOps lub dowolnej innej usługi zgodnej z Git.
+
+> [!TIP]
+> Użyj Visual Studio Code, aby korzystać z usługi Git za pomocą graficznego interfejsu użytkownika. Aby nawiązać połączenie z Azure Machine Learning zdalnym wystąpieniem obliczeniowym przy użyciu Visual Studio Code, zobacz [nawiązywanie połączenia z wystąpieniem wystąpienia obliczeniowego Azure Machine Learning w Visual Studio Code (wersja zapoznawcza)](how-to-set-up-vs-code-remote.md)
+>
+> Aby uzyskać więcej informacji na temat funkcji kontroli wersji Visual Studio Code, zobacz [Używanie kontroli wersji w programie vs Code](https://code.visualstudio.com/docs/editor/versioncontrol) i [Praca z usługą GitHub w vs Code](https://code.visualstudio.com/docs/editor/github).
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Klonowanie repozytoriów Git do systemu plików obszaru roboczego
 Azure Machine Learning udostępnia współużytkowany system plików dla wszystkich użytkowników w obszarze roboczym.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258544"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227385"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Samouczek: używanie niestandardowych zasad alokacji z usługą Device Provisioning Service (DPS)
 
@@ -483,6 +483,17 @@ Aby usunąć grupę zasobów według nazwy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z bardziej szczegółowymi zasadami przydziału niestandardowego, zobacz [jak używać niestandardowych zasad alokacji](how-to-use-custom-allocation-policies.md).
-* Aby dowiedzieć się więcej, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](concepts-device-reprovision.md).
-* Aby dowiedzieć się więcej, zobacz Jak anulować obsługę [administracyjną urządzeń, które były wcześniej inicjowane](how-to-unprovision-devices.md).
+Aby zapoznać się z bardziej szczegółowym przykładem zasad przydziału niestandardowego, zobacz 
+
+> [!div class="nextstepaction"]
+> [Jak używać niestandardowych zasad alokacji](how-to-use-custom-allocation-policies.md)
+
+* Aby dowiedzieć się więcej, zobacz
+
+> [!div class="nextstepaction"]
+> [Pojęcia dotyczące ponownego inicjowania obsługi administracyjnej urządzenia IoT Hub](concepts-device-reprovision.md)
+
+* Aby dowiedzieć się więcej, zobacz
+
+> [!div class="nextstepaction"]
+> [Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane](how-to-unprovision-devices.md)

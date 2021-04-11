@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a26f7c63b639f9aeb6a8f526e77dacb37fb4d87
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555639"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068068"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klientów w komercyjnej analizie Marketplace
 
@@ -163,6 +163,7 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 | CommerceRootCustomer | Główny klient handlowy | Jeden identyfikator konta rozliczeniowego może być skojarzony z wieloma identyfikatorami klientów.<br>Jedna kombinacja identyfikatora konta rozliczeniowego i identyfikatora klienta może być skojarzona z wieloma komercyjnymi subskrypcjami portalu Marketplace.<br>Główny klient handlowy oznacza nazwę klienta subskrypcji. | CommerceRootCustomer |
 | Customer ID | Customer ID | Unikatowy identyfikator przypisany do klienta. Klient może mieć zero lub więcej subskrypcji portalu Azure Marketplace. | CustomerId |
 | Identyfikator konta rozliczeniowego | Identyfikator konta rozliczeniowego | Identyfikator konta, na którym jest generowane rozliczanie. Mapuj **Identyfikator konta rozliczeniowego** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klientów, zamówień i użycia. | BillingAccountId |
+| Typ klienta | Typ klienta | Wartość tego pola oznacza typ klienta. Możliwe wartości są następujące:<ul><li>szczegółowe</li> <li>firmy</li></ul> | CustomerType |
 |||||
 
 ### <a name="customers-page-filters"></a>Filtry stron klientów

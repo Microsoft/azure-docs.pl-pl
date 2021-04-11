@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 29d9dd7757319e59fc12b42d89c2ce16dec71b8b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: c0cc29e6cbc9be1e7683b1b4412fa47f71c0538d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551071"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227028"
 ---
 # <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
 Usuwanie nietrwałe obiektów BLOB chroni pojedynczy obiekt BLOB, migawkę lub wersję przed przypadkowym usunięciem lub zastąpieniem przez utrzymywanie usuniętych danych w systemie przez określony przedział czasu. W okresie przechowywania można przywrócić nieusunięty trwale obiekt do jego stanu w momencie jego usunięcia. Po upływie okresu przechowywania obiekt zostanie trwale usunięty.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>Zalecana konfiguracja ochrony danych
 
@@ -29,8 +31,6 @@ Usuwanie nietrwałe obiektów BLOB jest częścią kompleksowej strategii ochron
 - Usuwanie nietrwałego obiektu BLOB, Przywracanie usuniętego obiektu BLOB, migawki lub wersji. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md).
 
 Aby dowiedzieć się więcej na temat zaleceń firmy Microsoft dotyczących ochrony danych, zobacz [Omówienie ochrony danych](data-protection-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-soft-delete-works"></a>Jak działa usuwanie nietrwałe obiektów BLOB
 

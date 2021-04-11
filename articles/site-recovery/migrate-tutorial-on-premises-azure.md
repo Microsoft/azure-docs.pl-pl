@@ -1,17 +1,15 @@
 ---
 title: Migrowanie maszyn lokalnych przy użyciu Azure Migrate
 description: W tym artykule opisano sposób migrowania maszyn lokalnych na platformę Azure i zaleca się Azure Migrate.
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.author: raynew
-ms.openlocfilehash: e0e60ee346d20113b2ec7970390d9874522cc770
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f5a0f65bfbde5ef8513780933cc570a4b5737df
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87847316"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581145"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrowanie maszyn lokalnych do platformy Azure
 

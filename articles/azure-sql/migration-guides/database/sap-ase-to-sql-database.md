@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 138a23b610ab96194424bb0f88cf94f516c2d223
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: f4648c216a0b6d06309c0166aba501d4f3f02a10
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626456"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027520"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Przewodnik migracji: oprogramowanie SAP ASE do Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-W tym przewodniku dowiesz się, jak migrować bazy danych SAP adapter Server Enterprise (ASE) do bazy danych Azure SQL Database przy użyciu Asystent migracji do programu SQL Server dla oprogramowania SAP adapter Server Enterprise.
+W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) bazy danych SAP adapter Server Enterprise (ASE) do bazy danych Azure SQL Database przy użyciu Asystenta [migracji SQL Server](https://azure.microsoft.com/migration/migration-journey) dla oprogramowania SAP adapter Server Enterprise.
 
 Aby poznać inne przewodniki dotyczące migracji, zobacz [Przewodnik migracji usługi Azure Database](https://docs.microsoft.com/data-migration). 
 
@@ -34,7 +34,7 @@ Przed rozpoczęciem migrowania bazy danych SAP SE do bazy danych SQL wykonaj nas
 
 ## <a name="pre-migration"></a>Przed migracją
 
-Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności migracji.
+Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności [migracji w chmurze platformy Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess"></a>Ocena
 
@@ -121,8 +121,9 @@ Więcej informacji o tych problemach i krokach, które należy rozwiązać, moż
    - [Kalkulator całkowitego kosztu posiadania na platformę Azure](https://azure.microsoft.com/pricing/tco/calculator/)  
 
 - Aby dowiedzieć się więcej na temat cyklu i wdrożenia migracji do chmury, zobacz:
-   -  [Podręcznik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Najlepsze rozwiązania dotyczące kosztów i rozmiarów obciążeń na potrzeby migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Zasoby Migracja do chmury](https://azure.microsoft.com/migration/resources)
 
 - Aby ocenić warstwę dostępu do aplikacji, zobacz [zestaw narzędzi do migracji dostępu do danych (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Aby uzyskać szczegółowe informacje na temat przeprowadzania testów warstwy dostępu do danych A/B, zobacz [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).

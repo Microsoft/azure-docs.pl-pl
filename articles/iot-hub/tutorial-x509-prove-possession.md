@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 0eb91754c3c70a7b477d456158454f707a874207
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e2827a4f87398f0a37ef04f797d2c7276d1a66d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630716"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384174"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Samouczek: dowód posiadania certyfikatu urzędu certyfikacji
 
@@ -46,9 +46,11 @@ Po przekazaniu certyfikatu głównego urzędu certyfikacji lub urzędu certyfika
 
     * Jeśli używasz skryptu bash dostarczonego przez firmę Microsoft, uruchom polecenie, `./certGen.sh create_verification_certificate "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` Aby utworzyć certyfikat o nazwie `verification-code.cert.pem` . Aby uzyskać więcej informacji, zobacz [Używanie skryptów dostarczonych przez firmę Microsoft](tutorial-x509-scripts.md).
 
-    * Jeśli używasz OpenSSL do wygenerowania certyfikatów, musisz najpierw wygenerować klucz prywatny i żądanie podpisania certyfikatu (CSR):
+    * Jeśli używasz OpenSSL do wygenerowania certyfikatów, musisz najpierw wygenerować klucz prywatny, a następnie żądanie podpisania certyfikatu (CSR):
 
       ```bash
+      $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+
       $ openssl req -new -key pop.key -out pop.csr
 
       -----

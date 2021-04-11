@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d15e2b8bfcddfd1f554ab2a27083fe5256e9e2b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462681"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226332"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -94,19 +94,14 @@ Oto przykład zapytania określającego wartość dla wszystkich trzech parametr
 
 Podczas wykonywania zapytań na podstawie **relacji** cyfrowych bliźniaczych reprezentacji ' język zapytań Digital bliźniaczych reprezentacji platformy Azure ma specjalną składnię.
 
-Relacje są ściągane do zakresu zapytania w klauzuli `FROM`. Istotną różnicą od "klasycznych" języków typu SQL jest to, że każde wyrażenie w tej `FROM` klauzuli nie jest tabelą, a `FROM` klauzula wskazuje przechodzenie między różnymi jednostkami i jest zapisywana przy użyciu Digital bliźniaczych reprezentacji wersja systemu Azure `JOIN` .
+Relacje są ściągane do zakresu zapytania w klauzuli `FROM`. W przeciwieństwie do "klasycznych" języków typu SQL, każde wyrażenie w tej `FROM` klauzuli nie jest tabelą, a `FROM` klauzula wyraża przechodzenie relacji między jednostkami. Aby przechodzić między relacjami, usługa Azure Digital bliźniaczych reprezentacji używa niestandardowej wersji programu `JOIN` .
 
-Należy przypomnieć, że dzięki możliwościom [modelu](concepts-models.md) Digital bliźniaczych reprezentacji na platformie Azure relacje nie istnieją niezależnie od bliźniaczych reprezentacji. Oznacza to, że klauzula `JOIN` w języku zapytań usługi Azure Digital Twins jest nieco inna niż klauzula `JOIN` w zwykłym języku SQL, ponieważ tutaj relacje nie mogą otrzymywać zapytań niezależnie i muszą być powiązane z reprezentacją bliźniaczą.
-W celu uwzględnienia tej różnicy słowo kluczowe `RELATED` jest używane w klauzuli `JOIN` do odwoływania się do zestawu relacji reprezentacji bliźniaczej.
+Należy przypomnieć, że dzięki możliwościom [modelu](concepts-models.md) Digital bliźniaczych reprezentacji na platformie Azure relacje nie istnieją niezależnie od bliźniaczych reprezentacji. Oznacza to, że relacje w tym miejscu nie mogą być badane niezależnie i muszą być powiązane z sznurem.
+Aby to obsłużyć, słowo kluczowe `RELATED` jest używane w `JOIN` klauzuli do ściągania zestawu określonego typu relacji pochodzącego z kolekcji z przędzą. Zapytanie musi następnie filtrować `WHERE` klauzulę, w której określone sznury mają być używane w zapytaniu relacji (przy użyciu wartości bliźniaczych reprezentacji ' `$dtId` ).
 
-W poniższej sekcji przedstawiono kilka przykładów tego wyglądu.
+Poniższe sekcje zawierają przykłady tego, co wygląda.
 
-> [!TIP]
-> Koncepcyjnie funkcja ta naśladuje funkcję CosmosDB skoncentrowaną na dokumentach, gdzie `JOIN` można ją wykonać na obiektach podrzędnych w dokumencie. CosmosDB używa `IN` słowa kluczowego, aby wskazać, że `JOIN` jest przeznaczony do iteracji względem elementów tablicy w bieżącym dokumencie kontekstowym.
-
-### <a name="relationship-based-query-examples"></a>Przykłady zapytań opartych na relacji
-
-Aby uzyskać zestaw danych, który zawiera relacje, należy użyć pojedynczej `FROM` instrukcji, a następnie N `JOIN` instrukcji, gdzie `JOIN` instrukcja Express Relationships w wyniku `FROM` instrukcji or `JOIN` .
+### <a name="basic-relationship-query"></a>Zapytanie dotyczące relacji podstawowej
 
 Oto przykład zapytania opartego na relacji. Ten fragment kodu wybiera wszystkie cyfrowe bliźniaczych reprezentacji z właściwością *ID* "ABC" i wszystkie cyfrowe bliźniaczych reprezentacji powiązane z tymi cyfrowymi bliźniaczych reprezentacji za pośrednictwem relacji *zawiera* .
 
@@ -114,6 +109,18 @@ Oto przykład zapytania opartego na relacji. Ten fragment kodu wybiera wszystkie
 
 > [!NOTE]
 > Deweloper nie musi skorelować tego `JOIN` z wartością klucza w `WHERE` klauzuli (lub określić wartości klucza wbudowanej z `JOIN` definicją). Ta korelacja jest obliczana automatycznie przez system, ponieważ właściwości relacji same identyfikują jednostkę docelową.
+
+### <a name="query-by-the-source-or-target-of-a-relationship"></a>Zapytanie według źródła lub celu relacji
+
+Struktury zapytania relacji można użyć do identyfikacji dwucyfrowych sznurów, które są źródłem lub obiektem docelowym relacji.
+
+Na przykład możesz zacząć od źródła i śledzić jego relacje, aby znaleźć bliźniaczych reprezentacji docelowy relacji. Poniżej znajduje się przykład zapytania, które umożliwia znalezienie docelowej bliźniaczych reprezentacji relacji *źródeł danych* pochodzących ze źródła sznurka *-sznurka*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+Możesz również rozpocząć od elementu docelowego relacji i śledzić relacje z powrotem, aby znaleźć sznurki źródłowe. Poniżej znajduje się przykład zapytania, które umożliwia znalezienie zerowej przędzy ze źródła *danych* do sznurka *tarczowego* z przędzą.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### <a name="query-the-properties-of-a-relationship"></a>Zapytanie o właściwości relacji
 
@@ -128,7 +135,9 @@ W powyższym przykładzie Zwróć uwagę na to, jak *reportedCondition* jest wł
 
 ### <a name="query-with-multiple-joins"></a>Zapytanie z wieloma sprzężeniami
 
-`JOIN`Pojedyncze zapytanie obsługuje maksymalnie pięć s. Umożliwia to jednoczesne przechodzenie między różnymi poziomami relacji.
+`JOIN`Pojedyncze zapytanie obsługuje maksymalnie pięć s. Umożliwia to jednoczesne przechodzenie między różnymi poziomami relacji. 
+
+Aby wykonać zapytanie dotyczące wielu poziomów relacji, należy użyć pojedynczej `FROM` instrukcji, a następnie N `JOIN` instrukcji, gdzie `JOIN` instrukcja Express Relationships w wyniku `FROM` `JOIN` instrukcji or.
 
 Oto przykład zapytania z wielosprzężeniem, które pobiera wszystkie żarówki zawarte w panelach lekkich w pokojach 1 i 2.
 

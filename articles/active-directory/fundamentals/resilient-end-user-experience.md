@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf49b1a2b7178800966342a3d52ed49450f3d97c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557908"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226688"
 ---
 # <a name="resilient-end-user-experience"></a>Odporne środowisko użytkownika końcowego
 
@@ -42,7 +42,7 @@ Wybierz wbudowane przepływy użytkownika, jeśli Twoje wymagania biznesowe mog�
 
 W przypadku [wybrania zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) ze względu na wymagania biznesowe upewnij się, że przeprowadzasz testowanie na poziomie zasad dotyczące funkcjonalności, wydajności lub skalowania oprócz testowania na poziomie aplikacji.
 
-Zapoznaj się z artykułem, który [porównuje przepływy użytkowników i zasady niestandardowe](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) , aby ułatwić podjęcie decyzji.
+Zapoznaj się z artykułem, który [porównuje przepływy użytkowników i zasady niestandardowe](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) , aby ułatwić podjęcie decyzji.
 
 ## <a name="choose-multiple-idps"></a>Wybierz wiele dostawców tożsamości
 

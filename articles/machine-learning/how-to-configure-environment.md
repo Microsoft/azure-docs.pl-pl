@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 686274bc90f516f597a397a6b0270fb638e30c95
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501621"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027714"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne języka Python dla Azure Machine Learning
 
@@ -134,7 +134,12 @@ Aby używać Visual Studio Code do tworzenia:
 1. Zainstaluj [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Zainstaluj [rozszerzenie Visual Studio Code Azure Machine Learning](tutorial-setup-vscode-extension.md) (wersja zapoznawcza).
 
-Po zainstalowaniu rozszerzenia Visual Studio Code możesz zarządzać [zasobami Azure Machine Learning](how-to-manage-resources-vscode.md), [uruchamiać i debugować eksperymenty](how-to-debug-visual-studio-code.md)oraz [wdrażać przeszkolone modele](tutorial-train-deploy-image-classification-model-vscode.md).
+Po zainstalowaniu rozszerzenia Visual Studio Code Użyj go do:
+
+* [Zarządzanie zasobami Azure Machine Learning](how-to-manage-resources-vscode.md)
+* [Nawiązywanie połączenia z wystąpieniem obliczeniowym Azure Machine Learning](how-to-set-up-vs-code-remote.md)
+* [Eksperymenty uruchomieniowe i debugowania](how-to-debug-visual-studio-code.md)
+* [Wdrażaj przeszkolone modele](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Wystąpienie obliczeniowe usługi Azure Machine Learning
 
@@ -151,7 +156,7 @@ Aby dowiedzieć się więcej o wystąpieniach obliczeniowych, w tym o sposobie i
 
 Oprócz Jupyter Notebook Server i JupyterLab, można używać wystąpień obliczeniowych w [zintegrowanej funkcji notesu w programie Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 
-Można również użyć rozszerzenia Azure Machine Learning Visual Studio Code, aby [skonfigurować Azure Machine Learning wystąpienie obliczeniowe jako zdalny serwer Jupyter Notebook](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+Możesz również użyć rozszerzenia Azure Machine Learning Visual Studio Code, aby [nawiązać połączenie ze zdalnym wystąpieniem obliczeniowym przy użyciu vs Code](how-to-set-up-vs-code-remote.md).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Maszyna wirtualna do analizy danych
 

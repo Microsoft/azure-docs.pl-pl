@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cedadf6b6026c74e25e9c81feb7f8291058b6f69
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 7f8aa7e8cd38de37f5d3757804f7836612ad64cb
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961663"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227759"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorowanie metryk usług Media Services
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji i zrozumieć, dlaczego należy używać Azure Media Services metryk i dzienników diagnostycznych, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](monitor-media-services-data-reference.md).
+[Azure monitor](/azure/azure-monitor/overview) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji i zrozumieć, dlaczego należy używać Azure Media Services metryk i dzienników diagnostycznych, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](monitor-media-services-data-reference.md).
 
 Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów w portalu, uzyskiwania do nich dostępu za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu wiersza polecenia platformy Azure. W tym artykule przedstawiono sposób monitorowania metryk przy użyciu wykresów Azure Portal i interfejsu wiersza polecenia platformy Azure.
 
@@ -69,8 +69,8 @@ Aby uzyskać inne metryki, Zastąp ciąg "wychodzące" dla nazwy metryki, która
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Metryki usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/data-platform.md)
-- [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric.md).
+- [Metryki usługi Azure Monitor](/azure/azure-monitor/data-platform)
+- [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ## <a name="next-steps"></a>Następne kroki
 

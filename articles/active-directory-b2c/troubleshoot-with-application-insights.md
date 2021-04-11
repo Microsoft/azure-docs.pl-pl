@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 074bffb8614be1f71ba1956fd5a238bc19354c58
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611831"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028747"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Zbieranie dzienników Azure Active Directory B2C z Application Insights
 
@@ -31,6 +31,18 @@ Szczegółowe dzienniki działań opisane tutaj należy włączyć **tylko** pod
 ## <a name="set-up-application-insights"></a>Skonfiguruj Application Insights
 
 Jeśli jeszcze tego nie masz, Utwórz wystąpienie Application Insights w subskrypcji.
+
+> [!TIP]
+> Pojedyncze wystąpienie Application Insights może być używane dla wielu dzierżawców Azure AD B2C. Następnie w zapytaniu można filtrować według dzierżawy lub nazwy zasad. Aby uzyskać więcej informacji, [Zobacz dzienniki w Application Insights](#see-the-logs-in-application-insights) Samples.
+
+Aby użyć wystąpienia wyjścia Application Insights w ramach subskrypcji, wykonaj następujące kroki:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog, który zawiera subskrypcję platformy Azure (nie katalog Azure AD B2C).
+1. Otwórz utworzony wcześniej zasób Application Insights.
+1. Na stronie **Przegląd** i rejestrowanie **klucza Instrumentacji**
+
+Aby utworzyć wystąpienie Application Insights w ramach subskrypcji, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog, który zawiera subskrypcję platformy Azure (nie katalog Azure AD B2C).
@@ -96,12 +108,59 @@ Poniżej znajduje się lista zapytań, których można użyć, aby wyświetlić 
 
 | Zapytanie | Opis |
 |---------------------|--------------------|
-`traces` | Zobacz wszystkie dzienniki wygenerowane przez Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Zobacz wszystkie dzienniki wygenerowane przez Azure AD B2C w ciągu ostatniego dnia
+| `traces` | Pobierz wszystkie dzienniki wygenerowane przez Azure AD B2C |
+| `traces | where timestamp > ago(1d)` | Pobierz wszystkie dzienniki wygenerowane przez Azure AD B2C przez ostatni dzień.|
+| `traces | where message contains "exception" | where timestamp > ago(2h)`|  Pobierz wszystkie dzienniki z błędami z ostatnich dwóch godzin.|
+| `traces | where customDimensions.Tenant == "contoso.onmicrosoft.com" and customDimensions.UserJourney  == "b2c_1a_signinandup"` | Pobierz wszystkie dzienniki wygenerowane przez Azure AD B2C dzierżawy *contoso.onmicrosoft.com* , a podróż użytkownika jest *b2c_1a_signinandup*. |
+| `traces | where customDimensions.CorrelationId == "00000000-0000-0000-0000-000000000000"`| Pobierz wszystkie dzienniki wygenerowane przez Azure AD B2C dla identyfikatora korelacji. Zastąp identyfikator korelacji IDENTYFIKATORem korelacji. | 
 
 Wpisy mogą być długie. Eksportuj do pliku CSV w celu bliższego wyglądu.
 
 Aby uzyskać więcej informacji na temat wykonywania zapytań, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/logs/log-query-overview.md).
+
+## <a name="see-the-logs-in-vs-code-extension"></a>Zobacz dzienniki w VS Code rozszerzeniu
+
+Zalecamy zainstalowanie [rozszerzenia Azure AD B2C](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) [vs Code](https://code.visualstudio.com/). Dzięki rozszerzeniu Azure AD B2C dzienniki są zorganizowane według nazwy zasad, identyfikatora korelacji (Application Insights przedstawia pierwszą cyfrę identyfikatora korelacji) oraz sygnatury czasowej dziennika. Ta funkcja ułatwia znalezienie odpowiedniego dziennika w oparciu o lokalną sygnaturę czasową i przeglądanie podróży użytkownika w sposób wykonywany przez Azure AD B2C.
+
+> [!NOTE]
+> Społeczność opracowała rozszerzenie programu vs Code dla Azure AD B2C, aby pomóc deweloperom w zakresie tożsamości. Rozszerzenie nie jest obsługiwane przez firmę Microsoft i jest udostępniane w sposób niezgodny z oczekiwaniami.
+
+### <a name="set-application-insights-api-access"></a>Ustaw Application Insights dostęp do interfejsu API
+
+Po skonfigurowaniu Application Insights i skonfigurowaniu zasad niestandardowych należy uzyskać **identyfikator interfejsu api** Application Insights i utworzyć **klucz interfejsu API**. Identyfikator interfejsu API i klucz interfejsu API są używane przez rozszerzenie Azure AD B2C do odczytywania zdarzeń Application Insights (telemetrii). Klucze interfejsu API powinny być zarządzane na przykład hasła. Zachowaj tajemnicę IT.
+
+> [!NOTE]
+> Application Insights klucz instrumentacji, który jest używany przez Azure AD B2C do wysyłania telemetrii do Application Insights. Klucz Instrumentacji jest używany tylko w zasadach Azure AD B2C, a nie w rozszerzeniu programu vs Code.
+
+Aby uzyskać identyfikator Application Insights i klucz:
+
+1. W Azure Portal Otwórz zasób Application Insights dla swojej aplikacji.
+1. Wybierz pozycję **Ustawienia**, a następnie pozycję **dostęp do interfejsu API**.
+1. Kopiuj **Identyfikator aplikacji**
+1. Wybierz pozycję **Utwórz klucz interfejsu API**
+1. Zaznacz pole **Odczytaj dane telemetryczne** .
+1. Skopiuj **klucz** przed zamknięciem bloku Utwórz klucz interfejsu API i Zapisz go w bezpiecznym miejscu. Jeśli utracisz klucz, musisz utworzyć inny.
+
+    ![Zrzut ekranu, który pokazuje, jak utworzyć klucz dostępu interfejsu API.](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
+
+### <a name="set-up-azure-ad-b2c-vs-code-extension"></a>Konfigurowanie rozszerzenia VS Code Azure AD B2C
+
+Teraz masz identyfikator i klucz interfejsu API usługi Azure Application Insights, można skonfigurować rozszerzenie programu vs Code w celu odczytania dzienników. Rozszerzenie Azure AD B2C VS Code oferuje dwa zakresy dla ustawień:
+
+- **Globalne ustawienia użytkownika** — ustawienia, które są stosowane globalnie do dowolnego wystąpienia vs Code otwarte.
+- **Ustawienia obszaru roboczego** — ustawienia przechowywane w obszarze roboczym i stosowane tylko podczas otwierania obszaru roboczego (przy użyciu vs Code **Otwórz folder**).
+
+1. W Eksploratorze **śledzenia Azure AD B2C** kliknij ikonę **Ustawienia** .
+
+    ![Zrzut ekranu pokazujący Wybieranie ustawień usługi Application Insights.](./media/troubleshoot-with-application-insights/app-insights-settings.png)
+
+1. Podaj **Identyfikator** i **klucz** usługi Azure Application Insights.
+1. Kliknij pozycję **Zapisz**.
+
+Po zapisaniu ustawień dzienniki usługi Application Insights są wyświetlane w oknie **śledzenie Azure AD B2C (App Insights)** .
+
+![Zrzut ekranu przedstawiający rozszerzenie Azure AD B2C programu vscode, które prezentuje ślad usługi Azure Application Insights.](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
+
 
 ## <a name="configure-application-insights-in-production"></a>Konfigurowanie Application Insights w środowisku produkcyjnym
 
@@ -128,12 +187,8 @@ W celu poprawy wydajności środowiska produkcyjnego i lepszego środowiska uży
    
 1. Przekazanie i przetestowanie zasad.
 
+
+
 ## <a name="next-steps"></a>Następne kroki
 
-Społeczność opracowała przeglądarkę podróży użytkowników w celu ułatwienia pracy deweloperom tożsamości. Odczytuje dane z wystąpienia usługi Application Insights i udostępnia odpowiednio skonstruowany widok zdarzeń podróży użytkownika. Kod źródłowy zostanie uzyskany i wdrożony we własnym rozwiązaniu.
-
-Gracz podróży użytkownika nie jest obsługiwany przez firmę Microsoft i jest udostępniany w sposób niezgodny z oczekiwaniami.
-
-Wersja przeglądarki, która odczytuje zdarzenia z Application Insights w witrynie GitHub, można znaleźć tutaj:
-
-[Azure-Samples/Active-Directory-B2C-Advanced-policies](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+- Dowiedz się, jak [rozwiązywać problemy Azure AD B2C zasadami niestandardowymi](troubleshoot-custom-policies.md)

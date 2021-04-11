@@ -1,60 +1,64 @@
 ---
 title: Przechowywanie wersji obiektów BLOB
 titleSuffix: Azure Storage
-description: Obsługa wersji magazynu obiektów BLOB automatycznie zachowuje poprzednie wersje obiektu i identyfikuje je za pomocą sygnatur czasowych. Można przywrócić wcześniejsze wersje obiektu BLOB w celu odzyskania danych w przypadku ich błędnej modyfikacji lub usunięcia.
+description: Przechowywanie wersji magazynu obiektów BLOB automatycznie zachowuje poprzednie wersje obiektu i identyfikuje je za pomocą sygnatur czasowych. Można przywrócić poprzednią wersję obiektu BLOB w celu odzyskania danych w przypadku ich błędnej modyfikacji lub usunięcia.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 04/07/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82216abd13b6128be68e22a4ce2a0f6de9a6ce2f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380818"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227550"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
 Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
 
-Obsługa wersji obiektów BLOB jest włączona na koncie magazynu i ma zastosowanie do wszystkich obiektów BLOB na koncie magazynu. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie obsługuje wersje dla każdego obiektu BLOB na koncie magazynu.
-
-Firma Microsoft zaleca używanie funkcji przechowywania wersji obiektów BLOB do obsługi wcześniejszych wersji obiektu BLOB w celu zapewnienia najwyższej ochrony danych. Jeśli to możliwe, użyj wersji obiektów BLOB zamiast migawek obiektów BLOB do przechowywania poprzednich wersji. Migawki obiektów BLOB zapewniają podobną funkcjonalność, która zachowuje wcześniejsze wersje obiektu BLOB, ale migawki muszą być utrzymywane ręcznie przez aplikację.
-
-Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
-
-> [!IMPORTANT]
-> Przechowywanie wersji obiektów BLOB nie pozwala na odzyskanie od przypadkowego usunięcia konta magazynu lub kontenera. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md). Aby chronić kontenery przed przypadkowym usunięciem, skonfiguruj nietrwałe usunięcie kontenera dla konta magazynu. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
-
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
+## <a name="recommended-data-protection-configuration"></a>Zalecana konfiguracja ochrony danych
+
+Przechowywanie wersji obiektów BLOB jest częścią kompleksowej strategii ochrony danych dla danych obiektów BLOB. Aby zapewnić optymalną ochronę danych obiektów blob, firma Microsoft zaleca włączenie wszystkich następujących funkcji ochrony danych:
+
+- Przechowywanie wersji obiektów BLOB w celu automatycznego zachowywania poprzednich wersji obiektu BLOB. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
+- Usuwanie nietrwałe kontenera w celu przywrócenia kontenera, który został usunięty. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe kontenera, zobacz [Włączanie i zarządzanie usuwaniem nietrwałym dla kontenerów](soft-delete-container-enable.md).
+- Usuwanie nietrwałego obiektu BLOB, Przywracanie usuniętego obiektu BLOB, migawki lub wersji. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md).
+
+Aby dowiedzieć się więcej na temat zaleceń firmy Microsoft dotyczących ochrony danych, zobacz [Omówienie ochrony danych](data-protection-overview.md).
 
 ## <a name="how-blob-versioning-works"></a>Jak działa wersja obiektów BLOB
 
-Wersja przechwytuje stan obiektu BLOB w danym momencie. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie tworzy nową wersję obiektu BLOB za każdym razem, gdy obiekt BLOB jest modyfikowany lub usuwany.
+Wersja przechwytuje stan obiektu BLOB w danym momencie. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie tworzy nową wersję obiektu BLOB za każdym razem, gdy obiekt BLOB jest modyfikowany.
 
 Podczas tworzenia obiektu BLOB z włączoną obsługą wersji, nowy obiekt BLOB jest bieżącą wersją obiektu BLOB (lub podstawowy obiekt BLOB). Jeśli następnie zmodyfikujesz ten obiekt BLOB, usługa Azure Storage utworzy wersję, która przechwytuje stan obiektu BLOB przed jego modyfikacją. Zmodyfikowany obiekt BLOB zostanie nowym bieżącą wersją. Nowa wersja jest tworzona za każdym razem, gdy modyfikujesz obiekt BLOB.
 
-Na poniższym diagramie przedstawiono, jak wersje są tworzone przy użyciu operacji zapisu i usuwania oraz jak poprzednia wersja może zostać podwyższona do bieżącej wersji:
+Na poniższym diagramie przedstawiono, jak wersje są tworzone w ramach operacji zapisu, a w jaki sposób można awansować poprzednią wersję jako bieżącą wersję:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram przedstawiający sposób działania wersji obiektów BLOB":::
 
-Duża liczba wersji na obiekt BLOB może zwiększyć opóźnienie operacji tworzenia listy obiektów BLOB. Firma Microsoft zaleca obsługę mniej niż 1000 wersji na obiekt BLOB. Za pomocą zarządzania cyklem życia można automatycznie usuwać stare wersje. Aby uzyskać więcej informacji na temat zarządzania cyklem życia, zobacz [Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](storage-lifecycle-management-concepts.md).
-
-Po usunięciu obiektu BLOB z włączoną obsługą wersji usługa Azure Storage tworzy wersję, która przechwytuje stan obiektu BLOB przed jego usunięciem. Bieżąca wersja obiektu BLOB jest następnie usuwana, ale wersje obiektu BLOB są utrwalane, dzięki czemu można je ponownie utworzyć w razie potrzeby. 
+Po usunięciu obiektu BLOB z włączoną obsługą wersji bieżąca wersja obiektu BLOB zostanie usunięta. Wszystkie poprzednie wersje obiektu BLOB są utrwalane.
 
 Wersje obiektów BLOB są niezmienne. Nie można zmodyfikować zawartości ani metadanych istniejącej wersji obiektu BLOB.
+
+Duża liczba wersji na obiekt BLOB może zwiększyć opóźnienie operacji tworzenia listy obiektów BLOB. Firma Microsoft zaleca obsługę mniej niż 1000 wersji na obiekt BLOB. Za pomocą zarządzania cyklem życia można automatycznie usuwać stare wersje. Aby uzyskać więcej informacji na temat zarządzania cyklem życia, zobacz [Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](storage-lifecycle-management-concepts.md).
 
 Obsługa wersji obiektów BLOB jest dostępna dla kont ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i BLOB Storage. Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane.
 
 W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest przechowywanie wersji obiektów BLOB.
 
+> [!IMPORTANT]
+> Przechowywanie wersji obiektów BLOB nie pozwala na odzyskanie od przypadkowego usunięcia konta magazynu lub kontenera. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania konta magazynu, zobacz temat [stosowanie blokady Azure Resource Manager na koncie magazynu](../common/lock-account-resource.md).
+
 ### <a name="version-id"></a>Identyfikator wersji
 
-Każda wersja obiektu BLOB jest identyfikowana przez identyfikator wersji. Wartość identyfikatora wersji to sygnatura czasowa, w której obiekt BLOB został zapisany lub zaktualizowany. Identyfikator wersji jest przypisywany podczas tworzenia wersji.
+Każda wersja obiektu BLOB jest identyfikowana przez identyfikator wersji. Wartość identyfikatora wersji to sygnatura czasowa, w której obiekt BLOB został zaktualizowany. Identyfikator wersji jest przypisywany podczas tworzenia wersji.
 
 Można wykonać operacje odczytu lub usuwania na określonej wersji obiektu BLOB, podając jego identyfikator wersji. W przypadku pominięcia identyfikatora wersji operacja działa w stosunku do bieżącej wersji (podstawowy obiekt BLOB).
 
@@ -77,29 +81,12 @@ Na poniższym diagramie przedstawiono sposób, w jaki operacje zapisu wpływają
 > [!NOTE]
 > Obiekt BLOB utworzony przed obsługą wersji dla konta magazynu nie ma identyfikatora wersji. Po zmodyfikowaniu tego obiektu BLOB zmodyfikowany obiekt BLOB stanie się bieżącą wersją i zostanie utworzona wersja, aby zapisać stan obiektu BLOB przed aktualizacją. Wersja ma przypisany identyfikator wersji, który jest jego czasem tworzenia.
 
-### <a name="versioning-on-delete-operations"></a>Przechowywanie wersji w operacjach usuwania
+Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu wszystkie operacje zapisu w blokowych obiektach Blob wyzwalają Tworzenie nowej wersji, z wyjątkiem operacji [Put Block](/rest/api/storageservices/put-block) .
 
-Po usunięciu obiektu BLOB bieżąca wersja obiektu BLOB zostanie utworzona w poprzedniej wersji, a podstawowy obiekt BLOB zostanie usunięty. Wszystkie istniejące poprzednie wersje obiektu BLOB są zachowywane po usunięciu obiektu BLOB.
-
-Wywołanie operacji [usuwania obiektu BLOB](/rest/api/storageservices/delete-blob) bez identyfikatora wersji spowoduje usunięcie podstawowego obiektu BLOB. Aby usunąć określoną wersję, podaj jej identyfikator w operacji usuwania.
-
-Na poniższym diagramie przedstawiono efekt operacji usuwania na serwerze obiektów blob z wersjami:
-
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram przedstawiający Usuwanie wersji obiektu BLOB z wersjami.":::
-
-Zapisanie nowych danych do obiektu BLOB powoduje utworzenie nowej wersji obiektu BLOB. Nie ma to żadnego skutku, jak pokazano na poniższym diagramie.
-
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram przedstawiający ponowne tworzenie wersji obiektu BLOB po usunięciu.":::
-
-### <a name="blob-types"></a>Typy obiektów blob
-
-Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu wszystkie operacje zapisu i usuwania w blokowych obiektach Blob wyzwalają Tworzenie nowej wersji, z wyjątkiem operacji [Put Block](/rest/api/storageservices/put-block) .
-
-W przypadku stronicowych obiektów blob i dołączania obiektów BLOB tylko podzestaw operacji zapisu i usuwania wyzwala Tworzenie wersji. Te operacje obejmują:
+W przypadku stronicowych obiektów blob i dołączania obiektów BLOB tylko podzestaw operacji zapisu wyzwala Tworzenie wersji. Te operacje obejmują:
 
 - [Wstawianie obiektu blob](/rest/api/storageservices/put-blob)
 - [Umieść listę zablokowanych](/rest/api/storageservices/put-block-list)
-- [Usuwanie obiektu blob](/rest/api/storageservices/delete-blob)
 - [Ustawianie metadanych obiektu BLOB](/rest/api/storageservices/set-blob-metadata)
 - [Kopiowanie obiektu blob](/rest/api/storageservices/copy-blob)
 
@@ -109,6 +96,20 @@ Następujące operacje nie wyzwalają tworzenia nowej wersji. Aby przechwycić z
 - [Append — blok](/rest/api/storageservices/append-block) (Dołącz obiekt BLOB)
 
 Wszystkie wersje obiektu BLOB muszą być tego samego typu obiektów BLOB. Jeśli obiekt BLOB ma poprzednie wersje, nie można zastąpić obiektu BLOB jednego typu innym typem, chyba że najpierw usuniesz obiekt BLOB i wszystkie jego wersje.
+
+### <a name="versioning-on-delete-operations"></a>Przechowywanie wersji w operacjach usuwania
+
+W przypadku wywołania operacji [usuwania obiektu BLOB](/rest/api/storageservices/delete-blob) bez określenia identyfikatora wersji bieżąca wersja jest w poprzedniej wersji i nie istnieje już bieżąca wersja. Wszystkie istniejące poprzednie wersje obiektu BLOB są zachowywane.
+
+Na poniższym diagramie przedstawiono efekt operacji usuwania na serwerze obiektów blob z wersjami:
+
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram przedstawiający Usuwanie wersji obiektu BLOB z wersjami.":::
+
+Aby usunąć określoną wersję obiektu BLOB, podaj identyfikator dla tej wersji w operacji usuwania. Jeśli funkcja usuwania nietrwałego obiektów BLOB jest również włączona dla konta magazynu, wersja jest utrzymywana w systemie do momentu, aż upłynie okres przechowywania nietrwałego.
+
+Zapisanie nowych danych do obiektu BLOB powoduje utworzenie nowej bieżącej wersji obiektu BLOB. Nie ma to żadnego skutku, jak pokazano na poniższym diagramie.
+
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram przedstawiający ponowne tworzenie wersji obiektu BLOB po usunięciu.":::
 
 ### <a name="access-tiers"></a>Poziomy dostępu
 
@@ -132,27 +133,29 @@ Na poniższym diagramie przedstawiono sposób modyfikowania obiektu BLOB po wyko
 
 ## <a name="blob-versioning-and-soft-delete"></a>Przechowywanie wersji obiektów blob i usuwanie nietrwałe
 
-Obsługa wersji obiektów blob i obiektów BLOB Soft Delete współpracują ze sobą w celu zapewnienia optymalnej ochrony danych. Po włączeniu usuwania nietrwałego należy określić, jak długo usługa Azure Storage ma przechowywać nietrwały obiekt BLOB. Wszystkie nietrwałe wersje obiektów BLOB są nadal w systemie i można cofnąć ich usunięcie w okresie przechowywania nietrwałego usuwania. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md).
+Firma Microsoft zaleca włączenie obsługi wersji i usuwania nietrwałego obiektów BLOB dla kont magazynu w celu zapewnienia optymalnej ochrony danych. Usuwanie nietrwałe chroni obiekty blob, wersje i migawki przed przypadkowym usunięciem. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md).
+
+### <a name="overwriting-a-blob"></a>Zastępowanie obiektu BLOB
+
+Jeśli dla konta magazynu włączono zarówno obsługę wersji obiektów blob, jak i usuwanie nietrwałego obiektu BLOB, zastępowanie obiektu BLOB spowoduje automatyczne utworzenie nowej wersji. Nowa wersja nie jest usuwana nietrwale i nie jest usuwana po wygaśnięciu okresu przechowywania nietrwałego. Nie utworzono żadnych migawek usuniętych z nietrwałego.
 
 ### <a name="deleting-a-blob-or-version"></a>Usuwanie obiektu BLOB lub wersji
 
-Usuwanie nietrwałe oferuje dodatkową ochronę przed usunięciem wersji obiektów BLOB. Jeśli na koncie magazynu są włączone zarówno przechowywanie wersji, jak i usuwanie nietrwałe, usługa Azure Storage utworzy nową wersję, aby zapisać stan obiektu BLOB bezpośrednio przed usunięciem i usunąć bieżącą wersję. Nowa wersja nie jest usuwana nietrwale i nie jest usuwana po wygaśnięciu okresu przechowywania nietrwałego.
+Jeśli na koncie magazynu są włączone zarówno przechowywanie wersji, jak i usuwanie nietrwałe, bieżąca wersja obiektu BLOB będzie w poprzedniej wersji, a bieżąca wersja zostanie usunięta. Nie została utworzona nowa wersja i nie są tworzone żadne migawki usunięte przez program. Okres przechowywania nietrwałego usuwania nie obowiązuje dla usuniętego obiektu BLOB.
 
-Gdy usuniesz poprzednią wersję obiektu BLOB, wersja jest usuwana. Wersja nietrwałego usunięcia jest zachowywana w okresie przechowywania określonym w ustawieniach usuwania nietrwałego dla konta magazynu i zostaje trwale usunięta po wygaśnięciu okresu przechowywania nietrwałego.
+Usuwanie nietrwałe oferuje dodatkową ochronę przed usunięciem wersji obiektów BLOB. Po usunięciu poprzedniej wersji obiektu BLOB ta wersja jest nietrwała. Wersja niestandardowa jest zachowywana do momentu, gdy upłynie okres przechowywania nietrwałego, w którym punkt ten zostanie trwale usunięty.
 
-Aby usunąć poprzednią wersję obiektu BLOB, usuń go jawnie, określając identyfikator wersji.
+Aby usunąć poprzednią wersję obiektu BLOB, wywołaj operację **usuwania obiektu BLOB** i określ identyfikator wersji.
 
 Na poniższym diagramie pokazano, co się dzieje po usunięciu obiektu BLOB lub wersji obiektu BLOB.
 
 :::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram przedstawiający Usuwanie wersji z włączoną opcją usuwania nietrwałego.":::
 
-Jeśli na koncie magazynu są włączone zarówno przechowywanie wersji, jak i usuwanie nietrwałe, nie zostanie utworzona migawka nietrwała, gdy zostanie zmodyfikowana lub usunięta wersja obiektu BLOB lub obiektu BLOB.
-
 ### <a name="restoring-a-soft-deleted-version"></a>Przywracanie nieusuniętej wersji
 
-Można przywrócić nieusuwaną niestandardową wersję obiektu BLOB, wywołując operację [cofania usuwania obiektu BLOB](/rest/api/storageservices/undelete-blob) w wersji, gdy obowiązuje okres przechowywania nietrwałego usuwania. Operacja **cofnięcia usunięcia obiektu BLOB** przywraca wszystkie nietrwałe wersje obiektów BLOB.
+Za pomocą operacji usuwania [obiektów BLOB](/rest/api/storageservices/undelete-blob) można przywrócić nieusunięte wersje w okresie przechowywania nietrwałego. Operacja **cofnięcia usunięcia obiektu BLOB** zawsze przywraca wszystkie nietrwałe wersje obiektów BLOB. Nie można przywrócić tylko jednej wersji nietrwałej.
 
-Przywracanie nieusuniętych wersji z użyciem operacji **usuwania obiektów BLOB** nie powoduje awansowania żadnej wersji. Aby przywrócić bieżącą wersję, najpierw Przywróć wszystkie nieusunięte wersje, a następnie użyj operacji [kopiowania obiektu BLOB](/rest/api/storageservices/copy-blob) , aby skopiować poprzednią wersję, aby przywrócić obiekt BLOB.
+Przywracanie nieusuniętych wersji z użyciem operacji **usuwania obiektów BLOB** nie powoduje awansowania żadnej wersji. Aby przywrócić bieżącą wersję, najpierw Przywróć wszystkie nieusunięte wersje, a następnie użyj operacji [kopiowania obiektu BLOB](/rest/api/storageservices/copy-blob) , aby skopiować poprzednią wersję do nowej bieżącej wersji.
 
 Na poniższym diagramie pokazano, jak przywrócić nieusunięte wersje obiektów BLOB przy użyciu operacji **usuwania obiektów** BLOB oraz jak przywrócić bieżącą wersję obiektu BLOB za pomocą operacji **kopiowania obiektu BLOB** .
 
@@ -193,8 +196,8 @@ W poniższej tabeli przedstawiono działania kontroli RBAC platformy Azure obsł
 
 | Opis | Operacja Blob service | Wymagana akcja danych RBAC platformy Azure | Wbudowana obsługa ról platformy Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob usługi Storage |
-| Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektu blob usługi Storage |
+| Usuwanie bieżącej wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob usługi Storage |
+| Usuwanie poprzedniej wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektu blob usługi Storage |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametry sygnatury dostępu współdzielonego (SAS)
 

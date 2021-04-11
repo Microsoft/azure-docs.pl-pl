@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439463"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228235"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -289,20 +289,20 @@ Aby zachować połączenia, które nie są uszkodzone, można użyć poniższych
 
 Po przejściu przez wszystkie połączenia w przypadku wszystkich nazw połączeń, które nie zostały dodane z powrotem, należy wyczyścić ich uszkodzone dane (jeśli istnieją) i dodać je z powrotem przy użyciu standardowych kroków w Eksplorator usługi Storage:
 
-# <a name="windows"></a>[Windows](#tab/Windows)
+### <a name="windows"></a>[Windows](#tab/Windows)
 
 1. W menu **Start** Wyszukaj pozycję **Menedżer poświadczeń** i otwórz ją.
 2. Przejdź do **poświadczeń systemu Windows**.
 3. W obszarze **poświadczenia ogólne** Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Usuń te wpisy i Dodaj je jeszcze raz.
 
-# <a name="macos"></a>[macOS](#tab/macOS)
+### <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Otwórz centrum uwagi (Command + SPACEBAR) i Wyszukaj **dostęp do łańcucha kluczy**.
 2. Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Usuń te wpisy i Dodaj je jeszcze raz.
 
-# <a name="linux"></a>[Linux](#tab/Linux)
+### <a name="linux"></a>[Linux](#tab/Linux)
 
 Lokalne zarządzanie poświadczeniami różni się w zależności od dystrybucji systemu Linux. Jeśli dystrybucja systemu Linux nie udostępnia wbudowanego interfejsu GUI do lokalnego zarządzania poświadczeniami, możesz zainstalować narzędzie innych firm, aby zarządzać poświadczeniami lokalnymi. Na przykład można użyć [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), narzędzia interfejsu GUI open source do zarządzania poświadczeniami lokalnymi systemu Linux.
 
@@ -356,7 +356,7 @@ Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie.
 > [!NOTE]
 > Eksplorator usługi Storage wersja 1.7.0 i wcześniejsze wymagają programu .NET Core 2,0. Jeśli masz zainstalowaną nowszą wersję programu .NET Core, musisz [zastosować poprawkę Eksplorator usługi Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Jeśli korzystasz z programu Eksplorator usługi Storage 1.8.0 lub nowszego, musisz mieć co najmniej platformę .NET Core 2,1.
 
-# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
+### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Pobierz plik Eksplorator usługi Storage. tar. gz.
 2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](/dotnet/core/install/linux):
@@ -369,7 +369,7 @@ Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie.
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
+### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Pobierz plik Eksplorator usługi Storage. tar. gz.
 2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](/dotnet/core/install/linux):
@@ -382,7 +382,7 @@ Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie.
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
+### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Pobierz plik Eksplorator usługi Storage. tar. gz.
 2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](/dotnet/core/install/linux):
@@ -431,6 +431,98 @@ Jeśli przycisk **Otwórz w Eksploratorze** na Azure Portal nie działa, upewnij
 * Mozilla Firefox
 * Google Chrome
 * Microsoft Internet Explorer
+
+## <a name="gathering-logs"></a>Zbieranie dzienników
+
+Gdy zgłaszasz problem do usługi GitHub, może zostać wyświetlony monit o zebranie niektórych dzienników w celu ułatwienia zdiagnozowania problemu.
+
+### <a name="storage-explorer-logs"></a>Dzienniki Eksplorator usługi Storage
+
+Począwszy od wersji 1.16.0, Eksplorator usługi Storage rejestruje różne elementy w swoich dziennikach aplikacji. Możesz łatwo uzyskać dostęp do tych dzienników, klikając przycisk Pomoc > otworzyć katalog dzienników. Domyślnie dzienniki Eksplorator usługi Storage na niskim poziomie szczegółowości. Aby zmienić poziom szczegółowości, Dodaj zmienną środowiskową o nazwie `STG_EX_LOG_LEVEL` i dowolną z następujących wartości:
+- `silent`
+- `critical`
+- `error`
+- `warning`
+- `info` (poziom domyślny)
+- `verbose`
+- `debug`
+
+Dzienniki są podzielone na foldery dla każdej sesji Eksplorator usługi Storage, która jest uruchamiana. W przypadku wszystkich plików dziennika, które należy udostępnić, zalecane jest umieszczenie ich w archiwum zip, z plikami z różnych sesji w różnych folderach.
+
+### <a name="authentication-logs"></a>Dzienniki uwierzytelniania
+
+W przypadku problemów związanych z zalogowaniem lub Eksplorator usługi Storage biblioteką uwierzytelniania jest najprawdopodobniej konieczne zebranie dzienników uwierzytelniania. Dzienniki uwierzytelniania są przechowywane w:
+- Windows: `C:\Users\<your username>\AppData\Local\Temp\servicehub\logs`
+- macOS i Linux `~/.ServiceHub/logs`
+
+Ogólnie rzecz biorąc, możesz wykonać następujące kroki, aby zebrać dzienniki:
+
+1. Przejdź do pozycji Ustawienia > logowania > Sprawdź pełne rejestrowanie uwierzytelniania. Jeśli nie można uruchomić Eksplorator usługi Storage z powodu problemu z jego biblioteką uwierzytelniania, zostanie to zrobione.
+2. Zamknij Eksplorator usługi Storage.
+1. Opcjonalne/zalecane: Wyczyść istniejące dzienniki z `logs` folderu. Spowoduje to zmniejszenie ilości informacji potrzebnych do wysłania nam.
+4. Otwórz Eksplorator usługi Storage i Odtwórz swój problem
+5. Zamknij Eksplorator usługi Storage
+6. Zawartość `log` folderu zip.
+
+### <a name="azcopy-logs"></a>Dzienniki AzCopy
+
+Jeśli masz problemy z transferem danych, może być konieczne uzyskanie dzienników AzCopy. Dzienniki AzCopy można łatwo znaleźć za pośrednictwem dwóch różnych metod:
+- W przypadku nieudanych transferów nadal w dzienniku aktywności kliknij pozycję "przejdź do pliku dziennika AzCopy"
+- W przypadku transferów zakończonych niepowodzeniem przejdź do folderu logs AzCopy. Ten folder można znaleźć pod adresem:
+  - Windows: `C:\Users\<your username>\.azcopy`
+  - macOS i Linux "~/.AzCopy
+
+### <a name="network-logs"></a>Dzienniki sieciowe
+
+W przypadku niektórych problemów konieczne będzie dostarczenie dzienników wywołań sieciowych wykonywanych przez Eksplorator usługi Storage. W systemie Windows można to zrobić za pomocą programu Fiddler.
+
+> [!NOTE]
+> Ślady programu Fiddler mogą zawierać hasła wprowadzone/wysyłane w przeglądarce podczas zbierania śladu. Upewnij się, że zapoznaj się z instrukcjami dotyczącymi sposobu oczyszczenia śledzenia programu Fiddler. Nie przekazuj śladów programu Fiddler do usługi GitHub. Zobaczysz, że możesz bezpiecznie wysłać śledzenie programu Fiddler.
+
+Część 1. Instalowanie i Konfigurowanie programu Fiddler
+
+1. Zainstaluj programu Fiddler
+2. Uruchom programu Fiddler
+3. Przejdź do narzędzi > opcje
+4. Kliknij kartę HTTPS
+5. Upewnij się, że jest zaznaczone pole wyboru Przechwytuj połączenie i odszyfruj ruch HTTPS
+6. Kliknij przycisk Akcje
+7. Wybierz pozycję "Ufaj certyfikatom głównym", a następnie pozycję "tak" w następnym oknie dialogowym
+8. Kliknij ponownie przycisk Akcje
+9. Wybierz pozycję "Eksportuj certyfikat główny do pulpitu".
+10. Przejdź do pulpitu
+11. Znajdź plik FiddlerRoot. cer
+12. Kliknij dwukrotnie, aby otworzyć
+13. Przejdź do karty "Szczegóły"
+14. Kliknij pozycję "Kopiuj do pliku..."
+15. W Kreatorze eksportu wybierz poniższe opcje.
+    - Base-64 — zakodowana X. 509
+    - W obszarze Nazwa pliku Przeglądaj... do \<your user dir> \AppData\Roaming\StorageExplorer\certs C:\Users, a następnie można go zapisać jako dowolną nazwę pliku
+16. Zamknij okno certyfikatu
+17. Rozpocznij Eksplorator usługi Storage
+18. Przejdź do pozycji Edytuj > Skonfiguruj serwer proxy
+19. W oknie dialogowym wybierz opcję "Użyj ustawień serwera proxy aplikacji" i ustaw adres URL na http://localhost i port na 8888
+20. Kliknij przycisk OK.
+21. Uruchom ponownie Eksplorator usługi Storage
+22. Należy zacząć oglądać wywołania sieciowe z procesu, który jest `storageexplorer:` wyświetlany w programu Fiddler
+
+Część 2. odtworzenie problemu
+1. Zamknij wszystkie aplikacje inne niż programu Fiddler
+2. Wyczyść dziennik programu Fiddler (X w lewym górnym rogu obok menu Widok)
+3. Opcjonalne/zalecane: Pozwól programu Fiddler ustawić przez kilka minut, Jeśli zobaczysz, że są wyświetlane wywołania sieciowe, kliknij prawym przyciskiem myszy i wybierz pozycję "Filtruj teraz" > "Ukryj <process name> "
+4. Rozpocznij Eksplorator usługi Storage
+5. Odtwórz problem
+6. Kliknij pozycję plik > Zapisz > wszystkie sesje..., Zapisz gdziekolwiek nie pamiętasz
+7. Zamknij programu Fiddler i Eksplorator usługi Storage
+
+Część 3: oczyszczanie śladu programu Fiddler
+1. Kliknij dwukrotnie plik śledzenia programu Fiddler (. SAZ)
+2. Naciskając `ctrl`+`f`
+3. W wyświetlonym oknie dialogowym upewnij się, że są ustawione następujące opcje: Search = żądania i odpowiedzi, badanie = nagłówki i treści
+4. Wyszukaj hasła, które zostały użyte podczas zbierania śladu programu Fiddler, wszelkie wyróżnione wpisy, kliknij prawym przyciskiem myszy i wybierz polecenie Usuń > wybrane sesje
+5. Jeśli w przeglądarce wprowadzono hasła podczas zbierania śladu, ale nie znajdziesz żadnych wpisów przy użyciu kombinacji klawiszy CTRL + f i nie chcesz zmieniać haseł/używane hasła są używane w przypadku innych kont, wówczas możesz pominąć przesyłanie do nas pliku. SAZ. Lepiej bezpieczniej niż niestety. :)
+6. Zapisz ślad ponownie z nową nazwą
+7. Opcjonalne: usuwanie oryginalnego śledzenia
 
 ## <a name="next-steps"></a>Następne kroki
 
