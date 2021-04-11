@@ -90,6 +90,8 @@
           href: ssl-overview.md
         - name: Omówienie zasad protokołu SSL
           href: application-gateway-ssl-policy-overview.md
+        - name: Uwierzytelnianie wzajemne
+          href: mutual-authentication-overview.md
         - name: Korzystanie z magazynu kluczy
           href: key-vault-certs.md
     - name: Ruch przychodzący usługi AKS
@@ -140,18 +142,28 @@
               href: end-to-end-ssl-portal.md
             - name: Kompleksowa łączność SSL — PowerShell
               href: application-gateway-end-to-end-ssl-powershell.md
+        - name: Uwierzytelnianie wzajemne
+          items:
+            - name: Uwierzytelnianie wzajemne — Portal
+              href: mutual-authentication-portal.md
+            - name: Wzajemne uwierzytelnianie — PowerShell
+              href: mutual-authentication-powershell.md
         - name: Zarządzanie certyfikatami
           items:
             - name: Certyfikaty dla zaplecza
               href: certificates-for-backend-authentication.md
             - name: Odnawianie certyfikatów
               href: renew-certificates.md
-            - name: Generowanie certyfikatów z podpisem własnym
+            - name: Generowanie certyfikatów z podpisem własnym dla zaplecza
               href: self-signed-certificates.md
+            - name: Zaufane certyfikaty klienta
+              href: mutual-authentication-certificate-management.md
         - name: Zasady SSL
           items:
             - name: Konfigurowanie zasad protokołu SSL
               href: application-gateway-configure-ssl-policy-powershell.md
+            - name: Zasady protokołu SSL dla konkretnych odbiorników
+              href: application-gateway-configure-listener-specific-ssl-policy.md
     - name: Ruch przychodzący usługi AKS
       items:
         - name: Ruch przychodzący usługi AKS za pośrednictwem programu Helm (brownfield)
@@ -254,6 +266,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Błędy „Zła brama” (502)
           href: application-gateway-troubleshooting-502.md
+        - name: Uwierzytelnianie wzajemne
+          href: mutual-authentication-troubleshooting.md
         - name: Ruch przychodzący usługi AKS
           href: ingress-controller-troubleshoot.md
         - name: Kondycja zasobów

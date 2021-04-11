@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 2cdf068d31cf621538eb265977ea0dae20e16e85
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a01571f4a1f852deb84b7f20d61b8048e8000790
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109326"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490101"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu
 
@@ -103,7 +103,7 @@ Jeśli wcześniej użyto przepływów pracy do kopiowania plików z plików obie
 
 ## <a name="indexer-v1-audio-transcription-to-the-new-audioanalyzer-basic-mode"></a>Transkrypcja dźwiękowa indeksatora V1 do nowego AudioAnalyzer "Tryb podstawowy"
 
-W przypadku klientów korzystających z procesora indeksatora v1 w interfejsie API v2 należy utworzyć transformację, która wywołuje nowe `AudioAnalyzer` w [trybie podstawowym](how-to-create-basic-audio-transform.md) przed przesłaniem zadania.
+W przypadku klientów korzystających z procesora indeksatora v1 w interfejsie API v2 należy utworzyć transformację, która wywołuje nowe `AudioAnalyzer` w [trybie podstawowym](transform-create-basic-audio-how-to.md) przed przesłaniem zadania.
 
 ## <a name="encoding-transforms-and-jobs-concepts-tutorials-and-how-to-guides"></a>Kodowanie, przekształcenia i zadania, samouczki i przewodniki
 
@@ -127,18 +127,18 @@ W przypadku klientów korzystających z procesora indeksatora v1 w interfejsie A
 
 - [Utwórz dane wejściowe zadania na podstawie adresu URL HTTPS](job-input-from-http-how-to.md)
 - [Tworzenie danych wejściowych zadania z pliku lokalnego](job-input-from-local-file-how-to.md)
-- [Tworzenie podstawowego przekształcenia audio](how-to-create-basic-audio-transform.md)
+- [Tworzenie podstawowego przekształcenia audio](transform-create-basic-audio-how-to.md)
 - Przy użyciu platformy .NET
-  - [Jak kodować przy użyciu przekształcenia niestandardowego — .NET](encode-custom-presets-how-to.md)
-  - [Jak utworzyć nakładkę z Media Encoder Standard](how-to-create-overlay.md)
-  - [Jak generować miniatury przy użyciu standardu Encoder w programie .NET](media-services-generate-thumbnails-dotnet.md)
+  - [Jak kodować przy użyciu przekształcenia niestandardowego — .NET](transform-custom-presets-how-to.md)
+  - [Jak utworzyć nakładkę z Media Encoder Standard](transform-create-overlay-how-to.md)
+  - [Jak generować miniatury przy użyciu standardu Encoder w programie .NET](transform-generate-thumbnails-dotnet-how-to.md)
 - Z interfejsem wiersza polecenia platformy Azure
-  - [Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure](encode-custom-preset-cli-how-to.md)
+  - [Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure](transform-custom-preset-cli-how-to.md)
 - Przy użyciu architektury REST
-  - [Jak kodować przy użyciu niestandardowej transformacji](encode-custom-preset-rest-how-to.md)
-  - [Jak generować miniatury przy użyciu standardu Encoder w warstwie REST](media-services-generate-thumbnails-rest.md)
-- [Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET](subclip-video-dotnet-howto.md)
-- [Podcinanie wideo przy kodowaniu przy użyciu Media Services-REST](subclip-video-rest-howto.md)
+  - [Jak kodować przy użyciu niestandardowej transformacji](transform-custom-preset-rest-how-to.md)
+  - [Jak generować miniatury przy użyciu standardu Encoder w warstwie REST](transform-generate-thumbnails-rest-how-to.md)
+- [Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET](transform-subclip-video-dotnet-how-to.md)
+- [Podcinanie wideo przy kodowaniu przy użyciu Media Services-REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="samples"></a>Samples
 

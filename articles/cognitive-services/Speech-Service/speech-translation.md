@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tłumaczenie mowy
-ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99541d7fe9eaa867860af93bc1423d476ce8bf4a
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954964"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449940"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Ten przegląd zawiera informacje o zaletach i możliwościach usługi tłumaczenia mowy, które umożliwiają korzystanie z funkcji [zamiany mowy na wiele języków](language-support.md#speech-translation) w czasie rzeczywistym oraz Tłumaczenie mowy na mowę i zamianę tekstu na tekst strumieni audio. Za pomocą zestawu Speech SDK aplikacje, narzędzia i urządzenia mają dostęp do transkrypcji źródłowych i danych wyjściowych tłumaczenia dla podanego dźwięku. Tymczasowe transkrypcja i wyniki tłumaczenia są zwracane, gdy wykryto mowę, a końcowe wyniki można przekonwertować na mowę.
+
+Ta dokumentacja zawiera następujące typy artykułów:
+
+* Przewodniki **Szybki Start** to instrukcje umożliwiające wykonywanie żądań do usługi.
+* **Przewodniki z** instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.
+* **Koncepcje** zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.
+* **Samouczki** są więcej przewodnikami, które pokazują, jak korzystać z usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.
 
 ## <a name="core-features"></a>Podstawowe funkcje
 

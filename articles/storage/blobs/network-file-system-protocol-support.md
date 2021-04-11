@@ -9,19 +9,19 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57dec4187ea42476ff1c0a993b751a7389da5639
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224598"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490356"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
 Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa zapewnia zgodność systemu plików z systemem Linux w skali i cenach magazynu obiektów oraz umożliwia klientom systemu Linux Instalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnie. 
 
 > [!NOTE]
-> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej. Obsługuje ona konta magazynu GPV2 z wydajnością warstwy Standardowa w następujących regionach: Australia Wschodnia, Korea Środkowa i Południowo-środkowe stany USA. Wersja zapoznawcza obsługuje również blokowy obiekt BLOB z warstwą wydajności Premium we wszystkich regionach publicznych.
+> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej. Obsługuje ona konta magazynu GPV2 z wydajnością warstwy Standardowa w następujących regionach: Australia Wschodnia, Korea środkowa, Wschodnie stany USA i Południowo-środkowe stany firmy. Wersja zapoznawcza obsługuje również blokowy obiekt BLOB z warstwą wydajności Premium we wszystkich regionach publicznych.
 
 Zawsze jest wyzwaniem do uruchamiania starszych obciążeń o dużej skali, takich jak przetwarzanie o wysokiej wydajności (HPC) w chmurze. Jedną z przyczyn jest to, że aplikacje często używają tradycyjnych protokołów plików, takich jak system plików NFS lub blok komunikatów serwera (SMB) w celu uzyskania dostępu do danych. Ponadto natywne usługi magazynu w chmurze ukierunkowane na magazyn obiektów, które mają płaską przestrzeń nazw i rozbudowane metadane, zamiast systemów plików, które udostępniają hierarchiczną przestrzeń nazw i wydajne operacje metadanych. 
 

@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
-ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323196"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285291"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Omówienie operacji zarządzania usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,12 +70,14 @@ Poniższe tabele podsumowują operacje i typowe ogólne czasy trwania w oparciu 
 |Operacja  |Segment długotrwały  |Szacowany czas trwania  |
 |---------|---------|---------|
 |Zmiana właściwości wystąpienia (hasło administratora, logowanie do usługi Azure AD, flaga Korzyść użycia hybrydowego platformy Azure)|Nie dotyczy|Do 1 minuty.|
-|Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia warstwy usług)|Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 5 minut.|
+|Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia warstwy usług)|Brak długotrwałego segmentu<sup>1</sup>|99% operacji zakończonych w ciągu 5 minut.|
 |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy warstwy usług)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
 |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego<br>— Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 2,5 godzin.|
 |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
 |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
 | | | 
+
+<sup>1</sup> skalowanie ogólnego przeznaczenia magazyn wystąpienia zarządzanego nie spowoduje przełączenia w tryb failover na końcu operacji. W takim przypadku operacja składa się z aktualizacji metadanych i propagacji odpowiedzi dla przesłanego żądania.
 
 **Kategoria: usuwanie**
 
@@ -90,6 +92,9 @@ Bieżąca konfiguracja to <sup>1</sup>12 godzin, ale może ulec zmianie w przysz
 ## <a name="instance-availability"></a>Dostępność wystąpienia
 
 Wystąpienie zarządzane SQL **jest dostępne podczas operacji aktualizacji**, z wyjątkiem krótkich przestojów spowodowanych przez pracę w trybie failover, które są wykonywane po zakończeniu aktualizacji. Zwykle trwa to 10 sekund nawet w przypadku przerwanych długotrwałych transakcji, dzięki czemu można [przyspieszyć odzyskiwanie bazy danych](../accelerated-database-recovery.md).
+
+> [!NOTE]
+> Skalowanie Ogólnego przeznaczenia magazynu wystąpienia zarządzanego nie spowoduje przełączenia w tryb failover po zakończeniu aktualizacji.
 
 Wystąpienie zarządzane SQL nie jest dostępne dla aplikacji klienckich podczas operacji wdrażania i usuwania.
 

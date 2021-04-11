@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008216"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490220"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Tworzenie pierwszej funkcji trwałej w języku C\#
 
@@ -84,7 +84,7 @@ Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekc
     | Wybierz konto magazynu | Tworzenie nowego konta magazynu |  |
     | Wprowadź nazwę nowego konta magazynu | *Unikatowa nazwa* | Nazwa konta magazynu do utworzenia |
     | Wybieranie grupy zasobów | *Unikatowa nazwa* | Nazwa grupy zasobów do utworzenia |
-    | Wybieranie lokalizacji | *okolicy* | Zaznacz region blisko siebie |
+    | Wybieranie lokalizacji | *region* | Zaznacz region blisko siebie |
 
 Klasa zawierająca nowe funkcje jest dodawana do projektu. VS Code dodaje również parametry połączenia konta magazynu do *local.settings.jsna* i odwołanie do [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) pakietu NuGet do pliku projektu *. csproj* .
 
@@ -163,7 +163,7 @@ Użyto Visual Studio Code do tworzenia i publikowania trwałej aplikacji funkcji
 
 ::: zone pivot="code-editor-visualstudio"
 
-W tym artykule dowiesz się, jak program Visual Studio 2019 służy do lokalnego tworzenia i testowania trwałej funkcji "Hello World".  Ta funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji. Kod funkcji zostanie następnie opublikowany na platformie Azure. Te narzędzia są dostępne w ramach obciążeń programistycznych platformy Azure w programie Visual Studio 2019.
+W tym artykule dowiesz się, jak używać programu Visual Studio 2019 do lokalnego tworzenia i testowania trwałej funkcji "Hello World".  Ta funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji. Kod funkcji zostanie następnie opublikowany na platformie Azure. Te narzędzia są dostępne w ramach obciążeń programistycznych platformy Azure w programie Visual Studio 2019.
 
 ![Zrzut ekranu przedstawia okno programu Visual Studio 2019 z trwałą funkcją.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 

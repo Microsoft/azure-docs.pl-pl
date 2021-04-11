@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.openlocfilehash: 73b279f98011181b329cdb010041022ab0da57f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f9637a24bcb722fc20ee08408c8bb3d8b240113
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018637"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076325"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Wstępnie skompilowane odwołanie do domeny dla aplikacji LUIS
 Ta dokumentacja zawiera informacje na temat [wstępnie skompilowanych domen](./howto-add-prebuilt-models.md), które są wstępnie skompilowanymi kolekcjami intencji i jednostek, które Luis oferty.
@@ -25,19 +25,19 @@ Ta dokumentacja zawiera informacje na temat [wstępnie skompilowanych domen](./h
 
 W poniższej tabeli zestawiono aktualnie obsługiwane domeny. Obsługa języka angielskiego jest zwykle większa niż inne.
 
-| Typ jednostki       | PL-US      | ZH-CN   | DE    | PW     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
-|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:|
-| Kalendarz  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-|Komunikacja  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| E-mail     | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| HomeAutomation          | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Uwagi     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Składa   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| RestaurantReservation  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Czynność     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Narzędzia      | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Pogoda        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
-| Internet    | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+|      Typ jednostki      | PL-US | ZH-CN | DE | PW | ES | IT | PT-BR | JP | KO | NL | TR |
+|:---------------------:|:-----:|:-----:|:--:|:--:|:--:|:--:|------:|---:|---:|---:|---:|
+|       Kalendarz        |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|     Komunikacja     |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|         E-mail         |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|    HomeAutomation     |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|         Uwagi         |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|        Składa         |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+| RestaurantReservation |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|         Czynność          |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|       Narzędzia       |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|        Pogoda        |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
+|          Internet          |   ✓   |   ✓   | ✓  | ✓  | ✓  | ✓  |     ✓ |  ✓ |  ✓ |  ✓ |  ✓ |
 
 Wbudowane domeny nie są **obsługiwane** w programie:
 

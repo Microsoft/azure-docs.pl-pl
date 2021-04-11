@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6db43acda679c6c1c1edd6336f693cc4757b6d45
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98757173"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220921"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Rozszerzenia dla Cloud Services (obsługa rozszerzona)
 
@@ -36,6 +36,14 @@ W przypadku podstawowego monitorowania dane liczników wydajności z wystąpień
 Dzięki zaawansowanemu monitorowaniu dodatkowe metryki są próbkowane i zbierane z interwałem wynoszącym 5 minut, 1 godzina i 12 godzin. Zagregowane dane są przechowywane na koncie magazynu w tabelach i usuwane po upływie 10 dni. Używane konto magazynu jest konfigurowane przez rolę; dla różnych ról można użyć różnych kont magazynu. 
 
 Aby uzyskać więcej informacji, zobacz [stosowanie rozszerzenia diagnostyki systemu Windows Azure w Cloud Services (obsługa rozszerzona)](enable-wad.md)
+
+## <a name="anti-malware-extension"></a>Rozszerzenie chroniące przed złośliwym oprogramowaniem
+Aplikacja lub usługa platformy Azure może włączać i konfigurować usługi Microsoft chroniące przed złośliwym kodem dla platformy Azure Cloud Services przy użyciu poleceń cmdlet programu PowerShell. Należy pamiętać, że program Microsoft chroniący przed złośliwym kodem jest instalowany w stanie wyłączonym na platformie Cloud Services z systemem Windows Server 2012 R2 i starszym, który wymaga działania aplikacji platformy Azure, aby go włączyć. W przypadku systemu Windows Server 2016 i nowszych usługa Windows Defender jest domyślnie włączona, dlatego te polecenia cmdlet mogą służyć do konfigurowania ochrony przed złośliwym kodem.
+
+Aby uzyskać więcej informacji, zobacz [Dodawanie firmy Microsoft chroniącej przed złośliwym kodem do usługi w chmurze platformy Azure przy użyciu rozszerzonej pomocy technicznej (CS-ES)](https://docs.microsoft.com/azure/security/fundamentals/antimalware-code-samples#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)
+
+Aby dowiedzieć się więcej o usłudze Azure chroniącej przed złośliwym kodem, odwiedź [tutaj](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+
 
 
 ## <a name="next-steps"></a>Następne kroki 

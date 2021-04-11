@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ten artykuł zawiera omówienie usługi Azure Arc Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: b3296aa1c1d5d463cc7f4cb932b44ad76632e19e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69e9886f214d0076c8e66231fd6ad15bb060828f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121596"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449651"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Co to jest platforma Kubernetes z włączoną usługą Azure Arc?
 
@@ -43,9 +43,11 @@ Usługa Azure ARC z włączonym Kubernetes obsługuje następujące scenariusze:
 
 * Wdrażaj aplikacje i stosuj konfigurację przy użyciu funkcji zarządzania konfiguracją opartą na GitOps. 
 
-* Wyświetlanie i monitorowanie klastrów przy użyciu Azure Monitor kontenerów. 
+* Wyświetlanie i monitorowanie klastrów przy użyciu Azure Monitor kontenerów.
 
-* Zastosuj zasady za pomocą Azure Policy dla Kubernetes. 
+* Wymuś ochronę przed zagrożeniami przy użyciu usługi Azure Defender dla Kubernetes.
+
+* Zastosuj zasady za pomocą Azure Policy dla Kubernetes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

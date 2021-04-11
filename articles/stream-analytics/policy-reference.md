@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Stream Analytics
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Stream Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7ef9606da62ebd5ff53eca5fc21c22591bd3ce3b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5cab2caee2057afacc8db7fe7e701b36f1e84fb3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037460"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095514"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Azure Policy wbudowane definicje Azure Stream Analytics
 

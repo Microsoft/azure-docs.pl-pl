@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 432330ae06b2e1c19401456dc05f87d0dd908f2d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 6066b5efc9bb004aab6b651f15d24b19672c3497
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574144"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220610"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Uaktualnianie bezpłatnego konta platformy Azure lub konto subskrypcji Microsoft Azure for Students Starter
 
 Możesz uaktualnić [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) do [stawek płatność zgodnie](https://azure.microsoft.com/offers/ms-azr-0003p/) z rzeczywistym użyciem w Azure Portal.
 
-Jeśli masz [konto usługi Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) i masz uprawnienia do [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz je uaktualnić do [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). Po uaktualnieniu otrzymasz 200 USD środków na korzystanie z platformy Azure i 12 miesięcy bezpłatnego korzystania z usług. Jeśli nie masz zakwalifikować się do korzystania z bezpłatnego konta, możesz przeprowadzić uaktualnienie do [stawek płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem, korzystając z [żądania pomocy technicznej](https://go.microsoft.com/fwlink/?linkid=2083458).
+Jeśli masz [konto usługi Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) i masz uprawnienia do [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz je uaktualnić do [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). Otrzymasz środki na korzystanie z platformy Azure BEZPŁATNYMI środkami w swojej walucie rozliczeniowej i 12-miesięcznych bezpłatnych usług podczas uaktualniania. Jeśli nie masz zakwalifikować się do korzystania z bezpłatnego konta, możesz przeprowadzić uaktualnienie do [stawek płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem, korzystając z [żądania pomocy technicznej](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 Jeśli masz konto [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) , możesz przeprowadzić uaktualnienie do [stawek płatność zgodnie](https://azure.microsoft.com/offers/ms-azr-0003p/) z rzeczywistym użyciem, korzystając z [żądania pomocy technicznej](https://go.microsoft.com/fwlink/?linkid=2083458)
 

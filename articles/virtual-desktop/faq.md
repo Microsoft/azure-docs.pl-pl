@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582140"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505301"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -139,7 +139,7 @@ Na koniec po włączeniu dostawcy zasobów z poziomu konta właściciela dostawc
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Jak często należy włączyć maszynę wirtualną, aby zapobiec problemom z rejestracją?
 
-Po zarejestrowaniu maszyny wirtualnej w puli hostów w ramach usługi pulpitu wirtualnego systemu Windows Agent regularnie odświeża token maszyny wirtualnej za każdym razem, gdy maszyna wirtualna jest aktywna. Certyfikat dla tokenu rejestracji jest ważny przez 90 dni. Ze względu na 90 dzienny limit zalecamy rozpoczęcie maszyn wirtualnych co 90 dni. Włączenie tej maszyny wirtualnej w tym limicie czasu uniemożliwi wygaśnięcie tokenu rejestracji lub jego nieprawidłowość. Jeśli maszyna wirtualna została uruchomiona po upływie 90 dni i występują problemy z rejestracją, postępuj zgodnie z instrukcjami w [przewodniku rozwiązywania problemów agenta usług pulpitu wirtualnego systemu Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) , aby usunąć maszynę wirtualną z puli hostów, ponownie zainstaluj agenta i zarejestruj go w puli.
+Po zarejestrowaniu maszyny wirtualnej w puli hostów w ramach usługi pulpitu wirtualnego systemu Windows Agent regularnie odświeża token maszyny wirtualnej za każdym razem, gdy maszyna wirtualna jest aktywna. Certyfikat dla tokenu rejestracji jest ważny przez 90 dni. Ze względu na 90 limitów czasu zalecamy, aby maszyny wirtualne były w trybie online przez 20 minut co 90 dni, dzięki czemu maszyna może odświeżyć swoje tokeny i zaktualizować jej składniki. Włączenie tej maszyny wirtualnej w tym limicie czasu uniemożliwi wygaśnięcie tokenu rejestracji lub jego nieprawidłowość. Jeśli maszyna wirtualna została uruchomiona po upływie 90 dni i występują problemy z rejestracją, postępuj zgodnie z instrukcjami w [przewodniku rozwiązywania problemów agenta usług pulpitu wirtualnego systemu Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) , aby usunąć maszynę wirtualną z puli hostów, ponownie zainstaluj agenta i zarejestruj go w puli.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Czy mogę ustawić opcje dostępności podczas tworzenia pul hostów?
 

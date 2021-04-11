@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 629459d22b18b326307b45bb512d16622808b533
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c10963d28e0d2ecee73150e8b5af89cee96d28b2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562634"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077010"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -85,6 +85,10 @@ Ocena ufności dla ocen „Na podstawie wydajności” jest obliczana w oparciu 
 - W przypadku maszyn wirtualnych platformy Azure i ocen dotyczących automatycznej wersji programu po rozpoczęciu odnajdywania zostały utworzone kilka serwerów. Na przykład jeśli tworzysz ocenę dla historii wydajności dla ostatniego miesiąca, ale kilka serwerów zostało utworzonych w środowisku tylko tydzień temu. W takim przypadku dane wydajności dla nowych serwerów nie będą dostępne przez cały czas, a Ocena zaufania byłaby niska. [Dowiedz się więcej](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
 - W przypadku ocen usługi Azure SQL utworzono kilka wystąpień lub baz danych SQL po rozpoczęciu odnajdywania. Na przykład jeśli tworzysz ocenę dla historii wydajności dla ostatniego miesiąca, ale kilka wystąpień SQL lub baz danych zostało utworzonych w środowisku tylko tydzień temu. W takim przypadku dane wydajności dla nowych serwerów nie będą dostępne przez cały czas, a Ocena zaufania byłaby niska. [Dowiedz się więcej](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="-the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>> liczba ocen dotyczących maszyn wirtualnych lub automatycznej synchronizacji na platformie Azure w narzędziu odnajdywania i oceniania jest niepoprawna
+ Aby to skorygować, kliknij łączną liczbę ocen, aby przejść do wszystkich ocen i ponownie obliczyć maszynę wirtualną platformy Azure lub ocenę wersji zaautomatycznej. Narzędzie odnajdywanie i ocenianie wyświetli poprawną liczbę dla tego typu oceny.
+
 
 ## <a name="i-want-to-try-out-the-new-azure-sql-assessment"></a>Chcę wypróbować nową ocenę usługi Azure SQL
 Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Rozpocznij pracę z [tym samouczkiem](tutorial-discover-vmware.md). Jeśli chcesz wypróbować tę funkcję w istniejącym projekcie, upewnij się, że zostały spełnione [wymagania wstępne](how-to-discover-sql-existing-project.md) opisane w tym artykule.

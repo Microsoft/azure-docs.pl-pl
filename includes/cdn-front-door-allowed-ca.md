@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2020
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 20d9810ef5ff7380eb0df5df8a6720dcef71a6ad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0621788f50a07466861fbd87ede191f5ab688cd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105103991"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554737"
 ---
 Podczas tworzenia własnego certyfikatu można używać następujących urzędów certyfikacji:
 
@@ -62,7 +62,9 @@ Podczas tworzenia własnego certyfikatu można używać następujących urzędó
 - RootCA1 komunikacji zabezpieczeń
 - RootCA2 komunikacji zabezpieczeń
 - RootCA3 komunikacji zabezpieczeń
+- SSL.com główny urząd certyfikacji ECC
 - SSL.com główny urząd certyfikacji RSA
+- Główny urząd certyfikacji SSL.com EV — ECC
 - Główny urząd certyfikacji SSL.com EV — RSA R2
 - Główny urząd certyfikacji Staat der Nederlanden EV
 - Symantec Class 3 EV — urząd certyfikacji SSL-G3

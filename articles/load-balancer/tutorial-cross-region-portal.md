@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576921"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221130"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Samouczek: Tworzenie Azure Load Balancer międzyregionowych przy użyciu Azure Portal
 
@@ -105,34 +105,6 @@ Utwórz pulę adresów zaplecza **myBackendPool-CR** , aby uwzględnić regional
 8. Wybierz pozycję **Dodaj**.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Dodawanie regionalnych modułów równoważenia obciążenia do usługi ustawień httpsettings elementu" border="true":::
-
-## <a name="create-a-health-probe"></a>Tworzenie sondy kondycji
-
-W tej sekcji utworzysz sondę kondycji, aby utworzyć regułę równoważenia obciążenia:
-
-* O nazwie **myHealthProbe**.
-* Protokół **TCP**.
-* Interwał **5** sekund.
-* Próg złej kondycji **dwóch** awarii.
-
-1. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer-CR** z listy zasobów.
-
-2. W obszarze **Ustawienia** wybierz pozycję **Sondy kondycji**.
-
-3. Użyj tych wartości, aby skonfigurować sondę kondycji:
-
-    | Ustawienie | Wartość |
-    | ------- | ----- |
-    | Nazwa | Wprowadź **myHealthProbe**. |
-    | Protokół | Wybierz pozycję **TCP**. |
-    | Port | Wprowadź **80**. |
-    | Interwał | Wprowadź **5**. |
-    | Próg złej kondycji | Wprowadź **2**. |
-
-4. Wybierz przycisk **OK**.
-
-    > [!NOTE]
-    > Moduł równoważenia obciążenia między regionami ma wbudowaną sondę kondycji. To sondowanie jest symbolem zastępczym dla tworzenia reguły równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz **[ograniczenia dotyczące międzyregionowego modułu równoważenia obciążenia](cross-region-overview.md#limitations)**.
 
 ## <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 

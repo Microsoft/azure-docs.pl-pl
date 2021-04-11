@@ -25,6 +25,8 @@
   items:
     - name: Zabezpieczenia
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Ochrona platformy Microsoft 365 przed atakami lokalnymi
           href: protect-m365-from-on-premises-attacks.md
         - name: Zabezpieczanie współpracy z osobami z zewnątrz

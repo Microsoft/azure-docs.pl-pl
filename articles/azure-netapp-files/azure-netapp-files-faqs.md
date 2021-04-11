@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 318b7e8b35fa7cc56a86033a08e316257a488b6f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2021
-ms.locfileid: "106442698"
+ms.locfileid: "106504995"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -91,10 +91,6 @@ Aby uzyskać pełną listę uprawnień Azure NetApp Files, zobacz operacje dosta
 Azure NetApp Files jest usługą natywną platformy Azure. Wszystkie interfejsy API PUT, POST i DELETE dotyczące Azure NetApp Files są rejestrowane. Na przykład dzienniki zawierają działania, takie jak kto utworzył migawkę, kto zmodyfikował wolumin itd.
 
 Aby uzyskać pełną listę operacji interfejsu API, zobacz [Azure NetApp Files interfejsu API REST](/rest/api/netapp/).
-
-### <a name="how-do-i-audit-file-access-on-azure-netapp-files-nfs-v3-and-v41-volumes"></a>Jak mogę inspekcji dostępu do plików na woluminach Azure NetApp Files NFS (V3 i v 4.1)?
-
-Dzienniki inspekcji można skonfigurować po stronie klienta. Wszystkie zmiany odczytu, zapisu i atrybutów są rejestrowane. 
 
 ### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>Czy mogę używać zasad platformy Azure z Azure NetApp Files?
 

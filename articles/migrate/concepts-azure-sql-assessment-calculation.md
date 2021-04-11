@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: c2e739a45c7915c957ca89e5b01b98afa945d03e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22fa184f91cb409f7a4d7795a4bc34bdd83e598
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557194"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077809"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Przegląd oceny (Migrowanie do usługi Azure SQL)
 
@@ -28,6 +28,9 @@ Istnieją trzy typy ocen, które można utworzyć za pomocą narzędzia do odnaj
 **Maszyna wirtualna platformy Azure** | Oceny umożliwiające migrację serwerów lokalnych do maszyn wirtualnych platformy Azure. <br/><br/> Można ocenić serwery lokalne w środowisku [VMware](how-to-set-up-appliance-vmware.md) i [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md) oraz [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji do maszyn wirtualnych platformy Azure przy użyciu tego typu oceny.
 **Azure SQL** | Ocenianie migracji lokalnych serwerów SQL ze środowiska VMware do Azure SQL Database lub wystąpienia zarządzanego Azure SQL.
 **Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające migrację serwerów lokalnych do usługi [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Jeśli liczba ocen dotyczących maszyn wirtualnych lub automatycznej wersji platformy Azure jest nieprawidłowa w narzędziu odnajdywanie i ocenianie, kliknij łączną liczbę ocen, aby przejść do wszystkich ocen i ponownie obliczyć maszyny wirtualne platformy Azure lub oceny automatycznej synchronizacji. Narzędzie odnajdywanie i ocenianie wyświetli poprawną liczbę dla tego typu oceny. 
 
 Ocena usługi Azure SQL zapewnia jedno kryterium ustalania wielkości:
 

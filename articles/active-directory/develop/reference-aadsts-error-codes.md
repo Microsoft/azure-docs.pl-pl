@@ -12,12 +12,12 @@ ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75d838e8ce785a4f59b056bf0dec736b982ea716
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578502"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283817"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -123,7 +123,7 @@ Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w
 | AADSTS50055 | InvalidPasswordExpiredPassword — hasło wygasło. |
 | AADSTS50056 | Nieprawidłowe lub puste hasło — hasło nie istnieje w sklepie dla tego użytkownika. |
 | AADSTS50057 | UserDisabled — konto użytkownika jest wyłączone. Konto zostało wyłączone przez administratora. |
-| AADSTS50058 | UserInformationNotProvided — oznacza to, że użytkownik nie jest zalogowany. Jest to typowy błąd oczekiwany w sytuacji, gdy użytkownik jest nieuwierzytelniony i jeszcze nie jest zalogowany.</br>Jeśli ten błąd jest zalecany w kontekście logowania jednokrotnego, w którym użytkownik zalogował się wcześniej, oznacza to, że nie można odnaleźć sesji logowania jednokrotnego lub jest ona nieprawidłowa.</br>Ten błąd może zostać zwrócony do aplikacji, jeśli jest wyświetlany monit = none. |
+| AADSTS50058 | UserInformationNotProvided — oznacza to, że użytkownik nie jest zalogowany. Jest to typowy błąd oczekiwany w sytuacji, gdy użytkownik jest nieuwierzytelniony i jeszcze nie jest zalogowany.</br>Jeśli ten błąd wystąpił w kontekście logowania jednokrotnego, w którym użytkownik zalogował się wcześniej, oznacza to, że nie można odnaleźć sesji logowania jednokrotnego lub jest ona nieprawidłowa.</br>Ten błąd może zostać zwrócony do aplikacji, jeśli jest wyświetlany monit = none. |
 | AADSTS50059 | Nie znaleziono informacji identyfikacyjnych MissingTenantRealmAndNoUserInformationProvided-dzierżawców w żądaniu ani IMPLIKOWANYCH przez żadne podane poświadczenia. Użytkownik może skontaktować się z administratorem dzierżawy, aby pomóc w rozwiązaniu problemu. |
 | AADSTS50061 | SignoutInvalidRequest — żądanie wylogowania jest nieprawidłowe. |
 | AADSTS50064 | CredentialAuthenticationError — weryfikacja poświadczeń dla nazwy użytkownika lub hasła zakończyła się niepowodzeniem. |

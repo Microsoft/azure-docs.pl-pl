@@ -8,27 +8,30 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: ''
-ms.openlocfilehash: 9d40bbd7e08d8d3869166827a22f3f08536532bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a4f206d68df3cd8dd4dd5b1b411d316e7aacde92
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590708"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077117"
 ---
 # <a name="generate-arm-template-for-cloud-services-extended-support-using-the-azure-portal"></a>Generuj szablon ARM dla Cloud Services (obsługa rozszerzona) przy użyciu Azure Portal
 
-W tym artykule wyjaśniono, jak pobrać szablon ARM i plik parametrów z [Azure Portal](https://portal.azure.com) po wdrożeniu usługi w chmurze (obsługa rozszerzona). Szablon ARM i plik parametrów mogą być używane w przyszłych wdrożeniach w celu uaktualnienia lub zaktualizowania usługi w chmurze (obsługa rozszerzona)
+W tym artykule wyjaśniono, jak pobrać szablon ARM i plik parametrów z [Azure Portal](https://portal.azure.com) dla usługi w chmurze. Szablon ARM i plik parametrów mogą być używane w wdrożeniach za pośrednictwem programu PowerShell w celu utworzenia lub zaktualizowania usługi w chmurze
 
 ## <a name="get-arm-template-via-portal"></a>Pobierz szablon ARM za pośrednictwem portalu
 
-  1. Przejdź do grupy zasobów, a następnie wybierz pozycję wdrożenia.
-  :::image type="content" source="media/generate-template-portal-1.png" alt-text="Obraz przedstawia Wybieranie wdrożeń w obszarze Grupa zasobów na Azure Portal.":::
+  1. Przejdź do Azure Portal i [Utwórz nową usługę w chmurze](deploy-portal.md). Dodaj konfigurację usługi w chmurze, pliki pakietów i definicje. 
+    :::image type="content" source="media/deploy-portal-4.png" alt-text="Obraz przedstawia sekcję przekazywanie na karcie podstawy podczas tworzenia.":::
   
-  2. Wybierz usługę w chmurze (obsługę rozszerzoną), a następnie kliknij pozycję szablon.
-  :::image type="content" source="media/generate-template-portal-2.png" alt-text="Obraz przedstawia Wybieranie szablonu w ramach usługi w chmurze (obsługa rozszerzona) na Azure Portal.":::
+  2. Po zakończeniu wszystkich pól przejdź na kartę Przegląd i tworzenie, aby sprawdzić poprawność konfiguracji wdrożenia, a następnie kliknij pozycję **Pobierz szablon w celu automatyzacji usługi w** chmurze (obsługa rozszerzona).
+    :::image type="content" source="media/download-template-portal-1.png" alt-text="Obraz przedstawia pobieranie szablonu w ramach usługi w chmurze (obsługa rozszerzona) na Azure Portal.":::
   
-  3. Pobierz szablony i pliki parametrów. Mogą one być używane w przyszłych wdrożeniach za pośrednictwem programu PowerShell.
-  :::image type="content" source="media/generate-template-portal-3.png" alt-text="Obraz pokazuje pobieranie pliku szablonu na Azure Portal.":::
+  3. Pobierz szablony i pliki parametrów. 
+    :::image type="content" source="media/generate-template-portal-3.png" alt-text="Obraz pokazuje pobieranie pliku szablonu na Azure Portal.":::
+  
+  4. Skopiuj identyfikator URI sygnatury dostępu współdzielonego pakietu i identyfikator URI konfiguracji z karty Przegląd i tworzenie i Dodaj do parameter.jsw pliku. Te pliki mogą być teraz używane do tworzenia nowej usługi w chmurze za pomocą programu PowerShell.
+    :::image type="content" source="media/download-template-portal-2.png" alt-text="Obraz przedstawia parametry identyfikatora URI sygnatury dostępu współdzielonego pakietu i identyfikatora URI konfiguracji na Azure Portal.":::
   
 ## <a name="next-steps"></a>Następne kroki 
 - Zapoznaj się z [często zadawanymi pytaniami](faq.md) dotyczącymi Cloud Services (obsługa rozszerzona).

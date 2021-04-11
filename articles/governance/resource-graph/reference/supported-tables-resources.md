@@ -1,15 +1,15 @@
 ---
 title: Obsługiwane Azure Resource Manager typy zasobów
 description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 03/24/2021
+ms.date: 04/06/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 482c261586d5d077a61781eff28698fa9994f332
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6161c2f53690140e2cd1140deaa8a22b3388dd2b
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544149"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505267"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -84,7 +84,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Citrix. Services/XenDesktopEssentials (podstawowe usługi Citrix Virtual Desktops)
 - Conexlink. MyCloudIt/accounts (MyCloudIT-Azure Desktop hosting)
 - Crypteron. datasecurity/Apps (Crypteron)
-- GitHub. przedsiębiorstwa/konta
+- GitHub. Enterprise/accounts (GitHub AE)
 - GridPro. evops/konta
 - GridPro. evops/accounts/eventrules
 - GridPro. evops/accounts/requesttemplates
@@ -97,7 +97,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. aadiam/azureadmetrics
 - Microsoft. aadiam/privateLinkForAzureAD (prywatny link do usługi Azure AD)
 - Microsoft. aadiam/dzierżawcy
-- Microsoft. agfoodplatform/farmbeats
+- Microsoft. AgFoodPlatform/farmBeats (Azure FarmBeats PaaS)
 - Microsoft. aisupercomputer/konta
 - Microsoft. aisupercomputer/accounts/jobgroups
 - Microsoft. aisupercomputer/accounts/jobgroups/Jobs
@@ -188,7 +188,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Cognition/syntheticsAccounts (konta syntetyczne)
 - Microsoft. CognitiveServices/konta (Cognitive Services)
 - Microsoft. COMPUTE/availabilitySets (zbiory dostępności)
-- Microsoft. COMPUTE/capacityreservationgroups
+- Microsoft. COMPUTE/capacityReservationGroups (grupy rezerwacji pojemności)
 - Microsoft. COMPUTE/capacityreservationgroups/capacityreservations
 - Microsoft. COMPUTE/capacityreservations
 - Microsoft. COMPUTE/cloudServices (Cloud Services (obsługa rozszerzona))
@@ -220,7 +220,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. ConnectedCache/cacheNodes (zasoby połączonej pamięci podręcznej)
 - Microsoft. connectedvehicle/platformaccounts
 - Microsoft. connectedvmwarevsphere/ResourcePools
-- Microsoft. connectedvmwarevsphere/vCenter
+- Microsoft. connectedVMwareVSphere/vCenters (VMware vCenter)
 - Microsoft. ConnectedVMwarevSphere/VirtualMachines (maszyny wirtualne VMware + automatyczna synchronizacja)
 - Microsoft. connectedvmwarevsphere/virtualmachines/rozszerzenia
 - Microsoft. connectedvmwarevsphere/virtualmachinetemplates
@@ -233,7 +233,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. containerregistry/rejestry/taskruns
 - Microsoft. containerregistry/rejestry/zadania
 - Microsoft. ContainerRegistry/rejestry/elementy webhook (elementy webhook rejestru kontenerów)
-- Microsoft. ContainerService/containerServices (usługi kontenera (przestarzałe))
+- Microsoft. containerservice/containerservices
 - Microsoft. ContainerService/managedClusters (Kubernetes Services)
 - Microsoft. containerservice/openshiftmanagedclusters
 - Microsoft. contoso/klastry
@@ -259,6 +259,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. datamigration/Slots
 - Microsoft. datamigration/sqlmigrationservices
 - Microsoft. dataprotection/BackupVaults (magazyny kopii zapasowych)
+- Microsoft. dataprotection/resourceguards
 - Microsoft. dataprotection/resourceoperationgatekeepers
 - Microsoft. dataudział/konta (udziały danych)
 - Microsoft. DBforMariaDB/serwery (serwery Azure Database for MariaDB)
@@ -302,7 +303,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. DomainRegistration/domeny (domeny App Service)
 - Microsoft. edgeorder/adresy
 - Microsoft. edgeorder/ordercollections
-- Microsoft. edgeorder/Orders
+- Microsoft. EdgeOrder/Orders (Azure Edge)
 - Microsoft. Elastic/Monitors (Elasticsearch)
 - Microsoft. enterpriseknowledgegraph/usługi
 - Microsoft. EventGrid/domeny (domeny Event Grid)
@@ -323,6 +324,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. HanaOnAzure/hanaInstances (SAP HANA na platformie Azure)
 - Microsoft. HanaOnAzure/sapMonitors (monitory platformy Azure dla rozwiązań SAP)
 - Microsoft. hardwaresecuritymodules/modułów dedicatedhsms
+- Microsoft. HDInsight/clusterpools
+- Microsoft. HDInsight/clusterpools/klastry
 - Microsoft. HDInsight/Klastry (klastry usługi HDInsight)
 - Microsoft. HealthBot/healthBots (Azure Health bot)
 - Microsoft. HealthcareApis/Services (interfejs API platformy Azure dla FHIR)
@@ -395,8 +398,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. machinelearningservices/Workspaces/batchendpoints/Deployments
 - Microsoft. machinelearningservices/Workspaces/inferenceendpoints
 - Microsoft. machinelearningservices/Workspaces/inferenceendpoints/Deployments
-- Microsoft. MachineLearningServices/Workspaces/onlineEndpoints (aplikacje ML)
-- Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Deployments (z wdrożeniami aplikacji ML)
+- Microsoft. MachineLearningServices/Workspaces/onlineEndpoints (punkty końcowe usługi Machine Learning online)
+- Microsoft. MachineLearningServices/Workspaces/onlineEndpoints/Deployments (wdrożenia Machine Learning online)
 - Microsoft. Maintenance/maintenanceConfigurations (konfiguracje konserwacji)
 - Microsoft. Maintenance/maintenancepolicies
 - Microsoft. managedidentity/grupy
@@ -414,7 +417,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Media/MediaServices/liveevents (zdarzenia na żywo)
 - Microsoft. Media/MediaServices/streamingEndpoints (punkty końcowe przesyłania strumieniowego)
 - Microsoft. Media/MediaServices/transformacje
-- Microsoft. Media/videoanalyzers
+- Microsoft. Media/videoanalyzers (analizatory wideo)
 - Microsoft. microservices4spring/appclusters
 - Microsoft. migrowana/assessmentprojects
 - Microsoft. migrowana/migrateprojects
@@ -513,8 +516,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. OperationalInsights/obszary robocze (Log Analytics obszary robocze)
 - Microsoft. OperationsManagement/rozwiązania (rozwiązania)
 - Microsoft. operationsmanagement/widoki
-- Microsoft. Orbita/contactprofiles
-- Microsoft. orbity/statki kosmiczne
+- Microsoft. Orbita/contactProfiles (ContactProfiles)
+- Microsoft. orbity/statki kosmiczne (statki kosmiczne)
 - Microsoft. Komunikacja równorzędna/Komunikacja równorzędna (Komunikacja równorzędna)
 - Microsoft. Komunikacja równorzędna/peeringServices (usługi komunikacji równorzędnej)
 - Microsoft. Portal/pulpity nawigacyjne (udostępnione pulpity nawigacyjne)
@@ -525,7 +528,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. powerbidedicated/autoscalevcores
 - Microsoft. PowerBIDedicated/pojemności (Power BI Embedded)
 - Microsoft. powerplatform/enterprisepolicies
-- Microsoft. ProjectBabylon/konta (konta Babylon)
+- Microsoft. projectbabylon/konta
 - Microsoft. kontrolą/konta (konta kontrolą)
 - Microsoft. Quantum/obszary robocze (Quantum — obszary robocze)
 - Microsoft. RecoveryServices/magazyny (magazyny Recovery Services)
@@ -596,6 +599,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Synapse/privateLinkHubs (Azure Synapse Analytics (koncentratory linków prywatnych))
 - Microsoft. Synapse/obszary robocze (Azure Synapse Analytics)
 - Microsoft. Synapse/Workspaces/bigDataPools (pule Apache Spark)
+- Microsoft. Synapse/Workspaces/kustopools
 - Microsoft. Synapse/obszary robocze/sqldatabases
 - Microsoft. Synapse/Workspaces/xmlpools (dedykowane pule SQL)
 - Microsoft. terraformoss/providerregistrations

@@ -1,14 +1,14 @@
 ---
 title: Przykładowe kontrolki planu PCI-DSS v 3.2.1
 description: Sterowanie mapowaniem przykładu usługi Payment Card Industry Data Security Standard v 3.2.1 do Azure Policy i kontroli RBAC platformy Azure.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9b1cf7702b627ae073f0172dde4694060004cb3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 028981e7c6fc6e3886781d33079dcdfa0aebcc39
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98045159"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386089"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu PCI-DSS v 3.2.1
 

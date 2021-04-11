@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc19d5652f416657cbcd339de61379265587b4e7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467021"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505386"
 ---
 # <a name="form-recognizer-layout-service"></a>Usługa układu aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure może wyodrębnić tekst, tabele, znaczniki wyboru i informacje o strukturze z dokumentów przy użyciu usługi układu. Interfejs API układu umożliwia klientom korzystanie z dokumentów w różnych formatach i zwracanie uporządkowanych reprezentacji danych. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z modelami uczenia głębokiego, aby wyodrębnić tekst, tabele, znaczniki wyboru i strukturę dokumentu. 
+Aparat rozpoznawania formularzy platformy Azure może wyodrębnić tekst, tabele, znaczniki wyboru i informacje o strukturze z dokumentów przy użyciu usługi układu. Interfejs API układu umożliwia klientom korzystanie z dokumentów w różnych formatach i zwracanie uporządkowanych reprezentacji danych. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/overview-ocr.md) z modelami uczenia głębokiego, aby wyodrębnić tekst, tabele, znaczniki wyboru i strukturę dokumentu. 
 
 ## <a name="what-does-the-layout-service-do"></a>Do czego służy usługa układu?
 
@@ -32,7 +32,7 @@ Interfejs API układu wyodrębnia tekst, tabele, znaczniki wyboru i informacje o
 Aby wypróbować usługę układu aparatu rozpoznawania formularzy, przejdź do narzędzia przykładowego interfejsu użytkownika w trybie online:
 
 > [!div class="nextstepaction"]
-> [Narzędzie testowe OCR (FOTT)](https://fott-preview.azurewebsites.net)
+> [Wypróbuj aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net)
 
 Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania interfejsu API układu aparatu rozpoznawania formularzy. 
 
@@ -48,7 +48,7 @@ Najpierw Wywołaj operację [analizy układu](https://westcentralus.dev.cognitiv
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ### <a name="natural-reading-order-output-latin-only"></a>Dane wyjściowe z porządkiem naturalnym odczytywania (tylko łacińskie)
 

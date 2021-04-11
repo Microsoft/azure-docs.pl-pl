@@ -3,12 +3,12 @@ title: Samouczek — prywatne środowiska lokalne do chmury prywatnej
 description: Dowiedz się, jak utworzyć ExpressRoute Global Reach komunikacji równorzędnej w chmurze prywatnej w rozwiązaniu VMware platformy Azure.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564504"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449566"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Samouczek: środowiska lokalne w chmurze do chmury prywatnej
 
@@ -55,7 +55,7 @@ Teraz, po utworzeniu klucza autoryzacji obwodu usługi ExpressRoute w chmurze pr
 1. Utwórz połączenie z chmurą lokalną. Wykonaj jedną z następujących czynności, a następnie wybierz pozycję **Utwórz**:
 
    - Wybierz **obwód usługi ExpressRoute** z listy lub
-   - Jeśli masz Identyfikator obwodu, wklej go w polu i Podaj klucz autoryzacji.
+   - Jeśli masz Identyfikator obwodu, wklej go w polu i Podaj klucz autoryzacji, który właśnie został utworzony.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Wprowadź identyfikator ExpressRoute i klucz autoryzacji, a następnie wybierz pozycję Utwórz.":::   
    

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: 91e10c25d2c3bef9c1ca20e3e5737a326d45997c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdf24fdc56d39d93fed0009e2fadbafd7f97db6c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97654782"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280500"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Przykład: Jak wyodrębnić kluczowe frazy przy użyciu analiza tekstu
 
@@ -121,7 +121,7 @@ Aby uzyskać informacje na temat definicji żądania, zobacz [jak wywołać inte
 
 ## <a name="step-2-post-the-request"></a>Krok 2: Wysłanie żądania
 
-Analiza jest wykonywana po odebraniu żądania. Aby uzyskać informacje o rozmiarze i liczbie żądań wysyłanych na minutę lub na sekundę, zobacz sekcję [limity danych](../overview.md#data-limits) w przeglądzie.
+Analiza jest wykonywana po odebraniu żądania. Aby uzyskać informacje o rozmiarze i liczbie żądań wysyłanych na minutę lub na sekundę, zobacz artykuł dotyczący [limitów danych](../concepts/data-limits.md) .
 
 Pamiętaj, że usługa jest bezstanowa. Żadne dane nie są przechowywane na koncie. Wyniki są zwracane natychmiast w odpowiedzi.
 

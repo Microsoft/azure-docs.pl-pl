@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555863"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450313"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -31,6 +31,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |Azja Wschodnia     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Niemcy Środkowo-Zachodnie     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Korea Środkowa     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Północno-środkowe stany USA    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |South Central US    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |US Gov Arizona     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |US Gov Wirginia     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
@@ -44,7 +45,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |East US     |Trzy strefy dostępności          |
 |Wschodnie stany USA 2     |Trzy strefy dostępności         |
 |Francja Środkowa    |Dwie strefy dostępności        |
-|Japonia Wschodnia    |Trzy strefy dostępności        |
+|Japan East    |Trzy strefy dostępności        |
 |Europa Północna    |Trzy strefy dostępności        |
 |Południowe Zjednoczone Królestwo    |Trzy strefy dostępności        |
 |West Europe    | Trzy strefy dostępności|

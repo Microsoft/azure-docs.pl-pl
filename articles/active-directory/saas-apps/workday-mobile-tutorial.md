@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94ab61a5c6335d43842ada48f17572c186af773c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182023"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą aplikacji mobilnej Workday
 
@@ -132,13 +132,11 @@ Aby umożliwić urządzeniom z systemem iOS logowanie się tylko za pomocą plat
 
 | Scenariusz | Pary klucz-wartość |
 |----------------------------------------------------------------------------------------   |-----------|
-| Automatycznie Wypełnij pola dzierżawców i adresów sieci Web dla:<br>● Workday w systemie Android po włączeniu profilów programu Android for Work.<br>● Produktu Workday na urządzeniu iPad i telefonie iPhone.     | Użyj tych wartości, aby skonfigurować dzierżawcę: <br>Klucz konfiguracji ● = `UserGroupCode`<br>Typ wartości ● = ciąg <br>● Wartość konfiguracji = nazwa dzierżawy. Przykład: `gms`<br>Użyj tych wartości, aby skonfigurować adres sieci Web:<br>Klucz konfiguracji ● = `AppServiceHost`<br>Typ wartości ● = ciąg<br>● Wartość konfiguracji = podstawowy adres URL dla dzierżawy. Przykład: `https://www.myworkday.com`                                |   |
+| Automatycznie Wypełnij pola dzierżawców i adresów sieci Web dla:<br>● Workday w systemie Android po włączeniu profilów programu Android for Work.<br>● Produktu Workday na urządzeniu iPad i telefonie iPhone.     | Użyj tych wartości, aby skonfigurować dzierżawcę: <br>Klucz konfiguracji ● = `UserGroupCode`<br>Typ wartości ● = ciąg <br>● Wartość konfiguracji = nazwa dzierżawy. Przykład: `gms`<br>Użyj tych wartości, aby skonfigurować adres sieci Web:<br>Klucz konfiguracji ● = `AppServiceHost`<br>Typ wartości ● = ciąg<br>● Wartość konfiguracji = podstawowy adres URL dla dzierżawy. Przykład: `https://www.myworkday.com`                                | 
 | Wyłącz te akcje dla produktu Workday na urządzeniu iPad i telefonie iPhone:<br>● Wycinanie, kopiowanie i wklejanie<br>● Druku                       | Ustaw wartość (wartość logiczna) na `False` następujące klucze, aby wyłączyć funkcję:<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
 | Wyłącz zrzuty ekranu dla produktu Workday w systemie Android. |Ustaw wartość (wartość logiczna) na `False` klucz, `AllowScreenshots` Aby wyłączyć funkcję.|
 | Wyłącz sugerowane aktualizacje dla użytkowników.|Ustaw wartość (wartość logiczna) na `False` klucz, `AllowSuggestedUpdates` Aby wyłączyć funkcję.|
 |Dostosuj adres URL sklepu z aplikacjami, aby kierować użytkowników mobilnych do wybranego sklepu z aplikacjami.|Użyj tych wartości, aby zmienić adres URL sklepu z aplikacjami:<br>Klucz konfiguracji ● = `AppUpdateURL`<br>Typ wartości ● = ciąg<br> ● — Wartość konfiguracji = adres URL sklepu App Store|
-|       |
-
 
 ## <a name="ios-configuration-policies"></a>Zasady konfiguracji systemu iOS
 

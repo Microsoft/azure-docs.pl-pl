@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168216"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505029"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Rozwiązywanie typowych problemów z agentem pulpitu wirtualnego systemu Windows
 
@@ -216,7 +216,7 @@ Aby rozwiązać ten problem:
 
 ## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Błąd: problem pulsu, w którym użytkownicy zachowują rozłączenie z hostów sesji
 
-Jeśli serwer nie pobiera pulsu z usługi pulpitu wirtualnego systemu Windows, należy zmienić próg pulsu. Postępuj zgodnie z instrukcjami w tej sekcji, jeśli są spełnione co najmniej jeden z następujących scenariuszy:
+Jeśli serwer nie pobiera pulsu z usługi pulpitu wirtualnego systemu Windows, należy zmienić próg pulsu. Spowoduje to tymczasowe ograniczenie symptomów problemu, ale nie rozwiąże problemu z siecią. Postępuj zgodnie z instrukcjami w tej sekcji, jeśli są spełnione co najmniej jeden z następujących scenariuszy:
 
 - Otrzymujesz błąd **CheckSessionHostDomainIsReachableAsync**
 - Otrzymujesz błąd **ConnectionBrokenMissedHeartbeatThresholdExceeded**
@@ -316,7 +316,7 @@ Aby rozwiązać ten problem:
 
 Jeśli nie możesz znaleźć problemu w tym artykule lub instrukcje nie były pomocne, zalecamy odinstalowanie, ponowne zainstalowanie i ponowne zarejestrowanie agenta usług pulpitu wirtualnego systemu Windows. Instrukcje przedstawione w tej sekcji pokazują, jak ponownie zarejestrować MASZYNę wirtualną w usłudze pulpitu wirtualnego systemu Windows, odinstalując wszystkie składniki agenta, modułu ładującego rozruchu i stosu, usuwając hosta sesji z puli hostów, generując nowy klucz rejestracji dla maszyny wirtualnej, a następnie instalując ponownie agenta i moduł ładujący rozruchu. W przypadku zastosowania co najmniej jednego z następujących scenariuszy wykonaj następujące instrukcje:
 - Maszyna wirtualna jest zablokowana **lub** jest **niedostępna**
-- Odbiornik stosu nie działa i jest uruchomiony w systemie Windows 10 1809, 1903 lub 1904
+- Odbiornik stosu nie działa i jest uruchomiony w systemie Windows 10 1809, 1903 lub 1909
 - Otrzymujesz błąd **EXPIRED_REGISTRATION_TOKEN**
 - Twoje maszyny wirtualne nie są widoczne na liście hosty sesji
 - Nie widzisz **modułu ładującego pulpit zdalny Agent** w oknie usług

@@ -1,14 +1,14 @@
 ---
 title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 72772743eba23ea7c2a93f5037ac84b671256a66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6eaefdbc28b8efc53dc7c4d46eb5d8a56d5be141
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104887703"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096601"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -25,8 +25,7 @@ Wykonaj poniższe czynności, aby utworzyć własną konfigurację służącą d
 > [!IMPORTANT]
 > Niestandardowe definicje zasad z konfiguracją gościa w Azure Government i środowiska Chin platformy Azure to funkcja w wersji zapoznawczej.
 >
-> Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa.
-> Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 > 
 > Nie używaj wpisów tajnych ani informacji poufnych w niestandardowych pakietach zawartości.
 
@@ -138,7 +137,7 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-Jeśli zasób ma wymagane właściwości, te również muszą być zwracane przez `Get-TargetResource` równolegle z `reasons` klasą. Jeśli `reasons` nie jest uwzględniony, usługa obejmuje zachowanie "catch-all", które porównuje wartości wejściowe `Get-TargetResource` i wartości zwracane przez `Get-TargetResource` , i udostępnia szczegółowe porównanie jako `reasons` .
+Jeśli zasób ma wymagane właściwości, te właściwości muszą być również zwracane przez `Get-TargetResource` równolegle z `reasons` klasą. Jeśli `reasons` nie jest uwzględniony, usługa obejmuje zachowanie "catch-all", które porównuje wartości wejściowe `Get-TargetResource` i wartości zwracane przez `Get-TargetResource` , i udostępnia szczegółowe porównanie jako `reasons` .
 
 ### <a name="configuration-requirements"></a>Wymagania dotyczące konfiguracji
 
@@ -181,9 +180,7 @@ Ukończony pakiet jest używany przez konfigurację gościa do tworzenia definic
   - Moduł DscNativeResources
   - Systemy Moduły zasobów DSC wymagane przez plik MOF
 
-Polecenia cmdlet programu PowerShell ułatwiają tworzenie pakietu.
-Nie jest wymagany folder poziomu głównego ani folder wersji.
-Format pakietu musi być plikiem zip i nie może przekraczać łącznego rozmiaru 100 MB w przypadku braku kompresji.
+Polecenia cmdlet programu PowerShell ułatwiają tworzenie pakietu. Nie jest wymagany folder poziomu głównego ani folder wersji. Format pakietu musi być plikiem zip i nie może przekraczać łącznego rozmiaru 100 MB w przypadku nieskompresowanego.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Przechowywanie artefaktów konfiguracji gościa
 
@@ -217,8 +214,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Uruchom ten skrypt w terminalu programu PowerShell lub Zapisz ten plik o nazwie `config.ps1` w folderze projektu.
-Uruchom ją w programie PowerShell, wykonując `./config.ps1` w terminalu. Zostanie utworzony nowy plik MOF.
+Uruchom ten skrypt w terminalu programu PowerShell lub Zapisz ten plik o nazwie `config.ps1` w folderze projektu. Uruchom ją w programie PowerShell, wykonując `./config.ps1` w terminalu. Zostanie utworzony nowy plik MOF.
 
 `Node AuditBitlocker`Polecenie nie jest technicznie wymagane, ale tworzy plik o nazwie `AuditBitlocker.mof` zamiast domyślnego, `localhost.mof` . Jeśli nazwa pliku MOF jest zgodna z konfiguracją, ułatwia organizowanie wielu plików podczas pracy w dużej skali.
 
@@ -274,7 +270,7 @@ Parametry `Publish-GuestConfigurationPackage` polecenia cmdlet:
 - **Ścieżka**: lokalizacja pakietu do opublikowania
 - **ResourceGroupName**: Nazwa grupy zasobów, w której znajduje się konto magazynu
 - **StorageAccountName**: nazwa konta magazynu, w którym ma zostać opublikowany pakiet
-- **StorageContainerName**: (default: *guestconfiguration*) nazwa kontenera magazynu na koncie magazynu
+- **StorageContainerName**: (default: _guestconfiguration_) nazwa kontenera magazynu na koncie magazynu
 - **Wymuś**: Zastąp istniejący pakiet na koncie magazynu o tej samej nazwie
 
 W poniższym przykładzie jest publikowany pakiet do kontenera magazynu o nazwie "guestconfiguration".
@@ -367,7 +363,7 @@ Przykładowy fragment definicji zasad, który filtruje pod kątem tagów, znajdu
 
 ### <a name="using-parameters-in-custom-guest-configuration-policy-definitions"></a>Używanie parametrów w niestandardowych definicjach zasad konfiguracji gościa
 
-Konfiguracja gościa obsługuje Zastępowanie właściwości konfiguracji w czasie wykonywania. Ta funkcja oznacza, że wartości w pliku MOF w pakiecie nie muszą być uznawane za statyczne. Wartości przesłonięć są udostępniane za pomocą Azure Policy i nie mają wpływu na sposób tworzenia lub kompilowania konfiguracji.
+Konfiguracja gościa obsługuje Zastępowanie właściwości konfiguracji w czasie wykonywania. Ta funkcja oznacza, że wartości w pliku MOF w pakiecie nie muszą być uznawane za statyczne. Wartości przesłonięć są udostępniane za pomocą Azure Policy i nie zmieniają sposobu tworzenia lub kompilowania konfiguracji.
 
 Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicyPackage` zawierają parametr o nazwie **Parameter**. Ten parametr przyjmuje definicję obiektu Hashtable obejmującą wszystkie szczegóły każdego z parametrów i tworzy wymagane sekcje każdego pliku używanego do Azure Policy definicji.
 
@@ -389,7 +385,7 @@ $PolicyParameterInfo = @(
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
+        ResourceId = 'UserSelectedNameExample'                          # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -431,8 +427,7 @@ Jeśli chcesz wydać aktualizację zasad, wprowadź zmiany zarówno dla pakietu 
 > [!NOTE]
 > `version`Właściwość przypisania konfiguracji gościa ma wpływ tylko na pakiety hostowane przez firmę Microsoft. Najlepszym rozwiązaniem w przypadku przechowywania wersji zawartości niestandardowej jest uwzględnienie wersji w nazwie pliku.
 
-Po pierwsze, należy `New-GuestConfigurationPackage` określić nazwę pakietu, który jest unikatowy w porównaniu z poprzednimi wersjami. Numer wersji można dołączyć do nazwy, takiej jak `PackageName_1.0.0` .
-Numer w tym przykładzie służy tylko do unikatowego pakietu, a nie do określenia, że pakiet powinien być uważany za nowszy lub starszy niż inne pakiety.
+Po pierwsze, należy `New-GuestConfigurationPackage` określić nazwę pakietu, który jest unikatowy w porównaniu z poprzednimi wersjami. Numer wersji można dołączyć do nazwy, takiej jak `PackageName_1.0.0` . Numer w tym przykładzie służy tylko do unikatowego pakietu, a nie do określenia, że pakiet powinien być uważany za nowszy lub starszy niż inne pakiety.
 
 Po drugie należy zaktualizować parametry używane z `New-GuestConfigurationPolicy` poleceniem cmdlet po każdym z poniższych wyjaśnień.
 

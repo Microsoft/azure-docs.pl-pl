@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3cc9ad0c694be8f95ddcffbc3d952d59b83f89f3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86998899"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077214"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Uzyskiwanie dostępu do środowiska chmury prywatnej CloudSimple i aplikacji z poziomu lokalnego
 
@@ -43,7 +43,7 @@ Aby skonfigurować lokalną usługi Active Directory jako źródło tożsamości
 | 389 (TCP/UDP) | Sieć zarządzania chmurą prywatną | Lokalne kontrolery domeny usługi Active Directory     | Wymagany do komunikacji z usługą LDAP z prywatnego serwera vCenter Cloud do kontrolerów domeny usługi Active Directory na potrzeby uwierzytelniania użytkowników.                |
 | 636 (TCP)     | Sieć zarządzania chmurą prywatną | Lokalne kontrolery domeny usługi Active Directory     | Wymagane w celu komunikacji z kontrolerami domeny usługi Active Directory w celu uwierzytelniania użytkowników przy użyciu protokołu Secure LDAP (LDAPs) z prywatnego serwera vCenter Cloud. |
 | 3268 (TCP)    | Sieć zarządzania chmurą prywatną | Lokalne serwery wykazu globalnego usługi Active Directory | Wymagane na potrzeby komunikacji z protokołem LDAP w wdrożeniach z wielodomenowym kontrolerem.                                                                        |
-| 3269 (TCP)    | Sieć zarządzania chmurą prywatną | Lokalne serwery wykazu globalnego usługi Active Directory | Wymagane w przypadku komunikacji LDAPs w wdrożeniach z wielodomenowym kontrolerem.                                                                       |                                           |
+| 3269 (TCP)    | Sieć zarządzania chmurą prywatną | Lokalne serwery wykazu globalnego usługi Active Directory | Wymagane w przypadku komunikacji LDAPs w wdrożeniach z wielodomenowym kontrolerem.                                                                       |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Typowe porty wymagane do uzyskania dostępu do obciążeń maszyn wirtualnych
 

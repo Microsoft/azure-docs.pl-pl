@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b3589349feed2e20711aa756d8be8ebc433ac0b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363070"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077605"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge — instrukcje bezpieczeństwa w programie R.
 
@@ -37,7 +37,8 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
 | Ikona | Opis |
 |:--- |:--- |
 | ![Najpierw przeczytaj wszystkie instrukcje](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Najpierw przeczytaj wszystkie instrukcje |
-| ![Powiadomienie o ikonie powiadomienia ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **:** | Wskazuje informacje uznawane za ważne, ale nie związane z zagrożeniami. || ![Symbol zagrożenia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Symbol zagrożenia |
+| ![Powiadomienie o ikonie powiadomienia ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **:** | Wskazuje informacje uznawane za ważne, ale nie związane z zagrożeniami. |
+| ![Symbol zagrożenia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Symbol zagrożenia |
 | ![Ikona zagrożenia Porada](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Niebezpieczeństwo Porada|
 | ![Ikona dużej wagi](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Duże zagrożenie wagi|
 | ![Ikona porażenia energii elektrycznej](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Zagrożenie elektryczne |
@@ -45,7 +46,7 @@ Następujące ikony zagrożeń są przestrzegane podczas konfigurowania i urucha
 | ![Ikona wielu źródeł napięcia](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Wiele źródeł. Odłącz wszystkie przewody zasilające, aby usunąć wszystkie możliwości z urządzenia. |
 | ![Ikona punktów uszczypnięć](./media/azure-stack-edge-pro-r-safety/icon-pinching-points.png)  | Uszczypnięć punkty. |
 | ![Ikona gorące składniki lub powierzchnie](./media/azure-stack-edge-pro-r-safety/icon-hot-component-surface.png)  | Wskazuje aktywne składniki lub powierzchnie. |
-|
+
 
 ## <a name="handling-precautions-and-site-selection"></a>Obsługa środków ostrożności i wybór witryny
 
