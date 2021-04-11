@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 03/30/2021
 tags: connectors
-ms.openlocfilehash: b2f7ae79cf43e257c3e13d2da7fec5c83dd3fab0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec5046e40b6fade0e4d56023c404cc736a46f105
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937281"
+ms.locfileid: "105969108"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -313,32 +313,122 @@ Można użyć IDocs z płaskim schematem pliku, jeśli są one zawijane w koperc
 
 1. W przypadku akcji **Wyślij wiadomość do SAP** Użyj identyfikatora URI akcji SAP `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc` .
 
-1. Sformatuj komunikat wejściowy za pomocą koperty XML. Aby zapoznać się z przykładem, zobacz następujący przykładowy komunikat:
+1. Sformatuj komunikat wejściowy za pomocą koperty XML. Aby zapoznać się z przykładem, zobacz następujący przykładowy ładunek XML:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
-  <idocData>EDI_DC    300                      ORDERS052SAPMSS    LIMSFTABCSWI                                                                                           ED  93AORDERSOLP     VLTRFC    KUMSFTABCSWI                                                                                           13561                       231054476                                                                           20190523085430ORDERSORDERS05          US
-E2EDK01005300                1     E2EDK010050     1       USD                                                                        Z4O14506907554
-E2EDK03   300                2     E2EDK03   0     2   02220190523
-E2EDKA1   300                3     E2EDKA1   0     2   RE                  MSFTASWI
-E2EDKA1   300                4     E2EDKA1   0     2   US                  MSFTASWI
-E2EDKA1   300                5     E2EDKA1   0     2   WE                  MSFTASWILIC
-E2EDKA1   300                6     E2EDKA1   0     2   Z1 KKKKKKK                           ABC YYYYYYYYYYY ZZ                                                                                                                          BBBBBBBBBBBBBBBB 11                                                                                      ttttttttttt                                 6666              US                                                                                                999 999 99 99                                                                                                                SSSSSSS SSS SSSSSS                                                                                                                                SSSSSSS SSS SSSSSS
-E2EDKA1   300                7     E2EDKA1   0     2   Z2 KKKKKKK                           BBBBBBBBBBBBBBBB DDDDDDDD ZZ                                                                                                                EEEEEEEEEEE 86                                                                                           rrrrrrrr                                    8888              US                                                                                                999 999 99 99                                                                                                                NNNNNN NNNNNN                                                                                                                                     NNNNNN NNNNNN
-E2EDK02   300                8     E2EDK02   0     2   901Z
-E2EDK02   300                9     E2EDK02   0     2   90399680096ZZS2002
-E2EDK02   300                10    E2EDK02   0     2   902S
-E2EDKT1   300                11    E2EDKT1   0     2   Z1EME
-E2EDKT2   300                12    E2EDKT2   0     3   xxx@xxx-xx.xx
-E2EDKT1   300                13    E2EDKT1   0     2   Z2EME
-E2EDKT2   300                14    E2EDKT2   0     3   x.xxxxxx@xxxxxxxx-xxxxxxxxxx.xx
-E2EDP01001300                15    E2EDP010010     2   10         1              EA                          999.9
-E2EDP19   300                16    E2EDP19   0     3   00AAAA-11111</idocData>
-</SendIdoc>
+<ReceiveIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/"><idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
+E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
+E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
+E2EDKA1 3000000001017945375000003E2EDKA1 000000020 AG 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000004E2EDKA1 000000020 RE 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000005E2EDKA1 000000020 RG 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000006E2EDKA1 000000020 WE 0005001847 41 ABCABC ABCABC INC (ABCABC) DC A. ABCABCAB 88 ABCABC CRESCENT ABCABAABCAB L5R 4A2 CA ABCABC 111-111-1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000007E2EDKA1 000000020 Z3 0005533050 ABCABCABC ABCABC Inc. ABCA Bank Swift Code -ABCABCABCAB Sort Code - 1950 ABCABCABCA Blvd. Acc No -1111111111 ABCABAABCAB L5N8L9 CA ABCABC E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000008E2EDKA1 000000020 BK 1075 ABCABCABC ABCABC Inc 1950 ABCABCABCA Blvd ABCABAABCAB ON L5N 8L9 CA ABCABC (111) 111-1111 (111) 111-1111 ON
+E2EDKA1 3000000001017945375000009E2EDKA1 000000020 CR 1075 CONTACT ABCABCABC 1950 ABCABCABCA Blvd ABCABAABCAB ON L5N 8L9 CA ABCABC (111) 111-1111 (111) 111-1111 ON
+E2EDK02 3000000001017945375000010E2EDK02 000000020 0099988298128 20210217
+E2EDK02 3000000001017945375000011E2EDK02 000000020 00140-N6260-S 20210205
+E2EDK02 3000000001017945375000012E2EDK02 000000020 0026336270425 20210217
+E2EDK02 3000000001017945375000013E2EDK02 000000020 0128026580537 20210224
+E2EDK02 3000000001017945375000014E2EDK02 000000020 01740-N6260-S
+E2EDK02 3000000001017945375000015E2EDK02 000000020 900IAC
+E2EDK02 3000000001017945375000016E2EDK02 000000020 901ZSH
+E2EDK02 3000000001017945375000017E2EDK02 000000020 9078026580537 20210217
+E2EDK03 3000000001017945375000018E2EDK03 000000020 02620210217
+E2EDK03 3000000001017945375000019E2EDK03 000000020 00120210224
+E2EDK03 3000000001017945375000020E2EDK03 000000020 02220210205
+E2EDK03 3000000001017945375000021E2EDK03 000000020 01220210217
+E2EDK03 3000000001017945375000022E2EDK03 000000020 01120210217
+E2EDK03 3000000001017945375000023E2EDK03 000000020 02420210217
+E2EDK03 3000000001017945375000024E2EDK03 000000020 02820210418
+E2EDK03 3000000001017945375000025E2EDK03 000000020 04820210217
+E2EDK17 3000000001017945375000026E2EDK17 000000020 001DDPDelivered Duty Paid
+E2EDK17 3000000001017945375000027E2EDK17 000000020 002DDPdestination
+E2EDK18 3000000001017945375000028E2EDK18 000000020 00160 0 Up to 04/18/2021 without deduction
+E2EDK28 3000000001017945375000029E2EDK28 000000020 CA BOFACATT Bank of ABCABAB ABCABC ABCABAB 50127217 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000030E2EDK28 000000020 CA 026000082 ABCAbank ABCABC ABCABAB 201456700OLD ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000031E2EDK28 000000020 GB ABCAGB2L ABCAbank N.A ABCABA E14, 5LB GB63ABCA18500803115593 ABCABCABC ABCABC Inc. GB63ABCA18500803115593
+E2EDK28 3000000001017945375000032E2EDK28 000000020 CA 020012328 ABCABANK ABCABC ABCABAB ON M5J 2M3 2014567007 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000033E2EDK28 000000020 CA 03722010 ABCABABC ABCABABC Bank of Commerce ABCABAABCAB 64-04812 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000034E2EDK28 000000020 IE IHCC In-House Cash Center IHCC1075 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000035E2EDK28 000000020 CA 000300002 ABCAB Bank of ABCABC ABCABAB 0021520584OLD ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000036E2EDK28 000000020 US USCC US Cash Center (IHC) city USCC1075 ABCABCABC ABCABC Inc.
+E2EDK29 3000000001017945375000037E2EDK29 000000020 0064848944US A CAD CA ABCABC CA United States US CA A Air Air
+E2EDKT1 3000000001017945375000038E2EDKT1 000000020 ZJ32E EN
+E2EDKT2 3000000001017945375000039E2EDKT2 000038030 GST/HST877845941RT0001 *
+E2EDKT2 3000000001017945375000040E2EDKT2 000038030 QST1021036966TQ0001 *
+E2EDKT1 3000000001017945375000041E2EDKT1 000000020 Z4VL
+E2EDKT2 3000000001017945375000042E2EDKT2 000041030 0.000 *
+E2EDKT1 3000000001017945375000043E2EDKT1 000000020 Z4VH
+E2EDKT2 3000000001017945375000044E2EDKT2 000043030 *
+E2EDK14 3000000001017945375000045E2EDK14 000000020 008LDCA
+E2EDK14 3000000001017945375000046E2EDK14 000000020 00710
+E2EDK14 3000000001017945375000047E2EDK14 000000020 00610
+E2EDK14 3000000001017945375000048E2EDK14 000000020 015Z4F2
+E2EDK14 3000000001017945375000049E2EDK14 000000020 0031075
+E2EDK14 3000000001017945375000050E2EDK14 000000020 021M
+E2EDK14 3000000001017945375000051E2EDK14 000000020 0161075
+E2EDK14 3000000001017945375000052E2EDK14 000000020 962M
+E2EDP010013000000001017945375000053E2EDP01001000000020 000011 2980.000 EA 298.000 LB MOUSE 298.000 Z4TN 4260
+E2EDP02 3000000001017945375000054E2EDP02 000053030 00140-N6260-S 00000120210205 DFUE
+E2EDP02 3000000001017945375000055E2EDP02 000053030 0026336270425 00001120210217
+E2EDP02 3000000001017945375000056E2EDP02 000053030 0168026580537 00001020210224
+E2EDP02 3000000001017945375000057E2EDP02 000053030 9100000 00000120210205 DFUE
+E2EDP02 3000000001017945375000058E2EDP02 000053030 911A 00000120210205 DFUE
+E2EDP02 3000000001017945375000059E2EDP02 000053030 912PP 00000120210205 DFUE
+E2EDP02 3000000001017945375000060E2EDP02 000053030 91300 00000120210205 DFUE
+E2EDP02 3000000001017945375000061E2EDP02 000053030 914CONTACT ABCABCABC 00000120210205 DFUE
+E2EDP02 3000000001017945375000062E2EDP02 000053030 963 00000120210205 DFUE
+E2EDP02 3000000001017945375000063E2EDP02 000053030 965 00000120210205 DFUE
+E2EDP02 3000000001017945375000064E2EDP02 000053030 9666336270425 00000120210205 DFUE
+E2EDP02 3000000001017945375000065E2EDP02 000053030 9078026580537 00001020210205 DFUE
+E2EDP03 3000000001017945375000066E2EDP03 000053030 02920210217
+E2EDP03 3000000001017945375000067E2EDP03 000053030 00120210224
+E2EDP03 3000000001017945375000068E2EDP03 000053030 01120210217
+E2EDP03 3000000001017945375000069E2EDP03 000053030 02520210217
+E2EDP03 3000000001017945375000070E2EDP03 000053030 02720210217
+E2EDP03 3000000001017945375000071E2EDP03 000053030 02320210217
+E2EDP03 3000000001017945375000072E2EDP03 000053030 02220210205
+E2EDP19 3000000001017945375000073E2EDP19 000053030 001418VVZ
+E2EDP19 3000000001017945375000074E2EDP19 000053030 002RJR-00001 AB ABCABCABC Mouse FORBUS BLUETOOTH
+E2EDP19 3000000001017945375000075E2EDP19 000053030 0078471609000
+E2EDP19 3000000001017945375000076E2EDP19 000053030 003889842532685
+E2EDP19 3000000001017945375000077E2EDP19 000053030 011CN
+E2EDP26 3000000001017945375000078E2EDP26 000053030 00459064.20
+E2EDP26 3000000001017945375000079E2EDP26 000053030 00352269.20
+E2EDP26 3000000001017945375000080E2EDP26 000053030 01052269.20
+E2EDP26 3000000001017945375000081E2EDP26 000053030 01152269.20
+E2EDP26 3000000001017945375000082E2EDP26 000053030 0126795.00
+E2EDP26 3000000001017945375000083E2EDP26 000053030 01552269.20
+E2EDP26 3000000001017945375000084E2EDP26 000053030 00117.54
+E2EDP26 3000000001017945375000085E2EDP26 000053030 00252269.20
+E2EDP26 3000000001017945375000086E2EDP26 000053030 940 2980.000
+E2EDP26 3000000001017945375000087E2EDP26 000053030 939 2980.000
+E2EDP05 3000000001017945375000088E2EDP05 000053030 + Z400MS List Price 52269.20 17.54 1 EA CAD 2980
+E2EDP05 3000000001017945375000089E2EDP05 000053030 + XR1 Tax Jur Code Level 6795.00 13.000 52269.20
+E2EDP05 3000000001017945375000090E2EDP05 000053030 + Tax Subtotal1 6795.00 2.28 1 EA CAD 2980
+E2EDP05 3000000001017945375000091E2EDP05 000053030 + Taxable Amount + TaxSubtotal1 59064.20 19.82 1 EA CAD 2980
+E2EDP04 3000000001017945375000092E2EDP04 000053030 CX 13.000 6795.00 7000000000
+E2EDP04 3000000001017945375000093E2EDP04 000053030 CX 0 0 7001500000
+E2EDP04 3000000001017945375000094E2EDP04 000053030 CX 0 0 7001505690
+E2EDP28 3000000001017945375000095E2EDP28 000053030 00648489440000108471609000 CN CN ABCAB ZZ 298.000 298.000 LB US 400 United Stat KY
+E2EDPT1 3000000001017945375000096E2EDPT1 000053030 0001E EN
+E2EDPT2 3000000001017945375000097E2EDPT2 000096040 AB ABCABCABC Mouse forBus Bluetooth EN/XC/XD/XX Hdwr Black For Bsnss *
+E2EDS01 3000000001017945375000098E2EDS01 000000020 0011
+E2EDS01 3000000001017945375000099E2EDS01 000000020 01259064.20 CAD
+E2EDS01 3000000001017945375000100E2EDS01 000000020 0056795.00 CAD
+E2EDS01 3000000001017945375000101E2EDS01 000000020 01159064.20 CAD
+E2EDS01 3000000001017945375000102E2EDS01 000000020 01052269.20 CAD
+E2EDS01 3000000001017945375000103E2EDS01 000000020 94200000 CAD
+E2EDS01 3000000001017945375000104E2EDS01 000000020 9440.00 CAD
+E2EDS01 3000000001017945375000105E2EDS01 000000020 9450.00 CAD
+E2EDS01 3000000001017945375000106E2EDS01 000000020 94659064.20 CAD
+E2EDS01 3000000001017945375000107E2EDS01 000000020 94752269.20 CAD
+E2EDS01 3000000001017945375000108E2EDS01 000000020 EXT
+Z2XSK010003000000001017945375000109Z2XSK01000000108030 Z400 52269.20
+Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
+</idocData></ReceiveIdoc>
 ```
-
-
 
 ### <a name="create-http-response-action"></a>Utwórz akcję odpowiedzi HTTP
 
@@ -475,18 +565,22 @@ Aplikacja logiki jest teraz gotowa do odbierania komunikatów z systemu SAP.
 Jeśli zostanie wyświetlony błąd **500 nieprawidłowej bramy** z komunikatem podobnym do **nieznanego w usłudze "sapgw00"**, zastąp nazwę usługi bramy w połączeniu z interfejsem API i Wyzwól konfigurację przy użyciu numeru portu. W poniższym przykładzie błędu, należy `sapgw00` zastąpić rzeczywistym numerem portu, na przykład `3300` . 
 
 ```json
-"body": {
-   "error": {
-      "code": 500,
-      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
-      "clientRequestId": "00000000-0000-0000-0000-000000000000",
-      "message": "BadGateway",
-      "innerError": {
-         "error": {
-            "code": "UnhandledException",
-            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
-         }
-      }
+{
+    "body": {
+        "error": {
+            "code": 500,
+            "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+            "clientRequestId": "00000000-0000-0000-0000-000000000000",
+            "message": "BadGateway",
+            "innerError": {
+                "error": {
+                    "code": "UnhandledException",
+                    "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+                }
+            }
+        }
+    }
+}
 ```
 
 #### <a name="parameters"></a>Parametry
@@ -509,15 +603,27 @@ Wszelkie filtrowanie akcji SAP odbywa się na poziomie karty SAP dla lokalnej br
 
 Jeśli nie możesz wysyłać pakietów IDoc z oprogramowania SAP do wyzwalacza aplikacji logiki, zapoznaj się z komunikatem o odrzuceniu wywołania transakcyjnego RFC (tRFC) w oknie dialogowym SAP tRFC (T-Code SM58). W interfejsie SAP można uzyskać następujące komunikaty o błędach, które są przycinane z powodu limitów podciągów w polu **tekstowym stan** .
 
-* `The RequestContext on the IReplyChannel was closed without a reply being`: Nieoczekiwane błędy występują, gdy procedura obsługi catch dla kanału kończy działanie kanału z powodu błędu i ponownie kompiluje kanał w celu przetworzenia innych komunikatów.
+##### <a name="the-requestcontext-on-the-ireplychannel-was-closed-without-a-reply-being-sent"></a>RequestContext w IReplyChannel zostało zamknięte bez wysłania odpowiedzi
 
-  * Aby potwierdzić, że aplikacja logiki otrzymała IDoc, [Dodaj akcję odpowiedzi](../connectors/connectors-native-reqres.md#add-a-response-action) , która zwraca `200 OK` kod stanu. IDoc jest transportowana przez tRFC, która nie zezwala na ładunek odpowiedzi.
+Ten komunikat o błędzie oznacza nieoczekiwane błędy, gdy procedura obsługi catch-all dla kanału kończy pracę kanału z powodu błędu i ponownie kompiluje kanał w celu przetworzenia innych komunikatów.
 
-  * Jeśli chcesz odrzucić IDoc zamiast tego, Odpowiedz przy użyciu dowolnego kodu stanu HTTP innego niż `200 OK` tak, aby karta SAP zwracała wyjątek z powrotem do SAP w Twoim imieniu. 
+Aby potwierdzić, że aplikacja logiki otrzymała IDoc, [Dodaj akcję odpowiedzi](../connectors/connectors-native-reqres.md#add-a-response-action) , która zwraca `200 OK` kod stanu. Pozostaw zawartość pustą i nie zmieniaj ani nie dodawaj do nagłówków. IDoc jest transportowana przez tRFC, która nie zezwala na ładunek odpowiedzi.
 
-* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Oczekiwane błędy są spowodowane innymi błędami, takimi jak błąd generowania ładunku IDoc XML, ponieważ jego segmenty nie są uwalniane przez system SAP, więc brakuje metadanych typu segmentu wymaganych do konwersji. 
+Aby zamiast tego odrzucić IDoc, Odpowiedz przy użyciu dowolnego kodu stanu HTTP innego niż `200 OK` . Adapter SAP zwraca wyjątek z powrotem do SAP w Twoim imieniu. Należy tylko odrzucić IDoc, aby sygnalizować błędy transportu z powrotem do SAP, takie jak błędne trasy IDoc, których aplikacja nie może przetworzyć. Nie należy odrzucać IDoc błędów na poziomie aplikacji, takich jak problemy z danymi zawartymi w IDoc. W przypadku opóźnienia akceptacji transportu na poziomie aplikacji może wystąpić negatywna wydajność z powodu zablokowania połączenia z transportem innych IDocs.
 
-  * Aby zwolnić te segmenty przez SAP, należy skontaktować się z inżynierem ABAP w systemie SAP.
+Jeśli otrzymujesz ten komunikat o błędzie i wystąpią błędy systemowe wywołujące Logic Apps, sprawdź, czy ustawienia sieciowe usługi lokalnej bramy danych zostały skonfigurowane dla danego środowiska. Na przykład jeśli środowisko sieciowe wymaga użycia serwera proxy do wywoływania punktów końcowych platformy Azure, musisz skonfigurować lokalną usługę bramy danych do korzystania z serwera proxy. Aby uzyskać więcej informacji, zobacz [Konfiguracja serwera proxy](/dotnet/framework/network-programming/proxy-configuration).
+
+Jeśli otrzymujesz ten komunikat o błędzie i wystąpią sporadyczne błędy wywołujące Logic Apps, może być konieczne zwiększenie liczby ponownych prób i/lub interwału ponawiania. 
+
+1. Sprawdź ustawienia SAP w pliku konfiguracji usługi lokalnej bramy danych `Microsoft.PowerBI.EnterpriseGateway.exe.config` . Wartość ustawienia liczba ponownych prób jest następująca `WebhookRetryMaximumCount="2"` . Ustawienie interwału ponawiania będzie wyglądać tak `WebhookRetryDefaultDelay="00:00:00.10"` , jak w przypadku formatu TimeSpan `HH:mm:ss.ff` . 
+    
+1. Zapisz zmiany i ponownie uruchom lokalną bramę danych.
+
+##### <a name="the-segment-or-group-definition-e2edk36001-was-not-found-in-the-idoc-meta"></a>Nie znaleziono E2EDK36001 definicji segmentu lub grupy w metadanych IDoc
+
+Ten komunikat o błędzie oznacza, że oczekiwane błędy są spowodowane innymi błędami. Na przykład niepowodzenie generowania ładunku XML IDoc, ponieważ jego segmenty nie są uwalniane przez system SAP. W związku z tym brak metadanych typu segmentu wymaganego do konwersji.
+
+Aby zwolnić te segmenty przez SAP, należy skontaktować się z inżynierem ABAP w systemie SAP.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Asynchroniczne żądanie-odpowiedź dla wyzwalaczy
 
 Łącznik SAP obsługuje [wzorzec odpowiedzi na żądanie asynchroniczne](/azure/architecture/patterns/async-request-reply) platformy Azure dla wyzwalaczy Logic Apps. Możesz użyć tego wzorca, aby utworzyć pomyślne żądania, które mogłyby się nie powieść, z domyślnym wzorcem żądania synchronicznego. 
@@ -1039,7 +1145,7 @@ Poniższy przykład jest rekordem danych z zgrupowanymi segmentami. Rekord zawie
 <ns2:E2EDKT1002GRP>
   <ns2:E2EDKT1002>
     <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
-      <NS2:TDID>ZONE</ns2:TDID>
+      <ns2:TDID>ZONE</ns2:TDID>
   </ns2:E2EDKT1002>
   <ns2:E2EDKT2001>
     <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
@@ -1048,6 +1154,7 @@ Poniższy przykład jest rekordem danych z zgrupowanymi segmentami. Rekord zawie
 </ns2:E2EDKT1002GRP>
 
 ```
+
 
 Zalecaną metodą jest utworzenie identyfikatora IDoc do użycia z tRFC. Można ustawić ten identyfikator transakcji, `tid` używając [operacji wysyłania IDOC](/connectors/sap/#send-idoc) w interfejsie API łącznika SAP.
 
@@ -1347,7 +1454,6 @@ Poniżej przedstawiono obecnie znane problemy i ograniczenia dotyczące zarządz
   * W przypadku akcji stanowych SAP Użyj bramy Data Gateway w trybie innym niż klaster lub w klastrze, który jest skonfigurowany tylko do pracy w trybie failover.
 
 * Łącznik SAP nie obsługuje obecnie ciągów routera SAP. Lokalna Brama danych musi znajdować się w tej samej sieci LAN co system SAP, który chcesz połączyć.
-
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

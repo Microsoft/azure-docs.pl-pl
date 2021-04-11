@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1d7bf933b487c40d571f1912341b5ef771e4e67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2d081ded07b1d32ee7525855c1756e13dfd57aa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90527330"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277508"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Tworzenie filtrów za pomocą interfejsu API REST Media Services
 
@@ -26,7 +26,7 @@ ms.locfileid: "90527330"
 
 W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co opisano w pliku manifestu domyślnego elementu zawartości. Azure Media Services umożliwia zdefiniowanie filtrów kont i filtrów zasobów dla zawartości. 
 
-Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
+Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-concept.md) i [filtry](filters-concept.md).
 
 W tym temacie przedstawiono sposób definiowania filtru dla zasobu wideo na żądanie i używania interfejsów API REST do tworzenia [filtrów kont](/rest/api/media/accountfilters) i [filtrów zasobów](/rest/api/media/assetfilters). 
 
@@ -37,10 +37,10 @@ W tym temacie przedstawiono sposób definiowania filtru dla zasobu wideo na żą
 
 Aby wykonać kroki opisane w tym temacie, należy:
 
-- Przeglądanie [filtrów i manifestów dynamicznych](filters-dynamic-manifest-overview.md).
-- [Skonfiguruj funkcję publikowania dla Azure Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md).
+- Przeglądanie [filtrów i manifestów dynamicznych](filters-dynamic-manifest-concept.md).
+- [Skonfiguruj funkcję publikowania dla Azure Media Services wywołań interfejsu API REST](setup-postman-rest-how-to.md).
 
-    Pamiętaj, aby postępować zgodnie z ostatnim krokiem w temacie [pobieranie tokenu usługi Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Pamiętaj, aby postępować zgodnie z ostatnim krokiem w temacie [pobieranie tokenu usługi Azure AD](setup-postman-rest-how-to.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Zdefiniuj filtr  
 
@@ -121,7 +121,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia lub aktualizowania filt
 
 ## <a name="associate-filters-with-streaming-locator"></a>Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego
 
-Można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. [Pakowarka dynamiczna (punkt końcowy przesyłania strumieniowego)](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. Zalecamy użycie tej funkcji, jeśli chcesz zastosować filtry, ale nie chcesz ujawniać nazw filtrów w adresie URL.
+Można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. [Pakowarka dynamiczna (punkt końcowy przesyłania strumieniowego)](encode-dynamic-packaging-concept.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-concept.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. Zalecamy użycie tej funkcji, jeśli chcesz zastosować filtry, ale nie chcesz ujawniać nazw filtrów w adresie URL.
 
 Aby utworzyć i skojarzyć filtry z lokalizatorem przesyłania strumieniowego przy użyciu usługi REST, użyj kontenerów [przesyłania strumieniowego — tworzenie](/rest/api/media/streaminglocators/create) interfejsu API i określanie `properties.filters` w [treści żądania](/rest/api/media/streaminglocators/create#request-body).
                                 

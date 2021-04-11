@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105565"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554803"
 ---
 Przed wdrożeniem maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge musisz skonfigurować klienta programu tak, aby łączył się z urządzeniem za pośrednictwem Azure Resource Manager przez Azure PowerShell. Aby uzyskać szczegółowe instrukcje, zobacz [nawiązywanie połączenia z Azure Resource Manager na urządzeniu brzegowym Azure Stack](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
@@ -23,9 +23,9 @@ Upewnij się, że w celu uzyskania dostępu do urządzenia z poziomu klienta mo�
 
 1. Aby wywołać interfejsy API urządzeń lokalnych w celu uwierzytelnienia, wprowadź: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    Aby nawiązać połączenie za pośrednictwem Azure Resource Manager, podaj nazwę użytkownika *EdgeARMuser* i hasło.
+    Aby nawiązać połączenie za pośrednictwem Azure Resource Manager, podaj nazwę użytkownika *EdgeArmUser* i hasło.
 
 1. W przypadku skonfigurowania obliczeń dla Kubernetes można pominąć ten krok. W przeciwnym razie upewnij się, że interfejs sieciowy został włączony do obliczeń, wykonując następujące czynności: 
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96015200"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077476"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Komunikaty programu Exchange X12 dla integracji z usługą B2B Enterprise w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 
@@ -79,7 +79,6 @@ Po ustawieniu właściwości umowy można skonfigurować, w jaki sposób ta umow
 |----------|-------------|
 | **Oczekiwano TA1** | Zwróć potwierdzenie techniczne (TA1) do nadawcy wymiany. |
 | **Przewidywany FA** | Zwróć potwierdzenie funkcjonalności (FA) do nadawcy wymiany. <p>Dla właściwości **wersja ŚT** na podstawie wersji schematu wybierz potwierdzenia 997 lub 999. <p>Aby włączyć generowanie pętli AK2 w potwierdzeniach funkcjonalnych dla akceptowanych zestawów transakcji, wybierz opcję **Dołącz pętlę AK2/IK2**. |
-||||
 
 <a name="inbound-schemas"></a>
 

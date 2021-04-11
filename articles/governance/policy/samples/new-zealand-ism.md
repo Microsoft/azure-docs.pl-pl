@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla Nowej Zelandii ISM z ograniczeniami
 description: Szczegółowe informacje na temat nowej inicjatywy dotyczącej zgodności z przepisami, które są objęte ochroną. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e7d5f298864b0fdc4d3a8856a192d6184d3abe19
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4369a11a037f2e966d6f485fbbc970057818b233
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034422"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093915"
 ---
 # <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Szczegóły nowej inicjatywy dotyczącej zgodności z przepisami w zakresie ISM
 

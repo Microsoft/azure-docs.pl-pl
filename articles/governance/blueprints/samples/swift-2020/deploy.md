@@ -1,14 +1,14 @@
 ---
 title: Wdrażanie SWIFT dostawcy CSP — przykład strategii CSCF V2020
 description: Wdróż kroki dla przykładowej strategii SWIFT CSP-CSCF V2020, w tym szczegóły parametru artefaktu.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 8f28bae58128306776fa18a6b383e324482bb03f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 321ed1a50a5066838b83cc850b227725b6222e42
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582001"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386163"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Wdróż przykład SWIFT programu CSP — CSCF V2020 plan
 

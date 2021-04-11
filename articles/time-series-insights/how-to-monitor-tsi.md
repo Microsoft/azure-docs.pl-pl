@@ -2,7 +2,7 @@
 title: Time Series Insights monitorowania | Microsoft Docs
 description: Monitoruj Time Series Insights pod kątem dostępności, wydajności i operacji.
 author: deepakpalled
-ms.author: lyhughes
+ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 15054cd508ce7a6de51fea86ca02302fba258757
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737566"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504927"
 ---
 # <a name="monitoring-time-series-insights"></a>Time Series Insights monitorowania
 
@@ -44,7 +44,7 @@ Poniższe sekcje zostały skompilowane w tym artykule, opisując szczegółowe d
 
 ## <a name="monitoring-data-from-azure-time-series-insights"></a>Monitorowanie danych z Azure Time Series Insights
 
-Azure Time Series Insights gromadzi te same rodzaje danych monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights gromadzi te same rodzaje danych monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Aby uzyskać szczegółowe informacje o dziennikach i metrykach, które można zbierać, zobacz [Azure Time Series Insights informacje o danych monitorowania](how-to-monitor-tsi-reference.md) .
 

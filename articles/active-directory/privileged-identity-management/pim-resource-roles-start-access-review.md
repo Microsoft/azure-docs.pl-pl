@@ -11,20 +11,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 110a94c78427087f4ca5555f59055ab8e3bebcee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 87c0ce72348f67c22759915a3a15c69193ad2f60
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592667"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552799"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Tworzenie przeglądu dostępu do ról zasobów platformy Azure w Privileged Identity Management
 
 Konieczność uzyskiwania dostępu do uprzywilejowanych ról zasobów platformy Azure przez pracowników zmienia się w czasie. Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularnie przeglądać dostęp. Za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management (PIM) można tworzyć przeglądy dostępu dla uprzywilejowanego dostępu do ról zasobów platformy Azure. Istnieje również możliwość skonfigurowania cyklicznych przeglądów dostępu, które są wykonywane automatycznie. W tym artykule opisano sposób tworzenia jednej lub kilku przeglądów dostępu.
+
+## <a name="prerequisite-license"></a>Wstępnie wymagana licencja
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Aby uzyskać więcej informacji o licencjach dla usługi PIM, zapoznaj się z [wymaganiami dotyczącymi licencji, aby użyć Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Obecnie można ograniczyć przegląd dostępu do jednostek usługi przy użyciu dostępu do usługi Azure AD i ról zasobów platformy Azure (wersja zapoznawcza) z aktywną Azure Active Directory — wersja Premium P2 w dzierżawie. Model licencjonowania dla jednostek usługi zostanie sfinalizowany do ogólnej dostępności tej funkcji, a dodatkowe licencje mogą być wymagane.
 
 ## <a name="prerequisite-role"></a>Rola wymagana wstępnie
 
@@ -34,9 +41,9 @@ Konieczność uzyskiwania dostępu do uprzywilejowanych ról zasobów platformy 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który jest przypisany do jednej z ról wymaganych wstępnie.
 
-1. Otwórz **Azure AD Privileged Identity Management**.
-
-1. W menu po lewej stronie wybierz pozycję **zasoby platformy Azure**.
+1. Wybierz **Zarządzanie tożsamościami**
+ 
+1. W menu po lewej stronie wybierz pozycję **zasoby platformy Azure** w obszarze **Azure AD Privileged Identity Management**.
 
 1. Wybierz zasób, którym chcesz zarządzać, na przykład subskrypcję.
 
@@ -58,9 +65,12 @@ Konieczność uzyskiwania dostępu do uprzywilejowanych ról zasobów platformy 
 
 1. Użyj ustawienia **End** , aby określić, jak zakończyć cykliczne serie przeglądu dostępu. Seria może kończyć się na trzy sposoby: działa stale, aby rozpocząć przeglądy w nieskończoność, aż do określonej daty lub po zakończeniu zdefiniowanej liczby wystąpień. Po utworzeniu seria może zostać zatrzymana przez innego administratora lub innego administratora globalnego, zmieniając datę w **ustawieniach**, aby zakończyć działanie.
 
-1. W sekcji **Użytkownicy** wybierz co najmniej jedną rolę, w której chcesz przejrzeć członkostwo.
+1. W sekcji **Użytkownicy** wybierz zakres przeglądu. Aby przejrzeć użytkowników, wybierz opcję **Użytkownicy lub wybierz (wersja zapoznawcza) jednostki usługi** , aby przejrzeć konta maszyn z dostępem do roli platformy Azure.   
 
     ![Zakres użytkowników do przeglądania członkostwa w roli](./media/pim-resource-roles-start-access-review/users.png)
+
+
+1. W obszarze **Przegląd członkostwa w roli** wybierz role platformy Azure, które mają być przeglądane. 
 
     > [!NOTE]
     > - Role wybrane w tym miejscu obejmują zarówno [role trwałe, jak i kwalifikujące się](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +87,9 @@ Konieczność uzyskiwania dostępu do uprzywilejowanych ról zasobów platformy 
 
     ![Lista recenzentów wybranych użytkowników lub członków (własnych)](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Wybrani użytkownicy** — Użyj tej opcji, jeśli nie wiesz, kto potrzebuje dostępu. Po wybraniu tej opcji można przypisać przegląd do właściciela zasobu lub Menedżera grupy, aby zakończyć.
-    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról. 
-    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu. 
+    - **Wybrani użytkownicy** — Użyj tej opcji, aby wyznaczyć określonego użytkownika w celu ukończenia przeglądu. Ta opcja jest dostępna niezależnie od zakresu przeglądu, a wybrani Recenzenci mogą przeglądać użytkowników i podmioty usługi. 
+    - **Członkowie (własne)** — ta opcja umożliwia użytkownikom przeglądanie własnych przypisań ról. Ta opcja jest dostępna tylko wtedy, gdy przegląd został objęty zakresem **użytkownikom**.
+    - **Manager** — Użyj tej opcji, aby Menedżer użytkownika mógł sprawdzić przypisanie roli. Ta opcja jest dostępna tylko wtedy, gdy przegląd został objęty zakresem **użytkownikom**. Po wybraniu Menedżera będzie również dostępna opcja określania recenzenta powrotu. Osoby dokonujące przeglądu awaryjnego są proszeni o sprawdzenie użytkownika, gdy użytkownik nie ma Menedżera określonego w katalogu. 
 
 ### <a name="upon-completion-settings"></a>Po zakończeniu ustawień
 

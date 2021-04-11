@@ -4,14 +4,14 @@ description: Informacje o kopiowaniu danych ze źródeł OData do obsługiwanych
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/30/2021
 ms.author: jingwang
-ms.openlocfilehash: 90cc4e3f9915db424cec89cfc764771b5be785e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9dd86b4982edf5d206e64431a5e1458c4b848e9e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389726"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968499"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiowanie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -326,6 +326,48 @@ Podczas kopiowania danych z protokołu OData następujące mapowania są używan
 
 > [!NOTE]
 > Złożone typy danych OData (takie jak **Object**) nie są obsługiwane.
+
+## <a name="copy-data-from-project-online"></a>Kopiowanie danych z usługi Project Online
+
+Aby skopiować dane z usługi Project Online, można użyć łącznika OData i tokenu dostępu uzyskanego z narzędzi takich jak program Poster.
+
+> [!CAUTION]
+> Token dostępu wygasa domyślnie w ciągu 1 godziny, a po jego wygaśnięciu należy uzyskać nowy token dostępu.
+
+1. Uzyskaj token dostępu przy użyciu programu **Poster** :
+
+   1. Przejdź do karty **autoryzacja** w witrynie sieci Web programu Poster.
+   1. W polu **Typ** wybierz pozycję **OAuth 2,0**, a następnie w polu **Dodaj dane autoryzacji** wybierz opcję **nagłówki żądania**.
+   1. Wypełnij poniższe informacje na stronie **Konfiguruj nowy token** , aby uzyskać nowy token dostępu: 
+      - **Typ udzielania**: wybierz pozycję **kod autoryzacji**.
+      - **Adres URL wywołania zwrotnego**: ENTER `https://www.localhost.com/` . 
+      - **Adres URL uwierzytelniania**: wprowadź `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com` . Zamień `<your tenant name>` na własną nazwę dzierżawy. 
+      - **Adres URL tokenu dostępu**: ENTER `https://login.microsoftonline.com/common/oauth2/token` .
+      - **Identyfikator klienta**: Wprowadź identyfikator podmiotu zabezpieczeń usługi AAD.
+      - **Wpis tajny klienta**: Wprowadź klucz tajny jednostki usługi.
+      - **Uwierzytelnianie klienta**: wybierz pozycję **Wyślij jako podstawowy nagłówek uwierzytelniania**.
+     
+   1. Zostanie wyświetlony monit o zalogowanie się przy użyciu nazwy użytkownika i hasła.
+   1. Po otrzymaniu tokenu dostępu skopiuj go i Zapisz w następnym kroku.
+   
+    [![Pobieranie tokenu dostępu przy użyciu programu Poster](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
+
+1. Utwórz połączoną usługę OData:
+    - **Adres URL usługi**: wprowadź `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata` . Zamień `<your tenant name>` na własną nazwę dzierżawy. 
+    - **Typ uwierzytelniania**: wybierz pozycję **anonimowe**.
+    - **Nagłówki uwierzytelniania**:
+        - **Nazwa właściwości**: Wybierz **autoryzację**.
+        - **Wartość**: wprowadź **token dostępu** skopiowany z kroku 1.
+    - Przetestuj połączoną usługę.
+
+    ![Tworzenie połączonej usługi OData](./media/connector-odata/odata-project-online-linked-service.png)
+
+1. Utwórz zestaw danych OData:
+    1. Utwórz zestaw danych z połączoną usługą OData utworzoną w kroku 2.
+    1. Podgląd danych.
+ 
+    ![Podgląd danych](./media/connector-odata/odata-project-online-preview-data.png)
+ 
 
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

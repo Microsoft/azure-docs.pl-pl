@@ -6,14 +6,14 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, references_regions
 keywords: Kubernetes, łuk, Azure, klaster
-ms.openlocfilehash: 3fc522c4bdda9eb1047d5258bcc431d0268990b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b4cbd45f8478674c7c6bacc50f068bc0ec691a14
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121647"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449923"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Szybki Start: łączenie istniejącego klastra Kubernetes z usługą Azure Arc 
 
@@ -23,36 +23,35 @@ W tym przewodniku szybki start skorzystać zalety usługi Azure ARC z włączony
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-* Sprawdź, czy masz:
-    * W pełni uruchomiony klaster Kubernetes.
-    * `kubeconfig`Plik wskazujący klaster, który ma zostać połączony z usługą Azure Arc.
-    * Uprawnienia "read" i "Write" dotyczące użytkownika lub nazwy głównej usługi łączącej Tworzenie typu zasobu Kubernetes z włączoną funkcją Azure ARC ( `Microsoft.Kubernetes/connectedClusters` ).
+* W pełni uruchomiony klaster Kubernetes. Jeśli go nie masz, możesz utworzyć klaster przy użyciu jednej z następujących opcji:
+    * [Kubernetes w Docker (rodzaj)](https://kind.sigs.k8s.io/)
+    * Tworzenie klastra Kubernetes przy użyciu platformy Docker dla [komputerów Mac](https://docs.docker.com/docker-for-mac/#kubernetes) lub [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+    * Samozarządzany klaster Kubernetes przy użyciu [interfejsu API klastra](https://cluster-api.sigs.k8s.io/user/quick-start.html)
+
+    >[!NOTE]
+    > Klaster musi mieć co najmniej jeden węzeł systemu operacyjnego i typu architektury `linux/amd64` . Klastry z tylko `linux/arm64` węzłami nie są jeszcze obsługiwane.
+    
+* `kubeconfig`Plik i kontekst wskazujący klaster.
+* Uprawnienia "read" i "Write" dla typu zasobu Kubernetes z włączoną funkcją Azure ARC ( `Microsoft.Kubernetes/connectedClusters` ).
+
 * Zainstaluj [najnowszą wersję programu Helm 3](https://helm.sh/docs/intro/install).
-* Zainstaluj następujące rozszerzenia interfejsu wiersza polecenia usługi Azure Arc Kubernetes dla wersji >= 1.0.0:
+
+- [Instalowanie lub uaktualnianie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) do wersji >= 2.16.0
+* Zainstaluj `connectedk8s` rozszerzenie interfejsu wiersza polecenia platformy Azure w wersji >= 1.0.0:
   
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
-  ```
-  * Aby zaktualizować te rozszerzenia do najnowszej wersji, uruchom następujące polecenia:
-  
-  ```azurecli
-  az extension update --name connectedk8s
-  az extension update --name k8s-configuration
   ```
 
+>[!TIP]
+> Jeśli `connectedk8s` rozszerzenie jest już zainstalowane, zaktualizuj je do najnowszej wersji za pomocą następującego polecenia: `az extension update --name connectedk8s`
+
+
 >[!NOTE]
->**Obsługiwane regiony:**
->* East US
->* West Europe
->* Zachodnio-środkowe stany USA
->* South Central US
->* Southeast Asia
->* Południowe Zjednoczone Królestwo
->* Zachodnie stany USA 2
->* Australia Wschodnia
->* Wschodnie stany USA 2
->* Europa Północna
+>Listę regionów obsługiwanych przez usługę Azure Arc Kubernetes można znaleźć [tutaj](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+
+>[!NOTE]
+> Jeśli chcesz używać lokalizacji niestandardowych w klastrze, użyj regionów Wschodnie stany USA lub Europa Zachodnia do łączenia klastra, ponieważ lokalizacje niestandardowe są dostępne tylko w tych regionach. Wszystkie inne funkcje usługi Azure ARC z włączoną obsługą Kubernetes są dostępne we wszystkich regionach wymienionych powyżej.
 
 ## <a name="meet-network-requirements"></a>Spełnianie wymagań sieci
 
@@ -64,7 +63,7 @@ W tym przewodniku szybki start skorzystać zalety usługi Azure ARC z włączony
 | Punkt końcowy (DNS) | Opis |  
 | ----------------- | ------------- |  
 | `https://management.azure.com`                                                                                 | Wymagane, aby Agent łączył się z platformą Azure i zarejestrował klaster.                                                        |  
-| `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com`, `https://westcentralus.dp.kubernetesconfiguration.azure.com`, `https://southcentralus.dp.kubernetesconfiguration.azure.com`, `https://southeastasia.dp.kubernetesconfiguration.azure.com`, `https://uksouth.dp.kubernetesconfiguration.azure.com`, `https://westus2.dp.kubernetesconfiguration.azure.com`, `https://australiaeast.dp.kubernetesconfiguration.azure.com`, `https://eastus2.dp.kubernetesconfiguration.azure.com`, `https://northeurope.dp.kubernetesconfiguration.azure.com` | Punkt końcowy płaszczyzny danych dla agenta do wypychania stanu i pobrania informacji o konfiguracji.                                      |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com` | Punkt końcowy płaszczyzny danych dla agenta do wypychania stanu i pobrania informacji o konfiguracji.                                      |  
 | `https://login.microsoftonline.com`                                                                            | Wymagane do pobierania i aktualizowania tokenów Azure Resource Manager.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Wymagane do ściągania obrazów kontenerów dla agentów usługi Azure Arc.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Wymagany do ściągania certyfikatów tożsamość usługi zarządzanej (MSI) przypisanych do systemu.                                                                  |
@@ -75,11 +74,13 @@ W tym przewodniku szybki start skorzystać zalety usługi Azure ARC z włączony
     ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
+    az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. Monitorowanie procesu rejestracji. Rejestracja może potrwać do 10 minut.
     ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
-    az provider show -n Microsoft.KubernetesConfiguration -o table    
+    az provider show -n Microsoft.KubernetesConfiguration -o table
+    az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów

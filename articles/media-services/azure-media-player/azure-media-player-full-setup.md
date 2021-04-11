@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e6ec59e3cb8d285652935b42493c820a7379eeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c103a7eba2e5da7ac040b50fcc0009a0b7237b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956081"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449872"
 ---
 # <a name="azure-media-player-full-setup"></a>Pełna konfiguracja usługi Azure Media Player #
 
@@ -20,7 +20,7 @@ Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarza
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Krok 1. Uwzględnij pliki JavaScript i CSS w nagłówku strony ##
 
-Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zalecamy teraz umieszczenie kodu JavaScript przed znacznikiem treści końcowej `<body>` zamiast `<head>` , ale usługa Azure Meia Player zawiera element "HTML5 Shiv", który musi znajdować się w sekcji głównej dla starszych wersji programu IE, aby poszanowania tagu wideo jako prawidłowego elementu.
+Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zaleca się umieszczenie kodu JavaScript przed tagiem treści końcowej `<body>` zamiast `<head>` , ale Azure Media Player zawiera "HTML5 Shiv", który musi znajdować się w nagłówku w przypadku starszych wersji programu IE w celu uwzględnienia znacznika wideo jako prawidłowego elementu.
 
 > [!NOTE]
 > Jeśli korzystasz już z Shiv HTML5, takiego jak [modernizacja](https://modernizr.com/) , możesz w dowolnym miejscu umieścić Azure Media Player JavaScript. Upewnij się jednak, że Twoja wersja programu unowocześnienie obejmuje Shiv do wideo.
@@ -33,7 +33,7 @@ Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej 
 ```
 
 > [!IMPORTANT]
-> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player. Na przykład Zastąp ciąg `latest` opcją `2.1.1` . W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
+> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player. Na przykład Zastąp ciąg `latest` opcją `2.1.1` . W [tym miejscu](https://amp.azure.net/libs/amp/latest/docs/changelog.html)można wykonywać zapytania dotyczące wersji Azure Media Player.
 
 > [!NOTE]
 > Ponieważ `1.2.0` wersja nie jest już wymagana do uwzględnienia lokalizacji powrotu do rezerwy, (automatycznie wybiera lokalizację ze ścieżki względnej pliku azuremediaplayer.min.js). Lokalizację powrotu można zmienić, dodając następujący skrypt w `<head>` powyższym skrypcie.

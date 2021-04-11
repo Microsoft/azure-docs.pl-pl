@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542681"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077486"
 ---
 # <a name="sizing-guidance"></a>Wskazówki dotyczące zmiany wielkości
 
@@ -92,9 +92,9 @@ Każde utworzone wystąpienie zarządzane SQL ma trzy kontenery:
 
 |Nazwa kontenera|Żądanie procesora CPU|Żądanie pamięci|Limit CPU|Limit pamięci|Uwagi|
 |---|---|---|---|---|---|
-|fluentbit|100 mln|100Mi|Nie określono|Nie określono|Żądania zasobów kontenera fluentbit są _uzupełnieniem_ żądań określonych dla wystąpienia zarządzanego SQL.||
-|łuk — sqlmi|Określono lub nie określono użytkownika.|Określono lub nie określono użytkownika.|Określono lub nie określono użytkownika.|Określono lub nie określono użytkownika.||
-|zebrane|Nie określono|Nie określono|Nie określono|Nie określono||
+|fluentbit|100 mln|100Mi|Nie określono|Nie określono|Żądania zasobów kontenera fluentbit są _uzupełnieniem_ żądań określonych dla wystąpienia zarządzanego SQL.|
+|łuk — sqlmi|Określono lub nie określono użytkownika.|Określono lub nie określono użytkownika.|Określono lub nie określono użytkownika.|Określono lub nie określono użytkownika.|
+|zebrane|Nie określono|Nie określono|Nie określono|Nie określono|
 
 Domyślny rozmiar woluminu dla wszystkich woluminów trwałych to 5Gi.
 

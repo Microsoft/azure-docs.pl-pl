@@ -3,12 +3,12 @@ title: Korzystanie z centrum zdarzeń w programie Apache Kafka App — Azure Eve
 description: Ten artykuł zawiera informacje na temat obsługi Apache Kafka przez usługę Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cd6d06b610ccccb8c80818d3bdec726ed94e875
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861347"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505318"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Korzystanie z Event Hubs platformy Azure z aplikacji Apache Kafka
 Event Hubs udostępnia punkt końcowy zgodny z interfejsami API Apache Kafka® producenta i konsumenta, które mogą być używane przez większość istniejących aplikacji klienckich Apache Kafka jako alternatywę dla uruchamiania własnego klastra Apache Kafka. Event Hubs obsługuje klientów Apache Kafka z klientami i klienta interfejsu API w wersji 1,0 lub nowszej.
@@ -67,7 +67,7 @@ bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
 sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
 #### <a name="shared-access-signature-sas"></a>Sygnatura dostępu współdzielonego

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2c66a7e3bf9e417b47d08e50e21c08625e9d0549
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966949"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210214"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -27,11 +27,9 @@ Implementacja usługi mowy SSML opiera się organizacja World Wide Web Consortiu
 > [!IMPORTANT]
 > Znaki w języku chińskim, japońskim i koreańskim są liczone jako dwa znaki do rozliczania. Aby uzyskać więcej informacji, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="standard-neural-and-custom-voices"></a>Standardowe, neuronowych i niestandardowe głosy
+## <a name="neural-and-custom-voices"></a>Neuronowych i głosy niestandardowe
 
-Wybieraj spośród standardowych i neuronowychych głosów lub twórz własny niestandardowy głos unikatowy dla danego produktu lub marki. 75 standardowych głosów jest dostępnych w więcej niż 45 językach i ustawieniach regionalnych oraz 5 neuronowych głosów jest dostępnych w czterech językach i ustawieniach regionalnych. Aby zapoznać się z pełną listą obsługiwanych języków, ustawień regionalnych i głosów (neuronowych i standard), zobacz temat [Obsługa języków](language-support.md).
-
-Aby dowiedzieć się więcej na temat standardowych, neuronowych i niestandardowych głosów, zobacz [Omówienie zamiany tekstu na mowę](text-to-speech.md).
+Używaj głosu przypominającego neuronowych, lub Utwórz własny niestandardowy głos unikatowy dla danego produktu lub marki. Aby zapoznać się z pełną listą obsługiwanych języków, ustawień regionalnych i głosów, zobacz temat [Obsługa języków](language-support.md). Aby dowiedzieć się więcej na temat neuronowych i niestandardowych głosów, zobacz [Omówienie zamiany tekstu na mowę](text-to-speech.md).
 
 
 > [!NOTE]
@@ -194,12 +192,9 @@ speechConfig!.setPropertyTo(
 
 ## <a name="adjust-speaking-styles"></a>Dopasuj style mówienia
 
-> [!IMPORTANT]
-> Dopasowanie stylów wymawiania będzie działało tylko z głosymi neuronowych.
+Domyślnie usługa zamiany tekstu na mowę umożliwia wyszukanie tekstu przy użyciu neutralnego stylu mowy dla głosów neuronowych. Możesz dostosować styl mówiący, aby wyszukiwać różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak Customer Service, newscasting i Voice Assistant, przy użyciu `mstts:express-as` elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
 
-Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl mówiący do języka Express różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak Customer Service, newscasting i Voice Assistant, przy użyciu `mstts:express-as` elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
-
-Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
+Obecnie korekty stylu głosu są obsługiwane dla następujących głosów neuronowych:
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
@@ -215,11 +210,11 @@ Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy
 
 Intensywność stylu mówienia można zmienić w celu lepszego dopasowania do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued. Obecnie korekty stylu głosu są obsługiwane w języku chińskim (mandarynki, uproszczone) głosów neuronowych.
 
-Oprócz dostosowywania stylu i stopnia odmowy można również dostosować `role` parametr tak, aby głos był imitacją innego wieku i płci. Na przykład głos męski może zwiększyć gęstość i zmienić intonation na imitację głosu żeńskiego, ale nazwa głosu nie zostanie zmieniona. Obecnie korekty dotyczące odtwarzania ról są obsługiwane w przypadku następujących neuronowychych (mandarynki, uproszczone) głosów:
+Oprócz dostosowywania stylu i stopnia odmowy można również dostosować `role` parametr tak, aby głos był imitacją innego wieku i płci. Na przykład głos męski może zwiększyć gęstość i zmienić intonation na imitację głosu żeńskiego, ale nazwa głosu nie zostanie zmieniona. Obecnie korekty ról są obsługiwane w przypadku następujących neuronowych (mandarynki, uproszczone) głosów:
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
-Powyższe zmiany są stosowane na poziomie zdania, a style i role są odtwarzane w zależności od głosu. Jeśli styl lub funkcja odtwarzania roli nie jest obsługiwana, usługa zwróci mowę w sposób domyślny. Możesz zobaczyć, jakie style i dla każdego głosu są obsługiwane przez [interfejs API listy głosowej](rest-text-to-speech.md#get-a-list-of-voices) lub za pomocą platformy [tworzenia zawartości audio](https://aka.ms/audiocontentcreation) bez obsługi kodu.
+Powyższe zmiany są stosowane na poziomie zdania, a style i role są odtwarzane w zależności od głosu. Jeśli styl lub funkcja odtwarzania roli nie jest obsługiwana, usługa zwróci mowę w sposób domyślny. Możesz zobaczyć, jakie style i role są obsługiwane dla każdego głosu za pomocą [interfejsu API listy głosowej](rest-text-to-speech.md#get-a-list-of-voices) lub za pomocą platformy [tworzenia zawartości audio](https://aka.ms/audiocontentcreation) bez obsługi kodu.
 
 **Składnia**
 
@@ -631,7 +626,7 @@ W powyższym przykładzie używamy międzynarodowego alfabetu fonetycznego, nazy
 
 Biorąc pod uwagę, że IPA nie jest łatwy do zapamiętania, usługa mowy definiuje zestaw fonetyczny dla siedmiu języków (,,,,, `en-US` `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` i `zh-TW` ).
 
-Można użyć `sapi` jako wartość dla `alphabet` atrybutu z niestandardowymi leksykonami, jak pokazano poniżej:
+Można użyć `sapi` jako wartości `alphabet` atrybutu z niestandardowymi leksykonami, jak pokazano poniżej:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -717,7 +712,7 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>

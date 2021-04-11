@@ -1,5 +1,5 @@
 ---
-title: Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management
+title: Zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management
 description: Dowiedz się, jak tworzyć i stosować elastyczne zasady ograniczania limitów przydziału i szybkości za pomocą usługi Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f91ed2238a7a23b967cd3e3556c8ade88af0044
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100362033"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449736"
 ---
-# <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management
+# <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management
 Możliwość ograniczania żądań przychodzących jest kluczową rolą usługi Azure API Management. Kontrolując częstotliwość żądań lub łączne żądania/przesyłane dane, API Management umożliwia dostawcom interfejsu API ochronę swoich interfejsów API przed nadużyciami i tworzenie wartości dla różnych warstw produktu interfejsu API.
 
 ## <a name="rate-limits-and-quotas"></a>Limity szybkości i przydziały
@@ -91,7 +91,7 @@ Gdy klucz ograniczenia jest zdefiniowany przy użyciu [wyrażenia zasad](./api-m
 Dzięki temu aplikacja kliencka programisty może wybrać, w jaki sposób chcesz utworzyć klucz ograniczający szybkość. Deweloperzy klientów mogą tworzyć własne warstwy stawki, przydzielając zestawy kluczy do użytkowników i obracając użycie klucza.
 
 ## <a name="summary"></a>Podsumowanie
-Usługa Azure API Management oferuje funkcję ograniczania szybkości i oferty do ochrony i dodawania wartości do usługi interfejsu API. Nowe zasady ograniczania przepustowości z niestandardowymi regułami określania zakresu umożliwiają dokładniejszą kontrolę nad tymi zasadami, aby umożliwić klientom tworzenie jeszcze lepszych aplikacji. W przykładach w tym artykule przedstawiono sposób korzystania z tych nowych zasad przez klucze ograniczające szybkość produkcji z wykorzystaniem adresów IP klientów, tożsamości użytkowników i wartości generowanych przez klientów. Istnieje jednak wiele innych części komunikatu, których można użyć, takich jak agent użytkownika, fragmenty ścieżek adresów URL, rozmiar wiadomości.
+Usługa Azure API Management oferuje funkcję ograniczania liczby i przydziałów w celu ochrony i dodawania wartości do usługi interfejsu API. Nowe zasady ograniczania przepustowości z niestandardowymi regułami określania zakresu umożliwiają dokładniejszą kontrolę nad tymi zasadami, aby umożliwić klientom tworzenie jeszcze lepszych aplikacji. W przykładach w tym artykule przedstawiono sposób korzystania z tych nowych zasad przez klucze ograniczające szybkość produkcji z wykorzystaniem adresów IP klientów, tożsamości użytkowników i wartości generowanych przez klientów. Istnieje jednak wiele innych części komunikatu, których można użyć, takich jak agent użytkownika, fragmenty ścieżek adresów URL, rozmiar wiadomości.
 
 ## <a name="next-steps"></a>Następne kroki
 Przekaż nam swoją opinię jako problem z usługą GitHub dotyczącą tego tematu. Warto dowiedzieć się więcej na temat innych potencjalnych wartości kluczowych, które były logiczną wyborem w scenariuszach.

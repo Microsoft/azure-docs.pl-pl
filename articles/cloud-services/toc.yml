@@ -105,6 +105,32 @@
               href: cloud-services-role-config-xpath.md
         - name: Zarządzanie certyfikatami
           items:
+            - name: Azure PowerShell
+              href: cloud-services-diagnostics-powershell.md
+            - name: .NET
+              href: cloud-services-dotnet-diagnostics.md
+            - name: Visual Studio
+              href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
+        - name: Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage
+          href: diagnostics-extension-to-storage.md
+        - name: Śledzenie usługi w chmurze przy użyciu diagnostyki
+          href: cloud-services-dotnet-diagnostics-trace-flow.md
+    - name: Migrate
+      items:
+        - name: Omówienie migracji
+          href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
+        - name: Szczegóły techniczne migracji
+          href: ../cloud-services-extended-support/in-place-migration-technical-details.md?toc=/azure/cloud-services/toc.json
+        - name: Migrowanie przy użyciu Azure Portal
+          href: ../cloud-services-extended-support/in-place-migration-portal.md?toc=/azure/cloud-services/toc.json
+        - name: Migrowanie przy użyciu programu PowerShell
+          href: ../cloud-services-extended-support/in-place-migration-powershell.md?toc=/azure/cloud-services/toc.json
+        - name: Typowe błędy i znane problemy
+          href: ../cloud-services-extended-support/in-place-migration-common-errors.md?toc=/azure/cloud-services/toc.json
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Debugowanie
+          items:
             - name: Certyfikaty usług Cloud Services i zarządzania
               href: cloud-services-certs-create.md
             - name: Konfigurowanie protokołu SSL
@@ -172,6 +198,8 @@
                   href: cloud-services-deployment-faq.md
     - name: Dokumentacja
       items:
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: /cli/azure/cloud
         - name: Przykłady kodu
           href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
         - name: Schemat XML .csdef
@@ -196,17 +224,25 @@
           href: /rest/api/compute/cloudservices/
     - name: Zasoby
       items:
-        - name: Harmonogram działania dla platformy Azure
-          href: 'https://azure.microsoft.com/roadmap/?category=compute'
-        - name: Ścieżka szkoleniowa
-          href: /learn/paths/azure-fundamentals/
-        - name: Pytania i odpowiedzi Microsoft — strona pytania
-          href: /answers/topics/azure-cloud-services.html
-        - name: Cennik
-          href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
-        - name: Kalkulator cen
-          href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: Aktualizacje usług
-          href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
-        - name: Filmy wideo
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'
+        - name: Schemat Role
+          href: schema-cscfg-role.md
+        - name: Schemat NetworkConfiguration
+          href: schema-cscfg-networkconfiguration.md
+    - name: REST
+      href: /rest/api/compute/cloudservices/
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Ścieżka szkoleniowa
+      href: /learn/paths/azure-fundamentals/
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: /answers/topics/azure-cloud-services.html
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
+    - name: Filmy wideo
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'

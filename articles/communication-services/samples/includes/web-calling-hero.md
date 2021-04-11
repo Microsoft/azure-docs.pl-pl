@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: c1ad467dcd27bb48d7b1472d8cfb829dcd005f4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729863"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554752"
 ---
 **Przykład Hero grupy** usług komunikacyjnych platformy Azure demonstruje, jak usługi komunikacyjne WYWOŁUJĄCE zestaw SDK sieci Web mogą być używane do tworzenia środowiska wywołującego grupę.
 
@@ -23,7 +23,7 @@ W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład p
 
 ## <a name="download-code"></a>Pobieranie kodu
 
-Znajdź końcowy kod dla tego przewodnika Szybki Start w witrynie [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Znajdź projekt dla tego przykładu w witrynie [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Wersja przykładu z [zespołem międzyoperacyjności](../../concepts/teams-interop.md) można znaleźć w oddzielnym [rozgałęzieniu](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop).
 
 ## <a name="overview"></a>Omówienie
 
@@ -46,6 +46,9 @@ Składniki głównego ekranu wywołującego:
 - **Galeria multimediów**: Główny etap pokazujący uczestników. Jeśli Uczestnik ma włączony aparat fotograficzny, w tym miejscu są wyświetlane ich kanały wideo. Każdy uczestnik ma pojedynczy kafelek, który pokazuje ich nazwę wyświetlaną i strumień wideo (gdy istnieje)
 - **Nagłówek**: to miejsce, w którym znajdują się podstawowe kontrolki wywołania, aby przełączać ustawienia i pasek boczny uczestnika, włączać lub wyłączać i mieszać zawartość ekranu oraz pozostawiać wywołanie.
 - **Pasek boczny**: to miejsce, w którym informacje o uczestnikach i ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Składnik może zostać odrzucony przy użyciu "X" w prawym górnym rogu. Na pasku bocznym uczestników zostanie wyświetlona lista uczestników i link pozwalający zaprosić więcej użytkowników do rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie ustawień mikrofonu i aparatu.
+
+> [!NOTE]
+> W oparciu o ograniczenia dotyczące zestawu SDK wywoływania sieci Web jest renderowany tylko jeden zdalny strumień wideo. Aby uzyskać więcej informacji, zobacz [wywoływanie obsługi strumienia SDK](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
 
 Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 

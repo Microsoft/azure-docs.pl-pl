@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: f349d260fff32427712442615cabf6d3958468ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640039"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449974"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -39,14 +39,14 @@ Poniżej znajdziesz więcej szczegółów i dodatkowe opcje konfiguracji.
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie Application Insights Java 3,0 oczekuje, że plik konfiguracji jest nazwany `applicationinsights.json` i znajduje się w tym samym katalogu co `applicationinsights-agent-3.0.2.jar` .
+Domyślnie Application Insights Java 3,0 oczekuje, że plik konfiguracji jest nazwany `applicationinsights.json` i znajduje się w tym samym katalogu co `applicationinsights-agent-3.0.3.jar` .
 
 Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` Zmienna środowiskowa lub
 * `applicationinsights.configuration.file` Właściwość systemu Java
 
-W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.2.jar` znajduje się lokalizacja.
+W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.3.jar` znajduje się lokalizacja.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
@@ -61,7 +61,7 @@ Parametry połączenia są wymagane. Parametry połączenia można znaleźć w z
 }
 ```
 
-Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` (która będzie mieć pierwszeństwo, jeśli parametry połączenia są również określone w konfiguracji JSON).
+Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` (która będzie mieć pierwszeństwo przed parametrami połączenia określonymi w konfiguracji JSON).
 
 Ustawienie parametrów połączenia spowoduje wyłączenie agenta Java.
 
@@ -81,7 +81,7 @@ Jeśli chcesz ustawić nazwę roli w chmurze:
 
 Jeśli nazwa roli chmury nie jest ustawiona, nazwa zasobu Application Insights zostanie użyta do etykietowania składnika na mapie aplikacji.
 
-Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` (która będzie mieć pierwszeństwo, jeśli nazwa roli chmury zostanie również określona w konfiguracji JSON).
+Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` (która będzie mieć pierwszeństwo przed nazwą roli chmury określoną w konfiguracji JSON).
 
 ## <a name="cloud-role-instance"></a>Wystąpienie roli w chmurze
 
@@ -98,7 +98,7 @@ Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
 }
 ```
 
-Można również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` (która będzie mieć pierwszeństwo, jeśli wystąpienie roli chmury zostanie również określone w konfiguracji JSON).
+Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` (która będzie mieć pierwszeństwo przed wystąpieniem roli w chmurze określonym w konfiguracji JSON).
 
 ## <a name="sampling"></a>Próbkowanie
 
@@ -117,14 +117,14 @@ Oto przykład sposobu ustawiania próbkowania w celu przechwycenia około **1/3 
 }
 ```
 
-Można również ustawić wartość procentową próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (która następnie ma pierwszeństwo, jeśli procent próbkowania jest również określony w konfiguracji JSON).
+Możesz również ustawić procent próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (która następnie ma pierwszeństwo przed próbką próbki określoną w konfiguracji JSON).
 
 > [!NOTE]
 > W polu procent próbkowania wybierz wartość procentową zbliżoną do 100/N, gdzie N jest liczbą całkowitą. Obecnie próbkowanie nie obsługuje innych wartości.
 
 ## <a name="sampling-overrides-preview"></a>Przesłaniania próbek (wersja zapoznawcza)
 
-Ta funkcja jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3-BETA. 2.
+Ta funkcja jest dostępna w wersji zapoznawczej, rozpoczynając od 3.0.3.
 
 Przesłaniania próbek umożliwiają przesłonięcie [domyślnego procentu próbkowania](#sampling), na przykład:
 * Ustaw wartość procent próbkowania na 0 (lub niewielką wartość), aby sprawdzić kondycję.
@@ -215,7 +215,7 @@ Domyślny poziom skonfigurowany dla Application Insights ma wartość `INFO` . J
 }
 ```
 
-Możesz również ustawić poziom przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (która będzie mieć pierwszeństwo, jeśli poziom zostanie również określony w konfiguracji JSON).
+Możesz również ustawić poziom przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (która będzie mieć pierwszeństwo przed poziomem określonym w konfiguracji JSON).
 
 Są to prawidłowe `level` wartości, które można określić w `applicationinsights.json` pliku oraz jak są one zgodne z poziomami rejestrowania w różnych strukturach rejestrowania:
 
@@ -256,9 +256,32 @@ Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego 
 }
 ```
 
+## <a name="auto-collected-azure-sdk-telemetry"></a>Pobrana Funkcja telemetrii zestawu Azure SDK
+
+Ta funkcja jest dostępna w wersji zapoznawczej.
+
+Wiele najnowszych bibliotek zestawu Azure SDK emituje dane telemetryczne.
+
+Począwszy od wersji 3.0.3 można włączyć zbieranie danych telemetrii:
+
+```json
+{
+  "preview": {
+    "instrumentation": {
+      "azureSdk": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+Tę funkcję można również włączyć przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+(który będzie miał pierwszeństwo przed włączonym określone w konfiguracji JSON).
+
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Pomijanie określonych autozbieranych danych telemetrycznych
 
-Rozpoczynając od wersji 3.0.2, można pominąć określoną funkcję automatycznej zebranej telemetrii przy użyciu następujących opcji konfiguracji:
+Rozpoczynając od wersji 3.0.3, można pominąć określoną funkcję automatycznej zebranej telemetrii przy użyciu następujących opcji konfiguracji:
 
 ```json
 {
@@ -267,6 +290,9 @@ Rozpoczynając od wersji 3.0.2, można pominąć określoną funkcję automatycz
       "enabled": false
     },
     "jdbc": {
+      "enabled": false
+    },
+    "jms": {
       "enabled": false
     },
     "kafka": {
@@ -280,13 +306,28 @@ Rozpoczynając od wersji 3.0.2, można pominąć określoną funkcję automatycz
     },
     "redis": {
       "enabled": false
+    },
+    "springScheduling": {
+      "enabled": false
     }
   }
 }
 ```
 
-> Zwróć uwagę, jeśli szukasz bardziej precyzyjnych kontroli, np. Aby pominąć niektóre wywołania Redis, ale nie wszystkie wywołania Redis, zobacz [przesłaniania próbkowania](./java-standalone-sampling-overrides.md).
+Można również pominąć te instrumenty przy użyciu tych zmiennych środowiskowych:
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
+
+(który będzie miał pierwszeństwo przed włączonym określone w konfiguracji JSON).
+
+> Zwróć uwagę, jeśli szukasz bardziej precyzyjnych kontroli, np. Aby pominąć niektóre wywołania Redis, ale nie wszystkie wywołania Redis, zobacz [przesłaniania próbkowania](./java-standalone-sampling-overrides.md).
 
 ## <a name="heartbeat"></a>Puls
 
@@ -324,7 +365,7 @@ Ta funkcja jest dostępna w wersji zapoznawczej.
 
 Domyślnie metryki są przechwytywane co 60 sekund.
 
-Począwszy od wersji 3.0.3-BETA można zmienić ten interwał:
+Począwszy od wersji 3.0.3 można zmienić ten interwał:
 
 ```json
 {
@@ -384,13 +425,13 @@ Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` za
 
 `level` może być jedną z `OFF` , `ERROR` ,,, `WARN` `INFO` `DEBUG` lub `TRACE` .
 
-`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozwiązywane względem katalogu, gdzie się `applicationinsights-agent-3.0.2.jar` znajduje.
+`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozwiązywane względem katalogu, gdzie się `applicationinsights-agent-3.0.3.jar` znajduje.
 
 `maxSizeMb` jest maksymalnym rozmiarem pliku dziennika przed przekazaniem go.
 
 `maxHistory` to liczba rzutowanych plików dziennika (oprócz bieżącego pliku dziennika).
 
-Rozpoczynając od wersji 3.0.2, można również ustawić samodiagnostykę `level` przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (która będzie mieć pierwszeństwo, jeśli w `level` konfiguracji JSON zostanie także określona opcja samodiagnostyka).
+Rozpoczynając od wersji 3.0.2, można również ustawić samodiagnostykę `level` przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (która następnie będzie mieć pierwszeństwo przed poziomem samodiagnostyki określonym w konfiguracji JSON).
 
 ## <a name="an-example"></a>Przykład
 

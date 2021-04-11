@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Data Box
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Data Box. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 author: alkohli
 ms.author: alkohli
 ms.service: databox
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d3d145af85645ae9bdbe91ec6731edb1d0b31497
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b337d1c99b32fddcca3dedaf33a78ebdc399ac6f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031986"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094936"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-box"></a>Azure Policy kontroli zgodności z przepisami dla Azure Data Box
 

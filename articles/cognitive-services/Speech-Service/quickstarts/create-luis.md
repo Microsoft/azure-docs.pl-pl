@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 45c509ea2391c370aa0a399b2f0c621238fabc55
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023824"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209684"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Szybki Start: Pobieranie klucza punktu końcowego LUIS
 
@@ -64,4 +64,4 @@ Na stronie **Ustawienia kluczy i punktu końcowego** :
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Rozpoznawanie intencji](~/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md)
+> [Rozpoznawanie intencji](~/articles/cognitive-services/Speech-Service/get-started-intent-recognition.md)

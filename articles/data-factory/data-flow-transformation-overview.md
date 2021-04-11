@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb5021c0125c3140ef44a1ec3304b9d0ac40c30f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593870"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060231"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Mapowanie transformacji przepływu danych — omówienie
 
@@ -42,3 +42,4 @@ Poniżej znajduje się lista transformacji, które są obecnie obsługiwane w ma
 | [Unia](data-flow-union.md) | Wiele danych wejściowych/wyjściowych | Łączenie wielu strumieni danych w pionie |
 | [Anulowanie przestawiania](data-flow-unpivot.md) | Modyfikator schematu | Przestawianie kolumn na wartości wierszy |
 | [Okno](data-flow-window.md) | Modyfikator schematu |  Zdefiniuj agregacje kolumn w strumieniach danych. |
+| [Analizuj](data-flow-parse.md) | Modyfikator schematu |  Analizowanie danych z kolumny w formacie JSON lub rozdzielanym tekstem |

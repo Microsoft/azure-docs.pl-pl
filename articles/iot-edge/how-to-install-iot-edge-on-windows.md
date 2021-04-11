@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 98b312066294f2c4ed7f9b089e0f8ea1a68fe4be
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612125"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059704"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalowanie i aprowizacja usługi IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
@@ -44,8 +44,8 @@ W tym artykule przedstawiono procedurę konfigurowania IoT Edge na urządzeniu z
   * Wersje Professional, Enterprise i Server
   * Minimalna ilość wolnej pamięci: 2 GB
   * Minimalna ilość wolnego miejsca na dysku: 10 GB
-  * Jeśli tworzysz nowe wdrożenie przy użyciu systemu Windows 10, upewnij się, że włączona jest funkcja Hyper-V. Aby uzyskać więcej informacji, zobacz jak [zainstalować funkcję Hyper-V w systemie Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
-  * Jeśli tworzysz nowe wdrożenie przy użyciu systemu Windows Server, upewnij się, że zainstalowano rolę funkcji Hyper-V. Aby uzyskać więcej informacji, zobacz jak [zainstalować rolę funkcji Hyper-V w systemie Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * Jeśli tworzysz nowe wdrożenie przy użyciu systemu Windows 10, upewnij się, że włączona jest funkcja Hyper-V. Aby uzyskać więcej informacji, zobacz jak [zainstalować funkcję Hyper-V w systemie Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+  * Jeśli tworzysz nowe wdrożenie przy użyciu systemu Windows Server, upewnij się, że zainstalowano rolę funkcji Hyper-V. Aby uzyskać więcej informacji, zobacz jak [zainstalować rolę funkcji Hyper-V w systemie Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
   * Jeśli tworzysz nowe wdrożenie przy użyciu maszyny wirtualnej, upewnij się, że zawarto prawidłowo skonfigurować wirtualizację zagnieżdżoną. Aby uzyskać więcej informacji, zobacz [zagnieżdżony Przewodnik wirtualizacji](nested-virtualization.md) .
 
 * Dostęp do centrum administracyjnego systemu Windows z zainstalowanym rozszerzeniem Azure IoT Edge dla centrum administracyjnego systemu Windows:

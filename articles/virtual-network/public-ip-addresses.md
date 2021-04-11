@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1d412774dc68cba0c24709c7fc8a7999e0aeab8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418066"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094765"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -165,7 +165,7 @@ Aby uzyskać więcej informacji na temat jednostek SKU usługi Azure Load Balanc
 Publiczny adres IP jest przypisywany do VPN Gateway, aby umożliwić komunikację z siecią zdalną. 
 
 * Przypisz **dynamiczny** podstawowy adres IP do konfiguracji frontonu VPNGw 1-5 jednostki SKU.
-* Przypisz **statyczny** publiczny adres IP do konfiguracji FRONTONU jednostki SKU VPNGwAZ 1-5.
+* Przypisz **statyczny** publiczny adres IP do konfiguracji frontonu VPNGwAZ 1-5 jednostki SKU.
 
 ## <a name="application-gateways"></a>Bramy aplikacji
 

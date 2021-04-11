@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 03/12/2021
-ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: 53e96f4057b35fa6c849ec643ac1c9e0c7d5b402
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870198"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076551"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -145,7 +145,7 @@ Aby działać z warunkami, porównywać wartości i wyniki wyrażeń lub ocenia�
 Aby zmienić typ lub format wartości, można użyć tych funkcji konwersji. Na przykład można zmienić wartość z wartości logicznej na liczbę całkowitą. Aby uzyskać więcej informacji na temat sposobu, w jaki Logic Apps obsługuje typy zawartości podczas konwersji, zobacz [Obsługa typów zawartości](../logic-apps/logic-apps-content-type.md). Aby uzyskać pełne informacje o każdej z tych funkcji, zobacz [alfabetyczną listę](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> Azure Logic Apps automatycznie konwertuje wartości między niektórymi typami danych, co oznacza, że nie trzeba ręcznie wykonywać tych konwersji. Jeśli jednak to zrobisz, może wystąpić nieoczekiwane zachowania wyświetlania, które nie wpływają na rzeczywiste konwersje. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu funkcji kodowania i dekodowania. Jeśli jednak użyjesz tych funkcji w projektancie, w projektancie mogą wystąpić nieoczekiwane zachowania renderowania. Te zachowania mają wpływ tylko na widoczność funkcji i nie ich wpływ, chyba że edytujesz wartości parametrów Functions, co spowoduje usunięcie funkcji i ich efektów z kodu. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
 
 | Funkcja konwersji | Zadanie |
 | ------------------- | ---- |
@@ -177,7 +177,7 @@ Aby zmienić typ lub format wartości, można użyć tych funkcji konwersji. Na 
 
 ## <a name="implicit-data-type-conversions"></a>Niejawne konwersje typów danych
 
-Azure Logic Apps automatycznie lub niejawnie konwertowany między niektórymi typami danych, więc nie trzeba ręcznie konwertować tych typów. Na przykład, jeśli używasz wartości niebędących ciągami, w których ciągi są oczekiwane jako dane wejściowe, Logic Apps automatycznie konwertuje wartości niebędące ciągami na ciągi.
+Azure Logic Apps automatycznie lub niejawnie przekonwertowane między niektórymi typami danych, więc nie trzeba ręcznie wykonywać tych konwersji. Na przykład, jeśli używasz wartości niebędących ciągami, w których ciągi są oczekiwane jako dane wejściowe, Logic Apps automatycznie konwertuje wartości niebędące ciągami na ciągi.
 
 Na przykład załóżmy, że wyzwalacz zwraca wartość liczbową jako dane wyjściowe:
 
@@ -187,9 +187,11 @@ Jeśli używasz tego numerycznego wyjścia, gdzie oczekiwany jest tekst wejścio
 
 `@{triggerBody()?['123']}`
 
+<a name="base64-encoding-decoding"></a>
+
 ### <a name="base64-encoding-and-decoding"></a>Kodowanie i dekodowanie Base64
 
-Logic Apps automatycznie lub niejawnie dokonuje kodowania lub dekodowania Base64, więc nie trzeba wykonywać tych operacji ręcznie przy użyciu odpowiednich wyrażeń:
+Logic Apps automatycznie lub niejawnie dokonuje kodowania lub dekodowania Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu odpowiednich funkcji:
 
 * `base64(<value>)`
 * `base64ToBinary(<value>)`
@@ -200,7 +202,7 @@ Logic Apps automatycznie lub niejawnie dokonuje kodowania lub dekodowania Base64
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> Jeśli te wyrażenia są dodawane ręcznie do aplikacji logiki, na przykład za pomocą edytora wyrażeń, przejdź do projektanta aplikacji logiki i wróć do projektanta, a projektant wyświetli tylko wartości parametrów. Wyrażenia są zachowywane w widoku kodu tylko wtedy, gdy nie są edytowane wartości parametrów. W przeciwnym razie Logic Apps usuwa wyrażenia z widoku kodu, pozostawiając tylko wartości parametrów. Takie zachowanie nie ma wpływu na kodowanie ani dekodowanie, tylko wtedy, gdy są wyświetlane wyrażenia.
+> W przypadku ręcznego dodawania dowolnej z tych funkcji do przepływu pracy za pośrednictwem projektanta aplikacji logiki, na przykład przy użyciu edytora wyrażeń, przejdź poza projektanta i wróć do projektanta, funkcja znika z projektanta, pozostawiając tylko wartości parametrów. To zachowanie występuje również w przypadku wybrania wyzwalacza lub akcji, która używa tej funkcji bez edytowania wartości parametrów funkcji. Ten wynik ma wpływ tylko na widoczność funkcji i nie ma wpływu. W widoku kodu funkcja nie ma żadnych zmian. Jednak Jeśli edytujesz wartości parametrów funkcji, funkcja i jej efekt są usuwane z widoku kodu, pozostawiając tylko wartości parametrów funkcji.
 
 <a name="math-functions"></a>
 
@@ -944,7 +946,7 @@ I zwraca ten wynik: `["hello"]`
 Zwróć wersję z kodowaniem Base64 dla ciągu.
 
 > [!NOTE]
-> Azure Logic Apps automatycznie wykonuje kodowanie base64 i dekodowanie, co oznacza, że nie trzeba ręcznie wykonywać tych konwersji. Jeśli jednak to zrobisz, może wystąpić nieoczekiwane zachowania wyświetlania, które nie wpływają na rzeczywiste konwersje. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu funkcji kodowania i dekodowania. Jeśli jednak użyjesz tych funkcji mimo to, w projektancie mogą wystąpić nieoczekiwane zachowania renderowania. Te zachowania mają wpływ tylko na widoczność funkcji i nie ich wpływ, chyba że edytujesz wartości parametrów Functions, co spowoduje usunięcie funkcji i ich efektów z kodu. Aby uzyskać więcej informacji, zobacz [kodowanie i dekodowanie Base64](#base64-encoding-decoding).
 
 ```
 base64('<value>')
@@ -977,7 +979,7 @@ I zwraca ten wynik: `"aGVsbG8="`
 Zwróć wersję binarną dla ciągu zakodowanego algorytmem Base64.
 
 > [!NOTE]
-> Azure Logic Apps automatycznie wykonuje kodowanie base64 i dekodowanie, co oznacza, że nie trzeba ręcznie wykonywać tych konwersji. Jeśli jednak to zrobisz, może wystąpić nieoczekiwane zachowania wyświetlania, które nie wpływają na rzeczywiste konwersje. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu funkcji kodowania i dekodowania. Jeśli jednak użyjesz tych funkcji w projektancie, w projektancie mogą wystąpić nieoczekiwane zachowania renderowania. Te zachowania mają wpływ tylko na widoczność funkcji i nie ich wpływ, chyba że edytujesz wartości parametrów Functions, co spowoduje usunięcie funkcji i ich efektów z kodu. Aby uzyskać więcej informacji, zobacz [kodowanie i dekodowanie Base64](#base64-encoding-decoding).
 
 ```
 base64ToBinary('<value>')
@@ -1012,7 +1014,7 @@ I zwraca ten wynik:
 Zwraca wersję ciągu dla ciągu zakodowanego algorytmem Base64, efektywnie dekodowanie ciągu Base64. Użyj tej funkcji zamiast [decodeBase64 ()](#decodeBase64), która jest przestarzała.
 
 > [!NOTE]
-> Azure Logic Apps automatycznie wykonuje kodowanie base64 i dekodowanie, co oznacza, że nie trzeba ręcznie wykonywać tych konwersji. Jeśli jednak to zrobisz, może wystąpić nieoczekiwane zachowania wyświetlania, które nie wpływają na rzeczywiste konwersje. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu funkcji kodowania i dekodowania. Jeśli jednak użyjesz tych funkcji w projektancie, w projektancie mogą wystąpić nieoczekiwane zachowania renderowania. Te zachowania mają wpływ tylko na widoczność funkcji i nie ich wpływ, chyba że edytujesz wartości parametrów Functions, co spowoduje usunięcie funkcji i ich efektów z kodu. Aby uzyskać więcej informacji, zobacz [kodowanie i dekodowanie Base64](#base64-encoding-decoding).
 
 ```
 base64ToString('<value>')
@@ -1074,9 +1076,7 @@ I zwraca ten wynik:
 
 ### <a name="body"></a>body
 
-Zwraca `body` dane wyjściowe akcji w czasie wykonywania.
-Skrót dla `actions('<actionName>').outputs.body` .
-Zobacz [actionBody ()](#actionBody) i [Akcje ()](#actions).
+Zwraca `body` dane wyjściowe akcji w czasie wykonywania. Skrót dla `actions('<actionName>').outputs.body` . Zobacz [actionBody ()](#actionBody) i [Akcje ()](#actions).
 
 ```
 body('<actionName>')
@@ -1194,6 +1194,15 @@ I zwraca te wyniki:
 
 Połącz dwa lub więcej ciągów i zwróć połączony ciąg.
 
+> [!NOTE]
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba wykonywać ręcznej konwersji przy użyciu `concat()` funkcji z danymi, które wymagają kodowania lub dekodowania:
+> 
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+> 
+> Jeśli jednak ta funkcja jest używana mimo to w projektancie, może wystąpić nieoczekiwane zachowania renderowania w projektancie. Zachowania te wpływają tylko na widoczność funkcji, a nie efekt, chyba że edytujesz wartości parametrów funkcji, które usuwają funkcję i efekt z kodu. 
+> Aby uzyskać więcej informacji, zobacz [kodowanie i dekodowanie Base64](#base64-encoding-decoding).
+
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1222,9 +1231,7 @@ I zwraca ten wynik: `"HelloWorld"`
 
 ### <a name="contains"></a>zawiera
 
-Sprawdź, czy kolekcja zawiera określony element.
-Zwraca wartość true, jeśli element zostanie znaleziony lub zwraca wartość false, jeśli nie znaleziono.
-Ta funkcja uwzględnia wielkość liter.
+Sprawdź, czy kolekcja zawiera określony element. Zwraca wartość true, jeśli element zostanie znaleziony lub zwraca wartość false, jeśli nie znaleziono. Ta funkcja uwzględnia wielkość liter.
 
 ```
 contains('<collection>', '<value>')
@@ -1622,7 +1629,7 @@ Ta funkcja jest przestarzała, dlatego należy zamiast niej użyć [base64ToStri
 Zwróć wersję binarną dla identyfikatora URI (Uniform Resource Identifier) danych. Rozważ użycie [dataUriToBinary ()](#dataUriToBinary), a nie `decodeDataUri()` . Chociaż obie funkcje działają w ten sam sposób, `dataUriToBinary()` jest preferowane.
 
 > [!NOTE]
-> Azure Logic Apps automatycznie wykonuje kodowanie base64 i dekodowanie, co oznacza, że nie trzeba ręcznie wykonywać tych konwersji. Jeśli jednak to zrobisz, może wystąpić nieoczekiwane zachowania wyświetlania, które nie wpływają na rzeczywiste konwersje. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu funkcji kodowania i dekodowania. Jeśli jednak użyjesz tych funkcji w projektancie, w projektancie mogą wystąpić nieoczekiwane zachowania renderowania. Te zachowania mają wpływ tylko na widoczność funkcji i nie ich wpływ, chyba że edytujesz wartości parametrów Functions, co spowoduje usunięcie funkcji i ich efektów z kodu. Aby uzyskać więcej informacji, zobacz [kodowanie i dekodowanie Base64](#base64-encoding-decoding).
 
 ```
 decodeDataUri('<value>')
@@ -1729,7 +1736,7 @@ div(11.0,5)
 Zwróć jednolity identyfikator zasobów (URI) dla ciągu przez zastępowanie znaków w adresie URL bez znaku ucieczki. Rozważ użycie [uriComponent ()](#uriComponent), a nie `encodeUriComponent()` . Chociaż obie funkcje działają w ten sam sposób, `uriComponent()` jest preferowane.
 
 > [!NOTE]
-> Azure Logic Apps automatycznie wykonuje kodowanie base64 i dekodowanie, co oznacza, że nie trzeba ręcznie wykonywać tych konwersji. Jeśli jednak to zrobisz, może wystąpić nieoczekiwane zachowania wyświetlania, które nie wpływają na rzeczywiste konwersje. Aby uzyskać więcej informacji, zobacz [konwersje niejawnych typów danych](#implicit-data-conversions).
+> Azure Logic Apps automatycznie lub niejawnie wykonuje kodowanie i dekodowanie Base64, więc nie trzeba ręcznie wykonywać tych konwersji przy użyciu funkcji kodowania i dekodowania. Jeśli jednak użyjesz tych funkcji w projektancie, w projektancie mogą wystąpić nieoczekiwane zachowania renderowania. Te zachowania mają wpływ tylko na widoczność funkcji i nie ich wpływ, chyba że edytujesz wartości parametrów Functions, co spowoduje usunięcie funkcji i ich efektów z kodu. Aby uzyskać więcej informacji, zobacz [kodowanie i dekodowanie Base64](#base64-encoding-decoding).
 
 ```
 encodeUriComponent('<value>')

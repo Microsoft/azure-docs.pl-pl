@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: W tym artykule opisano sposób tworzenia monitora w monitorze połączeń przy użyciu Azure Portal.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9942b608601b495dd041a8b59aaecb3f5dd81fa7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702168"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505233"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
 
@@ -121,7 +121,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
 
    * Aby wybrać agentów lokalnych, wybierz kartę **punkty końcowe inne niż Azure** . Domyślnie agenci są pogrupowani w obszary robocze według regionów. Wszystkie te obszary robocze mają skonfigurowaną Network Performance Monitor. 
    
-       Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). 
+       Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). Informacje o sposobie konfigurowania agentów dla maszyn lokalnych znajdują się w temacie [agenci dla maszyn lokalnych](connection-monitor-overview.md#agents-for-on-premises-machines).
    
        W obszarze **Utwórz monitor połączeń** na karcie **podstawowe** jest wybierany region domyślny. Jeśli zmienisz region, możesz wybrać agentów z obszarów roboczych w nowym regionie. Można wybrać co najmniej jednego agenta lub podsieci. W widoku **podsieci** można wybrać określone adresy IP do monitorowania. W przypadku dodania wielu podsieci zostanie utworzona niestandardowa sieć lokalna o nazwie **OnPremises_Network_1** . Możesz również zmienić selektor **Grupuj według** , aby grupować według agentów.
 
@@ -144,7 +144,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
     
     * Aby wybrać agentów nienależących do platformy Azure jako miejsca docelowe, wybierz kartę **punkty końcowe spoza platformy Azure** . Domyślnie agenci są pogrupowani w obszary robocze według regionów. Wszystkie te obszary robocze mają skonfigurowane Network Performance Monitor. 
     
-      Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z witryny Azure Marketplace. Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). 
+      Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z witryny Azure Marketplace. Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). Informacje o sposobie konfigurowania agentów dla maszyn lokalnych znajdują się w temacie [agenci dla maszyn lokalnych](connection-monitor-overview.md#agents-for-on-premises-machines).
 
       W obszarze **Utwórz monitor połączeń** na karcie **podstawowe**   jest wybierany region domyślny. Jeśli zmienisz region, możesz wybrać agentów z obszarów roboczych w nowym regionie. Można wybrać co najmniej jednego agenta lub podsieci. W widoku **podsieci** można wybrać określone adresy IP do monitorowania. W przypadku dodania wielu podsieci zostanie utworzona niestandardowa sieć lokalna o nazwie **OnPremises_Network_1** .  
 

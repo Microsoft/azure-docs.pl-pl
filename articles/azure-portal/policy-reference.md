@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla Azure Portal
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Portal. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 59db04b85035c99303c851b39420f54435884191
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 68b85e874ecb5d037228bde1cb8c22fdeb072bd0
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037749"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094270"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Azure Policy wbudowane definicje Azure Portal
 

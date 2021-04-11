@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 06033f13b1f63849408646835a844c2eafa8d64f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4891a602e9fb5ebbdaadc980c1960b95816c6653
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105629416"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113280"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,7 +32,7 @@ Otwórz plik **pom.xml** w edytorze tekstów. Dodaj następujące elementy zale�
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0-beta.7</version>
 </dependency>
 
 <dependency>
@@ -57,8 +57,6 @@ Użyj następującego kodu, aby rozpocząć:
 import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
 import java.io.*;
-import com.azure.core.http.*;
-import com.azure.core.http.netty.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
@@ -78,31 +76,23 @@ public class App
 PhoneNumberClientBuilder jest włączona, aby używać uwierzytelniania Azure Active Directory
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
 ```java
-// You can find your endpoint and access key from your resource in the Azure Portal
+// You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .endpoint(endpoint)
     .credential(new DefaultAzureCredentialBuilder().build())
-    .httpClient(httpClient)
     .buildClient();
 ```
 
-Alternatywnie przy użyciu punktu końcowego i klucza dostępu z zasobu komunikacyjnego do uwierzytelniania jest również przekroczyła dozwoloną.
+Alternatywnie możliwe jest również użycie punktu końcowego i klucza dostępu z zasobu komunikacji do uwierzytelniania.
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
 ```java
-// You can find your connection string from your resource in the Azure Portal
+// You can find your connection string from your resource in the Azure portal
 String connectionString = "https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
-
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .connectionString(connectionString)
-    .httpClient(httpClient)
     .buildClient();
 ```
 
@@ -140,14 +130,14 @@ System.out.println("Purchase phone numbers operation is: " + purchaseResponse.ge
 
 Po wybraniu numeru zakupu można pobrać go z klienta programu.
 ```java
-AcquiredPhoneNumber phoneNumber = phoneNumberClient.getPhoneNumber("+14255550123");
+PurchasedPhoneNumber phoneNumber = phoneNumberClient.getPurchasedPhoneNumber("+14255550123");
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
 ```
 
 Możesz również pobrać wszystkie zakupione numery telefonów.
 ``` java
-PagedIterable<AcquiredPhoneNumber> phoneNumbers = createPhoneNumberClient().listPhoneNumbers(Context.NONE);
-AcquiredPhoneNumber phoneNumber = phoneNumbers.iterator().next();
+PagedIterable<PurchasedPhoneNumber> phoneNumbers = phoneNumberClient.listPurchasedPhoneNumbers(Context.NONE);
+PurchasedPhoneNumber phoneNumber = phoneNumbers.iterator().next();
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
 ```
 
@@ -155,14 +145,14 @@ System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode())
 
 Za pomocą numeru zakupionego można zaktualizować możliwości.
 ```java
-PhoneNumberCapabilitiesRequest capabilitiesRequest = new PhoneNumberCapabilitiesRequest();
-capabilitiesRequest
+PhoneNumberCapabilities capabilities = new PhoneNumberCapabilities();
+capabilities
     .setCalling(PhoneNumberCapabilityType.INBOUND)
-    .setSms(PhoneNumberCapabilityType.INBOUND);
-AcquiredPhoneNumber phoneNumber = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+18001234567", capabilitiesRequest, Context.NONE).getFinalResult();
+    .setSms(PhoneNumberCapabilityType.INBOUND_OUTBOUND);
+PurchasedPhoneNumber phoneNumber = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+14255550123", capabilities, Context.NONE).getFinalResult();
 
-System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling());
-System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabilities().getSms());
+System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling()); //Phone Number Calling capabilities: inbound
+System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabilities().getSms()); //Phone Number SMS capabilities: inbound+outbound
 ```
 
 ### <a name="release-phone-number"></a>Numer telefonu wydania
@@ -170,7 +160,7 @@ System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabiliti
 Możesz zwolnić zakupiony numer telefonu.
 ```java
 PollResponse<PhoneNumberOperation> releaseResponse =
-    phoneNumberClient.beginReleasePhoneNumber("+18001234567", Context.NONE).waitForCompletion();
+    phoneNumberClient.beginReleasePhoneNumber("+14255550123", Context.NONE).waitForCompletion();
 System.out.println("Release phone number operation is: " + releaseResponse.getStatus());
 ```
 
