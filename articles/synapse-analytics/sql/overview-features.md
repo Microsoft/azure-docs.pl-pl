@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.openlocfilehash: b79ad8212c3c31bd0759b576c640e61ccd7a1c0b
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604553"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funkcje języka Transact-SQL obsługiwane przez usługę Azure Synapse SQL
@@ -106,7 +106,7 @@ Synapse SQL umożliwia korzystanie z wbudowanych funkcji zabezpieczeń w celu za
 
 Dedykowana Pula SQL i bezserwerowa Pula SQL używają standardowego języka Transact-SQL do wykonywania zapytań dotyczących danych. Aby uzyskać szczegółowe różnice, zapoznaj się z dokumentacją [języka Transact-SQL](/sql/t-sql/language-reference).
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 Za pomocą różnych narzędzi można nawiązać połączenie z usługą Synapse SQL w celu wykonywania zapytań dotyczących danych.
 

@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Azure Queue Storage Client Library V12 — .NET'
 description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu V12 biblioteki klienta Queue Storage platformy Azure dla platformy .NET. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c4af7afd96f6c503f35cdb4896c3b49d4ef6ed3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589529"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276233"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Szybki Start: V12 biblioteki klienta Queue Storage platformy Azure dla platformy .NET
 

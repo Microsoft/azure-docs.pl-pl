@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201060"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167757"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Samouczek: szybka skalowanie i ochrona aplikacji sieci Web przy użyciu platformy Azure z przodu i zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -140,7 +140,7 @@ Na koniec, jeśli używasz domeny niestandardowej do uzyskiwania dostępu do apl
 
 ## <a name="lock-down-your-web-application"></a>Zablokuj aplikację sieci Web
 
-Zalecamy upewnienie się, że tylko krawędzie z przodu platformy Azure mogą komunikować się z Twoją aplikacją sieci Web. Dzięki temu nikt nie będzie mógł ominąć ochrony przed drzwiami platformy Azure i bezpośrednio uzyskiwać dostęp do aplikacji. Aby wykonać tę blokadę, zobacz [Jak mogę zablokować dostęp do mojego zaplecza tylko do platformy Azure — przód?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Zalecamy upewnienie się, że tylko krawędzie z przodu platformy Azure mogą komunikować się z Twoją aplikacją sieci Web. Dzięki temu nikt nie będzie mógł ominąć ochrony przed drzwiami platformy Azure i bezpośrednio uzyskiwać dostęp do aplikacji. Aby wykonać tę blokadę, zobacz [Jak mogę zablokować dostęp do mojego zaplecza tylko do platformy Azure — przód?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

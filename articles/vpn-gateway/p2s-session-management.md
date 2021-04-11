@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55fe0bf404ecb8a81e3fe1975dfa9f5ba5dfb06
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91274237"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103355"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Zarządzanie sesjami sieci VPN typu punkt-lokacja
 
@@ -32,6 +32,8 @@ Aby wyświetlić i rozłączyć sesję w portalu:
    :::image type="content" source="./media/p2s-session-management/portal.png" alt-text="Przykład portalu":::
 1. Wszystkie bieżące sesje można wyświetlić w WindowPane.
 1. Wybierz pozycję **"..."** dla sesji, którą chcesz odłączyć, a następnie wybierz pozycję **Rozłącz**.
+
+Obecnie nie można używać tej funkcji w portalu dla jednostek SKU VpnGw4 i VpnGw5. Jeśli masz jedną z tych bram, użyj metody programu PowerShell opisanej w następnej sekcji.
 
 ## <a name="powershell"></a>PowerShell
 

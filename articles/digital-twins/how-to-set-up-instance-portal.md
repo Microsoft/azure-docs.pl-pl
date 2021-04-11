@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8263e0805f48976222e66922be8c04e0902101d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7247aa45ae164cd4f2eb5f210e0ec6ec91a0a25f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102201842"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104069"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -111,7 +111,7 @@ Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczy
 ## <a name="next-steps"></a>Następne kroki
 
 Przetestuj poszczególne wywołania interfejsu API REST w wystąpieniu przy użyciu poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji: 
-* [odwołanie AZ DT](/cli/azure/ext/azure-iot/dt)
+* [odwołanie AZ DT](/cli/azure/dt)
 * [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
 
 Lub zapoznaj się z tematem jak połączyć aplikację kliencką z wystąpieniem przy użyciu kodu uwierzytelniania:

@@ -3,14 +3,14 @@ title: Dodawanie tożsamości zarządzanej do roli w Azure Event Grid miejscu do
 description: W tym artykule opisano sposób dodawania tożsamości zarządzanej do ról platformy Azure w miejscach docelowych, takich jak Azure Service Bus i Azure Event Hubs.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 1bcef878c982122d80980dd7194fae2de6fc8762
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1578e4c24201614ce89351b3c3cee52a09cadc30
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630455"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280483"
 ---
-# <a name="add-an-identity-to-azure-roles-on-azure-event-grid-destinations"></a>Dodawanie tożsamości do ról platformy Azure na Azure Event Grid miejscach docelowych
+# <a name="grant-managed-identity-the-access-to-event-grid-destination"></a>Przyznaj tożsamości zarządzanej dostęp do Event Grid lokalizacji docelowej
 W tej sekcji opisano, jak dodać tożsamość dla tematu systemu, tematu niestandardowego lub domeny do roli platformy Azure. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -89,6 +89,6 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy przypisano tożsamość przypisaną do systemu do tematu systemu, tematu niestandardowego lub domeny, i dodano tożsamość do odpowiednich ról w miejscach docelowych, zobacz [zdarzenia Devlier przy użyciu tożsamości](managed-service-identity.md) w przypadku dostarczania zdarzeń do miejsc docelowych przy użyciu tożsamości.
+Teraz, gdy przypisano tożsamość przypisaną do systemu do tematu systemu, tematu niestandardowego lub domeny, i dodano tożsamość do odpowiednich ról w miejscach docelowych, zobacz [dostarczanie zdarzeń przy użyciu tożsamości zarządzanej](managed-service-identity.md) przy dostarczaniu zdarzeń do miejsc docelowych przy użyciu tożsamości.
 
 

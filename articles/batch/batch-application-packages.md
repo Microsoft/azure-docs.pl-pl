@@ -7,12 +7,12 @@ ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 17729b2b6a2c4faba0554339a382cad559e9894a
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045794"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210503"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -61,7 +61,7 @@ W przypadku pakietów aplikacji zadanie uruchamiania puli nie musi określać d�
 Za pomocą [Azure Portal](https://portal.azure.com) lub interfejsów API zarządzania usługą Batch można zarządzać pakietami aplikacji na koncie w usłudze Batch. W poniższych sekcjach wyjaśniono, jak połączyć konto magazynu oraz jak dodawać aplikacje i pakiety aplikacji oraz zarządzać nimi w Azure Portal.
 
 > [!NOTE]
-> Podczas definiowania wartości aplikacji w [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) zasobu [szablonu ARM](quick-create-template.md)nie jest obecnie możliwe używanie szablonu ARM do przekazywania pakietów aplikacji do użycia na koncie w usłudze Batch. Musisz przekazać je na połączone konto magazynu, zgodnie z [poniższym](#add-a-new-application)opisem.
+> Podczas definiowania wartości aplikacji w [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) zasobu [szablonu ARM](quick-create-template.md)nie jest obecnie możliwe używanie szablonu ARM do przekazywania pakietów aplikacji do użycia na koncie w usłudze Batch. Musisz przekazać je na połączone konto magazynu, zgodnie z [poniższym](#add-a-new-application)opisem.
 
 ### <a name="link-a-storage-account"></a>Łączenie konta magazynu
 

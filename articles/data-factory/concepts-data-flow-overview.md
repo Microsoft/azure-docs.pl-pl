@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564324"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
@@ -33,11 +33,11 @@ Przepływy danych są tworzone z poziomu okienka zasoby fabryki, takich jak poto
 
 Ta akcja spowoduje przejście do kanwy przepływu danych, w której można utworzyć logikę transformacji. Wybierz pozycję **Dodaj źródło** , aby rozpocząć konfigurowanie transformacji źródłowej. Aby uzyskać więcej informacji, zobacz [Źródło transformacji](data-flow-source.md).
 
-## <a name="authoring-data-flows"></a>Tworzenie przepływów danych
+## <a name="authoring-data-flows&quot;></a>Tworzenie przepływów danych
 
 Mapowanie przepływu danych ma unikatową kanwę tworzenia, która umożliwia łatwe tworzenie logiki transformacji. Kanwa przepływu danych jest podzielony na trzy części: górny pasek, wykres i panel konfiguracja. 
 
-![Zrzut ekranu przedstawia kanwę przepływu danych z paskiem górnego, wykresu i panelu konfiguracji z etykietą.](media/data-flow/canvas-1.png "Kanwa")
+![Zrzut ekranu przedstawia kanwę przepływu danych z paskiem górnego, wykresu i panelu konfiguracji z etykietą.](media/data-flow/canvas-1.png &quot;Kanwa")
 
 ### <a name="graph"></a>Graph
 
@@ -63,11 +63,11 @@ Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schem
 
 ![Zrzut ekranu przedstawia kartę Optymalizacja, która zawiera opcję partycji, typ partycji i liczbę partycji.](media/data-flow/optimize.png)
 
-#### <a name="inspect"></a>Skontrol
+#### <a name="inspect&quot;></a>Skontrol
 
 Karta **Inspekcja** umożliwia wyświetlenie metadanych strumienia danych, który jest przekształcany. Możesz zobaczyć liczby kolumn, kolumny zmienione, kolumny dodane, typy danych, kolejność kolumn i odwołania do kolumn. **Inspekcja** to widok metadanych w trybie tylko do odczytu. Nie musisz mieć włączonego trybu debugowania, aby wyświetlić metadane w okienku **Inspekcja** .
 
-![Skontrol](media/data-flow/inspect1.png "Skontrol")
+![Skontrol](media/data-flow/inspect1.png &quot;Skontrol")
 
 Gdy zmienisz kształt danych za pomocą transformacji, przepływ zmian metadanych zostanie wyświetlony w okienku **Inspekcja** . Jeśli w transformacji źródłowej nie ma zdefiniowanego schematu, metadane nie będą widoczne w okienku **Inspekcja** . Brak metadanych jest powszechny w scenariuszach dryfowania schematu.
 

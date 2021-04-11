@@ -4,10 +4,10 @@ description: Informacje na temat wizualizacji i analizowania zdarzeń przy użyc
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: f1e22213c857b400cc36c51cefb90e2379352893
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628972"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor

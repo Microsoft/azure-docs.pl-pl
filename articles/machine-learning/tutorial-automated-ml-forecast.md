@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: prognozowanie popytu & AutoML'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uczenie i wdrażanie modelu prognozowania popytu przy użyciu automatycznej uczenia maszynowego w programie Azure Machine Learning Studio.
+description: Uczenie i wdrażanie modelu prognozowania popytu bez pisania kodu, przy użyciu automatycznego interfejsu uczenia maszynowego (automat ML) Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,18 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a5f7c0cf95d62df2d06c91abd99a1827524d5d6b
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879363"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210554"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 
+Dowiedz się, jak utworzyć [model prognozowania szeregów czasowych](concept-automated-ml.md#time-series-forecasting) bez pisania pojedynczego wiersza kodu przy użyciu funkcji automatycznego uczenia maszynowego w programie Azure Machine Learning Studio. Ten model przewidywalno zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.  
 
-W tym samouczku użyjesz zautomatyzowanej uczenia maszynowego lub zautomatyzowanej produkcji w Azure Machine Learning Studio, aby utworzyć model prognozowania szeregów czasowych, aby przewidzieć zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.
-
-Aby zapoznać się z przykładem modelu klasyfikacji, zobacz [Samouczek: Tworzenie modelu klasyfikacji ze zautomatyzowaną ml w Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-
-W tym samouczku dowiesz się, jak wykonywać następujące zadania:
+Nie napiszesz żadnego kodu w tym samouczku, użyjesz interfejsu Studio do przeprowadzenia szkolenia.  Dowiesz się, jak wykonywać następujące zadania:
 
 > [!div class="checklist"]
 > * Utwórz i Załaduj zestaw danych.
@@ -34,13 +31,18 @@ W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 > * Poznaj wyniki eksperymentu.
 > * Wdróż najlepszy model.
 
+Wypróbuj również automatyczne Uczenie maszynowe dla tych innych typów modeli:
+
+* Aby zapoznać się z przykładowym kodem klasyfikacji, zobacz [Samouczek: Tworzenie modelu klasyfikacji ze zautomatyzowaną ml w Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+* Aby zapoznać się z pierwszym przykładem kodu modelu regresji, zobacz [Samouczek: korzystanie z automatycznego uczenia maszynowego w celu przewidywania opłat za taksówkę](tutorial-auto-train-models.md).
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Obszar roboczy usługi Azure Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md). 
 
 * Pobierz plik danych [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
+## <a name="sign-in-to-the-studio"></a>Zaloguj się do Studio
 
 Na potrzeby tego samouczka utworzysz zautomatyzowany przebieg eksperymentu ML w Azure Machine Learning Studio, skonsolidowany interfejs sieci Web, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
 

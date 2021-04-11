@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718934"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961561"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 * [Utwórz i skonfiguruj IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge.md)
-* [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
+* [Tworzenie konta usługi Azure Media Services](../latest/account-create-how-to.md)
 
     * Użyj jednego z następujących regionów: Wschodnie stany USA 2, Wschodnie stany USA, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA, zachodnie stany USA 2, zachodnie stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
     * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)

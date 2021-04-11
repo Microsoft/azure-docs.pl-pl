@@ -566,6 +566,16 @@
           href: template-functions-resource.md
         - name: Funkcje ciągów
           href: template-functions-string.md
+    - name: Operatory Bicep
+      items:
+        - name: Wszystkie operatory
+          href: bicep-operators.md
+        - name: Operatory porównania
+          href: bicep-operators-comparison.md
+        - name: Operatory logiczne
+          href: bicep-operators-logical.md
+        - name: Operatory liczbowe
+          href: bicep-operators-numeric.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9bfb4beea2c2bec1b819d228215cfff65e37fe4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998774"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110261"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Samouczek: łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu portalu
 
@@ -45,7 +45,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Do obwodu standardowego ExpressRoute można połączyć maksymalnie 10 sieci wirtualnych. Wszystkie sieci wirtualne muszą znajdować się w tym samym regionie geopolitycznym w przypadku korzystania ze standardowego obwodu usługi ExpressRoute.
 
-* Jedna sieć wirtualna może być połączona do maksymalnie czterech obwodów usługi ExpressRoute. Użyj poniższego procesu, aby utworzyć nowy obiekt połączenia dla każdego obwodu usługi ExpressRoute, z którym nawiązujesz połączenie. Obwody usługi ExpressRoute mogą znajdować się w tej samej subskrypcji, różnych subskrypcjach lub kombinacji obu tych elementów.
+* Jedna sieć wirtualna może być połączona z maksymalnie 16 obwodami ExpressRoute. Użyj poniższego procesu, aby utworzyć nowy obiekt połączenia dla każdego obwodu usługi ExpressRoute, z którym nawiązujesz połączenie. Obwody usługi ExpressRoute mogą znajdować się w tej samej subskrypcji, różnych subskrypcjach lub kombinacji obu tych elementów.
 
 * Po włączeniu dodatku ExpressRoute Premium można połączyć sieci wirtualne poza regionem geopolitycznym obwodu ExpressRoute. Dodatek Premium umożliwia również łączenie więcej niż 10 sieci wirtualnych do obwodu ExpressRoute, w zależności od wybranej przepustowości. Zapoznaj się z [często zadawanymi pytaniami](expressroute-faqs.md) , aby uzyskać więcej informacji na temat dodatku Premium.
 

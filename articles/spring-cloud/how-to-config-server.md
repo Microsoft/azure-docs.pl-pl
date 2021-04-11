@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 52b3d902b2cbfdacfe92117dcf0057dab1fe9a83
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878255"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012213"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
 
@@ -242,9 +242,9 @@ Usługa Azure Spring Cloud może uzyskać dostęp do repozytoriów Git, które s
 
    ![Spring Cloud Config Server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>Usuwanie konfiguracji aplikacji
+## <a name="delete-your-configuration"></a>Usuń konfigurację
 
-Po zapisaniu pliku konfiguracji przycisk **Usuń konfigurację aplikacji** zostanie wyświetlony na karcie **Konfiguracja** . Wybranie tego przycisku spowoduje całkowite wymazanie istniejących ustawień. Należy wybrać tę opcję, jeśli chcesz połączyć wystąpienie serwera konfiguracji z innym źródłem, na przykład przechodzenie z witryny GitHub do usługi Azure DevOps.
+Możesz wybrać przycisk **Resetuj** , który pojawia się na karcie **serwer konfiguracji** , aby całkowicie wymazać istniejące ustawienia. Usuń ustawienia serwera konfiguracji, jeśli chcesz połączyć wystąpienie serwera konfiguracji z innym źródłem, na przykład przechodzenie z witryny GitHub do usługi Azure DevOps.
 
 
 

@@ -79,13 +79,12 @@
           href: tokens-overview.md
         - name: Żądanie tokenu dostępu
           href: access-tokens.md
-    - name: Klucze zasad
-      href: policy-keys-overview.md
-    - name: Przepływ użytkownika i zasady
+    - name: Środowisko użytkownika
+      expanded: true
       items:
-        - name: Przepływy użytkowników
+        - name: Przepływy użytkownika i zasady niestandardowe
           href: user-flow-overview.md
-        - name: Zasady niestandardowe
+        - name: Omówienie zasad niestandardowych
           href: custom-policy-overview.md
     - name: Konta użytkowników
       href: user-overview.md
@@ -93,6 +92,8 @@
       href: user-profile-attributes.md
     - name: Ochrona tożsamości i dostęp warunkowy
       href: conditional-access-identity-protection-overview.md
+    - name: Klucze zasad
+      href: policy-keys-overview.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Integracja aplikacji
@@ -268,8 +269,6 @@
           href: add-api-connector.md
     - name: Zasady niestandardowe
       items:
-        - name: Omówienie zasad niestandardowych
-          href: custom-policy-trust-frameworks.md
         - name: Wprowadzenie do zasad niestandardowych
           href: custom-policy-get-started.md
         - name: Niestandardowa weryfikacja e-mail
@@ -298,9 +297,8 @@
             - name: Zbieranie dzienników przy użyciu usługi Application Insights
               href: troubleshoot-with-application-insights.md
               displayName: 'troubleshooting, app insights'
-            - name: Weryfikacja zasad
+            - name: Rozwiązywanie problemów z zasadami niestandardowymi
               href: troubleshoot-custom-policies.md
-              displayName: troubleshooting
         - name: Dokumentacja
           items:
             - name: TrustFrameworkPolicy

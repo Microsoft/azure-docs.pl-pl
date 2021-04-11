@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 564f3127fc6901695890daa520152a7aa1a2337f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567954"
+ms.locfileid: "105962972"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Przerwy w działaniu między Azure Media Services V2 i V3
 
@@ -42,7 +42,7 @@ Interfejs API v3 ma następujące luki w funkcjach interfejsu API w wersji 2. Ki
     - Dodaliśmy obsługę mapowania kanału dźwiękowego do kodera standardowego.  Zapoznaj [się z artykułem audio w dokumentacji programu Media Servicesing Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Jeśli używasz zaawansowanych funkcji lub formatów danych wyjściowych dla licencjonowanego produktu innej firmy, takich jak MXF lub ProRes, użyj rozwiązania partnerskiego platformy Azure ze strumienia, który będzie transakcyjny przez czas wycofania w wersji 2. Alternatywnie możesz skorzystać z metody "Rozpuść Communications" lub " [Bitmovin](http://bitmovin.com)".
 
-- Właściwość "zestaw dostępności" w punkcie końcowym przesyłania strumieniowego w wersji 2 nie jest już obsługiwana. Zapoznaj się z przykładowym projektem i wskazówkami dotyczącymi dostarczania [wysokiej dostępności VOD](./media-services-high-availability-encoding.md) w interfejsie API v3.
+- Właściwość "zestaw dostępności" w punkcie końcowym przesyłania strumieniowego w wersji 2 nie jest już obsługiwana. Zapoznaj się z przykładowym projektem i wskazówkami dotyczącymi dostarczania [wysokiej dostępności VOD](./architecture-high-availability-encoding-concept.md) w interfejsie API v3.
 
 - W Media Services V3 nie można określić FairPlay IV. Chociaż nie ma to wpływu na klientów korzystających z Media Services w przypadku dostarczania pakietów i licencji, może to stanowić problem w przypadku korzystania z systemu DRM innej firmy w celu dostarczenia licencji FairPlay (Tryb hybrydowy).
 

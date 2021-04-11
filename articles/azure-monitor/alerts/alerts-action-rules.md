@@ -4,10 +4,10 @@ description: Informacje o regułach akcji w Azure Monitor są i sposobami ich ko
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036785"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
@@ -59,9 +59,9 @@ Najpierw wybierz zakres (subskrypcję platformy Azure, grupę zasobów lub zasó
 
 ![Zakres reguły akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
-### <a name="filter-criteria"></a>Kryteria filtrowania
+### <a name="filter-criteria&quot;></a>Kryteria filtrowania
 
-Opcjonalnie można zdefiniować filtry, aby reguła była stosowana do określonego podzestawu alertów lub do określonych zdarzeń dla każdego alertu (na przykład tylko "uruchomił" lub "tylko rozwiązany").
+Opcjonalnie można zdefiniować filtry, aby reguła była stosowana do określonego podzestawu alertów lub do określonych zdarzeń dla każdego alertu (na przykład tylko &quot;uruchomił&quot; lub &quot;tylko rozwiązany").
 
 Dostępne są następujące filtry:
 

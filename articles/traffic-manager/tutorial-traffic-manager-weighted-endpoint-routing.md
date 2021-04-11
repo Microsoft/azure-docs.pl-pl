@@ -3,17 +3,16 @@ title: 'Samouczek: kierowanie ruchu do ważonych punktów końcowych — Traffic
 description: W tym artykule zawierającym samouczek opisano sposób kierowania ruchu do punktów końcowych z wagami za pomocą usługi Traffic Manager.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20864d46ac93d5fcefec20028dd2a78ded142ba3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96003790"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067184"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Samouczek: sterowanie routingiem ruchu za pomocą punktów końcowych z wagami przy użyciu usługi Traffic Manager
 

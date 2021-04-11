@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 306381465919d3fde7135315b69d450a496c2898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cedadf6b6026c74e25e9c81feb7f8291058b6f69
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609732"
+ms.locfileid: "105961663"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorowanie metryk usług Media Services
 
@@ -31,7 +31,7 @@ Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Tworzenie konta usługi Media Services](../create-account-howto.md)
+- [Tworzenie konta usługi Media Services](../account-create-how-to.md)
 - Przegląd  [metryk Media Services monitora i dzienników diagnostycznych](monitor-media-services-data-reference.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Wyświetlanie metryk w Azure Portal

@@ -3,7 +3,7 @@ title: Składniki strategii reagowania na ataki DDoS
 description: Dowiedz się, jak używać standardu Azure DDoS Protection, aby reagować na ataki DDoS.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 2b31a8aa8b126c228ac7e9c3ca182300c710b098
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c028185a0753bc4da966ebc56bb792e57cac1f77
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97814061"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103049"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Składniki strategii reagowania na ataki DDoS
 

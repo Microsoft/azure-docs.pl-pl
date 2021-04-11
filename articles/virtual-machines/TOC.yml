@@ -234,6 +234,8 @@
               href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
             - name: Seria NP.
               href: np-series.md
+            - name: Usługa zaświadczania FPGA
+              href: field-programmable-gate-arrays-attestation.md
         - name: Obliczenia o wysokiej wydajności
           items:
             - name: Omówienie
@@ -1303,6 +1305,8 @@
           href: ./windows/nsg-quickstart-portal.md
     - name: Przypisywanie publicznego adresu IP
       href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+    - name: Użyj niestandardowej nazwy domeny
+      href: custom-domain.md
     - name: Korzystanie z wielu kart interfejsu sieciowego
       items:
         - name: Linux przy użyciu interfejsu wiersza polecenia

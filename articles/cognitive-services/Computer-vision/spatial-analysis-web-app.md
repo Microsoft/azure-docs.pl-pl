@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf99d02a0968fb1073a02425ecb8b0d5ba7f5ac6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98183476"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109700"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Instrukcje: wdrażanie aplikacji sieci Web zliczanie osób
 
@@ -172,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Aby zainstalować kontener, Utwórz nowy Web App for Containers platformy Azure i Wypełnij wymagane parametry. Następnie przejdź do karty **Docker** i wybierz pozycję **pojedynczy kontener**, a następnie **Azure Container Registry**. Użyj wystąpienia Azure Container Registry, na którym wypchnięciem Powyższy obraz.
+Aby zainstalować kontener, Utwórz nowy Azure App Service i Wypełnij wymagane parametry. Następnie przejdź do karty **Docker** i wybierz pozycję **pojedynczy kontener**, a następnie **Azure Container Registry**. Użyj wystąpienia Azure Container Registry, na którym wypchnięciem Powyższy obraz.
 
 ![Wprowadź szczegóły obrazu](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -189,7 +189,7 @@ Po dodaniu tych 2 ustawień kliknij przycisk **Zapisz**. Następnie w menu nawig
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
-Przejdź do aplikacji sieci Web platformy Azure i sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja sieci Web jest uruchomiona. Przejdź do skonfigurowanego adresu URL: `<yourapp>.azurewebsites.net` Aby wyświetlić uruchomioną aplikację.
+Przejdź do usługi Azure i sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja sieci Web jest uruchomiona. Przejdź do skonfigurowanego adresu URL: `<yourapp>.azurewebsites.net` Aby wyświetlić uruchomioną aplikację.
 
 ![Testowanie wdrożenia](./media/spatial-analysis/solution-app-output.png)
 

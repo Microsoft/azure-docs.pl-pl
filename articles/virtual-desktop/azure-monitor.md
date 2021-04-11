@@ -3,15 +3,15 @@ title: Korzystanie z monitora systemu Windows Virtual Desktop monitor — Azure
 description: Jak używać Azure Monitor dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/31/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 7da35f77dd232e5f523e2bdc3f125c68015ab871
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709552"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448189"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Monitorowanie wdrożenia przy użyciu Azure Monitor dla pulpitu wirtualnego systemu Windows
 
@@ -43,7 +43,7 @@ Każda osoba monitorująca Azure Monitor dla pulpitu wirtualnego systemu Windows
 
 Możesz otworzyć Azure Monitor dla pulpitu wirtualnego systemu Windows przy użyciu jednej z następujących metod:
 
-- Przejdź do [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
+- Przejdź do [aka.MS/azmonwvdi](https://aka.ms/azmonwvdi).
 - Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows** z Azure Portal, a następnie wybierz pozycję **szczegółowe** dane.
 - Wyszukaj i wybierz **Azure monitor** z Azure Portal. Wybierz pozycję Usługa **Insights Hub** w obszarze **Insights**, a następnie wybierz pozycję **pulpit wirtualny systemu Windows**.
 Po otwarciu strony wprowadź **subskrypcję**, **grupę zasobów**, **pulę hostów** i **zakres czasu** środowiska, które chcesz monitorować.
@@ -62,7 +62,7 @@ Aby rozpocząć korzystanie z Azure Monitor dla pulpitu wirtualnego systemu Wind
 
 Jeśli po raz pierwszy otworzysz Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz skonfigurować Azure Monitor dla środowiska pulpitu wirtualnego systemu Windows. Aby skonfigurować zasoby:
 
-1. Otwórz Azure Monitor dla pulpitu wirtualnego systemu Windows w Azure Portal w [aka.MS/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), a następnie wybierz pozycję **skoroszyt konfiguracji**.
+1. Otwórz Azure Monitor dla pulpitu wirtualnego systemu Windows w Azure Portal w [aka.MS/azmonwvdi](https://aka.ms/azmonwvdi), a następnie wybierz pozycję **skoroszyt konfiguracji**.
 2. Wybierz środowisko do skonfigurowania w ramach **subskrypcji**, **grupy zasobów** i **puli hostów**.
 
 Skoroszyt konfiguracji konfiguruje środowisko monitorowania i pozwala sprawdzić konfigurację po zakończeniu procesu instalacji. Ważne jest, aby sprawdzić konfigurację, jeśli elementy na pulpicie nawigacyjnym nie są wyświetlane prawidłowo lub gdy grupa produktów publikuje aktualizacje, które wymagają nowych ustawień.
@@ -193,4 +193,5 @@ Aby uzyskać więcej informacji na temat zbierania i używania danych, zobacz [z
 Teraz, po skonfigurowaniu Azure Monitor środowiska pulpitu wirtualnego systemu Windows, poniżej przedstawiono niektóre zasoby, które mogą pomóc w rozpoczęciu monitorowania środowiska:
 
 - Zapoznaj się z naszym [słownikiem](azure-monitor-glossary.md) , aby dowiedzieć się więcej na temat terminów i koncepcji dotyczących Azure monitor dla pulpitu wirtualnego systemu Windows.
+- Aby oszacować, zmierzyć i zarządzać kosztami magazynowania danych, zobacz [szacunkowe koszty Azure monitor](azure-monitor-costs.md).
 - W przypadku wystąpienia problemu zapoznaj się z naszym [przewodnikiem rozwiązywania problemów](troubleshoot-azure-monitor.md) , aby uzyskać pomoc i znane problemy.

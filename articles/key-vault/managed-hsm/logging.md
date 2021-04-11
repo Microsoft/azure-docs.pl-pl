@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211808"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109241"
 ---
 # <a name="managed-hsm-logging"></a>Rejestrowanie zarządzanego modułu HSM 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 Co jest rejestrowane:
 
 * Wszystkie uwierzytelnione żądania interfejsu API REST, w tym żądania zakończone niepowodzeniem w wyniku uprawnień dostępu, błędów systemu lub nieudanych żądań.
-* Operacje na zarządzanym module HSM, w tym tworzenie, usuwanie i aktualizowanie atrybutów, takich jak Tagi.
+* Operacje zarządzanej płaszczyzny na zarządzanym urządzeniu modułu HSM, w tym tworzenie, usuwanie i aktualizowanie atrybutów, takich jak Tagi.
 * Operacje związane z domeną zabezpieczeń, takie jak inicjowanie & pobieranie, inicjowanie odzyskiwania i przekazywanie
 * Pełna kopia zapasowa modułu HSM, operacje przywracania i selektywnego przywracania
+* Operacje zarządzania rolami, takie jak tworzenie/wyświetlanie/usuwanie przypisań ról oraz tworzenie/wyświetlanie/usuwanie niestandardowych definicji ról
 * Operacje na kluczach, w tym:
   * Tworzenie, modyfikowanie lub usuwanie kluczy.
   * Podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, zawijanie i odpakowanie kluczy, Lista kluczy.
@@ -121,30 +122,13 @@ Poszczególne obiekty blob są przechowywane jako tekst, sformatowane jako dane 
 ]
 ```
 
-W poniższej tabeli wymieniono nazwy pól i opisy:
 
-| Nazwa pola | Opis |
-| --- | --- |
-| **TenantId** | Azure Active Directory identyfikator dzierżawy subskrypcji, w której tworzony jest zarządzany moduł HSM |
-| **pierwszym** |Data i godzina w formacie UTC. |
-| **Identyfikator** |Azure Resource Manager identyfikator zasobu. W przypadku zarządzanych dzienników modułu HSM jest to zawsze identyfikator zarządzanego zasobu modułu HSM. |
-| **operationName** |Nazwa operacji zgodnie z opisem w następnej tabeli. |
-| **operationVersion** |Wersja interfejsu API REST żądana przez klienta. |
-| **kategorii** |Typ wyniku. W przypadku zarządzanych dzienników modułu HSM **AuditEvent** jest jedną, dostępną wartością. |
-| **Result** |Wynik żądania interfejsu API REST. |
-| **aœciwoœci** |Informacje, które różnią się w zależności od operacji (**OperationName**)|
-| **resultSignature** |Stan HTTP. |
-| **resultDescription** |Dodatkowy opis wyniku, jeśli jest dostępny. |
-| **Milisekundach)** |Czas potrzebny do obsłużenia żądania interfejsu API REST podany w milisekundach. Nie obejmuje opóźnienia sieci, więc czas zmierzony po stronie klienta może być niezgodny z tym czasem. |
-| **callerIpAddress** |Adres IP klienta, który wykonał żądanie. |
-| **korelacj** |Opcjonalny identyfikator GUID, który może zostać przekazany przez klienta w celu skorelowania dzienników po stronie klienta z dziennikami po stronie usług. |
-| **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi". |
-| **requestUri** | Identyfikator URI żądania interfejsu API REST |
-| **ClientInfo.** | 
 
 ## <a name="use-azure-monitor-logs"></a>Korzystanie z dzienników usługi Azure Monitor
 
-Możesz użyć rozwiązania Key Vault w dziennikach Azure Monitor do przeglądania dzienników **AuditEvent** modułu HSM. W dziennikach Azure Monitor są używane zapytania dzienników do analizowania danych i uzyskiwania potrzebnych informacji. 
+Możesz użyć rozwiązania Key Vault w dziennikach Azure Monitor do przeglądania dzienników **AuditEvent** modułu HSM. W dziennikach Azure Monitor są używane zapytania dzienników do analizowania danych i uzyskiwania potrzebnych informacji.
+
+Aby uzyskać więcej informacji, w tym o sposobie konfigurowania tego elementu, zobacz [Azure Key Vault w Azure monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
