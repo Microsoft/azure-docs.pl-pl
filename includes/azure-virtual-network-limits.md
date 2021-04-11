@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734099"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106271557"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -73,12 +73,12 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Reguły na kartę sieciową (między wszystkimi adresami IP na karcie sieciowej) | 300                           |
 | Konfiguracje adresów IP frontonu              | 600                           |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 1 000, pojedynczej sieci wirtualnej |
-| Zasoby zaplecza na Load Balancer <sup> 1<sup> | 250                   |
+| Zasoby zaplecza na Load Balancer <sup> 1<sup> | 1200                   |
 | Porty wysokiej dostępności                 | 1 na wewnętrzny fronton       |
 | Reguły ruchu wychodzącego na Load Balancer        | 600                           |
 | Moduły równoważenia obciążenia na maszynę wirtualną                   | 2 (1 publiczny i 1 wewnętrzny)   |
 
-<sup>1</sup> limit wynosi do 150 zasobów w dowolnej kombinacji autonomicznych zasobów maszyny wirtualnej, zasobów zestawu dostępności i grup umieszczania w zestawie skalowania maszyn wirtualnych.
+<sup>1</sup> limit wynosi do 1 200 zasobów w dowolnej kombinacji autonomicznych zasobów maszyny wirtualnej, zasobów zestawu dostępności i grup umieszczania w zestawie skalowania maszyn wirtualnych.
 
 **Load Balancer podstawowa**
 

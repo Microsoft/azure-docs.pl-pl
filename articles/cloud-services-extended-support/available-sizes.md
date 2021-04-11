@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cd8011782d134031393731a29594d44aba41b2ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c1faf14eb101da41679f9f0596e1e750a3c6a51
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713307"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166279"
 ---
 # <a name="available-sizes-for-azure-cloud-services-extended-support"></a>Dostępne rozmiary dla usługi Azure Cloud Services (obsługa rozszerzona)
 
@@ -27,7 +27,9 @@ W tym artykule opisano dostępne rozmiary maszyn wirtualnych dla wystąpień Clo
 |[Wykres](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
 |[Dv2](../virtual-machines/dv2-dsv2-series.md) | 160 – 190 * |
 |[Dv3](../virtual-machines/dv3-dsv3-series.md) | 160 – 190 * |
-|[EV3](../virtual-machines/ev3-esv3-series.md) | 160 – 190 *
+|[Dav4](../virtual-machines/dav4-dasv4-series.md) | 230 – 260 |
+|[Eav4](../virtual-machines/eav4-easv4-series.md) | 230 – 260 |
+|[EV3](../virtual-machines/ev3-esv3-series.md) | 160 – 190 * |
 |[G](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240 * |
 |[C](../virtual-machines/h-series.md) | 290 - 300* | 
 

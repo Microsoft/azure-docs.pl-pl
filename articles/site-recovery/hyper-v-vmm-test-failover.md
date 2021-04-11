@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
-ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 675190bee674c745494c2378712afa89bd43cbe4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420417"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727879"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Wykonaj drążenie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
 
@@ -43,10 +43,10 @@ Uruchamiasz test pracy w trybie failover z poziomu podstawowego do lokacji dodat
 
 Po uruchomieniu testowej pracy w trybie failover zostanie wyświetlony monit o wybranie ustawień sieci dla maszyn z repliką testową, jak zostało to podsumowane w tabeli.
 
-| **Opcja** | **Szczegóły** | |
-| --- | --- | --- |
-| **Brak** | Testowa maszyna wirtualna jest tworzona na hoście, na którym znajduje się replika maszyny wirtualnej. Nie jest on dodawany do chmury i nie jest połączony z żadną siecią.<br/><br/> Komputer można połączyć z siecią maszyny wirtualnej po jej utworzeniu.| |
-| **Użyj istniejącej** | Testowa maszyna wirtualna jest tworzona na hoście, na którym znajduje się replika maszyny wirtualnej. Nie została dodana do chmury.<br/><br/>Utwórz sieć maszyny wirtualnej, która jest odizolowana od sieci produkcyjnej.<br/><br/>Jeśli używasz sieci opartej na sieci VLAN, zalecamy utworzenie oddzielnej sieci logicznej (nieużywanej w środowisku produkcyjnym) w tym celu. Ta sieć logiczna służy do tworzenia sieci maszyn wirtualnych na potrzeby testowania pracy w trybie failover.<br/><br/>Sieć logiczna powinna być skojarzona z co najmniej jedną kartą sieciową wszystkich serwerów funkcji Hyper-V obsługujących maszyny wirtualne.<br/><br/>W przypadku sieci logicznych VLAN lokacje sieciowe dodawane do sieci logicznej powinny być izolowane.<br/><br/>Jeśli używasz sieci logicznej opartej na wirtualizacji sieci systemu Windows, Azure Site Recovery automatycznie tworzy izolowane sieci maszyn wirtualnych. | |
+| **Opcja** | **Szczegóły** |
+| --- | --- |
+| **Brak** | Testowa maszyna wirtualna jest tworzona na hoście, na którym znajduje się replika maszyny wirtualnej. Nie jest on dodawany do chmury i nie jest połączony z żadną siecią.<br/><br/> Komputer można połączyć z siecią maszyny wirtualnej po jej utworzeniu.|
+| **Użyj istniejącej** | Testowa maszyna wirtualna jest tworzona na hoście, na którym znajduje się replika maszyny wirtualnej. Nie została dodana do chmury.<br/><br/>Utwórz sieć maszyny wirtualnej, która jest odizolowana od sieci produkcyjnej.<br/><br/>Jeśli używasz sieci opartej na sieci VLAN, zalecamy utworzenie oddzielnej sieci logicznej (nieużywanej w środowisku produkcyjnym) w tym celu. Ta sieć logiczna służy do tworzenia sieci maszyn wirtualnych na potrzeby testowania pracy w trybie failover.<br/><br/>Sieć logiczna powinna być skojarzona z co najmniej jedną kartą sieciową wszystkich serwerów funkcji Hyper-V obsługujących maszyny wirtualne.<br/><br/>W przypadku sieci logicznych VLAN lokacje sieciowe dodawane do sieci logicznej powinny być izolowane.<br/><br/>Jeśli używasz sieci logicznej opartej na wirtualizacji sieci systemu Windows, Azure Site Recovery automatycznie tworzy izolowane sieci maszyn wirtualnych. |
 | **Tworzenie sieci** | Tymczasowa sieć testowa jest tworzona automatycznie na podstawie ustawienia określonego w **sieci logicznej** i powiązanych lokacjach sieciowych.<br/><br/> Przełączenie w tryb failover umożliwia tworzenie maszyn wirtualnych.<br/><br/> Tej opcji należy użyć, jeśli plan odzyskiwania używa więcej niż jednej sieci VMNETWORK.<br/><br/> W przypadku korzystania z sieci wirtualizacji sieci systemu Windows ta opcja umożliwia automatyczne tworzenie sieci maszyn wirtualnych z tymi samymi ustawieniami (podsieciami i pulami adresów IP) w sieci maszyny wirtualnej repliki. Te sieci maszyn wirtualnych są czyszczone automatycznie po zakończeniu testowego przejścia w tryb failover.<br/><br/> Testowa maszyna wirtualna jest tworzona na hoście, na którym istnieje maszyna wirtualna repliki. Nie została dodana do chmury.|
 
 ### <a name="best-practices"></a>Najlepsze rozwiązania

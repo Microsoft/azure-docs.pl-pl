@@ -38,4 +38,4 @@
         - name: Centra danych Cassandra
           href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/cosmosdb-preview/managed-cassandra?view=azure-cli-latest&preserve-view=true
+      href: /cli/azure/ext/cosmosdb-preview/managed-cassandra

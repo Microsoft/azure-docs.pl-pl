@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
 ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669484"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark bezserwerowej w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
@@ -82,9 +82,9 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 
     W przypadku korzystania z Eksploratora magazynu można zobaczyć wpływ dwóch różnych sposobów pisania plików użytych powyżej. Gdy nie określono żadnego systemu plików, w tym przypadku zostanie użyta wartość domyślna `default>user>trusted-service-user>demo_df` . Dane są zapisywane w lokalizacji określonego systemu plików.
 
-    Zwróć uwagę na formaty "CSV" i "Parquet", operacje zapisu, które są tworzone przez katalog z wieloma plikami partycjonowanymi.
+    Zwróć uwagę na formaty "CSV&quot; i &quot;Parquet&quot;, operacje zapisu, które są tworzone przez katalog z wieloma plikami partycjonowanymi.
 
-    ![Widok Eksploratora magazynu danych wyjściowych](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Widok Eksploratora magazynu danych wyjściowych")
+    ![Widok Eksploratora magazynu danych wyjściowych](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png &quot;Widok Eksploratora magazynu danych wyjściowych")
 
     ![Zrzut ekranu, który podświetla domyślną > demodata > demo_df Path.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Widok Eksploratora magazynu danych wyjściowych")
 
