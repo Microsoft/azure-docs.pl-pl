@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780318"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103408"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjna platforma handlowa firmy Microsoft?
 
@@ -82,5 +82,5 @@ Aby dowiedzieć się więcej na temat tych korzyści, zobacz [komercyjne korzyś
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj [się z wprowadzeniem do komercyjnej witryny Marketplace firmy Microsoft](/learn/modules/intro-commercial-marketplace/) w Microsoft Learn.
-- W przypadku nowych partnerów firmy Microsoft, którzy chcą publikować w portalu komercyjnym, zobacz [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](partner-center-portal/create-account.md).
+- W przypadku nowych partnerów firmy Microsoft, którzy chcą publikować w portalu komercyjnym, zobacz [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](create-account.md).
 - Aby dowiedzieć się więcej na temat najnowszych i przyszłych wersji, Dołącz do konwersacji w [społeczności partnerów firmy Microsoft](https://www.microsoftpartnercommunity.com/).

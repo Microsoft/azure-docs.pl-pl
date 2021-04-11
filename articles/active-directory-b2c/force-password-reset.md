@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b6aae76b0b35f8195fb52b7fb11de43d8fa511ba
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033784"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028438"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Konfigurowanie przepływu wymuszania resetowania hasła w Azure Active Directory B2C
 
@@ -92,7 +92,7 @@ Aby włączyć ustawienie **wymuszone Resetowanie hasła** w przepływie użytko
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
 1. Wybierz `B2C_1A_signup_signin_Custom_ForcePasswordReset` zasady, aby je otworzyć. 
-1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](tutorial-register-applications.md)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz przycisk **Uruchom teraz** .
 1. Zaloguj się przy użyciu konta użytkownika, dla którego chcesz zresetować hasło.
 1. Teraz należy zmienić hasło użytkownika. Zmień hasło i wybierz pozycję **Kontynuuj**. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony.

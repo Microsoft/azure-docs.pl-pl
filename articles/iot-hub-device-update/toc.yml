@@ -68,10 +68,24 @@
       items:
         - name: Rozwiązywanie problemów z aktualizacjami urządzeń
           href: troubleshoot-device-update.md
-- name: Odwołanie
-  items:
-    - name: Kody błędów klienta aktualizacji urządzenia
+        - name: Kody błędów klienta aktualizacji urządzenia
       href: device-update-error-codes.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs API REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/deviceupdate/'
+    - name: Zestaw SDK płaszczyzny kontroli
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot/management?view=azure-dotnet'
+    - name: Zestaw SDK płaszczyzny danych
+      items:
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/en-us/javascript/api/@azure/iot-device-update/?view=azure-node-preview'
+        - name: Java
+          href: 'https://docs.microsoft.com/en-us/java/api/com.azure.iot.deviceupdate?view=azure-java-preview'
+        - name: Python
+          href: 'https://docs.microsoft.com/en-us/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview'
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy

@@ -5,15 +5,19 @@
   items:
     - name: Co to jest Metrics Advisor?
       href: overview.md
-    - name: Co nowego?
+    - name: Ceny
+      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
+    - name: Co nowego
       href: whats-new.md
-- name: Przewodniki Szybki start
+- name: Przewodniki Szybki Start doradcy metryk
   items:
-    - name: Używanie portalu internetowego
+    - name: Portal internetowy
       href: quickstarts/web-portal.md
-    - name: Używanie interfejsu API REST lub bibliotek klienckich
+    - name: Interfejsy API REST i interfejsy klienta
       href: quickstarts/rest-api-and-client-library.md
-- name: Instrukcje
+- name: Samples
+  href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor'
+- name: Przewodniki z instrukcjami
   items:
     - name: Dołączanie danych
       href: how-tos/onboard-your-data.md
@@ -31,13 +35,13 @@
       href: how-tos/anomaly-feedback.md
     - name: Tworzenie grafu metryk
       href: how-tos/metrics-graph.md
-- name: Dokumentacja
+- name: Pojęcia
   items:
-    - name: Słownik
+    - name: Najważniejsze warunki doradcy metryk
       href: glossary.md
-    - name: Często zadawane pytania
-      href: faq.md
-    - name: Interfejs API usługi Metrics Advisor
+- name: Odwołanie
+  items:
+    - name: Interfejs API REST usługi Advisor
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Dokumentacja interfejsu wiersza polecenia platformy Azure
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
@@ -45,12 +49,10 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Zasoby
   items:
+    - name: Obsługa regionów
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Opcje pomocy technicznej
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: Cennik
-      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
-    - name: Dostępność regionalna
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Zgodność
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Szyfrowanie

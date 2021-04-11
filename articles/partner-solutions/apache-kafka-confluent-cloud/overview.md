@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 01/15/2021
 ms.author: tomfitz
-ms.openlocfilehash: b4aa00b7a2cc7ca6bc968be70957c127a8e00738
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fefbc21c385e3beacbf570c31ffbf97238c780fc
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98253531"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109088"
 ---
 # <a name="what-is-apache-kafka-for-confluent-cloud"></a>Co to jest Apache Kafka dla usługi Cloud-The-Fluent?
 
@@ -56,6 +56,12 @@ Dostępne są dwie opcje rozliczania: płatność zgodnie z rzeczywistym użycie
 - **Plan zobowiązania** polega na zarejestrowaniu się w celu uzyskania minimalnej ilości wydatków i uzyskaniu rabatu za zatwierdzone użycie usługi w chmurze.
 
 Należy wybrać opcję rozliczania, która ma być używana podczas tworzenia usługi.
+
+## <a name="connector-to-azure-cosmos-db"></a>Łącznik do Azure Cosmos DB
+
+W ramach klienta usługi influenter Zainstaluj łącznik Cosmos DB zgodnie z zaleceniami na liście w [centrum](https://www.confluent.io/hub/microsoftcorporation/kafka-connect-cosmos). 
+
+Aby zainstalować łącznik ręcznie, należy najpierw pobrać plik JAR Uber na [stronie wydań Cosmos DB](https://github.com/microsoft/kafka-connect-cosmosdb/releases). Alternatywnie możesz [skompilować własny Uber jar bezpośrednio z kodu źródłowego](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/README_Sink.md#install-sink-connector). Ukończ instalację, postępując zgodnie ze wskazówkami opisanymi w dokumentacji dotyczącej programu w celu [ręcznego instalowania łączników](https://docs.confluent.io/home/connect/install.html#install-connector-manually).  
 
 ## <a name="confluent-links"></a>Linki z linkami
 

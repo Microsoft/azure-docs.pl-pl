@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e9eb5950b5cf7d4e7d0270deed72866ee28e3962
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202964"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106908"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Włącz zarządzaną tożsamość do routingu zdarzeń usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza): interfejs wiersza polecenia platformy Azure
 
@@ -40,7 +40,7 @@ Każda z tych metod tworzenia będzie mieć te same opcje konfiguracji i ten sam
 
 W tej sekcji dowiesz się, jak włączyć tożsamość zarządzaną przez system w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, która jest aktualnie tworzona. 
 
-W tym celu należy dodać `--assign-identity` parametr do `az dt create` polecenia, które jest używane do tworzenia wystąpienia. (Aby uzyskać więcej informacji na temat tego polecenia, zobacz jego [dokumentację referencyjną](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) lub [Ogólne instrukcje dotyczące konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+W tym celu należy dodać `--assign-identity` parametr do `az dt create` polecenia, które jest używane do tworzenia wystąpienia. (Aby uzyskać więcej informacji na temat tego polecenia, zobacz jego [dokumentację referencyjną](/cli/azure/dt#az_dt_create) lub [Ogólne instrukcje dotyczące konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 Aby utworzyć wystąpienie z tożsamością zarządzaną systemu, należy dodać  `--assign-identity` parametr podobny do tego:
 
@@ -97,7 +97,7 @@ Oto przykład, który tworzy wystąpienie z tożsamością zarządzaną przez sy
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Więcej przykładów przypisań ról za pomocą tego polecenia można znaleźć w [dokumentacji **AZ DT Create** Reference](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create).
+Więcej przykładów przypisań ról za pomocą tego polecenia można znaleźć w [dokumentacji **AZ DT Create** Reference](/cli/azure/dt#az_dt_create).
 
 Alternatywnie można również utworzyć role i zarządzać nimi za pomocą polecenia [**AZ role przypisania**](/cli/azure/role/assignment) grupy. Może służyć do obsługi dodatkowych scenariuszy, w których nie chcesz grupować przypisywania ról za pomocą polecenia CREATE.
 
@@ -108,7 +108,7 @@ Po skonfigurowaniu tożsamości zarządzanej przez system dla wystąpienia usłu
 >[!NOTE]
 > Nie można edytować punktu końcowego, który został już utworzony za pomocą tożsamości opartej na kluczach, aby zmienić uwierzytelnianie oparte na tożsamości. Podczas pierwszego tworzenia punktu końcowego należy wybrać typ uwierzytelniania.
 
-W tym celu należy dodać `--auth-type` parametr do `az dt endpoint create` polecenia, które służy do tworzenia punktu końcowego. (Aby uzyskać więcej informacji na temat tego polecenia, zobacz jego [dokumentację referencyjną](/cli/azure/ext/azure-iot/dt/endpoint/create) lub [Ogólne instrukcje dotyczące konfigurowania punktu końcowego usługi Azure Digital bliźniaczych reprezentacji](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+W tym celu należy dodać `--auth-type` parametr do `az dt endpoint create` polecenia, które służy do tworzenia punktu końcowego. (Aby uzyskać więcej informacji na temat tego polecenia, zobacz jego [dokumentację referencyjną](/cli/azure/dt/endpoint/create) lub [Ogólne instrukcje dotyczące konfigurowania punktu końcowego usługi Azure Digital bliźniaczych reprezentacji](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 Aby utworzyć punkt końcowy, który używa uwierzytelniania opartego na tożsamościach, określ `IdentityBased` Typ uwierzytelniania z  `--auth-type` parametrem. Poniższy przykład ilustruje ten element dla punktu końcowego Event Hubs.
 

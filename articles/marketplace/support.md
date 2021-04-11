@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfe365af868f01b868e737a409724e92f1d57f81
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879245"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106993"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 
@@ -24,7 +24,7 @@ Firma Microsoft zapewnia pomoc techniczną dla wielu różnych produktów i usł
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Uzyskaj pomoc lub Otwórz bilet pomocy technicznej
 
-1. Zaloguj się przy użyciu konta służbowego. Jeśli jeszcze tego nie zrobiono, należy [utworzyć konto Centrum partnerskiego](partner-center-portal/create-account.md).
+1. Zaloguj się przy użyciu konta służbowego. Jeśli jeszcze tego nie zrobiono, należy [utworzyć konto Centrum partnerskiego](create-account.md).
 
 1. W menu w prawym górnym rogu strony wybierz ikonę **Pomoc techniczna** . Okienko **Pomoc i obsługa techniczna** pojawia się po prawej stronie strony.
 

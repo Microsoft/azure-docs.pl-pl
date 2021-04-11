@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 04/07/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 67de5cce3bd5a4ca2b383e2809eb237a6e753bf5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6984f27ae0ae81c3bf8d98efcce5fb23909c36d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577102"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226094"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Wymagania systemowe dla programu Azure Stack EDGE Pro z procesorem GPU 
 
@@ -108,6 +108,18 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego, w oparciu o Azure Sta
 | https:// \* . azurecr.IO                     | Rejestry kontenerów osobistych i innych firm (opcjonalnie) | 
 | https:// \* . Azure-Devices.NET              | Dostęp IoT Hub (wymagany)                             | 
 
+### <a name="url-patterns-for-monitoring"></a>Wzorce adresów URL na potrzeby monitorowania
+
+Dodaj następujące wzorce URL dla Azure Monitor, jeśli używasz kontenera Log Analytics agenta dla systemu Linux.
+
+| Wzorzec adresu URL | Port | Składnik lub funkcjonalność |
+|-------------|-------------|----------------------------|
+| http:// \* ODS.OpInsights.Azure.com | 443 | Wprowadzanie danych |
+| http:// \* . OMS.OpInsights.Azure.com | 443 | Dołączanie pakietu Operations Management Suite (OMS) |
+| http:// \* . DC.Services.VisualStudio.com | 443 | Dane telemetryczne agenta korzystającego z chmury publicznej platformy Azure Application Insights |
+
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące zapory sieciowej na potrzeby monitorowania informacji o kontenerach](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>Wzorce adresów URL dla bramy dla Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/azure-stack-edge-gateway-gov-url-patterns-firewall.md)]
@@ -119,6 +131,17 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego, w oparciu o Azure Sta
 | https: \/ /MCR.Microsoft.com<br></br>https:// \* . CDN.MSCR.com | Rejestr kontenerów firmy Microsoft (wymagany)               |
 | https:// \* . Azure-Devices.us              | Dostęp IoT Hub (wymagany)           |
 | https:// \* . azurecr.us                    | Rejestry kontenerów osobistych i innych firm (opcjonalnie) | 
+
+### <a name="url-patterns-for-monitoring-for-azure-government"></a>Wzorce adresów URL do monitorowania dla Azure Government
+
+Dodaj następujące wzorce URL dla Azure Monitor, jeśli używasz kontenera Log Analytics agenta dla systemu Linux.
+
+| Wzorzec adresu URL | Port | Składnik lub funkcjonalność |
+|-------------|-------------|----------------------------|
+| http:// \* ODS.OpInsights.Azure.us | 443 | Wprowadzanie danych |
+| http:// \* . OMS.OpInsights.Azure.us | 443 | Dołączanie pakietu Operations Management Suite (OMS) |
+| http:// \* . DC.Services.VisualStudio.com | 443 | Dane telemetryczne agenta korzystającego z chmury publicznej platformy Azure Application Insights |
+
 
 ## <a name="internet-bandwidth"></a>Przepustowość internetowa
 

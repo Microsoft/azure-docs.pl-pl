@@ -2,18 +2,15 @@
 title: Konfigurowanie trybu failover/powrotu po awarii do lokacji pomocniczej funkcji Hyper-V za pomocą Azure Site Recovery
 description: Dowiedz się, jak przełączać maszyny wirtualne funkcji Hyper-V do lokacji lokalnej w tryb failover i powrócić po awarii do lokacji głównej, podczas gdy odzyskiwanie awaryjne Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72b23e37a365287cc8a850f960137fdb7ec08497
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74082600"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581117"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Przełączenie w tryb failover i powrót po awarii maszyn wirtualnych funkcji Hyper-V replikowanych do pomocniczej lokacji lokalnej
 

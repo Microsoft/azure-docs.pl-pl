@@ -1,22 +1,25 @@
 ---
-title: Jak skanować usługę Azure Synapse Analytics
-description: W tym przewodniku opisano szczegóły dotyczące sposobu skanowania usługi Azure Synapse Analytics.
+title: Jak skanować dedykowane pule SQL
+description: W tym przewodniku opisano szczegóły dotyczące skanowania dedykowanych pul SQL.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7d6a0b04306c2ed6ae4887c79962cbb5528643fc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108612"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106976"
 ---
-# <a name="register-and-scan-azure-synapse-analytics"></a>Rejestrowanie i skanowanie usługi Azure Synapse Analytics
+# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Rejestrowanie i skanowanie dedykowanych pul SQL (dawniej SQL DW)
 
-W tym artykule omówiono sposób rejestrowania i skanowania wystąpienia usługi Azure Synapse Analytics (dawniej SQL DW) w kontrolą.
+> [!NOTE]
+> Jeśli chcesz zarejestrować i przeskanować dedykowaną bazę danych SQL w obszarze roboczym Synapse, musisz postępować zgodnie z instrukcjami w [tym miejscu](register-scan-synapse-workspace.md).
+
+W tym artykule omówiono sposób rejestrowania i skanowania wystąpienia dedykowanej puli SQL (dawniej SQL DW) w programie kontrolą.
 
 ## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
@@ -24,7 +27,8 @@ Usługa Azure Synapse Analytics (wcześniej SQL DW) obsługuje pełne i przyrost
 
 ### <a name="known-limitations"></a>Znane ograniczenia
 
-Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) w usłudze Azure Synapse Analytics
+> * Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) w usłudze Azure Synapse Analytics.
+> * Usługa Azure kontrolą nie obsługuje ponad 300 kolumn na karcie schemat i pokazuje "dodatkowe kolumny, które są obcinane". 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -114,14 +118,14 @@ Gdy wybrana metoda uwierzytelniania to **uwierzytelnianie SQL**, należy uzyska�
 1. Jeśli Twój Magazyn kluczy nie jest jeszcze połączony z usługą kontrolą, konieczne będzie [utworzenie nowego połączenia z magazynem kluczy](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Na koniec [Utwórz nowe poświadczenie](manage-credentials.md#create-a-new-credential) przy użyciu klucza w celu skonfigurowania skanowania
 
-## <a name="register-an-azure-synapse-analytics-instance-formerly-sql-dw"></a>Rejestrowanie wystąpienia usługi Azure Synapse Analytics (dawniej SQL DW)
+## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Rejestrowanie dedykowanej puli SQL (dawniej SQL DW)
 
 Aby zarejestrować nowy serwer usługi Azure Synapse Analytics w Data Catalog, wykonaj następujące czynności:
 
 1. Przejdź do konta kontrolą
 1. Wybierz **źródła** na lewym pasku nawigacyjnym
 1. Wybierz pozycję **zarejestruj**
-1. W obszarze **Rejestruj źródła** wybierz pozycję **Azure Synapse Analytics (dawniej SQL DW)**
+1. W obszarze **Rejestruj źródła** wybierz opcję **dedykowana Pula SQL (wcześniej SQL DW)**
 1. Wybierz przycisk **Kontynuuj**
 
 Na ekranie **Rejestr sources (Azure Synapse Analytics)** wykonaj następujące czynności:

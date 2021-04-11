@@ -14,24 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f467fc739b3120fd43bec4e21e1e336c1cdf186f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad8466dca6634b0e72ef4a65acb537006dba3bda
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935417"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108544"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
 W Azure Active Directory (Azure AD), jeśli innym administratorem lub innym niż administrator musi zarządzać zasobami usługi Azure AD, należy przypisać im rolę usługi Azure AD, która udostępnia wymagane uprawnienia. Można na przykład przypisać role umożliwiające dodawanie lub zmienianie użytkowników, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników lub zarządzanie nazwami domen.
 
 W tym artykule wymieniono wbudowane role usługi Azure AD, które można przypisać, aby umożliwić zarządzanie zasobami usługi Azure AD. Aby uzyskać informacje o sposobach przypisywania ról, zobacz [Przypisywanie ról usługi Azure AD do użytkowników](manage-roles-portal.md).
-
-## <a name="limit-use-of-global-administrator"></a>Ograniczanie użycia administratora globalnego
-
-Użytkownicy przypisani do roli administratora globalnego mogą odczytywać i modyfikować każde ustawienie administracyjne w organizacji usługi Azure AD. Domyślnie, gdy użytkownik loguje się do usługi w chmurze firmy Microsoft, zostaje utworzona dzierżawa usługi Azure AD, a użytkownik jest członkiem roli Administratorzy globalni. Po dodaniu subskrypcji do istniejącej dzierżawy nie jest ona przypisana do roli administratora globalnego. Tylko Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą delegować role administratorów. Aby zmniejszyć ryzyko dla Twojej firmy, zalecamy przypisanie tej roli do najmniejszej możliwej liczby osób w organizacji.
-
-Najlepszym rozwiązaniem jest przypisanie tej roli do mniej niż pięciu osób w organizacji. Jeśli masz więcej niż pięć administratorów przypisanych do roli administratora globalnego w organizacji, Oto kilka sposobów na zmniejszenie jej użycia.
 
 ## <a name="all-roles"></a>Wszystkie role
 
@@ -771,6 +765,9 @@ Ten administrator zarządza Federacją między organizacjami usługi Azure AD a 
 ## <a name="global-administrator"></a>Administrator globalny
 
 Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Ponadto administratorzy globalni mogą [podnieść poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md) do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania. Dzięki temu administratorzy globalni mogą uzyskać pełny dostęp do wszystkich zasobów platformy Azure przy użyciu odpowiedniej dzierżawy usługi Azure AD. Osoba, która zarejestruje się w usłudze Azure AD, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą zresetować hasło dla dowolnego użytkownika i wszystkich innych administratorów.
+
+> [!NOTE]
+> Najlepszym rozwiązaniem jest, że firma Microsoft zaleca przypisanie roli administratora globalnego do mniej niż pięciu osób w organizacji. Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące ról usługi Azure AD](best-practices.md).
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -1841,6 +1838,23 @@ Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi 
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
+
+## <a name="how-to-understand-role-permissions"></a>Jak zrozumieć uprawnienia roli
+
+Schemat uprawnień jest luźno zgodny z formatem REST Microsoft Graph:
+
+`<namespace>/<entity>/<propertySet>/<action>`
+
+Na przykład:
+
+`microsoft.directory/applications/credentials/update`
+
+| Element uprawnień | Opis |
+| --- | --- |
+| namespace | Produkt lub usługa, która uwidacznia zadanie i jest dołączana `microsoft` . Na przykład wszystkie zadania w usłudze Azure AD używają `microsoft.directory` przestrzeni nazw. |
+| jednostka | Logiczna funkcja lub składnik uwidoczniony przez usługę w Microsoft Graph. Na przykład usługa Azure AD uwidacznia użytkowników i grupy, program OneNote udostępnia notatki, a w programie Exchange są ujawniane skrzynki pocztowe i kalendarze. Istnieje specjalne `allEntities` słowo kluczowe do określenia wszystkich jednostek w przestrzeni nazw. Jest to często używane w rolach, które udzielają dostępu do całego produktu. |
+| PropertySet — | Określone właściwości lub aspekty jednostki, dla których przyznano dostęp. Na przykład `microsoft.directory/applications/authentication/read` przyznaje możliwość odczytywania adresu URL odpowiedzi, adresu URL wylogowywania i niejawnego przepływu w obiekcie aplikacji w usłudze Azure AD.<ul><li>`allProperties` wyznacza wszystkie właściwości jednostki, w tym właściwości uprzywilejowane.</li><li>`standard` wyznacza typowe właściwości, ale wyklucza uprzywilejowane powiązane z `read` akcją. Program zawiera na przykład `microsoft.directory/user/standard/read` możliwość odczytywania standardowych właściwości, takich jak publiczny numer telefonu i adres e-mail, ale nie prywatny numer telefonu lub adres e-mail używany do uwierzytelniania wieloskładnikowego.</li><li>`basic` wyznacza typowe właściwości, ale wyklucza uprzywilejowane powiązane z `update` akcją. Zestaw właściwości, które można odczytać, może się różnić od tego, co można aktualizować. Dlatego istnieje `standard` i `basic` słowa kluczowe, które należy uwzględnić.</li></ul> |
+| akcja | Przyznana operacja, najczęściej utworzona, Odczytaj, zaktualizuj lub Usuń (CRUD). Istnieje specjalne `allTasks` słowo kluczowe do określenia wszystkich powyższych możliwości (tworzenie, odczytywanie, aktualizowanie i usuwanie). |
 
 ## <a name="deprecated-roles"></a>Przestarzałe role
 

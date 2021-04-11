@@ -1,5 +1,5 @@
 ---
-title: Samouczek — Powiązywanie Azure Cosmos DB ze swoją aplikacją w chmurze platformy Azure
+title: Powiązywanie usługi Azure Cosmos DB z aplikacją usługi Azure Spring Cloud
 description: Dowiedz się, jak powiązać Azure Cosmos DB ze swoją aplikacją w chmurze platformy Azure
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e3af90eb00bd3f02fbcc3e59d2fa6ee5a1b3a9e8
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: bf761bded38ffa975610c7a7f217e911704ae3bf
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878305"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227946"
 ---
-# <a name="tutorial-bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Samouczek: powiązywanie bazy danych Azure Cosmos DB z aplikacją w chmurze Azure wiosennej
+# <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Powiązywanie bazy danych Azure Cosmos DB z aplikacją w chmurze platformy Azure
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java
 

@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ee451ce4be59c51299d66e4042ed344026100cf
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869093"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011004"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób wdrażania i konfigurowania lokalnego łącznika 
 >Chociaż maksymalne narzędzie konfiguracji oprogramowania VMware zawiera opis par witryn, które są maksymalnie 25 między łącznikiem lokalnym a programem Cloud Manager, licencje te ograniczają się do trzech dla HCX Advanced i 10 dla HCX Enterprise Edition.
 
 >[!NOTE]
->Program VMware HCX Enterprise jest dostępny w ramach rozwiązania Azure VMware jako usługi w wersji zapoznawczej. Jest ona bezpłatna i podlega postanowieniom dotyczącym usługi w wersji zapoznawczej. Po ogólnym udostępnieniu usługi VMware HCX Enterprise uzyskasz 30-dniową informację o tym, że opłaty zostaną przełączone. Będziesz również mieć możliwość wyłączenia lub rezygnacji z usługi. Nie ma żadnej prostej ścieżki obniżenia poziomu oprogramowania VMware HCX Enterprise do programu VMware HCX Advanced. W przypadku podjęcia decyzji o obniżeniu poziomu należy przeprowadzić ponowne wdrożenie, co potrwa przestoje.
+>Program VMware HCX Enterprise jest dostępny w ramach rozwiązania Azure VMware jako usługi w wersji zapoznawczej. Jest ona bezpłatna i podlega postanowieniom dotyczącym usługi w wersji zapoznawczej. Po ogólnym udostępnieniu usługi VMware HCX Enterprise uzyskasz 30-dniową informację o tym, że opłaty zostaną przełączone. Będziesz również mieć możliwość wyłączenia lub rezygnacji z usługi. Przejście z wersji HCx Enterprise do HCX Advanced jest możliwe bez ponownego wdrażania, ale konieczne będzie zarejestrowanie biletu pomocy technicznej w celu wykonania tej akcji. W przypadku planowania obniżenia poziomu upewnij się, że nie zaplanowano żadnych migracji ani takich funkcji, jak RAV, MON nie są używane.
 
 Najpierw [zapoznaj się z](#before-you-begin) [wymaganiami dotyczącymi wersji oprogramowania](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)i [wymaganiami wstępnymi](#prerequisites). 
 

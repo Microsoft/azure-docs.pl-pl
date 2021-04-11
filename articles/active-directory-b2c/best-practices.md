@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c8a9121d0e36eb51cd02c2c884ddcaa0dd79a79
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96750224"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226213"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Poniższe najlepsze rozwiązania i zalecenia dotyczą niektórych podstawowych a
 
 | Najlepsze rozwiązanie | Opis |
 |--|--|
-| Wybieranie przepływów użytkownika dla większości scenariuszy | Platforma obsługi tożsamości Azure AD B2C jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie przepływy użytkownika. Korzystając z przepływów użytkowników, możesz tworzyć wspaniałe środowiska użytkownika w kilka minut za pomocą zaledwie kilku kliknięć. [Dowiedz się, kiedy używać przepływów użytkowników a zasad niestandardowych](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
+| Wybieranie przepływów użytkownika dla większości scenariuszy | Platforma obsługi tożsamości Azure AD B2C jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie przepływy użytkownika. Korzystając z przepływów użytkowników, możesz tworzyć wspaniałe środowiska użytkownika w kilka minut za pomocą zaledwie kilku kliknięć. [Dowiedz się, kiedy używać przepływów użytkowników a zasad niestandardowych](user-flow-overview.md#comparing-user-flows-and-custom-policies).|
 | Rejestracje aplikacji | Wszystkie aplikacje (w sieci Web, natywny) i interfejs API, które są zabezpieczane, muszą być zarejestrowane w Azure AD B2C. Jeśli aplikacja ma zarówno wersję sieci Web, jak i natywną systemu iOS i Android, można zarejestrować je jako jedną aplikację w Azure AD B2C z tym samym IDENTYFIKATORem klienta. Dowiedz się [, jak zarejestrować aplikacje OIDC, SAML, Web i Native](./tutorial-register-applications.md?tabs=applications). Dowiedz się więcej o [typach aplikacji, których można używać w Azure AD B2C](./application-types.md). |
 | Przechodzenie do rozliczania miesięcznie aktywnych użytkowników | Azure AD B2C została przeniesiona z comiesięcznych aktywnych uwierzytelnień na miesięczne rozliczenia aktywnych użytkowników (MAU). Większość klientów znajdzie ten model ekonomicznie. [Dowiedz się więcej o comiesięcznych rozliczeniach aktywnych użytkowników](https://azure.microsoft.com/updates/mau-billing/). |
 
@@ -78,7 +78,7 @@ Zarządzaj środowiskiem Azure AD B2C.
 |--|--|
 | Tworzenie wielu środowisk | Aby ułatwić wykonywanie operacji i wdrażania, Utwórz osobne środowiska na potrzeby opracowywania, testowania, przedprodukcyjnego i produkcyjnego. Utwórz Azure AD B2C dzierżawców dla każdej z nich. |
 | Używanie kontroli wersji dla zasad niestandardowych | Należy rozważyć użycie usługi GitHub, Azure Repos lub innego systemu kontroli wersji opartej na chmurze dla zasad niestandardowych Azure AD B2C. |
-| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](/graph/api/resources/trustframeworkpolicy?preserve-view=true&view=graph-rest-beta) (zasady niestandardowe)<br/>[Klucze](/graph/api/resources/trustframeworkkeyset?preserve-view=true&view=graph-rest-beta)<br/>[Przepływy użytkownika](/graph/api/resources/identityuserflow?preserve-view=true&view=graph-rest-beta) |
+| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](/graph/api/resources/trustframeworkpolicy?preserve-view=true&view=graph-rest-beta) (zasady niestandardowe)<br/>[Klucze](/graph/api/resources/trustframeworkkeyset?preserve-view=true&view=graph-rest-beta)<br/>[User Flows (Przepływy użytkowników)](/graph/api/resources/identityuserflow?preserve-view=true&view=graph-rest-beta) |
 | Integracja z usługą Azure DevOps | [Potok](deploy-custom-policies-devops.md) ciągłej integracji i ciągłego wdrażania umożliwia łatwe i szybkie przemieszczanie kodu między różnymi środowiskami.   |
 | Integracja z usługą Azure Monitor | [Zdarzenia dziennika inspekcji](view-audit-logs.md) są przechowywane tylko przez siedem dni. [Integracja z usługą Azure monitor](azure-monitor.md) w celu przechowywania dzienników do długoterminowego użytku lub integracji z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń innych firm (Siem) w celu uzyskania szczegółowych informacji o środowisku. |
 | Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](./analytics-with-application-insights.md) w Azure AD B2C przy użyciu Application Insights. |

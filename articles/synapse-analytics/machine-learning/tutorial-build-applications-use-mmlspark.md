@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 928e2ef8b373626a91a291b1798f3ebb7ef290e8
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 5258d8f16e288e7df7e1286eb1902cc6ba6d10f7
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608837"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227725"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Samouczek: kompilowanie aplikacji do uczenia maszynowego przy użyciu programu Microsoft Machine Learning dla Apache Spark (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Synapse Spark udostępnia wbudowane biblioteki MMLSpark, w tym:
 
 - [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) — usługi bibliotek do uczenia maszynowego, aby umożliwić analizę tekstu, taką jak tonacji Analysis w Tweetach.
 - [Cognitive Services na platformie Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) — aby połączyć funkcję usługi Azure Cognitive Services w potokach SparkML, aby utworzyć projekt rozwiązania dla usług modelowania danych poznawczych, takich jak wykrywanie anomalii.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM to platforma do zwiększania gradientu, która używa algorytmów uczenia opartego na drzewie. Jest ona przeznaczona do dystrybucji i zwiększenia wydajności.
+- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM to platforma do zwiększania gradientu, która używa algorytmów uczenia opartego na drzewie. Jest ona przeznaczona do dystrybucji i zwiększenia wydajności.
 - KNN warunkowo skalowalne modele KNN z kwerendami warunkowymi.
 - [Http na platformie Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) — umożliwia organizowanie dystrybucji mikrousług w ramach integracji opartych na protokole Spark i http.
 

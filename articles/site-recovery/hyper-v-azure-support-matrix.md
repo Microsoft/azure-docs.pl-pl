@@ -1,18 +1,15 @@
 ---
 title: Obsługa odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu Azure Site Recovery
 description: Podsumowuje obsługiwane składniki i wymagania dotyczące odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V na platformie Azure przy użyciu Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
-ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 936950ef5dd2c1c7343e30536ab8836fcd198bd0
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735526"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580835"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 

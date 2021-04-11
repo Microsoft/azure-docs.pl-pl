@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 04/06/2020
+ms.date: 03/06/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed5f59fc1d751f92a7c016aa3586497659f778fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "97708470"
+ms.locfileid: "105962955"
 ---
 # <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Używanie parametrów potoku do ponownego uczenia modeli w projektancie
 
@@ -120,3 +120,5 @@ Aby można było wywołać metodę REST, potrzebny jest nagłówek uwierzytelnia
 W tym artykule przedstawiono sposób tworzenia sparametryzowanego punktu końcowego potoku szkolenia przy użyciu narzędzia Projektant.
 
 Aby zapoznać się z kompletnym przewodnikiem dotyczącym wdrażania modelu w celu wykonywania prognoz, zobacz [samouczek projektanta](tutorial-designer-automobile-price-train-score.md) , aby nauczyć i wdrożyć model regresji.
+
+Aby uzyskać informacje na temat publikowania i przesyłania przebiegu do punktu końcowego potoku przy użyciu zestawu SDK, zobacz [ten artykuł](how-to-deploy-pipelines.md).

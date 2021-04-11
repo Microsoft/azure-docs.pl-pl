@@ -1,21 +1,21 @@
 ---
 title: Tworzenie usługi wyszukiwania w portalu
 titleSuffix: Azure Cognitive Search
-description: W tym przewodniku szybki start dowiesz się, jak skonfigurować zasób platformy Azure Wyszukiwanie poznawcze w Azure Portal. Wybierz grupy zasobów, regiony i jednostki SKU lub warstwę cenową.
+description: Dowiedz się, jak skonfigurować zasób usługi Azure Wyszukiwanie poznawcze w Azure Portal. Wybierz grupy zasobów, regiony i jednostkę SKU lub warstwę cenową.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/15/2021
-ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83e206a5fd7b34da0b0ac8590d5271a554855d3e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651990"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580746"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
+# <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>Tworzenie usługi Azure Cognitive Search w portalu
 
 [Azure wyszukiwanie poznawcze](search-what-is-azure-search.md) to zasób platformy Azure używany do dodawania obsługi wyszukiwania pełnotekstowego do aplikacji niestandardowych. Można łatwo zintegrować ją z innymi usługami platformy Azure, które zapewniają dane lub dodatkowe przetwarzanie, z aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
 

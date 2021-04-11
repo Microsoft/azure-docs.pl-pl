@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
 ms.openlocfilehash: 864415f421f4fbecf31fd52a624ac568b4cf9c80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103574815"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z użytkownikiem zarządzanym przez firmę GitHub Enterprise

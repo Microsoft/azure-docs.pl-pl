@@ -8,12 +8,12 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ab7a0c3fa947fdf62672013b5a557d0447eb67c5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563399"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106857"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace
 
@@ -38,7 +38,7 @@ Opcja współsprzedaży jest dostępna dla następujących typów ofert.
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
     > [!TIP]
-    > Jeśli w lewym okienku nawigacji nie widzisz **komercyjnej witryny Marketplace** , [Utwórz komercyjne konto portalu Marketplace w centrum partnerskim](./partner-center-portal/create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+    > Jeśli w lewym okienku nawigacji nie widzisz **komercyjnej witryny Marketplace** , [Utwórz komercyjne konto portalu Marketplace w centrum partnerskim](create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 1. Na karcie **Przegląd** wybierz ofertę, którą chcesz utworzyć.
     > [!NOTE]
     > Możesz skonfigurować współsprzedaż dla nowej oferty, która nie została jeszcze opublikowana, lub z już opublikowaną ofertą.

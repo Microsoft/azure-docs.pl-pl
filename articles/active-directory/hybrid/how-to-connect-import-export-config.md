@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681959"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226565"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importowanie i eksportowanie ustawień konfiguracji Azure AD Connect 
 
@@ -42,7 +42,7 @@ Aby zaimportować wcześniej wyeksportowane ustawienia:
 1. Wybierz pozycję **Importuj ustawienia synchronizacji**. Przeglądaj w poszukiwaniu wcześniej wyeksportowanego pliku ustawień JSON.
 1. Wybierz pozycję **Zainstaluj**.
 
-   ![Zrzut ekranu pokazujący ekran Zainstaluj składniki wymagane](media/how-to-connect-import-export-config/import1.png)
+   ![Zrzut ekranu pokazujący ekran Zainstaluj składniki wymagane](media/how-to-connect-import-export-config/import-1.png)
 
 > [!NOTE]
 > Zastąp ustawienia na tej stronie, takie jak użycie SQL Server zamiast LocalDB lub użycie istniejącego konta usługi zamiast domyślnego atrybutu VSA. Te ustawienia nie są importowane z pliku ustawień konfiguracji. Są one przeznaczone do celów informacyjnych i porównawczych.
@@ -57,7 +57,7 @@ Poniżej przedstawiono jedyne zmiany, które można wprowadzić podczas instalac
 - **Poświadczenia katalogu lokalnego**: dla każdego katalogu lokalnego dołączonego do ustawień synchronizacji należy podać poświadczenia, aby utworzyć konto synchronizacji lub podać wstępnie utworzone konto synchronizacji niestandardowej. Ta procedura jest taka sama jak w przypadku czystej instalacji z wyjątkiem tego, że nie można dodawać ani usuwać katalogów.
 - **Opcje konfiguracji**: podobnie jak w przypadku czystej instalacji, można skonfigurować początkowe ustawienia, czy należy uruchomić automatyczną synchronizację czy włączyć tryb przejściowy. Główną różnicą jest to, że tryb przejściowy jest celowo domyślnie włączony, aby umożliwić porównanie wyników konfiguracji i synchronizacji przed aktywnie eksportowaniem wyników do platformy Azure.
 
-![Zrzut ekranu przedstawiający ekran Łączenie katalogów](media/how-to-connect-import-export-config/import2.png)
+![Zrzut ekranu przedstawiający ekran Łączenie katalogów](media/how-to-connect-import-export-config/import-2.png)
 
 > [!NOTE]
 > Tylko jeden serwer synchronizacji może należeć do roli głównej i aktywnie eksportować zmiany konfiguracji na platformie Azure. Wszystkie inne serwery muszą być umieszczone w trybie przejściowym.
@@ -71,21 +71,27 @@ Migracja wymaga uruchomienia skryptu programu PowerShell, który wyodrębnia ist
 ### <a name="migration-process"></a>Proces migracji 
 Aby przeprowadzić migrację ustawień:
 
-1. Rozpocznij **AzureADConnect.msi** na nowym serwerze tymczasowym i Zatrzymaj na stronie **powitalnej** Azure AD Connect.
+ 1. Rozpocznij **AzureADConnect.msi** na nowym serwerze tymczasowym i Zatrzymaj na stronie **powitalnej** Azure AD Connect.
 
-1. Skopiuj **MigrateSettings.ps1** z katalogu Microsoft Azure AD Connect\Tools do lokalizacji na istniejącym serwerze. Przykładem jest C:\setup, gdzie Instalator jest katalogiem, który został utworzony na istniejącym serwerze.
+ 2. Skopiuj **MigrateSettings.ps1** z katalogu Microsoft Azure AD Connect\Tools do lokalizacji na istniejącym serwerze. Przykładem jest C:\setup, gdzie Instalator jest katalogiem, który został utworzony na istniejącym serwerze.</br>
+     ![Zrzut ekranu przedstawiający katalogi Azure AD Connect.](media/how-to-connect-import-export-config/migrate-1.png)
 
-   ![Zrzut ekranu przedstawiający katalogi Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
+     >[!NOTE]
+     > Jeśli zostanie wyświetlony komunikat: "nie można odnaleźć parametru pozycyjnego akceptującego argument **true**.", jak pokazano poniżej:
+     >
+     >
+     >![Zrzut ekranu przedstawiający błąd ](media/how-to-connect-import-export-config/migrate-5.png) , edytuj plik MigrateSettings.ps1 i usuń **$true** i uruchom skrypt: ![ zrzut ekranu, aby edytować konfigurację](media/how-to-connect-import-export-config/migrate-6.png)
+ 
 
-1. Uruchom skrypt jak pokazano poniżej i Zapisz cały katalog konfiguracji serwera niższego poziomu. Skopiuj ten katalog do nowego serwera przemieszczania. Należy skopiować cały folder **wyeksportowany-konfiguracja serwera-*** na nowy serwer.
 
-   ![Zrzut ekranu pokazujący skrypt w programie Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Zrzut ekranu pokazujący Kopiowanie folderu Export-konfiguracja serwera-*.](media/how-to-connect-import-export-config/migrate3.png)
 
-1. Rozpocznij **Azure AD Connect** przez dwukrotne kliknięcie ikony na pulpicie. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft, a następnie na następnej stronie wybierz pozycję **Dostosuj**.
-1. Zaznacz pole wyboru **Importuj ustawienia synchronizacji** . Wybierz przycisk **Przeglądaj** , aby przeglądać folder skopiowane przez eksportowany-konfiguracja serwera-*. Wybierz MigratedPolicy.js, aby zaimportować zmigrowane ustawienia.
+ 3. Uruchom skrypt jak pokazano poniżej i Zapisz cały katalog konfiguracji serwera niższego poziomu. Skopiuj ten katalog do nowego serwera przemieszczania. Należy skopiować cały folder **wyeksportowany-konfiguracja serwera-*** na nowy serwer.
+     ![Zrzut ekranu pokazujący skrypt w programie Windows PowerShell. ](media/how-to-connect-import-export-config/migrate-2.png)![ Zrzut ekranu pokazujący Kopiowanie folderu Export-konfiguracja serwera-*.](media/how-to-connect-import-export-config/migrate-3.png)
 
-   ![Zrzut ekranu pokazujący opcję importowania ustawień synchronizacji.](media/how-to-connect-import-export-config/migrate4.png)
+ 4. Rozpocznij **Azure AD Connect** przez dwukrotne kliknięcie ikony na pulpicie. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft, a następnie na następnej stronie wybierz pozycję **Dostosuj**.
+ 5. Zaznacz pole wyboru **Importuj ustawienia synchronizacji** . Wybierz przycisk **Przeglądaj** , aby przeglądać folder skopiowane przez eksportowany-konfiguracja serwera-*. Wybierz MigratedPolicy.js, aby zaimportować zmigrowane ustawienia.
+
+     ![Zrzut ekranu pokazujący opcję importowania ustawień synchronizacji.](media/how-to-connect-import-export-config/migrate-4.png)
 
 ## <a name="post-installation-verification"></a>Weryfikacja po instalacji 
 

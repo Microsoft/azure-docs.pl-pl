@@ -5,16 +5,16 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9194ab70e37c0659e77cbe9c10ffca10e1a76de8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684614"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011872"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazów systemu operacyjnego dla zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -79,7 +79,7 @@ Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest d
 ### <a name="service-fabric-requirements"></a>Wymagania Service Fabric
 
 W przypadku korzystania z Service Fabric upewnij się, że zostały spełnione następujące warunki:
--   [Poziom trwałości](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Service Fabric to Silver lub Gold, a nie brązowy.
+-   [Poziom trwałości](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Service Fabric to Silver lub Gold, a nie brązowy (z wyjątkiem elementów NodeType bezstanowych, które obsługują automatyczne uaktualnienia systemu operacyjnego).
 -   Rozszerzenie Service Fabric w definicji modelu zestawu skalowania musi mieć wartość TypeHandlerVersion 1,1 lub nowszą.
 -   Poziom trwałości powinien być taki sam w przypadku klastra Service Fabric i rozszerzenia Service Fabric w definicji modelu zestawu skalowania.
 - Dodatkowa sonda kondycji lub użycie rozszerzenia kondycji aplikacji nie jest wymagane.
@@ -163,7 +163,7 @@ Sondcy równoważenia obciążenia można przywoływać w *networkProfile* zesta
 ```
 
 > [!NOTE]
-> W przypadku korzystania z automatycznych uaktualnień systemu operacyjnego z Service Fabric nowy obraz systemu operacyjnego jest wdrażany w domenie aktualizacji w celu zapewnienia wysokiej dostępności usług działających w Service Fabric. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w Service Fabric klaster musi być skonfigurowany do korzystania z warstwy trwałości Silver lub wyższej. Aby uzyskać więcej informacji na temat właściwości trwałości klastrów Service Fabric, zobacz [tę dokumentację](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
+> W przypadku korzystania z automatycznych uaktualnień systemu operacyjnego z Service Fabric nowy obraz systemu operacyjnego jest wdrażany w domenie aktualizacji w celu zapewnienia wysokiej dostępności usług działających w Service Fabric. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w Service Fabric NodeType klastra musi być skonfigurowany do korzystania z warstwy trwałości Silver lub wyższej. W przypadku warstwy trwałości Bronze automatyczne uaktualnienie systemu operacyjnego jest obsługiwane tylko dla bezstanowej elementów NodeType. Aby uzyskać więcej informacji na temat właściwości trwałości klastrów Service Fabric, zobacz [tę dokumentację](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Aktualizowanie poświadczeń na bieżąco
 Jeśli zestaw skalowania korzysta z dowolnych poświadczeń w celu uzyskania dostępu do zasobów zewnętrznych, takich jak rozszerzenie maszyny wirtualnej skonfigurowane do używania tokenu sygnatury dostępu współdzielonego dla konta magazynu, upewnij się, że poświadczenia zostały zaktualizowane. Po wygaśnięciu jakichkolwiek poświadczeń, w tym certyfikatów i tokenów, uaktualnienie zakończy się niepowodzeniem, a pierwsza partia maszyn wirtualnych zostanie pozostawiona w stanie niepowodzenia.

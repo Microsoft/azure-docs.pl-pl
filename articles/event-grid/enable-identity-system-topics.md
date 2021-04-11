@@ -3,12 +3,12 @@ title: Włącz tożsamość zarządzaną w temacie system Azure Event Grid
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej dla tematu systemu Azure Event Grid.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 66b418787e5570dc5da06a5332dd834ccbfd4aef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d8219cf9cba4ce0a4fb5ddbcf695f1ec72de36fe
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630520"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280517"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-system-topic"></a>Przypisywanie tożsamości zarządzanej przez system do tematu systemu Event Grid
 W tym artykule dowiesz się, jak włączyć tożsamość zarządzaną przez system dla istniejącego tematu systemu Event Grid. Aby dowiedzieć się więcej o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).  
@@ -43,4 +43,4 @@ Tożsamość zarządzaną przez system można włączyć tylko dla regionalnych 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Dodaj tożsamość do odpowiedniej roli (na przykład Service Bus nadawcy danych) w miejscu docelowym (na przykład Kolejka Service Bus). Aby uzyskać szczegółowe instrukcje, zobacz [Dodawanie tożsamości do ról platformy Azure w miejscach docelowych](add-identity-roles.md). 
+Dodaj tożsamość do odpowiedniej roli (na przykład Service Bus nadawcy danych) w miejscu docelowym (na przykład Kolejka Service Bus). Aby uzyskać szczegółowe instrukcje, zobacz [udzielanie tożsamości zarządzanej dostępu do Event Grid docelowej](add-identity-roles.md). 
