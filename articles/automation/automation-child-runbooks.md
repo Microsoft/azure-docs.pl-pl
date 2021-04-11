@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491252"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167298"
 ---
 # <a name="create-modular-runbooks"></a>Tworzenie modułowych elementów runbook
 
@@ -56,15 +56,15 @@ Gdy element Runbook wywoła graficzny lub podrzędny element Runbook przepływu 
 W poniższym przykładzie jest uruchamiany testowy podrzędny element Runbook, który akceptuje obiekt złożony, wartość całkowitą i wartość logiczną. Dane wyjściowe podrzędnego elementu Runbook są przypisywane do zmiennej. W takim przypadku podrzędny element Runbook jest elementem Runbook przepływu pracy programu PowerShell.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 W tym samym przykładzie użyto elementu Runbook programu PowerShell jako elementu podrzędnego.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>Uruchamianie podrzędnego elementu Runbook za pomocą polecenia cmdlet
@@ -84,7 +84,7 @@ Parametry podrzędnego elementu Runbook uruchomionego za pomocą polecenia cmdle
 
 Kontekst subskrypcji może zostać utracony podczas uruchamiania podrzędnych elementów Runbook jako oddzielnych zadań. Aby podrzędny element Runbook wykonywał polecenia AZ module dla określonej subskrypcji platformy Azure, element podrzędny musi uwierzytelniać się w tej subskrypcji niezależnie od nadrzędnego elementu Runbook.
 
-Jeśli zadania w ramach tego samego konta usługi Automation działają z więcej niż jedną subskrypcją, wybranie subskrypcji w jednym zadaniu może zmienić bieżący kontekst subskrypcji dla innych zadań. Aby uniknąć tej sytuacji, użyj `Disable-AzContextAutosave –Scope Process` na początku każdego elementu Runbook. Ta akcja powoduje zapisanie tylko kontekstu dla tego wykonywania elementu Runbook.
+Jeśli zadania w ramach tego samego konta usługi Automation działają z więcej niż jedną subskrypcją, wybranie subskrypcji w jednym zadaniu może zmienić bieżący kontekst subskrypcji dla innych zadań. Aby uniknąć tej sytuacji, użyj `Disable-AzContextAutosave -Scope Process` na początku każdego elementu Runbook. Ta akcja powoduje zapisanie tylko kontekstu dla tego wykonywania elementu Runbook.
 
 ### <a name="example"></a>Przykład
 
@@ -92,7 +92,7 @@ Poniższy przykład uruchamia podrzędny element Runbook z parametrami, a nastę
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>Następne kroki

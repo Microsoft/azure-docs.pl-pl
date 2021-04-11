@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 7fcc030e3c63c24fa255e578c2d8aaf1b466e99c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b586478b6b3943fb0154ed6c50bade6fd8b08b76
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598970"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219505"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -26,6 +26,12 @@ Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia funkc
 Interfejs API jest częścią usług [Azure Cognitive Services](../index.yml), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Za pomocą tych funkcji można korzystać z interfejsu API REST w [wersji 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) lub [wersji 3,1 — Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/)lub [biblioteki klienta](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
+
+Ta dokumentacja zawiera następujące typy artykułów:
+* [Przewodniki Szybki Start](./quickstarts/client-libraries-rest-api.md) to instrukcje krok po kroku, które umożliwiają wykonywanie wywołań do usługi i uzyskiwanie wyników w krótkim czasie. 
+* [Przewodniki z](./how-tos/text-analytics-how-to-call-api.md) instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.
+* [Koncepcje](text-analytics-user-scenarios.md) zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.
+* [Samouczki](./tutorials/tutorial-power-bi-key-phrases.md) są więcej przewodnikami, które pokazują, jak używać tej usługi jako składnika w szerszym zakresie rozwiązań dla firm.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 

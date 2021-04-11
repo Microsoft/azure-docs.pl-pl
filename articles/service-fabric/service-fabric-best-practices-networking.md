@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de6a80f73a97a5732f00e10107fff2330038210a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732568"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122020"
 ---
 # <a name="networking"></a>Sieć
 
@@ -87,7 +87,7 @@ Więcej informacji na temat reguł zabezpieczeń dla ruchu przychodzącego:
 
 * **Aplikacja**. Zakres portów aplikacji powinien być wystarczająco duży, aby pokryć wymagania dotyczące punktu końcowego aplikacji. Ten zakres powinien być poza zakresem portów dynamicznych na komputerze, czyli zakresem ephemeralPorts ustawionym w konfiguracji. Service Fabric używa tych portów, gdy wymagane są nowe porty i należy zachować ostrożność otwierania zapory dla tych portów w węzłach.
 
-* Protokół **SMB**. Protokół SMB jest używany przez usługę magazynu ImageStore w przypadku dwóch scenariuszy. Ten port jest wymagany do pobrania pakietów z magazynu ImageStore przez węzły, a także do replikowania ich między replikami. 
+* Protokół **SMB**. Opcjonalne, środowisko uruchomieniowe w wersji 7.1 + nie domyślnie używa protokołu SMB. Protokół SMB jest używany przez usługę magazynu ImageStore w przypadku dwóch scenariuszy. Ten port jest wymagany do pobrania pakietów z magazynu ImageStore przez węzły, a także do replikowania ich między replikami. 
 
 * **Protokół RDP**. Opcjonalne, jeśli protokół RDP jest wymagany z Internetu lub VirtualNetwork na potrzeby scenariuszy serwera przesiadkowego. 
 

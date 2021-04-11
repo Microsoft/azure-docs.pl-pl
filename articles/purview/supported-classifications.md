@@ -6,20 +6,20 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 02/05/2021
-ms.openlocfilehash: 37df9a276339b80a81e6ac5d5db14872de9edff4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 4/1/2021
+ms.openlocfilehash: e1d3d495d958465e966701aa7ce91bc2706b48e0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065858"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219590"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Obsługiwane klasyfikacje w usłudze Azure kontrolą
 
 W tym artykule wymieniono obsługiwane i zdefiniowane klasyfikacje systemu w usłudze Azure kontrolą (wersja zapoznawcza).
 
 
-- **Próg DISTINCT dopasowania**: całkowita liczba unikatowych wartości danych, które należy znaleźć w kolumnie przed uruchomieniem przez skaner wzorca danych. Nasze reguły klasyfikacji systemu wymagają, aby w każdej kolumnie znajdować się co najmniej 8 odrębnych wartości, które podlegają klasyfikacji. System wymaga tej wartości, aby upewnić się, że kolumna zawiera wystarczającą ilość danych dla skanera, aby precyzyjnie sklasyfikować go. Na przykład kolumna zawierająca wiele wierszy zawierających wartość 1 nie zostanie sklasyfikowana. Kolumny zawierające jeden wiersz z wartością i resztą wierszy mają wartości null, które również nie są klasyfikowane. Jeśli określisz wiele wzorców, ta wartość ma zastosowanie do każdego z nich.
+- **Próg DISTINCT dopasowania**: całkowita liczba unikatowych wartości danych, które należy znaleźć w kolumnie przed uruchomieniem przez skaner wzorca danych. Próg DISTINCT Match nie ma nic do wykonania z dopasowywaniem do wzorca, ale jest to wymagane przede wszystkim dla dopasowania do wzorca. Nasze reguły klasyfikacji systemu wymagają, aby w każdej kolumnie znajdować się co najmniej 8 odrębnych wartości, które podlegają klasyfikacji. System wymaga tej wartości, aby upewnić się, że kolumna zawiera wystarczającą ilość danych dla skanera, aby precyzyjnie sklasyfikować go. Na przykład kolumna zawierająca wiele wierszy zawierających wartość 1 nie zostanie sklasyfikowana. Kolumny zawierające jeden wiersz z wartością i resztą wierszy mają wartości null, które również nie są klasyfikowane. Jeśli określisz wiele wzorców, ta wartość ma zastosowanie do każdego z nich.
 
 - **Minimalny próg dopasowania**: jest to minimalny procent wartości danych w kolumnie, która musi zostać znaleziona przez skaner dla klasyfikacji, która ma zostać zastosowana. Wartość klasyfikacji systemu jest ustawiona na 60%.
 

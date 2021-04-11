@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6499e4b3404a255025f88488e73da1efb6449296
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582072"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075955"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Wdróż maszynę wirtualną z włączonym zaufanym uruchamianiem (wersja zapoznawcza)
 
@@ -32,27 +32,30 @@ ms.locfileid: "104582072"
 Utwórz maszynę wirtualną z włączonym zaufanym uruchamianiem.
 
 1. Zaloguj się do witryny Azure [Portal](https://aka.ms/TL_preview).
-1. Wyszukaj **Virtual Machines**.
-1. W obszarze **usługi** wybierz pozycję **maszyny wirtualne**.
-1. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj**, a następnie wybierz pozycję **maszyna wirtualna**.
-1. W obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję.
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę grupy zasobów lub wybierz istniejącą grupę zasobów z listy rozwijanej.
-1. W obszarze **szczegóły wystąpienia** wpisz nazwę maszyny wirtualnej i wybierz region obsługujący [Zaufane uruchomienie](trusted-launch.md#public-preview-limitations).
-1. W obszarze **obraz** wybierz [obraz, który obsługuje zaufane uruchomienie](trusted-launch.md#public-preview-limitations). Możesz zobaczyć tylko wersję generacji 1 obrazu, która jest nieporozumiena, przejdź do następnego kroku.
-1. Przejdź do karty **Zaawansowane** , wybierając ją w górnej części strony.
-1. Przewiń w dół do sekcji **generacja maszyny wirtualnej** , a następnie wybierz pozycję **Gen 2**.
-1. Na karcie **Zaawansowane** przewiń w dół do opcji **Zaufane uruchomienia**, a następnie zaznacz pole wyboru **Zaufane uruchomienie** . Spowoduje to wyświetlenie dwóch dodatkowych opcji — Bezpieczny rozruch i vTPM. Wybierz odpowiednie opcje dla danego wdrożenia.
+   > [!NOTE] 
+   > Link portalu jest unikatowy dla zaufanego uruchamiania podglądu.
+   >  
+2. Wyszukaj **Virtual Machines**.
+3. W obszarze **usługi** wybierz pozycję **maszyny wirtualne**.
+4. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj**, a następnie wybierz pozycję **maszyna wirtualna**.
+5. W obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję.
+6. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę grupy zasobów lub wybierz istniejącą grupę zasobów z listy rozwijanej.
+7. W obszarze **szczegóły wystąpienia** wpisz nazwę maszyny wirtualnej i wybierz region obsługujący [Zaufane uruchomienie](trusted-launch.md#public-preview-limitations).
+8. W obszarze **obraz** wybierz [obraz, który obsługuje zaufane uruchomienie](trusted-launch.md#public-preview-limitations). Możesz zobaczyć tylko wersję generacji 1 obrazu, która jest nieporozumiena, przejdź do następnego kroku.
+9. Przejdź do karty **Zaawansowane** , wybierając ją w górnej części strony.
+10. Przewiń w dół do sekcji **generacja maszyny wirtualnej** , a następnie wybierz pozycję **Gen 2**.
+11. Na karcie **Zaawansowane** przewiń w dół do opcji **Zaufane uruchomienia**, a następnie zaznacz pole wyboru **Zaufane uruchomienie** . Spowoduje to wyświetlenie dwóch dodatkowych opcji — Bezpieczny rozruch i vTPM. Wybierz odpowiednie opcje dla danego wdrożenia.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Zrzut ekranu przedstawiający opcje zaufanego uruchamiania.":::
 
-1. Wróć do karty **podstawowe** , w obszarze **obraz** i upewnij się, że zobaczysz następujący komunikat: **ten obraz obsługuje funkcję zaufanego uruchamiania podglądu. Skonfiguruj na karcie Zaawansowane**. Obraz generacji 2 powinien być teraz wybrany.
+12. Wróć do karty **podstawowe** , w obszarze **obraz** i upewnij się, że zobaczysz następujący komunikat: **ten obraz obsługuje funkcję zaufanego uruchamiania podglądu. Skonfiguruj na karcie Zaawansowane**. Obraz generacji 2 powinien być teraz wybrany.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Zrzut ekranu przedstawiający komunikat potwierdzający, że jest to obraz Gen2, który obsługuje zaufane uruchomienie.":::
 
-1.  Wybierz rozmiar maszyny wirtualnej, który obsługuje zaufane uruchomienie. Zapoznaj się z listą [obsługiwanych rozmiarów](trusted-launch.md#public-preview-limitations).
-1.  Wprowadź informacje o **koncie administratora** , a następnie **reguły portów ruchu przychodzącego**.
-1.  W dolnej części strony wybierz pozycję **Przegląd + Utwórz** .
-1.  Na stronie **Tworzenie maszyny wirtualnej** można zobaczyć szczegóły dotyczące maszyny wirtualnej, która ma zostać wdrożona. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+13. Wybierz rozmiar maszyny wirtualnej, który obsługuje zaufane uruchomienie. Zapoznaj się z listą [obsługiwanych rozmiarów](trusted-launch.md#public-preview-limitations).
+14. Wprowadź informacje o **koncie administratora** , a następnie **reguły portów ruchu przychodzącego**.
+15. W dolnej części strony wybierz pozycję **Przegląd + Utwórz** .
+16. Na stronie **Tworzenie maszyny wirtualnej** można zobaczyć szczegóły dotyczące maszyny wirtualnej, która ma zostać wdrożona. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
 
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot strony walidacji, w której znajdują się opcje zaufanego uruchamiania.":::
 

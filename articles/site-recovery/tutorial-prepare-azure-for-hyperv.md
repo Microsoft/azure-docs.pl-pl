@@ -1,19 +1,16 @@
 ---
 title: Przygotuj platformę Azure do odzyskiwania po awarii funkcji Hyper-V za pomocą Azure Site Recovery
 description: Dowiedz się, jak przygotować platformę Azure do odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V za pomocą Azure Site Recovery
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
 ms.date: 11/14/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5ca03336fc60abbb458615e922a2556dd21a79a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ec1c41935d200ad220716940f898549d835510ba
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739682"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579279"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Przygotowywanie zasobów platformy Azure na potrzeby odzyskiwania po awarii funkcji Hyper-V
 

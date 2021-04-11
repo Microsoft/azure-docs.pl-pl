@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629278"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276743"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -17,7 +17,7 @@ W tym artykule opisano, jak Azure Event Grid obsługuje zdarzenia, gdy dostarcze
 Event Grid zapewnia trwałe dostarczanie. Każdy z nich dostarcza każdy komunikat **co najmniej raz** dla każdej subskrypcji. Zdarzenia są natychmiast wysyłane do zarejestrowanego punktu końcowego dla każdej subskrypcji. Jeśli punkt końcowy nie potwierdzi przyjęcia zdarzenia, Event Grid ponawianie prób dostarczenia zdarzenia.
 
 > [!NOTE]
-> Event Grid nie gwarantuje kolejności dostarczania zdarzeń, dlatego Subskrybenci mogą odebrać je poza kolejnością. 
+> Event Grid nie gwarantuje kolejności dostarczania zdarzeń, dlatego Subskrybenci mogą odbierać je poza kolejnością. 
 
 ## <a name="batched-event-delivery"></a>Wsadowe dostarczanie zdarzeń
 
@@ -55,11 +55,11 @@ Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polece
 
 ## <a name="retry-schedule-and-duration"></a>Harmonogram ponownych prób i czas trwania
 
-Gdy EventGrid odbiera błąd w przypadku próby dostarczenia zdarzenia, EventGrid decyduje o tym, czy należy ponowić próbę dostarczenia, czy też porzucić zdarzenie na podstawie typu błędu. 
+Gdy EventGrid odbiera błąd w przypadku próby dostarczenia zdarzenia, EventGrid decyduje o tym, czy należy ponowić próbę dostarczenia, martwić się o zdarzenie lub porzucić zdarzenie na podstawie typu błędu. 
 
-Jeśli błąd zwrócony przez subskrybowany punkt końcowy to błąd związany z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid będzie wykonywał utraconą literę zdarzenia lub porzucić zdarzenie, jeśli utracona jest nieskonfigurowana.
+Jeśli błąd zwrócony przez subskrybowany punkt końcowy jest błędem związanym z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid wykona utraconą próbę w zdarzeniu lub Porzuć zdarzenie, jeśli nie skonfigurowano utraconych wiadomości.
 
-Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia nie nastąpi:
+W poniższej tabeli opisano typy punktów końcowych i błędów, dla których nie nastąpiła próba ponowienia:
 
 | Typ punktu końcowego | Kody błędów |
 | --------------| -----------|
@@ -67,7 +67,7 @@ Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia
 | Webhook | 400 Nieprawidłowe żądanie, 413 jednostka żądania jest zbyt duża, 403 zabronione, nie znaleziono 404, 401 nieautoryzowane |
  
 > [!NOTE]
-> Jeśli Dead-Letter nie jest skonfigurowany dla punktu końcowego, zdarzenia będą porzucane w przypadku wystąpienia powyższych błędów. Rozważ skonfigurowanie wiadomości utraconych, jeśli nie chcesz, aby tego rodzaju zdarzenia zostały porzucone.
+> Jeśli Dead-Letter nie jest skonfigurowany dla punktu końcowego, zdarzenia zostaną porzucone w przypadku wystąpienia powyższych błędów. Rozważ skonfigurowanie Dead-Letter, jeśli nie chcesz, aby tego rodzaju zdarzenia zostały porzucone.
 
 Jeśli błąd zwrócony przez subskrybowany punkt końcowy nie należy do powyższej listy, EventGrid wykonuje ponowienie przy użyciu zasad opisanych poniżej:
 
@@ -89,7 +89,7 @@ Jeśli punkt końcowy odpowie w ciągu 3 minut, Event Grid podejmie próbę usun
 
 Event Grid dodaje małe losowe instrukcje do wszystkich ponownych prób i mogą odpowiednio Uzgodnij pominąć pewne ponowne próby, jeśli punkt końcowy jest ciągle w złej kondycji, nie działa przez długi czas lub wydaje się być przeciążony.
 
-W przypadku zachowań deterministycznych Ustaw czas wygaśnięcia i maksymalną liczbę prób dostarczenia w [zasadach ponawiania subskrypcji](manage-event-delivery.md).
+W przypadku zachowań deterministycznych Ustaw czas wygaśnięcia zdarzenia na żywo i maksymalną liczbę prób dostarczenia w [zasadach ponawiania subskrypcji](manage-event-delivery.md).
 
 Domyślnie Event Grid wygasa wszystkie zdarzenia, które nie zostały dostarczone w ciągu 24 godzin. [Zasady ponawiania można dostosować](manage-event-delivery.md) podczas tworzenia subskrypcji zdarzeń. Podajesz maksymalną liczbę prób dostarczenia (wartość domyślna to 30) i czas wygaśnięcia zdarzenia na żywo (wartość domyślna to 1440 minut).
 
@@ -115,7 +115,7 @@ Istnieje pięć minut opóźnienia między ostatnią próbą dostarczenia zdarze
 
 Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Należy podać punkt końcowy dla tego kontenera podczas tworzenia subskrypcji zdarzeń. Punkt końcowy ma format: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Możesz chcieć otrzymywać powiadomienia, gdy zdarzenie zostało wysłane do lokalizacji utraconych wiadomości. Aby użyć Event Grid do odpowiadania na zdarzenia niedostarczone, [Utwórz subskrypcję zdarzeń](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) dla utraconego magazynu obiektów BLOB. Za każdym razem, gdy magazyn obiektów BLOB utraconych wiadomości odbiera zdarzenie niedostarczone, Event Grid powiadamia program obsługi. Program obsługi reaguje na akcje, które mają zostać wykonane w celu uzgodnienia niedostarczonych zdarzeń. Aby zapoznać się z przykładem konfigurowania martwej lokalizacji i zasad ponawiania, zobacz [utracony komunikat i zasady ponawiania](manage-event-delivery.md).
+Możesz chcieć otrzymywać powiadomienia, gdy zdarzenie zostało wysłane do lokalizacji utraconych wiadomości. Aby użyć Event Grid do odpowiadania na zdarzenia niedostarczone, [Utwórz subskrypcję zdarzeń](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) dla utraconego magazynu obiektów BLOB. Za każdym razem, gdy magazyn obiektów BLOB utraconych wiadomości odbiera zdarzenie niedostarczone, Event Grid powiadamia program obsługi. Program obsługi reaguje na akcje, które mają zostać wykonane w celu uzgodnienia niedostarczonych zdarzeń. Aby zapoznać się z przykładem konfigurowania lokalizacji utraconych wiadomości i ponawiania zasad, zobacz artykuł [utracony i zasady ponawiania](manage-event-delivery.md).
 
 ## <a name="delivery-event-formats"></a>Formaty zdarzeń dostarczania
 W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych formatach schematów dostarczania (schemat Event Grid, schemat CloudEvents 1,0 i schemat niestandardowy). Aby uzyskać więcej informacji na temat tych formatów, zobacz artykuł [Event Grid schematów](event-schema.md) i [zdarzeń Cloud Events 1,0](cloud-event-schema.md) . 
@@ -288,7 +288,7 @@ Wszystkie inne kody, które nie znajdują się w powyższym zestawie (200-204), 
 | 503 — usługa niedostępna | Ponów próbę po 30 sekundach lub więcej |
 | Wszystkie pozostałe | Ponów próbę po 10 sekundach lub więcej |
 
-## <a name="delivery-with-custom-headers"></a>Dostarczanie z nagłówkami niestandardowymi
+## <a name="custom-delivery-properties"></a>Niestandardowe właściwości dostarczania
 Subskrypcje zdarzeń umożliwiają konfigurowanie nagłówków HTTP, które są uwzględnione w dostarczonych zdarzeniach. Ta funkcja umożliwia ustawienie niestandardowych nagłówków, które są wymagane przez miejsce docelowe. Podczas tworzenia subskrypcji zdarzeń można skonfigurować maksymalnie 10 nagłówków. Każda wartość nagłówka nie powinna być większa niż 4 096 (4K) bajtów. Można ustawić niestandardowe nagłówki dla zdarzeń, które są dostarczane do następujących miejsc docelowych:
 
 - Elementy webhook
@@ -296,7 +296,7 @@ Subskrypcje zdarzeń umożliwiają konfigurowanie nagłówków HTTP, które są 
 - Azure Event Hubs
 - Połączenia hybrydowe przekaźnika
 
-Aby uzyskać więcej informacji, zobacz [dostarczanie z nagłówkami niestandardowymi](delivery-properties.md). 
+Aby uzyskać więcej informacji, zobacz [niestandardowe właściwości dostarczania](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,19 +1,16 @@
 ---
 title: Wykonaj drążenie odzyskiwania po awarii do platformy Azure za pomocą Azure Site Recovery
 description: Dowiedz się, jak przeprowadzić drążenie odzyskiwania po awarii z lokalizacji lokalnej na platformę Azure przy użyciu Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 246295017e2b05de10ccfd2154a1490ae0ece9c3
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84699621"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579098"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Uruchamianie próbnego odzyskiwania na platformie Azure
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: a43f95ad65e95db2b69b32c3fe8d62db71a98a17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fb25892dc71c0bb4e73101e180a58be6c0c1195
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025207"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276811"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -110,7 +110,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Londyn2** | [Dwa domowe północ](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | Południowe Zjednoczone Królestwo | 10G, 100G | Kolumbia Telecom, CenturyLink Cloud Connect, Colt, GTT, IX zasięg, Equinix, Megaport, SES, Sohonet, teledomu-KDDI |
 | **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/d | 10G, 100G | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Angeles2 Los** | [Equinix LA1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | n/d | 10G, 100G | Equinix |
-| **Madryt** | [Interxion MAD1](https://www.interxion.com/es/donde-estamos/europa/madrid) | 1 | West Europe | 10G, 100G | |
+| **Madryt** | [Interxion MAD1](https://www.interxion.com/es/donde-estamos/europa/madrid) | 1 | West Europe | 10G, 100G | Interxion |
 | **Marsylia** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Francja Południowa | n/d | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia Południowo-Wschodnia | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | n/d | 10G, 100G | Claro, C3ntro, Equinix, Megaport, sieci neutronów |
@@ -220,6 +220,7 @@ Jeśli jesteś zdalny i nie masz łączności z włóknami lub chcesz poznać in
 | **Dniach** | Equinix, Interxion, poziom 3 komunikacja | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, perski Bridge International, Kalaam Telecom Bahrajn B. S. C, MainOne, Nianet, POST Telecom Luksemburg, Proximus, RETN, TDC Erhverv, Telecom Italia musujące, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Castle korony
 | **Kapsztad** | Teraco | MTN |
+| **Chennai** | Tata Communications | Teleusługi tata |
 | **Chicago** | Equinix| Castle korony, spektrum korporacyjne, windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Korona Castle, Odlewia danych, całe przedsiębiorstwa, Transtelco |
 | **We** | Interxion | BICS, Cinia, Equinix, Nianet, QSC AG, Telekom Deutschland GmbH |
@@ -230,6 +231,7 @@ Jeśli jesteś zdalny i nie masz łączności z włóknami lub chcesz poznać in
 | **Los Angeles** | Equinix |Castle korony, spektrum korporacyjne, Transtelco |
 | **Madryt** | Level3 | Zertia |
 | **Montreal** | Cologix| Technologie bramy, Inc. Aptum Technologies, Rogers, zirro |
+| **Mumbaj** | Tata Communications | Teleusługi tata |
 | **Nowy Jork** |Equinix, Megaport | Altice Business, koroner Castle, spektrum korporacyjne, Webair |
 | **Paryż** | Equinix | Proximus |
 | **Miasto Quebec** | Megaport | Fibrenoire |

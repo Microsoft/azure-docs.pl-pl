@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b502690a62410f1e8d2950074e8b479f7dc7f88
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b9d3f6973c210e7bd91c088ee7a276bfbcc48ce
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609737"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121986"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schematy Azure Event Grid dla zdarzeń Media Services
 
@@ -330,7 +330,7 @@ Obiekt danych ma następujące właściwości:
 | encoderPort | ciąg | Port kodera, z którego pochodzi ten strumień. |
 | resultCode | ciąg | Przyczyna odrzucenia połączenia. Kody wyników są wymienione w poniższej tabeli. |
 
-Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../live-event-error-codes.md).
+Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -400,7 +400,7 @@ Obiekt danych ma następujące właściwości:
 | encoderPort | ciąg | Port kodera, z którego pochodzi ten strumień. |
 | resultCode | ciąg | Przyczyna odłączenia kodera. Może to być bezpieczne rozłączenie lub błąd. Kody wyników są wymienione w poniższej tabeli. |
 
-Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../live-event-error-codes.md).
+Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../live-event-error-codes-reference.md).
 
 Kody wyniku bezpiecznego rozłączenia to:
 
@@ -676,4 +676,4 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Kody błędów zdarzeń na żywo](../live-event-error-codes.md)
+- [Kody błędów zdarzeń na żywo](../live-event-error-codes-reference.md)

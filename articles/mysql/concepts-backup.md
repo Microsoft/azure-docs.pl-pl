@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010358"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
@@ -96,7 +96,7 @@ Szacowany czas na odzyskanie serwera zależy od kilku czynników:
 ```sql
 select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
 ```
-W przypadku dużej lub bardzo aktywnej bazy danych Przywracanie może potrwać kilka godzin. Jeśli w regionie występuje długotrwała awaria, możliwe jest zainicjowanie dużej liczby żądań przywracania geograficznego na potrzeby odzyskiwania po awarii. Jeśli istnieje wiele żądań, można zwiększyć czas odzyskiwania poszczególnych baz danych. Większość przywracania bazy danych kończy się w czasie krótszym niż 12 godzin.
+W przypadku dużej lub bardzo aktywnej bazy danych Przywracanie może potrwać kilka godzin. Jeśli w regionie występuje długotrwała awaria, możliwe jest, że duża liczby żądań przywracania geograficznego zostanie zainicjowana na potrzeby odzyskiwania po awarii. Jeśli istnieje wiele żądań, czas odzyskiwania poszczególnych baz danych może się wydłużyć. Większość przywracania bazy danych kończy się w czasie krótszym niż 12 godzin.
 
 > [!IMPORTANT]
 > Usunięte serwery można przywrócić w ciągu **pięciu dni** po usunięciu kopii zapasowych. Kopia zapasowa bazy danych jest dostępna i przywracana tylko w ramach subskrypcji platformy Azure, w której znajduje się serwer. Aby przywrócić usunięty serwer, zapoznaj się z [opisanymi krokami](howto-restore-dropped-server.md). Aby chronić zasoby serwera, po wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z [blokad zarządzania](../azure-resource-manager/management/lock-resources.md).

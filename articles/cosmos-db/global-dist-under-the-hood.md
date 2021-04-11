@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 1b47ad27abbe59eceabd15d091f88f4659d8dad6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 592a9b89379094c88881c3c8485c7e38a1613b34
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486390"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219488"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globalna dystrybucja danych z Azure Cosmos DBą pod okapem
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,7 +61,7 @@ Usługa umożliwia konfigurowanie baz danych Cosmos z jednym regionem zapisu lub
 
 ## <a name="conflict-resolution"></a>Rozwiązywanie konfliktów
 
-Nasz projekt dotyczący propagacji aktualizacji, rozwiązywania konfliktów i śledzenia związku przyczynowego jest inspirowany od wcześniejszej pracy w ramach [algorytmów epidemii](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) i systemu [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) . Chociaż jądro pomysłów zostało przeformułowane i zapewniają wygodną ramkę odniesienia do komunikowania się z projektem systemu Cosmos DB, również zostały poddane znaczącej transformacji po zastosowaniu ich do systemu Cosmos DB. Jest to konieczne, ponieważ w poprzednich systemach nie zaprojektowano ani nie jest to zarządzanie zasobami ani ze skalą, w której Cosmos DB ma działać, ani w celu zapewnienia możliwości (na przykład ograniczenia niezgodności) oraz rygorystycznej i kompleksowej umowy SLA, która Cosmos DB dostarcza klientom.  
+Nasz projekt dotyczący propagacji aktualizacji, rozwiązywania konfliktów i śledzenia związku przyczynowego jest inspirowany od wcześniejszej pracy w ramach [algorytmów epidemii](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) i systemu [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf) . Chociaż jądro pomysłów zostało przeformułowane i zapewniają wygodną ramkę odniesienia do komunikowania się z projektem systemu Cosmos DB, również zostały poddane znaczącej transformacji po zastosowaniu ich do systemu Cosmos DB. Jest to konieczne, ponieważ w poprzednich systemach nie zaprojektowano ani nie jest to zarządzanie zasobami ani ze skalą, w której Cosmos DB ma działać, ani w celu zapewnienia możliwości (na przykład ograniczenia niezgodności) oraz rygorystycznej i kompleksowej umowy SLA, która Cosmos DB dostarcza klientom.  
 
 Odwołaj, że zestaw partycji jest dystrybuowany do wielu regionów i postępuj zgodnie z Cosmos baz danych (zapisy wieloregionowe), aby replikować dane między partycjami fizycznymi zawierającymi dany zestaw partycji. Każda partycja fizyczna (zestawu partycji) akceptuje operacje zapisu i umożliwia zazwyczaj odczyty na klientach lokalnych dla danego regionu. Zapisy akceptowane przez partycję fizyczną w regionie są trwale zatwierdzone i są wysoce dostępne na partycji fizycznej przed ich potwierdzeniem do klienta. Są to wstępnie zaakceptowane zapisy i są propagowane do innych partycji fizycznych w ramach zestawu partycji przy użyciu kanału antyentropii. Klienci mogą żądać zaakceptowania lub zatwierdzić zapisy przez przekazanie nagłówka żądania. Propagacja anty-entropii (łącznie z częstotliwością propagacji) jest dynamiczna, na podstawie topologii zestawu partycji, regionalnej bliskości partycji fizycznych i skonfigurowanego poziomu spójności. W ramach zestawu partycji Cosmos DB następuje główny schemat zatwierdzania z dynamicznie wybraną partycją arbiter. Wybór arbiter jest dynamiczny i jest integralną częścią ponownej konfiguracji zestawu partycji na podstawie topologii nakładki. Zatwierdzone zapisy (w tym aktualizacje wielowierszowe/wsadowe) są gwarantowane. 
 

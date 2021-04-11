@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80878429"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934040"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurowanie kontenerów platformy Docker
 
@@ -67,7 +67,7 @@ Ustawienia konfiguracji w `CloudAI` sekcji zawierają opcje specyficzne dla kont
 
 ### <a name="storage-scenario-settings"></a>Ustawienia scenariusza magazynu
 
-Kontener programu Front-Storage przechowuje dane obiektów blob, cache, Metadata i Queue, w zależności od przechowywanych elementów. Na przykład, indeksy szkoleniowe i wyniki dla dużej grupy osób są przechowywane jako dane obiektów BLOB. Kontener przedstawiający są dwa różne scenariusze magazynowania podczas korzystania z tych typów danych i ich przechowywania:
+Kontener programu Front-Storage przechowuje dane obiektów blob, cache, Metadata i Queue, w zależności od przechowywanych elementów. Na przykład, indeksy szkoleniowe i wyniki dla **LargePersonGroup** są przechowywane jako dane obiektów BLOB. Kontener przedstawiający są dwa różne scenariusze magazynowania podczas korzystania z tych typów danych i ich przechowywania:
 
 * Pamięć  
   Wszystkie cztery typy danych są przechowywane w pamięci. Nie są one dystrybuowane ani nie są trwałe. Po zatrzymaniu lub usunięciu kontenera rozpoznawania wartości wszystkie dane w magazynie dla tego kontenera zostaną zniszczone.  

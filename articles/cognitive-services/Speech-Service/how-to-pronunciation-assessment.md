@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d1b5e490b7c8212e6103e3d169c1b5491d01dde
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051892"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167434"
 ---
 # <a name="pronunciation-assessment"></a>Ocena wymowy
 
@@ -28,7 +28,7 @@ Osoby wykorzystujące wykładowcy mogą oszacować wymowę wielu głośników w 
 W tym artykule dowiesz się, jak skonfigurować `PronunciationAssessmentConfig` i pobrać `PronunciationAssessmentResult` przy użyciu zestawu Speech SDK.
 
 > [!NOTE]
-> Funkcja oceny wymowy obsługuje obecnie tylko język `en-US` .
+> Funkcja oceny wymowy obsługuje obecnie `en-US` język, który jest dostępny we wszystkich [regionach zamiany mowy na tekst](regions.md#speech-to-text-text-to-speech-and-translation). Pomoc techniczna dla `en-GB` `zh-CN` języków i jest w wersji zapoznawczej, która jest dostępna w `westus` `eastasia` `centralindia` regionach i.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>Ocena wymowy przy użyciu zestawu Speech SDK
 
@@ -194,9 +194,63 @@ W tej tabeli wymieniono parametry wynikowe oceny wymowy.
 | `PronunciationScore` | Ogólny wynik wskazujący jakość wymowy danego mowy. Ta wartość jest agregowana `AccuracyScore` z `FluencyScore` i `CompletenessScore` wagi. |
 | `ErrorType` | Ta wartość wskazuje, czy słowo zostanie pominięte, wstawione lub nieprawidłowo wypowiadane, w porównaniu z `ReferenceText` . Możliwe wartości to `None` (brak błędu w tym wyrazie), `Omission` `Insertion` i `Mispronunciation` . |
 
+### <a name="sample-responses"></a>Przykładowe odpowiedzi
+
+Typowy wynik oceny wymowy w formacie JSON:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronunciationAssessment":
+        {
+            "PronScore" : 84.4,
+            "AccuracyScore" : 100.0,
+            "FluencyScore" : 74.0,
+            "CompletenessScore" : 100.0,
+        },
+        "Words": [
+            {
+              "Word" : "Good",
+              "Offset" : 500000,
+              "Duration" : 2700000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            },
+            {
+              "Word" : "morning",
+              "Offset" : 5300000,
+              "Duration" : 900000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            }
+        ]
+      }
+  ]
+}
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
 <!-- TODO: update JavaScript sample links after release -->
+
+* Obejrzyj samouczek [wprowadzenie do filmów wideo](https://www.youtube.com/watch?v=cBE8CUHOFHQ) i [wideo](https://www.youtube.com/watch?v=zFlwm7N4Awc) z oceny wymowy
+
+* Wypróbuj [Pokaz oceny wymowy](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS)
 
 ::: zone pivot="programming-language-csharp"
 * Zapoznaj się z [przykładowym kodem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) w serwisie GitHub, aby uzyskać ocenę wymowy.
@@ -219,3 +273,5 @@ W tej tabeli wymieniono parametry wynikowe oceny wymowy.
 ::: zone-end
 
 * [Dokumentacja referencyjna zestawu Speech SDK](speech-sdk.md)
+
+* [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)

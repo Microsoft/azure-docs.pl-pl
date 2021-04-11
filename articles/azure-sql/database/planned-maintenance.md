@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
 ms.date: 3/23/2021
-ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 259a8581d16f4fd6958a0d9ec2631f667d362b19
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044264"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579476"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Zaplanuj zdarzenia konserwacji platformy Azure w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ Zdarzenie konserwacji może generować jedną lub wiele ponownych konfiguracji, 
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Symulowanie planowanego zdarzenia konserwacji
 
-Zapewnienie odporności aplikacji klienckiej na zdarzenia konserwacyjne przed wdrożeniem w środowisku produkcyjnym pomoże ograniczyć ryzyko błędów aplikacji i przyczynić się do dostępności aplikacji dla użytkowników końcowych. Możesz przetestować zachowanie aplikacji klienckiej w trakcie planowanych zdarzeń konserwacji, [inicjując ręczne](https://aka.ms/mifailover-techblog) przełączenie w tryb failover za pomocą programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Spowoduje to wygenerowanie identycznego zachowania jako zdarzenia konserwacji w trybie offline repliki podstawowej.
+Zapewnienie odporności aplikacji klienckiej na zdarzenia konserwacyjne przed wdrożeniem w środowisku produkcyjnym pomoże ograniczyć ryzyko błędów aplikacji i przyczynić się do dostępności aplikacji dla użytkowników końcowych. Możesz przetestować zachowanie aplikacji klienckiej w trakcie planowanych zdarzeń konserwacji przez [testowanie odporności błędów aplikacji](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) za pomocą programu PowerShell, interfejsu wiersza polecenia lub API REST. Zobacz też [Inicjowanie ręcznego przełączania do trybu failover](https://aka.ms/mifailover-techblog) dla wystąpienia zarządzanego. Spowoduje to wygenerowanie identycznego zachowania jako zdarzenia konserwacji w trybie offline repliki podstawowej.
 
 ## <a name="retry-logic"></a>Logika ponowień
 

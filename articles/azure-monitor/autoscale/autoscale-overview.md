@@ -5,10 +5,10 @@ ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101726006"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Omówienie automatycznego skalowania w Microsoft Azure
@@ -81,8 +81,8 @@ Aby zapoznać się z przykładami kodu, zobacz
 * [Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets](autoscale-virtual-machine-scale-sets.md)  
 * [Interfejs API REST automatycznego skalowania](/rest/api/monitor/autoscalesettings)
 
-## <a name="horizontal-vs-vertical-scaling"></a>Skalowanie w poziomie i w pionie
-Skalowanie automatyczne jest skalowane w poziomie, co zwiększa się ("out") lub zmniejsza ("in") w liczbie wystąpień maszyn wirtualnych.  Poziome jest bardziej elastyczne w sytuacji chmury, ponieważ umożliwia uruchamianie potencjalnie tysięcy maszyn wirtualnych do obsługi obciążenia.
+## <a name="horizontal-vs-vertical-scaling&quot;></a>Skalowanie w poziomie i w pionie
+Skalowanie automatyczne jest skalowane w poziomie, co zwiększa się (&quot;out") lub zmniejsza ("in") w liczbie wystąpień maszyn wirtualnych.  Poziome jest bardziej elastyczne w sytuacji chmury, ponieważ umożliwia uruchamianie potencjalnie tysięcy maszyn wirtualnych do obsługi obciążenia.
 
 Natomiast skalowanie w pionie jest inne. Zachowuje tę samą liczbę maszyn wirtualnych, ale sprawia, że maszyny wirtualne są bardziej wydajne ("w górę") lub mniej ("w dół"). Moc jest mierzona w pamięci, szybkości procesora, ilości miejsca na dysku itp.  Skalowanie w pionie ma więcej ograniczeń. Jest ona zależna od dostępności większego sprzętu, który szybko trafi górny limit i może różnić się w zależności od regionu. Skalowanie w pionie wymaga również, aby maszyna wirtualna została zatrzymana i ponownie uruchomiona.
 

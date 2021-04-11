@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558265"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167366"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Konfigurowanie przekazywania tymczasowego dostępu w usłudze Azure AD w celu rejestrowania metod uwierzytelniania bezhaseł (wersja zapoznawcza)
 
@@ -57,7 +57,7 @@ Aby skonfigurować zasady metody uwierzytelniania dla dostępu tymczasowego:
    | Jednorazowe użycie | Fałsz | PRAWDA/FAŁSZ | Jeśli zasady są ustawione na wartość false, w dzierżawie może być używana jedna lub więcej niż raz w okresie ważności (maksymalny okres istnienia). Wymuszając jednorazowe użycie w ramach zasad dostępu tymczasowego, wszystkie przebiegi utworzone w dzierżawie zostaną utworzone jako jednorazowe użycie. |
    | Długość | 8 | 8-48 znaków | Definiuje długość kodu dostępu. |
 
-## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Tworzenie tymczasowego dostępu w portalu usługi Azure AD
+## <a name="create-a-temporary-access-pass"></a>Tworzenie tymczasowego dostępu
 
 Po włączeniu zasad można utworzyć tymczasowy dostęp dla użytkownika w usłudze Azure AD. Role te mogą wykonywać następujące działania związane z tymczasowym przebiegiem dostępu.
 
@@ -66,9 +66,7 @@ Po włączeniu zasad można utworzyć tymczasowy dostęp dla użytkownika w usł
 - Administratorzy uwierzytelniania mogą tworzyć, usuwać i wyświetlać tymczasowe dostęp do elementów członkowskich (z wyjątkiem siebie).
 - Administrator globalny może wyświetlić szczegóły dotyczące tymczasowego dostępu użytkownika (bez konieczności odczytywania kodu).
 
-Aby utworzyć tymczasowy dostęp do przebiegu:
-
-1. Zaloguj się do portalu jako Administrator globalny, administrator uwierzytelniania uprzywilejowanego lub administrator uwierzytelniania. 
+1. Zaloguj się do Azure Portal jako Administrator globalny, administrator uwierzytelniania uprzywilejowanego lub administrator uwierzytelniania. 
 1. Kliknij przycisk **Azure Active Directory**, przejdź do opcji użytkownicy, wybierz użytkownika, na przykład *Krzysztof zielony*, a następnie wybierz **metody uwierzytelniania**.
 1. W razie potrzeby wybierz opcję, aby **wypróbować nowe metody uwierzytelniania użytkowników**.
 1. Wybierz opcję, aby **dodać metody uwierzytelniania**.
@@ -80,6 +78,30 @@ Aby utworzyć tymczasowy dostęp do przebiegu:
 1. Po dodaniu zostaną wyświetlone szczegółowe informacje o przebiegu dostępu tymczasowego. Zanotuj rzeczywistą tymczasową wartość dostępną. Podajesz tę wartość użytkownikowi. Nie można wyświetlić tej wartości po kliknięciu przycisku **OK**.
    
    ![Zrzut ekranu przedstawiający informacje o tymczasowym przebiegu dostępu](./media/how-to-authentication-temporary-access-pass/details.png)
+
+Następujące polecenia pokazują, jak utworzyć i uzyskać tymczasowy dostęp do przebiegu przy użyciu programu PowerShell:
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2021-03-11 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM
+
+```
 
 ## <a name="use-a-temporary-access-pass"></a>Korzystanie z tymczasowego dostępu
 
@@ -108,6 +130,13 @@ Nie można użyć wygasłego tymczasowego dostępu. W obszarze **metody uwierzyt
 1. W portalu usługi Azure AD przejdź do pozycji **Użytkownicy**, wybierz użytkownika, na przykład *naciśnij pozycję użytkownik*, a następnie wybierz pozycję **metody uwierzytelniania**.
 1. Po prawej stronie metody uwierzytelniania **dostęp przejściowy (wersja zapoznawcza)** pokazanej na liście wybierz pozycję **Usuń**.
 
+Możesz również użyć programu PowerShell:
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
+```
+
 ## <a name="replace-a-temporary-access-pass"></a>Zastępowanie tymczasowego dostępu 
 
 - Użytkownik może mieć tylko jeden dostęp tymczasowy. Kod dostępu może być używany podczas rozpoczęcia i czasu zakończenia tymczasowego dostępu.
@@ -123,8 +152,8 @@ Należy pamiętać o następujących ograniczeniach:
 
 - W przypadku korzystania z jednorazowego tymczasowego dostępu do rejestracji metody bez hasła, takiej jak FIDO2 lub logowanie za pomocą telefonu, użytkownik musi wykonać rejestrację w ciągu 10 minut od momentu zalogowania się za pomocą jednorazowego tymczasowego dostępu. To ograniczenie nie ma zastosowania do tymczasowego przebiegu dostępu, którego można użyć więcej niż raz.
 - Użytkownicy-Goście nie mogą zalogować się przy użyciu tymczasowego dostępu.
-- Użytkownicy w zakresie zasad rejestracji samoobsługowego resetowania hasła (SSPR) będą musieli zarejestrować jedną z metod SSPR po zalogowaniu się przy użyciu tymczasowego dostępu. Jeśli użytkownik chce używać tylko klucza FIDO2, wykluczać je z zasad SSPR lub wyłączyć zasady rejestracji SSPR. 
-- Nie można użyć przekazywania tymczasowego dostępu z rozszerzeniem serwera zasad sieciowych (NPS) i karty Active Directory Federation Services (AD FS).
+- Użytkownicy w zakresie dla zasad rejestracji samoobsługowego resetowania hasła (SSPR) *lub* [zasady rejestracji usługi uwierzytelniania wieloskładnikowego usługi Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md) będą musieli rejestrować metody uwierzytelniania po zalogowaniu się przy użyciu tymczasowego dostępu. Użytkownicy w zakresie tych zasad zostaną przekierowani do [trybu przerwania połączonej rejestracji](concept-registration-mfa-sspr-combined.md#combined-registration-modes). To środowisko nie obsługuje obecnie rejestracji FIDO2 i logowania za pomocą telefonu. 
+- Nie można używać tymczasowego przebiegu dostępu z rozszerzeniem serwera zasad sieciowych (NPS) i karty Active Directory Federation Services (AD FS) lub w trakcie Instalator systemu Windows/out-of-Box-Experience (OOBE) i autopilotażu. 
 - Gdy w dzierżawie włączono bezproblemowe logowanie jednokrotne, użytkownicy są monitowani o wprowadzenie hasła. **Zamiast tego użyj linku dostępu do danych tymczasowych** dla użytkownika w celu zalogowania się za pomocą tymczasowego dostępu.
 
   ![Zrzut ekranu przedstawiający użycie tymczasowego dostępu](./media/how-to-authentication-temporary-access-pass/alternative.png)

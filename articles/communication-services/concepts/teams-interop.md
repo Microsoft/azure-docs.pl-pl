@@ -9,14 +9,16 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b641ec37d134303ae6b31c092cd3c50811477a7
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: cf6553cd7c59febd19f9654e31188f127b8eb065
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108421"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276760"
 ---
 # <a name="teams-interoperability"></a>Współdziałanie usługi Teams
+
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 > [!IMPORTANT]
 > Aby włączyć/wyłączyć [współdziałanie dzierżawcy dla zespołów](../concepts/teams-interop.md), Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
@@ -41,7 +43,7 @@ Gdy użytkownik usług komunikacyjnych dołącza do spotkania zespołów, nazwa 
 
 Usługa Communication Services Teams Interop jest obecnie w prywatnej wersji zapoznawczej. Gdy są ogólnie dostępne, użytkownicy usług komunikacyjnych będą traktowani jako "użytkownicy dostępu zewnętrznego". Dowiedz się więcej o dostępie do danych zewnętrznych w programie [Call, rozmowach i współpracy z osobami spoza organizacji w programie Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
 
-Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
+Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe. Jeśli spotkanie jest zaplanowane dla kanału, użytkownicy usług komunikacyjnych nie będą mogli dołączyć do rozmowy ani wysyłać i odbierać wiadomości.
 
 ## <a name="teams-in-government-clouds-gcc"></a>Zespoły w chmurach rządowych (w zatoce)
 Współdziałanie usług komunikacyjnych platformy Azure nie jest zgodne z wdrożeniami zespołów z użyciem [Microsoft 365 chmury dla instytucji rządowych](/MicrosoftTeams/plan-for-government-gcc) . 

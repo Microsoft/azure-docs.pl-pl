@@ -2,13 +2,13 @@
 title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: efd7c554e6da8b60d4834d1a1290407a6b9e94d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/01/2021
+ms.openlocfilehash: caf95246e1a0e3954f8608f5c13b03e4390c36a2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544115"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219556"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -17,7 +17,6 @@ Menedżer zasobów udostępnia następujące funkcje do pobierania wartości zas
 * [extensionResourceId](#extensionresourceid)
 * [staw](#list)
 * [pickZones](#pickzones)
-* [udostępnia](#providers)
 * [odwoła](#reference)
 * [resourceGroup](#resourcegroup)
 * [Identyfikator](#resourceid)
@@ -539,94 +538,6 @@ Możesz użyć odpowiedzi z pickZones, aby określić, czy podać wartość null
 > Pętle i funkcji copyindex () nie są jeszcze zaimplementowane.  Zobacz [pętle](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ---
-
-## <a name="providers"></a>dostawców
-
-`providers(providerNamespace, [resourceType])`
-
-Zwraca informacje o dostawcy zasobów i jego obsługiwanych typach zasobów. Jeśli nie podano typu zasobu, funkcja zwraca wszystkie obsługiwane typy dla dostawcy zasobów.
-
-### <a name="parameters"></a>Parametry
-
-| Parametr | Wymagane | Typ | Opis |
-|:--- |:--- |:--- |:--- |
-| providerNamespace |Tak |ciąg |Przestrzeń nazw dostawcy |
-| resourceType |Nie |ciąg |Typ zasobu w określonym obszarze nazw. |
-
-### <a name="return-value"></a>Wartość zwracana
-
-Każdy obsługiwany typ jest zwracany w następującym formacie:
-
-```json
-{
-  "resourceType": "{name of resource type}",
-  "locations": [ all supported locations ],
-  "apiVersions": [ all supported API versions ]
-}
-```
-
-Kolejność tablic dla zwracanych wartości nie jest gwarantowana.
-
-### <a name="providers-example"></a>Przykład dostawcy
-
-Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) pokazuje, jak używać funkcji dostawcy:
-
-# <a name="json"></a>[JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "providerNamespace": {
-      "type": "string"
-    },
-    "resourceType": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "providerOutput": {
-      "type": "object",
-      "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]"
-    }
-  }
-}
-```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param providerNamespace string
-param resourceType string
-
-output providerOutput array = providers(providerNamespace, resourceType)
-```
-
----
-
-W przypadku zasobu dostawcy zasobów **Microsoft. Web** i typu **witryny** powyższy przykład zwraca obiekt w następującym formacie:
-
-```json
-{
-  "resourceType": "sites",
-  "locations": [
-    "South Central US",
-    "North Europe",
-    "West Europe",
-    "Southeast Asia",
-    ...
-  ],
-  "apiVersions": [
-    "2016-08-01",
-    "2016-03-01",
-    "2015-08-01-preview",
-    "2015-08-01",
-    ...
-  ]
-}
-```
 
 ## <a name="reference"></a>reference
 
