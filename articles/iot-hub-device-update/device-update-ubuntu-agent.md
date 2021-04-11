@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ee09928cab6419d799d06de9cf2f69987e42d157
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 751e9337d74210d238be079e8fcd1bb973937846
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644447"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936856"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Samouczek dotyczący aktualizacji urządzenia dla platformy Azure IoT Hub przy użyciu agenta pakietu na serwerze Ubuntu 18,04 x64
 
@@ -19,7 +19,7 @@ Aktualizacja urządzenia dla IoT Hub obsługuje dwie formy aktualizacji — opar
 
 Aktualizacje oparte na pakiecie są przeznaczonymi do aktualizacji, które zmieniają tylko określony składnik lub aplikację na urządzeniu. Prowadzi to do obniżenia zużycia przepustowości i skrócenia czasu pobierania i instalowania aktualizacji. Aktualizacje pakietu zwykle umożliwiają zmniejszenie przestojów urządzeń podczas stosowania aktualizacji i unikania nakładów tworzenia obrazów.
 
-Ten samouczek przeprowadzi Cię przez kroki umożliwiające ukończenie kompleksowej aktualizacji opartej na pakiecie za pośrednictwem aktualizacji urządzenia dla IoT Hub. Na potrzeby tego samouczka korzystamy z programu Ubuntu Server 18,04 x64 z uruchomioną Azure IoT Edge oraz z agentem pakietu aktualizacji urządzenia. W tym samouczku przedstawiono aktualizację przykładowego pakietu, ale przy użyciu podobnych kroków można zaktualizować inne pakiety, takie jak Azure IoT Edge lub aparat kontenerów, z których korzysta.
+Ten kompleksowy samouczek przeprowadzi Cię przez proces aktualizacji Azure IoT Edge na serwerze Ubuntu 18,04 x64 przy użyciu agenta pakietu aktualizacji urządzenia. Mimo że w samouczku przedstawiono aktualizowanie IoT Edge, przy użyciu podobnych kroków można zaktualizować inne pakiety, takie jak aparat kontenerów, którego używa.
 
 Narzędzia i koncepcje w tym samouczku nadal mają zastosowanie nawet wtedy, gdy planujesz użyć innej konfiguracji platformy systemu operacyjnego. Wykonaj to wprowadzenie do kompleksowego procesu aktualizacji, a następnie wybierz preferowaną formę aktualizacji i platformy systemu operacyjnego, aby szczegółowe szczegółowe informacje.
 

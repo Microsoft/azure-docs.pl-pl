@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 40fe1e59b7c600e273b677d60bc162c767569c14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0efdf48e78d0cc48e288bea354f5de5f9635c760
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728576"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106844"
 ---
 # <a name="what-is-azure-communication-services"></a>Co to są usługi Azure Communication Services?
 
@@ -21,7 +21,7 @@ ms.locfileid: "105728576"
 > Aplikacje skompilowane przy użyciu usług Azure Communication Services mogą komunikować się z firmą Microsoft Teams. Aby dowiedzieć się więcej, zapoznaj się z dokumentacją [międzyoperacyjności zespołów](./quickstarts/voice-video-calling/get-started-teams-interop.md) .
 
 
-Usługi Azure Communication Services umożliwiają łatwe dodawanie do aplikacji funkcji komunikacji głosowej, wideo i telefonicznych w czasie rzeczywistym. Zestawy SDK usług komunikacyjnych umożliwiają również Dodawanie funkcji rozmowy i programu SMS do rozwiązań komunikacyjnych.
+Usługi Azure Communication Services umożliwiają łatwe dodawanie do aplikacji funkcji komunikacji głosowej, wideo i telefonicznych w czasie rzeczywistym. Biblioteki zestawu SDK usług komunikacyjnych umożliwiają również Dodawanie funkcji rozmowy i SMS do rozwiązań komunikacyjnych.
 
 <br>
 
@@ -40,14 +40,13 @@ Obsługiwane są scenariusze mieszane. Na przykład aplikacja usług komunikacyj
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
-Następujące zasoby są doskonałym miejscem, aby rozpocząć pracę z usługami Azure Communications Services. 
+Następujące zasoby są doskonałym miejscem, aby rozpocząć pracę z usługami Azure Communications Services.
 <br>
 
 | Zasób                               |Opis                           |
 |---                                    |---                                   |
 |**[Tworzenie zasobu usług Communication Services](./quickstarts/create-communication-resource.md)**|Możesz rozpocząć korzystanie z usług Azure Communication Services przy użyciu zestawu SDK Azure Portal lub usług komunikacyjnych, aby zainicjować obsługę pierwszego zasobu usług komunikacyjnych. Gdy masz parametry połączenia zasobu usług komunikacyjnych, możesz udostępnić tokeny dostępu pierwszego użytkownika.|
 |**[Pobierz numer telefonu](./quickstarts/telephony-sms/get-phone-number.md)**|Za pomocą usług Azure Communications Services można udostępniać i zwalniać numery telefonów. Te numery telefonów mogą służyć do inicjowania wywołań wychodzących i tworzenia rozwiązań komunikacyjnych programu SMS.|
-|**[Wyślij wiadomość SMS z aplikacji](./quickstarts/telephony-sms/send.md)**|Zestaw SDK SMS usługi Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS z aplikacji .NET i JavaScript.|
 
 Po utworzeniu zasobu usług komunikacyjnych możesz zacząć tworzyć scenariusze klientów, takie jak nawiązanie głosu i wideo lub Rozmowa z tekstem.
 
@@ -57,30 +56,31 @@ Po utworzeniu zasobu usług komunikacyjnych możesz zacząć tworzyć scenariusz
 |**[Wprowadzenie do wywoływania głosu i wideo](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Usługi Azure Communication Services umożliwiają dodawanie połączeń głosowych i wideo do aplikacji przy użyciu zestawu SDK wywoływania. Ta biblioteka jest obsługiwana przez protokołu WebRTC i umożliwia ustanawianie komunikacji równorzędnej, multimedialnej w czasie rzeczywistym w aplikacjach.|
 |**[Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo, rozmowy i udostępniania ekranu.|
 |**[Wprowadzenie do rozmowy](./quickstarts/chat/get-started.md)**|Zestaw Azure Communication Services Chat SDK umożliwia integrację rozmowy w czasie rzeczywistym z aplikacjami.|
+|**[Wyślij wiadomość SMS z aplikacji](./quickstarts/telephony-sms/send.md)**|Zestaw SDK SMS usługi Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS z aplikacji .NET i JavaScript.|
 
 ## <a name="samples"></a>Samples
 
-Poniższe przykłady przedstawiają kompleksowe wykorzystanie zestawów SDK usług Azure Communication Services. Możesz korzystać z tych przykładów do uruchamiania własnych rozwiązań usług komunikacyjnych.
+Poniższe przykłady przedstawiają kompleksowe wykorzystanie bibliotek zestawu SDK usług Azure Communication Services. Możesz korzystać z tych przykładów do uruchamiania własnych rozwiązań usług komunikacyjnych.
 <br>
 
 | Nazwa Przykładowa                               | Opis                           |
 |---                                    |---                                   |
-|**[Grupa wywołująca przykład Hero](./samples/calling-hero-sample.md)**|Zobacz, jak zestawy SDK usług komunikacyjnych mogą być używane do tworzenia środowiska wywołującego grupę.|
-|**[Przykład Hero rozmowy z grupą](./samples/chat-hero-sample.md)**|Zobacz, jak zestawy SDK usług komunikacyjnych mogą służyć do kompilowania środowiska rozmowy grupowej.|
+|**[Grupa wywołująca przykład Hero](./samples/calling-hero-sample.md)**|Zobacz, jak biblioteki zestawu SDK usług komunikacyjnych mogą być używane do tworzenia środowiska wywołującego grupę.|
+|**[Przykład Hero rozmowy z grupą](./samples/chat-hero-sample.md)**|Zobacz, jak biblioteki zestawu SDK usług komunikacyjnych mogą służyć do kompilowania środowiska rozmowy grupowej.|
 
 
-## <a name="platforms-and-sdks"></a>Platformy i zestawy SDK
+## <a name="platforms-and-sdk-libraries"></a>Biblioteki platform i SDK
 
-Następujące zasoby ułatwią zapoznanie się z zestawami SDK usług Azure Communication Services:
+Następujące zasoby ułatwią zapoznanie się z bibliotekami zestawu SDK usług Azure Communication Services:
 
 | Zasób                               | Opis                           |
 |---                                    |---                                   |
-|**[Zestawy SDK i interfejsy API REST](./concepts/sdk-options.md)**|Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane w sześć obszarów, z których każdy jest reprezentowany przez zestaw SDK. Można zdecydować, które zestawy SDK mają być używane w zależności od potrzeb komunikacji w czasie rzeczywistym.|
+|**[Biblioteki zestawu SDK i interfejsy API REST](./concepts/sdk-options.md)**|Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane w sześć obszarów, z których każdy jest reprezentowany przez zestaw SDK. Można zdecydować, które biblioteki zestawu SDK mają być używane w zależności od potrzeb komunikacji w czasie rzeczywistym.|
 |**[Omówienie wywoływania zestawu SDK](./concepts/voice-video-calling/calling-sdk-features.md)**|Zapoznaj się z omówieniem zestawu SDK wywoływania usług komunikacyjnych.|
 |**[Omówienie zestawu SDK rozmowy](./concepts/chat/sdk-features.md)**|Zapoznaj się z omówieniem zestawu SDK rozmowy usług komunikacyjnych.|
 |**[Omówienie zestawu SDK programu SMS](./concepts/telephony-sms/sdk-features.md)**|Zapoznaj się z omówieniem zestawu SDK programu SMS dla usług komunikacyjnych.|
 
-## <a name="compare-azure-communication-services"></a>Porównanie usług Azure Communication Services
+## <a name="other-microsoft-communication-services"></a>Inne usługi komunikacyjne firmy Microsoft
 
 Istnieją dwa inne produkty do komunikacji firmy Microsoft, które można wziąć pod uwagę w przypadku, gdy nie są w tej chwili bezpośrednio obsługiwane usługi komunikacyjne:
 

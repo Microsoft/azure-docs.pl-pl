@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9408adfe33fc71707532f3bf5646f3727fd7dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b70d08363db212e5039690ceaaef5dbb55bcd65f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955058"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107277"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET
 
@@ -31,9 +31,9 @@ Poniższy przykład w języku C# tworzy zadanie, które przycina wideo w elemenc
 
 Aby wykonać kroki opisane w tym temacie, należy:
 
-- [Tworzenie konta usługi Azure Media Services](./create-account-howto.md)
+- [Tworzenie konta usługi Azure Media Services](./account-create-how-to.md)
 - Utwórz transformację oraz zasoby wejściowe i wyjściowe. Możesz zobaczyć, jak utworzyć zasoby przekształcenia i danych wejściowych i wyjściowych w [klipach wideo przekazywania, kodowania i przesyłania strumieniowego przy użyciu samouczka platformy .NET](stream-files-tutorial-with-api.md) .
-- Zapoznaj się z tematem [pojęć dotyczących kodowania](encoding-concept.md) .
+- Zapoznaj się z tematem [pojęć dotyczących kodowania](encode-concept.md) .
 
 ## <a name="example"></a>Przykład
 
@@ -92,4 +92,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Jak kodować przy użyciu przekształcenia niestandardowego](customize-encoder-presets-how-to.md) 
+[Jak kodować przy użyciu przekształcenia niestandardowego](encode-custom-presets-how-to.md) 

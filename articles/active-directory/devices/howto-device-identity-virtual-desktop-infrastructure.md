@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798888"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107949"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -94,6 +94,23 @@ W przypadku wdrażania nietrwałego infrastruktury VDI firma Microsoft zaleca, a
 - Zdefiniuj i Implementuj proces [zarządzania przestarzałymi urządzeniami](manage-stale-devices.md).
    - Gdy masz strategię do identyfikowania nietrwałych hybrydowych urządzeń z usługą Azure AD (np. przy użyciu prefiksu nazwy wyświetlanej komputera), należy bardziej agresywnie wyczyścić te urządzenia, aby upewnić się, że katalog nie jest zużywany na wiele starych urządzeń.
    - W przypadku nietrwałych wdrożeń infrastruktury VDI na bieżącym i wyłączonym poziomie systemu Windows należy usunąć urządzenia, które mają **ApproximateLastLogonTimestamp** starsze niż 15 dni.
+
+> [!NOTE]
+> Jeśli w przypadku korzystania z nietrwałego infrastruktury VDI nie ma potrzeby, upewnij się, że jest ustawiony następujący klucz rejestru:  
+> `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
+>
+> Upewnij się, że korzystasz z systemu Windows 10 w wersji 1803 lub nowszej.  
+>
+> Roaming wszystkich danych w ścieżce `%localappdata%` nie jest obsługiwany. Jeśli zdecydujesz się przenieść zawartość w obszarze `%localappdata%` , upewnij się, że zawartość następujących folderów i kluczy rejestru **nigdy nie** opuszcza urządzenia w żadnym z warunków. Na przykład: Narzędzia migracji profilu muszą pomijać następujące foldery i klucze:
+>
+> * `%localappdata%\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy`
+> * `%localappdata%\Packages\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy`
+> * `%localappdata%\Packages\<any app package>\AC\TokenBroker`
+> * `%localappdata%\Microsoft\TokenBroker`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+>
+
 
 ### <a name="persistent-vdi"></a>Trwały infrastruktura VDI
 

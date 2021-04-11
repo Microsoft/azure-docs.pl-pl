@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555282"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption z usługą Azure AD dla maszyn wirtualnych z systemem Windows (poprzednia wersja)
@@ -64,7 +64,7 @@ W poniższej tabeli wymieniono parametry szablonu Menedżer zasobów dla nowych 
 | subnetName | Nazwa podsieci w sieci wirtualnej, do której powinna należeć karta sieciowa maszyny wirtualnej. |
 | AADClientID | Identyfikator klienta aplikacji usługi Azure AD, który ma uprawnienia do zapisywania wpisów tajnych w magazynie kluczy. |
 | AADClientSecret | Klucz tajny klienta aplikacji usługi Azure AD, który ma uprawnienia do zapisywania wpisów tajnych w magazynie kluczy. |
-| keyVaultURL | Adres URL magazynu kluczy, do którego powinien zostać przekazany klucz funkcji BitLocker. Można uzyskać za pomocą polecenia cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` lub interfejsu wiersza polecenia platformy Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | Adres URL magazynu kluczy, do którego powinien zostać przekazany klucz funkcji BitLocker. Można uzyskać za pomocą polecenia cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` lub interfejsu wiersza polecenia platformy Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza używany do szyfrowania wygenerowanego klucza funkcji BitLocker (opcjonalnie). </br> </br>KeyEncryptionKeyURL jest opcjonalnym parametrem. Możesz wprowadzić własne KEK, aby dodatkowo chronić klucz szyfrowania danych (hasło tajne hasła) w magazynie kluczy. |
 | keyVaultResourceGroup | Grupa zasobów magazynu kluczy. |
 | vmName | Nazwa maszyny wirtualnej, na której ma zostać wykonana operacja szyfrowania. |

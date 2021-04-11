@@ -366,9 +366,12 @@
   items:
     - name: Tworzenie szablonów
       items:
-        - name: Struktura pliku szablonu
+        - name: Struktura JSON
           displayName: 'parameters,variables,resources,outputs,condition'
           href: template-syntax.md
+        - name: 'Bicep, struktura'
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: bicep-file.md
         - name: Pisanie wyrażeń szablonu
           href: template-expressions.md
         - name: Parametry

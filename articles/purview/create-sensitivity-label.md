@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f6e2474a533f5619d5544b674a87b6412323cc3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502450"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166738"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -96,7 +96,7 @@ Aby zastosować etykiety czułości MCI do zasobów platformy Azure w usłudze A
 Rozszerzając etykiety czułości MCI z usługą Azure kontrolą, organizacje mogą teraz odkrywać, klasyfikować i uzyskiwać wgląd w informacje o czułości w szerszym zakresie źródeł danych, minimalizując ryzyko zgodności.
 
 > [!NOTE]
-> Ponieważ Microsoft 365 i Azure kontrolą są oddzielnymi usługami, istnieje możliwość, że zostaną one wdrożone w różnych regionach. Nazwy etykiet i niestandardowe typy informacji poufnych są uważane za dane klienta i są przechowywane w tej samej lokalizacji geograficznej domyślnie, aby chronić czułość danych i uniknąć Rodo obowiązujących przepisów.
+> Ponieważ Microsoft 365 i Azure kontrolą są oddzielnymi usługami, istnieje możliwość, że zostaną one wdrożone w różnych regionach. Nazwy etykiet i niestandardowe typy informacji poufnych są uznawane za dane klienta i są przechowywane w tej samej lokalizacji geograficznej domyślnie, aby chronić czułość danych i zapewnić zgodność z przepisami w zakresie ochrony prywatności.
 >
 > Z tego powodu etykiety i niestandardowe typy informacji poufnych nie są domyślnie udostępniane do usługi Azure kontrolą i wymagają zgody użytkownika na korzystanie z nich w usłudze Azure kontrolą.
 

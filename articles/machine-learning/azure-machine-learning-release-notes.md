@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562226"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166687"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -22,6 +22,21 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
 
 __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zaktualizowana przez skopiowanie i wklejenie następującego adresu URL w czytniku kanałów informacyjnych: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## <a name="2021-03-31"></a>2021-03-31
+### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z marca)
++ **Nowe funkcje**
+  + Renderowanie plików CSV/TSV. Użytkownicy będą mogli renderować i TSV/plik CSV w formacie siatki w celu łatwiejszej analizy danych. 
+  + Uwierzytelnianie logowania jednokrotnego dla wystąpienia obliczeniowego. Użytkownicy mogą teraz łatwo uwierzytelniać nowe wystąpienia obliczeniowe bezpośrednio w interfejsie użytkownika notesu, ułatwiając uwierzytelnianie i używanie zestawów SDK platformy Azure bezpośrednio w usłudze Azure. 
+  + Metryki wystąpień obliczeniowych. Użytkownicy będą mogli wyświetlać metryki obliczeń, takie jak użycie procesora CPU i pamięć za pośrednictwem terminalu.
+  + Szczegóły pliku. Użytkownicy mogą teraz wyświetlać szczegóły pliku, w tym czas ostatniej modyfikacji i rozmiar pliku, klikając 3 kropki obok pliku.
+
++ **Poprawki i ulepszenia błędów**
+  + Ulepszone czasy ładowania stron.
+  + Lepsza wydajność.
+  + Ulepszona szybkość i niezawodność jądra.
+  + Korzystaj z szarej nieruchomości przez trwałe przemieszczenie okienka plików notesu w górę
+  + Linki są teraz klikane w terminalu
+  + Ulepszona wydajność funkcji IntelliSense
 
 ## <a name="2021-03-08"></a>2021-03-08
 

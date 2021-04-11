@@ -4,10 +4,10 @@ description: Zestaw horyzont SDK umożliwia deweloperom platformy Azure Defender
 ms.date: 1/13/2021
 ms.topic: article
 ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782490"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Odsektora bezwłasnościowego protokołu

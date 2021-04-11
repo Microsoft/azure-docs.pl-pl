@@ -3,12 +3,12 @@ title: Wprowadzenie
 description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy Azure w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
 ms.date: 03/24/2021
-ms.openlocfilehash: a75c04cf6b51068ef9867e3f9438b2820da703fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048820"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107994"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
 
@@ -19,11 +19,6 @@ Rozwiązanie VMware platformy Azure to zweryfikowane rozwiązanie VMware, które
 Diagram przedstawia sąsiedztwo między chmurami prywatnymi i sieci wirtualnych na platformie Azure, usługach platformy Azure i w środowiskach lokalnych. Dostęp sieciowy z chmur prywatnych do usług platformy Azure lub sieci wirtualnych zapewnia integrację punktów końcowych usługi platformy Azure opartej na umowie SLA. ExpressRoute Global Reach nawiązuje połączenie środowiska lokalnego z chmurą prywatną rozwiązania Azure VMware. 
 
 ![Obraz przedstawiający chmurę prywatną rozwiązania Azure VMware na platformie Azure i lokalnie](./media/adjacency-overview-drawing-final.png)
-
-## <a name="customer-communication"></a>Komunikacja z klientem
-Problemy z usługą, planowana konserwacja, klasyfikatory kondycji, powiadomienia doradców zabezpieczeń są publikowane za pomocą **Service Health** w Azure Portal. Podczas konfigurowania alertów dziennika aktywności dla tych powiadomień można podejmować odpowiednie działania. Aby uzyskać więcej informacji, zobacz [tworzenie alertów dotyczących kondycji usługi przy użyciu Azure Portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
-
-:::image type="content" source="media/service-health.png" alt-text="Zrzut ekranu przedstawiający powiadomienia Service Health":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosty, klastry i chmury prywatne
 
@@ -60,6 +55,9 @@ W chmurze prywatnej można:
 
 Wzorce monitorowania w ramach rozwiązania VMware platformy Azure są podobne do maszyn wirtualnych platformy Azure w ramach platformy IaaS. Aby uzyskać więcej informacji i porady, zobacz [monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
+## <a name="customer-communication"></a>Komunikacja z klientem
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
 Następnym krokiem jest zapoznanie się z najważniejszymi [pojęciami dotyczącymi chmury prywatnej i klastra](concepts-private-clouds-clusters.md).
@@ -68,3 +66,5 @@ Następnym krokiem jest zapoznanie się z najważniejszymi [pojęciami dotycząc
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

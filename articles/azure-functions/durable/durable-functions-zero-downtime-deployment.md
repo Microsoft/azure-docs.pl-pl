@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558767"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Wdrożenie bez przestojów dla Durable Functions
@@ -60,42 +60,42 @@ Na poniższym diagramie przedstawiono opisaną konfigurację miejsc wdrożenia i
 
 ![Gniazda wdrożenia i konta magazynu](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host.jsna przykład
+### <a name="hostjson-examples&quot;></a>host.jsna przykład
 
 Poniższe fragmenty kodu JSON to przykłady ustawienia parametrów połączenia w *host.js* pliku.
 
-#### <a name="functions-20"></a>Funkcje 2,0
+#### <a name=&quot;functions-20&quot;></a>Funkcje 2,0
 
 ```json
 {
-  "version": 2.0,
-  "extensions": {
-    "durableTask": {
-      "hubName": "MyTaskHub",
-      "storageProvider": {
-        "connectionStringName": "DurableManagementStorage"
+  &quot;version&quot;: 2.0,
+  &quot;extensions&quot;: {
+    &quot;durableTask&quot;: {
+      &quot;hubName&quot;: &quot;MyTaskHub&quot;,
+      &quot;storageProvider&quot;: {
+        &quot;connectionStringName&quot;: &quot;DurableManagementStorage&quot;
       }
     }
   }
 }
 ```
 
-#### <a name="functions-1x"></a>Functions w wersji 1.x
+#### <a name=&quot;functions-1x&quot;></a>Functions w wersji 1.x
 
 ```json
 {
-  "durableTask": {
-    "azureStorageConnectionStringName": "DurableManagementStorage"
+  &quot;durableTask&quot;: {
+    &quot;azureStorageConnectionStringName&quot;: &quot;DurableManagementStorage&quot;
   }
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>Konfiguracja potoku ciągłej integracji/ciągłego wdrażania
+### <a name=&quot;cicd-pipeline-configuration&quot;></a>Konfiguracja potoku ciągłej integracji/ciągłego wdrażania
 
 Skonfiguruj potok ciągłej integracji/ciągłego wdrażania tylko wtedy, gdy aplikacja funkcji nie ma oczekujących lub uruchomionych wystąpień aranżacji. W przypadku korzystania z Azure Pipelines można utworzyć funkcję, która sprawdza, czy są spełnione te warunki, jak w poniższym przykładzie:
 
 ```csharp
-[FunctionName("StatusCheck")]
+[FunctionName(&quot;StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
     [DurableClient] IDurableOrchestrationClient client,
