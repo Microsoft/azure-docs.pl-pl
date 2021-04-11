@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ba9a4d5ac427533c2ce005a74fe43b0ce80de79
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89291555"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109445"
 ---
 # <a name="filters"></a>Filtry
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Podczas dostarczania zawartości do klientów (zdarzeń przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co opisano w pliku manifestu domyślnego elementu zawartości. Azure Media Services oferuje [dynamiczne manifesty](filters-dynamic-manifest-overview.md) na podstawie wstępnie zdefiniowanych filtrów. 
+Podczas dostarczania zawartości do klientów (zdarzeń przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co opisano w pliku manifestu domyślnego elementu zawartości. Azure Media Services oferuje [dynamiczne manifesty](filters-dynamic-manifest-concept.md) na podstawie wstępnie zdefiniowanych filtrów. 
 
 Filtry są reguł po stronie serwera, które umożliwiają klientom wykonywanie następujących czynności: 
 
@@ -141,12 +141,12 @@ W poniższym przykładzie zdefiniowano filtr przesyłania strumieniowego na żyw
 
 ## <a name="associating-filters-with-streaming-locator"></a>Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego
 
-Możesz określić listę [filtrów zasobów lub kont](filters-concept.md) w [lokalizatorze przesyłania strumieniowego](/rest/api/media/streaminglocators/create#request-body). [Pakowarka dynamiczna](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. 
+Możesz określić listę [filtrów zasobów lub kont](filters-concept.md) w [lokalizatorze przesyłania strumieniowego](/rest/api/media/streaminglocators/create#request-body). [Pakowarka dynamiczna](encode-dynamic-packaging-concept.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-concept.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. 
 
 Zobacz poniższe przykłady:
 
-* [Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego — .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
-* [Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego — interfejs wiersza polecenia](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+* [Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego — .NET](filters-dynamic-manifest-dotnet-how-to.md#associate-filters-with-streaming-locator)
+* [Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego — interfejs wiersza polecenia](filters-dynamic-manifest-cli-how-to.md#associate-filters-with-streaming-locator)
 
 ## <a name="updating-filters"></a>Aktualizowanie filtrów
  
@@ -161,5 +161,5 @@ Jeśli należy zmienić definicję filtru, rozważ utworzenie nowego filtru i do
 W poniższych artykułach pokazano, jak programowo utworzyć filtry.  
 
 - [Tworzenie filtrów za pomocą interfejsów API REST](filters-dynamic-manifest-rest-howto.md)
-- [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-howto.md)
+- [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-how-to.md)

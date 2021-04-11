@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96485726"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109513"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Wdrażanie dostawcy partnera w zakresie zabezpieczeń
 
@@ -67,7 +67,7 @@ Należy pamiętać, że należy wdrożyć bramę sieci VPN, aby przekonwertować
 
 ## <a name="configure-third-party-security-providers-to-connect-to-a-secured-hub"></a>Konfigurowanie dostawców zabezpieczeń innych firm do łączenia się z zabezpieczonym centrum
 
-Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy innych firm muszą mieć prawa dostępu do centrum. W tym celu Skojarz jednostkę usługi z subskrypcją lub grupą zasobów i Udziel praw dostępu. Następnie należy podać te poświadczenia innym firmom przy użyciu portalu.
+Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy innych firm muszą mieć prawa dostępu do centrum. W tym celu Skojarz jednostkę usługi z subskrypcją lub grupą zasobów i Udziel praw dostępu. Użytkownik musi podać te poświadczenia osobie trzeciej przy użyciu portalu.
 
 ### <a name="create-and-authorize-a-service-principal"></a>Tworzenie i Autoryzowanie jednostki usługi
 
@@ -90,22 +90,19 @@ Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy inn
    
 2. Stan tworzenia tunelu można sprawdzić w portalu Azure Virtual WAN na platformie Azure. Po pobraniu przez tunele **połączenia** na platformie Azure i w portalu dla partnerów przejdź do następnych kroków, aby skonfigurować trasy do wybierania gałęzi i sieci wirtualnych powinny wysyłać ruch internetowy do partnera.
 
-## <a name="configure-route-settings"></a>Konfigurowanie ustawień trasy
+## <a name="configure-security-with-firewall-manager"></a>Konfigurowanie zabezpieczeń przy użyciu Menedżera zapory
 
 1. Przejdź do Menedżera zapory platformy Azure — > zabezpieczone centra. 
 2. Wybierz centrum. Stan centrum powinien teraz wskazywać, że **zainicjowano Inicjowanie obsługi administracyjnej** zamiast **połączenia zabezpieczeń**.
 
    Upewnij się, że dostawca innej firmy może połączyć się z centrum. Tunele w bramie sieci VPN powinny znajdować się w stanie **połączonym** . Ten stan zwiększa odzwierciedlenie kondycji połączenia między centrum a partnerem innej firmy w porównaniu z poprzednim stanem.
-3. Wybierz centrum i przejdź do **ustawień trasy**.
+3. Wybierz centrum i przejdź do **konfiguracji zabezpieczeń**.
 
    Podczas wdrażania dostawcy innej firmy w centrum program konwertuje koncentrator do *zabezpieczonego koncentratora wirtualnego*. Dzięki temu dostawca innych firm anonsuje trasę 0.0.0.0/0 (domyślnie) do centrum. Jednak połączenia sieci wirtualnej i lokacje połączone z centrum nie otrzymują tej trasy, chyba że użytkownik zdecyduje się na to, które połączenia powinny uzyskać tę trasę domyślną.
-4. W obszarze **ruch internetowy** wybierz opcję połączenie między sieciami **wirtualnymi** lub **rozgałęzienia z Internetem** albo skonfiguruj trasy wysyłane przez inną firmę.
+4. Skonfiguruj zabezpieczenia wirtualnej sieci WAN, ustawiając **ruch internetowy** przez zaporę platformy Azure i **ruch prywatny** za pośrednictwem zaufanego partnera zabezpieczeń. Spowoduje to automatyczne zabezpieczenie poszczególnych połączeń w wirtualnej sieci WAN.
 
-   Wskazuje to, który typ ruchu powinien być kierowany do centrum, ale nie ma to wpływu na trasy w sieci wirtualnych lub gałęziach. Trasy te nie są propagowane do wszystkich sieci wirtualnychów/gałęzi, które są domyślnie dołączone do centrum.
-5. Musisz wybrać opcję **bezpieczne połączenia** i wybrać połączenia, dla których mają zostać ustawione te trasy. Wskazuje, które sieci wirtualnych/gałęzie mogą rozpocząć wysyłanie ruchu internetowego do dostawcy innej firmy.
-6. W obszarze **Ustawienia trasy** wybierz pozycję **bezpieczne połączenia** w obszarze ruch internetowy, a następnie wybierz sieć wirtualną lub gałęzie (*Lokacje* w wirtualnej sieci WAN), które mają być zabezpieczone. Wybierz pozycję **bezpieczny ruch internetowy**.
-   ![Bezpieczny ruch internetowy](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Przejdź z powrotem do strony centrów. Stan **dostawcy partnera zabezpieczeń** centrum powinien być teraz  **zabezpieczony**.
+   :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Konfigurowanie zabezpieczeń":::
+5. Ponadto jeśli organizacja używa publicznych zakresów adresów IP w sieciach wirtualnych i oddziałach, należy określić te prefiksy adresów IP jawnie przy użyciu **prefiksów ruchu prywatnego**. Prefiksy publicznych adresów IP można określić pojedynczo lub jako zagregowane.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Gałąź lub ruch internetowy w sieci wirtualnej za pośrednictwem usługi innej firmy
 

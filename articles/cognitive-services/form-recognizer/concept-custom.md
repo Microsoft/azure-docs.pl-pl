@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8a29bc0d98c1286dcf09da59dc21ac2b2e09f478
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9d339d02310fddc3e5fd463f7d37e253614dba17
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935621"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067592"
 ---
 # <a name="form-recognizer-custom-models"></a>Niestandardowe modele aparatu rozpoznawania formularzy
 
@@ -34,30 +34,27 @@ Za pomocą aparatu rozpoznawania formularzy można szkolić model, który będzi
 Na wysokim poziomie czynności do kompilowania, uczenia i korzystania z modelu niestandardowego są następujące:
 
 > [!div class="nextstepaction"]
->Złóż zestaw danych szkoleniowych] (kompilacja-szkolenia-Data-Set. MD # Custom-model-input-requirements)
+>[&#120783;. Złóż zestaw danych szkoleniowych](build-training-data-set.md#custom-model-input-requirements)
 
 Tworzenie modelu niestandardowego zaczyna się od ustanowienia zestawu danych szkoleniowych. Wymagana jest co najmniej pięć ukończonych formularzy tego samego typu dla przykładowego zestawu danych. Mogą one mieć różne typy plików i zawierać zarówno tekst, jak i pismo ręczne. Formularze muszą być tego samego typu dokumentu i spełniać [wymagania wejściowe](build-training-data-set.md#custom-model-input-requirements) dla aparatu rozpoznawania formularzy.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [Przekaż zestaw danych szkoleniowych](build-training-data-set.md#upload-your-training-data)
+> [&#120784;. Przekaż zestaw danych szkoleniowych](build-training-data-set.md#upload-your-training-data)
 
 Musisz przekazać dane szkoleniowe do kontenera usługi Azure Blob Storage. Jeśli nie wiesz, jak utworzyć konto usługi Azure Storage za pomocą kontenera, *Zobacz* [Azure Storage — Szybki Start, aby uzyskać Azure Portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Skorzystaj z warstwy cenowej bezpłatna (F0) w celu wypróbowania usługi i przeprowadź uaktualnienie później do warstwy płatnej dla środowiska produkcyjnego.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
+
 > [!div class="nextstepaction"]
->[Uczenie modelu niestandardowego](quickstarts/client-library.md#train-a-custom-model)
+>[&#120785;. Uczenie modelu niestandardowego](quickstarts/client-library.md#train-a-custom-model)
 
 Możesz nauczyć model [bez](quickstarts/client-library.md#train-a-model-without-labels) lub [z](quickstarts/client-library.md#train-a-model-with-labels) oznaczonymi zestawami danych. Zestawy danych bez etykiet opierają się wyłącznie na interfejsie API układu w celu wykrywania i identyfikowania informacji o kluczach, które nie zostały dodane przez człowieka. Zestawy danych z etykietami również polegają na interfejsie API układu, ale dodatkowe dane wejściowe są uwzględniane na przykład w określonych etykietach i lokalizacjach pól. Aby użyć danych z etykietami i bez etykiet, należy rozpocząć od co najmniej pięciu ukończonych formularzy tego samego typu dla danych szkoleń z etykietami, a następnie dodać dane nieoznaczone do wymaganego zestawu danych.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;  
 
 >[!div class="nextstepaction"]
->[Analizowanie dokumentów przy użyciu modelu niestandardowego](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
+>[&#120786;. Analizowanie dokumentów przy użyciu modelu niestandardowego](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
 
 Przetestuj nowo szkolony model przy użyciu formularza, który nie jest częścią zestawu danych szkoleniowych. Możesz kontynuować dalsze szkolenia, aby zwiększyć wydajność modelu niestandardowego.  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
->[Zarządzanie modelami niestandardowymi](quickstarts/client-library.md#manage-custom-models)
+>[&#120787;. Zarządzanie modelami niestandardowymi](quickstarts/client-library.md#manage-custom-models)
 
 W dowolnym momencie możesz wyświetlić listę wszystkich niestandardowych modeli w ramach subskrypcji, pobrać informacje o konkretnym modelu niestandardowym lub usunąć niestandardowy model z Twojego konta.
 

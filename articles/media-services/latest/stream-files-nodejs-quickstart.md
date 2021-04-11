@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: a431060be380952940bdb99c65abc7a9740091de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105038162"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109190"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Kodowanie i przesyłanie strumieniowe plików wideo za pomocą Node.JS
 
@@ -58,7 +58,7 @@ Otwórz [indeks. TS](https://github.com/Azure-Samples/media-services-v3-node-tut
 
 W przykładzie są wykonywane następujące akcje:
 
-1. Tworzy **transformację** z [ustawieniem wstępnym kodowania z uwzględnieniem zawartości](./content-aware-encoding.md). Najpierw sprawdza, czy istnieje określone przekształcenie.
+1. Tworzy **transformację** z [ustawieniem wstępnym kodowania z uwzględnieniem zawartości](./encode-content-aware-concept.md). Najpierw sprawdza, czy istnieje określone przekształcenie.
 1. Tworzy element **zawartości** wyjściowej, który jest używany przez **zadanie** kodowania do przechowywania danych wyjściowych
 1. Opcjonalnie przekazuje plik lokalny przy użyciu zestawu SDK magazynu obiektów BLOB
 1. Tworzy dane wejściowe **zadania** oparte na adresie URL HTTPS lub przekazanym pliku

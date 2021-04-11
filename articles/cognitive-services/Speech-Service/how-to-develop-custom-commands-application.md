@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97935822"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553281"
 ---
 # <a name="develop-custom-commands-applications"></a>Opracowywanie aplikacji poleceń niestandardowych
 
@@ -212,7 +212,7 @@ Zacznij od edycji istniejącego `TurnOn` polecenia, aby włączyć i wyłączyć
     | **Jest globalny**          | Niezaznaczone             |
     | **Wymagane**           | Wybrane               |
     | **Odpowiedź dotycząca wymaganego parametru**     | **Edytor prosty** > `Which device do you want to control?`    | 
-    | **Typ**               | **Ciąg**                |          |
+    | **Typ**               | **Ciąg**                |     
     | **Konfiguracja**      | **Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego** | 
     | **Wstępnie zdefiniowane wartości wejściowe** | `tv`, `fan`               |
     | **Aliasy** ( `tv` )      | `television`, `telly`     |
@@ -633,7 +633,7 @@ Innym sposobem dostosowywania odpowiedzi na polecenia niestandardowe jest wybran
 > ![Zrzut ekranu przedstawiający przykładowe zdania i parametry.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> W przypadku głosów publicznych typy neuronowych są dostępne tylko dla określonych regionów. Aby uzyskać więcej informacji, zobacz sekcję [Obsługiwane regiony usługi Speech Service](./regions.md#standard-and-neural-voices).
+> W przypadku głosów publicznych typy neuronowych są dostępne tylko dla określonych regionów. Aby uzyskać więcej informacji, zobacz sekcję [Obsługiwane regiony usługi Speech Service](./regions.md#neural-and-standard-voices).
 >
 > Możesz tworzyć niestandardowe głosy na stronie **niestandardowego projektu głosowego** . Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z niestandardowym głosem](./how-to-custom-voice.md).
 

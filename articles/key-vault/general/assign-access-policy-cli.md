@@ -1,6 +1,6 @@
 ---
 title: Przypisywanie zasad dostępu Azure Key Vault (interfejs wiersza polecenia)
-description: Jak używać interfejsu wiersza polecenia platformy Azure do przypisywania zasad dostępu Key Vault do nazwy głównej usługi lub aplikacji.
+description: Jak używać interfejsu wiersza polecenia platformy Azure do przypisywania zasad dostępu Key Vault do podmiotu zabezpieczeń lub tożsamości aplikacji.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0c7910ac149c8de43eeac92913a0d314fcc1854e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9dc03f776ac430072e456332955cbfc75d73bf2
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934581"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968853"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Przypisywanie zasad dostępu Key Vault
 
-Zasady dostępu Key Vault określają, czy dana jednostka usługi, mianowicie aplikacja lub Grupa użytkowników, może wykonywać różne operacje na Key Vault [kluczach tajnych](../secrets/index.yml), [kluczach](../keys/index.yml)i [certyfikatach](../certificates/index.yml). Zasady dostępu można przypisywać przy użyciu [Azure Portal](assign-access-policy-portal.md), interfejsu wiersza polecenia platformy Azure (tego artykułu) lub [Azure PowerShell](assign-access-policy-powershell.md).
+Zasady dostępu Key Vault określają, czy dany podmiot zabezpieczeń, taki jak użytkownik, aplikacja lub Grupa użytkowników, może wykonywać różne operacje na Key Vault kluczach [tajnych](../secrets/index.yml), [kluczach](../keys/index.yml)i [certyfikatach](../certificates/index.yml). Zasady dostępu można przypisywać przy użyciu [Azure Portal](assign-access-policy-portal.md), interfejsu wiersza polecenia platformy Azure (tego artykułu) lub [Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -69,7 +69,7 @@ Za pomocą polecenia [AZ demagazyn Set-Policy](/cli/azure/keyvault#az-keyvault-s
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 
-Zamień `<object-id>` na identyfikator obiektu nazwy głównej usługi.
+Zamień `<object-id>` na identyfikator obiektu podmiotu zabezpieczeń.
 
 Wystarczy tylko `--secret-permissions` , `--key-permissions` i `--certificate-permissions` podczas przypisywania uprawnień do tych konkretnych typów. Dozwolone wartości dla `<secret-permissions>` , `<key-permissions>` i `<certificate-permissions>` są określone w dokumentacji [AZ-magazyn Set-Policy](/cli/azure/keyvault#az-keyvault-set-policy) .
 

@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: aba9b71ec2fbfedecf08577c7bd2eae7a28a5588
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2b96d62fb2be27de03964212557446d2e792beb8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644304"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113368"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu zestawu SDK programu SMS usługi Communication Services w celu wysyłania wiadomości SMS.
 
@@ -23,11 +23,11 @@ W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kil
 
 <!--**TODO: update all these reference links as the resources go live**
 
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)--> 
+[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2,7 lub 3.6 +.
 - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
 - Numer telefonu z włączoną funkcją SMS. [Pobierz numer telefonu](../get-phone-number.md).
@@ -65,7 +65,7 @@ except Exception as ex:
 Mimo że w katalogu aplikacji, Zainstaluj zestaw SMS SDK usługi Azure Communication Services dla języka Python za pomocą `pip install` polecenia.
 
 ```console
-pip install azure-communication-sms --pre
+pip install azure-communication-sms
 ```
 
 ## <a name="object-model"></a>Model obiektów
@@ -104,7 +104,7 @@ sms_responses = sms_client.send(
 
 ```
 
-Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacyjną i `<to-phone-number>` numerem telefonu, na który chcesz wysłać wiadomość. 
+Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacyjną i `<to-phone-number>` numerem telefonu, na który chcesz wysłać wiadomość.
 
 > [!WARNING]
 > Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).
@@ -125,7 +125,7 @@ sms_responses = sms_client.send(
 
 ```
 
-Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacji oraz `<to-phone-number-1>` `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość. 
+Należy zastąpić `<from-phone-number>` numerem telefonu z włączoną obsługą programu SMS skojarzonym z usługą komunikacji oraz `<to-phone-number-1>` `<to-phone-number-2>` z numerami telefonów, do których chcesz wysłać wiadomość.
 
 > [!WARNING]
 > Należy zauważyć, że numery telefonów powinny być podane w standardowym formacie E. 164. (np.: + 14255550123).

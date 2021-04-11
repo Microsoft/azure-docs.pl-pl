@@ -128,7 +128,7 @@ Narzędzie AMSE to projekt typu Open Source, w przypadku którego pomoc technicz
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie, stronicowanie jednostek Media Services
 
-Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Azure Media Services](entities-overview.md).
+Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Azure Media Services](filter-order-page-entitites-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882233"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968615"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Samouczek: Konfigurowanie SQL Data Sync między bazami danych w Azure SQL Database i SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ Przykłady programu PowerShell dotyczące konfigurowania SQL Data Sync znajdują
    | **Użyj linku prywatnego** | Wybierz zarządzany przez usługę prywatny punkt końcowy w celu nawiązania bezpiecznego połączenia między usługą synchronizacji i bazą danych centrum. |
 
    > [!NOTE]
-   > Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych, która będzie używana jako **baza danych metadanych synchronizacji**. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenie. Ta baza danych jest udostępniana jako **baza danych metadanych synchronizacji** dla wszystkich grup synchronizacji w wybranym regionie i w ramach subskrypcji. Nie można zmienić bazy danych ani jej nazwy bez usuwania wszystkich grup synchronizacji i agentów synchronizacji w regionie.
+   > Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych, która będzie używana jako **baza danych metadanych synchronizacji**. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenie. Ta baza danych jest udostępniana jako **baza danych metadanych synchronizacji** dla wszystkich grup synchronizacji w wybranym regionie i w ramach subskrypcji. Nie można zmienić bazy danych ani jej nazwy bez usuwania wszystkich grup synchronizacji i agentów synchronizacji w regionie. Ponadto baza danych zadań elastycznych nie może być używana jako baza danych metadanych SQL Data Sync i na odwrót.  
 
    Wybierz **przycisk OK** i poczekaj na utworzenie i wdrożenie grupy synchronizacji.
    

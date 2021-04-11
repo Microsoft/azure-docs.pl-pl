@@ -7,12 +7,12 @@ ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2ed889bea715ff5a26bf8e918789429e57fa31b2
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558962"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109666"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Rozwiązywanie problemów z LocationNotFoundForRoleSize podczas wdrażania usługi w chmurze (klasycznej) na platformie Azure
 
@@ -47,7 +47,8 @@ W tym scenariuszu należy wybrać inny region lub jednostkę SKU do wdrożenia u
 
 ### <a name="list-skus-in-region-using-azure-cli"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Możesz użyć polecenia [AZ VM list-SKU](/cli/azure/vm.html#az_vm_list_skus) .
+Możesz użyć [AZ VM list-SKU] (/CLI/Azure/VM? View = Azure-CLI-Najnowsza
+#<a name="az_vm_list_skus-command"></a>az_vm_list_skus).
 
 - Użyj `--location` parametru, aby odfiltrować dane wyjściowe do lokalizacji, której używasz.
 - Użyj `--size` parametru, aby wyszukać według częściowej nazwy rozmiaru.

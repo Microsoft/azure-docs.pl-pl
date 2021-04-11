@@ -4,20 +4,19 @@ description: W tym przewodniku szybki start przedstawiono, jak korzystać z usł
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 175fb82a5fdf300915f89c3d8cdc238638a742e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565133"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552873"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Szybki Start: Tworzenie profilu warstwy Standardowa/Premium platformy Azure — Azure Portal
 
@@ -148,7 +147,7 @@ Skonfiguruj platformę Azure Front-based Standard/Premium (wersja zapoznawcza), 
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Zrzut ekranu przedstawiający Dodawanie punktu końcowego.":::
 
-1. Następnie Dodaj grupę pierwotną zawierającą dwie aplikacje sieci Web. Wybierz pozycję **+ Dodaj**   , aby otworzyć stronę **Dodawanie grupy źródłowej** . W polu Nazwa wprowadź *myOrignGroup*, a następnie wybierz pozycję **+ Dodaj źródło**.
+1. Następnie Dodaj grupę pierwotną zawierającą dwie aplikacje sieci Web. Wybierz pozycję **+ Dodaj**   , aby otworzyć stronę **Dodawanie grupy źródłowej** . W polu Nazwa wprowadź nazwę *źródła*, a następnie wybierz pozycję **+ Dodaj źródło**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Zrzut ekranu przedstawiający Dodawanie grupy pochodzenia.":::
 

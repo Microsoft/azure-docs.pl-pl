@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3efb5aa864f0940b7b5aa6a9131da9ce8bd732ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 135c163c555bc30bea57ccbdf73bf0414a834da2
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092808"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109649"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Jak generować miniatury przy użyciu standardu Encoder w programie .NET
 
@@ -29,7 +29,7 @@ Za pomocą Media Encoder Standard można wygenerować jeden lub więcej miniatur
 
 ## <a name="recommended-reading-and-practice"></a>Zalecany odczyt i ćwiczenia
 
-Zaleca się zapoznanie się z niestandardowymi transformacjami przez zapoznanie się [z kodowaniem przy użyciu niestandardowego przekształcenia — .NET](customize-encoder-presets-how-to.md).
+Zaleca się zapoznanie się z niestandardowymi transformacjami przez zapoznanie się [z kodowaniem przy użyciu niestandardowego przekształcenia — .NET](encode-custom-presets-how-to.md).
 
 ## <a name="transform-code-example"></a>Przykład kodu przekształcenia
 

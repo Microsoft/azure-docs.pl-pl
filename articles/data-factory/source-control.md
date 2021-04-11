@@ -7,12 +7,12 @@ ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2021
-ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5cb9090025fe541ad3f70cdac876aca0552f154
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719415"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553162"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -26,7 +26,7 @@ Domyślnie autorzy interfejsu użytkownika Azure Data Factory środowiska (UX) b
 Aby zapewnić lepszą obsługę tworzenia, Azure Data Factory umożliwia skonfigurowanie repozytorium git przy użyciu Azure Repos lub GitHub. Git to system kontroli wersji, który umożliwia łatwiejsze śledzenie zmian i współpracę. W tym artykule opisano sposób konfigurowania i pracy w repozytorium Git oraz wyróżniania najlepszych praktyk i przewodnika dotyczącego rozwiązywania problemów.
 
 > [!NOTE]
-> W przypadku chmury Azure Government dostępne są tylko przedsiębiorstwa w witrynie GitHub.
+> W przypadku chmury Azure Government jest dostępny tylko *serwer usługi GitHub Enterprise* .
 
 Aby dowiedzieć się więcej o tym, jak Azure Data Factory integruje się z usługą git, Zobacz 15-minutowy film wideo poniżej:
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: a47d07eccc5696fede3a8a1f8120129a0344abf3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3233695f8a8cc14d70f0c482458e77094dde7622
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544336"
+ms.locfileid: "105969074"
 ---
 # <a name="azure-compute-unit-acu"></a>Jednostka obliczeniowa platformy Azure (ACU)
 
@@ -48,7 +48,7 @@ Równoległa technologia wielowątkowa AMD
 | [D_v3](dv3-dsv3-series.md) |160 – 190 * | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 – 190 * | 2:1\*\*\* |
 | [Dav4](dav4-dasv4-series.md) |230 – 260 * * | 2:1\*\*\*\* |
-| [Dasv4](dav4-dasv4-series.md) |230 – 260 * * | 2:1 |
+| [Dasv4](dav4-dasv4-series.md) |230 – 260 * * | 2:1\*\*\*\* |
 | [Dv4](dv4-dsv4-series.md) | 195 – 210 | 2:1\*\*\* |
 | [Dsv4](dv4-dsv4-series.md) | 195 – 210 | 2:1\*\*\* |
 | [Ddv4](ddv4-ddsv4-series.md) | 195 – 210 * | 2:1\*\*\* |
@@ -56,7 +56,7 @@ Równoległa technologia wielowątkowa AMD
 | [E_v3](ev3-esv3-series.md) |160 – 190 * | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 – 190 * | 2:1\*\*\* |
 | [Eav4](eav4-easv4-series.md) |230 – 260 * * | 2:1\*\*\*\* |
-| [Easv4](eav4-easv4-series.md) | 230 – 260 * * | 2:1 |
+| [Easv4](eav4-easv4-series.md) | 230 – 260 * * | 2:1\*\*\*\* |
 | [Ev4](ev4-esv4-series.md) | 195 – 210 | 2:1\*\*\* |
 | [Esv4](ev4-esv4-series.md) | 195 – 210 | 2:1\*\*\* |
 | [Edv4](edv4-edsv4-series.md) | 195 – 210 * | 2:1\*\*\* |
@@ -72,7 +72,7 @@ Równoległa technologia wielowątkowa AMD
 | [L4s — L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 — L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1\*\*\*\* |
 | [Mol](m-series.md) | 160 – 180 | 2:1\*\*\* |
-| [NVv4](nvv4-series.md) |230 – 260 * * | 2:1 |
+| [NVv4](nvv4-series.md) |230 – 260 * * | 2:1\*\*\*\* |
 
 Poniżej znajdują się linki do dodatkowych informacji o różnych rozmiarach:
 

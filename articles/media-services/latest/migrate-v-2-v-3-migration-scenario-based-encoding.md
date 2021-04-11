@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: bf66723f878f8b277d71577c068afdad56708ad6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 2cdf068d31cf621538eb265977ea0dae20e16e85
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563275"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109326"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu
 
@@ -91,7 +91,7 @@ W wersji 2 pliki metadanych danych wejściowych i wyjściowych XML są generowan
 
 ## <a name="premium-encoder-to-v3-standard-encoder-or-partner-based-solutions"></a>Koder w warstwie Premium z koderem standardowym v3 lub rozwiązaniami opartymi na partnerze
 
-Interfejs API v2 nie obsługuje już kodera Premium. Jeśli wcześniej użyto kodera Premium opartego na przepływie pracy dla kodowania HEVC, należy przeprowadzić migrację do nowego [kodera standardowego](media-encoder-standard-formats.md) v3 z obsługą kodowania HEVC.
+Interfejs API v2 nie obsługuje już kodera Premium. Jeśli wcześniej użyto kodera Premium opartego na przepływie pracy dla kodowania HEVC, należy przeprowadzić migrację do nowego [kodera standardowego](encode-media-encoder-standard-formats-reference.md) v3 z obsługą kodowania HEVC.
 
 Jeśli potrzebujesz zaawansowanych funkcji przepływu pracy kodera Premium, zachęcasz do rozpoczęcia korzystania z rozwiązania Azure Advanced Encoding partner z [Wyobraź sobie Communications](https://imaginecommunications.com), [Telestream](https://www.telestream.net)lub [Bitmovin](https://bitmovin.com).
 
@@ -109,14 +109,14 @@ W przypadku klientów korzystających z procesora indeksatora v1 w interfejsie A
 
 ### <a name="concepts"></a>Pojęcia
 
-- [Kodowanie wideo i audio przy użyciu Media Services](encoding-concept.md)
-- [Standardowe formaty i kodeki kodera](media-encoder-standard-formats.md)
-- [Koduj z automatycznie wygenerowaną drabiną szybkości transmisji bitów](autogen-bitrate-ladder.md)
-- [Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania](content-aware-encoding.md)
+- [Kodowanie wideo i audio przy użyciu Media Services](encode-concept.md)
+- [Standardowe formaty i kodeki kodera](encode-media-encoder-standard-formats-reference.md)
+- [Koduj z automatycznie wygenerowaną drabiną szybkości transmisji bitów](encode-autogen-bitrate-ladder.md)
+- [Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania](encode-content-aware-concept.md)
 - [Jednostki zarezerwowane multimediów](concept-media-reserved-units.md)
 - [Metadane wejściowe](input-metadata-schema.md)
 - [Metadane wyjściowe](output-metadata-schema.md)
-- [Dynamiczne pakowanie w Media Services v3: kodery-dekoder audio](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)
+- [Dynamiczne pakowanie w Media Services v3: kodery-dekoder audio](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging)
 
 ### <a name="tutorials"></a>Samouczki
 
@@ -129,13 +129,13 @@ W przypadku klientów korzystających z procesora indeksatora v1 w interfejsie A
 - [Tworzenie danych wejściowych zadania z pliku lokalnego](job-input-from-local-file-how-to.md)
 - [Tworzenie podstawowego przekształcenia audio](how-to-create-basic-audio-transform.md)
 - Przy użyciu platformy .NET
-  - [Jak kodować przy użyciu przekształcenia niestandardowego — .NET](customize-encoder-presets-how-to.md)
+  - [Jak kodować przy użyciu przekształcenia niestandardowego — .NET](encode-custom-presets-how-to.md)
   - [Jak utworzyć nakładkę z Media Encoder Standard](how-to-create-overlay.md)
   - [Jak generować miniatury przy użyciu standardu Encoder w programie .NET](media-services-generate-thumbnails-dotnet.md)
 - Z interfejsem wiersza polecenia platformy Azure
-  - [Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure](custom-preset-cli-howto.md)
+  - [Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure](encode-custom-preset-cli-how-to.md)
 - Przy użyciu architektury REST
-  - [Jak kodować przy użyciu niestandardowej transformacji](custom-preset-rest-howto.md)
+  - [Jak kodować przy użyciu niestandardowej transformacji](encode-custom-preset-rest-how-to.md)
   - [Jak generować miniatury przy użyciu standardu Encoder w warstwie REST](media-services-generate-thumbnails-rest.md)
 - [Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET](subclip-video-dotnet-howto.md)
 - [Podcinanie wideo przy kodowaniu przy użyciu Media Services-REST](subclip-video-rest-howto.md)

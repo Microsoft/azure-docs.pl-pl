@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506943"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169576"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Tworzenie klastra obliczeniowego Azure Machine Learning
 
@@ -44,11 +44,9 @@ Klastry obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku sieci 
 
 ## <a name="limitations"></a>Ograniczenia
 
-* **Nie należy tworzyć wielu jednoczesnych załączników do tego samego obliczenia** w obszarze roboczym. Można na przykład dołączyć jeden klaster obliczeniowy do obszaru roboczego przy użyciu dwóch różnych nazw. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
-
-    Jeśli chcesz ponownie dołączyć obiekt docelowy obliczeń, na przykład aby zmienić ustawienia konfiguracji klastra, musisz najpierw usunąć istniejący załącznik.
-
 * Niektóre scenariusze wymienione w tym dokumencie są oznaczone jako __wersja zapoznawcza__. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Obecnie obsługujemy tylko tworzenie (i aktualizowanie) klastrów za pomocą szablonów ARM [ https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. W przypadku aktualizowania obliczeń zalecamy korzystanie z zestawu SDK, interfejsu wiersza polecenia lub środowiska użytkownika.
 
 * Azure Machine Learning COMPUTE ma limity domyślne, takie jak liczba rdzeni, które można przydzielić. Aby uzyskać więcej informacji, zobacz [Zarządzanie przydziałami zasobów platformy Azure i ich żądania](how-to-manage-quotas.md).
 

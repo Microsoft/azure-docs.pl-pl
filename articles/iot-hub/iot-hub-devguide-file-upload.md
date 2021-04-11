@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90019533"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553043"
 ---
 # <a name="upload-files-with-iot-hub"></a>Przekazywanie plików za pomocą usługi IoT Hub
 
@@ -44,7 +44,13 @@ Aby skorzystać z funkcji przekazywania plików, musisz najpierw połączyć kon
 [Przekazanie plików z urządzenia do chmury z IoT Hub](iot-hub-csharp-csharp-file-upload.md) przewodniki po instrukcji zapewnia kompletny przewodnik dotyczący procesu przekazywania plików. Te przewodniki pokazują, jak używać Azure Portal do kojarzenia konta magazynu z usługą IoT Hub.
 
 > [!NOTE]
-> [Zestawy SDK usługi Azure IoT](iot-hub-devguide-sdks.md) automatycznie obsługują pobieranie identyfikatora URI sygnatury dostępu współdzielonego, przekazywanie pliku oraz powiadamianie IoT Hub ukończonego przekazywania.
+> [Zestawy SDK usługi Azure IoT](iot-hub-devguide-sdks.md) automatycznie obsługują pobieranie identyfikatora URI sygnatury dostępu współdzielonego, przekazywanie pliku oraz powiadamianie IoT Hub ukończonego przekazywania. Jeśli zapora blokuje dostęp do punktu końcowego Blob Storage, ale zezwala na dostęp do punktu końcowego IoT Hub, proces przekazywania pliku kończy się niepowodzeniem i zawiera następujący błąd dotyczący zestawu SDK urządzenia IoT C#:
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> Aby funkcja przekazywania plików działała, dostęp do punktu końcowego IoT Hub i punktu końcowego Blob Storage musi być dostępny dla urządzenia.
+> 
+
 
 ## <a name="initialize-a-file-upload"></a>Zainicjuj przekazywanie plików
 IoT Hub ma punkt końcowy przeznaczony dla urządzeń żądających identyfikatora URI sygnatury dostępu współdzielonego dla magazynu w celu przekazania pliku. Aby rozpocząć proces przekazywania plików, urządzenie wysyła żądanie POST do `{iot hub}.azure-devices.net/devices/{deviceId}/files` następującej treści JSON:

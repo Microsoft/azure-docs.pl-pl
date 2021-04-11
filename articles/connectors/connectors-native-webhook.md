@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdbf853a96f319cb27c10136004a1398014e602f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89227903"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109156"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Tworzenie i uruchamianie zautomatyzowanych przepływów zadań opartych na zdarzeniach za pomocą elementów webhook protokołu HTTP w Azure Logic Apps
 
@@ -145,9 +145,9 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 | Nazwa właściwości | Typ | Opis |
 |---------------|------|-------------|
 | nagłówka | object | Nagłówki żądania |
-| body | object | Obiekt JSON | Obiekt z zawartością treści z żądania |
+| body | object | Obiekt z zawartością treści z żądania |
 | kod stanu | int | Kod stanu z żądania |
-|||
+||||
 
 | Kod stanu | Opis |
 |-------------|-------------|

@@ -2,23 +2,27 @@
 title: Zainstaluj wolumin Azure Files do grupy kontenerów
 description: Dowiedz się, jak zainstalować wolumin Azure Files, aby zachować stan utrwalania z Azure Container Instances
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09a4d9922a4f9ba4296fc194d72c621fecb8342d
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954978"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968904"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Instalowanie udziału plików platformy Azure w usłudze Azure Container Instances
 
 Domyślnie usługa Azure Container Instances jest bezstanowa. Jeśli kontener zostanie ponownie uruchomiony, ulegnie awarii lub zostanie zatrzymany, jego stan zostanie utracony. Aby w takim przypadku go zachować, należy zainstalować wolumin z magazynu zewnętrznego. Jak pokazano w tym artykule, Azure Container Instances może zainstalować udział plików platformy Azure utworzony przy użyciu [Azure Files](../storage/files/storage-files-introduction.md). Azure Files oferuje w pełni zarządzane udziały plików hostowane w usłudze Azure Storage, które są dostępne za pośrednictwem protokołu Server Message Block (SMB) w warstwie Standardowa. Korzystanie z udziału plików platformy Azure z Azure Container Instances zapewnia funkcje udostępniania plików podobne do korzystania z udziału plików platformy Azure z maszynami wirtualnymi platformy Azure.
 
+## <a name="limitations"></a>Ograniczenia
+
+* Można instalować tylko udziały Azure Files w kontenerach systemu Linux. Zapoznaj się z informacjami o różnicach w obsłudze funkcji dla grup kontenerów systemu Linux i [Windows.](container-instances-overview.md#linux-and-windows-containers)
+* Instalacja woluminu udziału plików platformy Azure wymaga, aby kontener systemu Linux był uruchomiony jako *główny* .
+* Instalacje woluminów udziałów plików platformy Azure są ograniczone do obsługi protokołu CIFS.
+
 > [!NOTE]
-> Instalowanie udziału Azure Files jest obecnie ograniczone do kontenerów systemu Linux. Znajdź bieżące różnice w platformie w [przeglądzie](container-instances-overview.md#linux-and-windows-containers).
->
-> Instalowanie udziału Azure Files w wystąpieniu kontenera jest podobne do instalacji programu Docker [bind](https://docs.docker.com/storage/bind-mounts/). Należy pamiętać, że w przypadku zainstalowania udziału w katalogu kontenera, w którym znajdują się pliki lub katalogi, te pliki lub katalogi są zasłonięte przez instalację i nie są dostępne podczas działania kontenera.
+> Instalowanie udziału Azure Files w wystąpieniu kontenera jest podobne do instalacji programu Docker [bind](https://docs.docker.com/storage/bind-mounts/). W przypadku zainstalowania udziału w katalogu kontenera, w którym znajdują się pliki lub katalogi, instalacja zasłania pliki lub katalogi, co sprawia, że są niedostępne podczas uruchamiania kontenera.
 >
 
 > [!IMPORTANT]

@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580987"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169355"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -128,7 +128,7 @@ Możliwe są następujące problemy:
 #### <a name="resolution"></a>Rozwiązanie
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Niewpisany identyfikator lub klucz obszaru roboczego
-Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru roboczego został wpisany jako błąd, zobacz [Dodawanie lub usuwanie obszaru roboczego — Agent systemu](../../azure-monitor/agents/agent-manage.md#windows-agent) Windows dla agenta systemu Windows lub [Dodawanie lub usuwanie agenta obszaru roboczego — Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) Agent dla agenta Linux. Upewnij się, że wybrano pełny ciąg z Azure Portal i skopiuj go i wklej uważnie.
+Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru roboczego został wpisany jako błąd, zobacz [Dodawanie lub usuwanie programu obszar roboczy — Windows Agent](../../azure-monitor/platform/agent-manage.md#windows-agent) dla agenta systemu Windows lub [Dodawanie lub usuwanie agenta obszaru roboczego — Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) dla agenta Linux. Upewnij się, że wybrano pełny ciąg z Azure Portal i skopiuj go i wklej uważnie.
 
 ##### <a name="configuration-not-downloaded"></a>Nie pobrano konfiguracji
 

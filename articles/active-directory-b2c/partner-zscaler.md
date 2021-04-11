@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dbeb3cd4fccf80f434e6c7ac08c658632f64b135
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9cd193eb6ff2858440f1cd9a62bdd53d58d6047d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096857"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256297"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler za pomocą Azure Active Directory B2C
 
@@ -96,7 +96,7 @@ Po skonfigurowaniu Azure AD B2C pozostałe wznowienie konfiguracji dostawcy toż
 >[!Note]
 >Ten krok jest wymagany tylko wtedy, gdy zasady niestandardowe nie zostały jeszcze skonfigurowane. Jeśli masz już co najmniej jedną zasadę niestandardową, możesz pominąć ten krok.
 
-Aby skonfigurować zasady niestandardowe dla dzierżawy Azure AD B2C, zobacz Wprowadzenie [do zasad niestandardowych w programie Azure Active Directory B2C](./custom-policy-get-started.md).
+Aby skonfigurować zasady niestandardowe dla dzierżawy Azure AD B2C, zobacz Wprowadzenie [do zasad niestandardowych w programie Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ### <a name="step-3-register-zpa-as-a-saml-application-in-azure-ad-b2c"></a>Krok 3. rejestrowanie ZPA jako aplikacji SAML w Azure AD B2C
 
@@ -149,7 +149,7 @@ Przejdź do portalu użytkownika ZPA lub aplikacji dostępu do przeglądarki, a 
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi artykułami:
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Rejestrowanie aplikacji SAML w Azure AD B2C](./saml-service-provider.md)
 - [Przewodnik konfiguracji krok po kroku dla usługi ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Konfigurowanie dostawcy tożsamości na potrzeby logowania jednokrotnego](https://help.zscaler.com/zpa/configuring-idp-single-sign)

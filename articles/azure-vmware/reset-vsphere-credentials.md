@@ -2,17 +2,19 @@
 title: Resetowanie poświadczeń vSphere dla rozwiązania Azure VMware
 description: Dowiedz się, jak zresetować poświadczenia vSphere dla chmury prywatnej rozwiązania Azure VMware i upewnić się, że łącznik HCX ma najnowsze poświadczenia vSphere.
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 1376b6322250da506d32b8ced0a62ddbf60ba9f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587631"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109105"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Resetowanie poświadczeń vSphere dla rozwiązania Azure VMware
 
 W tym artykule omówiono procedurę resetowania poświadczeń Menedżera vCenter Server i NSX-T dla chmury prywatnej rozwiązania Azure VMware. Pozwoli to zagwarantować, że łącznik HCX ma najnowsze poświadczenia vCenter Server.
+
+Oprócz tego, jak to zrobić, możesz również wyświetlić film wideo służący do [resetowania hasła administratora vCenter CloudAdmin & NSX-T](https://youtu.be/cK1qY3knj88).
 
 ## <a name="reset-your-azure-vmware-solution-credentials"></a>Zresetuj poświadczenia rozwiązania VMware dla platformy Azure
 

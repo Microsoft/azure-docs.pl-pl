@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735779"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109394"
 ---
 # <a name="cancel-your-azure-subscription"></a>Anulowanie subskrypcji platformy Azure
 
@@ -77,6 +77,10 @@ Jeśli masz subskrypcję bezpłatnej wersji próbnej, nie musisz czekać 30 dni,
 1. Wybierz subskrypcję, którą chcesz usunąć.
 1. Wybierz pozycję **Przegląd**, a następnie wybierz pozycję **Usuń subskrypcję**.
 
+## <a name="delete-other-subscriptions"></a>Usuń inne subskrypcje
+
+Jedynym typem subskrypcji, który można usunąć ręcznie, jest bezpłatna subskrypcja wersji próbnej. Wszystkie inne typy subskrypcji, w tym subskrypcje z płatność zgodnie z rzeczywistym użyciem, są usuwane tylko przez proces [anulowania subskrypcji](#cancel-subscription-in-the-azure-portal) . Innymi słowy, nie można usunąć subskrypcji bezpośrednio, chyba że jest to bezpłatna subskrypcja wersji próbnej. Jeśli jednak anulujesz subskrypcję, możesz utworzyć [żądanie pomocy technicznej platformy Azure](https://go.microsoft.com/fwlink/?linkid=2083458) , aby zażądać natychmiastowego usunięcia subskrypcji.
+
 ## <a name="reactivate-a-subscription"></a>Ponowne aktywowanie subskrypcji
 
 Jeśli anulujesz subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem, możesz [ją ponownie aktywować w Azure Portal](subscription-disabled.md).
@@ -89,7 +93,7 @@ Możesz nie mieć uprawnień wymaganych do anulowania subskrypcji. Zobacz [Kto m
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Jak mogę usunąć moje konto platformy Azure?
 
-*Chcę usunąć moje konto, w tym wszystkie dane osobowe. Aktywne subskrypcje (bezpłatna wersja próbna) zostały już anulowane. Nie mam żadnych aktywnych subskrypcji i chcę całkowicie usunąć konto*.
+*Chcę usunąć moje konto, w tym wszystkie moje dane osobowe. Anulowano już aktywną subskrypcję (bezpłatny okres próbny). Nie mam aktywnych subskrypcji i chcę całkowicie usunąć moje konto*.
 
 * Jeśli korzystasz z konta Azure Active Directory za pośrednictwem organizacji, administrator usługi Azure AD może usunąć konto. Następnie usługi zostaną wyłączone. Oznacza to, że przydziały dla maszyn wirtualnych zostaną cofnięte, tymczasowe adresy IP zostaną zwolnione, a magazyn będzie dostępny tylko do odczytu. Podsumowując, po anulowaniu rozliczanie zostanie natychmiast zatrzymane.
 

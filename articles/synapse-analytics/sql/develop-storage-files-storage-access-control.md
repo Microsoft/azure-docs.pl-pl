@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 254f424694df72a290a07369fe910587fadf58d4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385551"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552958"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -104,6 +104,15 @@ Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można u�
 #### <a name="user-identity"></a>Tożsamość użytkownika
 
 Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem tożsamości użytkownika, można użyć modułu programu PowerShell AZ. Storage.
+#### <a name="configuration-via-azure-portal"></a>Konfiguracja za pośrednictwem Azure Portal
+
+1. Wyszukaj swoje konto magazynu w Azure Portal.
+1. Przejdź do pozycji sieć w obszarze Ustawienia sekcji.
+1. W sekcji "wystąpienia zasobów" Dodaj wyjątek dla obszaru roboczego Synapse.
+1. Wybierz pozycję Microsoft. Synapse/Workspaces jako typ zasobu.
+1. Wybierz nazwę swojego obszaru roboczego jako nazwę wystąpienia.
+1. Kliknij pozycję Zapisz.
+
 #### <a name="configuration-via-powershell"></a>Konfiguracja za pośrednictwem programu PowerShell
 
 Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać wyjątek dla obszaru roboczego Synapse.
