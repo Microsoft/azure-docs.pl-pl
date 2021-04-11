@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 41bdf5251881fa9307a3cd4d214081845e967900
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174533"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209523"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -62,7 +62,7 @@ Poniżej znajduje się przykład prawidłowo skonstruowanej reguły członkostwa
 user.department -eq "Sales"
 ```
 
-Nawiasy są opcjonalne dla jednego wyrażenia. Łączna długość treści reguły członkostwa nie może przekraczać 2048 znaków.
+Nawiasy są opcjonalne dla jednego wyrażenia. Łączna długość treści reguły członkostwa nie może przekraczać 3072 znaków.
 
 ## <a name="constructing-the-body-of-a-membership-rule"></a>Konstruowanie treści reguły członkostwa
 

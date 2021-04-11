@@ -4,10 +4,10 @@ description: Wprowadzenie do modelu monitorowania kondycji usługi Azure Service
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627419"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
