@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 419d8d0cd20c13bffdd192060d81975ee94b47fe
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95559168"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125711"
 ---
 > [!NOTE]
 > W przypadku zasobów, które nie zostały naprawione, należy otworzyć bilet pomocy technicznej w celu poproszenia o zwiększenie limitów przydziału. Nie należy tworzyć dodatkowych kont Azure Media Services próbujących uzyskać wyższe limity.
@@ -66,9 +66,9 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 | --- | --- |
 | Zdarzenia na żywo <sup>(4)</sup> na konto Media Services |5|
 | Dane wyjściowe na żywo na żywo |3 <sup>(5)</sup> |
-| Maksymalny czas trwania danych wyjściowych na żywo | [Rozmiar okna DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
+| Maksymalny czas trwania danych wyjściowych na żywo | [Rozmiar okna DVR](../articles/media-services/latest/live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Aby uzyskać szczegółowe informacje na temat ograniczeń dotyczących zdarzeń na żywo, zobacz [porównanie i ograniczenia typów zdarzeń na żywo](../articles/media-services/latest/live-event-types-comparison.md).
+<sup>4</sup> Aby uzyskać szczegółowe informacje na temat ograniczeń dotyczących zdarzeń na żywo, zobacz [porównanie i ograniczenia typów zdarzeń na żywo](../articles/media-services/latest/live-event-types-comparison-reference.md).
 
 <sup>5</sup> danych wyjściowych na żywo rozpocznie się po utworzeniu i Zatrzymaj po usunięciu.
 

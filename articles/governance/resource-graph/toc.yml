@@ -23,6 +23,9 @@
     - name: Uruchamianie pierwszego zapytania — język Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
+    - name: Uruchamianie pierwszego zapytania — Java
+      displayName: 'maven, zulu, mvn'
+      href: ./first-query-java.md
     - name: Uruchamianie pierwszego zapytania — język JavaScript
       displayName: 'library, node, arm-resourcegraph'
       href: ./first-query-javascript.md

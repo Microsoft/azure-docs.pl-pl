@@ -436,6 +436,10 @@
   items:
     - name: Punkt odniesienia zabezpieczeń
       href: security-baseline.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/databoxedge
 - name: Zasoby
   items:
     - name: Azure Stack Edge Pro — przykłady modułów języka C# (.NET)

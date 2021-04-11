@@ -3,12 +3,12 @@ title: Odtwarzanie wideo — Azure
 description: Symbol zastępczy
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87042973"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063376"
 ---
 # <a name="video-playback"></a>Odtwarzanie wideo 
 
@@ -28,7 +28,7 @@ Azure Media Services do [przesyłania strumieniowego](terminology.md#streaming) 
 
 ## <a name="streaming-policy"></a>Zasady przesyłania strumieniowego 
 
-Azure Media Services oferuje różne metody zabezpieczania strumieni wideo, zgodnie z opisem w artykule [Ochrona zawartości za pomocą Media Services dynamicznym szyfrowaniem](../latest/content-protection-overview.md) . Na wysokim poziomie dostępne są opcje ochrony zawartości:
+Azure Media Services oferuje różne metody zabezpieczania strumieni wideo, zgodnie z opisem w artykule [Ochrona zawartości za pomocą Media Services dynamicznym szyfrowaniem](../latest/drm-content-protection-concept.md) . Na wysokim poziomie dostępne są opcje ochrony zawartości:
 
 * **W obszarze-Wyczyść przesyłanie strumieniowe — w przypadku,** gdy podczas przesyłania strumieniowego nie jest stosowane szyfrowanie.
 * **Użyj Advanced Encryption Standard (AES-128)** — i Zaimplementuj metodę, aby dostarczyć klucze do odszyfrowywania wideo tylko do uwierzytelnionych osób przeglądających.

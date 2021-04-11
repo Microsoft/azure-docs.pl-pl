@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: e9f8d4797907cfdc4e7184580e31ac3cb3975b66
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 050356dc74641e7e7154d6a3976e6cc8d5f4ce3d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739886"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063614"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: migrowanie programu MySQL do usługi Azure Database for MySQL w trybie online przy użyciu usługi DMS
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z lokalnego wystąpienia programu MySQL do [Azure Database for MySQL](../mysql/index.yml) z minimalnym przestojem. Innymi słowy migrację można przeprowadzić przy minimalnych przestojach w działaniu aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **Employees** z lokalnego wystąpienia MySQL 5,7 do Azure Database for MySQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
+
+> [!IMPORTANT]
+> Scenariusz migracji w trybie online "MySQL do Azure Database for MySQL" jest zastępowany przez równoległy, wysoce wydajny Scenariusz migracji w trybie offline 1 czerwca 2021. W przypadku migracji w trybie online można użyć tej nowej oferty wraz z [replikacją danych](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Alternatywnie możesz użyć narzędzi typu open source, takich jak [Dumper/OnLoad](https://centminmod.com/mydumper.html) , z replikacją danych w trybie online. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]

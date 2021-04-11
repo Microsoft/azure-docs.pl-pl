@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594176"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257419"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database i wyszukiwanie w artykułach wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,6 @@ Poniższy dokument zawiera linki do przykładów platformy Azure, w których pok
 |[PHP](connect-query-php.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych przy użyciu języka PHP i wykonywania zapytań o dane przy użyciu instrukcji Transact-SQL.|
 |[Python](connect-query-python.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych przy użyciu języka Python i używania instrukcji Transact-SQL do wykonywania zapytań dotyczących danych. |
 |[Ruby](connect-query-ruby.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[R](connect-query-r.md)|Ten przewodnik Szybki Start przedstawia sposób używania języka R z Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z bazą danych w Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
 |||
 
 ## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem

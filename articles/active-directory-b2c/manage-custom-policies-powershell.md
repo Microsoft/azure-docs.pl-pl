@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbe465c41363e8c0779440affeae78f999b4632d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928719"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257436"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu Azure PowerShell
 
@@ -30,7 +30,7 @@ Azure PowerShell udostępnia kilka poleceń cmdlet dla niestandardowego zarządz
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Azure AD B2C dzierżawy](tutorial-create-tenant.md)i poświadczenia dla użytkownika w katalogu z rolą [administratora zasad B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Zasady niestandardowe](custom-policy-get-started.md) przekazane do dzierżawy
+* [Zasady niestandardowe](tutorial-create-user-flows.md?pivots=b2c-custom-policy) przekazane do dzierżawy
 * [Moduł Azure AD PowerShell dla programu Graph w **wersji zapoznawczej**](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Połącz sesję programu PowerShell z dzierżawcą B2C

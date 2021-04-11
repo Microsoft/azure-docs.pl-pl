@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a8532f87c9360c0812fb1cfe24be6ca07615ea97
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: dec4eec16ba24baf31d911db882625479c33fb3b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123470"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278630"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 
@@ -107,14 +107,14 @@ Jeśli chcesz włączyć niektóre adresy IP na własnych zaporach lub chcesz og
 * Maksymalna Nazwa zdarzenia na żywo to 32 znaków.
 * Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
-Zobacz również [konwencje nazewnictwa punktów końcowych przesyłania strumieniowego](streaming-endpoint-concept.md#naming-convention).
+Zobacz również [konwencje nazewnictwa punktów końcowych przesyłania strumieniowego](stream-streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > Aby zagwarantować unikatowość nazwy zdarzenia na żywo, można wygenerować identyfikator GUID, a następnie usunąć wszystkie łączniki i nawiasy klamrowe (jeśli istnieją). Ciąg będzie unikatowy dla wszystkich wydarzeń na żywo, a jego długość jest gwarantowana na 32.
 
 ## <a name="live-event-ingest-urls"></a>Adresy URL pozyskiwania zdarzeń na żywo
 
-Po utworzeniu zdarzenia na żywo możesz uzyskać adresy URL pozyskiwania na żywo w usłudze Live on-premises Encoder. Koder na żywo używa tych adresów URL do wprowadzenia strumienia na żywo. Aby uzyskać więcej informacji, zobacz [zalecane lokalne kodery na żywo](recommended-on-premises-live-encoders.md).
+Po utworzeniu zdarzenia na żywo możesz uzyskać adresy URL pozyskiwania na żywo w usłudze Live on-premises Encoder. Koder na żywo używa tych adresów URL do wprowadzenia strumienia na żywo. Aby uzyskać więcej informacji, zobacz [zalecane lokalne kodery na żywo](encode-recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
 > W przypadku wersji interfejsu API 2020-05-01 adresy URL "znaczącym" są nazywane statycznymi nazwami hostów (useStaticHostname: true)

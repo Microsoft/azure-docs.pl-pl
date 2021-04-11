@@ -1,16 +1,16 @@
 ---
 title: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 description: W tym artykule opisano obsługiwane mapowania regionów między kontem usługi Automation a obszarem roboczym Log Analytics, które odnoszą się do niektórych funkcji Azure Automation.
-ms.date: 02/17/2021
+ms.date: 04/01/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ac2a575c9fe551d5b1b396ab06b2735a749f9da
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720175"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221878"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -38,30 +38,44 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 |EastUS2<sup>2</sup>|EastUS|
 |WestUS|WestUS|
 |WestUS2|WestUS2|
+|NorthCentralUS|NorthCentralUS|
 |CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
+|**Brazylia**||
+|BrazilSouth|BrazilSouth|
 |**Kanada**||
 |CanadaCentral|CanadaCentral|
+|**Chiny**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |**Azja i Pacyfik**||
-|AustraliaEast|AustraliaEast|
-|AustraliaSoutheast|AustraliaSoutheast|
 |EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
+|**Indie**||
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>3</sup>|ChinaEast2|
+|**Japonia**||
 |JapanEast|JapanEast|
+|**Australia**||
+|AustraliaEast|AustraliaEast|
+|AustraliaSoutheast|AustraliaSoutheast|
+|**Korea**||
+|KoreaCentral|KoreaCentral|
+|**Norwegia**||
+|NorwayEast|NorwayEast|
 |**Europa**||
 |NorthEurope|NorthEurope|
-|FranceCentral|FranceCentral|
-|UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|**Francja**||
+|FranceCentral|FranceCentral|
+|**Zjednoczone Królestwo**
+|UKSouth|UKSouth|
+|**Szwajcaria**||
 |SwitzerlandNorth|SwitzerlandNorth|
+|**Zjednoczone Emiraty Arabskie**||
+|UAENorth|UAENorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>3</sup>|USGovArizona|
-
-
 
 <sup>1</sup> mapowanie Wschodnie dla obszarów roboczych log Analytics na konta usługi Automation nie jest dokładnym mapowaniem między regionami, ale jest poprawnym mapowaniem.
 

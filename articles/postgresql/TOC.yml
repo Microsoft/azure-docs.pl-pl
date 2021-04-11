@@ -32,6 +32,8 @@
     - name: Zasady wersji
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Zalecenia dotyczące wydajności
+      href: concepts-azure-advisor-recommendations.md
     - name: Znane problemy & ograniczenia
       href: concepts-known-issues-limitations.md
       displayName: 'issues, limitations, postgresql'
@@ -670,6 +672,10 @@
             - name: Azure Portal
               href: howto-hyperscale-read-replicas-portal.md
               displayName: 'replication, read replica'
+        - name: Konserwacja zaplanowana
+          items:
+            - name: Azure Portal
+              href: howto-hyperscale-maintenance.md
         - name: Monitorowanie
           items:
             - name: Tworzenie alertów dotyczących metryk

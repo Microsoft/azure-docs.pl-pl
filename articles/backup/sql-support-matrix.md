@@ -2,14 +2,14 @@
 title: Macierz obsługi Azure Backup dla SQL Server tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych SQL Server na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734797"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257347"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Macierz obsługi SQL Server tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
 
@@ -30,11 +30,10 @@ Za pomocą Azure Backup można tworzyć kopie zapasowe baz danych SQL Server na 
 |Ustawienie  |Limit maksymalny |
 |---------|---------|
 |Liczba baz danych, które mogą być chronione na serwerze (i w magazynie)    |   2000      |
-|Obsługiwany rozmiar bazy danych (poza tym, mogą wystąpić problemy z wydajnością)   |   2 TB      |
+|Obsługiwany rozmiar bazy danych (poza tym, mogą wystąpić problemy z wydajnością)   |   6 TB *      |
 |Liczba plików obsługiwanych w bazie danych    |   1000      |
 
->[!NOTE]
-> [Pobierz szczegółowy planista zasobów](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) , aby obliczyć przybliżoną liczbę chronionych baz danych, które są zalecane dla każdego serwera, na podstawie zasobów maszyny wirtualnej, przepustowości i zasad tworzenia kopii zapasowych.
+_* Limit rozmiaru bazy danych zależy od szybkości transferu danych, która jest obsługiwana, oraz konfiguracji limitu czasu tworzenia kopii zapasowych. Nie jest to sztywny limit. [Dowiedz się więcej](#backup-throughput-performance) o wydajności przepływności kopii zapasowych._
 
 * SQL Server kopii zapasowej można skonfigurować w Azure Portal lub **PowerShell**. Interfejs wiersza polecenia nie jest obsługiwany.
 * Rozwiązanie jest obsługiwane w przypadku obu rodzajów [wdrożeń](../azure-resource-manager/management/deployment-models.md) — Azure Resource Manager maszyn wirtualnych i klasycznych maszyn wirtualnych.
@@ -93,6 +92,17 @@ Pełne | Podstawowe
 Różnicy | Podstawowe
 Dziennik |  Pomocniczy
 Copy-Only pełna |  Pomocniczy
+
+## <a name="backup-throughput-performance"></a>Wydajność tworzenia kopii zapasowej przepustowości
+
+Azure Backup obsługuje spójną stawkę za transfer danych wynoszącą 200 MB/s dla pełnych i różnicowych kopii zapasowych dużych baz danych SQL (z 500 GB). Aby wykorzystać optymalną wydajność, należy się upewnić, że:
+
+- Źródłowa maszyna wirtualna (zawierająca wystąpienie SQL Server, który hostuje bazę danych) jest skonfigurowana z wymaganą przepustowością sieci. Jeśli maksymalna przepływność maszyny wirtualnej jest mniejsza niż 200 MB/s, Azure Backup nie może przesyłać danych z optymalną szybkością.<br></br>Ponadto dysk zawierający pliki bazy danych musi mieć wystarczającą przepustowość. [Dowiedz się więcej](../virtual-machines/disks-performance.md) o przepływności i wydajności dysków na maszynach wirtualnych platformy Azure. 
+- Procesy, które są uruchomione na maszynie wirtualnej, nie zużywają przepustowości maszyny wirtualnej. 
+- Harmonogramy tworzenia kopii zapasowych są rozmieszczane w ramach podzestawu baz danych. Wiele kopii zapasowych uruchomionych współbieżnie na maszynie wirtualnej współużytkuje szybkość zużycia sieci między kopiami zapasowymi. [Dowiedz się więcej](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) o tym, jak kontrolować liczbę współbieżnych kopii zapasowych.
+
+>[!NOTE]
+> [Pobierz szczegółowy planista zasobów](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) , aby obliczyć przybliżoną liczbę chronionych baz danych, które są zalecane dla każdego serwera, na podstawie zasobów maszyny wirtualnej, przepustowości i zasad tworzenia kopii zapasowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

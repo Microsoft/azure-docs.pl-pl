@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368663"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096040"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Wprowadzenie do narzędzi Microsoft Spark Utilities
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) to pakiet wbudowane, który ułatwia wy
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Konfigurowanie dostępu do Azure Data Lake Storage Gen2 
 
-Notesy Synapse korzystają z usługi Azure Active Directory (Azure AD) w celu uzyskania dostępu do kont ADLS Gen2. Aby uzyskać dostęp do konta ADLS Gen2 (lub folderu), musisz być **współautorem danych BLOB Storage** . 
+Notesy Synapse korzystają z usługi Azure Active Directory (Azure AD) w celu uzyskania dostępu do kont ADLS Gen2. Musisz być **współautorem danych obiektu blob magazynu** , aby uzyskać dostęp do konta ADLS Gen2 (lub folderu). 
 
-Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do kont magazynu. Aby można było używać MSSparkUtils w działaniach potoku, tożsamość obszaru roboczego musi być **BLOB Storage współautor danych** w celu uzyskania dostępu do konta ADLS Gen2 (lub folderu).
+Potoki Synapse używają tożsamości obszaru roboczego (MSI) do uzyskiwania dostępu do kont magazynu. Aby można było używać MSSparkUtils w działaniach potoku, tożsamość obszaru roboczego musi być **współautorem danych obiektu blob magazynu** w celu uzyskania dostępu do konta ADLS Gen2 (lub folderu).
 
 Wykonaj następujące kroki, aby upewnić się, że usługa Azure AD i plik MSI obszaru roboczego mają dostęp do konta ADLS Gen2:
 1. Otwórz [Azure Portal](https://portal.azure.com/) i konto magazynu, do którego chcesz uzyskać dostęp. Możesz przejść do określonego kontenera, do którego chcesz uzyskać dostęp.

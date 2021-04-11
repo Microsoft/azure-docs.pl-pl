@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/19/2021
+ms.date: 04/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ac9eaea70de67e67ef690c280b30bae22517ac21
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741960"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227997"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
 
@@ -110,8 +110,8 @@ Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **obci�
    |---------|---------|
    |Grupa zasobów     |**Test-PD-RG**|
    |Nazwa maszyny wirtualnej     |**SRV — Work**|
-   |Region (Region)     |Taki sam jak poprzedni|
-   |Obraz|Windows Server 2019 Datacenter|
+   |Region     |Taki sam jak poprzedni|
+   |Obraz|Windows Server 2016 Datacenter|
    |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
    |Hasło     |Wpisz hasło|
 
@@ -138,7 +138,7 @@ Wdróż zaporę w sieci wirtualnej.
    |Subskrypcja     |\<your subscription\>|
    |Grupa zasobów     |**Test-PD-RG** |
    |Nazwa     |**Test-FW01**|
-   |Region (Region)     |Wybierz tę samą lokalizację, której użyto poprzednio|
+   |Region     |Wybierz tę samą lokalizację, której użyto poprzednio|
    |Zarządzanie zaporą|**Użyj reguł zapory (klasycznych) do zarządzania tą zaporą**|
    |Wybieranie sieci wirtualnej     |**Użyj istniejącej**: **test-PD-VN**|
    |Publiczny adres IP     |**Dodaj nowe**<br>**Nazwa**:  **PD-PIP**|

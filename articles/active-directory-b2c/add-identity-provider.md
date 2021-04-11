@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dbb2aeefc22fae4a3c83956dd7681b49fc435500
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5495e84d23b6723cfc7d4fbdb99e7509e378087f
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034000"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257181"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Dodawanie dostawcy tożsamości do dzierżawy Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Na stronie rejestracji lub logowania Azure AD B2C przedstawia listę zewnętrzny
 
 ![Przykład logowania mobilnego przy użyciu konta społecznościowego (Facebook)](media/add-identity-provider/external-idp.png)
 
-Można dodać dostawców tożsamości, które są obsługiwane przez Azure Active Directory B2C (Azure AD B2C) do [przepływów użytkownika](user-flow-overview.md) przy użyciu Azure Portal. Możesz również dodać dostawców tożsamości do [zasad niestandardowych](custom-policy-get-started.md).
+Można dodać dostawców tożsamości, które są obsługiwane przez Azure Active Directory B2C (Azure AD B2C) do [przepływów użytkownika](user-flow-overview.md) przy użyciu Azure Portal. Możesz również dodać dostawców tożsamości do [zasad niestandardowych](user-flow-overview.md).
 
 ## <a name="select-an-identity-provider"></a>Wybierz dostawcę tożsamości
 
@@ -44,7 +44,7 @@ W aplikacjach zwykle używany jest tylko jeden dostawca tożsamości, ale można
 * [GitHub](identity-provider-github.md)
 * [ID.me](identity-provider-id-me.md)
 * [Google](identity-provider-google.md)
-* [LinkedIn](identity-provider-linkedin.md)
+* [Usługą](identity-provider-linkedin.md)
 * [Konto Microsoft](identity-provider-microsoft-account.md)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)

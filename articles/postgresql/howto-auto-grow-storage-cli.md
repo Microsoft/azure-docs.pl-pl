@@ -1,18 +1,18 @@
 ---
 title: Magazyn z autoprzyrostem — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano, jak skonfigurować funkcję autozwiększania magazynu przy użyciu interfejsu wiersza polecenia platformy Azure w ramach Azure Database for PostgreSQL-jednego serwera.
-author: rothja
-ms.author: jroth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 8/7/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e323dfd0449b0fb4ad5119955227a2aa9bea1031
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 38a15136bb7bee1d37486ee02d5342506ed3f7d8
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551156"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228116"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Azure Database for PostgreSQL magazynowanie — pojedynczy serwer przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym artykule opisano, jak można skonfigurować magazyn serwera Azure Database for PostgreSQL do wzrostu bez wpływu na obciążenie.

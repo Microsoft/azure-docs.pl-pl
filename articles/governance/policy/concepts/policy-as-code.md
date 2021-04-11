@@ -1,14 +1,14 @@
 ---
 title: Projektowanie przepływów pracy typu „zasady platformy Azure jako kod”
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 233a5d4ca6583bc6a2cd9e8366e54f3ed1e2dad3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94359684"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094901"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu „zasady platformy Azure jako kod”
 

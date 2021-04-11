@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04300b8d148bb22bf585aa81481c475b347ad462
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561971"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222048"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Wyszukiwanie semantyczne na platformie Azure Wyszukiwanie poznawcze
 
@@ -64,7 +64,7 @@ Funkcje semantyczne są dostępne poprzez [rejestrację](https://aka.ms/Semantic
 
 Korekta pisowni jest dostępna w tych samych regionach, ale nie ma ograniczeń warstwy. Jeśli masz istniejącą usługę, która spełnia kryteria warstwy i regionu, wymagane jest tylko rejestrowanie się.
 
-Od 2 marca do 1 kwietnia, korekta pisowni i Klasyfikacja semantyczna są oferowane bezpłatnie. Po 1 kwietnia opłaty za korzystanie z tej funkcji będą naliczane. Oczekiwany koszt wynosi około USD $500 miesięcznie dla zapytań 250 000. Szczegółowe informacje o kosztach można znaleźć na [stronie cennika wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/) , a następnie [oszacować koszty i zarządzać nimi](search-sku-manage-costs.md).
+Między wersjami zapoznawczymi od 2 marca do późnej kwietnia, korekta pisowni i Klasyfikacja semantyczna są oferowane bezpłatnie. Później, w kwietniu, koszty związane z uruchamianiem tej funkcji staną się wydarzeniemi rozliczanymi. Oczekiwany koszt wynosi około USD $500 miesięcznie dla zapytań 250 000. Szczegółowe informacje o kosztach można znaleźć na [stronie cennika wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/) , a następnie [oszacować koszty i zarządzać nimi](search-sku-manage-costs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

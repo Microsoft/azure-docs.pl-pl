@@ -80,7 +80,7 @@ Przewodniki z poradnikami zawierają przykłady kodu, które pokazują, jak wyko
 * [Koduj przy użyciu protokołu HTTPS jako dane wejściowe zadania — .NET](job-input-from-http-how-to.md)  
 * [Monitorowanie zdarzeń — portal](monitoring/monitor-events-portal-how-to.md)
 * [Szyfrowanie dynamiczne za pomocą technologii wielowątkowości platformy .NET](drm-protect-with-drm-tutorial.md) 
-* [Jak kodować przy użyciu niestandardowego przekształcenia interfejsu wiersza polecenia](encode-custom-preset-cli-how-to.md)
+* [Jak kodować przy użyciu niestandardowego przekształcenia interfejsu wiersza polecenia](transform-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 

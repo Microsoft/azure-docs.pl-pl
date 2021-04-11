@@ -9,38 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b4c8ab55a9b2afc9c1a215236fa1276a630a5cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42a6bc9bfb06f1c80b719bdda686ae111a8884ab
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963625"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Samouczek: integracja Azure Active Directory ze szczeliną Palo Alto Networks
 
-W tym samouczku dowiesz się, jak zintegrować Palo Alto sieci z usługą Azure Active Directory (Azure AD).
-Integracja Palo Alto sieci z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować Palo Alto sieci z usługą Azure Active Directory (Azure AD). Gdy integrujesz Palo Alto sieci z usługą Azure AD, możesz:
 
-* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do sieci Palo Alto.
-* Możesz włączyć automatyczne logowanie użytkowników, aby Palo Alto sieci (Logowanie jednokrotne) za pomocą kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do szczeliny Palo Alto Networks.
+* Zezwól użytkownikom na automatyczne logowanie się, aby Palo Alto sieci — otwory z kontami usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację z usługą Azure AD przy użyciu sieci Palo Alto, potrzebne są następujące elementy:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Palo Alto Networks — subskrypcja z włączonym logowaniem jednokrotnym
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Palo Alto Networks — subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Palo Alto sieci — otwory obsługiwane przez usługę **SP** i **dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* Palo Alto sieci — szczelina obsługuje usługę **SP** i **dostawcy tożsamości** zainicjowana za pomocą logowania jednokrotnego.
 
-## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Dodawanie otworu Palo Alto sieci z galerii
+## <a name="add-palo-alto-networks---aperture-from-the-gallery"></a>Dodaj otwór Palo Alto Networks z galerii
 
 Aby skonfigurować integrację sieci Palo Alto w usłudze Azure AD, musisz dodać otwór Palo Alto Networks z galerii do listy zarządzanych aplikacji SaaS.
 
@@ -59,10 +58,10 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu sieci Palo Alto, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-    * **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
+    1. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 2. **[Skonfiguruj Palo Alto Networks — logowanie JEDNOkrotne](#configure-palo-alto-networks---aperture-sso)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-    * **[Utwórz użytkownika testowego Palo Alto sieci](#create-palo-alto-networks---aperture-test-user)** — Aby uzyskać odpowiednik Britta Simon w Palo Alto Networks-otwór, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+    1. **[Utwórz użytkownika testowego Palo Alto sieci](#create-palo-alto-networks---aperture-test-user)** — Aby uzyskać odpowiednik Britta Simon w Palo Alto Networks-otwór, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -77,15 +76,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Zrzut ekranu pokazujący konfigurację "podstawowa S A M L" z wyróżnionymi polami tekstowymi "identifier" i "reply U R L" oraz wybraną akcją "Save" (Zapisz).](common/idp-intiated.png)
-
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
-
-    ![Palo Alto Networks — domena i adresy URL logowania jednokrotnego — informacje](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
@@ -130,15 +125,15 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
 2. Na górnym pasku menu kliknij pozycję **Ustawienia**.
 
-    ![Karta Ustawienia](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
+    ![Karta Ustawienia](./media/paloaltonetworks-aperture-tutorial/settings.png)
 
 3. Przejdź do sekcji **aplikacji** kliknij pozycję **uwierzytelnianie** formularz po lewej stronie menu.
 
-    ![Karta uwierzytelnianie](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
+    ![Karta uwierzytelnianie](./media/paloaltonetworks-aperture-tutorial/authentication.png)
     
 4. Na stronie **uwierzytelnianie** wykonaj następujące czynności:
     
-    ![Karta uwierzytelnianie](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
+    ![Karta uwierzytelnianie](./media/paloaltonetworks-aperture-tutorial/tab.png)
 
     a. Zaznacz pole wyboru **Włącz logowanie jednokrotne (obsługiwane dostawcy SSP to usługi okta, jedno logowanie)** z pola **Logowanie** jednokrotne.
 

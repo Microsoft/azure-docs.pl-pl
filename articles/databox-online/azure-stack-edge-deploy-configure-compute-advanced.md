@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81953f573c47d229fcaccd7c11f62155acd2f119
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97968292"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063648"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro dla zaawansowanego przepływu wdrażania
 
@@ -140,7 +139,7 @@ W przypadku wdrożenia zaawansowanego w tym samouczku potrzebne są dwa udziały
 
 4. Skopiuj i Zapisz przykładową trasę. Ta Przykładowa trasa zostanie zmodyfikowana i będzie używana później w IoT Hub.
 
-    `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
+    `"sampleroute&quot;: &quot;FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
     ![Dodaj wyzwalacz 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
@@ -218,7 +217,7 @@ W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT E
     Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz opcję **Dalej**.
         
     ```
-    "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
+    "route&quot;: &quot;FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
     ```
 
     ![Sekcja Określanie tras](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)

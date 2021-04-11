@@ -1,20 +1,20 @@
 ---
 title: Reguły spłaszczania i ucieczki JSON — Azure Time Series Insights Gen2 | Microsoft Docs
 description: Informacje na temat sposobu spłaszczania, ucieczki i obsługi tablicowej JSON w Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.openlocfilehash: 9f768982e69f785c146f026040a91f7a63eef64c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0ce3d2bdcb79fec4c032f44171ef6c91de47b9e
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673455"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505437"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Spłaszczanie danych JSON, ucieczka i obsługa tablic
 
@@ -151,7 +151,7 @@ Powyższa konfiguracja i ładunek będą generować cztery kolumny i sześć zda
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20,560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
-| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30,9918 |  
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30,9918 |
 | `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A4`` | 19,960796 |
 
 ### <a name="example-c"></a>Przykład C
@@ -178,7 +178,7 @@ Identyfikator szeregów czasowych i sygnatura czasowa znajdują się w katalogu 
 **Wynik w pliku Parquet:**\
 Powyższa konfiguracja i ładunek spowodują utworzenie trzech kolumn i jednego zdarzenia
 
-| sygnatura czasowa  | id_string | datapoints_dynamic  
+| sygnatura czasowa  | id_string | datapoints_dynamic
 | ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 

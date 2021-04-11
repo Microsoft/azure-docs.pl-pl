@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/18/2021
-ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/05/2021
+ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462920"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490339"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -120,11 +120,13 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 | Do czasu wygaśnięcia | -Wartość domyślna: PT1H (1 godzina) | Czas, przez który można uruchomić pętlę "until" przed wyjściem i jest określony w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony. <p><p>Aby zmienić ten limit, w kształcie pętla "until" Wybierz pozycję **zmiany limity** i określ wartość dla właściwości **limit czasu** . |
 ||||
 
+<a name="concurrency-debatching"></a>
+
 ### <a name="concurrency-and-debatching"></a>Współbieżność i usuwanie partii
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
-| Współbieżność wyzwalacza | Z współbieżnością: nieograniczone <p><p>Z funkcją concurrency on, której nie można cofnąć po włączeniu: <p><p>-Wartość domyślna: 25 <br>-Min: 1 <br>-Max: 50 | Ten limit to maksymalna liczba wystąpień aplikacji logiki, które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostaje zredukowany do 100 elementów na potrzeby tworzenia [wsadowych tablic](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Aby zmienić ten limit, zobacz kolejno pozycje [Zmień wyzwalacz współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) lub [wystąpienia wyzwalacza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Współbieżność wyzwalacza | Z współbieżnością: nieograniczone <p><p>Z funkcją concurrency on, której nie można cofnąć po włączeniu: <p><p>-Wartość domyślna: 25 <br>-Min: 1 <br>-Max: 100 | Ten limit to maksymalna liczba wystąpień aplikacji logiki, które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostaje zredukowany do 100 elementów na potrzeby tworzenia [wsadowych tablic](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Aby zmienić ten limit, zobacz kolejno pozycje [Zmień wyzwalacz współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) lub [wystąpienia wyzwalacza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maksymalna liczba oczekujących przebiegów | Z współbieżnością: <p><p>-Min: 1 <br>-Max: 50 <p><p>Z współbieżnością: <p><p>-Min: 10 plus liczba współbieżnych uruchomień (współbieżność wyzwalacza) <br>-Max: 100 | Ten limit to maksymalna liczba wystąpień aplikacji logiki, które mogą czekać na uruchomienie, gdy w aplikacji logiki jest już uruchomiona Maksymalna liczba równoczesnych wystąpień. <p><p>Aby zmienić ten limit, zobacz [Limit oczekujących uruchomień](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementy SplitOn | Z współbieżnością: 100 000 <p><p>Z współbieżnością: 100 | Dla wyzwalaczy, które zwracają tablicę, można określić wyrażenie używające właściwości "SplitOn", które [dzieli lub departia elementy tablicy w wielu wystąpieniach przepływu pracy](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do przetworzenia, zamiast używać pętli "foreach". To wyrażenie odwołuje się do tablicy, która ma zostać użyta do utworzenia i uruchomienia wystąpienia przepływu pracy dla każdego elementu tablicy. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostanie zmniejszony do 100 elementów. |
 ||||
@@ -456,7 +458,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 | Francja Południowa | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Niemcy Północne | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
 | Niemcy Środkowo-Zachodnie | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
-| Japonia Wschodnia | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
+| Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japonia Zachodnia | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Korea Środkowa | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Korea Południowa | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
@@ -523,7 +525,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 | Francja Południowa | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 52.136.142.154, 52.136.133.184, 40.79.178.240 - 40.79.178.255, 40.79.180.224 - 40.79.180.255 |
 | Niemcy Północne | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.60.192, 51.116.211.212, 51.116.59.16 - 51.116.59.31, 51.116.60.192 - 51.116.60.223 |
 | Niemcy Środkowo-Zachodnie | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.158.97, 51.116.236.78, 51.116.155.80 - 51.116.155.95, 51.116.158.96 - 51.116.158.127 |
-| Japonia Wschodnia | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.73.21.230, 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.79.189.64 - 40.79.189.95 |
+| Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.73.21.230, 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.79.189.64 - 40.79.189.95 |
 | Japonia Zachodnia | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 104.215.27.24, 104.215.61.248, 40.74.100.224 - 40.74.100.239, 40.80.180.64 - 40.80.180.95 |
 | Korea Środkowa | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.141.1.104, 52.141.36.214, 20.44.29.64 - 20.44.29.95, 52.231.18.208 - 52.231.18.223 |
 | Korea Południowa | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.201.173, 52.231.163.10, 52.231.147.0 - 52.231.147.15, 52.231.148.224 - 52.231.148.255 |
@@ -552,7 +554,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 
 #### <a name="azure-government---outbound-ip-addresses"></a>Azure Government-wychodzące adresy IP
 
-| Region (Region) | Adres IP Logic Apps | Adres IP łączników zarządzanych |
+| Region | Adres IP Logic Apps | Adres IP łączników zarządzanych |
 |--------|---------------|-----------------------|
 | US DoD (region środkowy) | 52.182.48.215, 52.182.92.143 | 52.127.58.160 - 52.127.58.175, 52.182.54.8, 52.182.48.136, 52.127.61.192 - 52.127.61.223 |
 | US Gov Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190 | 52.127.2.160 - 52.127.2.175, 52.244.69.0, 52.244.64.91, 52.127.5.224 - 52.127.5.255 |
