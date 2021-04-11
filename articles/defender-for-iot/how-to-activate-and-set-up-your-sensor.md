@@ -3,12 +3,12 @@ title: Aktywowanie i konfigurowanie czujnika
 description: W tym artykule opisano sposób logowania i aktywowania konsoli czujnika.
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 2fdfa0dd7048bf39ae5b53a729aef578054b30ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b040a87c2eae36e6049b4e1d0cf51ecb2cfde108
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779192"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385122"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Aktywowanie i konfigurowanie czujnika
 
@@ -45,7 +45,7 @@ Czujnik został dołączony do usługi Azure Defender for IoT w określonym tryb
 | **Tryb połączony z chmurą** | Informacje wykrywane przez czujnik są wyświetlane w konsoli czujnika. Informacje o alertach są również dostarczane przez Centrum IoT Hub i mogą być udostępniane innym usługom platformy Azure, na przykład na platformie Azure. |
 | **Tryb połączony lokalnie** | Informacje wykrywane przez czujnik są wyświetlane w konsoli czujnika. Informacje o wykrywaniu są również udostępniane w lokalnej konsoli zarządzania, jeśli czujnik jest podłączony do niego. |
 
-Plik aktywacji połączonej lokalnie lub z chmurą został wygenerowany i pobrany dla tego czujnika podczas dołączania. Plik aktywacji zawiera instrukcje dotyczące trybu zarządzania czujnika. *Należy przekazać unikatowy plik aktywacji do każdego wdrażanego czujnika.*  Gdy logujesz się po raz pierwszy, musisz przekazać odpowiedni plik aktywacji dla tego czujnika.
+Dla tego czujnika podczas dołączania został wygenerowany i pobrany plik aktywacji połączonej lokalnie lub z chmurą. Plik aktywacji zawiera instrukcje dotyczące trybu zarządzania czujnika. *Należy przekazać unikatowy plik aktywacji do każdego wdrażanego czujnika.*  Gdy logujesz się po raz pierwszy, musisz przekazać odpowiedni plik aktywacji dla tego czujnika.
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-activation-file-download-button.png" alt-text="Azure Defender for IoT Portal — czujnik tablicy.":::
 

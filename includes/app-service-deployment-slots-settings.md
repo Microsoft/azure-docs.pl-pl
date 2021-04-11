@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 922a34bd1a147d407041d2945b14df18a18d7287
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed53cb60f6fb3bca93900941a8a6a53bed99d779
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104761159"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073555"
 ---
 W przypadku klonowania konfiguracji z innego miejsca wdrożenia sklonowana konfiguracja jest edytowalna. Niektóre elementy konfiguracji są zgodne z zawartością w wymianie (nie w konkretnym gnieździe), podczas gdy inne elementy konfiguracji pozostają w tym samym miejscu po wymianie (specyficzne dla miejsca). Poniższe listy pokazują ustawienia, które zmieniają się w przypadku wymiany miejsc.
 
@@ -40,6 +40,7 @@ Funkcje oznaczone gwiazdką (*) są planowane jako niezamienione.
 * Współużytkowanie zasobów między źródłami (CORS)
 * Integracja sieci wirtualnej
 * Mapowania ścieżki
+* Ustawienia kończące się sufiksem _EXTENSION_VERSION
 
 > [!NOTE]
 > Aby można było wymienić te ustawienia, należy dodać ustawienie aplikacji `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` w każdym gnieździe aplikacji i ustawić jego wartość na `0` lub `false` . Te ustawienia są albo w ogóle wymieniane, czy nie. Nie można wprowadzać tylko niektórych ustawień, a nie innych.

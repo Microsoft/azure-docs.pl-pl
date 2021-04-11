@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.author: victorh
-ms.openlocfilehash: 6855eb50519afacdf971ffcb8b70aa289b7cfe26
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bb89b6acbc76a4020ee721e87272b154bab6d0a4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066334"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385177"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -54,7 +54,6 @@ W usłudze Azure Firewall występują następujące znane problemy:
 
 |Problem  |Description  |Ograniczanie ryzyka  |
 |---------|---------|---------|
-|W przypadku aktualizowania reguły z adresu IP do grupy IP lub odwrotnie przy użyciu portalu są zapisywane oba typy, ale tylko jeden z nich zostanie wyświetlony w portalu.|Ten problem występuje z regułami klasycznymi.<br><br>Gdy korzystasz z portalu do aktualizowania typu źródła reguły NAT z adresu IP do grupy IP lub na odwrót, zapisuje oba typy w zapleczu, ale prezentuje tylko nowo zaktualizowany typ.<br><br>Ten sam problem występuje w przypadku aktualizowania typu docelowego reguły sieci lub aplikacji z adresu IP na typ grupy IP lub na odwrót.|Poprawka portalu jest przeznaczona dla marca, 2021.<br><br>W międzyczasie Użyj Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API, aby zmodyfikować regułę z adresu IP na grupę IP lub odwrotnie.|
 |Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie działają dla ruchu powiązanego z Internetem|Reguły filtrowania sieci dla protokołów innych niż TCP/UDP nie działają z przystawcy do publicznego adresu IP. Protokoły inne niż TCP/UDP są obsługiwane między podsieciami szprych i sieciami wirtualnymi.|Usługa Azure Firewall korzysta ze standardowego modułu równoważenia obciążenia, [który obecnie nie obsługuje funkcji SNAT dla protokołów IP](../load-balancer/load-balancer-overview.md). Szukamy opcji obsługi tego scenariusza w przyszłej wersji.|
 |Brak obsługi protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia|Azure PowerShell i interfejs wiersza polecenia nie obsługują protokołu ICMP jako prawidłowego protokołu w regułach sieci.|Nadal jest możliwe używanie protokołu ICMP jako protokołu za pośrednictwem portalu i interfejsu API REST. Pracujemy nad dodaniem protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia.|
 |Tagi FQDN wymagają ustawienia protokołu i portu|Reguły aplikacji ze znacznikami FQDN wymagają portu: Definicja protokołu.|Jako wartości portu i protokołu można użyć wartości **https**. Pracujemy nad tym, aby to pole było opcjonalne, gdy używane są Tagi FQDN.|
@@ -78,6 +77,7 @@ W usłudze Azure Firewall występują następujące znane problemy:
 |Uruchomienie/zatrzymanie nie działa z zaporą skonfigurowaną w trybie tunelowania wymuszonego|Uruchomienie/zatrzymanie nie działa z zaporą platformy Azure skonfigurowaną w trybie tunelowania wymuszonego. Próba uruchomienia zapory platformy Azure z skonfigurowanym wymuszonym tunelowaniem powoduje następujący błąd:<br><br>*Set-AzFirewall: AzureFirewall PD-XX Konfiguracja protokołu IP nie może zostać dodana do istniejącej zapory. Wdróż ponownie z konfiguracją protokołu IP zarządzania, jeśli chcesz użyć wymuszonego tunelowania. <br> StatusCode: 400 <br> ReasonPhrase: złe żądanie*|W trakcie badania.<br><br>Aby obejść ten sposób, można usunąć istniejącą zaporę i utworzyć nową z tymi samymi parametrami.|
 |Nie można dodać tagów zasad zapory przy użyciu portalu|Zasada zapory platformy Azure ma ograniczenie obsługi poprawek, które uniemożliwia dodanie znacznika przy użyciu Azure Portal. Generowany jest następujący błąd: nie *można zapisać tagów dla zasobu*.|Trwa badanie poprawki. Można też użyć polecenia cmdlet Azure PowerShell, `Set-AzFirewallPolicy` Aby zaktualizować Tagi.|
 |Protokół IPv6 nie jest jeszcze obsługiwany|W przypadku dodania do reguły adresu IPv6 Zapora nie powiedzie się.|Używaj tylko adresów IPv4. Obsługa protokołu IPv6 jest objęta badaniem.|
+|Aktualizacja wielu grup adresów IP kończy się niepowodzeniem z powodu błędu konfliktu.|W przypadku aktualizacji co najmniej dwóch IPGroups dołączonych do tej samej zapory jeden z zasobów przechodzi w stan niepowodzenia.|Jest to znany problem/ograniczenie. <br><br>Aktualizacja IPGroup wyzwala aktualizację wszystkich zapór, do których jest dołączona IPGroup. Jeśli aktualizacja drugiego IPGroup jest uruchomiona, gdy Zapora nadal jest w stanie *aktualizacji* , aktualizacja IPGroup nie powiedzie się.<br><br>Aby uniknąć awarii, IPGroups dołączone do tej samej zapory należy zaktualizować pojedynczo. Zezwól na wystarczającą ilość czasu między aktualizacjami, aby umożliwić wypróbowanie stanu *aktualizacji* przez zaporę.| 
 
 
 ## <a name="next-steps"></a>Następne kroki

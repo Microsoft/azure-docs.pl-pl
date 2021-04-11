@@ -107,7 +107,7 @@
         - name: Wdrażanie rozwiązania VMware Horizon
           href: azure-vmware-solution-horizon.md
         - name: Wdrażanie maszyn wirtualnych z poziomu biblioteki zawartości
-          href: ./deploy-vm-content-library.md
+          href: deploy-vm-content-library.md
     - name: Ekosystem oprogramowania VMware
       items:
         - name: Rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych
@@ -126,16 +126,20 @@
           href: /azure/azure-vmware/faq#general
         - name: Komunikacja z klientem
           href: /azure/azure-vmware/faq#customer-communication
-        - name: Rozwiązanie VMware i oprogramowanie VMware platformy Azure
-          href: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
-        - name: 'Obliczenia, Sieć, magazyn i kopia zapasowa'
-          href: '/azure/azure-vmware/faq#compute,-network,-storage,-and-backup'
+        - name: Konfiguracja i instalacja
+          href: /azure/azure-vmware/faq#configuration-and-setup
+        - name: Oprogramowanie VMware
+          href: /azure/azure-vmware/faq#vmware-software
+        - name: 'Obliczenia, tworzenie kopii zapasowych i odzyskiwanie po awarii'
+          href: '/azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery'
+        - name: Obsługa sieci i wzajemnych połączeń
+          href: /azure/azure-vmware/faq#networking-and-interconnectivity
+        - name: Storage
+          href: /azure/azure-vmware/faq#storage
         - name: 'Hosty, klastry i chmury prywatne'
           href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
-        - name: Łączność
-          href: /azure/azure-vmware/faq#connectivity
-        - name: Konta i uprawnienia
-          href: /azure/azure-vmware/faq#accounts-and-privileges
+        - name: Zarządzanie tożsamościami
+          href: /azure/azure-vmware/faq#identity-management
         - name: Rozliczenia i pomoc techniczna
           href: /azure/azure-vmware/faq#billing-and-support
     - name: Filmy wideo

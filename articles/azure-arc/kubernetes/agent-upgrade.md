@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Aktualizacje agentów kontroli dla usługi Azure ARC z włączoną obsługą Kubernetes
 keywords: Kubernetes, łuk, Azure, K8s, kontenery, Agent, uaktualnienie
-ms.openlocfilehash: d81a00ed4f30f446aeed96d59a455935c652b7d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29df9973ead167e7774924cc3a0c685606092d28
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954551"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442528"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Uaktualnianie agentów Kubernetes z włączonym usługą Azure Arc
 
@@ -53,7 +53,7 @@ az connectedk8s update --name AzureArcTest1 --resource-group AzureArcTest --auto
 Jeśli wyłączono funkcję autouaktualnienia dla agentów, można ręcznie zainicjować uaktualnienia dla tych agentów przy użyciu `az connectedk8s upgrade` polecenia, jak pokazano poniżej:
 
 ```console
-az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.0.1
+az connectedk8s upgrade -g AzureArcTest1 -n AzureArcTest --agent-version 1.1.0
 ```
 
 Usługa Azure Arc Kubernetes jest zgodna ze standardowym [schematem wersji semantycznej](https://semver.org/) programu `MAJOR.MINOR.PATCH` w celu zapewnienia wersji jego agentów. 

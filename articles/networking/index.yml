@@ -1,342 +1,336 @@
-### YamlMime:Hub
+### YamlMime:Hub 
 title: Dokumentacja funkcji sieciowych na platformie Azure
-summary: Dowiedz się więcej o różnych usługach sieciowych dostępnych na platformie Azure, które umożliwiają łączność z zasobami na platformie Azure oraz dostarczanie i ochronę aplikacji, a także ułatwiają zabezpieczanie sieci.
+summary: 'Dowiedz się więcej o różnych usługach sieciowych dostępnych na platformie Azure, które umożliwiają łączność z zasobami na platformie Azure oraz dostarczanie i ochronę aplikacji, a także ułatwiają zabezpieczanie sieci.'
 brand: azure
 metadata:
   title: Dokumentacja funkcji sieciowych na platformie Azure
-  description: Usługi sieciowe na platformie Azure umożliwiają łączność z zasobami na platformie Azure, dostarczanie i ochronę aplikacji oraz ułatwiają zabezpieczanie sieci.
+  description: 'Usługi sieciowe na platformie Azure umożliwiają łączność z zasobami na platformie Azure, dostarczanie i ochronę aplikacji oraz ułatwiają zabezpieczanie sieci.'
   ms.service: virtual-network
   ms.topic: hub-page
-  ms.collection: 
+  ms.collection: null
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 09/28/2020
-  ms.openlocfilehash: c701f1f54955257fd60fe8d58fb703a1d26d1169
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
-  ms.translationtype: MT
-  ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102503401"
+  ms.date: 03/30/2021
 highlightedContent:
   items:
-  - title: Co to są usługi Azure Networking?
-    itemType: overview
-    url: networking-overview.md
-  - title: Co to są usługi Azure Networking?
-    itemType: whats-new
-    url: https://azure.microsoft.com/updates/?category=networking
-  - title: Opcje równoważenia obciążenia na platformie Azure
-    itemType: architecture
-    url: /azure/architecture/guide/technology-choices/load-balancing-overview
-  - title: Topologia sieci piasty i szprych na platformie Azure
-    itemType: architecture
-    url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: Co to jest Azure Orbital?
-    itemType: concept
-    url: azure-orbital-overview.md
-  - title: Praca zdalna z usługami platformy Azure
-    itemType: concept
-    url: working-remotely-support.md
+    - title: Co to są usługi Azure Networking?
+      itemType: overview
+      url: fundamentals/networking-overview.md
+    - title: Co to są usługi Azure Networking?
+      itemType: whats-new
+      url: 'https://azure.microsoft.com/updates/?category=networking'
+    - title: Opcje równoważenia obciążenia na platformie Azure
+      itemType: architecture
+      url: /azure/architecture/guide/technology-choices/load-balancing-overview
+    - title: Topologia sieci piasty i szprych na platformie Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Co to jest Azure Orbital?
+      itemType: concept
+      url: azure-orbital-overview.md
+    - title: Praca zdalna z usługami platformy Azure
+      itemType: concept
+      url: working-remotely-support.md
 conceptualContent:
   items:
-  - title: Sieć wirtualna
-    links:
-    - url: ../virtual-network/virtual-networks-overview.md
-      itemType: concept
-      text: Co to jest sieć wirtualna platformy Azure?
-    - url: ../virtual-network/tutorial-restrict-network-access-to-resources.md
-      itemType: tutorial
-      text: Ograniczenie dostępu przez sieć do zasobów
-    - url: ../virtual-network/tutorial-connect-virtual-networks-portal.md
-      itemType: tutorial
-      text: Łączenie z sieciami wirtualnymi platformy Azure
-    - url: ../virtual-network/diagnose-network-traffic-filter-problem.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z filtrowaniem ruchu sieciowego
-    footerLink:
-      url: ../virtual-network/index.yml
-      text: Zobacz więcej
-  - title: Łączenie środowiska lokalnego z platformą Azure — szyfrowanie sieci wirtualnej
-    links:
-    - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-      itemType: overview
-      text: Co to jest usługa Azure VPN Gateway?
-    - url: ../vpn-gateway/tutorial-site-to-site-portal.md
-      itemType: tutorial
-      text: Połączenia międzylokacyjne
-    - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
-      itemType: how-to-guide
-      text: Połączenia typu punkt-lokacja
-    - url: ../vpn-gateway/vpn-gateway-troubleshoot.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z bramami sieci wirtualnej
-    footerLink:
-      url: ../vpn-gateway/index.yml
-      text: Zobacz więcej
-  - title: Rozszerzanie środowiska lokalnego na platformę Azure — połączenie prywatne
-    links:
-    - url: ../expressroute/expressroute-introduction.md
-      itemType: concept
-      text: Co to jest usługa Azure ExpressRoute?
-    - url: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md
-      itemType: tutorial
-      text: Tworzenie i modyfikowanie obwodu usługi ExpressRoute
-    - url: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md
-      itemType: tutorial
-      text: Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-    - url: ../expressroute/expressroute-troubleshooting-network-performance.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z wydajnością sieci
-    footerLink:
-      url: ../expressroute/index.yml
-      text: Zobacz więcej
-  - title: DNS
-    links:
-    - url: ../dns/dns-overview.md
-      itemType: overview
-      text: Co to jest system DNS platformy Azure?
-    - url: ../private-link/private-endpoint-overview.md
-      itemType: overview
-      text: Co to jest prywatna strefa DNS platformy Azure?
-    - url: ../dns/dns-delegate-domain-azure-dns.md
-      itemType: tutorial
-      text: Hostowanie domeny i poddomen
-    - url: ../dns/dns-getstarted-portal.md
-      itemType: tutorial
-      text: Rozwiązywanie problemów z usługą Azure DNS
-    footerLink:
-      url: ../dns/index.yml
-      text: Zobacz więcej
-  - title: Moduł równoważenia obciążenia sieciowego
-    links:
-    - url: ../load-balancer/load-balancer-overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Load Balancer?
-    - url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
-      itemType: whats-new
-      text: Co nowego
-    - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
-      itemType: quickstart
-      text: Równoważenie obciążenia ruchem internetowym przez skierowanie go do maszyn wirtualnych
-    - url: ../load-balancer/load-balancer-troubleshoot.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z usługą Azure Load Balancer
-    footerLink:
-      url: ../load-balancer/index.yml
-      text: Zobacz więcej
-  - title: Moduł równoważenia obciążenia oparty na usłudze DNS
-    links:
-    - url: ../traffic-manager/traffic-manager-overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Traffic Manager?
-    - url: ../traffic-manager/tutorial-traffic-manager-improve-website-response.md
-      itemType: tutorial
-      text: Kierowanie ruchem w celu uzyskania niskich opóźnień
-    - url: ../traffic-manager/traffic-manager-routing-methods.md
-      itemType: concept
-      text: Metody routingu ruchu
-    - url: ../traffic-manager/traffic-manager-troubleshooting-degraded.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Traffic Manager
-    footerLink:
-      url: ../traffic-manager/index.yml
-      text: Zobacz więcej
-  - title: Moduł równoważenia obciążenia aplikacji internetowych
-    links:
-    - url: ../application-gateway/overview.md
-      itemType: overview
-      text: Co to jest Azure Application Gateway?
-    - url: ../application-gateway/quick-create-portal.md
-      itemType: quickstart
-      text: Kierowanie ruchu internetowego za pomocą portalu
-    - url: ../application-gateway/application-gateway-faq.yml
-      itemType: concept
-      text: Często zadawane pytania
-    - url: ../application-gateway/application-gateway-troubleshooting-502.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z błędem Bad Gateway (Zła brama)
-    footerLink:
-      url: ../application-gateway/index.yml
-      text: Zobacz więcej
-  - title: Zabezpieczanie sieci CDN i globalnego modułu równoważenia obciążenia w chmurze
-    links:
-    - url: ../frontdoor/front-door-overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Front Door Service?
-    - url: ../frontdoor/standard-premium/overview.md
-      itemType: overview
-      text: Co to jest wersja Standard/Premium systemu Azure (wersja zapoznawcza)?
-    - url: ../frontdoor/front-door-custom-domain.md
-      itemType: how-to-guide
-      text: Dodawanie domeny niestandardowej do usługi Azure Front Door Service
-    - url: ../frontdoor/front-door-how-to-redirect-https.md
-      itemType: how-to-guide
-      text: Przekierowania protokołu HTTP do HTTPS
-    footerLink:
-      url: ../frontdoor/index.yml
-      text: Zobacz więcej
-  - title: Monitorowanie kondycji sieci
-    links:
-    - url: ../network-watcher/network-watcher-monitoring-overview.md
-      itemType: overview
-      text: Co to jest Azure Network Watcher?
-    - url: ../network-watcher/traffic-analytics.md
-      itemType: concept
-      text: Analiza ruchu na platformie Azure
-    - url: ../network-watcher/network-watcher-nsg-flow-logging-portal.md
-      itemType: tutorial
-      text: Rejestrowanie przepływu ruchu sieciowego do maszyny wirtualnej i z niej
-    footerLink:
-      url: ../network-watcher/index.yml
-      text: Zobacz więcej
-  - title: Zapora sieciowa
-    links:
-    - url: ../firewall/overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Firewall?
-    - url: ../firewall/tutorial-firewall-deploy-portal.md
-      itemType: tutorial
-      text: Wdrażanie i konfigurowanie usługi Azure Firewall
-    - url: ../firewall/tutorial-firewall-dnat.md
-      itemType: tutorial
-      text: Filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure Firewall
-    footerLink:
-      url: ../firewall/index.yml
-      text: Zobacz więcej
-  - title: Bezpieczny dostęp do maszyn wirtualnych platformy Azure
-    links:
-    - url: ../bastion/bastion-overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Bastion?
-    - url: ../bastion/tutorial-create-host-portal.md
-      itemType: how-to-guide
-      text: Tworzenie hosta usługi Azure Bastion
-    - url: ../bastion/troubleshoot.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z usługą Azure Bastion
-    footerLink:
-      url: ../bastion/index.yml
-      text: Zobacz więcej
-  - title: Zarządzanie bezpieczeństwem sieci
-    links:
-    - url: ../firewall-manager/overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Firewall Manager?
-    - url: ../firewall-manager/secured-virtual-hub.md
-      itemType: concept
-      text: Co to jest bezpieczny koncentrator wirtualny?
-    - url: ../firewall-manager/secure-cloud-network.md
-      itemType: tutorial
-      text: Zabezpieczanie wirtualnej sieci WAN przy użyciu usługi Azure Firewall Manager
-    footerLink:
-      url: ../firewall-manager/index.yml
-      text: Zobacz więcej
-  - title: Zapora aplikacji internetowej
-    links:
-    - url: ../web-application-firewall/overview.md
-      itemType: overview
-      text: Co to jest zapora aplikacji internetowej na platformie Azure?
-    - url: ../web-application-firewall/ag/ag-overview.md
-      itemType: concept
-      text: Zapora aplikacji internetowej w usłudze Application Gateway
-    - url: ../web-application-firewall/afds/afds-overview.md
-      itemType: concept
-      text: Zapora aplikacji internetowej w usłudze Azure Front Door Service
-    - url: ../web-application-firewall/cdn/cdn-overview.md
-      itemType: concept
-      text: Zapora aplikacji internetowej w usłudze Azure CDN
-    - url: ../web-application-firewall/ag/web-application-firewall-troubleshoot.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z zaporą aplikacji internetowej dla usługi Application Gateway
-    footerLink:
-      url: ../web-application-firewall/index.yml
-      text: Zobacz więcej
-  - title: Prywatny dostęp do usługi
-    links:
-    - url: ../private-link/private-link-overview.md
-      itemType: overview
-      text: Co to jest łącze prywatne platformy Azure?
-    - url: ../private-link/private-endpoint-overview.md
-      itemType: concept
-      text: Co to jest prywatny punkt końcowy platformy Azure?
-    - url: ../private-link/troubleshoot-private-link-connectivity.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z usługą Azure Private Link
-    footerLink:
-      url: ../private-link/index.yml
-      text: Zobacz więcej
-  - title: DDoS Protection
-    links:
-    - url: ../ddos-protection/ddos-protection-overview.md
-      itemType: overview
-      text: Co to jest usługa Azure DDoS Protection w warstwie Standardowa?
-    - url: ../ddos-protection/manage-ddos-protection.md
-      itemType: how-to-guide
-      text: Zarządzanie usługą DDoS Protection
-    - url: ../ddos-protection/ddos-protection-partner-onboarding.md
-      itemType: concept
-      text: Wdrażanie do pracy partnerów
-    footerLink:
-      url: ../ddos-protection/index.yml
-      text: Zobacz więcej
-  - title: Usługa Content Delivery Network
-    links:
-    - url: ../cdn/cdn-overview.md
-      itemType: overview
-      text: Co to jest usługa Azure Content Delivery Network?
-    - url: ../cdn/cdn-create-new-endpoint.md
-      itemType: quickstart
-      text: Tworzenie profilu i punktu końcowego usługi CDN
-    - url: ../cdn/cdn-standard-rules-engine-reference.md
-      itemType: concept
-      text: Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
-    - url: ../cdn/cdn-troubleshoot-endpoint.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z punktami końcowymi usługi Azure CDN
-    footerLink:
-      url: ../cdn/index.yml
-      text: Zobacz więcej
-  - title: Ujednolicone sieci o topologii piasty i szprych
-    links:
-    - url: ../virtual-wan/virtual-wan-about.md
-      itemType: overview
-      text: Co to jest usługa Azure Virtual WAN?
-    - url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
-      itemType: concept
-      text: Architektura globalnej sieci tranzytowej — usługa Azure Virtual WAN
-    - url: ../virtual-wan/virtual-wan-locations-partners.md
-      itemType: concept
-      text: Partnerzy i lokalizacje usługi Azure Virtual WAN
-    - url: ../virtual-wan/migrate-from-hub-spoke-topology.md
-      itemType: how-to-guide
-      text: Migrowanie z topologii piasty i szprych
-    footerLink:
-      url: ../virtual-wan/index.yml
-      text: Zobacz więcej
-  - title: Usługa Peering Service
-    links:
-    - url: ../peering-service/about.md
-      itemType: overview
-      text: Co to jest usługa Azure Peering Service?
-    - url: ../internet-peering/overview.md
-      itemType: overview
-      text: Co to jest internetowa komunikacja równorzędna?
-    - url: ../internet-peering/overview-peering-service.md
-      itemType: concept
-      text: Internetowa komunikacja równorzędna a Usługa Peering Service na platformie Azure
-    footerLink:
-      url: ../peering-service/index.yml
-      text: Zobacz więcej
+    - title: Omówienie podstaw sieci na platformie Azure
+      links:
+        - url: fundamentals/networking-overview.md
+          itemType: overview
+          text: Co to są usługi Azure Networking?
+        - url: ../virtual-network/quick-create-portal.md
+          itemType: get-started
+          text: Tworzenie sieci wirtualnej
+        - url: microsoft-global-network.md
+          itemType: concept
+          text: Globalna sieć firmy Microsoft
+      footerLink:
+        url: ../networking/fundamentals/index.yml
+        text: Zobacz więcej
+    - title: Sieć wirtualna
+      links:
+        - url: ../virtual-network/virtual-networks-overview.md
+          itemType: concept
+          text: Co to jest sieć wirtualna platformy Azure?
+        - url: ../virtual-network/tutorial-restrict-network-access-to-resources.md
+          itemType: tutorial
+          text: Ograniczenie dostępu przez sieć do zasobów
+        - url: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+          itemType: tutorial
+          text: Łączenie z sieciami wirtualnymi platformy Azure
+        - url: ../virtual-network/diagnose-network-traffic-filter-problem.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z filtrowaniem ruchu sieciowego
+      footerLink:
+        url: ../virtual-network/index.yml
+        text: Zobacz więcej
+    - title: Łączenie środowiska lokalnego z platformą Azure — szyfrowanie sieci wirtualnej
+      links:
+        - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+          itemType: overview
+          text: Co to jest usługa Azure VPN Gateway?
+        - url: ../vpn-gateway/tutorial-site-to-site-portal.md
+          itemType: tutorial
+          text: Połączenia międzylokacyjne
+        - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+          itemType: how-to-guide
+          text: Połączenia typu punkt-lokacja
+        - url: ../vpn-gateway/vpn-gateway-troubleshoot.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z bramami sieci wirtualnej
+      footerLink:
+        url: ../vpn-gateway/index.yml
+        text: Zobacz więcej
+    - title: Rozszerzanie środowiska lokalnego na platformę Azure — połączenie prywatne
+      links:
+        - url: ../expressroute/expressroute-introduction.md
+          itemType: concept
+          text: Co to jest usługa Azure ExpressRoute?
+        - url: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md
+          itemType: tutorial
+          text: Tworzenie i modyfikowanie obwodu usługi ExpressRoute
+        - url: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md
+          itemType: tutorial
+          text: Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
+        - url: ../expressroute/expressroute-troubleshooting-network-performance.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z wydajnością sieci
+      footerLink:
+        url: ../expressroute/index.yml
+        text: Zobacz więcej
+    - title: DNS
+      links:
+        - url: ../dns/dns-overview.md
+          itemType: overview
+          text: Co to jest system DNS platformy Azure?
+        - url: ../private-link/private-endpoint-overview.md
+          itemType: overview
+          text: Co to jest prywatna strefa DNS platformy Azure?
+        - url: ../dns/dns-delegate-domain-azure-dns.md
+          itemType: tutorial
+          text: Hostowanie domeny i poddomen
+        - url: ../dns/dns-getstarted-portal.md
+          itemType: tutorial
+          text: Rozwiązywanie problemów z usługą Azure DNS
+      footerLink:
+        url: ../dns/index.yml
+        text: Zobacz więcej
+    - title: Moduł równoważenia obciążenia sieciowego
+      links:
+        - url: ../load-balancer/load-balancer-overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Load Balancer?
+        - url: 'https://azure.microsoft.com/updates/?category=networking&query=load%20balancer'
+          itemType: whats-new
+          text: Co nowego
+        - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
+          itemType: quickstart
+          text: Równoważenie obciążenia ruchem internetowym przez skierowanie go do maszyn wirtualnych
+        - url: ../load-balancer/load-balancer-troubleshoot.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z usługą Azure Load Balancer
+      footerLink:
+        url: ../load-balancer/index.yml
+        text: Zobacz więcej
+    - title: Moduł równoważenia obciążenia oparty na usłudze DNS
+      links:
+        - url: ../traffic-manager/traffic-manager-overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Traffic Manager?
+        - url: ../traffic-manager/tutorial-traffic-manager-improve-website-response.md
+          itemType: tutorial
+          text: Kierowanie ruchem w celu uzyskania niskich opóźnień
+        - url: ../traffic-manager/traffic-manager-routing-methods.md
+          itemType: concept
+          text: Metody routingu ruchu
+        - url: ../traffic-manager/traffic-manager-troubleshooting-degraded.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Traffic Manager
+      footerLink:
+        url: ../traffic-manager/index.yml
+        text: Zobacz więcej
+    - title: Moduł równoważenia obciążenia aplikacji internetowych
+      links:
+        - url: ../application-gateway/overview.md
+          itemType: overview
+          text: Co to jest Azure Application Gateway?
+        - url: ../application-gateway/quick-create-portal.md
+          itemType: quickstart
+          text: Kierowanie ruchu internetowego za pomocą portalu
+        - url: ../application-gateway/application-gateway-faq.yml
+          itemType: concept
+          text: Często zadawane pytania
+        - url: ../application-gateway/application-gateway-troubleshooting-502.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z błędem Bad Gateway (Zła brama)
+      footerLink:
+        url: ../application-gateway/index.yml
+        text: Zobacz więcej
+    - title: Zabezpieczanie sieci CDN i globalnego modułu równoważenia obciążenia w chmurze
+      links:
+        - url: ../frontdoor/front-door-overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Front Door Service?
+        - url: ../frontdoor/standard-premium/overview.md
+          itemType: overview
+          text: Co to jest wersja Standard/Premium systemu Azure (wersja zapoznawcza)?
+        - url: ../frontdoor/front-door-custom-domain.md
+          itemType: how-to-guide
+          text: Dodawanie domeny niestandardowej do usługi Azure Front Door Service
+        - url: ../frontdoor/front-door-how-to-redirect-https.md
+          itemType: how-to-guide
+          text: Przekierowania protokołu HTTP do HTTPS
+      footerLink:
+        url: ../frontdoor/index.yml
+        text: Zobacz więcej
+    - title: Monitorowanie kondycji sieci
+      links:
+        - url: ../network-watcher/network-watcher-monitoring-overview.md
+          itemType: overview
+          text: Co to jest Azure Network Watcher?
+        - url: ../network-watcher/traffic-analytics.md
+          itemType: concept
+          text: Analiza ruchu na platformie Azure
+        - url: ../network-watcher/network-watcher-nsg-flow-logging-portal.md
+          itemType: tutorial
+          text: Rejestrowanie przepływu ruchu sieciowego do maszyny wirtualnej i z niej
+      footerLink:
+        url: ../network-watcher/index.yml
+        text: Zobacz więcej
+    - title: Zapora sieciowa
+      links:
+        - url: ../firewall/overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Firewall?
+        - url: ../firewall/tutorial-firewall-deploy-portal.md
+          itemType: tutorial
+          text: Wdrażanie i konfigurowanie usługi Azure Firewall
+        - url: ../firewall/tutorial-firewall-dnat.md
+          itemType: tutorial
+          text: Filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure Firewall
+      footerLink:
+        url: ../firewall/index.yml
+        text: Zobacz więcej
+    - title: Bezpieczny dostęp do maszyn wirtualnych platformy Azure
+      links:
+        - url: ../bastion/bastion-overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Bastion?
+        - url: ../bastion/tutorial-create-host-portal.md
+          itemType: how-to-guide
+          text: Tworzenie hosta usługi Azure Bastion
+        - url: ../bastion/troubleshoot.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z usługą Azure Bastion
+      footerLink:
+        url: ../bastion/index.yml
+        text: Zobacz więcej
+    - title: Zarządzanie bezpieczeństwem sieci
+      links:
+        - url: ../firewall-manager/overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Firewall Manager?
+        - url: ../firewall-manager/secured-virtual-hub.md
+          itemType: concept
+          text: Co to jest bezpieczny koncentrator wirtualny?
+        - url: ../firewall-manager/secure-cloud-network.md
+          itemType: tutorial
+          text: Zabezpieczanie wirtualnej sieci WAN przy użyciu usługi Azure Firewall Manager
+      footerLink:
+        url: ../firewall-manager/index.yml
+        text: Zobacz więcej
+    - title: Zapora aplikacji internetowej
+      links:
+        - url: ../web-application-firewall/overview.md
+          itemType: overview
+          text: Co to jest zapora aplikacji internetowej na platformie Azure?
+        - url: ../web-application-firewall/ag/ag-overview.md
+          itemType: concept
+          text: Zapora aplikacji internetowej w usłudze Application Gateway
+        - url: ../web-application-firewall/afds/afds-overview.md
+          itemType: concept
+          text: Zapora aplikacji internetowej w usłudze Azure Front Door Service
+        - url: ../web-application-firewall/cdn/cdn-overview.md
+          itemType: concept
+          text: Zapora aplikacji internetowej w usłudze Azure CDN
+        - url: ../web-application-firewall/ag/web-application-firewall-troubleshoot.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z zaporą aplikacji internetowej dla usługi Application Gateway
+      footerLink:
+        url: ../web-application-firewall/index.yml
+        text: Zobacz więcej
+    - title: Prywatny dostęp do usługi
+      links:
+        - url: ../private-link/private-link-overview.md
+          itemType: overview
+          text: Co to jest łącze prywatne platformy Azure?
+        - url: ../private-link/private-endpoint-overview.md
+          itemType: concept
+          text: Co to jest prywatny punkt końcowy platformy Azure?
+        - url: ../private-link/troubleshoot-private-link-connectivity.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z usługą Azure Private Link
+      footerLink:
+        url: ../private-link/index.yml
+        text: Zobacz więcej
+    - title: DDoS Protection
+      links:
+        - url: ../ddos-protection/ddos-protection-overview.md
+          itemType: overview
+          text: Co to jest usługa Azure DDoS Protection w warstwie Standardowa?
+        - url: ../ddos-protection/manage-ddos-protection.md
+          itemType: how-to-guide
+          text: Zarządzanie usługą DDoS Protection
+        - url: ../ddos-protection/ddos-protection-partner-onboarding.md
+          itemType: concept
+          text: Wdrażanie do pracy partnerów
+      footerLink:
+        url: ../ddos-protection/index.yml
+        text: Zobacz więcej
+    - title: Usługa Content Delivery Network
+      links:
+        - url: ../cdn/cdn-overview.md
+          itemType: overview
+          text: Co to jest usługa Azure Content Delivery Network?
+        - url: ../cdn/cdn-create-new-endpoint.md
+          itemType: quickstart
+          text: Tworzenie profilu i punktu końcowego usługi CDN
+        - url: ../cdn/cdn-standard-rules-engine-reference.md
+          itemType: concept
+          text: Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
+        - url: ../cdn/cdn-troubleshoot-endpoint.md
+          itemType: how-to-guide
+          text: Rozwiązywanie problemów z punktami końcowymi usługi Azure CDN
+      footerLink:
+        url: ../cdn/index.yml
+        text: Zobacz więcej
+    - title: Ujednolicone sieci o topologii piasty i szprych
+      links:
+        - url: ../virtual-wan/virtual-wan-about.md
+          itemType: overview
+          text: Co to jest usługa Azure Virtual WAN?
+        - url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
+          itemType: concept
+          text: Architektura globalnej sieci tranzytowej — usługa Azure Virtual WAN
+        - url: ../virtual-wan/virtual-wan-locations-partners.md
+          itemType: concept
+          text: Partnerzy i lokalizacje usługi Azure Virtual WAN
+        - url: ../virtual-wan/migrate-from-hub-spoke-topology.md
+          itemType: how-to-guide
+          text: Migrowanie z topologii piasty i szprych
+      footerLink:
+        url: ../virtual-wan/index.yml
+        text: Zobacz więcej
 additionalContent:
   sections:
-  - items:
-    - title: Polecenia programu Azure PowerShell dla usług Azure Networking
-      summary: Dowiedz się więcej o poleceniach cmdlet usług Azure Networking
-      url: /powershell/module/az.network/#networking
-    - title: Polecenia interfejsu wiersza polecenia platformy Azure dla usług Azure Networking
-      summary: Zobacz polecenia usług Azure Networking w dokumentacji interfejsu wiersza polecenia.
-      url: /cli/azure/network
-    - title: Blog usług Azure Networking
-      summary: Zobacz najnowsze blogi w usługach Azure Networking.
-      url: https://azure.microsoft.com/blog/topics/networking/
+    - items:
+        - title: Polecenia programu Azure PowerShell dla usług Azure Networking
+          summary: Dowiedz się więcej o poleceniach cmdlet usług Azure Networking
+          url: /powershell/module/az.network/#networking
+        - title: Polecenia interfejsu wiersza polecenia platformy Azure dla usług Azure Networking
+          summary: Zobacz polecenia usług Azure Networking w dokumentacji interfejsu wiersza polecenia.
+          url: /cli/azure/network
+        - title: Blog usług Azure Networking
+          summary: Zobacz najnowsze blogi w usługach Azure Networking.
+          url: 'https://azure.microsoft.com/blog/topics/networking/'

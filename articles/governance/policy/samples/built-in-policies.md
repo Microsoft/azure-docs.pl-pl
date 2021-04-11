@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 9ec08f3ee7a7970e80ceb346537bbaab3f08ed66
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 13b772a5e80db12ee4be4bec7731f72e46f0898f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105033166"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090940"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 

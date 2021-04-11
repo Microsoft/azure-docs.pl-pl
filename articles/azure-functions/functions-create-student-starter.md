@@ -1,15 +1,14 @@
 ---
 title: Tworzenie funkcji przy użyciu platformy Azure for Students Starter
 description: Dowiedz się, jak utworzyć funkcję platformy Azure z poziomu subskrypcji startowej platformy Azure dla uczniów
-Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ca91999182e717500eacfa73dda834e9cf89562
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182533"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067133"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Tworzenie funkcji przy użyciu platformy Azure for Students Starter
 

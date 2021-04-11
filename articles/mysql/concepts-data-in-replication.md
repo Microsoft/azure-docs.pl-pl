@@ -6,16 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab2433bfa4df3d75f10bc9128dc736ff6d12be76
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996223"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210520"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikowanie danych do Azure Database for MySQL
 
-Replikacja typu data-in pozwala synchronizować dane z zewnętrznego serwera MySQL do usługi Azure Database for MySQL. Serwer zewnętrzny może być lokalny, w maszynach wirtualnych lub w usłudze bazy danych hostowanej przez innych dostawców chmury. Replikacja typu data-in jest wykonywana za pomocą technologii replikacji opartej na pozycji w pliku dziennika binarnego (binlog) natywnej dla programu MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Replikacja typu data-in pozwala synchronizować dane z zewnętrznego serwera MySQL do usługi Azure Database for MySQL. Serwer zewnętrzny może być lokalny, w maszynach wirtualnych lub w usłudze bazy danych hostowanej przez innych dostawców chmury. Replikacja typu data-in jest oparty na lokalizacji pliku dzienników binarnych (binlog) lub na podstawie gtid replikacji natywnej dla bazy danych MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>Kiedy używać replikacja typu data-in
 Główne scenariusze, które należy wziąć pod uwagę przy użyciu replikacja typu data-in są następujące:
@@ -35,20 +35,20 @@ Aby pominąć replikację tabel z serwera źródłowego (hostowanego lokalnie, w
 
 Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) , aby dowiedzieć się więcej o tym parametrze.
 
+## <a name="supported-in-general-purpose-or-memory-optimized-tier-only"></a>Obsługiwane tylko w przypadku Ogólnego przeznaczenia lub warstwy zoptymalizowanej pod kątem pamięci
+Replikacja danych jest obsługiwana tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+
 ### <a name="requirements"></a>Wymagania
 - Wersja serwera źródłowego musi być nowsza niż wersja 5,6. 
 - Wersja serwera źródłowego i repliki musi być taka sama. Na przykład oba muszą być w wersji 5,6 lub muszą mieć wersję MySQL w wersji 5,7.
 - Każda tabela musi mieć klucz podstawowy.
 - Serwer źródłowy powinien używać aparatu programu MySQL InnoDB.
 - Użytkownik musi mieć uprawnienia do konfigurowania rejestrowania plików binarnych i tworzenia nowych użytkowników na serwerze źródłowym.
-- Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mysql.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
+- Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` procedurze składowanej lub. Zapoznaj się z poniższymi [przykładami](./howto-data-in-replication.md#4-link-source-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
 - Upewnij się, że adres IP serwera źródłowego został dodany do reguł zapory serwera repliki Azure Database for MySQL. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](./howto-manage-firewall-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](./howto-manage-firewall-using-cli.md).
 - Upewnij się, że komputer obsługujący serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306.
 - Upewnij się, że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
 
-### <a name="other"></a>Inne
-- Replikacja danych jest obsługiwana tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
-- Globalne identyfikatory transakcji (GTID) nie są obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [skonfigurować replikację danych](howto-data-in-replication.md)

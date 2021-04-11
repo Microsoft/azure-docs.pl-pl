@@ -6,10 +6,10 @@
   items:
     - name: Co nowego?
       href: release-notes.md
-    - name: Architektura rozwiązania bez agenta
+    - name: Co to jest architektura rozwiązania bez agenta
       displayName: 'deployment, where to deploy'
       href: architecture.md
-    - name: Architektura rozwiązań opartych na agentach
+    - name: Co to jest architektura rozwiązań oparta na agentach
       href: architecture-agent-based.md
 - name: Przewodniki Szybki start
   expanded: true
@@ -121,20 +121,31 @@
               href: how-to-install-software.md
         - name: Przygotowywanie czujników
           items:
-            - name: Dołączanie czujników
-              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
+            - name: Zarządzanie czujnikami
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Aktywowanie i konfigurowanie czujnika
               displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: Przygotowywanie lokalnej konsoli zarządzania
           items:
+            - name: Zarządzanie subskrypcjami
+              displayName: 'onboard, offboard, subscription, billing, pricing, payment'
+              href: how-to-manage-subscriptions.md
             - name: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
               displayName: 'deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Konfigurowanie wysokiej dostępności
               displayName: 'primary, secondary, failover, failback fail, recovery'
               href: how-to-set-up-high-availability.md
+        - name: Przygotowywanie czujników
+          items:
+            - name: Dołączanie czujników
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
+              href: how-to-manage-sensors-on-the-cloud.md
+            - name: Aktywowanie i konfigurowanie czujnika
+              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              href: how-to-activate-and-set-up-your-sensor.md
         - name: Zarządzanie użytkownikami i dostępem użytkowników
           items:
             - name: Tworzenie użytkowników i zarządzanie nimi

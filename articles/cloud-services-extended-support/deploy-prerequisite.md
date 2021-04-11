@@ -8,36 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bce09fad6ffa169a019628498a686226eff266c7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865608"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384983"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Wymagania wstępne dotyczące wdrażania usługi Azure Cloud Services (obsługa rozszerzona)
 
-> [!IMPORTANT]
-> Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Aby zapewnić pomyślne wdrożenie Cloud Services (obsługa rozszerzona), zapoznaj się z poniższymi krokami i Ukończ każdy element przed podjęciem próby wdrożenia. 
-
-## <a name="register-the-cloudservices-feature"></a>Rejestrowanie funkcji CloudServices
-Zarejestruj funkcję dla subskrypcji. Rejestracja może potrwać kilka minut. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Sprawdź stan rejestracji, korzystając z następujących elementów:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
 
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Aktualizacje wymaganego pliku konfiguracji usługi (. cscfg)
 

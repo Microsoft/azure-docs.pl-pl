@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cc9051190bd314ac93e3de2689a6aa0ec2b6235
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199190"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108085"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -35,7 +35,7 @@ W tym artykule przedstawiono sposób przekazywania i indeksowania wideo przy uż
 
 ## <a name="supported-file-formats-for-video-indexer"></a>Obsługiwane formaty plików dla Video Indexer
 
-Listę formatów plików, których można używać z Video Indexer, zawiera artykuł [dane wejściowe dotyczące formatów kontenerów i plików](../latest/media-encoder-standard-formats.md#input-containerfile-formats) .
+Listę formatów plików, których można używać z Video Indexer, zawiera artykuł [dane wejściowe dotyczące formatów kontenerów i plików](../latest/encode-media-encoder-standard-formats-reference.md) .
 
 ## <a name="video-files-storage"></a>Magazyn plików wideo
 
@@ -113,7 +113,7 @@ Po przekazaniu pliku wideo usługa Video Indexer opcjonalnie koduje ten plik. Na
 W przypadku korzystania z interfejsu API [przekazywania pliku wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub [ponownego indeksowania pliku wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) jednym z parametrów opcjonalnych jest `streamingPreset`. W razie ustawienia dla parametru `streamingPreset` wartości `Default`, `SingleBitrate` lub `AdaptiveBitrate` wywoływany jest proces kodowania. Po zakończeniu zadań indeksowania i kodowania plik wideo jest publikowany, aby można go było również przesyłać strumieniowo. Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać plik wideo, musi mieć stan **Uruchomiony**.
 
 W przypadku SingleBitrate koszt usługi Encoder w warstwie Standardowa będzie stosowany na dane wyjściowe. Jeśli wysokość filmu wideo jest większa lub równa 720, Video Indexer koduje ją jako 1280x720. W przeciwnym razie 640x468.
-Ustawieniem domyślnym jest [kodowanie z uwzględnieniem zawartości](../latest/content-aware-encoding.md).
+Ustawieniem domyślnym jest [kodowanie z uwzględnieniem zawartości](../latest/encode-content-aware-concept.md).
 
 Aby można było uruchomić zadania indeksowania i kodowania, dla [konta usługi Azure Media Services połączonego z kontem usługi Video Indexer](connect-to-azure.md) wymagane są jednostki zarezerwowane. Aby uzyskać więcej informacji, zobacz [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Skalowanie przetwarzania multimediów). Ponieważ te zadania wymagają intensywnego przetwarzania, zdecydowanie zaleca się typ jednostki S3. Liczba jednostek zarezerwowanych określa maksymalną liczbę zadań, które mogą działać równolegle. Zalecenie dotyczące planu bazowego to 10 jednostek zarezerwowanych S3. 
 

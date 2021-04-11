@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599144"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276998"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Instrukcje: Analiza Tonacjia i wyszukiwanie opinii
 
-Funkcja analiza tonacji interfejs API analizy tekstu zapewnia dwa sposoby wykrywania dodatnich i ujemnych tonacji. W przypadku wysłania żądania analiza tonacji interfejs API zwróci etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") oraz wyniki zaufania na poziomie zdania i dokumentu. Możesz również wysyłać opinie o żądaniach wyszukiwania przy użyciu punktu końcowego analiza tonacji, który zawiera szczegółowe informacje o opiniach związanych z wyrazami (np. z atrybutami produktów lub usług) w tekście. 
+Funkcja analiza tonacji interfejs API analizy tekstu zapewnia dwa sposoby wykrywania dodatnich i ujemnych tonacji. W przypadku wysłania żądania analiza tonacji interfejs API zwróci etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") oraz wyniki zaufania na poziomie zdania i dokumentu. Możesz również wysyłać opinie o żądaniach wyszukiwania przy użyciu punktu końcowego analiza tonacji, który zawiera szczegółowe informacje o opiniach związanych z wyrazami (np. z atrybutami produktów lub usług) w tekście.
 
 Modele AI używane przez interfejs API są udostępniane przez usługę. Wystarczy przesłać zawartość do analizy.
 
@@ -151,7 +151,7 @@ Dane wyjściowe są zwracane natychmiast. Można przesyłać strumieniowo wyniki
 
 Analiza tonacji v 3.1 może zwracać obiekty odpowiedzi zarówno dla analiza tonacji, jak i do wyszukiwania opinii.
   
-Analiza tonacji zwraca etykietę tonacji i wynik pewności dla całego dokumentu oraz każde zdanie w nim. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dokument może zawierać wiele zdań, a wyniki pewności w ramach każdego dokumentu lub zdania są dodawane do 1. oceny 
+Analiza tonacji zwraca etykietę tonacji i wynik pewności dla całego dokumentu oraz każde zdanie w nim. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dokument może zawierać wiele zdań, a wyniki pewności w ramach każdego dokumentu lub zdania są dodawane do 1.
 
 Celem wyszukiwania opinii będzie lokalizowanie obiektów docelowych (rzeczowników lub czasowników) w tekście i skojarzonych z nimi ocen (przymiotnik). W poniższej odpowiedzi zdanie *w restauracji miało doskonałą żywność i nasz obiekt oczekiwał* ma dwa cele: *żywność* i *oczekujące*. Każda właściwość docelowa `relations` zawiera `ref` wartość z odwołaniem identyfikatora URI do skojarzonych `documents` , `sentences` i `assessments` obiektów.
 

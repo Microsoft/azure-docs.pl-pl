@@ -1,14 +1,14 @@
 ---
-title: Oszczędność kosztów dzięki zarezerwowanemu wystąpieniu rozwiązania VMware platformy Azure
-description: Dowiedz się, jak kupić wystąpienie zarezerwowane dla rozwiązań VMware platformy Azure.
+title: Wystąpienia zarezerwowane rozwiązania VMware platformy Azure
+description: Dowiedz się, jak kupić wystąpienie zarezerwowane dla rozwiązań VMware platformy Azure. Wystąpienie zarezerwowane obejmuje tylko część obliczeniową użycia i zawiera koszty licencjonowania oprogramowania.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550979"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210028"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Oszczędność kosztów dzięki rozwiązaniu VMware platformy Azure
 
@@ -56,7 +56,7 @@ Te wymagania dotyczą kupowania zastrzeżonego dedykowanego wystąpienia hosta:
    | ------------ | ------------ |
    | Subskrypcja | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P), umowę klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym), jeśli jest dostępne, lub naliczane jako nadwyżka. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową subskrypcji lub formę płatności faktury. |
    | Zakres        | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:<br><ul><li><b>Zakres pojedynczej grupy zasobów</b> — stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.</li><li><b>Zakres pojedynczej subskrypcji</b> — stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.</li><li><b>Zakres udostępniony</b> — stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>       |
-   | Region (Region)       | Region świadczenia usługi Azure objęty rezerwacją.   |
+   | Region       | Region świadczenia usługi Azure objęty rezerwacją.   |
    | Rozmiar hosta    | AV36    |
    | Okres         | Jeden rok lub trzy lata.  |
    | Liczba     | Liczba wystąpień do zakupu w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.    |
@@ -85,7 +85,7 @@ Dostawcy usług kryptograficznych, którzy chcą zakupić wystąpienia zarezerwo
    | ------------ | ------------ |
    | Subskrypcja | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być typem kwalifikującym się, co w tym przypadku jest subskrypcją dostawcy usług kryptograficznych.|
    | Zakres        | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:<br><ul><li><b>Zakres pojedynczej grupy zasobów</b> — stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.</li><li><b>Zakres pojedynczej subskrypcji</b> — stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.</li><li><b>Zakres udostępniony</b> — stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>       |
-   | Region (Region)       | Region świadczenia usługi Azure objęty rezerwacją.   |
+   | Region       | Region świadczenia usługi Azure objęty rezerwacją.   |
    | Rozmiar hosta    | AV36    |
    | Okres         | Jeden rok lub trzy lata.  |
    | Liczba     | Liczba wystąpień do zakupu w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.     |
@@ -135,7 +135,7 @@ Dostawcy usług kryptograficznych mogą anulować rezerwacje, wymienić je lub r
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznaniu się z zakupionym wystąpieniem rozwiązania VMware firmy Azure możesz zapoznać się z tematem:
+Teraz, gdy pokryte zostało zastrzeżone wystąpienie rozwiązania VMware firmy Azure, warto zapoznać się z tematem:
 
 - [Tworzenie rozwiązania do oceny rozwiązań VMware platformy Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Zarządzanie protokołem DHCP dla rozwiązania VMware platformy Azure](manage-dhcp.md).

@@ -2,13 +2,13 @@
 title: Azure Service Bus Messaging — kolejki, tematy i subskrypcje
 description: Ten artykuł zawiera omówienie jednostek obsługi komunikatów Azure Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: ccd91d5091dbbba072cf222e5a73c3db1d48c321
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096324"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209828"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Kolejki, tematy i subskrypcje usługi Service Bus
 Azure Service Bus obsługuje zestaw opartych na chmurze technologii oprogramowania pośredniczącego, w tym niezawodnej usługi kolejkowania komunikatów i trwałego przesyłania komunikatów publikowania/subskrybowania. Te możliwości obsługi komunikatów obsługiwanych przez brokera mogą być traktowane jako funkcje obsługi komunikatów, które obsługują publikowanie-subskrybowanie, oddzielanie danych czasowych i scenariusze równoważenia obciążenia przy użyciu obciążenia Service Bus Messaging. Komunikacja oddzielona ma wiele zalet. Na przykład klienci i serwery mogą łączyć się w razie potrzeby i wykonywać operacje w sposób asynchroniczny.
@@ -53,7 +53,7 @@ W wielu scenariuszach komunikaty o określonych cechach muszą być przetwarzane
 
 Aby uzyskać pełny przykład pracy, zobacz [przykład TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) w witrynie GitHub.
 
-Aby uzyskać więcej informacji na temat możliwych wartości filtru, zobacz dokumentację klas [sqlfilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) i [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) .
+Aby uzyskać więcej informacji o filtrach, zobacz [temat filtry i akcje tematu](topic-filters.md).
 
 ## <a name="java-message-service-jms-20-entities"></a>Jednostki usługi wiadomości Java (JMS) 2,0
 Następujące jednostki są dostępne za pomocą interfejsu API usługi wiadomości Java (JMS) 2,0.

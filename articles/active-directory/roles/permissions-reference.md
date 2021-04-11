@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad8466dca6634b0e72ef4a65acb537006dba3bda
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 0e356363d91c3aa429fd958c1dd3bc553e7a4d29
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108544"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030240"
 ---
 # <a name="azure-ad-built-in-roles"></a>Role wbudowane usługi Azure AD
 
@@ -57,6 +57,7 @@ W tym artykule wymieniono wbudowane role usługi Azure AD, które można przypis
 > | [Administrator nazw domen](#domain-name-administrator) | Może zarządzać nazwami domen w chmurze i lokalnie. | 8329153b-31d0-4727-b945-745eb3bc5f31 |
 > | [Administrator systemu Dynamics 365](#dynamics-365-administrator) | Może zarządzać wszystkimi aspektami produktu Dynamics 365. | 44367163-eba1-44c3-98af-f5787879f96a |
 > | [Administrator programu Exchange](#exchange-administrator) | Może zarządzać wszystkimi aspektami produktu Exchange. | 29232cdf-9323-42fd-ade2-1d097af3e4de |
+> | [Administrator odbiorcy programu Exchange](#exchange-recipient-administrator) | Może utworzyć lub zaktualizować odbiorców usługi Exchange Online w organizacji usługi Exchange Online. | 31392ffb-586c-42d1-9346-e59415a2cc4e |
 > | [Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym](#external-id-user-flow-administrator) | Może tworzyć wszystkie aspekty przepływów użytkowników i zarządzać nimi. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
 > | [Administrator atrybutów przepływu użytkownika zewnętrznego ID](#external-id-user-flow-attribute-administrator) | Może tworzyć schemat atrybutów dostępny dla wszystkich przepływów użytkowników i zarządzać nim. | 0f971eea-41eb-4569-a71e-57bb8a3eff1e |
 > | [Administrator zewnętrznego dostawcy tożsamości](#external-identity-provider-administrator) | Można skonfigurować dostawców tożsamości do użycia w Federacji bezpośredniej. | be2f45a1-457d-42af-a067-6ec1fa63bc45 |
@@ -65,7 +66,7 @@ W tym artykule wymieniono wbudowane role usługi Azure AD, które można przypis
 > | [Administrator grup](#groups-administrator) | Członkowie tej roli mogą tworzyć grupy i zarządzać nimi, tworzyć i zarządzać ustawieniami grup, takimi jak zasady nazewnictwa i wygasania oraz przeglądać działania grup i raporty inspekcji. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Zapraszający gościa](#guest-inviter) | Może zapraszać użytkowników-Gości niezależnie od ustawienia "członkowie mogą zapraszać Gości". | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Administrator pomocy technicznej](#helpdesk-administrator) | Można resetować hasła dla administratorów nie będących administratorami i pomocą techniczną. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Administrator tożsamości hybrydowej](#hybrid-identity-administrator) | Może zarządzać usługą AD do aprowizacji w chmurze usługi Azure AD, Azure AD Connect i ustawień federacyjnych. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Administrator tożsamości hybrydowej](#hybrid-identity-administrator) | Może zarządzać usługą AD do usługi Azure AD — Inicjowanie obsługi administracyjnej, Azure AD Connect i ustawienia Federacji. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Administrator usługi Insights](#insights-administrator) | Ma dostęp administracyjny w aplikacji Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Lider biznesowy usługi Insights](#insights-business-leader) | Umożliwia wyświetlanie i udostępnianie pulpitów nawigacyjnych i szczegółowych informacji za pośrednictwem aplikacji M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrator usługi Intune](#intune-administrator) | Może zarządzać wszystkimi aspektami produktu usługi Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -121,9 +122,9 @@ Ta rola zapewnia również możliwość wyrażania zgody na delegowane uprawnien
 > | Microsoft. katalog/aplikacje/usuwanie | Usuń wszystkie typy aplikacji |
 > | Microsoft. Directory/Applications/applicationProxy/Read | Odczytaj wszystkie właściwości serwera proxy aplikacji |
 > | Microsoft. Directory/Applications/applicationProxy/Update | Aktualizuj wszystkie właściwości serwera proxy aplikacji |
-> | Microsoft. Directory/Applications/applicationProxyAuthentication/Update | Aktualizowanie właściwości uwierzytelniania serwera proxy aplikacji |
-> | Microsoft. Directory/Applications/applicationProxySslCertificate/Update | Aktualizowanie domen niestandardowych serwera proxy aplikacji |
-> | Microsoft. Directory/Applications/applicationProxyUrlSettings/Update | Aktualizowanie wewnętrznych i zewnętrznych adresów URL serwera proxy aplikacji |
+> | Microsoft. Directory/Applications/applicationProxyAuthentication/Update | Aktualizuj uwierzytelnianie dla wszystkich typów aplikacji |
+> | Microsoft. Directory/Applications/applicationProxySslCertificate/Update | Aktualizowanie ustawień certyfikatu SSL dla serwera proxy aplikacji |
+> | Microsoft. Directory/Applications/applicationProxyUrlSettings/Update | Aktualizowanie ustawień adresu URL dla serwera proxy aplikacji |
 > | Microsoft. Directory/Applications/appRoles/Update | Zaktualizuj Właściwość appRoles dla wszystkich typów aplikacji |
 > | Microsoft. katalog/aplikacje/odbiorcy/aktualizacja | Aktualizowanie właściwości odbiorców dla aplikacji |
 > | Microsoft. katalog/aplikacje/uwierzytelnianie/aktualizacja | Aktualizuj uwierzytelnianie dla wszystkich typów aplikacji |
@@ -198,7 +199,7 @@ Użytkownicy w tej roli mogą tworzyć ładunki ataków, ale nie są faktycznie 
 > | Akcje | Opis |
 > | --- | --- |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/allTasks | Tworzenie i zarządzanie ładunkiem ataków w symulatorze ataków |
-> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia |
+> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące odpowiedzi na symulację ataków i powiązanego szkolenia |
 
 ## <a name="attack-simulation-administrator"></a>Administrator symulacji ataku
 
@@ -208,7 +209,7 @@ Użytkownicy w tej roli mogą tworzyć i zarządzać wszystkimi aspektami tworze
 > | Akcje | Opis |
 > | --- | --- |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/allTasks | Tworzenie i zarządzanie ładunkiem ataków w symulatorze ataków |
-> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia |
+> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące odpowiedzi na symulację ataków i powiązanego szkolenia |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/symulacja/allProperties/allTasks | Tworzenie i zarządzanie szablonami symulacji ataków w symulatorze ataków |
 
 ## <a name="authentication-administrator"></a>Administrator uwierzytelniania
@@ -261,7 +262,7 @@ Role [administrator uwierzytelniania](#authentication-administrator) i [administ
 | Administrator zasad uwierzytelniania | Nie | Nie | Tak | Tak | Tak |
 
 > [!IMPORTANT]
-> Ta rola nie może zarządzać ustawieniami usługi MFA w starszym portalu zarządzania usługi MFA lub sprzętowym tokenem OATH. 
+> Ta rola nie może zarządzać ustawieniami usługi MFA w starszym portalu zarządzania usługi MFA lub sprzętowym tokenem OATH.
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -491,12 +492,12 @@ Użytkownicy z tą rolą mają możliwość zarządzania ustawieniami dostępu w
 > | --- | --- |
 > | Microsoft. Directory/conditionalAccessPolicies/Create | Tworzenie zasad dostępu warunkowego |
 > | Microsoft. Directory/conditionalAccessPolicies/Delete | Usuń zasady dostępu warunkowego |
-> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Odczyt właściwości zasad. conditionalAccess |
+> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczytaj dostęp warunkowy dla zasad |
+> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczytywanie właścicieli zasad dostępu warunkowego |
+> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Przeczytaj Właściwość "zastosowano do" dla zasad dostępu warunkowego |
 > | Microsoft. Directory/conditionalAccessPolicies/Basic/Update | Aktualizowanie podstawowych właściwości zasad dostępu warunkowego |
-> | Microsoft. Directory/conditionalAccessPolicies/właściciele/aktualizacja | Aktualizowanie właściwości policies. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/tenantDefault/Update | Aktualizowanie właściwości policies. conditionalAccess |
+> | Microsoft. Directory/conditionalAccessPolicies/właściciele/aktualizacja | Aktualizowanie właścicieli dla zasad dostępu warunkowego |
+> | Microsoft. Directory/conditionalAccessPolicies/tenantDefault/Update | Aktualizowanie domyślnej dzierżawy dla zasad dostępu warunkowego |
 > | Microsoft. Directory/crossTenantAccessPolicies/Create | Tworzenie zasad dostępu między dzierżawcami |
 > | Microsoft. Directory/crossTenantAccessPolicies/Delete | Usuwanie zasad dostępu między dzierżawcami |
 > | Microsoft. Directory/crossTenantAccessPolicies/Standard/Read | Odczytywanie podstawowych właściwości zasad dostępu dla wielu dzierżawców |
@@ -655,7 +656,7 @@ Użytkownicy w tej roli mogą odczytywać i aktualizować podstawowe informacje 
 > | Microsoft. Directory/Groups/dynamicMembershipRule/Update | Aktualizowanie reguły członkostwa dynamicznego grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/GroupType/Update | Aktualizowanie właściwości GroupType dla grupy |
 > | Microsoft. Directory/Groups/Members/Update | Aktualizowanie członków grup, z wyłączeniem grup przypisanych do ról |
-> | Microsoft. Directory/Groups/onPremWriteBack/Update | Aktualizowanie grup usługi Azure AD w celu zapisywania ich z powrotem w środowisku lokalnym |
+> | Microsoft. Directory/Groups/onPremWriteBack/Update | Aktualizowanie grup Azure Active Directory, które mają być zapisywane z powrotem w środowisku lokalnym za pomocą Azure AD Connect |
 > | Microsoft. Directory/Groups/Owners/Update | Aktualizowanie właścicieli grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/Settings/Update | Aktualizowanie ustawień grup |
 > | Microsoft. Directory/Groups/Visibility/Update | Aktualizowanie właściwości widoczności grup |
@@ -667,7 +668,7 @@ Użytkownicy w tej roli mogą odczytywać i aktualizować podstawowe informacje 
 > | Microsoft. Directory/serviceprincipals/synchronizationCredentials/Manage | Zarządzanie wpisami tajnymi i poświadczeniami aprowizacji aplikacji |
 > | Microsoft. Directory/serviceprincipals/synchronizationJobs/Manage | Uruchamianie, ponowne uruchamianie i wstrzymywanie zadań aprowizacji aplikacji Synchronizacja |
 > | Microsoft. Directory/serviceprincipals/synchronizationSchema/Manage | Twórz i Zarządzaj zadaniami synchronizacja i schematem aprowizacji aplikacji |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj jednostce usługi bezpośredni dostęp do danych grupy |
 > | Microsoft. Directory/serviceprincipals/appRoleAssignedTo/Update | Aktualizowanie przypisań ról głównych usługi |
 > | Microsoft. Directory/Users/assignLicense | Zarządzanie licencjami użytkowników |
 > | Microsoft. Directory/Users/Create | Dodawanie użytkowników |
@@ -731,6 +732,17 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchang
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
 > | Microsoft. Office 365. usageReports/allEntities/allProperties/Read | Przeczytaj raporty dotyczące użycia pakietu Office 365 |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
+
+## <a name="exchange-recipient-administrator"></a>Administrator odbiorcy programu Exchange
+
+Użytkownicy z tą rolą mają dostęp do odczytu dla adresatów oraz dostęp do zapisu do atrybutów tych adresatów w usłudze Exchange Online. Więcej informacji na temat [odbiorców programu Exchange](/exchange/recipients/recipients).
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | Microsoft. Office 365. Exchange/allRecipients/allProperties/allTasks | Tworzenie i usuwanie wszystkich odbiorców oraz odczytywanie i aktualizowanie wszystkich właściwości adresatów w usłudze Exchange Online |
+> | Microsoft. Office 365. Exchange/messageTracking/allProperties/allTasks | Zarządzanie wszystkimi zadaniami w funkcji śledzenia komunikatów w usłudze Exchange Online |
+> | Microsoft. Office 365. Exchange/Migration/allProperties/allTasks | Zarządzanie wszystkimi zadaniami związanymi z migracją adresatów w usłudze Exchange Online |
 
 ## <a name="external-id-user-flow-administrator"></a>Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym
 
@@ -820,10 +832,10 @@ Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w
 > | Microsoft. Directory/ServiceAction/activateService | Może wykonać akcję "Aktywowanie usługi" dla usługi |
 > | Microsoft. Directory/ServiceAction/disableDirectoryFeature | Może wykonać akcję "Wyłącz funkcję usługi katalogowej" |
 > | Microsoft. Directory/ServiceAction/enableDirectoryFeature | Może wykonać akcję "Włącz funkcję usługi katalogowej" |
-> | Microsoft. Directory/ServiceAction/getAvailableExtentionProperties | Może wykonać akcję usługi Getavailableextentionproperties |
+> | Microsoft. Directory/ServiceAction/getAvailableExtentionProperties | Może wykonać akcję usługi getAvailableExtentionProperties |
 > | Microsoft. Directory/serviceprincipals/allProperties/allTasks | Tworzenie i usuwanie jednostek usługi oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/serviceprincipals/managePermissionGrantsForAll. Microsoft-Company-Admin | Przyznaj zgodę na wszelkie uprawnienia do dowolnej aplikacji |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj jednostce usługi bezpośredni dostęp do danych grupy |
 > | Microsoft. Directory/serviceprincipals/Synchronization/Standard/Read | Odczytaj ustawienia aprowizacji skojarzone z jednostką usługi |
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Directory/subscribedSkus/allProperties/allTasks | Kupowanie i zarządzanie subskrypcjami oraz usuwanie subskrypcji |
@@ -898,9 +910,9 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 > | Microsoft. katalog/zasady/standardowe/odczyt | Odczytywanie podstawowych właściwości zasad |
 > | Microsoft. katalog/zasady/właściciele/odczyt | Odczytaj właścicieli zasad |
 > | Microsoft. Directory/policies/policyAppliedTo/Read | Odczyt właściwości zasad. policyAppliedTo |
-> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Odczyt właściwości zasad. conditionalAccess |
+> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczytaj dostęp warunkowy dla zasad |
+> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczytywanie właścicieli zasad dostępu warunkowego |
+> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Przeczytaj Właściwość "zastosowano do" dla zasad dostępu warunkowego |
 > | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszystkich właściwości dzienników aprowizacji |
 > | Microsoft. Directory/serviceprincipals/Authentication/Read | Odczytywanie właściwości uwierzytelniania w jednostkach usługi |
 > | Microsoft. Directory/serviceprincipals/Synchronization/Standard/Read | Odczytaj ustawienia aprowizacji skojarzone z jednostką usługi |
@@ -934,11 +946,11 @@ Użytkownicy w tej roli mogą tworzyć grupy i ich ustawienia, takie jak zasady 
 > | Microsoft. Directory/Groups/dynamicMembershipRule/Update | Aktualizowanie reguły członkostwa dynamicznego grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/GroupType/Update | Aktualizowanie właściwości GroupType dla grupy |
 > | Microsoft. Directory/Groups/Members/Update | Aktualizowanie członków grup, z wyłączeniem grup przypisanych do ról |
-> | Microsoft. Directory/Groups/onPremWriteBack/Update | Aktualizowanie grup usługi Azure AD w celu zapisywania ich z powrotem w środowisku lokalnym |
+> | Microsoft. Directory/Groups/onPremWriteBack/Update | Aktualizowanie grup Azure Active Directory, które mają być zapisywane z powrotem w środowisku lokalnym za pomocą Azure AD Connect |
 > | Microsoft. Directory/Groups/Owners/Update | Aktualizowanie właścicieli grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/Settings/Update | Aktualizowanie ustawień grup |
 > | Microsoft. Directory/Groups/Visibility/Update | Aktualizowanie właściwości widoczności grup |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj jednostce usługi bezpośredni dostęp do danych grupy |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
@@ -1133,7 +1145,7 @@ Użytkownicy w tej roli mają pełny dostęp do wszystkich ustawień wiedzy, ucz
 > | Microsoft. Directory/groups. Security/Owners/Update | Aktualizowanie właścicieli grup zabezpieczeń z wykluczeniem grup do przypisania ról |
 > | Microsoft. Office 365. Knowledge/contentUnderstanding/allProperties/allTasks | Odczytywanie i aktualizowanie wszystkich właściwości interpretacji zawartości w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. Knowledge/knowledgeNetwork/allProperties/allTasks | Odczytywanie i aktualizowanie wszystkich właściwości sieci wiedzy w centrum administracyjnym Microsoft 365 |
-> | Microsoft. Office 365. protectionCenter/sensitivityLabels/allProperties/Read | Odczytywanie etykiet czułości w centrach zabezpieczeń i zgodności |
+> | Microsoft. Office 365. protectionCenter/sensitivityLabels/allProperties/Read | Odczytywanie wszystkich właściwości etykiet informacji o czułości w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office. sharePoint/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie właściwości standardowych w programie SharePoint |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
@@ -1292,7 +1304,7 @@ Nie używaj. Ta rola jest przestarzała i zostanie usunięta z usługi Azure AD 
 > | Microsoft. Directory/Contacts/Create | Utwórz kontakty |
 > | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty |
 > | Microsoft. Directory/Contacts/Basic/Update | Aktualizowanie podstawowych właściwości kontaktów |
-> | Microsoft. Directory/domen/Basic/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie właściwości standardowych |
+> | Microsoft. Directory/domen/allProperties/allTasks | Tworzenie i usuwanie domen oraz odczytywanie i aktualizowanie wszystkich właściwości |
 > | Microsoft. Directory/Groups/Create | Tworzenie grup z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/Delete | Usuwanie grup, z wyłączeniem grupy przypisanej do roli |
 > | Microsoft. Directory/Groups/Restore | Przywracanie usuniętych grup |
@@ -1528,12 +1540,12 @@ Windows Defender ATP i EDR | Przypisywanie ról<br>Zarządzanie grupami maszyn<b
 > | Microsoft. Directory/policies/tenantDefault/Update | Aktualizowanie domyślnych zasad organizacji |
 > | Microsoft. Directory/conditionalAccessPolicies/Create | Tworzenie zasad dostępu warunkowego |
 > | Microsoft. Directory/conditionalAccessPolicies/Delete | Usuń zasady dostępu warunkowego |
-> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Odczyt właściwości zasad. conditionalAccess |
+> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczytaj dostęp warunkowy dla zasad |
+> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczytywanie właścicieli zasad dostępu warunkowego |
+> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Przeczytaj Właściwość "zastosowano do" dla zasad dostępu warunkowego |
 > | Microsoft. Directory/conditionalAccessPolicies/Basic/Update | Aktualizowanie podstawowych właściwości zasad dostępu warunkowego |
-> | Microsoft. Directory/conditionalAccessPolicies/właściciele/aktualizacja | Aktualizowanie właściwości policies. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/tenantDefault/Update | Aktualizowanie właściwości policies. conditionalAccess |
+> | Microsoft. Directory/conditionalAccessPolicies/właściciele/aktualizacja | Aktualizowanie właścicieli dla zasad dostępu warunkowego |
+> | Microsoft. Directory/conditionalAccessPolicies/tenantDefault/Update | Aktualizowanie domyślnej dzierżawy dla zasad dostępu warunkowego |
 > | Microsoft. Directory/privilegedIdentityManagement/allProperties/odczyt | Odczytuj wszystkie zasoby w Privileged Identity Management |
 > | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszystkich właściwości dzienników aprowizacji |
 > | Microsoft. Directory/serviceprincipals/policies/Update | Aktualizowanie zasad nazw głównych usługi |
@@ -1543,7 +1555,7 @@ Windows Defender ATP i EDR | Przypisywanie ról<br>Zarządzanie grupami maszyn<b
 > | Microsoft. Office 365. protectionCenter/allEntities/Standard/Read | Odczytywanie standardowych właściwości wszystkich zasobów w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office 365. protectionCenter/allEntities/Basic/Update | Aktualizuj podstawowe właściwości wszystkich zasobów w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/allTasks | Tworzenie i zarządzanie ładunkiem ataków w symulatorze ataków |
-> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia |
+> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące odpowiedzi na symulację ataków i powiązanego szkolenia |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/symulacja/allProperties/allTasks | Tworzenie i zarządzanie szablonami symulacji ataków w symulatorze ataków |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
 > | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz żądania obsługi Microsoft 365 i zarządzaj nimi |
@@ -1606,16 +1618,16 @@ Windows Defender ATP i EDR | Wyświetlanie i badanie alertów. Po włączeniu ko
 > | Microsoft. katalog/zasady/standardowe/odczyt | Odczytywanie podstawowych właściwości zasad |
 > | Microsoft. katalog/zasady/właściciele/odczyt | Odczytaj właścicieli zasad |
 > | Microsoft. Directory/policies/policyAppliedTo/Read | Odczyt właściwości zasad. policyAppliedTo |
-> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczyt właściwości zasad. conditionalAccess |
-> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Odczyt właściwości zasad. conditionalAccess |
+> | Microsoft. Directory/conditionalAccessPolicies/Standard/Read | Odczytaj dostęp warunkowy dla zasad |
+> | Microsoft. Directory/conditionalAccessPolicies/właściciele/odczyt | Odczytywanie właścicieli zasad dostępu warunkowego |
+> | Microsoft. Directory/conditionalAccessPolicies/policyAppliedTo/odczyt | Przeczytaj Właściwość "zastosowano do" dla zasad dostępu warunkowego |
 > | Microsoft. Directory/privilegedIdentityManagement/allProperties/odczyt | Odczytuj wszystkie zasoby w Privileged Identity Management |
 > | Microsoft. Directory/provisioningLogs/allProperties/odczyt | Odczytywanie wszystkich właściwości dzienników aprowizacji |
 > | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytywanie wszystkich właściwości raportów logowania, w tym właściwości uprzywilejowanych |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Office 365. protectionCenter/allEntities/Standard/Read | Odczytywanie standardowych właściwości wszystkich zasobów w centrach zabezpieczeń i zgodności |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/ładunek/allProperties/odczyt | Odczytywanie wszystkich właściwości ładunków ataków w symulatorze ataków |
-> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące symulacji ataku, odpowiedzi i powiązanego szkolenia |
+> | Microsoft. Office 365. protectionCenter/attackSimulator/Reports/allProperties/Read | Przeczytaj raporty dotyczące odpowiedzi na symulację ataków i powiązanego szkolenia |
 > | Microsoft. Office 365. protectionCenter/attackSimulator/symulacja/allProperties/odczyt | Odczytywanie wszystkich właściwości szablonów symulacji ataków w symulatorze ataków |
 > | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytywanie i Konfigurowanie Service Health w centrum administracyjnym Microsoft 365 |
 > | Microsoft. 365. webports/allEntities/Standard/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w centrum administracyjnym Microsoft 365 |
@@ -1697,7 +1709,7 @@ Użytkownicy w tej roli mogą zarządzać wszystkimi aspektami obciążeń progr
 > | Microsoft. Directory/groups. Unified/Basic/Update | Aktualizowanie podstawowych właściwości w grupach Microsoft 365 z wykluczeniem grup z możliwością przypisywania ról |
 > | Microsoft. Directory/groups. Unified/Members/Update | Aktualizowanie członków grup Microsoft 365 z wykluczeniem grup do przypisania ról |
 > | Microsoft. Directory/groups. Unified/właściciele/aktualizacja | Aktualizowanie właścicieli grup Microsoft 365 z wykluczeniem grup do przypisania ról |
-> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj usłudze Principal bezpośredni dostęp do danych grupy |
+> | Microsoft. Directory/serviceprincipals/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Przyznaj jednostce usługi bezpośredni dostęp do danych grupy |
 > | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health |
 > | Microsoft. Azure. supportTickets/allEntities/allTasks | Tworzenie biletów pomocy technicznej systemu Azure i zarządzanie nimi |
 > | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytywanie wszystkich właściwości wydajności sieci w centrum administracyjnym Microsoft 365 |
@@ -1814,7 +1826,7 @@ Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi 
 > | Microsoft. Directory/Groups/dynamicMembershipRule/Update | Aktualizowanie reguły członkostwa dynamicznego grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/GroupType/Update | Aktualizowanie właściwości GroupType dla grupy |
 > | Microsoft. Directory/Groups/Members/Update | Aktualizowanie członków grup, z wyłączeniem grup przypisanych do ról |
-> | Microsoft. Directory/Groups/onPremWriteBack/Update | Aktualizowanie grup usługi Azure AD w celu zapisywania ich z powrotem w środowisku lokalnym |
+> | Microsoft. Directory/Groups/onPremWriteBack/Update | Aktualizowanie grup Azure Active Directory, które mają być zapisywane z powrotem w środowisku lokalnym za pomocą Azure AD Connect |
 > | Microsoft. Directory/Groups/Owners/Update | Aktualizowanie właścicieli grup, z wyłączeniem grup przypisanych do ról |
 > | Microsoft. Directory/Groups/Settings/Update | Aktualizowanie ustawień grup |
 > | Microsoft. Directory/Groups/Visibility/Update | Aktualizowanie właściwości widoczności grup |
@@ -1854,7 +1866,7 @@ Na przykład:
 | namespace | Produkt lub usługa, która uwidacznia zadanie i jest dołączana `microsoft` . Na przykład wszystkie zadania w usłudze Azure AD używają `microsoft.directory` przestrzeni nazw. |
 | jednostka | Logiczna funkcja lub składnik uwidoczniony przez usługę w Microsoft Graph. Na przykład usługa Azure AD uwidacznia użytkowników i grupy, program OneNote udostępnia notatki, a w programie Exchange są ujawniane skrzynki pocztowe i kalendarze. Istnieje specjalne `allEntities` słowo kluczowe do określenia wszystkich jednostek w przestrzeni nazw. Jest to często używane w rolach, które udzielają dostępu do całego produktu. |
 | PropertySet — | Określone właściwości lub aspekty jednostki, dla których przyznano dostęp. Na przykład `microsoft.directory/applications/authentication/read` przyznaje możliwość odczytywania adresu URL odpowiedzi, adresu URL wylogowywania i niejawnego przepływu w obiekcie aplikacji w usłudze Azure AD.<ul><li>`allProperties` wyznacza wszystkie właściwości jednostki, w tym właściwości uprzywilejowane.</li><li>`standard` wyznacza typowe właściwości, ale wyklucza uprzywilejowane powiązane z `read` akcją. Program zawiera na przykład `microsoft.directory/user/standard/read` możliwość odczytywania standardowych właściwości, takich jak publiczny numer telefonu i adres e-mail, ale nie prywatny numer telefonu lub adres e-mail używany do uwierzytelniania wieloskładnikowego.</li><li>`basic` wyznacza typowe właściwości, ale wyklucza uprzywilejowane powiązane z `update` akcją. Zestaw właściwości, które można odczytać, może się różnić od tego, co można aktualizować. Dlatego istnieje `standard` i `basic` słowa kluczowe, które należy uwzględnić.</li></ul> |
-| akcja | Przyznana operacja, najczęściej utworzona, Odczytaj, zaktualizuj lub Usuń (CRUD). Istnieje specjalne `allTasks` słowo kluczowe do określenia wszystkich powyższych możliwości (tworzenie, odczytywanie, aktualizowanie i usuwanie). |
+| action | Przyznana operacja, najczęściej utworzona, Odczytaj, zaktualizuj lub Usuń (CRUD). Istnieje specjalne `allTasks` słowo kluczowe do określenia wszystkich powyższych możliwości (tworzenie, odczytywanie, aktualizowanie i usuwanie). |
 
 ## <a name="deprecated-roles"></a>Przestarzałe role
 

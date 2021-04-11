@@ -3,12 +3,12 @@ title: Zadanie wieloetapowe umożliwiające kompilację, testowanie obrazu & pop
 description: Wprowadzenie do wieloetapowych zadań, funkcji ACR zadań w Azure Container Registry, które udostępniają przepływy pracy oparte na zadaniach służące do kompilowania, testowania i poprawiania obrazów kontenerów w chmurze.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc671006beb1934b32fcd6ccf967a5bf9ff817fb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78399699"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169202"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Uruchamianie wieloetapowych zadań kompilacji, testów i poprawek w zadaniach ACR
 
@@ -65,7 +65,7 @@ steps:
     build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t $Registry/hello-world-tests ./funcTests
+    build: -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
     push: ["$Registry/helloworld:$ID"]

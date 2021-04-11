@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d965ec17fb605362c1e8cd8ef781a6bd2029d0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465712"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067388"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Używanie Media Services do dostarczania licencji DRM lub kluczy AES
 
@@ -54,7 +54,7 @@ Na poniższym diagramie przedstawiono główne kroki, które należy wykonać, a
     ```
  
 ## <a name="net-code-example"></a>Przykład kodu platformy .NET
-Poniższy przykład kodu pokazuje, jak utworzyć wspólny klucz zawartości i uzyskać adresy URL pozyskiwania licencji PlayReady lub Widevine. Aby skonfigurować serwer lokalny, należy dysponować kluczem zawartości, IDENTYFIKATORem klucza i adresem URL pozyskiwania licencji. Po skonfigurowaniu serwera lokalnego można przesyłać strumieniowo z własnego serwera przesyłania strumieniowego. Ze względu na to, że zaszyfrowany strumień wskazuje na serwer licencji Media Services, odtwarzacz żąda licencji od Media Services. W przypadku wybrania opcji uwierzytelnianie tokenu serwer licencji Media Services sprawdza poprawność tokenu wysyłanego za pośrednictwem protokołu HTTPS. Jeśli token jest prawidłowy, serwer licencji dostarcza licencję z powrotem do odtwarzacza. Poniższy przykład kodu pokazuje, jak utworzyć wspólny klucz zawartości i uzyskać adresy URL pozyskiwania licencji PlayReady lub Widevine. Jeśli chcesz dostarczyć klucze AES-128, musisz utworzyć klucz zawartości koperty i uzyskać adres URL pozyskiwania klucza. Aby uzyskać więcej informacji, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
+Poniższy przykład kodu pokazuje, jak utworzyć wspólny klucz zawartości i uzyskać adresy URL pozyskiwania licencji PlayReady lub Widevine. Aby skonfigurować serwer lokalny, należy dysponować kluczem zawartości, IDENTYFIKATORem klucza i adresem URL pozyskiwania licencji. Po skonfigurowaniu serwera lokalnego można przesyłać strumieniowo z własnego serwera przesyłania strumieniowego. Ze względu na to, że zaszyfrowany strumień wskazuje na serwer licencji Media Services, odtwarzacz żąda licencji od Media Services. W przypadku wybrania opcji uwierzytelnianie tokenu serwer licencji Media Services sprawdza poprawność tokenu wysyłanego za pośrednictwem protokołu HTTPS. Jeśli token jest prawidłowy, serwer licencji dostarcza licencję z powrotem do odtwarzacza. Poniższy przykład kodu pokazuje, jak utworzyć wspólny klucz zawartości i uzyskać adresy URL pozyskiwania licencji PlayReady lub Widevine. Jeśli chcesz dostarczyć klucze AES-128, musisz utworzyć klucz zawartości koperty i uzyskać adres URL pozyskiwania klucza. Aby uzyskać więcej informacji, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Zobacz też
 * [Używanie dynamicznego szyfrowania Common Encryption w usługach PlayReady i Widevine](media-services-protect-with-playready-widevine.md)
-* [Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md)
+* [Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy](media-services-playready-license-template-overview.md)

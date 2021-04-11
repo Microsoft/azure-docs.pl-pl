@@ -2,20 +2,20 @@
 title: Używanie spisu usługi Azure Storage do zarządzania danymi obiektów BLOB (wersja zapoznawcza)
 description: Spis usługi Azure Storage to narzędzie ułatwiające zapoznaj się z omówieniem wszystkich danych obiektów BLOB w ramach konta magazynu.
 services: storage
-author: mhopkins-msft
+author: twooley
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
-ms.reviewer: yzheng
+ms.author: twooley
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950930"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277270"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Używanie spisu obiektów BLOB usługi Azure Storage do zarządzania danymi obiektów BLOB (wersja zapoznawcza)
 
@@ -37,6 +37,7 @@ Wersja zapoznawcza magazynu obiektów BLOB jest dostępna na kontach magazynu w 
 - Kanada Wschodnia
 - East US
 - Wschodnie stany USA 2
+- West Europe
 
 ### <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
@@ -202,6 +203,14 @@ Przykładowe zdarzenie:
   "eventTime": "2020-10-13T15:47:54Z"
 }
 ```
+
+## <a name="known-issues"></a>Znane problemy
+
+W tej sekcji opisano ograniczenia i znane problemy związane z funkcją spisu obiektów BLOB usługi Azure Storage.
+
+### <a name="inventory-job-fails-to-complete"></a>Ukończenie zadania spisu nie powiodło się
+
+Zadanie spisu może nie zakończyć się w ciągu 24 godzin, a konto z milionami obiektów blob i hierarchicznych przestrzeni nazw jest włączone. W takim przypadku nie zostanie utworzony plik spisu.
 
 ## <a name="next-steps"></a>Następne kroki
 

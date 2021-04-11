@@ -4,19 +4,19 @@ description: Przejrzyj opisy alertów usługi Defender for IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/29/2021
+ms.date: 4/8/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 42a922dab2237925c2294245e112aab70b4245f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ef7aa388d0f25adcafec1cb4a5b38dcfb8597a1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727726"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210469"
 ---
 # <a name="alert-types-and-descriptions"></a>Typy alertów i opisy
 
-W tym artykule opisano wszystkie OPF typy alertów, które mogą być generowane przez aparaty usługi Defender for IoT. W oknie alerty są wyświetlane alerty, które umożliwiają zarządzanie zdarzeniem alertu. 
+W tym artykule opisano wszystkie typy alertów, które mogą być generowane przez aparaty usługi Defender for IoT. W oknie alerty są wyświetlane alerty, które umożliwiają zarządzanie zdarzeniem alertu. 
 
 ## <a name="policy-engine-alerts"></a>Alerty aparatu zasad
 

@@ -2,14 +2,14 @@
 title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/07/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d989f2077618ce80382b38acc651553cb331d5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1cc96a855c2bfe79bbf5876f0476c016d36ca9a4
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932764"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030070"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -32,13 +32,15 @@ Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszc
 
 Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niektóre operacje, które nie pozornie modyfikują zasobu, rzeczywiście wymagają akcji blokowanych przez blokadę. Blokady uniemożliwią wykonywanie operacji, które wymagają żądania POST do interfejsu API Azure Resource Manager. Niektóre typowe przykłady operacji blokowanych przez blokady są następujące:
 
-* Blokada tylko do odczytu na **koncie magazynu** uniemożliwia użytkownikom wyświetlanie listy kluczy konta. Operacja [kluczy list](/rest/api/storagerp/storageaccounts/listkeys) usługi Azure Storage jest obsługiwana za pomocą żądania post w celu ochrony dostępu do kluczy konta, co zapewnia pełny dostęp do danych na koncie magazynu. W przypadku skonfigurowania blokady tylko do odczytu dla konta magazynu użytkownicy, którzy nie posiadają kluczy konta, muszą używać poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub kolejek. Blokada tylko do odczytu uniemożliwia również Przypisanie ról RBAC platformy Azure objętych zakresem do konta magazynu lub kontenera danych (kontenera obiektów blob lub kolejki).
+* Blokada tylko do odczytu na **koncie magazynu** uniemożliwia użytkownikom wyświetlanie listy kluczy konta. Operacja [kluczy list](/rest/api/storagerp/storageaccounts/listkeys) usługi Azure Storage jest obsługiwana za pomocą żądania post w celu ochrony dostępu do kluczy konta, co zapewnia pełny dostęp do danych na koncie magazynu. W przypadku skonfigurowania blokady tylko do odczytu dla konta magazynu użytkownicy, którzy nie mają kluczy konta, muszą używać poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektu BLOB lub kolejki. Blokada tylko do odczytu uniemożliwia również Przypisanie ról RBAC platformy Azure objętych zakresem do konta magazynu lub kontenera danych (kontenera obiektów blob lub kolejki).
 
-* Blokada nie może zostać usunięta na **koncie magazynu** nie zapobiega usuwaniu ani modyfikowaniu danych znajdujących się na tym koncie. Ten typ blokady chroni tylko samo konto magazynu przed jego usunięciem i nie chroni danych obiektów blob, kolejek, tabel i plików w ramach tego konta magazynu. 
+* Blokada nie może zostać usunięta na **koncie magazynu** nie pozwala zapobiec usuwaniu ani modyfikowaniu danych w ramach tego konta. Ten typ blokady chroni tylko samo konto magazynu przed jego usunięciem i nie chroni danych obiektów blob, kolejek, tabel i plików w ramach tego konta magazynu. 
 
 * Blokada tylko do odczytu na **koncie magazynu** nie zapobiega usuwaniu ani modyfikowaniu danych znajdujących się na tym koncie. Ten typ blokady chroni tylko konto magazynu przed jego usunięciem lub modyfikacją i nie chroni danych obiektów blob, kolejek, tabel i plików w ramach tego konta magazynu. 
 
 * Blokada tylko do odczytu w ramach zasobu **App Service** uniemożliwia programowi Visual Studio Eksplorator serwera wyświetlanie plików dla zasobu, ponieważ ta interakcja wymaga dostępu do zapisu.
+
+* Blokada tylko do odczytu w **grupie zasobów** zawierającej **Plan App Service** uniemożliwia [skalowanie w górę lub w](../../app-service/manage-scale-up.md)dół.
 
 * Blokada tylko do odczytu w **grupie zasobów** zawierającej **maszynę wirtualną** uniemożliwia wszystkim użytkownikom uruchamianie lub ponowne uruchamianie maszyny wirtualnej. Te operacje wymagają żądania POST.
 
@@ -324,7 +326,7 @@ az lock delete --ids $lockid
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](/rest/api/resources/managementlocks/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
+Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](/rest/api/resources/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
 
 Aby utworzyć blokadę, uruchom polecenie:
 
