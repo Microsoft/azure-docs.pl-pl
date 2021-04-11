@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Dat
 description: Użyj różnych metod rozwiązywania problemów z wyzwalaczem potoku w Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 03/13/2021
+ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563416"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385415"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
@@ -83,7 +83,26 @@ Osiągnięto limit pojemności środowiska Integration Runtime. Może być uruch
 - Uruchamianie potoków o różnych porach wyzwalacza.
 - Utwórz nowe środowisko Integration Runtime i Podziel potoki na wiele środowisk Integration Runtime.
 
-### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Jak wykonać błędy na poziomie działania i błędy w potokach
+### <a name="a-pipeline-run-error-while-invoking-rest-api-in-a-web-activity"></a>Błąd uruchomienia potoku podczas wywoływania interfejsu API REST w działaniu sieci Web
+
+**Problem**
+
+Komunikat o błędzie:
+
+`
+Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFailed”,”message”:”The client ‘<client>’ with object id ‘<object>’ does not have authorization to perform action ‘Microsoft.DataFactory/factories/pipelineruns/cancel/action’ over scope ‘/subscriptions/<subscription>/resourceGroups/<resource group>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelineruns/<pipeline run id>’ or the scope is invalid. If access was recently granted, please refresh your credentials.”}}
+`
+
+**Przyczyna**
+
+Potoki mogą używać działania sieci Web do wywoływania metod interfejsu API REST usługi ADF, jeśli i tylko wtedy, gdy członek Azure Data Factory ma przypisaną rolę współautor. Najpierw należy skonfigurować Dodawanie Azure Data Factory tożsamości zarządzanej do roli zabezpieczeń współautor. 
+
+**Rozwiązanie**
+
+Przed użyciem interfejsu API REST Azure Data Factory na karcie Ustawienia działania sieci Web należy skonfigurować zabezpieczenia. Potoki Azure Data Factory mogą używać działania sieci Web do wywoływania metod interfejsu API REST usługi ADF, jeśli i tylko wtedy, gdy Azure Data Factory zarządzana tożsamość ma przypisaną rolę *współautor*  . Zacznij od otworzenia Azure Portal i kliknięcia linku **wszystkie zasoby** w menu po lewej stronie. Wybierz pozycję **Azure Data Factory**  , aby dodać tożsamość zarządzaną ADF z rolą współautor, klikając przycisk **Dodaj** w polu *Dodaj przypisanie roli* .
+
+
+### <a name="how-to-check-and-branch-on-activity-level-success-and-failure-in-pipelines"></a>Jak sprawdzić sukces i niepowodzenie na poziomie aktywności w potokach
 
 **Przyczyna**
 
@@ -115,7 +134,7 @@ Stopień równoległości w instrukcji *foreach* to faktycznie maksymalny stopie
 
 Znane fakty dotyczące instrukcji *foreach*
  * Instrukcja foreach ma właściwość o nazwie Batch Count (n), gdzie wartość domyślna to 20, a maksymalna to 50.
- * Liczba partii, n, jest używana do tworzenia kolejek n. W dalszej części omówiono niektóre szczegóły dotyczące sposobu konstruowania tych kolejek.
+ * Liczba partii, n, jest używana do tworzenia kolejek n. 
  * Każda kolejka jest uruchamiana sekwencyjnie, ale można równolegle pracować z kilkoma kolejkami.
  * Kolejki są wstępnie utworzone. Oznacza to, że w czasie wykonywania nie ma potrzeby ponownego równoważenia kolejek.
  * W dowolnym momencie masz co najwyżej jeden element przetwarzany na kolejkę. Oznacza to, że co najwyżej n elementów jest przetwarzanych w dowolnym momencie.
@@ -124,7 +143,8 @@ Znane fakty dotyczące instrukcji *foreach*
 **Rozwiązanie**
 
  * Nie należy używać działania *setvariable* wewnątrz *dla każdego* uruchomionego równolegle.
- * Biorąc pod uwagę sposób konstruowania kolejek, klient może poprawić wydajność foreach przez ustawienie wielu instrukcji *foreach* , w których każda instrukcja foreach będzie miała elementy o podobnym czasie przetwarzania. Zapewni to, że długie uruchomienia są przetwarzane równolegle, a nie sekwencyjnie.
+ * Biorąc pod uwagę sposób konstruowania kolejek, klient może poprawić wydajność foreach przez ustawienie wielokrotności *foreach* , gdzie każda instrukcja *foreach* będzie miała elementy o podobnym czasie przetwarzania. 
+ * Zapewni to, że długie uruchomienia są przetwarzane równolegle, a nie sekwencyjnie.
 
  ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>Stan potoku jest umieszczany w kolejce lub zablokowany przez długi czas
  

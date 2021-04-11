@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek regresji: automatyczna ML'
+title: 'Samouczek: regresja przy użyciu automatycznej uczenia maszynowego'
 titleSuffix: Azure Machine Learning
-description: Utwórz zautomatyzowany eksperyment uczenia maszynowego, który generuje model regresji na podstawie danych szkoleniowych i ustawień konfiguracji, które zapewniasz.
+description: Napisz kod przy użyciu zestawu SDK języka Python, aby utworzyć zautomatyzowany eksperyment uczenia maszynowego, który generuje model regresji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,34 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 7f3052905d7594d64be9455c16239ebabd219849
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 85129cf282e39b4f4932cc5e9f7cfd72d1e445b0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565082"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210639"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Przewidywanie opłat za taksówkę za pomocą zautomatyzowanego uczenia maszynowego
 
-
-W tym samouczku użyjesz automatycznego uczenia maszynowego w Azure Machine Learning, aby utworzyć model regresji do przewidywania cen opłat za taksówkę NYC. Ten proces akceptuje dane szkoleniowe i ustawienia konfiguracji, a następnie automatycznie wykonuje iterację przez kombinacje różnych metod normalizacji/normalizacji funkcji, modeli i parametrów z parametrami, aby dotrzeć do najlepszego modelu.
+W tym samouczku użyjesz automatycznego uczenia maszynowego w Azure Machine Learning SDK, aby utworzyć [model regresji](concept-automated-ml.md#regression) do przewidywania cen opłat za taksówkę NYC. Ten proces akceptuje dane szkoleniowe i ustawienia konfiguracji, a następnie automatycznie wykonuje iterację przez kombinacje różnych metod normalizacji/normalizacji funkcji, modeli i parametrów z parametrami, aby dotrzeć do najlepszego modelu.
 
 ![Diagram przepływu](./media/tutorial-auto-train-models/flow2.png)
 
-W tym samouczku przedstawiono następujące zadania:
+Napiszesz kod przy użyciu zestawu SDK języka Python w tym samouczku.  Zapoznaj się z następującymi zadaniami:
 
 > [!div class="checklist"]
 > * Pobieranie, przekształcanie i czyszczenie danych przy użyciu usługi Azure Open DataSets
 > * Uczenie zautomatyzowanego modelu regresji uczenia maszynowego
 > * Oblicz dokładność modelu
 
-Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję](https://aka.ms/AMLFree) Azure Machine Learning dzisiaj.
+Wypróbuj również automatyczne Uczenie maszynowe dla tych innych typów modeli: 
+
+* [Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ml w Azure Machine Learning](tutorial-first-experiment-automated-ml.md) — przykład bez kodu.
+* [Samouczek: prognozowanie popytu przy użyciu zautomatyzowanej uczenia maszynowego](tutorial-automated-ml-forecast.md) — przykład bez kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję](https://aka.ms/AMLFree) Azure Machine Learning dzisiaj.
 
 * Ukończ [Samouczek instalacji](tutorial-1st-experiment-sdk-setup.md) , jeśli nie masz jeszcze obszaru roboczego Azure Machine Learning lub maszyny wirtualnej notesu.
 * Po zakończeniu pracy z samouczkiem Instalatora Otwórz Notes *samouczków/Regression-automl-NYC-Taxi-Data/Regression-Automated-ml. ipynb* przy użyciu tego samego serwera notesu.

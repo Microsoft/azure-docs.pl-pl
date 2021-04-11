@@ -11,10 +11,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: ASP.NET Core
-      href: quickstart-dotnetcore.md
     - name: ASP.NET
-      href: quickstart-dotnet-framework.md
+      href: quickstart-dotnetcore.md
     - name: Node.js
       href: quickstart-nodejs.md
     - name: PHP
@@ -187,6 +185,10 @@
               href: deploy-ci-cd-custom-container.md
             - name: Wdrażanie z lokalnego wdrożenia narzędzia Git
               href: deploy-local-git.md
+            - name: Funkcja GitHub Actions
+              href: deploy-github-actions.md
+            - name: Akcje GitHub dotyczące kontenerów
+              href: deploy-container-github-action.md
             - name: Wdrażanie za pomocą szablonu
               href: deploy-complex-application-predictably.md
         - name: Konfigurowanie poświadczeń wdrożenia
@@ -215,8 +217,6 @@
               href: configure-authentication-provider-facebook.md
             - name: Uwierzytelnianie za pomocą usługi Google
               href: configure-authentication-provider-google.md
-            - name: Uwierzytelnianie za pomocą konta Microsoft
-              href: configure-authentication-provider-microsoft.md
             - name: Uwierzytelnianie za pomocą usługi Twitter
               href: configure-authentication-provider-twitter.md
             - name: Uwierzytelnianie za pomocą dostawcy uwierzytelniania OpenID Connect (wersja zapoznawcza)

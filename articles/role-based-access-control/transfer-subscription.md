@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5baf5f503542f31b26c4c210741f1ce986f6a549
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555896"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580120"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -74,15 +74,15 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Zarządzane tożsamości przypisane do systemu | Tak | Tak | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
 | Tożsamości zarządzane przypisane przez użytkownika | Tak | Tak | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
 | Azure Key Vault | Tak | Tak | [Wyświetlanie listy zasad dostępu Key Vault](#list-key-vaults) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
-| Bazy danych SQL Azure z włączoną integracją uwierzytelniania usługi Azure AD | Tak | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Bazy danych SQL Azure z włączoną integracją uwierzytelniania usługi Azure AD | Tak | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) | Nie można przenieść bazy danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD z włączonym innym katalogiem. Aby uzyskać więcej informacji, zobacz [Korzystanie z uwierzytelniania Azure Active Directory](../azure-sql/database/authentication-aad-overview.md). | 
 | Usługa Azure Storage i Azure Data Lake Storage Gen2 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure File Sync | Tak | Tak |  |  |
+| Azure File Sync | Tak | Tak |  | Usługę synchronizacji magazynu i/lub konto magazynu można przenieść do innego katalogu. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące Azure Files](../storage/files/storage-files-faq.md#azure-file-sync) |
 | Dyski zarządzane platformy Azure | Tak | Tak |  |  Jeśli używasz zestawów szyfrowania dysków do szyfrowania Managed Disks przy użyciu kluczy zarządzanych przez klienta, musisz wyłączyć i ponownie włączyć tożsamości przypisane do systemu skojarzone z zestawami szyfrowania dysków. I należy ponownie utworzyć przypisania ról, a tym samym ponownie przyznać wymagane uprawnienia do zestawów szyfrowania dysków w magazynach kluczy. |
-| Azure Kubernetes Service | Tak | Tak |  |  |
+| Azure Kubernetes Service | Tak | Nie |  | Nie można przenieść klastra AKS i skojarzonych z nim zasobów do innego katalogu. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Tak | Nie | Wszystkie obiekty Azure Policy, łącznie z definicjami niestandardowymi, przypisaniami, wykluczeniami i danymi zgodności. | Należy [wyeksportować](../governance/policy/how-to/export-resources.md), zaimportować i ponownie przypisać definicje. Następnie utwórz nowe przypisania zasad i wszelkie potrzebne [wykluczenia zasad](../governance/policy/concepts/exemption-structure.md). |
-| Azure Active Directory Domain Services | Tak | Nie |  |  |
+| Azure Active Directory Domain Services | Tak | Nie |  | Nie można przenieść domeny zarządzanej Azure AD Domain Services do innego katalogu. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące usług domenowych Azure Active Directory (AD)](../active-directory-domain-services/faqs.md) |
 | Rejestracje aplikacji | Tak | Tak |  |  |
 
 > [!WARNING]

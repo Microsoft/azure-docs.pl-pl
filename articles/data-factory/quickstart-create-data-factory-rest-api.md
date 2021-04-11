@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517637"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385262"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Szybki start: Tworzenie fabryki danych platformy Azure i potoku przy użyciu interfejsu API REST
 
@@ -37,7 +37,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 * Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Za pomocą narzędzi, takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , można nawiązać połączenie z usługą Azure Blob Storage, utworzyć kontener obiektów blob, przekazać plik wejściowy i zweryfikować plik wyjściowy.
 * Zainstaluj **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps). Ten samouczek Szybki start używa programu PowerShell do wywoływania interfejsu API REST.
 * **Utwórz aplikację w usłudze Azure Active Directory**, wykonując [tę instrukcję](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Zwróć uwagę na następujące wartości, których można użyć w kolejnych krokach: **Identyfikator aplikacji**, **clientSecrets** i **Identyfikator dzierżawy**. Przypisz aplikację do roli „**Współautor**”.
-
+>[!NOTE]
+>   W przypadku Niesuwerennych chmur należy użyć odpowiednich punktów końcowych specyficznych dla chmury dla ActiveDirectoryAuthority i ResourceManagerUrl (BaseUri). Za pomocą programu PowerShell możesz łatwo uzyskać adresy URL punktów końcowych dla różnych chmur, wykonując polecenia "Get-AzEnvironment | Lista formatów ", która zwróci listę punktów końcowych dla każdego środowiska chmury.  
+>    
 ## <a name="set-global-variables"></a>Ustawianie zmiennych globalnych
 
 1. Uruchom program **PowerShell**. Nie zamykaj programu Azure PowerShell aż do końca tego samouczka Szybki start. Jeśli go zamkniesz i otworzysz ponownie, musisz uruchomić te polecenia jeszcze raz.

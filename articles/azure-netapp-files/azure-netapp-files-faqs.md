@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 81c28a3c64c81da8f6939d821c2bd61ba8617a7b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 318b7e8b35fa7cc56a86033a08e316257a488b6f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935247"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442698"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -82,7 +82,25 @@ Nie, obecnie nie można zastosować grup zabezpieczeń sieci do delegowanej pods
 
 ### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>Czy można używać usługi Azure RBAC z Azure NetApp Files?
 
-Tak, Azure NetApp Files obsługuje funkcje kontroli RBAC platformy Azure.
+Tak, Azure NetApp Files obsługuje funkcje kontroli RBAC platformy Azure. Wraz z wbudowaną rolą platformy Azure można [tworzyć niestandardowe role](../role-based-access-control/custom-roles.md) dla Azure NetApp Files. 
+
+Aby uzyskać pełną listę uprawnień Azure NetApp Files, zobacz operacje dostawcy zasobów platformy Azure dla programu [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp) .
+
+### <a name="are-azure-activity-logs-supported-on-azure-netapp-files"></a>Czy dzienniki aktywności platformy Azure są obsługiwane w Azure NetApp Files?
+
+Azure NetApp Files jest usługą natywną platformy Azure. Wszystkie interfejsy API PUT, POST i DELETE dotyczące Azure NetApp Files są rejestrowane. Na przykład dzienniki zawierają działania, takie jak kto utworzył migawkę, kto zmodyfikował wolumin itd.
+
+Aby uzyskać pełną listę operacji interfejsu API, zobacz [Azure NetApp Files interfejsu API REST](/rest/api/netapp/).
+
+### <a name="how-do-i-audit-file-access-on-azure-netapp-files-nfs-v3-and-v41-volumes"></a>Jak mogę inspekcji dostępu do plików na woluminach Azure NetApp Files NFS (V3 i v 4.1)?
+
+Dzienniki inspekcji można skonfigurować po stronie klienta. Wszystkie zmiany odczytu, zapisu i atrybutów są rejestrowane. 
+
+### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>Czy mogę używać zasad platformy Azure z Azure NetApp Files?
+
+Tak, możesz tworzyć [niestandardowe zasady platformy Azure](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+Nie można jednak tworzyć zasad platformy Azure (niestandardowych zasad nazewnictwa) w interfejsie Azure NetApp Files. Zapoznaj się z [zaleceniami dotyczącymi planowania Azure NetApp Files sieci](azure-netapp-files-network-topologies.md#considerations).
 
 ## <a name="performance-faqs"></a>Często zadawane pytania dotyczące wydajności
 

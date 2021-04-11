@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70b3ed53747deb1f3bdc90de8fe71f42f8f7ce13
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199135"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580495"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Łączenie urządzenia podrzędnego IoT Edge z bramą Azure IoT Edge (wersja zapoznawcza)
 
@@ -130,7 +130,7 @@ Upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu dla katalogu
 1. Zainstaluj **certyfikat głównego urzędu certyfikacji** na tym urządzeniu IoT Edge.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. Aktualizowanie magazynu certyfikatów.

@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: wprowadzenie do uczenia maszynowego — Python'
 titleSuffix: Azure Machine Learning
-description: W ramach tego samouczka nastąpi rozpoczęcie pracy z zestawem SDK Azure Machine Learning dla języka Python działającego w osobistym środowisku programistycznym.
+description: Rozpocznij pracę z zestawem SDK Azure Machine Learning dla języka Python działającego w prywatnym środowisku programistycznym.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: 81b9b5d53e1b61322d25d5dead85429474c1272c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69340245cdebda570b526afd4f11ac8314384b43
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935553"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210622"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym (część 1 z 4)
 
@@ -30,16 +30,18 @@ W części 1 tej serii samouczków będziesz:
 > * Skonfiguruj strukturę katalogów dla kodu.
 > * Utwórz obszar roboczy Azure Machine Learning.
 > * Skonfiguruj lokalne środowisko deweloperskie.
-> * Skonfiguruj klaster obliczeniowy.
+> * Skonfiguruj klaster obliczeniowy, czyli zasób oparty na chmurze do uczenia modeli.
 
-> [!NOTE]
-> Ta seria samouczków koncentruje się na Azure Machine Learning koncepcji wymaganych do przesłania **zadań wsadowych** — jest to miejsce, w którym kod jest przesyłany do chmury w celu uruchomienia w tle bez żadnej interakcji z użytkownikiem. Jest to przydatne w przypadku gotowych skryptów lub kodu, który ma być wykonywany wielokrotnie, lub do zadań uczenia maszynowego intensywnie korzystających z obliczeń. Jeśli jesteś bardziej interesujący przepływ pracy badawczej, zamiast tego możesz użyć [Jupyter lub RStudio na wystąpieniu obliczeniowym Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md).
+Ta seria samouczków koncentruje się na Azure Machine Learning koncepcji wymaganych do przesłania **zadań wsadowych** — jest to miejsce, w którym kod jest przesyłany do chmury w celu uruchomienia w tle bez żadnej interakcji z użytkownikiem. Jest to przydatne w przypadku gotowych skryptów lub kodu, który ma być wykonywany wielokrotnie, lub do zadań uczenia maszynowego intensywnie korzystających z obliczeń.
+
+Innym doskonałym sposobem na rozpoczęcie korzystania z Azure Machine Learning jest Jupyter notesy.  Zobacz [Samouczek: Rozpoczynanie pracy z Azure Machine Learning w notesach Jupyter](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Spróbuj [Azure Machine Learning](https://aka.ms/AMLFree).
 - [Anaconda](https://www.anaconda.com/download/) lub [Miniconda](https://www.anaconda.com/download/) , aby zarządzać środowiskami wirtualnymi języka Python i zainstalować pakiety.  
 - Jeśli nie masz doświadczenia w korzystaniu z usługi Conda, zobacz [wprowadzenie do usługi Conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
+- Wszystkie środowiska IDE lub Edytor tekstu do tworzenia skryptów języka Python.
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalowanie zestawu SDK Azure Machine Learning
 
