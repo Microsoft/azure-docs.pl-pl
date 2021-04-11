@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 0824b15266cbc68b47723e0c5f4e2559fe54a24e
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105034035"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Azure Policy wbudowane definicje dla platformy Azure Virtual Machines

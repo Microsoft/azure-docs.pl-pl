@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 02/14/2017
 ms.openlocfilehash: d336a39714712e5436086e22ad24fc942a7d850a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563544"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej agenta Network Watcher dla systemu Windows

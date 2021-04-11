@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af149f0c1db7f354be6bd968bbd0cf858493d4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522295"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219301"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z programem Oracle PeopleSoft — chroniona przez F5
 
@@ -40,19 +40,19 @@ Aby rozpocząć, potrzebne są następujące elementy:
     2. F5 BIG-IP — licencja autonomiczna Menedżera zasad (APM)™ 
     3. F5 BIG-IP Access Manager — licencja dodatku™ (APM) na istniejącym® lokalnym™ Traffic Managerm Big-IP F5 (LTM).
     4. Oprócz powyższej licencji system F5 może również mieć licencję na: 
-        * Subskrypcja filtrowania adresów URL do korzystania z bazy danych kategorii adresów URL 
-        * Subskrypcja analizy protokołu IP F5 na potrzeby wykrywania i blokowania znanych ataków i złośliwego ruchu 
-        * Sprzętowy moduł zabezpieczeń (HSM) służący do zabezpieczania i zarządzania kluczami cyfrowymi w celu silnego uwierzytelniania
-1. Obsługa systemu F5 BIG-IP w modułach APM (LTM jest opcjonalna) 
+        * Subskrypcja filtrowania adresów URL do korzystania z bazy danych kategorii adresów URL. 
+        * Subskrypcja analizy protokołu IP F5 w celu wykrywania i blokowania znanych ataków i złośliwego ruchu. 
+        * Sprzętowy moduł zabezpieczeń (HSM) służący do zabezpieczania kluczy cyfrowych i zarządzania nimi w celu silnego uwierzytelniania.
+1. System F5 BIG-IP jest inicjowany z modułami APM (LTM jest opcjonalny).
 1. Chociaż jest to opcjonalne, zdecydowanie zaleca się wdrożenie systemów F5 w [grupie urządzeń synchronizacji/pracy w trybie failover](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), która obejmuje aktywną parę wstrzymania z ruchomym adresem IP w celu zapewnienia wysokiej dostępności. Więcej nadmiarowości interfejsu można uzyskać przy użyciu protokołu kontroli agregacji (LACP). LACP zarządza podłączonymi interfejsami fizycznymi jako pojedynczym interfejsem wirtualnym (Grupa agregowania) i wykrywa wszystkie błędy interfejsów w grupie.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Oracle PeopleSoft — ochrona za pomocą F5 BIG-IP APM obsługuje logowanie jednokrotne z użyciem protokołu **SP i dostawcy tożsamości**
+* Oracle PeopleSoft — ochrona za pomocą F5 BIG-IP APM obsługuje logowanie jednokrotne z użyciem protokołu **SP i dostawcy tożsamości** .
 
-## <a name="adding-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Dodawanie programu Oracle PeopleSoft — chronionego za pomocą F5 BIG-IP APM z galerii
+## <a name="add-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Dodawanie programu Oracle PeopleSoft — chronionego za pomocą F5 BIG-IP APM z galerii
 
 Aby skonfigurować integrację z programem Oracle PeopleSoft — chronioną za pomocą programu F5 BIG-IP APM do usługi Azure AD, należy dodać do listy zarządzanych aplikacji SaaS aplikację Oracle PeopleSoft — chronioną przez F5.
 
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja z aplikacją **PeopleSoft firmy Oracle, która jest chroniona za pomocą F5 Big-IP** , Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -231,7 +231,7 @@ Przejdź do **ruchu lokalnego > profile > SSL > klienta > +**, uzupełnij poniż
 >[!Note]
 > Odwoła https://docs.oracle.com/cd/E12530_01/oam.1014/e10356/people.htm
 
-1. Logowanie do konsoli usługi PeopleSoft `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` przy użyciu poświadczeń administratora (przykład: PS/PS)
+1. Zaloguj się do konsoli usługi PeopleSoft `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` przy użyciu poświadczeń administratora (przykład: PS/PS).
 
     ![Samoobsługa Menedżera](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-console.png)
 
@@ -302,7 +302,7 @@ Aby dodać obsługę logowania jednokrotnego dla wszystkich użytkowników Peopl
 
     * Przejdź do **ruchu lokalnego > serwery wirtualne > listy serwerów wirtualnych > PeopleSoftApp > zasoby**. Kliknij przycisk **Zarządzaj...** przycisk   
 
-    * Określ `<Name>` as Enabled iRule, a następnie kliknij przycisk **Zakończono**
+    * Określ `<Name>` jako włączone iRule i kliknij przycisk **Zakończono**.
 
         ![_iRule_PeopleSoftApp ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/irule-people-soft.png)
 
@@ -327,11 +327,10 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 #### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do PeopleSoft-Protected Oracle za pomocą usługi APM Big-IP, dla której skonfigurowano Logowanie jednokrotne 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do PeopleSoft-Protected Oracle za pomocą usługi APM Big-IP, dla której skonfigurowano Logowanie jednokrotne. 
 
-Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Oracle PeopleSoft-Protected przez F5 BIG-IP APM w panelu dostępu, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do PeopleSoft-Protected Oracle przy użyciu usługi F5 BIG-IP, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
-
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka programu Oracle PeopleSoft-Protected przez F5 BIG-IP APM w obszarze Moje aplikacje, jeśli jest skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do PeopleSoft-Protected Oracle przy użyciu usługi F5 BIG-IP, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu programu Oracle PeopleSoft — chronionego za pomocą F5 BIG-IP APM można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu programu Oracle PeopleSoft-Protected przy użyciu protokołu F5, aby można było wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

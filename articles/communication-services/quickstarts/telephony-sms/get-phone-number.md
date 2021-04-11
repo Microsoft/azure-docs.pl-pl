@@ -10,18 +10,16 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: e28b8581342824032921ad75e0297b3604fc0bb4
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 0f4a461ac5d459c6e3311400785e34bc22f40a00
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105629390"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728457"
 ---
 # <a name="quickstart-manage-phone-numbers"></a>Szybki Start: Zarządzanie numerami telefonów
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
-
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu Azure Portal lub biblioteki klienta numerów telefonów usług komunikacyjnych, aby zarządzać numerami telefonów.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]

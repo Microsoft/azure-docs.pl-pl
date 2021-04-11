@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 590e57d587c8e6e254811892b5c5e740b511c302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 321a5c473df30dd6f00bbcd1294d48ce8da34009
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104690657"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060384"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft
 
@@ -29,7 +29,7 @@ W przypadku wybrania opcji ręcznego tworzenia kodu na poziomie protokołu [OAut
 
 ## <a name="single-page-application-spa"></a>Aplikacja jednostronicowa (SPA)
 
-Jednostronicowa aplikacja działa wyłącznie na powierzchni przeglądarki i pobiera dane strony (HTML, CSS i JavaScript) dynamicznie lub w czasie ładowania aplikacji. Może wywoływać interfejsy API sieci Web w celu współpracy z źródłami danych zaplecza.
+Jednostronicowa aplikacja działa całkowicie w przeglądarce i pobiera dane strony (HTML, CSS i JavaScript) dynamicznie lub w czasie ładowania aplikacji. Może wywoływać interfejsy API sieci Web w celu współpracy z źródłami danych zaplecza.
 
 Ponieważ kod SPA działa całkowicie w przeglądarce, jest traktowany jako *Klient publiczny* , który nie może bezpiecznie przechowywać wpisów tajnych.
 

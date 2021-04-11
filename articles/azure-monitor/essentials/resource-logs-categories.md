@@ -2,13 +2,13 @@
 title: Azure Monitor obsługiwane usługi i kategorie dzienników zasobów
 description: Informacje dotyczące Azure Monitor zrozumieć obsługiwane usługi i schemat zdarzeń dla dzienników zasobów platformy Azure.
 ms.topic: reference
-ms.date: 01/29/2021
-ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: a4ab4a2e425b752198223da5efd1b07466ab83d1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033150"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166942"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
 
@@ -33,7 +33,8 @@ Poniżej znajduje się lista typów dzienników dostępnych dla każdego typu za
 Niektóre kategorie mogą być obsługiwane tylko dla określonych typów zasobów. Zapoznaj się z dokumentacją specyficzną dla zasobów, jeśli uważasz, że brakuje zasobu. Na przykład kategorie Microsoft. SQL/serwery/bazy danych nie są dostępne dla wszystkich typów baz danych. Aby uzyskać więcej informacji, zobacz [Informacje o rejestrowaniu diagnostyki SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub w dolnej części tego artykułu.
-## <a name="microsoftaaddomainservices"></a>Microsoft. AAD/domainServices
+
+## <a name="microsoftaaddomainservices"></a>Microsoft. AAD/DomainServices
 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
 |---|---|---|
@@ -46,6 +47,13 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |PolicyChange|PolicyChange|Nie|
 |PrivilegeUse|PrivilegeUse|Nie|
 |SystemSecurity|SystemSecurity|Nie|
+
+
+## <a name="microsoftaadiamtenants"></a>Microsoft. aadiam/dzierżawcy
+
+|Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
+|---|---|---|
+|Logowania|Logowania|Tak|
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft. AnalysisServices/serwery
@@ -97,6 +105,14 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |JobStreams|Strumienie zadań|Nie|
 
 
+## <a name="microsoftautonomousdevelopmentplatformaccounts"></a>Microsoft. AutonomousDevelopmentPlatform/konta
+
+|Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
+|---|---|---|
+|Inspekcja|Inspekcja|Tak|
+|Operacyjne|Operacyjne|Tak|
+
+
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
@@ -135,7 +151,6 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
 |---|---|---|
 |BotRequest|Żądania z kanałów do bot|Nie|
-|DependencyRequest|Żądania do zależności|Nie|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
@@ -182,6 +197,7 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
 |---|---|---|
+|AuthOperational|Dzienniki uwierzytelniania operacyjnego|Tak|
 |ChatOperational|Dzienniki rozmów operacyjnych|Nie|
 |SMSOperational|Operacyjne dzienniki programu SMS|Nie|
 |Użycie|Rekordy użycia|Nie|
@@ -256,6 +272,8 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |---|---|---|
 |ActivityRuns|Dziennik uruchomienia działania potoku|Nie|
 |PipelineRuns|Dziennik przebiegów potoku|Nie|
+|SandboxActivityRuns|Dziennik uruchamiania działania piaskownicy|Tak|
+|SandboxPipelineRuns|Dziennik uruchamiania potoków piaskownicy|Tak|
 |SSISIntegrationRuntimeLogs|Dzienniki usług SSIS Integration Runtime|Nie|
 |SSISPackageEventMessageContext|Kontekst komunikatu zdarzenia pakietu SSIS|Nie|
 |SSISPackageEventMessages|Komunikaty zdarzeń pakietu SSIS|Nie|
@@ -320,6 +338,13 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
 |---|---|---|
 |PostgreSQLLogs|Dzienniki serwera PostgreSQL|Nie|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft. DBForPostgreSQL/serverGroupsv2
+
+|Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
+|---|---|---|
+|PostgreSQLLogs|Dzienniki serwera PostgreSQL|Tak|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft. DBforPostgreSQL/serwery
@@ -531,18 +556,6 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |AppTraces|Ślady|Nie|
 
 
-## <a name="microsoftiotspacesgraph"></a>Microsoft. IoTSpaces/Graph
-
-|Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
-|---|---|---|
-|Inspekcja|Inspekcja|Nie|
-|Ruch wychodzący|Ruch wychodzący|Nie|
-|Ruch przychodzący|Ruch przychodzący|Nie|
-|Operacyjne|Operacyjne|Nie|
-|Ślad|Ślad|Nie|
-|UserDefinedFunction|UserDefinedFunction|Nie|
-
-
 ## <a name="microsoftkeyvaultmanagedhsms"></a>Microsoft./Magazyn kluczy/managedhsms
 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
@@ -747,13 +760,6 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |Aparat|Aparat|Nie|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft. ProjectBabylon/konta
-
-|Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
-|---|---|---|
-|ScanStatusLogEvent|ScanStatus|Nie|
-
-
 ## <a name="microsoftpurviewaccounts"></a>Microsoft. kontrolą/konta
 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
@@ -808,6 +814,13 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
 |---|---|---|
 |AllLogs|Dzienniki usługi Azure sygnalizujące.|Nie|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft. SignalRService/WebPubSub
+
+|Kategoria|Nazwa wyświetlana kategorii|Koszty eksportowania|
+|---|---|---|
+|AllLogs|Dzienniki usługi Azure Web PubSub.|Tak|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
@@ -901,6 +914,9 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |---|---|---|
 |BuiltinSqlReqsEnded|Zakończono wbudowane żądania puli SQL|Nie|
 |GatewayApiRequests|Żądania interfejsu API bramy Synapse|Nie|
+|IntegrationActivityRuns|Uruchomienia działania integracji|Tak|
+|IntegrationPipelineRuns|Uruchomienia potoku integracji|Tak|
+|IntegrationTriggerRuns|Uruchomienia wyzwalacza integracji|Tak|
 |SQLSecurityAuditEvents|Zdarzenie inspekcji zabezpieczeń SQL|Nie|
 |SynapseRbacOperations|Synapse operacje RBAC|Nie|
 
@@ -975,7 +991,6 @@ Jeśli uważasz, że coś nie ma, możesz otworzyć komentarz w witrynie GitHub 
 |AppServiceIPSecAuditLogs|IPSecurity dzienników inspekcji|Nie|
 |AppServicePlatformLogs|Dzienniki platformy App Service|Nie|
 |FunctionAppLogs|Dzienniki aplikacji funkcji|Nie|
-
 
 
 ## <a name="next-steps"></a>Następne kroki

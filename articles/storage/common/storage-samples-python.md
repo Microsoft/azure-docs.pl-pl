@@ -1,19 +1,19 @@
 ---
 title: Przykłady usługi Azure Storage przy użyciu języka Python | Microsoft Docs
 description: Wyświetlanie, pobieranie i uruchamianie przykładowego kodu i aplikacji dla usługi Azure Storage. Odkryj przykłady wprowadzenia dla obiektów blob, kolejek, tabel i plików przy użyciu bibliotek klienta magazynu języka Python.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8e5a8593d5b473da8769c1fbeece8c9818e88fa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92371362"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276692"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 Python
 

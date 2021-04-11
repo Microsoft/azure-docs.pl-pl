@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c64a4e06ed452c895c1bc2cf20adc2d9c0060c3
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508762"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219267"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -69,11 +69,11 @@ Musisz mieć konto platformy Azure. Możesz [otworzyć bezpłatne konto platform
 
 Platforma Azure tworzy grupę zasobów i przypina skrót do grupy zasobów w portalu.
 
-## <a name="create-the-network-and-subnets"></a>Tworzenie sieci i podsieci
+## <a name="create-the-network-and-subnet"></a>Tworzenie sieci i podsieci
 
 Następnym krokiem jest utworzenie sieci i podsieci w grupie zasobów platformy Azure.
 
-Rozwiązanie używa jednej sieci wirtualnej z dwiema podsieciami. [Omówienie sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md) zawiera więcej informacji na temat sieci na platformie Azure.
+Rozwiązanie używa jednej sieci wirtualnej i jednej podsieci. [Omówienie sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md) zawiera więcej informacji na temat sieci na platformie Azure.
 
 Aby utworzyć sieć wirtualną w Azure Portal:
 
@@ -100,48 +100,13 @@ Aby utworzyć sieć wirtualną w Azure Portal:
 
    Przestrzeń adresowa i zakres adresów podsieci mogą różnić się od tabeli. W zależności od subskrypcji Portal sugeruje dostępną przestrzeń adresową i odpowiedni zakres adresów podsieci. Jeśli nie jest dostępna wystarczająca przestrzeń adresowa, użyj innej subskrypcji.
 
-   W przykładzie jest użyta nazwa podsieci **administrator**. Ta podsieć jest dla kontrolerów domeny.
+   W przykładzie jest użyta nazwa podsieci **administrator**. Ta podsieć jest dla kontrolerów domeny i SQL Server maszyn wirtualnych.
 
 5. Wybierz przycisk **Utwórz**.
 
    ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
 System Azure powraca do pulpitu nawigacyjnego portalu i powiadamia o utworzeniu nowej sieci.
-
-### <a name="create-a-second-subnet"></a>Utwórz drugą podsieć
-
-Nowa sieć wirtualna ma jedną podsieć o nazwie **admin**. Kontrolery domeny używają tej podsieci. Maszyny wirtualne SQL Server używają drugiej podsieci o nazwie **SQL**. Aby skonfigurować tę podsieć:
-
-1. Na pulpicie nawigacyjnym wybierz utworzoną przez siebie grupę zasobów — **SQL-ha-RG**. Znajdź sieć w grupie zasobów w obszarze **zasoby**.
-
-    Jeśli **SQL-ha-RG** nie jest widoczny, Znajdź go przez wybranie **grupy zasobów** i filtrowanie według nazwy grupy zasobów.
-
-2. Wybierz pozycję **autoHAVNET** na liście zasobów. 
-3. W sieci wirtualnej **autoHAVNET** w obszarze **Ustawienia** wybierz pozycję **podsieci**.
-
-    Zanotuj już utworzoną podsieć.
-
-   ![Zanotuj już utworzoną podsieć](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
-
-5. Aby utworzyć drugą podsieć, wybierz pozycję **+ podsieć**.
-6. W obszarze **Dodaj podsieć** Skonfiguruj podsieć, wpisując w polu **Nazwa** wartość **sqlsubnet** . Platforma Azure automatycznie określa prawidłowy **zakres adresów**. Sprawdź, czy ten zakres adresów zawiera co najmniej 10 adresów. W środowisku produkcyjnym może być wymagane więcej adresów.
-7. Wybierz przycisk **OK**.
-
-    ![Konfigurowanie podsieci](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
-
-Poniższa tabela zawiera podsumowanie ustawień konfiguracji sieci:
-
-| **Pole** | Wartość |
-| --- | --- |
-| **Nazwa** |**autoHAVNET** |
-| **Przestrzeń adresowa** |Ta wartość zależy od dostępnych przestrzeni adresowych w ramach subskrypcji. Typową wartością jest 10.0.0.0/16. |
-| **Nazwa podsieci** |**administracja** |
-| **Zakres adresów podsieci** |Ta wartość jest zależna od dostępnych zakresów adresów w Twojej subskrypcji. Typową wartością jest 10.0.0.0/24. |
-| **Nazwa podsieci** |**sqlsubnet** |
-| **Zakres adresów podsieci** |Ta wartość jest zależna od dostępnych zakresów adresów w Twojej subskrypcji. Typową wartością jest 10.0.1.0/24. |
-| **Subskrypcja** |Określ subskrypcję, która ma zostać użyta. |
-| **Grupa zasobów** |**SQL-HA — RG** |
-| **Lokalizacja** |Określ tę samą lokalizację, którą wybrano dla grupy zasobów. |
 
 ## <a name="create-availability-sets"></a>Tworzenie zestawów dostępności
 

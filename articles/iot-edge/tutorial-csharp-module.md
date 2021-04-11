@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 01b30fed23b33719f08e93907075eee757343b1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7695c825dbdd2c207c87799ea801026f7506bcb
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461746"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219454"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Samouczek: opracowywanie modułu IoT Edge C# przy użyciu kontenerów systemu Linux
 
@@ -52,7 +52,7 @@ Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania moduł�
 Przed rozpoczęciem pracy z tym samouczkiem należy skorzystać z poprzedniego samouczka, aby skonfigurować środowisko programistyczne, [opracować moduł IoT Edge przy użyciu kontenerów systemu Linux](tutorial-develop-for-linux.md). Po ukończeniu tego samouczka należy spełnić następujące wymagania wstępne:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
-* Urządzenie, na którym działa Azure IoT Edge. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
+* Urządzenie z Azure IoT Edge z kontenerami systemu Linux. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
 * Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.

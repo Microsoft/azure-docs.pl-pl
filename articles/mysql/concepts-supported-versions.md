@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 314462517ba4e63694266b5e49231cb8536f3635
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: d84f56e5ae0f3c364a0fd3a08ccb173d7c65a5e2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604734"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121765"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Obsługiwane wersje serwera usługi Azure Database for MySQL
 
@@ -33,7 +33,7 @@ W ramach usługi Azure Database for MySQL węzły bramy nasłuchuje na porcie 33
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Azure Database for MySQL obecnie obsługuje następujące główne i pomocnicze wersje programu MySQL:
 
 
-| Wersja | Pojedynczy serwer <br/> Bieżąca wersja pomocnicza |Serwer elastyczny (wersja zapoznawcza) <br/> Bieżąca wersja pomocnicza  |
+| Wersja | [Pojedynczy serwer](overview.md) <br/> Bieżąca wersja pomocnicza |[Serwer elastyczny (wersja zapoznawcza)](/../flexible-server/overview.md) <br/> Bieżąca wersja pomocnicza  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |Baza danych MySQL w wersji 5,6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (wycofane) | Nieobsługiwane|
 |Baza danych MySQL w wersji 5,7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
