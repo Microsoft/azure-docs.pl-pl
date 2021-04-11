@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950387"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449513"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z pojedynczą Sign-Oną kamień
 
@@ -123,49 +123,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-cornerstone-single-sign-on-sso"></a>Konfigurowanie pojedynczych Sign-On Logowanie jednokrotne
 
-1. Zaloguj się do pojedynczej Sign-On, jako administrator.
-
-1. Przejdź do **narzędzia > administratora**.
-
-    ![Strona screeenshot dla administratora.](./media/cornerstone-ondemand-tutorial/admin.png)
-
-1. Wybierz pozycję Panel **krawędzi** w **Narzędzia konfiguracji**.
-
-    ![screeenshot dla panelu krawędzi.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
-
-1. Wybierz pozycję Single Sign-On w sekcji **Integruj** .
-
-    ![screeenshot dla opcji Single Sign-On.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
-
-1. Kliknij przycisk **Dodaj Logowanie jednokrotne** . W poniższym wyświetlonym oknie podręcznym wybierz pozycję **przychodzące SAML** , a następnie kliknij przycisk **Dodaj**.
-
-    ![screeenshot dla przychodzącego protokołu SAML.](./media/cornerstone-ondemand-tutorial/inbound.png)
-
-1. Wykonaj poniższe kroki na poniższej stronie:
-
-    ![Sekcja screeenshot for Configuration dla elementu "kamień".](./media/cornerstone-ondemand-tutorial/configuration.png)
-
-    a. We **właściwościach ogólnych** kliknij opcję **Przekaż plik** , aby przekazać plik **certyfikatu (base64)** , który został pobrany z Azure Portal.
-
-    b. Zaznacz pole wyboru **Włącz** i w polu tekstowym **adres URL dostawcy tożsamości** wklej wartość **adresu URL logowania** skopiowaną z Azure Portal.
-
-    c. Kliknij pozycję **Zapisz**.
+Aby skonfigurować jednokrotne logowanie na stronie **jednolite logowanie** jednokrotne, musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [pojedynczego zespołu pomocy technicznej Sign-On](mailto:moreinfo@csod.com) lub skontaktować się z partnerem. Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-cornerstone-single-sign-on-test-user"></a>Utwórz jednolite Sign-On użytkownika testowego
 
 Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w pojedynczej jednolite logowanie. Pojedyncze Sign-Onowe są obsługiwane przez automatyczne Inicjowanie obsługi użytkowników, co jest domyślnie włączone. Więcej szczegółów dotyczących konfigurowania automatycznego inicjowania obsługi użytkowników można znaleźć [tutaj](./cornerstone-ondemand-provisioning-tutorial.md).
-
-**Jeśli potrzebujesz utworzyć użytkownika ręcznie, wykonaj następujące czynności:**
-
-1. Zaloguj się do pojedynczej Sign-On, jako administrator.
-
-1. Przejdź do obszaru **administrator > użytkownicy** i kliknij pozycję **Dodaj użytkownika** w dolnej części strony.
-
-    ![screeenshot do tworzenia podstaw dla użytkowników testowych.](./media/cornerstone-ondemand-tutorial/user-1.png)
-
-1. Wypełnij pola wymagane na stronie **Dodaj nowy użytkownik** i kliknij przycisk **Zapisz**.
-
-    ![screeenshot do tworzenia użytkowników testowych z wymaganymi polami.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 

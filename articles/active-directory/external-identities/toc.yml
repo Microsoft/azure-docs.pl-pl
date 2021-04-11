@@ -120,7 +120,7 @@
               href: use-dynamic-groups.md
             - name: Informacje o użytkowniku B2B
               href: user-properties.md
-            - name: Resetuj stan wykupu
+            - name: Resetuj stan wykupu (wersja zapoznawcza)
               href: reset-redemption-status.md
             - name: Aplikacje zintegrowane B2B dla usługi Azure AD
               href: configure-saas-apps.md

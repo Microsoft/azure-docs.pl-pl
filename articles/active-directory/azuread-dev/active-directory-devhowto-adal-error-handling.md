@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da47893839322f06cebfbee40902414040bb87d8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85383738"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075206"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Błąd obsługi najlepszych rozwiązań dla klientów biblioteki uwierzytelniania Azure Active Directory (ADAL)
 
@@ -197,7 +197,7 @@ W przypadku awarii aplikacja może przedstawić interfejs użytkownika, aby umo�
 
 Obsługa błędów w natywnych aplikacjach może być definiowana przez dwa sytuacje:
 
-|  |  |
+| Sprawa | Opis  |
 |------|-------------|
 | **Przypadek 1**:<br>Błąd niepowtarzający operacji (większość przypadków) | 1. nie próbuj natychmiast próbować. Zaprezentowanie interfejsu użytkownika końcowego na podstawie określonego błędu, który wywołuje ponowną próbę (na przykład "Spróbuj zalogować się ponownie" lub "Pobierz aplikację brokera usługi Azure AD"). |
 | **Przypadek 2**:<br>Błąd powtarzania | 1. wykonaj jedną ponowną próbę, ponieważ użytkownik końcowy mógł wprowadzić stan, który spowoduje sukces.<br><br>2. Jeśli próba nie powiedzie się, zaprezentowanie interfejsu użytkownika końcowego na podstawie określonego błędu, który wywołuje ponowną próbę ("Spróbuj ponownie się zalogować", "Pobierz aplikację brokera usługi Azure AD" itp.). |
@@ -371,7 +371,7 @@ Jeśli tworzysz aplikację jednostronicową przy użyciu adal.js z AcquireToken,
 
 Niepowodzenie AcquireToken ma następujące sytuacje:
 
-|  |  |
+| Sprawa | Opis  |
 |------|-------------|
 | **Przypadek 1**:<br>Rozpoznawalnie przy użyciu żądania interaktywnego | 1. Jeśli logowanie () nie powiedzie się, nie wykonuj natychmiastowej próby. Ponów próbę, gdy akcja użytkownika zostanie ponowiona.|
 | **Przypadek 2**:<br>Nierozpoznawalne w przypadku żądania interaktywnego. Błąd jest ponawiany. | 1. wykonaj jedną ponowną próbę, ponieważ w poprawce użytkownika końcowego wprowadzono stan, którego wynikiem jest sukces.<br><br>2. Jeśli próba nie powiedzie się, zaprezentowanie użytkownikowi końcowemu akcji na podstawie konkretnego błędu, który może wywołać ponawianie próby ("Spróbuj zalogować się ponownie"). |

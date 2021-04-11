@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff8ac540459ad79a8980542254cc15518959b5c0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687247"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552295"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Po skonfigurowaniu bezpośredniej Federacji z organizacją Wszyscy nowi zaprosze
  - Jeśli skonfigurujesz bezpośrednią Federacji z organizacją partnera i zapraszasz użytkowników-Gości, a następnie organizacja partnera później przejdzie do usługi Azure AD, użytkownicy-Goście, którzy już wykorzystali zaproszenia, będą nadal korzystać z Federacji bezpośredniej, o ile istnieją bezpośrednie zasady Federacji w dzierżawie.
  - W przypadku usunięcia bezpośredniej Federacji z organizacją partnera wszyscy użytkownicy-Goście korzystający obecnie z Federacji bezpośredniej nie będą mogli się zalogować.
 
-W każdym z tych scenariuszy można zaktualizować metodę uwierzytelniania użytkownika-gościa, usuwając konto użytkownika-gościa z katalogu i zapraszając je.
+W każdym z tych scenariuszy można zaktualizować metodę uwierzytelniania użytkownika-gościa poprzez [zresetowanie ich stanu](reset-redemption-status.md).
 
 Federacja bezpośrednia jest powiązana z przestrzeniami nazw domen, takimi jak contoso.com i fabrikam.com. Podczas ustanawiania bezpośredniej konfiguracji federacji z AD FS lub dostawcy tożsamości innych firm organizacje kojarzą co najmniej jedną przestrzeń nazw domeny z tymi dostawców tożsamości. 
 
@@ -89,7 +89,7 @@ W przypadku ustanowienia bezpośredniej Federacji z organizacją partnera ma ona
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Czy bezpośrednie problemy z logowaniem do adresu federacyjnego są spowodowane częściowo zsynchronizowaną dzierżawą?
 Nie. w tym scenariuszu należy użyć funkcji [jednokrotnego kodu dostępu w wiadomości e-mail](one-time-passcode.md) . "Częściowo zsynchronizowana dzierżawa" odnosi się do dzierżawy usługi Azure AD partnera, w której tożsamości użytkowników lokalnych nie są w pełni zsynchronizowane z chmurą. Gość, którego tożsamość nie istnieje jeszcze w chmurze, ale próbujących zrealizować zaproszenie B2B nie będzie mógł się zalogować. Funkcja jednorazowy kod dostępu zezwoli temu gościa na logowanie. Funkcja Federacji bezpośredniej dotyczy scenariuszy, w których Gość ma własne konto organizacyjne zarządzane przez dostawcy tożsamości, ale w ogóle nie ma obecności usługi Azure AD.
 ### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Czy po skonfigurowaniu bezpośredniej Federacji z organizacją należy wysłać każdy gościa i zrealizować pojedyncze zaproszenie?
-Skonfigurowanie Federacji bezpośredniej nie powoduje zmiany metody uwierzytelniania dla użytkowników-Gości, którzy już skorzystali z zaproszenia. Można zaktualizować metodę uwierzytelniania użytkownika-gościa, usuwając konto użytkownika-gościa z katalogu i zapraszając je.
+Skonfigurowanie Federacji bezpośredniej nie powoduje zmiany metody uwierzytelniania dla użytkowników-Gości, którzy już skorzystali z zaproszenia. Metodę uwierzytelniania użytkownika-gościa można zaktualizować przez [zresetowanie jego stanu](reset-redemption-status.md).
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Krok 1. Konfigurowanie dostawcy tożsamości organizacji partnerskiej
 Najpierw organizacja partnera musi skonfigurować swojego dostawcę tożsamości z wymaganymi oświadczeniami i relacjami zaufania jednostek uzależnionych. 
 
@@ -212,7 +212,7 @@ Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego uż
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>Jak mogę usunąć Federacji bezpośredniej?
-Możesz usunąć konfigurację Federacji bezpośredniej. Jeśli to zrobisz, wszyscy użytkownicy-Goście Federacji, którzy już korzystali z zaproszenia, nie będą mogli się zalogować. Można jednak umożliwić im ponowne uzyskanie dostępu do zasobów, usuwając je z katalogu i ponownie zapraszając. Aby usunąć bezpośrednią Federacji z dostawcą tożsamości w portalu usługi Azure AD:
+Możesz usunąć konfigurację Federacji bezpośredniej. Jeśli to zrobisz, wszyscy użytkownicy-Goście Federacji, którzy już korzystali z zaproszenia, nie będą mogli się zalogować. Można jednak ponownie uzyskać dostęp do swoich zasobów przez [zresetowanie ich stanu](reset-redemption-status.md). Aby usunąć bezpośrednią Federacji z dostawcą tożsamości w portalu usługi Azure AD:
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
 2. Wybierz **tożsamości zewnętrzne**.

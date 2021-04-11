@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana mowy na tekst, oprogramowanie zamiany mowy na tekst
-ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3450d39729096bfc3077f51e2069f8f102e571a5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434320"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449396"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
 
@@ -26,7 +26,12 @@ Zamiana mowy na tekst, nazywana również rozpoznawaniem mowy, umożliwia zapisa
 
 Usługa zamiany mowy na tekst domyślnie używa modelu języka uniwersalnego. Ten model został przeszkolony przy użyciu danych firmy Microsoft i jest wdrażany w chmurze. Jest optymalny dla scenariuszy konwersacji i dyktowania. Przy użyciu zamiany mowy na tekst w celu rozpoznawania i transkrypcji w unikatowym środowisku można tworzyć i uczenie niestandardowych modeli akustycznych, językowych i wymowy. Dostosowanie jest pomocne w odniesieniu do hałasu otoczenia lub słownictwa specyficznego dla branży.
 
-Dzięki dodatkowemu tekstowi referencyjnemu jako dane wejściowe, usługa zamiany mowy na tekst umożliwia również [ocenę](rest-speech-to-text.md#pronunciation-assessment-parameters) wymowy, aby ocenić wymowę mowy i dać nam opinię na temat dokładności i Fluency głosu. Dzięki ocenie wymowy, informacje o języku mogą być praktyczne, otrzymywać błyskawiczne informacje zwrotne i ulepszać ich wymowę, aby mogły mówić i być niebezpieczne. Osoby wykorzystujące wykładowcy mogą oszacować wymowę wielu głośników w czasie rzeczywistym. Ta funkcja obsługuje obecnie angielskie stany USA i skorelowanie z ocenami mowy prowadzonymi przez ekspertów.
+Ta dokumentacja zawiera następujące typy artykułów:
+
+* Przewodniki **Szybki Start** to instrukcje umożliwiające wykonywanie żądań do usługi.
+* **Przewodniki z** instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.
+* **Koncepcje** zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.
+* **Samouczki** są więcej przewodnikami, które pokazują, jak korzystać z usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.
 
 > [!NOTE]
 > Rozpoznawanie mowy Bing został zlikwidowany 15 października 2019. Jeśli Twoje aplikacje, narzędzia lub produkty używają interfejsów API rozpoznawanie mowy Bing, zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.

@@ -2,7 +2,7 @@
 title: Informacje o monitorowaniu Azure Time Series Insights danych | Microsoft Docs
 description: Dokumentacja dotycząca monitorowania Azure Time Series Insights.
 author: deepakpalled
-ms.author: lyhughes
+ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20d376ee501edf16711617847c685dfd531f2c80
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591385"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504587"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Informacje o monitorowaniu Azure Time Series Insights danych
 
@@ -23,11 +23,12 @@ Dowiedz się więcej na temat danych i zasobów zebranych przez Azure Monitor ze
 
 ## <a name="metrics"></a>Metryki
 
-W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebrane dla Azure Time Series Insights. Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Time Series Insights), zobacz temat [Azure monitor Supported Metrics](../azure-monitor/essentials/metrics-supported.md). Dostawcą zasobów dla tych metryk są [Microsoft. TimeSeriesInsights/Environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) i [Microsoft. TimeSeriesInsights/](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments)Environments.
+W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebrane dla Azure Time Series Insights. Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Time Series Insights), zobacz temat [Azure monitor Supported Metrics](../azure-monitor/essentials/metrics-supported.md).
+Dostawcą zasobów dla tych metryk są [Microsoft. TimeSeriesInsights/Environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) i [Microsoft. TimeSeriesInsights/](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments)Environments.
 
 
 ### <a name="ingress"></a>Ruch przychodzący
- 
+
 |Metric|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
 |IngressReceivedBytes|Bajty odebrane z ruchu przychodzącego|Bajty|Łącznie|Liczba bajtów odczytanych ze źródła zdarzenia|

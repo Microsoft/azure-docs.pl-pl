@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 371cc78f3ebad638008f4195f164b66a64948c65
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601894"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504553"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Wprowadzenie do agenta pulpitu wirtualnego systemu Windows
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono krótkie omówienie instalacji agenta i procesów a
 
 ## <a name="initial-installation-process"></a>Proces instalacji początkowej
 
-Agent pulpitu wirtualnego systemu Windows jest początkowo instalowany na jeden z dwóch sposobów. Po zainicjowaniu obsługi maszyn wirtualnych w Azure Portal i witrynie Azure Marketplace program inicjujący agenta i agenta są instalowane automatycznie. Jeśli inicjujesz maszyny wirtualne przy użyciu programu PowerShell, musisz ręcznie pobrać pliki msi agenta i agenta podczas [tworzenia puli hostów pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Po zainstalowaniu agenta można także zainstalować jednocześnie stos klasyczny pulpitu wirtualnego (Side-by-Side) systemu Windows i agenta monitorowania Genewa. Składnik stosu Side-by-Side jest wymagany, aby użytkownicy bezpiecznie ustanowiły połączenia odwrotne serwera do klientów. Agent monitorowania Genewa monitoruje kondycję agenta. Wszystkie trzy z tych składników są niezbędne do poprawnego działania kompleksowej łączności z użytkownikami.
+Agent pulpitu wirtualnego systemu Windows jest początkowo instalowany na jeden z dwóch sposobów. Po zainicjowaniu obsługi maszyn wirtualnych w Azure Portal i witrynie Azure Marketplace program inicjujący agenta i agenta są instalowane automatycznie. Jeśli inicjujesz maszyny wirtualne przy użyciu programu PowerShell, musisz ręcznie pobrać pliki msi agenta i agenta podczas [tworzenia puli hostów pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Po zainstalowaniu agenta instalowany jest program Windows Virtual Desktop Side-by-Side Stack i Agent monitorowania Genewa. Składnik stosu Side-by-Side jest wymagany, aby użytkownicy bezpiecznie ustanowiły połączenia odwrotne serwera do klientów. Agent monitorowania Genewa monitoruje kondycję agenta. Wszystkie trzy z tych składników są niezbędne do poprawnego działania kompleksowej łączności z użytkownikami.
 
 >[!IMPORTANT]
 >Aby pomyślnie zainstalować agenta pulpitu wirtualnego systemu Windows, stos równoległy i agenta monitorowania Genewa, należy odblokować wszystkie adresy URL wymienione na [liście wymaganych adresów URL](safe-url-list.md#virtual-machines). Odblokowanie tych adresów URL jest wymagane do korzystania z usługi pulpitu wirtualnego systemu Windows.
@@ -38,6 +38,7 @@ Nowe wersje agenta są wdrażane w regularnych odstępach czasu weeklong do wszy
 
 
 >[!NOTE]
+>Ponieważ maszyny wirtualne w puli hostów mogą odbierać aktualizacje agentów w różnym czasie, należy mieć możliwość poinformowania o różnicach między problemami z lotem i niepowodzeniem aktualizacji agenta. Jeśli przejdziesz do dzienników zdarzeń dla maszyny wirtualnej w **Podgląd zdarzeń**  >  **dzienniku systemu Windows**  >   i zobaczysz zdarzenie o nazwie "ID 3277", oznacza to, że aktualizacja agenta nie zadziałała. Jeśli nie widzisz tego zdarzenia, maszyna wirtualna jest w innym locie i zostanie zaktualizowana później.
 >- Gdy Agent monitorowania Genewa aktualizuje do najnowszej wersji, stare zadanie GenevaTask jest zlokalizowane i wyłączone przed utworzeniem nowego zadania dla nowego agenta monitorowania. Starsza wersja agenta monitorowania nie została usunięta w przypadku, gdy Najnowsza wersja agenta monitorowania ma problem wymagający przywrócenia wcześniejszej wersji, aby naprawić. Jeśli Najnowsza wersja ma problem, stary Agent monitorowania zostanie uaktywniony w celu kontynuowania dostarczania danych monitorowania. Wszystkie wersje monitora, które są starsze niż Ostatnia z nich została zainstalowana przed aktualizacją, zostaną usunięte z maszyny wirtualnej.
 >- Maszyna wirtualna przechowuje trzy wersje stosu równoległego jednocześnie. Pozwala to na szybkie odzyskiwanie, jeśli wystąpił problem z aktualizacją. Najwcześniejsza wersja stosu jest usuwana z maszyny wirtualnej przy każdej aktualizacji stosu.
 

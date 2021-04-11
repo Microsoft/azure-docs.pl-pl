@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 3446de7592c10fd9c0905097a77314192688719d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 443c6960b88fb8eeb5cdee43de6c87bf4fe2ac7b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554012"
+ms.locfileid: "106581477"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -59,7 +59,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Chorwacki (Chorwacja)                 | `hr-HR` | Tekst                                   |                           |
 | Czeski (Czechy)             | `cs-CZ` | Tekst                                   |                           |
 | Duński (Dania)                   | `da-DK` | Tekst                                   | Tak                          |
-| Niderlandzki (Holandia)                | `nl-NL` | Audio (20201015)<br>Tekst                                   |    Tak                       |
+| Niderlandzki (Holandia)                | `nl-NL` | Audio (20201015)<br>Tekst<br>Fonetyczn|    Tak                       |
 | Angielski (Australia)                | `en-AU` | Audio (20201019)<br>Tekst                 | Tak                          |
 | Angielski (Kanada)                   | `en-CA` | Audio (20201019)<br>Tekst                 | Tak                          |
 | Angielski (Ghana)                    | `en-GH` | Tekst                                   |                           |
@@ -78,10 +78,10 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Estoński (Estonia)                  | `et-EE` | Tekst                                   |                           |
 | Filipiński (Filipiny)             | `fil-PH`| Tekst                                   |                           |
 | Fiński (Finlandia)                  | `fi-FI` | Tekst                                   |     Tak                      |
-| francuski (Kanada)                    | `fr-CA` | Audio (20201015)<br>Tekst                 |     Tak                      |
+| francuski (Kanada)                    | `fr-CA` | Audio (20201015)<br>Tekst<br>Fonetyczn|     Tak                      |
 | Francuski (Francja)                    | `fr-FR` | Audio (20201015)<br>Tekst<br>Fonetyczn|      Tak                     |
-| Francuski (Szwajcaria)               | `fr-CH` | Tekst                                   |                           |
-| Niemiecki (Austria)                   | `de-AT` | Tekst                                   |                           |
+| Francuski (Szwajcaria)               | `fr-CH` | Tekst<br>Fonetyczn                  |                           |
+| Niemiecki (Austria)                   | `de-AT` | Tekst<br>Fonetyczn                  |                           |
 | Niemiecki (Niemcy)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Tekst<br>Fonetyczn|  Tak                         |
 | Grecki (Grecja)                     | `el-GR` | Tekst                                   |                           |
 | Gudżarati (Indyjski)                  | `gu-IN` | Tekst                                   |                           |
@@ -100,33 +100,33 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Norweski (Bokmål, Norwegia)         | `nb-NO` | Tekst                                   |     Tak                      |
 | Polski (Polska)                    | `pl-PL` | Tekst                                   |       Tak                    |
 | Portugalski (Brazylia)                | `pt-BR` | Audio (20190620, 20201015)<br>Tekst<br>Fonetyczn|          Tak                 |
-| Portugalski (Portugalia)              | `pt-PT` | Tekst                                   |             Tak              |
+| Portugalski (Portugalia)              | `pt-PT` | Tekst<br>Fonetyczn                  |             Tak              |
 | Rumuński (Rumunia)                 | `ro-RO` | Tekst                                   |                           |
 | Rosyjski (Rosja)                   | `ru-RU` | Audio (20200907)<br>Tekst                 |                Tak           |
 | Słowacki (Słowacja)                  | `sk-SK` | Tekst                                   |                           |
 | Słoweński (Słowenia)               | `sl-SI` | Tekst                                   |                           |
-| Hiszpański (Argentyna)                | `es-AR` | Tekst                                   |                           |
-| Hiszpański (Boliwia)                  | `es-BO` | Tekst                                   |                           |
-| Hiszpański (Chile)                    | `es-CL` | Tekst                                   |                           |
-| Hiszpański (Kolumbia)                 | `es-CO` | Tekst                                   |                           |
-| Hiszpański (Kostaryka)               | `es-CR` | Tekst                                   |                           |
-| Hiszpański (Kuba)                     | `es-CU` | Tekst                                   |                           |
-| Hiszpański (Dominikana)       | `es-DO` | Tekst                                   |                           |
-| Hiszpański (Ekwador)                  | `es-EC` | Tekst                                   |                           |
-| Hiszpański (Salwador)              | `es-SV` | Tekst                                   |                           |
+| Hiszpański (Argentyna)                | `es-AR` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Boliwia)                  | `es-BO` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Chile)                    | `es-CL` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Kolumbia)                 | `es-CO` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Kostaryka)               | `es-CR` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Kuba)                     | `es-CU` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Dominikana)       | `es-DO` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Ekwador)                  | `es-EC` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Salwador)              | `es-SV` | Tekst<br>Fonetyczn                  |                           |
 | Hiszpański (Gwinea Równikowa)        | `es-GQ` | Tekst                                   |                           |
-| Hiszpański (Gwatemala)                | `es-GT` | Tekst                                   |                           |
-| Hiszpański (Honduras)                 | `es-HN` | Tekst                                   |                           |
-| Hiszpański (Meksyk)                   | `es-MX` | Audio (20200907)<br>Tekst                 |    Tak                       |
-| Hiszpański (Nikaragua)                | `es-NI` | Tekst                                   |                           |
-| Hiszpański (Panama)                   | `es-PA` | Tekst                                   |                           |
-| Hiszpański (Paragwaj)                 | `es-PY` | Tekst                                   |                           |
-| Hiszpański (Peru)                     | `es-PE` | Tekst                                   |                           |
-| Hiszpański (Portoryko)              | `es-PR` | Tekst                                   |                           |
-| hiszpański (Hiszpania)                    | `es-ES` | Audio (20201015)<br>Tekst                 |  Tak                         |
-| Hiszpański (Urugwaj)                  | `es-UY` | Tekst                                   |                           |
-| Hiszpański (USA)                      | `es-US` | Tekst                                   |                           |
-| Hiszpański (Wenezuela)                | `es-VE` | Tekst                                   |                           |
+| Hiszpański (Gwatemala)                | `es-GT` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Honduras)                 | `es-HN` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Meksyk)                   | `es-MX` | Audio (20200907)<br>Tekst<br>Fonetyczn|    Tak                       |
+| Hiszpański (Nikaragua)                | `es-NI` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Panama)                   | `es-PA` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Paragwaj)                 | `es-PY` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Peru)                     | `es-PE` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Portoryko)              | `es-PR` | Tekst<br>Fonetyczn                  |                           |
+| hiszpański (Hiszpania)                    | `es-ES` | Audio (20201015)<br>Tekst<br>Fonetyczn|  Tak                         |
+| Hiszpański (Urugwaj)                  | `es-UY` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (USA)                      | `es-US` | Tekst<br>Fonetyczn                  |                           |
+| Hiszpański (Wenezuela)                | `es-VE` | Tekst<br>Fonetyczn                  |                           |
 | Szwedzki (Szwecja)                   | `sv-SE` | Tekst                                   |   Tak                        |
 | Tamilski (Indie)                      | `ta-IN` | Tekst                                   |                           |
 | Telugu (Indie)                     | `te-IN` | Tekst                                   |                           |

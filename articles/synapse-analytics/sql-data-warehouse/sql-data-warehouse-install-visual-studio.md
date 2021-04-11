@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: ab70ec4f7f2c313c2ae4efcc6d1ad994fbec8b03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6891176ff648e0f07b0f4921c3558df51f55388e
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585574"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279752"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Wprowadzenie do programu Visual Studio 2019
 
@@ -43,7 +43,6 @@ Istnieją przypadki, w których wersje funkcji dla programu Synapse SQL mogą ni
 - [Zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (w tym funkcje zwracające tabele)
   - Prześlij [bilet pomocy technicznej lub zagłosuj](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) , aby uzyskać obsługiwaną funkcję.
   - Prześlij [bilet pomocy technicznej lub zagłosuj](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) , aby uzyskać obsługiwaną funkcję.
-- Tabele z [kolumną tożsamości](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true)
 - Niektóre funkcje języka T-SQL, takie jak:
    - W klauzuli *Group* w funkcji String [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) .
 

@@ -3,12 +3,12 @@ title: Lista zdarzeń Service Fabric platformy Azure
 description: Kompleksowa lista zdarzeń zapewnianych przez usługę Azure Service Fabric w celu ułatwienia monitorowania klastrów.
 ms.topic: reference
 ms.date: 2/25/2019
-ms.openlocfilehash: 3f65d7c3ddec8263ff6f115df9616b48814afc93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a1ba21aaac831abb07544944420f2b77e1753955
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628887"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279786"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista zdarzeń Service Fabric 
 
@@ -36,6 +36,12 @@ Więcej szczegółów na temat uaktualniania klastra można znaleźć [tutaj](se
 | 29629 | ClusterUpgradeRollbackStarted | Uaktualnienie | Rozpoczęto wycofywanie uaktualnienia klastra  | CM | Ostrzeżenie | 
 | 29630 | ClusterUpgradeRollbackCompleted | Uaktualnienie | Uaktualnianie klastra zostało zakończone. | CM | Ostrzeżenie | 
 | 29631 | ClusterUpgradeDomainCompleted | Uaktualnienie | Uaktualnianie domeny uaktualnienia podczas uaktualniania klastra zakończyło się | CM | Informacyjne | 
+
+**Zdarzenia umieszczania**
+| EventId | Nazwa | Kategoria | Opis |Źródło (zadanie) | Poziom |
+| --- | --- | ---| --- | --- | --- |
+| 17616 | Decyzja |Przejścia stanu | Zaplanowano przemieszczenie operacji umieszczania w celu podjęcia decyzji o rozmieszczeniu nowych replik. | CRM | Informacyjne |
+
 
 ## <a name="node-events"></a>Zdarzenia węzła
 

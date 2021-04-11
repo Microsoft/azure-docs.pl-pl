@@ -1,25 +1,25 @@
 ---
-title: Wizualizuj dzienniki i metryki usługi Azure Wyszukiwanie poznawcze przy użyciu Power BI
-description: Wizualizuj dzienniki i metryki usługi Azure Wyszukiwanie poznawcze przy użyciu Power BI
-manager: eladz
+title: Wizualizuj dzienniki i metryki za pomocą Power BI
+description: Wizualizuj dzienniki i metryki usługi Azure Wyszukiwanie poznawcze przy użyciu Power BI.
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 4056e892855c06ce6c412ec4a592ebcd97fc11a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: fbbeb861e50abfd393b416ddc46ff147fffb7b8e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325387"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581637"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Wizualizuj dzienniki i metryki usługi Azure Wyszukiwanie poznawcze przy użyciu Power BI
-Usługa [azure wyszukiwanie poznawcze](./search-what-is-azure-search.md) umożliwia przechowywanie dzienników operacji i metryk usług dotyczących usługi wyszukiwania na koncie usługi Azure Storage. Ta strona zawiera instrukcje dotyczące sposobu wizualizacji tych informacji za pomocą aplikacji Power BI Template. Aplikacja zapewnia szczegółowe informacje o usłudze wyszukiwania, w tym informacje na temat wyszukiwania, indeksowania, operacji i metryk usług.
+
+[Usługa azure wyszukiwanie poznawcze](./search-what-is-azure-search.md) może wysyłać dzienniki operacji i metryki usług do konta usługi Azure Storage, które można następnie wizualizować w Power BI. W tym artykule opisano kroki i sposób używania aplikacji Power BI Template do wizualizacji danych. Szablon może pomóc uzyskać szczegółowe informacje o usłudze wyszukiwania, w tym informacje o zapytaniach, indeksowanie, operacje i metryki usług.
 
 Możesz znaleźć szablon Power BI App **Wyszukiwanie poznawcze Azure: Analizuj dzienniki i metryki** w [witrynie Power BI Apps Marketplace](https://appsource.microsoft.com/marketplace/apps).
 
-## <a name="how-to-get-started-with-the-app"></a>Jak rozpocząć pracę z aplikacją
+## <a name="set-up-the-app"></a>Konfigurowanie aplikacji
 
 1. Włącz rejestrowanie metryk i zasobów dla usługi wyszukiwania:
 
@@ -67,7 +67,8 @@ Możesz znaleźć szablon Power BI App **Wyszukiwanie poznawcze Azure: Analizuj 
 
     :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Zrzut ekranu przedstawiający raport Power BI Wyszukiwanie poznawcze platformy Azure.":::
 
-## <a name="how-to-change-the-app-parameters"></a>Jak zmienić parametry aplikacji
+## <a name="modify-app-parameters"></a>Modyfikowanie parametrów aplikacji
+
 Jeśli chcesz wizualizować dane z innego konta magazynu lub zmienić liczbę dni, które mają być zapytania, wykonaj poniższe kroki, aby zmienić parametry **dni** i **StorageAccount** .
 
 1. Przejdź do aplikacji Power BI, Znajdź aplikację Azure Wyszukiwanie poznawcze i wybierz przycisk **Edytuj aplikację** , aby wyświetlić obszar roboczy.
@@ -86,7 +87,8 @@ Jeśli chcesz wizualizować dane z innego konta magazynu lub zmienić liczbę dn
 
 1. Otwórz raport, aby wyświetlić zaktualizowane dane. Może być również konieczne odświeżenie raportu w celu wyświetlenia najnowszych danych.
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
+## <a name="troubleshooting-report-issues"></a>Rozwiązywanie problemów z raportami
+
 Jeśli okaże się, że dane nie są widoczne, wykonaj następujące kroki rozwiązywania problemów:
 
 1. Otwórz raport i Odśwież stronę, aby upewnić się, że oglądasz najnowsze dane. Istnieje możliwość odświeżenia danych w raporcie. Wybierz tę opcję, aby uzyskać najnowsze dane.
@@ -98,8 +100,7 @@ Jeśli okaże się, że dane nie są widoczne, wykonaj następujące kroki rozwi
 1. Sprawdź, czy zestaw danych nadal jest odświeżany. Wskaźnik stanu odświeżania jest przedstawiony w kroku 8 powyżej. Jeśli nadal trwa odświeżanie, poczekaj na zakończenie odświeżania, aby otworzyć i odświeżyć raport.
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o usłudze Azure Wyszukiwanie poznawcze](./index.yml)
 
-[Co to jest usługa Power BI?](/power-bi/fundamentals/power-bi-overview)
-
-[Podstawowe pojęcia dla projektantów w usłudze Power BI](/power-bi/service-basic-concepts)
++ [Monitorowanie operacji i aktywności wyszukiwania](search-monitor-usage.md)
++ [Co to jest usługa Power BI?](/power-bi/fundamentals/power-bi-overview)
++ [Podstawowe pojęcia dla projektantów w usłudze Power BI](/power-bi/service-basic-concepts)

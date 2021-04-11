@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91329667"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073691"
 ---
 >[!NOTE]
 >W przypadku zasobów, które nie zostały naprawione, należy otworzyć bilet pomocy technicznej w celu poproszenia o zwiększenie limitów przydziału. Nie należy tworzyć dodatkowych kont Azure Media Services próbujących uzyskać wyższe limity.
@@ -41,7 +41,7 @@ Od 1 kwietnia 2017 każdy rekord zadania na koncie starszej niż 90 dni jest aut
 
 <sup>3</sup> Po zażądaniu listy jednostek zadań dla każdego żądania jest zwracana maksymalnie 1 000 zadań. Aby śledzić wszystkie przesłane zadania, należy użyć zapytania Top lub Skip, zgodnie z opisem w [opcji zapytania systemu OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup> Lokalizatory nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Aby nadać różnym użytkownikom prawa dostępu, Skorzystaj z rozwiązań do zarządzania prawami cyfrowymi (DRM). Aby uzyskać więcej informacji, zobacz [Ochrona zawartości za pomocą Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup> Lokalizatory nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Aby nadać różnym użytkownikom prawa dostępu, Skorzystaj z rozwiązań do zarządzania prawami cyfrowymi (DRM). Aby uzyskać więcej informacji, zobacz [Ochrona zawartości za pomocą Azure Media Services](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup> Konta magazynu muszą znajdować się w tej samej subskrypcji platformy Azure.
 

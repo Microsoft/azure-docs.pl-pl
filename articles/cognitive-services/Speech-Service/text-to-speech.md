@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645014"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449362"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany tekstu na mowę, która umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na mowę, którą daje człowiek. Wybieraj spośród standardowych i neuronowych głosów lub Utwórz niestandardowy głos unikatowy dla danego produktu lub marki. 75 standardowych głosów jest dostępnych w więcej niż 45 językach i ustawieniach regionalnych oraz 5 neuronowych głosów jest dostępnych w wybranej liczbie języków i ustawieniach regionalnych. Aby zapoznać się z pełną listą obsługiwanych głosów, języków i ustawień regionalnych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
+
+Ta dokumentacja zawiera następujące typy artykułów:
+
+* Przewodniki **Szybki Start** to instrukcje umożliwiające wykonywanie żądań do usługi.
+* **Przewodniki z** instrukcjami dotyczącymi używania usługi w bardziej specyficzny lub dostosowany sposób.
+* **Koncepcje** zawierają szczegółowe wyjaśnienia funkcji i funkcji usługi.
+* **Samouczki** są więcej przewodnikami, które pokazują, jak korzystać z usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.
 
 > [!NOTE]
 > Rozpoznawanie mowy Bing został zlikwidowany 15 października 2019. Jeśli Twoje aplikacje, narzędzia lub produkty używają rozpoznawanie mowy Bing interfejsów API lub Custom Speech, zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.

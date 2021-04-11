@@ -12,12 +12,12 @@ ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022946"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449464"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim
 
@@ -168,10 +168,10 @@ Istnieje kilka punktów końcowych zdefiniowanych w Standard scim RFC. Możesz r
 |--|--|
 |/User|Wykonywanie operacji CRUD na obiekcie użytkownika.|
 |/Group|Wykonywanie operacji CRUD na obiekcie grupy.|
-|/ServiceProviderConfig|Zawiera szczegółowe informacje na temat funkcji obsługiwanego standardu Standard scim, na przykład obsługiwanych zasobów i metody uwierzytelniania.|
-|/ResourceTypes|Określa metadane dotyczące poszczególnych zasobów|
 |/Schemas|Zestaw atrybutów obsługiwanych przez każdego klienta i dostawcę usług może się różnić. Jeden dostawca usług może obejmować `name` , `title` , i `emails` , podczas gdy inny dostawca usług używa `name` , `title` , i `phoneNumbers` . Punkt końcowy schematów umożliwia odnajdywanie obsługiwanych atrybutów.|
 |/Bulk|Operacje zbiorcze umożliwiają wykonywanie operacji na dużej kolekcji obiektów zasobów w ramach jednej operacji (np. aktualizacji członkostwa w dużej grupie).|
+|/ServiceProviderConfig|Zawiera szczegółowe informacje na temat funkcji obsługiwanego standardu Standard scim, na przykład obsługiwanych zasobów i metody uwierzytelniania.|
+|/ResourceTypes|Określa metadane dotyczące poszczególnych zasobów.|
 
 **Przykładowa lista punktów końcowych**
 
@@ -1329,9 +1329,9 @@ Skorzystaj z listy kontrolnej, aby szybko dodać swoją aplikację, a klienci ma
 > * 3 niewygasające poświadczenia testów dla aplikacji (wymagane)
 > * Obsługa przydzielenia kodu autoryzacji OAuth lub tokenu długotrwałego, zgodnie z poniższym opisem (wymagane)
 > * Ustanów inżynierów inżynieryjnych i pomocy technicznej w celu obsługi klientów po dołączeniu do galerii (wymagane)
+> * [Obsługa odnajdywania schematu (wymagane)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Obsługa aktualizowania wielu członkostw w grupie za pomocą pojedynczej poprawki
 > * Publicznie udokumentowanie punktu końcowego Standard scim
-> * [Obsługa odnajdywania schematu](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autoryzacja do łączników aprowizacji w galerii aplikacji
 Specyfikacja Standard scim nie definiuje schematu specyficznego dla Standard scim na potrzeby uwierzytelniania i autoryzacji i opiera się na korzystaniu z istniejących standardów branżowych.

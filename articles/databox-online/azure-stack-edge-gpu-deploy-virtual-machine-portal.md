@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c11a89d91693075ca54c0689223dcf2af06df521
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 139b543160b679ba063a0633f9091e7bc0ef1fc1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568515"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074851"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure Portal
 
@@ -127,9 +126,10 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną po utworzeniu obr
     |Parametr |Opis  |
     |---------|---------|
     |Nazwa maszyny wirtualnej     |         |
+    |Grupa zasobów Edge     | Utwórz nową grupę zasobów dla wszystkich zasobów skojarzonych z maszyną wirtualną.        |
     |Obraz     | Wybierz spośród obrazów maszyn wirtualnych dostępnych na urządzeniu.        |
     |Rozmiar     | Wybieraj spośród [obsługiwanych rozmiarów maszyn wirtualnych](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
-    |Nazwa użytkownika     | Użyj domyślnej nazwy użytkownika *azureuser*.        |
+    |Nazwa użytkownika     | Aby zalogować się do maszyny wirtualnej, Użyj domyślnej nazwy użytkownika *azureuser* .        |
     |Typ uwierzytelniania    | Wybierz opcję z klucza publicznego SSH lub hasła zdefiniowanego przez użytkownika.       |
     |Hasło     | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. Hasło musi mieć długość co najmniej 12 znaków i spełniać zdefiniowane [wymagania dotyczące złożoności](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
     |Potwierdź hasło    | Wprowadź hasło ponownie.        |
@@ -149,11 +149,7 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną po utworzeniu obr
 
         ![Dodaj maszynę wirtualną 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
-    1.  Powtórz powyższe czynności, aby dodać więcej dysków. Po utworzeniu dysków zostaną one wyświetlone na karcie **dyski** .
-
-        ![Dodaj maszynę wirtualną 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-3.png)
-
-        Wybierz pozycję **Dalej: Sieć**.
+    1.  Powtórz powyższe czynności, aby dodać więcej dysków. Po utworzeniu dysków zostaną one wyświetlone na karcie **dyski** . Wybierz pozycję **Dalej: sieć**.
 
 1. Na karcie **Sieć** skonfigurujesz łączność sieciową dla maszyny wirtualnej.
 
@@ -168,26 +164,32 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną po utworzeniu obr
 
     Wybierz pozycję **Dalej: przegląd + Utwórz**.
 
+1. Na karcie **Zaawansowane** możesz określić dane niestandardowe lub element Cloud-init, aby dostosować maszynę wirtualną. 
+
+    Aby dostosować maszynę wirtualną podczas pierwszego rozruchu, można użyć funkcji Cloud-init. Użyj funkcji Cloud-init, aby zainstalować pakiety i zapisywać pliki, lub skonfigurować użytkowników i zabezpieczenia. Gdy usługa Cloud-init jest uruchamiana podczas początkowego procesu rozruchu, nie są wymagane żadne dodatkowe kroki, aby zastosować konfigurację. Aby uzyskać szczegółowe informacje na temat usługi Cloud-init, zobacz [Omówienie usługi Cloud-init](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+
+    ![Dodaj maszynę wirtualną 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-1.png)    
+
 1. Na karcie **Recenzja + tworzenie** Sprawdź specyfikacje dla maszyny wirtualnej i wybierz pozycję **Utwórz**.
 
-    ![Dodaj maszynę wirtualną 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Dodawanie maszyny wirtualnej 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. Tworzenie maszyny wirtualnej rozpocznie się i może trwać do 20 minut. Aby monitorować Tworzenie maszyn wirtualnych, możesz przejść do pozycji **wdrożenia** .
 
-    ![Dodawanie maszyny wirtualnej 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
+    ![Dodaj maszynę wirtualną 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
     
 1. Po pomyślnym utworzeniu maszyny wirtualnej strona **Przegląd** zostanie zaktualizowana, aby wyświetlić nową maszynę wirtualną.
 
-    ![Dodaj maszynę wirtualną 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Dodaj maszynę wirtualną 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Wybierz nowo utworzoną MASZYNę wirtualną, aby przejść do **maszyn wirtualnych**.
 
-    ![Dodaj maszynę wirtualną 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
+    ![Dodaj maszynę wirtualną 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Wybierz maszynę wirtualną, aby wyświetlić szczegóły. 
 
-    ![Dodaj maszynę wirtualną 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+    ![Dodaj maszynę wirtualną 12](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
 ## <a name="connect-to-a-vm"></a>Łączenie z maszyną wirtualną
 

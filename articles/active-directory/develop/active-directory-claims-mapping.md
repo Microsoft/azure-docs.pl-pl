@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c7474b001284286ed589f6b7995db6bc7fd50af
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647600"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075070"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -304,7 +304,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | streetaddress | Ulica i numer |
 | Użytkownik | pocztowy | Postal Code |
 | Użytkownik | preferredlanguage | Preferowany język |
-| Użytkownik | onpremisesuserprincipalname | Lokalna nazwa UPN |*
+| Użytkownik | onpremisesuserprincipalname | Lokalna nazwa UPN |
 | Użytkownik | mailNickname | Pseudonim poczty |
 | Użytkownik | extensionattribute1 | Atrybut rozszerzenia 1 |
 | Użytkownik | extensionattribute2 | Atrybut rozszerzenia 2 |
@@ -419,16 +419,6 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 | ExtractMailPrefix | Brak |
 | Dołączanie | Dołączony sufiks musi być zweryfikowaną domeną dzierżawy zasobu. |
 
-### <a name="custom-signing-key"></a>Niestandardowy klucz podpisywania
-
-Aby zasady mapowania oświadczeń zaczęły obowiązywać, należy przypisać niestandardowy klucz podpisywania do obiektu jednostki usługi. Zapewnia to potwierdzenie, że tokeny zostały zmodyfikowane przez twórcę zasad mapowania oświadczeń i chroni aplikacje przed zasadami mapowania oświadczeń utworzonymi przez złośliwe podmioty. Aby dodać niestandardowy klucz podpisywania, możesz użyć polecenia cmdlet Azure PowerShell, [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) Aby utworzyć poświadczenia klucza certyfikatu dla obiektu aplikacji.
-
-Aplikacje z włączonym mapowaniem oświadczeń muszą sprawdzać poprawność swoich kluczy podpisywania tokenu przez dołączanie ich `appid={client_id}` do [żądań metadanych OpenID Connect Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Poniżej znajduje się format dokumentu metadanych OpenID Connect Connect, którego należy użyć:
-
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
-```
-
 ### <a name="cross-tenant-scenarios"></a>Scenariusze dla wielu dzierżawców
 
 Zasady mapowania oświadczeń nie są stosowane dla użytkowników-Gości. Jeśli użytkownik-Gość próbuje uzyskać dostęp do aplikacji z zasadami mapowania oświadczeń przypisanymi do jej nazwy głównej usługi, zostanie wystawiony token domyślny (zasady nie mają żadnego skutku).
@@ -531,6 +521,33 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+
+Aplikacje otrzymujące tokeny polegają na tym, że wartości roszczeń są autorytatywnie wystawiane przez usługę Azure AD i nie mogą zostać naruszone. Jednak po zmodyfikowaniu zawartości tokenu za pomocą zasad mapowania oświadczeń te założenia mogą nie być już poprawne. Aplikacje muszą jawnie potwierdzić, że tokeny zostały zmodyfikowane przez twórcę zasad mapowania oświadczeń, aby chronić je przed zasadami mapowania oświadczeń utworzonymi przez złośliwe podmioty. Można to zrobić w następujący sposób:
+
+- Konfigurowanie niestandardowego klucza podpisywania
+- Zaktualizuj manifest aplikacji, aby akceptował zamapowane oświadczenia.
+ 
+Bez tego usługa Azure AD zwróci [ `AADSTS50146` Kod błędu](reference-aadsts-error-codes.md#aadsts-error-codes).
+
+### <a name="custom-signing-key"></a>Niestandardowy klucz podpisywania
+
+Aby dodać niestandardowy klucz podpisywania do obiektu głównego usługi, można użyć polecenia cmdlet Azure PowerShell, [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) Aby utworzyć poświadczenia klucza certyfikatu dla obiektu aplikacji.
+
+Aplikacje z włączonym mapowaniem oświadczeń muszą sprawdzać poprawność swoich kluczy podpisywania tokenu przez dołączanie ich `appid={client_id}` do [żądań metadanych OpenID Connect Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Poniżej znajduje się format dokumentu metadanych OpenID Connect Connect, którego należy użyć:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
+
+### <a name="update-the-application-manifest"></a>Aktualizowanie manifestu aplikacji
+
+Alternatywnie możesz ustawić `acceptMappedClaims` Właściwość na `true` w [manifeście aplikacji](reference-app-manifest.md). Zgodnie z opisem w polu [Typ zasobu apiApplication](/graph/api/resources/apiapplication#properties), dzięki temu aplikacja może korzystać z mapowania oświadczeń bez określenia niestandardowego klucza podpisywania.
+
+Wymaga to od żądanych odbiorców tokenu do używania zweryfikowanej nazwy domeny dzierżawy usługi Azure AD, co oznacza, że należy zadbać o to, aby ustawić `Application ID URI` (reprezentowane przez `identifierUris` w manifeście aplikacji) `https://contoso.com/my-api` lub (po prostu użyć domyślnej nazwy dzierżawy) `https://contoso.onmicrosoft.com/my-api` .
+
+Jeśli nie używasz zweryfikowanej domeny, usługa Azure AD zwróci `AADSTS501461` Kod błędu z komunikatem *"AcceptMappedClaims jest obsługiwany tylko dla odbiorców tokenu pasujących do identyfikatora GUID aplikacji lub odbiorców w zweryfikowanych domenach dzierżawcy. Zmień identyfikator zasobu lub użyj klucza podpisywania specyficznego dla aplikacji ".*
 
 ## <a name="see-also"></a>Zobacz też
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 84ab3451ef71b95db3a0f00f88a58482516b48f4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729644"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581848"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -96,6 +96,10 @@ Aby skonfigurować ustawienia serwera proxy dla maszyny, wykonaj następujące c
 
 2. Ustawianie ustawień serwera proxy WinHTTP 
 
+   > [!Note]  
+   > Istnieje kilka metod (plików WPAD, PAC, netsh itp.), aby skonfigurować system Windows Server do korzystania z serwera proxy. W poniższych krokach opisano sposób konfigurowania ustawień serwera proxy przy użyciu narzędzia Netsh, ale jest obsługiwana jakakolwiek metoda wymieniona w [ustawieniach konfiguracji serwera proxy w dokumentacji systemu Windows](https://docs.microsoft.com/troubleshoot/windows-server/networking/configure-proxy-server-settings) .
+
+
    - Uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień lub programie PowerShell, aby wyświetlić istniejące ustawienie serwera proxy:   
 
      netsh WinHTTP show proxy
@@ -134,7 +138,7 @@ Jeśli &ast; . AFS.Azure.NET lub &ast; . one.Microsoft.com jest zbyt szeroki, mo
 
 Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz określić udziały plików platformy Azure na koncie magazynu globalnie nadmiarowy (GRS). W takim przypadku udziały plików platformy Azure zostaną przełączone w tryb failover do sparowanego regionu w przypadku długotrwałej awarii regionalnej. Azure File Sync używa tych samych regionalnych par jako magazynu. W przypadku korzystania z kont magazynu GRS należy włączyć dodatkowe adresy URL, aby umożliwić serwerowi komunikowanie się z sparowanym regionem Azure File Sync. Poniższa tabela wywołuje ten "sparowany region". Ponadto istnieje adres URL profilu Menedżera ruchu, który musi zostać włączony. Dzięki temu ruch sieciowy może być bezproblemowo kierowany do sparowanego regionu w przypadku przełączenia w tryb failover i nosi nazwę "adres URL odnajdywania" w poniższej tabeli.
 
-| Chmura  | Region (Region) | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
+| Chmura  | Region | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
 |--------|--------|----------------------|---------------|---------------|
 | Publiczne |Australia Wschodnia | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.one.Microsoft.com |
 | Publiczne |Australia Południowo-Wschodnia | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.one.Microsoft.com | Australia Wschodnia | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.one.Microsoft.com |
@@ -148,8 +152,8 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 | Publiczne | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Central US | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
 | Publiczne | Niemcy Północne | https: \/ /germanynorth01.AFS.Azure.NET | Niemcy Środkowo-Zachodnie | https: \/ /TM-germanywestcentral01.AFS.Azure.NET |
 | Publiczne | Niemcy Środkowo-Zachodnie | https: \/ /germanywestcentral01.AFS.Azure.NET | Niemcy Północne | https: \/ /TM-germanynorth01.AFS.Azure.NET |
-| Publiczne | Japonia Wschodnia | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
-| Publiczne | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japonia Wschodnia | https: \/ /TM-japanwest01.AFS.Azure.NET |
+| Publiczne | Japan East | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
+| Publiczne | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japan East | https: \/ /TM-japanwest01.AFS.Azure.NET |
 | Publiczne | Korea Środkowa | https: \/ /koreacentral01.AFS.Azure.NET/ | Korea Południowa | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
 | Publiczne | Korea Południowa | https: \/ /koreasouth01.AFS.Azure.NET/ | Korea Środkowa | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
 | Publiczne | Północno-środkowe stany USA | https: \/ /northcentralus01.AFS.Azure.NET | South Central US | https: \/ /TM-northcentralus01.AFS.Azure.NET |

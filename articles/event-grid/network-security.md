@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917532"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967578"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
@@ -44,7 +44,7 @@ Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint
 
 Używanie prywatnych punktów końcowych dla zasobu Event Grid pozwala:
 
-- Bezpieczny dostęp do tematu lub domeny z sieci wirtualnej przez sieć szkieletową firmy Microsoft w przeciwieństwie do publicznego Internetu.
+- Zabezpiecz dostęp do tematu lub domeny z sieci wirtualnej przez sieć szkieletową firmy Microsoft w przeciwieństwie do publicznego Internetu.
 - Bezpiecznie łącz się z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu sieci VPN lub usługi Express przy użyciu komunikacji równorzędnej.
 
 W przypadku tworzenia prywatnego punktu końcowego tematu lub domeny w sieci wirtualnej do zatwierdzenia Właściciel zasobu jest wysyłana prośba o zgodę. Jeśli użytkownik żądający utworzenia prywatnego punktu końcowego jest również właścicielem zasobu, to żądanie zgody jest automatycznie zatwierdzane. W przeciwnym razie połączenie jest w stanie **oczekiwania** , dopóki nie zostanie zatwierdzone. Aplikacje w sieci wirtualnej mogą bezproblemowo łączyć się z usługą Event Grid za pośrednictwem prywatnego punktu końcowego, używając tych samych parametrów połączenia i mechanizmów autoryzacji, które mogą być używane w inny sposób. Właściciele zasobów mogą zarządzać żądaniami zgody i prywatnymi punktami końcowymi za pomocą karty **prywatne punkty końcowe** dla zasobu w Azure Portal.

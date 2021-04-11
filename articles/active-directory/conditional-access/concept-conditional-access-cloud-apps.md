@@ -11,19 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80ec5133ad12dda4a6883c663007b8b7fec2e81a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605080"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551938"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
 Aplikacje w chmurze lub akcje są kluczowym sygnałem w zasadach dostępu warunkowego. Zasady dostępu warunkowego umożliwiają administratorom przypisywanie formantów do określonych aplikacji lub akcji.
 
 - Administratorzy mogą wybrać z listy aplikacji, które zawierają wbudowane aplikacje firmy Microsoft i wszystkie [zintegrowane aplikacje usługi Azure AD](../manage-apps/what-is-application-management.md) , w tym galerię, nie galerię i aplikacje publikowane za pośrednictwem [serwera proxy aplikacji](../manage-apps/what-is-application-proxy.md).
-- Administratorzy mogą określić, że zasady nie są oparte na aplikacji w chmurze, ale w akcji użytkownika. Jedyną obsługiwaną akcją jest rejestrowanie informacji o zabezpieczeniach (wersja zapoznawcza), co umożliwia dostęp warunkowy do wymuszania kontroli nad [połączonym doświadczeniem rejestracji informacji o zabezpieczeniach](../authentication/howto-registration-mfa-sspr-combined.md).
+- Administratorzy mogą określić, że zasady nie są oparte na aplikacji w chmurze, ale w akcji użytkownika. Obsługujemy dwie akcje użytkownika
+   - Zarejestruj informacje o zabezpieczeniach (wersja zapoznawcza), aby wymusić kontrolę nad [połączonym doświadczeniem rejestracji informacji o zabezpieczeniach](../authentication/howto-registration-mfa-sspr-combined.md) 
+   - Zarejestruj lub Dołącz urządzenia (wersja zapoznawcza), aby wymusić kontrolki podczas [rejestrowania](../devices/concept-azure-ad-register.md) lub [dołączania](../devices/concept-azure-ad-join.md) urządzeń do usługi Azure AD. 
 
 ![Definiowanie zasad dostępu warunkowego i określanie aplikacji w chmurze](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -131,9 +133,10 @@ Akcje użytkownika to zadania, które mogą być wykonywane przez użytkownika. 
 
 - **Rejestrowanie informacji o zabezpieczeniach**: Ta akcja użytkownika umożliwia wymuszanie zasad dostępu warunkowego, gdy użytkownicy, którzy są włączeni do łączenia się ze sobą, zarejestrują swoje informacje zabezpieczające. Więcej informacji można znaleźć w artykule [dotyczącej rejestracji informacji o zabezpieczeniach](../authentication/concept-registration-mfa-sspr-combined.md).
 
-- **Zarejestruj lub Dołącz urządzenia (wersja zapoznawcza)**: Ta akcja użytkownika umożliwia administratorom wymuszanie zasad dostępu warunkowego, gdy użytkownicy [rejestrują](../devices/concept-azure-ad-register.md) lub [dołączają](../devices/concept-azure-ad-join.md) urządzenia do usługi Azure AD. Istnieją dwa kluczowe zagadnienia związane z tą akcją użytkownika: 
+- **Zarejestruj lub Dołącz urządzenia (wersja zapoznawcza)**: Ta akcja użytkownika umożliwia administratorom wymuszanie zasad dostępu warunkowego, gdy użytkownicy [rejestrują](../devices/concept-azure-ad-register.md) lub [dołączają](../devices/concept-azure-ad-join.md) urządzenia do usługi Azure AD. Zapewnia to stopień szczegółowości podczas konfigurowania uwierzytelniania wieloskładnikowego na potrzeby rejestrowania lub łączenia urządzeń zamiast zasad obowiązujących w całej dzierżawie. Istnieją trzy kluczowe zagadnienia związane z tą akcją użytkownika: 
    - `Require multi-factor authentication` jest jedyną kontrolą dostępu dostępną dla tej akcji użytkownika, a wszystkie inne są wyłączone. To ograniczenie zapobiega konfliktom z kontrolami dostępu, które są zależne od rejestracji urządzeń usługi Azure AD lub nie mają zastosowania do rejestracji urządzeń usługi Azure AD. 
-   - Jeśli zasady dostępu warunkowego są włączone z tą akcją użytkownika, należy ustawić   >    >  **Ustawienia urządzenia** Azure Active Directory urządzenia  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` na wartość **nie**. W przeciwnym razie zasady dostępu warunkowego z tą akcją użytkownika nie są prawidłowo wymuszane. Więcej informacji dotyczących tego ustawienia urządzenia można znaleźć w temacie [Konfigurowanie ustawień urządzenia](../devices/device-management-azure-portal.md#configure-device-settings). Ta akcja użytkownika zapewnia elastyczność, aby wymagać uwierzytelniania wieloskładnikowego w celu zarejestrowania urządzeń lub dołączenia ich do określonych użytkowników i grup lub warunków, a nie w przypadku używania zasad dzierżawy w ustawieniach urządzenia. 
+   - `Client apps``Device state`warunki i nie są dostępne w ramach tej akcji użytkownika, ponieważ są one zależne od rejestracji urządzeń usługi Azure AD w celu wymuszania zasad dostępu warunkowego.
+   - Jeśli zasady dostępu warunkowego są włączone z tą akcją użytkownika, należy ustawić   >    >  **Ustawienia urządzenia** Azure Active Directory urządzenia  -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` na wartość **nie**. W przeciwnym razie zasady dostępu warunkowego z tą akcją użytkownika nie są prawidłowo wymuszane. Więcej informacji dotyczących tego ustawienia urządzenia można znaleźć w temacie [Konfigurowanie ustawień urządzenia](../devices/device-management-azure-portal.md#configure-device-settings). 
    
 ## <a name="next-steps"></a>Następne kroki
 

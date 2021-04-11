@@ -15,12 +15,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb23d79caa6964c3f61fbb84c8b8f229f475b8ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca99a997d621bfd2455e909b36b6802775b20ac2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722161"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074611"
 ---
 # <a name="adsync-service-account"></a>Konto usługi ADSync
 Azure AD Connect instaluje usługę lokalną, która organizuje synchronizację między Active Directory i Azure Active Directory.  Usługa synchronizacji synchronizacji Microsoft Azure AD (ADSync) jest uruchamiana na serwerze w środowisku lokalnym.  Poświadczenia usługi są domyślnie ustawiane w instalacjach ekspresowych, ale mogą być dostosowane do wymagań bezpieczeństwa organizacji.  Te poświadczenia nie są używane do nawiązywania połączeń z lokalnymi lasami lub Azure Active Directory.
@@ -56,7 +56,7 @@ Legenda:
 - Autonomiczne — [Autonomiczne zarządzane konto usługi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 - gMSA — [konto usługi zarządzanej przez grupę](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
- ||**LocalDB </br> Express**|**LocalDB/LocalSQL </br> Custom**|**Zdalne </br> niestandardowe SQL**|
+|Typ maszyny |**LocalDB </br> Express**|**LocalDB/LocalSQL </br> Custom**|**Zdalne </br> niestandardowe SQL**|
 |-----|-----|-----|-----|
 |**komputer przyłączony do domeny**|**ATRYBUTU**|**ATRYBUTU**</br> *Autonomiczne*</br> *gMSA*</br> Konto lokalne</br> Konto domeny| *gMSA* </br>Konto domeny|
 |Kontroler domeny| **Autonomiczne**|**Autonomiczne** </br>*gMSA*</br> Konto domeny|*gMSA*</br>Konto domeny| 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714786"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967203"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmienianie sposobu replikowania konta magazynu
 
@@ -122,25 +122,30 @@ Należy przeprowadzić migrację ręczną, jeśli:
 - Chcesz migrować dane z ZRS do LRS, GRS lub RA-GRS.
 - Twoje konto magazynu zawiera dane w warstwie archiwum.
 
-Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). W portalu wybierz konto magazynu, które chcesz skonwertować do ZRS.
+Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
-1. Wybierz pozycję **nowe żądanie obsługi**.
-2. Wypełnij **podstawowe** informacje na podstawie informacji o koncie: 
+> [!IMPORTANT]
+> Jeśli konieczne jest Migrowanie więcej niż jednego konta magazynu, należy utworzyć pojedynczy bilet pomocy technicznej i określić nazwy kont do przekonwertowania na karcie **szczegóły** .
+
+Wykonaj następujące kroki, aby zażądać migracji na żywo:
+
+1. W Azure Portal przejdź do konta magazynu, które chcesz zmigrować.
+1. W obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **nowe żądanie obsługi**.
+1. Wypełnij kartę **podstawowe** informacje na podstawie informacji o koncie:
     - **Typ problemu**: wybierz pozycję **techniczne**.
-    - **Usługa**: wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu**.
-    - **Zasób**: wybierz zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz opcję **Dalej**.
-4. Określ następujące wartości w sekcji **problem** :
-    - **Ważność**: pozostaw wartość domyślną równą-is.
+    - **Usługa**: wybierz pozycję **Moje usługi**, a następnie pozycję **Zarządzanie kontami magazynu**.
+    - **Zasób**: wybierz konto magazynu do migracji. Jeśli musisz określić wiele kont magazynu, możesz to zrobić w sekcji **szczegóły** .
     - **Typ problemu**: wybierz pozycję **migracja danych**.
-    - **Kategoria**: wybierz pozycję **Migruj do ZRS**.
-    - **Title**: wpisz opisowy tytuł, na przykład **ZRS**.
-    - **Szczegóły**: wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz opcję **Dalej**.
-6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
-7. Wybierz przycisk **Utwórz**.
+    - **Podtyp problemu**: wybierz pozycję **Migruj do ZRS, GZRS lub RA-GZRS**.
 
-Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą i pomoże Ci uzyskać pomoc.
+    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Zrzut ekranu przedstawiający sposób żądania migracji na żywo — karta podstawy":::
+
+1. Wybierz opcję **Dalej**. Na karcie **rozwiązania** można sprawdzić uprawnienia do kont magazynu na potrzeby migracji.
+1. Wybierz opcję **Dalej**. Jeśli masz więcej niż jedno konto magazynu do migracji, na karcie **szczegóły** Podaj nazwę każdego konta oddzieloną średnikami.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Zrzut ekranu przedstawiający sposób żądania migracji na żywo — Karta Szczegóły":::
+
+1. Wprowadź dodatkowe informacje wymagane na karcie **szczegóły** , a następnie wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć i przesłać bilet pomocy technicznej. Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą w celu zapewnienia dowolnej potrzebnej pomocy.
 
 > [!NOTE]
 > Udziały plików w warstwie Premium (konta FileStorage) są dostępne tylko dla LRS i ZRS.

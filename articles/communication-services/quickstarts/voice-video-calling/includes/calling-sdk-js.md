@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 49054d9bbde67dc3670ec444e4b60c3ddf503db5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2ecbd207c4b1946a69b01f43ec2bc77d29b1a8c9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645424"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073064"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -21,10 +21,9 @@ ms.locfileid: "105645424"
 ## <a name="install-the-sdk"></a>Instalacja zestawu SDK
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 10 wywołującego zestawu SDK.
+> Ten dokument używa zestawu ACS SDK sieci Web.
 
 Użyj `npm install` polecenia, aby zainstalować usługi Azure Communication Services wywołujące i popularne zestawy SDK dla języka JavaScript.
-Ten dokument zawiera odwołania do typów w wersji 1.0.0-beta. 10 biblioteki wywoływania.
 
 ```console
 npm install @azure/communication-common --save
@@ -144,6 +143,8 @@ const call = callAgent.join(context);
 ```
 
 ### <a name="join-a-teams-meeting"></a>Dołącz do spotkania zespołów
+> [!NOTE]
+> Ten interfejs API jest udostępniany dla deweloperów i może zostać zmieniony na podstawie otrzymanych opinii. Nie należy używać tego interfejsu API w środowisku produkcyjnym. Aby użyć tego interfejsu API, użyj wersji "beta" wywołania zestawu SDK sieci Web usługi ACS
 
 Aby przyłączyć się do spotkania zespołów, użyj `join` metody i przekaż link do spotkania lub współrzędne.
 
@@ -593,8 +594,8 @@ console.log(result.video);
 ```
 
 ## <a name="record-calls"></a>Wywołania rekordu
-
-[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+> [!NOTE]
+> Ten interfejs API jest udostępniany dla deweloperów i może zostać zmieniony na podstawie otrzymanych opinii. Nie należy używać tego interfejsu API w środowisku produkcyjnym. Aby użyć tego interfejsu API, użyj wersji "beta" wywołania zestawu SDK sieci Web usługi ACS
 
 Nagrywanie wywołań jest rozszerzoną funkcją podstawowego `Call` interfejsu API. Najpierw musisz uzyskać obiekt interfejsu API funkcji rejestrowania:
 
@@ -620,6 +621,8 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 ```
 
 ## <a name="transfer-calls"></a>Wywołania transferu
+> [!NOTE]
+> Ten interfejs API jest udostępniany dla deweloperów i może zostać zmieniony na podstawie otrzymanych opinii. Nie należy używać tego interfejsu API w środowisku produkcyjnym. Aby użyć tego interfejsu API, użyj wersji "beta" wywołania zestawu SDK sieci Web usługi ACS
 
 Transfer wywołań jest rozszerzoną funkcją podstawowego `Call` interfejsu API. Najpierw musisz uzyskać obiekt interfejsu API funkcji transferu:
 

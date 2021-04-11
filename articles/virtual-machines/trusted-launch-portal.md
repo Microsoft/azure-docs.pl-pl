@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6499e4b3404a255025f88488e73da1efb6449296
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075955"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581213"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Wdróż maszynę wirtualną z włączonym zaufanym uruchamianiem (wersja zapoznawcza)
 
@@ -41,10 +41,13 @@ Utwórz maszynę wirtualną z włączonym zaufanym uruchamianiem.
 5. W obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję.
 6. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę grupy zasobów lub wybierz istniejącą grupę zasobów z listy rozwijanej.
 7. W obszarze **szczegóły wystąpienia** wpisz nazwę maszyny wirtualnej i wybierz region obsługujący [Zaufane uruchomienie](trusted-launch.md#public-preview-limitations).
-8. W obszarze **obraz** wybierz [obraz, który obsługuje zaufane uruchomienie](trusted-launch.md#public-preview-limitations). Możesz zobaczyć tylko wersję generacji 1 obrazu, która jest nieporozumiena, przejdź do następnego kroku.
-9. Przejdź do karty **Zaawansowane** , wybierając ją w górnej części strony.
-10. Przewiń w dół do sekcji **generacja maszyny wirtualnej** , a następnie wybierz pozycję **Gen 2**.
-11. Na karcie **Zaawansowane** przewiń w dół do opcji **Zaufane uruchomienia**, a następnie zaznacz pole wyboru **Zaufane uruchomienie** . Spowoduje to wyświetlenie dwóch dodatkowych opcji — Bezpieczny rozruch i vTPM. Wybierz odpowiednie opcje dla danego wdrożenia.
+8. W obszarze **obraz** wybierz obraz Gen 2 [, który obsługuje zaufane uruchomienie](trusted-launch.md#public-preview-limitations). 
+   > [!TIP]
+   > Jeśli na liście rozwijanej nie widzisz wersji generacji 2 obrazu, wybierz pozycję **Wyświetl wszystkie obrazy** , a następnie Zmień filtr **generacji maszyny wirtualnej** tak, aby były wyświetlane tylko obrazy generacji 2. Znajdź na liście obraz, a następnie użyj listy rozwijanej **Wybierz** w celu wybrania wersji generacji 2.
+ 
+1. Przejdź do karty **Zaawansowane** , wybierając ją w górnej części strony.
+1. Przewiń w dół do sekcji **generacja maszyny wirtualnej** . Upewnij się, że wybrano **Gen 2** .
+1. Na karcie **Zaawansowane** przewiń w dół do opcji **Zaufane uruchomienia**, a następnie zaznacz pole wyboru **Zaufane uruchomienie** . Spowoduje to wyświetlenie dwóch dodatkowych opcji — Bezpieczny rozruch i vTPM. Wybierz odpowiednie opcje dla danego wdrożenia.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Zrzut ekranu przedstawiający opcje zaufanego uruchamiania.":::
 
@@ -66,11 +69,11 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut.
 
 Zaufane maszyny wirtualne uruchamiania można wdrożyć przy użyciu szablonu szybkiego startu:
 
-System **Linux**:    
-[![Wdróż na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux**:    
+[![Wdróż na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
 **Windows**:    
-[![Wdróż na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Wdróż na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>Wyświetl i Aktualizuj
 
