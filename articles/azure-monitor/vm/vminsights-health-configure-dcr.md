@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 889a04d68de45a6270ae0c38615d841a526ad86a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052147"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490696"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Konfigurowanie monitorowania w usłudze VM Insights gość przy użyciu reguł zbierania danych (wersja zapoznawcza)
 [Kondycja gościa usługi VM Insights](vminsights-health-overview.md) umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak można modyfikować domyślne monitorowanie wielu maszyn wirtualnych przy użyciu reguł zbierania danych.
@@ -175,17 +175,17 @@ Lista co najmniej jednego ciągu, który definiuje, które monitory w hierarchii
 W poniższej tabeli wymieniono bieżące dostępne nazwy monitorów.
 
 | Nazwa typu | Nazwa | Opis |
-|:---|:---|:---|
-| root | root | Monitor najwyższego poziomu reprezentujący kondycję maszyny wirtualnej. | |
-| wykorzystanie procesora CPU | wykorzystanie procesora CPU | Monitor wykorzystania procesora CPU. | |
-| dyski logiczne | dyski logiczne | Monitor zbiorczy stanu kondycji wszystkich monitorowanych dysków w maszynie wirtualnej z systemem Windows. | |
-| dyski logiczne\|* | dyski logiczne \| C:<br>dyski logiczne \| D: | Zagregowane kondycje śledzenia monitora dla danego dysku w maszynie wirtualnej z systemem Windows. | 
-| \| * \| ilość wolnego miejsca na dyskach logicznych | dyski logiczne \| C: \| wolne miejsce<br>dyski logiczne \| D: \| wolne miejsce | Monitor wolnego miejsca na dysku w maszynie wirtualnej z systemem Windows. |
+|:----------|:-----|:------------|
+| root | root | Monitor najwyższego poziomu reprezentujący kondycję maszyny wirtualnej. |
+| wykorzystanie procesora CPU | wykorzystanie procesora CPU | Monitor wykorzystania procesora CPU. |
+| dyski logiczne | dyski logiczne | Monitor zbiorczy stanu kondycji wszystkich monitorowanych dysków w maszynie wirtualnej z systemem Windows. |
+| dyski logiczne\|\* | dyski logiczne \| C:<br>dyski logiczne \| D: | Zagregowane kondycje śledzenia monitora dla danego dysku w maszynie wirtualnej z systemem Windows. |
+| \| \* \| ilość wolnego miejsca na dyskach logicznych | dyski logiczne \| C: \| wolne miejsce<br>dyski logiczne \| D: \| wolne miejsce | Monitor wolnego miejsca na dysku w maszynie wirtualnej z systemem Windows. |
 | systemy plików | systemy plików | Zagregowany monitor kondycji wszystkich systemów plików na maszynie wirtualnej z systemem Linux. |
-| systemy plików\|* | systemy plików\|/<br>/MNT systemu plików \| | Agregowanie kondycji śledzenia monitora dla systemu plików maszyny wirtualnej z systemem Linux. | systemy plików|/var/log |
-| \| * \| wolne miejsce w systemie plików | \| / \| wolne miejsce w systemie plików<br>\|/mnt \| wolne miejsce w systemie plików | Monitor wolnego miejsca na dysku w systemie plików maszyn wirtualnych z systemem Linux. | 
-| pamięć | pamięć | Monitor zagregowany kondycji pamięci maszyny wirtualnej. | |
-| \|dostępna pamięć| \|dostępna pamięć | Monitoruje dostępną pamięć na maszynie wirtualnej. | |
+| systemy plików\|\* | systemy plików\|/<br>/MNT systemu plików \| | Agregowanie kondycji śledzenia monitora dla systemu plików maszyny wirtualnej z systemem Linux. |
+| \| \* \| wolne miejsce w systemie plików | \| / \| wolne miejsce w systemie plików<br>\|/mnt \| wolne miejsce w systemie plików | Monitor wolnego miejsca na dysku w systemie plików maszyn wirtualnych z systemem Linux. |
+| pamięć | pamięć | Monitor zagregowany kondycji pamięci maszyny wirtualnej. |
+| \|dostępna pamięć | \|dostępna pamięć | Monitoruje dostępną pamięć na maszynie wirtualnej. |
 
 
 ## <a name="alertconfiguration-element"></a>alertConfiguration, element

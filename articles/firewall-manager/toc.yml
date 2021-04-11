@@ -51,6 +51,8 @@
   items:
     - name: Wdrażanie dostawców partnerów w zakresie zabezpieczeń
       href: deploy-trusted-security-partner.md
+    - name: Bezpieczne prywatne punkty końcowe
+      href: private-link-inspection-secure-virtual-hub.md
     - name: Migrowanie do zasad zapory — PowerShell
       href: migrate-to-policy.md
     - name: Ustawienia DNS

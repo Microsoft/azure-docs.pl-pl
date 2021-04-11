@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
-ms.openlocfilehash: 2966618619aa40ed60c2f3d0fb2c8e080d34a016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/24/2021
+ms.openlocfilehash: 7d6baee49250509e50cdeeea8cf8ca6cec5b362d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617050"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222168"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Klasyfikacje niestandardowe w usłudze Azure kontrolą
 
@@ -28,7 +28,7 @@ Istnieje również możliwość tworzenia klasyfikacji niestandardowych, jeśli 
 
 ## <a name="steps-to-create-a-custom-classification"></a>Procedura tworzenia klasyfikacji niestandardowej
 
-Aby utworzyć klasyfikację niestandardową, wykonaj następujące czynności:
+Aby utworzyć klasyfikację niestandardową, wykonaj następujące kroki:
 
 1. Z poziomu wykazu wybierz pozycję **centrum zarządzania** z menu po lewej stronie.
 
@@ -68,7 +68,7 @@ Te szczegóły obejmują liczbę wystąpień, a także nazwę formalną, skojarz
 
 ## <a name="custom-classification-rules"></a>Niestandardowe reguły klasyfikacji
 
-Usługa wykazu udostępnia zestaw domyślnych reguł klasyfikacji, które są używane przez skaner do automatycznego wykrywania określonych typów danych. Możesz również dodać własne niestandardowe reguły klasyfikacji, aby wykryć inne typy danych, które mogą być interesujące w zakresie danych. Ta funkcja może być bardzo wydajna, gdy \' spróbujesz znaleźć dane w obszarze danych.
+Usługa wykazu udostępnia zestaw domyślnych reguł klasyfikacji, które są używane przez skaner do automatycznego wykrywania określonych typów danych. Możesz również dodać własne niestandardowe reguły klasyfikacji, aby wykryć inne typy danych, które mogą być interesujące w zakresie danych. Ta funkcja może być wydajna, gdy próbujesz znaleźć dane w obszarze danych.
 
 Załóżmy na przykład, \' że firma o nazwie Contoso ma identyfikatory pracowników, które są ustandaryzowane w całej firmie przez pracownika programu Word, \" \" a po nim identyfikator GUID, aby utworzyć pracownika {GUID}. Na przykład jedno wystąpienie identyfikatora pracownika wygląda tak `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55` .
 
@@ -109,7 +109,7 @@ Aby utworzyć niestandardową regułę klasyfikacji:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Utwórz nową regułę wyrażenia regularnego" border="true":::
 
-1. Jeśli zdecydujesz się na wygenerowanie sugerowanego wzorca wyrażenia regularnego, po przesłaniu pliku wybierz jeden z sugerowanych wzorców i kliknij przycisk **Dodaj do wzorców** , aby użyć sugerowanych wzorców danych i kolumn. Można dostosować sugerowane wzorce lub można również wpisać własne wzorce bez przekazywania pliku.
+1. Jeśli zdecydujesz się na wygenerowanie sugerowanego wzorca wyrażenia regularnego, po przesłaniu pliku wybierz jeden z sugerowanych wzorców i wybierz polecenie **Dodaj do wzorców** , aby użyć sugerowanych wzorców danych i kolumn. Można dostosować sugerowane wzorce lub można również wpisać własne wzorce bez przekazywania pliku.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Generuj sugerowane wyrażenie regularne" border="true":::
 
@@ -128,6 +128,14 @@ Aby utworzyć niestandardową regułę klasyfikacji:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Sprawdź regułę przed utworzeniem" border="true":::
 
+1. Przetestuj regułę klasyfikacji przed ukończeniem procesu tworzenia, aby sprawdzić, czy zastosuje znaczniki do zasobów. Klasyfikacje w regule zostaną zastosowane do danych przykładowych przekazanych w taki sam sposób jak w przypadku skanowania. Oznacza to, że wszystkie klasyfikacje systemu i Klasyfikacja niestandardowa zostaną dopasowane do danych w pliku.
+
+   Pliki wejściowe mogą zawierać pliki rozdzielane (CSV, PSV, SSV, TSV), JSON lub XML. Zawartość zostanie przeanalizowana na podstawie rozszerzenia pliku wejściowego. Dane rozdzielane mogą mieć rozszerzenie pliku, które pasuje do któregokolwiek z wymienionych typów. Na przykład dane TSV mogą znajdować się w pliku o nazwie MySampleData.csv. Zawartość rozdzielana musi również zawierać co najmniej 3 kolumny.
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Reguła testowa przed utworzeniem" border="true":::
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="Wyświetl zastosowane klasyfikacje po przekazaniu pliku testowego" border="true":::
+
 ### <a name="creating-a-dictionary-rule"></a>Tworzenie reguły słownika
 
 1. W przypadku tworzenia reguły słownika zobaczysz następujący ekran. Przekaż plik, który zawiera wszystkie możliwe wartości dla tworzonej klasyfikacji w jednej kolumnie.
@@ -136,9 +144,9 @@ Aby utworzyć niestandardową regułę klasyfikacji:
 
 1. Po wygenerowaniu słownika można dostosować progi DISTINCT i minimalne dopasowanie oraz przesłać regułę.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Reguła słownika kontrolą — Dopasuj próg DISTINCT dopasowania i minimalny próg dopasowania" border="true":::
+- **Próg DISTINCT dopasowania**: całkowita liczba unikatowych wartości danych, które należy znaleźć w kolumnie przed uruchomieniem przez skaner wzorca danych. Próg DISTINCT Match nie ma nic do wykonania z dopasowywaniem do wzorca, ale jest to wymagane przede wszystkim dla dopasowania do wzorca. Sugerowana wartość to 8. Tę wartość można ręcznie dopasować do zakresu od 2 do 32. System wymaga tej wartości, aby upewnić się, że kolumna zawiera wystarczającą ilość danych dla skanera, aby precyzyjnie sklasyfikować go. Na przykład kolumna zawierająca wiele wierszy zawierających wartość 1 nie zostanie sklasyfikowana. Kolumny zawierające jeden wiersz z wartością i resztą wierszy mają wartości null, które również nie są klasyfikowane. Jeśli określisz wiele wzorców, ta wartość ma zastosowanie do każdego z nich.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Utwórz regułę słownika przy użyciu znacznika wyboru wygenerowanego przez słownik." border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Utwórz regułę słownika, używając znacznika wyboru Dictionary-Generated." border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

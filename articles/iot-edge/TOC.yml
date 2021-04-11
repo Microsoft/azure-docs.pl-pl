@@ -24,23 +24,21 @@
     - name: Tworzenie modułów kodu niestandardowego
       items:
         - name: C
-          items:
-            - name: Moduły języka C dla urządzeń z systemem Linux
-              href: tutorial-c-module.md
-            - name: Moduły języka C dla urządzeń z systemem Windows
-              href: tutorial-c-module-windows.md
+          href: tutorial-c-module.md
         - name: C#
-          items:
-            - name: Moduły języka C# dla urządzeń z systemem Linux
-              href: tutorial-csharp-module.md
-            - name: Moduły języka C# dla urządzeń z systemem Windows
-              href: tutorial-csharp-module-windows.md
+          href: tutorial-csharp-module.md
         - name: Java
           href: tutorial-java-module.md
         - name: Node.js
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
+        - name: Korzystanie z kontenerów systemu Windows
+          items:
+            - name: C
+              href: tutorial-c-module-windows.md
+            - name: C#
+              href: tutorial-csharp-module-windows.md
     - name: Wdrażanie usług platformy Azure jako modułów
       items:
         - name: Filtrowanie danych przy użyciu usługi Azure Functions

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla zaświadczania platformy Azure
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy na potrzeby zaświadczania platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.service: attestation
 author: msmbaldwin
 ms.author: mbaldwin
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5903cc39e2480821cd3d81b4f8dd59c59e2db3d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1053588d826ce110a4e82cc68a6eb322d8fa88b8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037425"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093712"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-attestation"></a>Azure Policy wbudowane definicje dla zaświadczania platformy Azure
 

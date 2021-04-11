@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21f22f9aa31210b1690d0be562643d94901ce58a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147699"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079050"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie komunikatów usługi IoT Hub
 
@@ -71,7 +71,7 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 | Identyfikator komunikatu |Identyfikator użytkownika-settable dla wiadomości używany na potrzeby wzorców odpowiedzi na żądanie. Format: ciąg z rozróżnianiem wielkości liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  |Tak|
 | Numer sekwencyjny |Liczba (unikatowa dla kolejki urządzenia) przypisana przez IoT Hub do poszczególnych komunikatów z chmury do urządzenia. |Nie|
 | na wartość |Lokalizacja docelowa określona w komunikatach [z chmury do urządzenia](iot-hub-devguide-c2d-guidance.md) . |Nie|
-| bezwzględny czas wygaśnięcia |Data i godzina wygaśnięcia komunikatu. |Nie|   |
+| bezwzględny czas wygaśnięcia |Data i godzina wygaśnięcia komunikatu. |Nie| 
 | correlation-id |Właściwość ciągu w komunikacie odpowiedzi, który zwykle zawiera wartość MessageId żądania w wzorcach żądania-odpowiedzi. |Tak|
 | user-id |Identyfikator używany do określania źródła komunikatów. Komunikaty generowane przez IoT Hub są ustawiane na `{iot hub name}` . |Tak|
 | iothub — ACK |Generator komunikatów opinii. Ta właściwość jest używana w komunikatach z chmury do urządzeń w celu żądania IoT Hub generowania komunikatów zwrotnych w wyniku użycia wiadomości przez urządzenie. Możliwe wartości: **Brak** (wartość domyślna): nie Wygenerowano komunikatu o opinii, **wartość pozytywna**: otrzymasz wiadomość z informacją o opinii, jeśli wiadomość została ukończona, **wartość ujemna**: otrzymasz wiadomość z informacją zwrotną, jeśli wiadomość wygasła (lub osiągnięto maksymalną liczbę dostaw) bez ukończenia przez urządzenie lub **pełne**: dodatnie i ujemne. |Tak|

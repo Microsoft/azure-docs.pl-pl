@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 04/08/2021
 ms.author: memildin
-ms.openlocfilehash: b9a93286b6a546160b6c621d084437f671eab4d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9e1b5d19acbc9bcee86c374a3f843530b8adc61
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773576"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103763"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -28,59 +28,11 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 | Planowana zmiana                                                                                                                                                        | Szacowana data zmiany |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | Marzec 2021                |
-| [Wycofanie z 11 alertów usługi Azure Defender](#deprecation-of-11-azure-defender-alerts)                                                                                   | Marzec 2021                |
 | [21 zaleceń przenoszonych między kontrolkami zabezpieczeń](#21-recommendations-moving-between-security-controls)                                                           | Kwiecień 2021                |
-| [Dwa dalsze zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | Kwiecień 2021                |
-| [Zalecenia z usługi AWS zostaną wydane w celu uzyskania ogólnej dostępności (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | Kwiecień 2021                |
+| [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | Kwiecień 2021                |
+| [Zalecenia z usługi AWS zostaną wydane w celu uzyskania ogólnej dostępności (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | 2021 **sierpnia**             |
 | [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | Q2 2021                   |
 |                                                                                                                                                                       |                           |
-
-
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
-
-**Szacowana data zmiany:** Marzec 2021
-
-Następujące dwa zalecenia zaplanowano jako przestarzałe w lutym 2021:
-
-- **Aby zastosować aktualizacje systemu, należy ponownie uruchomić maszyny**. Może to skutkować niewielkim wpływem na bezpieczny wynik.
-- **Na maszynach należy zainstalować agenta monitorowania**. To zalecenie odnosi się tylko do maszyn lokalnych, a część jej logiki zostanie przetransferowana do innego zalecenia, **log Analytics na maszynach należy rozwiązać problemy z kondycją agenta**. Może to skutkować niewielkim wpływem na bezpieczny wynik.
-
-Zalecamy sprawdzenie konfiguracji eksportu ciągłego i automatyzacji przepływu pracy, aby sprawdzić, czy te zalecenia są zawarte w nich. Ponadto należy odpowiednio zaktualizować wszystkie pulpity nawigacyjne lub inne narzędzia do monitorowania, które mogą z nich korzystać.
-
-Więcej informacji na temat tych zaleceń znajduje się na [stronie informacje o zaleceniach dotyczących zabezpieczeń](recommendations-reference.md).
-
-### <a name="deprecation-of-11-azure-defender-alerts"></a>Wycofanie z 11 alertów usługi Azure Defender
-
-**Szacowana data zmiany:** Marzec 2021
-
-W następnym miesiącu jedenaście alertów usługi Azure Defender wymienionych poniżej zostanie wycofana.
-
-- Nowe alerty zastępują te dwa alerty i zapewniają lepsze pokrycie:
-
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | WERSJA zapoznawcza — wykryto uruchomienie funkcji "Get-AzureDomainInfo" zestawu narzędzi mikroserii |
-    | ARM_MicroBurstRunbook    | WERSJA zapoznawcza — wykryto uruchomienie funkcji "Get-AzurePasswords" zestawu narzędzi mikroserii  |
-    |                          |                                                                          |
-
-- Te dziewięć alertów odnoszą się do łącznika Azure Active Directory Identity Protection, który został już uznany za przestarzały:
-
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | Nieznane właściwości logowania |
-    | AnonymousLogin      | Anonimowy adres IP          |
-    | InfectedDeviceLogin | Połączony adres IP złośliwego oprogramowania     |
-    | ImpossibleTravel    | Nietypowa podróż               |
-    | MaliciousIP         | Złośliwy adres IP          |
-    | LeakedCredentials   | Ujawnione poświadczenia            |
-    | PasswordSpray       | Rozpylanie hasła                |
-    | LeakedCredentials   | Analiza zagrożeń usługi Azure AD  |
-    | AADAI               | Usługa Azure AD AI                   |
-    |                     |                               |
- 
-
-
 
 
 ### <a name="21-recommendations-moving-between-security-controls"></a>21 zaleceń przenoszonych między kontrolkami zabezpieczeń 
@@ -98,7 +50,7 @@ Dowiedz się, które zalecenia znajdują się w każdej kontroli zabezpieczeń w
 |||
 
 
-### <a name="two-further-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa dalsze zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe
 
 **Szacowana data zmiany:** Kwiecień 2021
 
@@ -110,7 +62,7 @@ Następujące dwa zalecenia są przestarzałe:
 
 ### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Zalecenia z usługi AWS zostaną wydane w celu uzyskania ogólnej dostępności (GA)
 
-**Szacowana data zmiany:** Kwiecień 2021
+**Szacowana data zmiany:** 2021 sierpnia
 
 Azure Security Center chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
 
@@ -121,7 +73,7 @@ Dzięki tej zmianie dwa zestawy zaleceń AWS zostaną przeniesione do wersji og�
 - [Kontrolki PCI DSS Centrum zabezpieczeń](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
 - [Formanty testu porównawczego w centrum zabezpieczeń CIS AWS](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
 
-Gdy są one dostępne, a oceny są uruchamiane w swoich zasobach AWS, wyniki będą miały wpływ na łączny, bezpieczny wynik dla wszystkich zasobów chmurowych i hybrydowych. 
+Gdy są one dostępne, a oceny są uruchamiane w swoich zasobach AWS, wyniki będą miały wpływ na łączny, bezpieczny wynik dla wszystkich zasobów chmurowych i hybrydowych.
 
 
 

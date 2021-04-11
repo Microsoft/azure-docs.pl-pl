@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612941"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106450483"
 ---
 | Zasób | Limit | Uwaga |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "98612941"
 | Liczba zestawów reguł ponownego zapisywania |400| |
 | Liczba konfiguracji nagłówka lub adresu URL dla zestawu reguł ponownego zapisywania|40| |
 | Liczba warunków według zestawu reguł ponownego zapisu|40| |
-| Współbieżne połączenia protokołu WebSocket |Średnie bramy 20 000<br> Duże bramy 50 000| |
+| Współbieżne połączenia protokołu WebSocket |Średnia Brama 20 000<sup>2</sup><br> Duże bramy 50 000<sup>2</sup>| |
 | Maksymalna długość adresu URL|32 KB| |
 | Maksymalny rozmiar nagłówka dla protokołu HTTP/2 |4 KB| |
 | Maksymalny rozmiar przekazywania pliku, standardowa |2 GB | |
@@ -45,3 +45,5 @@ ms.locfileid: "98612941"
 | Maksymalna liczba wykluczeń WAF na Application Gateway|40||
 
 <sup>1</sup> w przypadku jednostek SKU z obsługą WAF należy ograniczyć liczbę zasobów do 40.
+
+<sup>2</sup> limit jest przypadany na wystąpienie Application Gateway, a nie na Application Gateway zasób.

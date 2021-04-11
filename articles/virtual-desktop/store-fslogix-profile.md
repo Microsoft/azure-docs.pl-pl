@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f8a82eddfdc7a2a4899c4ee836687df26101bdc
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526606"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221895"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows
 
@@ -44,6 +44,26 @@ W poniższych tabelach porównano oferty magazynów usługi Azure Storage dla sy
 |Integracja z usługą Azure Active Directory|[Natywne Active Directory i Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services i natywne Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Tylko natywny Active Directory lub Azure Active Directory Domain Services|
 
 Po wybraniu metody Storage zapoznaj się z [cennikiem pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/) , aby uzyskać informacje na temat naszych planów cenowych.
+
+## <a name="azure-files-tiers"></a>Azure Files warstw
+
+Azure Files oferuje dwie różne warstwy magazynu: Premium i Standard. Te warstwy pozwalają dostosować wydajność i koszty udziałów plików, aby spełniały wymagania Twojego scenariusza.
+
+- Udziały plików w warstwie Premium są obsługiwane przez dyski półprzewodnikowe (dysków SSD) i są wdrażane w typie konta magazynu FileStorage. Udziały plików w warstwie Premium zapewniają spójną wysoką wydajność i małe opóźnienia w przypadku obciążeń intensywnie korzystających z operacji wejścia/wyjścia (we/wy). 
+
+- Standardowe udziały plików są obsługiwane przez dyski twarde (HDD) i są wdrażane w typie konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2). Standardowe udziały plików zapewniają niezawodną wydajność dla obciążeń we/wy, które są mniej wrażliwe na zmienności wydajności, takie jak udziały plików ogólnego przeznaczenia i środowiska deweloperskie/testowe. Standardowe udziały plików są dostępne tylko w modelu rozliczania z płatnością zgodnie z rzeczywistym użyciem.
+
+W poniższej tabeli wymieniono nasze zalecenia dotyczące warstwy wydajności, która ma być używana na podstawie obciążenia. Te zalecenia ułatwią wybranie warstwy wydajności, która spełnia Twoje cele wydajności, budżet i zagadnienia regionalne. W przykładowych scenariuszach korzystamy z tych zaleceń dotyczących [typów obciążeń pulpit zdalny](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
+
+| Typ obciążenia | Zalecana warstwa plików |
+|--------|-----------|
+| Lekki (mniej niż 200 użytkowników) | Standardowe udziały plików |
+| Lekki (więcej niż 200 użytkowników) | Udziały plików w warstwie Premium lub Standard z wieloma udziałami plików |
+|Śred.|Udziały plików w warstwie Premium|
+|Ciężki|Udziały plików w warstwie Premium|
+|Zasilanie|Udziały plików w warstwie Premium|
+
+Aby uzyskać więcej informacji o wydajności Azure Files, zobacz [elementy docelowe udziału plików i skalowania plików](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Następne kroki
 

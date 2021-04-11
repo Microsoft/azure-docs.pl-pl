@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5dd6735b5ef17f97de1d2272bd98f6b87b0bc84b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 8d495c04d5753c3771a0870659cc92fb1e604216
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553111"
+ms.locfileid: "107031209"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Przewodnik migracji: IBM DB2 do Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-W tym przewodniku nauczysz się migrować bazy danych programu IBM DB2 do Azure SQL Database przy użyciu Asystent migracji do programu SQL Server dla programu DB2. 
+W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) bazy danych programu IBM Db2 do Azure SQL Database przy użyciu SQL Server asystenta [migracji](https://azure.microsoft.com/migration/migration-journey) dla programu DB2. 
 
 Aby poznać inne przewodniki dotyczące migracji, zobacz [przewodniki dotyczące migracji bazy danych Azure](https://docs.microsoft.com/data-migration). 
 
@@ -35,7 +35,7 @@ Aby przeprowadzić migrację bazy danych DB2 do SQL Database, potrzebne są:
 
 ## <a name="pre-migration"></a>Przed migracją
 
-Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności migracji. 
+Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności [migracji w chmurze platformy Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess-and-convert"></a>Oceń i Konwertuj
 
@@ -174,7 +174,8 @@ Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta teg
 
 - Aby dowiedzieć się więcej na temat cyklu i wdrożenia migracji do chmury, zobacz:
    -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Najlepsze rozwiązania dotyczące określania kosztów i rozmiarów obciążeń migrowanych na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Najlepsze rozwiązania dotyczące określania kosztów i rozmiarów obciążeń migrowanych na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Zasoby Migracja do chmury](https://azure.microsoft.com/migration/resources) 
 
 - Aby ocenić warstwę dostępu do aplikacji, zobacz [zestaw narzędzi do migracji dostępu do danych](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Aby uzyskać szczegółowe informacje na temat przeprowadzania testów warstwy A/B dostępu do danych, zobacz [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).

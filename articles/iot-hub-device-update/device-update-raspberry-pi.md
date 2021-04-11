@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b6a9fa3ac85460a46653c171198a2dfea8580f3a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 143a7c411bea6a451645c860b7b5d12d2aa8d9f5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644485"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121340"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Samouczek dotyczący aktualizacji urządzeń z platformą Azure IoT Hub przy użyciu obrazu referencyjnego Raspberry Pi 3 B +
 
@@ -81,7 +81,7 @@ Przeczytaj postanowienia licencyjne przed użyciem agenta. Twoja instalacja i u�
 
 Teraz urządzenie należy dodać do IoT Hub platformy Azure.  W ramach usługi Azure IoT Hub dla urządzenia zostaną wygenerowane parametry połączenia.
 
-1. Na Azure Portal Uruchom IoT Hub aktualizacji urządzenia.
+1. Na Azure Portal Uruchom usługę Azure IoT Hub.
 2. Utwórz nowe urządzenie.
 3. Po lewej stronie strony przejdź do obszaru "Explorers" > "IoT Devices" > wybierz pozycję "New" ("nowe").
 4. Podaj nazwę urządzenia w obszarze "Identyfikator urządzenia" — Upewnij się, że pole wyboru "Automatyczne generowanie kluczy" jest zaznaczone.
@@ -103,9 +103,9 @@ Teraz urządzenie należy dodać do IoT Hub platformy Azure.  W ramach usługi A
  
 Zamień `<device connection string>` na parametry połączenia
  ```markdown
-    echo "connection_string=<device connection string>" > adu-conf.txt  
-    echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-    echo "aduc_model=RefDevice" >> adu-conf.txt
+    echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+    echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+    echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## <a name="connect-the-device-in-device-update-iot-hub"></a>Połącz urządzenie w IoT Hub aktualizacji urządzenia
@@ -127,9 +127,9 @@ Użyj tego numeru wersji w kroku Importuj aktualizację poniżej.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do IoT Hub.
 
-2. W okienku nawigacji po lewej stronie "IoT Devices" lub "IoT Edge" Znajdź urządzenie IoT i przejdź do tego samego urządzenia.
+2. W okienku nawigacji po lewej stronie "IoT Devices" lub "IoT Edge" Znajdź urządzenie IoT i przejdź do sznurka urządzenia albo sznurka modułu.
 
-3. W obszarze urządzenia Usuń wszystkie istniejące wartości tagu aktualizacji urządzenia, ustawiając je na wartość null.
+3. W obszarze sznurek modułu agenta aktualizacji urządzenia Usuń wszystkie istniejące wartości tagu aktualizacji urządzenia, ustawiając je na wartość null. Jeśli używasz tożsamości urządzenia z agentem aktualizacji urządzeń, wprowadź te zmiany na sznurze urządzeń.
 
 4. Dodaj nową wartość znacznika aktualizacji urządzenia, jak pokazano poniżej.
 

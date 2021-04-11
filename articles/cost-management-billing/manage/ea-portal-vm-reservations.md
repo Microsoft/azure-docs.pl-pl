@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98597954"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220904"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure
 
@@ -96,7 +96,7 @@ Jeśli klient z umową Azure EA wykorzystał już całą przedpłatę za platfor
 
 ### <a name="reserved-instance-expiration"></a>Wygaśnięcie wystąpienia zarezerwowanego
 
-Powiadomienia e-mail będą wysyłane na 30 dni przed wygaśnięciem rezerwacji. Po wygaśnięciu rezerwacji wdrożone maszyny wirtualne będą nadal działać, a opłaty będą naliczane przy użyciu stawki dla płatności zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji, zobacz [ofertę wystąpień zarezerwowanych maszyn wirtualnych.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+Otrzymasz powiadomienia pocztą e-mail, pierwsze 1 30 dni przed wygaśnięciem rezerwacji i inne po wygaśnięciu. Po wygaśnięciu rezerwacji wdrożone maszyny wirtualne będą nadal działać, a opłaty będą naliczane przy użyciu stawki dla płatności zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji, zobacz [ofertę wystąpień zarezerwowanych maszyn wirtualnych.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="next-steps"></a>Następne kroki
 

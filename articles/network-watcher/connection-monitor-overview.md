@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712321"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490492"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
 
@@ -291,8 +291,8 @@ Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent (klasyczny) | % Sond nie powiodło się (klasyczne) | Procent | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
 | AverageRoundtripMs (klasyczny) | Średni czas błądzenia (MS) (klasyczny) | ) | Średnia | Średni czas RTT sieci dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym. |             Brak wymiarów |
-| ChecksFailedPercent | % Testów zakończonych niepowodzeniem | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
-| RoundTripTimeMs | Czas błądzenia (MS) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
+| ChecksFailedPercent | % Testów zakończonych niepowodzeniem | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs | Czas błądzenia (MS) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | TestResult | Wynik testu | Liczba | Średnia | Wynik testu monitora połączeń | SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alerty na podstawie metryk dla monitora połączeń
@@ -358,6 +358,8 @@ W przypadku sieci, których źródła są maszynami wirtualnymi platformy Azure,
     * Tunel między dwoma bramami jest odłączony lub nie istnieje.
     * Druga Brama nie została znaleziona przez tunel.
     * Nie znaleziono informacji o komunikacji równorzędnej.
+> [!NOTE]
+> Jeśli istnieją 2 połączone bramy, a jeden z nich nie znajduje się w tym samym regionie co źródłowy punkt końcowy, oznacza to, że dla widoku topologii jest określana wartość "Brak trasy". Nie ma to wpływu na łączność. Jest to znany problem, a poprawka jest w toku. 
 * Brak trasy w przeglądarce Microsoft Edge.
 * Ruch zatrzymany z powodu tras systemowych lub UDR.
 * Protokół BGP nie jest włączony dla połączenia bramy.

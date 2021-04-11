@@ -3,12 +3,12 @@ title: Włącz zarządzaną tożsamość na Azure Event Grid niestandardowych te
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej dla Azure Event Grid niestandardowego tematu lub domeny.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 06fd4d6e472b33496e773596b0f3afc8e70be948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b93fd44282d9e19e7111dd52c73d8d4c01c67a10
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630535"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278222"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-custom-topic-or-domain"></a>Przypisywanie tożsamości zarządzanej przez system do Event Grid niestandardowego tematu lub domeny 
 W tym artykule opisano sposób włączania tożsamości zarządzanej przez system dla Event Grid niestandardowego tematu lub domeny. Aby dowiedzieć się więcej o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
@@ -59,4 +59,4 @@ Polecenie aktualizowania istniejącej domeny jest podobne ( `az eventgrid domain
 
 
 ## <a name="next-steps"></a>Następne kroki
-Dodaj tożsamość do odpowiedniej roli (na przykład Service Bus nadawcy danych) w miejscu docelowym (na przykład Kolejka Service Bus). Aby uzyskać szczegółowe instrukcje, zobacz [Dodawanie tożsamości do ról platformy Azure w miejscach docelowych](add-identity-roles.md). 
+Dodaj tożsamość do odpowiedniej roli (na przykład Service Bus nadawcy danych) w miejscu docelowym (na przykład Kolejka Service Bus). Aby uzyskać szczegółowe instrukcje, zobacz [udzielanie tożsamości zarządzanej dostępu do Event Grid docelowej](add-identity-roles.md). 

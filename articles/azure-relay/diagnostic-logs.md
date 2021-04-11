@@ -3,12 +3,12 @@ title: Dzienniki diagnostyczne dla Połączenia hybrydowe
 description: Ten artykuł zawiera omówienie wszystkich dzienników działań i diagnostyki, które są dostępne dla Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590875"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079101"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Włączanie dzienników diagnostycznych dla Azure Relay Połączenia hybrydowe
 Po rozpoczęciu korzystania z Azure Relay Połączenia hybrydowe można monitorować, jak i kiedy odbiorniki i nadawcy są otwierane i zamykane oraz Połączenia hybrydowe jak są tworzone i wysyłane wiadomości. Ten artykuł zawiera omówienie dzienników działań i diagnostyki dostarczonych przez usługę Azure Relay. 
@@ -80,29 +80,29 @@ Oto przykładowe zdarzenie połączeń hybrydowych w formacie JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Zdarzenia i operacje przechwycone w dziennikach diagnostycznych
 
-| Operacja | Opis | 
-| --------- | ----------- | 
-| AuthorizationFailed | Autoryzacja nie powiodła się.|
-| InvalidSasToken | Nieprawidłowy token sygnatury dostępu współdzielonego. | 
-| ListenerAcceptingConnection | Odbiornik akceptuje połączenie. |
-| ListenerAcceptingConnectionTimeout | Upłynął limit czasu połączenia akceptującego odbiornik. |
-| ListenerAcceptingHttpRequestFailed | Żądanie HTTP akceptujące odbiornik nie powiodło się z powodu wyjątku. |
-| ListenerAcceptingRequestTimeout | Upłynął limit czasu żądania akceptacji odbiornika. |  
-| ListenerClosingFromExpiredToken | Odbiornik jest zamykany, ponieważ token zabezpieczający wygasł. | 
-| ListenerRejectedConnection | Odbiornik odrzucił połączenie. |
-| ListenerReturningHttpResponse | Odbiornik zwraca odpowiedź HTTP. |  
-| ListenerReturningHttpResponseFailed | Odbiornik zwraca odpowiedź HTTP z kodem błędu. | 
- ListenerSentHttpResponse | Usługa przekaźnika odebrała odpowiedź HTTP od odbiornika. | 
-| ListenerUnregistered | Odbiornik nie jest zarejestrowany. | 
-| ListenerUnresponsive | Odbiornik nie odpowiada podczas zwracania odpowiedzi. | 
-| MessageSendingToListener | Wiadomość jest wysyłana do odbiornika. |
-| MessageSentToListener | Wiadomość jest wysyłana do odbiornika. | 
-| NewListenerRegistered | Zarejestrowano nowy odbiornik. |
-| NewSenderRegistering | Trwa rejestrowanie nowego nadawcy. | 
-| ProcessingRequestFailed | Przetwarzanie operacji połączenia hybrydowego nie powiodło się. | 
-| SenderConnectionClosed | Połączenie nadawcy zostało zamknięte. |
-| SenderListenerConnectionEstablished | Pomyślnie nawiązano połączenie nadawcy i odbiornika. |
-| SenderSentHttpRequest | Nadawca wysłał żądanie HTTP. | 
+| Operacja                           | Opis                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Autoryzacja nie powiodła się.                                           |
+| InvalidSasToken                     | Nieprawidłowy token sygnatury dostępu współdzielonego.                                              |
+| ListenerAcceptingConnection         | Odbiornik akceptuje połączenie.                           |
+| ListenerAcceptingConnectionTimeout  | Upłynął limit czasu połączenia akceptującego odbiornik.                |
+| ListenerAcceptingHttpRequestFailed  | Żądanie HTTP akceptujące odbiornik nie powiodło się z powodu wyjątku. |
+| ListenerAcceptingRequestTimeout     | Upłynął limit czasu żądania akceptacji odbiornika.                   |
+| ListenerClosingFromExpiredToken     | Odbiornik jest zamykany, ponieważ token zabezpieczający wygasł. |
+| ListenerRejectedConnection          | Odbiornik odrzucił połączenie.                       |
+| ListenerReturningHttpResponse       | Odbiornik zwraca odpowiedź HTTP.                     |
+| ListenerReturningHttpResponseFailed | Odbiornik zwraca odpowiedź HTTP z kodem błędu. |
+| ListenerSentHttpResponse            | Usługa przekaźnika odebrała odpowiedź HTTP od odbiornika.  |
+| ListenerUnregistered                | Odbiornik nie jest zarejestrowany.                                   |
+| ListenerUnresponsive                | Odbiornik nie odpowiada podczas zwracania odpowiedzi.         |
+| MessageSendingToListener            | Wiadomość jest wysyłana do odbiornika.                              |
+| MessageSentToListener               | Wiadomość jest wysyłana do odbiornika.                                    |
+| NewListenerRegistered               | Zarejestrowano nowy odbiornik.                                        |
+| NewSenderRegistering                | Trwa rejestrowanie nowego nadawcy.                                      |
+| ProcessingRequestFailed             | Przetwarzanie operacji połączenia hybrydowego nie powiodło się.     |
+| SenderConnectionClosed              | Połączenie nadawcy zostało zamknięte.                                |
+| SenderListenerConnectionEstablished | Pomyślnie nawiązano połączenie nadawcy i odbiornika.    |
+| SenderSentHttpRequest               | Nadawca wysłał żądanie HTTP.                                |
 
 
 ## <a name="next-steps"></a>Następne kroki

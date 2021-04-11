@@ -1,14 +1,14 @@
 ---
 title: Przykład strategii testu porównawczego zabezpieczeń platformy Azure — omówienie
 description: Omówienie przykładu strategii testu porównawczego zabezpieczeń platformy Azure. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
-ms.date: 01/27/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58e8c3972b0f05e5b0a3f15da0dfd3eae301ad31
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919242"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386996"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Przykładowy plan usługi Azure Security test
 

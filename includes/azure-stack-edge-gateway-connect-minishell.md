@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/08/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 0ad760caedffa97599548b8dd1b59a887b5690af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 89e648099a5ac6d905f475319cc108dd0d05a6e9
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104374"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081151"
 ---
 W zależności od systemu operacyjnego klienta procedury zdalnego łączenia się z urządzeniem są różne.
 
@@ -58,8 +58,15 @@ Wykonaj następujące kroki, aby zdalnie nawiązać połączenie z klientem syst
 
     Jeśli zostanie wyświetlony komunikat o błędzie związanym z relacją zaufania, sprawdź, czy łańcuch podpisywania certyfikatu węzła przekazany do urządzenia został również zainstalowany na kliencie, który uzyskuje dostęp do urządzenia.
 
+    Jeśli nie używasz certyfikatów (zalecamy korzystanie z certyfikatów!), możesz pominąć ten test, korzystając z opcji sesji: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck` .
+
+    ```powershell
+    $sessOptions = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck 
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL -SessionOption $sessOptions    
+    ```
+
     > [!NOTE] 
-    > W przypadku korzystania z tej `-UseSSL` opcji użytkownik jest zdalny przy użyciu programu PowerShell za pośrednictwem *protokołu HTTPS*. Zalecane jest, aby zawsze używać *protokołu HTTPS* do zdalnego łączenia za pośrednictwem programu PowerShell. Mimo że sesja *http* nie jest najbezpieczniejsza, jest akceptowalna dla zaufanych sieci.
+    > W przypadku korzystania z tej `-UseSSL` opcji użytkownik jest zdalny przy użyciu programu PowerShell za pośrednictwem *protokołu HTTPS*. Zalecane jest, aby zawsze używać *protokołu HTTPS* do zdalnego łączenia za pośrednictwem programu PowerShell. 
 
 6. Podaj hasło po wyświetleniu monitu. Użyj tego samego hasła, które jest używane do logowania się do lokalnego interfejsu użytkownika sieci Web. Domyślne hasło lokalnego interfejsu użytkownika sieci Web to *Password1*. Po pomyślnym nawiązaniu połączenia z urządzeniem za pomocą zdalnego programu PowerShell zobaczysz następujące przykładowe dane wyjściowe:  
 
@@ -77,27 +84,30 @@ Wykonaj następujące kroki, aby zdalnie nawiązać połączenie z klientem syst
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Nawiązywanie połączenia zdalnego z klienta systemu Linux
+> [!IMPORTANT]
+> W bieżącej wersji można nawiązać połączenie z interfejsem programu PowerShell urządzenia tylko za pośrednictwem klienta systemu Windows. `-UseSSL`Opcja nie działa z klientami systemu Linux.
 
-Na kliencie z systemem Linux, który będzie używany do nawiązywania połączeń:
+<!--### Remotely connect from a Linux client-->
 
-- [Zainstaluj najnowszą wersję programu PowerShell Core dla systemu Linux](/powershell/scripting/install/installing-powershell-core-on-linux) z usługi GitHub, aby uzyskać funkcję komunikacji zdalnej SSH. 
-- [Zainstaluj tylko `gss-ntlmssp` pakiet z modułu NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). W przypadku klientów Ubuntu Użyj następującego polecenia:
+<!--On the Linux client that you'll use to connect:
+
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
+- [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-Aby uzyskać więcej informacji, przejdź do [komunikacji zdalnej programu PowerShell za pośrednictwem protokołu SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
-Wykonaj następujące kroki, aby zdalnie nawiązać połączenie z klientem NFS.
+Follow these steps to remotely connect from an NFS client.
 
-1. Aby otworzyć sesję programu PowerShell, wpisz:
+1. To open PowerShell session, type:
 
     `pwsh`
  
-2. Aby nawiązać połączenie przy użyciu klienta zdalnego, wpisz:
+2. For connecting using the remote client, type:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Po wyświetleniu monitu podaj hasło używane do logowania się do urządzenia.
+    When prompted, provide the password used to sign into your device.
  
 > [!NOTE]
-> Ta procedura nie działa na Mac OS.
+> This procedure does not work on Mac OS.-->

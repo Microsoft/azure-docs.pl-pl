@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef4eb3eb55ec1f062efb0f8215a3619f526b1ad2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011939"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063988"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementowanie przesyłania strumieniowego trybu failover z Media Services V2
 
@@ -753,7 +753,7 @@ W tej sekcji utworzysz możliwość obsługi nadmiarowości.
 
 W przykładzie w tym temacie przedstawiono wyczyszczenie przesyłania strumieniowego. W celu przeprowadzenia chronionego przesyłania strumieniowego istnieje kilka innych rzeczy, które należy skonfigurować, należy użyć tego samego **AssetDeliveryPolicy**, tego samego adresu URL **ContentKeyAuthorizationPolicy** lub zewnętrznego serwera kluczy, a także należy zduplikować klucze zawartości o takim samym identyfikatorze.
 
-Aby uzyskać więcej informacji na temat ochrony zawartości, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
+Aby uzyskać więcej informacji na temat ochrony zawartości, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-playready-license-template-overview.md).
 
 ## <a name="see-also"></a>Zobacz też
 

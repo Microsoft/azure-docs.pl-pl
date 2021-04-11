@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575470"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122530"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Rozpoczynanie pracy ze zaktualizowanym kontem rozliczeniowym platformy Azure
 
@@ -26,11 +26,11 @@ Zarządzanie kosztami i fakturami to jeden z najważniejszych składników środ
 
 Na poniższym diagramie porównano stare i nowe konto rozliczeniowe:
 
-![Diagram przedstawiający porównanie hierarchii rozliczeń w starym i nowym koncie](./media/mosp-new-customer-experience/comparison-old-new-account.png)
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagram przedstawiający porównanie między hierarchią rozliczeń w starym i nowym koncie." border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 Twoje nowe konto rozliczeniowe zawiera co najmniej jeden profil rozliczeniowy, który umożliwia zarządzanie fakturami i formami płatności. Każdy profil rozliczeniowy zawiera co najmniej jedną sekcję faktury, w której można organizować koszty na fakturze profilu rozliczeniowego.
 
-![Diagram przedstawiający nową hierarchię rozliczeń](./media/mosp-new-customer-experience/new-billing-account-hierarchy.png)
+:::image type="content" source="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png" alt-text="Diagram przedstawiający nową hierarchię rozliczeń." border="false" lightbox="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png":::
 
 Role na koncie rozliczeniowym mają najwyższy poziom uprawnień. Role te powinny być przypisywane do użytkowników, którzy muszą wyświetlać faktury i śledzić koszty dotyczące całego konta, takich jak menedżerowie działu finansów lub IT w organizacji bądź osoby, które zarejestrowały swoje konto. Aby uzyskać więcej informacji, zobacz sekcję [Zadania i role konta rozliczeniowego](../manage/understand-mca-roles.md#billing-account-roles-and-tasks). Po zaktualizowaniu konta użytkownik mający rolę administratora konta w starym koncie rozliczeniowym ma przydzielaną rolę właściciela w nowym koncie.
 
@@ -60,7 +60,21 @@ Nowe środowisko obejmuje następujące funkcje zarządzania kosztami i rozlicze
 
 **Bardziej przewidywalny miesięczny okres rozliczeniowy** — w nowym koncie okres rozliczeniowy rozpoczyna się od pierwszego dnia miesiąca i kończy ostatniego dnia miesiąca, niezależnie od tego, kiedy nastąpiła rejestracja w celu korzystania z platformy Azure. Faktura będzie generowana na początku każdego miesiąca i będzie zawierać wszystkie opłaty z poprzedniego miesiąca.
 
-**Pojedyncza miesięczna faktura za wiele subskrypcji** — możesz wybrać, czy będziesz otrzymywać jedną miesięczną fakturę dla każdej subskrypcji, czy pojedynczą fakturę za wiele subskrypcji.
+**Uzyskaj jedną fakturę miesięczną dla wielu subskrypcji** — na istniejącym koncie otrzymujesz faktury dla każdej subskrypcji platformy Azure. W przypadku zaktualizowania konta istniejące zachowanie jest zachowywane, ale istnieje możliwość ujednolicenia opłat za subskrypcje w ramach jednej faktury. Po zaktualizowaniu konta postępuj zgodnie z poniższymi instrukcjami, aby skonsolidować opłaty na jednej fakturze:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+   ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+3. Wybierz pozycję **subskrypcje platformy Azure** z lewej strony ekranu. 
+4. W tabeli wymieniono subskrypcje platformy Azure, dla których płacisz. W kolumnie profil rozliczania znajdziesz profil rozliczeń, który jest rozliczany dla subskrypcji. Opłaty za subskrypcję są wyświetlane na fakturze dla profilu rozliczania. Aby skonsolidować opłaty dla wszystkich subskrypcji na jednej fakturze, należy połączyć wszystkie subskrypcje z jednym profilem rozliczania.  
+    :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Zrzut ekranu przedstawiający listę subskrypcji platformy Azure." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
+5. Wybierz profil rozliczeń, który ma być używany. 
+6. Wybierz subskrypcję, która nie jest połączona z profilem rozliczeń wybranym w kroku 5. Kliknij przycisk wielokropka (trzy kropki) dla subskrypcji. Wybierz pozycję **Zmień sekcję faktury**.  
+    :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Zrzut ekranu pokazujący, gdzie znaleźć opcję zmiany sekcji faktury." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
+7. Wybierz profil rozliczeń wybrany w kroku #5.  
+    :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Zrzut ekranu pokazujący sposób zmiany sekcji faktury." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
+8. Wybierz pozycję **Zmień**.
+9. Powtórz kroki od 6-8 dla wszystkich innych subskrypcji. 
 
 **Jedna miesięczna faktura za subskrypcje platformy Azure, plany pomocy technicznej i produkty z portalu Azure Marketplace** — otrzymasz jedną miesięczną fakturę obejmującą wszystkie opłaty, w tym opłaty za użycie subskrypcji platformy Azure, plany pomocy technicznej i zakupy w portalu Azure Marketplace.
 
@@ -98,6 +112,12 @@ Zalecamy wykonanie następujących czynności w ramach przygotowywania się do n
 
 W nowym środowisku faktura będzie generowana około dziewiątego dnia każdego miesiąca i będzie zawierać wszystkie opłaty z poprzedniego miesiąca. Ta data może się różnić od daty generowania faktury w starym koncie. Jeśli udostępniasz faktury innym osobom, powiadom je o zmianie daty.
 
+
+**Faktury w pierwszym miesiącu po migracji**
+
+Dzień, w którym Twoje konto zostało zaktualizowane, Twoje istniejące nieobciążane opłaty są finalizowane i otrzymasz faktury za te opłaty w dniu, w którym zazwyczaj otrzymujesz faktury. Na przykład Jan ma dwie subskrypcje platformy Azure — z licencji na platformę Azure z cyklem rozliczeniowym od piątego dnia miesiąca do czwartego dnia następnego miesiąca i z systemu Azure, z upływem dziesiątego dnia miesiąca do dziewiątego dnia następnego miesiąca. Jan pobiera faktury dla subskrypcji platformy Azure zwykle w ciągu piątego miesiąca. Jeśli konto Jan zostanie zaktualizowane 4 kwietnia, opłaty za usługę Azure sub 01 od 5 marca do 4 kwietnia i opłaty za usługę Azure sub 02 od dnia 10 marca do czwartego dnia zostaną zakończone. Jan otrzyma dwie faktury, jedną dla każdej z nich w dniu 5 kwietnia. Po zaktualizowaniu konta cykl rozliczeniowy firmy Jan będzie oparty na miesiącu kalendarzowym i będzie obejmować wszystkie opłaty wynikające z początku miesiąca kalendarzowego do końca tego miesiąca kalendarzowego.  Faktury za poprzednie opłaty za miesiąc w kalendarzu są dostępne w dziewiątym miesiącu każdego miesiąca. W powyższym przykładzie Jan otrzyma kolejną fakturę w dniu piątym od 5 kwietnia do 30 kwietnia. 
+
+
 **Nowe interfejsy API rozliczeń i zarządzania kosztami**
 
 Jeśli korzystasz z usługi Cost Management lub interfejsów API rozliczeń do wysyłania zapytań i aktualizowania danych dotyczących rozliczeń bądź kosztów, musisz używać nowych interfejsów API. W poniższej tabeli przedstawiono interfejsy API, które nie będą działać z nowym kontem rozliczeniowym, oraz zmiany, które należy wprowadzić w nowym koncie rozliczeniowym.
@@ -106,6 +126,7 @@ Jeśli korzystasz z usługi Cost Management lub interfejsów API rozliczeń do w
 |---------|---------|
 |[Billing Accounts — List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | W interfejsie API Billing Accounts — List stare konto rozliczeniowe ma parametr agreementType o wartości **MicrosoftOnlineServiceProgram**, a nowe konto rozliczeniowe będzie miało parametr agreementType o wartości **MicrosoftCustomerAgreement**. Jeśli korzystasz z zależności od parametru agreementType, zaktualizuj ją. |
 |[Invoices — List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Ten interfejs API zwróci tylko faktury, które zostały wygenerowane przed zaktualizowaniem konta. Aby zwrócić faktury wygenerowane w nowym koncie rozliczeniowym, należy użyć interfejsu API [Invoices — List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
+
 
 ## <a name="cost-management-updates-after-account-update"></a>Aktualizacje usługi Cost Management po aktualizacji konta
 
@@ -141,7 +162,7 @@ Na zaktualizowanym koncie otrzymujesz jedną fakturę ze wszystkimi opłatami za
 
 Na przykład jeśli okres rozliczeniowy był od 24 listopada do 23 grudnia dla starego konta, po uaktualnieniu okres będzie od 1 listopada do 30 listopada, od 1 grudnia do 31 grudnia i tak dalej.
 
-:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Obraz przedstawiający porównanie starych i nowych okresów rozliczeniowych " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Zrzut ekranu przedstawiający porównanie starych i nowych okresów rozliczeniowych." lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
 #### <a name="budgets"></a>Budżety
 
@@ -156,7 +177,7 @@ Nowe konto rozliczeniowe zapewnia ulepszone funkcje eksportu. Możesz na przykł
 
 Na przykład w przypadku okresu rozliczeniowego od 23 grudnia do 22 stycznia wyeksportowany plik CSV będzie zawierał dane dotyczące kosztów i użycia dla tego okresu. Po aktualizacji eksport będzie zawierać dane dotyczące miesiąca kalendarzowego. Na przykład od 1 stycznia do 31 stycznia i tak dalej.
 
-:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Obraz przedstawiający porównanie starych i nowych szczegółów eksportu" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Zrzuty ekranu przedstawiające porównanie starych i nowych szczegółów eksportu." lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 
