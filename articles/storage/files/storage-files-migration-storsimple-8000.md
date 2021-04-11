@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d2de439e661ef5b1d1669187355621f25400bc4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601087"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075636"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -65,11 +65,11 @@ Po raz pierwszy skonfigurujesz Urządzenie StorSimple, wygenerowało "klucz szyf
 
 "Klucz szyfrowania danych usługi" jest niezbędny do pomyślnej migracji. Teraz warto pobrać ten klucz z rekordów, po jednym dla każdego urządzenia w spisie.
 
-Jeśli nie możesz znaleźć kluczy w rekordach, możesz pobrać klucz z urządzenia. Każde urządzenie ma unikatowy klucz szyfrowania. Aby pobrać klucz:
+Jeśli nie możesz znaleźć kluczy w rekordach, możesz wygenerować nowy klucz z urządzenia. Każde urządzenie ma unikatowy klucz szyfrowania.
 
-* Prześlij żądanie pomocy technicznej za pomocą Microsoft Azure przez Azure Portal. Żądanie powinno zawierać numery seryjne urządzeń StorSimple i żądanie pobrania klucza szyfrowania danych usługi.
-* Inżynier pomocy technicznej StorSimple skontaktuje się z Tobą za pomocą prośby o spotkanie wirtualne.
-* Upewnij się, że przed rozpoczęciem spotkania zostanie nawiązane połączenie z urządzeniem StorSimple [za pośrednictwem konsoli szeregowej](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) lub za pośrednictwem [zdalnej sesji programu PowerShell](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+#### <a name="change-the-service-data-encryption-key"></a>Zmień klucz szyfrowania danych usługi
+
+[!INCLUDE [storage-files-migration-generate-key](../../../includes/storage-files-migration-generate-key.md)]
 
 > [!CAUTION]
 > Podczas wybierania metody nawiązywania połączenia z urządzeniem StorSimple należy wziąć pod uwagę następujące kwestie:

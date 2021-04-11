@@ -9,18 +9,92 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 13ef91af5f7ed8398e3d23400fa5e9df467ce6bc
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166687"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210898"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro) .
 
 __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zaktualizowana przez skopiowanie i wklejenie następującego adresu URL w czytniku kanałów informacyjnych: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-04-05"></a>2021-04-05
+
+### <a name="azure-machine-learning-sdk-for-python-v1260"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.26.0
++ **Poprawki i ulepszenia błędów**
+  + **azureml-automl-core**
+    + Rozwiązano problem polegający na tym, że modele algorytm Bayesa są zalecane w AutoMLStep uruchomieniach i nie powiodą się z funkcjami opóźnienia lub przedziału okien. Te modele nie będą zalecane, gdy ustawiono docelowy rozmiar okna docelowego spowolnienia lub docelowego.
+    +  Zmieniono dane wyjściowe konsoli podczas przesyłania AutoML uruchomienia w celu wyświetlenia linku portalu do przebiegu.
+  + **azureml-core**
+    + Dodano tryb HDFS w dokumentacji.
+    + Dodano obsługę do zrozumienia partycji zestawu danych w oparciu o strukturę globalizowania.
+    + Dodano obsługę rejestru kontenerów aktualizacji skojarzonego z obszarem roboczym usługi Azure.
+    + Przestarzałe atrybuty środowiska w DockerSection "Enabled", "shared_volume" i "arguments" są częścią DockerConfiguration w RunConfiguration.
+    + Zaktualizowana dokumentacja klonowania potoku interfejsu wiersza polecenia
+    + Zaktualizowano identyfikatory URI portalu w celu uwzględnienia dzierżawy do uwierzytelnienia
+    + Usunięto nazwę eksperymentu z identyfikatorów URI uruchamiania, aby uniknąć przekierowań 
+    + Zaktualizowaliśmy URO eksperymentu, aby użyć identyfikatora eksperymentu.
+    + Poprawki błędów w celu dołączania zdalnych obliczeń za pomocą interfejsu wiersza polecenia platformy Azure.
+    + Zaktualizowano identyfikatory URI portalu w celu uwzględnienia dzierżawy do uwierzytelnienia.
+    + Zaktualizowano identyfikator URI eksperymentu w celu użycia identyfikatora eksperymentu.
+  + **azureml-interpret**
+    + Uczenie maszynowe — interpretowane zaktualizowane do korzystania z interpretera 0.17.0 Community
+  + **azureml-opendatasets**
+    + Dane wejściowe i sprawdzanie poprawności typu daty rozpoczęcia i zakończenia oraz wskazanie błędu, jeśli nie jest to typ DateTime.
+  + **Uczenie maszynowe — uruchamianie równoległe**
+    + [Funkcja eksperymentalna] Dodaj `partition_keys` parametr do ParallelRunConfig, jeśli jest określony, wejściowe zestawy danych byłyby partycjonowane na podstawie podanych przez klucze określone przez nią. Wymaga to, aby wszystkie wejściowe zestawy danych były partycjonowane.
+  + **azureml-pipeline-steps**
+    + Poprawka — obsługa path_on_compute podczas przekazywania konfiguracji zestawu danych jako pobierania.
+    + Zaniechanie RScriptStep z użyciem CommandStep do uruchamiania skryptów języka R w potokach. 
+    + Zastanów się, aby EstimatorStep na korzystanie z CommandStep szkolenia w zakresie pracy (w tym szkoleń rozproszonych) w potokach.
+  + **Azure-SDK**
+    + Aktualizacja python_requires do < 3,9 dla usługi Azure SDK
+  + **azureml-train-automl-client**
+    +  Zmieniono dane wyjściowe konsoli podczas przesyłania AutoML uruchomienia w celu wyświetlenia linku portalu do przebiegu.
+  + **azureml-train-core**
+    + Przestarzałe atrybuty "Enabled", "shared_volume" i "arguments" DockerSection na korzyść używania DockerConfiguration z ScriptRunConfig.
+    +  Korzystanie z usługi Azure Open DataSets dla zestawu danych MNIST ręcznie
+    + Komunikaty o błędach z dysku zostały zaktualizowane.
+
+
+## <a name="2021-03-22"></a>2021-03-22
+
+### <a name="azure-machine-learning-sdk-for-python-v1250"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.25.0
++ **Poprawki i ulepszenia błędów**
+  + **azureml-automl-core**
+    +  Zmieniono dane wyjściowe konsoli podczas przesyłania AutoML uruchomienia w celu wyświetlenia linku portalu do przebiegu.
+  + **azureml-core**
+    + Program zaczyna obsługiwać aktualizowanie rejestru kontenerów dla obszaru roboczego w zestawie SDK i interfejsie wiersza polecenia
+    + Przestarzałe atrybuty "Enabled", "shared_volume" i "arguments" DockerSection na korzyść używania DockerConfiguration z ScriptRunConfig.
+    + Zaktualizowana dokumentacja klonowania potoku interfejsu wiersza polecenia
+    + Zaktualizowano identyfikatory URI portalu w celu uwzględnienia dzierżawy do uwierzytelnienia
+    + Usunięto nazwę eksperymentu z identyfikatorów URI uruchamiania, aby uniknąć przekierowań
+    + Zaktualizowaliśmy URO eksperymentu, aby użyć identyfikatora eksperymentu.
+    + Poprawki błędów w celu dołączania zdalnego obliczenia przy użyciu polecenia AZ CLI
+    + Zaktualizowano identyfikatory URI portalu w celu uwzględnienia dzierżawy do uwierzytelnienia.
+    + Dodano obsługę do zrozumienia partycji zestawu danych w oparciu o strukturę globalizowania.
+  + **azureml-interpret**
+    + Uczenie maszynowe — interpretowane zaktualizowane do korzystania z interpretera 0.17.0 Community
+  + **azureml-opendatasets**
+    + Dane wejściowe i sprawdzanie poprawności typu daty rozpoczęcia i zakończenia oraz wskazanie błędu, jeśli nie jest to typ DateTime.
+  + **azureml-pipeline-core**
+    + Poprawka — obsługa path_on_compute podczas przekazywania konfiguracji zestawu danych jako pobierania.
+  + **azureml-pipeline-steps**
+    + Poprawka — obsługa path_on_compute podczas przekazywania konfiguracji zestawu danych jako pobierania.
+    + Zaniechanie RScriptStep z użyciem CommandStep do uruchamiania skryptów języka R w potokach. 
+    + Zastanów się, aby EstimatorStep na korzystanie z CommandStep szkolenia w zakresie pracy (w tym szkoleń rozproszonych) w potokach.
+  + **azureml-train-automl-runtime**
+    +  Zmieniono dane wyjściowe konsoli podczas przesyłania AutoML uruchomienia w celu wyświetlenia linku portalu do przebiegu.
+  + **azureml-train-core**
+    + Przestarzałe atrybuty "Enabled", "shared_volume" i "arguments" DockerSection na korzyść używania DockerConfiguration z ScriptRunConfig.
+    + Korzystanie z usługi Azure Open DataSets dla zestawu danych MNIST ręcznie
+    + Komunikaty o błędach z dysku zostały zaktualizowane.
+
 
 ## <a name="2021-03-31"></a>2021-03-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z marca)
@@ -38,6 +112,7 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
   + Linki są teraz klikane w terminalu
   + Ulepszona wydajność funkcji IntelliSense
 
+
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.24.0
@@ -50,8 +125,6 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
     + Dodano funkcje do filtrowania tabelarycznych zestawów danych za pomocą wartości kolumn i plików DataSet w metadanych.
   + **azureml-contrib-fairness**
     + Uwzględnij schemat JSON w kole dla `azureml-contrib-fairness`
-  + **Azure-contrib-k8s**
-    + Należy teraz podać resource_id do dołączenia zamiast grupy zasobów i nazwy klastra.
   + **Azure-contrib-Mir**
     + Ustawienie show_output na wartość true w przypadku wdrażania modeli spowoduje, że konfiguracja wnioskowania i konfiguracja wdrożenia zostaną powtórzone przed wysłaniem żądania do serwera.
   + **azureml-core**
@@ -94,7 +167,7 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
   + **azureml-core**
     + [Funkcja eksperymentalna] Dodawanie obsługi do łączenia obszaru roboczego Synapse w AML jako połączona usługa
     + [Funkcja eksperymentalna] Dodawanie obsługi do dołączania puli Synapse Spark do AML jako obliczeń
-    + [Funkcja eksperymentalna] Dodano obsługę dostępu do danych na podstawie tożsamości. Użytkownicy mogą rejestrować datastore lub zestawy danych bez podawania poświadczeń. W takim przypadku do uwierzytelniania będą używane tokeny usługi AAD lub zarządzana tożsamość elementu docelowego użytkowników. Dowiedz się więcej [tutaj](./how-to-identity-based-data-access.md).
+    + [Funkcja eksperymentalna] Dodano obsługę dostępu do danych na podstawie tożsamości. Użytkownicy mogą rejestrować datastore lub zestawy danych bez podawania poświadczeń. W takim przypadku do uwierzytelniania będą używane tokeny usługi AAD lub zarządzana tożsamość elementu docelowego użytkowników. Więcej informacji można znaleźć [tutaj](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Funkcja eksperymentalna] Dodawanie obsługi [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

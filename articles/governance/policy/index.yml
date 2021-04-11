@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 03/16/2021
-  ms.openlocfilehash: 7803b5fa827e129ccf4cd6f21c327d4e260b1264
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: 95b9b1d9ea947017f87b209eaa1b9995b08192b4
+  ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104598460"
+  ms.lasthandoff: 04/02/2021
+  ms.locfileid: "106219216"
 landingContent:
 - title: Informacje o usłudze Azure Policy
   linkLists:
@@ -57,6 +57,8 @@ landingContent:
       url: ./assign-policy-rest-api.md
     - text: Przypisywanie zasad (szablon usługi ARM)
       url: ./assign-policy-template.md
+    - text: Przypisywanie zasad (Bicep)
+      url: ./assign-policy-bicep.md
     - text: Przypisywanie zasad (Terraform)
       url: ./assign-policy-terraform.md
   - linkListType: tutorial

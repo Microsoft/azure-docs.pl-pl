@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: implementowanie Azure Policy jako kodu w usłudze GitHub'
 description: W tym samouczku zaimplementowano Azure Policy jako przepływ pracy kodu z użyciem operacji eksportowania, GitHub i przepływów pracy usługi GitHub
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64957671597ad6df237f92176e10280dc45018c9
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92326158"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092759"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Samouczek: implementowanie Azure Policy jako kodu w usłudze GitHub
 

@@ -4,16 +4,16 @@ description: Skorzystaj z tego artykułu, aby poznać standardowe umiejętności
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2020
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82ad29b02e501d41653fd466e58218e35c3b93c
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489461"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012173"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
 
@@ -30,6 +30,8 @@ Pierwszy krok podczas rozwiązywania problemów IoT Edge powinien używać `chec
 
 Można uruchomić `check` polecenie w następujący sposób lub dodać `--help` flagę, aby wyświetlić pełną listę opcji:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 W systemie Linux:
 
 ```bash
@@ -41,6 +43,19 @@ W systemie Windows:
 ```powershell
 iotedge check
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.1 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge check
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 Narzędzie do rozwiązywania problemów uruchamia wiele sprawdzeń, które są sortowane w tych trzech kategoriach:
 
@@ -58,6 +73,9 @@ Gdy zachodzi potrzeba zebrania dzienników z urządzenia IoT Edge, Najwygodniejs
 
 Uruchom `support-bundle` polecenie z `--since` flagą, aby określić, jak długo od dawna chcesz pobrać dzienniki. Na przykład `6h` otrzymasz dzienniki od ostatnich sześciu godzin od ostatniego `6d` szóstego dnia od ostatniego 6 `6m` minut i tak dalej. Dołącz `--help` flagę, aby wyświetlić pełną listę opcji.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 W systemie Linux:
 
 ```bash
@@ -69,6 +87,19 @@ W systemie Windows:
 ```powershell
 iotedge support-bundle --since 6h
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge support-bundle --since 6h
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 Możesz również użyć wywołania [metody bezpośredniej](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) do urządzenia, aby przekazać dane wyjściowe polecenia support-Binding do usługi Azure Blob Storage.
 
@@ -102,10 +133,9 @@ To polecenie spowoduje wyjście wszystkich edgeAgent [raportowanych właściwoś
 
 [IoT Edge Security Manager](iot-edge-security-manager.md) jest odpowiedzialny za operacje, takie jak inicjowanie systemu IoT Edge przy uruchamianiu i aprowizacji urządzeń. Jeśli IoT Edge nie zostanie uruchomiona, dzienniki Menedżera zabezpieczeń mogą dostarczyć przydatne informacje.
 
-W systemie Linux:
-
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+W systemie Linux:
 
 * Wyświetl stan programu IoT Edge Security Manager:
 
@@ -131,7 +161,7 @@ W systemie Linux:
 
      ```bash
      [Service]
-     Environment=IOTEDGE_LOG=edgelet=debug
+     Environment=IOTEDGE_LOG=debug
      ```
 
   3. Uruchom ponownie demona zabezpieczeń IoT Edge:
@@ -141,42 +171,6 @@ W systemie Linux:
      sudo systemctl daemon-reload
      sudo systemctl restart iotedge
      ```
-<!--end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-* Wyświetlanie stanu usług systemu IoT Edge:
-
-   ```bash
-   sudo iotedge system status
-   ```
-
-* Wyświetlanie dzienników usług systemu IoT Edge:
-
-   ```bash
-   sudo iotedge system logs -- -f
-   ```
-
-* Włącz dzienniki na poziomie debugowania, aby wyświetlić bardziej szczegółowe dzienniki IoT Edge usług systemowych:
-
-  1. Włącz dzienniki na poziomie debugowania.
-
-     ```bash
-     sudo iotedge system set-log-level debug
-     sudo iotedge system restart
-     ```
-
-  1. Po debugowaniu Przełącz się z powrotem do domyślnych dzienników na poziomie informacji.
-
-     ```bash
-     sudo iotedge system set-log-level info
-     sudo iotedge system restart
-     ```
-
-<!-- end 1.2 -->
-:::moniker-end
 
 W systemie Windows:
 
@@ -211,6 +205,43 @@ W systemie Windows:
      ```powershell
      Restart-Service iotedge
      ```
+
+:::moniker-end
+<!--end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* Wyświetlanie stanu usług systemu IoT Edge:
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* Wyświetlanie dzienników usług systemu IoT Edge:
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Włącz dzienniki na poziomie debugowania, aby wyświetlić bardziej szczegółowe dzienniki IoT Edge usług systemowych:
+
+  1. Włącz dzienniki na poziomie debugowania.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Po debugowaniu Przełącz się z powrotem do domyślnych dzienników na poziomie informacji.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="check-container-logs-for-issues"></a>Sprawdź dzienniki kontenerów pod kątem problemów
 

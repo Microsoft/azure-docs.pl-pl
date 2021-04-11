@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491760"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012441"
 ---
 # <a name="api-management-transformation-policies"></a>Zasady przekształcania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
@@ -366,7 +366,7 @@ W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric 
 > [!IMPORTANT]
 > Implementacja środowiska ciecz użyta w `set-body` zasadach jest konfigurowana w trybie "C#". Jest to szczególnie ważne podczas wykonywania takich czynności jak filtrowanie. Przykładowo użycie filtru daty wymaga zastosowania wielkości liter w języku Pascala i formatowania daty C#, np.:
 >
-> {{Body. foo. startDateTime | Date: "yyyyMMddTHH: mm: ddZ"}}
+> {{Body. foo. startDateTime | Date: "yyyyMMddTHH: mm: SSS"}}
 
 > [!IMPORTANT]
 > Aby prawidłowo powiązać z treścią XML przy użyciu szablonu ciekłej, użyj zasad, `set-header` Aby ustawić typ zawartości na wartość Application/XML, text/xml (lub dowolny typ kończący się znakiem + XML); dla treści JSON, musi to być Application/JSON, text/JSON (lub dowolny typ kończący się znakami + JSON).

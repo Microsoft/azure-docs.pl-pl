@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ce250b19478c70109fe28d199ac771a77c42c7dc
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a3771a21914831f249696fc3d733c5ea935c2c7e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112861"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251472"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Dodawanie tożsamości zarządzanej do rozwiązania usług komunikacyjnych (JS)
 
@@ -29,7 +29,9 @@ import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 
 Poniższe przykłady używają [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych.
 
-Aby zarejestrować aplikację w środowisku deweloperskim i skonfigurować zmienne środowiskowe, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md)
+Aby łatwo przejść do korzystania z uwierzytelniania tożsamości zarządzanej, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md)
+
+Aby uzyskać bardziej szczegółowe informacje na temat sposobu działania obiektu DefaultAzureCredential oraz sposobu używania go w sposób nieokreślony w tym przewodniku Szybki Start, zobacz [Biblioteka klienta tożsamości platformy Azure dla języka JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)
 
 ### <a name="create-an-identity-and-issue-a-token-with-managed-identity"></a>Tworzenie tożsamości i wystawianie tokenu z tożsamością zarządzaną
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/19/2021
-ms.openlocfilehash: f652858f22e26eb7167a0cc7a2cfb8ef4b600ace
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74d30b7c42002c8f134520e0198774eba1519bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047304"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553842"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace
 
@@ -56,7 +56,7 @@ Na karcie **Konfiguracja oferty** w obszarze **szczegóły instalacji** wybierz,
    + Aby zapewnić 30-dniową bezpłatną wersję próbną, wybierz opcję **bezpłatna wersja próbna**, a następnie w wyświetlonym polu **adres URL wersji próbnej** wprowadź adres URL (zaczynający się od *http* lub *https*), w którym klienci mogą uzyskać dostęp do bezpłatnej wersji próbnej za pośrednictwem [uwierzytelniania przy użyciu usługi Azure Active Directory (Azure AD)](azure-ad-saas.md). Na przykład `https://contoso.com/trial/saas-app`.
    + Aby potencjalni klienci mogli skontaktować się z Tobą w celu zakupienia oferty, wybierz pozycję **skontaktuj się ze mną**.
 
-### <a name="enable-a-test-drive-optional"></a>Włącz stację testową (opcjonalnie)
+## <a name="enable-a-test-drive-optional"></a>Włącz stację testową (opcjonalnie)
 
 Test jest doskonałym sposobem na pokazanie oferty potencjalnym klientom, zapewniając im dostęp do wstępnie skonfigurowanego środowiska przez określoną liczbę godzin. Oferowanie dysku testowego skutkuje zwiększoną szybkością konwersji i generuje wysoce kwalifikowanych potencjalnych klientów. Aby dowiedzieć się więcej na temat dysków testowych, zobacz [co to jest dysk testowy?](./what-is-test-drive.md)
 
@@ -67,14 +67,14 @@ Test jest doskonałym sposobem na pokazanie oferty potencjalnym klientom, zapewn
 1.  W obszarze **testowanie dysku** zaznacz pole wyboru **Włącz dysk testowy** .
 1.  Wybierz typ dysku testowego z wyświetlonej listy.
 
-### <a name="configure-lead-management"></a>Konfigurowanie zarządzania potencjalnymi klientami
+## <a name="configure-lead-management"></a>Konfigurowanie zarządzania potencjalnymi klientami
 
 Połącz system zarządzania relacjami z klientami (CRM) z ofertą komercyjnej witryny Marketplace, aby otrzymywać informacje kontaktowe klienta, gdy klient wyraża zainteresowanie lub wdroży produkt. To połączenie można zmodyfikować w dowolnym momencie podczas tworzenia oferty lub po niej.
 
 > [!NOTE]
 > Jeśli sprzedajesz ofertę przez firmę Microsoft lub wybrano opcję **kontakt ze mną** , musisz skonfigurować zarządzanie potencjalnymi klientami. Aby uzyskać szczegółowe wskazówki, zobacz temat [potencjalni klienci z oferty komercyjnej witryny Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-#### <a name="to-configure-the-connection-details-in-partner-center"></a>Aby skonfigurować szczegóły połączenia w centrum partnerskim
+### <a name="configure-the-connection-details-in-partner-center"></a>Skonfiguruj szczegóły połączenia w centrum partnerskim
 
 1.  W obszarze **potencjalni klienci** wybierz łącze **Połącz** .
 1. W oknie dialogowym **szczegóły połączenia** wybierz lokalizację docelową potencjalnego klienta z listy.
@@ -88,6 +88,36 @@ Połącz system zarządzania relacjami z klientami (CRM) z ofertą komercyjnej w
 
 1. Aby sprawdzić podaną konfigurację, wybierz link **Weryfikuj** .
 1. Aby zamknąć okno dialogowe, wybierz **przycisk OK**.
+
+## <a name="configure-microsoft-365-app-integration"></a>Konfigurowanie integracji aplikacji Microsoft 365
+
+Możesz wylekkić [ujednolicone odnajdywanie i dostarczanie](./plan-SaaS-offer.md) oferty SaaS oraz powiązane użycie aplikacji Microsoft 365, łącząc je.
+
+### <a name="integrate-with-microsoft-api"></a>Integracja z interfejsem Microsoft API
+
+1. Jeśli Twoja oferta SaaS nie jest zintegrowana z interfejsem API Microsoft Graph, wybierz pozycję **nie**. Kontynuuj łączenie opublikowanych Microsoft 365 klientów użycia aplikacji.  
+
+1. Jeśli oferta SaaS jest zintegrowana z interfejsem API Microsoft Graph, wybierz opcję **tak**, a następnie podaj identyfikator aplikacji Azure Active Directory, który został utworzony i zarejestrowany do integracji z interfejsem api usługi Microsoft Graph. 
+
+### <a name="link-published-microsoft-365-app-consumption-clients"></a>Łączenie opublikowanych Microsoft 365 klientów użycia aplikacji
+
+1. Jeśli nie masz opublikowanych dodatków pakietu Office, aplikacji zespołów ani rozwiązań programu SharePoint Framework, które współpracują z ofertą SaaS, wybierz pozycję **nie**.
+
+1. Jeśli masz opublikowane Dodatki pakietu Office, aplikację zespołów lub rozwiązania programu SharePoint Framework, które współpracują z ofertą SaaS, wybierz pozycję **tak**, a następnie wybierz pozycję **+ Dodaj kolejne łącze AppSource** , aby dodać nowe linki.  
+
+1. Podaj prawidłowe łącze AppSource.
+
+1. Kontynuuj dodawanie wszystkich linków, wybierając pozycję **+ Dodaj kolejne łącze AppSource** i podaj prawidłowe linki AppSource.  
+
+1. Kolejność pokazanych produktów na stronie aukcji oferty SaaS jest wskazywana przez wartość rangi, można ją zmienić, wybierając, Hold i przenosząc ikonę = ikoną w górę i w dół listy. 
+
+1. Możesz usunąć połączony produkt, wybierając pozycję **Usuń** w wierszu produktu.  
+
+
+> [!IMPORTANT]
+> Jeśli zatrzymasz produkt połączony, nie zostanie on automatycznie odłączony od oferty SaaS, należy usunąć go z listy połączonych produktów i ponownie przesłać ofertę SaaS.  
+
+ 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,35 +4,38 @@ description: Dowiedz się więcej o zabezpieczaniu zabezpieczeń w systemie oper
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86244042"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012092"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Ograniczanie zabezpieczeń dla systemu operacyjnego hosta węzła agenta AKS
 
-Usługa Azure Kubernetes Service (AKS) jest bezpieczną usługą zgodną ze standardami SOC, ISO, PCI DSS i HIPAA. W tym artykule opisano zaostrzone zabezpieczenia stosowane do AKS hostów maszyn wirtualnych. Aby uzyskać więcej informacji o zabezpieczeniach AKS, zobacz [pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)](./concepts-security.md).
+Jako bezpieczna usługa usługa Azure Kubernetes Service (AKS) jest zgodna ze standardami SOC, ISO, PCI DSS i HIPAA. W tym artykule opisano zaostrzone zabezpieczenia stosowane do hostów maszyn wirtualnych AKS. Aby uzyskać więcej informacji o zabezpieczeniach AKS, zobacz [pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > Ten dokument jest objęty zakresem agentów systemu Linux wyłącznie w programie AKS.
 
-Klastry AKS są wdrażane na maszynach wirtualnych hosta, w których jest używany zoptymalizowany pod kątem zabezpieczeń system operacyjny używany do kontenerów działających w systemie AKS. Ten system operacyjny hosta jest oparty na obrazie **Ubuntu 16.04. LTS** z dodatkową funkcjonalnością zabezpieczeń i zastosowanymi optymalizacjami (zobacz szczegóły dotyczące zabezpieczania zabezpieczeń).
+Klastry AKS są wdrażane na maszynach wirtualnych hosta, na których działa zoptymalizowane pod kątem zabezpieczeń system operacyjny używany do kontenerów działających w systemie AKS. Ten system operacyjny hosta jest oparty na obrazie **Ubuntu 16.04. LTS** z większą [funkcjonalnością zabezpieczeń](#security-hardening-features) i optymalizacje.
 
 Celem systemu operacyjnego hosta z ograniczeniami zabezpieczeń jest zredukowanie obszaru ataków i optymalizację wdrożenia kontenerów w bezpieczny sposób.
 
 > [!Important]
-> System operacyjny z ograniczeniami zabezpieczeń nie jest w wersji testowej. Chociaż są nakładane na testy porównawcze CIS, cel nie jest zgodny z modelem CIS. Celem zapewnienia funkcjonalności systemu operacyjnego hosta jest zbieżność poziomu zabezpieczeń spójnego z wewnętrznymi standardami zabezpieczeń hostów firmy Microsoft.
+> System operacyjny z ograniczeniami zabezpieczeń **nie** jest w wersji testowej. Chociaż nakładają się na testy porównawcze CIS, cel nie jest zgodny z modelem CIS. Celem zapewnienia funkcjonalności systemu operacyjnego hosta jest zbieżność poziomu zabezpieczeń spójnego z wewnętrznymi standardami zabezpieczeń hostów firmy Microsoft.
 
 ## <a name="security-hardening-features"></a>Funkcje ograniczania zabezpieczeń
 
-* AKS zapewnia domyślnie system operacyjny hosta zoptymalizowanego pod kątem zabezpieczeń. Nie ma możliwości wybrania alternatywnego systemu operacyjnego.
+* Program AKS zapewnia domyślnie system operacyjny hosta zoptymalizowany pod kątem zabezpieczeń, ale nie ma możliwości wybrania alternatywnego systemu operacyjnego.
 
-* Na platformie Azure są stosowane codzienne poprawki (w tym poprawki zabezpieczeń) do AKS hostów maszyn wirtualnych. Niektóre z tych poprawek będą wymagały ponownego uruchomienia, a inne nie. Użytkownik jest odpowiedzialny za planowanie ponownych uruchomień hosta maszyn wirtualnych AKS w razie potrzeby. Aby uzyskać informacje na temat sposobu automatyzowania poprawek AKS, zobacz [poprawek węzłów AKS](./node-updates-kured.md).
+* Na platformie Azure są stosowane codzienne poprawki (w tym poprawki zabezpieczeń) do AKS hostów maszyn wirtualnych. 
+    * Niektóre z tych poprawek wymagają ponownego uruchomienia, a inne nie. 
+    * Użytkownik jest odpowiedzialny za planowanie ponownych uruchomień hosta maszyn wirtualnych AKS w razie potrzeby. 
+    * Aby uzyskać informacje na temat sposobu automatyzowania stosowania poprawek AKS, zobacz [poprawek węzłów AKS](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>Co jest skonfigurowane
 
@@ -79,14 +82,12 @@ Celem systemu operacyjnego hosta z ograniczeniami zabezpieczeń jest zredukowani
  
 * Aby jeszcze bardziej ograniczyć obszar narażony na ataki, niektóre zbędne sterowniki modułów jądra zostały wyłączone w systemie operacyjnym.
 
-* System operacyjny z zaostrzonymi zabezpieczeniami jest zbudowany i konserwowany specjalnie dla AKS i nie jest obsługiwany poza platformą AKS.
+* System operacyjny z zaostrzonymi zabezpieczeniami jest zbudowany i konserwowany specjalnie dla AKS i **nie** jest obsługiwany poza platformą AKS.
 
 ## <a name="next-steps"></a>Następne kroki  
 
-Więcej informacji na temat zabezpieczeń AKS można znaleźć w następujących artykułach: 
+Aby uzyskać więcej informacji na temat zabezpieczeń AKS, zobacz następujące artykuły: 
 
-[Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
-
-[Zagadnienia dotyczące zabezpieczeń AKS ](./concepts-security.md)
-
-[Najlepsze rozwiązania AKS ](./best-practices.md)
+* [Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
+* [Zagadnienia dotyczące zabezpieczeń AKS](./concepts-security.md)
+* [Najlepsze rozwiązania AKS](./best-practices.md)

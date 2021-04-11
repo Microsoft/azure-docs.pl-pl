@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e724b3517d9e5a63d8699e9f66c51cf41f02012
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92309677"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092521"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: dostępność regionu & dane miejsca do zamieszkania
 
 Dostępność regionów i miejsca do magazynowania danych to dwie bardzo różne koncepcje, które różnią się w zależności od pozostałej części platformy Azure Azure AD B2C. W tym artykule wyjaśniono różnice między tymi dwoma pojęciami i porównano sposób ich stosowania z platformą Azure a Azure AD B2C.
 
-Azure AD B2C jest **ogólnie dostępna na całym świecie** z opcją **zamieszkania danych** w **Stany Zjednoczone, Europie lub Azja i Pacyfik**.
+Azure AD B2C jest **ogólnie dostępna na całym świecie** z opcją **zamieszkania danych** w **Stany Zjednoczone, Europie lub Azja i Pacyfik**. Azure AD B2C jest w **publicznej wersji zapoznawczej** w Australii.
 
 [Dostępność regionu](#region-availability) dotyczy miejsca, w którym usługa jest dostępna do użycia.
 
@@ -53,11 +53,15 @@ Dane znajdują się w **Europie** w następujących krajach/regionach:
 
 Dane znajdują się w **Azja i Pacyfik** w następujących krajach/regionach:
 
-> Afganistan (AF), Hongkong SAR (HK), Indie (w), Indonezja (ID), Japonia (JP), Korea (KR), Malezja (MY), Filipiny (PH), Singapur (SG), Sri Lanka (LK), Tajwan (TW) i Tajlandia (TH).
+> Afganistan (AF), Hongkong SAR (HK), Indie (w), Indonezja (ID), Japonia (JP), Korea (KR), Malezja (MY), Filipiny (PH), Singapur (SG), Sri Lanka (LK), Tajwan (TW) i Tajlandia (TH)
+
+Dane znajdują się w **Australii** (wersja zapoznawcza) dla następujących krajów/regionów:
+
+> Australia i Nowa Zelandia
 
 Następujące kraje/regiony są w trakcie dodawania do listy. Na razie można nadal używać Azure AD B2C, wybierając którykolwiek z powyższych krajów/regionów.
 
-> Argentyna, Australia, Brazylia, Chile, Kolumbia, Ekwador, Irak, Nowa Zelandia, Paragwaj, Peru, Urugwaj i Wenezuela.
+> Argentyna, Brazylia, Chile, Kolumbia, Ekwador, Irak, Paragwaj, Peru, Urugwaj i Wenezuela
 
 ## <a name="remote-profile-solution"></a>Rozwiązanie profilu zdalnego
 
@@ -66,18 +70,6 @@ Dzięki Azure AD B2C [zasad niestandardowych](custom-policy-overview.md)można z
 - Po zalogowaniu się po sprawdzeniu poprawności poświadczeń przy użyciu konta lokalnego lub społecznościowego Azure AD B2C wywołuje interfejs API REST, który wysyła unikatowy identyfikator użytkownika jako klucz podstawowy użytkownika (adres e-mail lub identyfikator obiektu użytkownika). Interfejs API REST odczytuje dane ze zdalnej bazy danych i zwraca profil użytkownika.  
 
 Po zakończeniu rejestracji, edycji profilu lub zalogowaniu Azure AD B2C zawiera profil użytkownika w tokenie dostępu, który jest zwracany do aplikacji. Aby uzyskać więcej informacji, zapoznaj się z [przykładowym rozwiązaniem Azure AD B2C profilu zdalnego](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) w serwisie GitHub.
-
-## <a name="preview-tenant"></a>Zapoznawcza dzierżawy
-
-Jeśli dzierżawa B2C została utworzona w okresie zapoznawczym usługi Azure AD B2C's, prawdopodobnie **Typ dzierżawy** ma wartość **wersja zapoznawcza**.
-
-W takim przypadku należy użyć dzierżawy tylko do celów deweloperskich i testowych. NIE używaj dzierżawy w wersji zapoznawczej dla aplikacji produkcyjnych.
-
-**Brak ścieżki migracji** z DZIERŻAWy B2C w wersji zapoznawczej do DZIERŻAWy B2C w skali produkcyjnej. Musisz utworzyć nową dzierżawę B2C dla aplikacji produkcyjnych.
-
-Istnieją znane problemy związane z usuwaniem dzierżawy B2C w wersji zapoznawczej i tworzenie dzierżawy B2C w skali produkcyjnej o tej samej nazwie domeny. *Musisz utworzyć dzierżawę B2C w skali produkcyjnej z inną nazwą domeny*.
-
-![Zrzut ekranu przedstawiający typ dzierżawy jako dzierżawę w wersji zapoznawczej.](./media/data-residency/preview-b2c-tenant.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

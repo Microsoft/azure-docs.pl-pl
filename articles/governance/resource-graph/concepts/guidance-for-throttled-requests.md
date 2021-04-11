@@ -1,15 +1,15 @@
 ---
 title: Wskazówki dotyczące ograniczonych żądań
 description: Zapoznaj się z równoległym grupowaniem, rozłożeniem, stronicowaniem i wykonywaniem zapytań, aby uniknąć ograniczania żądań przez usługę Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 891d5951670dd6022b66ae2936ee855f73f8b33a
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917711"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283545"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
 
@@ -231,7 +231,7 @@ Ponieważ wykres zasobów platformy Azure zwraca co najwyżej 1000 wpisów w poj
 
 ## <a name="still-get-throttled"></a>Nadal masz ograniczone ograniczenia?
 
-Jeśli podczas wykonywania powyższych zaleceń masz ograniczone ograniczenia, skontaktuj się z zespołem pod adresem [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com) .
+Jeśli po wykonaniu powyższych zaleceń masz ograniczone ograniczenia, skontaktuj się z [zespołem grafu zasobów platformy Azure](mailto:resourcegraphsupport@microsoft.com).
 
 Podaj te informacje:
 

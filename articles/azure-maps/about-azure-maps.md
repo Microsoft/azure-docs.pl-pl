@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc70e6370f53848e9f3672611a3dfda685bcb9fe
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680820"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011780"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
 
@@ -173,7 +173,7 @@ Aby uzyskać więcej informacji, zobacz [dokumentację usługi Traffic Service](
 
 Usługi pogody oferują interfejsy API, których deweloperzy mogą używać do pobierania informacji o pogodzie dla określonej lokalizacji. Informacje te zawierają szczegóły, takie jak Data i godzina obserwacji, Krótki opis warunków pogodowych, ikona Pogoda, flagi wskaźnika opadów, temperatura i informacje o szybkości wiatru. Zwracane są również dodatkowe szczegóły, takie jak RealFeel™ temperatura i indeks UV.
 
-Deweloperzy mogą używać [interfejsu API Get Pogoda i trasy](/rest/api/maps/weather/getweatheralongroutepreview) , aby pobierać informacje o pogodzie i określonej trasie. Ponadto usługa obsługuje generowanie powiadomień pogodowych dla waypoints, na które mają wpływ ryzyko pogodowe, takie jak zalanie lub ciężki deszcz.
+Deweloperzy mogą używać [interfejsu API Get Pogoda i trasy](/rest/api/maps/weather/getweatheralongroute) , aby pobierać informacje o pogodzie i określonej trasie. Ponadto usługa obsługuje generowanie powiadomień pogodowych dla waypoints, na które mają wpływ ryzyko pogodowe, takie jak zalanie lub ciężki deszcz.
 
 [Interfejs API uzyskiwania mapy kafelka v2](/rest/api/maps/renderv2/getmaptilepreview) umożliwia żądanie przeszłych, bieżących i przyszłych kafelków radarowych i satelitarnych.
 

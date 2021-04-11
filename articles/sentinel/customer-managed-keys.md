@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: a1c2754fcae5768c6b87d6280fc882acd46d9a0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7c4905f3122bf5abd2dc955170113cac3039a5d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585336"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219046"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurowanie klucza zarządzanego przez klienta na platformie Azure
 
@@ -81,7 +81,7 @@ Postępuj zgodnie z instrukcjami Cosmos DB, aby zarejestrować dostawcę zasobó
 
 ### <a name="step-4-add-an-access-policy-to-your-azure-key-vault-instance"></a>Krok 4. Dodawanie zasad dostępu do wystąpienia Azure Key Vault
 
-Upewnij się, że dodano dostęp z Cosmos DB do wystąpienia Azure Key Vault. Postępuj zgodnie z instrukcjami Cosmos DB, aby [dodać zasady dostępu do wystąpienia Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance) przy użyciu Azure Cosmos DB podmiotu zabezpieczeń.
+Upewnij się, że dodano dostęp z Cosmos DB do wystąpienia Azure Key Vault. Postępuj zgodnie z instrukcjami Cosmos DB, aby [dodać zasady dostępu do wystąpienia Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-access-policy) przy użyciu Azure Cosmos DB podmiotu zabezpieczeń.
 
 ### <a name="step-5-enable-cmk-in-azure-sentinel"></a>Krok 5. Włączanie CMK na platformie Azure — wskaźnik
 

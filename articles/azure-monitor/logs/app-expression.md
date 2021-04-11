@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 235a6bf4a0dd9afcac8751067b2eac3ddb37c0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031246"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283562"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>wyrażenie App () w kwerendzie Azure Monitor
 
 `app`Wyrażenie jest używane w zapytaniu Azure monitor, aby pobrać dane z określonej Application Insights aplikacji w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do dołączania danych aplikacji do zapytania dziennika Azure Monitor i do wykonywania zapytań dotyczących danych w wielu aplikacjach w kwerendzie Application Insightsowej.
 
 > [!IMPORTANT]
-> Wyrażenie App () nie jest używane, jeśli używasz [zasobu Application Insights opartego na obszarze roboczym](../app/create-workspace-resource.md) , ponieważ dane dziennika są przechowywane w log Analytics obszarze roboczym. Użyj wyrażenia log (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
+> Wyrażenie App () nie jest używane, jeśli używasz [zasobu Application Insights opartego na obszarze roboczym](../app/create-workspace-resource.md) , ponieważ dane dziennika są przechowywane w log Analytics obszarze roboczym. Użyj wyrażenia Workspace (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
 
 ## <a name="syntax"></a>Składnia
 

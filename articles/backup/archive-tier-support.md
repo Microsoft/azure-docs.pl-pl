@@ -3,12 +3,12 @@ title: Obsługa warstwy archiwum (wersja zapoznawcza)
 description: Dowiedz się więcej o obsłudze warstwy Archiwum dla Azure Backup
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a42b8702cfdda14a18aa3cdd4e084ed78767b0a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563977"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012152"
 ---
 # <a name="archive-tier-support-preview"></a>Obsługa warstwy archiwum (wersja zapoznawcza)
 
@@ -40,6 +40,8 @@ Obsługiwani klienci:
 
 ## <a name="get-started-with-powershell"></a>Wprowadzenie do programu PowerShell
 
+1. Pobierz [najnowszą](https://github.com/PowerShell/PowerShell/releases) wersję programu PowerShell z usługi GitHub.
+
 1. Uruchom następujące polecenie w programie PowerShell:
   
     ```azurepowershell
@@ -57,7 +59,13 @@ Obsługiwani klienci:
 
 1. Pobierz listę elementów kopii zapasowej:
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - W przypadku maszyn wirtualnych platformy Azure:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - SQL Server w usłudze Azure Virtual Machines:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. Pobierz element kopii zapasowej.
 

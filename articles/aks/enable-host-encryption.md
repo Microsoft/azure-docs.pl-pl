@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w kl
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6942a3d445892faf0ea0570561eb06019e841e23
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430160"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443201"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -28,11 +28,18 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 - Upewnij się, że masz `aks-preview` zainstalowaną 0.4.73 lub nowszą wersję rozszerzenia interfejsu wiersza polecenia.
 - Upewnij się, że masz `EnableEncryptionAtHostPreview` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
 
-Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail **encryptionAtHost@microsoft.com** z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji. 
+Przed użyciem właściwości EncryptionAtHost dla klastra usługi Azure Kubernetes należy włączyć funkcję dla subskrypcji. Wykonaj poniższe kroki, aby włączyć funkcję dla subskrypcji:
 
-> [!IMPORTANT]
-> Musisz wysłać wiadomość e-mail **encryptionAtHost@microsoft.com** z identyfikatorami subskrypcji, aby włączyć funkcję dla zasobów obliczeniowych. Nie można włączyć go samodzielnie w przypadku zasobów obliczeniowych.
+1. Wykonaj następujące polecenie, aby zarejestrować funkcję dla subskrypcji
 
+```azurecli-interactive
+Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
+2. Sprawdź, czy stan rejestracji został zarejestrowany (trwa kilka minut) przy użyciu poniższego polecenia przed podjęciem próby wykonania tej funkcji.
+
+```azurecli-interactive
+Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 

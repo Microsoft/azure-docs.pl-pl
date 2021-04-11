@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 84a65e9ce7360a38f552c0dea61a33ff8a94b9cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cdbba1618815dbc8b52195169b7de2bcec2986d8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055522"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255583"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Korzystanie z MSAL.NET do logowania użytkowników przy użyciu tożsamości społecznościowych
 
@@ -178,7 +178,7 @@ Objawem takiego scenariusza jest to, że MSAL.NET zwraca, `Missing from the toke
 
 Sugerowane obejście polega na użyciu [pamięci podręcznej opisanej wcześniej przez zasady](#acquire-a-token-to-apply-a-policy) .
 
-Alternatywnie możesz użyć tego żądania, `tid` Jeśli używasz [zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) w Azure AD B2C. Zasady niestandardowe mogą zwracać dodatkowe oświadczenia do aplikacji przy użyciu [transformacji oświadczeń](../../active-directory-b2c/claims-transformation-technical-profile.md).
+Alternatywnie możesz użyć tego żądania, `tid` Jeśli używasz [zasad niestandardowych](../../active-directory-b2c/user-flow-overview.md) w Azure AD B2C. Zasady niestandardowe mogą zwracać dodatkowe oświadczenia do aplikacji przy użyciu [transformacji oświadczeń](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Środki zaradcze dla braku odpowiedzi tokenu
 

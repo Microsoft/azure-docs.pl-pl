@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: a49fd6f97a9130fa0369d2a36cdc38e59613afc1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf96a222dd40909401b70d8f1812b7d29b6088b
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544387"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012466"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -33,7 +33,7 @@ Zalecana topologia dla typu węzła podstawowego wymaga opisanych poniżej zasob
 * SIECIOWEJ grupy zabezpieczeń przywoływany przez podsieć, w której wdrażasz zestawy skalowania maszyn wirtualnych.
 
 >[!NOTE]
-> Właściwość pojedynczej grupy położenia zestawu skalowania maszyn wirtualnych musi być ustawiona na wartość true, ponieważ Service Fabric nie obsługuje pojedynczego zestawu skalowania maszyn wirtualnych obejmującego strefy.
+> Właściwość pojedynczej grupy położenia zestawu skalowania maszyn wirtualnych musi mieć wartość true.
 
 Diagram przedstawiający diagram architektury strefy dostępności Service Fabric platformy Azure ![ , który pokazuje architekturę strefy dostępności Service Fabric platformy Azure.][sf-architecture]
 

@@ -1,5 +1,5 @@
 ---
-title: Przykłady komunikacji z usługą wystawcy (wersja zapoznawcza)
+title: Przykłady komunikacji usługi wystawcy (wersja zapoznawcza) — Azure Active Directory poświadczenia do zweryfikowania
 description: Szczegóły komunikacji między dostawcą tożsamości a usługą wystawcy
 author: barclayn
 manager: davba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: bd1b7560967ff0c458639a5737a02fca27ffc9f5
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170173"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220202"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Przykłady komunikacji z usługą wystawcy (wersja zapoznawcza)
 
@@ -141,3 +141,7 @@ Token identyfikatora musi używać formatu serializacji kompaktowej JWT i nie mo
 | `iat` | Musi zawierać czas, w którym został wystawiony token ID. |
 | `nonce` | Wartość uwzględniona w żądaniu autoryzacji. |
 | Dodatkowe oświadczenia | Token identyfikatora powinien zawierać dodatkowe oświadczenia, których wartości zostaną uwzględnione w poświadczeniach, które zostaną wystawione. W tej sekcji należy uwzględnić wszelkie atrybuty dotyczące użytkownika, takie jak ich nazwy. |
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Jak dostosować Azure Active Directory poświadczenia do zweryfikowania](credential-design.md)

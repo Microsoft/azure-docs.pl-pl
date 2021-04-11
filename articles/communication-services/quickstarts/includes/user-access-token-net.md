@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 1627ba106ed9a035627f425d1c8fce47e5794762
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 653692812507c05c6cfc58b00d3c93ece19019bb
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958009"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113486"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -150,8 +150,7 @@ Console.WriteLine(token);
 Aby odświeżyć token dostępu, Przekaż wystąpienie `CommunicationUserIdentifier` obiektu do `GetTokenAsync` . Jeśli zostały one zapisane `Id` i trzeba utworzyć nowe, można to `CommunicationUserIdentifier` zrobić, przechodząc `Id` do konstruktora przechowywanego w `CommunicationUserIdentifier` następujący sposób:
 
 ```csharp
-// In this example, userId is a string containing the Id property of a previously-created CommunicationUser
-var identityToRefresh = new CommunicationUserIdentifier(userId);
+var identityToRefresh = new CommunicationUserIdentifier(identity.Id);
 var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 

@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: parametry w definicji zasad'
-description: Ten Azure Policy wzorzec zawiera przykład użycia parametrów ciągów i tablic w definicji zasad, a także sposobu Sparametryzuj efektu.
-ms.date: 08/17/2020
+description: Ten Azure Policy wzorzec zawiera przykład użycia parametrów ciągów i tablic w definicji zasad oraz sposób Sparametryzuj efektu.
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b742aaaf950e2b5670edbaa1f0134da144e675b6
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89649947"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092776"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Wzorzec Azure Policy: parametry
 
@@ -16,7 +16,7 @@ Definicję zasad można uczynić dynamicznym, aby zmniejszyć liczbę definicji 
 
 ## <a name="sample-1-string-parameters"></a>Przykład 1: parametry ciągu
 
-Ta definicja zasad używa dwóch parametrów, **TagName** i **tagValue** , aby określić, co ma być wyszukiwane przez zasady dla zasobów. Ten format umożliwia użycie definicji zasad dla dowolnej liczby kombinacji nazw tagów i wartości tagów, ale tylko do obsługi jednej definicji zasad.
+Ta definicja zasad używa dwóch parametrów, **TagName** i **tagValue**, aby określić, co ma być wyszukiwane przez zasady dla zasobów. Ten format umożliwia użycie definicji zasad dla dowolnej liczby kombinacji nazw tagów i wartości tagów, ale tylko do obsługi jednej definicji zasad.
 
 > [!NOTE]
 > Aby uzyskać przykładowy tag, który używa **trybu** _All_ i współpracuje z grupą zasobów, zobacz [wzorzec: Tags — przykład #1](./pattern-tags.md#sample-1-parameterize-tags).

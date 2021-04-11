@@ -1,7 +1,7 @@
 ---
 title: Tworzenie zautomatyzowanych modeli klasyfikacji ML
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uczenie & wdrażać modele klasyfikacji przy użyciu interfejsu zautomatyzowanego uczenia maszynowego Azure Machine Learning.
+description: Uczenie & wdrażać modele klasyfikacji bez pisania kodu, przy użyciu interfejsu zautomatyzowanego uczenia maszynowego Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,29 +11,31 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691947"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210850"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 
-
-W tym samouczku dowiesz się, jak utworzyć prosty model klasyfikacji bez pisania pojedynczego wiersza kodu przy użyciu funkcji automatycznego uczenia maszynowego w programie Azure Machine Learning Studio. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
+Dowiedz się, jak utworzyć [prosty model klasyfikacji](concept-automated-ml.md#classification) bez pisania pojedynczego wiersza kodu przy użyciu funkcji automatycznego uczenia maszynowego w programie Azure Machine Learning Studio. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
 
 Dzięki zautomatyzowanej usłudze Machine Learning można zautomatyzować czasochłonne zadania. Automatyczne Uczenie maszynowe szybko iteruje wiele kombinacji algorytmów i parametrów, aby ułatwić znalezienie najlepszego modelu w oparciu o pomyślną metrykę wybrania.
 
-Aby zapoznać się z przykładem prognozowania szeregów czasowych, zobacz [Samouczek: prognozowanie popytu & AutoML](tutorial-automated-ml-forecast.md).
-
-W tym samouczku dowiesz się, jak wykonywać następujące zadania:
+Nie napiszesz żadnego kodu w tym samouczku, użyjesz interfejsu Studio do przeprowadzenia szkolenia.  Dowiesz się, jak wykonywać następujące zadania:
 
 > [!div class="checklist"]
 > * Utwórz obszar roboczy Azure Machine Learning.
 > * Uruchamianie eksperymentu zautomatyzowanego uczenia maszynowego.
 > * Wyświetl szczegóły eksperymentu.
 > * Wdrażanie modelu.
+
+Wypróbuj również automatyczne Uczenie maszynowe dla tych innych typów modeli:
+
+* Aby zapoznać się z przykładem niezawierającym prognoz, zobacz [Samouczek: prognozowanie popytu & AutoML](tutorial-automated-ml-forecast.md).
+* Aby zapoznać się z pierwszym przykładem kodu modelu regresji, zobacz [Samouczek: korzystanie z automatycznego uczenia maszynowego w celu przewidywania opłat za taksówkę](tutorial-auto-train-models.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,7 +54,7 @@ Istnieje wiele [sposobów tworzenia obszaru roboczego](how-to-manage-workspace.m
 >[!IMPORTANT] 
 > Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
+## <a name="sign-in-to-the-studio"></a>Zaloguj się do Studio
 
 Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków za pośrednictwem Azure Machine Learning Studio at https://ml.azure.com , skonsolidowanego interfejsu sieci Web zawierającego narzędzia uczenia maszynowego w celu przeprowadzenia scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
 

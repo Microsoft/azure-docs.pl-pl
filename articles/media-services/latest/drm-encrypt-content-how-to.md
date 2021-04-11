@@ -3,12 +3,12 @@ title: Szyfruj zawartość za pomocą Azure Portal
 description: W tym przewodniku szybki start pokazano, jak skonfigurować szyfrowanie zawartości przy użyciu Azure Media Services w Azure Portal.
 ms.topic: quickstart
 ms.date: 08/31/2020
-ms.openlocfilehash: a97e1a3c51d44b7c530de0c6eeca569f898d07c1
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5ce942447f6d143116350940bda0e01a8b532d24
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106069325"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277687"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Szybki Start: używanie portalu do szyfrowania zawartości
 
@@ -28,8 +28,8 @@ W tym przewodniku szybki start przedstawiono sposób tworzenia zasad klucza zawa
 ### <a name="suggested-pre-reading"></a>Sugerowane przed odczytem
 
 * [Szyfrowanie dynamiczne i dostarczanie kluczy](drm-content-protection-concept.md)
-* [Lokalizatory przesyłania strumieniowego](streaming-locators-concept.md)
-* [Zasady przesyłania strumieniowego](streaming-policy-concept.md)
+* [Lokalizatory przesyłania strumieniowego](stream-streaming-locators-concept.md)
+* [Zasady przesyłania strumieniowego](stream-streaming-policy-concept.md)
 * [Zasady kluczy zawartości](drm-content-key-policy-concept.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -80,7 +80,7 @@ Możesz również dodać do zawartości szyfrowanie klucza AES-128. Klucz zawart
 1. W sekcji **lokalizator przesyłania strumieniowego** wybranego elementu zawartości naciśnij pozycję **+ Dodaj lokalizator przesyłania strumieniowego**. 
 1. Wybierz **zasady przesyłania strumieniowego** odpowiednie dla skonfigurowanych **zasad klucza zawartości** .
 
-    Temat [zasady przesyłania strumieniowego](streaming-policy-concept.md) zawiera szczegółowe informacje dotyczące zasad przesyłania strumieniowego, które są zgodne z zasadami klucza zawartości.
+    Temat [zasady przesyłania strumieniowego](stream-streaming-policy-concept.md) zawiera szczegółowe informacje dotyczące zasad przesyłania strumieniowego, które są zgodne z zasadami klucza zawartości.
 1. Po wybraniu odpowiednich zasad przesyłania strumieniowego możesz wybrać z listy rozwijanej zasady dotyczące klucza zawartości.
 1. Naciśnij przycisk **Dodaj** , aby dodać lokalizator przesyłania strumieniowego do Twojego elementu zawartości.
 

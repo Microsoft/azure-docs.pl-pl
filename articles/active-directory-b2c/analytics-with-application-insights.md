@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645929"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226374"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Śledzenie zachowania użytkowników w Azure AD B2C przy użyciu Application Insights
 
@@ -252,7 +252,7 @@ Aby dopasować się do potrzeb firmy, warto zarejestrować więcej oświadczeń.
 
 ### <a name="manipulate-claims"></a>Manipulowanie oświadczeniami
 
-Możesz użyć [przekształceń oświadczeń wejściowych](custom-policy-trust-frameworks.md#manipulating-your-claims) , aby zmodyfikować oświadczenia wejściowe lub wygenerować nowe przed wysłaniem ich do Application Insights. W poniższym przykładzie profil techniczny obejmuje `CheckIsAdmin` transformację oświadczeń wejściowych.
+Możesz użyć [przekształceń oświadczeń wejściowych](custom-policy-overview.md#manipulating-your-claims) , aby zmodyfikować oświadczenia wejściowe lub wygenerować nowe przed wysłaniem ich do Application Insights. W poniższym przykładzie profil techniczny obejmuje `CheckIsAdmin` transformację oświadczeń wejściowych.
 
 ```xml
 <TechnicalProfile Id="AppInsights-SignInComplete">
@@ -269,7 +269,7 @@ Możesz użyć [przekształceń oświadczeń wejściowych](custom-policy-trust-f
 
 ### <a name="add-events"></a>Dodaj zdarzenia
 
-Aby dodać zdarzenie, Utwórz nowy profil techniczny obejmujący `AppInsights-Common` profil techniczny. Następnie Dodaj nowy profil techniczny jako krok aranżacji do [podróży użytkownika](custom-policy-trust-frameworks.md#orchestration-steps). Użyj elementu [Conditional](userjourneys.md#preconditions) , aby wyzwolić zdarzenie, gdy wszystko jest gotowe. Na przykład zgłoś zdarzenie tylko wtedy, gdy użytkownicy uruchamiają się za pomocą uwierzytelniania wieloskładnikowego.
+Aby dodać zdarzenie, Utwórz nowy profil techniczny obejmujący `AppInsights-Common` profil techniczny. Następnie Dodaj nowy profil techniczny jako krok aranżacji do [podróży użytkownika](custom-policy-overview.md#orchestration-steps). Użyj elementu [Conditional](userjourneys.md#preconditions) , aby wyzwolić zdarzenie, gdy wszystko jest gotowe. Na przykład zgłoś zdarzenie tylko wtedy, gdy użytkownicy uruchamiają się za pomocą uwierzytelniania wieloskładnikowego.
 
 ```xml
 <TechnicalProfile Id="AppInsights-MFA-Completed">

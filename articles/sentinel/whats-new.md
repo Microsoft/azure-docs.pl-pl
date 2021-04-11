@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.openlocfilehash: e882ae89da2fd081d6b41d3d42e998d3600f0e18
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604257"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120756"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -32,13 +32,36 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 
 ## <a name="march-2021"></a>Marzec 2021
 
+- [Nowe wykrycia dla zapory platformy Azure](#new-detections-for-azure-firewall)
 - [Reguły automatyzacji i elementy PlayBook wyzwalane incydenty](#automation-rules-and-incident-triggered-playbooks) (w tym cała dokumentacja element PlayBook)
 - [Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
 - [Drukuj skoroszyty ze wskaźnikiem na platformie Azure lub Zapisz jako plik PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Filtry zdarzeń i preferencje sortowania teraz zapisywane w sesji (publiczna wersja zapoznawcza)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integracja zdarzeń Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
- 
+
+### <a name="new-detections-for-azure-firewall"></a>Nowe wykrycia dla zapory platformy Azure
+
+Kilka wbudowanych wykryć zapory platformy Azure zostały dodane do obszaru [Analiza](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) na platformie Azure. Te nowe wykrywania umożliwiają zespołom ds. zabezpieczeń otrzymywanie alertów, jeśli maszyny w sieci wewnętrznej próbują wykonać zapytania lub połączyć się z nazwami domen internetowych lub adresami IP skojarzonymi ze znanymi IOCs, zgodnie z definicją w zapytaniu reguły wykrywania.
+
+Nowe wykrycia obejmują:
+
+- [Sygnał sieci Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+- [Znane domeny i skróty GALLIUM](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+- [Znany IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [Znane domeny grup fosforu/adres IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [THALLIUM domeny zawarte w DCU Takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+- [Znany skrót maldoc związany z mieszaniem](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Znane domeny grupy strontu](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+- [NOBELIUM-Domain i IP IOCs-marzec 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+
+
+Wykrycia dla zapór platformy Azure są ciągle dodawane do wbudowanej galerii szablonów. Aby uzyskać najnowsze wykrycia dla zapory platformy Azure, w obszarze **Szablony reguł**, przefiltruj **źródła danych** według **zapory platformy Azure**:
+
+:::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Nowe wykrycia w skoroszycie wydajności analizy":::
+
+Aby uzyskać więcej informacji, zobacz [nowe wykrywania zapory platformy Azure na platformie Azure — wskaźnik](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+
 ### <a name="automation-rules-and-incident-triggered-playbooks"></a>Reguły automatyzacji i wyzwalane przez zdarzenia elementy PlayBook
 
 Reguły automatyzacji to nowe koncepcje na platformie Azure, które umożliwiają centralne zarządzanie automatyzacją obsługi zdarzeń. Oprócz tego, że przypiszesz elementy PlayBook do zdarzeń (nie tylko dla alertów, jak poprzednio), reguły automatyzacji umożliwiają również Automatyzowanie odpowiedzi dla wielu reguł analizy jednocześnie, automatyczne oznaczanie tagów, przypisywanie lub zamykanie incydentów bez potrzeby elementy playbook i sterowanie kolejnością wykonywanych akcji. Reguły automatyzacji usprawnią korzystanie z usługi Automation na platformie Azure i umożliwią uproszczenie złożonych przepływów pracy dla procesów aranżacji zdarzeń.
@@ -47,7 +70,7 @@ Dowiedz się więcej, korzystając z tego [kompletnego wyjaśnienia reguł autom
 
 Jak wspomniano powyżej, elementy PlayBook można teraz aktywować przy użyciu wyzwalacza zdarzenia oprócz wyzwalacza alertu. Wyzwalacz zdarzenia zapewnia elementy PlayBook większy zestaw danych wejściowych do pracy z (ponieważ zdarzenie obejmuje również wszystkie dane alertu i jednostki), co zapewnia jeszcze większą moc i elastyczność w przepływach pracy odpowiedzi. Wyzwalane przez zdarzenie elementy PlayBook są aktywowane przez wywoływanie z reguł automatyzacji.
 
-Dowiedz się więcej o [ulepszonych możliwościach elementy PlayBook](automate-responses-with-playbooks.md)i sposobach tworzenia [przepływu pracy odpowiedzi](tutorial-respond-threats-playbook.md) przy użyciu elementy PlayBook wraz z regułami automatyzacji.
+Dowiedz się więcej o [ulepszonych](automate-responses-with-playbooks.md)funkcjach elementy playbook i sposobach tworzenia [przepływu pracy odpowiedzi](tutorial-respond-threats-playbook.md) przy użyciu elementy PlayBook wraz z regułami automatyzacji.
 
 ### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe
 

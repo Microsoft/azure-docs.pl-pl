@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 136ea5fcb8dd446cfff6400616df058722fa2827
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994863"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075376"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Rozwiązywanie problemów: problemy z połączeniem punkt-lokacja platformy Azure
 
@@ -72,11 +72,11 @@ Aby przygotowywać system Windows 10 lub Server 2016 pod kątem protokołu IKEv2
 1. Zainstaluj aktualizację.
 
    | Wersja systemu operacyjnego | Date (Data) | Numer/link |
-   |---|---|---|---|
+   |---|---|---|
    | Windows Server 2016<br>Windows 10 w wersji 1607 | 17 stycznia 2018 r. | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 w wersji 1703 | 17 stycznia 2018 r. | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 w wersji 1709 | 22 marca, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
-   |  |  |  |  |
+
 
 2. Ustaw wartość klucza rejestru. Utwórz lub ustaw `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` klucz REG_DWORD w rejestrze na 1.
 

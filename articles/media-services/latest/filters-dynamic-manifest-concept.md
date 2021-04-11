@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3b6fa581bfc36579ef4b6937b50f8c1789a7f5
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 1fb8724edc32477bb1c399db0493833e9df984bb
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111867"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277576"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrowanie manifestów przy użyciu Pakowarki dynamicznej
 
@@ -26,7 +26,7 @@ ms.locfileid: "106111867"
 
 W przypadku dostarczania zawartości przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów do urządzeń czasami konieczne jest opublikowanie wielu wersji manifestu w celu uwzględnienia konkretnych możliwości urządzenia lub dostępnej przepustowości sieci. [Pakowarka dynamiczna](encode-dynamic-packaging-concept.md) pozwala określić filtry, które mogą odfiltrować określone kodery-de, rozdzielczości, szybkości transmisji bitów i kombinacje ścieżek audio na bieżąco. To filtrowanie eliminuje konieczność tworzenia wielu kopii. Wystarczy opublikować nowy adres URL z określonym zestawem filtrów skonfigurowanym dla urządzeń docelowych (iOS, Android, biznesu SmartTV lub przeglądarki) oraz możliwości sieci (scenariusze o wysokiej przepustowości, mobilnych lub niskiej przepustowości). W takim przypadku klienci mogą manipulować przesyłaniem strumieniowym zawartości za pośrednictwem ciągu zapytania (przez określenie dostępnych [filtrów zasobów lub filtrów kont](filters-concept.md)) i używać filtrów do przesyłania strumieniowego określonych sekcji strumienia.
 
-Niektóre scenariusze dostarczania wymagają upewnienia się, że klient nie może uzyskać dostępu do określonych ścieżek. Na przykład może nie chcieć opublikować manifestu, który zawiera ścieżki HD do określonej warstwy subskrybenta. Lub, może być konieczne usunięcie określonych ścieżek z adaptacyjną szybkością transmisji bitów (ABR), aby zmniejszyć koszty dostarczania do określonego urządzenia, które nie byłoby korzystne w przypadku dodatkowych śledzenia. W takim przypadku można skojarzyć listę wstępnie utworzonych filtrów z [lokalizatorem przesyłania strumieniowego](streaming-locators-concept.md) podczas tworzenia. Następnie klienci nie mogą manipulować strumieniem zawartości, ponieważ jest ona definiowana przez **lokalizator przesyłania strumieniowego**.
+Niektóre scenariusze dostarczania wymagają upewnienia się, że klient nie może uzyskać dostępu do określonych ścieżek. Na przykład może nie chcieć opublikować manifestu, który zawiera ścieżki HD do określonej warstwy subskrybenta. Lub, może być konieczne usunięcie określonych ścieżek z adaptacyjną szybkością transmisji bitów (ABR), aby zmniejszyć koszty dostarczania do określonego urządzenia, które nie byłoby korzystne w przypadku dodatkowych śledzenia. W takim przypadku można skojarzyć listę wstępnie utworzonych filtrów z [lokalizatorem przesyłania strumieniowego](stream-streaming-locators-concept.md) podczas tworzenia. Następnie klienci nie mogą manipulować strumieniem zawartości, ponieważ jest ona definiowana przez **lokalizator przesyłania strumieniowego**.
 
 Filtrowanie można łączyć przez określenie [filtrów w lokalizatorze przesyłania strumieniowego](filters-concept.md#associating-filters-with-streaming-locator) + dodatkowe filtry specyficzne dla urządzenia, które klient określa w adresie URL. Ta kombinacja jest przydatna do ograniczania dodatkowych ścieżek, takich jak metadane, strumienie zdarzeń, Języki audio lub ścieżki audio opisowe.
 

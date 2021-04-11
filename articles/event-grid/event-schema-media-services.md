@@ -3,12 +3,12 @@ title: Azure Media Services jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń Media Services z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f2f62f0a5ceed0e000c8bb7690fff009593bf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5772a2332e1864d0b8df0d4e102006b29b6a61e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104591932"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120116"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services jako źródło Event Grid
 
@@ -514,7 +514,7 @@ Obiekt danych ma następujące właściwości:
 | `encoderPort` | ciąg | Port kodera, z którego pochodzi ten strumień. |
 | `resultCode` | ciąg | Przyczyna odrzucenia połączenia. Kody wyników są wymienione w poniższej tabeli. |
 
-Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md).
+Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -639,7 +639,7 @@ Obiekt danych ma następujące właściwości:
 | `encoderPort` | ciąg | Port kodera, z którego pochodzi ten strumień. |
 | `resultCode` | ciąg | Przyczyna odłączenia kodera. Może to być bezpieczne rozłączenie lub błąd. Kody wyników są wymienione w poniższej tabeli. |
 
-Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md).
+Kody wyników błędów można znaleźć w [kodach błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes-reference.md).
 
 Kody wyniku bezpiecznego rozłączenia to:
 
@@ -1118,4 +1118,4 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Kody błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes.md)
+- [Kody błędów zdarzeń na żywo](../media-services/latest/live-event-error-codes-reference.md)
