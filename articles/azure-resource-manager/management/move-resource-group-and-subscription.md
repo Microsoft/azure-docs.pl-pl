@@ -4,12 +4,12 @@ description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4f6ecb9ec8269ab8e06a241a395887de77691499
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 800e605571ae18b008a86b4add4b0b2adce9c140
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934227"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078387"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -124,7 +124,7 @@ Na potrzeby ilustracji mamy tylko jeden zasób zależny.
 
 ## <a name="validate-move"></a>Weryfikuj przeniesienie
 
-[Operacja Weryfikuj przeniesienie](/rest/api/resources/resources/resources/moveresources) umożliwia testowanie scenariusza przenoszenia bez rzeczywistego przenoszenia zasobów. Użyj tej operacji, aby sprawdzić, czy przeniesienie zakończy się pomyślnie. Walidacja jest wywoływana automatycznie podczas wysyłania żądania przeniesienia. Tej operacji należy używać tylko wtedy, gdy trzeba określić wyniki. Do uruchomienia tej operacji potrzebne są:
+[Operacja Weryfikuj przeniesienie](/rest/api/resources/resources/moveresources) umożliwia testowanie scenariusza przenoszenia bez rzeczywistego przenoszenia zasobów. Użyj tej operacji, aby sprawdzić, czy przeniesienie zakończy się pomyślnie. Walidacja jest wywoływana automatycznie podczas wysyłania żądania przeniesienia. Tej operacji należy używać tylko wtedy, gdy trzeba określić wyniki. Do uruchomienia tej operacji potrzebne są:
 
 * Nazwa źródłowej grupy zasobów
 * Identyfikator zasobu docelowej grupy zasobów
@@ -241,7 +241,7 @@ Jeśli wystąpi błąd, zobacz [Rozwiązywanie problemów z przeniesieniem zasob
 
 ## <a name="use-rest-api"></a>Korzystanie z interfejsu API REST
 
-Aby przenieść istniejące zasoby do innej grupy zasobów lub subskrypcji, użyj operacji [Przenieś zasoby](/rest/api/resources/resources/resources/moveresources) .
+Aby przenieść istniejące zasoby do innej grupy zasobów lub subskrypcji, użyj operacji [Przenieś zasoby](/rest/api/resources/resources/moveresources) .
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}

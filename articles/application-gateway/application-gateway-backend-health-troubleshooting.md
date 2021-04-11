@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592759"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078506"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemy z kondycją zaplecza w usłudze Application Gateway
 ==================================================
@@ -176,12 +176,12 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
 | **Błąd** | **Akcje** |
 | --- | --- |
-| Niezgodność kodu stanu sondy: odebrane 401 | Sprawdź, czy serwer wewnętrznej bazy danych wymaga uwierzytelniania. Sondy Application Gateway nie mogą przekazywać poświadczeń w celu uwierzytelnienia. Zezwalaj na użycie \" protokołu HTTP 401 \" w kodzie stanu sondy lub sondy do ścieżki, w której serwer nie wymaga uwierzytelniania. | |
-| Niezgodność kodu stanu sondy: odebrane 403 | Dostęp zabroniony. Sprawdź, czy dostęp do ścieżki jest dozwolony na serwerze wewnętrznej bazy danych. | |
-| Niezgodność kodu stanu sondy: odebrane 404 | Nie znaleziono strony. Sprawdź, czy ścieżka nazwy hosta jest dostępna na serwerze wewnętrznej bazy danych. Zmień nazwę hosta lub parametr ścieżki na dostępną wartość. | |
-| Niezgodność kodu stanu sondy: odebrane 405 | Dla Application Gateway jest używana metoda HTTP GET. Sprawdź, czy serwer zezwala na tę metodę. | |
-| Niezgodność kodu stanu sondy: odebrane 500 | Wewnętrzny błąd serwera. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. | |
-| Niezgodność kodu stanu sondy: odebrane 503 | Usługa niedostępna. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. | |
+| Niezgodność kodu stanu sondy: odebrane 401 | Sprawdź, czy serwer wewnętrznej bazy danych wymaga uwierzytelniania. Sondy Application Gateway nie mogą przekazywać poświadczeń w celu uwierzytelnienia. Zezwalaj na użycie \" protokołu HTTP 401 \" w kodzie stanu sondy lub sondy do ścieżki, w której serwer nie wymaga uwierzytelniania. |
+| Niezgodność kodu stanu sondy: odebrane 403 | Dostęp zabroniony. Sprawdź, czy dostęp do ścieżki jest dozwolony na serwerze wewnętrznej bazy danych. |
+| Niezgodność kodu stanu sondy: odebrane 404 | Nie znaleziono strony. Sprawdź, czy ścieżka nazwy hosta jest dostępna na serwerze wewnętrznej bazy danych. Zmień nazwę hosta lub parametr ścieżki na dostępną wartość. |
+| Niezgodność kodu stanu sondy: odebrane 405 | Dla Application Gateway jest używana metoda HTTP GET. Sprawdź, czy serwer zezwala na tę metodę. |
+| Niezgodność kodu stanu sondy: odebrane 500 | Wewnętrzny błąd serwera. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. |
+| Niezgodność kodu stanu sondy: odebrane 503 | Usługa niedostępna. Sprawdź kondycję serwera zaplecza i sprawdź, czy usługi są uruchomione. |
 
 Lub, jeśli uważasz, że odpowiedź jest uzasadniona i chcesz, aby Application Gateway akceptowała inne kody stanu w dobrej kondycji, możesz utworzyć niestandardową sondę. Takie podejście jest przydatne w sytuacjach, gdy witryna sieci Web zaplecza wymaga uwierzytelniania. Ponieważ żądania sondowania nie mają żadnych poświadczeń użytkownika, nie powiodą się, a serwer wewnętrznej bazy danych zwróci kod stanu HTTP 401.
 

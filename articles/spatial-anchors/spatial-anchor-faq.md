@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384242"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284208"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Często zadawane pytania dotyczące usługi Azure Spatial Anchors
 
@@ -52,6 +52,10 @@ Odp **.:** Kotwice są izolowane według konta platformy Azure. Tylko aplikacje,
 **P: jak kotwice przestrzenne platformy Azure przechowują dane?**
 
 Odp **.:** Wszystkie dane są przechowywane w postaci zaszyfrowanej przy użyciu klucza szyfrowania danych zarządzanych przez firmę Microsoft, a wszystkie dane są przechowywane regionalnie dla każdego z zasobów.
+
+**P: gdzie kotwice przestrzenne platformy Azure przechowują dane?**
+
+Odp **.:** Konta zakotwiczeń przestrzennych platformy Azure umożliwiają określenie regionu, w którym będą przechowywane dane. Firma Microsoft może replikować dane do innych regionów w celu zapewnienia odporności, ale firma Microsoft nie replikuje ani nie przenosi danych poza lokalizację geograficzną. Te dane są przechowywane w regionie, w którym jest skonfigurowane konto kotwicowe platformy Azure. Na przykład jeśli konto jest zarejestrowane w regionie Wschodnie stany USA, te dane są przechowywane w regionie Wschodnie stany USA, ale mogą być replikowane do innego regionu w Ameryka Północna geograficznej w celu zapewnienia odporności.
 
 **P: jakie informacje o środowisku są przesyłane i przechowywane w usłudze przy użyciu kotwic przestrzennych platformy Azure? Czy obrazy środowiska są przesyłane i przechowywane?**
 

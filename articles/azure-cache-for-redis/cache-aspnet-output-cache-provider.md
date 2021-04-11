@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ea409163a6ce28f65799163bd3217d47569751
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993391"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220593"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Dostawca wyjściowej pamięci podręcznej ASP.NET dla usługi Azure cache for Redis
 
@@ -65,7 +65,7 @@ Skonfiguruj atrybuty przy użyciu wartości z bloku pamięci podręcznej w Micro
 | *settingsClassName*<br/>*settingsMethodName* | ciąg<br/>ciąg | *nie dotyczy* | *Te atrybuty można określić tylko za pomocą web.config lub AppSettings.*<br/><br/>Użyj tych atrybutów, aby podać parametry połączenia. *settingsClassName* powinna być kwalifikowana nazwa klasy zestawu, która zawiera metodę określoną przez *settingsMethodName*.<br/><br/>Metoda określona przez *settingsMethodName* powinna być publiczna, statyczna i void (nie przyjmować żadnych parametrów) z typem zwracanym **ciągu**. Ta metoda zwraca rzeczywiste parametry połączenia. |
 | *loggingClassName*<br/>*loggingMethodName* | ciąg<br/>ciąg | *nie dotyczy* | *Te atrybuty można określić tylko za pomocą web.config lub AppSettings.*<br/><br/>Te atrybuty umożliwiają debugowanie aplikacji przez dostarczanie dzienników z pamięci podręcznej stanu sesji/wyjściowej oraz dzienników z StackExchange. Redis. *loggingClassName* powinna być kwalifikowana nazwa klasy zestawu, która zawiera metodę określoną przez *loggingMethodName*.<br/><br/>Metoda określona przez *loggingMethodName* powinna być publiczna, statyczna i void (nie przyjmować żadnych parametrów) z typem zwracanym **System. IO. TextWriter**. |
 | *applicationName* | ciąg | Nazwa modułu bieżącego procesu lub "/" | *Tylko SessionStateProvider*<br/>*Ten atrybut może być określony tylko za pomocą web.config lub AppSettings.*<br/><br/>Prefiks nazwy aplikacji do użycia w pamięci podręcznej Redis. Klient może używać tej samej pamięci podręcznej Redis do różnych celów. Aby upewnić się, że klucze sesji nie kolidują, można je prefiksować przy użyciu nazwy aplikacji. |
-| *Parametr throwOnError* | boolean | true | *Tylko SessionStateProvider*<br/>*Ten atrybut może być określony tylko za pomocą web.config lub AppSettings.*<br/><br/>Określa, czy zgłaszać wyjątek w przypadku wystąpienia błędu.<br/><br/>Aby uzyskać więcej informacji na temat *parametr throwOnError*, zobacz [uwagi dotyczące *parametr throwOnError*](#notes-on-throwonerror) w sekcji [uwagi dotyczące atrybutów](#attribute-notes) . |>*Microsoft. Web. Redis. pakietu redissessionstateprovider. LastException*. |
+| *Parametr throwOnError* | boolean | true | *Tylko SessionStateProvider*<br/>*Ten atrybut może być określony tylko za pomocą web.config lub AppSettings.*<br/><br/>Określa, czy zgłaszać wyjątek w przypadku wystąpienia błędu.<br/><br/>Aby uzyskać więcej informacji na temat *parametr throwOnError*, zobacz [uwagi dotyczące *parametr throwOnError*](#notes-on-throwonerror) w sekcji [uwagi dotyczące atrybutów](#attribute-notes) . |
 | *retryTimeoutInMilliseconds* | dodatnia liczba całkowita | 5000 | *Tylko SessionStateProvider*<br/>*Ten atrybut może być określony tylko za pomocą web.config lub AppSettings.*<br/><br/>Czas ponowienia próby w przypadku niepowodzenia operacji. Jeśli ta wartość jest mniejsza niż *operationTimeoutInMilliseconds*, dostawca nie będzie ponawiać próby.<br/><br/>Aby uzyskać więcej informacji na temat *retryTimeoutInMilliseconds*, zobacz [uwagi dotyczące *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) w sekcji [uwagi dotyczące atrybutów](#attribute-notes) . |
 | *redisSerializerType* | ciąg | *nie dotyczy* | Określa nazwę typu kwalifikowanego zestawu klasy implementującej Microsoft. Web. Redis. ISerializer i zawierający logikę niestandardową do serializacji i deserializacji wartości. Aby uzyskać więcej informacji, zobacz [Informacje o *redisSerializerType*](#about-redisserializertype) w sekcji [uwagi dotyczące atrybutów](#attribute-notes) . |
 

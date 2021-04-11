@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/30/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511233"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058021"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Ciągłość działania i odzyskiwanie po awarii — BCDR: Regiony sparowane platformy Azure
 
@@ -29,7 +29,7 @@ Para regionalna składa się z dwóch regionów w tej samej lokalizacji geografi
 
 Niektóre usługi platformy Azure w większym stopniu korzystają z sparowanych regionów w celu zapewnienia ciągłości działania i ochrony przed utratą danych.  Platforma Azure udostępnia kilka [rozwiązań do magazynowania](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) , które korzystają z sparowanych regionów w celu zapewnienia dostępności danych. Na przykład [Magazyn Geograficznie nadmiarowy platformy Azure](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replikuje dane do regionu pomocniczego automatycznie, dzięki czemu dane są trwałe nawet w przypadku, gdy region podstawowy nie jest możliwy do odzyskania. 
 
-Należy pamiętać, że nie wszystkie usługi platformy Azure automatycznie replikujeją dane, ani nie wszystkie usługi platformy Azure są automatycznie wycofywane z nieuszkodzonego regionu do jego pary.  W takich przypadkach odzyskiwanie i replikacja muszą zostać skonfigurowane przez klienta.
+Należy pamiętać, że nie wszystkie usługi platformy Azure automatycznie replikujeją dane, ani nie wszystkie usługi platformy Azure automatycznie powracają z regionu zakończonego niepowodzeniem do pary.  W takich przypadkach odzyskiwanie i replikacja muszą zostać skonfigurowane przez klienta.
 
 ## <a name="can-i-select-my-regional-pairs"></a>Czy mogę wybrać moje pary regionalne?
 
@@ -51,14 +51,15 @@ Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odpor
 |:--- |:--- |:--- |
 | Asia-Pacific |Azja Wschodnia (Hongkong SAR) | Azja Południowo-Wschodnia (Singapur) |
 | Australia |Australia Wschodnia |Australia Południowo-Wschodnia |
-| Australia |Australia Środkowa |Australia Środkowa 2 |
+| Australia |Australia Środkowa |Australia Środkowa 2 * |
 | Brazylia |Brazylia Południowa |South Central US |
+| Brazylia |Brazylia Południowo-Wschodnia * |Brazylia Południowa |
 | Kanada |Kanada Środkowa |Kanada Wschodnia |
 | Chiny |Chiny Północne |Chiny Wschodnie|
 | Chiny |Chiny Północne 2 |Chiny Wschodnie 2|
 | Europa |Europa Północna (Irlandia) |Europa Zachodnia (Holandia) |
-| Francja |Francja Środkowa|Francja Południowa|
-| Niemcy |Niemcy Środkowe |Niemcy Północno-Wschodnie |
+| Francja |Francja Środkowa|Francja Południowa *|
+| Niemcy |Niemcy Środkowo-Zachodnie |Niemcy Północne * |
 | Indie |Indie Środkowe |Indie Południowe |
 | Indie |Indie Zachodnie |Indie Południowe |
 | Japonia |Japonia Wschodnia |Japonia Zachodnia |
@@ -67,15 +68,17 @@ Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odpor
 | Ameryka Północna |Wschodnie stany USA 2 |Central US |
 | Ameryka Północna |Północno-środkowe stany USA |South Central US |
 | Ameryka Północna |Zachodnie stany USA 2 |Zachodnio-środkowe stany USA |
-| Norwegia | Norwegia Wschodnia | Norwegia Zachodnia |
-| Republika Południowej Afryki | Północna Republika Południowej Afryki |Zachodnia Republika Południowej Afryki |
-| Szwajcaria | Szwajcaria Północna |Szwajcaria Zachodnia |
+| Norwegia | Norwegia Wschodnia | Norwegia Zachodnia * |
+| Republika Południowej Afryki | Północna Republika Południowej Afryki |Zachodnia Republika Południowej Afryki * |
+| Szwajcaria | Szwajcaria Północna |Szwajcaria Zachodnia * |
 | Zjednoczone Królestwo |Zachodnie Zjednoczone Królestwo |Południowe Zjednoczone Królestwo |
-| Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | Środkowy Zjednoczone Emiraty Arabskie
-| US Department of Defense |US DoD (region wschodni) |US DoD (region środkowy) |
-| US Government |US Gov Arizona |US Gov Teksas |
-| US Government |US Gov Iowa |US Gov Wirginia |
-| US Government |US Gov Wirginia |US Gov Teksas |
+| Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | Środkowe Zjednoczone Emiraty Arabskie * |
+| US Department of Defense |US DoD (region wschodni) * |US DoD (region środkowy) * |
+| US Government |US Gov Arizona * |US Gov Teksas * |
+| US Government |US Gov Iowa * |US Gov Wirginia * |
+| US Government |US Gov Wirginia * |US Gov Teksas * |
+
+(*) Dostęp do niektórych regionów jest ograniczony do obsługi konkretnych scenariuszy klientów, na przykład w przypadku odzyskiwania po awarii w danym kraju. Te regiony są dostępne tylko na żądanie, [tworząc nowe żądanie obsługi w Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!Important]
 > - Indie Zachodnie są sparowane tylko w jednym kierunku. Region pomocniczy Indie Zachodnie to Indie Południowe, ale region pomocniczy w Republice Południowej Indie to środkowe Indie.

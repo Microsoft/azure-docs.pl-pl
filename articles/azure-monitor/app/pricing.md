@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/30/2021
+ms.reviewer: lagayhar
+ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726198"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078404"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -25,7 +25,7 @@ Jeśli masz pytania dotyczące sposobu działania cen dla Application Insights, 
 
 ## <a name="pricing-model"></a>Model cen
 
-Cennik [usługi Azure Application Insights][start] to model z **płatnością zgodnie z rzeczywistym** użyciem na podstawie ilości danych pozyskiwanych i opcjonalnie do dłuższego przechowywania danych. Każdy zasób Application Insights jest rozliczany jako osobna usługa i przyczynia się do rozliczenia za subskrypcję platformy Azure. Ilość danych jest mierzona jako rozmiar nieskompresowanego pakietu danych JSON, który jest odbierany przez Application Insights z aplikacji. Za korzystanie z [Live Metrics Stream](./live-stream.md)nie jest naliczana opłata za ilość danych.
+Cennik [usługi Azure Application Insights][start] to model z **płatnością zgodnie z rzeczywistym** użyciem na podstawie ilości danych pozyskiwanych i opcjonalnie do dłuższego przechowywania danych. Każdy zasób Application Insights jest rozliczany jako osobna usługa i przyczynia się do rozliczenia za subskrypcję platformy Azure. Ilość danych jest mierzona jako rozmiar nieskompresowanego pakietu danych JSON, który jest odbierany przez Application Insights z aplikacji. Ilość danych jest mierzona w GB (10 ^ 9 bajtów). Za korzystanie z [Live Metrics Stream](./live-stream.md)nie jest naliczana opłata za ilość danych.
 
 [Wieloetapowe testy sieci Web](./availability-multistep.md) wiążą się z dodatkowymi opłatami. Wieloetapowe testy sieci Web to testy sieci Web, które wykonują sekwencję akcji. Nie ma oddzielnej opłaty za *testy ping* dla pojedynczej strony. Dane telemetryczne z testów ping i testów wieloetapowych są rozliczone tak samo jak inne dane telemetryczne z aplikacji.
 
@@ -43,7 +43,10 @@ Istnieją dwa podejścia do rozwiązania tego zagadnienia: użycie domyślnego m
 
 ### <a name="data-collection-when-using-sampling"></a>Zbieranie danych przy użyciu próbkowania
 
-Przy [pobieraniu próbkowania](sampling.md#adaptive-sampling)zestawu SDK ASP.NET wolumin danych jest dostosowywany automatycznie, aby zachować w ramach określonego maksymalnego natężenia ruchu dla domyślnego monitorowania Application Insights. Jeśli aplikacja tworzy niską ilość danych telemetrycznych, na przykład podczas debugowania lub z powodu niskiego użycia, elementy nie zostaną porzucone przez procesor próbkowania, o ile ilość poniżej skonfigurowanych zdarzeń na sekundę. W przypadku aplikacji o dużym nasileniu z domyślnym progiem pięciu zdarzeń na sekundę próbkowanie adaptacyjne ograniczy liczbę codziennych zdarzeń do 432 000. Przy użyciu typowego średniego rozmiaru zdarzenia o wartości 1 KB odpowiada to 13,4 GB danych telemetrycznych na każdy węzeł obsługujący aplikację (ponieważ próbkowanie jest wykonywane lokalnie dla każdego węzła). 
+Przy [pobieraniu próbkowania](sampling.md#adaptive-sampling)zestawu SDK ASP.NET wolumin danych jest dostosowywany automatycznie, aby zachować w ramach określonego maksymalnego natężenia ruchu dla domyślnego monitorowania Application Insights. Jeśli aplikacja tworzy niską ilość danych telemetrycznych, na przykład podczas debugowania lub z powodu niskiego użycia, elementy nie zostaną porzucone przez procesor próbkowania, o ile ilość poniżej skonfigurowanych zdarzeń na sekundę. W przypadku aplikacji o dużym nasileniu z domyślnym progiem pięciu zdarzeń na sekundę próbkowanie adaptacyjne ograniczy liczbę codziennych zdarzeń do 432 000. Przy użyciu typowego średniego rozmiaru zdarzenia o wartości 1 KB odpowiada to 13,4 GB danych telemetrycznych na każdy węzeł obsługujący aplikację, ponieważ próbkowanie jest wykonywane lokalnie dla każdego węzła.
+
+> [!NOTE]
+> Rozmiar danych dziennika Azure Monitor jest obliczany w GB (1 GB = 10 ^ 9 bajtów).
 
 W przypadku zestawów SDK, które nie obsługują próbkowania adaptacyjnego, można zastosować [próbkowanie](./sampling.md#ingestion-sampling)pozyskiwania, które próbkuje, gdy dane są odbierane przez Application Insights na podstawie procentowej ilości danych do zatrzymywania, lub [próbkowania o stałym rozmiarze dla witryn sieci web ASP.NET, ASP.NET Core i Java](sampling.md#fixed-rate-sampling) , aby zmniejszyć ruch wysyłany z serwera i przeglądarek sieci Web.
 

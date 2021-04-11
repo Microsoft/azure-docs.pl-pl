@@ -1,5 +1,5 @@
 ---
-title: Przeglądanie danych rozliczeń rejestracji dla przedsiębiorstw na platformie Azure za pomocą interfejsu API REST
+title: Przeglądanie danych rozliczeniowych rejestracji w przedsiębiorstwie platformy Azure za pomocą interfejsu API REST
 description: Dowiedz się, jak za pomocą interfejsów API REST platformy Azure przeglądać informacje rozliczeniowe rejestracji dla przedsiębiorstw.
 author: lleonard-msft
 ms.service: cost-management-billing
@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 4ac9c38c3f86c1226edf3b448324205cf5f98568
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132418"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058871"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Przeglądanie rozliczeń rejestracji dla przedsiębiorstw przy użyciu interfejsów API REST
 
@@ -37,12 +37,12 @@ Wymagane są następujące nagłówki:
 |Nagłówek żądania|Opis|  
 |--------------------|-----------------|  
 |*Content-Type:*|Wymagany. Ustaw wartość `application/json`.|  
-|*Authorization:*|Wymagany. Ustaw prawidłowy [klucz interfejsu API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer`. |  
+|*Authorization:*|Wymagany. Ustaw prawidłowy  [klucz interfejsu API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer`. |  
 
 Ten przykład przedstawia wywołanie synchroniczne zwracające szczegóły bieżącego cyklu rozliczeniowego. Ze względu na wydajność wywołania synchroniczne zwracają informacje z ostatniego miesiąca.  Można również wywołać [interfejs API asynchronicznie](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based), aby zwrócić dane z 36 miesięcy.
 
 
-## <a name="response"></a>Odpowiedź  
+## <a name="response"></a>Reakcja  
 
 Kod stanu 200 (OK) jest zwracany dla pomyślnej odpowiedzi, która zawiera listę szczegółowych kosztów dla konta.
 
@@ -90,11 +90,11 @@ Wymagane są następujące nagłówki:
 |Nagłówek żądania|Opis|  
 |--------------------|-----------------|  
 |*Content-Type:*|Wymagany. Ustaw wartość `application/json`.|  
-|*Authorization:*|Wymagany. Ustaw prawidłowy [klucz interfejsu API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer`. |  
+|*Authorization:*|Wymagany. Ustaw prawidłowy  [klucz interfejsu API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer`. |  
 
 Ten przykład przedstawia wywołanie synchroniczne zwracające szczegóły bieżącego cyklu rozliczeniowego. Ze względu na wydajność wywołania synchroniczne zwracają informacje z ostatniego miesiąca.  Można również wywołać [interfejs API asynchronicznie](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based), aby zwrócić dane z 36 miesięcy.
 
-### <a name="response"></a>Odpowiedź  
+### <a name="response"></a>Reakcja  
 
 Kod stanu 200 (OK) jest zwracany dla pomyślnej odpowiedzi, która zawiera listę kosztów oraz szczegółowych informacji o użyciu w danym okresie rozliczeniowym i dla konkretnego identyfikatora faktury w dziale.
 
@@ -146,11 +146,11 @@ Wymagane są następujące nagłówki:
 |Nagłówek żądania|Opis|  
 |--------------------|-----------------|  
 |*Content-Type:*|Wymagany. Ustaw wartość `application/json`.|  
-|*Authorization:*|Wymagany. Ustaw prawidłowy [klucz interfejsu API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer`. |  
+|*Authorization:*|Wymagany. Ustaw prawidłowy  [klucz interfejsu API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer`. |  
 
 Ten przykład przedstawia wywołanie synchroniczne zwracające szczegóły bieżącego cyklu rozliczeniowego. Ze względu na wydajność wywołania synchroniczne zwracają informacje z ostatniego miesiąca.  Można również wywołać [interfejs API asynchronicznie](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based), aby zwrócić dane z 36 miesięcy.
 
-### <a name="response"></a>Odpowiedź  
+### <a name="response"></a>Reakcja  
 
 Kod stanu 200 (OK) jest zwracany dla pomyślnej odpowiedzi, która zawiera listę kosztów oraz szczegółowych informacji o użyciu w danym okresie rozliczeniowym i dla konkretnego identyfikatora faktury w dziale.
 
@@ -185,4 +185,4 @@ Ten przykład jest skrócony. Aby uzyskać pełny opis każdego pola odpowiedzi 
 ## <a name="next-steps"></a>Następne kroki
 - Przejrzyj temat [Przegląd raportowania korporacyjnego](./enterprise-api.md)
 - Zapoznaj się z tematem [Interfejs API REST rozliczania korporacyjnego](/rest/api/billing/)   
-- [Rozpoczynanie pracy z interfejsem API REST platformy Azure](/rest/api/azure/)
+- [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](/rest/api/azure/)

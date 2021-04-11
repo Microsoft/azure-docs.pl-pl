@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84790250"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077843"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure Portal
 
@@ -54,7 +54,7 @@ Wykonaj następujące kroki, aby wyświetlić listę odrzuconych przypisań w za
 
     ![Odmów przypisań — kolumny](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Kolumna | Opis  |
     | --- | --- |
     | **Nazwa** | Nazwa przypisania Odmów. |
     | **Typ nazwy głównej** | Użytkownik, Grupa, grupa zdefiniowana przez system lub nazwa główna usługi. |
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby wyświetlić listę dodatkowych informacji o pr
 
     Blok **Użytkownicy** zawiera dwie poniższe sekcje.
 
-    |  |  |
+    | Odmów ustawienia  | Opis |
     | --- | --- |
     | **Przypisanie odmowy dotyczy**  | Podmioty zabezpieczeń, do których odnosi się przypisanie odmowy. |
     | **Wykluczanie przypisania Odmów** | Podmioty zabezpieczeń, które są wykluczone z przypisania Odmów. |

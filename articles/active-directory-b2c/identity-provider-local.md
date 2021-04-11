@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eb28ad19d53df542769a89b839668bbb205e30
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555237"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256110"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Konfigurowanie dostawcy tożsamości konta lokalnego
 
@@ -143,7 +143,7 @@ Po pobraniu pakietu początkowego.
 
 1. W każdym pliku Zastąp ciąg `yourtenant` nazwą dzierżawy Azure AD B2C. Na przykład jeśli nazwa dzierżawy usługi B2C jest *contosob2c*, wszystkie wystąpienia `yourtenant.onmicrosoft.com` stają się dostępne `contosob2c.onmicrosoft.com` .
 
-1. Wykonaj kroki opisane w sekcji [Dodawanie identyfikatorów aplikacji do zasad niestandardowych](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) [w temacie Rozpoczynanie pracy z zasadami niestandardowymi w Azure Active Directory B2C](custom-policy-get-started.md). Na przykład zaktualizuj `/phone-number-passwordless/` **`Phone_Email_Base.xml`** przy użyciu **identyfikatorów aplikacji (klienta)** dwóch aplikacji zarejestrowanych podczas kończenia wymagań wstępnych, *IdentityExperienceFramework* i *ProxyIdentityExperienceFramework*.
+1. Wykonaj kroki opisane w sekcji [Dodawanie identyfikatorów aplikacji do zasad niestandardowych](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-application-ids-to-the-custom-policy) [w temacie Rozpoczynanie pracy z zasadami niestandardowymi w Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Na przykład zaktualizuj `/phone-number-passwordless/` **`Phone_Email_Base.xml`** przy użyciu **identyfikatorów aplikacji (klienta)** dwóch aplikacji zarejestrowanych podczas kończenia wymagań wstępnych, *IdentityExperienceFramework* i *ProxyIdentityExperienceFramework*.
 1. Przekazywanie plików zasad
 
 ::: zone-end

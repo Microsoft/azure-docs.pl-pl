@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Migrate
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Migrate. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.service: azure-migrate
 author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e7349d388d4474505d90292973257574e5c961a0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 769faf5638602d9c78972c4cc7f0f7a6b19bda39
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036853"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096057"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Azure Policy wbudowane definicje Azure Migrate
 

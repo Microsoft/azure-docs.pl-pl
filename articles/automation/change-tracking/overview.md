@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572611"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220870"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -40,6 +40,8 @@ Maszyny połączone z obszarem roboczym Log Analytics używają [agenta log Anal
 
 > [!NOTE]
 > Change Tracking i spis wymaga połączenia obszaru roboczego Log Analytics z kontem usługi Automation. Aby uzyskać ostateczną listę obsługiwanych regionów, zobacz [mapowania obszaru roboczego platformy Azure](../how-to/region-mappings.md). Mapowania regionów nie mają wpływu na możliwość zarządzania maszynami wirtualnymi w innym regionie niż konto usługi Automation.
+
+Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../../lighthouse/overview.md). Usługa Azure Lighthouse umożliwia wykonywanie operacji na dużą skalę w wielu dzierżawach Azure Active Directory (Azure AD) jednocześnie, a zadania zarządzania, takie jak Change Tracking i spisy, są bardziej wydajne w przypadku tych dzierżawców. Change Tracking i spis mogą zarządzać maszynami w wielu subskrypcjach w tej samej dzierżawie lub w różnych dzierżawach przy użyciu funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 

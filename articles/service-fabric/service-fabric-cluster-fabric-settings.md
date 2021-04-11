@@ -3,12 +3,12 @@ title: Zmień ustawienia klastra Service Fabric platformy Azure
 description: W tym artykule opisano ustawienia sieci szkieletowej oraz zasady uaktualniania sieci szkieletowej, które można dostosować.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232056"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255975"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Dostosowywanie ustawień klastra usługi Service Fabric
 W tym artykule opisano różne ustawienia sieci szkieletowej dla klastra Service Fabric, które można dostosować. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pomocą [Azure Portal](https://portal.azure.com) lub szablonu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra platformy Azure](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych można dostosować ustawienia przez aktualizację *ClusterConfig.jsw* pliku i przeprowadzanie uaktualnienia konfiguracji w klastrze. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -60,6 +60,12 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |SecretEncryptionCertX509StoreName|ciąg, Zalecana wartość to "my" (brak wartości domyślnej) |    Dynamiczny|    Wskazuje certyfikat używany do szyfrowania i odszyfrowywania nazwy poświadczeń w magazynie certyfikatów X. 509, który jest używany do szyfrowania poświadczeń magazynu, używanych przez usługę przywracania kopii zapasowych |
 |Wartość targetreplicasetsize|int, wartość domyślna to 0|Static| Wartość targetreplicasetsize dla BackupRestoreService |
 
+## <a name="centralsecretservice"></a>CentralSecretService
+
+| **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub Krótki opis** |
+| --- | --- | --- | --- |
+|DeployedState |wstring, wartość domyślna to L "wyłączona" |Static |2 — Usuwanie pliku CSS. |
+
 ## <a name="clustermanager"></a>Clustermanager
 
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub Krótki opis** |
@@ -95,6 +101,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub Krótki opis** |
 | --- | --- | --- | --- |
+|AllowCreateUpdateMultiInstancePerNodeServices |Bool, wartość domyślna to false |Dynamiczny|Umożliwia tworzenie wielu wystąpień bezstanowych usługi na węzeł. Ta funkcja jest obecnie w wersji zapoznawczej. |
 |PerfMonitorInterval |Czas w sekundach, wartość domyślna to 1 |Dynamiczny|Określ wartość TimeSpan w sekundach. Interwał monitorowania wydajności. Ustawienie wartości 0 lub ujemnej powoduje wyłączenie monitorowania. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -304,6 +311,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub Krótki opis** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, wartość domyślna to false |Static|Zasady oceny kondycji klastra: Włącz dla oceny kondycji typu aplikacji. |
+|EnableNodeTypeHealthEvaluation |Bool, wartość domyślna to false |Static|Zasady oceny kondycji klastra: Włącz ocenę kondycji typu węzła. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, wartość domyślna to 100 |Dynamiczny|Maksymalna liczba raportów o kondycji, które może mieć jednostka przed zwiększeniem wątpliwości dotyczących logiki raportowania kondycji licznika danych. Każda jednostka kondycji powinna mieć stosunkowo małą liczbę raportów kondycji. Jeśli liczba raportów przekracza tę liczbę; mogą wystąpić problemy z implementacją licznika alarmowego. Jednostka z zbyt dużą liczbą raportów jest oflagowana przy użyciu raportu kondycji ostrzegawczej, gdy jednostka jest szacowana. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
@@ -349,7 +357,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |DisableContainers|bool, wartość domyślna to FALSE|Static|Konfiguracja do wyłączania kontenerów — używana zamiast DisableContainerServiceStartOnContainerActivatorOpen, która jest przestarzałą konfiguracją |
 |DisableDockerRequestRetry|bool, wartość domyślna to FALSE |Dynamiczny| Domyślnie SF komunikuje się z DD (Docker Dameon) o limicie czasu DockerRequestTimeout ' dla każdego wysłanego żądania HTTP. Jeśli DD nie odpowiada w tym okresie; SF ponownie wysyła żądanie, jeśli operacja najwyższego poziomu nadal ma pozostały czas.  Z kontenerem HyperV; DD czasami Poświęć więcej czasu na przełączenie kontenera lub jego dezaktywowanie. W takich przypadkach DD żądanie, które upłynął od perspektywa SF i SF ponawia operację. Czasami wydaje się, że zwiększa nacisk na DD. Ta konfiguracja pozwala wyłączyć tę ponowną próbę i poczekać na odpowiedź DD. |
 |DnsServerListTwoIps | Bool, wartość domyślna to FALSE | Static | Ta flaga dodaje dwa razy lokalny serwer DNS, aby pomóc w zmniejszeniu sporadycznych problemów. |
-| DockerTerminateOnLastHandleClosed | bool, wartość domyślna to FALSE | Static | Domyślnie jeśli elemencie fabrichost określono zarządza "dockerd" (w oparciu o: SkipDockerProcessManagement = = false), to ustawienie określa, co się dzieje w przypadku awarii elemencie fabrichost określono lub dockerd. Po ustawieniu na `true` , jeśli jeden z uruchomionych kontenerów zostanie wymuszony przez magazynu HCS. W przypadku wybrania opcji `false` kontenery będą nadal działać. Uwaga: poprzednie do 8,0 to zachowanie było przypadkowo równoważne `false` . Domyślnym ustawieniem tego ustawienia jest to, `true` czego oczekujemy, że domyślnie przeniesiemy do przodu, aby nasza logika oczyszczania zaczęła obowiązywać po ponownym uruchomieniu tych procesów. |
+| DockerTerminateOnLastHandleClosed | bool, wartość domyślna to TRUE | Static | Domyślnie jeśli elemencie fabrichost określono zarządza "dockerd" (w oparciu o: SkipDockerProcessManagement = = false), to ustawienie określa, co się dzieje w przypadku awarii elemencie fabrichost określono lub dockerd. Po ustawieniu na `true` , jeśli jeden z uruchomionych kontenerów zostanie wymuszony przez magazynu HCS. W przypadku wybrania opcji `false` kontenery będą nadal działać. Uwaga: poprzednie do 8,0 to zachowanie było przypadkowo równoważne `false` . Domyślnym ustawieniem tego ustawienia jest to, `true` czego oczekujemy, że domyślnie przeniesiemy do przodu, aby nasza logika oczyszczania zaczęła obowiązywać po ponownym uruchomieniu tych procesów. |
 | DoNotInjectLocalDnsServer | bool, wartość domyślna to FALSE | Static | Zapobiega wprowadzaniu przez środowisko uruchomieniowe lokalnego adresu IP jako serwera DNS dla kontenerów. |
 |EnableActivateNoWindow| bool, wartość domyślna to FALSE|Dynamiczny| Aktywowany proces jest tworzony w tle bez żadnej konsoli. |
 |EnableContainerServiceDebugMode|bool, wartość domyślna to TRUE|Static|Włącz/Wyłącz rejestrowanie kontenerów platformy Docker.  Tylko system Windows.|
@@ -552,6 +560,8 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |MovementPerPartitionThrottleCountingInterval | Czas w sekundach, wartość domyślna to 600 |Static| Określ wartość TimeSpan w sekundach. Wskazuje długość przeszłego interwału, dla którego mają być śledzone przesunięcia replik dla każdej partycji (używane razem z MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, wartość domyślna to 50 |Dynamiczny| Brak przenoszenia związanego z równoważeniem obciążenia dla partycji, jeśli liczba przepływów związanych z równoważeniem dla replik tej partycji osiągnęła lub przekroczyła MovementPerFailoverUnitThrottleThreshold w ciągu ostatnich interwałów wskazywanych przez MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, wartość domyślna to false |Dynamiczny| Ustawienie określające, czy można przenosić repliki nadrzędne w celu naprawy ograniczeń koligacji.|
+|NodeTaggingEnabled | Bool, wartość domyślna to false |Dynamiczny| W przypadku wartości true; Funkcja NodeTagging zostanie włączona. |
+|NodeTaggingConstraintPriority | Int, wartość domyślna to 0 |Dynamiczny| Konfigurowalny priorytet tagowania węzła. |
 |PartiallyPlaceServices | Bool, wartość domyślna to true |Dynamiczny| Określa, czy wszystkie repliki usługi w klastrze mają być umieszczone "wszystkie, czy nie", w odniesieniu do nich są ograniczone odpowiednie węzły.|
 |PlaceChildWithoutParent | Bool, wartość domyślna to true | Dynamiczny|Ustawienie określające, czy można umieścić replikę podrzędną usługi w przypadku braku repliki nadrzędnej. |
 |PlacementConstraintPriority | Int, wartość domyślna to 0 | Dynamiczny|Określa priorytet ograniczenia położenia: 0: twarda; 1: nietrwałe; wartość ujemna: Ignoruj. |
@@ -572,7 +582,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |UpgradeDomainConstraintPriority | Int, wartość domyślna to 1| Dynamiczny|Określa priorytet ograniczenia domeny uaktualnienia: 0: twardy; 1: nietrwałe; wartość ujemna: Ignoruj. |
 |UseMoveCostReports | Bool, wartość domyślna to false | Dynamiczny|Instruuje LB, aby zignorować element Cost funkcji oceniania; to, że potencjalnie duża liczba przeniesień do lepszego zrównoważonego umieszczania. |
 |UseSeparateSecondaryLoad | Bool, wartość domyślna to true | Dynamiczny|Ustawienie określające, czy do replik pomocniczych należy używać oddzielnego obciążenia. |
-|UseSeparateSecondaryMoveCost | Bool, wartość domyślna to false | Dynamiczny|Ustawienie określające, czy do replik pomocniczych należy używać osobnego kosztu przenoszenia. |
+|UseSeparateSecondaryMoveCost | Bool, wartość domyślna to true | Dynamiczny|Ustawienie określające, czy PLB ma używać innego kosztu przenoszenia dla elementu pomocniczego w każdym węźle. Jeśli UseSeparateSecondaryMoveCost jest wyłączone: — zgłoszony koszt przeniesienia dla elementu pomocniczego w jednym węźle spowoduje, że overwritting Przenieś koszt dla każdej pomocniczej (na pozostałych węzłach), jeśli UseSeparateSecondaryMoveCost jest włączona:-zgłoszony koszt przeniesienia dla elementu pomocniczego na jednym węźle zacznie obowiązywać tylko w przypadku tej pomocniczej (nie ma wpływu na serwery pomocnicze w innych węzłach) — w przypadku awarii repliki zostanie utworzona nowa replika z domyślnym kosztem przeniesienia określony na poziomie usługi — Jeśli PLB przenosi istniejącą replikę — koszt przeniesienia następuje. |
 |ValidatePlacementConstraint | Bool, wartość domyślna to true |Dynamiczny| Określa, czy wyrażenie PlacementConstraint dla usługi jest sprawdzane podczas aktualizowania ServiceDescription usługi. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, wartość domyślna to TRUE |Dynamiczny|Określa, czy wyrażenie PlacementConstraint dla usługi jest oceniane dla preferencji głównych w trybie failover. |
 |VerboseHealthReportLimit | Int, wartość domyślna to 20 | Dynamiczny|Określa, ile razy należy umieścić replikę, zanim zostanie zgłoszone ostrzeżenie o kondycji (jeśli jest włączone pełne Raportowanie kondycji). |
@@ -767,6 +777,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |RecoverServicePartitions |ciąg, wartość domyślna to "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń na potrzeby odzyskiwania partycji usługi. |
 |RecoverSystemPartitions |ciąg, wartość domyślna to "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń na potrzeby odzyskiwania partycji usługi systemowej. |
 |RemoveNodeDeactivations |ciąg, wartość domyślna to "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń na potrzeby wycofywania dezaktywacji na wielu węzłach. |
+|ReportCompletion |wstring, wartość domyślna to L "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń dla uzupełniania raportów. |
 |ReportFabricUpgradeHealth |ciąg, wartość domyślna to "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń służąca do wznawiania uaktualnień klastra z bieżącym postępem uaktualniania. |
 |ReportFault |ciąg, wartość domyślna to "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń dla błędu raportowania. |
 |ReportHealth |ciąg, wartość domyślna to "Administrator" |Dynamiczny| Konfiguracja zabezpieczeń dla kondycji raportowania. |

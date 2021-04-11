@@ -3,16 +3,16 @@ title: Skonfiguruj uwierzytelnianie Google
 description: Dowiedz się, jak skonfigurować uwierzytelnianie Google jako dostawcę tożsamości dla aplikacji App Service lub Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6bec32fa928e840569ed95c35a056db91ea9737
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80519942"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077996"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania Google
 
@@ -34,21 +34,20 @@ Aby wykonać procedurę opisaną w tym temacie, musisz mieć konto Google, któr
 
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji Google do aplikacji
 
-1. W [Azure Portal]przejdź do aplikacji App Service.
-1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja** i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
-1. Wybierz pozycję **Google**, a następnie wklej wartości w polu Identyfikator aplikacji i klucz tajny aplikacji, które zostały uzyskane wcześniej. Włącz wszystkie zakresy wymagane przez aplikację.
-1. Wybierz przycisk **OK**.
+1. Zaloguj się do [Azure Portal] i przejdź do swojej aplikacji.
+1. W menu po lewej stronie wybierz pozycję **uwierzytelnianie** . Kliknij pozycję **Dodaj dostawcę tożsamości**.
+1. Wybierz pozycję **Google** na liście rozwijanej dostawca tożsamości. Wklej wartości identyfikatora aplikacji i klucza tajnego aplikacji, które zostały uzyskane wcześniej.
 
-   App Service zapewnia uwierzytelnianie, ale nie ogranicza uprawnień dostępu do zawartości i interfejsów API witryny. Aby uzyskać więcej informacji, zobacz [Autoryzuj lub Odmów użytkownikom](app-service-authentication-how-to.md#authorize-or-deny-users).
+    Wpis tajny będzie przechowywany jako [ustawienie aplikacji](./configure-common.md#configure-app-settings) do gniazd-Sticky o nazwie `GOOGLE_PROVIDER_AUTHENTICATION_SECRET` . Możesz później zaktualizować to ustawienie, aby użyć [odwołań Key Vault](./app-service-key-vault-references.md) , jeśli chcesz zarządzać wpisem tajnym w programie Azure Key Vault.
 
-1. Obowiązkowe Aby ograniczyć dostęp do witryny tylko do użytkowników uwierzytelnionych przez firmę Google, należy ustawić **akcję podejmowaną, gdy żądanie nie zostanie uwierzytelnione** do firmy **Google**. Po ustawieniu tej funkcji aplikacja wymaga uwierzytelnienia wszystkich żądań. Przekierowuje także wszystkie nieuwierzytelnione żądania do usługi Google w celu uwierzytelnienia.
+1. Jeśli jest to pierwszy dostawca tożsamości skonfigurowany dla aplikacji, zostanie wyświetlony monit z sekcją **Ustawienia uwierzytelniania App Service** . W przeciwnym razie możesz przejść do następnego kroku.
+    
+    Te opcje określają, w jaki sposób aplikacja reaguje na nieuwierzytelnione żądania, a wybór domyślny spowoduje przekierowanie wszystkich żądań logowania za pomocą tego nowego dostawcy. Możesz zmienić to zachowanie Dostosuj teraz lub dostosować te ustawienia później na głównym ekranie **uwierzytelniania** , wybierając pozycję **Edytuj** obok pozycji **Ustawienia uwierzytelniania**. Aby dowiedzieć się więcej na temat tych opcji, zobacz [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
 
-    > [!CAUTION]
-    > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być pożądane dla aplikacji, które mają publicznie dostępną stronę główną, tak jak w przypadku aplikacji jednostronicowych. W przypadku takich aplikacji **Zezwalanie na żądania anonimowe (żadna akcja)** może być preferowana, aby aplikacja ręcznie uruchamiała sam uwierzytelnienie. Aby uzyskać więcej informacji, zobacz temat [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
+1. Obowiązkowe Kliknij przycisk **Dalej: zakresy** i Dodaj zakresy potrzebne aplikacji. Będą one wymagane w czasie logowania dla przepływów opartych na przeglądarce.
+1. Kliknij pozycję **Dodaj**.
 
-1. Wybierz pozycję **Zapisz**.
-
-Teraz można przystąpić do uwierzytelniania w aplikacji za pomocą usługi Google.
+Teraz można przystąpić do uwierzytelniania w aplikacji za pomocą usługi Google. Dostawca zostanie wyświetlony na liście na ekranie **uwierzytelniania** . W tym miejscu możesz edytować lub usunąć tę konfigurację dostawcy.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 

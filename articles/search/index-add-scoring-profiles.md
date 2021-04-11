@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afe56bb8637c9b2a88bda23944fd5097413fce97
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91537637"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077724"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Dodawanie profilów oceniania do indeksu usługi Azure Cognitive Search
 
@@ -161,7 +161,7 @@ Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych dan
 
  Treść profilu oceniania jest tworzona na podstawie ważonych pól i funkcji.  
 
-|||  
+|Właściwości |Opis|  
 |-|-|  
 |**Ważenie**|Określ pary nazwa-wartość, które przypisują względną wagę do pola. W [przykładzie](#bkmk_ex)pola albumTitle, gatunek i artyściname są podwyższane odpowiednio do 1,5, 5 i 2. Dlaczego gatunek jest podwyższany o wiele więcej niż inne? Jeśli wyszukiwanie jest przeprowadzane nad danymi, które są dość jednorodne (podobnie jak w przypadku "gatunek" w `musicstoreindex` ), może być potrzebna większa Wariancja w odniesieniu do wag względnych. Na przykład w `musicstoreindex` , "Rock" pojawia się zarówno jako gatunek, jak i w identycznie sformułowanych opisach gatunku. Jeśli chcesz, aby gatunek miał wartość Opis gatunku, pole gatunek będzie wymagało znacznie wyższej wagi względnej.|  
 |**Funkcje**|Używane, gdy dodatkowe obliczenia są wymagane dla określonych kontekstów. Prawidłowe wartości to `freshness`, `magnitude`, `distance` i `tag`. Każda funkcja ma parametry, które są unikatowe dla niego.<br /><br /> -   `freshness` powinien być używany, gdy chcesz zwiększyć, jak ma być nowy lub stary element. Tej funkcji można używać tylko z `datetime` polami (EDM. DataTimeOffset). Zauważ, że `boostingDuration` atrybut jest używany tylko z `freshness` funkcją.<br />-   `magnitude` powinien być używany, gdy chcesz wzrosnąć w zależności od tego, jak wysoka lub niska wartość liczbowa jest. Scenariusze, które wywołują tę funkcję, obejmują zwiększenie wydajności według marży zysku, najwyższej ceny, najniższej ceny lub liczby pobrań. Tej funkcji można używać tylko z polami Double i Integer.<br />     W przypadku `magnitude` funkcji można odwrócić zakres, wysoki do niskiej, jeśli chcesz, aby wzorzec odwrotny (na przykład w celu zwiększenia liczby elementów o niższych cenach przekraczających wyższą cenę). Uwzględniając asortyment cen od $100 do $1, należy ustawić `boostingRangeStart` na wartość 100 i `boostingRangeEnd` o 1, aby zwiększyć poziom niższych cen.<br />-   `distance` powinien być używany, gdy chcesz zwiększyć się według lokalizacji w sąsiedztwie lub geograficznym. Tej funkcji można używać tylko z `Edm.GeographyPoint` polami.<br />-   `tag` należy używać, gdy chcesz zwiększyć zgodność tagów wspólnych między dokumentami i kwerendami wyszukiwania. Tej funkcji można używać tylko z `Edm.String` polami i `Collection(Edm.String)` .<br /><br /> **Reguły korzystania z funkcji**<br /><br /> Typ funkcji ( `freshness` , `magnitude` ,, `distance` ) `tag` musi być małymi literami.<br /><br /> Funkcje nie mogą zawierać wartości null ani pustych. W przypadku uwzględnienia wartości pola NazwaPola należy ustawić ją na coś.<br /><br /> Funkcje mogą być stosowane tylko do pól z możliwością filtrowania. Aby uzyskać więcej informacji na temat pól z możliwością filtrowania, zobacz [Create Index &#40;Azure wyszukiwanie POZNAWCZE API REST&#41;](/rest/api/searchservice/create-index) .<br /><br /> Funkcje mogą być stosowane tylko do pól, które są zdefiniowane w kolekcji Fields indeksu.|  

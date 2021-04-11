@@ -4,12 +4,12 @@ description: Szybka nauka tworzenia rejestru prywatnego platformy Docker w Azure
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91d4209ccf558bf7c8038d8a753ec038428bc484
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6928f1c45cdac93b70797daf41205b4c5db27e0
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020018"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283822"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą Azure PowerShell
 
@@ -55,7 +55,7 @@ W tym przewodniku Szybki start utworzysz rejestr *Podstawowy*, który jest zopty
 
 ## <a name="log-in-to-registry"></a>Logowanie do rejestru
 
-Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do swojego rejestru. W scenariuszach ze środowiskiem produkcyjnym do uzyskiwania dostępu do rejestru kontenerów powinna być używana indywidualna tożsamość lub jednostka usługi, ale aby nie wydłużać tego przewodnika Szybki start, włącz administratora w swoim rejestrze za pomocą polecenia [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
+Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do swojego rejestru. Aby zachować ten przewodnik Szybki Start, należy włączyć administratora w rejestrze za pomocą polecenia [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] . W scenariuszach produkcyjnych należy użyć alternatywnej [metody uwierzytelniania](container-registry-authentication.md) dla dostępu do rejestru, takiej jak nazwa główna usługi. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -68,6 +68,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 ```
 
 Po ukończeniu polecenie zwraca ciąg `Login Succeeded`.
+
+> [!TIP]
+> Interfejs wiersza polecenia platformy Azure udostępnia `az acr login` polecenie, wygodny sposób logowania do rejestru kontenerów przy użyciu [tożsamości indywidualnej](container-registry-authentication.md#individual-login-with-azure-ad)bez przekazywania poświadczeń platformy Docker.
+
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
