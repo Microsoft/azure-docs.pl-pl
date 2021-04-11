@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/08/2021
 ms.author: matjazl
-ms.openlocfilehash: fbc683c98eb0124e8d879eada276593ca9bf7042
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c10b27d375e2bfb8c64130eceb416a633241cf68
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934761"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284441"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Rejestrowanie poufnej aplikacji klienckiej w Azure Active Directory
 
@@ -29,7 +29,7 @@ Aby zarejestrować nową poufną aplikację kliencką, zapoznaj się z poniższy
 
 1. Wybierz pozycję **Rejestracje aplikacji**. 
 
-    ![Azure Portal. Rejestracja nowej aplikacji.](media/how-to-aad/portal-aad-new-app-registration.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-new-app-registration.png" alt-text="Azure Portal. Rejestracja nowej aplikacji.":::
 
 1. Wybierz pozycję **Nowa rejestracja**.
 
@@ -39,7 +39,7 @@ Aby zarejestrować nową poufną aplikację kliencką, zapoznaj się z poniższy
 
 1. Obowiązkowe Podaj **Identyfikator URI przekierowania**. Te szczegóły można później zmienić, ale jeśli znasz adres URL odpowiedzi aplikacji, wprowadź ją teraz.
 
-    ![Rejestracja nowej poufnej aplikacji klienta.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="Rejestracja nowej poufnej aplikacji klienta.":::
 
 1. Wybierz pozycję **Zarejestruj**.
 
@@ -49,7 +49,7 @@ Po zarejestrowaniu aplikacji należy wybrać uprawnienia interfejsu API, które 
 
 1. Wybierz pozycję **uprawnienia interfejsu API**.
 
-    ![Klient poufny. Uprawnienia interfejsu API](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Klient poufny. Uprawnienia interfejsu API.":::
 
 1. Wybierz pozycję **Dodaj uprawnienie**.
 
@@ -70,11 +70,11 @@ Po zarejestrowaniu aplikacji należy wybrać uprawnienia interfejsu API, które 
 
 1. Wybierz pozycję **certyfikaty & wpisy tajne**, a następnie wybierz pozycję **nowy klucz tajny klienta**. 
 
-    ![Klient poufny. Wpis tajny aplikacji](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png" alt-text="Klient poufny. Wpis tajny aplikacji.":::
 
-1. Wprowadź **Opis** wpisu tajnego klienta. Wybierz pozycję wygasa (w ciągu 1 roku, w 2 latach lub nigdy), a następnie kliknij przycisk **Dodaj**.
+1. Wprowadź **Opis** wpisu tajnego klienta. Wybierz menu rozwijane **wygasanie** , aby wybrać przedział czasu wygaśnięcia, a następnie kliknij przycisk **Dodaj**.
 
-   ![Dodawanie klucza tajnego klienta](media/how-to-aad/add-a-client-secret.png)
+   :::image type="content" source="media/how-to-aad/add-a-client-secret.png" alt-text="Dodaj klucz tajny klienta.":::
 
 1. Po utworzeniu ciągu tajnego klienta skopiuj jego **wartość** i **Identyfikator** i Zapisz je w wybranej bezpiecznej lokalizacji.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell Azure Database for PostgreSQL magazynu
 description: W tym artykule opisano sposób włączania magazynu przy użyciu programu PowerShell w Azure Database for PostgreSQL.
-author: rothja
-ms.author: jroth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05333aa4a42b821366ea7ad0a564781422fda66a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 00292d3f45554908b3a6e5c3477ad1c5031f5176
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551054"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228048"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-postgresql-server-using-powershell"></a>Powiększ magazyn na serwerze Azure Database for PostgreSQL przy użyciu programu PowerShell
 

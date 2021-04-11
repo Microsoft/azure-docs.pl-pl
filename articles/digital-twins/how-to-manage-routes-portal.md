@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8a8cc6563d8e3cae942c4dfb43afa3d05f6f2b75
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932458"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257311"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomienia o zdarzeniach](how-to-interpret-event-data.md) do usług podrzędnych lub podłączonych zasobów obliczeniowych. W tym celu należy najpierw skonfigurować **punkty końcowe**, które mogą odbierać zdarzenia. Następnie można utworzyć [**trasy zdarzeń**](concepts-route-events.md) , które określają, które zdarzenia generowane przez usługę Azure Digital bliźniaczych reprezentacji są dostarczane do których punktów końcowych.
+W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomienia o zdarzeniach](concepts-event-notifications.md) do usług podrzędnych lub podłączonych zasobów obliczeniowych. W tym celu należy najpierw skonfigurować **punkty końcowe**, które mogą odbierać zdarzenia. Następnie można utworzyć [**trasy zdarzeń**](concepts-route-events.md) , które określają, które zdarzenia generowane przez usługę Azure Digital bliźniaczych reprezentacji są dostarczane do których punktów końcowych.
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia punktów końcowych i tras przy użyciu [Azure Portal](https://portal.azure.com).
 
@@ -202,4 +202,4 @@ Poniżej przedstawiono obsługiwane filtry tras. Szczegóły w kolumnie *Filtruj
 ## <a name="next-steps"></a>Następne kroki
 
 Przeczytaj o różnych typach komunikatów zdarzeń, które można odbierać:
-* [*Instrukcje: interpretowanie danych zdarzenia*](how-to-interpret-event-data.md)
+* [*Koncepcje: powiadomienia o zdarzeniach*](concepts-event-notifications.md)

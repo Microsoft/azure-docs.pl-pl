@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7efebaf23bd8e897243f6ee12b23d3821a4c033
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936312"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257334"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomienia o zdarzeniach](how-to-interpret-event-data.md) do usług podrzędnych lub podłączonych zasobów obliczeniowych. W tym celu należy najpierw skonfigurować **punkty końcowe**, które mogą odbierać zdarzenia. Następnie można utworzyć  [**trasy zdarzeń**](concepts-route-events.md) , które określają, które zdarzenia generowane przez usługę Azure Digital bliźniaczych reprezentacji są dostarczane do których punktów końcowych.
+W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomienia o zdarzeniach](concepts-event-notifications.md) do usług podrzędnych lub podłączonych zasobów obliczeniowych. W tym celu należy najpierw skonfigurować **punkty końcowe**, które mogą odbierać zdarzenia. Następnie można utworzyć  [**trasy zdarzeń**](concepts-route-events.md) , które określają, które zdarzenia generowane przez usługę Azure Digital bliźniaczych reprezentacji są dostarczane do których punktów końcowych.
 
 W tym artykule omówiono proces tworzenia punktów końcowych i tras za pomocą [interfejsów API REST](/rest/api/azure-digitaltwins/), [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client)i [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
@@ -48,7 +48,7 @@ W tej sekcji opisano sposób tworzenia tych punktów końcowych przy użyciu int
 
 ### <a name="create-the-endpoint"></a>Tworzenie punktu końcowego
 
-Po utworzeniu zasobów punktu końcowego można używać ich na potrzeby punktu końcowego usługi Azure Digital bliźniaczych reprezentacji. W poniższych przykładach pokazano, jak utworzyć punkty końcowe za pomocą polecenia [AZ DT Endpoint Create](/cli/azure/ext/azure-iot/dt/endpoint/create) dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Zastąp symbole zastępcze w poleceniach szczegółowymi informacjami dotyczącymi własnych zasobów.
+Po utworzeniu zasobów punktu końcowego można używać ich na potrzeby punktu końcowego usługi Azure Digital bliźniaczych reprezentacji. W poniższych przykładach pokazano, jak utworzyć punkty końcowe za pomocą polecenia [AZ DT Endpoint Create](/cli/azure/dt/endpoint/create) dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Zastąp symbole zastępcze w poleceniach szczegółowymi informacjami dotyczącymi własnych zasobów.
 
 Aby utworzyć punkt końcowy Event Grid:
 
@@ -119,7 +119,7 @@ Wykonaj poniższe kroki, aby skonfigurować te zasoby magazynu na koncie platfor
     
 #### <a name="create-the-dead-letter-endpoint"></a>Tworzenie punktu końcowego utraconych wiadomości
 
-Aby utworzyć punkt końcowy, w którym włączono obsługę utraconych wiadomości, Dodaj następujący parametr utraconych wiadomości do polecenia [AZ DT Endpoint Create](/cli/azure/ext/azure-iot/dt/endpoint/create) dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Aby utworzyć punkt końcowy, w którym włączono obsługę utraconych wiadomości, Dodaj następujący parametr utraconych wiadomości do polecenia [AZ DT Endpoint Create](/cli/azure/dt/endpoint/create) dla [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 Wartość parametru to **utracony identyfikator URI sygnatury dostępu współdzielonego** , składający się z nazwy konta magazynu, nazwy kontenera i tokenu sygnatury dostępu współdzielonego zebranego w [poprzedniej sekcji](#set-up-storage-resources). Ten parametr umożliwia utworzenie punktu końcowego przy użyciu uwierzytelniania opartego na kluczach.
 
@@ -158,7 +158,7 @@ Po skonfigurowaniu punktu końcowego z utraconymi komunikatami wiadomości utrac
 
 Wiadomości utracone będą zgodne ze schematem oryginalnego zdarzenia, które było przeznaczone do dostarczenia do oryginalnego punktu końcowego.
 
-Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o tworzeniu sznurka](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
+Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o tworzeniu sznurka](concepts-event-notifications.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -204,7 +204,7 @@ Jeśli nie ma nazwy trasy, żadne komunikaty nie są kierowane poza usługę Azu
 
 Jedna trasa powinna zezwalać na wybranie wielu powiadomień i typów zdarzeń. 
 
-Trasy zdarzeń można tworzyć za pomocą [  interfejsów API płaszczyzny danych](/rest/api/digital-twins/dataplane/eventroutes) Digital bliźniaczych reprezentacji EventRoutes lub [ **AZ DT Route** interfejsu wiersza polecenia](/cli/azure/ext/azure-iot/dt/route). Pozostała część tej sekcji przeprowadzi proces tworzenia.
+Trasy zdarzeń można tworzyć za pomocą [  interfejsów API płaszczyzny danych](/rest/api/digital-twins/dataplane/eventroutes) Digital bliźniaczych reprezentacji EventRoutes lub [ **AZ DT Route** interfejsu wiersza polecenia](/cli/azure/dt/route). Pozostała część tej sekcji przeprowadzi proces tworzenia.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Tworzenie tras za pomocą interfejsów API i zestawu C# SDK
 
@@ -225,7 +225,7 @@ Poniższa metoda Przykładowa przedstawia sposób tworzenia, wyświetlania i usu
 
 ### <a name="create-routes-with-the-cli"></a>Tworzenie tras za pomocą interfejsu wiersza polecenia
 
-Marszruty mogą być również zarządzane przy użyciu poleceń [AZ DT Route](/cli/azure/ext/azure-iot/dt/route) dla interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. 
+Marszruty mogą być również zarządzane przy użyciu poleceń [AZ DT Route](/cli/azure/dt/route) dla interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. 
 
 Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia i dostępnych poleceń, zobacz [*How to: Use the Azure Digital bliźniaczych reprezentacji CLI*](how-to-use-cli.md).
 
@@ -256,4 +256,4 @@ Poniżej przedstawiono obsługiwane filtry tras. Użyj szczegółów w kolumnie 
 ## <a name="next-steps"></a>Następne kroki
 
 Przeczytaj o różnych typach komunikatów zdarzeń, które można odbierać:
-* [*Instrukcje: interpretowanie danych zdarzenia*](how-to-interpret-event-data.md)
+* [*Koncepcje: powiadomienia o zdarzeniach*](concepts-event-notifications.md)

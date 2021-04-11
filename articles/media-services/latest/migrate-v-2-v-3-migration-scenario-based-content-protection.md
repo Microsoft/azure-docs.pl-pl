@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9141fb025cb2c7976f88d894768972b10ea3a3d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74f15fc302a8499e41a1413dd8915e6442d4bbe7
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729409"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064498"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu ochrony zawartości
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera szczegółowe informacje i wskazówki dotyczące migracji p
 
 ## <a name="protect-content-in-v3-api"></a>Ochrona zawartości w interfejsie API v3
 
-Użyj obsługi funkcji [wielokluczowych](design-multi-drm-system-with-access-control.md) w nowym interfejsie API v3.
+Użyj obsługi funkcji [wielokluczowych](architecture-design-multi-drm-system.md) w nowym interfejsie API v3.
 
 Zapoznaj się z pojęciami dotyczącymi ochrony zawartości, samouczkami i instrukcjami przedstawionymi poniżej.
 
@@ -44,9 +44,9 @@ Wyniki metody **ListStreamingLocators** zapewniają **nazwę** i **StreamingLoca
 
 Aby znaleźć **ContentKeys** używany w **StreamingLocators** na potrzeby ochrony zawartości, można wywołać metodę [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) .  
 
-Wszystkie **zasoby** , które zostały utworzone i opublikowane przy użyciu interfejsu API v2, będą mieć zarówno [zasadę klucza zawartości](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept) , jak i klucz zawartości zdefiniowany w interfejsie API v3, zamiast korzystać z domyślnych zasad kluczy zawartości w ramach [zasad przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
+Wszystkie **zasoby** , które zostały utworzone i opublikowane przy użyciu interfejsu API v2, będą mieć zarówno [zasadę klucza zawartości](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) , jak i klucz zawartości zdefiniowany w interfejsie API v3, zamiast korzystać z domyślnych zasad kluczy zawartości w ramach [zasad przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
 
-Aby uzyskać więcej informacji na temat ochrony zawartości w interfejsie API v3, zapoznaj się z artykułem [Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services.](https://docs.microsoft.com/azure/media-services/latest/content-protection-overview)
+Aby uzyskać więcej informacji na temat ochrony zawartości w interfejsie API v3, zapoznaj się z artykułem [Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
 
 ## <a name="how-to-list-your-v2-assets-and-content-protection-settings-using-the-v3-api"></a>Jak wyświetlić listę zasobów i ustawień ochrony zawartości w wersji 2 za pomocą interfejsu API v3
 
@@ -60,7 +60,7 @@ Jeśli trzeba zaktualizować, zmienić lub zmodyfikować zawartość przechowywa
 
 ## <a name="how-do-i-change-the-contentkeypolicy-used-for-a-v2-asset-that-is-published-and-keep-the-same-content-key"></a>Jak mogę zmienić ContentKeyPolicy używany dla elementu zawartości w wersji 2, który jest opublikowany i zachować ten sam klucz zawartości?
 
-W takiej sytuacji należy najpierw cofnąć publikację (usunąć wszystkie lokalizatory przesyłania strumieniowego) dla zasobu za pomocą zestawu v2 SDK (usunąć lokalizator, odłączyć zasady autoryzacji klucza zawartości, odłączyć zasady dostarczania zasobów, odłączyć klucz zawartości, usunąć klucz zawartości), a następnie utworzyć nowy **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** w wersji 3 przy użyciu [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) v3 i [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept).
+W takiej sytuacji należy najpierw cofnąć publikację (usunąć wszystkie lokalizatory przesyłania strumieniowego) dla zasobu za pomocą zestawu v2 SDK (usunąć lokalizator, odłączyć zasady autoryzacji klucza zawartości, odłączyć zasady dostarczania zasobów, odłączyć klucz zawartości, usunąć klucz zawartości), a następnie utworzyć nowy **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** w wersji 3 przy użyciu [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) v3 i [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept).
 
 Podczas tworzenia **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** należy określić konkretny identyfikator klucza zawartości i wartość klucza.
 
@@ -75,24 +75,24 @@ Podczas migrowania zawartości z wersji 2 do V3 zaleca się zainstalowanie [Narz
 
 ### <a name="concepts"></a>Pojęcia
 
-- [Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services](content-protection-overview.md)
-- [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)
-- [Media Services v3 z szablonem licencji PlayReady](playready-license-template-overview.md)
-- [Omówienie szablonu licencji Media Services v3 with Widevine](widevine-license-template-overview.md)
-- [Wymagania licencyjne i konfiguracja technologii FairPlay firmy Apple](fairplay-license-overview.md)
+- [Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services](drm-content-protection-concept.md)
+- [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](architecture-design-multi-drm-system.md)
+- [Media Services v3 z szablonem licencji PlayReady](drm-playready-license-template-concept.md)
+- [Omówienie szablonu licencji Media Services v3 with Widevine](drm-widevine-license-template-concept.md)
+- [Wymagania licencyjne i konfiguracja technologii FairPlay firmy Apple](drm-fairplay-license-overview.md)
 - [Zasady przesyłania strumieniowego](streaming-policy-concept.md)
-- [Zasady kluczy zawartości](content-key-policy-concept.md)
+- [Zasady kluczy zawartości](drm-content-key-policy-concept.md)
 
 ### <a name="tutorials"></a>Samouczki
 
-[Szybki Start: używanie portalu do szyfrowania zawartości](encrypt-content-quickstart.md)
+[Szybki Start: używanie portalu do szyfrowania zawartości](drm-encrypt-content-how-to.md)
 
 ### <a name="how-to-guides"></a>Przewodniki z instrukcjami
 
-- [Pobieranie klucza podpisywania z istniejących zasad](get-content-key-policy-dotnet-howto.md)
-- [FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS z Media Services v3](offline-fairplay-for-ios.md)
-- [Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3](offline-widevine-for-android.md)
-- [Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3](offline-plaready-streaming-for-windows-10.md)
+- [Pobieranie klucza podpisywania z istniejących zasad](drm-get-content-key-policy-dotnet-how-to.md)
+- [FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS z Media Services v3](drm-offline-fairplay-for-ios-concept.md)
+- [Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3](drm-offline-widevine-for-android.md)
+- [Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3](drm-offline-playready-streaming-for-windows-10.md)
 
 ## <a name="samples"></a>Samples
 

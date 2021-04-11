@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: e882ae89da2fd081d6b41d3d42e998d3600f0e18
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120756"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490310"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -32,6 +32,7 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 
 ## <a name="march-2021"></a>Marzec 2021
 
+- [Ustaw automatyczne odświeżanie skoroszytów w trybie widoku](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [Nowe wykrycia dla zapory platformy Azure](#new-detections-for-azure-firewall)
 - [Reguły automatyzacji i elementy PlayBook wyzwalane incydenty](#automation-rules-and-incident-triggered-playbooks) (w tym cała dokumentacja element PlayBook)
 - [Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
@@ -39,6 +40,20 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 - [Filtry zdarzeń i preferencje sortowania teraz zapisywane w sesji (publiczna wersja zapoznawcza)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integracja zdarzeń Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Ustaw automatyczne odświeżanie skoroszytów w trybie widoku
+
+Użytkownicy usługi Azure wskaźnikowego mogą teraz korzystać z nowej [Azure monitor możliwości](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) automatycznego odświeżania danych skoroszytu podczas sesji wyświetlania.
+
+W każdym skoroszycie lub szablonie skoroszytu wybierz pozycję :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **AutoRefresh (Odśwież** ), aby wyświetlić opcje interwału. Wybierz opcję, która ma być używana dla bieżącej sesji widoku, a następnie wybierz pozycję **Zastosuj**.
+
+- Obsługiwane interwały odświeżania mieszczą się w zakresie od **5 minut** do **1 dnia**.
+- Domyślnie funkcja AutoRefresh jest wyłączona. Aby zoptymalizować wydajność, Autoodświeżanie jest również wyłączone przy każdym zamknięciu skoroszytu i nie jest uruchamiane w tle. Włącz Autoodświeżanie w razie konieczności przy następnym otwarciu skoroszytu.
+- Autoodświeżanie jest wstrzymane podczas edytowania skoroszytu, a Interwały autoodświeżania są uruchamiane ponownie po każdym przełączeniu do trybu widoku z trybu edycji.
+
+    Interwały są również uruchamiane ponownie, jeśli skoroszyt zostanie ręcznie odświeżony przez wybranie :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: przycisku **Odśwież** .
+
+Aby uzyskać więcej informacji, zobacz [Samouczek: wizualizacja i monitorowanie danych](tutorial-monitor-your-data.md) oraz [Dokumentacja Azure monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 ### <a name="new-detections-for-azure-firewall"></a>Nowe wykrycia dla zapory platformy Azure
 

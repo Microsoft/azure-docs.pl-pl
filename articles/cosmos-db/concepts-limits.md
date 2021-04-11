@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: f33490e273104105502ecc8f4f255c354a2d2f3b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/07/2021
+ms.openlocfilehash: f6416a688c7f1c94d7d8a90b0531b1ccd684ee29
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800027"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031107"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Przepustowość można zainicjować na poziomie kontenera lub na poziomie bazy d
 | --- | --- |
 | Maksymalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
 | Maksymalna liczba jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
-| Maksymalna jednostek ru na (logiczne) partycji | 10 000 |
+| Maksymalna liczba jednostek ru na partycję (logiczna & fizyczna) | 10 000 |
 | Maksymalny rozmiar magazynu na partycję wszystkie elementy na (logiczne) | 20 GB |
 | Maksymalna liczba różnych (logicznych) kluczy partycji | Nieograniczona liczba |
 | Maksymalny rozmiar magazynu na kontener | Nieograniczona liczba |

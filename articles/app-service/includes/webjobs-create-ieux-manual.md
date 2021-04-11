@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40e9e2b0e7437566a132f2402d3bed01b284d11a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102109028"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081082"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Utwórz ręcznie wyzwolone zadanie WebJob
 
@@ -33,7 +33,7 @@ ms.locfileid: "102109028"
    | <abbr title="Nazwa, która jest unikatowa w ramach aplikacji App Service. Musi zaczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż `-` i `_` .">Nazwa</abbr> | myTriggeredWebJob | 
     | <abbr title="Plik *. zip* , który zawiera plik wykonywalny lub skrypt, a także wszystkie pliki pomocnicze potrzebne do uruchomienia programu lub skryptu.">Przekazywanie plików</abbr> | ConsoleApp.zip |
     | <abbr title="Typy obejmują ciągły, wyzwolony.">Typ</abbr> | Wyzwalane | 
-    | <abbr title="Typy obejmują zaplanowane lub ręczne">Wyzwalacze</a> | Ręcznie | |
+    | <abbr title="Typy obejmują zaplanowane lub ręczne">Wyzwalacze</a> | Ręcznie | 
 
 4. Kliknij przycisk **OK**. 
 

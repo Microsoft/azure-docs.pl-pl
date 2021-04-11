@@ -9,19 +9,19 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de511fa30caa608c2dc87b6c0ba166ed56ff9499
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589875"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490186"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Zagadnienia dotyczące wydajności systemu plików NFS 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
 Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ten artykuł zawiera zalecenia, które pomagają zoptymalizować wydajność żądań magazynu. Aby dowiedzieć się więcej o obsłudze systemu NFS 3,0 na platformie Azure Blob Storage, zobacz temat [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej. Obsługuje ona konta magazynu GPV2 z wydajnością warstwy Standardowa w następujących regionach: Australia Wschodnia, Korea Środkowa i Południowo-środkowe stany USA. Wersja zapoznawcza obsługuje również blokowy obiekt BLOB z warstwą wydajności Premium we wszystkich regionach publicznych.
+> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej. Obsługuje ona konta magazynu GPV2 z wydajnością warstwy Standardowa w następujących regionach: Australia Wschodnia, Korea środkowa, Wschodnie stany USA i Południowo-środkowe stany firmy. Wersja zapoznawcza obsługuje również blokowy obiekt BLOB z warstwą wydajności Premium we wszystkich regionach publicznych.
 
 ## <a name="add-clients-to-increase-throughput"></a>Dodawanie klientów w celu zwiększenia przepływności 
 

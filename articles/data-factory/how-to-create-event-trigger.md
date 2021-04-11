@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: d9012c2bb56b7936b627063be2e9c5b7aa33541e
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 3021d049a38f1d883518fc7c45aa8ca0a906c2f7
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962734"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221589"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie magazynu
 
@@ -76,7 +76,7 @@ W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Fa
    W poprzednim przykładzie wyzwalacz jest skonfigurowany do uruchamiania, gdy ścieżka obiektu BLOB kończąca się w. csv zostanie utworzona w folderze _Event-Tests_ w kontenerze _przykład — dane_. Właściwości **folderPath** i **filename** przechwytują lokalizację nowego obiektu BLOB. Na przykład po dodaniu MoviesDB.csv do przykładowej ścieżki-dane/testowanie zdarzeń `@triggerBody().folderPath` ma wartość `sample-data/event-testing` i `@triggerBody().fileName` ma wartość `moviesDB.csv` . Te wartości są mapowane, w przykładzie, do parametrów potoku `sourceFolder` i `sourceFile` , które mogą być używane w całym potoku odpowiednio w zależności od siebie `@pipeline().parameters.sourceFolder` `@pipeline().parameters.sourceFile` .
 
    > [!NOTE]
-   > Jeśli tworzysz potok i wyzwalacz w [usłudze Azure Synapse Analytics](/synapse-analytics), musisz użyć `@trigger().outputs.body.fileName` `@trigger().outputs.body.folderPath` parametrów i. Te dwie właściwości przechwytują informacje o obiektach Blob. Użyj tych właściwości zamiast używania `@triggerBody().fileName` i `@triggerBody().folderPath` .
+   > Jeśli tworzysz potok i wyzwalacz w [usłudze Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), musisz użyć `@trigger().outputs.body.fileName` `@trigger().outputs.body.folderPath` parametrów i. Te dwie właściwości przechwytują informacje o obiektach Blob. Użyj tych właściwości zamiast używania `@triggerBody().fileName` i `@triggerBody().folderPath` .
 
 1. Po zakończeniu kliknij przycisk **Zakończ** .
 

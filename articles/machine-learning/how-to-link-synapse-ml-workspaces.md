@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: dd62fb5e3c7450d50b9837ee5484ca480cab78aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 511ee1aa5f5036f5ca5450def0e4481c0608db33
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640843"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227351"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Łączenie obszarów roboczych usługi Azure Synapse Analytics i Azure Machine Learningych (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak utworzyć połączoną usługę, która łączy obszar roboczy [usługi Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) i [obszar roboczy Azure Machine Learning](concept-workspace.md).
+W tym artykule dowiesz się, jak utworzyć połączoną usługę, która łączy obszar roboczy [usługi Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) i [obszar roboczy Azure Machine Learning](concept-workspace.md).
 
 Korzystając z Azure Machine Learningego obszaru roboczego połączonego z obszarem roboczym usługi Azure Synapse, możesz dołączyć pulę Apache Spark jako dedykowane obliczenia dla danych przetwarzanie w skali i przeprowadzić szkolenia modeli z tego samego notesu.
 

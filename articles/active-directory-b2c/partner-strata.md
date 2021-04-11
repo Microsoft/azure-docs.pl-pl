@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49def79c467aa8f2b3fda9688dc77fcb003a34a5
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557183"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256569"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Samouczek rozszerzania Azure AD B2C ochrony lokalnych aplikacji przy użyciu warstwy strat
 
@@ -344,4 +344,4 @@ Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
 - [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

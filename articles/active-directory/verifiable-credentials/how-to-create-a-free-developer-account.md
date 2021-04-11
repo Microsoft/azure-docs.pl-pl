@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1894ffb7ca75a283e3a74d17c3e73de51fc46d8d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1e8bb59c09622a39dad680940ff34e643ee0cc3b
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170250"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222745"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Tworzenie bezpłatnej dzierżawy Azure Active Directory Developer
 
@@ -32,15 +32,15 @@ Istnieją dwa proste sposoby tworzenia bezpłatnej Azure Active Directory z lice
 
 Jeśli zdecydujesz się na zarejestrowanie się w celu uzyskania bezpłatnego programu Microsoft 365 dla deweloperów, musisz wykonać kilka prostych czynności:
 
-1. Kliknij przycisk Dołącz teraz na ekranie
+1. Kliknij przycisk **Dołącz teraz** na ekranie.
 
 2. Zaloguj się przy użyciu nowego konta Microsoft lub Użyj istniejącego konta (służbowego), które już istnieje.
 
-3. Na stronie rejestracji Wybierz swój region, wprowadź nazwę firmy i zaakceptuj warunki i postanowienia programu przed kliknięciem przycisku Dalej.
+3. Na stronie rejestracji Wybierz swój region, wprowadź nazwę firmy i zaakceptuj warunki i postanowienia programu przed kliknięciem **przycisku Dalej**.
 
-4. Kliknij pozycję Skonfiguruj subskrypcję. Określ region, w którym chcesz utworzyć nową dzierżawę, Utwórz nazwę użytkownika, domenę i wprowadź hasło. Spowoduje to utworzenie nowej dzierżawy i pierwszego administratora dzierżawy
+4. Kliknij pozycję **Skonfiguruj subskrypcję**. Określ region, w którym chcesz utworzyć nową dzierżawę, Utwórz nazwę użytkownika, domenę i wprowadź hasło. Spowoduje to utworzenie nowej dzierżawy i pierwszego administratora dzierżawy.
 
-5. Wprowadź informacje o zabezpieczeniach, które są konieczne do ochrony konta administratora nowej dzierżawy. Spowoduje to skonfigurowanie uwierzytelniania MFA dla konta
+5. Wprowadź informacje o zabezpieczeniach, które są konieczne do ochrony konta administratora nowej dzierżawy. Spowoduje to skonfigurowanie uwierzytelniania MFA dla konta.
 
 
 W tym momencie utworzono dzierżawcę z 25 licencjami użytkownika E5. Licencje E5 obejmują licencje usługi Azure AD P2. Opcjonalnie można dodać przykładowe pakiety danych do użytkowników, grup, poczty i programu SharePoint, aby ułatwić testowanie w środowisku deweloperskim. W przypadku usługi wydawania poświadczeń do zweryfikowania nie są one wymagane.

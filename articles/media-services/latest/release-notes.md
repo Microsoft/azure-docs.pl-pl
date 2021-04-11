@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9fe49f44e157708c3083e2c73757988877fbfcb5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b7d99e3de8a796dea19f3a2ad7a03b98239981e2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563467"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121102"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -54,7 +54,7 @@ Dodatkowe języki dotyczące transkrypcji i podtytułów wideo są teraz dostęp
 * Tajski, "th-TH"
 * Turecki, "TR-TR"
 
-Zobacz najnowsze dostępne języki w [artykule Analiza plików wideo i audio — koncepcje.](analyzing-video-audio-files-concept.md)
+Zobacz najnowsze dostępne języki w [artykule Analiza plików wideo i audio — koncepcje.](analyze-video-audio-files-concept.md)
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
@@ -134,7 +134,7 @@ Zapoznaj się z najnowszymi przykładami w repozytorium centrum usługi Git w **
 
 Zdarzenia na żywo obsługują teraz tryb rozliczania z niższymi kosztami dla "autonomiczne". Dzięki temu klienci mogą wstępnie przydzielić wydarzenia na żywo z niższym kosztem dla tworzenia "pul aktywnych". Klienci mogą następnie użyć wydarzeń na żywo w celu szybszego przejścia do stanu uruchomienia.  Pozwala to skrócić czas, aby w znacznym stopniu uruchomić kanał, i umożliwia szybkie przydzielanie maszyn z systemem w trybie niższych cen.
 Najnowsze szczegóły cennika znajdują się [tutaj](https://azure.microsoft.com/pricing/details/media-services).
-Aby uzyskać więcej informacji na temat stanu wstrzymania i innych stanów wydarzeń na żywo, zobacz artykuł — [Stany wydarzeń na żywo i rozliczenia.](./live-event-states-billing.md)
+Aby uzyskać więcej informacji na temat stanu wstrzymania i innych stanów wydarzeń na żywo, zobacz artykuł — [Stany wydarzeń na żywo i rozliczenia.](./live-event-states-billing-concept.md)
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
@@ -146,17 +146,17 @@ Azure Media Services jest teraz dostępna w regionie Norwegia Wschodnia w Azure 
 
 ### <a name="basic-audio-analysis"></a>Podstawowa analiza dźwięku
 
-Ustawienie wstępne analizy audio zawiera teraz warstwę cenową w trybie podstawowym. Nowy podstawowy tryb analizatora dźwięku udostępnia opcję niskiego kosztu wyodrębniania transkrypcji mowy oraz formatowania napisów i napisów wyjściowych. Ten tryb wykonuje transkrypcję zamiany mowy na tekst i generowanie pliku napisów VTT. Dane wyjściowe tego trybu obejmują plik JSON usługi Insights, w tym informacje o słowach kluczowych, transkrypcji i chronometrażu. Funkcja automatycznego wykrywania języka i diarization prelegenta nie są uwzględnione w tym trybie. Zapoznaj się z listą [obsługiwanych języków.](analyzing-video-audio-files-concept.md#built-in-presets)
+Ustawienie wstępne analizy audio zawiera teraz warstwę cenową w trybie podstawowym. Nowy podstawowy tryb analizatora dźwięku udostępnia opcję niskiego kosztu wyodrębniania transkrypcji mowy oraz formatowania napisów i napisów wyjściowych. Ten tryb wykonuje transkrypcję zamiany mowy na tekst i generowanie pliku napisów VTT. Dane wyjściowe tego trybu obejmują plik JSON usługi Insights, w tym informacje o słowach kluczowych, transkrypcji i chronometrażu. Funkcja automatycznego wykrywania języka i diarization prelegenta nie są uwzględnione w tym trybie. Zapoznaj się z listą [obsługiwanych języków.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Klienci korzystający z indeksatora V1 i indeksator v2 powinni migrować do podstawowego ustawienia wstępnego analizy dźwięku.
 
-Aby uzyskać więcej informacji na temat podstawowego trybu analizatora dźwięku, zobacz [Analizowanie plików wideo i audio](analyzing-video-audio-files-concept.md).  Aby dowiedzieć się, jak używać podstawowego trybu analizatora dźwięku za pomocą interfejsu API REST, zobacz [jak utworzyć podstawową transformację audio](how-to-create-basic-audio-transform.md).
+Aby uzyskać więcej informacji na temat podstawowego trybu analizatora dźwięku, zobacz [Analizowanie plików wideo i audio](analyze-video-audio-files-concept.md).  Aby dowiedzieć się, jak używać podstawowego trybu analizatora dźwięku za pomocą interfejsu API REST, zobacz [jak utworzyć podstawową transformację audio](how-to-create-basic-audio-transform.md).
 
 ### <a name="live-events"></a>Wydarzenia na żywo
 
 Aktualizacje większości właściwości są teraz dozwolone po zatrzymaniu zdarzeń na żywo. Ponadto użytkownicy mogą określić prefiks dla statycznej nazwy hosta dla danych wejściowych i w wersji zapoznawczej zdarzenia na żywo. VanityUrl jest teraz wywoływana `useStaticHostName` w celu lepszego odzwierciedlenia zamiaru właściwości.
 
-Zdarzenia na żywo mają teraz stan wstrzymania.  Zobacz [zdarzenia na żywo i wyjście na żywo w Media Services](./live-events-outputs-concept.md).
+Zdarzenia na żywo mają teraz stan wstrzymania.  Zobacz [zdarzenia na żywo i wyjście na żywo w Media Services](./live-event-outputs-concept.md).
 
 Zdarzenie na żywo obsługuje otrzymywanie różnych współczynników proporcji. Tryb rozciągania umożliwia klientom określenie zachowania rozciągnięcia danych wyjściowych.
 
@@ -173,7 +173,7 @@ Funkcja kodowania na żywo umożliwia teraz dodanie fragmentów interwału stał
 
 Obsługa starszego formatu szyfrowania plików międzyoperacyjnego (PIFF 1,1) w formacie oprogramowania PlayReady jest teraz dostępna w Pakowarce dynamicznym. Zapewnia to obsługę starszych zestawów inteligentnych programów telewizyjnych z firmy Samsung i LG, które zaimplementowali wczesne wersje robocze Common Encryption Standard (CENC) opublikowane przez firmę Microsoft.  Format PIFF 1,1 jest również znany jako format szyfrowania, który był wcześniej obsługiwany przez bibliotekę kliencką Silverlight. Obecnie jedynym scenariuszem przypadku użycia tego formatu szyfrowania jest ukierunkowanie starszej wersji programu Smart TV, w której w niektórych regionach pozostała nieprosta liczba inteligentnych telewizorów, które obsługują tylko Smooth Streaming z szyfrowaniem PIFF 1,1.
 
-Aby użyć nowej obsługi szyfrowania w programie PIFF 1,1, Zmień wartość szyfrowania na "PIFF" w ścieżce URL lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [omówienie Content Protection.](content-protection-overview.md)
+Aby użyć nowej obsługi szyfrowania w programie PIFF 1,1, Zmień wartość szyfrowania na "PIFF" w ścieżce URL lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [omówienie Content Protection.](drm-content-protection-concept.md)
 Na przykład: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -187,11 +187,11 @@ Transkrypcje na żywo obsługują teraz 19 języków i 8 regionów.
 
 ### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Ochrona zawartości za pomocą Media Services i usługi Azure AD
 
-Opublikowano samouczek o nazwie [Kompleksowa ochrona zawartości przy użyciu usługi Azure AD](./azure-ad-content-protection.md).
+Opublikowano samouczek o nazwie [Kompleksowa ochrona zawartości przy użyciu usługi Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### <a name="high-availability"></a>Wysoka dostępność
 
-Firma Microsoft opublikowała wysoką dostępność dzięki [przeglądom](./media-services-high-availability-encoding.md) Media Services i wideo na żądanie (VOD) oraz [przykład](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+Firma Microsoft opublikowała wysoką dostępność dzięki [przeglądom](./architecture-high-availability-encoding-concept.md) Media Services i wideo na żądanie (VOD) oraz [przykład](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
@@ -243,7 +243,7 @@ Aby wyświetlić część działania wymiany nagłówka, możesz spróbować wyk
 
 Transkrypcja na żywo jest teraz dostępna w publicznej wersji zapoznawczej i można jej używać w regionie zachodnie stany USA 2.
 
-Transkrypcja dynamiczna została zaprojektowana tak, aby działała w połączeniu ze zdarzeniami na żywo jako funkcją dodatkową.  Jest on obsługiwany zarówno na żywo, jak i w standardowym i w warstwie Premium.  Gdy ta funkcja jest włączona, usługa korzysta z funkcji [zamiany mowy na tekst](../../cognitive-services/speech-service/speech-to-text.md) Cognitive Services, aby transkrypcja słowa mówione w przychodzącym audio do tekstu. Ten tekst jest następnie udostępniany do dostarczania wraz z wideo i dźwiękiem w protokołach MPEG-KRESKowych i HLS. Opłaty są naliczane na podstawie nowego miernika dodatku, który jest dodatkowym kosztem zdarzenia na żywo, gdy jest on w stanie "uruchomiona".  Aby uzyskać szczegółowe informacje na temat transkrypcji i rozliczeń na żywo, zobacz [transkrypcja dynamiczna](live-transcription.md)
+Transkrypcja dynamiczna została zaprojektowana tak, aby działała w połączeniu ze zdarzeniami na żywo jako funkcją dodatkową.  Jest on obsługiwany zarówno na żywo, jak i w standardowym i w warstwie Premium.  Gdy ta funkcja jest włączona, usługa korzysta z funkcji [zamiany mowy na tekst](../../cognitive-services/speech-service/speech-to-text.md) Cognitive Services, aby transkrypcja słowa mówione w przychodzącym audio do tekstu. Ten tekst jest następnie udostępniany do dostarczania wraz z wideo i dźwiękiem w protokołach MPEG-KRESKowych i HLS. Opłaty są naliczane na podstawie nowego miernika dodatku, który jest dodatkowym kosztem zdarzenia na żywo, gdy jest on w stanie "uruchomiona".  Aby uzyskać szczegółowe informacje na temat transkrypcji i rozliczeń na żywo, zobacz [transkrypcja dynamiczna](live-event-live-transcription-how-to.md)
 
 > [!NOTE]
 > Obecnie transkrypcja na żywo jest dostępna tylko jako funkcja w wersji zapoznawczej w regionie zachodnie stany USA 2. Obsługuje transkrypcję wyrazów mówionych w języku angielskim (EN-US) tylko w tym czasie.
@@ -251,7 +251,7 @@ Transkrypcja dynamiczna została zaprojektowana tak, aby działała w połączen
 ### <a name="content-protection"></a>Ochrona zawartości
 
 Funkcja *zapobiegania powtarzaniu tokenów* wydana w ograniczonych regionach z powrotem we wrześniu jest teraz dostępna we wszystkich regionach.
-Media Services klienci mogą teraz ustawić limit liczby przypadków użycia tego samego tokenu do żądania klucza lub licencji. Aby uzyskać więcej informacji, zobacz [Zapobieganie powtarzaniu tokenu](content-protection-overview.md#token-replay-prevention).
+Media Services klienci mogą teraz ustawić limit liczby przypadków użycia tego samego tokenu do żądania klucza lub licencji. Aby uzyskać więcej informacji, zobacz [Zapobieganie powtarzaniu tokenu](drm-content-protection-concept.md#token-replay-prevention).
 
 ### <a name="new-recommended-live-encoder-partners"></a>Nowi Polecani partnerzy na żywo
 
@@ -310,7 +310,7 @@ Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder 
 
 ### <a name="content-protection"></a>Ochrona zawartości
 
-W przypadku przesyłania strumieniowego zawartości chronionej przy użyciu ograniczenia tokenu użytkownicy końcowi muszą uzyskać token, który jest wysyłany w ramach żądania dostarczenia klucza. Funkcja *zapobiegania powtarzaniu tokenów* umożliwia Media Services klientom Ustawianie limitu, ile razy można użyć tego samego tokenu do żądania klucza lub licencji. Aby uzyskać więcej informacji, zobacz [Zapobieganie powtarzaniu tokenu](content-protection-overview.md#token-replay-prevention).
+W przypadku przesyłania strumieniowego zawartości chronionej przy użyciu ograniczenia tokenu użytkownicy końcowi muszą uzyskać token, który jest wysyłany w ramach żądania dostarczenia klucza. Funkcja *zapobiegania powtarzaniu tokenów* umożliwia Media Services klientom Ustawianie limitu, ile razy można użyć tego samego tokenu do żądania klucza lub licencji. Aby uzyskać więcej informacji, zobacz [Zapobieganie powtarzaniu tokenu](drm-content-protection-concept.md#token-replay-prevention).
 
 Od lipca funkcja wersji zapoznawczej była dostępna tylko w regionach Środkowe stany USA i zachodnie stany USA.
 
@@ -340,7 +340,7 @@ Aby uzyskać szczegółowe informacje, zobacz [monitorowanie metryk Media Servic
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Obsługa połączeń z obsługą wiele dźwięków w dynamicznym pakowaniu 
 
-W przypadku przesyłania strumieniowego zasobów zawierających wiele ścieżek audio z wieloma koderami-dekoder i językami [dynamiczne pakowanie](dynamic-packaging-overview.md) obsługuje teraz wiele ścieżek audio dla danych wyjściowych HLS (w wersji 4 lub nowszej).
+W przypadku przesyłania strumieniowego zasobów zawierających wiele ścieżek audio z wieloma koderami-dekoder i językami [dynamiczne pakowanie](encode-dynamic-packaging-concept.md) obsługuje teraz wiele ścieżek audio dla danych wyjściowych HLS (w wersji 4 lub nowszej).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Para regionalna Korei jest otwarta dla Media Services 
 
@@ -352,7 +352,7 @@ Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje M
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
-* Zaktualizowano maksymalny rozmiar pliku, który jest obsługiwany przez przetworzenie. Zobacz, [przydziały i limity](limits-quotas-constraints.md).
+* Zaktualizowano maksymalny rozmiar pliku, który jest obsługiwany przez przetworzenie. Zobacz, [przydziały i limity](limits-quotas-constraints-reference.md).
 * [Ulepszenia szybkości kodowania](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Kwiecień 2019 r.
@@ -360,11 +360,11 @@ Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 ### <a name="new-presets"></a>Nowe ustawienia wstępne
 
 * [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) został dodany do wbudowanych ustawień wstępnych analizatora.
-* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) został dodany do wbudowanych ustawień wstępnych kodera. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md). 
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) został dodany do wbudowanych ustawień wstępnych kodera. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](encode-content-aware-concept.md). 
 
 ## <a name="march-2019"></a>Marzec 2019 r.
 
-Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging).
 
 Teraz można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [kojarzenie filtrów z lokalizatorem przesyłania strumieniowego](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -378,7 +378,7 @@ Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. M
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Pliki Media Encoder Standard i MPI 
 
-Gdy kodowanie przy użyciu Media Encoder Standard do tworzenia plików MP4, nowy plik. MPI jest generowany i dodawany do wyjściowego elementu zawartości. Ten plik MPI jest przeznaczony do poprawiania wydajności dla scenariuszy [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i przesyłania strumieniowego.
+Gdy kodowanie przy użyciu Media Encoder Standard do tworzenia plików MP4, nowy plik. MPI jest generowany i dodawany do wyjściowego elementu zawartości. Ten plik MPI jest przeznaczony do poprawiania wydajności dla scenariuszy [dynamicznego tworzenia pakietów](encode-dynamic-packaging-concept.md) i przesyłania strumieniowego.
 
 Nie należy modyfikować ani usuwać pliku MPI ani korzystać z jakichkolwiek zależności w usłudze w przypadku istnienia takiego pliku.
 
@@ -518,7 +518,7 @@ Jeśli utworzono zasoby lub filtry kont z zakresu od 09/28 do 10/12 przy użyciu
 
 Zestaw SDK platformy .NET zawiera następujące funkcje:
 
-* **Transformacje** i **zadania** do kodowania lub analizowania zawartości multimedialnej. Aby zapoznać się z przykładami, zobacz [przesyłanie strumieniowe plików](stream-files-tutorial-with-api.md) i [Analizowanie](analyze-videos-tutorial-with-api.md).
+* **Transformacje** i **zadania** do kodowania lub analizowania zawartości multimedialnej. Aby zapoznać się z przykładami, zobacz [przesyłanie strumieniowe plików](stream-files-tutorial-with-api.md) i [Analizowanie](analyze-videos-tutorial.md).
 * **Lokalizatory przesyłania strumieniowego** do publikowania i przesyłania strumieniowego zawartości na urządzenia użytkowników końcowych
 * **Zasady przesyłania strumieniowego** i **Zasady kluczy zawartości** umożliwiające konfigurowanie dostarczania kluczy i ochrony zawartości (DRM) podczas dostarczania zawartości.
 * **Zdarzenia na żywo** i **wyjście na żywo** umożliwiają skonfigurowanie pozyskiwania i archiwizowania zawartości na żywo przesyłanych strumieniowo.

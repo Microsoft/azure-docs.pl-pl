@@ -6,28 +6,99 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: ce6150cf404f1ca68c93285a2f4a29a6373a55c0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110028"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491613"
 ---
-# <a name="connect-to-azure-database-for-mysql---flexible-server-over-tls12ssl"></a>Nawiązywanie połączenia z Azure Database for MySQL — elastyczny serwer przy użyciu protokołu TLS 1.2/SSL
+# <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Nawiązywanie połączenia z serwerem elastycznym Azure Database for MySQL z połączeniami szyfrowanymi
 
 > [!IMPORTANT]
 > Azure Database for MySQL elastyczny serwer jest obecnie w publicznej wersji zapoznawczej
 
-Azure Database for MySQL elastyczny serwer obsługuje łączenie aplikacji klienckich z usługą MySQL przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako Secure Sockets Layer (SSL). TLS jest standardowym protokołem, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi, co pozwala na przestrzeganie wymagań dotyczących zgodności.
+Azure Database for MySQL elastyczny serwer obsługuje łączenie aplikacji klienckich z serwerem MySQL przy użyciu protokołu Secure Sockets Layer (SSL) z szyfrowaniem TLS (Transport Layer Security). TLS jest standardowym protokołem, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi, co pozwala na przestrzeganie wymagań dotyczących zgodności.
 
-Azure Database for MySQL elastyczny serwer obsługuje tylko połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2) i wszystkie połączenia przychodzące z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone. W przypadku wszystkich elastycznych serwerów wymuszania połączeń TLS jest włączone i nie można wyłączyć protokołu TLS/SSL w celu nawiązania połączenia z serwerem elastycznym.
+Azure Database for MySQL elastyczny serwer obsługuje połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2) domyślnie, a wszystkie połączenia przychodzące z protokołem TLS 1,0 i TLS 1,1 będą domyślnie odrzucane. Konfigurację wymuszania połączenia szyfrowanego lub konfiguracji protokołu TLS na serwerze elastycznym można zmienić zgodnie z opisem w tym artykule. 
 
-## <a name="download-the-public-ssl-certificate"></a>Pobieranie publicznego certyfikatu SSL
-Aby korzystać z appliations, Pobierz [publiczny certyfikat SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
+Poniżej wymieniono różne konfiguracje protokołów SSL i TLS dostępne dla serwera elastycznego:
 
-Zapisz plik certyfikatu w preferowanej lokalizacji. Na przykład w tym samouczku `c:\ssl` jest używane lub `\var\www\html\bin` w środowisku lokalnym lub w środowisku klienta, w którym aplikacja jest hostowana. Dzięki temu aplikacje mogą bezpiecznie łączyć się z bazą danych za pośrednictwem protokołu SSL. 
+| Scenariusz   | Ustawienia parametrów serwera      | Opis                                    |
+|------------|--------------------------------|------------------------------------------------|
+|Wyłącz protokół SSL (połączenia zaszyfrowane) | require_secure_transport = wyłączone |Jeśli Starsza aplikacja nie obsługuje szyfrowanych połączeń z serwerem MySQL, można wyłączyć wymuszanie szyfrowanych połączeń na serwerze elastycznym przez ustawienie require_secure_transport = OFF.|
+|Wymuszanie protokołu SSL w wersji TLS < 1,2 | require_secure_transport = ON i tls_version = TLSV1 lub TLSV 1.1| Jeśli Starsza aplikacja obsługuje połączenia szyfrowane, ale wymaga wersji TLS < 1,2, można włączyć połączenia szyfrowane, ale skonfigurować elastyczny serwer w taki sposób, aby zezwalał na połączenia z wersją protokołu TLS (v 1.0 lub v 1.1) obsługiwaną przez aplikację|
+|Wymuszaj protokół SSL z wersją protokołu TLS = 1.2 (Konfiguracja domyślna)|require_secure_transport = ON i tls_version = TLSV 1.2| Jest to zalecana i domyślna konfiguracja dla elastycznego serwera.|
+|Wymuszanie protokołu SSL w wersji 1.3 (obsługiwanej przez program MySQL v 8.0 lub nowszy)| require_secure_transport = ON i tls_version = TLSV 1.3| Jest to przydatne i zalecane w przypadku tworzenia nowych aplikacji|
 
-### <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia MySQL z protokołem TLS/SSL
+> [!Note]
+> Zmiany szyfrowania SSL na serwerze elastycznym nie są obsługiwane. Mechanizmy szyfrowania FIPS są wymuszane domyślnie, gdy tls_version jest ustawiona na TLS w wersji 1,2. W przypadku wersji TLS innych niż 1,2 szyfrowanie SSL jest ustawione na domyślne ustawienia, które są dostarczane z instalacją społeczności MySQL.
+
+W tym artykule dowiesz się, jak:
+* Skonfiguruj elastyczny serwer 
+  * Z wyłączonym protokołem SSL 
+  * Z protokołem SSL wymuszania przy użyciu protokołu TLS w wersji < 1,2
+* Nawiązywanie połączenia z elastycznym serwerem przy użyciu wiersza polecenia MySQL 
+  * Z wyłączonymi szyfrowanymi połączeniami
+  * Z włączonymi szyfrowanymi połączeniami
+* Sprawdź stan szyfrowania połączenia
+* Łączenie się z elastycznym serwerem z szyfrowanymi połączeniami przy użyciu różnych platform aplikacji
+
+## <a name="disable-ssl-on-your-flexible-server"></a>Wyłączanie protokołu SSL na elastycznym serwerze
+Jeśli aplikacja kliencka nie obsługuje szyfrowanych połączeń, należy wyłączyć wymuszanie połączeń szyfrowanych na serwerze elastycznym. Aby wyłączyć wymuszanie połączeń szyfrowanych, należy ustawić parametr require_secure_transport Server na wartość OFF, jak pokazano na zrzucie ekranu, i zapisać konfigurację parametrów serwera, aby zaczęła obowiązywać. require_secure_transport to **dynamiczny parametr serwera** , który zacznie obowiązywać natychmiast i nie wymaga ponownego uruchomienia serwera.
+
+> :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Zrzut ekranu przedstawiający sposób wyłączania protokołu SSL z serwerem elastycznym Azure Database for MySQL.":::
+
+### <a name="connect-using-mysql-command-line-client-with-ssl-disabled"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia MySQL z wyłączonym protokołem SSL
+
+Poniższy przykład pokazuje, jak nawiązać połączenie z serwerem za pomocą interfejsu wiersza polecenia MySQL. `--ssl-mode=DISABLED`Aby wyłączyć połączenie TLS/SSL z klienta MySQL, użyj ustawienia parametrów połączenia. Zastąp wartości rzeczywistą nazwą serwera i hasłem. 
+
+```bash
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+```
+Należy pamiętać, że ustawienie require_secure_transport wyłączone nie oznacza, że połączenia szyfrowane nie będą obsługiwane po stronie serwera. Jeśli ustawisz wartość require_secure_transport na OFF na serwerze elastycznym, ale jeśli klient nawiąże połączenie z szyfrowanym połączeniem, nadal zostanie zaakceptowany. Poniższe połączenie korzystające z klienta MySQL na elastycznym serwerze skonfigurowanym z require_secure_transport = OFF również będzie działało, jak pokazano poniżej.
+
+```bash
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED
+```
+```output
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 5.7.29-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show global variables like '%require_secure_transport%';
++--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| require_secure_transport | OFF   |
++--------------------------+-------+
+1 row in set (0.02 sec)
+```
+
+Podsumowując, require_secure_transport = OFF ustawienie wyłącza wymuszanie szyfrowanych połączeń na elastycznym serwerze i zezwala na nieszyfrowane połączenia z serwerem od klienta oprócz szyfrowanych połączeń.
+
+## <a name="enforce-ssl-with-tls-version--12"></a>Wymuszanie protokołu SSL w wersji TLS < 1,2
+
+Jeśli aplikacja obsługuje połączenia z serwerem MySQL przy użyciu protokołu SSL, ale obsługuje protokół TLS w < wersji 1,2, należy ustawić parametr serwera protokołu TLS na serwerze elastycznym. Aby ustawić wersje protokołu TLS, które mają być obsługiwane przez elastyczny serwer, należy ustawić parametr tls_version Server na TLSV1, TLSV 1.1 lub TLSV1 i TLSV 1.1, jak pokazano na zrzucie ekranu, i zapisać konfigurację parametrów serwera, aby zaczęła obowiązywać. tls_version to **statyczny parametr serwera** , który będzie wymagał ponownego uruchomienia serwera, aby parametr został uwzględniony.
+
+> :::image type="content" source="./media/how-to-connect-tls-ssl/tls-version.png" alt-text="Zrzut ekranu przedstawiający sposób ustawiania wersji protokołu TLS dla Azure Database for MySQL elastycznego serwera.":::
+
+## <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia MySQL z protokołem TLS/SSL
+
+### <a name="download-the-public-ssl-certificate"></a>Pobieranie publicznego certyfikatu SSL
+Aby korzystać z szyfrowanych połączeń z aplikacjami klienckimi, należy pobrać [publiczny certyfikat SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) , który jest również dostępny w bloku sieci Azure Portal, jak pokazano na poniższym zrzucie ekranu.
+
+> :::image type="content" source="./media/how-to-connect-tls-ssl/download-ssl.png" alt-text="Zrzut ekranu przedstawiający sposób pobierania publicznego certyfikatu SSL z Azure Portal.":::
+
+Zapisz plik certyfikatu w preferowanej lokalizacji. Na przykład w tym samouczku `c:\ssl` jest używane lub `\var\www\html\bin` w środowisku lokalnym lub w środowisku klienta, w którym aplikacja jest hostowana. Dzięki temu aplikacje mogą bezpiecznie łączyć się z bazą danych za pośrednictwem protokołu SSL.
 
 Jeśli serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do sieci wirtualnej utworzonej przy użyciu elastycznego serwera.
 
@@ -38,25 +109,30 @@ Aby nawiązać połączenie z serwerem ze środowiska lokalnego, możesz wybrać
 Poniższy przykład pokazuje, jak nawiązać połączenie z serwerem za pomocą interfejsu wiersza polecenia MySQL. Użyj `--ssl-mode=REQUIRED` Ustawienia parametrów połączenia, aby wymusić weryfikację certyfikatu TLS/SSL. Przekaż ścieżkę pliku certyfikatu lokalnego do `--ssl-ca` parametru. Zastąp wartości rzeczywistą nazwą serwera i hasłem. 
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\DigiCertGlobalRootCA.crt.pem
+sudo apt-get install mysql-client
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!Note]
 > Upewnij się, że wartość jest `--ssl-ca` zgodna z ścieżką pliku dla zapisywanych certyfikatów.
 
-### <a name="verify-the-tlsssl-connection"></a>Weryfikowanie połączenia TLS/SSL
+W przypadku próby nawiązania połączenia z serwerem z nieszyfrowanymi połączeniami zostanie wyświetlony komunikat o błędzie informujący o połączeniach korzystających z niezabezpieczonego transportu, podobny do poniższego:
+
+```output
+ERROR 3159 (HY000): Connections using insecure transport are prohibited while --require_secure_transport=ON.
+```
+
+## <a name="verify-the-tlsssl-connection"></a>Weryfikowanie połączenia TLS/SSL
 
 Uruchom polecenie MySQL **status** , aby sprawdzić, czy nawiązano połączenie z serwerem MySQL przy użyciu protokołu TLS/SSL:
 
 ```dos
 mysql> status
 ```
-Upewnij się, że połączenie jest zaszyfrowane, przeglądając dane wyjściowe, które powinny być wyświetlane:  **SSL: szyfr w użyciu jest AES256-SHA**. Ten mechanizm szyfrowania pokazuje przykład i oparty na kliencie, można zobaczyć inny mechanizm szyfrowania.
+Upewnij się, że połączenie zostało zaszyfrowane, przeglądając dane wyjściowe, które powinny być wyświetlane: * * SSL: szyfr w użyciu jest * *. Ten mechanizm szyfrowania pokazuje przykład i oparty na kliencie, można zobaczyć inny mechanizm szyfrowania.
 
-## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>Upewnij się, że aplikacja lub platforma obsługuje połączenia TLS
+## <a name="connect-to-your-flexible-server-with-encrypted-connections-using-various-application-frameworks"></a>Łączenie się z elastycznym serwerem z szyfrowanymi połączeniami przy użyciu różnych platform aplikacji
 
-Niektóre struktury aplikacji korzystające z programu MySQL dla usług baz danych nie domyślnie włączają TLS podczas instalacji. Serwer MySQL wymusza połączenia protokołu TLS, ale jeśli aplikacja nie jest skonfigurowana dla protokołu TLS, nawiązanie połączenia z serwerem bazy danych przez aplikację może zakończyć się niepowodzeniem. Zapoznaj się z dokumentacją aplikacji, aby dowiedzieć się, jak włączyć połączenia TLS.
-
-## <a name="sample-code"></a>Przykładowy kod
 Parametry połączenia, które są wstępnie zdefiniowane na stronie "parametry połączenia" dostępne dla Twojego serwera w Azure Portal zawierają wymagania parametrów dla wspólnych języków do łączenia się z serwerem bazy danych przy użyciu protokołu TLS/SSL. Parametry protokołu TLS/SSL różnią się w zależności od łącznika. Na przykład "useSSL = true", "sslmode = Required" lub "ssl_verify_cert = true" oraz inne różnice.
 
 Aby nawiązać szyfrowane połączenie z elastycznym serwerem za pośrednictwem protokołu TLS/SSL z aplikacji, zapoznaj się z poniższymi przykładami kodu:

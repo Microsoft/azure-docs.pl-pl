@@ -37,7 +37,7 @@
   items:
     - name: Migracja z programu SQL Server
       items:
-        - name: Aby Azure SQL Database
+        - name: do usługi Azure SQL Database
           href: tutorial-sql-server-to-azure-sql.md
         - name: do wystąpienia zarządzanego Azure SQL (offline)
           href: tutorial-sql-server-to-managed-instance.md
@@ -93,6 +93,10 @@
           href: how-to-migrate-ssis-packages.md
         - name: Wystąpienie zarządzane Azure SQL
           href: how-to-migrate-ssis-packages-managed-instance.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/dms
 - name: Zasoby
   items:
     - name: Często zadawane pytania

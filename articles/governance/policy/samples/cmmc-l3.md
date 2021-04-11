@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla CMMC poziomu 3
 description: Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami CMMC Level 3. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: f567e195dd25fb69d57d84c76f42567e7411f634
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6b30de446269d764d5dfa8be97245d0df577862
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034558"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094017"
 ---
 # <a name="details-of-the-cmmc-level-3-regulatory-compliance-built-in-initiative"></a>Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami CMMC Level 3
 
@@ -19,9 +19,11 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [CMMC
 Następujące mapowania znajdują się w kontrolkach **poziomu CMMC 3** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do konkretnej **domeny zgodności**. Wiele kontrolek jest implementowanych z definicją inicjatywy [Azure Policy](../overview.md) . Aby zapoznać się z pełną definicją inicjatywy, Otwórz pozycję **zasady** w Azure Portal a następnie wybierz stronę **definicje** .
 Następnie Znajdź i wybierz definicję CMMC zgodności z przepisami obowiązującymi na **poziomie 3** .
 
+Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu "CMMC Level 3](../../blueprints/samples/cmmc-l3.md)".
+
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../overview.md) .
-> Te zasady mogą pomóc w [ocenie zgodności](../how-to/get-compliance-data.md) z kontrolką; Niemniej jednak często nie jest to 1:1 ani kompletna zgodność między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy dotyczy tylko definicji zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między domenami zgodności, kontrolkami i definicjami Azure Policy dla tego standardu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json).
+> Te zasady mogą pomóc w [ocenie zgodności](../how-to/get-compliance-data.md) z kontrolką; jednak często nie jest to jeden lub kompletny odpowiednik między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy dotyczy tylko definicji zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między domenami zgodności, kontrolkami i definicjami Azure Policy dla tego standardu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json).
 
 ## <a name="access-control"></a>Kontrola dostępu
 

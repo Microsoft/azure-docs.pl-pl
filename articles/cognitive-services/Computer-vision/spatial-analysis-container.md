@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108368"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284723"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -547,8 +547,8 @@ Musisz użyć [operacji analizy przestrzennej](spatial-analysis-operations.md) ,
 
 Jeśli chcesz zacząć zużywać dane wyjściowe wygenerowane przez kontener, zobacz następujące artykuły:
 
-*   Użyj zestawu SDK usługi Azure Event Hub dla wybranego języka programowania, aby nawiązać połączenie z punktem końcowym usługi Azure IoT Hub i odebrać zdarzenia. Aby uzyskać więcej informacji [, zobacz odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
-*   Skonfiguruj Routing komunikatów na IoT Hub platformy Azure, aby wysyłać zdarzenia do innych punktów końcowych, lub Zapisz zdarzenia w usłudze Azure Blob Storage itd. Aby uzyskać więcej informacji, zobacz [IoT Hub Routing komunikatów](../../iot-hub/iot-hub-devguide-messages-d2c.md) . 
+*    Użyj zestawu SDK usługi Azure Event Hub dla wybranego języka programowania, aby nawiązać połączenie z punktem końcowym usługi Azure IoT Hub i odebrać zdarzenia. Aby uzyskać więcej informacji [, zobacz odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+*    Skonfiguruj Routing komunikatów na IoT Hub platformy Azure, aby wysyłać zdarzenia do innych punktów końcowych, lub Zapisz zdarzenia w usłudze Azure Blob Storage itd. Aby uzyskać więcej informacji, zobacz [IoT Hub Routing komunikatów](../../iot-hub/iot-hub-devguide-messages-d2c.md) . 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Uruchamianie analizy przestrzennej z zarejestrowanym plikiem wideo
 

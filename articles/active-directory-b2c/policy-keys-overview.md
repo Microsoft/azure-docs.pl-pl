@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37ff3300935e90304754b5f2b375df0adecdaefa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953359"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256246"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Omówienie kluczy zasad w Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) przechowuje wpisy tajne i certyfikaty 
  W tym artykule omówiono, co należy wiedzieć o kluczach zasad, które są używane przez Azure AD B2C.
 
 > [!NOTE]
-> Obecnie konfiguracja kluczy zasad jest ograniczona tylko do [zasad niestandardowych](./custom-policy-get-started.md) .
+> Obecnie konfiguracja kluczy zasad jest ograniczona tylko do [zasad niestandardowych](./user-flow-overview.md) .
 
 Można skonfigurować wpisy tajne i certyfikaty do ustanawiania relacji zaufania między usługami w Azure Portal w menu **klucze zasad** . Klucze mogą być symetryczne lub asymetryczne. Kryptografia *symetryczne* lub Kryptografia klucza prywatnego polega na tym, że wspólny klucz tajny jest używany do szyfrowania i odszyfrowywania danych. Kryptografia *asymetryczne* lub Kryptografia klucza publicznego jest systemem kryptograficznym, który używa par kluczy, składających się z kluczy publicznych, które są współużytkowane z aplikacją jednostki uzależnionej i kluczami prywatnymi, które są znane tylko Azure AD B2C.
 

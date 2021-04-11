@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833970"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491104"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central
 
 *Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
-W tym samouczku pokazano, jak programista urządzeń ma połączyć aplikację kliencką z aplikacją IoT Central platformy Azure. Aplikacja symuluje zachowanie urządzenia z termostatem. Gdy aplikacja nawiązuje połączenie z IoT Central, wysyła identyfikator modelu urządzenia termostatu. IoT Central korzysta z identyfikatora modelu, aby pobrać model urządzenia i utworzyć dla Ciebie szablon urządzenia. Dodano dostosowania i widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
+W tym samouczku pokazano, jak programista urządzeń ma połączyć aplikację kliencką z aplikacją IoT Central platformy Azure. Aplikacja symuluje zachowanie urządzenia kontrolera temperatury. Gdy aplikacja nawiązuje połączenie z IoT Central, wysyła identyfikator modelu urządzenia kontrolera temperatury. IoT Central korzysta z identyfikatora modelu, aby pobrać model urządzenia i utworzyć dla Ciebie szablon urządzenia. Dodano dostosowania i widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -70,7 +70,7 @@ Jako deweloper urządzenia możesz użyć widoku **nieprzetworzone dane** , aby 
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Widok danych nieprzetworzonych":::
 
-W tym widoku można wybrać kolumny do wyświetlenia i ustawić zakres czasu do wyświetlenia. W kolumnie **dane niemodelowane** są wyświetlane dane z urządzenia, które nie są zgodne z żadną definicją właściwości lub telemetrii w szablonie urządzenia.
+W tym widoku można wybrać kolumny do wyświetlenia i ustawić zakres czasu do wyświetlenia. Kolumna **dane niemodelowane** przedstawia dane urządzenia, które nie są zgodne z żadną definicją właściwości lub telemetrii w szablonie urządzenia.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

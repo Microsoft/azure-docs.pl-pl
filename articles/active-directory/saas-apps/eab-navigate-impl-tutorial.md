@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu narzędzia EAB nawigacji IMPL | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i EAB nawigowanie po witrynie IMPL.
+title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z implementacją EAB | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i implementacją EAB.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,84 +9,90 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: a3f1982e72fb572f75789f6005b32de557c0b37d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1f288aaa51585b825cd9a9970c4d179dbfd34da
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454489"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223153"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) za pomocą EAB nawigacji IMPL
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-implementation"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z implementacją EAB
 
-W ramach tego samouczka dowiesz się, jak zintegrować usługę EAB nawigacji IMPL z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi EAB nawigowanie po usłudze IMPL z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować implementację EAB z usługą Azure Active Directory (Azure AD). W przypadku integrowania implementacji EAB z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do usługi EAB, przejdź do IMPL.
-* Zezwól użytkownikom na automatyczne logowanie do EAB nawigowanie po usłudze IMPL przy użyciu kont usługi Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do implementacji EAB.
+* Zezwól użytkownikom na automatyczne logowanie do implementacji EAB przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* EAB przejdź do subskrypcji z włączoną obsługą logowania jednokrotnego (SSO) IMPL.
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) implementacji usługi EAB.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* EAB IMPL 
+* Implementacja **EAB obsługuje logowanie** jednokrotne z użyciem protokołu SSO.
 
 > [!NOTE]
 > Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
-## <a name="adding-eab-navigate-impl-from-the-gallery"></a>Dodawanie EAB nawigacji IMPL z galerii
+## <a name="adding-eab-implementation-from-the-gallery"></a>Dodawanie implementacji EAB z galerii
 
-Aby skonfigurować integrację usługi EAB, przejdź do obszaru IMPL w usłudze Azure AD, musisz dodać EAB Nawiguj IMPL z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację implementacji EAB z usługą Azure AD, musisz dodać implementację EAB z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **EAB** w polu wyszukiwania.
-1. Wybierz pozycję **EAB, przejdź do Impl** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **implementację EAB** w polu wyszukiwania.
+1. Wybierz pozycję **implementacja EAB** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate-impl"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD na potrzeby EAB nawigowanie po witrynie IMPL
+## <a name="configure-and-test-azure-ad-sso-for-eab-implementation"></a>Konfigurowanie i testowanie implementacji logowania jednokrotnego w usłudze Azure AD dla programu EAB
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą EAB nawigacji IMPL przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w EAB nawigacji po IMPL.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą implementacji EAB przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w implementacji EAB.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą EAB nawigacji IMPL, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą implementacji EAB, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. Konfigurowanie ustawień logowania jednokrotnego za pomocą **[EAB nawigacji Impl](#configure-eab-navigate-impl-sso)** — aby skonfigurować ustawienia rejestracji jednokrotnej na stronie aplikacji.
-    * **[Utwórz EAB przejdź do Impl użytkownika testowego](#create-eab-navigate-impl-test-user)** — Aby uzyskać odpowiedni odpowiednik B. Simon w EAB, przejdź do Impl, która jest połączona z reprezentacją usługi Azure AD.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj implementację logowania JEDNOkrotnego EAB](#configure-eab-implementation-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego implementacji EAB](#create-eab-implementation-test-user)** , aby dysponować odpowiednikiem B. Simon w implementacji EAB, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **EAB przejdź** do integracji aplikacji Impl Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **implementacji EAB** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól: w polu tekstowym **Identyfikator (identyfikator jednostki)** wprowadź dokładnie następującą wartość:  `https://impl.bouncer.eab.com`
+1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
+
+    a. W polu tekstowym **Identyfikator (identyfikator jednostki)** wprowadź dokładnie następującą wartość: `https://impl.bouncer.eab.com`
     
-    W polu tekstowym **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** wprowadź obie następujące wartości jako oddzielne wiersze: `https://impl.bouncer.eab.com/sso/saml2/acs`
-    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    b. W polu tekstowym **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** wprowadź obie następujące wartości jako oddzielne wiersze:
     
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.navigate.impl.eab.com/`
+    | Adres URL odpowiedzi|
+    | -------------- |
+    | `https://impl.bouncer.eab.com/sso/saml2/acs` |
+    | `https://impl.bouncer.eab.com/sso/saml2/acs/` |
+    |
+    
+    c. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej EAB](mailto:EABTechSupport@eab.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta implementacji EAB](mailto:EABTechSupport@eab.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -106,42 +112,35 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do EAB nawigacji IMPL.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do implementacji EAB.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **EAB przejdź do Impl**.
+1. Na liście Aplikacje wybierz pozycję **implementacja EAB**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-eab-navigate-impl-sso"></a>Konfigurowanie EAB nawigowania po usłudze IMPL
+## <a name="configure-eab-implementation-sso"></a>Konfigurowanie rejestracji jednokrotnej implementacji EAB
 
-Aby skonfigurować Logowanie jednokrotne w witrynie **EAB, przejdź** do strony Impl, musisz wysłać **adres URL metadanych federacji aplikacji** do EAB, przejdź do [zespołu pomocy technicznej Impl](mailto:EABTechSupport@eab.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **implementacji EAB** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej implementacji EAB](mailto:EABTechSupport@eab.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-eab-navigate-impl-test-user"></a>Utwórz EAB nawigację IMPL użytkownika testowego
+### <a name="create-eab-implementation-test-user"></a>Utwórz użytkownika testowego implementacji EAB
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w EAB nawigacji IMPL. Współpracuj z [zespołem pomocy technicznej EAB nawigowanie po Impl](mailto:EABTechSupport@eab.com) , aby dodać użytkowników na platformie EAB nawigację Impl. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w implementacji EAB. Współpracuj z [zespołem pomocy technicznej implementacji EAB](mailto:EABTechSupport@eab.com) , aby dodać użytkowników na platformie implementacji EAB. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka EAB przejdź do IMPL w panelu dostępu należy automatycznie zalogować się do IMPL EAB, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do implementacji EAB, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź do adresu URL logowania do implementacji EAB bezpośrednio i zainicjuj tam przepływ logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka implementacji EAB w obszarze Moje aplikacje zostanie on przekierowany do adresu URL logowania do implementacji EAB. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Wypróbuj usługę EAB, przejdź do IMPL z usługą Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu implementacji EAB można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

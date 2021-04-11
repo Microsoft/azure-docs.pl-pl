@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3bc821f31e0463000c9089e48818249f2c046ede
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 5ac8c5bb68430a1e886a89709d5e256beb8819c8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107102999"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257283"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -40,7 +40,7 @@ Time Series Insights można dołączyć do usługi Azure Digital bliźniaczych r
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Tworzenie trasy i filtrowanie powiadomień o aktualizacjach reprezentacji bliźniaczej
 
-Usługa Azure Digital bliźniaczych reprezentacji Instances może emitować [wieloosiowe zdarzenia aktualizacji](how-to-interpret-event-data.md) za każdym razem, gdy stanem splotu jest zaktualizowany. W tej sekcji utworzysz [**trasę zdarzeń**](concepts-route-events.md) usługi Azure Digital bliźniaczych reprezentacji, która będzie kierować te zdarzenia aktualizacji do usługi Azure [Event Hubs](../event-hubs/event-hubs-about.md) w celu dalszej obróbki.
+Usługa Azure Digital bliźniaczych reprezentacji Instances może emitować [wieloosiowe zdarzenia zmiany](concepts-event-notifications.md#digital-twin-change-notifications) za każdym razem, gdy stanem splotu jest aktualizacja. W tej sekcji utworzysz [**trasę zdarzeń**](concepts-route-events.md) usługi Azure Digital bliźniaczych reprezentacji, która będzie kierować te zdarzenia aktualizacji do usługi Azure [Event Hubs](../event-hubs/event-hubs-about.md) w celu dalszej obróbki.
 
 Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md) w scenariuszu, w którym termometr jest używany do aktualizacji atrybutu temperatury na dwucyfrowej sieci dwukierunkowej. Ten wzorzec polega na aktualizacjach bliźniaczych, a nie przekazywaniu danych telemetrycznych z urządzenia IoT, co zapewnia elastyczność zmiany bazowego źródła danych bez konieczności aktualizowania logiki Time Series Insights.
 

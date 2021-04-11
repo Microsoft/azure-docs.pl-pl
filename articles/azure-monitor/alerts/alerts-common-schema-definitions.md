@@ -4,19 +4,19 @@ description: Informacje o typowych definicjach schematu alertów dla Azure Monit
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 02092f5a241824d2a9aef242b544f8900af7ebec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 709ec2dee1be6930ca7c09de334aede8a76e95f4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045398"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491716"
 ---
 # <a name="common-alert-schema-definitions"></a>Definicje typowych schematów alertów
 
 W tym artykule opisano [typowe definicje schematów alertów](./alerts-common-schema.md) dla Azure monitor, w tym te dla elementów webhook, Azure Logic Apps, Azure Functions i Azure Automation Runbook. 
 
 Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wystąpienia są opisane we wspólnym schemacie w następujących sekcjach:
-* **Podstawowe**: zestaw standardowych pól, wspólnych dla wszystkich typów alertów, opisujących zasób, na którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). 
+* **Podstawowe**: zestaw standardowych pól, wspólnych dla wszystkich typów alertów, opisujących zasób, na którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). Definicje ważności można znaleźć w [opisie alertów](alerts-overview.md#overview). 
 * **Kontekst alertu**: zestaw pól, które opisują przyczynę alertu, z polami, które różnią się w zależności od typu alertu. Na przykład alert dotyczący metryki zawiera pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, podczas gdy alert dziennika aktywności zawiera informacje o zdarzeniu, które wygenerowało alert. 
 
 **Przykładowy ładunek alertu**

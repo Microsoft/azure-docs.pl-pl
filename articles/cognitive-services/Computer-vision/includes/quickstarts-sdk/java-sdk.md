@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: przetwarzanie obrazówa Biblioteka kliencka dla języka Java'
-description: W tym przewodniku Szybki Start zacznij korzystać z biblioteki klienta przetwarzanie obrazów dla języka Java.
+title: 'Szybki Start: Biblioteka kliencka rozpoznawania znaków optycznych dla języka Java'
+description: W tym przewodniku szybki start Rozpocznij pracę z biblioteką klienta rozpoznawania znaków optycznych dla języka Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,19 +10,16 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 58266e1d41344baf042349ed8b0ca9974a966827
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 84ac8e8309d9f1d0536d0f7a16ab9cd9f3c10a2c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622299"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284817"
 ---
 <a name="HOLTop"></a>
 
-Użyj biblioteki klienta przetwarzanie obrazów, aby:
-
-* Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
-* Odczytywanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu.
+Biblioteka klienta rozpoznawania znaków optycznych umożliwia odczytywanie wydrukowanych i odręcznych tekstu w obrazach.
 
 [Dokumentacja](/java/api/overview/azure/cognitiveservices/client/computervision)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision)  | źródłowy biblioteki [Artefakt (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)  |  [Przykłady](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -101,27 +98,29 @@ Zdefiniuj klasę **ComputerVisionQuickstarts**. Utwórz zmienne dla klucza subsk
 
 W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przewodniku Szybki Start. Zdefiniujesz je później.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_beginmain)]
 
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_authinmain)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_readinmain)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_endmain)]
 > [!div class="nextstepaction"]
 > [Konfiguruję klienta,](?success=set-up-client#object-model) który [uruchomił problem](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK języka Java przetwarzanie obrazów.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu Java SDK OCR.
 
 |Nazwa|Opis|
 |---|---|
 | [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) | Ta klasa jest wymagana dla wszystkich funkcji przetwarzanie obrazów. Tworzysz wystąpienie z informacjami o subskrypcji i używasz ich do tworzenia wystąpień innych klas.|
-|[ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision)| Ta klasa pochodzi z obiektu klienta i bezpośrednio obsługuje wszystkie operacje obrazu, takie jak analiza obrazu, wykrywanie tekstu i generowanie miniatury.|
-|[VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| To Wyliczenie definiuje różne typy analizy obrazów, które można wykonać przy użyciu standardowej operacji analizy. Należy określić zestaw wartości VisualFeatureTypes w zależności od potrzeb. |
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienta przetwarzanie obrazów dla języka Java:
+Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań przy użyciu biblioteki klienckiej OCR dla języka Java:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Analizowanie obrazu](#analyze-an-image)
 * [Odczytaj tekst drukowany i odręczny](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
@@ -131,116 +130,13 @@ W nowej metodzie Utwórz wystąpienie obiektu [ComputerVisionClient](/java/api/c
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Klient otrzymał uwierzytelnienie](?success=authenticate-client#analyze-an-image) [problemu](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
+> [Klient otrzymał uwierzytelnienie](?success=authenticate-client#read-printed-and-handwritten-text) [problemu](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
-## <a name="analyze-an-image"></a>Analizowanie obrazu
-
-Poniższy kod definiuje metodę, `AnalyzeLocalImage` która używa obiektu klienta do analizowania obrazu lokalnego i drukowania wyników. Metoda zwraca opis tekstowy, kategoryzację, listę tagów, wykrytych twarzy, flag zawartości dla dorosłych, kolory główne i typ obrazu.
-
-> [!TIP]
-> Możesz również analizować obraz zdalny przy użyciu adresu URL. Zobacz metody [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) , takie jak **AnalyzeImage**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze dotyczące obrazów zdalnych.
-
-### <a name="set-up-test-image"></a>Konfigurowanie obrazu testu
-
-Najpierw Utwórz **zasoby/** folder w folderze **src/Main/** folder projektu, a następnie Dodaj obraz, który chcesz przeanalizować. Następnie Dodaj następującą definicję metody do klasy **ComputerVisionQuickstarts** . Zmień wartość, `pathToLocalImage` aby była zgodna z plikiem obrazu. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
-
-### <a name="specify-visual-features"></a>Określ funkcje wizualne
-
-Następnie określ, które funkcje wizualne mają zostać wyodrębnione w analizie. Aby uzyskać pełną listę, zobacz Wyliczenie [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) .
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
-
-### <a name="analyze"></a>Analiza
-Ten blok drukuje szczegółowe wyniki do konsoli dla każdego zakresu analizy obrazu. Metoda **analyzeImageInStream** zwraca obiekt **ImageAnalysis** , który zawiera wszystkie wyodrębnione informacje.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
-
-W poniższych sekcjach pokazano, jak szczegółowo analizować te informacje.
-
-### <a name="get-image-description"></a>Pobierz opis obrazu
-
-Poniższy kod pobiera listę wygenerowanych napisów dla obrazu. Aby uzyskać więcej informacji, zobacz [opisywanie obrazów](../../concept-describing-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
-
-### <a name="get-image-category"></a>Pobierz kategorię obrazu
-
-Poniższy kod pobiera wykrytą kategorię obrazu. Aby uzyskać więcej informacji, zobacz [kategoryzowanie obrazów](../../concept-categorizing-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
-
-### <a name="get-image-tags"></a>Pobierz Tagi obrazu
-
-Poniższy kod pobiera zestaw wykrytych tagów z obrazu. Aby uzyskać więcej informacji, zobacz [Tagi zawartości](../../concept-tagging-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
-
-### <a name="detect-faces"></a>Wykrywanie twarzy
-
-Poniższy kod zwraca wykryte twarze na obrazie ze współrzędnymi prostokątów i wybiera atrybuty twarzy. Aby uzyskać więcej informacji, zobacz [wykrywanie czołowe](../../concept-detecting-faces.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
-
-### <a name="detect-objects"></a>Wykrywanie obiektów
-
-Poniższy kod zwraca wykryte obiekty z obrazu ze swoimi współrzędnymi. Aby uzyskać więcej informacji, zobacz [wykrywanie obiektów](../../concept-object-detection.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
-
-
-### <a name="detect-brands"></a>Wykrywanie marek
-
-Poniższy kod zwraca znaki logo wykryte w obrazie ze swoimi współrzędnymi. Aby uzyskać więcej informacji, zobacz [wykrywanie marki](../../concept-brand-detection.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
-
-
-
-### <a name="detect-adult-racy-or-gory-content"></a>Wykrywanie zawartości dla dorosłych, erotycznej lub gorii
-
-Poniższy kod drukuje wykryte obecność treści dla dorosłych w obrazie. Aby uzyskać więcej informacji, zobacz [erotycznej i gorii Content](../../concept-detecting-adult-content.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
-
-### <a name="get-image-color-scheme"></a>Pobierz schemat kolorów obrazu
-
-Poniższy kod drukuje wykryte atrybuty koloru w obrazie, takie jak kolory dominujące i kolor akcentu. Aby uzyskać więcej informacji, zobacz [schematy kolorów](../../concept-detecting-color-schemes.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
-
-### <a name="get-domain-specific-content"></a>Pobieranie zawartości specyficznej dla domeny
-
-Przetwarzanie obrazów może korzystać z wyspecjalizowanego modelu do dalszej analizy obrazów. Aby uzyskać więcej informacji, zobacz [zawartość specyficzna dla domeny](../../concept-detecting-domain-content.md). 
-
-Poniższy kod analizuje dane dotyczące wykrytych osobistości w obrazie.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
-
-Poniższy kod analizuje dane dotyczące wykrytych punktów orientacyjnych w obrazie.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
-
-### <a name="get-the-image-type"></a>Pobierz typ obrazu
-
-Poniższy kod drukuje informacje o typie obrazu, niezależnie od tego, &mdash; czy jest to obiekt clipart czy rysowanie liniowe.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
-
-> [!div class="nextstepaction"]
-> [Po przeanalizowaniu obrazu](?success=analyze-image#read-printed-and-handwritten-text) [pojawił się problem](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
-
-### <a name="close-out-the-method"></a>Zamknij metodę
-
-Ukończ blok try/catch i Zamknij metodę.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
 
 
 ## <a name="read-printed-and-handwritten-text"></a>Odczytaj tekst drukowany i odręczny
 
-Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ta sekcja definiuje metodę, `ReadFromFile` która pobiera ścieżkę do pliku lokalnego i drukuje tekst obrazu do konsoli programu.
+Usługa OCR może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ta sekcja definiuje metodę, `ReadFromFile` która pobiera ścieżkę do pliku lokalnego i drukuje tekst obrazu do konsoli programu.
 
 > [!TIP]
 > Możesz również odczytać tekst w obrazie zdalnym, do którego odwołuje się adres URL. Zobacz metody [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) , takie jak **Read**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze dotyczące obrazów zdalnych.
@@ -313,11 +209,11 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono, jak wykonywać podstawowe zadania przy użyciu biblioteki języka Java przetwarzanie obrazów. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
+W tym przewodniku szybki start przedstawiono, jak wykonywać zadania podstawowe przy użyciu biblioteki OCR języka Java. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
 
 > [!div class="nextstepaction"]
->[Odwołanie przetwarzanie obrazów (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
+>[Informacje o zestawie SDK OCR (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [Czym jest przetwarzanie obrazów?](../../overview.md)
+* [Omówienie OCR](../../overview-ocr.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 352b81bf2dfeca1d7413e7cac131264d06c7b92e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a74c0cad971389168d643c9504f5bb809438a1ea
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599308"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106097426"
 ---
 ### <a name="financial-account-identification"></a>Identyfikacja konta finansowego
 
@@ -34,7 +34,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Numery routingu tranzytowego stowarzyszenia bankowego (ABA).
+        Numery routingu tranzytowego stowarzyszenia bankowego (ABA). Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `ABARoutingNumber` do `pii-categories` parametru. `ABARoutingNumber` w razie wykrycia zostanie również zwrócony w odpowiedzi interfejsu API.
       
@@ -62,7 +62,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Kody SWIFT dla informacji o instrukcji płatności.
+        Kody SWIFT dla informacji o instrukcji płatności. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `SWIFTCode` do `pii-categories` parametru. `SWIFTCode` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -89,7 +89,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Numery kart kredytowych. 
+        Numery kart kredytowych. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `CreditCardNumber` do `pii-categories` parametru. `CreditCardNumber` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
 
@@ -116,7 +116,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Kody IBAN dla informacji o instrukcji płatności.
+        Kody IBAN dla informacji o instrukcji płatności. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `InternationlBankingAccountNumber` do `pii-categories` parametru. `InternationlBankingAccountNumber` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -144,12 +144,12 @@ Następujące jednostki są pogrupowane i wyszczególnione według kraju:
     :::column span="":::
         **Jednostka**
 
-        Numer tożsamości narodowej (DNI) Argentyna
+        Numer tożsamości narodowej (DNI) Argentyna 
 
     :::column-end:::
     :::column span="2":::
-        **Szczegóły**
-
+        **Szczegóły** Zwracany także przez `domain=phi` .
+        
         Aby uzyskać tę kategorię jednostki, Dodaj `ARNationalIdentityNumber` do `pii-categories` parametru. `ARNationalIdentityNumber` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
     :::column-end:::

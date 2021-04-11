@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: operatory logiczne w definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykłady użycia operatorów logicznych w definicji zasad.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88545594"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093354"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Wzorzec Azure Policy: operatory logiczne
 
@@ -16,7 +16,7 @@ Definicja zasad może zawierać kilka instrukcji warunkowych. Może być koniecz
 
 ## <a name="sample-1-one-logical-operator"></a>Przykład 1: jeden operator logiczny
 
-Ta definicja zasad szacuje konta CosmosDB, aby sprawdzić, czy skonfigurowano automatyczne przełączanie do trybu failover i wiele lokalizacji zapisu. Gdy nie są one, [wyzwalają](../concepts/effects.md#audit) wyzwalacze i tworzą wpis dziennika w przypadku utworzenia lub zaktualizowania niezgodnego zasobu.
+Ta definicja zasad szacuje konta [Azure Cosmos DB](../../../cosmos-db/introduction.md) , aby sprawdzić, czy skonfigurowano automatyczne przełączanie do trybu failover i wiele lokalizacji zapisu. Gdy nie są one, [wyzwalają](../concepts/effects.md#audit) wyzwalacze i tworzą wpis dziennika w przypadku utworzenia lub zaktualizowania niezgodnego zasobu.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ Ten **Klasa policyrule. Jeśli** blok zawiera również pojedynczy **allOf**, al
 
 ## <a name="sample-3-combining-logical-operators"></a>Przykład 3: łączenie operatorów logicznych
 
-Ta definicja zasad służy do szacowania kont ze sprężyną języka Java, aby sprawdzić, czy śledzenie nie jest włączone lub czy śledzenie nie jest w stanie pomyślnym.
+Ta definicja zasad szacuje [wiosnę na kontach platformy Azure](/azure/developer/java/spring-framework) , aby sprawdzić, czy śledzenie nie jest włączone lub czy śledzenie nie jest w stanie pomyślnym.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

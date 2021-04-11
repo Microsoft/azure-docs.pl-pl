@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: 9c53cb53517c4696a1bb47c2cb72335979d58d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3c65d3a7316d431c57d9fb75775e271bf9f34ca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178834"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223272"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,8 @@ Pule węzłów systemowych mają następujące ograniczenia:
 * OsType pul systemu musi być Linux.
 * Pule węzłów użytkowników osType mogą mieć system Linux lub Windows.
 * Pule systemu muszą zawierać co najmniej jeden węzeł, a pule węzłów użytkownika mogą zawierać zero lub więcej węzłów.
-* Pule węzłów systemu wymagają jednostki SKU maszyny wirtualnej z co najmniej 2 procesorów wirtualnych vCPU i 4 GB pamięci.
+* Pule węzłów systemu wymagają jednostki SKU maszyny wirtualnej z co najmniej 2 procesorów wirtualnych vCPU i 4 GB pamięci. Ale maszyna wirtualna (Seria B) nie jest zalecana.
+* Zalecane jest co najmniej dwa węzły 4 procesorów wirtualnych vCPU (np. Standard_DS4_v2), szczególnie w przypadku dużych klastrów (wiele CoreDNS na poziomie, 3-4 + dodatki itp.).
 * Pule węzłów systemowych muszą obsługiwać co najmniej 30 zasobników, zgodnie z opisem w [formule minimalnej i maksymalnej wartości dla zasobników][maximum-pods].
 * Pule węzłów dodatkowych wymagają pul węzłów użytkownika.
 * Dodanie dodatkowej puli węzłów systemu lub zmiana puli węzłów jest pulą węzłów systemowych *nie* spowoduje automatycznego przeniesie systemowych zasobników systemu. Systemowe pule mogą nadal działać w tej samej puli węzłów nawet wtedy, gdy zmienisz ją na pulę węzłów użytkownika. W przypadku usunięcia lub przeskalowania puli węzłów z systemem systemowego, który był wcześniej pulą węzłów systemu, te wartości systemowe są wdrażane ponownie z preferowanym planowaniem nowej puli węzłów systemu.

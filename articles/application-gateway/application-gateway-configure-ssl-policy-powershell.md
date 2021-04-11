@@ -8,18 +8,21 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed81ca2c8f409b7f6c4a6f30f9bf75e594c6c208
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397930"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221708"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurowanie wersji zasad protokołu TLS i mechanizmów szyfrowania w usłudze Application Gateway
 
 Dowiedz się, jak skonfigurować wersje zasad protokołu TLS/SSL i mechanizmy szyfrowania na Application Gateway. Można wybrać jedną z listy wstępnie zdefiniowanych zasad, które zawierają różne konfiguracje wersji zasad protokołu TLS i włączonych mechanizmów szyfrowania. Istnieje również możliwość zdefiniowania [niestandardowych zasad protokołu TLS](#configure-a-custom-tls-policy) zgodnie z wymaganiami.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Zalecamy użycie protokołu TLS 1,2 jako minimalnej wersji protokołów TLS w celu zwiększenia bezpieczeństwa na Application Gateway. 
 
 ## <a name="get-available-tls-options"></a>Pobierz dostępne opcje protokołu TLS
 
@@ -217,4 +220,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź stronę [Omówienie przekierowania Application Gateway](./redirect-overview.md) , aby dowiedzieć się, jak przekierować ruch HTTP do punktu końcowego HTTPS.
+Odwiedź stronę [Omówienie przekierowania Application Gateway](./redirect-overview.md) , aby dowiedzieć się, jak przekierować ruch HTTP do punktu końcowego HTTPS. 
+
+Sprawdzanie konfiguracji specyficznych dla odbiorników zasad protokołu SSL podczas [konfigurowania zasad odsłuchiwania protokołu SSL za pomocą portalu](./application-gateway-configure-listener-specific-ssl-policy.md)
