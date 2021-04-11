@@ -80,12 +80,12 @@ Operacje są dodawane i konfigurowane do interfejsu API w portalu wydawców. Aby
 
 Zostanie wyświetlone okno **Nowa operacja** , a karta **podpis** zostanie domyślnie wybrana.
 
-## <a name="add-rrs-operation"></a>Operacja dodawania rekordów zasobów
+## <a name="add-rrs-operation&quot;></a>Operacja dodawania rekordów zasobów
 Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 
 1. Dla **zlecenia http** wybierz pozycję **post**.
-2. W polu **Szablon adresu URL** wpisz " `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` ".
-3. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest używana funkcja "rerr Execute").
+2. W polu **Szablon adresu URL** wpisz &quot; `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` &quot;.
+3. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest używana funkcja &quot;rerr Execute").
 
    ![Zrzut ekranu przedstawia stronę podpisu, na której można wprowadzić nazwę wyświetlaną.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 

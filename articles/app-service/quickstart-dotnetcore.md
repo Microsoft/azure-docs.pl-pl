@@ -11,10 +11,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 ms.openlocfilehash: 77e0768a617ef79ab8510f88bfdcd41d5647f9bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101701641"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
@@ -315,12 +315,12 @@ Przykładowy kod .NET Core jest uruchamiany w usłudze App Service dla systemu L
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
-## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
+## <a name="update-and-redeploy-the-code&quot;></a>Aktualizowanie i ponowne wdrażanie kodu
 
 W katalogu lokalnym otwórz plik _Startup.cs_. Wprowadź niewielką zmianę w tekście wywołania metody `context.Response.WriteAsync`:
 
 ```csharp
-await context.Response.WriteAsync("Hello Azure!");
+await context.Response.WriteAsync(&quot;Hello Azure!");
 ```
 
 Zapisz zmiany, a następnie ponownie Wdróż aplikację przy użyciu `az webapp up` polecenia:

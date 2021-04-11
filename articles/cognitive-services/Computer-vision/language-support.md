@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 43804907d68ddd58e55c7ce453e0731d0cb4b9b5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560382"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
@@ -83,7 +83,7 @@ Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków.
 |Norweski | `nb` |✔ | | |
 |Norweski | `no` | | |✔ |
 |Okcytański | `oc` | | |✔ |
-|polski | `pl` |✔ | |✔ |
+|Polski | `pl` |✔ | |✔ |
 |Portugalski | `pt` |✔ |✔ |✔ |
 |Rumuński | `ro` |✔ | | |
 |Romansz  | `rm` | | |✔ |

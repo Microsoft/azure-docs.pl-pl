@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4b67952565ae7d5e8a05661fba2129177072007c
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: a6522eb54980cb28f08ce91e29a6a18943d49040
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105033396"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089007"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -36,6 +36,7 @@ ms.locfileid: "105033396"
 |[Dostęp SSH z Internetu powinien być zablokowany](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fab) |Ta zasada przeprowadza inspekcję wszystkich reguł zabezpieczeń sieci, które zezwalają na dostęp SSH z Internetu |Inspekcja, wyłączona |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroup_SSHAccess_Audit.json) |
 |[Konta magazynu powinny używać punktu końcowego usługi sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |Ta zasada przeprowadza inspekcję wszystkich kont magazynu nieskonfigurowanych do korzystania z punktu końcowego usługi sieci wirtualnej. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
 |[Maszyny wirtualne powinny być połączone z zatwierdzoną siecią wirtualną](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |Ta zasada przeprowadza inspekcję wszystkich maszyn wirtualnych połączonych z siecią wirtualną, która nie jest zatwierdzona. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
+|[Sieci wirtualne powinny być chronione przez Azure DDoS Protection Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) |Ochrona sieci wirtualnych przed atakami typu "i" przy użyciu protokołu Azure DDoS Protection Standard. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/ddosprotectiondocs](https://aka.ms/ddosprotectiondocs) . |Modyfikowanie, inspekcja, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json) |
 |[Sieci wirtualne powinny używać określonej bramy sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1776c76-f58c-4245-a8d0-2b207198dc8b) |Ta zasada przeprowadza inspekcję dowolnej sieci wirtualnej, jeśli trasa domyślna nie wskazuje określonej bramy sieci wirtualnej. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetwork_ApprovedVirtualNetworkGateway_AuditIfNotExists.json) |
 |[Zapora aplikacji sieci Web (WAF) powinna być włączona dla Application Gateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F564feb30-bf6a-4854-b4bb-0d2d2d1e6c66) |Wdróż zaporę aplikacji sieci Web platformy Azure (WAF) przed publicznymi aplikacjami sieci Web, aby uzyskać dodatkową inspekcję ruchu przychodzącego. Zapora aplikacji sieci Web (WAF) zapewnia centralną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach, takimi jak iniekcje SQL, skrypty między lokacjami, lokalne i zdalne wykonywanie plików. Możesz również ograniczyć dostęp do aplikacji sieci Web według krajów, zakresów adresów IP i innych parametrów http (s) za pośrednictwem reguł niestandardowych. |Inspekcja, Odmów, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayEnabled_Audit.json) |
 |[Zapora aplikacji sieci Web (WAF) powinna być włączona dla usługi Azure front-drzwi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |Wdróż zaporę aplikacji sieci Web platformy Azure (WAF) przed publicznymi aplikacjami sieci Web, aby uzyskać dodatkową inspekcję ruchu przychodzącego. Zapora aplikacji sieci Web (WAF) zapewnia centralną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach, takimi jak iniekcje SQL, skrypty między lokacjami, lokalne i zdalne wykonywanie plików. Możesz również ograniczyć dostęp do aplikacji sieci Web według krajów, zakresów adresów IP i innych parametrów http (s) za pośrednictwem reguł niestandardowych. |Inspekcja, Odmów, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |

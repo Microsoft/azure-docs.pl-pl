@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491303"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727607"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -373,7 +373,7 @@ Poniższa tabela zawiera wszystkie znaki Unicode, Azure File Sync nie są jeszcz
 ### <a name="common-sync-errors"></a>Typowe błędy synchronizacji
 <a id="-2147023673"></a>**Sesja synchronizacji została anulowana.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (dziesiętny)** | -2147023673 | 
@@ -384,7 +384,7 @@ Sesje synchronizacji mogą się nie powieść z różnych przyczyn, w tym serwer
 
 <a id="-2147012889"></a>**Nie można nawiązać połączenia z usługą.**    
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (dziesiętny)** | -2147012889 | 
@@ -395,7 +395,7 @@ Sesje synchronizacji mogą się nie powieść z różnych przyczyn, w tym serwer
 
 <a id="-2134376372"></a>**Żądanie użytkownika zostało ograniczone przez usługę.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (dziesiętny)** | -2134376372 |
@@ -406,7 +406,7 @@ Nie jest wymagana żadna akcja; serwer ponowi próbę. Jeśli ten błąd będzie
 
 <a id="-2134364043"></a>**Synchronizacja jest zablokowana do momentu zakończenia operacji przywracania zmian**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (dziesiętny)** | -2134364043 |
@@ -417,7 +417,7 @@ Nie jest wymagana żadna akcja. Po przywróceniu pliku lub udziału plików (pun
 
 <a id="-2147216747"></a>**Synchronizacja nie powiodła się, ponieważ baza danych synchronizacji została zwolniona.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80041295 |
 | **HRESULT (dziesiętny)** | -2147216747 |
@@ -428,7 +428,7 @@ Ten błąd występuje zazwyczaj wtedy, gdy aplikacja kopii zapasowej tworzy miga
 
 <a id="-2134364065"></a>**Synchronizacja nie może uzyskać dostępu do udziału plików platformy Azure określonego w punkcie końcowym w chmurze.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (dziesiętny)** | -2134364065 |
@@ -444,7 +444,7 @@ Ten błąd występuje, ponieważ agent usługi Azure File Sync nie może uzyska�
 
 <a id="-2134351804"></a>**Synchronizacja nie powiodła się, ponieważ żądanie nie ma autoryzacji do wykonania tej operacji.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c86044 |
 | **HRESULT (dziesiętny)** | -2134351804 |
@@ -460,7 +460,7 @@ Ten błąd występuje, ponieważ agent Azure File Sync nie ma uprawnień dostęp
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**Nie można rozpoznać używanej nazwy konta magazynu.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (dziesiętny)** | -2134364064 |
@@ -477,7 +477,7 @@ Ten błąd występuje, ponieważ agent Azure File Sync nie ma uprawnień dostęp
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**Wystąpił nieznany błąd podczas uzyskiwania dostępu do konta magazynu.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (dziesiętny)** | -2134364022 |
@@ -489,7 +489,7 @@ Ten błąd występuje, ponieważ agent Azure File Sync nie ma uprawnień dostęp
 
 <a id="-2134364014"></a>**Synchronizacja nie powiodła się, ponieważ konto magazynu zostało zablokowane.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83092 |
 | **HRESULT (dziesiętny)** | -2134364014 |
@@ -500,7 +500,7 @@ Ten błąd występuje, ponieważ konto magazynu ma [blokadę zasobów](../../azu
 
 <a id="-1906441138"></a>**Synchronizacja nie powiodła się z powodu problemu z bazą danych synchronizacji.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (dziesiętny)** | -1906441138 |
@@ -511,7 +511,7 @@ Ten błąd występuje, gdy występuje problem dotyczący wewnętrznej bazy danyc
 
 <a id="-2134364053"></a>**Wersja agenta Azure File Sync zainstalowana na serwerze nie jest obsługiwana.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (dziesiętny)** | -2134364053 |
@@ -522,7 +522,7 @@ Ten błąd występuje, gdy wersja agenta usługi Azure File Sync zainstalowana n
 
 <a id="-2134351810"></a>**Osiągnięto limit magazynu udziałów plików platformy Azure.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (dziesiętny)** | -2134351810 |
@@ -548,7 +548,7 @@ Jeśli udział jest pełny i nie ustawiono limitu przydziału, jednym z możliwy
 
 <a id="-2134351824"></a>**Nie można odnaleźć udziału plików platformy Azure.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (dziesiętny)** | -2134351824 |
@@ -564,7 +564,7 @@ Jeśli udział plików platformy Azure został usunięty, należy utworzyć nowy
 
 <a id="-2134364042"></a>**Synchronizacja została wstrzymana, gdy ta subskrypcja platformy Azure jest zawieszona.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (dziesiętny)** | -2134364042 |
@@ -575,7 +575,7 @@ Ten błąd występuje, gdy subskrypcja platformy Azure jest zawieszona. Synchron
 
 <a id="-2134375618"></a>**Konto magazynu ma skonfigurowane zaporę lub sieci wirtualne.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8033e |
 | **HRESULT (dziesiętny)** | -2134375618 |
@@ -586,7 +586,7 @@ Ten błąd występuje, gdy udział plików platformy Azure jest niedostępny z p
 
 <a id="-2134375911"></a>**Synchronizacja nie powiodła się z powodu problemu z bazą danych synchronizacji.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (dziesiętny)** | -2134375911 |
@@ -602,7 +602,7 @@ Jeśli ten błąd będzie się powtarzać dłużej niż kilka godzin, Utwórz ż
 
 <a id="-2146762487"></a>**Serwer nie może nawiązać bezpiecznego połączenia. Usługa w chmurze odebrała nieoczekiwany certyfikat.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (dziesiętny)** | -2146762487 |
@@ -627,7 +627,7 @@ Ustawienie tej wartości rejestru powoduje, że Agent Azure File Sync akceptuje 
 
 <a id="-2147012894"></a>**Nie można nawiązać połączenia z usługą.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80072EE2 |
 | **HRESULT (dziesiętny)** | -2147012894 |
@@ -638,7 +638,7 @@ Ustawienie tej wartości rejestru powoduje, że Agent Azure File Sync akceptuje 
 
 <a id="-2134375680"></a>**Synchronizacja nie powiodła się z powodu problemu z uwierzytelnianiem.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (dziesiętny)** | -2134375680 |
@@ -649,7 +649,7 @@ Ten błąd zazwyczaj występuje, ponieważ czas serwera jest niepoprawny. Jeśli
 
 <a id="-2134364040"></a>**Synchronizacja nie powiodła się z powodu wygaśnięcia certyfikatu.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83078 |
 | **HRESULT (dziesiętny)** | -2134364040 |
@@ -673,7 +673,7 @@ Jeśli certyfikat uwierzytelniania klienta wygasł, wykonaj następujące czynno
 
 <a id="-2134375896"></a>**Synchronizacja nie powiodła się z powodu nieznalezienia certyfikatu uwierzytelniania.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c80228 |
 | **HRESULT (dziesiętny)** | -2134375896 |
@@ -693,7 +693,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki:
 
 <a id="-2134364039"></a>**Synchronizacja nie powiodła się z powodu nieznalezienia tożsamości uwierzytelniania.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83079 |
 | **HRESULT (dziesiętny)** | -2134364039 |
@@ -704,14 +704,14 @@ Ten błąd występuje, ponieważ usuwanie punktu końcowego serwera nie powiodł
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Na woluminie, na którym znajduje się punkt końcowy serwera, jest mało wolnego miejsca na dysku.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (dziesiętny)** | -1906441711 |
 | **Ciąg błędu** | JET_errLogDiskFull |
 | **Wymagana korekta** | Tak |
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (dziesiętny)** | -2134375654 |
@@ -722,7 +722,7 @@ Ten błąd występuje, ponieważ wolumin jest pełny. Ten błąd często występ
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**Usługa nie jest jeszcze gotowa do synchronizacji z tym punktem końcowym serwera.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (dziesiętny)** | -2134364145 |
@@ -733,21 +733,21 @@ Ten błąd występuje, ponieważ punkt końcowy w chmurze został utworzony przy
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Synchronizacja nie powiodła się z powodu problemów z wieloma pojedynczymi plikami.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (dziesiętny)** | -2134375877 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Wymagana korekta** | Tak |
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (dziesiętny)** | -2134375908 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Wymagana korekta** | Tak |
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (dziesiętny)** | -2134375853 |
@@ -761,7 +761,7 @@ Sesje synchronizacji kończą się niepowodzeniem z jednym z tych błędów, gdy
 
 <a id="-2134376423"></a>**Synchronizacja nie powiodła się z powodu problemu z ścieżką punktu końcowego serwera.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (dziesiętny)** | -2134376423 |
@@ -772,7 +772,7 @@ Upewnij się, że ścieżka istnieje, znajduje się na lokalnym woluminie NTFS i
 
 <a id="-2134375817"></a>**Synchronizacja nie powiodła się, ponieważ wersja sterownika filtru nie jest zgodna z wersją agenta**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (dziesiętny)** | -2134375817 |
@@ -783,7 +783,7 @@ Ten błąd występuje, ponieważ załadowana wersja sterownika filtru obsługi w
 
 <a id="-2134376373"></a>**Usługa jest obecnie niedostępna.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (dziesiętny)** | -2134376373 |
@@ -794,7 +794,7 @@ Ten błąd występuje, ponieważ usługa Azure File Sync jest niedostępna. Ten 
 
 <a id="-2146233088"></a>**Synchronizacja nie powiodła się z powodu wyjątku.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80131500 |
 | **HRESULT (dziesiętny)** | -2146233088 |
@@ -805,7 +805,7 @@ Ten błąd występuje, ponieważ synchronizacja nie powiodła się z powodu wyj�
 
 <a id="-2134364045"></a>**Synchronizacja nie powiodła się, ponieważ konto magazynu zostało przełączone w tryb failover do innego regionu.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83073 |
 | **HRESULT (dziesiętny)** | -2134364045 |
@@ -816,7 +816,7 @@ Ten błąd występuje, ponieważ konto magazynu zostało przełączone w tryb fa
 
 <a id="-2134375922"></a>**Synchronizacja nie powiodła się z powodu przejściowego problemu z bazą danych synchronizacji.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (dziesiętny)** | -2134375922 |
@@ -827,7 +827,7 @@ Ten błąd występuje z powodu wewnętrznego problemu z bazą danych synchroniza
 
 <a id="-2134364024"></a>**Synchronizacja nie powiodła się z powodu zmiany w dzierżawie Azure Active Directory**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (dziesiętny)** | -2134364024 | 
@@ -840,7 +840,7 @@ Gdy masz najnowszą wersję agenta, musisz nadać aplikacji Microsoft. StorageSy
 
 <a id="-2134364010"></a>**Synchronizacja nie powiodła się z powodu nieskonfigurowania wyjątku zapory i sieci wirtualnej**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83096 |
 | **HRESULT (dziesiętny)** | -2134364010 | 
@@ -851,7 +851,7 @@ Ten błąd występuje, gdy ustawienia zapory i sieci wirtualnej są włączone n
 
 <a id="-2147024891"></a>**Synchronizacja nie powiodła się, ponieważ uprawnienia w folderze informacji o woluminie systemowym są nieprawidłowe.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80070005 |
 | **HRESULT (dziesiętny)** | -2147024891 |
@@ -870,7 +870,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki:
 
 <a id="-2134375810"></a>**Synchronizacja nie powiodła się, ponieważ udział plików platformy Azure został usunięty i utworzony ponownie.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (dziesiętny)** | -2134375810 |
@@ -889,7 +889,7 @@ Aby rozwiązać ten problem, usuń i utwórz ponownie grupę synchronizacji, wyk
 
 <a id="-2145844941"></a>**Synchronizacja nie powiodła się, ponieważ żądanie HTTP zostało przekierowane**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80190133 |
 | **HRESULT (dziesiętny)** | -2145844941 |
@@ -900,7 +900,7 @@ Ten błąd występuje, ponieważ Azure File Sync nie obsługuje przekierowania H
 
 <a id="-2134364027"></a>**Przekroczono limit czasu podczas transferu danych w trybie offline, ale nadal trwa.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (dziesiętny)** | -2134364027 |
@@ -911,7 +911,7 @@ Ten błąd występuje, gdy operacja pozyskiwania danych przekracza limit czasu. 
 
 <a id="-2134375814"></a>**Synchronizacja nie powiodła się, ponieważ na serwerze nie można odnaleźć ścieżki punktu końcowego serwera.**  
 
-| | |
+| Błąd | Kod |
 |-|-|
 | **HRESULT** | 0x80c8027a |
 | **HRESULT (dziesiętny)** | -2134375814 |

@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 5852899175f9cc9f2725b875c6e1ce9fd682768d
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: c5b6509cabd743a01a085639a7b76d764555a9f8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625271"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106657"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w usłudze Azure SQL Database
 
@@ -62,9 +62,6 @@ Szacowane opóźnienie zmiany warstwy usług, skalowanie wielkości obliczeniowe
 >
 > Aby określić, czy baza danych korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście bazy danych. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` lub `PremiumFileStorage-ZRS` , baza danych korzysta z magazynu PFS.
 
-[!NOTE]
- Właściwość nadmiarowa strefy będzie domyślnie taka sama w przypadku skalowania z Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia. Opóźnienie tej zmiany w przypadku włączenia nadmiarowości strefy, a opóźnienie przełączenia nadmiarowości strefy dla warstwy Ogólnego przeznaczenia będzie proporcjonalne do rozmiaru bazy danych.
-
 ```sql
 SELECT s.file_id,
        s.type_desc,
@@ -73,6 +70,9 @@ SELECT s.file_id,
 FROM sys.database_files AS s
 WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
+
+> [!NOTE]
+> Właściwość nadmiarowa strefy będzie domyślnie taka sama w przypadku skalowania z Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia. Opóźnienie tej zmiany w przypadku włączenia nadmiarowości strefy, a opóźnienie przełączenia nadmiarowości strefy dla warstwy Ogólnego przeznaczenia będzie proporcjonalne do rozmiaru bazy danych.
 
 > [!TIP]
 > Aby monitorować operacje w toku, zobacz: [Zarządzanie operacjami przy użyciu interfejsu API REST usługi SQL](/rest/api/sql/operations/list), [Zarządzanie operacjami przy użyciu wiersza polecenia](/cli/azure/sql/db/op), [monitorowanie operacji przy użyciu języka T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) i tych dwóch poleceń programu PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) i [stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

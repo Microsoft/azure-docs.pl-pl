@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: b19a7c156abf32e2a0f6d70717145a6ed5ab42ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f5d98dd9bf893065f2bf9c37cbec4384d0f7c94
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099679"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727144"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -69,7 +69,7 @@ Maksymalny wynik tej kontrolki, zastosowanie aktualizacji systemu, to zawsze 6. 
 |**Bieżący wynik kontroli zabezpieczeń**|<br>![Równanie obliczające wynik kontroli zabezpieczeń](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Każda indywidualna kontrola zabezpieczeń przyczynia się do osiągnięcia oceny zabezpieczeń. Każdy zasób, na który ma wpływ zalecenie w ramach kontroli, przyczynia się do bieżącego wyniku kontrolki. Bieżący wynik dla każdej kontrolki jest miarą stanu zasobów *w* kontrolce.<br>![Etykietki narzędzi pokazujące wartości używane podczas obliczania bieżącego wyniku kontroli zabezpieczeń](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>W tym przykładzie maksymalny wynik 6 zostałby podzielony przez 78, ponieważ to jest suma zasobów w dobrej kondycji i w nieprawidłowych Stanach.<br>6/78 = 0,0769<br>Mnożenie tego przez liczbę zasobów w dobrej kondycji (4) skutkuje bieżącym wynikiem:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Wskaźnik bezpieczeństwa**<br>Subskrypcja pojedyncza|<br>![Równanie obliczania bezpiecznego wyniku subskrypcji](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Jeden bezpieczny wynik subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>W tym przykładzie istnieje jedna subskrypcja z wszystkimi dostępnymi wszystkimi kontrolami zabezpieczeń (potencjalną maksymalną wartością wyniku 60 punktów). Wynik pokazuje 28 punktów z możliwego 60, a pozostałe 32 punkty są odzwierciedlone w postaci "potencjalne zwiększenie wyniku" w zakresie kontroli zabezpieczeń.<br>![Lista kontrolek i zwiększenie potencjalnego wyniku](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Wskaźnik bezpieczeństwa**<br>Wiele subskrypcji|<br>![Równanie obliczania bezpiecznego wyniku dla wielu subskrypcji](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Podczas obliczania połączonego wyniku dla wielu subskrypcji Security Center obejmuje *wagę* dla każdej subskrypcji. Wagi względne dla subskrypcji są określane przez Security Center w oparciu o takie czynniki jak liczba zasobów.<br>Bieżący wynik dla każdej subskrypcji jest obliczany w taki sam sposób jak w przypadku pojedynczej subskrypcji, ale waga jest stosowana, jak pokazano w równaniu.<br>Podczas przeglądania wielu subskrypcji, funkcja Secure Score szacuje wszystkie zasoby we wszystkich włączonych zasadach i grupuje ich łączny wpływ na maksymalny wynik kontroli zabezpieczeń.<br>![Zabezpieczony wynik dla wielu subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Połączony wynik **nie** jest średni; jest to raczej oceniane stan stanu wszystkich zasobów we wszystkich subskrypcjach.<br>Tutaj, jeśli przejdziesz do strony rekomendacje i dodasz dostępne punkty, zobaczysz, że jest to różnica między bieżącym wynikiem (24) i maksymalnym dostępnym wynikiem (60).|
-||||
+
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Jakie zalecenia są zawarte w zabezpieczonych obliczeniach oceny?
 
