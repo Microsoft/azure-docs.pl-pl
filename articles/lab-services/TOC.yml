@@ -179,6 +179,8 @@
       href: /rest/api/labservices/
     - name: Moduł programu PowerShell Az.LabServices (wersja zapoznawcza)
       href: reference-powershell-module.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/hack
 - name: Zasoby
   items:
     - name: Blog usług Azure Lab Services

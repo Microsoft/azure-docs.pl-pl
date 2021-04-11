@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508813"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029407"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -39,7 +39,7 @@ Poniżej przedstawiono niektóre kluczowe szczegóły dotyczące prywatnych punk
 
 - Podczas tworzenia prywatnego punktu końcowego jest również tworzony interfejs sieciowy tylko do odczytu dla cyklu życia zasobu. Interfejsowi przypisano dynamicznie prywatne adresy IP z podsieci, która jest mapowana na zasób link prywatny. Wartość prywatnego adresu IP pozostaje niezmieniona dla całego cyklu życia prywatnego punktu końcowego.
  
-- Prywatny punkt końcowy musi być wdrożony w tym samym regionie, w którym znajduje się sieć wirtualna. 
+- Prywatny punkt końcowy musi być wdrożony w tym samym regionie i w ramach subskrypcji co sieć wirtualna. 
  
 - Zasób link prywatny można wdrożyć w innym regionie niż sieć wirtualna i prywatny punkt końcowy.
  

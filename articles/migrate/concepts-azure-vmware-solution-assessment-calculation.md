@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 1d9918786b22faddaeb07a12f0840b36a11ffe4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55f0562ae08a6e5a6b38bd0b6fc9f781b94ab64
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778385"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078693"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Przegląd oceny (Migrowanie do rozwiązania Azure VMware)
 
@@ -31,6 +31,9 @@ Oceny tworzone za pomocą Azure Migrate to migawka danych w danym momencie. Istn
 **Maszyna wirtualna platformy Azure** | Oceny umożliwiające migrację serwerów lokalnych do maszyn wirtualnych platformy Azure. Można ocenić serwery lokalne w środowisku [VMware](how-to-set-up-appliance-vmware.md) i [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md) oraz [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji do maszyn wirtualnych platformy Azure przy użyciu tego typu oceny.
 **Azure SQL** | Ocenianie migracji lokalnych serwerów SQL ze środowiska VMware do Azure SQL Database lub wystąpienia zarządzanego Azure SQL.
 **Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające migrację serwerów lokalnych do usługi [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Jeśli liczba ocen dotyczących maszyn wirtualnych lub automatycznej wersji platformy Azure jest nieprawidłowa w narzędziu odnajdywanie i ocenianie, kliknij łączną liczbę ocen, aby przejść do wszystkich ocen i ponownie obliczyć maszyny wirtualne platformy Azure lub oceny automatycznej synchronizacji. Narzędzie odnajdywanie i ocenianie wyświetli poprawną liczbę dla tego typu oceny. 
 
 Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) oferuje dwie opcje kryteriów ustalania rozmiarów:
 

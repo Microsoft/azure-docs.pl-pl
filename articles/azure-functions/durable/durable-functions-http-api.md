@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84697847"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220457"
 ---
 # <a name="http-api-reference"></a>Dokumentacja interfejsu API protokołu HTTP
 
@@ -128,6 +128,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 W wersji 2. x środowiska uruchomieniowego funkcji format adresu URL ma wszystkie te same parametry, ale z nieco innym prefiksem:
@@ -140,6 +141,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcześniej zestaw, a także następujące unikatowe parametry:
@@ -153,16 +155,17 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 | **`createdTimeFrom`**   | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość jest określona, filtruje listę zwracanych wystąpień, które zostały utworzone w lub po danej sygnaturze czasowej ISO8601.|
 | **`createdTimeTo`**     | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość jest określona, filtruje listę zwracanych wystąpień, które zostały utworzone w czasie lub przed daną sygnaturą czasową ISO8601.|
 | **`runtimeStatus`**     | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość jest określona, filtruje listę zwracanych wystąpień na podstawie ich stanu czasu wykonywania. Aby wyświetlić listę możliwych wartości stanu środowiska uruchomieniowego, zobacz artykuł o [wystąpieniach zapytań](durable-functions-instance-management.md) . |
+| **`returnInternalServerErrorOnFailure`**  | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość `true` jest ustawiona na, ten interfejs API zwróci odpowiedź HTTP 500 zamiast 200, jeśli wystąpienie jest w stanie niepowodzenia. Ten parametr jest przeznaczony dla scenariuszy automatycznej sondowania stanu. |
 
 ### <a name="response"></a>Reakcja
 
 Można zwrócić kilka możliwych wartości kodu stanu.
 
-* **HTTP 200 (ok)**: określone wystąpienie jest w stanie ukończone.
+* **HTTP 200 (ok)**: określone wystąpienie jest w stanie ukończone lub niepowodzenie.
 * **HTTP 202 (zaakceptowane)**: określone wystąpienie jest w toku.
 * **HTTP 400 (złe żądanie)**: określone wystąpienie nie powiodło się lub zostało przerwane.
 * **HTTP 404 (nie znaleziono)**: określone wystąpienie nie istnieje lub nie zostało uruchomione.
-* **HTTP 500 (wewnętrzny błąd serwera)**: określone wystąpienie nie powiodło się z powodu nieobsługiwanego wyjątku.
+* **HTTP 500 (wewnętrzny błąd serwera)**: zwracany tylko wtedy, gdy `returnInternalServerErrorOnFailure` jest ustawiona na `true` , a określone wystąpienie nie powiodło się z powodu nieobsługiwanego wyjątku.
 
 Ładunek odpowiedzi dla przypadków **http 200** i **http 202** jest obiektem JSON z następującymi polami:
 

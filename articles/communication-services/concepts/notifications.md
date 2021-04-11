@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9a878dc5cdbbe336e7279d0cd919bd17cd42d0e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728219"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220800"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
@@ -67,13 +67,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Używanie Azure Portal do łączenia centrum powiadomień
 
-W portalu przejdź do zasobu usługi Azure Communications Services. W obszarze zasób usług komunikacyjnych wybierz pozycję powiadomienia wypychane w menu po lewej stronie usługi komunikacyjne i Połącz się z centrum powiadomień, które zostało wcześniej zainicjowane. Należy podać parametry połączenia i resourceId tutaj:
+1. W portalu przejdź do zasobu usługi Azure Communications Services.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Zrzut ekranu przedstawiający ustawienia powiadomień wypychanych w Azure Portal.":::
+1. W obszarze zasób usług komunikacyjnych wybierz opcję **powiadomienia wypychane** w menu po lewej stronie usługi komunikacyjne i Połącz się z centrum powiadomień, które zostało wcześniej zainicjowane.
+
+1. Wybierz pozycję **Połącz centrum powiadomień**. Zostanie wyświetlona lista centrów powiadomień dostępnych do nawiązania połączenia.
+ 
+1. Wybierz Centrum powiadomień, którego chcesz użyć dla tego zasobu.
+ 
+   - Jeśli musisz utworzyć nowe centrum, wybierz opcję **Utwórz nowe centrum powiadomień** , aby uzyskać nowe centrum dla tego zasobu.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Zrzut ekranu przedstawiający ustawienia powiadomień wypychanych w Azure Portal.":::
+
+Teraz zostanie wyświetlone centrum powiadomień połączone z połączonym stanem.
+
+Jeśli chcesz użyć innego centrum dla zasobu, wybierz opcję **Rozłącz**, a następnie powtórz kroki, aby połączyć się z innym centrum powiadomień.
 
 > [!NOTE]
-> Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.
-Wszelkie zmiany dotyczące sposobu łączenia centrum zostaną odzwierciedlone w płaszczyźnie danych (tj. podczas wysyłania powiadomienia) w ciągu maksymalnego okresu ``10`` minut. Dotyczy to również sytuacji, gdy centrum jest połączone po raz pierwszy, **Jeśli** wcześniej zostały wysłane powiadomienia.
+> Wszelkie zmiany dotyczące sposobu łączenia centrum są odzwierciedlone w płaszczyźnie danych (czyli podczas wysyłania powiadomienia) w ciągu maksymalnego okresu 10 minut. Takie samo zachowanie jest stosowane, gdy centrum jest połączone po raz pierwszy, **Jeśli** powiadomienia zostały wysłane przed zmianą.
 
 ### <a name="device-registration"></a>Rejestracja urządzenia
 

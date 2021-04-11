@@ -1,0 +1,24 @@
+### YamlMime:Landing
+title: Dokumentacja urządzeń z certyfikatem platformy Azure
+summary: Ten program jest Twoim zamiarem do łatwego rozróżniania, promowania i znajdowania urządzeń IoT utworzonych do uruchamiania na platformie Azure.
+metadata:
+  title: Program urządzenia z certyfikatem platformy Azure
+  description: Ten program jest Twoim zamiarem do łatwego rozróżniania, promowania i znajdowania urządzeń IoT utworzonych do uruchamiania na platformie Azure.
+  ms.service: certification
+  ms.topic: landing-page
+  author: cbroad
+  ms.author: cbroad
+  ms.date: 03/18/2021
+  ms.openlocfilehash: 3fa7e18388fc35eebdfdd0d0aec2be308765b4e1
+  ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105970092"
+landingContent:
+- title: Informacje o programie certyfikowanego urządzenia platformy Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest program urządzenia z certyfikatem platformy Azure?
+      url: ./overview.md

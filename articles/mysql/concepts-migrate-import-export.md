@@ -7,12 +7,12 @@ ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 049a0ad45ea82210d8fac28db0fb3d067841bba4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d553f6c87d1044f8bde7460a0ea7bf123dd1851
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625147"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450076"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrowanie bazy danych MySQL przy użyciu funkcji importowania i eksportowania
 
@@ -35,13 +35,13 @@ Utwórz pustą bazę danych na serwerze Azure Database for MySQL za pomocą prog
 
 Aby nawiązać połączenie, wykonaj następujące czynności:
 
-1. W Azure Portal Poszukaj informacji o połączeniu w okienku **Przegląd** usługi Azure Database for MySQL.
+1. W Azure Portal Poszukaj informacji o połączeniu w okienku **przegląd** Azure Database for MySQL.
 
    :::image type="content" source="./media/concepts-migrate-import-export/1_server-overview-name-login.png" alt-text="Zrzut ekranu przedstawiający informacje o połączeniu z serwerem Azure Database for MySQL w Azure Portal.":::
 
 1. Dodaj informacje o połączeniu do programu MySQL Workbench.
 
-   :::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Parametry połączenia MySQL Workbench":::
+   :::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Zrzut ekranu przedstawiający parametry połączenia MySQL Workbench.":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>Ustalanie, kiedy należy używać technik importu i eksportu
 
@@ -50,12 +50,12 @@ Aby nawiązać połączenie, wykonaj następujące czynności:
 
 W poniższych scenariuszach za pomocą narzędzi MySQL można importować i eksportować bazy danych do bazy danych MySQL. W przypadku innych narzędzi przejdź do sekcji "metody migracji" (strona 22) [podręcznika migracji bazy danych MySQL do platformy Azure](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
 
-- Jeśli musisz wybrać kilka tabel do zaimportowania z istniejącej bazy danych MySQL do bazy danych Azure MySQL, najlepiej użyć techniki importu i eksportu.  Dzięki temu można pominąć niepotrzebne tabele z migracji w celu zaoszczędzenia czasu i zasobów. Na przykład użyj `--include-tables` `--exclude-tables` przełącznika lub z [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) i `--tables` przełącznika z [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
+- Jeśli musisz wybrać kilka tabel do zaimportowania z istniejącej bazy danych MySQL do bazy danych Azure MySQL, najlepiej użyć techniki importu i eksportu. Dzięki temu można pominąć niepotrzebne tabele z migracji w celu zaoszczędzenia czasu i zasobów. Na przykład użyj `--include-tables` `--exclude-tables` przełącznika lub z [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables)i `--tables` przełącznika z [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - Gdy przenosisz obiekty bazy danych inne niż tabele, jawnie Twórz te obiekty. Uwzględnij ograniczenia (klucz podstawowy, klucz obcy i indeksy), widoki, funkcje, procedury, wyzwalacze i inne obiekty bazy danych, które chcesz migrować.
 - Podczas migrowania danych z zewnętrznych źródeł danych innych niż baza danych MySQL Utwórz pliki proste i zaimportuj je za pomocą [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> Zarówno jeden serwer, jak i elastyczny serwer obsługują *tylko aparat magazynu InnoDB*. Upewnij się, że wszystkie tabele w bazie danych korzystają z aparatu magazynu InnoDB podczas ładowania danych do usługi Azure Database for MySQL.
+> Zarówno jeden serwer, jak i elastyczny serwer obsługują tylko aparat magazynu InnoDB. Upewnij się, że wszystkie tabele w bazie danych korzystają z aparatu magazynu InnoDB podczas ładowania danych do usługi Azure Database for MySQL.
 >
 > Jeśli źródłowa baza danych korzysta z innego aparatu magazynu, przed migracją bazy danych przekonwertuj ją na aparat InnoDB. Na przykład jeśli masz aplikację WordPress lub Web, która korzysta z aparatu MyISAM, najpierw przekonwertuj tabele przez Migrowanie danych do tabel InnoDB. Użyj klauzuli, `ENGINE=INNODB` Aby ustawić aparat do tworzenia tabeli, a następnie Przenieś dane do zgodnej tabeli przed migracją.
 
@@ -127,7 +127,7 @@ Aby wyeksportować dane MySQL, można użyć okienka **Eksportowanie danych** .
 
 1. Wybierz obiekty bazy danych do wyeksportowania i skonfiguruj powiązane opcje.
 1. Wybierz pozycję **Odśwież** , aby załadować bieżące obiekty.
-1. Opcjonalnie wybierz pozycję **Opcje zaawansowane** w prawym górnym rogu, aby uściślić operację eksportowania. Na przykład Dodaj blokady tabeli, użyj zamiany zamiast instrukcji INSERT oraz identyfikatorów cudzysłowów z znakami kreski.
+1. Opcjonalnie wybierz pozycję **Opcje zaawansowane** w prawym górnym rogu, aby uściślić operację eksportowania. Na przykład Dodaj blokady tabeli, użyj `replace` instrukcji instead of `insert` , a w przypadku znaków cudzysłowu.
 1. Wybierz pozycję **Rozpocznij eksportowanie** , aby rozpocząć proces eksportowania.
 
 

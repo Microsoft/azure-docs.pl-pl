@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644653"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103814"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
 
@@ -201,7 +201,7 @@ Wydajność migawki magazynu ma wpływ na wiele czynników oprócz liczby plikó
 
 * Współbieżny dostęp do źródłowych i docelowych magazynów danych.  
 * Lokalizacja źródłowych i docelowych magazynów danych. 
-* W przypadku migawki przyrostowej liczba plików w udostępnionym zestawie danych może mieć wpływ na czas potrzebny do znalezienia listy plików o ostatniej modyfikacji czasu po ostatniej pomyślnej migawce. 
+* W przypadku migawki przyrostowej liczba plików w udostępnionym zestawie danych może mieć wpływ na czas potrzebny na znalezienie listy plików z czasem ostatniej modyfikacji po ostatniej pomyślnej migawce. 
 
 
 ## <a name="next-steps"></a>Następne kroki

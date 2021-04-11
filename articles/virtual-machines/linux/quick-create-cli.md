@@ -5,9 +5,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
 ms.custom:
 - mvc
@@ -15,18 +14,18 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: fd411255247e6a37b857ac11c1b0abbd4558d02a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e8c1a06244c46f5789506e8a77d410f5493bbf3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549774"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058582"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux za pomocą interfejsu wiersza polecenia platformy Azure
 
 Ten przewodnik Szybki Start przedstawia sposób wdrażania maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure. Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
 
-W ramach tego samouczka zostanie zainstalowany system Ubuntu 16.04 LTS. Aby zobaczyć działanie maszyny wirtualnej, należy nawiązać z nią połączenie przy użyciu protokołu SSH i zainstalować serwer internetowy NGINX.
+W tym samouczku zostanie zainstalowany najnowszy obraz Ubuntu LTS. Aby zobaczyć działanie maszyny wirtualnej, należy nawiązać z nią połączenie przy użyciu protokołu SSH i zainstalować serwer internetowy NGINX.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -88,10 +87,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
-Połącz się przez protokół SSH z maszyną wirtualną w zwykły sposób. Zastąp ciąg **publicIpAddress** publicznym adresem IP maszyny wirtualnej, jak wspomniano we wcześniejszych danych wyjściowych z maszyny wirtualnej:
+Połącz się przez protokół SSH z maszyną wirtualną w zwykły sposób. Zastąp adres IP w przykładzie tym publicznym adresem IP maszyny wirtualnej, jak pokazano w poprzednich danych wyjściowych:
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## <a name="install-web-server"></a>Instalowanie serwera internetowego

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 362704368958d2600d16cd907421917b824a59cb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108437"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256603"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ W podanych [zasadach TrustFrameworkExtensions](https://github.com/azure-ad-b2c/p
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Część 7 — Konfigurowanie zasad Azure AD B2C
 
-Zapoznaj się z tym [dokumentem](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet startowy kont lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) i skonfigurować [zasady](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) dla dzierżawy Azure AD B2C.
+Zapoznaj się z tym [dokumentem](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) , aby pobrać [pakiet startowy kont lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) i skonfigurować [zasady](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) dla dzierżawy Azure AD B2C.
 
 >[!NOTE]
 >Aktualizowanie podanych zasad w celu odłożenia względem określonej dzierżawy.
@@ -155,4 +155,4 @@ Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
 - [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

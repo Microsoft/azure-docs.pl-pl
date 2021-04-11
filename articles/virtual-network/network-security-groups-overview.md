@@ -14,12 +14,12 @@ ms.date: 09/08/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4e23c6f25145724a5300c9e5cdcb55431fb0b4f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d10c10d602dcfa8f83ee56c2755d800d76516ff1
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97028771"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058548"
 ---
 # <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 <a name="network-security-groups"></a>
@@ -37,7 +37,7 @@ Grupa zabezpieczeń sieci nie zawiera żadnych reguł lub dowolną liczbę regu�
 |Nazwa|Unikatowa nazwa w obrębie sieciowej grupy zabezpieczeń.|
 |Priorytet | Liczba z zakresu od 100 do 4096. Reguły są przetwarzane w kolejności priorytetów. Im niższy numer, tym wyższy priorytet, więc te o niższych numerach są przetwarzane przed tymi o wyższych numerach. Kiedy ruch jest zgodny z regułą, przetwarzanie zostaje zatrzymane. W związku z tym żadne istniejące reguły o niższych priorytetach (wyższych numerach), które mają takie same atrybuty jak reguły o wyższych priorytetach, nie będą przetwarzane.|
 |Obiekt źródłowy lub docelowy| Dowolny lub indywidualny adres IP, blok CIDR (na przykład 10.0.0.0/24), tag usługi lub grupa zabezpieczeń aplikacji. W przypadku określenia adresu dla zasobu platformy Azure należy określić prywatny adres IP przypisany do zasobu. W przypadku ruchu przychodzącego grupy zabezpieczeń sieci są przetwarzane po tym, jak platforma Azure przetłumaczy publiczny adres IP na prywatny adres IP, a w przypadku ruchu wychodzącego — zanim platforma Azure przetłumaczy prywatny adres IP na publiczny adres IP. . Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Możliwość określenia wielu poszczególnych adresów IP i zakresów (nie można określić wielu tagów usługi ani grup aplikacji) w regule nosi nazwę [rozszerzonych reguł zabezpieczeń](#augmented-security-rules). Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu adresów IP i zakresów adresów IP w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.|
-|Protokół     | TCP, UDP, ICMP lub dowolny.|
+|Protokół     | TCP, UDP, ICMP, ESP, AH lub any.|
 |Kierunek| Określa, czy reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego.|
 |Zakres portów     |Można określić pojedynczy port lub zakres portów. Na przykład można określić port 80 lub 10000–10005. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu portów lub zakresów portów w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.   |
 |Akcja     | Zezwolenie lub zablokowanie        |

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2020
-ms.openlocfilehash: b766ce248a3543ef3323e026d760e550a0e3dd75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/02/2021
+ms.openlocfilehash: 5efc27a1ad1a26c1ae50b6aecf250afef052e3de
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386683"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220542"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
 
@@ -187,6 +187,7 @@ Aby skopiować dane z SAP BW Otwórz Centrum, w sekcji **Źródło** działania 
 | typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SapOpenHubSource**. | Tak |
 | excludeLastRequest | Określa, czy mają zostać wykluczone rekordy ostatniego żądania. | Nie (wartość domyślna to **true**) |
 | baseRequestId | Identyfikator żądania dla ładowania różnicowego. Po jego ustawieniu zostaną pobrane tylko dane z identyfikatorem żądania **większym niż** wartość tej właściwości.  | Nie |
+| customRfcReadTableFunctionModule | Niestandardowy moduł funkcji RFC, który może służyć do odczytywania danych z tabeli SAP. <br/> Możesz użyć niestandardowego modułu funkcji RFC, aby określić, jak dane są pobierane z systemu SAP i zwracane do Data Factory. Moduł funkcji niestandardowych musi mieć zaimplementowany interfejs (import, eksport, tabele) podobny do `/SAPDS/RFC_READ_TABLE2` , który jest domyślnym interfejsem używanym przez Data Factory. | Nie |
 
 >[!TIP]
 >Jeśli otwarta tabela centrów zawiera tylko dane wygenerowane przez pojedynczy identyfikator żądania, na przykład zawsze należy wykonać pełne ładowanie i zastąpić istniejące dane w tabeli, lub uruchomić DTP tylko raz dla testu, pamiętaj o usunięciu zaznaczenia opcji "excludeLastRequest" w celu skopiowania danych.

@@ -3,12 +3,12 @@ title: Korzystanie z metod bezpośrednich w analizie wideo na żywo na IoT Edge 
 description: Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod bezpośrednich. Metody bezpośrednie są oparte na konwencjach opisanych w tym temacie.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56fbf565af45a9b3877ff8d6c48a56713ddc3da6
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656244"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076993"
 ---
 # <a name="direct-methods"></a>Metody bezpośrednie
 
@@ -381,7 +381,7 @@ Kluczowe aspekty:
 | Błędy walidacji wykresu | 400 | GraphValidationError |
 | Błędy sprawdzania poprawności modułu | 400 | ModuleValidationError |
 | Błędy sprawdzania poprawności zasobów | 409 | ResourceValidationError |
-| Ogólne błędy serwera | 500 zakresu |  |  |
+| Ogólne błędy serwera | 500 zakresu |  | 
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 

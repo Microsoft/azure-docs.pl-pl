@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 04/05/2021
 ms.author: zhchia
-ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 809b32fcf6f39ba9dec2980a79e8824e282b54b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96179260"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450093"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Fuze na potrzeby automatycznego aprowizacji użytkowników
 
@@ -144,6 +144,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 
 * Fuze obsługuje niestandardowe atrybuty Standard scim o nazwie **uprawnienia**. Te atrybuty można tworzyć i nie aktualizować. 
+* Interfejs API Fuze Standard scim nie obsługuje filtrowania atrybutu userName. W związku z tym podczas próby zsynchronizowania istniejącego użytkownika, który nie ma atrybutu nazwy użytkownika, może wystąpić błąd w dziennikach, ale istnieje wiadomość e-mail odpowiadająca elementowi userPrincipalName w usłudze Azure AD. 
 
 ## <a name="change-log"></a>Dziennik zmian
 

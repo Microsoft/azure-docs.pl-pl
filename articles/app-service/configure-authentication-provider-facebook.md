@@ -3,16 +3,16 @@ title: Konfigurowanie uwierzytelniania w usłudze Facebook
 description: Dowiedz się, jak skonfigurować uwierzytelnianie w serwisie Facebook jako dostawcę tożsamości dla aplikacji App Service lub Azure Functions.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc639eaea76b3309d6ed047e73c726040da19639
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80519956"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078013"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania w serwisie Facebook
 
@@ -52,29 +52,24 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w serwisie F
 
 ## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji w serwisie Facebook do aplikacji
 
-1. Zaloguj się do [Azure Portal] i przejdź do aplikacji App Service.
-1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja** i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
-1. Wybierz pozycję **Facebook**, a następnie wklej wartości w polu Identyfikator aplikacji i klucz tajny aplikacji, które zostały uzyskane wcześniej. Włącz wszystkie zakresy wymagane przez aplikację.
-1. Wybierz przycisk **OK**.
+1. Zaloguj się do [Azure Portal] i przejdź do swojej aplikacji.
+1. W menu po lewej stronie wybierz pozycję **uwierzytelnianie** . Kliknij pozycję **Dodaj dostawcę tożsamości**.
+1. Wybierz pozycję **Facebook** na liście rozwijanej dostawca tożsamości. Wklej wartości identyfikatora aplikacji i klucza tajnego aplikacji, które zostały uzyskane wcześniej.
 
-   ![Zrzut ekranu ustawień serwisu Facebook aplikacji mobilnych][0]
+    Wpis tajny będzie przechowywany jako [ustawienie aplikacji](./configure-common.md#configure-app-settings) do gniazd-Sticky o nazwie `FACEBOOK_PROVIDER_AUTHENTICATION_SECRET` . Możesz później zaktualizować to ustawienie, aby użyć [odwołań Key Vault](./app-service-key-vault-references.md) , jeśli chcesz zarządzać wpisem tajnym w programie Azure Key Vault.
 
-    Domyślnie App Service zapewnia uwierzytelnianie, ale nie ogranicza uprawnień dostępu do zawartości i interfejsów API witryny. Musisz autoryzować użytkowników w kodzie aplikacji.
-1. Obowiązkowe Aby ograniczyć dostęp tylko do użytkowników uwierzytelnionych przez serwis Facebook, ustaw **akcję do wykonania, gdy żądanie nie zostanie uwierzytelnione** do **serwisu Facebook**. Po ustawieniu tej funkcji aplikacja wymaga uwierzytelnienia wszystkich żądań. Przekierowuje także wszystkie nieuwierzytelnione żądania do usługi Facebook w celu uwierzytelnienia.
+1. Jeśli jest to pierwszy dostawca tożsamości skonfigurowany dla aplikacji, zostanie wyświetlony monit z sekcją **Ustawienia uwierzytelniania App Service** . W przeciwnym razie możesz przejść do następnego kroku.
+    
+    Te opcje określają, w jaki sposób aplikacja reaguje na nieuwierzytelnione żądania, a wybór domyślny spowoduje przekierowanie wszystkich żądań logowania za pomocą tego nowego dostawcy. Możesz zmienić to zachowanie Dostosuj teraz lub dostosować te ustawienia później na głównym ekranie **uwierzytelniania** , wybierając pozycję **Edytuj** obok pozycji **Ustawienia uwierzytelniania**. Aby dowiedzieć się więcej na temat tych opcji, zobacz [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
 
-   > [!CAUTION]
-   > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być pożądane dla aplikacji, które mają publicznie dostępną stronę główną, tak jak w przypadku aplikacji jednostronicowych. W przypadku takich aplikacji **Zezwalanie na żądania anonimowe (żadna akcja)** może być preferowana, aby aplikacja ręcznie uruchamiała sam uwierzytelnienie. Aby uzyskać więcej informacji, zobacz temat [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
+1. Obowiązkowe Kliknij przycisk **Dalej: zakresy** i Dodaj zakresy potrzebne aplikacji. Będą one wymagane w czasie logowania dla przepływów opartych na przeglądarce.
+1. Kliknij pozycję **Dodaj**.
 
-1. Wybierz pozycję **Zapisz**.
-
-Możesz teraz przystąpić do uwierzytelniania w aplikacji za pomocą usługi Facebook.
+Możesz teraz przystąpić do uwierzytelniania w aplikacji za pomocą usługi Facebook. Dostawca zostanie wyświetlony na liście na ekranie **uwierzytelniania** . W tym miejscu możesz edytować lub usunąć tę konfigurację dostawcy.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-[0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
 
 <!-- URLs. -->
 [Deweloperzy serwisu Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286

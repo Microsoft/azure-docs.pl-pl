@@ -1,198 +1,88 @@
 ---
-title: Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
+title: Włączanie usuwania nietrwałego dla obiektów blob
 titleSuffix: Azure Storage
-description: Włącz nietrwałe usuwanie obiektów blob, aby ułatwić odzyskiwanie danych w przypadku ich błędnego zmodyfikowania lub usunięcia.
+description: Włącz nietrwałe usuwanie obiektów BLOB w celu ochrony danych obiektów BLOB przed przypadkowym usunięciem lub zastępowaniem.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: c89e42736f5b8de65ed93ccb57f8d034d4240bc8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 11323f2aec05935b9dc45187ed54597e61af924d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729086"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554125"
 ---
-# <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
+# <a name="enable-soft-delete-for-blobs"></a>Włączanie usuwania nietrwałego dla obiektów blob
 
-Usuwanie nietrwałe obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Po włączeniu usuwania nietrwałego obiektów BLOB dla konta magazynu, obiektów blob, wersji obiektów blob i migawek w ramach tego konta magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
+Usuwanie nietrwałe obiektów BLOB chroni pojedynczy obiekt BLOB, jego wersje, migawki i metadane przed przypadkowym usunięciem lub zastępowaniem przez utrzymywanie usuniętych danych w systemie przez określony czas. W okresie przechowywania można przywrócić obiekt BLOB do jego stanu podczas usuwania. Po upływie okresu przechowywania obiekt BLOB zostanie trwale usunięty. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md).
 
-Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego obiektu BLOB. W tym artykule pokazano, jak włączyć usuwanie nietrwałe dla obiektów BLOB. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md).
-
-Aby dowiedzieć się, jak włączyć opcję usuwania nietrwałego dla kontenerów, zobacz [Włączanie i zarządzanie usuwaniem nietrwałym dla kontenerów](soft-delete-container-enable.md).
+Usuwanie nietrwałe obiektów BLOB jest częścią kompleksowej strategii ochrony danych obiektów BLOB. Aby dowiedzieć się więcej na temat zaleceń firmy Microsoft dotyczących ochrony danych, zobacz [Omówienie ochrony danych](data-protection-overview.md).
 
 ## <a name="enable-blob-soft-delete"></a>Włącz usuwanie nietrwałe obiektów BLOB
 
+Usuwanie nietrwałe obiektów BLOB jest domyślnie wyłączone dla nowego konta magazynu. Można włączyć lub wyłączyć usuwanie nietrwałe dla konta magazynu w dowolnym momencie przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Włącz usuwanie nietrwałe dla obiektów BLOB na koncie magazynu przy użyciu Azure Portal:
+Aby włączyć usuwanie nietrwałe obiektów BLOB dla konta magazynu przy użyciu Azure Portal, wykonaj następujące czynności:
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) przejdź do swojego konta magazynu.
 1. Znajdź opcję **ochrony danych** w obszarze **BLOB Service**.
-1. Ustaw właściwość **usuwania nietrwałego obiektu BLOB** na wartość *włączone*.
-1. W obszarze **zasady przechowywania** Określ, jak długo usuwane nietrwałe obiekty blob są przechowywane przez usługę Azure Storage.
+1. W sekcji **odzyskiwanie** wybierz pozycję **Włącz usuwanie nietrwałe dla obiektów BLOB**.
+1. Określ okres przechowywania od 1 do 365 dni. Firma Microsoft zaleca minimalny okres przechowywania wynoszący siedem dni.
 1. Zapisz zmiany.
 
-![Zrzut ekranu witryny Azure Portal z wybraną usługą obiektów BLOB ochrony danych.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
-
-Aby wyświetlić nietrwałe usunięte obiekty blob, zaznacz pole wyboru **Pokaż usunięte obiekty blob** .
-
-![Zrzut ekranu strony usługi obiektów BLOB ochrony danych z wyróżnioną opcją Pokaż usunięte obiekty blob.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
-
-Aby wyświetlić nietrwałe usunięte migawki dla danego obiektu BLOB, wybierz obiekt BLOB, a następnie kliknij pozycję **Wyświetl migawki**.
-
-![Zrzut ekranu strony usługi obiektów BLOB ochrony danych z wyróżnioną opcją Wyświetl migawki.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
-
-Upewnij się, że zaznaczone jest pole wyboru **Pokaż usunięte migawki** .
-
-![Zrzut ekranu strony wyświetlanie migawek z wyróżnioną opcją Pokaż usunięte obiekty blob.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
-
-Po kliknięciu nietrwałego usuniętego obiektu BLOB lub migawki Zwróć uwagę na nowe właściwości obiektu BLOB. Wskazują one, kiedy obiekt został usunięty i ile dni pozostało do momentu stałego wygaśnięcia migawki obiektu BLOB lub obiektu BLOB. Jeśli niewygładzony obiekt usunięty nie jest migawką, będzie również można cofnąć jego usunięcie.
-
-![Zrzut ekranu przedstawiający szczegóły usuniętego obiektu nietrwałego.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-properties.png)
-
-Należy pamiętać, że usunięcie obiektu BLOB spowoduje również cofnięcie usunięcia wszystkich skojarzonych migawek. Aby cofnąć usunięcie nieusuniętych migawek nietrwałych dla aktywnego obiektu BLOB, kliknij obiekt BLOB i wybierz pozycję **Cofnij usunięcie wszystkich migawek**.
-
-![Zrzut ekranu przedstawiający szczegóły nietrwałego usuniętego obiektu BLOB.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
-
-Po cofnięciu usunięcia migawek obiektu BLOB można kliknąć pozycję **Podwyższ poziom** , aby skopiować migawkę na głównym obiekcie blob, a tym samym przywrócić obiekt BLOB do migawki.
-
-![Zrzut ekranu przedstawiający stronę wyświetlanie migawek z wyróżnioną opcją podwyższania poziomu.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+:::image type="content" source="media/soft-delete-blob-enable/blob-soft-delete-configuration-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usuwania nietrwałego w Azure Portal":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Aby włączyć usuwanie nietrwałe obiektów BLOB za pomocą programu PowerShell, wywołaj polecenie [enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) , określając okres przechowywania w dniach.
 
-Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów BLOB. Poniższy przykład umożliwia usuwanie nietrwałe dla podzbioru kont w ramach subskrypcji:
+Poniższy przykład umożliwia usunięcie nietrwałego obiektu BLOB i ustawia okres przechowywania na siedem dni. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
-```powershell
-Set-AzContext -Subscription "<subscription-name>"
-$MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
-$MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
+```azurepowershell
+Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -RetentionDays 7
 ```
 
-Można sprawdzić, czy usuwanie nietrwałe zostało włączone przy użyciu następującego polecenia:
+Aby sprawdzić bieżące ustawienia dla usuwania nietrwałego obiektu BLOB, wywołaj polecenie [Get-AzStorageBlobServiceProperty](/powershell/module/az.storage/get-azstorageblobserviceproperty) :
 
-```powershell
-$MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
-```
-
-Aby odzyskiwać obiekty blob przypadkowo usunięte, wywołaj metodę **Undelete BLOB na tych obiektach** BLOB. Należy pamiętać, że wywoływanie **usuwania obiektów BLOB**, zarówno aktywnych, jak i nietrwałych usuniętych obiektów blob, spowoduje przywrócenie wszystkich skojarzonych nietrwałych migawek usuniętych jako aktywne. Poniższy przykład wywołuje **cofanie usunięcia obiektu BLOB** dla wszystkich nietrwałych usuniętych i aktywnych obiektów BLOB w kontenerze:
-
-```powershell
-# Create a context by specifying storage account name and key
-$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-# Get the blobs in a given container and show their properties
-$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
-$Blobs.ICloudBlob.Properties
-
-# Undelete the blobs
-$Blobs.ICloudBlob.Undelete()
-```
-Aby znaleźć bieżące zasady przechowywania nietrwałego usuwania, użyj następującego polecenia:
-
-```azurepowershell-interactive
-   $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
+```azurepowershell
+$properties = Get-AzStorageBlobServiceProperty -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$properties.DeleteRetentionPolicy.Enabled
+$properties.DeleteRetentionPolicy.Days
 ```
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-CLI)
 
-Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
+Aby włączyć usuwanie nietrwałe obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage account BLOB-Service-Properties Update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) , określając okres przechowywania w dniach.
+
+Poniższy przykład umożliwia usunięcie nietrwałego obiektu BLOB i ustawia okres przechowywania na siedem dni. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```azurecli-interactive
-az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+az storage account blob-service-properties update --account-name <storage-account> \
+    --resource-group <resource-group> \
+    --enable-delete-retention true \
+    --delete-retention-days 7
 ```
 
-Aby sprawdzić, czy usuwanie nietrwałe jest włączone, użyj następującego polecenia: 
+Aby sprawdzić bieżące ustawienia dla usuwania nietrwałego obiektu BLOB, wywołaj polecenie [AZ Storage account BLOB-Service-Properties show](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_show) :
 
 ```azurecli-interactive
-az storage blob service-properties delete-policy show --account-name mystorageaccount 
+az storage account blob-service-properties show --account-name <storage-account> \
+    --resource-group <resource-group>
 ```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
-
-```python
-# Make the requisite imports
-from azure.storage.blob import BlockBlobService
-from azure.storage.common.models import DeleteRetentionPolicy
-
-# Initialize a block blob service
-block_blob_service = BlockBlobService(
-    account_name='<enter your storage account name>', account_key='<enter your storage account key>')
-
-# Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(
-    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
-```
-
-# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
-
-Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
-
-Aby odzyskać obiekty blob, które zostały przypadkowo usunięte, wywołaj Cofnięcie usunięcia na tych obiektach Blob. Należy pamiętać, że wywołanie **cofnięcia usunięcia**, zarówno w aktywnych, jak i niemiękkich obiektach Blob, spowoduje przywrócenie wszystkich skojarzonych nietrwałych migawek usuniętych jako aktywne. Poniższy przykład wywołuje Cofnięcie usunięcia wszystkich nietrwałych usuniętych i aktywnych obiektów BLOB w kontenerze:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
-
-Aby odzyskać do określonej wersji obiektu BLOB, najpierw Wywołaj metodę Undelete na obiekcie blob, a następnie skopiuj żądaną migawkę na obiekt BLOB. Poniższy przykład odzyskuje blokowy obiekt BLOB do ostatnio wygenerowanej migawki:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
-
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
-
-Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
-
-```csharp
-// Get the blob client's service property settings
-ServiceProperties serviceProperties = blobClient.GetServiceProperties();
-
-// Configure soft delete
-serviceProperties.DeleteRetentionPolicy.Enabled = true;
-serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
-
-// Set the blob client's service property settings
-blobClient.SetServiceProperties(serviceProperties);
-```
-
-Aby odzyskiwać obiekty blob przypadkowo usunięte, wywołaj metodę **Undelete BLOB na tych obiektach** BLOB. Należy pamiętać, że wywoływanie **usuwania obiektów BLOB**, zarówno aktywnych, jak i nietrwałych usuniętych obiektów blob, spowoduje przywrócenie wszystkich skojarzonych nietrwałych migawek usuniętych jako aktywne. Poniższy przykład wywołuje **cofanie usunięcia obiektu BLOB** dla wszystkich usuniętych nietrwałych i aktywnych obiektów BLOB w kontenerze:
-
-```csharp
-// Recover all blobs in a container
-foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobListingDetails: BlobListingDetails.Deleted))
-{
-       await blob.UndeleteAsync();
-}
-```
-
-Aby odzyskać do określonej wersji obiektu BLOB, najpierw Wywołaj operację **cofania usuwania obiektu BLOB** , a następnie skopiuj żądaną migawkę na obiekt BLOB. Poniższy przykład odzyskuje blokowy obiekt BLOB do ostatnio wygenerowanej migawki:
-
-```csharp
-// Undelete
-await blockBlob.UndeleteAsync();
-
-// List all blobs and snapshots in the container prefixed by the blob name
-IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
-    prefix: blockBlob.Name, useFlatBlobListing: true, blobListingDetails: BlobListingDetails.Snapshots);
-
-// Restore the most recently generated snapshot to the active blob
-CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
-    ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
-blockBlob.StartCopy(copySource);
-```  
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Usuwanie nietrwałe dla magazynu obiektów BLOB](./soft-delete-blob-overview.md)
-- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
+- [Usuwanie nietrwałe dla obiektów blob](soft-delete-blob-overview.md)
+- [Zarządzanie i przywracanie nietrwałych usuniętych obiektów BLOB](soft-delete-blob-manage.md)

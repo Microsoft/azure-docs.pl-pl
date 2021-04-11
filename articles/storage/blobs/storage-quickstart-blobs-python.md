@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Azure Blob Storage Library V12 — Python'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć kontener i obiekt BLOB w magazynie obiektów BLOB (Object) przy użyciu biblioteki klienta Blob Storage platformy Azure w wersji 12 dla języka Python. Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać listę wszystkich obiektów blob w kontenerze.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/28/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: cb71d70f6869cc539702426a245aa7e7cd965913
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5d56b20bec7e668bb2119c9174fe03278c805c1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800554"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278018"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python
 

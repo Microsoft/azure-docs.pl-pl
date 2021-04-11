@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066215"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220712"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Uruchamianie notesów Jupyter w obszarze roboczym
 
@@ -46,16 +46,19 @@ Na pasku narzędzi notesu można również uruchomić Jupyter lub JupyterLab.  A
 
 Użyj trybu koncentracji uwagi, aby rozwinąć bieżący widok, dzięki czemu możesz skupić się na aktywnych kartach. Tryb koncentracji uwagi powoduje ukrycie Eksploratora plików notesów.
 
-1. Na pasku narzędzi okna terminalu wybierz **tryb koncentracji uwagi** , aby włączyć tryb koncentracji uwagi. W zależności od szerokości okna może się to znajdować w elemencie menu **...** na pasku narzędzi.
+1. Na pasku narzędzi okna terminalu wybierz **tryb koncentracji uwagi** , aby włączyć tryb koncentracji uwagi. W zależności od szerokości okna Narzędzie może znajdować się w elemencie menu **...** na pasku narzędzi.
 1. W trybie koncentracji uwagi Wróć do widoku standardowego, wybierając pozycję **widok standardowy**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Przełącz tryb koncentracji uwagi/widok standardowy":::
 
 ## <a name="code-completion-intellisense"></a>Uzupełnianie kodu (IntelliSense)
 
-[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Te funkcje pozwalają dowiedzieć się więcej o kodzie, którego używasz, śledzić parametry, które wpisujesz, i dodawać wywołania do właściwości i metod za pomocą tylko kilku naciśnięć klawiszy.  
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Tylko kilka naciśnięć klawiszy można:
+* Dowiedz się więcej o kodzie, którego używasz
+* Śledź parametry, które wpisujesz
+* Dodawanie wywołań do właściwości i metod 
 
-### <a name="use-code-snippets-preview"></a>Użyj fragmentów kodu (wersja zapoznawcza)
+### <a name="insert-code-snippets-preview"></a>Wstaw fragmenty kodu (wersja zapoznawcza)
 
 Użyj **klawiszy CTRL + SPACJA** , aby wyzwolić fragmenty kodu IntelliSense.  Przewiń sugestie lub zacznij pisać, aby znaleźć kod, który chcesz wstawić.  Po wstawieniu kodu, tabulatora przez argumenty, aby dostosować kod do własnego użytku.
 
@@ -67,7 +70,7 @@ Możesz przeglądać i przeszukiwać listę fragmentów kodu za pomocą paska na
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Otwórz narzędzie panel fragmentów na pasku narzędzi notesu":::
 
-Z panelu fragmenty kodu można także przesłać żądanie dodania nowych fragmentów kodu.
+W panelu fragmenty kodu można także przesłać żądanie dodania nowych fragmentów kodu.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Panel fragment kodu umożliwia zaproponowanie nowego fragmentu kodu":::
 
@@ -285,8 +288,8 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * Jeśli nie możesz połączyć się z notesem, upewnij się, że komunikacja gniazda internetowego **nie** jest wyłączona. Aby można było korzystać z funkcji Jupyter wystąpienia obliczeniowego, musi być włączona komunikacja między gniazdami sieci Web. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms. 
-
 * Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można [uzyskać do niego dostęp tylko z poziomu sieci wirtualnej](./how-to-secure-training-vnet.md#compute-instance). Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla < nazwa wystąpienia >. < regionu >. instances.azureml.ms z prywatnym adresem IP obszaru prywatnego punktu roboczego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](./how-to-custom-dns.md?tabs=azure-cli) .
+
     
 ## <a name="next-steps"></a>Następne kroki
 

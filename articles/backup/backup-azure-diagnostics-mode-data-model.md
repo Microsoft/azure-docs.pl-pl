@@ -3,12 +3,12 @@ title: Model danych dzienników Azure Monitor
 description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Analytics szczegóły modelu danych Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2682bf0483b38c50e64bf4ec5255c89f931ab0f0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500992"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078914"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
 
@@ -199,9 +199,9 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | MonthlyRetentionDaysOfTheWeek_s |Tekst ||Dni tygodnia wybrane do przechowywania miesięcznie |
 | MonthlyRetentionWeeksOfTheMonth_s |Tekst ||Tygodnie miesiąca, w którym jest skonfigurowane przechowywanie miesięczne, na przykład First, Last |
 | YearlyRetentionDuration_s |Liczba dziesiętna ||Łączny czas przechowywania w latach dla skonfigurowanych kopii zapasowych |
-| YearlyRetentionTimes_s |Tekst ||Data i godzina skonfigurowania okresu przechowywania rocznego |
-| YearlyRetentionMonthsOfTheYear_s |Tekst ||Miesiąc roku wybranego do przechowywania rocznego |
-| YearlyRetentionFormat_s |Tekst ||Typ konfiguracji do przechowywania rocznego, na przykład dziennie na podstawie dnia, co tydzień w oparciu o tydzień | |
+| YearlyRetentionTimes_s |Tekst | | Data i godzina skonfigurowania okresu przechowywania rocznego |
+| YearlyRetentionMonthsOfTheYear_s |Tekst | | Miesiąc roku wybranego do przechowywania rocznego |
+| YearlyRetentionFormat_s |Tekst ||Typ konfiguracji do przechowywania rocznego, na przykład dziennie na podstawie dnia, co tydzień w oparciu o tydzień |
 | YearlyRetentionDaysOfTheMonth_s |Tekst ||Daty w miesiącu wybrane do przechowywania rocznego |
 | SynchronisationFrequencyPerDay_s |Liczbowy całkowity |v2|Liczba przypadków synchronizacji kopii zapasowej plików dla programu SC DPM i serwera usługi MAB |
 | DiffBackupFormat_s |Tekst |v2|Format różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |

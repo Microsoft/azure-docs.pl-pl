@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc803814e493ffef6f5928dc9971f9f6f864342d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102619158"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221742"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -394,6 +394,16 @@ W przypadku korzystania z jednostki SKU V1 usługi Application Gateway/WAF nale�
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [tutaj](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers).
 
 Jeśli używasz jednostki SKU w wersji 2 usługi Application Gateway/WAF, nie musisz przekazywać nowego certyfikatu w ustawieniach protokołu HTTP, ponieważ jednostka SKU w wersji 2 używa "zaufanych certyfikatów głównych" i nie trzeba wykonywać żadnych czynności w tym miejscu.
+
+## <a name="configuration---mutual-authentication"></a>Konfiguracja — uwierzytelnianie wzajemne
+
+### <a name="what-is-mutual-authentication"></a>Co to jest wzajemne uwierzytelnianie?
+
+Uwierzytelnianie obustronne jest uwierzytelnianiem dwukierunkowym między klientem a serwerem. Uwierzytelnianie wzajemne przy użyciu Application Gateway obecnie umożliwia bramie zweryfikowanie klienta wysyłającego żądanie, które jest uwierzytelnianiem klienta. Zazwyczaj klient jest jedynym, który uwierzytelnia Application Gateway. Ponieważ Application Gateway mogą teraz także uwierzytelniać klienta, będzie on wzajemnie uwierzytelniany, w którym Application Gateway i klient wzajemnie uwierzytelnia się. 
+
+### <a name="is-mutual-authentication-available-between-application-gateway-and-its-backend-pools"></a>Czy wzajemne uwierzytelnianie jest dostępne między Application Gateway a jego pulami zaplecza?
+
+Nie, wzajemne uwierzytelnianie jest obecnie tylko między klientem frontonu a Application Gateway. Wzajemne uwierzytelnianie wewnętrznej bazy danych nie jest obecnie obsługiwane.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Konfiguracja — kontroler ruchu przychodzącego dla AKS
 

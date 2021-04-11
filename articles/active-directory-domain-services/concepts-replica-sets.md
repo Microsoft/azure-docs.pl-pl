@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/30/2021
 ms.author: justinha
-ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bcd3ebef027ec72728be21b0fe1504236f553ba
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689066"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058174"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>Funkcja Replica ustawia koncepcje i funkcje Azure Active Directory Domain Services
 
@@ -54,7 +54,7 @@ Poniższy przykład przedstawia domenę zarządzaną z trzema zestawami replik w
 
 Domyślną *jednostką* SKU dla domeny zarządzanej jest jednostka SKU przedsiębiorstwa, która obsługuje wiele zestawów replik. Aby utworzyć dodatkowe zestawy replik w przypadku zmiany *standardowej* jednostki SKU, należy [uaktualnić domenę zarządzaną](change-sku.md) do *wersji Enterprise* lub *Premium*.
 
-Obsługiwana Maksymalna liczba zestawów replik to cztery, łącznie z pierwszą repliką utworzoną podczas tworzenia domeny zarządzanej.
+Maksymalna liczba zestawów replik wynosi pięć, łącznie z pierwszą repliką utworzoną podczas tworzenia domeny zarządzanej.
 
 Rozliczenia dla każdego zestawu replik bazują na JEDNOSTKAch konfiguracji domeny. Na przykład jeśli masz domenę zarządzaną, która korzysta z jednostki SKU *przedsiębiorstwa* i masz trzy zestawy replik, subskrypcja jest rozliczana za godzinę dla każdego z trzech zestawów replik.
 
@@ -66,7 +66,7 @@ Nie. Zestawy replik muszą znajdować się w tej samej subskrypcji co domena zar
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Ile zestawów replik można utworzyć?
 
-Można utworzyć maksymalnie cztery zestawy replik — początkową replikę dla domeny zarządzanej oraz trzy dodatkowe zestawy replik.
+Można utworzyć maksymalnie pięć zestawów replik — początkowy zestaw replik dla domeny zarządzanej oraz cztery dodatkowe zestawy replik.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Jak informacje o użytkownikach i grupach są synchronizowane z zestawami replik?
 

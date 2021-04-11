@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261dceb70a6059c76dbe3bd1d7636eee5d9d77bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5037450d401153811899b8d769ca92af7ce4068e
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936295"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103780"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
 
@@ -25,7 +25,7 @@ Poza zarządzaniem wystąpieniem usługi Azure Digital bliźniaczych reprezentac
 * Zarządzanie [trasami](concepts-route-events.md)
 * Konfigurowanie [zabezpieczeń](concepts-security.md) za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC)
 
-Zestaw poleceń jest wywoływany **AZ DT** i jest częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension). Pełną listę poleceń i ich użycia można wyświetlić jako część dokumentacji referencyjnej dotyczącej `az iot` zestawu poleceń: [ *AZ DT* Command Reference](/cli/azure/ext/azure-iot/dt).
+Zestaw poleceń jest wywoływany **AZ DT** i jest częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension). Pełną listę poleceń i ich użycia można wyświetlić jako część dokumentacji referencyjnej dotyczącej `az iot` zestawu poleceń: [ *AZ DT* Command Reference](/cli/azure/dt).
 
 ## <a name="uses-deploy-and-validate"></a>Używa (Wdróż i Weryfikuj)
 
@@ -61,4 +61,4 @@ az extension add --upgrade -n azure-iot
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z interfejsem wiersza polecenia i jego pełnym zestawem poleceń, korzystając z dokumentacji referencyjnej:
-* [polecenie *AZ DT* Command Reference](/cli/azure/ext/azure-iot/dt)
+* [polecenie *AZ DT* Command Reference](/cli/azure/dt)

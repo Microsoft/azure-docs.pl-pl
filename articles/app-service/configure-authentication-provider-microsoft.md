@@ -3,16 +3,16 @@ title: Konfigurowanie uwierzytelniania firmy Microsoft
 description: Dowiedz się, jak skonfigurować uwierzytelnianie konta Microsoft jako dostawcę tożsamości dla aplikacji App Service lub Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 9ec9c102680496407106a3bf9b7683890c7a63ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e7b4c7ed1950b2fa585639a3097cc1f5688d739
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93043240"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077952"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do konta Microsoft
 
@@ -20,8 +20,8 @@ ms.locfileid: "93043240"
 
 W tym temacie opisano sposób konfigurowania Azure App Service lub Azure Functions do korzystania z usługi AAD do obsługi osobistych logowań konto Microsoft.
 
-> [!NOTE]
-> Zarówno osobiste konta Microsoft, jak i konta organizacji korzystają z dostawcy tożsamości usługi AAD. W tej chwili nie jest możliwe skonfigurowanie tego dostawcy tożsamości w taki sposób, aby obsługiwał oba typy logowań.
+> [!IMPORTANT]
+> Mimo że dostawca kont Microsoft jest nadal obsługiwany, zaleca się, aby aplikacje korzystały z [dostawcy platformy tożsamości firmy Microsoft (Azure AD)](./configure-authentication-provider-aad.md). Platforma tożsamości firmy Microsoft oferuje obsługę kont organizacji i osobistych kont Microsoft.
 
 ## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Zarejestruj aplikację na koncie Microsoft
 

@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
-ms.openlocfilehash: 84077f174fabd02afcd5171e8d365e8cbd3a52c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e709b04b4eac60e6cc0ba3e53eb77583162dfef
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027737"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078897"
 ---
 # <a name="use-the-azure-portal-to-manage-network-interfaces-on-the-vms-on-your-azure-stack-edge-pro-gpu"></a>Użyj Azure Portal do zarządzania interfejsami sieciowymi na maszynach wirtualnych na urządzeniach z systemem Azure Stack EDGE Pro GPU
 
@@ -40,7 +39,7 @@ Urządzenie obsługuje tylko jeden przełącznik wirtualny, ale wiele interfejs�
 
 Przed rozpoczęciem zarządzania maszynami wirtualnymi na urządzeniu za pośrednictwem Azure Portal upewnij się, że:
 
-1. Włączono interfejs sieciowy do obliczeń na urządzeniu. Ta akcja powoduje utworzenie przełącznika wirtualnego dla tego interfejsu sieciowego na maszynie wirtualnej. 
+1. Masz dostęp do aktywowanego urządzenia GPU z usługą Azure Stack Edge. Włączono interfejs sieciowy do obliczeń na urządzeniu. Ta akcja powoduje utworzenie przełącznika wirtualnego dla tego interfejsu sieciowego na maszynie wirtualnej. 
     1. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **obliczenia**. Wybierz interfejs sieciowy, który zostanie użyty do utworzenia przełącznika wirtualnego.
 
         > [!IMPORTANT] 

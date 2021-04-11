@@ -4,16 +4,16 @@ description: Opisuje koncepcję hierarchicznej przestrzeni nazw dla Azure Data L
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 26062d73ae4c61af77b15dd2cac0541f2a988d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de7f62dd4d4205e819278e6dc90d905e825580f2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912998"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220508"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 hierarchiczna przestrzeń nazw
 
@@ -44,6 +44,10 @@ Ogólnie rzecz biorąc zalecamy włączenie hierarchicznej przestrzeni nazw dla 
 Przyczyny włączenia hierarchicznej przestrzeni nazw są określane przez analizę całkowitego kosztu posiadania. Ogólnie mówiąc, ulepszenia opóźnienia obciążenia ze względu na przyspieszenie magazynu wymagają zasobów obliczeniowych w krótszym czasie. Opóźnienie wielu obciążeń może być ulepszone ze względu na manipulowanie katalogiem, który jest włączony przez hierarchiczną przestrzeń nazw. W wielu obciążeniach zasób obliczeniowy reprezentuje > 85% łącznego kosztu, a więc nawet nieznacznie zmniejszanie opóźnień obciążenia jest równe znacznej ilości oszczędności kosztów. Nawet w przypadkach, gdy włączenie hierarchicznej przestrzeni nazw zwiększa koszty magazynowania, całkowity koszt posiadania jest nadal obniżony ze względu na zmniejszenie kosztów obliczeniowych.
 
 Aby analizować różnice w cenach magazynu danych, cenach transakcji i cenach rezerwacji pojemności magazynu między kontami, które mają płaską hierarchiczną przestrzeń nazw, a hierarchiczną przestrzenią nazw, zobacz [Azure Data Lake Storage Gen2 Cennik](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+
+## <a name="enabling-a-hierarchical-namespace"></a>Włączanie hierarchicznej przestrzeni nazw
+
+Nie można włączyć hierarchicznej przestrzeni nazw na istniejącym koncie magazynu. Hierarchiczną przestrzeń nazw można włączyć tylko podczas tworzenia konta magazynu. Aby uzyskać wskazówki, zobacz [Tworzenie konta magazynu, które ma być używane z Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

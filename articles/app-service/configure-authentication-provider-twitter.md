@@ -3,16 +3,16 @@ title: Konfigurowanie uwierzytelniania w usłudze Twitter
 description: Dowiedz się, jak skonfigurować uwierzytelnianie w usłudze Twitter jako dostawcę tożsamości dla aplikacji App Service lub Azure Functions.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ecce954991d9f3901c54a6f87fc803b32469862
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80519910"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077979"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do usługi Twitter
 
@@ -34,38 +34,28 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w usłudze T
    - Klucz interfejsu API
    - Klucz tajny interfejsu API
 
-   > [!NOTE]
+   > [!IMPORTANT]
    > Klucz tajny interfejsu API jest ważnym poświadczeniem zabezpieczeń. Nie należy udostępniać tego klucza tajnego nikomu ani rozpowszechniać go wraz z Twoją aplikacją.
 
 ## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji usługi Twitter do aplikacji
 
-1. Przejdź do aplikacji w [Azure Portal].
-1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja** i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
-1. Wybierz pozycję **Twitter**.
-1. Wklej `API key` `API secret key` wartości i, które zostały uzyskane wcześniej.
-1. Wybierz przycisk **OK**.
+1. Zaloguj się do [Azure Portal] i przejdź do swojej aplikacji.
+1. W menu po lewej stronie wybierz pozycję **uwierzytelnianie** . Kliknij pozycję **Dodaj dostawcę tożsamości**.
+1. Wybierz pozycję **Twitter** na liście rozwijanej dostawca tożsamości. Wklej `API key` `API secret key` wartości i, które zostały uzyskane wcześniej.
 
-   ![Zrzut ekranu ustawień usługi Twitter aplikacji mobilnych][1]
+    Wpis tajny będzie przechowywany jako [ustawienie aplikacji](./configure-common.md#configure-app-settings) do gniazd-Sticky o nazwie `TWITTER_PROVIDER_AUTHENTICATION_SECRET` . Możesz później zaktualizować to ustawienie, aby użyć [odwołań Key Vault](./app-service-key-vault-references.md) , jeśli chcesz zarządzać wpisem tajnym w programie Azure Key Vault.
 
-   Domyślnie App Service zapewnia uwierzytelnianie, ale nie ogranicza uprawnień dostępu do zawartości i interfejsów API witryny. Musisz autoryzować użytkowników w kodzie aplikacji.
+1. Jeśli jest to pierwszy dostawca tożsamości skonfigurowany dla aplikacji, zostanie wyświetlony monit z sekcją **Ustawienia uwierzytelniania App Service** . W przeciwnym razie możesz przejść do następnego kroku.
+    
+    Te opcje określają, w jaki sposób aplikacja reaguje na nieuwierzytelnione żądania, a wybór domyślny spowoduje przekierowanie wszystkich żądań logowania za pomocą tego nowego dostawcy. Możesz zmienić to zachowanie Dostosuj teraz lub dostosować te ustawienia później na głównym ekranie **uwierzytelniania** , wybierając pozycję **Edytuj** obok pozycji **Ustawienia uwierzytelniania**. Aby dowiedzieć się więcej na temat tych opcji, zobacz [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
 
-1. Obowiązkowe Aby ograniczyć dostęp do witryny tylko do użytkowników uwierzytelnionych przez serwis Twitter, ustaw **akcję do wykonania, gdy żądanie nie zostanie uwierzytelnione** do usługi **Twitter**. Po ustawieniu tej funkcji aplikacja wymaga uwierzytelnienia wszystkich żądań. Przekierowuje także wszystkie nieuwierzytelnione żądania do usługi Twitter w celu uwierzytelnienia.
+1. Kliknij pozycję **Dodaj**.
 
-   > [!CAUTION]
-   > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być pożądane dla aplikacji, które mają publicznie dostępną stronę główną, tak jak w przypadku aplikacji jednostronicowych. W przypadku takich aplikacji **Zezwalanie na żądania anonimowe (żadna akcja)** może być preferowana, aby aplikacja ręcznie uruchamiała sam uwierzytelnienie. Aby uzyskać więcej informacji, zobacz temat [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
-
-1. Wybierz pozycję **Zapisz**.
-
-Możesz teraz przystąpić do uwierzytelniania w aplikacji za pomocą usługi Twitter.
+Możesz teraz przystąpić do uwierzytelniania w aplikacji za pomocą usługi Twitter. Dostawca zostanie wyświetlony na liście na ekranie **uwierzytelniania** . W tym miejscu możesz edytować lub usunąć tę konfigurację dostawcy.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-
-[0]: ./media/app-service-mobile-how-to-configure-twitter-authentication/app-service-twitter-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-twitter-authentication/mobile-app-twitter-settings.png
 
 <!-- URLs. -->
 

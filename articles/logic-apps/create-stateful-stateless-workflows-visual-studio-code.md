@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557016"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078744"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -101,8 +101,8 @@ Aby lokalnie skompilować i uruchomić projekt aplikacji logiki w Visual Studio 
 1. Zapisz parametry połączenia w bezpiecznym miejscu. Po utworzeniu projektu aplikacji logiki w Visual Studio Code należy dodać ciąg do **local.settings.jsw** pliku w folderze poziomu głównego projektu.
 
    > [!IMPORTANT]
-   > Jeśli planujesz wdrożenie do kontenera Docker, musisz również dodać te parametry połączenia do pliku platformy Docker, który ma być używany do wdrożenia.
-
+   > Jeśli planujesz wdrożenie do kontenera platformy Docker, musisz również użyć tych parametrów połączenia z plikiem platformy Docker używanym do wdrożenia. W przypadku scenariuszy produkcyjnych upewnij się, że ochrona i zabezpieczanie takich wpisów tajnych i poufnych informacji, na przykład przy użyciu magazynu kluczy.
+  
 ### <a name="tools"></a>Narzędzia
 
 * [Visual Studio Code 1.30.1 (styczeń 2019) lub nowszy](https://code.visualstudio.com/), który jest bezpłatny. Należy również pobrać i zainstalować te narzędzia dla Visual Studio Code, jeśli nie są jeszcze:
@@ -304,6 +304,9 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
          }
       }
       ```
+
+      > [!IMPORTANT]
+      > W przypadku scenariuszy produkcyjnych upewnij się, że ochrona i zabezpieczanie takich wpisów tajnych i poufnych informacji, na przykład przy użyciu magazynu kluczy.
 
    1. Gdy wszystko będzie gotowe, upewnij się, że Zapisano zmiany.
 
@@ -1205,7 +1208,10 @@ Jeśli nie znasz już platformy Docker, zapoznaj się z następującymi tematami
 
 * Plik platformy Docker dla przepływu pracy, który jest używany podczas tworzenia kontenera platformy Docker
 
-  Przykładowo ten plik platformy Docker wdraża aplikację logiki. Określa parametry połączenia, które zawierają klucz dostępu dla konta usługi Azure Storage, który został użyty do opublikowania aplikacji logiki w Azure Portal. Aby znaleźć ten ciąg, zobacz [pobieranie parametrów połączenia z kontem magazynu](#find-storage-account-connection-string).
+  Przykładowo Ten przykładowy plik platformy Docker wdraża aplikację logiki i określa parametry połączenia, które zawierają klucz dostępu dla konta usługi Azure Storage, który został użyty do opublikowania aplikacji logiki w Azure Portal. Aby znaleźć ten ciąg, zobacz [pobieranie parametrów połączenia z kontem magazynu](#find-storage-account-connection-string). Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi pisania plików platformy Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > W przypadku scenariuszy produkcyjnych upewnij się, że ochrona i zabezpieczanie takich wpisów tajnych i poufnych informacji, na przykład przy użyciu magazynu kluczy. W przypadku plików platformy Docker zapoznaj się z tematem [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) i [Zarządzaj poufnymi danymi przy użyciu wpisów tajnych platformy Docker](https://docs.docker.com/engine/swarm/secrets/)
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1219,8 +1225,6 @@ Jeśli nie znasz już platformy Docker, zapoznaj się z następującymi tematami
 
    RUN cd /home/site/wwwroot
    ```
-
-   Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące pisania plików platformy Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 <a name="find-storage-account-connection-string"></a>
 

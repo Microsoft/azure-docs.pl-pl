@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722705"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077622"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
 
@@ -103,21 +103,21 @@ Po wdrożeniu modułu telegraf do raportowanych metryk można uzyskać dostęp z
 
 ### <a name="system-health-events"></a>Zdarzenia kondycji systemu
 
-| Nazwa zdarzenia | Opis|
-|------|---------|
-|archon_exit     |Wysyłany, gdy użytkownik zmieni stan modułu analizy przestrzennej z *uruchomiony* na *zatrzymany*.  |
-|archon_error     |Wysyłany, gdy którykolwiek z procesów wewnątrz kontenera ulega awarii. Jest to błąd krytyczny.  |
-|InputRate     |Szybkość, z jaką Graf przetwarza dane wejściowe wideo. Raportowane co 5 minut. | 
-|OutputRate     |Szybkość, z jaką Graf wyprowadza informacje o AI. Raportowane co 5 minut. |
-|archon_allGraphsStarted | Wysyłany po zakończeniu uruchamiania wszystkich wykresów. |
-|archon_configchange     | Wysyłany po zmianie konfiguracji grafu. |
-|archon_graphCreationFailed     |Wysyłany, gdy nie można uruchomić grafu z zgłoszonym błędem `graphId` . |
-|archon_graphCreationSuccess     |Wysyłany, gdy wykres z raportowaniem `graphId` zostanie uruchomiony pomyślnie. |
-|archon_graphCleanup     | Wysyłany, gdy wykres z zgłoszonym `graphId` czyszczeniem i zakończeniem. |
-|archon_graphHeartbeat     |Puls wysyłany co minutę dla każdego grafu umiejętności. |
-|archon_apiKeyAuthFail |Wysyłany, gdy klucz zasobu przetwarzanie obrazów nie może uwierzytelnić kontenera przez więcej niż 24 godziny, z następujących powodów: poza limitem przydziału, nieprawidłowy, w trybie offline. |
-|VideoIngesterHeartbeat     |Wysyłana co godzinę, aby wskazać, że wideo jest przesyłane strumieniowo ze źródła wideo, wraz z liczbą błędów w tej godzinie. Zgłoszone dla każdego grafu. |
-|VideoIngesterState | Raporty zostały *zatrzymane* lub *uruchomione* na potrzeby przesyłania strumieniowego wideo. Zgłoszone dla każdego grafu. |
+| Nazwa zdarzenia                  | Opis    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Wysyłany, gdy użytkownik zmieni stan modułu analizy przestrzennej z *uruchomiony* na *zatrzymany*.  |
+| archon_error                | Wysyłany, gdy którykolwiek z procesów wewnątrz kontenera ulega awarii. Jest to błąd krytyczny.      |
+| InputRate                   | Szybkość, z jaką Graf przetwarza dane wejściowe wideo. Raportowane co 5 minut.              |
+| OutputRate                  | Szybkość, z jaką Graf wyprowadza informacje o AI. Raportowane co 5 minut.                |
+| archon_allGraphsStarted     | Wysyłany po zakończeniu uruchamiania wszystkich wykresów.                                           |
+| archon_configchange         | Wysyłany po zmianie konfiguracji grafu.                                              |
+| archon_graphCreationFailed  | Wysyłany, gdy nie można uruchomić grafu z zgłoszonym błędem `graphId` .                           |
+| archon_graphCreationSuccess | Wysyłany, gdy wykres z raportowaniem `graphId` zostanie uruchomiony pomyślnie.                      |
+| archon_graphCleanup         | Wysyłany, gdy wykres z zgłoszonym `graphId` czyszczeniem i zakończeniem.                      |
+| archon_graphHeartbeat       | Puls wysyłany co minutę dla każdego grafu umiejętności.                                   |
+| archon_apiKeyAuthFail       | Wysyłany, gdy klucz zasobu przetwarzanie obrazów nie może uwierzytelnić kontenera przez więcej niż 24 godziny, z następujących powodów: poza limitem przydziału, nieprawidłowy, w trybie offline. |
+| VideoIngesterHeartbeat      | Wysyłana co godzinę, aby wskazać, że wideo jest przesyłane strumieniowo ze źródła wideo, wraz z liczbą błędów w tej godzinie. Zgłoszone dla każdego grafu. |
+| VideoIngesterState          | Raporty zostały *zatrzymane* lub *uruchomione* na potrzeby przesyłania strumieniowego wideo. Zgłoszone dla każdego grafu.              |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
 

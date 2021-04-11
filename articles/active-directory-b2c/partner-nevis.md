@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e72cab6d6220b71e93550eec7649752201180a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98674997"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256586"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Samouczek konfigurowania programu Nevis z Azure Active Directory B2C do uwierzytelniania bezhaseł
 
@@ -32,7 +32,7 @@ Aby rozpocząć, musisz:
 
 - [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
-- Skonfigurowanie środowiska Azure AD B2C na potrzeby używania [zasad niestandardowych](./custom-policy-get-started.md), jeśli chcesz zintegrować go z przepływem zasad rejestracji.
+- Skonfigurowanie środowiska Azure AD B2C na potrzeby używania [zasad niestandardowych](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), jeśli chcesz zintegrować go z przepływem zasad rejestracji.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -270,4 +270,4 @@ Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami
 
 - [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

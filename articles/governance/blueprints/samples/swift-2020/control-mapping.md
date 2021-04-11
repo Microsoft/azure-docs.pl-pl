@@ -1,14 +1,14 @@
 ---
 title: SWIFT dostawcy CSP — przykładowe kontrolki planu CSCF V2020
 description: Kontrolowanie mapowania SWIFT przykładowego planu CSP-CSCF V2020. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 466b37b287d79a891fba39b133ab5fa79dbd147e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d385cfddae11b026cd93f49c1bc41ca48265a87
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98048797"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386180"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Sterowanie mapowaniem SWIFT programu CSP-CSCF V2020 plan
 

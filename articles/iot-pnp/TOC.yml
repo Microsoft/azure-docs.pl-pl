@@ -44,7 +44,7 @@
     - name: Digital Twins
       href: concepts-digital-twin.md
     - name: Certyfikacja urządzenia
-      href: concepts-certification-program.md
+      href: ../certification/program-requirements-pnp.md
     - name: Repozytorium modeli
       href: concepts-model-repository.md
     - name: Używanie modeli w rozwiązaniu
@@ -61,8 +61,6 @@
       href: howto-use-embedded-c.md
     - name: Zarządzanie usługą Digital Twins
       href: howto-manage-digital-twin.md
-    - name: Certyfikowanie urządzenia
-      href: howto-certify-device.md
     - name: Jak połączyć się z przykładem mostka Plug and Play IoT
       href: howto-use-iot-pnp-bridge.md
     - name: Kompilowanie i wdrażanie mostka Plug and Play IoT

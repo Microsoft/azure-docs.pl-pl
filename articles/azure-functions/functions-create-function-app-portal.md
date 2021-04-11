@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do w
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea5b6a9e51b6982a33dc748f72557ed539b8e2e0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492136"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385993"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
@@ -60,11 +60,7 @@ Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
     ![Kopiowanie adresu URL funkcji z witryny Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość ciągu zapytania `?name=<your_name>` na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. 
-
-    Poniższy przykład przedstawia odpowiedź w przeglądarce:
-
-    ![Odpowiedź funkcji wyświetlona w przeglądarce.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość ciągu zapytania `?name=<your_name>` na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. W przeglądarce powinien zostać wyświetlony komunikat odpowiedzi z powrotem zwraca wartość ciągu zapytania. 
 
     Jeśli adres URL żądania zawiera [klucz dostępu](functions-bindings-http-webhook-trigger.md#authorization-keys) ( `?code=...` ), oznacza to, że podczas tworzenia funkcji jest wybierana **Funkcja** , a nie **anonimowy** poziom dostępu. W takim przypadku należy zamiast tego dołączyć `&name=<your_name>` .
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure SQL Database
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla wystąpienia zarządzanego Azure SQL Database i SQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f4c3173d4cb9e4fa75ae4b4ded721c79d3f22885
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f17debde108bbc43385dce08e21551d9b25466f6
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032121"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093638"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-sql-database--sql-managed-instance"></a>Azure Policy kontroli zgodności z przepisami dla Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

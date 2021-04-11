@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 85bc54402237ff8e9c82c43ab9cdbe2dc6658af1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 693c181f8a4a6db3b8b163f4b4d3350a3730b618
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464109"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221651"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Samouczek: wdrażanie Azure Functions jako modułów IoT Edge
 
@@ -43,7 +43,7 @@ Funkcja platformy Azure, która została utworzona w tym samouczku, filtruje dan
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [opracowywanie modułów IoT Edge przy użyciu kontenerów systemu Linux](tutorial-develop-for-linux.md). Wykonując ten samouczek, należy spełnić następujące wymagania wstępne:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
-* Urządzenie, na którym działa Azure IoT Edge. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
+* Urządzenie z Azure IoT Edge z kontenerami systemu Linux. Korzystając z przewodników Szybki Start, można skonfigurować urządzenie z systemem [Linux](quickstart-linux.md) lub [urządzenie systemu Windows](quickstart.md).
 * Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.

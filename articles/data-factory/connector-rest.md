@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 779a8745688e6a1fb8a15bc9119c6fbc1803ca2c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951848"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078931"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z i do punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -495,7 +495,7 @@ Szablon definiuje dwa parametry:
 
     | Właściwość | Opis |
     |:--- |:--- |
-    | Adres URL |Określ adres URL, z którego ma zostać pobrany token okaziciela OAuth. Przykładowo w przykładzie jest to https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | Adres URL |Określ adres URL, z którego ma zostać pobrany token okaziciela OAuth. Przykładowo w przykładzie jest to https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Metoda | Metoda HTTP. Dozwolone wartości to **post** i **Get**. | 
     | Nagłówki | Nagłówek jest zdefiniowany przez użytkownika, który odwołuje się do jednej nazwy nagłówka w żądaniu HTTP. | 
     | Treść | Treść żądania HTTP. | 

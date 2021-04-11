@@ -4,15 +4,15 @@ description: Za pomocą Azure Active Directory (Azure AD) można podać poświad
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd3aeaf133c02ef54eceaff776ead34cc2318260
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672495"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220481"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoryzuj dostęp do obiektów BLOB za pomocą AzCopy i Azure Active Directory (Azure AD)
 
@@ -261,9 +261,10 @@ Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_APPLICATION_ID=<application-id>
 export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Zastąp `<application-id>` symbol zastępczy identyfikatorem aplikacji rejestracji aplikacji jednostki usługi. Zamień `<client-secret>` symbol zastępczy na wpis tajny klienta.
+Zastąp `<application-id>` symbol zastępczy identyfikatorem aplikacji rejestracji aplikacji jednostki usługi. Zamień `<client-secret>` symbol zastępczy na wpis tajny klienta. Zastąp `<tenant-id>` symbol zastępczy identyfikatorem dzierżawy organizacji, do której należy konto magazynu. Aby znaleźć identyfikator dzierżawy, wybierz pozycję **Azure Active Directory właściwości > > identyfikator katalogu** w Azure Portal. 
 
 > [!NOTE]
 > Rozważ użycie monitu w celu zebrania hasła od użytkownika. Dzięki temu Twoje hasło nie będzie wyświetlane w historii poleceń. 
@@ -282,9 +283,10 @@ Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
 export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Zastąp `<path-to-certificate-file>` symbol zastępczy względną lub w pełni kwalifikowaną ścieżką do pliku certyfikatu. AzCopy zapisuje ścieżkę do tego certyfikatu, ale nie zapisuje kopii certyfikatu, więc pamiętaj, aby zachować ten certyfikat w miejscu. Zastąp `<certificate-password>` symbol zastępczy hasłem certyfikatu.
+Zastąp `<path-to-certificate-file>` symbol zastępczy względną lub w pełni kwalifikowaną ścieżką do pliku certyfikatu. AzCopy zapisuje ścieżkę do tego certyfikatu, ale nie zapisuje kopii certyfikatu, więc pamiętaj, aby zachować ten certyfikat w miejscu. Zastąp `<certificate-password>` symbol zastępczy hasłem certyfikatu. Zastąp `<tenant-id>` symbol zastępczy identyfikatorem dzierżawy organizacji, do której należy konto magazynu. Aby znaleźć identyfikator dzierżawy, wybierz pozycję **Azure Active Directory właściwości > > identyfikator katalogu** w Azure Portal. 
 
 > [!NOTE]
 > Rozważ użycie monitu w celu zebrania hasła od użytkownika. Dzięki temu Twoje hasło nie będzie wyświetlane w historii poleceń. 

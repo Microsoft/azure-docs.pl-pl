@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: operator Count w definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład użycia operatora Count w definicji zasad.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005422"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093456"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Wzorzec Azure Policy: operator Count
 

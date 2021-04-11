@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 987fb5745b6528eb96b4237f698b3ae371d69287
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec83d8d56ad67d8c64c6ac3151ca3819e88c0616
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731823"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449600"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Samouczek: wdrażanie konfiguracji przy użyciu GitOps na klastrze Kubernetes z włączonym usługą Azure Arc 
 
@@ -30,6 +30,14 @@ W ramach tego samouczka nastąpi zastosowanie konfiguracji przy użyciu programu
 - Istniejący klaster z włączonym usługą Azure Arc Kubernetes.
     - Jeśli jeszcze nie nawiązano połączenia z klastrem, zapoznaj [się z naszymi krokami Przewodnik Szybki Start dotyczący usługi Azure Arc Kubernetes](quickstart-connect-cluster.md).
 - Zrozumienie korzyści i architektury tej funkcji. Więcej informacji można znaleźć w temacie [konfiguracje i GitOps — artykuł Kubernetes z obsługą usługi Azure Arc](conceptual-configurations.md).
+- Zainstaluj `k8s-configuration` rozszerzenie interfejsu wiersza polecenia platformy Azure w wersji >= 1.0.0:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
+
+    >[!TIP]
+    > Jeśli `k8s-configuration` rozszerzenie jest już zainstalowane, można je zaktualizować do najnowszej wersji za pomocą następującego polecenia: `az extension update --name k8s-configuration`
 
 ## <a name="create-a-configuration"></a>Utwórz konfigurację
 

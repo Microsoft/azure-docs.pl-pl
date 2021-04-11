@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 44dfd07a5b749d88552bb1dcac2ee4b4e5ce65e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565244"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554080"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
 
@@ -140,7 +140,7 @@ Aby uzyskać więcej informacji na temat korzystania z usługi Azure RBAC do zar
 
 ## <a name="using-conditional-access"></a>Korzystanie z dostępu warunkowego
 
-Można wymusić zasady dostępu warunkowego, takie jak uwierzytelnianie wieloskładnikowe lub sprawdzanie ryzyka logowania użytkownika przed autoryzacją dostępu do maszyn wirtualnych z systemem Linux na platformie Azure, które są włączone przy użyciu usługi Azure AD. Aby zastosować zasady dostępu warunkowego, należy wybrać opcję "Logowanie do maszyny wirtualnej z systemem Linux" w obszarze aplikacje lub akcje w chmurze, a następnie użyć ryzyka związanego z logowaniem jako warunku i/lub wymagać uwierzytelniania wieloskładnikowego jako udzielenia kontroli dostępu. 
+Można wymusić zasady dostępu warunkowego, takie jak uwierzytelnianie wieloskładnikowe lub sprawdzanie ryzyka logowania użytkownika przed autoryzacją dostępu do maszyn wirtualnych z systemem Linux na platformie Azure, które są włączone przy użyciu usługi Azure AD. Aby zastosować zasady dostępu warunkowego, należy wybrać opcję Microsoft Azure "Logowanie do maszyny wirtualnej z systemem Linux" z poziomu aplikacji lub akcji w chmurze, a następnie użyć ryzyka związanego z logowaniem jako warunku i/lub wymagać uwierzytelniania wieloskładnikowego jako udzielenia kontroli dostępu. 
 
 > [!WARNING]
 > Usługa Azure AD Multi-Factor Authentication włączona/wymuszana przez użytkownika nie jest obsługiwana w przypadku logowania do maszyny wirtualnej.

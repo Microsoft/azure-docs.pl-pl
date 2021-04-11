@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 70c9498bae9117585963e111bea4f1e127cab232
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f4b12a9b3b830fcc4f45cb5e957232fee5a756a3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097945"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078649"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -169,8 +169,8 @@ Parametr | Opis | Przykładowa wartość
 Monitorowanie | Opcja włączania monitorowania | Włącz
 Nawiązywanie połączenia z istniejącymi dziennikami Azure Monitor | Opcja tworzenia nowego wystąpienia dzienników Azure Monitor lub łączenia istniejącego wystąpienia | Tworzenie nowego elementu
 Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | East US
-Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||NA
-Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||NA
+Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor|NA
+Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor|NA
 
 Wybierz przycisk **OK**.
 

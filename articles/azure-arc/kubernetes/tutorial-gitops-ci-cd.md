@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f720cc196f4034d29ec1d628e28d3534b10f3e41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025819"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076313"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Samouczek: implementowanie ciągłej integracji/ciągłego wdrażania za pomocą GitOps przy użyciu klastrów Kubernetes z obsługą usługi Azure Arc
 
@@ -58,7 +58,7 @@ W tym samouczku założono znajomość DevOps, Azure Repos i potoków platformy 
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importuj repozytoria aplikacji i GitOps do Azure Repos
 
-Zaimportuj [repozytorium aplikacji](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#application-repo) i [repozytorium GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#gitops-repo) do Azure Repos. Na potrzeby tego samouczka Użyj następujących przykładowych repozytoriów:
+Zaimportuj [repozytorium aplikacji](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) i [repozytorium GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) do Azure Repos. Na potrzeby tego samouczka Użyj następujących przykładowych repozytoriów:
 
 * **łuk-cicd-Demonstracja-src** repozytorium aplikacji
    * Adres URL: https://github.com/Azure/arc-cicd-demo-src
@@ -338,4 +338,4 @@ W tym samouczku skonfigurowano pełny przepływ pracy ciągłej integracji/ciąg
 Przejdź do naszego artykułu koncepcyjnego, aby dowiedzieć się więcej na temat GitOps i konfiguracji z włączonym usługą Azure Arc Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Przepływ pracy ciągłej integracji/ciągłego wdrażania za pomocą GitOps — usługa Azure Arc Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd)
+> [Przepływ pracy ciągłej integracji/ciągłego wdrażania za pomocą GitOps — usługa Azure Arc Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)

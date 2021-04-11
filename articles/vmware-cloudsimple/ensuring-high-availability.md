@@ -8,32 +8,32 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8bb1f8bb2aaeab88e5a9ea19534c8983af8c1626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c80b9fd65588fe6c390f44b34509168f3bfb549
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895754"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077690"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Zapewnianie wysokiej dostępności aplikacji w przypadku uruchamiania w oprogramowaniu VMware na platformie Azure
 
 Rozwiązanie CloudSimple zapewnia wysoką dostępność dla aplikacji uruchamianych w oprogramowaniu VMware w środowisku platformy Azure. Poniższa tabela zawiera listę scenariuszy błędów i skojarzonych funkcji wysokiej dostępności.
 
-| Scenariusz niepowodzenia | Czy aplikacja jest chroniona? | Funkcja HA platformy | Funkcja programu VMware HA | Funkcja HA systemu Azure |
------------- | ------------- | ------------ | ------------ | ------------- |
-| Awaria dysku | TAK | Szybka wymiana węzła, który uległ awarii | [Informacje o domyślnych zasadach magazynu sieci vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Awaria wentylatora | TAK | Nadmiarowe wentylatory, szybka wymiana węzła zakończonego niepowodzeniem |  |  |
-| Awaria karty sieciowej | TAK | Nadmiarowa karta sieciowa, szybka wymiana węzła, który uległ awarii
-| Awaria mocy hosta | TAK | Nadmiarowe zasilacze |  |  |
-| Niepowodzenie hosta ESXi | TAK | Szybka wymiana węzła, który uległ awarii | [VMware vSphere wysoka dostępność](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| Awaria maszyny wirtualnej | TAK | [Moduły równoważenia obciążenia](load-balancers.md)  | [VMware vSphere wysoka dostępność](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer dla bezstanowych maszyn wirtualnych VMware |
-| Niepowodzenie portu przełącznika liścia | TAK | Nadmiarowa karta sieciowa |  |  |
-| Niepowodzenie przełączania liścia | TAK | Nadmiarowe przełączniki liścia |  |  |
-| Awaria stojaka | TAK | Grupy umieszczania |  |  |
-| Łączność sieciowa z lokalnym kontrolerem domeny | TAK  | Nadmiarowe usługi sieciowe |  | Nadmiarowe obwody ER |
-| Łączność sieciowa z platformą Azure | TAK | |  | Nadmiarowe obwody ER |
-| Błąd centrum danych | TAK |  |  | Strefy dostępności |
-| Awaria regionalna | TAK  |  |  | Regiony świadczenia usługi Azure |
+|  Scenariusz niepowodzenia  |  Czy aplikacja jest chroniona?  |  Funkcja HA platformy  |  Funkcja programu VMware HA  |  Funkcja HA systemu Azure  |
+|----------------------------------------|------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  Awaria dysku  |  TAK  |  Szybka wymiana węzła, który uległ awarii  |  [Informacje o domyślnych zasadach magazynu sieci vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html)  |  |
+|  Awaria wentylatora  |  TAK  |  Nadmiarowe wentylatory, szybka wymiana węzła zakończonego niepowodzeniem  |  |  |
+|  Awaria karty sieciowej  |  TAK  |  Nadmiarowa karta sieciowa, szybka wymiana węzła, który uległ awarii  |  |  |
+|  Awaria mocy hosta  |  TAK  |  Nadmiarowe zasilacze  |  |  |
+|  Niepowodzenie hosta ESXi  |  TAK  |  Szybka wymiana węzła, który uległ awarii  |  [VMware vSphere wysoka dostępność](https://www.vmware.com/products/vsphere/high-availability.html)  |  |
+|  Awaria maszyny wirtualnej  |  TAK  |  [Moduły równoważenia obciążenia](load-balancers.md)  |  [VMware vSphere wysoka dostępność](https://www.vmware.com/products/vsphere/high-availability.html)  |  Azure Load Balancer dla bezstanowych maszyn wirtualnych VMware  |
+|  Niepowodzenie portu przełącznika liścia  |  TAK  |  Nadmiarowa karta sieciowa  |  |  |
+|  Niepowodzenie przełączania liścia  |  TAK  |  Nadmiarowe przełączniki liścia  |  |  |
+|  Awaria stojaka  |  TAK  |  Grupy umieszczania  |  |  |
+|  Łączność sieciowa z lokalnym kontrolerem domeny  |  TAK  |  Nadmiarowe usługi sieciowe  |  |  Nadmiarowe obwody ER  |
+|  Łączność sieciowa z platformą Azure  |  TAK  |  |  |  Nadmiarowe obwody ER  |
+|  Błąd centrum danych  |  TAK  |  |  |  Strefy dostępności  |
+|  Awaria regionalna  |  TAK  |  |  |  Regiony platformy Azure  |
 
 Rozwiązanie VMware firmy Azure według CloudSimple zapewnia następujące funkcje wysokiej dostępności.
 

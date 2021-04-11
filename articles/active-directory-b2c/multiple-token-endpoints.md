@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ab93a8742d210969ef6ad10683bed92221c1a57
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491573"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256705"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrowanie internetowego interfejsu API opartego na OWIN do b2clogin.com lub domeny niestandardowej
 
@@ -30,7 +30,7 @@ Poniższe sekcje przedstawiają przykład sposobu włączania wielu wystawców w
 
 Przed wykonaniem kroków opisanych w tym artykule potrzebne są następujące Azure AD B2C zasoby:
 
-* [Przepływy użytkownika](tutorial-create-user-flows.md) lub [zasady niestandardowe](custom-policy-get-started.md) utworzone w dzierżawie
+* [Przepływy użytkownika](tutorial-create-user-flows.md?pivots=b2c-user-flow) lub [zasady niestandardowe](tutorial-create-user-flows.md?pivots=b2c-custom-policy) utworzone w dzierżawie
 
 ## <a name="get-token-issuer-endpoints"></a>Pobierz punkty końcowe wystawcy tokenów
 

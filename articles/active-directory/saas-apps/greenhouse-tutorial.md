@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a14b16e34faa827228594bf6d4f0bd9ed48cf72
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731923"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Samouczek: integracja Azure Active Directory z szklarnią
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Aplikacja Greenhouse obsługuje logowanie jednokrotne inicjowane przez **dostawcę usługi**
+* Szklarnia obsługuje usługę **SP i dostawcy tożsamości** zainicjowane przez usługę SSO.
 
 ## <a name="adding-greenhouse-from-the-gallery"></a>Dodawanie aplikacji Greenhouse z galerii
 
@@ -73,18 +73,28 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **cieplarnianyej** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<companyname>.greenhouse.io`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<COMPANYNAME>.greenhouse.io`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<companyname>.greenhouse.io`
+    b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL przy użyciu jednego z następujących wzorców:
+    
+    | Adres URL odpowiedzi|
+    | -------------- |
+    | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
+    | `https://app.greenhouse.io/<ENTITY ID>/users/saml/consume` |
+    |
+
+1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
+
+    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<COMPANYNAME>.greenhouse.io`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Greenhouse](https://www.greenhouse.io/contact) w celu uzyskania tych wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Greenhouse](https://www.greenhouse.io/contact) w celu uzyskania tych wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -127,7 +137,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![zrzut ekranu strony logowania jednokrotnego](./media/greenhouse-tutorial/configure.png)
 
-1. Wykonaj następujące kroki na stronie pojedynczej Sign-On.
+1. Wykonaj następujące czynności na stronie **logowania** jednokrotnego.
 
     ![zrzut ekranu przedstawiający stronę konfiguracji logowania jednokrotnego](./media/greenhouse-tutorial/sso-page.png)
 
@@ -172,15 +182,22 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Green
       >[!NOTE]
       >Właściciele kont usługi Azure Active Directory otrzymają wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania szklarniowego, w którym można zainicjować przepływ logowania. 
+#### <a name="sp-initiated"></a>Zainicjowano SP:
+
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania szklarniowego, w którym można zainicjować przepływ logowania.  
 
 * Przejdź bezpośrednio do adresu URL logowania do trybu szklarni i zainicjuj tam przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka szklarni w obszarze Moje aplikacje zostanie przekierowany na adres URL logowania w trybie szklarni. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
+
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do szklarni, dla którego skonfigurowano Logowanie jednokrotne 
+
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka szklarni w obszarze Moje aplikacje, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania i jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do szklarni, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 
 ## <a name="next-steps"></a>Następne kroki

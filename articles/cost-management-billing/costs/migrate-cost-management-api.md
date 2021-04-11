@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 811b2cb7fd9a4f664e7a643f5a8e192a51416888
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 46ad81f6723d160bf1d675b68a8459dd8df32c80
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689103"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078353"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrowanie z umowy Enterprise Agreement do interfejsów API umowy klienta firmy Microsoft
 
@@ -55,9 +55,9 @@ Interfejsy API EA używają klucza interfejsu API do uwierzytelniania i autoryza
 | Użycie (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Użycie w witrynie Marketplace (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Okresy rozliczeniowe | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| Arkusz cen | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| Arkusz cen | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft. rozliczenia/billingAccounts/billingProfiles/arkusza cen/default/Download Format = plik \| CSV JSON Microsoft. rozliczeń/billingAccounts/.../billingProfiles/.../faktury/... /pricesheet/default/Download Format = plik \| CSV JSON Microsoft. rozliczeń/billingAccounts/.. /billingProfiles/.. /providers/Microsoft.Consumption/pricesheets/download  |
 | Zakupy rezerwacji | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
-| Rekomendacje dotyczące rezerwacji | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| Rekomendacje dotyczące rezerwacji | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations) [/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) [SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Użycie rezerwacji | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup> Użycie usług platformy Azure oraz usług innych firm w witrynie Marketplace jest dostępne za pośrednictwem [interfejsu API szczegółów użycia](/rest/api/consumption/usagedetails).
@@ -168,7 +168,7 @@ Nowa treść odpowiedzi:
 
 Nazwa właściwości zawierającej tablicę rekordów użycia została zmieniona z data na _values_. Wcześniej każdy rekord zawierał niezhierarchizowaną listę szczegółowych właściwości. Aktualnie wszystkie szczegóły znajdują się w zagnieżdżonej właściwości o nazwie _properties_, z wyjątkiem tagów. Nowa struktura jest spójna z innymi interfejsami API platformy Azure. Nazwy niektórych właściwości zostały zmienione. W poniższej tabeli przedstawiono odpowiadające właściwości.
 
-| Stara właściwość | Nowa właściwość | Uwagi |
+| Poprzednia właściwość | Nowa właściwość | Uwagi |
 | --- | --- | --- |
 | AccountId | Nie dotyczy | Twórca subskrypcji nie jest śledzony. Użyj właściwości invoiceSectionId (takiej samej jak departmentId). |
 | AccountNameAccountOwnerId i AccountOwnerEmail | Nie dotyczy | Twórca subskrypcji nie jest śledzony. Użyj właściwości invoiceSectionName (takiej samej jak departmentName). |
@@ -176,34 +176,34 @@ Nazwa właściwości zawierającej tablicę rekordów użycia została zmieniona
 | ChargesBilledSeparately | isAzureCreditEligible | Należy pamiętać, że te właściwości są przeciwstawne. Jeśli isAzureCreditEnabled ma wartość true, ChargesBilledSeparately ma wartość false. |
 | ConsumedQuantity | quantity | &nbsp; |
 | ConsumedService | consumedService | Dokładne wartości ciągów mogą się różnić. |
-| ConsumedServiceId | None | &nbsp; |
+| ConsumedServiceId | Brak | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Date i usageStartDate | date | &nbsp;  |
-| Day | None | Analizuje informacje o dniu na podstawie daty. |
+| Date i usageStartDate | data | &nbsp;  |
+| Dzień | Brak | Analizuje informacje o dniu na podstawie daty. |
 | DepartmentId | invoiceSectionId | Dokładne wartości są różne. |
 | DepartmentName | invoiceSectionName | Dokładne wartości ciągów mogą się różnić. W razie potrzeby należy dopasować sekcje faktury do działów. |
 | ExtendedCost i Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Is Recurring Charge | None | &nbsp;  |
+| Is Recurring Charge | Brak | &nbsp;  |
 | Lokalizacja | location | &nbsp;  |
 | MeterCategory | meterCategory | Dokładne wartości ciągów mogą się różnić. |
-| Identyfikator miernika | meterId | Dokładne wartości ciągów są różne. |
+| MeterId | meterId | Dokładne wartości ciągów są różne. |
 | MeterName | meterName | Dokładne wartości ciągów mogą się różnić. |
 | MeterRegion | meterRegion | Dokładne wartości ciągów mogą się różnić. |
 | MeterSubCategory | meterSubCategory | Dokładne wartości ciągów mogą się różnić. |
-| Month | None | Analizuje informacje o miesiącu na podstawie daty. |
-| Offer Name | None | Należy użyć właściwości publisherName i productOrderName. |
-| OfferID | None | &nbsp;  |
-| Order Number | None | &nbsp;  |
-| PartNumber | None | Należy użyć właściwości meterId i productOrderName do unikatowego identyfikowania cen. |
+| Month (Miesiąc) | Brak | Analizuje informacje o miesiącu na podstawie daty. |
+| Offer Name | Brak | Należy użyć właściwości publisherName i productOrderName. |
+| OfferID | Brak | &nbsp;  |
+| Order Number | Brak | &nbsp;  |
+| PartNumber | Brak | Należy użyć właściwości meterId i productOrderName do unikatowego identyfikowania cen. |
 | Plan Name | productOrderName | &nbsp;  |
-| Product (Produkt) | Product (Produkt) |   |
+| Produkt | Produkt |   |
 | ProductId | productId | Dokładne wartości ciągów są różne. |
 | Publisher Name | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Dokładne wartości ciągów są różne. |
 | ResourceLocation | resourceLocation | &nbsp;  |
-| ResourceLocationId | None | &nbsp;  |
+| ResourceLocationId | Brak | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
 | ServiceAdministratorId | Nie dotyczy | &nbsp;  |
 | ServiceInfo1 | serviceInfo1 | &nbsp;  |
@@ -216,8 +216,8 @@ Nazwa właściwości zawierającej tablicę rekordów użycia została zmieniona
 | SubscriptionName | subscriptionName | &nbsp;  |
 | Tagi | tags | Właściwość tags ma zastosowanie do obiektu głównego, a nie do zagnieżdżonej właściwości properties. |
 | UnitOfMeasure | unitOfMeasure | Dokładne wartości ciągów są różne. |
-| usageEndDate | date | &nbsp;  |
-| Year | None | Analizuje informacje o roku na podstawie daty. |
+| usageEndDate | data | &nbsp;  |
+| Year (Rok) | Brak | Analizuje informacje o roku na podstawie daty. |
 | (nowa) | billingCurrency | Waluta używana do naliczania opłat. |
 | (nowa) | billingProfileId | Unikatowy identyfikator profilu rozliczeniowego (taki sam jak rejestracja). |
 | (nowa) | billingProfileName | Nazwa profilu rozliczeniowego (taka sama jak rejestracja). |
@@ -365,7 +365,7 @@ Klient może również wykonać wywołanie metody GET dla nagłówka `Azure-Asyn
 
 W poniższej tabeli przedstawiono pola w starszym interfejsie API pobierania arkusza cen dla przedsiębiorstw. Tabela zawiera odpowiadające pola w nowym arkuszu cen dla umów klienta firmy Microsoft:
 
-| Stara właściwość | Nowa właściwość | Uwagi |
+| Poprzednia właściwość | Nowa właściwość | Uwagi |
 | --- | --- | --- |
 | billingPeriodId  | _Nie dotyczy_ | Nie dotyczy. W przypadku umów klienta firmy Microsoft właściwość billingPeriodId została zastąpiona przez fakturę i skojarzony arkusz cen. |
 | meterId  | meterId | &nbsp;  |
@@ -398,7 +398,7 @@ Zamiast powyższych punktów końcowych interfejsu API w przypadku umów klienta
 
 Ten interfejs API jest przeznaczony dla umów klienta firmy Microsoft i udostępnia dodatkowe atrybuty.
 
-**Arkusz cen dla zakresu profilu rozliczeniowego na koncie rozliczeniowym**
+**Arkusz cen dla zakresu profilu rozliczeń na koncie rozliczeniowym**
 
 Jest to istniejący interfejs API. Został on zaktualizowany — dostarcza arkusza cen dla profilu rozliczeniowego na koncie rozliczeniowym.
 
@@ -428,7 +428,7 @@ Poniższa tabela przedstawia starsze właściwości [interfejsów API arkusza ce
 
 | Stara właściwość interfejsu API arkusza cen usługi Azure Resource Manager  | Nowa właściwość interfejsu API arkusza cen umowy klienta firmy Microsoft   | Opis |
 | --- | --- | --- |
-| Identyfikator miernika | _meterId_ | Unikatowy identyfikator miernika. Taki sam jak właściwość meterID. |
+| Meter ID | _meterId_ | Unikatowy identyfikator miernika. Taki sam jak właściwość meterID. |
 | Nazwa miernika | meterName | Nazwa miernika. Miernik reprezentuje możliwy do wdrożenia zasób usługi platformy Azure. |
 | Kategoria miernika  | usługa | Nazwa kategorii klasyfikacji dla miernika. Jest ona taka sama jak usługa w arkuszu cen umowy klienta firmy Microsoft. Dokładne wartości ciągów są różne. |
 | Podkategoria miernika | meterSubCategory | Nazwa kategorii klasyfikacji podrzędnej miernika. Jest ona oparta na klasyfikacji rozróżniania zestawu funkcji wysokiego poziomu w usłudze. Przykładowa nazwa to podstawowa baza danych SQL lub standardowa baza danych SQL. |
@@ -479,7 +479,7 @@ Aby uzyskać informacje o transakcjach związanych z zakupami rezerwacji przy u�
 
 ## <a name="recommendations-apis-replaced"></a>Interfejsy API zaleceń zostały zamienione
 
-Interfejsy API zaleceń dotyczących zakupów wystąpień zarezerwowanych udostępniają informacje o użyciu maszyn wirtualnych z ostatnich 7, 30 lub 60 dni. Interfejsy API udostępniają również zalecenia dotyczące zakupów rezerwacji. Obejmują one następujące raporty:
+Interfejsy API zaleceń dotyczących zakupów wystąpień zarezerwowanych udostępniają informacje o użyciu maszyn wirtualnych z ostatnich 7, 30 lub 60 dni. Interfejsy API udostępniają również zalecenia dotyczące zakupów rezerwacji. Obejmują one:
 
 - [Interfejs API zaleceń dotyczących współdzielonych wystąpień zarezerwowanych](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
 - [Interfejs API zaleceń dotyczących pojedynczego wystąpienia zarezerwowanego](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
@@ -496,9 +496,9 @@ Aby uzyskać zalecenia dotyczące rezerwacji przy użyciu interfejsu API zalece�
 
 Informacje o użyciu rezerwacji w ramach rejestracji można uzyskać przy użyciu interfejsu API użycia wystąpień zarezerwowanych. Jeśli rejestracja zawiera więcej niż jedno wystąpienie zarezerwowane, ten interfejs API umożliwia również uzyskanie informacji o użyciu wszystkich zakupionych wystąpień zarezerwowanych.
 
-Obejmują one następujące raporty:
+Obejmują one:
 
-- [Szczegóły użycia wystąpień zarezerwowanych](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
+- [Szczegóły Użycie wystąpień zarezerwowanych](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Podsumowanie użycia wystąpień zarezerwowanych](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
 Wszystkie interfejsy API użycia zostały zastąpione przez natywne interfejsy API platformy Azure, które używają usługi Azure AD do uwierzytelniania i autoryzacji. Aby uzyskać więcej informacji na temat wywoływania interfejsów API REST platformy Azure, zobacz [Wprowadzenie do interfejsu REST](/rest/api/azure/#create-the-request). Wymienione wcześniej interfejsy API zaleceń dotyczących rezerwacji zostały zastąpione przez interfejsy API [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) i [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries).

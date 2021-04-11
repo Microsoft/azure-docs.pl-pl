@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 3f175ff8e7c809032f35cdea9dc3cffa8345b82c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 929d8412b3be894e80a13d9a2bd07ab7401b8dda
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106827"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277865"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
 
@@ -41,8 +41,8 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
     
     Ponownego
 
-    * [Lokalizatory przesyłania strumieniowego](streaming-locators-concept.md)
-    * [Zasady przesyłania strumieniowego](streaming-policy-concept.md)
+    * [Lokalizatory przesyłania strumieniowego](stream-streaming-locators-concept.md)
+    * [Zasady przesyłania strumieniowego](stream-streaming-policy-concept.md)
     * [Tworzenie pakietów i dostarczanie](encode-dynamic-packaging-concept.md)
     * [Filtry](filters-concept.md)
 * Zawartość można chronić, szyfrując ją przy użyciu Advanced Encryption Standard (AES-128) lub/i jednego z trzech głównych systemów DRM: Microsoft PlayReady, Google Widevine i Apple FairPlay. [Zawartość zaszyfrowana za pomocą Azure Portal](drm-encrypt-content-how-to.md) szybki start przedstawia sposób konfigurowania ochrony zawartości.
@@ -94,7 +94,7 @@ Aby opublikować element zawartości, musisz teraz dodać lokalizator przesyłan
 
     > [!NOTE]
     > Aby można było zaszyfrować strumień, należy utworzyć zasady klucza zawartości i ustawić je w lokalizatorze przesyłania strumieniowego. Aby uzyskać szczegółowe informacje, zobacz [szyfrowanie zawartości przy użyciu Azure Portal](drm-encrypt-content-how-to.md).
-1. W oknie **Dodawanie lokalizatora przesyłania strumieniowego** wybierz jedną ze wstępnie zdefiniowanych zasad przesyłania strumieniowego. Aby uzyskać szczegółowe informacje, zobacz [zasady przesyłania strumieniowego](streaming-policy-concept.md)
+1. W oknie **Dodawanie lokalizatora przesyłania strumieniowego** wybierz jedną ze wstępnie zdefiniowanych zasad przesyłania strumieniowego. Aby uzyskać szczegółowe informacje, zobacz [zasady przesyłania strumieniowego](stream-streaming-policy-concept.md)
 
     ![Lokalizator przesyłania strumieniowego](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
 
@@ -105,7 +105,7 @@ Po opublikowaniu elementu zawartości można przesłać do niego strumień bezpo
 Lub skopiuj adres URL przesyłania strumieniowego i użyj go w odtwarzaczu klienta.
 
 > [!NOTE]
-> Upewnij się, że [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) jest uruchomiony. Podczas pierwszego tworzenia konta usługi multimediów tworzony jest domyślny punkt końcowy przesyłania strumieniowego, który jest w stanie zatrzymania, dlatego należy go uruchomić, aby można było przesyłać strumieniowo zawartość.<br/>Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
+> Upewnij się, że [punkt końcowy przesyłania strumieniowego](stream-streaming-endpoint-concept.md) jest uruchomiony. Podczas pierwszego tworzenia konta usługi multimediów tworzony jest domyślny punkt końcowy przesyłania strumieniowego, który jest w stanie zatrzymania, dlatego należy go uruchomić, aby można było przesyłać strumieniowo zawartość.<br/>Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
 
 ## <a name="cleanup-resources"></a>Oczyszczanie zasobów
 
