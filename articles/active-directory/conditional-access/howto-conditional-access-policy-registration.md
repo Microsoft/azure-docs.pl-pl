@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/29/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711d4bdf2be2ad3158c12e4690a70fb83fe7a846
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 38ddd825321a3cb7947eb76c4f5f6cdbc6cb3414
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559506"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055709"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: Zabezpieczanie rejestracji informacji zabezpieczających
 
@@ -52,7 +52,7 @@ Następujące zasady mają zastosowanie do wybranych użytkowników, którzy pr�
 1. Ustaw przełącznik **Włącz zasady** na wartość **Włączone**.
 1. Następnie wybierz pozycję **Utwórz**.
 
-Administratorzy będą teraz musieli wystawić użytkownikom tymczasowy dostęp do poświadczeń, aby mogli je spełnić wymagania dotyczące uwierzytelniania wieloskładnikowego. Kroki prowadzące do wykonania tego zadania znajdują się w sekcji [Tworzenie tymczasowego dostępu w portalu usługi Azure AD](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass-in-the-azure-ad-portal).
+Administratorzy będą teraz musieli wystawić użytkownikom tymczasowy dostęp do poświadczeń, aby mogli je spełnić wymagania dotyczące uwierzytelniania wieloskładnikowego. Kroki prowadzące do wykonania tego zadania znajdują się w sekcji [Tworzenie tymczasowego dostępu w portalu usługi Azure AD](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
 Organizacje mogą zdecydować się na zażądać innych kontroli dotacji oprócz lub zamiast tego **wymagają uwierzytelniania wieloskładnikowego** w kroku 6b. W przypadku wybrania wielu kontrolek upewnij się, że wybrano odpowiedni przełącznik przycisku radiowego, aby wymagać **wszystkich** lub **jednej** z wybranych kontrolek podczas wprowadzania tej zmiany.
 

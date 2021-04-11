@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 745cc7be37120cda27fe4d4077b9bda0fa07badf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435454"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550782"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -168,13 +168,11 @@ Użytkownicy odbierają Logowanie jednokrotne z urządzeń przyłączonych do us
 
 ### <a name="on-premises-network-shares"></a>Lokalne udziały sieciowe
 
-Użytkownicy mają Logowanie jednokrotne z urządzeń przyłączonych do usługi Azure AD, gdy urządzenie ma dostęp do lokalnego kontrolera domeny.
+Użytkownicy mają Logowanie jednokrotne z urządzeń przyłączonych do usługi Azure AD, gdy urządzenie ma dostęp do lokalnego kontrolera domeny. [Dowiedz się, jak to działa](azuread-join-sso.md)
 
 ### <a name="printers"></a>Drukarki
 
-W przypadku drukarek należy wdrożyć drukowanie w [chmurze hybrydowej](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) w celu odnajdywania drukarek na urządzeniach dołączonych do usługi Azure AD. 
-
-Mimo że drukarki nie mogą być automatycznie odnajdywane w środowisku tylko w chmurze, użytkownicy mogą również użyć ścieżki UNC drukarki, aby dodać je bezpośrednio. 
+Zalecamy wdrożenie [uniwersalnego drukowania](/universal-print/fundamentals/universal-print-whatis) , aby miało rozwiązanie do zarządzania drukowaniem w chmurze bez żadnych zależności lokalnych. 
 
 ### <a name="on-premises-applications-relying-on-machine-authentication"></a>Aplikacje lokalne polegające na uwierzytelnianiu komputera
 
@@ -221,7 +219,7 @@ Wybierz podejście do wdrożenia lub podejścia, przeglądając powyższą tabel
 
 ## <a name="configure-your-device-settings"></a>Konfigurowanie ustawień urządzenia
 
-Azure Portal pozwala kontrolować wdrażanie urządzeń przyłączonych do usługi Azure AD w organizacji. Aby skonfigurować ustawienia pokrewne, na **stronie Azure Active Directory** wybierz opcję `Devices > Device settings` .
+Azure Portal pozwala kontrolować wdrażanie urządzeń przyłączonych do usługi Azure AD w organizacji. Aby skonfigurować ustawienia pokrewne, na **stronie Azure Active Directory** wybierz opcję `Devices > Device settings` . [Dowiedz się więcej](device-management-azure-portal.md)
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Użytkownicy mogą dołączać urządzenia do usługi Azure AD
 
@@ -235,11 +233,13 @@ Wybierz pozycję **wybrane** i wybierz użytkowników, których chcesz dodać do
 
 ![Dodatkowi administratorzy lokalni na urządzeniach dołączonych do usługi Azure AD](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Wymagaj uwierzytelniania wieloskładnikowego w celu dołączania urządzeń
+### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Wymagaj uwierzytelniania wieloskładnikowego (MFA) do dołączania urządzeń
 
 Wybierz pozycję **"tak"** , jeśli chcesz, aby użytkownicy korzystali z uwierzytelniania MFA podczas dołączania urządzeń do usługi Azure AD. Aby użytkownicy mogli przyłączać urządzenia do usługi Azure AD przy użyciu uwierzytelniania wieloskładnikowego, samo urządzenie będzie miało drugi czynnik.
 
 ![Wymagaj uwierzytelniania wieloskładnikowego w celu dołączania urządzeń](./media/azureadjoin-plan/03.png)
+
+**Zalecenie:** Korzystanie z akcji użytkownika [Zarejestruj lub Dołącz urządzenia](/conditional-access/concept-conditional-access-cloud-apps#user-actions) w dostęp warunkowy w celu wymuszania uwierzytelniania MFA na potrzeby dołączania urządzeń.
 
 ## <a name="configure-your-mobility-settings"></a>Skonfiguruj ustawienia mobilności
 

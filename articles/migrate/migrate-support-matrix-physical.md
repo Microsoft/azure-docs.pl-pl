@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09110bb15f853f20b0be9d8c4c6f5088e7a55d8b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869450"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382984"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Macierz obsługi dla odnajdywania i oceny serwera fizycznego 
 
@@ -39,6 +39,8 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt i dodać Azure Migrate: 
 **Uprawnienia:**
 
 - W przypadku serwerów z systemem Windows należy użyć konta domeny dla serwerów przyłączonych do domeny oraz konta lokalnego dla serwerów, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności.
+    > [!Note]
+    > W przypadku systemów Windows Server 2008 i 2008 R2 upewnij się, że na serwerach jest zainstalowana wartość WMF 3,0, a konto domeny/lokalnego używane do uzyskiwania dostępu do serwerów jest dodawane do tych grup: Użytkownicy monitora wydajności, Użytkownicy dzienników wydajności i WinRMRemoteWMIUsers.
 - W przypadku serwerów systemu Linux potrzebujesz konta głównego na serwerach systemu Linux, które mają być odnajdywane. Alternatywnie można ustawić konto inne niż główne z wymaganymi możliwościami przy użyciu następujących poleceń:
 
 **Polecenie** | **Cel**

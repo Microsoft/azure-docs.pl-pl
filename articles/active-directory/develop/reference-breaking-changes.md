@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 3/30/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647425"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167587"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
@@ -35,9 +35,21 @@ System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bez
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Poprawka usterki: usługa Azure AD nie będzie już zawierać parametrów stanu.
+
+**Data wprowadzenia**: maj 2021
+
+Objęte **punkty końcowe**: 1.0 i v 2.0 
+
+**Wpływ na protokół**: wszystkie przepływy, które odwiedzają `/authorize` punkt końcowy (przepływ niejawnego przepływu kodu autoryzacji)
+
+Znaleziono błąd i został on rozwiązany w odpowiedzi na autoryzację usługi Azure AD. Podczas procesu `/authorize` uwierzytelniania `state` parametr z żądania jest uwzględniany w odpowiedzi, aby zachować stan aplikacji i zapobiec atakom CSRF. Nieprawidłowy adres URL usługi Azure AD został zakodowany `state` przed wstawieniem do odpowiedzi, gdzie został zakodowany jeszcze raz.  W efekcie aplikacje nie odrzucają odpowiedzi z usługi Azure AD. 
+
+Usługa Azure AD nie będzie już podwójnej kodowania tego parametru, dzięki czemu aplikacje mogą poprawnie analizować wyniki. Ta zmiana zostanie wprowadzona dla wszystkich aplikacji. 
+
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>Dostęp warunkowy zostanie wyzwolony tylko dla jawnie żądanych zakresów
 
-**Data wprowadzenia**: marzec 2021
+**Data wejścia w życie**: maj 2021 i stopniowe wprowadzanie od kwietnia. 
 
 **Wpływ na punkty końcowe**: v 2.0
 
@@ -48,6 +60,8 @@ Aplikacje korzystające z funkcji dynamicznej zgody już dzisiaj otrzymują wszy
 Aby zmniejszyć liczbę niepotrzebnych monitów dostępu warunkowego, usługa Azure AD zmienia sposób, w jaki zakresy niewymagane są dostarczane do aplikacji tak, że tylko jawnie żądane zakresy wyzwalają dostęp warunkowy. Ta zmiana może spowodować, że aplikacje oparte na poprzednim zachowaniu usługi Azure AD (tj. udostępnieniu wszystkich uprawnień nawet wtedy, gdy nie zażądały), ponieważ tokeny, których żądają, nie będą miały uprawnień.
 
 Aplikacje będą teraz otrzymywać tokeny dostępu z mieszanymi uprawnieniami w tym zakresie, a także z tymi, które są wyrażające zgodę na to, że nie wymagają monitów o dostęp warunkowy.  Zakresy tokenu dostępu są odzwierciedlone w `scope` parametrze odpowiedzi tokenu. 
+
+Ta zmiana zostanie wprowadzona dla wszystkich aplikacji z wyjątkiem tych, które mają zaobserwowany zależność od tego zachowania.  Deweloperzy będą otrzymywać zorganizować, jeśli zostaną zwolnieni z tej zmiany, ponieważ mogą one mieć zależność od dodatkowych monitów dostępu warunkowego. 
 
 **Przykłady**
 

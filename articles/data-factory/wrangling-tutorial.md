@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 3d43a532f57feab361c6a3de79269991f46fc55d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cf15d6f669718cca8b99d67a7912d3959d9c191f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684026"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732510"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Przygotowywanie danych za pomocą przetwarzanie danych
 
@@ -20,7 +20,7 @@ ms.locfileid: "98684026"
 Przetwarzanie danych w usłudze Fabryka danych pozwala na natywne Kompilowanie interaktywnych Power Query różnyów w ramach podajnika APD, a następnie wykonywanie ich na dużą skalę w ramach potoku ADF.
 
 > [!NOTE]
-> Power Query działaniach w usłudze ADF jest obecnie dostępnych w publicznej wersji zapoznawczej
+> Działanie Power Query w usłudze ADF jest obecnie dostępne w publicznej wersji zapoznawczej
 
 ## <a name="create-a-power-query-activity"></a>Tworzenie działania Power Query
 

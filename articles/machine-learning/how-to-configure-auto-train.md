@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12a6761ac2cd305e6ff949ffa59ee3bbdff1934d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563491"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732894"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -217,7 +217,7 @@ Zapoznaj się z określonymi definicjami tych metryk w temacie [Omówienie zauto
 
 ### <a name="primary-metrics-for-classification-scenarios"></a>Podstawowe metryki dla scenariuszy klasyfikacji 
 
-Metryki po stronie progowej, takie jak `accuracy` ,, `average_precision_score_weighted` `norm_macro_recall` i `precision_score_weighted` mogą nie optymalizować, jak również dla zestawów danych, które są bardzo małe, mają bardzo duże pochylenie klasy (niezrównoważone klasy) lub gdy oczekiwana wartość metryki jest bardzo bliska 0,0 lub 1,0. W takich przypadkach `AUC_weighted` może być lepszym wyborem dla metryki głównej. Po zakończeniu automatycznego uczenia maszynowego można wybrać model, który zostanie utworzony na podstawie metryki najlepiej dopasowanej do potrzeb Twojej firmy.
+Metryki po stronie progowej, takie jak `accuracy` ,, `average_precision_score_weighted` `norm_macro_recall` i `precision_score_weighted` mogą nie optymalizować dla zestawów danych, które są małe, mają bardzo duże pochylenie klas (niezrównoważone klasy) lub gdy oczekiwana wartość metryki jest bardzo bliska 0,0 lub 1,0. W takich przypadkach `AUC_weighted` może być lepszym wyborem dla metryki głównej. Po zakończeniu automatycznego uczenia maszynowego można wybrać model, który zostanie utworzony na podstawie metryki najlepiej dopasowanej do potrzeb Twojej firmy.
 
 | Metric | Przykładowe przypadki użycia: |
 | ------ | ------- |
@@ -386,16 +386,113 @@ Skonfiguruj  `max_concurrent_iterations` w `AutoMLConfig` obiekcie. Jeśli nie j
 
 ## <a name="explore-models-and-metrics"></a>Eksplorowanie modeli i metryk
 
-Możesz wyświetlić wyniki szkolenia w widżecie lub inline, jeśli jesteś w notesie. Aby uzyskać więcej informacji [, zobacz Śledzenie i szacowanie modeli](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) .
+Opcja zautomatyzowanej sieci umożliwia monitorowanie i ocenę wyników szkoleniowych. 
 
-Zobacz [ocenę zautomatyzowanych wyników eksperymentu w usłudze Machine Learning](how-to-understand-automated-ml.md) na potrzeby definicji i przykładów wykresów wydajności i metryk podanych dla każdego przebiegu. 
+* Możesz wyświetlić wyniki szkolenia w widżecie lub inline, jeśli jesteś w notesie. Aby uzyskać więcej informacji [, zobacz Jak monitorować automatyczne przebiegi](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) maszyn.
 
-Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane do określonego modelu, zobacz [cechowania przezroczystość](how-to-configure-auto-features.md#featurization-transparency). 
+* Aby zapoznać się z definicjami i przykładowymi wykresami wydajności i metrykami podanymi dla każdego przebiegu, zobacz [ocenę zautomatyzowanych wyników eksperymentu w usłudze Machine Learning](how-to-understand-automated-ml.md) . 
 
+* Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane do określonego modelu, zobacz [cechowania przezroczystość](how-to-configure-auto-features.md#featurization-transparency). 
+
+Można wyświetlić parametry, metody skalowania i normalizacji oraz algorytm stosowany do konkretnej zautomatyzowanej sieci, uruchamiając następujące niestandardowe rozwiązanie kodu. 
+
+Poniżej definiuje metodę niestandardową, `print_model()` która drukuje parametry każdego kroku potoku szkolenia automatu ml.
+ 
+```python
+from pprint import pprint
+
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()   
+```
+
+W przypadku przebiegu lokalnego lub zdalnego, który został właśnie przesłany i przeszkolony z poziomu tego samego notesu eksperymentu, można przekazać najlepszy model przy użyciu `get_output()` metody. 
+
+```python
+best_run, fitted_model = run.get_output()
+print(best_run)
+         
+print_model(fitted_model)
+```
+
+Następujące dane wyjściowe wskazują, że:
+ 
+* Technika StandardScalerWrapper została użyta do skalowania i normalizacji danych przed szkoleniem.
+
+* Algorytm XGBoostClassifier został zidentyfikowany jako najlepszy przebieg, a także zawiera wartości parametrów. 
+
+```python
+StandardScalerWrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing.data',
+ 'with_mean': False,
+ 'with_std': False}
+
+XGBoostClassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.6,
+ 'eta': 0.4,
+ 'gamma': 0,
+ 'learning_rate': 0.1,
+ 'max_delta_step': 0,
+ 'max_depth': 8,
+ 'max_leaves': 0,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'n_estimators': 400,
+ 'n_jobs': 1,
+ 'nthread': None,
+ 'objective': 'multi:softprob',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 1.6666666666666667,
+ 'scale_pos_weight': 1,
+ 'seed': None,
+ 'silent': None,
+ 'subsample': 0.8,
+ 'tree_method': 'auto',
+ 'verbose': -10,
+ 'verbosity': 1}
+```
+
+W przypadku istniejącego przebiegu z innego eksperymentu w obszarze roboczym Uzyskaj konkretny identyfikator uruchomienia, który chcesz zbadać i przekazać do `print_model()` metody. 
+
+```python
+from azureml.train.automl.run import AutoMLRun
+
+ws = Workspace.from_config()
+experiment = ws.experiments['automl-classification']
+automl_run = AutoMLRun(experiment, run_id = 'AutoML_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx')
+
+automl_run
+best_run, model_from_aml = automl_run.get_output()
+
+print_model(model_from_aml)
+
+```
 > [!NOTE]
 > Algorytmy zautomatyzowanej sieci mają nieodłączną losowość, która może spowodować nieznaczne wahania w końcowym wyniku metryk, na przykład dokładność. Zautomatyzowanej ML wykonuje również operacje na danych, takie jak podzielenie testów pociągowych, podzielone lub krzyżowe sprawdzanie poprawności w razie potrzeby. Dlatego w przypadku uruchamiania eksperymentu z tymi samymi ustawieniami konfiguracji i metryką podstawową wiele razy prawdopodobnie zobaczysz zmiany w przypadku wszystkich eksperymentów końcowych metryk, ze względu na te czynniki. 
 
 ## <a name="register-and-deploy-models"></a>Rejestrowanie i wdrażanie modeli
+
 Możesz zarejestrować model, aby można było wrócić do niego do późniejszego użycia. 
 
 Aby zarejestrować model na podstawie zautomatyzowanego przebiegu ML, użyj [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) metody. 

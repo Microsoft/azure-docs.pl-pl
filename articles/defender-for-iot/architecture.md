@@ -1,15 +1,15 @@
 ---
-title: Architektura rozwiązania bez agenta
+title: Co to jest architektura rozwiązania bez agenta
 description: Dowiedz się więcej o architekturze i przepływie informacji dla usługi Azure Defender.
 ms.topic: overview
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 99ccd0597fddaa86a2452160fc2cbfdadab87a1b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd639ca2656b901bd87fccf36fb4a5d90d3bf918
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784870"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383545"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektura usługi Azure Defender for IoT
 
@@ -107,7 +107,7 @@ Portal Defender for IoT na platformie Azure umożliwia:
 
 - Aktualizowanie pakietów analizy zagrożeń
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
 [Defender — często zadawane pytania dotyczące usługi IoT](resources-frequently-asked-questions.md)
 

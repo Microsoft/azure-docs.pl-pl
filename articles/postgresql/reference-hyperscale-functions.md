@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
-ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026237"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011155"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funkcje w interfejsie API SQL Citus
 
-Ta sekcja zawiera informacje referencyjne dotyczące funkcji zdefiniowanych przez użytkownika, które są udostępniane przez funkcję Citus. Funkcje te pomagają w dostarczaniu dodatkowych funkcji do skalowania (Citus) innych niż standardowe polecenia SQL.
+Ta sekcja zawiera informacje referencyjne dotyczące funkcji zdefiniowanych przez użytkownika, które są udostępniane przez funkcję Citus. Funkcje te pomagają w udostępnianiu funkcji do skalowania (Citus).
 
 > [!NOTE]
 >
@@ -178,6 +178,48 @@ SELECT create_distributed_function(
 );
 ```
 
+### <a name="alter_columnar_table_set"></a>alter_columnar_table_set
+
+Funkcja alter_columnar_table_set () zmienia ustawienia w [tabeli kolumnowej](concepts-hyperscale-columnar.md). Wywołanie tej funkcji w tabeli innej niż kolumnowy powoduje wystąpienie błędu. Wszystkie argumenty poza nazwą tabeli są opcjonalne.
+
+Aby wyświetlić bieżące opcje dla wszystkich tabel kolumnowych, zapoznaj się z tą tabelą:
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+Wartości domyślne dla ustawień kolumnowy dla nowo utworzonych tabel można zastąpić tymi GUCs:
+
+* kolumnowy. Compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### <a name="arguments"></a>Argumenty
+
+**table_name:** Nazwa tabeli kolumnowej.
+
+**chunk_row_count:** (opcjonalnie) Maksymalna liczba wierszy na fragment dla nowo wstawionych danych. Istniejące fragmenty danych nie zostaną zmienione i mogą mieć więcej wierszy niż ta wartość maksymalna. Wartość domyślna to 10000.
+
+**stripe_row_count:** (opcjonalnie) Maksymalna liczba wierszy na pas dla nowo wstawionych danych. Istniejące paski danych nie zostaną zmienione i mogą mieć więcej wierszy niż ta wartość maksymalna. Wartość domyślna to 150000.
+
+**kompresja:** (opcjonalnie) `[none|pglz|zstd|lz4|lz4hc]` Typ kompresji nowo wstawionych danych. Istniejące dane nie zostaną ponownie skompresowane ani dekompresowane. Domyślna i Sugerowana wartość to zstd (jeśli obsługa została skompilowana w programie).
+
+**compression_level:** (opcjonalnie) prawidłowe ustawienia to od 1 do 19. Jeśli metoda kompresji nie obsługuje wybranego poziomu, zamiast tego zostanie wybrany najbliższy poziom.
+
+#### <a name="return-value"></a>Wartość zwracana
+
+Nie dotyczy
+
+#### <a name="example"></a>Przykład
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
+```
+
 ## <a name="metadata--configuration-information"></a>Informacje o metadanych/konfiguracji
 
 ### <a name="master_get_table_metadata"></a>Główne \_ pobieranie \_ \_ metadanych tabeli
@@ -220,7 +262,7 @@ SELECT * from master_get_table_metadata('github_events');
 
 ### <a name="get_shard_id_for_distribution_column"></a>Pobierz \_ \_ identyfikator fragmentu \_ dla \_ \_ kolumny dystrybucji
 
-Funkcja Citus) przypisuje każdy wiersz tabeli rozproszonej do fragmentu na podstawie wartości kolumny dystrybucji wiersza i metody dystrybucji tabeli. W większości przypadków precyzyjne mapowanie to szczegóły niskiego poziomu, które administrator bazy danych może zignorować. Jednak może być przydatne, aby określić fragmentu wiersza w przypadku ręcznych zadań konserwacji bazy danych lub po prostu zaspokojenie Curiosity. `get_shard_id_for_distribution_column`Ta funkcja udostępnia te informacje dla tabel rozproszonych i mieszanych, a także tabel referencyjnych. Nie działa w przypadku dystrybucji dołączania.
+Funkcja Citus) przypisuje każdy wiersz tabeli rozproszonej do fragmentu na podstawie wartości kolumny dystrybucji wiersza i metody dystrybucji tabeli. W większości przypadków precyzyjne mapowanie to szczegóły niskiego poziomu, które administrator bazy danych może zignorować. Jednak może być przydatne, aby określić fragmentu wiersza w przypadku ręcznych zadań konserwacji bazy danych lub po prostu zaspokojenie Curiosity. `get_shard_id_for_distribution_column`Ta funkcja udostępnia te informacje na potrzeby tabel dystrybuowanych, dystrybuowanych z zakresu i odwołań. Nie działa w przypadku dystrybucji dołączania.
 
 #### <a name="arguments"></a>Argumenty
 

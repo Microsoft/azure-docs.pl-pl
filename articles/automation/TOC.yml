@@ -86,6 +86,8 @@
           href: automation-role-based-access-control.md
         - name: Przenoszenie konta usługi Automation do innej subskrypcji
           href: how-to/move-account.md
+        - name: Usuwanie konta usługi Automation
+          href: delete-account.md
         - name: Migrowanie z programu Orchestrator do usługi Azure Automation (wersja beta)
           href: automation-orchestrator-migration.md
     - name: Udostępnione zasoby
@@ -332,6 +334,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Dokumentacja
   items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/automation/automation
     - name: Moduł Az programu Azure PowerShell
       href: /powershell/module/az.automation
     - name: Moduł AzureRM programu Azure PowerShell

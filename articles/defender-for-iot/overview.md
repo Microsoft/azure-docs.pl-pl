@@ -4,10 +4,10 @@ description: Dowiedz się więcej o usłudze Defender dla funkcji i usług IoT o
 ms.topic: overview
 ms.date: 12/09/2020
 ms.openlocfilehash: 15772ee21587ed2bc010e31174af6daac71dfc12
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786842"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Usługa Azure Defender dla IoT — Zapraszamy!

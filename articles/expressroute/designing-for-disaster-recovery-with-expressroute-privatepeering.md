@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: d0aa9e8bfd565eeb7599d52adc0ac5b854e750bb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562311"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937230"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
 
@@ -47,7 +47,7 @@ Jednak w przypadku równoważenia obciążenia ruchu między geograficznie nadmi
 
 ### <a name="different-metros"></a>Różne Metro
 
-W przypadku korzystania z różnych linii metra w celu zapewnienia nadmiarowości lokalizacja dodatkowa powinna znajdować się w tym samym [regionie geograficznym](expressroute-locations-providers.md#locations). Aby wybrać lokalizację spoza regionu geopolitycznego, należy użyć jednostki SKU w warstwie Premium dla obu obwodów w ścieżkach równoległych. Zaletą tej konfiguracji jest prawdopodobieństwo, że klęska żywiołowa powoduje awarię obu linków, ale kosztem nieprzerwanego wzrostu czasu oczekiwania.
+W przypadku używania różnych linii metra w celu zapewnienia nadmiarowości należy wybrać lokalizację dodatkową w tym samym [regionie geograficznym](expressroute-locations-providers.md#locations). Aby wybrać lokalizację spoza regionu geopolitycznego, należy użyć jednostki SKU w warstwie Premium dla obu obwodów w ścieżkach równoległych. Zaletą tej konfiguracji jest prawdopodobieństwo, że klęska żywiołowa powoduje awarię obu linków, ale jest znacznie niższa, ale kosztem wydłużenia czasu oczekiwania.
 
 W tym artykule omówiono sposób rozwiązywania problemów, które mogą wystąpić podczas konfigurowania ścieżek geograficznie nadmiarowych.
 

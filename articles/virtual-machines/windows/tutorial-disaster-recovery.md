@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd5d8c3e2c6e4ee5556568ebd23ac99b48300e9d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555860"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382034"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Samouczek: Włączanie odzyskiwania po awarii dla maszyn wirtualnych z systemem Windows
 
@@ -22,10 +22,10 @@ W tym samouczku pokazano, jak skonfigurować odzyskiwanie po awarii dla maszyn w
 
 > [!div class="checklist"]
 > * Włączanie odzyskiwania po awarii dla maszyny wirtualnej z systemem Windows
-> * Uruchamianie próbnego odzyskiwania po awarii
+> * Uruchom drążenie odzyskiwania po awarii, aby sprawdzić, czy działa zgodnie z oczekiwaniami
 > * Zatrzymaj replikację maszyny wirtualnej po przejściu do szczegółów
 
-Po włączeniu replikacji dla maszyny wirtualnej rozszerzenie usługi mobilności Site Recovery zostanie zainstalowane na maszynie wirtualnej i zarejestruje ją z [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). Podczas replikacji zapisy z dysku maszyny wirtualnej są wysyłane do konta magazynu pamięci podręcznej w regionie źródłowym. Dane są wysyłane z lokalizacji do regionu docelowego, a punkty odzyskiwania są generowane na podstawie danych.  Po przełączeniu maszyny wirtualnej w tryb failover podczas odzyskiwania po awarii punkt odzyskiwania jest używany do przywracania maszyny wirtualnej w regionie docelowym.
+Po włączeniu replikacji dla maszyny wirtualnej rozszerzenie usługi mobilności Site Recovery zostanie zainstalowane na maszynie wirtualnej i zarejestruje ją z [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). Podczas replikacji zapisy z dysku maszyny wirtualnej są wysyłane do konta magazynu pamięci podręcznej w regionie źródłowym. Dane są wysyłane z lokalizacji do regionu docelowego, a punkty odzyskiwania są generowane na podstawie danych.  Po przełączeniu maszyny wirtualnej w tryb failover podczas odzyskiwania po awarii punkt odzyskiwania jest używany do tworzenia maszyny wirtualnej w regionie docelowym.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -58,27 +58,69 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     Tag AzureSiteRecovery | Zezwala na dostęp do usługi Site Recovery w dowolnym regionie.
     GuestAndHybridManagement | Użyj, jeśli chcesz automatycznie uaktualnić agenta mobilności Site Recovery, który jest uruchomiony na maszynach wirtualnych obsługujących replikację.
 5.  Na maszynach wirtualnych z systemem Windows zainstaluj najnowsze aktualizacje systemu Windows, aby upewnić się, że maszyny wirtualne mają najnowsze certyfikaty główne.
- 
-## <a name="enable-disaster-recovery"></a>Włącz odzyskiwanie po awarii
+
+## <a name="create-a-vm-and-enable-disaster-recovery"></a>Tworzenie maszyny wirtualnej i włączanie odzyskiwania po awarii
+
+Opcjonalnie można włączyć odzyskiwanie po awarii podczas tworzenia maszyny wirtualnej.
+
+1. [Utwórz maszynę wirtualną](quick-create-portal.md).
+2. Na karcie **Zarządzanie** wybierz opcję **Włącz odzyskiwanie po awarii**.
+3. W **obszarze region pomocniczy** wybierz region docelowy, do którego chcesz replikować maszynę wirtualną w celu odzyskania po awarii.
+4. W obszarze **subskrypcja pomocnicza** wybierz subskrypcję docelową, w której zostanie utworzona docelowa maszyna wirtualna. Docelowa maszyna wirtualna jest tworzona po przełączeniu w tryb failover źródłowej maszyny wirtualnej z regionu źródłowego do regionu docelowego.
+5. W obszarze **magazyn Recovery Services** wybierz magazyn, który ma być używany na potrzeby replikacji. Jeśli nie masz magazynu, wybierz pozycję **Utwórz nowy**. Wybierz grupę zasobów, w której chcesz umieścić magazyn, oraz nazwę magazynu.
+6. W obszarze **zasady Site Recovery** pozostaw zasady domyślne lub wybierz pozycję **Utwórz nową** , aby ustawić wartości niestandardowe.
+
+    - Punkty odzyskiwania są tworzone na podstawie migawek dysków maszyny wirtualnej wykonanych w określonym punkcie w czasie. Po przełączeniu maszyny wirtualnej w tryb failover należy użyć punktu odzyskiwania, aby przywrócić maszynę wirtualną w regionie docelowym. 
+    - Punkt odzyskiwania spójny na poziomie awarii jest tworzony co pięć minut. Nie można zmodyfikować tego ustawienia. Migawka spójna pod kątem awarii przechwytuje dane znajdujące się na dysku podczas tworzenia migawki. Nie zawiera żadnych elementów w pamięci. 
+    - Domyślnie Site Recovery zachowuje punkty odzyskiwania spójne z awarią przez 24 godziny. Można ustawić wartość niestandardową z zakresu od 0 do 72 godzin.
+    - Migawka spójna na poziomie aplikacji jest wykonywana co 4 godziny. Migawka spójna na poziomie aplikacji 
+    - Domyślnie Site Recovery są przechowywane punkty odzyskiwania przez 24 godziny.
+
+7. W obszarze **Opcje dostępności** Określ, czy maszyna wirtualna jest wdrażana jako autonomiczna, w strefie dostępności, czy w zestawie dostępności.
+
+    ::: Image Type = "Content" source = "./Media/tutorial-Disaster-Recovery/create-vm.png" Alt-text = "Włącz replikację na stronie właściwości zarządzania maszyną wirtualną".
+
+8. Zakończ tworzenie maszyny wirtualnej.
+
+## <a name="enable-disaster-recovery-for-an-existing-vm"></a>Włączanie odzyskiwania po awarii dla istniejącej maszyny wirtualnej
+
+Jeśli chcesz włączyć odzyskiwanie po awarii na istniejącej maszynie wirtualnej zamiast dla nowej maszyny wirtualnej, Użyj tej procedury.
 
 1. W Azure Portal Otwórz stronę właściwości maszyny wirtualnej.
 2. W obszarze **Operacja** wybierz pozycję **Odzyskiwanie po awarii**.
-3. W   >  **obszarze region docelowy** podstawy wybierz region, do którego chcesz replikować maszynę wirtualną. Regiony źródłowe i docelowe muszą należeć do tej samej Azure Active Directory dzierżawy.
-4. Kliknij kolejno pozycje **Recenzja + Uruchom replikację**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Włącz replikację na stronie odzyskiwania po awarii we właściwościach maszyny wirtualnej.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Otwórz Opcje odzyskiwania po awarii dla istniejącej maszyny wirtualnej.":::
 
-5. W obszarze **Przegląd + uruchamianie replikacji** Sprawdź ustawienia:
+3. Jeśli maszyna wirtualna jest wdrożona w strefie **dostępności, można** wybrać opcję odzyskiwanie awaryjne między strefami dostępności.
+4. W **obszarze region docelowy** wybierz region, do którego chcesz replikować maszynę wirtualną. Regiony źródłowe i docelowe muszą należeć do tej samej Azure Active Directory dzierżawy.
 
-    - **Ustawienia docelowe**. Domyślnie Site Recovery odzwierciedla ustawienia źródła w celu tworzenia zasobów docelowych.
-    - **Ustawienia magazynu — konto magazynu pamięci podręcznej**. Odzyskiwanie używa konta magazynu w regionie źródłowym. Zmiany źródłowej maszyny wirtualnej są buforowane na tym koncie przed replikacją do lokalizacji docelowej.
-    - **Ustawienia magazynu — dysk repliki**. Domyślnie program Site Recovery tworzy dyski zarządzane repliki w regionie docelowym, które tworzą duplikaty dysków zarządzanych przez maszynę wirtualną z tym samym typem magazynu (w warstwie Standardowa lub Premium).
-    - **Ustawienia replikacji**. Pokazuje szczegóły magazynu i wskazuje, że punkty odzyskiwania utworzone przez Site Recovery są przechowywane przez 24 godziny.
-    - **Ustawienia rozszerzenia**. Wskazuje, że Site Recovery zarządza aktualizacjami rozszerzenia usługi mobilności Site Recovery zainstalowanego na replikowanych maszynach wirtualnych. Wskazane konto usługi Azure Automation zarządza procesem aktualizacji.
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Ustaw podstawowe opcje odzyskiwania po awarii dla maszyny wirtualnej.":::
+
+5. Wybierz pozycję **Dalej: Ustawienia zaawansowane**.
+6. W obszarze **Ustawienia zaawansowane** można przeglądać ustawienia i modyfikować wartości w ustawieniach niestandardowych. Domyślnie Site Recovery odzwierciedla ustawienia źródła w celu tworzenia zasobów docelowych.
+
+    - **Subskrypcja docelowa**. Subskrypcja, w ramach której tworzona jest docelowa maszyna wirtualna po zakończeniu pracy w trybie failover.
+    - **Docelowa Grupa zasobów maszyny wirtualnej**. Grupa zasobów, w której tworzona jest docelowa maszyna wirtualna po zakończeniu pracy w trybie failover.
+    - **Docelowa sieć wirtualna**. Sieć wirtualna platformy Azure, w której znajduje się docelowa maszyna wirtualna, gdy zostanie utworzona po przejściu w tryb failover.
+    - **Docelowa dostępność**. Gdy docelowa maszyna wirtualna jest tworzona jako pojedyncze wystąpienie, w zestawie dostępności lub strefie dostępności.
+    - **Położenie sąsiedztwa**. W razie potrzeby wybierz grupę umieszczania bliskości, w której znajduje się docelowa maszyna wirtualna po zakończeniu pracy w trybie failover.
+    - **Ustawienia magazynu — konto magazynu pamięci podręcznej**. Odzyskiwanie używa konta magazynu w regionie źródłowym jako tymczasowego magazynu danych. Zmiany źródłowej maszyny wirtualnej są buforowane na tym koncie przed replikacją do lokalizacji docelowej.
+        - Domyślnie jedno konto magazynu pamięci podręcznej jest tworzone na magazyn i ponownie używane.
+        - Jeśli chcesz dostosować konto pamięci podręcznej dla maszyny wirtualnej, możesz wybrać inne konto magazynu.
+    - **Ustawienia magazynu — dysk zarządzany repliki**. Domyślnie program Site Recovery tworzy dyski zarządzane repliki w regionie docelowym.
+        -  Domyślnie docelowy dysk zarządzany jest dublowany dla źródłowych dysków zarządzanych maszyn wirtualnych, przy użyciu tego samego typu magazynu (standardowy dysk twardy/SSD lub dysk SSD Premium).
+        - Typ magazynu można dostosować zgodnie z wymaganiami.
+    - **Ustawienia replikacji**. Pokazuje magazyn, w którym znajduje się maszyna wirtualna, oraz zasady replikacji używane dla maszyny wirtualnej. Domyślnie punkty odzyskiwania utworzone przez Site Recovery dla maszyny wirtualnej są przechowywane przez 24 godziny.
+    - **Ustawienia rozszerzenia**. Wskazuje, że Site Recovery zarządza aktualizacjami rozszerzenia usługi mobilności Site Recovery zainstalowanego na replikowanych maszynach wirtualnych.
+        - Wskazane konto usługi Azure Automation zarządza procesem aktualizacji.
+        - Można dostosować konto usługi Automation.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Zostanie wyświetlona strona podsumowanie ustawień lokalizacji docelowej i replikacji.":::
 
-2. Wybierz pozycję **Rozpocznij replikację**. Rozpocznie się wdrażanie, a Site Recovery zaczyna tworzyć zasoby docelowe. W powiadomieniach można monitorować postęp replikacji.
+
+6. Wybierz kolejno pozycje **Recenzja + Uruchom replikację**.
+
+7. Wybierz pozycję **Rozpocznij replikację**. Rozpocznie się wdrażanie, a Site Recovery zaczyna tworzyć zasoby docelowe. W powiadomieniach można monitorować postęp replikacji.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="Powiadomienie o postępie replikacji.":::
 

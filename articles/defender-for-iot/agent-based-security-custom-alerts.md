@@ -4,10 +4,10 @@ description: Dowiedz się więcej o dostosowywaniu alertów zabezpieczeń i zale
 ms.topic: conceptual
 ms.date: 2/16/2021
 ms.openlocfilehash: 2fb1385c12cbd9d0479d8528f54aad8816393ad1
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784921"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>Niestandardowe alerty zabezpieczeń urządzeń usługi Defender for IoT

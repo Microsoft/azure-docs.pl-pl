@@ -8,13 +8,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 03/01/2021
-ms.openlocfilehash: 1b2a3f018b16258622b817648cb00e230313bf49
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.date: 03/29/2021
+ms.openlocfilehash: 186f1e085cecdc92e345231d50d06195bba55504
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564521"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732962"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrowanie baz danych z SQL Server do wystąpienia zarządzanego SQL za pomocą usługi powtarzania dzienników (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,7 +70,7 @@ Po zatrzymaniu usługi LRS automatycznie za pomocą funkcji Autouzupełnianie lu
 | **2. Uruchom LRS w chmurze**. | Usługę można uruchomić ponownie przy użyciu wybranych poleceń cmdlet: PowerShell ([Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure ([az_sql_midb_log_replay_start poleceń cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Uruchom LRS oddzielnie dla każdej bazy danych, która wskazuje folder kopii zapasowej na Blob Storage. <br /><br /> Po uruchomieniu usługi zostaną wykonane kopie zapasowe z kontenera Blob Storage i rozpocznie się ich przywracanie w wystąpieniu zarządzanym SQL.<br /><br /> Jeśli uruchomiono LRS w trybie ciągłym, po przywróceniu wszystkich wstępnie przekazanych kopii zapasowych usługa będzie oglądać wszystkie nowe pliki przekazane do folderu. Usługa będzie stale stosować dzienniki na podstawie łańcucha numeru sekwencyjnego dziennika (LSN), dopóki nie zostanie zatrzymana. |
 | **2,1. Monitoruj postęp operacji**. | Możesz monitorować postęp operacji przywracania za pomocą wybranych poleceń cmdlet: PowerShell ([Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure ([az_sql_midb_log_replay_show poleceń cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2,2. Zatrzymaj operację w razie konieczności**. | Jeśli chcesz zatrzymać proces migracji, masz możliwość wyboru poleceń cmdlet: PowerShell ([stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> Zatrzymanie operacji spowoduje usunięcie bazy danych, która jest przywracana w wystąpieniu zarządzanym SQL. Po zatrzymaniu operacji nie można wznowić LRS dla bazy danych. Należy ponownie uruchomić proces migracji od podstaw. |
-| **3. Wytnij do chmury, gdy wszystko będzie gotowe**. | Zatrzymaj aplikację i obciążenie. Wypełnij ostatnią kopię zapasową dziennika i przekaż ją do usługi Azure Blob Storage.<br /><br /> Ukończ uruchomienie produkcyjne przez zainicjowanie `complete` operacji LRS z użyciem wybranych poleceń cmdlet: PowerShell ([Complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). Ta operacja przestanie być LRS i spowoduje, że baza danych zostanie przełączona w tryb online w celu odczytu i zapisu w wystąpieniu zarządzanym SQL.<br /><br /> Odwskaż parametry połączenia aplikacji z SQL Server do wystąpienia zarządzanego SQL. |
+| **3. Wytnij do chmury, gdy wszystko będzie gotowe**. | Zatrzymaj aplikację i obciążenie. Wypełnij ostatnią kopię zapasową dziennika i przekaż ją do usługi Azure Blob Storage.<br /><br /> Ukończ uruchomienie produkcyjne przez zainicjowanie `complete` operacji LRS z użyciem wybranych poleceń cmdlet: PowerShell ([Complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) lub interfejsu wiersza polecenia platformy Azure [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). Ta operacja przestanie być LRS i spowoduje, że baza danych zostanie przełączona w tryb online w celu odczytu i zapisu w wystąpieniu zarządzanym SQL.<br /><br /> Odwskaż parametry połączenia aplikacji z SQL Server do wystąpienia zarządzanego SQL. Trzeba będzie zorganizować ten krok samodzielnie, poprzez ręczne zmianę parametrów połączenia w aplikacji lub automatycznie (np. Jeśli aplikacja może na przykład odczytać parametry połączenia z właściwości lub bazy danych). |
 
 ## <a name="requirements-for-getting-started"></a>Wymagania dotyczące rozpoczynania pracy
 

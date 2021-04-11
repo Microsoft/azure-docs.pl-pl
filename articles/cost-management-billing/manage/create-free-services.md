@@ -5,18 +5,18 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 3bd571195a3f0df290387812e68f2b0377fe3c3c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: b475990a6b079de5e9ff01e52c2135f3c99a4f2f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584054"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055641"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Tworzenie usług uwzględnionych w ramach bezpłatnego konta platformy Azure
 
-W ciągu pierwszych 30 dni po utworzeniu bezpłatnego konta platformy Azure masz do dyspozycji 200 USD środków do wydania na dowolną usługę, z wyjątkiem zakupów produktów innych firm w portalu Marketplace. Korzystając z bezpłatnych środków, możesz poeksperymentować z różnymi warstwami i typami usług platformy Azure, aby wypróbować platformę Azure. Jeśli w tym okresie skorzystasz z usług lub zasobów platformy Azure, które nie są bezpłatne, z Twoich środków zostaną potrącone opłaty.
+W ciągu pierwszych 30 dni po utworzeniu bezpłatnego konta platformy Azure w walucie rozliczeniowej można korzystać z 200 USD, z wyjątkiem zakupów w portalu Marketplace innych firm. Korzystając z bezpłatnych środków, możesz poeksperymentować z różnymi warstwami i typami usług platformy Azure, aby wypróbować platformę Azure. Jeśli w tym okresie skorzystasz z usług lub zasobów platformy Azure, które nie są bezpłatne, z Twoich środków zostaną potrącone opłaty.
 
 Jeśli nie wykorzystasz wszystkich środków przed upływem pierwszych 30 dni, zostaną one utracone. Po upływie pierwszych 30 dni w ciągu 12 miesięcy od zarejestrowania możesz skorzystać tylko z ograniczonej liczby *niektórych usług* — nie wszystkie usługi platformy Azure są bezpłatne. Jeśli przeprowadzisz uaktualnienie przed upływem 30 dni i zostaną Ci jakieś środki, przez pozostałe dni możesz wykorzystać je na subskrypcję płatną zgodnie z rzeczywistym użyciem. Na przykład jeśli utworzysz bezpłatne konto 1 listopada i uaktualnisz je 5 listopada, to do 30 listopada możesz wykorzystać posiadane środki w ramach nowej subskrypcji płatnej zgodnie z rzeczywistym użyciem. 
 

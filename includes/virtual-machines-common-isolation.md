@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83a19dea56693a1caff2c982b9f772543fe1cf2e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102511099"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073669"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Izolowane rozmiary na żywo i działają na określonej generacji sprzętu i zostaną wycofane, gdy generacja sprzętu zostanie wycofana.
 
@@ -31,6 +31,7 @@ Obecnie odizolowane oferty maszyn wirtualnych obejmują:
 * Standard_M128ms
 * Standardowa_GS5
 * Standard_G5
+* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -48,6 +49,7 @@ Izolowane rozmiary maszyn wirtualnych mają ograniczoną cykl życia sprzętową
 | Standardowa_GS5  | 15 lutego 2022 |
 | Standard_E64i_v3  | 15 lutego 2022 |
 | Standard_E64is_v3  | 15 lutego 2022 |
+| Standard_DC8_v2 | 15 lutego 2022 |
 
 
 ## <a name="faq"></a>Często zadawane pytania
@@ -82,7 +84,7 @@ Odp **.:**
 | Date (Data) | Akcja |
 |---|---|
 | 15 lutego, 2021<sup>1</sup> | Anons dotyczący wycofania/GS5/E64i_v3/E64is_v3 |
-| 15 lutego 2022 | Usunięto gwarancję izolacji/GS5/E64i_v3/E64is_v3 |
+| 28 lutego 2022 | Usunięto gwarancję izolacji/GS5/E64i_v3/E64is_v3 |
 
 <sup>1</sup> istniejący klient korzystający z tych rozmiarów otrzyma wiadomość e-mail z powiadomieniem ze szczegółowymi instrukcjami dotyczącymi następnych kroków.  
 

@@ -1,19 +1,19 @@
 ---
 title: Wprowadzenie do usługi Azure Queue Storage — Azure Storage
 description: Zapoznaj się z wprowadzeniem do usługi Azure Queue Storage — usługą do przechowywania dużej liczby komunikatów. Usługa Queue Storage zawiera format adresu URL, konto magazynu, kolejkę i komunikat.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 03/18/2020
 ms.topic: overview
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 8c5c97fbb72934dd99ec784ccf8e08eec059c31b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32ce5af5371047ae814602e9118f622ee036bd9c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590583"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276216"
 ---
 # <a name="what-is-azure-queue-storage"></a>Co to jest Azure Queue Storage?
 

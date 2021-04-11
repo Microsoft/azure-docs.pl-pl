@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78b31cb32e3df9b0d8e198d8c2122e492e609283
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625821"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383409"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Co to jest usługa Azure Synapse Analytics?
 
@@ -43,9 +43,9 @@ ms.locfileid: "105625821"
 
 Usługa Azure Synapse usuwa tradycyjne bariery technologiczne między programami SQL i Spark. Możesz bezproblemowo mieszać i dopasowywać w zależności od potrzeb i wiedzy fachowej.
 
-* Udostępniony system metadanych zgodny z platformą Hive umożliwia używanie tabel zdefiniowanych dla plików w usłudze Data Lake do bezproblemowego wykorzystania przez platformę Spark lub Hive.
+* Tabele zdefiniowane dla plików w usłudze Data Lake są bezproblemowo zużywane przez platformę Spark lub Hive.
 * SQL i Spark mogą bezpośrednio eksplorować i analizować pliki Parquet, CSV, TSV i JSON przechowywane w usłudze Data Lake.
-* Szybkie skalowalne obciążenie i zwalnianie danych przechodzących między bazami danych SQL i Spark
+* Szybkie, skalowalne ładowanie danych między bazami danych SQL i Spark
 
 ## <a name="built-in-data-integration"></a>Wbudowana integracja danych
 
@@ -71,10 +71,10 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 * Wiodąca w branży produktywność pisania kodu SQL lub Spark: Tworzenie, debugowanie i Optymalizacja wydajności
 * Integracja z procesem ciągłej integracji/ciągłego wdrażania
 
-## <a name="engage-with-the-synapse-engineering-team"></a>Zaangażuj się z zespołem inżynierów Synapse
+## <a name="engage-with-the-synapse-community"></a>Zaangażuj się z społeczność Synapse
 
+- [Microsoft Q&A](/answers/topics/azure-synapse-analytics.html): zadawaj pytania techniczne.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): zadawaj pytania dotyczące programowania.
-- [Microsoft Q&stronie pytania](/answers/topics/azure-synapse-analytics.html): zadawaj pytania techniczne.
 
 ## <a name="next-steps"></a>Następne kroki
 

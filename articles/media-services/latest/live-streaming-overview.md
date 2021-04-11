@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c82c646e4befef9d409bb8e59a442642913ada22
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f207cefaf333fc21eb56dc15b1e4d191bf8e5fae
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641523"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108306"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
 
@@ -36,18 +36,18 @@ Ten artykuł zawiera omówienie i wskazówki dotyczące przesyłania strumieniow
 
 ## <a name="dynamic-packaging-and-delivery"></a>Dynamiczne pakowanie i dostarczanie
 
-Za pomocą Media Services można korzystać z funkcji [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md), co pozwala na wyświetlanie podglądu i emitowanie strumieni na żywo w [FORMATACH MPEG, HLS i Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) z kanału informacyjnego, który jest wysyłany do usługi. Osoby przeglądające mogą odtworzyć strumień na żywo za pomocą dowolnych HLS, ŁĄCZNIKów lub Smooth Streaming zgodnych graczy. Możesz użyć [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) w aplikacjach sieci Web lub aplikacji mobilnych, aby dostarczyć strumień do dowolnego z tych protokołów.
+Za pomocą Media Services można korzystać z funkcji [dynamicznego tworzenia pakietów](encode-dynamic-packaging-concept.md), co pozwala na wyświetlanie podglądu i emitowanie strumieni na żywo w [FORMATACH MPEG, HLS i Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) z kanału informacyjnego, który jest wysyłany do usługi. Osoby przeglądające mogą odtworzyć strumień na żywo za pomocą dowolnych HLS, ŁĄCZNIKów lub Smooth Streaming zgodnych graczy. Możesz użyć [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) w aplikacjach sieci Web lub aplikacji mobilnych, aby dostarczyć strumień do dowolnego z tych protokołów.
 
 ## <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
 
-Szyfrowanie dynamiczne umożliwia dynamiczne szyfrowanie zawartości na żywo lub na żądanie za pomocą algorytmu AES-128 lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. Aby uzyskać więcej informacji, zobacz [szyfrowanie dynamiczne](content-protection-overview.md).
+Szyfrowanie dynamiczne umożliwia dynamiczne szyfrowanie zawartości na żywo lub na żądanie za pomocą algorytmu AES-128 lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. Aby uzyskać więcej informacji, zobacz [szyfrowanie dynamiczne](drm-content-protection-concept.md).
 
 > [!NOTE]
 > Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
 ## <a name="dynamic-filtering"></a>Filtrowanie dynamiczne
 
-Filtrowanie dynamiczne służy do kontrolowania liczby ścieżek, formatów, szybkości transmisji bitów i okien czasu prezentacji wysyłanych do graczy. Aby uzyskać więcej informacji, zobacz [filtry i manifesty dynamiczne](filters-dynamic-manifest-overview.md).
+Filtrowanie dynamiczne służy do kontrolowania liczby ścieżek, formatów, szybkości transmisji bitów i okien czasu prezentacji wysyłanych do graczy. Aby uzyskać więcej informacji, zobacz [filtry i manifesty dynamiczne](filters-dynamic-manifest-concept.md).
 
 ## <a name="live-event-types"></a>Typy zdarzeń na żywo
 

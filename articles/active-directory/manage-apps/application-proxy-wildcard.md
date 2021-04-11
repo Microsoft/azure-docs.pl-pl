@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a532ae9485efa9571137130d32ba0827728e8094
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257984"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166874"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w Azure Active Directory serwerze proxy aplikacji
 
@@ -68,11 +68,23 @@ Ze względów bezpieczeństwa jest to wymaganie twarde i nie będzie on obsługi
 
 ### <a name="dns-updates"></a>Aktualizacje DNS
 
-W przypadku korzystania z domen niestandardowych należy utworzyć wpis DNS z rekordem CNAME dla zewnętrznego adresu URL (na przykład  `*.adventure-works.com` ) wskazującego zewnętrzny adres URL punktu końcowego serwera proxy aplikacji. W przypadku aplikacji z symbolami wieloznacznymi rekord CNAME musi wskazywać odpowiednie zewnętrzne adresy URL:
+W przypadku korzystania z domen niestandardowych należy utworzyć wpis DNS z rekordem CNAME dla zewnętrznego adresu URL (na przykład  `*.adventure-works.com` ) wskazującego zewnętrzny adres URL punktu końcowego serwera proxy aplikacji. W przypadku aplikacji z symbolami wieloznacznymi rekord CNAME musi wskazywać odpowiedni zewnętrzny adres URL:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 Aby upewnić się, że rekord CNAME został prawidłowo skonfigurowany, można użyć [polecenia nslookup](/windows-server/administration/windows-commands/nslookup) na jednym z docelowych punktów końcowych, na przykład `expenses.adventure-works.com` .  Odpowiedź powinna zawierać już wymieniony alias ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
+
+### <a name="using-connector-groups-assigned-to-an-app-proxy-cloud-service-region-other-than-the-default-region"></a>Używanie grup łączników przypisanych do regionu usługi w chmurze serwera proxy aplikacji innego niż domyślny region
+Jeśli łączniki są zainstalowane w regionach innych niż domyślny region dzierżawy, może być korzystne, aby zmienić region, dla którego Twoja grupa łączników została zoptymalizowana, aby zwiększyć wydajność dostępu do tych aplikacji. Aby dowiedzieć się więcej, zobacz [Optymalizacja grup łączników do używania najbliższej usługi proxy aplikacji w chmurze](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
+ 
+Jeśli grupa łączników przypisana do aplikacji wieloznacznej używa regionu **innego niż domyślny**, należy zaktualizować rekord CNAME, aby wskazywał na adres URL określony w regionie. Skorzystaj z poniższej tabeli, aby określić odpowiedni adres URL:
+
+| Region przypisany do łącznika | Zewnętrzny adres URL |
+| ---   | ---         |
+| Azja | `<yourAADTenantId>.asia.tenant.runtime.msappproxy.net`|
+| Australia  | `<yourAADTenantId>.aus.tenant.runtime.msappproxy.net` |
+| Europa  | `<yourAADTenantId>.eur.tenant.runtime.msappproxy.net`|
+| Ameryka Północna  | `<yourAADTenantId>.nam.tenant.runtime.msappproxy.net` |
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 

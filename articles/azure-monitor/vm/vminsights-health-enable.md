@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 540f0725427ace4aec76de373556cd6699a1b229
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052164"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732758"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Włącz kondycję gościa usługi VM Insights (wersja zapoznawcza)
 Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
@@ -20,6 +20,7 @@ Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondy
 W publicznej wersji zapoznawczej kondycja gościa usługi VM Insights ma następujące ograniczenia:
 
 - Obecnie są obsługiwane tylko maszyny wirtualne platformy Azure. Usługa Azure Arc dla serwerów nie jest obecnie obsługiwana.
+- Serwery proxy sieci nie są obecnie obsługiwane.
 
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne

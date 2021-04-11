@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102522397"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067145"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -790,7 +790,7 @@ Aby anulować kolejność Azure Data Box, uruchom polecenie [`az databox job can
    |Grupa zasobów [wymagane]| Nazwa grupy zasobów skojarzonej z kolejnością, która ma zostać usunięta. Grupa zasobów to kontener logiczny zasobów, które mogą być zarządzane lub wdrażane razem. | myresourcegroup|
    |Nazwa [wymagane]| Nazwa zamówienia do usunięcia. | "mydataboxorder"|
    |Przyczyna [wymagane]| Przyczyna anulowania zamówienia. | "Wprowadzono błędne informacje i są one niezbędne w celu anulowania zamówienia". |
-   |tak| Nie Monituj o potwierdzenie. | --tak (-y)| --tak-y |
+   |tak| Nie Monituj o potwierdzenie. | --tak (-y)| 
    |debugowanie| Dołącz informacje debugowania do pełnego rejestrowania | --Debug |
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
@@ -827,7 +827,7 @@ Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecen
    |Grupa zasobów [wymagane]| Nazwa grupy zasobów skojarzonej z kolejnością, która ma zostać usunięta. Grupa zasobów to kontener logiczny zasobów, które mogą być zarządzane lub wdrażane razem. | myresourcegroup|
    |Nazwa [wymagane]| Nazwa zamówienia do usunięcia. | "mydataboxorder"|
    |subskrypcja| Nazwa lub identyfikator (GUID) subskrypcji platformy Azure. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |tak| Nie Monituj o potwierdzenie. | --tak (-y)| --tak-y |
+   |tak| Nie Monituj o potwierdzenie. | --tak (-y)|
    |debugowanie| Dołącz informacje debugowania do pełnego rejestrowania | --Debug |
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
