@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1cff49e4ddb7423e1e5956e1436cefd18abe6dfe
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026874"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107078"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format tekstu rozdzielanego w Azure Data Factory
 
@@ -185,8 +185,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez rozdzieloną
 | Wyczyść folder | Jeśli folder docelowy został wyczyszczony przed zapisem | nie | `true` lub `false` | obciąć |
 | Opcja nazwy pliku | Format nazewnictwa zapisanych danych. Domyślnie jeden plik na partycję w formacie `part-#####-tid-<guid>` | nie | Wzorzec: ciąg <br> Na partycję: String [] <br> Nazwij plik jako dane kolumny: ciąg <br> Dane wyjściowe do pojedynczego pliku: `['<fileName>']` <br> Nazwa folderu jako dane kolumny: ciąg | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Wszystkie oferty | Ujmij wszystkie wartości w cudzysłowy | nie | `true` lub `false` | quoteAll |
-
-rowFolderUrlColumn:
+| Nagłówek | Dodawanie nagłówków klientów do plików wyjściowych | nie | `[<string array>]` | header |
 
 ### <a name="sink-example"></a>Przykład ujścia
 

@@ -8,14 +8,17 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3059d88c9894ba50a608afaf1cb23367dfaf089c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641995"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259459"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do inspekcji ruchu kierowanego do prywatnego punktu końcowego
+
+> [!NOTE]
+> Jeśli chcesz zabezpieczyć ruch do prywatnych punktów końcowych w wirtualnej sieci WAN platformy Azure przy użyciu bezpiecznego koncentratora wirtualnego, zobacz [bezpieczny ruch kierowany do prywatnych punktów końcowych w wirtualnej sieci WAN platformy Azure](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku platformy Azure. Prywatne punkty końcowe umożliwiają zasobom platformy Azure wdrożonym w sieci wirtualnej komunikowanie się z prywatnymi zasobami linków.
 
@@ -166,7 +169,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Ta grupa zasobów została utworzona w poprzedniej sekcji.  |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM**. |
-    | Region (Region) | Wybierz pozycję **(USA) Południowo-środkowe stany USA**. |
+    | Region | Wybierz pozycję **(USA) Południowo-środkowe stany USA**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
     | Obraz | Wybierz pozycję **Ubuntu Server 18,04 LTS-Gen1**. |
     | Rozmiar | Wybierz **Standard_B2s**. |
@@ -215,7 +218,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**.  |
     | **Szczegóły wystąpienia** |  |
     | Nazwa | Wprowadź **myAzureFirewall**. |
-    | Region (Region) | Wybierz pozycję **Południowo-środkowe stany USA**. |
+    | Region | Wybierz pozycję **Południowo-środkowe stany USA**. |
     | Strefa dostępności | Pozostaw wartość domyślną **Brak**. |
     | Wybieranie sieci wirtualnej    |    Wybierz pozycję **Użyj istniejącej**.    |
     | Sieć wirtualna    |    Wybierz pozycję **myAzFwVNet**.    |
@@ -301,7 +304,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla bazy danych Azure SQL Databas
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. |
     | **Szczegóły wystąpienia** | |
     | Nazwa | Wprowadź **SQLPrivateEndpoint**. |
-    | Region (Region) | Wybierz pozycję **(USA) Południowo-środkowe stany USA.** |
+    | Region | Wybierz pozycję **(USA) Południowo-środkowe stany USA.** |
 
 6. Wybierz kartę **zasób** lub wybierz pozycję **Dalej: zasób** w dolnej części strony.
 
@@ -489,7 +492,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**.  |
     | **Szczegóły wystąpienia** |  |
-    | Region (Region) | Wybierz pozycję **Południowo-środkowe stany USA**. |
+    | Region | Wybierz pozycję **Południowo-środkowe stany USA**. |
     | Nazwa | Wprowadź **podsieć VMsubnet do AzureFirewall**. |
     | Propaguj trasy bramy | Wybierz pozycję **Nie**. |
 

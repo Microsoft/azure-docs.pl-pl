@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 96c37ded2750ad3e4882b203d71c75c9f4608e9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131415"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285913"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Śledzenie salda środków na korzystanie z platformy Azure dla umowy klienta firmy Microsoft
 
@@ -368,7 +368,7 @@ Odpowiedź interfejsu API zwraca wszystkie transakcje, które wpłynęły na sal
 
 Konto rozliczeniowe umowy klienta firmy Microsoft zawiera profile rozliczeniowe, które umożliwiają zarządzanie fakturami i formami płatności. W każdym profilu rozliczeniowym co miesiąc jest generowana faktura, którą opłaca się przy użyciu wybranych form płatności.
 
-Nabyte środki przypisujesz do profilu rozliczeniowego. Podczas generowania faktury dla profilu rozliczeniowego środki są automatycznie stosowane do łącznych opłat w celu obliczenia kwoty, którą trzeba zapłacić. Pozostałą kwotę trzeba zapłacić za pomocą wybranej formy płatności, takiej jak czek/przelew lub karta kredytowa.
+Przypisujesz środki do zakupu w profilu rozliczeń. Podczas generowania faktury dla profilu rozliczeniowego środki są automatycznie stosowane do łącznych opłat w celu obliczenia kwoty, którą trzeba zapłacić. Pozostałą kwotę trzeba zapłacić za pomocą wybranej formy płatności, takiej jak czek/przelew lub karta kredytowa.
 
 ## <a name="products-that-arent-covered-by-azure-credits"></a>Produkty nieobjęte środkami na korzystanie z platformy Azure
 

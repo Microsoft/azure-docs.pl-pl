@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 04/07/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8afa0ec51f86bd77e5539840f3419eaff89171f5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93090107"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107197"
 ---
-# <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Szybki Start: Tworzenie aplikacji konsolowej przy użyciu zestawu .NET v4 SDK do zarządzania Azure Cosmos DB zasobów konta interfejsu API SQL.
+# <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Szybki Start: Tworzenie aplikacji konsolowej przy użyciu zestawu .NET v4 SDK (wersja zapoznawcza) w celu zarządzania Azure Cosmos DB zasobów konta interfejsu API SQL.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +28,12 @@ ms.locfileid: "93090107"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Wprowadzenie do Azure Cosmos DB biblioteki klienta interfejsu API SQL dla platformy .NET. Wykonaj kroki opisane w tym dokumencie, aby zainstalować pakiet .NET v4 (Azure. Cosmos), skompilować aplikację i wypróbować przykładowy kod dla podstawowych operacji CRUD na danych przechowywanych w Azure Cosmos DB. 
+Wprowadzenie do Azure Cosmos DB biblioteki klienta interfejsu API SQL dla platformy .NET. Wykonaj kroki opisane w tym dokumencie, aby zainstalować pakiet .NET v4 (Azure. Cosmos), skompilować aplikację i wypróbować przykładowy kod dla podstawowych operacji CRUD na danych przechowywanych w Azure Cosmos DB.
+
+> [!IMPORTANT]
+> Zestaw SDK dla programu .NET v4 dla Azure Cosmos DB jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB to Microsoft Fast NoSQL Database z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć i badać bazy danych kluczy/wartości, dokumentów i grafów. Użyj Azure Cosmos DB biblioteki klienta interfejsu API SQL dla platformy .NET, aby:
 

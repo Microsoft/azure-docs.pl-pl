@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 8d495c04d5753c3771a0870659cc92fb1e604216
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: f20af8c61bbfbbbbc20c29470648c3df6a272396
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031209"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285500"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Przewodnik migracji: IBM DB2 do Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) bazy danych programu IBM Db2 do Azure SQL Database przy użyciu SQL Server asystenta [migracji](https://azure.microsoft.com/migration/migration-journey) dla programu DB2. 
+W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) bazy danych programu IBM Db2 do Azure SQL Database przy użyciu SQL Server asystenta [migracji](https://azure.microsoft.com/en-us/migration/sql-server/) dla programu DB2. 
 
 Aby poznać inne przewodniki dotyczące migracji, zobacz [przewodniki dotyczące migracji bazy danych Azure](https://docs.microsoft.com/data-migration). 
 
@@ -157,8 +157,8 @@ Aby uzyskać dodatkową pomoc, zobacz następujące zasoby, które zostały opra
 |---------|---------|
 |[Model i narzędzie oceny obciążenia danych](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| To narzędzie zapewnia sugerowane Platformy docelowe, gotowość chmury oraz poziom korygowania aplikacji/bazy danych dla danego obciążenia. Oferuje proste, oparte na jednym kliknięcie Obliczanie i generowanie raportów, które ułatwiają przyspieszenie oceny dużych ilości, zapewniając i zautomatyzowany i jednolity proces podejmowania decyzji platformy docelowej.|
 |[Pakiet odnajdywania i oceny zasobów danych DB2 zOS](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Po uruchomieniu skryptu SQL w bazie danych można eksportować wyniki do pliku w systemie plików. Obsługiwane są różne formaty plików, w tym *. csv, dzięki czemu można przechwytywać wyniki w zewnętrznych narzędziach, takich jak arkusze kalkulacyjne. Ta metoda może być przydatna, jeśli chcesz łatwo współdzielić wyniki z zespołami, które nie mają zainstalowanego Workbench.|
-|[Skrypty i artefakty spisu IBM DB2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Ten element zawartości obejmuje zapytanie SQL, które trafią z tabeli systemowej programu IBM DB2 LUW w wersji 11,1 i udostępnia liczbę obiektów według schematu i typu obiektu, przybliżone oszacowanie "nieprzetworzonych danych" w każdym schemacie oraz zmianę wielkości tabel w każdym schemacie, z wynikami przechowywanymi w formacie CSV.|
-|[Platforma DB2 LUW w czystej skali na platformie Azure — przewodnik konfigurowania](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Db2%20PureScale%20on%20Azure.pdf)|Ten przewodnik służy jako punkt wyjścia dla planu implementacji programu DB2. Chociaż wymagania biznesowe różnią się w zależności od tego, stosuje się ten sam wzorzec podstawowy. Ten wzorzec architektoniczny może być również używany w przypadku aplikacji OLAP na platformie Azure.|
+|[Skrypty i artefakty spisu IBM DB2 LUW](https://github.com/microsoft/DataMigrationTeam/blob/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Ten element zawartości obejmuje zapytanie SQL, które trafią z tabeli systemowej programu IBM DB2 LUW w wersji 11,1 i udostępnia liczbę obiektów według schematu i typu obiektu, przybliżone oszacowanie "nieprzetworzonych danych" w każdym schemacie oraz zmianę wielkości tabel w każdym schemacie, z wynikami przechowywanymi w formacie CSV.|
+|[Platforma DB2 LUW w czystej skali na platformie Azure — przewodnik konfigurowania](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/DB2%20PureScale%20on%20Azure.pdf)|Ten przewodnik służy jako punkt wyjścia dla planu implementacji programu DB2. Chociaż wymagania biznesowe różnią się w zależności od tego, stosuje się ten sam wzorzec podstawowy. Ten wzorzec architektoniczny może być również używany w przypadku aplikacji OLAP na platformie Azure.|
 
 Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
 

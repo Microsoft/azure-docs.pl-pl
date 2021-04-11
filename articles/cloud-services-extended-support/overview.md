@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169287"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293876"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informacje o usłudze Azure Cloud Services (obsługa rozszerzona)
 
-> [!IMPORTANT]
-> Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cloud Services (obsługa rozszerzona) to nowy model wdrażania oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na [platformie Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) i jest obecnie w publicznej wersji zapoznawczej. Cloud Services (obsługa rozszerzona) ma podstawowe korzyści wynikające z zapewnienia odporności regionalnej wraz z obsługą funkcji Azure Cloud Services wdrożonej przy użyciu usługi Azure Service Manager. Oferuje on również pewne funkcje ARM, takie jak dostęp oparty na rolach i kontrola (RBAC), Tagi, zasady i obsługa szablonów wdrożenia.  
+Cloud Services (obsługa rozszerzona) to nowy model wdrażania oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na [platformie Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) i jest teraz ogólnie dostępny. Cloud Services (obsługa rozszerzona) ma podstawowe korzyści wynikające z zapewnienia odporności regionalnej wraz z obsługą funkcji Azure Cloud Services wdrożonej przy użyciu usługi Azure Service Manager. Oferuje on również pewne funkcje ARM, takie jak dostęp oparty na rolach i kontrola (RBAC), Tagi, zasady i obsługuje szablony wdrażania.  
 
 Wprowadzenie tej zmiany spowoduje zmianę nazwy modelu wdrożenia opartego na usłudze Azure Service Manager dla Cloud Services [Cloud Services (klasyczny)](../cloud-services/cloud-services-choose-me.md). Będziesz mieć możliwość kompilowania i szybkiego wdrażania aplikacji i usług w sieci Web oraz w chmurze. Możesz skalować infrastrukturę usług w chmurze w oparciu o bieżące zapotrzebowanie i upewnić się, że wydajność aplikacji będzie możliwa, jednocześnie zmniejszając koszty.  
 

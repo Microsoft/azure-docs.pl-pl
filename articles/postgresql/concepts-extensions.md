@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 765c3653dae4f514263cd8db636d9cec42d56d15
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606321"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107622"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Rozszerzenia PostgreSQL w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia zapewniają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia działają jak wbudowane funkcje.
@@ -62,7 +62,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
+> |[timescaledb](https://docs.timescale.com/latest)                    |1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
 > |[deakcentowanie](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
@@ -108,7 +108,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | zasadniczy           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
 > |[deakcentowanie](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
@@ -154,7 +154,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Włącza skalowalne i złożone zapytania dla danych szeregów czasowych|
 > |[deakcentowanie](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9c8e1d5579538df11358edc08eb7e2043cea74
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950809"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285845"
 ---
 # <a name="ocr-cognitive-skill"></a>Umiejętność OCR
 
 Umiejętność **optycznego rozpoznawania znaków (OCR)** rozpoznaje drukowany i odręczny tekst w plikach obrazu. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Przetwarzanie obrazów](../cognitive-services/computer-vision/overview.md) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) w Cognitive Services. Umiejętność **OCR** jest mapowana na następujące funkcje:
 
-+ W języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim jest używany nowy interfejs API [odczytu](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
-+ W przypadku wszystkich innych języków używany jest interfejs API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) .
++ W języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim jest używany nowy interfejs API [odczytu](../cognitive-services/computer-vision/overview-ocr.md#read-api) .
++ W przypadku wszystkich innych języków używany jest starszy interfejs API [OCR](../cognitive-services/computer-vision/overview-ocr.md#ocr-api) .
 
 Umiejętność **OCR** wyodrębnia tekst z plików obrazów. Obsługiwane formaty plików to:
 
@@ -43,8 +43,8 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| `detectOrientation`   | Włącza Autowykrywanie orientacji obrazu. <br/> Prawidłowe wartości: PRAWDA/FAŁSZ.|
-| `defaultLanguageCode` | <p>   Kod języka tekstu wejściowego. Obsługiwane języki: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (czeski) <br/>da (duński) <br/>NL (holenderski) <br/>pl (angielski) <br/>Fi (fiński)  <br/>fr (francuski) <br/>  Niemcy (niemiecki) <br/>El (grecki) <br/> hu (węgierski) <br/> IT (włoski) <br/>  ja (japoński) <br/> ko (koreański) <br/> NB (norweski) <br/>   pl (Polski) <br/> pt (portugalski) <br/>  ru (rosyjski) <br/>  es (hiszpański) <br/>  OHR (szwedzki) <br/>  TR (turecki) <br/> AR (arabski) <br/> ro (rumuński) <br/> Wirtualizacja SR-Cyrl (SerbianCyrillic) <br/> Wirtualizacja sr-latn (SerbianLatin) <br/>  SK (słowacki) <br/>  UNK (nieznany) <br/><br/> Jeśli kod języka jest nieokreślony lub ma wartość null, język zostanie ustawiony na język angielski. Jeśli język jest jawnie ustawiony na wartość "UNK", język zostanie wykryty. </p> |
+| `detectOrientation`    | Włącza Autowykrywanie orientacji obrazu. <br/> Prawidłowe wartości: PRAWDA/FAŁSZ.|
+| `defaultLanguageCode` | <p>    Kod języka tekstu wejściowego. Obsługiwane języki: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (czeski) <br/>da (duński) <br/>NL (holenderski) <br/>pl (angielski) <br/>Fi (fiński)  <br/>fr (francuski) <br/>  Niemcy (niemiecki) <br/>El (grecki) <br/> hu (węgierski) <br/> IT (włoski) <br/>  ja (japoński) <br/> ko (koreański) <br/> NB (norweski) <br/>   pl (Polski) <br/> pt (portugalski) <br/>  ru (rosyjski) <br/>  es (hiszpański) <br/>  OHR (szwedzki) <br/>  TR (turecki) <br/> AR (arabski) <br/> ro (rumuński) <br/> Wirtualizacja SR-Cyrl (SerbianCyrillic) <br/> Wirtualizacja sr-latn (SerbianLatin) <br/>  SK (słowacki) <br/>  UNK (nieznany) <br/><br/> Jeśli kod języka jest nieokreślony lub ma wartość null, język zostanie ustawiony na język angielski. Jeśli język jest jawnie ustawiony na wartość "UNK", język zostanie wykryty. </p> |
 | `lineEnding` | Wartość do użycia między wykrytymi wierszami. Możliwe wartości: "Space", "CarriageReturn", "wysuwu".  Wartość domyślna to "Space". |
 
 Wcześniej był już parametr o nazwie "textExtractionAlgorithm", który określa, czy umiejętność powinna wyodrębnić tekst "drukowany" lub "odpisanych".  Ten parametr jest przestarzały i nie jest już potrzebny, ponieważ najnowszy algorytm interfejsu API odczytu jest w stanie wyodrębnić oba typy tekstu jednocześnie.  Jeśli Twoja definicja umiejętności zawiera już ten parametr, nie musisz jej usuwać, ale nie będzie można jej używać, a oba typy tekstu zostaną wyodrębnione w przód, niezależnie od tego, co jest ustawione na.
@@ -57,9 +57,9 @@ Wcześniej był już parametr o nazwie "textExtractionAlgorithm", który określ
 
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
-| Nazwa wyjściowa     | Opis                   |
+| Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
-| `text`            | Czysty tekst wyodrębniony z obrazu.   |
+| `text`             | Czysty tekst wyodrębniony z obrazu.   |
 | `layoutText`    | Typ złożony, który opisuje wyodrębniony tekst i lokalizację, w której został znaleziony tekst.|
 
 

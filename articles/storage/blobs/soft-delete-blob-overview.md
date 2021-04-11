@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c0cc29e6cbc9be1e7683b1b4412fa47f71c0538d
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: ef1ed584a609b2e4baa27111e47343df99146f5a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227028"
+ms.locfileid: "107257504"
 ---
 # <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
@@ -93,12 +93,14 @@ Aby uzyskać więcej informacji na temat przywracania obiektów usuniętych z ni
 
 ## <a name="blob-soft-delete-and-versioning"></a>Usuwanie i przechowywanie nietrwałego obiektu BLOB
 
-Jeśli dla konta magazynu włączono zarówno obsługę wersji obiektów blob, jak i usuwanie nietrwałego obiektu BLOB, zastępowanie obiektu BLOB spowoduje automatyczne utworzenie nowej wersji. Nowa wersja nie jest usuwana nietrwale i nie jest usuwana po wygaśnięciu okresu przechowywania nietrwałego. Nie utworzono żadnych migawek usuniętych z nietrwałego. Po usunięciu obiektu BLOB bieżąca wersja obiektu BLOB zostanie wykorzystana w poprzedniej wersji, a bieżąca wersja zostanie usunięta. Nie została utworzona nowa wersja i nie są tworzone żadne migawki usunięte przez program.
+Jeśli dla konta magazynu włączono zarówno obsługę wersji obiektów blob, jak i usuwanie nietrwałego obiektu BLOB, zastępowanie obiektu BLOB spowoduje automatyczne utworzenie nowej wersji. Nowa wersja nie jest usuwana nietrwale i nie jest usuwana po wygaśnięciu okresu przechowywania nietrwałego. Nie utworzono żadnych migawek usuniętych z nietrwałego. Po usunięciu obiektu BLOB bieżąca wersja obiektu BLOB zostanie wykorzystana w poprzedniej wersji i nie istnieje już bieżąca wersja. Nie została utworzona nowa wersja i nie są tworzone żadne migawki usunięte przez program.
 
-Włączenie nietrwałego usuwania i przechowywania wersji razem chroni wersje obiektów BLOB przed usunięciem. Po włączeniu usuwania nietrwałego usunięcie wersji powoduje utworzenie nieusuniętej wersji. Możesz użyć operacji **usuwania obiektów BLOB** do przywrócenia nieusuniętej wersji, o ile istnieje bieżąca wersja obiektu BLOB. Jeśli nie ma bieżącej wersji, przed wywołaniem operacji **usuwania obiektów BLOB** należy skopiować poprzednią wersję do bieżącej wersji.
+Włączenie nietrwałego usuwania i przechowywania wersji razem chroni wersje obiektów BLOB przed usunięciem. Po włączeniu usuwania nietrwałego usunięcie wersji powoduje utworzenie nieusuniętej wersji. Za pomocą operacji usuwania **obiektów BLOB** można przywrócić nieusunięte wersje w okresie przechowywania nietrwałego. Operacja **cofnięcia usunięcia obiektu BLOB** zawsze przywraca wszystkie nietrwałe wersje obiektów BLOB. Nie można przywrócić tylko jednej wersji nietrwałej.
+
+Po upływie okresu przechowywania danych nietrwałych wszystkie nietrwałe wersje obiektów BLOB są trwale usuwane.
 
 > [!NOTE]
-> Wywołanie operacji **usuwania obiektu BLOB** na usuniętym obiekcie blob, gdy włączono obsługę wersji, przywraca wszystkie nietrwałe wersje lub migawki, ale nie przywraca bazowego obiektu BLOB. Aby przywrócić podstawowy obiekt BLOB, Podwyższ jego poprzednią wersję, kopiując go do podstawowego obiektu BLOB.
+> Wywołanie operacji **usuwania obiektu BLOB** na usuniętym obiekcie blob, gdy włączono obsługę wersji, przywraca wszystkie nieusunięte wersje lub migawki, ale nie przywraca bieżącej wersji. Aby przywrócić bieżącą wersję, Podwyższ poziom poprzedniej wersji, kopiując go do bieżącej wersji.
 
 Firma Microsoft zaleca włączenie obsługi wersji i usuwania nietrwałego obiektów BLOB dla kont magazynu w celu zapewnienia optymalnej ochrony danych. Aby uzyskać więcej informacji o korzystaniu z funkcji przechowywania wersji obiektów blob i usuwania nietrwałego, zobacz [przechowywanie wersji obiektów blob i usuwanie nietrwałe](versioning-overview.md#blob-versioning-and-soft-delete).
 

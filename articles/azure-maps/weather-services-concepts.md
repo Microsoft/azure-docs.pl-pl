@@ -1,6 +1,6 @@
 ---
-title: Pojęcia dotyczące usług pogody (wersja zapoznawcza) w Microsoft Azure Maps
-description: Zapoznaj się z pojęciami dotyczącymi usług Microsoft Azure Maps (wersja zapoznawcza).
+title: Pojęcia dotyczące usług pogodowych w Microsoft Azure Maps
+description: Zapoznaj się z pojęciami dotyczącymi usługi Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76d4eb08ba9cc0394610fdd00f6faba02278e8e3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904741"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258014"
 ---
-# <a name="weather-services-preview-in-azure-maps"></a>Usługi pogodowe (wersja zapoznawcza) w Azure Maps
-
-> [!IMPORTANT]
-> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
 
 W tym artykule przedstawiono pojęcia dotyczące Azure Maps [usług pogodowych](/rest/api/maps/weather). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody.
 

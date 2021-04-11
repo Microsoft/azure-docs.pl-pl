@@ -1,14 +1,14 @@
 ---
 title: Ustalanie przyczyn niezgodności
 description: Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Dowiedz się, co spowodowało niezgodność.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: a8168bf22aceaf5cbdec4b1346801aa62b7aa4ee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 66b0c6d7d0575e7361d04d16e6ba6fb06e36801b
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439837"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094119"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ustalanie przyczyn niezgodności
 

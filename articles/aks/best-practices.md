@@ -3,19 +3,24 @@ title: Najlepsze rozwiązania dotyczące usługi Azure Kubernetes Service (AKS)
 description: Kolekcja operatorów klastra i najlepszych rozwiązań dla deweloperów do kompilowania aplikacji i zarządzania nimi w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: f4bd109ce6827de26b1649380b6f6a2ba7c10e17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686263"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105905"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące operatorów i deweloperów do kompilowania aplikacji i zarządzania nimi w usłudze Azure Kubernetes Service (AKS)
 
-Aby pomyślnie kompilować i uruchamiać aplikacje w usłudze Azure Kubernetes Service (AKS), należy zapoznać się z najważniejszymi zagadnieniami dotyczącymi zrozumienia i implementacji. Te obszary obejmują funkcje obejmujące wiele dzierżaw i usługi Scheduler, klaster i zabezpieczenia, a także ciągłość biznesową i odzyskiwanie po awarii. Następujące najlepsze rozwiązania są pogrupowane w celu ułatwienia operatorom i deweloperom klastrów zrozumienia zagadnień dla każdego z tych obszarów i wdrożenia odpowiednich funkcji.
+Pomyślnie Twórz i Uruchamiaj aplikacje w usłudze Azure Kubernetes Service (AKS) wymagają znajomości i implementacji niektórych kluczowych zagadnień, takich jak:
+* Funkcje obsługi wielu dzierżawców i usługi Scheduler.
+* Klaster i zabezpieczenia pod.
+* Ciągłość działania i odzyskiwanie po awarii. 
 
-Te najlepsze rozwiązania i artykuły koncepcyjne zostały nadane w połączeniu z grupą produktów AKS, zespołami inżynieryjnymi i zespołami pól, w tym na globalnych białych bełtch (GBBs).
+
+Grupa produktów AKS, zespoły inżynieryjne i zespoły pól (w tym globalne czarne pasy [GBBs]) współczyniły i zapisały następujące najlepsze rozwiązania i artykuły koncepcyjne. Ich celem jest pomoc operatorom i deweloperom klastra w zrozumieniu powyższych zagadnień i implementacji odpowiednich funkcji.
+
 
 ## <a name="cluster-operator-best-practices"></a>Najlepsze rozwiązania operatorów klastrów
 

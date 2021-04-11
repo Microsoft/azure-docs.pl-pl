@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f5a60f14799e872d835d651fc043edd27dfc6990
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035071"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105599"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokeny dostępu platformy tożsamości firmy Microsoft
 
@@ -176,6 +176,12 @@ Tożsamości firmy Microsoft mogą być uwierzytelniane na różne sposoby, któ
 | `ngcmfa` | Równoważne z `mfa` , używane do inicjowania obsługi niektórych zaawansowanych typów poświadczeń. |
 | `wiaormfa`| Użytkownik użył systemu Windows lub poświadczenia usługi MFA do uwierzytelnienia. |
 | `none` | Nie zostało wykonane żadne uwierzytelnianie. |
+
+## <a name="access-token-lifetime"></a>Okres istnienia tokenu dostępu
+
+Domyślny okres istnienia tokenu dostępu różni się w zależności od aplikacji klienckiej żądającej tokenu. Na przykład klienci z możliwością oceny dostępu ciągłego (CAE), którzy negocjują sesje obsługujące CAE, będą widzieć długi okres istnienia tokenu (do 28 godzin).  Po wygaśnięciu tokenu dostępu klient musi używać tokenu odświeżania do (zazwyczaj dyskretnie) uzyskać nowy token odświeżania i token dostępu.
+
+Możesz dostosować okres istnienia tokenu dostępu, aby kontrolować, jak często aplikacja kliencka wygaśnie sesję aplikacji i jak często wymaga ponownego uwierzytelnienia użytkownika (w trybie dyskretnym lub interaktywnie). Aby uzyskać więcej informacji, Przeczytaj [konfigurowalne okresy istnienia tokenu](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-tokens"></a>Sprawdzanie poprawności tokenów
 

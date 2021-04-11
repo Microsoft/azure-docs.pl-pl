@@ -1,14 +1,14 @@
 ---
-title: 'Szybki Start: przetwarzanie obrazówa Biblioteka kliencka'
+title: 'Szybki Start: odczytywanie biblioteki klienta lub interfejsu API REST'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak korzystać z usługi Azure przetwarzanie obrazów w aplikacji za pomocą natywnej biblioteki klienta w wybranym języku.
+description: Dowiedz się, jak używać funkcji optycznego rozpoznawania znaków (OCR) w aplikacji za pomocą natywnej biblioteki klienta w wybranym języku.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/15/2020
+ms.date: 03/21/2020
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,16 +17,16 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: Obsługa komputera, usługa komputera
-ms.openlocfilehash: 50976de4a60e5330740bcbf387d74c505316c0cf
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 865002fbc9e492b43b9c572468f722c85c6cc4b8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560818"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284818"
 ---
-# <a name="quickstart-use-the-computer-vision-client-library"></a>Szybki Start: korzystanie z biblioteki klienta przetwarzanie obrazów
+# <a name="quickstart-use-the-read-client-library-or-rest-api"></a>Szybki Start: korzystanie z biblioteki klienta odczytu lub interfejsu API REST
 
-Rozpocznij pracę z interfejsami API REST przetwarzanie obrazów lub bibliotekami klienckimi. Usługa przetwarzanie obrazów zapewnia algorytmy AI do przetwarzania obrazów i zwracania informacji o ich funkcjach wizualnych. Wykonaj następujące kroki, aby zainstalować pakiet w aplikacji, a następnie Wypróbuj przykładowy kod dla podstawowych zadań.
+Wprowadzenie do interfejsu API odczytu lub bibliotek klienckich. Usługa Read oferuje algorytmy AI do wyodrębniania widocznego tekstu z obrazów i zwracania go jako ciągi strukturalne. Wykonaj następujące kroki, aby zainstalować pakiet w aplikacji, a następnie Wypróbuj przykładowy kod dla podstawowych zadań.
 
 
 

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8804febe81afc79a4a7eadb56e8350e758ea38ba
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381778"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105514"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
@@ -25,14 +25,12 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
 
 2. Utwórz nową grupę zasobów przy użyciu [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) lub [programu PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Ten krok jest opcjonalny, jeśli używasz istniejącej grupy zasobów.
 
-3. Utwórz publiczny adres IP i ustaw właściwość etykieta DNS publicznego adresu IP. Cloud Services (obsługa rozszerzona) obsługuje tylko [podstawowe] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) publiczne adresy IP jednostki SKU). Publiczne adresy IP jednostki SKU nie działają z Cloud Services.
+3. Utwórz publiczny adres IP i ustaw właściwość etykieta DNS publicznego adresu IP. Cloud Services (obsługa rozszerzona) obsługuje tylko publiczne adresy IP [podstawowej](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) jednostki SKU. Publiczne adresy IP jednostki SKU nie działają z Cloud Services.
 Jeśli używasz statycznego adresu IP, należy do niego odwoływać się jako Zastrzeżony adres IP w pliku konfiguracji usługi (cscfg). Jeśli używany jest istniejący adres IP, Pomiń ten krok i Dodaj informacje o adresie IP bezpośrednio do ustawień konfiguracji usługi równoważenia obciążenia dla szablonu ARM.
-
-4. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia. Platforma Azure automatycznie tworzy zasób "klasyczny moduł równoważenia obciążenia" w tej samej subskrypcji co zasób usługi w chmurze. Zasób modułu równoważenia obciążenia jest zasobem tylko do odczytu w usłudze ARM. Wszystkie aktualizacje zasobu są obsługiwane tylko za pośrednictwem plików wdrożenia usługi w chmurze (. cscfg & csdef).
  
-5. Utwórz nowe konto magazynu przy użyciu [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) lub [programu PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
+4. Utwórz nowe konto magazynu przy użyciu [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) lub [programu PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
 
-6. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
+5. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
 
 6. Obowiązkowe Utwórz magazyn kluczy i przekaż certyfikaty.
 

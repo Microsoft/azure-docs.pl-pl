@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905574"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223203"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Samouczek: Dodawanie uwierzytelniania do aplikacji sieci Web działającej na Azure App Service
 
@@ -41,7 +41,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 W tym samouczku potrzebna jest aplikacja internetowa wdrożona w celu App Service. Możesz użyć istniejącej aplikacji sieci Web lub wykonać [ASP.NET Core przewodnika Szybki Start](quickstart-dotnetcore.md) , aby utworzyć i opublikować nową aplikację sieci web do App Service.
 
-Bez względu na to, czy używasz istniejącej aplikacji sieci Web, czy utworzyć nową, zanotuj nazwę aplikacji sieci Web i nazwę grupy zasobów, w której wdrożono aplikację sieci Web. Te nazwy są potrzebne w tym samouczku. W tym samouczku przykładowe nazwy w procedurach i zrzuty ekranu zawierają *SecureWebApp*.
+Bez względu na to, czy używasz istniejącej aplikacji sieci Web, czy utworzyć nową, zanotuj nazwę aplikacji sieci Web i nazwę grupy zasobów, w której wdrożono aplikację sieci Web. Te nazwy są potrzebne w tym samouczku. 
 
 ## <a name="configure-authentication-and-authorization"></a>Konfigurowanie uwierzytelniania i autoryzacji
 
@@ -53,17 +53,19 @@ W obszarze **grupy zasobów** Znajdź i wybierz grupę zasobów. W obszarze **Pr
 
 :::image type="content" alt-text="Zrzut ekranu pokazujący wybór strony zarządzania aplikacji." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-W menu po lewej stronie wybierz pozycję **uwierzytelnianie/autoryzacja**, a następnie włącz uwierzytelnianie App Service, wybierając pozycję **włączone**.
+W menu po lewej stronie aplikacji wybierz pozycję **uwierzytelnianie**, a następnie kliknij pozycję **Dodaj dostawcę tożsamości**.
 
-Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybierz pozycję **Zaloguj się za pomocą usługi Azure Active Directory**.
+Na stronie **Dodawanie dostawcy tożsamości** wybierz **firmę Microsoft** jako **dostawcę tożsamości** , aby zalogować się do firmy Microsoft i tożsamości usługi Azure AD.
 
-W obszarze **dostawcy uwierzytelniania** wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Express**, a następnie zaakceptuj ustawienia domyślne, aby utworzyć nową aplikację Active Directory. Wybierz przycisk **OK**.
+W obszarze  >  **Typ rejestracji aplikacji** Rejestracja aplikacji wybierz pozycję **Utwórz nową rejestrację aplikacji**.
 
-:::image type="content" alt-text="Zrzut ekranu przedstawiający uwierzytelnianie ekspresowe." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+W przypadku typów kont obsługiwanych przez **rejestrację aplikacji**  >  wybierz pozycję **Bieżąca dzierżawa — pojedyncza dzierżawa**.
 
-Na stronie **uwierzytelnianie/autoryzacja** wybierz pozycję **Zapisz**.
+W sekcji **Ustawienia uwierzytelniania App Service** pozostaw opcję **uwierzytelnianie** ustawione, aby **wymagać uwierzytelniania** , a **nieuwierzytelnione żądania** ustawione na **http 302 znaleziono przekierowanie: zalecane dla witryn sieci Web**.
 
-Gdy zobaczysz powiadomienie z komunikatem `Successfully saved the Auth Settings for <app-name> App` , Odśwież stronę portalu.
+W dolnej części strony **Dodawanie dostawcy tożsamości** kliknij przycisk **Dodaj** , aby włączyć uwierzytelnianie dla aplikacji sieci Web.
+
+:::image type="content" alt-text="Zrzut ekranu pokazujący Konfigurowanie uwierzytelniania." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 Masz teraz aplikację, która jest zabezpieczona przez App Service uwierzytelnianie i autoryzację.
 

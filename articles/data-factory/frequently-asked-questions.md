@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739338"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258524"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
 
@@ -226,86 +226,11 @@ Działanie kopiowania służy do przemieszczania danych z dowolnego innego łąc
 
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Czy środowisko Integration Runtime jest dostępne dla przepływów danych?
 
-Samoobsługowe środowisko IR to konstrukcja potoków ADF, której można używać z działaniem kopiowania do uzyskiwania lub przenoszenia danych do i z Premium lub źródeł danych opartych na maszynach wirtualnych. Najpierw umieść dane za pomocą kopii, a następnie przepływ danych do przekształcenia, a następnie kolejną kopię, jeśli chcesz przenieść te przekształcone dane z powrotem do magazynu Premium.
+Samoobsługowe środowisko IR to konstrukcja potoków ADF, której można używać z działaniem kopiowania do uzyskiwania lub przenoszenia danych do i z Premium lub źródeł danych opartych na maszynach wirtualnych. Maszyny wirtualne używane w ramach własnego środowiska IR mogą być również umieszczane w tej samej sieci wirtualnej, co w przypadku chronionych magazynów danych w celu uzyskania dostępu do tych magazynów danych z funkcji ADF. W przypadku przepływów danych te same wyniki końcowe zostaną osiągnięte przy użyciu Azure IR z zarządzaną siecią wirtualną.
 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Czy aparat obliczeniowy przepływu danych obsługuje wiele dzierżawców?
 
 Klastry nigdy nie są udostępniane. Gwarantujemy izolację każdego zadania w ramach przebiegów produkcyjnych. W przypadku scenariusza debugowania jedna osoba otrzymuje jeden klaster, a wszystkie debugowanie spowoduje przejście do tego klastra, który jest inicjowany przez tego użytkownika.
-
-## <a name="wrangling-data-flows"></a>Przetwarzanie przepływy danych
-
-### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Jakie są obsługiwane regiony dla przepływu danych przetwarzanie?
-
-Przepływ danych przetwarzanie jest obecnie obsługiwany w fabrykach danych utworzonych w następujących regionach:
-
-* Australia Wschodnia
-* Kanada Środkowa
-* Indie Środkowe
-* East US
-* Wschodnie stany USA 2
-* Japonia Wschodnia
-* Europa Północna
-* Azja Południowo-Wschodnia
-* South Central US
-* Południowe Zjednoczone Królestwo
-* Zachodnio-środkowe stany USA
-* West Europe
-* Zachodnie stany USA
-* Zachodnie stany USA 2
-
-### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Jakie są ograniczenia i ograniczenia związane z przepływem danych przetwarzanie?
-
-Nazwy zestawów danych mogą zawierać tylko znaki alfanumeryczne. Obsługiwane są następujące magazyny danych:
-
-* DelimitedText DataSet na platformie Azure Blob Storage przy użyciu uwierzytelniania klucza konta
-* DelimitedText DataSet w Azure Data Lake Storage Gen2 przy użyciu klucza konta lub uwierzytelniania nazwy głównej usługi
-* Zestaw danych DelimitedText w Azure Data Lake Storage Gen1 przy użyciu uwierzytelniania nazwy głównej usługi
-* Azure SQL Database i magazyn danych przy użyciu uwierzytelniania SQL. Zobacz obsługiwane typy SQL poniżej. W przypadku magazynu danych nie ma obsługi podstawowej ani przejściowej.
-
-W tej chwili integracja Key Vault połączonej usługi nie jest obsługiwana w przepływach danych przetwarzanie.
-
-### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Jaka jest różnica między mapowaniem i przetwarzanie przepływów danych?
-
-Mapowanie przepływów danych umożliwia przekształcanie danych na dużą skalę bez konieczności kodowania. Zadanie przekształcania danych można zaprojektować na kanwie przepływu danych, tworząc serię transformacji. Zacznij od dowolnej liczby przekształceń źródłowych, po których następuje procedura przekształcania danych. Ukończ przepływ danych za pomocą ujścia, aby wystawić wyniki w miejscu docelowym. Mapowanie przepływu danych jest doskonałe przy mapowaniu i przekształcaniu danych ze znanymi i nieznanymi schematami w ujściach i źródłach.
-
-Przepływy danych przetwarzanie umożliwiają przygotowywanie i eksplorację danych Agile przy użyciu edytora zestawu narzędzi w trybie online Power Query na dużą skalę za pośrednictwem wykonywania platformy Spark. Ze wzrostem ilości danych, czasami trzeba eksplorować zestaw danych lub utworzyć zestaw danych w Lake. Nie masz mapowania na znany element docelowy. Przepływy danych przetwarzanie są używane do mniej formalnych i opartych na modelu scenariuszy analitycznych.
-
-### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Jaka jest różnica między przepływami danych platformy energetycznej i przetwarzanie przepływów.
-
-Przepływy danych platformy Power platform umożliwiają użytkownikom Importowanie i transformację z szerokiego zakresu źródeł danych do Common Data Service i Azure Data Lake do kompilowania aplikacji usługi PowerApps, Power BI raportów i automatyzacji przepływów. Przepływy danych platformy energetycznej wykorzystują ustanowione Power Query środowiska przygotowujące dane, podobne do Power BI i programu Excel. Przepływy operacji dataplatform umożliwiają również łatwe ponowne użycie w organizacji i automatyczne obsłużenie aranżacji (np. automatyczne odświeżanie Dataflow, które są zależne od innych przepływu danych, gdy pierwsze jest odświeżane).
-
-Azure Data Factory (ADF) to zarządzana usługa integracji danych, która umożliwia inżynierom danych i integratorom danych na tworzenie złożonych hybrydowych przepływów pracy typu wyodrębnianie-transformacja-ładowanie (ETL) i wyodrębnianie-ładowanie-transformacja (ELT). Przepływ danych przetwarzanie w usłudze ADF pozwala użytkownikom z bezpłatnym kodem bezserwerowym środowiskiem, które upraszcza Przygotowywanie danych w chmurze i skaluje do dowolnego rozmiaru danych bez potrzeby zarządzania infrastrukturą. Używa technologii przygotowywania danych Power Query (używanej także w dataflows, Excel, Power BI) do przygotowywania i kształtowania danych. Opracowano, aby obsługiwać wszystkie skomplikowane i skalowalne wyzwania integracji danych Big Data, przetwarzanie przepływy danych umożliwiają użytkownikom szybkie Przygotowywanie danych na dużą skalę za pomocą wykonywania Spark. Użytkownicy mogą tworzyć odporne potoki danych w dostępnym środowisku wizualnym przy użyciu naszego interfejsu opartego na przeglądarce i pozwalają na wykonywanie złożonych zadań związanych z uruchamianiem programu Spark. Twórz harmonogramy dla potoków i monitoruj wykonywanie przepływów danych za pomocą portalu monitorowania ADF. Łatwo zarządzaj dostępnością danych dzięki rozbudowanym funkcjom monitorowania dostępności i alertom w usłudze ADF i korzystaj z wbudowanej funkcji ciągłej integracji i wdrażania, aby zapisywać przepływy w środowisku zarządzanym i zarządzać nimi. Ustanów alerty i wyświetlaj plany wykonywania, aby sprawdzić, czy logika jest wykonywana zgodnie z harmonogramem w miarę dostrajania przepływów danych.
-
-### <a name="supported-sql-types"></a>Obsługiwane typy SQL
-
-Przepływ danych przetwarzanie obsługuje następujące typy danych w programie SQL Server. Zostanie wyświetlony błąd sprawdzania poprawności przy użyciu nieobsługiwanego typu danych.
-
-* short
-* double
-* liczba rzeczywista
-* float
-* char
-* nchar
-* varchar
-* nvarchar
-* liczba całkowita
-* int
-* bit
-* boolean
-* smallint
-* tinyint
-* bigint
-* długi
-* tekst
-* data
-* datetime
-* datetime2
-* smalldatetime
-* sygnatura czasowa
-* uniqueidentifier
-* xml
-
-Inne typy danych będą obsługiwane w przyszłości.
 
 ## <a name="next-steps"></a>Następne kroki
 

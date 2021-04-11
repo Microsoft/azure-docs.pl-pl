@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3342b38f782b718cefd63295ef4d4d26b525058
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595944"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259051"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Dzienniki wolnych zapytań w usłudze Azure Database for MySQL
 W Azure Database for MySQL dziennik wolnych zapytań jest dostępny dla użytkowników. Dostęp do dziennika transakcji nie jest obsługiwany. Dziennik wolnych zapytań może służyć do identyfikowania wąskich gardeł wydajności w celu rozwiązywania problemów.
@@ -45,7 +45,7 @@ W przypadku magazynu serwera lokalnego można wyświetlić i pobrać wolne dzien
 Azure Monitor dzienników diagnostycznych umożliwia potoki dzienników wolnych zapytań do Azure Monitor dzienników (Log Analytics), Azure Storage lub Event Hubs. Aby uzyskać więcej informacji, zobacz [poniżej](concepts-server-logs.md#diagnostic-logs) .
 
 ## <a name="local-server-storage-log-retention"></a>Przechowywanie dzienników magazynu serwera lokalnego
-Po zarejestrowaniu do magazynu lokalnego na serwerze dzienniki są dostępne przez maksymalnie siedem dni od ich utworzenia. Jeśli całkowity rozmiar dostępnych dzienników przekracza 7 GB, najstarsze pliki zostaną usunięte do momentu udostępnienia miejsca.
+Po zarejestrowaniu do magazynu lokalnego na serwerze dzienniki są dostępne przez maksymalnie siedem dni od ich utworzenia. Jeśli całkowity rozmiar dostępnych dzienników przekracza 7 GB, najstarsze pliki zostaną usunięte do momentu udostępnienia miejsca. Limit liczby magazynów 7 GB dla dzienników serwera jest dostępny bezpłatnie i nie można go rozszerzyć. 
 
 Dzienniki są obracane co 24 godziny lub 7 GB, w zależności od tego, co nastąpi wcześniej.
 

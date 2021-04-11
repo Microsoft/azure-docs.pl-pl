@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a0ef208a1a56416f748c69f552ec9169d21479
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7717dab5021157666e8921198c08079f2405e810
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102424235"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105735"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
@@ -139,6 +139,8 @@ Następujący dostawcy oferują klucze zabezpieczeń FIDO2 różnego rodzaju, kt
 | KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
 | Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 | Token2 Szwajcaria | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
+| IDENTYFIKATOR Go-Trust | [https://www.gotrustid.com/](https://www.gotrustid.com/) |
+| Kensington | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
 
 > [!NOTE]
 > Jeśli kupisz i planujesz korzystanie z kluczy zabezpieczeń opartych na NFC, musisz mieć obsługiwany czytnik NFC dla klucza zabezpieczeń. Czytnik NFC nie jest wymaganiem ani ograniczeniem platformy Azure. Aby uzyskać listę obsługiwanych czytników NFC, należy skontaktować się z dostawcą dla klucza zabezpieczeń opartego na NFC.

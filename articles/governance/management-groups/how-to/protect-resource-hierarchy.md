@@ -3,12 +3,12 @@ title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
 ms.date: 02/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d13a0235152046eff2585da170d5fba0e9d3b09
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594590"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259085"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -50,7 +50,7 @@ Aby skonfigurować to ustawienie w Azure Portal, wykonaj następujące kroki:
 
 ### <a name="set-default-management-group-with-rest-api"></a>Ustawianie domyślnej grupy zarządzania za pomocą interfejsu API REST
 
-Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywołany punkt końcowy [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Zastąp ciąg `{rootMgID}` identyfikatorem głównej grupy zarządzania i `{defaultGroupID}` identyfikatorem grupy zarządzania, aby stał się domyślną grupą zarządzania:
+Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywołany punkt końcowy [ustawień hierarchii](/rest/api/managementgroups/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Zastąp ciąg `{rootMgID}` identyfikatorem głównej grupy zarządzania i `{defaultGroupID}` identyfikatorem grupy zarządzania, aby stał się domyślną grupą zarządzania:
 
 - Identyfikator URI interfejsu API REST
 
@@ -91,7 +91,7 @@ Aby skonfigurować to ustawienie w Azure Portal, wykonaj następujące kroki:
 
 ### <a name="set-require-authorization-with-rest-api"></a>Ustaw wymaganie autoryzacji za pomocą interfejsu API REST
 
-Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywołany punkt końcowy [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Ta wartość jest wartością _logiczną_, dlatego dla wartości należy podać wartość **true** lub **false** . Wartość **true** włącza tę metodę ochrony hierarchii grup zarządzania:
+Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywołany punkt końcowy [ustawień hierarchii](/rest/api/managementgroups/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Ta wartość jest wartością _logiczną_, dlatego dla wartości należy podać wartość **true** lub **false** . Wartość **true** włącza tę metodę ochrony hierarchii grup zarządzania:
 
 - Identyfikator URI interfejsu API REST
 

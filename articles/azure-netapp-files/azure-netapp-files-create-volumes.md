@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b6104bcf68c720fa727d16e408a25adcba805aa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854737"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259578"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Tworzenie woluminu NFS dla usługi Azure NetApp Files
 
-Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin systemu plików NFS. 
+Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. 
+
+W tym artykule pokazano, jak utworzyć wolumin systemu plików NFS. W przypadku woluminów SMB zobacz [Tworzenie woluminu SMB](azure-netapp-files-create-volumes-smb.md). W przypadku woluminów z podwójnym protokołem zobacz [Tworzenie dwuprotokołowego woluminu](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 * Potrzebujesz skonfigurowanej puli pojemności.  
@@ -112,6 +114,8 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
         Dodatkowe konfiguracje są wymagane, jeśli używasz protokołu Kerberos z NFSv 4.1. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie nfsv 4.1 szyfrowanie Kerberos](configure-kerberos-encryption.md).
 
+    * Aby umożliwić dostęp do woluminu użytkownikom usługi Active Directory LDAP i grupom rozszerzonym (do 1024 grup), wybierz opcję **LDAP** . Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie dodaje katalog LDAP z rozszerzonymi grupami dla dostępu do woluminu NFS](configure-ldap-extended-groups.md) , aby wykonać wymagane konfiguracje. 
+ 
     * Opcjonalnie [Skonfiguruj zasady eksportowania dla woluminu systemu plików NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Określanie protokołu NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -127,6 +131,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
 * [Konfigurowanie domyślnej domeny NFSv4.1 dla usługi Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Konfigurowanie szyfrowania Kerberos NFSv4.1](configure-kerberos-encryption.md)
+* [Konfiguracja dodaje protokół LDAP z rozszerzonymi grupami dla dostępu do woluminu NFS](configure-ldap-extended-groups.md)
 * [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Konfigurowanie zasad eksportu dla woluminu NFS](azure-netapp-files-configure-export-policy.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)

@@ -5,21 +5,39 @@
   href: overview.md
 - name: Zarządzanie kontami
   items:
-    - name: Tworzenie nowego konta w Centrum partnerskim
-      href: partner-center-portal/create-account.md
-    - name: Zarządzanie kontem
-      href: partner-center-portal/manage-account.md
-    - name: Znajdowanie lub tworzenie firmowego konta służbowego
-      href: partner-center-portal/company-work-accounts.md
-    - name: Migracja kont z witryny CPP do portalu Partner Center
-      href: partner-center-portal/account-migration-from-cpp-to-pc.md
-    - name: Powiadomienie firmy Microsoft
-      href: submit-legal-notice.md
+    - name: Ogólne zarządzanie kontami
+      items:
+        - name: Tworzenie nowego konta w Centrum partnerskim
+          href: create-account.md
+        - name: Dodaj nowych wydawców
+          href: add-publishers.md
+        - name: Zarządzanie kontem
+          href: manage-account.md
+        - name: Przełącz konta
+          href: switch-accounts.md
+        - name: Zarządzanie dzierżawcami
+          href: manage-tenants.md
+        - name: Znajdowanie lub tworzenie firmowego konta służbowego
+          href: company-work-accounts.md
+        - name: Migracja kont z witryny CPP do portalu Partner Center
+          href: account-migration-from-cpp-to-pc.md
+        - name: Powiadomienie firmy Microsoft
+          href: submit-legal-notice.md
+    - name: Zarządzanie użytkownikami
+      items:
+        - name: Dodawanie użytkowników i zarządzanie nimi
+          href: add-manage-users.md
+        - name: Przypisywanie ról użytkownika
+          href: user-roles.md
+        - name: Zarządzanie grupami
+          href: manage-groups.md
+        - name: Dodawanie aplikacji usługi Azure AD i zarządzanie nimi
+          href: manage-aad-apps.md
 - name: Pojęcia
   items:
     - name: Opcje ofert
       href: determine-your-listing-type.md
-    - name: Transakcje na komercyjnej platformie handlowej
+    - name: Funkcje Transact
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Oferty prywatne
       href: private-offers.md

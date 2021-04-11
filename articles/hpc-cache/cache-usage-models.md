@@ -4,14 +4,14 @@ description: W tym artykule opisano różne modele użycia pamięci podręcznej 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3ad252520ca0cf7acdb3c84ef1da87c8076f3172
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775718"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259731"
 ---
 # <a name="understand-cache-usage-models"></a>Omówienie modeli użycia pamięci podręcznej
 
@@ -39,7 +39,7 @@ Modele użycia wbudowane w pamięć podręczną platformy Azure HPC mają różn
 
 ## <a name="choose-the-right-usage-model-for-your-workflow"></a>Wybierz odpowiedni model użycia dla przepływu pracy
 
-Należy wybrać model użycia dla każdego używanego miejsca docelowego magazynu zainstalowanego w systemie plików NFS. Cele magazynu obiektów blob platformy Azure mają wbudowany model użycia, którego nie można dostosować.
+Należy wybrać model użycia dla każdego używanego docelowego magazynu systemu plików NFS. Cele magazynu obiektów blob platformy Azure mają wbudowany model użycia, którego nie można dostosować.
 
 Modele użycia pamięci podręcznej HPC umożliwiają wybranie sposobu zrównoważenia szybkiej reakcji z ryzykiem pobierania starych danych. Jeśli chcesz zoptymalizować szybkość odczytywania plików, możesz nie zadbać o to, czy pliki w pamięci podręcznej są sprawdzane względem plików zaplecza. Z drugiej strony, jeśli chcesz upewnić się, że pliki są zawsze aktualne z magazynem zdalnym, wybierz model, który sprawdza się często.
 
@@ -77,6 +77,29 @@ Ta tabela zawiera podsumowanie różnic między modelami użycia:
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
 Jeśli masz pytania dotyczące najlepszego modelu użycia dla przepływu pracy pamięci podręcznej platformy Azure HPC, skontaktuj się z przedstawicielem platformy Azure lub Otwórz żądanie pomocy technicznej, aby uzyskać pomoc.
+
+## <a name="know-when-to-remount-clients-for-nlm"></a>Informacje o tym, kiedy należy ponownie zainstalować klientów dla usługi NLM
+
+W niektórych sytuacjach może być konieczne ponowne zainstalowanie klientów w przypadku zmiany modelu użycia miejsca docelowego magazynu. Jest to niezbędny sposób, ponieważ różne modele użycia obsługują żądania programu Network Lock Manager (NLM).
+
+Pamięć podręczna HPC znajduje się między klientami a systemem magazynu zaplecza. Zwykle pamięć podręczna przekazuje żądania NLM do systemu magazynu zaplecza, ale w niektórych sytuacjach sama pamięć podręczna potwierdza żądanie NLM i zwraca wartość do klienta. W pamięci podręcznej platformy Azure HPC dzieje się to tylko wtedy, gdy używasz modelu użycia **Odczytaj duże, rzadko** występujące zapisy (lub w standardowym miejscu docelowym magazynu obiektów blob, które nie mają konfigurowalnych modeli użycia).
+
+Istnieje niewielkie ryzyko konfliktu plików w przypadku zmiany między **odczytanym i nierzadko zapisywanym** modelem użycia i innym modelem użycia. Nie ma sposobu na przeniesienie bieżącego stanu NLM z pamięci podręcznej do systemu magazynu ani na odwrót. Stan blokady klienta jest niedokładny.
+
+Zainstaluj ponownie klientów, aby upewnić się, że mają prawidłowy stan NLM z nowym menedżerem blokad.
+
+Jeśli klient wysyła żądanie NLM, gdy model użycia lub magazyn zaplecza nie obsługuje tego żądania, spowoduje to wyświetlenie błędu.
+
+### <a name="disable-nlm-at-client-mount-time"></a>Wyłącz funkcję NLM na czas instalacji klienta
+
+Nie zawsze jest łatwo wiadomo, czy systemy klienckie będą wysyłać żądania NLM.
+
+Można wyłączyć NLM, gdy klienci instalują klaster przy użyciu opcji ``-o nolock`` w ``mount`` poleceniu.
+
+Dokładne zachowanie ``nolock`` opcji zależy od systemu operacyjnego klienta, dlatego należy zapoznać się z dokumentacją instalacji (Man 5 NFS) dla systemu operacyjnego klienta. W większości przypadków blokada jest przenoszona lokalnie na klienta. Należy zachować ostrożność, jeśli aplikacja blokuje pliki na wielu klientach.
+
+> [!NOTE]
+> ADLS — system plików NFS nie obsługuje NLM. W przypadku korzystania z miejsca docelowego magazynu ADLS-NFS należy wyłączyć funkcję NLM z powyższej opcji instalacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01370a8d7710292858fe28d263fe5456b012c40f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459559"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107384"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w witrynie Azure Marketplace
 
-W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla portalu Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](./partner-center-portal/create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla portalu Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 

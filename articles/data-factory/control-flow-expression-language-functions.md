@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af365ef9b94702fa6634235a95a91297d6b7ae50
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786298"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107133"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Wyrażenia i funkcje w usłudze Azure Data Factory
 
@@ -161,6 +161,30 @@ W poniższym przykładzie potok przyjmuje parametry **inputPath** i **outputPath
     }
 }
 ```
+
+### <a name="replacing-special-characters"></a>Zamienianie znaków specjalnych
+
+Dynamiczny Edytor zawartości automatycznie wyprowadza znaki, takie jak podwójny cudzysłów, ukośnik odwrotny w zawartości po zakończeniu edycji. Powoduje to problemy, jeśli chcesz zastąpić wiersz wysuwu wiersza lub kartę przy użyciu **\n**, **\t** w funkcji Replace (). Można edytować zawartość dynamiczną w widoku kodu, aby usunąć dodatkowe \ w wyrażeniu lub wykonać poniższe kroki, aby zastąpić znaki specjalne przy użyciu języka wyrażeń:
+
+1. Kodowanie adresu URL względem oryginalnej wartości ciągu
+1. Zastąp ciąg zakodowany w adresie URL, na przykład wiersz wysuwu wiersza (% 0A), znak powrotu karetki (% 0D), tabulator poziomy (%09).
+1. Dekodowanie adresu URL
+
+Na przykład zmienna *NazwaFirmy* ze znakiem nowego wiersza w swojej wartości wyrażenie `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` może usunąć znak nowego wiersza. 
+
+```json
+Contoso-
+Corporation
+```
+
+### <a name="escaping-single-quote-character"></a>Znak ucieczki pojedynczego cudzysłowu
+
+Funkcje wyrażeń używają pojedynczego cudzysłowu dla parametrów wartości ciągu. Użyj dwóch apostrofów, aby wypróbować znak w funkcjach ciągu. Na przykład wyrażenie `@concat('Baba', ''' ', 'book store')` zwróci Poniższy wynik.
+
+```
+Baba's book store
+```
+
 ### <a name="tutorial"></a>Samouczek
 Ten [samouczek](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) przeprowadzi Cię przez proces przekazywania parametrów między potokiem a działaniem oraz między działaniami.
 
@@ -216,7 +240,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [ubiegł](control-flow-expression-language-functions.md#equals) | Sprawdź, czy obie wartości są równoważne. |
 | [greater](control-flow-expression-language-functions.md#greater) | Sprawdź, czy pierwsza wartość jest większa od drugiej wartości. |
 | [greaterOrEquals](control-flow-expression-language-functions.md#greaterOrEquals) | Sprawdź, czy pierwsza wartość jest większa lub równa drugiej wartości. |
-| [if](control-flow-expression-language-functions.md#if) | Sprawdź, czy wyrażenie ma wartość true lub false. W oparciu o wynik Zwraca określoną wartość. |
+| [przypadku](control-flow-expression-language-functions.md#if) | Sprawdź, czy wyrażenie ma wartość true lub false. W oparciu o wynik Zwraca określoną wartość. |
 | [wcześniejsz](control-flow-expression-language-functions.md#less) | Sprawdź, czy pierwsza wartość jest mniejsza od drugiej wartości. |
 | [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Sprawdź, czy pierwsza wartość jest mniejsza lub równa drugiej wartości. |
 | [niemożliwe](control-flow-expression-language-functions.md#not) | Sprawdź, czy wyrażenie ma wartość false. |

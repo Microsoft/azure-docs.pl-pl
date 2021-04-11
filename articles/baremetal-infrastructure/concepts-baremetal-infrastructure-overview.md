@@ -4,19 +4,19 @@ description: Zawiera omówienie infrastruktury BareMetal na platformie Azure.
 ms.custom: references_regions
 ms.topic: conceptual
 ms.subservice: workloads
-ms.date: 04/06/2021
-ms.openlocfilehash: bccb171ce364a5129489c437f2f18156cc563a1b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 04/08/2021
+ms.openlocfilehash: 7a4998a096a5c5d9e793c34d5046dce59262a2ae
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579033"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257572"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>Co to jest infrastruktura BareMetal na platformie Azure?
 
 Microsoft Azure oferuje infrastrukturę chmurową obejmującą szeroką gamę zintegrowanych usług w chmurze, które spełniają wymagania biznesowe. W niektórych przypadkach może być konieczne uruchomienie usług na serwerach bez systemu operacyjnego, które nie korzystają z warstwy wirtualizacji. Może być potrzebny dostęp do katalogu głównego i kontrola nad systemem operacyjnym (OS). Aby spełnić takie wymagania, platforma Azure oferuje infrastrukturę BareMetal dla kilku aplikacji o wysokiej wartości i o znaczeniu strategicznym.
 
-Infrastruktura BareMetal składa się z dedykowanych wystąpień BareMetal (wystąpień obliczeniowych), magazynu o wysokiej wydajności i odpowiednich aplikacji (NFS, dNFS, ISCSI i Fiber Channel) oraz zestawu wirtualnych sieci LAN specyficznych dla funkcji (VLAN) w środowisku izolowanym. Magazyn może być współużytkowany przez wystąpienia BareMetal, aby umożliwić korzystanie z takich funkcji, jak w przypadku klastrów skalowalnych w poziomie lub tworzenia par wysokiej dostępności z STONITH.
+Infrastruktura BareMetal składa się z dedykowanych wystąpień BareMetal (wystąpień obliczeniowych), magazynu o wysokiej wydajności i odpowiednich aplikacji (NFS, ISCSI i Fiber Channel) oraz zestawu wirtualnych sieci LAN specyficznych dla funkcji (VLAN) w środowisku izolowanym. Magazyn może być współużytkowany przez wystąpienia BareMetal, aby umożliwić korzystanie z takich funkcji, jak w przypadku klastrów skalowalnych w poziomie lub tworzenia par wysokiej dostępności z STONITH.
  
 To środowisko ma również specjalne sieci VLAN, do których można uzyskać dostęp, jeśli są uruchomione maszyny wirtualne w co najmniej jednej sieci wirtualnej platformy Azure (sieci wirtualnych) w ramach subskrypcji platformy Azure. Całe środowisko jest reprezentowane jako Grupa zasobów w ramach subskrypcji platformy Azure.
 
@@ -40,7 +40,7 @@ Infrastruktura BareMetal oferuje następujące korzyści:
     - Do 1 PB/dzierżawy 
     - Liczba operacji we/wy do 1,2 mln/dzierżawców 
     - 40/100 GB przepustowości sieci
-    - Dostępne za pośrednictwem systemu plików NFS, dNFS, ISCSI i FC
+    - Dostępne za pośrednictwem systemu plików NFS, ISCSI i FC
 - Nadmiarowe zasilanie, zasilacze, karty sieciowe, ne, porty, sieci WAN, magazyn i zarządzanie
 - Gorąca zapasy do zastąpienia w przypadku awarii (bez konieczności ponownego konfigurowania)
 - Okna obsługi skoordynowane przez klienta

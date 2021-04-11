@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
-ms.author: trmccorm
-author: tmccrmck
+ms.author: pansav
+author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: b5511c8ecc33238e0409b5ee4c1c7a11adddeac5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 619123cc2723fcf8e4bd80410c6b098b113d61c6
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522159"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286321"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Rozwiązywanie problemów z klasą ParallelRunStep
 
@@ -96,6 +96,9 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `mini_batch_size`: Rozmiar mini-Batch przeszedł do pojedynczego `run()` wywołania. (opcjonalnie; wartość domyślna to `10` pliki dla `FileDataset` i `1MB` dla `TabularDataset` .)
     - Dla `FileDataset` , jest to liczba plików o minimalnej wartości `1` . Można połączyć wiele plików w jedną minimalną partię.
     - W przypadku `TabularDataset` , jest to rozmiar danych. Przykładowe wartości to `1024` , `1024KB` , `10MB` , i `1GB` . Zalecana wartość to `1MB` . Mini-Batch z `TabularDataset` nigdy nie będzie przekraczać granic plików. Jeśli na przykład pliki CSV mają różne rozmiary, najmniejszy plik to 100 KB, a największy to 10 MB. Jeśli ustawisz `mini_batch_size = 1MB` , pliki o rozmiarze mniejszym niż 1 MB będą traktowane jako jedna mini-Batch. Pliki o rozmiarze większym niż 1 MB zostaną podzielone na wiele kart Mini-Part.
+        > [!NOTE]
+        > Nie można podzielić na partycje TabularDatasetsd przy użyciu języka SQL. 
+
 - `error_threshold`: Liczba błędów rekordu `TabularDataset` i błędów plików dla `FileDataset` , które powinny zostać zignorowane podczas przetwarzania. Jeśli liczba błędów dla całego danych wejściowych spadnie powyżej tej wartości, zadanie zostanie przerwane. Próg błędu dotyczy całego danych wejściowych, a nie dla pojedynczego elementu mini-Batch wysyłanego do `run()` metody. Zakresem jest `[-1, int.max]` . `-1`Część wskazuje, że wszystkie błędy zostaną zignorowane podczas przetwarzania.
 - `output_action`: Jedna z następujących wartości wskazuje, w jaki sposób dane wyjściowe będą zorganizowane:
     - `summary_only`: Skrypt użytkownika będzie przechowywał dane wyjściowe. `ParallelRunStep` będzie używać danych wyjściowych tylko dla obliczeń progu błędu.
@@ -110,7 +113,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `run_invocation_timeout`: `run()` Limit czasu wywołania metody (w sekundach). (opcjonalnie; wartość domyślna to `60` )
 - `run_max_try`: Maksymalna liczba prób `run()` dla typu mini-Batch. A `run()` nie powiodło się, jeśli wystąpił wyjątek lub nie jest zwracany, gdy `run_invocation_timeout` zostanie osiągnięty błąd (opcjonalnie; wartość domyślna to `3` ). 
 
-Można określić,,,, `mini_batch_size` `node_count` i tak `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyto `PipelineParameter` dla i, `mini_batch_size` `Process_count_per_node` a następnie zmienisz te wartości w przypadku ponownego przesłania przebiegu później. 
+Można określić,,,, `mini_batch_size` `node_count` i tak `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyto `PipelineParameter` dla `mini_batch_size` i i zmienisz `Process_count_per_node` te wartości po ponownym przesłaniu innego uruchomienia. 
 
 ### <a name="parameters-for-creating-the-parallelrunstep"></a>Parametry tworzenia ParallelRunStep
 
@@ -151,7 +154,7 @@ Dzienniki wygenerowane ze skryptu wprowadzania przy użyciu pomocnika EntryScrip
 
 - `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Te pliki są dziennikami zapisanymi na podstawie entry_script przy użyciu pomocnika EntryScript.
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Te pliki są dziennikami z strumienia stdout (np. Print statement) entry_script.
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Te pliki są dziennikami z stdout (na przykład Print statement) entry_script.
 
 - `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: Te pliki są dziennikami z stderr dla entry_script.
 
@@ -212,10 +215,11 @@ def run(mini_batch):
 
 Użytkownik może przekazać dane referencyjne do skryptu przy użyciu parametru side_inputs ParalleRunStep. Wszystkie zestawy danych podane jako side_inputs zostaną zainstalowane na każdym węźle procesu roboczego. Użytkownik może uzyskać lokalizację instalacji, przekazując argument.
 
-Utwórz [zestaw](/python/api/azureml-core/azureml.core.dataset.dataset) danych zawierający dane referencyjne i zarejestruj go w obszarze roboczym. Przekaż go do `side_inputs` parametru `ParallelRunStep` . Ponadto możesz dodać swoją ścieżkę w `arguments` sekcji, aby łatwo uzyskać dostęp do jej zainstalowanej ścieżki:
+Utwórz [zestaw danych](/python/api/azureml-core/azureml.core.dataset.dataset) zawierający dane referencyjne, określ ścieżkę instalacji lokalnej i zarejestruj ją w obszarze roboczym. Przekaż go do `side_inputs` parametru `ParallelRunStep` . Ponadto możesz dodać swoją ścieżkę w `arguments` sekcji, aby łatwo uzyskać dostęp do jej zainstalowanej ścieżki:
 
 ```python
-label_config = label_ds.as_named_input("labels_input")
+local_path = "/tmp/{}".format(str(uuid.uuid4()))
+label_config = label_ds.as_named_input("labels_input").as_mount(local_path)
 batch_score_step = ParallelRunStep(
     name=parallel_step_name,
     inputs=[input_images.as_named_input("input_images")],

@@ -3,12 +3,12 @@ title: Przechowuj wykresy Helm
 description: Dowiedz się, jak przechowywać wykresy Helm dla aplikacji Kubernetes przy użyciu repozytoriów w Azure Container Registry
 ms.topic: article
 ms.date: 06/12/2020
-ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9897ed6e43813c16314076b0322cd263cd2ed150
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86537871"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223085"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Wypychanie i ściąganie wykresów Helm do usługi Azure Container Registry
 
@@ -31,7 +31,7 @@ Helm 3 należy używać do hostowania wykresów Helm w Azure Container Registry.
 * Używanie `helm chart` poleceń w interfejsie wiersza polecenia Helm do wypychania i ściągania wykresów Helm i zarządzania nimi w rejestrze
 * Służy `helm install` do instalowania wykresów w klastrze Kubernetes z lokalnej pamięci podręcznej repozytorium.
 > [!NOTE]
-> Od Helm 3 polecenia [AZ ACR Helm][az-acr-helm] do użycia z klientem Helm 2 są przestarzałe. Zapoznaj się z [planem produktu](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga). Jeśli wcześniej wdrożono wykresy Helm 2, zobacz [Migrowanie Helm v2 do wersji v3](https://helm.sh/docs/topics/v2_v3_migration/).
+> Od Helm 3 polecenia [AZ ACR Helm][az-acr-helm] do użycia z klientem Helm 2 są przestarzałe. Przed usunięciem polecenia zostanie podane co najmniej 3 miesiące. Jeśli wcześniej wdrożono wykresy Helm 2, zobacz [Migrowanie Helm v2 do wersji v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

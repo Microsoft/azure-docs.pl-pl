@@ -4,14 +4,14 @@ description: Jak edytować cele magazynu pamięci podręcznej platformy Azure HP
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/29/2021
 ms.author: v-erkel
-ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d61612b6e491fae550559e499cb360efc0f7c044
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772595"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258915"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 
@@ -151,7 +151,10 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 
 ### <a name="change-the-usage-model"></a>Zmień model użycia
 
-Model użycia ma wpływ na sposób przechowywania danych w pamięci podręcznej. Aby dowiedzieć się więcej, zapoznaj się z tematem [Wybieranie modelu użycia](hpc-cache-add-storage.md#choose-a-usage-model) .
+Model użycia ma wpływ na sposób przechowywania danych w pamięci podręcznej. Przeczytaj [Opis modeli użycia pamięci podręcznej](cache-usage-models.md) , aby dowiedzieć się więcej.
+
+> [!NOTE]
+> Jeśli zmienisz modele użycia, może być konieczne ponowne zainstalowanie klientów, aby uniknąć błędów NLM. Zapoznaj [się z informacjami o tym, kiedy należy ponownie zainstalować klientów,](cache-usage-models.md#know-when-to-remount-clients-for-nlm) Aby uzyskać szczegóły.
 
 Aby zmienić model użycia dla miejsca docelowego magazynu NFS, użyj jednej z tych metod.
 

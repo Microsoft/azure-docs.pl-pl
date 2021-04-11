@@ -7,18 +7,18 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: 0c220daab0d1d9ae7d50d37d9303d6677bd52cc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1661fd78812bff14d9efddf9ef1c31a359aa959d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97360309"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107367"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
 
 W tym artykule opisano sposób tworzenia nowego programu Dynamics 365 do zaangażowania klienta & oferty usługi PowerApps. Wszystkie aplikacje dla programu Dynamics 365 do zaangażowania klienta (PowerApps, Sales, Service, Project Service i Field Service) muszą przejść przez nasz proces certyfikacji, który sprawdza rozwiązanie pod kątem standardowych wymagań, zgodności i właściwych praktyk. Środowisko próbne umożliwia użytkownikom wdrożenie rozwiązania w środowisku usługi Dynamics 365 na żywo.
 
-Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](../create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 >[!NOTE]
 > Po opublikowaniu oferty modyfikacje oferty zostaną zaktualizowane tylko w centrum partnerskim i sklepie online po ponownym przesłaniu oferty publikacji.

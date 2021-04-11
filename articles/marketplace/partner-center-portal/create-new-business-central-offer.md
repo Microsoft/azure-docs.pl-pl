@@ -7,18 +7,18 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: 99c36354334701dcd4c7c30c5fd5039c13885525
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65df5f178ce0ec845fca6343c51049b6bf426e18
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97358728"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106041"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Tworzenie oferty Dynamics 365 for Business Central
 
 W tym artykule opisano sposób tworzenia nowej oferty Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) to usługa planowania zasobów przedsiębiorstwa (ERP), która obsługuje szeroką gamę procesów firmy, w tym finansów, operacji, łańcucha dostaw, CRM i zarządzania projektami oraz handlu elektronicznego. Pakiety premium obsługują również klasyczny model wdrażania i produkcję. Wszystkie oferty dla programu Dynamics 365 Business Central muszą przejść przez nasz proces certyfikacji.
 
-Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](../create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 >[!NOTE]
 > Po opublikowaniu oferty modyfikacje oferty zostaną zaktualizowane tylko w centrum partnerskim i sklepie online po ponownym przesłaniu oferty publikacji.

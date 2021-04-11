@@ -43,6 +43,8 @@
       href: concepts-query-units.md
     - name: Integracja z innymi usługami
       href: concepts-integration.md
+    - name: Powiadomienia o zdarzeniach
+      href: concepts-event-notifications.md
     - name: Trasy zdarzeń
       href: concepts-route-events.md
     - name: Zabezpieczenia rozwiązań usługi Azure Digital Twins
@@ -91,8 +93,6 @@
           href: how-to-manage-twin.md
         - name: Zarządzanie grafem bliźniaczych reprezentacji z relacjami
           href: how-to-manage-graph.md
-        - name: Interpretowanie danych zdarzeń
-          href: how-to-interpret-event-data.md
         - name: Konfigurowanie funkcji platformy Azure do przetwarzania danych
           href: how-to-create-azure-function.md
         - name: Wykonywanie zapytań o graf bliźniaczych reprezentacji

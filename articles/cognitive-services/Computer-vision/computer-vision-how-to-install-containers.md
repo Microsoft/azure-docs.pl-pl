@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53d59822b378a658f8b6c048de1a32db53a795d1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432557"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285726"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102432557"
 
 Kontenery umożliwiają uruchamianie interfejsów API przetwarzania obrazów w Twoim własnym środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobierać, instalować i uruchamiać kontenery przetwarzanie obrazów.
 
-Kontener OCR do *odczytu* umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](concept-recognizing-text.md#read-api).
+Kontener OCR do *odczytu* umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [Przeczytaj przewodnik dotyczący interfejsu API](Vision-API-How-to-Topics/call-read-api.md).
 
 ## <a name="read-32-preview-container"></a>Odczyt kontenera 3,2-Preview
 
@@ -96,7 +96,7 @@ Dostępne są obrazy kontenerów do odczytu.
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera.
 
-### <a name="docker-pull-for-the-read-container"></a>Wypychanie platformy Docker dla kontenera odczytu
+### <a name="docker-pull-for-the-read-ocr-container"></a>Wypychanie platformy Docker dla kontenera odczytu OCR
 
 # <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
@@ -139,7 +139,7 @@ ApiKey={API_KEY}
 
 To polecenie:
 
-* Uruchamia kontener odczytu z obrazu kontenera.
+* Uruchamia Odczytaj kontener OCR z obrazu kontenera.
 * Przypisuje 8 rdzeni procesora CPU i 18 gigabajtów (GB) pamięci.
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera.
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 To polecenie:
 
-* Uruchamia kontener odczytu z obrazu kontenera.
+* Uruchamia Odczytaj kontener OCR z obrazu kontenera.
 * Przypisuje 8 rdzeni procesora i 16 gigabajtów (GB) pamięci.
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera.
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
@@ -392,7 +392,7 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 ---
 
 > [!IMPORTANT]
-> W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](./computer-vision-resource-container-config.md).
+> W przypadku wdrażania wielu kontenerów OCR odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Odczyt synchroniczne
 
@@ -445,7 +445,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierani
 * Przetwarzanie obrazów udostępnia kontener systemu Linux dla platformy Docker, hermetyzując odczyt.
 * Obrazy kontenerów są pobierane z rejestru kontenerów "Podgląd kontenera" na platformie Azure.
 * Obrazy kontenerów są uruchamiane w platformie Docker.
-* Do wywoływania operacji w kontenerach odczytu można użyć interfejsu API REST lub zestawu SDK, określając identyfikator URI hosta kontenera.
+* Można użyć interfejsu API REST lub zestawu SDK do wywoływania operacji w kontenerach OCR odczytu przez określenie identyfikatora URI hosta kontenera.
 * Podczas tworzenia wystąpienia kontenera należy określić informacje o rozliczeniach.
 
 > [!IMPORTANT]
@@ -454,7 +454,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierani
 ## <a name="next-steps"></a>Następne kroki
 
 * Przegląd [konfigurowania kontenerów](computer-vision-resource-container-config.md) dla ustawień konfiguracji
-* Przejrzyj [przegląd przetwarzanie obrazów](overview.md) , aby dowiedzieć się więcej o rozpoznawaniu tekstu napisanego i odręcznego
-* Zapoznaj się z [interfejs API przetwarzania obrazów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) , aby uzyskać szczegółowe informacje na temat metod obsługiwanych przez kontener.
+* Zapoznaj się z [omówieniem OCR](overview-ocr.md) , aby dowiedzieć się więcej o rozpoznawaniu tekstu napisanego i odręcznego
+* Aby uzyskać szczegółowe informacje na temat metod obsługiwanych przez kontener, zapoznaj się z [interfejsem API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) .
 * Zapoznaj się z [często zadawanymi pytaniami](FAQ.md) , aby rozwiązać problemy związane z funkcjami przetwarzanie obrazów.
 * Użyj więcej [kontenerów Cognitive Services](../cognitive-services-container-support.md)

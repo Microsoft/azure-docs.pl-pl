@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225347"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285687"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -154,7 +154,7 @@ W tej konfiguracji baza danych w Azure SQL Database lub wystąpienie zarządzane
 
 [Aktywna replikacja geograficzna](../database/active-geo-replication-overview.md) nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL korzystającego z replikacji transakcyjnej. Zamiast aktywnej replikacji geograficznej, należy użyć [grup z obsługą trybu failover](../database/auto-failover-group-overview.md), ale należy pamiętać, że publikacja należy [ręcznie usunąć](transact-sql-tsql-differences-sql-server.md#replication) z podstawowego wystąpienia zarządzanego i utworzyć je na pomocniczym wystąpieniu zarządzanym SQL po przejściu do trybu failover.
 
-W przypadku włączenia replikacji geograficznej w wystąpieniu zarządzanym przez **wydawcę** lub **dystrybutora** w [grupie trybu failover](../database/auto-failover-group-overview.md)administrator wystąpienia zarządzanego SQL musi oczyścić wszystkie publikacje na starym serwerze podstawowym i skonfigurować je ponownie na nowym serwerze podstawowym po przejściu w tryb failover. W tym scenariuszu są niezbędne następujące działania:
+Jeśli wystąpienie zarządzane programu SQL **wydawcy** lub **dystrybutora** znajduje się w [grupie trybu failover](../database/auto-failover-group-overview.md), administrator wystąpienia zarządzanego SQL musi wyczyścić wszystkie publikacje na starym serwerze podstawowym i skonfigurować je ponownie na nowym serwerze podstawowym po przejściu w tryb failover. W tym scenariuszu są niezbędne następujące działania:
 
 1. Zatrzymaj wszystkie zadania replikacji uruchomione w bazie danych, jeśli istnieją.
 1. Porzuć metadane subskrypcji z wydawcą, uruchamiając następujący skrypt w bazie danych wydawcy:

@@ -1,14 +1,14 @@
 ---
 title: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
 description: Aktywowanie konsoli zarządzania gwarantuje, że czujniki są zarejestrowane na platformie Azure i wysyłają informacje do lokalnej konsoli zarządzania oraz że lokalna Konsola zarządzania wykonuje zadania zarządzania w połączonych czujników.
-ms.date: 3/18/2021
+ms.date: 4/6/2021
 ms.topic: how-to
-ms.openlocfilehash: 86bbebb54753145e087865acd8c0d4690a53aa99
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: db0d2a84feeb5bf52932842badda8c126994c05d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383849"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492158"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktywowanie i konfigurowanie lokalnej konsoli zarządzania 
 
@@ -217,6 +217,10 @@ Aby skonfigurować lokację:
 5. [Połącz czujniki](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console).
 
 6. [Przypisywanie czujnika do stref lokacji](#assign-sensors-to-zones).
+
+### <a name="delete-a-site"></a>Usuwanie witryny
+
+Jeśli lokacja nie jest już potrzebna, można ją usunąć z lokalnej konsoli zarządzania.
 
 Aby usunąć lokację:
 

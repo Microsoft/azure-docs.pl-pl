@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 04/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 653eacd11c4a3c7ab500abff809a6b9bf8229c1f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094665"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492073"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Zarządzanie rolami w umowie Enterprise Agreement platformy Azure
 
@@ -22,6 +22,7 @@ Aby ułatwić zarządzanie użyciem i wydatkami w organizacji, klienci platformy
 
 - Administratora przedsiębiorstwa
 - Administrator przedsiębiorstwa (tylko odczyt)<sup>1</sup>
+- Zakup EA
 - Administrator działu
 - Administrator działu (tylko odczyt)
 - Właściciel konta<sup>2</sup>
@@ -61,6 +62,7 @@ Na poniższym diagramie przedstawiono proste hierarchie witryny Azure EA Portal.
 W ramach rejestracji przedsiębiorstwa występują następujące role użytkowników administracyjnych:
 
 - Administrator przedsiębiorstwa
+- Zakup EA
 - Administrator działu
 - Właściciel konta
 - Administrator usługi
@@ -80,12 +82,24 @@ Użytkownicy z tą rolą mają najwyższy poziom dostępu. Mogą wykonywać nast
 - Zarządzanie innymi administratorami przedsiębiorstwa.
 - Zarządzanie administratorami działów.
 - Zarządzanie kontaktami dla powiadomień.
+- Kup usługi platformy Azure, w tym rezerwacje.
 - Wyświetlanie użycia na wszystkich kontach.
 - Wyświetlanie nienaliczonych opłat na wszystkich kontach.
 - Wyświetlanie wszystkich rezerwacji i zamówień rezerwacji dotyczących umowy Enterprise Agreement, oraz zarządzanie nimi.
   - Administrator przedsiębiorstwa (tylko do odczytu) może wyświetlać rezerwacje i zamówienia rezerwacji. Nie może nimi zarządzać.
 
 W ramach rejestracji przedsiębiorstwa może być wielu administratorów przedsiębiorstwa. Administratorom przedsiębiorstwa można przyznać dostęp tylko do odczytu. Wszyscy oni dziedziczą rolę administratora działu.
+
+### <a name="ea-purchaser"></a>Zakup EA
+
+Użytkownicy z tą rolą mają uprawnienia do kupowania usług platformy Azure, ale nie mogą zarządzać kontami. Mogą wykonywać następujące czynności:
+
+- Kup usługi platformy Azure, w tym rezerwacje.
+- Wyświetlanie użycia na wszystkich kontach.
+- Wyświetlanie nienaliczonych opłat na wszystkich kontach.
+- Wyświetlanie wszystkich rezerwacji i zamówień rezerwacji dotyczących umowy Enterprise Agreement, oraz zarządzanie nimi.
+
+Rola zakupu EA jest obecnie włączona tylko dla dostępu opartego na SPN. Aby dowiedzieć się, jak przypisać rolę do nazwy głównej usługi, zobacz [Przypisywanie ról do usługi Azure Enterprise Agreement nazwach głównych usług](assign-roles-azure-service-principals.md).
 
 ### <a name="department-administrator"></a>Administrator działu
 
@@ -126,6 +140,7 @@ W poniższych sekcjach opisano ograniczenia i możliwości poszczególnych ról.
 |---|---|
 |Administratora przedsiębiorstwa|Nieograniczona liczba|
 |Administrator przedsiębiorstwa (tylko odczyt)|Nieograniczona liczba|
+| Zakup EA przypisany do nazwy SPN | Nieograniczona liczba |
 |Administrator działu|Nieograniczona liczba|
 |Administrator działu (tylko odczyt)|Nieograniczona liczba|
 |Właściciel konta|1 na konto<sup>3</sup>|
@@ -134,18 +149,19 @@ W poniższych sekcjach opisano ograniczenia i możliwości poszczególnych ról.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Struktura i uprawnienia organizacji według roli
 
-|Zadania| Administratora przedsiębiorstwa|Administrator przedsiębiorstwa (tylko odczyt)|Administrator działu|Administrator działu (tylko odczyt)|Właściciel konta| Partner|
-|---|---|---|---|---|---|---|
-|Wyświetlanie administratorów przedsiębiorstwa|✔|✔|✘|✘|✘|✔|
-|Dodawanie lub usuwanie administratorów przedsiębiorstwa|✔|✘|✘|✘|✘|✘|
-|Wyświetlanie kontaktów dla powiadomień<sup>4</sup> |✔|✔|✘|✘|✘|✔|
-|Dodawanie lub usuwanie kontaktów dla powiadomień<sup>4</sup> |✔|✘|✘|✘|✘|✘|
-|Tworzenie działów i zarządzanie nimi |✔|✘|✘|✘|✘|✘|
-|Wyświetlanie administratorów działu|✔|✔|✔|✔|✘|✔|
-|Dodawanie lub usuwanie administratorów działu|✔|✘|✔|✘|✘|✘|
-|Wyświetlanie kont w rejestracji |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
-|Dodawanie kont do rejestracji i zmienianie właściciela konta|✔|✘|✔<sup>5</sup>|✘|✘|✘|
-|Tworzenie subskrypcji i uprawnień subskrypcji oraz zarządzanie nimi|✘|✘|✘|✘|✔|✘|
+|Zadania| Administratora przedsiębiorstwa|Administrator przedsiębiorstwa (tylko odczyt)| Zakup EA | Administrator działu|Administrator działu (tylko odczyt)|Właściciel konta| Partner|
+|---|---|---|---|---|---|---|---|
+|Wyświetlanie administratorów przedsiębiorstwa|✔|✔| ✔|✘|✘|✘|✔|
+|Dodawanie lub usuwanie administratorów przedsiębiorstwa|✔|✘|✘|✘|✘|✘|✘|
+|Wyświetlanie kontaktów dla powiadomień<sup>4</sup> |✔|✔|✔|✘|✘|✘|✔|
+|Dodawanie lub usuwanie kontaktów dla powiadomień<sup>4</sup> |✔|✘|✘|✘|✘|✘|✘|
+|Tworzenie działów i zarządzanie nimi |✔|✘|✘|✘|✘|✘|✘|
+|Wyświetlanie administratorów działu|✔|✔|✔|✔|✔|✘|✔|
+|Dodawanie lub usuwanie administratorów działu|✔|✘|✘|✔|✘|✘|✘|
+|Wyświetlanie kont w rejestracji |✔|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Dodawanie kont do rejestracji i zmienianie właściciela konta|✔|✘|✘|✔<sup>5</sup>|✘|✘|✘|
+|Zakup rezerwacji|✔|✘|✔|✘|✘|✘|✘|
+|Tworzenie subskrypcji i uprawnień subskrypcji oraz zarządzanie nimi|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Kontakty dla powiadomień otrzymują wiadomości e-mail dotyczące umowy Enterprise Agreement platformy Azure.
 - <sup>5</sup> Zadanie jest ograniczone do kont w Twoim dziale.
@@ -166,14 +182,14 @@ Aby uzyskać więcej informacji o dodawaniu administratora działu, zobacz [Twor
 
 ## <a name="usage-and-costs-access-by-role"></a>Dostęp do danych użycia i kosztów według roli
 
-|Zadania| Administratora przedsiębiorstwa|Administrator przedsiębiorstwa (tylko odczyt)|Administrator działu|Administrator działu (tylko odczyt) |Właściciel konta| Partner|
-|---|---|---|---|---|---|---|
-|Wyświetlanie salda środków, w tym przedpłaty za platformę Azure|✔|✔|✘|✘|✘|✔|
-|Wyświetlanie limitów przydziału wydatków dla działu|✔|✔|✘|✘|✘|✔|
-|Ustawianie limitów przydziału wydatków dla działu|✔|✘|✘|✘|✘|✘|
-|Wyświetlanie arkusza cen umów EA organizacji|✔|✔|✘|✘|✘|✔|
-|Wyświetlanie szczegółów użycia i kosztów|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
-|Zarządzanie zasobami w witrynie Azure Portal|✘|✘|✘|✘|✔|✘|
+|Zadania| Administratora przedsiębiorstwa|Administrator przedsiębiorstwa (tylko odczyt)|Zakup EA|Administrator działu|Administrator działu (tylko odczyt) |Właściciel konta| Partner|
+|---|---|---|---|---|---|---|---|
+|Wyświetlanie salda środków, w tym przedpłaty za platformę Azure|✔|✔|✔|✘|✘|✘|✔|
+|Wyświetlanie limitów przydziału wydatków dla działu|✔|✔|✔|✘|✘|✘|✔|
+|Ustawianie limitów przydziału wydatków dla działu|✔|✘|✘|✘|✘|✘|✘|
+|Wyświetlanie arkusza cen umów EA organizacji|✔|✔|✔|✘|✘|✘|✔|
+|Wyświetlanie szczegółów użycia i kosztów|✔|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Zarządzanie zasobami w witrynie Azure Portal|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> Wymaga, aby administrator przedsiębiorstwa włączył zasady **Administrator przedsiębiorstwa — wyświetlanie opłat** w witrynie Enterprise Portal. Administrator działu będzie następnie widzieć szczegóły kosztów dla działu.
 - <sup>7</sup> Wymaga, aby administrator przedsiębiorstwa włączył zasady **Właściciel konta — wyświetlanie opłat** w witrynie Enterprise Portal. Właściciel konta będzie następnie widzieć szczegóły kosztów dla konta.
@@ -198,8 +214,6 @@ W poniższej tabeli przedstawiono relację między rolami administracyjnymi umó
 |Brak|Nie dotyczy |Właściciel|Ceny detaliczne|
 
 Rola administratora przedsiębiorstwa i zasady wyświetlania opłat są ustawiane w witrynie Enterprise Portal. Rolę na platformie Azure można zaktualizować w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
-
-
 
 ## <a name="next-steps"></a>Następne kroki
 
