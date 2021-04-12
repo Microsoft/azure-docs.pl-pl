@@ -1,15 +1,15 @@
 ---
 title: Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Linux.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99525351"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096567"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -90,9 +90,7 @@ Konfiguracja DSC działa jako otoka do standaryzacji w celu ujednolicenia sposob
 
 Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip pakietu zawartości, nazwa konfiguracji w pliku MOF i nazwa przypisywania gościa w szablonie Azure Resource Manager (szablon ARM) musi być taka sama.
 
-Polecenia cmdlet programu PowerShell ułatwiają tworzenie pakietu.
-Nie jest wymagany folder poziomu głównego ani folder wersji.
-Format pakietu musi być plikiem zip. i nie może przekroczyć całkowitego rozmiaru 100 MB w przypadku nieskompresowanego elementu.
+Polecenia cmdlet programu PowerShell ułatwiają tworzenie pakietu. Nie jest wymagany folder poziomu głównego ani folder wersji. Format pakietu musi być plikiem zip. i nie może przekroczyć łącznego rozmiaru 100 MB po odkompresji.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Konfiguracja niestandardowej konfiguracji gościa w systemie Linux
 
@@ -211,7 +209,7 @@ Parametry `Publish-GuestConfigurationPackage` polecenia cmdlet:
 - **Ścieżka**: lokalizacja pakietu do opublikowania
 - **ResourceGroupName**: Nazwa grupy zasobów, w której znajduje się konto magazynu
 - **StorageAccountName**: nazwa konta magazynu, w którym ma zostać opublikowany pakiet
-- **StorageContainerName**: (default: *guestconfiguration*) nazwa kontenera magazynu na koncie magazynu
+- **StorageContainerName**: (default: _guestconfiguration_) nazwa kontenera magazynu na koncie magazynu
 - **Wymuś**: Zastąp istniejący pakiet na koncie magazynu o tej samej nazwie
 
 W poniższym przykładzie jest publikowany pakiet do kontenera magazynu o nazwie "guestconfiguration".
@@ -277,7 +275,7 @@ W przypadku zasad utworzonych na platformie Azure ostatni krok to przypisanie de
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Używanie parametrów w niestandardowych zasadach konfiguracji gościa
 
-Konfiguracja gościa obsługuje Zastępowanie właściwości konfiguracji w czasie wykonywania. Ta funkcja oznacza, że wartości w pliku MOF w pakiecie nie muszą być uznawane za statyczne. Wartości przesłonięć są udostępniane za pomocą Azure Policy i nie mają wpływu na sposób tworzenia lub kompilowania konfiguracji.
+Konfiguracja gościa obsługuje Zastępowanie właściwości konfiguracji w czasie wykonywania. Ta funkcja oznacza, że wartości w pliku MOF w pakiecie nie muszą być uznawane za statyczne. Wartości przesłonięć są udostępniane za pomocą Azure Policy i nie zmieniają sposobu tworzenia lub kompilowania konfiguracji.
 
 W przypadku wartości INSPEC parametry są zwykle obsługiwane jako dane wejściowe w czasie wykonywania lub jako kod przy użyciu atrybutów. Konfiguracja gościa zasłania ten proces, więc dane wejściowe można podać podczas przypisywania zasad. Plik atrybutów jest automatycznie tworzony w ramach maszyny. Nie musisz tworzyć i dodawać pliku w projekcie. Istnieją dwa kroki umożliwiające dodanie parametrów do projektu inspekcji systemu Linux.
 
@@ -350,8 +348,7 @@ Jeśli chcesz wydać aktualizację zasad, wprowadź zmiany zarówno dla pakietu 
 > [!NOTE]
 > `version`Właściwość przypisania konfiguracji gościa ma wpływ tylko na pakiety hostowane przez firmę Microsoft. Najlepszym rozwiązaniem w przypadku przechowywania wersji zawartości niestandardowej jest uwzględnienie wersji w nazwie pliku.
 
-Po pierwsze, należy `New-GuestConfigurationPackage` określić nazwę pakietu, który jest unikatowy w porównaniu z poprzednimi wersjami. Numer wersji można dołączyć do nazwy, takiej jak `PackageName_1.0.0` .
-Numer w tym przykładzie służy tylko do unikatowego pakietu, a nie do określenia, że pakiet powinien być uważany za nowszy lub starszy niż inne pakiety.
+Po pierwsze, należy `New-GuestConfigurationPackage` określić nazwę pakietu, który jest unikatowy w porównaniu z poprzednimi wersjami. Numer wersji można dołączyć do nazwy, takiej jak `PackageName_1.0.0` . Numer w tym przykładzie służy tylko do unikatowego pakietu, a nie do określenia, że pakiet powinien być uważany za nowszy lub starszy niż inne pakiety.
 
 Po drugie należy zaktualizować parametry używane z `New-GuestConfigurationPolicy` poleceniem cmdlet po każdym z poniższych wyjaśnień.
 

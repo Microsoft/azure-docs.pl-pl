@@ -4,10 +4,10 @@ description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji w j�
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.openlocfilehash: ea2270888830327506df5f43c18f8e798f61cc00
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802781"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z centrów zdarzeń przy użyciu języka Python (Azure-eventhub)

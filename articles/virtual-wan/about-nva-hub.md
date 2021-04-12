@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: d5af0cc4eb72a2db850e19e47ed11cd9f6f4536e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e70b899ea0133704e4ecab42dd4c2a09bca41804
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061863"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226315"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o urządzeniu wirtualnym sieci w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
 Wirtualna sieć WAN platformy Azure pracowała z partnerami sieciowymi, aby utworzyć automatyzację, która ułatwia łączenie urządzeń lokalnych klienta (CPE) z bramą sieci VPN platformy Azure w koncentratorze wirtualnym. Platforma Azure współpracuje z wybieraniem partnerów sieciowych w celu umożliwienia klientom wdrażania zewnętrznego urządzenia sieciowego (urządzenie WUS) innej firmy bezpośrednio w koncentratorze wirtualnym. Pozwala to klientom, którzy chcą połączyć swoją gałąź CPE z tą samą marką urządzenie WUS w koncentratorze wirtualnym, dzięki czemu mogą oni korzystać z zastrzeżonych możliwości kompleksowej klasy SD-WAN.
 
-Sieci Barracuda i firmy Cisco są pierwszymi partnerami, aby zapewnić urządzeń WUS, które mogą być wdrażane bezpośrednio w koncentratorze sieci wirtualnej.  Zapoznaj się z dokumentacją produktu [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan) i [Cisco Cloud onrampy dla wielochmurowego](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) . Platforma Azure współpracuje z większą liczbą partnerów, dlatego należy zobaczyć inne oferty.
+Sieci Barracuda i firmy Cisco są pierwszymi partnerami, aby zapewnić urządzeń WUS, które mogą być wdrażane bezpośrednio w koncentratorze sieci wirtualnej.  Zobacz [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud onpochylni dla wielochmurowych](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) i [VMware SD-WAN](https://kb.vmware.com/s/article/82746) , aby zapoznać się z odpowiednią dokumentacją produktu. Platforma Azure współpracuje z większą liczbą partnerów, dlatego należy zobaczyć inne oferty.
 
 > [!NOTE]
 > Tylko oferty urządzenie WUS dostępne do wdrożenia w wirtualnym koncentratorze sieci WAN można wdrożyć w wirtualnym koncentratorze sieci WAN. Nie można ich wdrożyć w ramach dowolnej sieci wirtualnej na platformie Azure.
@@ -81,7 +81,7 @@ URZĄDZENIE WUS w koncentratorze wirtualnym jest dostępny w wersji zapoznawczej
 | Ameryka Południowa | Brazylia Południowa |
 | Europa | Europa Zachodnia, Południowe Zjednoczone Królestwo|
 |  Bliski Wschód | Północne Zjednoczone Emiraty Arabskie |
-| Azja | Japonia Wschodnia |
+| Azja | Japan East |
 | Australia | Australia Wschodnia |
 
 ## <a name="faq"></a>Często zadawane pytania

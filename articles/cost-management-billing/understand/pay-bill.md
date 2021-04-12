@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: ecc5c8ebef0d2add365d128e11caedaa173d9d63
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: f93933e4a6109eef4f9a06b61c7ea06d9fbd7d60
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232147"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121850"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Jak zapłacić rachunek za korzystanie z platformy Microsoft Azure
 
@@ -59,18 +59,6 @@ Aby móc płacić faktury w witrynie Azure Portal, musisz mieć odpowiednie [upr
 1. Po wybraniu formy płatności wybierz pozycję **Zapłać teraz**.
 
 Stan faktury zostanie zmieniony na *opłacone* w ciągu 24 godzin.
-
-## <a name="pay-now-for-customers-in-india"></a>Płacisz teraz klientom w Indiach
-
-Bank rezerwowy z Indii wydał [nowe regulacje](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12002&Mode=0) , które zaczną obowiązywać 1 kwietnia 2021. Po tej dacie banki w Indiach mogą zacząć odrzucać automatyczne płatności cykliczne, a płatności będą musiały zostać wykonane ręcznie w Azure Portal.
-
-Jeśli bank odrzuci automatyczną płatność cykliczną, poinformujemy Cię pocztą e-mail i poda instrukcje dotyczące dalszego postępowania.
-
-Od 1 kwietnia 2021 można w dowolnym momencie uregulować zaległe saldo, wykonując następujące czynności: 
-
-1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) jako administrator konta.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
-1. Na stronie Przegląd wybierz przycisk **płatność teraz** . (Jeśli nie widzisz przycisku **płatność teraz** , nie masz zaległego salda).
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do umowy klienta firmy Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

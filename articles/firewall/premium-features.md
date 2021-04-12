@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8d0e86d95205acea2ac48ce027bcd118f4e3bf20
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: fdf0113d73b0b2e82ec889caf2a82c77bb7a040c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967034"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226705"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funkcje usługi Azure firewall Premium w wersji zapoznawczej
 
@@ -148,7 +148,6 @@ Zapora Azure w wersji Premium Preview zawiera następujące znane problemy:
 |ESNI obsługa rozpoznawania nazw FQDN w protokole HTTPS|Szyfrowanie SNI nie jest obsługiwane w uzgadnianiu HTTPS.|Obecnie tylko Firefox obsługuje ESNI za poorednictwem konfiguracji niestandardowej. Zalecane obejście to wyłączenie tej funkcji.|
 |Certyfikaty klienta (TLS)|Certyfikaty klienta są używane do tworzenia wzajemnego zaufania tożsamości między klientem a serwerem. Certyfikaty klienta są używane podczas negocjacji TLS. Zapora platformy Azure ponownie negocjuje połączenie z serwerem i nie ma dostępu do klucza prywatnego certyfikatów klienta.|Brak|
 |PROTOKÓŁ QUIC/HTTP3|Protokół QUIC to nowa wersja główna protokołu HTTP. Jest to protokół oparty na protokole UDP over 80 (PLAN) i 443 (SSL). Nie jest obsługiwana Inspekcja nazw FQDN/adresów URL/TLS.|Skonfiguruj przekazywanie protokołu UDP 80/443 jako reguły sieciowe.|
-|Usługa Secure Hub i Wymuszone tunelowanie nie jest obsługiwane w wersji Premium|Obecnie jednostka SKU warstwy Premium zapory nie jest obsługiwana w przypadku wdrożeń przy użyciu protokołów Secure Hub i wymuszonych konfiguracji tunelu.|Naprawa zaplanowana na GA.|
 Niezaufane certyfikaty podpisane przez klienta|Certyfikaty podpisane przez klienta nie są zaufane przez zaporę po odebraniu od intranetowego serwera sieci Web.|Naprawa zaplanowana na GA.
 |Nieprawidłowe źródłowe i docelowe adresy IP w alertach dla dostawców tożsamości z inspekcją TLS.|Po włączeniu inspekcji protokołu TLS i dostawców tożsamości problemy z nowym alertem wyświetlany źródłowy/docelowy adres IP jest niewłaściwy (wewnętrzny adres IP jest wyświetlany zamiast oryginalnego adresu IP).|Naprawa zaplanowana na GA.|
 |Nieprawidłowy źródłowy adres IP w alertach z dostawców tożsamości dla protokołu HTTP (bez inspekcji TLS).|Gdy jest używany ruch HTTP w postaci zwykłego tekstu, a dostawców tożsamości wystawia nowy Alert, a miejscem docelowym jest publiczny adres IP, wyświetlany źródłowy adres IP jest niewłaściwy (wewnętrzny adres IP jest wyświetlany zamiast oryginalnego adresu IP).|Naprawa zaplanowana na GA.|

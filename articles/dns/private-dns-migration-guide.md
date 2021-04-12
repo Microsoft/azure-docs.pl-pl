@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 3f0856f85e279f97934fff506a052c8fd214ff73
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 6bb828aaff0c1d026e977863a6e224aaea81b629
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641230"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729239"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrowanie starszych stref prywatnych Azure DNS do nowego modelu zasobów
 
@@ -108,9 +108,9 @@ Ten krok spowoduje usunięcie starszych stref DNS i należy je wykonać dopiero 
 
 Jeśli używasz automatyzacji, w tym szablonów, skryptów programu PowerShell lub niestandardowego kodu opracowanego przy użyciu zestawu SDK, musisz zaktualizować automatyzację, aby używała nowego modelu zasobów dla prywatnych stref DNS. Poniżej znajdują się linki do nowej prywatnej infrastruktury interfejsu wiersza polecenia DNS/PS/SDK.
 * [Interfejs API REST stref prywatnych Azure DNS](/rest/api/dns/privatedns/privatezones)
-* [Interfejs wiersza polecenia Azure DNS strefy prywatnej](/cli/azure/network/private-dns/link/vnet?view=azure-cli-latest)
+* [Interfejs wiersza polecenia Azure DNS strefy prywatnej](/cli/azure/network/private-dns/link/vnet)
 * [Azure DNS stref prywatnych programu PowerShell](/powershell/module/az.privatedns/)
-* [Azure DNS zestawu SDK stref prywatnych](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [Azure DNS zestawu SDK stref prywatnych](/dotnet/api/overview/azure/privatedns/management)
 
 ## <a name="need-further-help"></a>Potrzebna dodatkowa pomoc
 

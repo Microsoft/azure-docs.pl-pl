@@ -11,10 +11,10 @@ ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
 ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612329"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio w usłudze Azure Synapse Analytics
@@ -112,7 +112,7 @@ Na poniższej ilustracji przedstawiono przykład sposobu pisania zapytania PySpa
 
    ![Synapse Spark — polecenia](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### <a name="use-temp-tables-to-reference-data-across-languages"></a>Używanie tabel tymczasowych do odwoływania się do danych w różnych językach
+### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Używanie tabel tymczasowych do odwoływania się do danych w różnych językach
 
 Nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych językach w notesie programu Synapse Studio. W platformie Spark można odwoływać się do tabeli tymczasowej w różnych językach. Oto przykład sposobu odczytywania `Scala` ramki danych w `PySpark` i `SparkSQL` używania tabeli tymczasowej platformy Spark jako obejścia.
 
@@ -120,7 +120,7 @@ Nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych j�
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 

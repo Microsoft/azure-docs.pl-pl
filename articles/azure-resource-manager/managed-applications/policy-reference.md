@@ -1,17 +1,17 @@
 ---
 title: Wbudowane definicje zasad dla Azure Managed Applications
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Managed Applications. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 86577304e7462a421da667fae7ef8e935445dfa3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 333c009fd3149505ede3f5611f5fbb3929bdaed8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036870"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094578"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Azure Policy wbudowane definicje Azure Managed Applications
 

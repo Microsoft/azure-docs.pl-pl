@@ -1,33 +1,27 @@
 ---
-title: Eliminowanie nieuczciwych modeli uczenia maszynowego (wersja zapoznawcza)
+title: Atrakcyjność uczenia maszynowego (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej o atrakcyjności modeli uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python Fairlearn może pomóc w tworzeniu atrakcyjnych modeli.
+description: Dowiedz się więcej o atrakcyjności uczenia maszynowego i sposobie, w jaki pakiet języka Python Fairlearn może pomóc w ocenie i eliminacji nieuczciwych skutków.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 01/26/2021
+ms.date: 04/02/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45c63780eac021301e5b01c0ff8abea7d704a4cf
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659685"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220525"
 ---
-# <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Eliminowanie nieuczciwych modeli uczenia maszynowego (wersja zapoznawcza)
+# <a name="machine-learning-fairness-preview"></a>Atrakcyjność uczenia maszynowego (wersja zapoznawcza)
 
-Dowiedz się więcej o atrakcyjności uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python [Fairlearn](https://fairlearn.github.io/) open source może pomóc w ograniczeniu problemów związanych z nieuczciwymi działaniami w modelach uczenia maszynowego. Jeśli nie chcesz, aby poznać problemy z uczciwymi działaniami i ocenić sprawiedliwość podczas kompilowania modeli uczenia maszynowego, możesz tworzyć modele, które generują nieuczciwe wyniki.
+Dowiedz się więcej o atrakcyjności uczenia maszynowego oraz o sposobie, w jaki pakiet Python [Fairlearn](https://fairlearn.github.io/) open source może pomóc w ocenie i ograniczeniu problemów dotyczących nieuczciwej obsługi modeli uczenia maszynowego. 
 
-Poniższe podsumowanie [podręcznika użytkownika](https://fairlearn.github.io/main/user_guide/index.html) dla pakietu Fairlearn Open Source zawiera opis sposobu korzystania z niego do oceny sprawiedliwej liczby tworzonych systemów AI.  Pakiet Fairlearn open source może również oferować opcje pozwalające ograniczyć lub zmniejszyć liczbę problemów, które należy obserwować.  Zobacz sekcję [instrukcje](how-to-machine-learning-fairness-aml.md) i [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby włączyć ocenę godziwą systemów AI podczas szkolenia na Azure Machine Learning.
-
-
-## <a name="what-is-fairness-in-machine-learning-models"></a>Co to jest sprawiedliwe w modelach uczenia maszynowego?
-
->[!NOTE]
-> Sprawiedliwe jest wyzwanie społeczno-techniczne. Wiele aspektów godziwych, takich jak sprawiedliwości i proces wymagalny, nie są przechwytywane w metrykach ilościowych. Ponadto nie wszystkie metryki ilościowej nie mogą być jednocześnie spełnione. Celem z pakietem Open-Source Fairlearn jest umożliwienie ludzi oceny różnych efektów i strategii zaradczych. Ostatecznie jest to do użytkowników ludzkich tworzących modele sztucznej analizy i uczenia maszynowego, aby zwiększyć możliwości, które są odpowiednie dla ich scenariusza.
+## <a name="what-is-machine-learning-fairness"></a>Co to jest sprawiedliwe Uczenie maszynowe?
 
 Sztuczna inteligencja i systemy uczenia maszynowego mogą wyświetlać nieuczciwe zachowanie. Jednym ze sposobów zdefiniowania nieuczciwego zachowania jest ich szkody lub wpływ na ludzi. Istnieje wiele typów szkód, które mogą prowadzić systemy AI. Aby dowiedzieć się więcej, zobacz [NeurIPS 2017 prezentację przez Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) .
 
@@ -42,6 +36,9 @@ Aby zmniejszyć nieuczciwe zachowanie w systemach AI, należy ocenić i rozwiąz
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Ocena uczciwości i łagodzenie przy użyciu Fairlearn
 
 Fairlearn to pakiet języka Python "open source", który umożliwia deweloperom systemów uczenia maszynowego ocenę atrakcyjności systemów i łagodzenie nieuczciwych skutków.
+
+>[!NOTE]
+> Sprawiedliwe jest wyzwanie społeczno-techniczne. Wiele aspektów godziwych, takich jak sprawiedliwości i proces wymagalny, nie są przechwytywane w metrykach ilościowych. Ponadto nie wszystkie metryki ilościowej nie mogą być jednocześnie spełnione. Celem z pakietem Open-Source Fairlearn jest umożliwienie ludzi oceny różnych efektów i strategii zaradczych. Ostatecznie jest to do użytkowników ludzkich tworzących modele sztucznej analizy i uczenia maszynowego, aby zwiększyć możliwości, które są odpowiednie dla ich scenariusza.
 
 Pakiet Fairlearn Open Source ma dwa składniki:
 
@@ -90,8 +87,6 @@ Pakiet typu "open source" Fairlearn obsługuje następujące typy ograniczeń pa
 |Szanse równe  | Diagnozuj szkody związane z alokacją i jakością usług | Klasyfikacja binarna        |
 |Równa szansa | Diagnozuj szkody związane z alokacją i jakością usług | Klasyfikacja binarna        |
 |Powiązana utrata grupy     |  Eliminowanie szkód związanych z jakością usług | Regresja |
-
-
 
 ### <a name="mitigation-algorithms"></a>Algorytmy ograniczenia
 

@@ -3,12 +3,12 @@ title: Przenoszenie zasobów sieciowych platformy Azure do nowej subskrypcji lub
 description: Użyj Azure Resource Manager, aby przenieść sieci wirtualne i inne zasoby sieciowe do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 0cd6887d3489f2ffede0f5e3d63533a33a6ccc04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7aaf01b696b13136a0f4077f315b137c8917906
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75485236"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120133"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Wskazówki dotyczące przenoszenia zasobów sieciowych
 
@@ -16,7 +16,10 @@ W tym artykule opisano sposób przenoszenia sieci wirtualnych i innych zasobów 
 
 ## <a name="dependent-resources"></a>Zasoby zależne
 
-Podczas przenoszenia sieci wirtualnej należy również przenieść jej zasoby zależne. W przypadku bram sieci VPN należy przenieść adresy IP, bramy sieci wirtualnej i wszystkie powiązane zasoby połączenia. Bramy sieci lokalnej mogą znajdować się w innej grupie zasobów.
+> [!NOTE]
+> Należy pamiętać, że bramy sieci VPN skojarzone z publicznymi adresami IP nie mogą być przenoszone między grupami zasobów lub subskrypcjami.
+
+Podczas przenoszenia zasobu należy również przenieść jego zasoby zależne (np. publiczne adresy IP, bramy sieci wirtualnej, wszystkie powiązane zasoby połączenia). Bramy sieci lokalnej mogą znajdować się w innej grupie zasobów.
 
 Aby przenieść maszynę wirtualną z kartą sieciową do nowej subskrypcji, musisz przenieść wszystkie zasoby zależne. Przenieś sieć wirtualną dla karty interfejsu sieciowego, wszystkie inne karty interfejsu sieciowego dla sieci wirtualnej i bramy sieci VPN.
 

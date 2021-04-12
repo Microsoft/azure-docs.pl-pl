@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37e2dc194eb2ebbcbe91eef6e50f3eb1e7b62e17
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 75b45067be49475ecd2e07aed9c4479b147fdd29
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106282092"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490271"
 ---
 # <a name="create-a-transform"></a>Tworzenie przekształcenia
 
@@ -35,7 +35,7 @@ Skrypt interfejsu wiersza polecenia platformy Azure w tym artykule pokazuje spos
 ## <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli/)
 
 > [!NOTE]
-> Można określić tylko ścieżkę do niestandardowego pliku JSON domyślnego kodera dla [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), zobacz przykład [kodowania z niestandardowym przekształceniem](encode-custom-preset-cli-how-to.md) .
+> Można określić tylko ścieżkę do niestandardowego pliku JSON domyślnego kodera dla [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), zobacz przykład [kodowania z niestandardowym przekształceniem](transform-custom-preset-cli-how-to.md) .
 >
 > Nie można przekazać nazwy pliku podczas korzystania z [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 

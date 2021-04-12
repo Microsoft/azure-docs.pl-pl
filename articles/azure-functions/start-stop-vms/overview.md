@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: ''
 ms.date: 03/29/2021
-ms.openlocfilehash: aac50f085d3ad63fb0183c19cf7d9aaa679e3d04
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 44bfbaa8b18ebeab3b74bc696a16fc4cfb6c08ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111945"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220938"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Przegląd uruchamiania/zatrzymywania maszyn wirtualnych v2 (wersja zapoznawcza)
 
@@ -95,7 +95,7 @@ Określanie listy maszyn wirtualnych może być używane, gdy trzeba wykonać ak
 
 - Twojemu kontu udzielono uprawnienia [współautor](../../role-based-access-control/built-in-roles.md#contributor) w subskrypcji.
 
-- Uruchamianie/zatrzymywanie maszyn wirtualnych v2 (wersja zapoznawcza) jest dostępna we wszystkich regionach globalnych platformy Azure, które są wymienione na stronie [dostępne w obszarze produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) dla Azure Functions. W przypadku chmury Azure Government jest ona dostępna tylko w regionie Wirginia dla instytucji rządowych Stanów Zjednoczonych.
+- Uruchamianie/zatrzymywanie maszyn wirtualnych w wersji 2 (wersja zapoznawcza) jest dostępne we wszystkich regionach chmury dla instytucji rządowych i w USA na platformie Azure, które są wymienione w obszarze [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) dla Azure Functions
 
 ## <a name="next-steps"></a>Następne kroki
 

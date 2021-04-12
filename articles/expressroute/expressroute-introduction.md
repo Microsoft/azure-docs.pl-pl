@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1cef56d15838d80079decc6e1da7ad830bd1cd9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206955"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029764"
 ---
 # <a name="what-is-azure-expressroute"></a>Co to jest usługa Azure ExpressRoute?
 Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, takimi jak Microsoft Azure i Microsoft 365.
@@ -20,6 +20,10 @@ Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Mi
 Łączność może być nawiązywana z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach obiektu kolokacji. Połączenia usługi ExpressRoute nie korzystają z publicznego Internetu. Dzięki temu połączenia usługi ExpressRoute zapewniają większą niezawodność, większe szybkości, spójne opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez Internet. Aby uzyskać informacje na temat sposobu łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute, zobacz [ExpressRouteing models](expressroute-connectivity-models.md).
 
 ![Omówienie połączeń ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
+
+> [!NOTE]
+> W kontekście ExpressRoute Microsoft Edge opisuje routery brzegowe po stronie firmy Microsoft obwodu ExpressRoute. Jest to punkt wejścia obwodu ExpressRoute do sieci firmy Microsoft.
+> 
 
 ## <a name="key-benefits"></a>Najważniejsze korzyści
 

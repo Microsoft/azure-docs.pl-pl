@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 6e391ca79c9dcf9ab533a7e67961c654b5f8630b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060737"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103372"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
 W tym artykule opisano różne opcje i wymagania dotyczące publikowania oferty maszyny wirtualnej w portalu komercyjnym. Oferty maszyn wirtualnych to oferty transakcyjne wdrożone i rozliczane za pomocą witryny Azure Marketplace.
 
-Przed rozpoczęciem [Utwórz komercyjne konto w witrynie Marketplace w centrum partnerskim](./partner-center-portal/create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+Przed rozpoczęciem [Utwórz komercyjne konto w witrynie Marketplace w centrum partnerskim](create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ### <a name="technical-fundamentals"></a>Podstawy techniczne
 

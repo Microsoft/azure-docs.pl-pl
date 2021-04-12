@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ccd56afc8c4ea7e236946fc6afa54e471203fe31
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 04/08/2021
+ms.openlocfilehash: 14f0d15d48193267c224f3497c24651ca3249b0b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065984"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028594"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Nawiązywanie połączenia z wystąpieniem obliczeniowym Azure Machine Learning w Visual Studio Code (wersja zapoznawcza)
 
@@ -25,8 +25,75 @@ W tym artykule dowiesz się, jak nawiązać połączenie z wystąpieniem oblicze
 
 Istnieją dwa sposoby nawiązywania połączenia z wystąpieniem obliczeniowym z Visual Studio Code:
 
+* Zdalne wystąpienie obliczeniowe. Ta opcja zapewnia w pełni funkcjonalne środowisko programistyczne do kompilowania projektów uczenia maszynowego.
 * Zdalny serwer Jupyter Notebook. Ta opcja pozwala ustawić wystąpienie obliczeniowe jako serwer zdalny Jupyter Notebook.
-* [Visual Studio Code programowanie zdalne](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code programowanie zdalne umożliwia korzystanie z kontenera, maszyny zdalnej lub podsystemu Windows dla systemu Linux (WSL) jako w pełni funkcjonalnego środowiska deweloperskiego.
+
+## <a name="configure-a-remote-compute-instance"></a>Konfigurowanie zdalnego wystąpienia obliczeniowego
+
+Aby skonfigurować zdalne wystąpienie obliczeniowe do celów deweloperskich, należy spełnić kilka wymagań wstępnych.
+
+* Azure Machine Learning Visual Studio Code rozszerzenia. Aby uzyskać więcej informacji, zobacz [Przewodnik konfigurowania rozszerzenia Visual Studio Code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* Azure Machine Learning obszar roboczy. [Użyj rozszerzenia Azure Machine Learning Visual Studio Code, aby utworzyć nowy obszar roboczy](how-to-manage-resources-vscode.md#create-a-workspace) , jeśli jeszcze go nie masz.
+* Wystąpienie obliczeniowe Azure Machine Learning. [Użyj rozszerzenia Azure Machine Learning Visual Studio Code, aby utworzyć nowe wystąpienie obliczeniowe](how-to-manage-resources-vscode.md#create-compute-instance) , jeśli go nie masz.
+
+Aby nawiązać połączenie ze zdalnym wystąpieniem obliczeniowym:
+
+# <a name="vs-code"></a>[VS Code](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Azure Machine Learning rozszerzenie
+
+1. W VS Code Uruchom rozszerzenie Azure Machine Learning.
+1. Rozwiń węzeł **wystąpienia obliczeniowe** w rozszerzeniu.
+1. Kliknij prawym przyciskiem myszy wystąpienie obliczeniowe, z którym chcesz nawiązać połączenie, i wybierz polecenie **Połącz z wystąpieniem obliczeniowym**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Połącz z wystąpieniem obliczeniowym Visual Studio Code rozszerzenie Azure ML" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>Paleta poleceń
+
+1. W VS Code Otwórz paletę poleceń, wybierając pozycję **wyświetl > paletę poleceń**.
+1. Wprowadź tekst w polu tekstowym **Azure ml: Połącz z wystąpieniem obliczeniowym**.
+1. Wybierz subskrypcję.
+1. Wybierz obszar roboczy.
+1. Wybierz wystąpienie obliczeniowe lub Utwórz nowe.
+
+# <a name="studio"></a>[Studio](#tab/studio)
+
+Przejdź do [ml.Azure.com](https://ml.azure.com)
+
+> [!IMPORTANT]
+> Aby nawiązać połączenie ze zdalnym wystąpieniem obliczeniowym z programu Visual Studio Code, upewnij się, że konto, na którym użytkownik jest zalogowany w programie Azure Machine Learning Studio, jest takie samo, jak używane w Visual Studio Code.
+
+### <a name="compute"></a>Compute
+
+1. Wybierz kartę **obliczenia**
+1. W kolumnie *Identyfikator URI aplikacji* wybierz **vs Code** dla wystąpienia obliczeniowego, z którym chcesz nawiązać połączenie.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Nawiązywanie połączenia z wystąpieniem obliczeniowym VS Code Azure ML Studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+
+### <a name="notebook"></a>Notes
+
+1. Wybierz kartę **Notes**
+1. Na karcie *Notes* wybierz plik, który chcesz edytować.
+1. Wybierz pozycję **redaktorzy > Edytuj w vs Code (wersja zapoznawcza)**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Połącz z wystąpieniem obliczeniowym VS Code notesem platformy Azure ML" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+---
+
+Nowe okno zostanie uruchomione dla zdalnego wystąpienia obliczeniowego. Podczas próby nawiązania połączenia ze zdalnym wystąpieniem obliczeniowym wykonywane są następujące zadania:
+
+1. Autoryzacja. Niektóre testy są wykonywane w celu upewnienia się, że użytkownik próbujący nawiązać połączenie może korzystać z wystąpienia obliczeniowego.
+1. VS Code serwer zdalny jest zainstalowany w wystąpieniu obliczeniowym.
+1. Połączenie protokołu WebSocket jest nawiązywane na potrzeby interakcji w czasie rzeczywistym.
+
+Gdy połączenie zostanie nawiązane, zostanie utrwalone. Token jest wystawiany na początku sesji, która jest automatycznie odświeżana w celu utrzymania połączenia z wystąpieniem obliczeniowym.
+
+Po nawiązaniu połączenia ze zdalnym wystąpieniem obliczeniowym Użyj edytora, aby:
+
+* [Twórz pliki i zarządzaj nimi na zdalnym wystąpieniu obliczeniowym lub w udziale plików](https://code.visualstudio.com/docs/editor/codebasics).
+* Użyj [zintegrowanego terminalu vs Code](https://code.visualstudio.com/docs/editor/integrated-terminal) do [uruchamiania poleceń i aplikacji na zdalnym wystąpieniu obliczeniowym](how-to-access-terminal.md).
+* [Debugowanie skryptów i aplikacji](https://code.visualstudio.com/Docs/editor/debugging)
+* [Zarządzanie repozytoriami Git za pomocą VS Code](concept-train-model-git-integration.md)
 
 ## <a name="configure-compute-instance-as-remote-notebook-server"></a>Skonfiguruj wystąpienie obliczeniowe jako zdalny serwer notesu
 
@@ -62,93 +129,6 @@ W tym momencie można nadal uruchamiać komórki w Jupyter Notebook.
 
 > [!TIP]
 > Możesz również współpracować z plikami skryptów języka Python (. PR) zawierającymi komórki kodu podobne do Jupyter. Aby uzyskać więcej informacji, zobacz [dokumentację interaktywną języka Python Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support-py).
-
-## <a name="configure-compute-instance-remote-development"></a>Konfigurowanie zdalnego programowania wystąpienia obliczeniowego
-
-W przypadku w pełni funkcjonalnego środowiska tworzenia zdalnego należy spełnić kilka wymagań wstępnych:
-
-* [Visual Studio Code rozszerzenie zdalnego protokołu SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Wystąpienie obliczeniowe z obsługą protokołu SSH. Aby uzyskać więcej informacji, [zobacz Przewodnik tworzenia wystąpienia obliczeniowego](how-to-create-manage-compute-instance.md).
-
-> [!NOTE]
-> Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) , jeśli jeszcze go nie ma. Instrukcje nie są obsługiwane w systemie Windows, ponieważ polecenie SSH musi znajdować się w ścieżce.
-
-### <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>Pobieranie portu IP i protokołu SSH dla wystąpienia obliczeniowego
-
-1. Przejdź do Azure Machine Learning Studio na stronie https://ml.azure.com/ .
-2. Wybierz [obszar roboczy](concept-workspace.md).
-1. Kliknij kartę **wystąpienia obliczeniowe** .
-1. W kolumnie **Identyfikator URI aplikacji** kliknij link **SSH** wystąpienia obliczeniowego, którego chcesz użyć jako zdalnego obliczania. 
-1. W oknie dialogowym Zwróć uwagę na adres IP i port SSH. 
-1. Zapisz swój klucz prywatny w katalogu ~/.SSH/na komputerze lokalnym; na przykład Otwórz edytor dla nowego pliku i Wklej klucz w: 
-
-   System **Linux**:
-
-   ```sh
-   vi ~/.ssh/id_azmlcitest_rsa  
-   ```
-
-   **Windows**:
-
-   ```cmd
-   notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa
-   ```
-
-   Klucz prywatny będzie wyglądać następująco:
-
-   ```text
-   -----BEGIN RSA PRIVATE KEY-----
-
-   MIIEpAIBAAKCAQEAr99EPm0P4CaTPT2KtBt+kpN3rmsNNE5dS0vmGWxIXq4vAWXD
-   ..... 
-   ewMtLnDgXWYJo0IyQ91ynOdxbFoVOuuGNdDoBykUZPQfeHDONy2Raw==
-
-   -----END RSA PRIVATE KEY-----
-   ```
-
-1. Zmień uprawnienia do pliku, aby upewnić się, że tylko można odczytać plik.  
-
-   ```sh
-   chmod 600 ~/.ssh/id_azmlcitest_rsa
-   ```
-
-### <a name="add-instance-as-a-host"></a>Dodaj wystąpienie jako hosta
-
-Otwórz plik `~/.ssh/config` (Linux) lub `C:\Users<username>.ssh\config` (Windows) w edytorze i Dodaj nowy wpis podobny do poniższej zawartości:
-
-```
-Host azmlci1 
-
-    HostName 13.69.56.51 
-
-    Port 50000 
-
-    User azureuser 
-
-    IdentityFile ~/.ssh/id_azmlcitest_rsa
-```
-
-Poniżej przedstawiono niektóre szczegóły dotyczące pól:
-
-|Pole|Opis|
-|----|---------|
-|Host|Używaj dowolnych skrótów dla wystąpienia obliczeniowego |
-|HostName|Jest to adres IP wystąpienia obliczeniowego |
-|Port|Jest to port wyświetlany w oknie dialogowym SSH powyżej |
-|Użytkownik|Musi to być `azureuser` |
-|IdentityFile|Powinien wskazywać plik, w którym zapisano klucz prywatny |
-
-Teraz powinno być możliwe użycie protokołu SSH w wystąpieniu obliczeniowym przy użyciu składni użytej powyżej `ssh azmlci1` .
-
-### <a name="connect-vs-code-to-the-instance"></a>Połącz VS Code z wystąpieniem
-
-1. Kliknij ikonę Remote-SSH na pasku działania Visual Studio Code, aby wyświetlić konfiguracje protokołu SSH.
-
-1. Kliknij prawym przyciskiem myszy właśnie utworzoną konfigurację hosta SSH.
-
-1. **W bieżącym oknie wybierz pozycję Połącz z hostem**. 
-
-W tym miejscu Pracujesz w całości na wystąpieniu obliczeniowym. Możesz teraz edytować, debugować, korzystać z usługi git, używać rozszerzeń itp. — podobnie jak w przypadku lokalnego Visual Studio Code.
 
 ## <a name="next-steps"></a>Następne kroki
 

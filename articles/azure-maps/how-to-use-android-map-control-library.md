@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604451"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Wprowadzenie do Azure Maps Android SDK
@@ -118,7 +118,7 @@ Oto przykład Azure Maps z językiem ustawionym na "fr-FR" i widoku regionalnym 
 
 Pełna lista obsługiwanych języków i widoków regionalnych została udokumentowana [tutaj](supported-languages.md).
 
-## <a name="navigating-the-map"></a>Nawigowanie po mapie
+## <a name="navigating-the-map&quot;></a>Nawigowanie po mapie
 
 Istnieje kilka różnych sposobów, w których mapowanie może być powiększane, przesuwane, obracane i mierzone. Poniżej przedstawiono szczegółowe informacje na temat różnych sposobów nawigowania po mapie.
 
@@ -141,16 +141,16 @@ Istnieje kilka różnych sposobów, w których mapowanie może być powiększane
 
 * Dotknij mapy dwoma palcami i przeciągnij je w górę lub w dół.
 
-## <a name="azure-government-cloud-support"></a>Obsługa Azure Government w chmurze
+## <a name=&quot;azure-government-cloud-support&quot;></a>Obsługa Azure Government w chmurze
 
 Android SDK Azure Maps obsługuje chmurę Azure Government. Android SDK Azure Maps jest dostępny z tego samego repozytorium Maven. Aby nawiązać połączenie z wersją Azure Government w chmurze platformy Azure Maps, należy wykonać następujące zadania.
 
 W tym samym miejscu, w którym są określone szczegóły uwierzytelniania Azure Maps, Dodaj następujący wiersz kodu, aby określić, że mapa ma korzystać z domeny chmury Azure Maps dla instytucji rządowych.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
-AzureMaps.setDomain("atlas.azure.us");
+AzureMaps.setDomain(&quot;atlas.azure.us");
 ```
 
 ::: zone-end

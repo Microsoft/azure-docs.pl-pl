@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 002a7c61d6760decf65016870739ab62b15d5c72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55bf597d8df18085fc9a500a9213a6abe59fd5e3
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103013690"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108256"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry i manifesty dynamiczne
 
@@ -27,7 +27,7 @@ ms.locfileid: "103013690"
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję Media Services:"]
 > * [Wersja 2](media-services-dynamic-manifest-overview.md)
-> * [Wersja 3](../latest/filters-dynamic-manifest-overview.md)
+> * [Wersja 3](../latest/filters-dynamic-manifest-concept.md)
 
 Począwszy od wersji 2,17, Media Services umożliwia zdefiniowanie filtrów dla zasobów. Te filtry są reguł po stronie serwera, które pozwolą klientom na wykonywanie takich czynności jak: odtwarzanie tylko w sekcji filmu wideo (zamiast odtwarzania całego wideo) lub określania tylko podzbioru plików audio i wideo, które może obsłużyć urządzenie klienta (zamiast wszystkich odniesień, które są skojarzone z zasobem). Takie filtrowanie zasobów jest realizowane za pośrednictwem **dynamicznego manifestu** s, które są tworzone na żądanie klienta w celu przesyłania strumieniowego wideo na podstawie określonych filtrów.
 
