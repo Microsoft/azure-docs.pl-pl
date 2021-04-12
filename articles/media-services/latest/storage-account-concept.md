@@ -57,4 +57,4 @@ Poniżej przedstawiono podstawowe scenariusze, które mogłyby spowodować, że 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak dołączyć konto magazynu do konta Media Services, zobacz [Tworzenie konta](./create-account-howto.md).
+Aby dowiedzieć się, jak dołączyć konto magazynu do konta Media Services, zobacz [Tworzenie konta](./account-create-how-to.md).

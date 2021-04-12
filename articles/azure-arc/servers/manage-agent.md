@@ -4,10 +4,10 @@ description: W tym artykule opisano różne zadania zarządzania, które zwykle 
 ms.date: 02/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: 36ae081f939cbf865db7755a2f766a7ccd87d619
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100587632"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa

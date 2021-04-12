@@ -4,10 +4,10 @@ description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania masz
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: f59c18aecf577bc7f7d0b1360dd36504305af893
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100633193"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell

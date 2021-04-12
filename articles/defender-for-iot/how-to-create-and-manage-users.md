@@ -4,10 +4,10 @@ description: Twórz i Zarządzaj użytkownikami czujników oraz lokalną konsol�
 ms.date: 03/03/2021
 ms.topic: article
 ms.openlocfilehash: 2afc3cb2b9cfc0ac6b75c98198d9f0965b6dc04c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779022"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informacje o usłudze Defender dla użytkowników konsoli IoT

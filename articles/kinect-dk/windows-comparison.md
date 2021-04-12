@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Urządzenia Kinect, Windows, v2, Azure urządzenia Kinect, porównanie, zestaw SDK, różnice, sprzęt, oprogramowanie
-ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1791767e842043bbb0eda058cc3ea92be90a00fb
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87031579"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078302"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Porównanie usług Azure urządzenia Kinect i urządzenia Kinect systemu Windows v2
 
@@ -46,7 +46,7 @@ W poniższej tabeli przedstawiono porównanie możliwości dostępu czujnika urz
 
 | **Funkcjonalność**| **Azure Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
 |---------|---------|------------|---------|
-| **Ścisł** | ✔️ | ✔️ |    |   |
+| **Ścisł** | ✔️ | ✔️ |    | 
 | **IR** | ✔️ | ✔️ |  |
 | **Kolor** | ✔️ | ✔️ | Format koloru obsługuje różnice, usługa Azure urządzenia Kinect DK obsługuje następujące kontrolki aparatu: ekspozycja, biały balans, jasność, kontrast, nasycenie, ostrość i kontrola wzmocnienia |
 | **Dźwięk** | ✔️ | ✔️ | Dostęp do usługi Azure urządzenia Kinect DK MICS odbywa się za pośrednictwem zestawu Speech SDK lub natywnego interfejsu API systemu Windows |

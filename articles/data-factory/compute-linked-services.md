@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b9f7cce39e4f51aea7fc4db5ca37ee054f42c5cb
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565949"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078659"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -443,8 +443,8 @@ Tworzysz Azure Machine Learning połączonej usługi, aby połączyć obszar rob
 | subscriptionId         | Identyfikator subskrypcji platformy Azure              | Tak                                      |
 | resourceGroupName      | name | Tak                                      |
 | mlWorkspaceName        | Nazwa obszaru roboczego Azure Machine Learning | Tak  |
-| servicePrincipalId     | Określ identyfikator klienta aplikacji.     | Nie |
-| servicePrincipalKey    | Określ klucz aplikacji.           | Nie |
+| servicePrincipalId     | Określ identyfikator klienta aplikacji.     | Tak |
+| servicePrincipalKey    | Określ klucz aplikacji.           | Tak |
 | dzierżaw                 | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Wymagane, jeśli określono właściwości updateresourceendpoint |
 | Właściwością connectvia             | Integration Runtime używany do wysyłania działań do tej połączonej usługi. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie |
 

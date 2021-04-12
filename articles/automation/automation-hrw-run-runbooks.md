@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149379"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167264"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -268,7 +268,7 @@ Aby utworzyć GPG pęku kluczy i pary kluczy, użyj konta hybrydowego procesu ro
 1. Użyj aplikacji sudo, aby zalogować się jako konto **nxautomation** .
 
     ```bash
-    sudo su – nxautomation
+    sudo su - nxautomation
     ```
 
 1. Gdy korzystasz z programu **nxautomation**, wygeneruj parę kluczy GPG. GPG przeprowadzi Cię przez kroki. Musisz podać nazwę, adres e-mail, czas wygaśnięcia i hasło. Następnie poczekaj, aż na komputerze jest wystarczająca Entropia dla klucza do wygenerowania.
@@ -304,7 +304,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Po skonfigurowaniu weryfikacji podpisu użyj następującego polecenia GPG, aby podpisać element Runbook.
 
 ```bash
-gpg –-clear-sign <runbook name>
+gpg --clear-sign <runbook name>
 ```
 
 Podpisany element Runbook ma nazwę **<runbook name> . asc**.
@@ -320,7 +320,7 @@ Po uruchomieniu elementu Runbook w Azure Portal zostanie wyświetlona opcja **Ur
 Podczas uruchamiania elementu Runbook przy użyciu programu PowerShell należy użyć `RunOn` parametru z poleceniem cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) . Poniższy przykład używa środowiska Windows PowerShell, aby uruchomić element Runbook o nazwie **test-Runbook** w grupie hybrydowych procesów roboczych elementu Runbook o nazwie Moja hybrydowa.
 
 ```azurepowershell-interactive
-Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 ## <a name="logging"></a>Rejestrowanie

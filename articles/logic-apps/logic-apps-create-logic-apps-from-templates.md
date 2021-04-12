@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593099"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Tworzenie przepływów pracy aplikacji logiki na podstawie wbudowanych szablonów
@@ -97,9 +97,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [zarejestruj si
    > [!NOTE] 
    > Wiele szablonów zawiera łączniki, które mogą już wstępnie wypełnić wymagane właściwości. Jednak niektóre szablony mogą nadal wymagać podania wartości, aby można było poprawnie wdrożyć aplikację logiki. Jeśli spróbujesz wdrożyć bez wykonywania pól właściwości brakujące, zostanie wyświetlony komunikat o błędzie. 
 
-## <a name="update-logic-apps-with-templates"></a>Aktualizowanie aplikacji logiki za pomocą szablonów
+## <a name="update-logic-apps-with-templates&quot;></a>Aktualizowanie aplikacji logiki za pomocą szablonów
 
-1. W [Azure Portal](https://portal.azure.com "Azure Portal")Znajdź i Otwórz aplikację logiki w programie Logic App Designer.
+1. W [Azure Portal](https://portal.azure.com &quot;Azure Portal")Znajdź i Otwórz aplikację logiki w programie Logic App Designer.
 
 2. Na pasku narzędzi projektanta wybierz pozycję **Szablony**. Ta akcja odrzuca wszystkie niezapisane zmiany, dlatego zostanie wyświetlony komunikat ostrzegawczy, aby potwierdzić, że chcesz kontynuować. Aby potwierdzić, wybierz **przycisk OK**. Na przykład:
 

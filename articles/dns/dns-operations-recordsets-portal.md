@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965735"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Zarządzanie rekordami i zestawami rekordów DNS przy użyciu Azure Portal
@@ -87,13 +87,13 @@ Możesz użyć Azure Portal, aby usunąć rekordy z zestawu rekordów. Należy z
 3. Sprawdź, czy nazwa jest zgodna z zestawem rekordów, który chcesz usunąć, a następnie kliknij przycisk **tak**.
 4. W bloku **strefa DNS** Sprawdź, czy zestaw rekordów nie jest już widoczny.
 
-## <a name="work-with-ns-and-soa-records"></a>Współpraca z rekordami NS i SOA
+## <a name="work-with-ns-and-soa-records&quot;></a>Współpraca z rekordami NS i SOA
 
 Rekordy NS i SOA tworzone automatycznie są zarządzane inaczej od innych typów rekordów.
 
-### <a name="modify-soa-records"></a>Modyfikuj rekordy SOA
+### <a name=&quot;modify-soa-records&quot;></a>Modyfikuj rekordy SOA
 
-Nie można dodawać ani usuwać rekordów z automatycznie utworzonego rekordu SOA w obszarze wierzchołka strefy (nazwa = " \@ "). Można jednak zmodyfikować dowolny z parametrów w rekordzie SOA (z wyjątkiem "host") i zestawem rekordów TTL.
+Nie można dodawać ani usuwać rekordów z automatycznie utworzonego rekordu SOA w obszarze wierzchołka strefy (nazwa = &quot; \@ "). Można jednak zmodyfikować dowolny z parametrów w rekordzie SOA (z wyjątkiem "host") i zestawem rekordów TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modyfikowanie rekordów NS w wierzchołku strefy
 
