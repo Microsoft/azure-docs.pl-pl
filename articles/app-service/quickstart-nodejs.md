@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735118"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105837"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Tworzenie aplikacji internetowej Node.js na platformie Azure
 
@@ -314,11 +314,12 @@ Zmiany w tej aplikacji można wdrożyć przy użyciu tego samego procesu i wybie
 
 W tej sekcji dowiesz się, jak wyświetlać dzienniki (lub "ogon") z działającej aplikacji App Service. Wszystkie wywołania `console.log` w aplikacji są wyświetlane w oknie dane wyjściowe w Visual Studio Code.
 
-Znajdź aplikację w Eksploratorze **usługi Azure App Service** , kliknij prawym przyciskiem myszy aplikację, a następnie wybierz polecenie **Wyświetl dzienniki przesyłania strumieniowego**.
+Znajdź aplikację w Eksploratorze **usługi Azure App Service** , kliknij prawym przyciskiem myszy aplikację, a następnie wybierz polecenie **Uruchom dzienniki przesyłania strumieniowego**.
 
 Zostanie otwarte okno dane wyjściowe VS Code z połączeniem ze strumieniem dziennika.
 
-![Wyświetlanie dzienników przesyłania strumieniowego](./media/quickstart-nodejs/view-logs.png)
+![Uruchom przesyłanie strumieniowe dzienników
+](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Zrzut ekranu przedstawiający monit VS Code o włączenie rejestrowania plików i ponowne uruchomienie aplikacji sieci Web z wybranym przyciskiem tak.":::
 

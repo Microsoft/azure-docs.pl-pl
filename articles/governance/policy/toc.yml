@@ -32,6 +32,8 @@
     - name: Przypisywanie zasad — szablon usługi ARM
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Przypisywanie zasad — Bicep
+      href: ./assign-policy-bicep.md
     - name: Przypisywanie zasad — Terraform
       displayName: 'assign, compliance, hcl, provider'
       href: ./assign-policy-terraform.md

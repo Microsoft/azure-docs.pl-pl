@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: cee71557e60be9fdd94099453d9b8617c4b3b5ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f28ddfc272e6f95106595958cacfe732b2bfc3cc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878569"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258694"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -37,7 +37,7 @@ Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>W jakich regionach jest dostępna chmura Wiosenna platformy Azure?
 
-Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Region Zachodni USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Australia Wschodnia, Kanada środkowa, Ameryka Północna, Indie Środkowe, Korea środkowa, Azja Wschodnia i Chiny Wschodnie 2 (Mooncake). [Więcej informacji](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Region Zachodni USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Australia Wschodnia, Kanada środkowa, Południowe Zjednoczone Emiraty Arabskie, Indie Środkowe, Korea środkowa, Azja Wschodnia, Japonia Wschodnia, Północna Republika Południowej Afryki i Chiny Wschodnie 2 (Mooncake). [Więcej informacji](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Czy dane klienta są przechowywane poza określonym regionem?
 

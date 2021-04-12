@@ -9,14 +9,14 @@ MS. Service: Media-Services MS. obciążenie: MS. temat: koncepcyjne MS. Date: 0
 
 W Microsoft Azure Media Services [punkt końcowy przesyłania strumieniowego](/rest/api/media/streamingendpoints) reprezentuje dynamiczny (just-in-Time) pakiet i pierwotną usługę, która umożliwia dostarczanie zawartości na żywo i na żądanie bezpośrednio do aplikacji odtwarzacza klienta przy użyciu jednego z popularnych protokołów multimediów przesyłania strumieniowego (HLS lub pauzy). Ponadto **punkt końcowy przesyłania strumieniowego** zapewnia dynamiczne (just-in-Time) szyfrowanie do wiodących w branży protokołów DRM. 
 
-Podczas tworzenia konta Media Services zostanie utworzony **domyślny** punkt końcowy przesyłania strumieniowego w stanie zatrzymanym. Więcej punktów końcowych przesyłania strumieniowego można utworzyć przy użyciu konta (zobacz [przydziały i limity](limits-quotas-constraints.md)).
+Podczas tworzenia konta Media Services zostanie utworzony **domyślny** punkt końcowy przesyłania strumieniowego w stanie zatrzymanym. Więcej punktów końcowych przesyłania strumieniowego można utworzyć przy użyciu konta (zobacz [przydziały i limity](limits-quotas-constraints-reference.md)).
 
 > [!NOTE]
 > Aby rozpocząć przesyłanie strumieniowe filmów wideo, należy uruchomić **punkt końcowy przesyłania strumieniowego** , z którego chcesz przesłać strumieniowo wideo.
 >
 > Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
 
-Upewnij się również, że zapoznaj się z tematem [dynamiczne pakowanie](dynamic-packaging-overview.md) . 
+Upewnij się również, że zapoznaj się z tematem [dynamiczne pakowanie](encode-dynamic-packaging-concept.md) . 
 
 ## <a name="naming-convention"></a>Konwencja nazewnictwa
 
@@ -201,7 +201,7 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 
 ## <a name="see-also"></a>Zobacz też
 
-[Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
+[Dynamiczne tworzenie pakietów](encode-dynamic-packaging-concept.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

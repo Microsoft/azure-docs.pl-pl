@@ -4,6 +4,8 @@
   items:
     - name: Wprowadzenie do zabezpieczeń platformy Azure
       href: overview.md
+    - name: Kompleksowe zabezpieczenia
+      href: end-to-end.md
     - name: Wspólna odpowiedzialność w chmurze
       href: shared-responsibility.md
 - name: Zabezpieczanie obciążeń na platformie Azure
@@ -63,6 +65,8 @@
       href: steps-secure-identity.md
     - name: Wybieranie logowania bez hasła
       href: ../../active-directory/authentication/concept-authentication-passwordless.md
+    - name: Authentication
+      href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
 - name: Bezpieczeństwo sieci
   items:
     - name: Omówienie zabezpieczeń
@@ -87,7 +91,7 @@
       href: virtual-machines-overview.md
     - name: Najlepsze rozwiązania — obciążenia IaaS
       href: iaas.md
-    - name: Obrazy z witryny Azure Marketplace
+    - name: Obrazy w witrynie Azure Marketplace
       href: azure-marketplace-images.md
 - name: 'Zabezpieczenia, szyfrowanie i magazynowanie danych'
   items:

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 04/05/2021
 ms.author: banders
-ms.openlocfilehash: e7f5370e1e387947d196959fef31043ea8f4d3bd
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: d348eeb5cc789665d7e7004523b9feba0ea6e413
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508524"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490560"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Przypisywanie ról do nazw głównych usługi Azure Enterprise Agreement
 
@@ -62,12 +62,14 @@ W następnych krokach nadajesz uprawnienie do aplikacji usługi Azure AD w celu 
 | Rola | Akcje dozwolone | Identyfikator definicji roli |
 | --- | --- | --- |
 | EnrollmentReader | Może wyświetlać użycie i opłaty dla wszystkich kont i subskrypcji. Może wyświetlać saldo (wcześniej zwane zobowiązanie pieniężne) związane z rejestracją. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| Zakup EA | Kup zamówienia rezerwacji i Wyświetl transakcje rezerwacji. Może wyświetlać użycie i opłaty dla wszystkich kont i subskrypcji. Może wyświetlać saldo (wcześniej zwane zobowiązanie pieniężne) związane z rejestracją. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Pobierz szczegóły użycia dla działu, który administruje. Można wyświetlić użycie i opłaty związane z działem. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Utwórz nowe subskrypcje w danym zakresie konta. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
 - Czytelnik rejestracji może być przypisany do nazwy SPN tylko przez użytkownika z rolą składnika zapisywania rejestracji.
 - Czytelnik działu może być przypisany do nazwy SPN tylko przez użytkownika, który ma rolę składnika zapisywania rejestracji lub rolę modułu zapisywania.
-- Rolę twórcy z subskrypcją można przypisać do nazwy SPN tylko przez użytkownika, który jest właścicielem konta rejestracji.
+- Rolę twórcy z subskrypcją można przypisać do nazwy SPN tylko przez użytkownika, który jest właścicielem konta rejestracji. Rola nie jest wyświetlana w portalu EA. Jest on tworzony tylko przez programowy sposób i jest przeznaczony tylko do użytku programistycznego.
+- Rola EA Purchase nie jest wyświetlana w portalu EA. Jest on tworzony tylko przez programowy sposób i jest przeznaczony tylko do użytku programistycznego.
 
 ## <a name="assign-enrollment-account-role-permission-to-the-spn"></a>Przypisywanie uprawnień roli konta rejestracji do nazwy SPN
 
@@ -120,6 +122,14 @@ Wybierz pozycję **Uruchom** , aby uruchomić polecenie.
 `200 OK`Odpowiedź pokazuje, że nazwa SPN została dodana pomyślnie.
 
 Teraz można użyć nazwy SPN (aplikacja usługi Azure AD z IDENTYFIKATORem obiektu), aby uzyskać dostęp do interfejsów API EA w zautomatyzowany sposób. Nazwa SPN ma rolę EnrollmentReader.
+
+## <a name="assign-ea-purchaser-role-permission-to-the-spn"></a>Przypisywanie uprawnień roli zakupu EA do nazwy SPN 
+
+W przypadku roli zakupu EA należy wykonać te same kroki dla czytnika rejestracji. Określ `roleDefinitionId` , przy użyciu poniższego przykładu.
+
+`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ da6647fb-7651-49ee-be91-c43c4877f0c4"`
+
+ 
 
 ## <a name="assign-the-department-reader-role-to-the-spn"></a>Przypisywanie roli czytnika działu do nazwy SPN
 

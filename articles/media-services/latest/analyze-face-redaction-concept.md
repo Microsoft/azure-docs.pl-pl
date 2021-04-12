@@ -1,6 +1,6 @@
 ---
-title: Redagowanie twarzy w interfejsie API Azure Media Services v3 | Microsoft Docs
-description: Azure Media Services v3 zapewnia ustawienia wstępnego wykrywania i preprezentacji, które umożliwiają przesłanie pliku wideo, wykrywanie twarzy i stosowanie ich do rozmycia w pojedynczym połączonym przebiegu lub przez dwuetapową operację umożliwiającą edycję. W tym artykule przedstawiono sposób redagowania twarzy przy użyciu ustawienia wstępnego detektora powierzchni w interfejsie API v3.
+title: Znajdź i Zredaguj twarze w interfejsie API Azure Media Services v3 | Microsoft Docs
+description: Azure Media Services v3 zapewnia ustawienie wstępne wykrywanie i redakcję twarzy, które pozwala przesłać plik wideo, wykryć twarze i opcjonalnie zastosować redakcję (rozmycie) w pojedynczym połączonym przebiegu lub przez dwuetapową operację umożliwiającą edycję. W tym artykule pokazano, jak znaleźć i Zredaguj twarze za pomocą ustawienia wstępnego wykrywania twarzy w interfejsie API v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6db93aa369366936c90446c41406eafe9ee6e414
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4907a81fc8cb55499fa97f2b02a3e19e7117bbbc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630490"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286389"
 ---
-# <a name="redact-faces-with-the-face-detector-preset"></a>Redagowanie twarzy przy użyciu ustawień domyślnych czujnika
+# <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Znajdź i Zredaguj (rozmycie) za pomocą ustawienia wstępnego czujnika twarzy
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -29,10 +29,11 @@ Interfejs API programu Azure Media Services v3 zawiera ustawienie wstępne czujn
 
 W tym artykule przedstawiono szczegółowe informacje dotyczące **ustawienia wstępnego detektora** i pokazano, jak używać go z zestawem SDK Azure Media Services dla platformy .NET.
 
+[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+
 ## <a name="compliance-privacy-and-security"></a>Zgodność, prywatność i zabezpieczenia
  
 Ważną kwestią jest przestrzeganie wszystkich obowiązujących przepisów dotyczących używania analiz w programie Azure Media Services. Nie należy używać Azure Media Services ani żadnej innej usługi platformy Azure w sposób naruszający prawa innych. Przed przekazaniem jakichkolwiek filmów wideo, w tym wszelkich danych biometrycznych, do usługi Azure Media Services na potrzeby przetwarzania i przechowywania, należy dysponować wszystkimi właściwymi prawami, w tym wszystkimi odpowiednimi komunikatami o zgodzie, od osób w filmie wideo. Aby dowiedzieć się więcej o zgodności, ochronie prywatności i bezpieczeństwie w Azure Media Services, [warunki dotyczące Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)platformy Azure. W przypadku obowiązków związanych z ochroną prywatności firmy Microsoft i korzystania z danych zapoznaj się z zasadami [zachowania poufności informacji](https://privacy.microsoft.com/PrivacyStatement)firmy Microsoft, tematami dotyczącymi [usług online](https://www.microsoft.com/licensing/product-licensing/products) i [uzupełnieniem przetwarzania danych](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Więcej informacji o ochronie prywatności, takich jak przechowywanie danych, usuwanie/niszczenie, jest dostępna w pliku OST i w [tym miejscu](../video-indexer/faq.md). Korzystając z Azure Media Services, wyrażasz zgodę na związanie Cognitive Services warunkami, OST, DPA i zasad zachowania poufności informacji
-
 
 ## <a name="face-redaction-modes"></a>Tryby redakcyjne
 
@@ -147,9 +148,6 @@ Przykład foo_IDList.txt
 W trybie **połączonym** lub **Zredaguj** istnieje pięć różnych trybów rozmycia, z których można skorzystać za pośrednictwem konfiguracji danych wejściowych JSON: **Low**, **Med**, **High**, **Box** i **Black**. Domyślnie jest używana wartość **Med** .
 
 Przykłady typów rozmycia można znaleźć poniżej.
-
-### <a name="example-settings-for-face-detector-preset"></a>Przykładowe ustawienia dla wstępnie zdefiniowanego czujnika rozpoznawania
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPreset)]
 
 
 #### <a name="low"></a>Niski

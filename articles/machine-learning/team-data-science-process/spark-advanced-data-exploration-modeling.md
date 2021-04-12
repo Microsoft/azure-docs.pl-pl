@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b84b7387411e7df8e092a2e810591697319f9554
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37f0b48190bcbad7ab190da1d690a1a0485501a1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774681"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259323"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark
 
@@ -37,7 +37,8 @@ Modele, z których korzystamy, obejmują regresję logistyczną i liniową, lasy
 
 * [Regresja liniowa z SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
 ) to model regresji liniowej, który używa metody stochastycznego gradientu (SGD) i optymalizacji i skalowania funkcji, aby przewidzieć płatne kwoty. 
-* [Regresja logistyczna przy użyciu](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) regresji LBFGS lub "neurologia" to model regresji, który może być używany, gdy zmienna zależna jest kategorii do klasyfikowania danych. LBFGS jest algorytmem optymalizacji quasi-niutonach, który przybliża algorytm Broyden – Fletcher – Goldfarb – Shanno (BFGS) przy użyciu ograniczonej ilości pamięci komputera i jest szeroko używany w uczeniu maszynowym.
+* [Regresja logistyczna przy użyciu](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html
+) regresji LBFGS lub "neurologia" to model regresji, który może być używany, gdy zmienna zależna jest kategorii do klasyfikowania danych. LBFGS jest algorytmem optymalizacji quasi-niutonach, który przybliża algorytm Broyden – Fletcher – Goldfarb – Shanno (BFGS) przy użyciu ograniczonej ilości pamięci komputera i jest szeroko używany w uczeniu maszynowym.
 * [Losowe lasy](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) są kompletnymi drzewami decyzyjnymi.  Łączą się z wieloma drzewami decyzyjnymi, aby zmniejszyć ryzyko naruszenia. Losowe lasy są używane do regresji i klasyfikacji oraz obsługują funkcje kategorii i można je rozszerzyć do ustawienia klasyfikacji wieloklasowej. Nie wymagają one skalowania funkcji i są w stanie przechwytywać interakcje i funkcje. Losowe lasy to jeden z najbardziej pomyślnych modeli uczenia maszynowego na potrzeby klasyfikacji i regresji.
 * [Drzewa podwyższające wartości gradientu](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) są kompletnymi drzewami decyzyjnymi. GBTSe drzewa decyzyjne w sposób iteracyjny, aby zminimalizować funkcję strat. GBTS jest używany do regresji i klasyfikacji i może obsługiwać funkcje kategorii, nie wymaga skalowania funkcji, a także może przechwytywać interakcje i funkcje. Mogą być również używane w ustawieniu klasyfikacji wieloklasowej.
 
@@ -504,7 +505,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Czas wykonania powyżej komórki: 0,31 sekund
 
 ### <a name="feature-scaling"></a>Skalowanie cech
-Skalowanie funkcji, znane także jako Normalizacja danych, pozwala upewnić się, że funkcje o ogólnie wykorzystanych wartościach nie mają nadmiernej wagi w funkcji celu. Kod skalowania funkcji używa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) do skalowania funkcji do wariancji jednostek. Jest on dostarczany przez MLlib do użycia w regresji liniowej ze gradientem stochastycznego (SGD). SGD to popularny algorytm szkoleniowy dotyczący szerokiego zakresu innych modeli uczenia maszynowego, takich jak standardowe regresje lub obsługa maszyn wektorowych (SVM).   
+Skalowanie funkcji, znane także jako Normalizacja danych, pozwala upewnić się, że funkcje o ogólnie wykorzystanych wartościach nie mają nadmiernej wagi w funkcji celu. Kod skalowania funkcji używa [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
+) do skalowania funkcji do wariancji jednostek. Jest on dostarczany przez MLlib do użycia w regresji liniowej ze gradientem stochastycznego (SGD). SGD to popularny algorytm szkoleniowy dotyczący szerokiego zakresu innych modeli uczenia maszynowego, takich jak standardowe regresje lub obsługa maszyn wektorowych (SVM).   
 
 > [!TIP]
 > Znaleźliśmy algorytm LinearRegressionWithSGD do uwzględnienia w skalowaniu funkcji.   

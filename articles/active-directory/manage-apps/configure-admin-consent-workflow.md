@@ -12,16 +12,16 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e01a3b1538c6bf3030e5c8f129606adaecffda60
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643766"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105327"
 ---
-# <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
+# <a name="configure-the-admin-consent-workflow"></a>Konfigurowanie przepływu pracy zgody administratora
 
-W tym artykule opisano sposób włączania funkcji przepływu pracy zgody administratora (wersja zapoznawcza), która umożliwia użytkownikom końcowym żądanie dostępu do aplikacji, które wymagają zgody administratora.
+W tym artykule opisano sposób włączania funkcji przepływu pracy zgody administratora, która zapewnia użytkownikom końcowym możliwość żądania dostępu do aplikacji, które wymagają zgody administratora.
 
 Bez przepływu pracy zgody administratora użytkownik w dzierżawie, na którym jest wyłączana zgoda użytkownika, zostanie zablokowany, gdy spróbuje uzyskać dostęp do dowolnej aplikacji, która wymaga uprawnień dostępu do danych organizacji. Użytkownik widzi ogólny komunikat o błędzie z informacją, że nie ma autoryzacji do uzyskania dostępu do aplikacji i powinien poprosił administratora o pomoc. Jednak często użytkownik nie wie, kto kontaktuje się z nim, aby w aplikacji albo utworzyć nowe konto lokalne. Nawet gdy administrator zostanie powiadomiony, nie zawsze jest to usprawniony proces, który pomaga administratorowi udzielić dostępu i powiadomić ich użytkowników.
  
@@ -38,7 +38,7 @@ Aby włączyć przepływ pracy zgody administratora i wybrać recenzentów:
 3. W polu wyszukiwania filtru wpisz "**Azure Active Directory**" i wybierz element **Azure Active Directory** .
 4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw**. 
 5. W obszarze **Zarządzaj** wybierz pozycję **Ustawienia użytkownika**.
-6. W obszarze **prośby o zgodę administratora (wersja zapoznawcza)** ustaw, aby **użytkownicy mogli żądać zgody administratora na aplikacje, których nie mogą wyrazić zgody** na **wartość tak**.
+6. W obszarze **żądania zgody administratora** ustaw opcję **Użytkownicy mogą żądać zgody administratora na aplikacje, których nie mogą wyrazić zgodę** na **wartość tak**.
 
    ![Konfigurowanie ustawień przepływu pracy zgody administratora](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -78,7 +78,7 @@ Aby przejrzeć żądania zgody administratora i podjąć działania:
 2. Wybierz pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie Azure Active Directory** .
 3. W polu wyszukiwania filtru wpisz "**Azure Active Directory**" i wybierz element **Azure Active Directory** .
 4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw**.
-5. W obszarze **działanie** wybierz pozycję **żądania zgody administratora (wersja zapoznawcza)**.
+5. W obszarze **działanie** wybierz pozycję **żądania zgody administratora**.
 
    > [!NOTE]
    > Recenzenci będą widzieć tylko żądania administratora, które zostały utworzone po wyznaczeniu przez Ciebie jako recenzenta.
@@ -112,11 +112,7 @@ Osoby żądające otrzymają powiadomienia e-mail, gdy:
  
 ## <a name="audit-logs"></a>Dzienniki inspekcji 
  
-W poniższej tabeli przedstawiono scenariusze i wartości inspekcji dostępne dla przepływu pracy zgody administratora. 
-
-> [!NOTE]
-> W wszystkich scenariuszach nie ma obecnie kontekstu użytkownika dotyczącego inspekcji. Jest to znane ograniczenie w wersji zapoznawczej.
-
+W poniższej tabeli przedstawiono scenariusze i wartości inspekcji dostępne dla przepływu pracy zgody administratora.
 
 |Scenariusz  |Usługa inspekcji  |Kategorii inspekcji  |Inspekcja aktywności  |Aktor inspekcji  |Ograniczenia dziennika inspekcji  |
 |---------|---------|---------|---------|---------|---------|

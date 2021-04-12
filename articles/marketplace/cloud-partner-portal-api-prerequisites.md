@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/23/2020
-ms.openlocfilehash: 374cc3398d1037b19ceddcbdaafd333f643e44ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5fc77b65f6a83f4f7ca8ed8b8c9294b95307735
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91261162"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107316"
 ---
 # <a name="api-prerequisites"></a>Wymagania wstępne dotyczące interfejsu API
 
@@ -31,4 +31,4 @@ Teraz, po utworzeniu jednostki usługi w dzierżawie, możesz ją dodać jako u�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Zarządzanie aplikacjami usługi Azure AD](partner-center-portal/manage-account.md#manage-azure-ad-applications).
+Zobacz [Zarządzanie aplikacjami usługi Azure AD](manage-aad-apps.md).

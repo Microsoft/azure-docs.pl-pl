@@ -1,19 +1,19 @@
 ---
-title: Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (wersja zapoznawcza)
+title: Usługa Azure cache for Redis z linkiem prywatnym platformy Azure
 description: Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. W tym artykule dowiesz się, jak utworzyć pamięć podręczną platformy Azure, Virtual Network platformy Azure i prywatny punkt końcowy przy użyciu Azure Portal.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/31/2021
+ms.openlocfilehash: 952f708d8f368b63f772e3af35f6fd441d65622d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007589"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121663"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
+# <a name="azure-cache-for-redis-with-azure-private-link"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure
 W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
 
 Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. 
@@ -22,8 +22,7 @@ Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy pr
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Aby używać prywatnych punktów końcowych, należy utworzyć wystąpienie usługi Azure cache for Redis po 28 lipca 2020.
-> Obecnie replikacja geograficzna, reguły zapory, obsługa konsoli portalu, wiele punktów końcowych dla klastrowanej pamięci podręcznej, trwałość do zapory oraz pamięć podręczna z wstrzykiwanymi sieciami nie są obsługiwane. 
+> Obecnie nadmiarowość stref, obsługa konsoli portalu i trwałość do kont magazynu zapory nie są obsługiwane. 
 >
 >
 
@@ -112,19 +111,8 @@ Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorowa�
 > [!IMPORTANT]
 > 
 > Istnieje `publicNetworkAccess` Flaga, która jest `Disabled` domyślnie. 
-> Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Możesz ustawić wartość na `Disabled` lub `Enabled` przy użyciu poniższego żądania patch. Edytuj wartość, aby odzwierciedlić żądaną flagę pamięci podręcznej.
-> ```http
-> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-> {    "properties": {
->        "publicNetworkAccess":"Disabled"
->    }
-> }
-> ```
+> Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Możesz ustawić wartość na `Disabled` lub `Enabled` . Aby uzyskać więcej informacji na temat zmiany wartości, zobacz [często zadawane pytania](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 >
-
-> [!IMPORTANT]
-> 
-> Aby nawiązać połączenie z klastrowaną pamięcią podręczną, należy `publicNetworkAccess` ustawić wartość `Disabled` i mieć tylko jedno połączenie prywatnego punktu końcowego. 
 >
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Utwórz prywatny punkt końcowy z istniejącą usługą Azure cache for Redis 
@@ -173,7 +161,7 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 2. Wybierz wystąpienie pamięci podręcznej, do którego chcesz dodać prywatny punkt końcowy.
 
-3. Po lewej stronie ekranu wybierz pozycję **(wersja zapoznawcza) prywatny punkt końcowy**.
+3. Po lewej stronie ekranu wybierz pozycję **prywatny punkt końcowy**.
 
 4. Kliknij przycisk **prywatny punkt końcowy** , aby utworzyć prywatny punkt końcowy.
 
@@ -204,16 +192,36 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 13. Po wyświetleniu komunikatu o pomyślnym **sprawdzeniu poprawności** , wybierz pozycję **Utwórz**.
 
+> [!IMPORTANT]
+> 
+> Istnieje `publicNetworkAccess` Flaga, która jest `Disabled` domyślnie. 
+> Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Możesz ustawić wartość na `Disabled` lub `Enabled` . Aby uzyskać więcej informacji na temat zmiany wartości, zobacz [często zadawane pytania](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+>
+>
+
+
 ## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>Dlaczego nie mogę nawiązać połączenia z prywatnym punktem końcowym?
-Jeśli pamięć podręczna jest już wstrzykiwaną pamięcią podręczną, nie można używać prywatnych punktów końcowych z wystąpieniem pamięci podręcznej. Jeśli wystąpienie pamięci podręcznej używa nieobsługiwanej funkcji (wymienionej poniżej), nie będzie można nawiązać połączenia z wystąpieniem prywatnego punktu końcowego. Ponadto należy utworzyć wystąpienia pamięci podręcznej po 27 lipca, aby można było używać prywatnych punktów końcowych.
+Jeśli pamięć podręczna jest już wstrzykiwaną pamięcią podręczną, nie można używać prywatnych punktów końcowych z wystąpieniem pamięci podręcznej. Jeśli wystąpienie pamięci podręcznej używa nieobsługiwanej funkcji (wymienionej poniżej), nie będzie można nawiązać połączenia z wystąpieniem prywatnego punktu końcowego.
 
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Jakie funkcje nie są obsługiwane przez prywatne punkty końcowe?
-Replikacja geograficzna, reguły zapory, obsługa konsoli portalu, wiele punktów końcowych dla klastrowanej pamięci podręcznej, trwałość do reguł zapory i nadmiarowość stref. 
+Obecnie nadmiarowość stref, obsługa konsoli portalu i trwałość do kont magazynu zapory nie są obsługiwane. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Jak mogę zmienić prywatny punkt końcowy, który ma być wyłączony lub włączony z dostępu do sieci publicznej?
-Istnieje `publicNetworkAccess` Flaga, która jest `Disabled` domyślnie. Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Możesz ustawić wartość na `Disabled` lub `Enabled` przy użyciu poniższego żądania patch. Edytuj wartość, aby odzwierciedlić żądaną flagę pamięci podręcznej.
+Istnieje `publicNetworkAccess` Flaga, która jest `Disabled` domyślnie. Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Można ustawić wartość na `Disabled` lub `Enabled` w Azure Portal lub przy użyciu żądania patch API RESTful. 
+
+Aby zmienić wartość w Azure Portal, wykonaj następujące kroki.
+
+1. W Azure Portal Wyszukaj **usługę Azure cache for Redis** i naciśnij klawisz ENTER lub wybierz ją z sugestii wyszukiwania.
+
+2. Wybierz wystąpienie pamięci podręcznej, dla którego chcesz zmienić wartość dostępu do sieci publicznej.
+
+3. Po lewej stronie ekranu wybierz pozycję **prywatny punkt końcowy**.
+
+4. Kliknij przycisk **Włącz dostęp do sieci publicznej** .
+
+Aby zmienić wartość za pomocą żądania PATCH API RESTful, zobacz poniżej i Edytuj wartość w celu odzwierciedlenia flagi dla pamięci podręcznej.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -223,24 +231,23 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>Jak mogę korzystać z wielu punktów końcowych w różnych sieciach wirtualnych?
+Aby można było korzystać z wielu prywatnych punktów końcowych w różnych sieciach wirtualnych, należy ręcznie skonfigurować prywatną strefę DNS do wielu sieci wirtualnych _przed_ utworzeniem prywatnego punktu końcowego. Aby uzyskać więcej informacji, zobacz [Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure](../private-link/private-endpoint-dns.md). 
+
+### <a name="what-happens-if-i-delete-all-the-private-endpoints-on-my-cache"></a>Co się stanie w przypadku usunięcia wszystkich prywatnych punktów końcowych w mojej pamięci podręcznej?
+Po usunięciu prywatnych punktów końcowych w pamięci podręcznej wystąpienie pamięci podręcznej może stać się nieosiągalne, dopóki nie zostanie jawnie włączony publiczny dostęp do sieci lub zostanie dodany inny prywatny punkt końcowy. Flagę można zmienić `publicNetworkAccess` na Azure Portal lub za pomocą żądania patch API RESTful. Aby uzyskać więcej informacji na temat zmiany wartości, zobacz [często zadawane pytania](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Czy sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) są włączone dla prywatnych punktów końcowych?
 Nie, są one wyłączone dla prywatnych punktów końcowych. W podsieciach zawierających prywatny punkt końcowy może być skojarzonych sieciowej grupy zabezpieczeń, więc reguły nie będą obowiązywać w przypadku ruchu przetwarzanego przez prywatny punkt końcowy. Aby wdrażać prywatne punkty końcowe w podsieci, należy [wyłączyć wymuszanie zasad sieciowych](../private-link/disable-private-endpoint-network-policy.md) . SIECIOWEJ grupy zabezpieczeń jest nadal wymuszane dla innych obciążeń hostowanych w tej samej podsieci. Trasy w dowolnej podsieci klienta będą używać prefiksu/32, zmiana domyślnego zachowania routingu wymaga podobnego UDR. 
 
 Kontroluj ruch przy użyciu reguł sieciowej grupy zabezpieczeń dla ruchu wychodzącego na klientach źródłowych. Wdróż pojedyncze trasy z prefiksem/32, aby przesłonić prywatne trasy punktów końcowych. Dzienniki przepływu sieciowej grupy zabezpieczeń i informacje monitorowania dla połączeń wychodzących są nadal obsługiwane i mogą być używane
 
-### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Czy mogę używać reguł zapory z prywatnymi punktami końcowymi?
-Nie, to jest bieżące ograniczenie dla prywatnych punktów końcowych. Prywatny punkt końcowy nie będzie działał prawidłowo, jeśli reguły zapory zostały skonfigurowane w pamięci podręcznej.
-
-### <a name="how-can-i-connect-to-a-clustered-cache"></a>Jak można nawiązać połączenie z klastrowaną pamięcią podręczną?
-`publicNetworkAccess` musi być ustawiony na `Disabled` i może istnieć tylko jedno połączenie prywatnego punktu końcowego.
-
 ### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Ponieważ moje prywatne wystąpienie punktu końcowego nie znajduje się w mojej sieci wirtualnej, jak jest ono skojarzone z moją siecią wirtualną?
 Jest on połączony tylko z siecią wirtualną. Ponieważ nie znajduje się w sieci wirtualnej, nie trzeba modyfikować reguł sieciowej grupy zabezpieczeń dla zależnych punktów końcowych.
 
 ### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>Jak przeprowadzić migrację z wstrzykniętej pamięci podręcznej do prywatnej pamięci podręcznej punktu końcowego?
-Należy usunąć utworzoną pamięć podręczną i utworzyć nowe wystąpienie pamięci podręcznej z prywatnym punktem końcowym.
+Należy usunąć utworzoną pamięć podręczną i utworzyć nowe wystąpienie pamięci podręcznej z prywatnym punktem końcowym. Aby uzyskać więcej informacji, zobacz [Migrowanie do usługi Azure cache for Redis](cache-migration-guide.md)
 
 ## <a name="next-steps"></a>Następne kroki
-
 * Aby dowiedzieć się więcej o łączu prywatnym platformy Azure, zobacz [dokumentację linku prywatnego platformy Azure](../private-link/private-link-overview.md).
 * Aby porównać różne opcje izolacji sieci dla wystąpienia pamięci podręcznej, zobacz [dokumentację opcji izolacji sieci w usłudze Azure cache for Redis](cache-network-isolation.md).

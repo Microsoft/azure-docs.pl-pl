@@ -28,14 +28,14 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 Do ukończenia tego samouczka są niezbędne następujące elementy:
 
 - Zainstalowanie narzędzia Visual Studio Code lub Visual Studio.
-- [Utwórz konto Media Services](./create-account-howto.md).<br/>Upewnij się, że kopiujesz szczegóły dostępu do interfejsu API w formacie JSON lub przechowuj wartości, które są konieczne, aby połączyć się z kontem Media Services w formacie ENV użytym w tym przykładzie.
+- [Utwórz konto Media Services](./account-create-how-to.md).<br/>Upewnij się, że kopiujesz szczegóły dostępu do interfejsu API w formacie JSON lub przechowuj wartości, które są konieczne, aby połączyć się z kontem Media Services w formacie ENV użytym w tym przykładzie.
 - Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API w tym przykładzie lub wprowadzić je do formatu pliku ENV. 
 - Aparat lub urządzenie (na przykład laptop), które jest używane do emisji zdarzenia.
-- Lokalny koder programowy, który koduje strumień aparatu i wysyła go do Media Services usługi przesyłania strumieniowego na żywo przy użyciu protokołu RTMP, znajduje się [w temacie zalecane lokalne kodery na żywo](recommended-on-premises-live-encoders.md). Strumień musi być w formacie **RTMP** lub **Smooth Streaming**.  
+- Lokalny koder programowy, który koduje strumień aparatu i wysyła go do Media Services usługi przesyłania strumieniowego na żywo przy użyciu protokołu RTMP, znajduje się [w temacie zalecane lokalne kodery na żywo](encode-recommended-on-premises-live-encoders.md). Strumień musi być w formacie **RTMP** lub **Smooth Streaming**.  
 - Na potrzeby tego przykładu zaleca się rozpoczęcie od kodera programowego, takiego jak bezpłatne [otwarte oprogramowanie emisyjne obs Studio](https://obsproject.com/download) , aby ułatwić rozpoczęcie pracy. 
 
 > [!TIP]
-> Przed kontynuowaniem przejrzyj sekcję [Transmisja strumieniowa na żywo przy użyciu usługi Media Services v3](live-streaming-overview.md). 
+> Przed kontynuowaniem przejrzyj sekcję [Transmisja strumieniowa na żywo przy użyciu usługi Media Services v3](stream-live-streaming-concept.md). 
 
 ## <a name="download-and-configure-the-sample"></a>Pobieranie i konfigurowanie przykładu
 
@@ -70,15 +70,15 @@ Aby rozpocząć korzystanie z interfejsów API usługi Media Services na platfor
 
 ### <a name="create-a-live-event"></a>Utwórz wydarzenie na żywo
 
-W tej sekcji przedstawiono sposób tworzenia **przekazywanego** typu wydarzenia na żywo (o wartości parametru LiveEventEncodingType ustawionej na None). Aby uzyskać więcej informacji na temat innych dostępnych typów wydarzeń na żywo, zobacz [typy zdarzeń na żywo](live-events-outputs-concept.md#live-event-types). Poza przekazywaniem można używać na żywo zdarzenia Live Encoding dla kodowania w chmurze 720 lub 1080P z adaptacyjną szybkością transmisji bitów. 
+W tej sekcji przedstawiono sposób tworzenia **przekazywanego** typu wydarzenia na żywo (o wartości parametru LiveEventEncodingType ustawionej na None). Aby uzyskać więcej informacji na temat innych dostępnych typów wydarzeń na żywo, zobacz [typy zdarzeń na żywo](live-event-outputs-concept.md#live-event-types). Poza przekazywaniem można używać na żywo zdarzenia Live Encoding dla kodowania w chmurze 720 lub 1080P z adaptacyjną szybkością transmisji bitów. 
  
 Niektóre elementy, które można określić podczas tworzenia zdarzenia na żywo są następujące:
 
 * Protokół pozyskiwania dla zdarzenia na żywo (obecnie są obsługiwane protokoły RTMP i Smooth Streaming).<br/>Nie można zmienić opcji protokołu, gdy działa zdarzenie na żywo lub skojarzone z nim wyjście na żywo. Jeśli potrzebujesz różnych protokołów, Utwórz oddzielne wydarzenie na żywo dla każdego protokołu przesyłania strumieniowego.  
 * Ograniczenia dotyczące adresów IP w pozyskiwaniu i podglądzie. Można zdefiniować adresy IP, które mogą pozyskiwać pliki wideo w tym wydarzeniu na żywo. Jako dozwolone adresy IP można podać pojedynczy adres IP (na przykład „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (na przykład „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w notacji z kropką dziesiętną (na przykład, „10.0.0.1(255.255.252.0)”).<br/>Jeśli nie określono adresów IP i nie ma definicji reguły, adres IP nie będzie dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.<br/>Adresy IP muszą znajdować się w jednym z następujących formatów: adres IpV4 z czterema numerami lub zakresem adresów CIDR.
-* Podczas tworzenia zdarzenia możesz określić, aby uruchomić je ponownie. <br/>Jeśli automatyczne uruchamianie zostanie ustawione na wartość true, wydarzenie na żywo rozpocznie się po utworzeniu. Oznacza to, że rozliczanie zaczyna się zaraz po rozpoczęciu uruchamiania zdarzenia na żywo. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia. Aby uzyskać więcej informacji, zobacz [Live Event states and billing](live-event-states-billing.md) (Stany i rozliczenia dotyczące wydarzenia na żywo).
+* Podczas tworzenia zdarzenia możesz określić, aby uruchomić je ponownie. <br/>Jeśli automatyczne uruchamianie zostanie ustawione na wartość true, wydarzenie na żywo rozpocznie się po utworzeniu. Oznacza to, że rozliczanie zaczyna się zaraz po rozpoczęciu uruchamiania zdarzenia na żywo. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia. Aby uzyskać więcej informacji, zobacz [Live Event states and billing](live-event-states-billing-concept.md) (Stany i rozliczenia dotyczące wydarzenia na żywo).
 Dostępne są również tryby gotowości, które umożliwiają uruchomienie zdarzenia na żywo w stanie "przydzielony" niższy koszt, co przyspiesza przejście do stanu "uruchomiona". Jest to przydatne w przypadku sytuacji, takich jak hotpools, które umożliwiają szybkie przekazywanie kanałów do usługi Streams.
-* Aby adres URL pozyskiwania był predykcyjny i łatwiejszy w obsłudze w ramach sprzętowego kodera na żywo, ustaw właściwość "useStaticHostname" na wartość true. Aby uzyskać szczegółowe informacje, zobacz [adresy URL](live-events-outputs-concept.md#live-event-ingest-urls)pozyskiwania zdarzeń na żywo.
+* Aby adres URL pozyskiwania był predykcyjny i łatwiejszy w obsłudze w ramach sprzętowego kodera na żywo, ustaw właściwość "useStaticHostname" na wartość true. Aby uzyskać szczegółowe informacje, zobacz [adresy URL](live-event-outputs-concept.md#live-event-ingest-urls)pozyskiwania zdarzeń na żywo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -128,7 +128,7 @@ Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane po
 #### <a name="create-a-streaming-locator"></a>Tworzenie lokalizatora przesyłania strumieniowego
 
 > [!NOTE]
-> Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** .
+> Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](encode-dynamic-packaging-concept.md) i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** .
 
 Po opublikowaniu elementu zawartości przy użyciu lokalizatora przesyłania strumieniowego, zdarzenie na żywo (do okna DVR) będzie nadal widoczne do momentu wygaśnięcia lub usunięcia lokalizatora przesyłania strumieniowego, w zależności od tego, co nastąpi wcześniej. Jest to sposób, aby wirtualne nagrywanie na taśmie było dostępne dla odbiorców wyświetlanych na żywo i na żądanie. Ten sam adres URL może służyć do oglądania zdarzenia na żywo, DVR z okna lub zasobu na żądanie po zakończeniu nagrywania (po usunięciu danych wyjściowych na żywo).
 

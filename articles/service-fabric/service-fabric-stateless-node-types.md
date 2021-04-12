@@ -1,18 +1,18 @@
 ---
 title: Wdróż bezstanowe typy węzłów w klastrze Service Fabric
-description: Dowiedz się, jak tworzyć i wdrażać bezstanowe typy węzłów w klastrze usługi Azure Service Fabric.
+description: Dowiedz się, jak tworzyć i wdrażać bezstanowe typy węzłów w klastrze Service Fabric platformy Azure.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74680f7b56ad98851e2839b53c1f9e92b6c6c23a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563780"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030016"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Wdróż klaster Service Fabric platformy Azure z typami węzłów tylko bezstanowych (wersja zapoznawcza)
+# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Wdrażanie klastra Service Fabric platformy Azure z autonomicznymi typami węzłów
 Service Fabric typy węzłów są związane z założeniem, że w pewnym momencie usługi stanowe mogą być umieszczane w węzłach. Bezstanowe typy węzłów obniżają to założenie dla typu węzła, w związku z tym w taki sposób, aby typ węzła korzystał z innych funkcji, takich jak szybsze operacje skalowania w poziomie, obsługa automatycznych uaktualnień systemu operacyjnego w przypadku trwałości i skalowanie do ponad 100 węzłów w jednym zestawie skalowania maszyn wirtualnych.
 
 * Typów węzła podstawowego nie można skonfigurować jako bezstanowego
@@ -23,7 +23,7 @@ Service Fabric typy węzłów są związane z założeniem, że w pewnym momenci
 Dostępne są przykładowe szablony: [Service Fabric bezstanowego szablonu typów węzłów](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Włączanie bezstanowych typów węzłów w klastrze Service Fabric
-Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klastra, ustaw właściwość **Isstate bez stanu** na wartość "true". Podczas wdrażania klastra Service Fabric przy użyciu bezstanowych typów węzłów Pamiętaj, aby mieć co najmniej jeden typ węzła podstawowego w zasobie klastra.
+Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klastra, ustaw właściwość **Isstate bez stanu** na **wartość true**. Podczas wdrażania klastra Service Fabric przy użyciu bezstanowych typów węzłów Pamiętaj, aby mieć co najmniej jeden typ węzła podstawowego w zasobie klastra.
 
 * ApiVersion zasobów klastra Service Fabric powinien mieć wartość "2020-12-01 — wersja zapoznawcza" lub nowszą.
 
@@ -44,7 +44,7 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateless": false,
+        "isStateless": false, // Primary Node Types cannot be stateless
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -72,16 +72,15 @@ Aby ustawić jeden lub więcej typów węzłów jako bezstanowe w zasobów klast
 Aby włączyć bezstanowe typy węzłów, należy skonfigurować źródłowy zasób zestawu skalowania maszyn wirtualnych w następujący sposób:
 
 * Wartość właściwości  **singlePlacementGroup** , która powinna być ustawiona na **false** , jeśli wymagane jest skalowanie do ponad 100 maszyn wirtualnych.
-* **Tryb** **upgradePolicy** zestawu skalowania powinien być ustawiony na wartość " **roll**".
+* Wartość **upgrademode** zestawu skalowania powinna być równa " **roll**".
 * Tryb uaktualniania stopniowego wymaga skonfigurowanych rozszerzeń kondycji aplikacji lub sond kondycji. Skonfiguruj sondę kondycji z domyślną konfiguracją dla typów węzłów bezstanowych zgodnie z sugerowaną poniżej. Po wdrożeniu aplikacji na typ węzła można zmienić porty sondy kondycji/rozszerzenia kondycji, aby monitorować kondycję aplikacji.
 
 >[!NOTE]
-> Jest wymagane, aby liczba domen błędów platformy była aktualizowana do 5, gdy typ węzła bezstanowego jest obsługiwany przez zestaw skalowania maszyn wirtualnych, który jest oparty na wielu strefach. Aby uzyskać szczegółowe informacje, zobacz ten [szablon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) .
-> 
-> **platformFaultDomainCount: 5**
+> Podczas korzystania z funkcji automatycznego skalowania z bezstanową elementów NodeType po przeprowadzeniu skalowania w dół stan węzła nie jest automatycznie czyszczony. Aby można było oczyścić NodeState węzłów w dół podczas skalowania automatycznego, zaleca się użycie [pomocnika automatycznego skalowania Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper) .
+
 ```json
 {
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.Compute/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType1Name')]",
     "location": "[parameters('computeLocation')]",
@@ -92,8 +91,9 @@ Aby włączyć bezstanowe typy węzłów, należy skonfigurować źródłowy zas
           "automaticOSUpgradePolicy": {
             "enableAutomaticOSUpgrade": true
           }
-        }
-    }
+        },
+        "platformFaultDomainCount": 5
+    },
     "virtualMachineProfile": {
     "extensionProfile": {
     "extensions": [
@@ -136,6 +136,18 @@ Aby włączyć bezstanowe typy węzłów, należy skonfigurować źródłowy zas
     ]
 }
 ```
+
+## <a name="configuring-stateless-node-types-with-multiple-availability-zones"></a>Konfigurowanie typów węzłów bezstanowych z wieloma Strefy dostępności
+Aby skonfigurować bezstanowe łączenie NodeType w wielu strefach dostępności, zobacz dokumentację [poniżej](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), a także kilka zmian w następujący sposób:
+
+* Ustaw **singlePlacementGroup** :  **false**  , jeśli jest wymagane włączenie wielu grup umieszczania.
+* Ustaw wartość  **upgrademode** : **wycofywanie**   i Dodawanie danych o rozszerzeniu/kondycji kondycji aplikacji, jak wspomniano powyżej.
+* Ustaw **platformFaultDomainCount** : **5** dla zestawu skalowania maszyn wirtualnych.
+
+>[!NOTE]
+> Bez względu na VMSSZonalUpgradeMode skonfigurowany w klastrze, aktualizacje zestawu skalowania maszyn wirtualnych są zawsze wykonywane sekwencyjnie jedną strefę dostępności dla bezstanowego NodeType, który obejmuje wiele stref, ponieważ używa trybu uaktualnienia stopniowego.
+
+Aby uzyskać informacje na ten temat, należy zapoznać się z [szablonem](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) dotyczącym konfigurowania typów węzłów bezstanowych z wieloma strefy dostępności
 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
 ### <a name="public-ip-and-load-balancer-resource"></a>Publiczny adres IP i zasób Load Balancer
@@ -184,7 +196,7 @@ Aby włączyć skalowanie do ponad 100 maszyn wirtualnych w ramach zasobu zestaw
 ```
 
 >[!NOTE]
-> Nie można wykonać zmiany w miejscu jednostki SKU dla zasobów publicznego adresu IP i modułu równoważenia obciążenia. W przypadku migrowania z istniejących zasobów z podstawową jednostką SKU zapoznaj się z sekcją migracja tego artykułu.
+> Nie można wykonać zmiany w miejscu jednostki SKU dla zasobów publicznego adresu IP i modułu równoważenia obciążenia. 
 
 ### <a name="virtual-machine-scale-set-nat-rules"></a>Reguły NAT zestawu skalowania maszyn wirtualnych
 Reguły NAT dla ruchu przychodzącego modułu równoważenia obciążenia powinny być zgodne z pulami NAT z zestawu skalowania maszyn wirtualnych. Każdy zestaw skalowania maszyn wirtualnych musi mieć unikatową pulę NAT dla ruchu przychodzącego.
@@ -243,7 +255,7 @@ Usługa Load Balancer w warstwie Standardowa i Standard publiczny adres IP wprow
 
 
 
-### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrowanie z użyciem bezstanowych typów węzłów z klastra przy użyciu podstawowej jednostki SKU Load Balancer i podstawowego adresu IP jednostki SKU
+## <a name="migrate-to-using-stateless-node-types-in-a-cluster"></a>Migrowanie do korzystania z bezstanowych typów węzłów w klastrze
 W przypadku wszystkich scenariuszy migracji należy dodać nowy typ węzła tylko bezstanowy. Nie można migrować istniejącego typu węzła do stanu bezstanowego.
 
 Aby przeprowadzić migrację klastra, który używa Load Balancer i adresu IP z podstawową jednostką SKU, należy najpierw utworzyć zupełnie nowy Load Balancer i zasób IP przy użyciu standardowej jednostki SKU. Nie można zaktualizować tych zasobów w miejscu.
@@ -256,9 +268,6 @@ Aby rozpocząć, musisz dodać nowe zasoby do istniejącego szablonu Menedżer z
 * SIECIOWEJ grupy zabezpieczeń przywoływany przez podsieć, w której wdrażasz zestawy skalowania maszyn wirtualnych.
 
 Po zakończeniu wdrażania zasobów można rozpocząć wyłączanie węzłów w typie węzła, który ma zostać usunięty z oryginalnego klastra.
-
->[!NOTE]
-> Przy użyciu skalowania automatycznego z bezstanową elementów NodeType z trwałością Bronze po zakończeniu operacji skalowania stan węzła nie jest automatycznie czyszczony. Aby można było oczyścić NodeState węzłów w dół podczas skalowania automatycznego, zaleca się użycie [pomocnika automatycznego skalowania Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper) .
 
 ## <a name="next-steps"></a>Następne kroki 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

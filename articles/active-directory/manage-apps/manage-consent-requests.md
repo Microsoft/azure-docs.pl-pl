@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c41543cdfff4e5ffaad614f6cb7a539d78a0bdae
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253106"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105565"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Zarządzanie zgodą na aplikacje i ocenianie żądań zgody
 
@@ -26,7 +26,7 @@ Po wyłączeniu lub ograniczeniu zgody użytkownika końcowego należy pamięta�
 
 ## <a name="process-changes-and-education"></a>Przetwarzaj zmiany i edukacja
 
- 1. Rozważ włączenie [przepływu pracy zgody administratora (wersja zapoznawcza)](configure-admin-consent-workflow.md) , aby umożliwić użytkownikom żądanie zatwierdzenia przez administratora bezpośrednio z poziomu ekranu zgody.
+ 1. Rozważ włączenie [przepływu pracy zgody administratora](configure-admin-consent-workflow.md) , aby umożliwić użytkownikom żądanie zatwierdzenia przez administratora bezpośrednio z poziomu ekranu wyrażania zgody.
 
  2. Upewnij się, że wszyscy administratorzy znają [uprawnienia i strukturę wyrażania zgody](../develop/consent-framework.md), jak działa [monit o zgodę](../develop/application-consent-experience.md) oraz jak [oszacować żądanie dotyczące zgody administratora dzierżawy](#evaluating-a-request-for-tenant-wide-admin-consent).
  3. Przejrzyj istniejące procesy w organizacji, aby umożliwić użytkownikom zażądanie zatwierdzenia przez administratora aplikacji, a jeśli to konieczne, wprowadź aktualizacje. Jeśli procesy zostały zmienione:

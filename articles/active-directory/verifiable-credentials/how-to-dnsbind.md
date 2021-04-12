@@ -1,5 +1,5 @@
 ---
-title: Łączenie domeny z identyfikatorem zdecentralizowanym (wersja zapoznawcza)
+title: Połącz domenę z zdecentralizowanym identyfikatorem (wersja zapoznawcza) — Azure Active Directory poświadczenia do zweryfikowania
 description: Dowiedz się, jak powiązać DNS?
 documentationCenter: ''
 author: barclayn
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: be7db16a8e3a827d08c0db637961bf004af1d621
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 90ea52b0ed5ee2d8e36caab18491eecd6e1295fd
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170242"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222819"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Połącz domenę z identyfikatorem zdecentralizowanym (DID)
 
@@ -81,7 +81,7 @@ Po udostępnieniu dobrze znanego pliku konfiguracji należy udostępnić plik pr
 >[!IMPORTANT]
 >Microsoft Authenticator nie honoruje przekierowań, określony adres URL musi być końcowym docelowym adresem URL.
 
-## <a name="user-experience"></a>Doświadczenie użytkownika 
+## <a name="user-experience"></a>Środowisko użytkownika 
 
 Gdy użytkownik przechodzi przez przepływ wystawiania lub prezentuje poświadczenia do zweryfikowania, powinny wiedzieć coś o organizacji i jego poprawce. Jeśli domena korzysta z naszego programu do zweryfikowania portfela poświadczeń, Microsoft Authenticator, sprawdza poprawność relacji z domeną w dokumencie DID i prezentuje użytkownikom dwa różne środowiska w zależności od wyniku.
 

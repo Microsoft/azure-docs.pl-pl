@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674046"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064153"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testów dla szablonu ARM
 
-W tym artykule opisano domyślne testy, które są uruchamiane przy użyciu [zestawu narzędzi do testowania szablonów](test-toolkit.md). Zawiera przykłady, które przechodzą lub kończą testy. Zawiera nazwę każdego testu.
+W tym artykule opisano domyślne testy, które są uruchamiane przy użyciu [zestawu narzędzi do testowania](test-toolkit.md) szablonów dla szablonów Azure Resource Manager (szablony ARM). Zawiera przykłady, które przechodzą lub kończą testy. Zawiera nazwę każdego testu. Aby uruchomić określony test, zobacz [parametry testu](test-toolkit.md#test-parameters).
 
 ## <a name="use-correct-schema"></a>Użyj poprawnego schematu
 
@@ -137,7 +137,7 @@ Poniższy przykład **przekazuje** ten test.
 
 Nazwa testu: **Lokalizacja nie powinna być stałe**
 
-Szablony powinny mieć parametr o nazwie Location. Użyj tego parametru, aby ustawić lokalizację zasobów w szablonie. W szablonie głównym (o nazwie azuredeploy.json lub mainTemplate.json) ten parametr może być domyślnie lokalizacją grupy zasobów. W połączonych lub zagnieżdżonych szablonach parametr Location nie powinien mieć domyślnej lokalizacji.
+Szablony powinny mieć parametr o nazwie Location. Użyj tego parametru, aby ustawić lokalizację zasobów w szablonie. W szablonie głównym (o nazwie _azuredeploy.json_ lub _mainTemplate.json_) ten parametr może być domyślnie lokalizacją grupy zasobów. W połączonych lub zagnieżdżonych szablonach parametr Location nie powinien mieć domyślnej lokalizacji.
 
 Użytkownicy szablonu mogą mieć ograniczone regiony. Po wprowadzeniu twardej lokalizacji zasobów użytkownicy mogą mieć zablokowaną możliwość tworzenia zasobów w tym regionie. Użytkownicy mogą być blokowani, nawet jeśli ustawisz lokalizację zasobu na `"[resourceGroup().location]"` . Grupa zasobów mogła zostać utworzona w regionie, do którego inni użytkownicy nie mogą uzyskać dostępu. Ci użytkownicy nie mogą korzystać z szablonu.
 
@@ -393,11 +393,11 @@ W przypadku dołączania parametrów dla `_artifactsLocation` i `_artifactsLocat
 * w przypadku podania jednego parametru należy podać drugi
 * `_artifactsLocation` musi być **ciągiem**
 * `_artifactsLocation` musi mieć wartość domyślną w szablonie głównym
-* `_artifactsLocation` nie można mieć wartości domyślnej w zagnieżdżonym szablonie 
+* `_artifactsLocation` nie można mieć wartości domyślnej w zagnieżdżonym szablonie
 * `_artifactsLocation``"[deployment().properties.templateLink.uri]"`wartość domyślna musi mieć adres URL lub niesformatowanego repozytorium.
 * `_artifactsLocationSasToken` musi być elementem **secureString**
 * `_artifactsLocationSasToken` może mieć tylko pusty ciąg dla jego wartości domyślnej
-* `_artifactsLocationSasToken` nie można mieć wartości domyślnej w zagnieżdżonym szablonie 
+* `_artifactsLocationSasToken` nie można mieć wartości domyślnej w zagnieżdżonym szablonie
 
 ## <a name="declared-variables-must-be-used"></a>Zadeklarowane zmienne muszą być używane
 
@@ -520,7 +520,7 @@ Następny przykład **przekazuje** ten test.
 
 Nazwa testu: **identyfikatory zasobów nie powinny zawierać**
 
-Podczas generowania identyfikatorów zasobów nie należy używać zbędnych funkcji dla parametrów opcjonalnych. Domyślnie funkcja [ResourceID](template-functions-resource.md#resourceid) używa bieżącej subskrypcji i grupy zasobów. Nie musisz podawać tych wartości.  
+Podczas generowania identyfikatorów zasobów nie należy używać zbędnych funkcji dla parametrów opcjonalnych. Domyślnie funkcja [ResourceID](template-functions-resource.md#resourceid) używa bieżącej subskrypcji i grupy zasobów. Nie musisz podawać tych wartości.
 
 Poniższy przykład **kończy się niepowodzeniem** tego testu, ponieważ nie trzeba podawać bieżącego identyfikatora subskrypcji i nazwy grupy zasobów.
 
@@ -691,7 +691,40 @@ Poniższy przykład **nie powiedzie się** , ponieważ używa funkcji [list *](t
 }
 ```
 
+## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Użyj protectedSettings dla wpisów tajnych sekcji commandtoexecute
+
+Nazwa testu: **sekcji commandtoexecute musi używać ProtectedSettings dla wpisów tajnych**
+
+W niestandardowym rozszerzeniu skryptu Użyj właściwości Encrypted, `protectedSettings` gdy program `commandToExecute` zawiera dane tajne, takie jak hasło. Przykładami typów danych tajnych są `secureString` , `secureObject` , `list()` funkcje lub skrypty.
+
+Aby uzyskać więcej informacji o rozszerzeniu niestandardowego skryptu dla maszyn wirtualnych, zobacz [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)i Schema [Microsoft. COMPUTE virtualMachines/Extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+
+W tym przykładzie szablon z parametrem o nazwie `adminPassword` i Type `secureString` **przekazuje** test, ponieważ właściwość Encrypted `protectedSettings` zawiera `commandToExecute` .
+
+```json
+"properties": [
+  {
+    "protectedSettings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
+Test **kończy się niepowodzeniem** , jeśli właściwość unencrypted `settings` zawiera `commandToExecute` .
+
+```json
+"properties": [
+  {
+    "settings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o uruchamianiu zestawu narzędzi testowych, zobacz [Use the ARM Template test Toolkit](test-toolkit.md).
-- W przypadku modułu Microsoft Learn, który obejmuje użycie zestawu narzędzi test Toolkit, zobacz [Podgląd zmian i sprawdzanie poprawności zasobów platformy Azure przy użyciu zestawu narzędzi do działania i szablonu ARM](/learn/modules/arm-template-test/).
+* Aby dowiedzieć się więcej o uruchamianiu zestawu narzędzi testowych, zobacz [Use the ARM Template test Toolkit](test-toolkit.md).
+* W przypadku modułu Microsoft Learn, który obejmuje użycie zestawu narzędzi test Toolkit, zobacz [Podgląd zmian i sprawdzanie poprawności zasobów platformy Azure przy użyciu zestawu narzędzi do działania i szablonu ARM](/learn/modules/arm-template-test/).

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a571d92dd9663c7d2d0a576b59e5cd2b3352cb76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad1351b7c9a649a553ce54422b99a13c286437d6
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951105"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107299"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
 
@@ -302,7 +302,7 @@ Po przeprowadzeniu tego przepływu wszystko jest ustawione na wycofanie urządze
 
 Aby wyzwolić proces wycofania, należy ręcznie usunąć urządzenie z IoT Hub.
 
-Można to zrobić za pomocą [polecenia platformy Azure CLI](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) lub w Azure Portal. Wykonaj poniższe kroki, aby usunąć urządzenie z Azure Portal:
+Można to zrobić za pomocą [polecenia platformy Azure CLI](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) lub w Azure Portal. Wykonaj poniższe kroki, aby usunąć urządzenie z Azure Portal:
 
 1. Przejdź do centrum IoT Hub, a następnie wybierz pozycję **urządzenia IoT** w obszarze Opcje menu po lewej stronie. 
 2. Zobaczysz urządzenie z IDENTYFIKATORem rejestracji urządzenia wybranym w [pierwszej połowie tego artykułu](#auto-provision-device-using-device-provisioning-service). Alternatywnie można wybrać dowolne inne urządzenie do usunięcia, o ile ma on sznurki w usłudze Azure Digital bliźniaczych reprezentacji, dzięki czemu można sprawdzić, czy dwuosiowy jest automatycznie usuwany po usunięciu urządzenia.

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772726"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259034"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -314,6 +314,8 @@ Cele magazynu ADLS-NFS mają różne podobieństwa z obiektami docelowymi magazy
 
 Aby można było utworzyć obiekt docelowy magazynu ADLS-NFS, należy utworzyć konto magazynu z obsługą systemu plików NFS. Postępuj zgodnie ze wskazówkami w sekcji [wymagania wstępne dotyczące usługi Azure HPC cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) i instrukcje w temacie [Instalowanie magazynu obiektów BLOB przy użyciu systemu plików NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Po skonfigurowaniu konta magazynu można utworzyć nowy kontener podczas tworzenia miejsca docelowego magazynu.
 
+Aby dowiedzieć się więcej na temat tej konfiguracji, przeczytaj artykuł [Używanie magazynu obiektów BLOB zainstalowanego w systemie plików NFS z pamięcią podręczną Azure HPC](nfs-blob-considerations.md)
+
 Aby utworzyć obiekt docelowy magazynu ADLS-NFS, Otwórz stronę **Dodawanie miejsca docelowego magazynu** w Azure Portal. (Dodatkowe metody są w trakcie tworzenia).
 
 ![Zrzut ekranu przedstawiający stronę Dodawanie miejsca docelowego magazynu z zdefiniowanym elementem docelowym ADLS-NFS](media/add-adls-target.png)
@@ -331,8 +333,6 @@ Wprowadź te informacje.
 * **Model użycia** — wybierz jeden z profili buforowania danych opartych na przepływie pracy, zgodnie z opisem w temacie [Wybierz model użycia](#choose-a-usage-model) powyżej.
 
 Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
-
-<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Wyświetl cele magazynu
 

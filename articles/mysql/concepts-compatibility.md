@@ -6,16 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: cba9615a8c76387b593109bc2174ab4718f1750a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 59f70659f25f925f8f802b0fcaa1f61d4e7f7dc0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609313"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106942"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodne z Azure Database for MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
-W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z programem Azure Database for MySQL.
+
+W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z Azure Database for MySQL jednym serwerem.
+
+>[!NOTE]
+>Ten artykuł dotyczy tylko Azure Database for MySQL jednego serwera, aby zapewnić zgodność sterowników z [architekturą łączności](concepts-connectivity-architecture.md) jednego serwera. [Azure Database for MySQL elastyczny serwer](/../flexible-server/overview.md) jest zgodny ze wszystkimi sterownikami i narzędziami obsługiwanymi i zgodnymi z programem MySQL Community Edition. 
 
 ## <a name="mysql-drivers"></a>Sterowniki MySQL
 Azure Database for MySQL korzysta z najbardziej popularnej wersji Community Database programu MySQL. W związku z tym jest zgodny z szeroką gamą języków programowania i sterowników. Celem jest wsparcie trzech najnowszych wersji sterowników MySQL oraz podejmowanie wysiłków z członkami społeczności open source, aby stale ulepszać funkcje i użyteczność sterowników MySQL. Lista sterowników, które zostały przetestowane i uznane za zgodne z Azure Database for MySQL 5,6 i 5,7, znajduje się w poniższej tabeli:

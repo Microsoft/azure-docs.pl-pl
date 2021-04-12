@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56db88bff5b0e92a3819670e200177f10609aaa8
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98797785"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029730"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
@@ -66,16 +66,15 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 <sup>*</sup>Właściciel powinien zapewnić `accessToken` ostrożność.
 
-## <a name="embedding-videos"></a>Osadzanie filmów wideo
+## <a name="embed-videos"></a>Osadź wideo
 
-W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjach.
+W tej sekcji omówiono osadzanie filmów wideo przy [użyciu portalu](#the-portal-experience) lub [Ręczne umieszczenie adresu URL](#assemble-the-url-manually) w aplikacjach. 
 
 `location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
-> [!IMPORTANT]
-> Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
+### <a name="the-portal-experience"></a>Środowisko portalu
 
-### <a name="public-content"></a>Zawartość publiczna
+Aby osadzić wideo, użyj portalu zgodnie z poniższym opisem:
 
 1. Zaloguj się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) .
 1. Wybierz wideo, z którym chcesz korzystać, i naciśnij klawisz **Play**.
@@ -84,18 +83,27 @@ W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjac
 5. Skopiuj kod osadzania (jest wyświetlany w obszarze **Kopiuj osadzony kod** w oknie dialogowym **udział & Osadź** ).
 6. Dodaj kod do aplikacji.
 
-### <a name="private-content"></a>Zawartość prywatna
+> [!NOTE]
+> Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
 
-Aby osadzić prywatny film wideo, należy przekazać token dostępu w `src` atrybucie elementu iframe:
+### <a name="assemble-the-url-manually"></a>Ręcznie złóż adres URL
+
+#### <a name="public-videos"></a>Publiczne wideo
+
+Możesz osadzić publiczne wideo z asemblerem adresu URL w następujący sposób:
+
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>`
+  
+  
+#### <a name="private-videos"></a>Prywatne wideo
+
+Aby osadzić prywatny film wideo, należy przekazać token dostępu (Użyj tokenu uzyskiwania [dostępu wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) w `src` atrybucie elementu iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
-    
-Aby uzyskać zawartość widżetu analizy poznawczej, należy użyć jednej z następujących metod:
+  
+### <a name="provide-editing-insights-capabilities"></a>Udostępnianie możliwości edytowania szczegółowych informacji
 
-- Interfejs API usługi [Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
-- [Token uzyskiwania dostępu do wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Dodaj go jako parametr zapytania do adresu URL. Określ ten adres URL jako `src` wartość elementu iframe, jak pokazano wcześniej.
-
-Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym elemencie widget, należy przekazać token dostępu, który obejmuje uprawnienia do edycji. Użyj [widżetu Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) lub [Uzyskaj token dostępu wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) przy użyciu `&allowEdit=true` .
+Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym elemencie widget, należy przekazać token dostępu, który obejmuje uprawnienia do edycji. Użyj [tokenu uzyskiwania dostępu wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) z `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interakcje z widżetami
 

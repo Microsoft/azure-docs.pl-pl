@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9797401fd96bf052fdc9de0c2c2ceaf88b3d46b6
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 0a25e1b50455cad5bdbe5b76b2a291f2a1c11940
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504213"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107010"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -189,7 +189,7 @@ Ta sekcja obejmuje wymagania dotyczące usługi Transact dla różnych typów of
 - Dla opcji publikowania Transact są wymagane konto Microsoft i informacje finansowe, niezależnie od modelu cen oferty.
 - Obowiązkowe informacje finansowe obejmują konto płatne i profil podatkowy.
 
-Aby uzyskać więcej informacji na temat konfigurowania tych kont, zobacz [Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim](partner-center-portal/manage-account.md).
+Aby uzyskać więcej informacji na temat konfigurowania tych kont, zobacz [Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim](manage-account.md).
 
 ### <a name="requirements-for-specific-offer-types"></a>Wymagania dotyczące konkretnych typów ofert
 

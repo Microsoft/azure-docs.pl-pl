@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3cc8f36f05def18c16db0875cb712cdf5d165f9
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593207"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121357"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -351,7 +351,7 @@ Jeśli włączono obsługę warstw w chmurze, nie należy używać rozwiązań b
 Jeśli wolisz używać lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapasowe powinny być wykonywane na serwerze w grupie synchronizacji z wyłączonymi warstwami chmury. Podczas przywracania należy użyć opcji przywracania na poziomie woluminu lub na poziomie pliku. Pliki przywrócone przy użyciu opcji przywracania na poziomie pliku zostaną zsynchronizowane ze wszystkimi punktami końcowymi w grupie synchronizacji, a istniejące pliki zostaną zastąpione wersją przywróconą z kopii zapasowej.  Przywrócenie na poziomie woluminu nie spowoduje zastąpienia nowszych wersji plików w udziale plików platformy Azure ani w innych punktach końcowych serwera.
 
 > [!WARNING]
-> Przełącznik Robocopy/B nie jest obsługiwany w przypadku Azure File Sync. Użycie przełącznika Robocopy/B z punktem końcowym serwera Azure File Sync jako źródło może prowadzić do uszkodzenia plików.
+> Jeśli konieczne jest użycie Robocopy/B z agentem Azure File Sync uruchomionym na serwerze źródłowym lub docelowym, należy przeprowadzić uaktualnienie do Azure File Sync agenta w wersji 12 lub nowszej. Użycie Robocopy/B z wersjami agenta mniejszą niż v 12 spowoduje uszkodzenie plików warstwowych podczas kopiowania.
 
 > [!Note]  
 > Przywracanie bez systemu operacyjnego (BMR) może spowodować nieoczekiwane wyniki i nie jest obecnie obsługiwane.

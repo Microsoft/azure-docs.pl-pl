@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0072e699107ea51764a728ce3e9987b86b2a6806
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97032528"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492328"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Zarządzanie urządzeniami w aplikacji IoT Central platformy Azure
 
@@ -156,17 +156,17 @@ Aby usunąć urządzenie prawdziwe lub symulowane z aplikacji IoT Central platfo
 
 ## <a name="change-a-property"></a>Zmiana właściwości
 
-Właściwości chmury to metadane urządzenia skojarzone z urządzeniem, takie jak miasto i numer seryjny. Właściwości chmury istnieją tylko w aplikacji IoT Central i nie są synchronizowane z urządzeniami. Właściwości do zapisu kontrolują zachowanie urządzenia i umożliwiają zdalne Ustawianie stanu urządzenia, na przykład przez ustawienie temperatury docelowej dla termostatu.  Właściwości urządzenia są ustawiane przez urządzenie i są tylko do odczytu w ramach IoT Central. Można wyświetlać i aktualizować właściwości w widokach **szczegóły urządzenia** dla urządzenia.
+Właściwości chmury to metadane urządzenia skojarzone z urządzeniem, takie jak miasto i numer seryjny. Właściwości chmury istnieją tylko w aplikacji IoT Central i nie są synchronizowane z urządzeniami. Właściwości z możliwością zapisu kontrolują zachowanie urządzenia i umożliwiają zdalne Ustawianie stanu urządzenia, na przykład przez ustawienie temperatury docelowej urządzenia termostatu.  Właściwości urządzenia są ustawiane przez urządzenie i są tylko do odczytu w ramach IoT Central. Można wyświetlać i aktualizować właściwości w widokach **szczegóły urządzenia** dla urządzenia.
 
 1. Wybierz pozycję **urządzenia** w okienku po lewej stronie.
 
 1. Wybierz szablon urządzenia urządzenia, którego właściwości chcesz zmienić, a następnie wybierz urządzenie docelowe.
 
-1. Wybierz widok, który zawiera właściwości urządzenia, ten widok umożliwia wprowadzanie wartości i wybranie opcji **Zapisz** w górnej części strony. Tutaj zobaczysz właściwości urządzenia i ich bieżące wartości. Właściwości chmury i zapisywalne właściwości mają pola edytowalne, podczas gdy właściwości urządzenia są tylko do odczytu. Dla właściwości do zapisu można zobaczyć stan synchronizacji u dołu pola. 
+1. Wybierz widok, który zawiera właściwości urządzenia, ten widok umożliwia wprowadzanie wartości i wybranie opcji **Zapisz** w górnej części strony. Tutaj zobaczysz właściwości urządzenia i ich bieżące wartości. Właściwości chmury i modyfikowalne właściwości mają pola edytowalne, podczas gdy właściwości urządzenia są tylko do odczytu. Do zapisu właściwości można zobaczyć stan synchronizacji u dołu pola. 
 
 1. Zmodyfikuj właściwości do potrzebnych wartości. Można modyfikować wiele właściwości jednocześnie i aktualizować je wszystkie w tym samym czasie.
 
-1. Wybierz polecenie **Zapisz**. Jeśli Zapisano właściwości do zapisu, wartości są wysyłane do urządzenia. Gdy urządzenie potwierdzi zmianę właściwości zapisywalnej, stan zwraca z powrotem do **synchronizowane**. Jeśli Zapisano Właściwość chmury, wartość jest aktualizowana.
+1. Wybierz polecenie **Zapisz**. W przypadku zapisania właściwości z możliwością zapisu wartości są wysyłane do urządzenia. Gdy urządzenie potwierdzi zmianę właściwości zapisywalnej, stan zwraca z powrotem do **synchronizowane**. Jeśli Zapisano Właściwość chmury, wartość jest aktualizowana.
 
 ## <a name="next-steps"></a>Następne kroki
 

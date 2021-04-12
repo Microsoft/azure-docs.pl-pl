@@ -4,15 +4,15 @@ description: Dowiedz się, jak zidentyfikować punkt przywracania i skonfigurowa
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 707ef9f60891c1da7c13638e233ee74e78fc20dd
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381872"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283941"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Konfigurowanie i zarządzanie ciągłymi kopiami zapasowymi oraz przywracanie do punktu w czasie (wersja zapoznawcza) — Używanie Azure Portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -32,6 +32,10 @@ Podczas tworzenia nowego konta Azure Cosmos DB, dla opcji **zasady tworzenia kop
 
 :::image type="content" source="./media/continuous-backup-restore-portal/configure-continuous-backup-portal.png" alt-text="Zainicjuj obsługę konta Azure Cosmos DB przy użyciu konfiguracji ciągłej kopii zapasowej." border="true":::
 
+## <a name="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
+
+Domyślnie Azure Cosmos DB przechowuje dane kopii zapasowej w trybie ciągłym w lokalnie nadmiarowych obiektach Blob magazynu. W przypadku regionów, w których skonfigurowano nadmiarowość stref, kopia zapasowa jest przechowywana w strefach obiektów blob magazynu nadmiarowego. W tym trybie nie można zaktualizować nadmiarowości magazynu kopii zapasowych.
+
 ## <a name="restore-a-live-account-from-accidental-modification"></a><a id="restore-live-account"></a>Przywracanie na żywo konta przed przypadkową modyfikacją
 
 Za pomocą Azure Portal można przywrócić aktywne konto lub wybrane bazy danych i kontenery w ramach usługi. Wykonaj następujące kroki, aby przywrócić dane:
@@ -46,7 +50,7 @@ Za pomocą Azure Portal można przywrócić aktywne konto lub wybrane bazy danyc
 
    * **Punkt przywracania (UTC)** — sygnatura czasowa w ciągu ostatnich 30 dni. Konto powinno istnieć w tym znaczniku czasu. Punkt przywracania można określić w formacie UTC. Może to być zbliżone do drugiego, gdy chcesz go przywrócić. Wybierz link **kliknij tutaj** , aby uzyskać pomoc dotyczącą [identyfikowania punktu przywracania](#event-feed).
 
-   * **Lokalizacja** — region docelowy, w którym konto zostanie przywrócone. Konto powinno istnieć w tym regionie pod daną sygnaturą czasową (np. Zachodnie stany USA lub Wschodnie stany USA). Konto można przywrócić tylko do regionów, w których istniało konto źródłowe.
+   * **Lokalizacja** — region docelowy, w którym konto zostanie przywrócone. Konto powinno istnieć w tym regionie pod daną sygnaturą czasową (na przykład zachodnie stany USA lub Wschodnie stany USA). Konto można przywrócić tylko do regionów, w których istniało konto źródłowe.
 
    * **Przywróć zasób** — możesz wybrać **całe konto** lub **wybraną bazę danych/kontener** do przywrócenia. Bazy danych i kontenery powinny znajdować się w danym znaczniku czasu. Na podstawie wybranego punktu przywracania i lokalizacji są wypełniane zasoby, które umożliwiają użytkownikowi wybranie określonych baz danych lub kontenerów, które muszą zostać przywrócone.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781283"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443410"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
@@ -33,6 +33,13 @@ Azure AD B2C układ strony używa następującej wersji [biblioteki jQuery](http
 |1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Strona z własnym potwierdzeniem (selfasserted)
+
+**2.1.4**
+- Zaktualizowano wersję jQuery do 3.5.1.
+- Zaktualizowano wersję HandlebarJS do 4.7.6.
+
+**2.1.3**
+- Poprawki zabezpieczeń.
 
 **2.1.2**
 - Rozwiązano problem z kodowaniem lokalizacji dla języków takich jak hiszpański i francuski.
@@ -87,6 +94,14 @@ Azure AD B2C układ strony używa następującej wersji [biblioteki jQuery](http
 > [!TIP]
 > W przypadku zlokalizowania strony do obsługi wielu ustawień regionalnych lub języków w przepływie użytkownika. Artykuł [identyfikatory lokalizacji](localization-string-ids.md) zawiera listę identyfikatorów lokalizacji, których można użyć dla wybranej wersji strony.
 
+**2.1.4**
+- Zaktualizowano wersję jQuery do 3.5.1.
+- Zaktualizowano wersję HandlebarJS do 4.7.6.
+
+**2.1.3**
+- Poprawki zabezpieczeń.
+- Drobne poprawki błędów.
+
 **2.1.2**
 - Rozwiązano problem z kodowaniem lokalizacji dla języków takich jak hiszpański i francuski.
 - Zezwalanie na używanie linku "zapomniane hasło" jako wymiany oświadczeń. Aby uzyskać więcej informacji, zobacz samoobsługowe [Resetowanie hasła](add-password-reset-policy.md#self-service-password-reset-recommended).
@@ -126,6 +141,15 @@ Azure AD B2C układ strony używa następującej wersji [biblioteki jQuery](http
 
 ## <a name="mfa-page-multifactor"></a>Strona usługi MFA (wieloskładnikowa)
 
+**1.2.4**
+- Zaktualizowano wersję jQuery do 3.5.1.
+- Zaktualizowano wersję HandlebarJS do 4.7.6.
+
+**1.2.3**
+- Zezwalanie na przesłanianie ciągu etykietki narzędzia przy użyciu lokalizacji języka.
+- Poprawki zabezpieczeń.
+- Drobne poprawki błędów.
+
 **ppkt**
 - Rozwiązano problem dotyczący autouzupełniania kodu weryfikacyjnego w przypadku korzystania z systemu iOS.
 - Rozwiązano problem związany z przekierowywaniem tokenu do jednostki uzależnionej z programu Android WebView. 
@@ -162,6 +186,10 @@ Azure AD B2C układ strony używa następującej wersji [biblioteki jQuery](http
 
 ## <a name="exception-page-globalexception"></a>Strona wyjątku (globalexception)
 
+**1.2.1**
+- Zaktualizowano wersję jQuery do 3.5.1.
+- Zaktualizowano wersję HandlebarJS do 4.7.6.
+
 **1.2.0**
 
 - Poprawki ułatwień dostępu
@@ -182,6 +210,10 @@ Azure AD B2C układ strony używa następującej wersji [biblioteki jQuery](http
 - Wersja początkowa
 
 ## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>Inne strony (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- Zaktualizowano wersję jQuery do 3.5.1.
+- Zaktualizowano wersję HandlebarJS do 4.7.6.
 
 **1.2.0**
 

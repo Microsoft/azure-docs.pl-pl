@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: f83f743b692ae5a625a4c881b12cbad999f1f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d64dc4f3c034279aee7401503bbb60883c9ed4e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106772"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492243"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parametry serwera w Azure Database for MySQL-elastycznym serwerze
 
@@ -39,9 +39,11 @@ Zapoznaj się z poniższymi sekcjami poniżej, aby dowiedzieć się więcej o li
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-W Azure Database for MySQL elastycznym serwerze dzienniki binarne są zawsze włączone (oznacza to, że `log_bin` jest ustawiony na wartość włączone). Jeśli chcesz użyć wyzwalaczy, zostanie wyświetlony komunikat o błędzie podobny do tego, że *nie masz uprawnień administratora, a rejestrowanie binarne jest włączone (możesz chcieć użyć mniej bezpiecznej `log_bin_trust_function_creators` zmiennej)*. 
+W Azure Database for MySQL elastycznym serwerze dzienniki binarne są zawsze włączone (oznacza to, że `log_bin` jest ustawiony na wartość włączone). log_bin_trust_function_creators jest domyślnie włączona w elastycznych serwerach. 
 
-Format rejestrowania binarnego to zawsze **wiersz** i wszystkie połączenia z serwerem **zawsze** używają rejestrowania binarnego opartego na wierszach. W przypadku rejestrowania binarnego opartego na wierszach problemy z zabezpieczeniami nie istnieją i rejestrowanie danych binarnych nie może zostać zerwane, więc można bezpiecznie ustawić [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **wartość true**.
+Format rejestrowania binarnego to zawsze **wiersz** i wszystkie połączenia z serwerem **zawsze** używają rejestrowania binarnego opartego na wierszach. W przypadku rejestrowania binarnego opartego na wierszach problemy z zabezpieczeniami nie istnieją i rejestrowanie danych binarnych nie może zostać przerwane, dzięki czemu można bezpiecznie zezwolić na [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) pozostawanie **w systemie**.
+
+Jeśli `log_bin_trust_function_creators` wartość [] jest wyłączona, jeśli spróbujesz utworzyć wyzwalacze, może wystąpić błąd podobny do tego, że *nie masz uprawnień administratora, a rejestrowanie binarne jest włączone (można użyć mniej bezpiecznej `log_bin_trust_function_creators` zmiennej)*. 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

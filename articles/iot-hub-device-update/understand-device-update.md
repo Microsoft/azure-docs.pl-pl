@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 092078a79124682f7ee5c7824d4f7906c6e35475
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 95cecd66f4d0164594eb4e8da9efe765b5833e5e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558503"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120779"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Aktualizacja urządzenia dla IoT Hub (wersja zapoznawcza) — Omówienie
 
@@ -80,7 +80,7 @@ Po odebraniu na urządzeniu polecenia Update zostanie wykonane żądanie aktuali
 
 ### <a name="importing"></a>Importowanie
 
-Importowanie polega na tym, jak aktualizacje są pozyskiwane w ramach aktualizacji urządzenia, dzięki czemu można je wdrożyć na urządzeniach. Aktualizacja urządzenia obsługuje wdrażanie jednej aktualizacji na urządzenie. Sprawia to, że jest to idealne rozwiązanie w przypadku aktualizacji w pełnym obrazie, które aktualizują całą partycję systemu operacyjnego jednocześnie, lub manifest apt, który opisuje wszystkie pakiety, które chcesz zaktualizować na urządzeniu. Aby zaimportować aktualizacje do aktualizacji urządzeń, należy najpierw utworzyć manifest importu opisujący aktualizację, przekazać pliki aktualizacji i manifest importu do lokalizacji dostępnej do Internetu. Następnie można użyć Azure Portal lub [interfejsu API REST importowania aktualizacji urządzenia](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) , aby zainicjować asynchroniczny proces importowania aktualizacji. Aktualizacja urządzenia przekazuje pliki, przetwarza je i udostępnia je do dystrybucji na urządzeniach IoT.
+Importowanie polega na tym, jak aktualizacje są pozyskiwane w ramach aktualizacji urządzenia, dzięki czemu można je wdrożyć na urządzeniach. Aktualizacja urządzenia obsługuje wdrażanie jednej aktualizacji na urządzenie. Sprawia to, że jest to idealne rozwiązanie w przypadku aktualizacji w pełnym obrazie, które aktualizują całą partycję systemu operacyjnego jednocześnie, lub manifest apt, który opisuje wszystkie pakiety, które chcesz zaktualizować na urządzeniu. Aby zaimportować aktualizacje do aktualizacji urządzeń, należy najpierw utworzyć manifest importu opisujący aktualizację, przekazać pliki aktualizacji i manifest importu do lokalizacji dostępnej do Internetu. Następnie można użyć Azure Portal lub [interfejsu API REST aktualizacji urządzenia](https://docs.microsoft.com/rest/api/deviceupdate/) , aby zainicjować asynchroniczny proces importowania aktualizacji. Aktualizacja urządzenia przekazuje pliki, przetwarza je i udostępnia je do dystrybucji na urządzeniach IoT.
 
 W przypadku zawartości poufnej należy chronić pobieranie przy użyciu sygnatury dostępu współdzielonego (SAS, Shared Access Signature), takiego jak wielohoc SAS dla usługi Azure Blob Storage. [Więcej informacji na temat sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md)
 

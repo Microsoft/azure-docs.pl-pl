@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059385"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222525"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -42,7 +42,7 @@ Załóżmy na przykład, że Pracujesz w banku Woodgrove i chcesz współpracowa
 - Graficzny Instytut projektowania używa usługi Azure AD, a ich użytkownicy mają główną nazwę użytkownika kończącą się na *graphicdesigninstitute.com*.
 - Firma Contoso nie korzysta jeszcze z usługi Azure AD. Użytkownicy firmy Contoso mają główną nazwę użytkownika kończącą się na *contoso.com*.
 
-W takim przypadku można skonfigurować dwie połączone organizacje. Utworzysz jedną podłączoną organizację dla Instytutu projektowania grafiki i jeden dla contoso. Jeśli następnie dodasz dwie połączone organizacje do zasad, użytkownicy z każdej organizacji z główną nazwą użytkownika zgodną z zasadami mogą żądać pakietów dostępu. Użytkownicy z główną nazwą użytkownika, która ma domenę *graphicdesigninstitute.com* , będą odpowiadały organizacji połączonej z Instytutem projektu graficznego i mogą przesyłać żądania. Użytkownicy z główną nazwą użytkownika, która ma domenę *contoso.com* , będą odpowiadały organizacji połączonej z contoso, a także mogą żądać pakietów. Ponadto, ponieważ Instytut projektowania grafiki używa usługi Azure AD, wszyscy użytkownicy z główną nazwą, która pasuje do [zweryfikowanej domeny](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) dodanej do swojej dzierżawy, takiej jak *graphicdesigninstitute. example*, mogą również żądać pakietów dostępu przy użyciu tych samych zasad.
+W takim przypadku można skonfigurować dwie połączone organizacje. Utworzysz jedną podłączoną organizację dla Instytutu projektowania grafiki i jeden dla contoso. Jeśli następnie dodasz dwie połączone organizacje do zasad, użytkownicy z każdej organizacji z główną nazwą użytkownika zgodną z zasadami mogą żądać pakietów dostępu. Użytkownicy z główną nazwą użytkownika, która ma domenę contoso.com, będą odpowiadały organizacji połączonej z contoso, a także mogą żądać pakietów. Użytkownicy z główną nazwą użytkownika, która ma domenę *graphicdesigninstitute.com* , będą odpowiadały organizacji połączonej z Instytutem projektu graficznego i mogą przesyłać żądania. Ponadto, ponieważ Instytut projektowania grafiki używa usługi Azure AD, wszyscy użytkownicy z główną nazwą, która pasuje do [zweryfikowanej domeny](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) dodanej do swojej dzierżawy, takiej jak *graphicdesigninstitute. example*, mogą również żądać pakietów dostępu przy użyciu tych samych zasad. W przypadku korzystania z [poczty e-mail jednorazowe uwierzytelnianie dostępu jednokrotnego (OTP)](../external-identities/one-time-passcode.md) , które obejmuje użytkowników z tych domen, którzy nie mają jeszcze kont usługi Azure AD, które będą uwierzytelniać się przy użyciu uwierzytelniania OTP poczty e-mail podczas uzyskiwania dostępu do zasobów. 
 
 ![Przykład połączonej organizacji](./media/entitlement-management-organization/connected-organization-example.png)
 

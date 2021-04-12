@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 529e7773f11ec266fe660d09d735cda9192472a2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 0cf1d3eadccf4c2d413bb3fd72d993aedcd9ccc5
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125749"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283094"
 ---
 <!--Feature availability in region-->
 ## <a name="india"></a>Indie
@@ -21,5 +21,5 @@ ms.locfileid: "106125749"
 | [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) |![Ogólnie dostępna AudioAnalyzerPreset Indie Środkowe](../media/azure-clouds-regions/ga.svg)  | ![Ogólnie dostępna AudioAnalyzerPreset Indie Południowe](../media/azure-clouds-regions/ga.svg) |![Ogólnie dostępna AudioAnalyzerPreset Indie Zachodnie](../media/azure-clouds-regions/ga.svg)  |
 | [StandardEncoderPreset](../encode-concept.md) |![Ogólnie dostępna StandardEncoderPreset Indie Środkowe](../media/azure-clouds-regions/ga.svg)  | ![Ogólnie dostępna StandardEncoderPreset Indie Południowe](../media/azure-clouds-regions/ga.svg) | ![Ogólnie dostępna StandardEncoderPreset Indie Zachodnie](../media/azure-clouds-regions/ga.svg)  |
 | [LiveEvents](../stream-live-streaming-concept.md) |![Ogólnie dostępna LiveEvents Indie Środkowe](../media/azure-clouds-regions/ga.svg)  | ![Ogólnie dostępna LiveEvents Indie Południowe](../media/azure-clouds-regions/ga.svg) | ![Ogólnie dostępna LiveEvents Indie Zachodnie](../media/azure-clouds-regions/ga.svg) |
-| [StreamingEndpoints](../streaming-endpoint-concept.md) |![Ogólnie dostępna StreamingEndpoints Indie Środkowe](../media/azure-clouds-regions/ga.svg) | ![Ogólnie dostępna StreamingEndpoints Indie Południowe](../media/azure-clouds-regions/ga.svg) |![Ogólnie dostępna StreamingEndpoints Indie Zachodnie](../media/azure-clouds-regions/ga.svg) |
+| [StreamingEndpoints](../stream-streaming-endpoint-concept.md) |![Ogólnie dostępna StreamingEndpoints Indie Środkowe](../media/azure-clouds-regions/ga.svg) | ![Ogólnie dostępna StreamingEndpoints Indie Południowe](../media/azure-clouds-regions/ga.svg) |![Ogólnie dostępna StreamingEndpoints Indie Zachodnie](../media/azure-clouds-regions/ga.svg) |
 | [LiveTranscription](../live-event-live-transcription-how-to.md) |![Ogólnie dostępna LiveTranscription Indie Środkowe](../media/azure-clouds-regions/ga.svg) |![Ogólnie dostępna LiveTranscription Indie Południowe](../media/azure-clouds-regions/ga.svg) | ![Ogólnie dostępna LiveTranscription Indie Zachodnie](../media/azure-clouds-regions/ga.svg)  |

@@ -1,18 +1,18 @@
 ---
 title: Włączanie zintegrowanej ochrony obciążeń Azure Security Center
-description: Dowiedz się, jak włączyć usługę Azure Defender, aby zwiększyć ochronę Azure Security Center do zasobów hybrydowych i wielochmurowych
+description: Dowiedz się, jak włączyć usługę Azure Defender, aby zwiększyć ochronę Azure Security Center do zasobów hybrydowych i w chmurze
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 02/24/2021
-ms.openlocfilehash: 6496b18c8c22cbbd4fd3344736a4b38b7a998890
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7124014821c79fa37aa04da8909e3b4ac3bcb4fb
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102108919"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492498"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Szybki Start: Włączanie usługi Azure Defender
 
