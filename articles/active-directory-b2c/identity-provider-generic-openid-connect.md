@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21f31a21921953148ae0438cee04d846706161cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448340"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382933"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą usługi OpenID Connect Connect przy użyciu Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Aby umożliwić użytkownikom logowanie się, dostawca tożsamości wymaga od de
 
 ## <a name="scope"></a>Zakres
 
-Zakres definiuje informacje i uprawnienia, które chcesz zebrać od niestandardowego dostawcy tożsamości. Żądania połączenia OpenID Connect muszą zawierać `openid` wartość zakresu w celu uzyskania tokenu identyfikatora od dostawcy tożsamości. Bez tokenu identyfikatora użytkownicy nie mogą zalogować się do Azure AD B2C przy użyciu niestandardowego dostawcy tożsamości. Inne zakresy można dołączać rozdzielone spacjami. Zapoznaj się z dokumentacją niestandardowego dostawcy tożsamości, aby zobaczyć, jakie inne zakresy mogą być dostępne.
+Zakres definiuje informacje i uprawnienia, które mają być zbierane od dostawcy tożsamości, na przykład `openid profile` . Aby można było odebrać token identyfikatora od dostawcy tożsamości, `openid` należy określić zakres. Bez tokenu identyfikatora użytkownicy nie mogą zalogować się do Azure AD B2C przy użyciu niestandardowego dostawcy tożsamości. Inne zakresy można dołączać rozdzielone spacjami. Zapoznaj się z dokumentacją niestandardowego dostawcy tożsamości, aby zobaczyć, jakie inne zakresy mogą być dostępne.
 
 ## <a name="response-type"></a>Typ odpowiedzi
 

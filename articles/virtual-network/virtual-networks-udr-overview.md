@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645269"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732605"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -114,7 +114,7 @@ W przypadku dokładnego dopasowania prefiksu między trasą z jawnym prefiksem I
 Aby użyć tej funkcji, należy określić nazwę tagu usługi dla parametru prefiksu adresu w poleceniach tabeli tras. Na przykład w programie PowerShell można utworzyć nową trasę do kierowania ruchu wysyłanego do prefiksu IP usługi Azure Storage do urządzenia wirtualnego za pomocą: </br>
 
 ```azurepowershell-interactive
-New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
 ```
 
 To samo polecenie dla interfejsu wiersza polecenia będzie: </br>

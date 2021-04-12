@@ -2,17 +2,17 @@
 title: Uwierzytelnianie za pomocą jednostki usługi
 description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera przy użyciu nazwy głównej usługi Azure Active Directory.
 ms.topic: article
-ms.date: 10/04/2019
-ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/15/2021
+ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259139"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285539"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Uwierzytelnianie Azure Container Registry przy użyciu jednostek usługi
 
-Aby zapewnić obraz kontenera `docker push` i `pull` dostęp do rejestru kontenerów, można użyć jednostki usługi Azure Active Directory (Azure AD). Za pomocą nazwy głównej usługi można zapewnić dostęp do "bezobsługowego" usług i aplikacji.
+Możesz użyć jednostki usługi Azure Active Directory (Azure AD), aby zapewnić wypychanie, ściąganie lub inny dostęp do rejestru kontenerów. Za pomocą nazwy głównej usługi można zapewnić dostęp do "bezobsługowego" usług i aplikacji.
 
 ## <a name="what-is-a-service-principal"></a>Co to jest jednostka usługi?
 
@@ -52,7 +52,7 @@ Gdy masz nazwę główną usługi, której udzielono dostępu do rejestru konten
 * **Nazwa użytkownika** — identyfikator aplikacji głównej usługi (NAZYWANY także *identyfikatorem klienta*)
 * **Hasło** — hasło główne usługi (nazywane także *kluczem tajnym klienta*)
 
-Każda wartość jest identyfikatorem GUID formularza `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
+Każda wartość ma format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
 
 > [!TIP]
 > Możesz ponownie wygenerować hasło jednostki usługi, uruchamiając polecenie [AZ AD Sp Reset-Credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) .
@@ -66,7 +66,7 @@ Na przykład Użyj poświadczeń w celu ściągnięcia obrazu z rejestru kontene
 
 ### <a name="use-with-docker-login"></a>Użyj z logowaniem Docker
 
-Można uruchomić `docker login` za pomocą nazwy głównej usługi. W poniższym przykładzie identyfikator aplikacji głównej usługi jest przekazaniem w zmiennej środowiskowej `$SP_APP_ID` i hasłem w zmiennej `$SP_PASSWD` . Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi zarządzania poświadczeniami platformy Docker, zobacz informacje dotyczące polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+Można uruchomić `docker login` za pomocą nazwy głównej usługi. W poniższym przykładzie identyfikator aplikacji głównej usługi jest przekazaniem w zmiennej środowiskowej `$SP_APP_ID` i hasłem w zmiennej `$SP_PASSWD` . Zalecane praktyki dotyczące zarządzania poświadczeniami platformy Docker można znaleźć w dokumentacji polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579556"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933342"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -298,6 +298,21 @@ Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania 
 1. Na komputerze lokalnym Otwórz *Notatnik* jako administrator
 1. Przeglądaj i Otwórz plik *C:\Windows\System32\drivers\etc\hosts*
 1. Usuń wiersz dla dodanego rekordu, taki jak `168.62.205.103    ldaps.aaddscontoso.com`
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli zostanie wyświetlony komunikat o błędzie informujący, że LDAP.exe nie może nawiązać połączenia, spróbuj pracować przez różne aspekty uzyskiwania połączenia: 
+
+1. Konfigurowanie kontrolera domeny
+1. Konfigurowanie klienta
+1. Sieć
+1. Ustanawianie sesji TLS
+
+W przypadku dopasowania nazwy podmiotu certyfikatu kontroler domeny będzie używać platformy Azure dodaje nazwę domeny (nie nazwę domeny usługi Azure AD) do wyszukiwania certyfikatu w magazynie certyfikatów. Błędy pisowni, na przykład uniemożliwienie wybrania odpowiedniego certyfikatu przez kontroler domeny. 
+
+Klient próbuje nawiązać połączenie TLS przy użyciu podanej nazwy. Ruch musi być cały sposób. Kontroler domeny wysyła klucz publiczny certyfikatu uwierzytelniania serwera. Certyfikat musi mieć odpowiednie użycie w certyfikacie, nazwa podpisana w nazwie podmiotu musi być zgodna, aby klient mógł ufać, że serwer jest nazwą DNS, z którą nawiązujesz połączenie (oznacza to, że symbol wieloznaczny będzie działać bez błędów pisowni), a klient musi ufać wystawcy. Możesz sprawdzić, czy występują problemy w tym łańcuchu w dzienniku systemu Podgląd zdarzeń i filtrować zdarzenia, w przypadku których Źródło jest równe Schannel. Gdy te elementy są stosowane, tworzą klucz sesji.  
+
+Aby uzyskać więcej informacji, zobacz [uzgadnianie protokołu TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Następne kroki
 

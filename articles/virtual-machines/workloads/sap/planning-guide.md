@@ -8,15 +8,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 8bc289e90470ae9bc8b1996ac08c3144ea78de35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ef0bf7a8c3906122468c895325a77de555c196
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504716"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258796"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -588,7 +588,11 @@ Można przypisywać stałe lub zastrzeżone adresy IP do maszyn wirtualnych w ra
 > [!NOTE]
 > Statyczne adresy IP należy przypisać do poszczególnych vNICs na platformie Azure. Nie należy przypisywać statycznych adresów IP w systemie operacyjnym gościa do wirtualnej karty sieciowej. Niektóre usługi platformy Azure, takie jak Azure Backup, korzystają z faktu, że co najmniej podstawowy wirtualnej karty sieciowej jest ustawiony na wartość DHCP, a nie na statyczne adresy IP. Zobacz również dokument [Rozwiązywanie problemów z kopiami zapasowymi maszyny wirtualnej platformy Azure](../../../backup/backup-azure-vms-troubleshoot.md#networking).
 >
->
+
+
+##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Dodatkowe adresy IP dla wirtualizacji nazwy hosta SAP
+Każda karta sieciowa maszyny wirtualnej platformy Azure może mieć przypisane wiele adresów IP. ten pomocniczy adres IP może być używany dla wirtualnych hostów SAP, które są mapowane do rekordu systemu DNS A/PTR, jeśli jest to wymagane. Pomocnicze adresy IP muszą być przypisane do konfiguracji protokołu IP usługi Azure vNICs zgodnie z [tym artykułem](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md) , a także konfigurowane w systemie operacyjnym jako pomocnicze adresy IP nie są przypisywane za pomocą protokołu DHCP. Każdy pomocniczy adres IP musi należeć do tej samej podsieci, z którą jest powiązany wirtualnej karty sieciowej. Użycie zmiennoprzecinkowego adresu IP Azure Load Balancer [nie jest obsługiwane]( https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations) w przypadku pomocniczych konfiguracji protokołu IP, takich jak klastry Pacemaker, w tym przypadku adres IP Load Balancer włącza wirtualne nazwy hostów SAP. Zobacz też uwagi dotyczące oprogramowania SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) na ogólnych wskazówkach dotyczących nazw hostów wirtualnych.
+
 
 ##### <a name="multiple-nics-per-vm"></a>Wiele kart sieciowych na maszynę wirtualną
 
@@ -621,7 +625,7 @@ Powyższy rysunek przedstawia dwie subskrypcje platformy Azure, które mają pod
 Sieć VPN typu punkt-lokacja wymaga, aby każdy komputer kliencki łączył się ze swoją własną siecią VPN na platformę Azure. W przypadku scenariuszy SAP jest to niepraktyczne w przypadku połączeń punkt-lokacja. W związku z tym nie są przekazywane żadne dalsze odwołania do połączenia sieci VPN typu punkt-lokacja.
 
 Więcej informacji można znaleźć tutaj
-* [Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu Azure Portal](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Konfigurowanie połączenia punkt-lokacja z siecią wirtualną przy użyciu witryny Azure Portal](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu programu PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 #### <a name="multi-site-vpn"></a>Sieć VPN z obsługą wiele lokacji
@@ -1163,7 +1167,7 @@ Doświadczenie wdrożeń SAP w ciągu ostatnich dwóch lat — kilka lekcji, kt�
 > ![Logo systemu Linux.][Logo_Linux] Linux
 >
 > * [Konfigurowanie RAID oprogramowania w systemie Linux][virtual-machines-linux-configure-raid]
-> * [Konfigurowanie LVM na maszynie wirtualnej z systemem Linux na platformie Azure][virtual-machines-linux-configure-lvm]
+> * [Konfigurowanie menedżera LVM na maszynie wirtualnej z systemem Linux na platformie Azure][virtual-machines-linux-configure-lvm]
 >
 >
 
@@ -1236,7 +1240,7 @@ Replikacja geograficzna platformy Azure działa lokalnie na każdym wirtualnym d
 ---
 ### <a name="final-deployment"></a>Ostateczne wdrożenie
 
-Aby zapoznać się z ostatecznym wdrożeniem i dokładnymi krokami, szczególnie w odniesieniu do wdrożenia rozszerzenia platformy Azure dla oprogramowania SAP, zapoznaj się z [przewodnikiem wdrażania][deployment-guide].
+Aby zapoznać się z ostatecznym wdrożeniem i dokładnymi krokami, szczególnie wdrożeniem rozszerzenia platformy Azure dla oprogramowania SAP, zapoznaj się z [przewodnikiem wdrażania][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Uzyskiwanie dostępu do systemów SAP działających na maszynach wirtualnych platformy Azure
 
@@ -1657,7 +1661,7 @@ System zmian i transportu SAP (TMS) musi zostać skonfigurowany do eksportowania
 
 ##### <a name="configuring-the-transport-domain"></a>Konfigurowanie domeny transportu
 
-Skonfiguruj domenę transportu w systemie wskazanym jako kontroler domeny transportu, zgodnie z opisem w temacie [Konfigurowanie kontrolera domeny transportu](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Zostanie utworzony system TMSADM użytkownika i zostanie wygenerowana wymagana lokalizacja docelowa RFC. Te połączenia RFC można sprawdzić przy użyciu SM59 transakcji. Rozpoznawanie nazwy hosta musi być włączone w całej domenie transportu.
+Skonfiguruj domenę transportu w systemie wskazanym jako kontroler domeny transportu, zgodnie z opisem w temacie [Konfigurowanie kontrolera domeny transportu](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Configuring%20the%20Transport%20Domain%20Controller). Zostanie utworzony system TMSADM użytkownika i zostanie wygenerowana wymagana lokalizacja docelowa RFC. Te połączenia RFC można sprawdzić przy użyciu SM59 transakcji. Rozpoznawanie nazwy hosta musi być włączone w całej domenie transportu.
 
 Instrukcje:
 
@@ -1670,12 +1674,12 @@ Instrukcje:
 
 Sekwencja dołączania systemu SAP w domenie transportowej wygląda następująco:
 
-* W systemie DEWELOPERSKIm na platformie Azure przejdź do systemu transportowego (Client 000) i Wywołaj transakcję STMS. Wybierz inną konfigurację z okna dialogowego i Kontynuuj z opcją Dołącz system w domenie. Określ kontroler domeny jako hosta docelowego ([w tym systemy SAP w domenie transportu](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). System oczekuje na uwzględnienie w domenie transportu.
+* W systemie DEWELOPERSKIm na platformie Azure przejdź do systemu transportowego (Client 000) i Wywołaj transakcję STMS. Wybierz inną konfigurację z okna dialogowego i Kontynuuj z opcją Dołącz system w domenie. Określ kontroler domeny jako hosta docelowego ([w tym systemy SAP w domenie transportu](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0c17acc11d1899e0000e829fbbd.html?q=Including%20SAP%20Systems%20in%20the%20Transport%20Domain)). System oczekuje na uwzględnienie w domenie transportu.
 * Ze względów bezpieczeństwa należy ponownie przejść do kontrolera domeny w celu potwierdzenia Twojego żądania. Wybierz pozycję przegląd systemu i zatwierdź system oczekujący. Następnie potwierdź monit, a konfiguracja zostanie dystrybuowana.
 
 Ten system SAP zawiera teraz niezbędne informacje o wszystkich innych systemach SAP w domenie transportowej. W tym samym czasie dane adresowe nowego systemu SAP są wysyłane do wszystkich innych systemów SAP, a system SAP jest wprowadzany w profilu transportu programu do kontroli transportowej. Sprawdź, czy specyfikacje RFC i dostęp do katalogu transportowego w domenie działają.
 
-Kontynuuj konfigurację systemu transportowego, tak jak opisano to w artykule [zmiana i system transportowy](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)dokumentacji.
+Kontynuuj konfigurację systemu transportowego, tak jak opisano to w artykule [zmiana i system transportowy](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/3bdfba3692dc635ce10000009b38f839.html)dokumentacji.
 
 Instrukcje:
 
@@ -1687,13 +1691,13 @@ Instrukcje:
 
 W przypadku scenariuszy obejmujących wiele lokalizacji połączonych między lokacjami, opóźnienie między środowiskiem lokalnym i platformą Azure nadal może być istotne. Jeśli korzystamy z sekwencji transportowania obiektów za pomocą systemów deweloperskich i testowych do środowiska produkcyjnego lub uważasz, że stosujemy transporty lub pakiety pomocy technicznej do różnych systemów, należy pamiętać, że zależnie od lokalizacji centralnego katalogu transportowego niektóre systemy będą napotykać na odczyt lub zapis danych w centralnym katalogu transportowym. Ta sytuacja jest podobna do konfiguracji krajobrazu oprogramowania SAP, w której różne systemy są rozłożone w różnych centrach danych o dużej odległości między centrami danych.
 
-Aby obejść to opóźnienie i zapewnić, że systemy pracują szybko w przypadku odczytywania lub zapisywania do lub z katalogu transportowego, można skonfigurować dwie domeny transportu STMS (jedno dla lokalnego i jednego z systemów na platformie Azure i połączyć domeny transportu. Zapoznaj się z tą dokumentacją, która objaśnia zasady związane z tą koncepcją w oprogramowaniu SAP TMS: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm> .
+Aby obejść to opóźnienie i zapewnić, że systemy pracują szybko w przypadku odczytywania lub zapisywania do lub z katalogu transportowego, można skonfigurować dwie domeny transportu STMS (jedno dla lokalnego i jednego z systemów na platformie Azure i połączyć domeny transportu. Zapoznaj się z tym [dokumentacją] (<https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm) , która objaśnia zasady związane z tą koncepcją w oprogramowaniu SAP TMS.
+
 
 Instrukcje:
 
-* Skonfiguruj domenę transportu dla każdej lokalizacji (lokalnie i na platformie Azure) przy użyciu usługi Transaction STMS <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
-* Połącz domeny z linkiem domeny i Potwierdź połączenie między tymi dwiema domenami.
-  <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
+* [Konfigurowanie domeny transportowej] (<https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain) w każdej lokalizacji (lokalnie i na platformie Azure) przy użyciu usługi Transaction STMS
+* [Połącz domeny z linkiem domeny](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link) i Potwierdź połączenie między tymi dwiema domenami.
 * Dystrybuuj konfigurację do połączonego systemu.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>Ruch RFC między wystąpieniami SAP znajdującymi się na platformie Azure i lokalnie (między środowiskami lokalnymi)

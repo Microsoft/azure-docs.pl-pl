@@ -4,10 +4,10 @@ description: Informacje o operacyjnej kopii zapasowej obiektów blob platformy A
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558758"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Przegląd operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)

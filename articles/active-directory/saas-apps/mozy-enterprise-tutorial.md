@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105567359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Samouczek: integracja Azure Active Directory z usługą Mozy Enterprise
@@ -120,13 +120,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi Moz
 
     c. Adres URL wylogowywania
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Konfigurowanie Sign-On pojedynczego przedsiębiorstwa
+### <a name="configure-mozy-enterprise-single-sign-on&quot;></a>Konfigurowanie Sign-On pojedynczego przedsiębiorstwa
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmowej Mozy jako administrator.
 
 2. W sekcji **Konfiguracja** kliknij pozycję **zasady uwierzytelniania**.
    
-    ![Zrzut ekranu przedstawia zasady uwierzytelniania wybrane z konfiguracji.](./media/mozy-enterprise-tutorial/ic777314.png "Zasady uwierzytelniania")
+    ![Zrzut ekranu przedstawia zasady uwierzytelniania wybrane z konfiguracji.](./media/mozy-enterprise-tutorial/ic777314.png &quot;Zasady uwierzytelniania")
 
 3. W sekcji **zasady uwierzytelniania** wykonaj następujące czynności:
    
@@ -199,7 +199,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-mozy-enterprise-test-user"></a>Utwórz użytkownika testowego Mozy Enterprise
+### <a name="create-mozy-enterprise-test-user&quot;></a>Utwórz użytkownika testowego Mozy Enterprise
 
 Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Mozy Enterprise, muszą one być obsługiwane w usłudze Mozy Enterprise. W przypadku Mozy Enterprise Inicjowanie obsługi jest zadaniem ręcznym.
 
@@ -212,7 +212,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Mozy En
 
 2. Kliknij pozycję **Użytkownicy**, a następnie kliknij pozycję **Dodaj nowego użytkownika**.
    
-    ![Użytkownicy](./media/mozy-enterprise-tutorial/ic777317.png "Użytkownicy")
+    ![Użytkownicy](./media/mozy-enterprise-tutorial/ic777317.png &quot;Użytkownicy")
    
     >[!NOTE]
     >Opcja **Dodaj nowy użytkownik** jest wyświetlana tylko wtedy, gdy wybrano **Mozy** jako dostawcę w obszarze **zasady uwierzytelniania**. W przypadku skonfigurowania uwierzytelniania przy użyciu protokołu SAML użytkownicy są dodawani automatycznie przy pierwszym logowaniu za pomocą logowania jednokrotnego.

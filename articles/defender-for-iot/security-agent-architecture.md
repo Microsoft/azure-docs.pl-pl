@@ -2,13 +2,13 @@
 title: 'Szybki Start: Omówienie agentów zabezpieczeń'
 description: W tym przewodniku szybki start dowiesz się, jak zrozumieć architekturę agentów zabezpieczeń dla agentów używanych w usłudze Azure Defender for IoT.
 ms.topic: quickstart
-ms.date: 01/24/2021
-ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/4/2021
+ms.openlocfilehash: 0937cccb0335f4eee16ca3590babe9574320b89f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778512"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384988"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Szybki Start: architektura referencyjna agenta zabezpieczeń
 
@@ -33,7 +33,7 @@ Usługi Defender Security Agents są opracowywane jako projekty open source i do
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Brak
+- Brak
 
 ## <a name="agent-supported-platforms"></a>Platformy obsługiwane przez agenta
 
@@ -48,8 +48,7 @@ Usługa Defender for IoT oferuje różnych agentów Instalatora dla 32 bitowych 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule opisano ogólne omówienie architektury Defender for IoT Defender-IoT-Micro-Agent i dostępnych instalatorów.
-
-Aby kontynuować wprowadzenie do usługi Defender for IoT, użyj następujących artykułów:
+Aby kontynuować wprowadzenie do usługi Defender dla wdrożenia IoT, 
 
 > [!div class="nextstepaction"]
 > [metody uwierzytelniania agenta zabezpieczeń](concept-security-agent-authentication-methods.md)

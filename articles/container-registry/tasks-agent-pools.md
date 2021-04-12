@@ -4,12 +4,12 @@ description: Skonfiguruj dedykowaną pulę obliczeniową (pulę agentów) w reje
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b1f077d6216443ad267f8620f87882439cb355c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920311"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284145"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Uruchamianie zadania ACR w dedykowanej puli agentów
 
@@ -31,7 +31,7 @@ Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyska�
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
 - Pule agentów zadań obsługują obecnie węzły systemu Linux. Węzły systemu Windows nie są obecnie obsługiwane.
-- Pule agentów zadań są dostępne w wersji zapoznawczej w następujących regionach: zachodnie stany USA 2, Południowo-środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, środkowe stany USA, USGov Arizona, USGov Texas Instruments i USGov Wirginia.
+- Pule agentów zadań są dostępne w wersji zapoznawczej w następujących regionach: zachodnie stany USA 2, Południowo-środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, środkowe stany USA, Europa Zachodnia, Kanada środkowa, USGov Arizona, USGov Texas Instruments i USGov Wirginia.
 - Dla każdego rejestru domyślny całkowity limit przydziału vCPU (rdzeń) wynosi 16 dla wszystkich standardowych pul agentów i ma wartość 0 dla izolowanych pul agentów. Otwórz [żądanie pomocy technicznej][open-support-ticket] , aby uzyskać dodatkowe alokacje.
 - Obecnie nie można anulować zadania uruchomionego w puli agentów.
 

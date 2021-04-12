@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8007c81479c73e4503d74af4c4043e503baf2b
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584234"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120150"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
 
@@ -72,10 +72,10 @@ W każdym przypadku wszystkie zakresy Microsoft Graph reprezentują niektóre ze
 Na przykład jeśli aplikacja żąda następujących zakresów Microsoft Graph,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-Aplikacja może oczekiwać, że użytkownicy będą spełniać wszystkie zasady ustawione w ramach rezerwacji i programu Exchange. Niektóre zakresy mogą być mapowane na wiele zestawów danych, jeśli udzielą dostępu.
+Aplikacja może oczekiwać, że użytkownicy będą spełniać wszystkie zasady ustawione dla zespołów i programu Exchange. Niektóre zakresy mogą być mapowane na wiele zestawów danych, jeśli udzielą dostępu.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Zgodność z zasadami dostępu warunkowego
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Samouczek: integracja Azure Active Directory z programem rozwiązania Zscaler beta
@@ -190,14 +190,14 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. Wybierz pozycję **Aktywuj**.
 
-## <a name="configure-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
+## <a name="configure-proxy-settings&quot;></a>Konfigurowanie ustawień serwera proxy
 Aby skonfigurować ustawienia serwera proxy w programie Internet Explorer, wykonaj następujące kroki.
 
 1. Uruchom program **Internet Explorer**.
 
 2. Wybierz **Opcje internetowe** z menu **Narzędzia** , aby otworzyć okno dialogowe **Opcje internetowe** . 
     
-     ![Opcje internetowe — okno dialogowe](./media/zscaler-beta-tutorial/ic769492.png "Opcje internetowe")
+     ![Opcje internetowe — okno dialogowe](./media/zscaler-beta-tutorial/ic769492.png &quot;Opcje internetowe")
 
 3. Wybierz kartę **połączenia** . 
   

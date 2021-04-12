@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 4ae7ad186e2ed8868be6205d48e9cfbef525d810
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 04b36b9b32e78016f693e61d40246776492be0e3
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106172804"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222864"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Wprowadzenie do Azure Active Directory poświadczenia do zweryfikowania (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Nasze cyfrowe i fizyczne zasoby są coraz bardziej połączone z aplikacjami, us
 
 Jednak dane tożsamości zostały zbyt często ujawnione w przypadku naruszeń zabezpieczeń. Takie naruszenia mają wpływ na działalność osób mających wpływ na nasze kwestie społeczne, profesjonalne i finansowe. Firma Microsoft uważa, że jest to lepszy sposób. Każda osoba ma prawo do tożsamości, która posiada, i kontroluje, która bezpiecznie przechowuje elementy swojej tożsamości cyfrowej i zachowuje prywatność. W tym przewodniku wyjaśniono, jak jesteśmy zachęcamy do korzystania z różnorodnych społeczności, aby utworzyć otwarte, wiarygodne, współdziałające i oparte na standardach rozwiązanie zdecentralizowane tożsamość (i) dla osób i organizacji.
 
-## <a name="why-we-need-decentralized-identity"></a>Dlaczego potrzebna jest zdecentralizowana tożsamość 
+## <a name="why-we-need-decentralized-identity"></a>Dlaczego potrzebna jest zdecentralizowana tożsamość
 
 Dzisiaj korzystamy z naszej tożsamości cyfrowej w pracy, w domu i w każdej aplikacji, usłudze i używanej przez nas urządzeniu. Składają się z wszystkiego, co mamy, do tego, i doświadczenia w życie — kupowanie biletów na wydarzenie, ewidencjonowanie hotelu lub nawet porządkowanie. Obecnie nasza tożsamość i wszystkie nasze interakcje cyfrowe są własnością i są kontrolowane przez inne osoby. niektórzy z nich jeszcze nie wiedzą.
 
@@ -36,7 +36,7 @@ Ogólnie rzecz biorąc, użytkownicy wyrażają zgodę na kilka aplikacji i urz�
 
 Uważamy, że system tożsamości zdecentralizowanej oparty na standardach może odblokować nowy zestaw środowisk, dzięki którym użytkownicy i organizacje mają większą kontrolę nad swoimi danymi — i zapewniają wyższy poziom zaufania i zabezpieczeń dla aplikacji, urządzeń i dostawców usług.
 
-## <a name="lead-with-open-standards"></a>Potencjalni klienci dzięki otwartym standardom 
+## <a name="lead-with-open-standards"></a>Potencjalni klienci dzięki otwartym standardom
 
 Firma Microsoft zobowiązała się do współpracy z klientami, partnerami i społecznością w celu odblokowania nowej generacji zdecentralizowanych środowisk opartych na tożsamościach, a firma Microsoft przyjemnością się z partnerami i organizacjami, które wprowadzają niezawodne udziały w tym miejscu. Jeśli ekosystem ma zostać powiększony, standardy, składniki techniczne i elementy dostarczane przez kod muszą być otwarte i dostępne dla wszystkich.
 
@@ -50,21 +50,21 @@ Firma Microsoft aktywnie współpracuje z członkami zdecentralizowanego program
 * [Program wymiany prezentacji DIF](https://identity.foundation/presentation-exchange/)
 
 
-## <a name="what-are-dids"></a>Co to są DIDs 
+## <a name="what-are-dids"></a>Co to są DIDs?
 
 Zanim będziemy mogli zrozumieć DIDs, ułatwiają one porównywanie ich z bieżącymi systemami tożsamości. Adresy e-mail i identyfikatory sieci społecznościowych to przyjazne dla człowieka aliasy do współpracy, ale teraz są przeciążone, aby zapewnić, że punkty kontroli dostępu do danych w wielu scenariuszach wykraczają poza współpracę. Powoduje to utworzenie potencjalnego problemu, ponieważ dostęp do tych identyfikatorów może zostać usunięty w dowolnym momencie przez strony zewnętrzne.
 
 Identyfikatory zdecentralizowane (DIDs) są różne. DIDs są wygenerowanymi przez użytkownika, unikatowymi identyfikatorami globalnymi, które zostały odblokowane w systemach zdecentralizowanych, takich jak jonu. Mają one unikatowe cechy, takie jak większa gwarancja niezmienności, odporność Censorship i manipulowanie evasiveness. Te atrybuty mają krytyczne znaczenie dla dowolnego systemu identyfikatora, który jest przeznaczony do zapewnienia własności i kontroli użytkownika. 
 
 Rozwiązanie do weryfikowania poświadczeń firmy Microsoft używa zdecentralizowanych poświadczeń (DIDs) w celu kryptograficznego podpisywania jako dowodu, że jednostka uzależniona (weryfikatorer) jest zaświadczana do informacji potwierdzających, że są właścicielami poświadczenia możliwe do zweryfikowania. W związku z tym, zaleca się, aby każda osoba tworząca zweryfikowane rozwiązanie w oparciu o ofertę firmy Microsoft zaleciła sobie podstawową wiedzę na temat zdecentralizowanych identyfikatorów.
-## <a name="what-are-verifiable-credentials"></a>Co to są poświadczenia do zweryfikowania 
+## <a name="what-are-verifiable-credentials"></a>Co to są poświadczenia do zweryfikowania?
 
  Identyfikatory są używane w codziennych okresach. Mamy licencje na sterowniki, które są używane jako dowód naszej zdolności do obsługi samochodu. Uniwersytety wydające dyplomy, które udowodnią osiągnięcie poziomu edukacji. Korzystamy z paszportów, aby udowodnić, kto jest odpowiedzialny za przybycie do innych krajów. Model danych opisuje, jak możemy obsłużyć te typy scenariuszy podczas pracy z Internetem, ale w bezpieczny sposób, który szanuje prywatność użytkownika. Dodatkowe informacje można uzyskać w [modelu danych z zweryfikowanymi poświadczeniami 1,0](https://www.w3.org/TR/vc-data-model/)
 
 W skrócie, zweryfikowane poświadczenia to obiekty danych składające się z oświadczeń podjętych przez wystawcę zaświadczania informacji o temacie. Te oświadczenia są identyfikowane przez schemat i zawierają wystawcy oraz podmiot. Wystawcy tworzy podpis cyfrowy jako dowód potwierdzający zaświadczenie tych informacji.
 
 
-## <a name="how-does-decentralized-identity-work"></a>Jak działa zdecentralizowana tożsamość? 
+## <a name="how-does-decentralized-identity-work"></a>Jak działa zdecentralizowana tożsamość?
 
 Potrzebujemy nowej formy tożsamości. Potrzebujemy tożsamości, która łączy technologie i standardy, aby dostarczyć kluczowe atrybuty tożsamości, takie jak własność samowłasności i odporność Censorship. Te możliwości są trudne do osiągnięcia przy użyciu istniejących systemów.
 

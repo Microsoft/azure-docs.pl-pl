@@ -4,16 +4,16 @@ description: Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemó
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: wenjiefu
-author: wenjiefu
+author: RodgeFu
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 2bc56d39de392c9e4c20c25b554e3bdeea048bfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361880"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934006"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Rozwiązywanie problemów z wykonywaniem pakietów w środowisku SSIS Integration Runtime
 
@@ -121,7 +121,10 @@ Ten błąd występuje, gdy środowisko SSIS Integration Runtime nie może uzyska
 Jedną z potencjalnych przyczyn jest to, że nazwa użytkownika lub hasło z włączonym Multi-Factor Authentication usługi Azure AD jest skonfigurowane pod kątem Azure Analysis Services uwierzytelniania. To uwierzytelnianie nie jest obsługiwane w programie SSIS Integration Runtime. Spróbuj użyć jednostki usługi do uwierzytelniania Azure Analysis Services:
 
 1. Przygotuj jednostkę usługi zgodnie z opisem w temacie [Automatyzacja przy użyciu jednostek usługi](../analysis-services/analysis-services-service-principal.md).
-2. W Menedżerze połączeń Skonfiguruj **użycie określonej nazwy użytkownika i hasła**: Ustaw **Identyfikator aplikacji** jako nazwę użytkownika i **clientSecret** jako hasło.
+2. W Menedżerze połączeń Skonfiguruj **użycie określonej nazwy użytkownika i hasła:** Ustaw **aplikację:*&lt; AppID &gt;* @* &lt; TenantID &gt;*** jako nazwę użytkownika i clientSecret jako hasło. Oto przykład prawidłowo sformatowanej nazwy użytkownika:
+ 
+   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`
+1. W Menedżerze połączeń Skonfiguruj **użycie określonej nazwy użytkownika i hasła**: Ustaw **Identyfikator aplikacji** jako nazwę użytkownika i **clientSecret** jako hasło.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Komunikat o błędzie: "Źródło ADONET nie uzyskało połączenia {GUID} z następującym komunikatem o błędzie: Logowanie użytkownika" NT AUTHORITY\ANONYMOUS LOGON "" przy użyciu tożsamości zarządzanej nie powiodło się.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Samouczek: integracja Azure Active Directory z usługą Wikispaces
@@ -176,17 +176,17 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-wikispaces-test-user"></a>Utwórz użytkownika testowego Wikispaces
+### <a name="create-wikispaces-test-user&quot;></a>Utwórz użytkownika testowego Wikispaces
 
 Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wikispaces, muszą one być obsługiwane w Wikispaces. W przypadku Wikispaces, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Aby aprowizować konta użytkowników, wykonaj następujące czynności:
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Aby aprowizować konta użytkowników, wykonaj następujące czynności:
 
 1. Zaloguj się do firmowej witryny **Wikispaces** jako administrator.
 
 2. Przejdź do **elementów członkowskich**.
    
-    ![Elementy członkowskie](./media/wikispaces-tutorial/ic787193.png "Elementy członkowskie")
+    ![Elementy członkowskie](./media/wikispaces-tutorial/ic787193.png &quot;Elementy członkowskie")
 
 3. Kliknij pozycję **Zaproś osoby**.
    

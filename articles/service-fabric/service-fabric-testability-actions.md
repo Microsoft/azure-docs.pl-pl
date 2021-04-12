@@ -2,14 +2,14 @@
 title: Symulowanie błędów w mikrousługach platformy Azure
 description: W tym artykule omówiono akcje dotyczące testowania, które znajdują się w Microsoft Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 06/07/2017
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9f8221d92ded33350b182cce5d28dd889beae4a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595020"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732877"
 ---
 # <a name="testability-actions"></a>Akcje dotyczące testowania
 W celu zasymulowania niezawodnej infrastruktury usługa Azure Service Fabric zapewnia deweloperom sposoby symulowania różnych rzeczywistych awarii i przejść do stanu. Są one dostępne jako akcje testowania. Akcje są interfejsami API niskiego poziomu, które powodują konkretną iniekcję błędów, zmianę stanu lub weryfikację. Łącząc te akcje, można napisać kompleksowe scenariusze testów dla usług.
@@ -34,6 +34,7 @@ Aby zapewnić lepszą weryfikację jakości, należy uruchomić usługę i obci�
 | InvokeQuorumLoss |Umieszcza daną partycję usługi stanowej w utracie kworum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Zamknięcie |
 | Operację moveprimary |Przenosi określoną replikę podstawową usługi stanowej do określonego węzła klastra. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Zamknięcie |
 | MoveSecondary |Przenosi bieżącą replikę pomocniczą usługi stanowej do innego węzła klastra. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Zamknięcie |
+| MoveInstance | Przenosi bieżące wystąpienie usługi bezstanowej do innego węzła klastra. | MoveInstanceAsync | Move-ServiceFabricInstance | Zamknięcie |
 | RemoveReplica |Symuluje awarię repliki przez usunięcie repliki z klastra. Spowoduje to zamknięcie repliki i przeniesienie jej do roli "none" i usunięcie wszystkich jej stanu z klastra. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Zamknięcie |
 | RestartDeployedCodePackage |Symuluje niepowodzenie procesu pakietu kodu przez ponowne uruchomienie pakietu kodu wdrożonego w węźle w klastrze. Powoduje to przerwanie procesu pakietu kodu, co spowoduje ponowne uruchomienie wszystkich replik usługi użytkownika hostowanych w tym procesie. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Nieprawidłowym |
 | RestartNode |Symuluje awarię węzła klastra Service Fabric przez ponowne uruchomienie węzła. |RestartNodeAsync |Restart-ServiceFabricNode |Nieprawidłowym |

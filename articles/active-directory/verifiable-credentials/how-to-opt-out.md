@@ -1,5 +1,5 @@
 ---
-title: Rezygnacja z zweryfikowanych poświadczeń (wersja zapoznawcza)
+title: Rezygnacja z Azure Active Directory poświadczenia do zweryfikowania (wersja zapoznawcza)
 description: Dowiedz się, jak zrezygnować z zweryfikowanych poświadczeń w wersji zapoznawczej
 documentationCenter: ''
 author: barclayn
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 93c493a9b9941913da270fe763175240c8abf9f3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d6e72b6d6f566fcf3f52e1c48ab6824c0e9a968e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170213"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222796"
 ---
 # <a name="opt-out-of-the-verifiable-credentials-preview"></a>Rezygnacja z zweryfikowanych poświadczeń (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ Po zakończeniu rezygnacji z Azure Active Directory usługi poświadczeń do zwe
 
 Gdy nastąpi rezygnacja z programu, nie będzie można odzyskać ani wykonać żadnych operacji. Ten krok jest operacją jednokierunkową i konieczne jest ponowne zainicjowanie, co spowoduje utworzenie nowej.  
 
-## <a name="effect-on-existing-verifiable-credentials"></a>Wpływ na istniejące poświadczenia podlegające weryfikacji.
+## <a name="effect-on-existing-verifiable-credentials"></a>Wpływ na istniejące poświadczenia podlegające weryfikacji
 
 Wszystkie zweryfikowane poświadczenia, które już wydano, będą nadal istnieć. Nie zostaną one kryptograficznie unieważnione, ponieważ pozostaną one rozpoznawalne przez jonu.
 Jednak gdy jednostki uzależnione wywołują interfejs API stanu, zawsze będą otrzymywać komunikat o błędzie.

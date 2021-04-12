@@ -4,15 +4,15 @@ description: W tym artykule opisano sposób konfigurowania kont Azure Cosmos DB 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0470759a589927b65462f258b20446af608175c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565839"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284048"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Skonfiguruj konto Azure Cosmos DB przy użyciu okresowej kopii zapasowej
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,11 +31,32 @@ Usługa Azure Cosmos DB automatycznie tworzy kopie zapasowe danych w regularnych
 
 * Kopie zapasowe są wykonywane bez wpływu na wydajność i dostępność aplikacji. Azure Cosmos DB wykonuje kopię zapasową danych w tle bez użycia dodatkowej, zainicjowanej przepływności (jednostek ru) ani wpływu na wydajność i dostępność bazy danych.
 
+## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
+
+Domyślnie Azure Cosmos DB przechowuje dane kopii zapasowej w trybie okresowym w geograficznie nadmiarowym [magazynie obiektów BLOB](../storage/common/storage-redundancy.md) replikowanym do [sparowanego regionu](../best-practices-availability-paired-regions.md).  
+
+Aby zapewnić, że dane kopii zapasowej będą przechowywane w tym samym regionie, w którym zainicjowano konto Azure Cosmos DB, można zmienić domyślny magazyn kopii zapasowych nadmiarowy geograficznie i skonfigurować magazyn lokalnie nadmiarowy. Mechanizmy nadmiarowości magazynu przechowują wiele kopii kopii zapasowych w taki sposób, aby były chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowym awariami sprzętowymi, siecią lub przestojem lub bardzo naturalnymi katastrofami.
+
+Dane kopii zapasowej w Azure Cosmos DB są replikowane trzy razy w regionie podstawowym. Nadmiarowość magazynu można skonfigurować w trybie okresowej kopii zapasowej w momencie tworzenia konta lub zaktualizować je dla istniejącego konta. W trybie okresowej kopii zapasowej można użyć następujących trzech opcji nadmiarowości danych:
+
+* **Magazyn kopii zapasowych nadmiarowy geograficznie:** Ta opcja powoduje, że dane są kopiowane asynchronicznie w ramach sparowanego regionu.
+
+* **Magazyn kopii zapasowych nadmiarowy w strefie:** Ta opcja powoduje, że dane są kopiowane asynchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym.
+
+* **Magazyn kopii zapasowych lokalnie nadmiarowy:** Ta opcja powoduje, że dane są kopiowane asynchronicznie w jednej lokalizacji fizycznej w regionie podstawowym.
+
+> [!NOTE]
+> Magazyn strefowo nadmiarowy jest obecnie dostępny tylko w [określonych regionach](high-availability.md#availability-zone-support). W oparciu o wybrany region; Ta opcja będzie niedostępna dla nowych lub istniejących kont.
+>
+> Aktualizacja nadmiarowości magazynu kopii zapasowych nie będzie miała wpływu na ceny magazynu kopii zapasowych.
+
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modyfikowanie interwału i okresu przechowywania kopii zapasowych
 
 Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową danych przez co 4 godziny i w dowolnym momencie są przechowywane najnowsze kopie zapasowe. Ta konfiguracja jest opcją domyślną i jest oferowana bez dodatkowych kosztów. Domyślny interwał tworzenia kopii zapasowej i okres przechowywania można zmienić podczas tworzenia konta usługi Azure Cosmos lub po jego utworzeniu. Konfiguracja kopii zapasowej jest ustawiana z poziomu konta usługi Azure Cosmos i należy ją skonfigurować na każdym koncie. Po skonfigurowaniu opcji tworzenia kopii zapasowej dla konta są one stosowane do wszystkich kontenerów w ramach tego konta. Obecnie opcje tworzenia kopii zapasowej można zmienić tylko w witrynie Azure Portal.
 
 Jeśli dane zostały przypadkowo usunięte lub uszkodzone, **przed utworzeniem żądania obsługi w celu przywrócenia danych należy zwiększyć czas przechowywania kopii zapasowej dla konta na co najmniej siedem dni. Najlepszym rozwiązaniem jest zwiększenie okresu przechowywania w ciągu 8 godzin od tego zdarzenia.** Dzięki temu zespół Azure Cosmos DB ma wystarczająco dużo czasu na przywrócenie konta.
+
+### <a name="modify-backup-options-for-an-existing-account"></a>Modyfikowanie opcji tworzenia kopii zapasowej dla istniejącego konta
 
 Wykonaj następujące kroki, aby zmienić domyślne opcje tworzenia kopii zapasowej dla istniejącego konta usługi Azure Cosmos:
 
@@ -48,11 +69,18 @@ Wykonaj następujące kroki, aby zmienić domyślne opcje tworzenia kopii zapaso
 
    * **Kopie przechowywanych danych** — domyślnie dwie kopie zapasowe danych są oferowane bezpłatnie. Jeśli potrzebujesz więcej niż dwóch kopii, występuje dodatkowa opłata. Zapoznaj się z sekcją zużyty magazyn na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby poznać dokładną cenę za dodatkowe kopie.
 
-   :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-interval-retention.png" alt-text="Skonfiguruj interwał i przechowywanie kopii zapasowej dla istniejącego konta usługi Azure Cosmos." border="true":::
+   * **Nadmiarowość magazynu kopii zapasowych** — wybierz opcję wymagana nadmiarowość magazynu, aby uzyskać dostępne opcje, zapoznaj się z sekcją [nadmiarowość magazynu kopii zapasowych](#backup-storage-redundancy) . Domyślnie istniejące okresowe konta trybu kopii zapasowej mają magazyn Geograficznie nadmiarowy. Możesz wybrać inny magazyn, taki jak lokalnie nadmiarowy, aby zapewnić, że kopia zapasowa nie zostanie zreplikowana do innego regionu. Zmiany wprowadzone do istniejącego konta są stosowane tylko do przyszłych kopii zapasowych. Po zaktualizowaniu nadmiarowości magazynu kopii zapasowej istniejącego konta może upłynąć do dwukrotnego czasu interwału wykonywania kopii zapasowych, aby zmiany zaczęły obowiązywać i **utracisz dostęp do natychmiastowego przywrócenia starszych kopii zapasowych.**
 
-W przypadku konfigurowania opcji tworzenia kopii zapasowej podczas tworzenia konta można skonfigurować **zasady tworzenia kopii zapasowych**, które są **okresowe** lub **ciągłe**. Zasady okresowe umożliwiają skonfigurowanie interwału kopii zapasowych i przechowywania kopii zapasowych. Zasady ciągłe są obecnie dostępne tylko w przypadku rejestracji. Zespół Azure Cosmos DB oceni obciążenie i zatwierdzi Twoje żądanie.
+   > [!NOTE]
+   > Aby skonfigurować nadmiarowość magazynu kopii zapasowych, musisz mieć przypisaną rolę [czytnika konta Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) platformy Azure na poziomie subskrypcji.
 
-:::image type="content" source="./media/configure-periodic-backup-restore/configure-periodic-continuous-backup-policy.png" alt-text="Skonfiguruj okresowe lub ciągłe zasady tworzenia kopii zapasowych dla nowych kont usługi Azure Cosmos." border="true":::
+   :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-existing-accounts.png" alt-text="Skonfiguruj interwał tworzenia kopii zapasowej, przechowywanie i nadmiarowość magazynu dla istniejącego konta usługi Azure Cosmos." border="true":::
+
+### <a name="modify-backup-options-for-a-new-account"></a>Modyfikowanie opcji tworzenia kopii zapasowej dla nowego konta
+
+Po zainicjowaniu obsługi nowego konta na karcie **zasady tworzenia kopii zapasowych** wybierz pozycję **okresowo** _ zasady tworzenia kopii zapasowych. Zasady okresowe umożliwiają skonfigurowanie interwału kopii zapasowych, przechowywania kopii zapasowych i nadmiarowości magazynu kopii zapasowych. Można na przykład wybrać opcję _ *lokalnie nadmiarowy magazyn kopii zapasowych** lub **strefowo nadmiarowe magazyny kopii zapasowych** , aby uniemożliwić replikację danych kopii zapasowej poza regionem.
+
+:::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-new-accounts.png" alt-text="Skonfiguruj okresowe lub ciągłe zasady tworzenia kopii zapasowych dla nowych kont usługi Azure Cosmos." border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a><a id="request-restore"></a>Żądanie przywracania danych z kopii zapasowej
 
@@ -115,8 +143,7 @@ Jeśli zainicjujesz przepływność na poziomie bazy danych, proces tworzenia ko
 Podmioty zabezpieczeń będące częścią roli [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), Owner lub współautor mogą żądać przywrócenia lub zmienić okres przechowywania.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Informacje o kosztach dodatkowych kopii zapasowych
-Dwa kopie zapasowe są udostępniane bezpłatnie, a dodatkowe kopie zapasowe są naliczone zgodnie z cennikiem opartym na regionie dla magazynu kopii zapasowych opisanym w [cenniku usługi Backup Storage](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Na przykład jeśli przechowywanie kopii zapasowych jest skonfigurowane na 240 godz., 10 dni i interwał tworzenia kopii zapasowej do 24 godzin. To oznacza 10 kopii kopii zapasowych danych. Przy założeniu, że 1 TB danych w regionie zachodnie stany USA 2, koszt będzie wynosił 0,12 * 1000 * 8 dla magazynu kopii zapasowych w danym miesiącu. 
-
+Dwa kopie zapasowe są udostępniane bezpłatnie, a dodatkowe kopie zapasowe są naliczone zgodnie z cennikiem opartym na regionie dla magazynu kopii zapasowych opisanym w [cenniku usługi Backup Storage](https://azure.microsoft.com/pricing/details/cosmos-db/). Na przykład jeśli przechowywanie kopii zapasowych jest skonfigurowane na 240 godz., 10 dni i interwał tworzenia kopii zapasowej do 24 godzin. To oznacza 10 kopii kopii zapasowych danych. Przy założeniu, że 1 TB danych w regionie zachodnie stany USA 2, koszt będzie wynosił 0,12 * 1000 * 8 dla magazynu kopii zapasowych w danym miesiącu.
 
 ## <a name="options-to-manage-your-own-backups"></a>Opcje zarządzania własnymi kopiami zapasowymi
 

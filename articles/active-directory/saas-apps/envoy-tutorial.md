@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 04/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 9b7e5626eeb65b5bc92c27dbb0a772e85a54d4ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbf961e7b99efe29fd8b13c2104c33e42ae7d4be
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453975"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą wysłannika
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę wysłannika z usługą A
 * Kontrolka w usłudze Azure AD, która ma dostęp do wysłannika.
 * Zezwól użytkownikom na automatyczne logowanie się do usługi wysłannika przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,29 +37,29 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Aplikacja Envoy obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług**
+* Usługa wysłannika obsługuje usługę **SP** zainicjowaną przez usługę SSO.
 
-* Aplikacja Envoy obsługuje aprowizację użytkowników **Just In Time**
+* Wysłannika obsługuje Inicjowanie obsługi użytkowników **just in Time** .
 
 > [!NOTE]
 > Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
-## <a name="adding-envoy-from-the-gallery"></a>Dodawanie aplikacji Envoy z galerii
+## <a name="add-envoy-from-the-gallery"></a>Dodaj wysłannika z galerii
 
 Aby skonfigurować integrację aplikacji Envoy z usługą Azure AD, należy dodać aplikację Envoy z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **wysłannika** w polu wyszukiwania.
 1. Wybierz pozycję **wysłannika** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-envoy"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla wysłannika
+## <a name="configure-and-test-azure-ad-sso-for-envoy"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla wysłannika
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą wysłannika przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w wysłannika.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą wysłannika, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą wysłannika, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -74,9 +72,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **wysłannika** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **wysłannika** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -118,15 +116,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **Envoy**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-envoy-sso"></a>Konfigurowanie logowania jednokrotnego wysłannika
@@ -143,19 +135,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Na pasku narzędzi u góry kliknij pozycję **Settings** (Ustawienia).
 
-    ![Envoy](./media/envoy-tutorial/ic776782.png "Envoy")
+    ![Envoy](./media/envoy-tutorial/envoy-1.png "Envoy")
 
 5. Kliknij pozycję **Company** (Firma).
 
-    ![Przedsiębiorstwo](./media/envoy-tutorial/ic776783.png "Firma")
+    ![Przedsiębiorstwo](./media/envoy-tutorial/envoy-2.png "Firma")
 
 6. Kliknij pozycję **SAML**.
 
-    ![SAML](./media/envoy-tutorial/ic776784.png "SAML")
+    ![SAML](./media/envoy-tutorial/envoy-3.png "SAML")
 
 7. W sekcji konfiguracyjnej **SAML Authentication** (Uwierzytelnianie SAML) wykonaj następujące kroki:
 
-    ![Uwierzytelnianie SAML](./media/envoy-tutorial/ic776785.png "Uwierzytelnianie SAML")
+    ![Uwierzytelnianie SAML](./media/envoy-tutorial/envoy-4.png "Uwierzytelnianie SAML")
     
     >[!NOTE]
     >Wartość dla identyfikatora lokalizacji centrali jest automatycznie generowana przez aplikację.
@@ -172,16 +164,14 @@ W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w wysłannika. Wys�
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka Envoy w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Envoy, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania wysłannika, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź bezpośrednio do adresu URL logowania wysłannika i zainicjuj w nim przepływ logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka wysłannika w obszarze Moje aplikacje zostanie on przekierowany do adresu URL logowania wysłannika. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj wysłannika z usługą Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu wysłannika można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98179609"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu śródwierszowego w Azure Logic Apps
@@ -279,7 +279,7 @@ Jeśli wybierzesz pozycję **Akcje**, zostanie wyświetlony monit o akcje, któr
 
 1. Aby dodać kolejną akcję, wybierz pozycję **Dodaj nowy element**.
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Odwołanie
 
 Aby uzyskać więcej informacji o strukturze i składni akcji **Wykonaj kod JavaScript** w źródłowej definicji przepływu pracy aplikacji logiki przy użyciu języka definicji przepływu pracy, zapoznaj się z [sekcją odwołania](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)tej akcji.
 

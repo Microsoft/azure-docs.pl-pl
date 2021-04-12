@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467842"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285362"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Model wbudowanej karty identyfikacyjnej aparatu rozpoznawania formularzy (identyfikator)
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z kart identyfikacyjnych instytucji rządowych (identyfikatorów) przy użyciu wbudowanego modelu identyfikatorów. Łączymy nasze zaawansowane możliwości [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z funkcjami rozpoznawania identyfikatorów, aby wyodrębnić najważniejsze informacje z naszych paszportów ogólnoświatowych i licencji na sterownik w Stanach Zjednoczonych (wszystkie 50 stanów i Waszyngtonie). Interfejs API identyfikatorów wyodrębnia najważniejsze informacje z tych dokumentów tożsamości, takie jak imię, nazwisko, Data urodzenia, numer dokumentu i inne. Ten interfejs API jest dostępny w formie aparatu rozpoznawania w wersji testowej 2.0 2.1 jako usługi w chmurze i jako kontener lokalny.
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z kart identyfikacyjnych instytucji rządowych (identyfikatorów) przy użyciu wbudowanego modelu identyfikatorów. Łączymy nasze zaawansowane możliwości [rozpoznawania znaków optycznych (OCR)](../computer-vision/overview-ocr.md) z funkcjami rozpoznawania identyfikatorów, aby wyodrębnić najważniejsze informacje z naszych paszportów ogólnoświatowych i licencji na sterownik w Stanach Zjednoczonych (wszystkie 50 stanów i Waszyngtonie). Interfejs API identyfikatorów wyodrębnia najważniejsze informacje z tych dokumentów tożsamości, takie jak imię, nazwisko, Data urodzenia, numer dokumentu i inne. Ten interfejs API jest dostępny w formie aparatu rozpoznawania w wersji testowej 2.0 2.1 jako usługi w chmurze i jako kontener lokalny.
 
 ## <a name="what-does-the-id-service-do"></a>Do czego służy usługa identyfikatorów? 
 

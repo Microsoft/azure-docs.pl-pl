@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 666e9f01d090acf29b8013470ed0264cd83f6d47
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: a8420d23c8bda29290722975ada2acca6733f0e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293638"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491688"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>Użyj DataBox do migracji z magazynu dołączonego do sieci (NAS) do udziałów plików platformy Azure
 
@@ -137,7 +137,12 @@ Wykonaj kroki opisane w dokumentacji usługi Azure DataBox:
 
 Połączona dokumentacja DataBox Określa polecenie RoboCopy. Jednak polecenie nie jest odpowiednie, aby zachować pełną wierność plików i folderów. Użyj tego polecenia zamiast:
 
-[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
+```console
+Robocopy /MT:32 /NP /NFL /NDL /B /MIR /IT /COPY:DATSO /DCOPY:DAT /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+```
+* Aby dowiedzieć się więcej na temat szczegółów poszczególnych flag RoboCopy, zapoznaj się z tabelą w nadchodzącej [sekcji Robocopy](#robocopy).
+* Aby dowiedzieć się więcej o tym, jak odpowiednio zmienić rozmiar liczby wątków `/MT:n` , zoptymalizować Robocopy szybkość i Robocopy dobry sąsiada w centrum danych, zapoznaj się z [sekcją rozwiązywania problemów Robocopy](#troubleshoot).
+
 
 ## <a name="phase-7-catch-up-robocopy-from-your-nas"></a>Faza 7: Przechwytywanie RoboCopy z serwera NAS
 
@@ -197,59 +202,7 @@ Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarz
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Szybkość i szybkość powodzeń danego uruchomienia RoboCopy będą zależeć od kilku czynników:
-
-* Liczba operacji we/wy na magazynie źródłowym i docelowym
-* dostępna przepustowość sieci między nimi
-* możliwość szybkiego przetwarzania plików i folderów w przestrzeni nazw
-* Liczba zmian między RoboCopy uruchomieniami
-
-
-### <a name="iops-and-bandwidth-considerations"></a>Informacje o liczbie IOPS i przepustowości
-
-W tej kategorii należy wziąć pod uwagę możliwości **źródłowe** (nas), **miejsce docelowe** (Azure DataBox i nowsze udziały plików platformy Azure) oraz **sieci** łączące się z nimi. Maksymalna możliwa przepływność jest określana na podstawie najwolniejszych z tych trzech składników. Standardowa DataBox obejmuje dwa interfejsy sieciowe 10 GB/s. W zależności od serwera NAS może być możliwe dopasowanie tego programu. Upewnij się, że infrastruktura sieciowa jest skonfigurowana tak, aby obsługiwała optymalne szybkości transferu do swoich najlepszych umiejętności.
-
-> [!CAUTION]
-> Podczas kopiowania tak szybko, jak to możliwe jest często najbardziej trudniejsze, rozważ użycie sieci lokalnej i urządzenia NAS dla innych, często ważnych zadań dla działalności biznesowej.
-
-Kopiowanie tak szybko, jak to możliwe może być niepożądane, gdy istnieje ryzyko, że migracja może monopolize dostępne zasoby.
-
-* Należy wziąć pod uwagę, kiedy w środowisku najlepiej jest uruchamiać migracje: w ciągu dnia, godziny lub w weekendy.
-* Należy również rozważyć ustawienia QoS sieci na serwerze z systemem Windows, aby ograniczyć szybkość RoboCopyi, a tym samym wpływ na NAS i sieć.
-* Unikaj niepotrzebnych zadań dla narzędzi migracji.
-
-RobCopy może również mieć możliwość wstawiania opóźnień między pakietami przez określenie przełącznika, `/IPG:n` gdzie `n` jest mierzony w milisekundach między pakietami Robocopy. Użycie tego przełącznika może pomóc w uniknięciu monopolization zasobów na urządzeniach NAS z ograniczeniami we/wy i wysoce wykorzystywanych łączach sieciowych. 
-
-`/IPG:n` nie można użyć do precyzyjnego ograniczania przepustowości sieci do określonej liczby MB/s. Zamiast tego użyj funkcji QoS sieci systemu Windows Server. RoboCopy całkowicie opiera się na protokole SMB dla całej sieci i w ten sposób nie ma możliwości wywierania wpływu na przepływność sieci, ale może spowolnić jego wykorzystanie. 
-
-Podobna linia myśli dotyczy operacji we/wy zaobserwowanej na serwerze NAS. Rozmiar klastra w woluminie NAS, rozmiary pakietów i tablica innych czynników wpływają na zaobserwowane operacje we/wy na sekundę. Wprowadzenie opóźnienia między pakietami jest często najprostszym sposobem sterowania obciążeniem serwera NAS. Przetestuj wiele wartości, na przykład od około 20 milisekund (n = 20) do wielokrotności, aby zobaczyć, ile opóźnienia pozwala na obsługę innych wymagań, przy jednoczesnym zachowaniu maksymalnej szybkości RoboCopy na potrzeby ograniczeń.
-
-### <a name="processing-speed"></a>Szybkość przetwarzania
-
-RoboCopy przejdzie do obszaru nazw, do którego się odnosi, i oceni każdy plik i folder do kopiowania. Każdy plik zostanie oszacowany podczas kopiowania wstępnego, na przykład kopii za pośrednictwem sieci lokalnej do DataBox, a nawet podczas przechwytywania kopii za pośrednictwem łącza sieci WAN do udziału plików platformy Azure.
-
-Często domyślnie rozważamy wykorzystanie przepustowości jako czynnik najbardziej ograniczającego w migracji — i to może być prawdziwe. Jednak możliwość wyliczenia przestrzeni nazw może mieć wpływ na łączny czas kopiowania jeszcze więcej dla większych przestrzeni nazw o mniejszych plikach. Należy wziąć pod uwagę, że kopiowanie 1 TiB małych plików zajmie znacznie dłużej niż kopiowanie 1 TiB mniejszej liczby plików, a wszystkie inne zmienne są takie same.
-
-Przyczyną tej różnicy jest moc obliczeniowa, która jest wymagana do przeszukania w przestrzeni nazw. RoboCopy obsługuje kopie wielowątkowe za pomocą parametru, `/MT:n` gdzie n oznacza liczbę wątków procesora. Dlatego w przypadku inicjowania obsługi maszyny przeznaczonej dla RoboCopy należy wziąć pod uwagę liczbę rdzeni procesora i ich powiązania z liczbą wątków, które zapewnia. Najczęstsze są dwa wątki na rdzeń. Liczba rdzeni i wątków maszyny jest ważnym punktem danych, aby zdecydować, jakie wartości wielowątkowości należy `/MT:n` określić. Należy również wziąć pod uwagę liczbę zadań RoboCopy, które planujesz uruchamiać równolegle na danym komputerze.
-
-Więcej wątków skopiujemy nasz przykład 1Tib małych plików znacznie szybciej niż w przypadku mniejszych wątków. W tym samym czasie istnieje spadek spadku inwestycji w 1Tib większych plików. Nadal będą kopiować więcej wątków, które przypiszesz, ale zwiększenie przepustowości sieci lub operacji we/wy jest ograniczone.
-
-### <a name="avoid-unnecessary-work"></a>Unikaj niepotrzebnej pracy
-
-Unikaj zmian w dużej skali w przestrzeni nazw. Obejmuje to przeniesienie plików między katalogami, zmianę właściwości na dużą skalę lub zmianę uprawnień (list ACL systemu plików NTFS), ponieważ często mają efekt kaskadowy, gdy listy ACL folderów bliżej katalogu głównego udziału są zmienione. Konsekwencje mogą być następujące:
-
-* rozszerzony czas wykonywania zadania RoboCopy ze względu na wszystkie pliki i foldery, do których ma wpływ zmiana listy kontroli dostępu
-* skuteczność używania DataBox w pierwszym miejscu może ulec zmniejszeniu, gdy struktury folderów uległy zmianie po skopiowaniu plików do DataBox. Zadanie RoboCopy nie będzie mogło odwrócić zmiany przestrzeni nazw i należy przeczyścić pliki transportowane do udziału plików platformy Azure i ponownie przekazać pliki w nowej strukturze folderów do platformy Azure.
-
-Innym ważnym aspektem jest użycie narzędzia RoboCopy efektywnie. Zalecanym skryptem RoboCopy jest utworzenie i zapisanie pliku dziennika pod kątem błędów. Błędy kopiowania mogą wystąpić — to jest normalne. Te błędy często sprawiają, że konieczne jest uruchomienie wielu rund narzędzia kopiowania, takiego jak RoboCopy. Początkowy przebieg, powiedzmy od serwera NAS do DataBox i co najmniej jedną dodatkową z przełącznikiem/MIR, aby przechwytywać i ponawiać pliki, które nie zostały skopiowane.
-
-Należy przygotować się do uruchamiania wielu rund RoboCopy dla danego zakresu przestrzeni nazw. Kolejne uruchomienia zakończą się szybciej, ponieważ mają mniej do skopiowania, ale są ograniczone przez szybkość przetwarzania przestrzeni nazw. W przypadku uruchamiania wielu operacji zaokrąglania można przyspieszyć poszczególne operacje, nie mając RoboCopy, spróbuj bardzo trudne do skopiowania wszystkiego przy pierwszej próbie. Te przełączniki RoboCopy mogą mieć znaczącą różnicę:
-
-* `/R:n` n = częstotliwość ponawiania próby skopiowania pliku zakończonego niepowodzeniem i 
-* `/W:n` n = liczba sekund oczekiwania między ponownymi próbami
-
-`/R:5 /W:5` jest odpowiednim ustawieniem, które można dostosować do własnych potrzeb. W tym przykładzie plik, który uległ awarii, zostanie ponowiony pięć razy, z pięciu sekund czasu oczekiwania między ponownymi próbami. Jeśli plik nadal nie może zostać skopiowany, następne zadanie RoboCopy zostanie ponowione i często trwające pliki, które nie powiodły się, ponieważ są używane lub problemy z limitem czasu mogą zostać pomyślnie skopiowane w ten sposób.
-
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -214,6 +214,8 @@
       href: security-guide.md
     - name: Obsługa systemu Linux
       href: linux-overview.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
     - name: Oszacuj koszty Azure Monitor
       href: azure-monitor-costs.md
     - name: Obsługiwane ustawienia pliku RDP

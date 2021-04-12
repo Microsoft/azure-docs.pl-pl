@@ -388,6 +388,8 @@
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Dokumentacja
   items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/billing
     - name: Interfejs API REST usługi Azure Cost Management
       href: /rest/api/cost-management
     - name: Interfejs API REST użycia platformy Azure
