@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: eb1b39f268934a71acb05d99bbeecb1b27b27a77
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 2fe8f5d0acb2ab7e2f1c64dde1bedb19b96111e9
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111892"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492294"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Standardowe formaty i kodeki kodera
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Ten artykuł zawiera listę najpopularniejszych formatów importu i eksportu plików, których można używać z programem [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Aby uzyskać informacje na temat tworzenia niestandardowych ustawień wstępnych przy użyciu programu **StandardEncoderPreset**, zobacz [Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym](encode-custom-presets-how-to.md).
+Ten artykuł zawiera listę najpopularniejszych formatów importu i eksportu plików, których można używać z programem [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Aby uzyskać informacje na temat tworzenia niestandardowych ustawień wstępnych przy użyciu programu **StandardEncoderPreset**, zobacz [Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym](transform-custom-presets-how-to.md).
 
 ## <a name="input-containerfile-formats"></a>Dane wejściowe w formacie kontenera/pliku
 
@@ -103,4 +103,4 @@ W poniższej tabeli wymieniono kodery-dekoder i formaty plików, które są obs�
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym](encode-custom-presets-how-to.md)
+[Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym](transform-custom-presets-how-to.md)

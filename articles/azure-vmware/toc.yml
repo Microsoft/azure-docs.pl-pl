@@ -64,8 +64,6 @@
       href: manage-dhcp.md
     - name: Konfigurowanie składników sieci NSX
       href: configure-nsx-network-components-azure-portal.md
-    - name: Wdrażanie odzyskiwania po awarii dla maszyn wirtualnych
-      href: disaster-recovery-for-virtual-machines.md
     - name: Konfigurowanie serwera usługi GitHub Enterprise
       href: github-enterprise-server.md
     - name: Używanie publicznego adresu IP
@@ -76,6 +74,26 @@
       href: windows-server-failover-cluster.md
     - name: Zresetuj poświadczenia vSphere
       href: reset-vsphere-credentials.md
+    - name: Odzyskiwanie po awarii
+      items:
+        - name: Wdrażanie odzyskiwania po awarii dla maszyn wirtualnych
+          href: disaster-recovery-for-virtual-machines.md
+        - name: Odzyskiwanie po awarii na platformie Azure
+          items:
+            - name: Przygotowywanie platformy Azure
+              href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+            - name: Przygotowywanie usługi Azure VMware Solution
+              href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+            - name: Konfigurowanie replikacji
+              href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+            - name: Uruchamianie próbnego odzyskiwania
+              href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+            - name: Przełączenie do trybu failover na platformie Azure
+              href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+            - name: Ponowne włączanie ochrony maszyn wirtualnych
+              href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+            - name: Powrót po awarii z platformy Azure
+              href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
     - name: Integracja z funkcjami macierzystymi platformy Azure
       items:
         - name: API Management

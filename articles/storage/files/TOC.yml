@@ -227,6 +227,10 @@
       items:
         - name: Migracja do udziałów plików usługi Azure File
           href: storage-files-migration-overview.md
+        - name: Kierowanie wdrożenia tylko w chmurze
+          items:
+            - name: Migrowanie z lokalnego serwera NAS do udziałów plików platformy Azure za pomocą DataBox
+              href: storage-files-migration-nas-cloud-databox.md
         - name: Wdrożenie hybrydowe jako cel
           items:
             - name: Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure Data Box
@@ -237,8 +241,6 @@
               href: storage-files-migration-nas-hybrid.md
             - name: Migrowanie z lokalnej usługi NAS do hybrydowego serwera plików z DataBox
               href: storage-files-migration-nas-hybrid-databox.md
-            - name: Migrowanie z lokalnego serwera NAS do udziałów plików platformy Azure za pomocą DataBox
-              href: storage-files-migration-nas-cloud-databox.md
         - name: Z urządzenia StorSimple
           items:
             - name: Przewodnik migracji dla urządzeń StorSimple 8100 i 8600

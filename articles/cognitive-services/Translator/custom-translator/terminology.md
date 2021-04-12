@@ -1,24 +1,24 @@
 ---
-title: Terminologia — translator niestandardowy
+title: Najważniejsze terminy — translator niestandardowy
 titleSuffix: Azure Cognitive Services
-description: Lista terminów używanych w artykułach dotyczących translatorów niestandardowych.
+description: Lista kluczowych terminów używanych w artykułach usługi translatory niestandardowe.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/02/2021
 ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 4461f584e365a5d47e7ceee942e33bc8b101b2d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a0308f2b961ce9b1321fab3e202e038eb199674
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104657829"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286423"
 ---
-# <a name="custom-translator-terminology"></a>Terminologia dotycząca translatora niestandardowego
+# <a name="custom-translator-key-terms"></a>Niestandardowe terminy usługi translator
 
-W poniższej tabeli przedstawiono listę warunków, które mogą znajdować się podczas pracy z [translatorem niestandardowym](https://portal.customtranslator.azure.ai).
+W poniższej tabeli przedstawiono listę najważniejszych terminów, które mogą być dostępne podczas pracy z [translatorem niestandardowym](https://portal.customtranslator.azure.ai).
 
 | Słowo lub fraza|Definicja|
 |------------------|-----------|

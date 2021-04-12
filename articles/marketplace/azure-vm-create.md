@@ -7,18 +7,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/10/2021
-ms.openlocfilehash: 827e4d883fd9e80ae84845d620cc4ca00816f56e
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 1ea8583b33fbe711fcffbf9626236923ecd0df8b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551321"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107231"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Jak utworzyć ofertę maszyny wirtualnej w witrynie Azure Marketplace
 
 W tym artykule opisano sposób tworzenia oferty maszyny wirtualnej platformy Azure dla [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/). Dotyczy zarówno maszyn wirtualnych opartych na systemie Windows, jak i Linux, które zawierają system operacyjny, wirtualny dysk twardy (VHD) oraz maksymalnie 16 dysków danych.
 
-Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](partner-center-portal/create-account.md). Upewnij się, że Twoje konto zostało zarejestrowane w komercyjnym programie Marketplace.
+Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md). Upewnij się, że Twoje konto zostało zarejestrowane w komercyjnym programie Marketplace.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 

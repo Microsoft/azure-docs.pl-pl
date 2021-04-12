@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 7662ef5c2c3f5ed20069f64781d222ae44e52168
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384843"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490968"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway
 
@@ -158,6 +158,14 @@ Zestaw reguł ponownego zapisywania zawiera:
       * **Ścieżka URL**: wartość, do której ma zostać zapisywana ścieżka. 
       * **Ciąg zapytania URL**: wartość, w której ma zostać ponownie zapisany ciąg zapytania. 
       * **Ponownie Oceń mapę ścieżek**: służy do określenia, czy mapa ścieżki adresu URL ma zostać ponownie oceniona. Jeśli pole nie jest zaznaczone, oryginalna ścieżka URL zostanie użyta w celu dopasowania jej do wzorca ścieżki w mapie ścieżki URL. W przypadku ustawienia wartości true Mapa ścieżki URL zostanie ponownie oceniona, aby sprawdzić zgodność z zapisaną ścieżką. Włączenie tego przełącznika ułatwia kierowanie żądania do innej puli zaplecza po ponownym zapisaniu.
+
+## <a name="rewrite-configuration-common-pitfall"></a>Ponownie Napisz wspólne Pitfall konfiguracji
+
+* Włączanie funkcji "ponowne obliczanie mapy ścieżek" jest niedozwolone w przypadku reguł routingu żądań podstawowych. Jest to zapobiega nieskończonej pętli oceny dla reguły routingu w warstwie Podstawowa.
+
+* Wymagana jest co najmniej 1 reguła ponownego zapisywania warunkowego lub 1 reguła zmiany zapisu, która nie ma włączonej funkcji "ponownie Oceń mapę ścieżki" dla reguł routingu opartych na ścieżkach, aby zapobiec nieskończoną pętlą oceny dla reguły routingu opartej na ścieżkach.
+
+* Żądania przychodzące zostaną zakończone z kodem błędu 500 w przypadku, gdy pętla jest tworzona dynamicznie na podstawie danych wejściowych klienta. Application Gateway będzie nadal obsługiwał inne żądania bez obniżenia wydajności w taki scenariusz.
 
 ### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Używanie ponownego zapisywania adresu URL lub zapisywania nagłówka hosta za pomocą zapory aplikacji sieci Web (WAF_v2 SKU)
 

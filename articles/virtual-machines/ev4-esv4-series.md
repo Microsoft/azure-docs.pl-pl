@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 40ca03114d5a27ad3e5be54d75cb3bbe0221a501
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 677158c69ef15508ff9fc00e83ff87678cf9f983
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560297"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443973"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
@@ -75,7 +75,7 @@ Rozmiary serii Esv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinu
 | Standard_E32s_v4 | 32 | 256 | Tylko Magazyn zdalny | 32 | 51200/768  | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Tylko Magazyn zdalny | 32 | 76800/1152 | 8|24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Tylko Magazyn zdalny | 32 | 80000/1200 | 8|30000 |
-| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Tylko Magazyn zdalny | 32 | 80000/1200 | 8|30000 |
+| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Tylko Magazyn zdalny | 32 | 80000/1500 | 8|30000 |
 
 dostępne są <sup>1</sup> [ograniczone rozmiary rdzeni)](./constrained-vcpu.md).
 

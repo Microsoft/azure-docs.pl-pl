@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 03/19/2021
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 09eabffb0e01ee6c5ea6b541378773a7d60397a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 30ae737a170c337fe6be51521aeb358cdcebd44b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080457"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107344"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Używanie parametrów potoku w projektancie do tworzenia uniwersalnych potoków
 
@@ -95,9 +95,11 @@ Jeśli chcesz przesłać potok z zmiennymi zestawami danych, musisz podwyższyć
 
 Teraz można określić inny zestaw danych przy użyciu parametru potoku przy następnym uruchomieniu potoku.
 
-## <a name="attach-module-parameter-to-pipeline-parameter"></a>Dołącz parametr modułu do parametru potoku 
+## <a name="attach-and-detach-module-parameter-to-pipeline-parameter"></a>Dołączanie i odłączanie parametru modułu do parametru potoku 
 
-W tej sekcji dowiesz się, jak dołączyć parametr modułu do parametru potoku.
+W tej sekcji dowiesz się, jak dołączać i odłączać parametr modułu do parametru potoku.
+
+### <a name="attach-module-parameter-to-pipeline-parameter"></a>Dołącz parametr modułu do parametru potoku
 
 Możesz dołączyć te same parametry modułu zduplikowanych modułów do tego samego parametru potoku, jeśli chcesz zmienić wartość w tym samym czasie podczas wyzwalania uruchomienia potoku.
 
@@ -115,10 +117,16 @@ W poniższym przykładzie użyto zduplikowanego nieprawidłowego modułu **danyc
 
    ![Zrzut ekranu pokazujący sposób dołączania parametru potoku](media/how-to-use-pipeline-parameter/attach-replace-value-to-pipeline-parameter.png)
 
-Pole **wartości zastępczej** zostało pomyślnie dołączone do parametru potoku. **Wartość zastępcza** w modułach nie działa.
+Pole **wartości zastępczej** zostało pomyślnie dołączone do parametru potoku. 
+
+
+### <a name="detach-module-parameter-to-pipeline-parameter"></a>Odłączanie parametru modułu do parametru potoku
+
+Po dołączeniu **wartości zastępczej** do parametru potoku nie można wykonać akcji.
+
+Parametr modułu można odłączyć do parametru potoku, klikając wielokropek (**...**) obok parametru modułu, a następnie wybrać opcję **Odłącz od parametru potoku**.
 
  ![Zrzut ekranu pokazujący, że nie można wykonać akcji po dołączeniu do parametru potoku](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
-
 
 ## <a name="update-and-delete-pipeline-parameters"></a>Aktualizowanie i usuwanie parametrów potoku
 
@@ -133,7 +141,7 @@ Wykonaj następujące kroki, aby zaktualizować parametr potoku modułu:
 
 ### <a name="delete-a-dataset-pipeline-parameter"></a>Usuń parametr potoku DataSet
 
-Aby odłączyć parametr potoku zestawu danych, wykonaj następujące kroki:
+Aby usunąć parametr potoku zestawu danych, wykonaj następujące kroki:
 
 1. Wybierz moduł DataSet.
 1. Usuń zaznaczenie opcji **Ustaw jako parametr potoku**.
@@ -147,22 +155,14 @@ Wykonaj następujące kroki, aby usunąć parametr potoku modułu:
 
 1. Wybierz wielokropek (**...**) obok parametru potoku.
 
-    Ten widok przedstawia moduły, do których jest dołączony parametr potoku. Aby usunąć parametr potoku, najpierw należy go odłączyć od dowolnego parametru modułu.
+    Ten widok przedstawia moduły, do których jest dołączony parametr potoku.
 
-    ![Zrzut ekranu pokazujący bieżący parametr potoku zastosowany do modułu](media/how-to-use-pipeline-parameter/current-pipeline-parameter.png)
+    ![Zrzut ekranu pokazujący bieżący parametr potoku zastosowany do modułu](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
-1. Na kanwie wybierz moduł, do którego jest nadal dołączony parametr potoku.
-1. W okienku właściwości modułu po prawej stronie Znajdź pole, do którego jest dołączony parametr potoku.
-1. MouseOver dołączone pole. Następnie wybierz przycisk wielokropka (**...**), który zostanie wyświetlony.
-1. Wybierz opcję **Odłącz od parametru potoku**
-
-    ![Zrzut ekranu pokazujący odłączenie od parametrów potoku](media/how-to-use-pipeline-parameter/detach-from-pipeline-parameter.png)
-
-1. Powtórz poprzednie kroki do momentu odłączenia parametru potoku ze wszystkich pól.
-1. Wybierz wielokropek (**...**) obok parametru potoku.
 1. Wybierz pozycję **Usuń parametr** , aby usunąć parametr potoku.
 
-    ![Zrzut ekranu pokazujący Usuwanie parametrów potoku](media/how-to-use-pipeline-parameter/delete-pipeline-parameter.png)
+    > [!NOTE]
+    > Usunięcie parametru potoku spowoduje odłączenie wszystkich dołączonych parametrów modułu, a wartość odłączonych parametrów modułu zachowuje bieżącą wartość parametru potoku.     
 
 ## <a name="trigger-a-pipeline-run-with-pipeline-parameters"></a>Wyzwalanie uruchomienia potoku przy użyciu parametrów potoku 
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775769"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258881"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -197,6 +197,8 @@ Jest to ogólny przegląd kroków. Te kroki mogą ulec zmianie, więc zawsze zap
    * Nadaj aplikacji pamięci podręcznej dostęp do konta usługi Azure [Storage, jak](#permissions)wspomniano powyżej. Można to zrobić przy pierwszym utworzeniu miejsca docelowego magazynu. Postępuj zgodnie z procedurą w temacie [Dodawanie miejsc docelowych](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) w celu nadania pamięci podręcznej wymaganych ról dostępu.
 
      Jeśli nie jesteś właścicielem konta magazynu, jego właścicielem jest ten krok.
+
+Dowiedz się więcej o używaniu obiektów docelowych magazynu ADLS-NFS z pamięcią podręczną platformy Azure HPC w systemie, która [korzysta z](nfs-blob-considerations.md)pamięci podręcznej platformy Azure HPC.
 
 ## <a name="set-up-azure-cli-access-optional"></a>Konfigurowanie dostępu do interfejsu wiersza polecenia platformy Azure (opcjonalnie)
 

@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Azure Blob Storage Library V12 — Java'
 description: W tym przewodniku szybki start dowiesz się, jak za pomocą biblioteki klienckiej platformy Azure Blob Storage w wersji 12 dla języka Java utworzyć kontener i obiekt BLOB w magazynie obiektów BLOB (Object). Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać listę wszystkich obiektów blob w kontenerze.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6d42cf26bc128257aa5d0cd7ef01e8fe8749a51
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054707"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280636"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java
 

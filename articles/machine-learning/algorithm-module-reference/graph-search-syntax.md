@@ -1,33 +1,36 @@
 ---
 title: Składnia zapytań wyszukiwania w usłudze Graph
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać składni zapytania wyszukiwania w projektancie Azure Machine Learning, aby wyszukiwać węzły w programie na wykresie potoku.
+description: Dowiedz się, jak używać składni zapytania wyszukiwania w projektancie Azure Machine Learning, aby wyszukiwać węzły na wykresie potoku.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420771"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259232"
 ---
 # <a name="graph-search-query-syntax"></a>Składnia zapytań wyszukiwania w usłudze Graph
 
-Ten artykuł zawiera informacje o składni zapytań wyszukiwania grafu w Azure Machine Learning. Funkcja wyszukiwania grafów pozwala wyszukiwać węzeł według jego nazwy i właściwości. 
+Ten artykuł zawiera informacje na temat funkcji wyszukiwania grafów w programie Azure Machine Learning. 
 
- ![Animowany zrzut ekranu przedstawiający przykładowe środowisko wyszukiwania w grafie](media/search/graph-search.gif)
+Funkcja wyszukiwania grafów umożliwia szybkie nawigowanie po węźle podczas debugowania lub kompilowania potoku. Możesz wpisać słowo kluczowe lub zapytanie w polu wejściowym na pasku narzędzi lub na karcie wyszukiwanie w lewym panelu, aby wyzwolić wyszukiwanie. Wszystkie dopasowane wyniki zostaną wyróżnione kolorem żółtym na kanwie, a jeśli wybierzesz wynik w lewym panelu, węzeł na kanwie zostanie wyróżniony kolorem czerwonym.
+
+![Zrzut ekranu przedstawiający przykładowe środowisko wyszukiwania w grafie](media/search/graph-search-0322.png)
 
 Program Graph Search obsługuje wyszukiwanie pełnotekstowe w postaci słów kluczowych przy użyciu nazwy węzła i komentarzy. Można również filtrować właściwości węzła, takie jak runStatus, Duration, computeTarget. Wyszukiwanie słów kluczowych jest oparte na zapytaniu Lucene. Pełne zapytanie wyszukiwania wygląda następująco:  
 
-**[zapytanie Lucene | [zapytanie filtru]** 
+**[[zapytanie Lucene] | [zapytanie filtru]]** 
 
 Możesz użyć kwerendy lub kwerendy filtru Lucene. Aby użyć obu, użyj **|** separatora. Składnia zapytania filtru jest bardziej rygorystyczna niż zapytanie Lucene. Dlatego jeśli dane wejściowe klienta mogą być analizowane w obu tych przypadkach, zostanie zastosowane zapytanie filtru.
 
+Na przykład `data OR model | compute in {cpucluster}` , jest to wyszukiwanie węzłów, których nazwa lub komentarz zawiera `data` lub `model` , a obliczenia to cpucluster.
  
 
 ## <a name="lucene-query"></a>Zapytanie Lucene
@@ -68,6 +71,8 @@ Można użyć następujących właściwości węzła jako kluczy:
 - obliczanie
 - czas trwania
 - było
+- publish
+- tags
 
 I użyj następujących operatorów:
 

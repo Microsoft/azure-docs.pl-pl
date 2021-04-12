@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/08/2021
 ms.author: b-juche
-ms.openlocfilehash: 2031cbf07d700307ae1e11c516f9fc736bce5080
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 9edf8c6eca223ece8728f9868ee9fe310c517ca9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106499016"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259714"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Konfiguracja dodaje protokół LDAP z rozszerzonymi grupami dla dostępu do woluminu NFS
 
@@ -69,9 +69,18 @@ W tym artykule opisano zagadnienia i kroki umożliwiające włączenie protokoł
 
 2. Woluminy LDAP wymagają konfiguracji Active Directory dla ustawień serwera LDAP. Postępuj zgodnie z instrukcjami w temacie [wymagania dotyczące Active Directory połączeń](create-active-directory-connections.md#requirements-for-active-directory-connections) i [Utwórz połączenie Active Directory](create-active-directory-connections.md#create-an-active-directory-connection) , aby skonfigurować Active Directory połączeń na Azure Portal.  
 
-3. Upewnij się, że Active Directory serwer LDAP działa na Active Directory. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
+3. Upewnij się, że Active Directory serwer LDAP działa na Active Directory. 
 
-4. Użytkownicy NFS muszą mieć określone atrybuty POSIX na serwerze LDAP. Postępuj zgodnie z [zarządzaniem atrybutami LDAP POSIX](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) , aby ustawić wymagane atrybuty.  
+4. Użytkownicy NFS muszą mieć określone atrybuty POSIX na serwerze LDAP. Ustaw atrybuty dla użytkowników LDAP i grup LDAP w następujący sposób: 
+
+    * Wymagane atrybuty dla użytkowników LDAP:   
+        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+    * Wymagane atrybuty dla grup LDAP:   
+        `objectClass: group`, `gidNumber: 555`
+
+    Atrybutami POSIX można zarządzać za pomocą przystawki MMC Użytkownicy i komputery Active Directory. Poniższy przykład pokazuje Edytor atrybutów Active Directory:  
+
+    ![Edytor atrybutów Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 5. Jeśli chcesz skonfigurować klienta systemu Linux zintegrowanego z protokołem LDAP, zobacz [Konfigurowanie klienta NFS dla Azure NetApp Files](configure-nfs-clients.md).
 

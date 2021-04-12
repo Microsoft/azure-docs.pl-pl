@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95f2e47d3cf0b967f42b988b565da3643796534d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784312"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490764"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
 
@@ -853,7 +853,7 @@ Te akcje ułatwiają kontrolowanie wykonywania przepływu pracy i obejmują inne
 | Typ akcji | Opis | 
 |-------------|-------------| 
 | [**Spowodował**](#foreach-action) | Uruchom te same akcje w pętli dla każdego elementu w tablicy. | 
-| [**Przypadku**](#if-action) | Uruchom akcje w zależności od tego, czy określony warunek ma wartość true, czy false. | 
+| [**Jeśli użytkownik**](#if-action) | Uruchom akcje w zależności od tego, czy określony warunek ma wartość true, czy false. | 
 | [**Zakres**](#scope-action) | Uruchom akcje na podstawie stanu grupy z zestawu akcji. | 
 | [**Przełącznik**](#switch-action) | Uruchamiaj akcje zorganizowane w przypadkach, gdy wartości z wyrażeń, obiektów lub tokenów pasują do wartości określonych w każdym przypadku. | 
 | [**Zanim**](#until-action) | Uruchom akcje w pętli do momentu, gdy określony warunek ma wartość true. | 
@@ -2413,11 +2413,11 @@ Domyślnie wystąpienia przepływu pracy aplikacji logiki są wykonywane w tym s
 
 Po włączeniu kontroli współbieżności wyzwalacza wystąpienia wyzwalające są uruchamiane równolegle do [domyślnego limitu](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Aby zmienić ten domyślny limit współbieżności, można użyć edytora widoku kodu lub projektanta Logic Apps, ponieważ zmiana ustawienia współbieżności za pomocą projektanta powoduje dodanie lub zaktualizowanie `runtimeConfiguration.concurrency.runs` właściwości w podstawowej definicji wyzwalacza i na odwrót. Ta właściwość określa maksymalną liczbę wystąpień nowych przepływów pracy, które mogą być uruchamiane równolegle.
 
-Poniżej przedstawiono kilka kwestii, dla których należy włączyć współbieżność dla wyzwalacza:
-
-* Po włączeniu współbieżności [Limit SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) został znacząco zredukowany w przypadku [tablic odwsadowych](#split-on-debatch). Jeśli liczba elementów przekracza ten limit, funkcja SplitOn jest wyłączona.
+Poniżej przedstawiono kilka kwestii, które należy przejrzeć przed włączeniem współbieżności dla wyzwalacza:
 
 * Nie można wyłączyć współbieżności po włączeniu kontroli współbieżności.
+
+* Po włączeniu współbieżności [Limit SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) został znacząco zredukowany w przypadku [tablic odwsadowych](#split-on-debatch). Jeśli liczba elementów przekracza ten limit, funkcja SplitOn jest wyłączona.
 
 * Po włączeniu współbieżności długotrwałe wystąpienie aplikacji logiki może spowodować, że nowe wystąpienia aplikacji logiki będą mogły wprowadzić stan oczekiwania. Ten stan uniemożliwia Azure Logic Apps tworzenia nowych wystąpień i występuje nawet wtedy, gdy liczba współbieżnych uruchomień jest mniejsza niż określona maksymalna liczba współbieżnych uruchomień.
 
@@ -2450,9 +2450,9 @@ Poniżej przedstawiono kilka kwestii, dla których należy włączyć współbie
 
 #### <a name="edit-in-code-view"></a>Edytuj w widoku kodu 
 
-W definicji wyzwalacza źródłowego Dodaj `runtimeConfiguration.concurrency.runs` Właściwość, która może mieć wartość z zakresu od `1` do `50` .
+W definicji wyzwalacza źródłowego Dodaj `runtimeConfiguration.concurrency.runs` Właściwość i ustaw wartość na podstawie [limitów współbieżności wyzwalacza](logic-apps-limits-and-config.md#concurrency-debatching). Aby uruchomić przepływ pracy sekwencyjnie, ustaw wartość właściwości na `1` .
 
-Oto przykład, który ogranicza współbieżne uruchomienia do 10 wystąpień:
+Ten przykład ogranicza współbieżne uruchomienia do 10 wystąpień:
 
 ```json
 "<trigger-name>": {

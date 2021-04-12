@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/17/2021
-ms.openlocfilehash: 8e5c204709f0eadb6c1a4b6f479d4833f335b264
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/05/2021
+ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594890"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106840"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL — elastyczny serwer
 
@@ -90,7 +90,7 @@ Elastyczna usługa serwera jest wyposażona w wbudowaną funkcję monitorowania 
 
 Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasięg. Elastyczny serwer jest dostępny dzisiaj w następujących regionach platformy Azure:
 
-| Region (Region) | Dostępność | Strefa — nadmiarowa HA | 
+| Region | Dostępność | Strefa — nadmiarowa HA | 
 | --- | --- | --- |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: |
 | Europa Północna | :heavy_check_mark: | :heavy_check_mark: |
@@ -100,9 +100,10 @@ Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasi�
 | Central US | :heavy_check_mark: | :heavy_check_mark: | 
 | East US | :heavy_check_mark: | :heavy_check_mark: | 
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Japonia Wschodnia | :heavy_check_mark: | :heavy_check_mark: | 
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia Wschodnia | :heavy_check_mark: | :heavy_check_mark: | 
 | Kanada Środkowa | :heavy_check_mark: | :heavy_check_mark: | 
+| Francja Środkowa | :heavy_check_mark: | :heavy_check_mark: | 
 
 Będziemy nadal dodawać więcej regionów dla elastycznego serwera.
 

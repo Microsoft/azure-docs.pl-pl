@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92803c1e3062fb9f093012db3e3637746dedf87f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664252"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107044"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB warstw cenowych
 
@@ -46,9 +46,13 @@ Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla ser
 | Atrybuty magazynu   | Podstawowa | Ogólnego przeznaczenia | Optymalizacja pod kątem pamięci |
 |:---|:----------|:--------------------|:---------------------|
 | Typ magazynu | Magazyn podstawowy | Magazyn Ogólnego przeznaczenia | Magazyn Ogólnego przeznaczenia |
-| Rozmiar magazynu | od 5 GB do 1 TB | od 5 GB do 4 TB | od 5 GB do 4 TB |
+| Rozmiar magazynu | od 5 GB do 1 TB | od 5 GB do 16 TB | od 5 GB do 16 TB |
 | Rozmiar przyrostu pamięci masowej | 1 GB | 1 GB | 1 GB |
 | Liczba operacji we/wy na sekundę | Zmienna |3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 6000 | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 6000 |
+
+>[!IMPORTANT]
+> Magazyn o pojemności do 16TB i 20 000 operacji we/wy jest obsługiwany w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Brazylia Południowa, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa Azja Wschodnia , Kanada Wschodnia i Kanada środkowa.
+> Wszystkie inne regiony obsługują do 4 TB magazynu i do 6000 operacji we/wy na sekundę.
 
 Można dodać dodatkową pojemność magazynu podczas i po utworzeniu serwera oraz pozwolić systemowi na automatyczne zwiększanie ilości miejsca w oparciu o użycie magazynu w ramach obciążenia.
 
@@ -58,23 +62,6 @@ Można dodać dodatkową pojemność magazynu podczas i po utworzeniu serwera or
 Warstwa Podstawowa nie oferuje gwarancji operacji we/wy na sekundę. W warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci liczba operacji we/wy z zainicjowanym rozmiarem magazynu wynosi 3:1.
 
 Możesz monitorować użycie we/wy w Azure Portal lub przy użyciu poleceń interfejsu wiersza polecenia platformy Azure. Odpowiednie metryki do monitorowania to [Limit magazynu, procent magazynu, użycie magazynu i procent operacji we/wy](concepts-monitoring.md).
-
-### <a name="large-storage-preview"></a>Duży magazyn (wersja zapoznawcza)
-
-Zwiększamy limity magazynowania w naszych Ogólnego przeznaczenia i warstw zoptymalizowanych pod kątem pamięci. Nowo utworzone serwery, które zapoznają się z podglądem, mogą obsługiwać do 16 TB pamięci masowej. Skalowanie IOPS w 20 000 stosunku do 3:1 operacji we/wy na sekundę. Podobnie jak w przypadku bieżącego magazynu ogólnie dostępnego, można dodać dodatkową pojemność magazynu po utworzeniu serwera i zezwolić systemowi na automatyczne zwiększanie ilości miejsca na podstawie zużycia magazynu w ramach obciążenia.
-
-| Atrybuty magazynu | Ogólnego przeznaczenia | Optymalizacja pod kątem pamięci |
-|:-------------|:--------------------|:---------------------|
-| Typ magazynu | Premium Storage platformy Azure | Premium Storage platformy Azure |
-| Rozmiar magazynu | 32 GB do 16 TB| od 32 do 16 TB |
-| Rozmiar przyrostu pamięci masowej | 1 GB | 1 GB |
-| Liczba operacji we/wy na sekundę | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000| 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
-
-> [!IMPORTANT]
-> Duży magazyn jest obecnie w publicznej wersji zapoznawczej w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, Brazylia Południowa, środkowe stany USA, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Południowe stany USA, Korea Azja Wschodnia środkowa i Kanada środkowa.
->
-> Wszystkie inne regiony obsługują do 4 TB magazynu i do 6000 operacji we/wy na sekundę.
->
 
 ### <a name="reaching-the-storage-limit"></a>Osiągnięcie limitu magazynu
 

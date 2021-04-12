@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39bab52a564439d34b8702de11edabe7f0d6dfbc
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119088"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492260"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
@@ -39,7 +39,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 | Typ możliwości | Wartość.                                                                                                                                                                                                                          |
 | Typ semantyczny   | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne.                                                                       |
 | Schemat          | Typ danych właściwości, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu.                                               |
-| Zapisywalne       | Jeśli właściwość nie jest zapisywalna, urządzenie może raportować wartości właściwości do usługi Azure IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do usługi Azure IoT Central. Następnie usługa Azure IoT Central może wysyłać do urządzenia aktualizacje właściwości. |
+| Zapisywalne       | Jeśli właściwość nie zostanie zapisywalna, urządzenie może raportować wartości właściwości do usługi Azure IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do usługi Azure IoT Central. Następnie usługa Azure IoT Central może wysyłać do urządzenia aktualizacje właściwości. |
 | Ważność        | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji** lub **ostrzeżenia**.                                                                                                                         |
 | Wartości stanu    | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość.                                                                                   |
 | Jednostka            | Jednostka wartości właściwości, takiej jak **mph**, **%** lub **&deg; C**.                                                                                                                                                              |
@@ -183,7 +183,7 @@ Poniższy fragment kodu z modelu urządzenia pokazuje definicję typu właściwo
 }
 ```
 
-Aby zdefiniować i obsłużyć zapisywalne właściwości, na które odpowiada urządzenie, można użyć następującego kodu:
+Aby zdefiniować i obsłużyć właściwości zapisywalne, do których odbędzie się urządzenie, można użyć następującego kodu:
 
 ``` javascript
 hubClient.getTwin((err, twin) => {
@@ -219,7 +219,7 @@ Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjona
 
 Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji urządzeń, zobacz [Konfigurowanie urządzeń z poziomu usługi zaplecza](../../iot-hub/tutorial-device-twins.md).
 
-Gdy operator ustawia właściwość zapisywalną w aplikacji IoT Central platformy Azure, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy usługa Azure IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zaakceptowane**.
+Gdy operator ustawia modyfikowalną właściwość w aplikacji IoT Central platformy Azure, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy usługa Azure IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zaakceptowane**.
 
 W poniższym widoku są wyświetlane właściwości z możliwością zapisu. Po wprowadzeniu wartości i wybraniu opcji **Zapisz** stan początkowy jest **oczekujący**. Gdy urządzenie zaakceptuje zmiany, stan zmieni się na **zaakceptowane**.
 

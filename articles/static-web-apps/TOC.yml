@@ -67,8 +67,14 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Dodawanie bazy danych z Mongoose.js i Cosmos DB
+      href: add-mongoose.md
     - name: Publikowanie za pomocą usługi Azure DevOps
       href: publish-devops.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/staticwebapp
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

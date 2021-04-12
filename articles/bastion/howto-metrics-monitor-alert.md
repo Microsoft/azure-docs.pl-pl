@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4e03318fae8d8d3a8b4d29538cad49f9ef39593
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417947"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259119"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Jak skonfigurować monitorowanie i metryki dla usługi Azure bastionu za pomocą Azure Monitor
 
@@ -58,7 +58,7 @@ Można wyświetlić łączną ilość pamięci usługi Azure bastionu, która je
 
 #### <a name="used-cpu"></a><a name="used-cpu"></a>Używany procesor CPU
 
-Można wyświetlić użycie procesora CPU przez usługę Azure bastionu, podzielić je na każde wystąpienie bastionu. Monitorowanie tej metryki pomoże ocenić dostępność i pojemność wystąpień wchodzących w skład platformy Azure bastionu.
+Można wyświetlić użycie procesora CPU przez usługę Azure bastionu, podzielić je na każde wystąpienie bastionu. Monitorowanie tej metryki pomoże ocenić dostępność i pojemność wystąpień wchodzących w skład platformy Azure bastionu
 
 :::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Zrzut ekranu przedstawiający użycie procesora CPU.":::
 
@@ -73,6 +73,12 @@ Możesz wyświetlić użycie pamięci dla każdego wystąpienia bastionu, dziel�
 #### <a name="session-count"></a>Liczba sesji
 
 Można wyświetlić liczbę aktywnych sesji na wystąpienie bastionu, zagregowanych dla każdego typu sesji (RDP i SSH). Każda usługa Azure bastionu może obsługiwać wiele aktywnych sesji protokołu RDP i SSH. Monitorowanie tej metryki pomoże zrozumieć, czy konieczne jest dostosowanie liczby wystąpień z uruchomioną usługą bastionu. Aby uzyskać więcej informacji o liczbie sesji obsługiwanych przez usługę Azure bastionu, zobacz [często zadawane pytania dotyczące usługi Azure bastionu](bastion-faq.md).
+
+Zalecane wartości konfiguracji tej metryki są następujące:
+
+* **Agregacja:** Śr
+* **Stopień szczegółowości:** 5 lub 15 minut
+* Aby uzyskać dokładniejszą liczbę, zalecamy dzielenie według wystąpień
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Zrzut ekranu przedstawiający liczbę sesji.":::
 

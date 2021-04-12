@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 2dde1c9d917881d7a16dbc853e4af416dffe5d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702423"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280347"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -389,7 +389,7 @@ Możesz przejrzeć Media Services element zawartości, który został utworzony 
 1. W otwartym Kreatorze Zaakceptuj opcje domyślne i wybierz pozycję **Dodaj**. Aby uzyskać więcej informacji, zobacz [odtwarzanie wideo](video-playback-concept.md).
 
     > [!TIP]
-    > Upewnij się, że [punkt końcowy przesyłania strumieniowego jest uruchomiony](../latest/streaming-endpoint-concept.md).
+    > Upewnij się, że [punkt końcowy przesyłania strumieniowego jest uruchomiony](../latest/stream-streaming-endpoint-concept.md).
 1. Gracz powinien załadować wideo. Wybierz opcję **Odtwórz** , aby ją wyświetlić.
 
 > [!NOTE]

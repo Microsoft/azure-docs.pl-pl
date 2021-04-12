@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2020
+ms.date: 04/04/2021
 ms.author: yelevin
-ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c26d86c98c83d9762acb8a75bba8fe464cc2a58e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600530"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491499"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Samouczek: wizualizowanie i monitorowanie danych
 
-
-
 Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md) z platformą Azure — wskaźnikiem możliwości można wizualizować i monitorować dane przy użyciu systemu Azure wskaźnikowego wdrażania Azure monitor skoroszytów, które zapewniają uniwersalność tworzenia niestandardowych pulpitów nawigacyjnych. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/visualize/workbooks-overview.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
-
 
 Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikiem.
 > [!div class="checklist"]
@@ -35,34 +32,44 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć co najmniej uprawnienia czytelnika skoroszytu lub współautor skoroszytu w grupie zasobów obszaru roboczego wskaźnikowego platformy Azure.
+Musisz mieć co najmniej uprawnienia **czytelnika skoroszytu** lub **współautor skoroszytu** w grupie zasobów obszaru roboczego wskaźnikowego platformy Azure.
 
 > [!NOTE]
 > Skoroszyty, które można zobaczyć na platformie Azure, są zapisywane w grupie zasobów obszaru roboczego wskaźnikowego platformy Azure i są znakowane przez obszar roboczy, w którym zostały utworzone.
 
 ## <a name="use-built-in-workbooks"></a>Używanie wbudowanych skoroszytów
 
-1. Przejdź do obszaru **skoroszyty** , a następnie wybierz pozycję **Szablony** , aby wyświetlić pełną listę wbudowanych skoroszytów platformy Azure. Aby zobaczyć, które są istotne dla połączonych typów danych, pole **wymagane typy danych** w każdym skoroszycie wyświetli typ danych obok zielonego znacznika wyboru, jeśli dane są już strumieniowo powiązane z platformą Azure.
-  ![Przejdź do skoroszytów](./media/tutorial-monitor-data/access-workbooks.png)
-1. Kliknij przycisk **Wyświetl szablon** , aby wyświetlić szablon wypełniony danymi.
-  
-1. Aby edytować skoroszyt, wybierz pozycję **Zapisz**, a następnie wybierz lokalizację, w której chcesz zapisać plik JSON dla szablonu. 
+1. Przejdź do obszaru **skoroszyty** , a następnie wybierz pozycję **Szablony** , aby wyświetlić pełną listę wbudowanych skoroszytów platformy Azure. 
+
+    Aby zobaczyć, które są istotne dla połączonych typów danych, pole **wymagane typy danych** w każdym skoroszycie wyświetli typ danych obok zielonego znacznika wyboru, jeśli dane są już strumieniowo powiązane z platformą Azure.
+
+    [![Przejdź do skoroszytów. ](media/tutorial-monitor-data/access-workbooks.png)](media/tutorial-monitor-data/access-workbooks.png#lightbox)
+
+1. Wybierz pozycję **Wyświetl szablon** , aby wyświetlić szablon wypełniony danymi.
+
+1. Aby edytować skoroszyt, wybierz pozycję **Zapisz**, a następnie wybierz lokalizację, w której chcesz zapisać plik JSON dla szablonu.
 
    > [!NOTE]
    > Spowoduje to utworzenie zasobu platformy Azure na podstawie odpowiedniego szablonu i zapisanie pliku JSON skoroszytu, a nie danych.
 
 
-1. Wybierz pozycję **Wyświetl zapisany skoroszyt**. Następnie kliknij przycisk **Edytuj** znajdujący się u góry. Możesz teraz edytować skoroszyt i dostosować go do potrzeb. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/visualize/workbooks-overview.md).
-![Wyświetl skoroszyty](./media/tutorial-monitor-data/workbook-graph.png)
-1. Po wprowadzeniu zmian można zapisać skoroszyt. 
+1. Wybierz pozycję **Wyświetl zapisany skoroszyt**. 
 
-1. Można również sklonować skoroszyt: wybierz pozycję **Edytuj** , a następnie pozycję **Zapisz jako**, a następnie zapisz go przy użyciu innej nazwy w ramach tej samej subskrypcji i grupy zasobów. Te sklonowane skoroszyty są wyświetlane na karcie **Moje skoroszyty** .
+    [![Wyświetl skoroszyty. ](media/tutorial-monitor-data/workbook-graph.png)](media/tutorial-monitor-data/workbook-graph.png#lightbox)
 
+    Wybierz przycisk **Edytuj** na pasku narzędzi skoroszytu, aby dostosować skoroszyt zgodnie z potrzebami. Gdy skończysz, wybierz pozycję **Zapisz** , aby zapisać zmiany.
 
+    Aby uzyskać więcej informacji, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/visualize/workbooks-overview.md).
+
+> [!TIP]
+> Aby sklonować skoroszyt, wybierz pozycję **Edytuj** , a następnie **Zapisz jako**, a następnie zapisz go przy użyciu innej nazwy w ramach tej samej subskrypcji i grupy zasobów.
+> Sklonowane skoroszyty są wyświetlane na karcie **Moje skoroszyty** .
+>
 ## <a name="create-new-workbook"></a>Utwórz nowy skoroszyt
 
 1. Przejdź do obszaru **skoroszyty** , a następnie wybierz pozycję **Dodaj skoroszyt** , aby utworzyć nowy skoroszyt od podstaw.
-  ![Zrzut ekranu pokazujący nowy ekran skoroszytu.](./media/tutorial-monitor-data/create-workbook.png)
+
+    [![Nowy skoroszyt. ](media/tutorial-monitor-data/create-workbook.png)](media/tutorial-monitor-data/create-workbook.png#lightbox)
 
 1. Aby edytować skoroszyt, wybierz opcję **Edytuj**, a następnie w razie potrzeby Dodaj tekst, zapytania i parametry. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
@@ -72,10 +79,29 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 1. Jeśli chcesz zezwolić innym osobom w organizacji na korzystanie ze skoroszytu, w obszarze **Zapisz** wybierz **raporty udostępnione**. Jeśli chcesz, aby ten skoroszyt był dostępny tylko dla Ciebie, wybierz pozycję **Moje raporty**.
 
-1. Aby przełączać się między skoroszytami w obszarze roboczym, możesz wybrać ikonę **Otwórz** ![ do otwierania skoroszytu. ](./media/tutorial-monitor-data/switch.png) w górnym okienku dowolnego skoroszytu. W oknie, które jest otwierane z prawej strony, przełącz się między skoroszytami.
+1. Aby przełączać się między skoroszytami w obszarze roboczym, wybierz pozycję **Otwórz** ![ , aby otworzyć skoroszyt.](./media/tutorial-monitor-data/switch.png) na pasku narzędzi dowolnego skoroszytu. Ekran przechodzi do listy innych skoroszytów, do których można się przełączyć.
 
-   ![Przełącz skoroszyty](./media/tutorial-monitor-data/switch-workbooks.png)
+    Wybierz skoroszyt, który chcesz otworzyć:
 
+    [![Przełączanie skoroszytów. ](media/tutorial-monitor-data/switch-workbooks.png)](media/tutorial-monitor-data/switch-workbooks.png#lightbox)
+
+## <a name="refresh-your-workbook-data"></a>Odświeżanie danych skoroszytu
+
+Odśwież skoroszyt, aby wyświetlić zaktualizowane dane. Na pasku narzędzi wybierz jedną z następujących opcji:
+
+- :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false":::**Odśwież**, aby ręcznie odświeżyć dane skoroszytu.
+
+- :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false":::**Automatycznie Odświeżaj**, aby ustawić skoroszyt do automatycznego odświeżania w skonfigurowanym interwale.
+
+    - Obsługiwane Interwały autoodświeżania mieszczą się w zakresie od **5 minut** do **1 dnia**.
+
+    - Autoodświeżanie jest wstrzymane podczas edytowania skoroszytu, a interwały są uruchamiane ponownie przy każdym przełączeniu do trybu widoku z trybu edycji.
+
+    - Interwały autoodświeżania są również uruchamiane ponownie, jeśli ręcznie odświeżasz dane.
+
+    > [!TIP]
+    > Domyślnie funkcja AutoRefresh jest wyłączona. Aby zoptymalizować wydajność, Autoodświeżanie jest również wyłączone przy każdym zamknięciu skoroszytu i nie jest uruchamiane w tle. Włącz Autoodświeżanie w razie konieczności przy następnym otwarciu skoroszytu.
+    >
 
 ## <a name="print-a-workbook-or-save-as-pdf"></a>Drukuj skoroszyt lub Zapisz jako plik PDF
 
@@ -86,7 +112,7 @@ Aby wydrukować skoroszyt lub zapisać go jako plik PDF, użyj menu Opcje z praw
 
 Na przykład:
 
-:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Wydrukuj skoroszyt lub Zapisz jako plik PDF.":::
+[![Wydrukuj skoroszyt lub Zapisz jako plik PDF. ](media/whats-new/print-workbook.png)](media/whats-new/print-workbook.png#lightbox)
 
 ## <a name="how-to-delete-workbooks"></a>Jak usunąć skoroszyty
 

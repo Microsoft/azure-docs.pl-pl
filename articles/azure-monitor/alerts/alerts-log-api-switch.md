@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b91560f09b30cc5d3089e5beca4d670f94f33402
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 101a575d9acac5da4a8c0399f60e8f32e591d2cf
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031314"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285362"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Uaktualnij do bieżącego interfejsu API alertów dziennika ze starszej wersji interfejsu API alertu Log Analytics
 
@@ -57,7 +57,7 @@ Z treścią żądania zawierającego Poniższy kod JSON:
 Oto przykład użycia [ARMClient](https://github.com/projectkudu/ARMClient), narzędzia wiersza polecenia typu open source, które upraszcza wywoływanie powyższego wywołania interfejsu API:
 
 ```powershell
-$switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
+$switchJSON = '{"scheduledQueryRulesEnabled": true}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 

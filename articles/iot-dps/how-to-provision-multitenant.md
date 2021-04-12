@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727434"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228325"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Jak aprowizować pod kątem wielu dzierżaw 
 
@@ -26,11 +26,12 @@ Często należy połączyć te dwa scenariusze. Na przykład wielodostępne rozw
 
 W tym artykule przedstawiono przykład symulowanego urządzenia z [zestawu SDK języka C usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c) w celu zademonstrowania sposobu udostępniania urządzeń w scenariuszu wielodostępnym w różnych regionach. W tym artykule zostaną wykonane następujące kroki:
 
-* Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć dwa regionalne centra IoT (**zachodnie stany USA** i **Wschodnie stany USA**)
-* Tworzenie rejestracji wielodostępnej
-* Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć dwie regionalne maszyny wirtualne z systemem Linux do działania jako urządzenia w tych samych regionach (**zachodnie stany USA** i **Wschodnie stany USA**)
-* Skonfiguruj środowisko programistyczne dla zestawu Azure IoT C SDK na obu maszynach wirtualnych z systemem Linux
-* Symuluj urządzenia, aby sprawdzić, czy są one obsługiwane dla tej samej dzierżawy w najbliższym regionie.
+> [!div class="checklist"]
+> * Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć dwa regionalne centra IoT (**zachodnie stany USA** i **Wschodnie stany USA**)
+> * Tworzenie rejestracji wielodostępnej
+> * Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć dwie regionalne maszyny wirtualne z systemem Linux do działania jako urządzenia w tych samych regionach (**zachodnie stany USA** i **Wschodnie stany USA**)
+> * Skonfiguruj środowisko programistyczne dla zestawu Azure IoT C SDK na obu maszynach wirtualnych z systemem Linux
+> * Symuluj urządzenia, aby sprawdzić, czy są one obsługiwane dla tej samej dzierżawy w najbliższym regionie.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -417,8 +418,11 @@ Aby usunąć grupę zasobów według nazwy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> Aby dowiedzieć się więcej o zainicjowaniu obsługi administracyjnej, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](concepts-device-reprovision.md)
+* Aby dowiedzieć się więcej o ponownej aprowizacji, zobacz
 
 > [!div class="nextstepaction"]
-> Aby dowiedzieć się więcej o anulowaniu aprowizacji, zobacz jak cofać obsługę administracyjną [urządzeń, które wcześniej były obsługiwane](how-to-unprovision-devices.md) .
+> [Pojęcia dotyczące ponownego inicjowania obsługi administracyjnej urządzenia IoT Hub](concepts-device-reprovision.md)
+
+* Aby dowiedzieć się więcej na temat anulowania aprowizacji, zobacz
+> [!div class="nextstepaction"]
+> [Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane samoobsługowo](how-to-unprovision-devices.md)

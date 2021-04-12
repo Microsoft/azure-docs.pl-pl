@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu API RES
 description: W tym przewodniku szybki start za pomocą interfejsu API REST utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26a1c0a8025a00155bcf0498e6dfa89a8a73d983
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592504"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259136"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu API REST
 
@@ -28,7 +28,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
 
 ### <a name="create-in-rest-api"></a>Tworzenie w interfejsie API REST
 
-W przypadku interfejsu API REST Użyj punktu końcowego [grupy zarządzania-Create lub Update](/rest/api/resources/managementgroups/createorupdate) , aby utworzyć nową grupę zarządzania. W tym przykładzie **Identyfikator grupy zarządzania** to _contoso_.
+W przypadku interfejsu API REST Użyj punktu końcowego [grupy zarządzania-Create lub Update](/rest/api/managementgroups/managementgroups/createorupdate) , aby utworzyć nową grupę zarządzania. W tym przykładzie **Identyfikator grupy zarządzania** to _contoso_.
 
 - Identyfikator URI interfejsu API REST
 
@@ -81,7 +81,7 @@ W powyższych przykładach Nowa grupa zarządzania jest tworzona w ramach głów
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby usunąć utworzoną powyżej grupę zarządzania, użyj punktu końcowego [grupy zarządzania-Delete](/rest/api/resources/managementgroups/delete) :
+Aby usunąć utworzoną powyżej grupę zarządzania, użyj punktu końcowego [grupy zarządzania-Delete](/rest/api/managementgroups/managementgroups/delete) :
 
 - Identyfikator URI interfejsu API REST
 

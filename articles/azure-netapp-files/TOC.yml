@@ -91,6 +91,8 @@
           href: azure-netapp-files-configure-nfsv41-domain.md
         - name: Konfigurowanie szyfrowania Kerberos NFSv4.1
           href: configure-kerberos-encryption.md
+        - name: Konfiguracja dodaje protokół LDAP z grupami rozszerzonymi dla systemu plików NFS
+          href: configure-ldap-extended-groups.md
         - name: Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files
           href: configure-nfs-clients.md
         - name: Konfigurowanie zasad eksportu dla woluminu NFS
@@ -137,6 +139,8 @@
           href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: Rozwiązywanie problemów z zasadami migawek
           href: troubleshoot-snapshot-policies.md
+        - name: Rozwiązywanie problemów z woluminami LDAP
+          href: troubleshoot-ldap-volumes.md
         - name: Rozwiązywanie problemów powodowanych przez błędy dostawcy zasobów
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Dokumentacja

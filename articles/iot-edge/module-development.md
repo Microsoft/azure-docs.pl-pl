@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a30b4b056d56e096f80b9494ab80a585fff76e66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6274d0f0265220877938775ab6efd72ff22b84e4
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489933"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031132"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Opracowywanie własnych modułów IoT Edge
 
@@ -134,7 +134,7 @@ IoT Edge obsługuje wiele systemów operacyjnych, architektury urządzeń i jęz
 
 ### <a name="linux"></a>Linux
 
-W przypadku wszystkich języków w poniższej tabeli IoT Edge obsługuje programowanie dla urządzeń z systemem AMD64 i ARM32 Linux.
+W przypadku wszystkich języków w poniższej tabeli IoT Edge obsługuje projektowanie dla kontenerów systemu Linux i ARM32.
 
 | Język programowania | Narzędzia programistyczne |
 | -------------------- | ----------------- |
@@ -145,16 +145,30 @@ W przypadku wszystkich języków w poniższej tabeli IoT Edge obsługuje program
 | Python | Visual Studio Code |
 
 >[!NOTE]
->Obsługa programowania i debugowania dla urządzeń z systemem ARM64 Linux jest w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [programowanie i debugowanie modułów IoT Edge arm64 w Visual Studio Code (wersja zapoznawcza)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>Obsługa programowania i debugowania dla kontenerów ARM64 systemu Linux jest w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [programowanie i debugowanie modułów IoT Edge arm64 w Visual Studio Code (wersja zapoznawcza)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### <a name="windows"></a>Windows
 
-W przypadku wszystkich języków w poniższej tabeli IoT Edge obsługuje programowanie dla urządzeń z systemem AMD64 Windows.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+W przypadku wszystkich języków w poniższej tabeli IoT Edge obsługuje programowanie dla kontenerów systemu Windows AMD64.
 
 | Język programowania | Narzędzia programistyczne |
 | -------------------- | ----------------- |
 | C | Program Visual Studio 2017/2019 |
 | C# | Visual Studio Code (bez możliwości debugowania)<br>Program Visual Studio 2017/2019 |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 1,1 LTS to ostatni kanał wydania obsługujący kontenery systemu Windows. Począwszy od wersji 1,2, kontenery systemu Windows nie są obsługiwane.
+
+Informacje o programowaniu przy użyciu kontenerów systemu Windows znajdują się w wersji [IoT Edge 1,1](?view=iotedge-2018-06&preserve-view=true) tego artykułu.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="next-steps"></a>Następne kroki
 

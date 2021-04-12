@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051113"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228333"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Jak udostępnić urządzenia przy użyciu grup rejestracji kluczy symetrycznych
 
@@ -30,6 +30,16 @@ Ten artykuł został opracowany z myślą o stacjach roboczych z systemem Window
 > [!NOTE]
 > Przykład użyty w tym artykule został zapisany w C. Istnieje również dostępny [przykład klucza symetrycznego inicjowania obsługi urządzenia w języku C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) . Aby użyć tego przykładu, Pobierz lub Sklonuj repozytorium [Azure-IoT-Samples-CSharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) i postępuj zgodnie z instrukcjami w wierszu w przykładowym kodzie. Korzystając z instrukcji przedstawionych w tym artykule, można utworzyć grupę rejestracji klucza symetrycznego przy użyciu portalu i znaleźć zakres identyfikatorów oraz klucze podstawowe i pomocnicze, które są potrzebne do uruchomienia przykładu. Możesz również utworzyć rejestracje indywidualne przy użyciu przykładu.
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md) przewodnika Szybki Start.
+
+Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji zestawu SDK.
+
+* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
+
+* Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
+
 ## <a name="overview"></a>Omówienie
 
 Unikatowy identyfikator rejestracji zostanie zdefiniowany dla każdego urządzenia na podstawie informacji identyfikujących to urządzenie. Na przykład adres MAC lub numer seryjny.
@@ -40,16 +50,6 @@ Kod urządzenia opisany w tym artykule będzie postępować zgodnie z tym samym 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-* Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md) przewodnika Szybki Start.
-
-Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji zestawu SDK.
-
-* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
-
-* Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Przygotowywanie środowiska deweloperskiego dla zestawu SDK języka C usługi Azure IoT
 
@@ -130,7 +130,7 @@ Zestaw SDK zawiera przykładowy kod dla symulowanego urządzenia. To urządzenie
     Otwórz rejestrację i skopiuj wartość wygenerowanego **klucza podstawowego**. Ten klucz jest kluczem grupy głównej.
 
 
-## <a name="choose-a-unique-registration-id-for-the-device"></a>Wybierz unikatowy identyfikator rejestracji dla urządzenia
+## <a name="choose-a-unique-registration-id-for-the-device&quot;></a>Wybierz unikatowy identyfikator rejestracji dla urządzenia
 
 Unikatowy identyfikator rejestracji musi być zdefiniowany, aby można było zidentyfikować każde urządzenie. Możesz użyć adresu MAC, numeru seryjnego lub wszelkich unikatowych informacji z urządzenia. 
 
@@ -140,7 +140,7 @@ W tym przykładzie używamy kombinacji adresu MAC i numeru seryjnego tworzącego
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Utwórz unikatowe identyfikatory rejestracji dla każdego urządzenia. Prawidłowe znaki to małe litery alfanumeryczne i myślnik ("-").
+Utwórz unikatowe identyfikatory rejestracji dla każdego urządzenia. Prawidłowe znaki to małe litery alfanumeryczne i myślnik (&quot;-").
 
 
 ## <a name="derive-a-device-key"></a>Utwórz klucz urządzenia 
@@ -283,6 +283,15 @@ Należy pamiętać, że to pozostawia pochodny klucz urządzenia dołączony jak
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](concepts-device-reprovision.md) 
-* [Szybki start: aprowizowanie urządzenia symulowanego przy użyciu kluczy symetrycznych](quick-create-simulated-device-symm-key.md)
-* Aby dowiedzieć się więcej, zobacz [Jak anulować obsługę administracyjną urządzeń, które wcześniej były obsługiwane](how-to-unprovision-devices.md) .
+* Aby dowiedzieć się więcej o ponownej aprowizacji, zobacz
+
+> [!div class="nextstepaction"]
+> [Pojęcia dotyczące ponownego inicjowania obsługi administracyjnej urządzenia IoT Hub](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Szybki start: aprowizowanie urządzenia symulowanego przy użyciu kluczy symetrycznych](quick-create-simulated-device-symm-key.md)
+
+* Aby dowiedzieć się więcej na temat anulowania aprowizacji, zobacz
+
+> [!div class="nextstepaction"]
+> [Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane samoobsługowo](how-to-unprovision-devices.md)

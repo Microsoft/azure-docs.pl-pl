@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96c24c05f5e0dbb671a294b10ee51be411ca25ff
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793113"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285292"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Wdróż wystąpienie zarządzane Azure SQL w puli wystąpień
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -166,7 +166,7 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 
 > [!NOTE]
-> Istnieje limit 100 baz danych na pulę (nie na wystąpienie).
+> Aby sprawdzić limity liczby baz danych na pulę wystąpień i wystąpienie zarządzane wdrożone w puli, odwiedź sekcję [limity zasobów puli wystąpień](instance-pools-overview.md#resource-limitations) .
 
 
 ## <a name="scale"></a>Skalowanie 

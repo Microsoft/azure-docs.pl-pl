@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 578befe3e26ebb42fa2172976e07d0a5836e3743
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496613"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107163"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Samouczek: Tworzenie wykresu Digital bliźniaczych reprezentacji na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "103496613"
 
 W tym samouczku utworzysz wykres w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu modeli, bliźniaczych reprezentacji i relacji. Narzędziem dla tego samouczka jest [polecenie Azure Digital bliźniaczych reprezentacji Set dla **interfejsu wiersza polecenia platformy Azure**](how-to-use-cli.md). 
 
-Za pomocą poleceń interfejsu wiersza polecenia można wykonywać podstawowe akcje usługi Azure Digital bliźniaczych reprezentacji, takie jak przekazywanie modeli, tworzenie i modyfikowanie bliźniaczych reprezentacji oraz tworzenie relacji. Możesz także zapoznać się z [dokumentacją referencyjną polecenia *AZ DT* Set](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest) , aby zobaczyć pełny zestaw poleceń interfejsu wiersza polecenia.
+Za pomocą poleceń interfejsu wiersza polecenia można wykonywać podstawowe akcje usługi Azure Digital bliźniaczych reprezentacji, takie jak przekazywanie modeli, tworzenie i modyfikowanie bliźniaczych reprezentacji oraz tworzenie relacji. Możesz także zapoznać się z [dokumentacją referencyjną polecenia *AZ DT* Set](/cli/azure/dt) , aby zobaczyć pełny zestaw poleceń interfejsu wiersza polecenia.
 
 W tym samouczku będziesz...
 > [!div class="checklist"]
@@ -91,7 +91,7 @@ Po zaprojektowaniu modeli należy przekazać je do wystąpienia usługi Azure Di
     
     Przejdź do *Room.js* pliku na komputerze i wybierz pozycję "Otwórz". Następnie powtórz ten krok dla *Floor.js*.
 
-1. Następnie użyj polecenia [**AZ DT model Create**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create) , jak pokazano poniżej, aby przekazać zaktualizowany model *pokoju* do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Drugie polecenie przekazuje inny model, *piętro*, którego również będziesz używać w następnej sekcji do tworzenia różnych typów bliźniaczych reprezentacji.
+1. Następnie użyj polecenia [**AZ DT model Create**](/cli/azure/dt/model#az_dt_model_create) , jak pokazano poniżej, aby przekazać zaktualizowany model *pokoju* do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Drugie polecenie przekazuje inny model, *piętro*, którego również będziesz używać w następnej sekcji do tworzenia różnych typów bliźniaczych reprezentacji.
 
     ```azurecli-interactive
     az dt model create -n <ADT_instance_name> --models Room.json
@@ -101,9 +101,9 @@ Po zaprojektowaniu modeli należy przekazać je do wystąpienia usługi Azure Di
     Dane wyjściowe z każdego polecenia będą zawierać informacje o pomyślnie przekazanym modelu.
 
     >[!TIP]
-    >Możesz również przekazać wszystkie modele w katalogu w tym samym czasie, używając `--from-directory` opcji dla polecenia model Create. Aby uzyskać więcej informacji, zobacz [Parametry opcjonalne dla *AZ DT model Create*](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters).
+    >Możesz również przekazać wszystkie modele w katalogu w tym samym czasie, używając `--from-directory` opcji dla polecenia model Create. Aby uzyskać więcej informacji, zobacz [Parametry opcjonalne dla *AZ DT model Create*](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
 
-1. Sprawdź, czy modele zostały utworzone za pomocą polecenia [**AZ DT model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list) , jak pokazano poniżej. Spowoduje to wydrukowanie listy wszystkich modeli, które zostały przekazane do wystąpienia usługi Azure Digital bliźniaczych reprezentacji z pełnymi informacjami. 
+1. Sprawdź, czy modele zostały utworzone za pomocą polecenia [**AZ DT model list**](/cli/azure/dt/model#az_dt_model_list) , jak pokazano poniżej. Spowoduje to wydrukowanie listy wszystkich modeli, które zostały przekazane do wystąpienia usługi Azure Digital bliźniaczych reprezentacji z pełnymi informacjami. 
 
     ```azurecli-interactive
     az dt model list -n <ADT_instance_name> --definition
@@ -129,7 +129,7 @@ Ponieważ modeli nie można zastąpić, spowoduje to zwrócenie błędu o kodzie
 
 Teraz, gdy niektóre modele zostały przekazane do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, można utworzyć [**cyfrowy bliźniaczych reprezentacji**](concepts-twins-graph.md) na podstawie definicji modelu. Bliźniaczych reprezentacji Digital reprezentuje jednostki w środowisku biznesowym — takie jak czujniki w farmie, pokoje w budynku lub lampy w kabinie. 
 
-Aby utworzyć dwuosiową cyfrę, użyj polecenia [**AZ DT bliźniaczy Create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_create) . Należy odwoływać się do modelu, w którym bazuje sznury, i opcjonalnie definiować wartości początkowe dla każdej właściwości w modelu. Nie trzeba przekazywać żadnych informacji o relacji na tym etapie.
+Aby utworzyć dwuosiową cyfrę, użyj polecenia [**AZ DT bliźniaczy Create**](/cli/azure/dt/twin#az_dt_twin_create) . Należy odwoływać się do modelu, w którym bazuje sznury, i opcjonalnie definiować wartości początkowe dla każdej właściwości w modelu. Nie trzeba przekazywać żadnych informacji o relacji na tym etapie.
 
 1. Uruchom ten kod w Cloud Shell, aby utworzyć kilka bliźniaczych reprezentacji w oparciu o model *pokoju* , który został wcześniej zaktualizowany i inny model, *piętro*. Odwołaj ten *Pokój* ma trzy właściwości, więc możesz podać argumenty z początkowymi wartościami. (Zazwyczaj inicjowanie wartości właściwości jest opcjonalne, ale są one niezbędne dla tego samouczka).
 
@@ -151,7 +151,7 @@ Aby utworzyć dwuosiową cyfrę, użyj polecenia [**AZ DT bliźniaczy Create**](
     
     Dane wyjściowe każdego polecenia będą zawierać informacje o pomyślnie utworzonym bliźniaczym przędze (łącznie z właściwościami bliźniaczych reprezentacji pokoju, które zostały zainicjowane z nimi).
 
-1. Można sprawdzić, czy bliźniaczych reprezentacji zostały utworzone za pomocą polecenia [**AZ DT bliźniaczy Query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) , jak pokazano poniżej. W zapytaniu znajduje się wszystkie cyfrowe bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+1. Można sprawdzić, czy bliźniaczych reprezentacji zostały utworzone za pomocą polecenia [**AZ DT bliźniaczy Query**](/cli/azure/dt/twin#az_dt_twin_query) , jak pokazano poniżej. W zapytaniu znajduje się wszystkie cyfrowe bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
     
     ```azurecli-interactive
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
@@ -165,7 +165,7 @@ Aby utworzyć dwuosiową cyfrę, użyj polecenia [**AZ DT bliźniaczy Create**](
 
 Możesz również zmodyfikować właściwości utworzonego przez siebie przędzę. 
 
-1. Uruchom to polecenie [**AZ DT bliźniaczy Update**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_update) , aby zmienić *Room0* pokoju z *room0* na *PresidentialSuite*:
+1. Uruchom to polecenie [**AZ DT bliźniaczy Update**](/cli/azure/dt/twin#az_dt_twin_update) , aby zmienić *Room0* pokoju z *room0* na *PresidentialSuite*:
 
     ```azurecli-interactive
     az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
@@ -183,7 +183,7 @@ Możesz również zmodyfikować właściwości utworzonego przez siebie przędz�
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Zrzut ekranu przedstawiający Cloud Shell wyświetlenia wyniku polecenia Update, który zawiera wartość Roomname z PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. Aby sprawdzić, czy aktualizacja zakończyła się powodzeniem, możesz uruchomić polecenie [**AZ DT bliźniaczy show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) , aby zobaczyć informacje o *room0*:
+1. Aby sprawdzić, czy aktualizacja zakończyła się powodzeniem, możesz uruchomić polecenie [**AZ DT bliźniaczy show**](/cli/azure/dt/twin#az_dt_twin_show) , aby zobaczyć informacje o *room0*:
 
     ```azurecli-interactive
     az dt twin show -n <ADT_instance_name> --twin-id room0
@@ -197,7 +197,7 @@ Następnie można utworzyć niektóre **relacje** między tymi bliźniaczych rep
 
 Typy relacji, które można utworzyć z jednej przędzy w innej, są definiowane w ramach [modeli](#model-a-physical-environment-with-dtdl) , które zostały przekazane wcześniej. [Definicja modelu *podłogi*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) określa, że piętra mogą mieć typ relacji o nazwie *Contains*. Dzięki temu można utworzyć relację *zawierania* typu z każdego przędzy *podłogowej* do odpowiadającego pokoju, które zawiera.
 
-Aby dodać relację, użyj polecenia [**AZ DT bliźniaczy Relationship Create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create) . Określ dwuosiową, z której pochodzi relacja, typ relacji i splot, z którym jest nawiązywane połączenie. Na koniec nadaj relacji unikatowy identyfikator. Jeśli relacja została zdefiniowana w taki sposób, aby zawierała właściwości, można także zainicjować właściwości relacji w tym poleceniu.
+Aby dodać relację, użyj polecenia [**AZ DT bliźniaczy Relationship Create**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create) . Określ dwuosiową, z której pochodzi relacja, typ relacji i splot, z którym jest nawiązywane połączenie. Na koniec nadaj relacji unikatowy identyfikator. Jeśli relacja została zdefiniowana w taki sposób, aby zawierała właściwości, można także zainicjować właściwości relacji w tym poleceniu.
 
 1. Uruchom Poniższy kod, aby dodać relację *Contains*-Type z każdego utworzonego wcześniej bliźniaczych reprezentacji *piętra* do odpowiedniej sieci *salonu* . Relacje mają nazwę *relationship0* i *relationship1*.
 
@@ -240,7 +240,7 @@ Bliźniaczych reprezentacji i relacje, które zostały skonfigurowane w tym samo
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Zbadaj Graf bliźniaczy, aby odpowiedzieć na pytania dotyczące środowiska
 
-Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możliwość łatwego i wydajnego [wykonywania zapytań](concepts-query-language.md) na pytania dotyczące środowiska. W interfejsie wiersza polecenia platformy Azure jest to realizowane za pomocą poleceń [**AZ DT bliźniaczy Query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) .
+Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możliwość łatwego i wydajnego [wykonywania zapytań](concepts-query-language.md) na pytania dotyczące środowiska. W interfejsie wiersza polecenia platformy Azure jest to realizowane za pomocą poleceń [**AZ DT bliźniaczy Query**](/cli/azure/dt/twin#az_dt_twin_query) .
 
 Uruchom następujące zapytania w Cloud Shell, aby odpowiedzieć na kilka pytań dotyczących przykładowego środowiska.
 
@@ -308,7 +308,7 @@ Po ukończeniu tego samouczka możesz wybrać zasoby, które chcesz usunąć, w 
 
 * **Jeśli planujesz przejść do następnego samouczka**, możesz zachować tutaj skonfigurowane zasoby i ponownie użyć wystąpienia bliźniaczych reprezentacji Digital na platformie Azure bez rozliczania wszystkiego między nimi.
 
-* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, ale wyczyścisz wszystkie jego modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [**AZ DT bliźniaczy Relationship**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_delete)Delete, [**AZ DT bliźniaczy Delete**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_delete)i [**AZ DT model Delete**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_delete) Commands, aby wyczyścić odpowiednio relacje, bliźniaczych reprezentacji i modele w wystąpieniu.
+* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, ale wyczyścisz wszystkie jego modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [**AZ DT bliźniaczy Relationship**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete)Delete, [**AZ DT bliźniaczy Delete**](/cli/azure/dt/twin#az_dt_twin_delete)i [**AZ DT model Delete**](/cli/azure/dt/model#az_dt_model_delete) Commands, aby wyczyścić odpowiednio relacje, bliźniaczych reprezentacji i modele w wystąpieniu.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

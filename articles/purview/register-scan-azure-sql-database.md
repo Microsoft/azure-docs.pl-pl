@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 74a8bc4209696682c294bccab450d25ae86e3645
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9873ec2113c0c5704ccca4fa10daf6ac8d572989
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643931"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107435"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Rejestrowanie i skanowanie Azure SQL Database
 
@@ -28,7 +28,8 @@ Azure SQL Database źródło danych obsługuje następujące funkcje:
 
 ### <a name="known-limitations"></a>Znane ograniczenia
 
-Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) w Azure SQL Database.
+> * Usługa Azure kontrolą nie obsługuje skanowania [widoków](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) w Azure SQL Database.
+> * Usługa Azure kontrolą nie obsługuje ponad 300 kolumn na karcie schemat i pokazuje "dodatkowe kolumny, które są obcinane". 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

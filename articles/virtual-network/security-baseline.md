@@ -4,21 +4,22 @@ description: Linia bazowa zabezpieczeń Virtual Network zawiera wskazówki i zas
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c27f00ac7952ea6d6282bcf9f392242112595d99
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 433f20de4d150aadb48ead685e981c60579f2730
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968972"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285534"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Podstawa zabezpieczeń platformy Azure dla Virtual Network
 
-Ta linia bazowa zabezpieczeń ma zastosowanie do Virtual Network platformy Azure wskazówek dotyczących usługi [Azure Security test w wersji 1,0](../security/benchmarks/overview-v1.md) . Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez usługę Azure Security test i powiązane wskazówki dotyczące usługi Azure Virtual Network. Nie ma zastosowania w przypadku **urządzeń** z platformą Azure Virtual Network ani dla których odpowiedzialności są wykluczane przez firmę Microsoft.
+Ta linia bazowa zabezpieczeń ma zastosowanie do Virtual Network platformy Azure wskazówek dotyczących usługi [Azure Security test w wersji 1,0](../security/benchmarks/overview-v1.md) . Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez usługę Azure Security test i powiązane wskazówki dotyczące usługi Azure Virtual Network. 
 
-Aby dowiedzieć się, jak platforma Azure Virtual Network całkowicie zamapowana na test porównawczy zabezpieczeń platformy Azure, zapoznaj się z [pełnym plikiem mapowania podstawy zabezpieczeń usługi azure Virtual Network](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+> [!NOTE]
+> Nie zostały wykluczone żadne **kontrolki** , które mają zastosowanie do Virtual Network lub dla których odpowiedzialnością jest firma Microsoft. Aby dowiedzieć się, jak Virtual Network całkowicie mapować do testu porównawczego zabezpieczeń platformy Azure, zobacz **[pełny Virtual Network pliku mapowania linii bazowej zabezpieczeń](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/virtual-network-security-baseline-v1.1.xlsx)**.
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -165,9 +166,9 @@ Wybierz Azure PowerShell lub interfejs wiersza polecenia platformy Azure, aby wy
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów i wykrywania zmian w sieci wirtualnej. Tworzenie alertów w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w zasobach krytycznych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -184,9 +185,9 @@ Wybierz Azure PowerShell lub interfejs wiersza polecenia platformy Azure, aby wy
 W Azure Monitor używać Log Analytics obszarów roboczych do wykonywania zapytań i przeprowadzania analiz oraz używania kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -198,9 +199,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: umożliwia Azure monitor dostępu do dzienników inspekcji i aktywności, w tym źródła zdarzeń, daty, użytkownika, sygnatury czasowej, adresów źródłowych, adresów docelowych i innych przydatnych elementów.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 **Odpowiedzialność**: Klient
 
@@ -210,9 +211,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: w obszarze Azure monitor Ustaw okres przechowywania log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Użyj kont usługi Azure Storage, aby uzyskać długoterminową/archiwalną pamięć masową przechowywania magazynu dzienników zabezpieczeń.
 
-- [Zmień okres przechowywania danych w Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
 
 **Odpowiedzialność**: Klient
 
@@ -224,9 +225,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
-- [Informacje o obszarze roboczym Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Informacje o obszarze roboczym Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -244,7 +245,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak zarządzać alertami w Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -336,7 +337,7 @@ Pozyskaj Security Center alerty wykrywania ryzyka w Azure Monitor i skonfiguruj 
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
-- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](/azure/azure-monitor/platform/action-groups)
+- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../azure-monitor/alerts/action-groups.md)
 
 **Odpowiedzialność**: Klient
 
@@ -442,7 +443,7 @@ Wybierz wbudowane role, takie jak właściciel, współautor lub współautor si
 
 - [Rejestrowanie diagnostyczne dla sieciowej grupy zabezpieczeń](virtual-network-nsg-manage-log.md)
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Odpowiedzialność**: Klient
 
@@ -760,7 +761,7 @@ Włącz ochronę Soft-Delete i przeczyszczania w Key Vault, aby chronić klucze 
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
 
-**Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu.
+**Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analizach używanych do wystawiania alertu, a także poziom pewności, że istniało złośliwe zamiar w odniesieniu do działania, które doprowadziło do alertu.
 
 Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne lub nieprodukcyjne) przy użyciu tagów i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają dane poufne.  Odpowiedzialność za korygowanie alertów w oparciu o krytyczne znaczenie zasobów platformy Azure i środowisko, w którym wystąpiło zdarzenie, leży po stronie użytkownika.
 

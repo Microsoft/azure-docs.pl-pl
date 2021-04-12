@@ -3,18 +3,18 @@ title: Administracja przy użyciu witryny Azure EA Portal
 description: W tym artykule opisano typowe zadania wykonywane przez administratora w witrynie Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 8f643336d50f5ade145454d408599215ed6fd31e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050570"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259442"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
@@ -36,7 +36,9 @@ Tylko istniejący administratorzy przedsiębiorstwa platformy Azure mogą tworzy
 
 ### <a name="create-another-enterprise-administrator"></a>Tworzenie innego administratora przedsiębiorstwa
 
-Aby dodać innego administratora przedsiębiorstwa:
+Użyj jednej z następujących opcji, w zależności od sytuacji.
+
+#### <a name="if-youre-already-an-enterprise-administrator"></a>Jeśli jesteś już administratorem przedsiębiorstwa
 
 1. Zaloguj się w witrynie [Azure Enterprise Portal](https://ea.azure.com).
 1. Wybierz pozycję **Zarządzaj** > **Szczegóły rejestracji**.
@@ -44,7 +46,11 @@ Aby dodać innego administratora przedsiębiorstwa:
 
 Upewnij się, że znasz adres e-mail użytkownika i preferowaną metodę uwierzytelniania, na przykład konto szkolne lub służbowe albo konto Microsoft.
 
-Jeśli nie jesteś administratorem przedsiębiorstwa, skontaktuj się z administratorem przedsiębiorstwa, aby zażądać dodania Ciebie do rejestracji. Po dodaniu do rejestracji otrzymasz wiadomość e-mail dotyczącą aktywacji.
+#### <a name="if-youre-not-an-enterprise-administrator"></a>Jeśli nie jesteś administratorem przedsiębiorstwa
+
+Jeśli nie jesteś administratorem przedsiębiorstwa, skontaktuj się z administratorem przedsiębiorstwa, aby zażądać dodania do rejestracji. Administrator przedsiębiorstwa korzysta z powyższych kroków, aby dodać Cię jako administratora przedsiębiorstwa. Po dodaniu do rejestracji otrzymasz wiadomość e-mail dotyczącą aktywacji.
+
+#### <a name="if-your-enterprise-administrator-cant-help-you"></a>Jeśli administrator przedsiębiorstwa nie może Ci pomóc
 
 Jeśli administrator przedsiębiorstwa nie może Ci pomóc, utwórz [wniosek o pomoc techniczną w witrynie Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Podaj następujące informacje:
 

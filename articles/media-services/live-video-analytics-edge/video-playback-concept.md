@@ -3,12 +3,12 @@ title: Odtwarzanie wideo — Azure
 description: Symbol zastępczy
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063376"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278596"
 ---
 # <a name="video-playback"></a>Odtwarzanie wideo 
 
@@ -24,7 +24,7 @@ ms.locfileid: "106063376"
 
 ## <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego 
 
-Azure Media Services do [przesyłania strumieniowego](terminology.md#streaming) zasobów do odtwarzaczy wideo przy użyciu standardowych protokołów przesyłania strumieniowego opartych na protokole HTTP, takich jak http Live Streaming (HLS) i MPEG-kreska. Ta konwersja z zarejestrowanej zawartości do formatów przesyłania strumieniowego jest obsługiwana przez [punkt końcowy przesyłania strumieniowego](../latest/streaming-endpoint-concept.md), który jest zasobem, który należy udostępnić na koncie usługi Azure Media.
+Azure Media Services do [przesyłania strumieniowego](terminology.md#streaming) zasobów do odtwarzaczy wideo przy użyciu standardowych protokołów przesyłania strumieniowego opartych na protokole HTTP, takich jak http Live Streaming (HLS) i MPEG-kreska. Ta konwersja z zarejestrowanej zawartości do formatów przesyłania strumieniowego jest obsługiwana przez [punkt końcowy przesyłania strumieniowego](../latest/stream-streaming-endpoint-concept.md), który jest zasobem, który należy udostępnić na koncie usługi Azure Media.
 
 ## <a name="streaming-policy"></a>Zasady przesyłania strumieniowego 
 
@@ -34,11 +34,11 @@ Azure Media Services oferuje różne metody zabezpieczania strumieni wideo, zgod
 * **Użyj Advanced Encryption Standard (AES-128)** — i Zaimplementuj metodę, aby dostarczyć klucze do odszyfrowywania wideo tylko do uwierzytelnionych osób przeglądających.
 * **Używaj systemów Digital Rights Management (DRM)** — do kontrolowania użycia, modyfikacji i dostarczania wideo do urządzeń, które wymuszają te zasady.
 
-Aby zapewnić ochronę zawartości, możesz zdefiniować i utworzyć [zasady przesyłania strumieniowego](../latest/streaming-policy-concept.md) na koncie usługi multimediów i użyć ich do przesyłania strumieniowego wszystkich zasobów (przy założeniu, że wszystkie strumienie mają te same wymagania dotyczące zabezpieczeń). Można również użyć dowolnej ze wstępnie zdefiniowanych zasad (na przykład Predefined_ClearStreamingOnly).
+Aby zapewnić ochronę zawartości, możesz zdefiniować i utworzyć [zasady przesyłania strumieniowego](../latest/stream-streaming-policy-concept.md) na koncie usługi multimediów i użyć ich do przesyłania strumieniowego wszystkich zasobów (przy założeniu, że wszystkie strumienie mają te same wymagania dotyczące zabezpieczeń). Można również użyć dowolnej ze wstępnie zdefiniowanych zasad (na przykład Predefined_ClearStreamingOnly).
 
 ## <a name="streaming-locator"></a>Lokalizator przesyłania strumieniowego  
 
-Po uruchomieniu punktu końcowego przesyłania strumieniowego na koncie usługi multimediów i zdefiniowaniu zasad przesyłania strumieniowego można przystępować strumieniowo nagrane multimedia z zasobu za pośrednictwem protokołów HLS lub PAUZ. Odtwarzacze sieci Web i aplikacje mobilne wymagają adresu URL wskazującego strumień HLS lub PAUZy. Ten adres URL można skompilować przy użyciu [lokalizatora przesyłania strumieniowego](../latest/streaming-locators-concept.md). Jak opisano w tym artykule, i przedstawiono w przykładzie [Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji](../latest/create-streaming-locator-build-url.md) , adres URL przesyłania strumieniowego składa się z punktu końcowego przesyłania strumieniowego, zasad przesyłania strumieniowego i lokalizatora przesyłania strumieniowego.
+Po uruchomieniu punktu końcowego przesyłania strumieniowego na koncie usługi multimediów i zdefiniowaniu zasad przesyłania strumieniowego można przystępować strumieniowo nagrane multimedia z zasobu za pośrednictwem protokołów HLS lub PAUZ. Odtwarzacze sieci Web i aplikacje mobilne wymagają adresu URL wskazującego strumień HLS lub PAUZy. Ten adres URL można skompilować przy użyciu [lokalizatora przesyłania strumieniowego](../latest/stream-streaming-locators-concept.md). Jak opisano w tym artykule, i przedstawiono w przykładzie [Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji](../latest/create-streaming-locator-build-url.md) , adres URL przesyłania strumieniowego składa się z punktu końcowego przesyłania strumieniowego, zasad przesyłania strumieniowego i lokalizatora przesyłania strumieniowego.
 
 ## <a name="content-recorded-using-file-sink"></a>Zawartość zarejestrowana przy użyciu ujścia plików  
 

@@ -7,15 +7,15 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2020
+ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 00a3ab2954d09a7e70e81d8de3644b678b79d005
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521394"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031090"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
@@ -40,7 +40,7 @@ Dzięki prognozom lub przewidywaniom uzyskiwanym za pomocą uczenia maszynowego 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Narzędzia uczenia maszynowego do dopasowania poszczególnych zadań 
 
 Azure Machine Learning udostępnia wszystkie narzędzia dla deweloperów i analityków danych, które są potrzebne dla swoich przepływów pracy uczenia maszynowego, w tym:
-+ [Projektant Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): Przeciągnij i upuść moduły, aby skompilować eksperymenty, a następnie wdrożyć potoki.
++ [Projektant Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): Przeciągnij i upuść moduły, aby skompilować eksperymenty, a następnie wdrożyć potoki w środowisku o niskim kodzie.
 
 + Notesy Jupyter: Użyj naszych [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks) lub Utwórz własne notesy, aby korzystać z naszego <a href="/python/api/overview/azure/ml/intro" target="_blank">zestawu SDK dla</a> przykładów języka Python dla uczenia maszynowego. 
 
@@ -48,11 +48,11 @@ Azure Machine Learning udostępnia wszystkie narzędzia dla deweloperów i anali
 
 + [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
 
-+ [Rozszerzenie uczenia maszynowego dla Visual Studio Code użytkowników](tutorial-setup-vscode-extension.md)
++ [Rozszerzenie uczenia maszynowego dla Visual Studio Code (wersja zapoznawcza)](how-to-set-up-vs-code-remote.md) zapewnia w pełni funkcjonalne środowisko programistyczne do tworzenia projektów uczenia maszynowego i zarządzania nimi.
 
-+ [Interfejs wiersza polecenia uczenia maszynowego](reference-azure-machine-learning-cli.md)
++ [Interfejs CLI usługi Machine Learning](reference-azure-machine-learning-cli.md) to rozszerzenie interfejsu wiersza polecenia platformy Azure, które udostępnia polecenia służące do zarządzania z użyciem zasobów Azure Machine Learning z wiersza poleceń.
 
-+ Platformy typu open source, takie jak PyTorch, TensorFlow i scikit — uczyć się i wielu innych
++ [Integracja z platformami typu open source](concept-open-source.md) , takimi jak PyTorch, TensorFlow i scikit — uczyć się i wielu innych do uczenia się, wdrażania i zarządzania kompleksowym procesem uczenia maszynowego.
 
 + [Uczenie wzmacniające](how-to-use-reinforcement-learning.md) dzięki RLlib ray
 
@@ -130,6 +130,8 @@ Twoje konto usługi Azure Storage, cele obliczeniowe i inne zasoby mogą być be
 - + [Rozpocznij pracę we własnym środowisku programistycznym](tutorial-1st-experiment-sdk-setup-local.md)
   + [Korzystanie z notesów Jupyter w wystąpieniu obliczeniowym do uczenia & wdrażania modeli ML](tutorial-1st-experiment-sdk-setup.md)
   + [Używanie automatycznej uczenia maszynowego do uczenia & Wdrażanie modeli ML](tutorial-first-experiment-automated-ml.md) 
+  + [Zarządzanie zasobami w Visual Studio Code](how-to-manage-resources-vscode.md)
+  + [Używanie Visual Studio Code do uczenia i wdrażania modelu klasyfikacji obrazów](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Korzystanie z funkcji upuszczania & przez projektanta w celu uczenia & wdrożenia](tutorial-designer-automobile-price-train-score.md) 
   + [Korzystanie z interfejsu wiersza polecenia Machine Learning w celu uczenia i wdrożenia modelu](tutorial-train-deploy-model-cli.md)
 

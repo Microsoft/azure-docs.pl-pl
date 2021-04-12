@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
-ms.openlocfilehash: bdd52ba77fd9a65ce27985ff3c86a93fc887ddf9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6fc8e08757ee067e0616cc701a3037a9dbf4c6fd
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109991"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491750"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Rozwiązywanie problemów z połączeniem do Azure Database for MySQL-elastyczny serwer
 
@@ -32,7 +32,7 @@ W tym artykule omówiono sposób rozwiązywania niektórych typowych błędów i
 
 Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for MySQL elastycznym serwerze, zazwyczaj wskazuje problem z jedną z następujących czynności:
 
-* Szyfrowane połączenie przy użyciu protokołu TLS/SSL: elastyczny serwer obsługuje tylko połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2) i wszystkie **połączenia przychodzące z protokołem tls 1,0 i tls 1,1 zostaną odrzucone**. Nie można wyłączyć ani zmienić wersji protokołu TLS. Dowiedz się więcej o [łączności szyfrowanej przy użyciu Transport Layer Security (TLS 1,2) w Azure Database for MySQL-elastycznym serwerze](./how-to-connect-tls-ssl.md).
+* Szyfrowane połączenie przy użyciu protokołu TLS/SSL: elastyczny serwer obsługuje połączenia szyfrowane przy użyciu Transport Layer Security (TLS 1,2), a wszystkie **połączenia przychodzące z protokołem tls 1,0 i tls 1,1 będą domyślnie odrzucane**. Można wyłączyć wymuszanie szyfrowanych połączeń lub zmienić wersję protokołu TLS. Dowiedz się więcej o [łączności szyfrowanej przy użyciu Transport Layer Security (TLS 1,2) w Azure Database for MySQL-elastycznym serwerze](./how-to-connect-tls-ssl.md).
 - Elastyczny serwer w *dostępie prywatnym (Integracja* z siecią wirtualną): Upewnij się, że łączysz się z tej samej sieci wirtualnej co serwer elastyczny. Zapoznaj się z tematem [Sieć wirtualna w Azure Database for MySQL elastyczny serwer]<!--(./concepts-networking-virtual-network.md)-->
 - Elastyczny serwer z *dostępem publicznym (dozwolone adresy IP)* upewnij się, że Zapora jest skonfigurowana tak, aby zezwalać na połączenia z Twojego klienta. Zapoznaj się z tematem [Tworzenie i zarządzanie elastycznymi regułami zapory serwera przy użyciu Azure Portal](./how-to-manage-firewall-portal.md).
 * Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, które nie mogą być dozwolone, a także nazwy aplikacji, takie jak MySQL w niektórych zaporach.

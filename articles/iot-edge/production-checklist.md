@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722773"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031139"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -174,7 +174,7 @@ Aby uwierzytelnić się przy użyciu nazwy głównej usługi, podaj identyfikato
 
 ### <a name="use-tags-to-manage-versions"></a>Używanie tagów do zarządzania wersjami
 
-Tag to koncepcja platformy Docker, której można użyć do rozróżnienia między wersjami kontenerów platformy Docker. Tagi to sufiksy podobne do **1,0** , które znajdują się na końcu repozytorium kontenera. Na przykład **MCR.Microsoft.com/azureiotedge-Agent:1.0**. Tagi są modyfikowalne i można je zmienić tak, aby wskazywały na inny kontener w dowolnym momencie, więc zespół powinien wyrazić zgodę na Konwencję, która będzie zgodna z aktualizacją obrazów modułów przenoszonych do przodu.
+Tag to koncepcja platformy Docker, której można użyć do rozróżnienia między wersjami kontenerów platformy Docker. Tagi to sufiksy podobne do **1,1** , które znajdują się na końcu repozytorium kontenera. Na przykład **MCR.Microsoft.com/azureiotedge-Agent:1.1**. Tagi są modyfikowalne i można je zmienić tak, aby wskazywały na inny kontener w dowolnym momencie, więc zespół powinien wyrazić zgodę na Konwencję, która będzie zgodna z aktualizacją obrazów modułów przenoszonych do przodu.
 
 Tagi umożliwiają również Wymuszanie aktualizacji na urządzeniach IoT Edge. W przypadku wypychania zaktualizowanej wersji modułu do rejestru kontenerów, należy zwiększyć tag. Następnie należy wypchnąć nowe wdrożenie na urządzenia przy użyciu znacznika o zwiększonym obroście. Aparat kontenerów rozpozna zwiększony tag jako nową wersję i pobierze najnowszą wersję modułu do urządzenia.
 
@@ -263,6 +263,17 @@ Jeśli urządzenia zostaną wdrożone w sieci, w której jest używany serwer pr
 
 W systemie Linux demon IoT Edge używa dzienników jako domyślnego sterownika rejestrowania. Za pomocą narzędzia wiersza polecenia można `journalctl` wykonywać zapytania dotyczące dzienników demona.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+W systemie Windows demon IoT Edge używa diagnostyki programu PowerShell. Służy `Get-IoTEdgeLog` do wykonywania zapytań dotyczących dzienników z demona. Moduły IoT Edge używają sterownika JSON do rejestrowania, co jest ustawieniem domyślnym.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+:::moniker-end
+<!-- end 1.1 -->
+
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -281,12 +292,6 @@ Począwszy od wersji 1,2, IoT Edge opiera się na wielu demonach. Podczas gdy dz
   ```
 
 :::moniker-end
-
-W systemie Windows demon IoT Edge używa diagnostyki programu PowerShell. Służy `Get-IoTEdgeLog` do wykonywania zapytań dotyczących dzienników z demona. Moduły IoT Edge używają sterownika JSON do rejestrowania, co jest ustawieniem domyślnym.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
 
 W przypadku testowania wdrożenia IoT Edge można zazwyczaj uzyskać dostęp do urządzeń w celu pobierania dzienników i rozwiązywania problemów. W scenariuszu wdrażania nie można korzystać z tej opcji. Rozważ, jak chcesz zbierać informacje o urządzeniach w środowisku produkcyjnym. Jedną z opcji jest użycie modułu rejestrowania, który zbiera informacje z innych modułów i wysyła je do chmury. Jednym z przykładów modułu rejestrowania jest [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), lub możesz zaprojektować własny.
 
@@ -308,12 +313,24 @@ Można ograniczyć rozmiar wszystkich plików dziennika kontenerów w opcjach dz
 }
 ```
 
-Dodaj (lub Dołącz) te informacje do pliku o nazwie `daemon.json` i umieść go w odpowiedniej lokalizacji dla platformy urządzeń.
+Dodaj (lub Dołącz) te informacje do pliku o nazwie `daemon.json` i umieść go w następującej lokalizacji:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Platforma | Lokalizacja |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* `/etc/docker/`
+
+:::moniker-end
+<!-- end 1.2 -->
 
 Aby zmiany zaczęły obowiązywać, należy ponownie uruchomić silnik kontenera.
 

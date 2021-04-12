@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 27056f39885949d52c9fcc0d1472033cfc8f9aa0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c2de0c1b024d093bd0276a852d9b97ba3320f4b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554874"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286338"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -83,7 +83,7 @@ Scenariusz bez linku jeszcze nie ma opublikowanego przewodnika migracji. Sprawd�
 | | Kombinacja narzędzi:| Kombinacja narzędzi: |
 | System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li><li>Za pośrednictwem Azure File Sync</li></ul> |
 | Windows Server 2012 i starsze | <ul><li>Za pośrednictwem DataBox i Azure File Sync do ostatniego systemu operacyjnego serwera</li><li>Za pomocą usługi migracji magazynu na ostatni serwer z Azure File Sync, a następnie Przekaż</li></ul> | <ul><li>Za pomocą usługi migracji magazynu na ostatni serwer z Azure File Sync</li><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
-| Magazyn dołączony do sieci (NAS) | <ul><li>[Za pośrednictwem przekazywania Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Za pośrednictwem DataBox i Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
+| Magazyn dołączony do sieci (NAS) | <ul><li>[Za pośrednictwem przekazywania Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Za pośrednictwem DataBox i Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Za pośrednictwem DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
 | Linux/Samba | <ul><li>[Azure File Sync i RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Za pośrednictwem RoboCopy do zainstalowanego udziału plików platformy Azure</li></ul> |
 | Microsoft Azure StorSimple urządzenie w chmurze 8100 lub StorSimple w chmurze 8600 | <ul><li>[Za pośrednictwem dedykowanej usługi w chmurze migracji danych](storage-files-migration-storsimple-8000.md)</li></ul> | |
 | Urządzenie w chmurze StorSimple 1200 | <ul><li>[Za pośrednictwem Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
