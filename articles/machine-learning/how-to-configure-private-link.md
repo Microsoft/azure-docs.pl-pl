@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 6fd497e0bc0fd282d57779c483f1e39e8f5ab60a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505481"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056015"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -175,7 +175,7 @@ Aby uzyskać informacje na temat usługi Azure Virtual Machines, zobacz [dokumen
 W niektórych sytuacjach możesz chcieć zezwolić komuś na łączenie się z zabezpieczonym obszarem roboczym za pośrednictwem publicznego punktu końcowego, a nie przez sieć wirtualną. Po skonfigurowaniu obszaru roboczego za pomocą prywatnego punktu końcowego można opcjonalnie włączyć publiczny dostęp do obszaru roboczego. Nie spowoduje to usunięcia prywatnego punktu końcowego. Cała komunikacja między składnikami za siecią wirtualną jest nadal zabezpieczona. Umożliwia dostęp publiczny tylko do obszaru roboczego, a nie do prywatnego dostępu za pomocą sieci wirtualnej.
 
 > [!WARNING]
-> Podczas nawiązywania połączenia za pośrednictwem publicznego punktu końcowego niektóre funkcje programu Studio nie będą mogły uzyskać dostępu do danych. Ten problem występuje, gdy dane są przechowywane w usłudze, która jest zabezpieczona za siecią wirtualną. Na przykład konto usługi Azure Storage.
+> Podczas nawiązywania połączenia za pośrednictwem publicznego punktu końcowego niektóre funkcje programu Studio nie będą mogły uzyskać dostępu do danych. Ten problem występuje, gdy dane są przechowywane w usłudze, która jest zabezpieczona za siecią wirtualną. Na przykład konto usługi Azure Storage. Należy również zwrócić uwagę na wystąpienie obliczeniowe Jupyter/JupyterLab/RStudio i uruchomione notesy nie będą działać.
 
 Aby włączyć publiczny dostęp do prywatnego obszaru roboczego z obsługą linków, wykonaj następujące czynności:
 

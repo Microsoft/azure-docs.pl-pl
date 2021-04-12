@@ -4,13 +4,13 @@ description: W tym przewodniku szybki start utworzysz podstawowe elementy aplika
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/30/2020
-ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 03/26/2021
+ms.openlocfilehash: c2f2bafe68dd3f3dad704ba12cdd4d01bf4f6588
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436678"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278766"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
@@ -53,7 +53,7 @@ Dwie różne _intencje_ dotyczące aplikacji są wyrównane do następujących i
 
 Aby utworzyć intencje, wykonaj następujące czynności:
 
-1. Po utworzeniu aplikacji upewnij się, że jesteś na stronie **intencje** w sekcji **kompilacja** . Wybierz pozycję **Utwórz**.
+1. Po utworzeniu aplikacji upewnij się, że jesteś na stronie **intencje** w sekcji **kompilacja** . Wybierz przycisk **Utwórz**.
 
    [![Zrzut ekranu przedstawiający Wybieranie opcji "Utwórz", aby utworzyć nowy cel](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -164,4 +164,4 @@ Po zakończeniu korzystania z tego przewodnika Szybki Start i przechodzenia do n
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [2. Wdróż aplikację](get-started-portal-deploy-app.md)
+> [Wdrażanie aplikacji](get-started-portal-deploy-app.md)

@@ -1,5 +1,5 @@
 ---
-title: Kolekcje (wersja zapoznawcza) w portalu Moje aplikacje — Azure AD
+title: Organizowanie aplikacji w kolekcje w portalu Moje aplikacje — Azure AD
 description: Dowiedz się, jak tworzyć, edytować, usuwać i ukrywać kolekcje aplikacji w moich aplikacjach.
 services: active-directory
 author: curtand
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ac5dede27262d3ce8bc44b4b278ed623063f8e1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095124"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209667"
 ---
-# <a name="user-collections-preview-in-my-apps"></a>Kolekcje użytkowników (wersja zapoznawcza) w moich aplikacjach
+# <a name="organize-apps-using-collections-from-my-apps"></a>Organizowanie aplikacji przy użyciu kolekcji z moich aplikacji
 
 Moje aplikacje to Twoje urządzenie, które umożliwia uruchamianie wszystkich aplikacji służbowych i zarządzanie nimi. Utwórz kolekcje, aby zorganizować aplikacje i ułatwić znajdowanie potrzebnych aplikacji.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 W tym artykule dowiesz się, jak:
 
@@ -55,7 +53,7 @@ W tym artykule dowiesz się, jak:
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Dodawanie aplikacji z listy do kolekcji":::
 
-1. Na poniższej stronie możesz zmienić kolejność lub usunąć aplikacje lub wybrać pozycję **Dodaj aplikacje** , aby wybrać więcej aplikacji dla kolekcji. Gdy jesteś zadowolony z wybranych opcji, wybierz pozycję **Utwórz nowy**.  
+1. Na stronie **Tworzenie nowego** okienka można zmienić kolejność lub usuwanie aplikacji lub wybrać pozycję **Dodaj aplikacje** , aby wybrać więcej aplikacji dla kolekcji. Gdy jesteś zadowolony z wybranych opcji, wybierz pozycję **Utwórz nowy**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Wybierz przycisk Utwórz nowy, aby zapisać kolekcję w moich aplikacjach":::
 
@@ -87,7 +85,7 @@ Można edytować tylko utworzone kolekcje. Aby edytować kolekcję, która zosta
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Zarządzanie aplikacjami za pomocą polecenia Manage":::
 
-1. W tym miejscu możesz ustawić kolejność, w jakiej kolekcje są wyświetlane w moich aplikacjach. Kolekcja na początku listy będzie domyślną kolekcją wyświetlaną za każdym razem, gdy przejdziesz do myapps.microsoft.com.  
+1. W tym miejscu możesz ustawić kolejność, w jakiej kolekcje są wyświetlane w moich aplikacjach. Kolekcja w górnej części listy będzie domyślną kolekcją wyświetlaną za każdym razem, gdy przejdziesz do myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="Moje aplikacje zawierają teraz nową kolekcję":::
 

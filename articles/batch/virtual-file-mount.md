@@ -4,12 +4,12 @@ description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsa
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626031"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105752"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
@@ -53,7 +53,7 @@ Poniższe przykłady kodu przedstawiają Instalowanie różnych udziałów plik�
 
 ### <a name="azure-files-share"></a>Udział Azure Files
 
-Azure Files to standardowa oferta systemu plików w chmurze platformy Azure. Aby dowiedzieć się więcej na temat pobierania dowolnego z parametrów w przykładowym kodzie konfiguracji instalacji, zobacz [Korzystanie z udziału Azure Files](../storage/files/storage-how-to-use-files-windows.md).
+Azure Files to standardowa oferta systemu plików w chmurze platformy Azure. Aby dowiedzieć się więcej o tym, jak uzyskać dowolny z parametrów w przykładowym kodzie konfiguracji instalacji, zobacz [Użyj udziału Azure Files-SMB](../storage/files/storage-how-to-use-files-windows.md) lub [Udostępnij Azure Files w systemie plików NFS](../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter

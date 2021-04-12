@@ -21,7 +21,7 @@ Aby uzyskać prawa dostępu do zasobów usługi Media Services i do interfejsu A
 * **Uwierzytelnianie jednostki usługi**: Służy do uwierzytelniania usług (na przykład: aplikacji internetowych, aplikacji funkcji, aplikacji logiki, interfejsu API i mikrousług). Aplikacje, które często korzystają z tej metody uwierzytelniania, to aplikacje uruchamiające usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Na przykład w przypadku aplikacji sieci Web zawsze powinna być warstwą średnią, która łączy się z Media Services za pomocą nazwy głównej usługi.
 * **Uwierzytelnianie użytkowników**: Służy do uwierzytelniania osoby korzystającej z aplikacji w celu współdziałania z zasobami usługi Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o podanie poświadczeń. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo.
 
-Interfejs API usługi Media Services wymaga, aby użytkownik lub aplikacja wykonująca żądania interfejsu API REST mieli dostęp do zasobu konta usługi Media Services i korzystali z roli **Współautor** lub **Właściciel**. Dostęp do interfejsu API można uzyskać, korzystając z roli **Czytelnik**, ale w takiej sytuacji dostępne będą tylko operacje **Get** i **List**.Aby uzyskać więcej informacji, zobacz temat [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services](rbac-overview.md).
+Interfejs API usługi Media Services wymaga, aby użytkownik lub aplikacja wykonująca żądania interfejsu API REST mieli dostęp do zasobu konta usługi Media Services i korzystali z roli **Współautor** lub **Właściciel**. Dostęp do interfejsu API można uzyskać, korzystając z roli **Czytelnik**, ale w takiej sytuacji dostępne będą tylko operacje **Get** i **List**.Aby uzyskać więcej informacji, zobacz temat [Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services](security-rbac-concept.md).
 
 Zamiast tworzyć jednostkę usługi, należy rozważyć użycie tożsamości zarządzanych na potrzeby zasobów platformy Azure w celu uzyskania dostępu do interfejsu API usługi Media Services za pośrednictwem usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat tożsamości zarządzanych na potrzeby zasobów platformy Azure, zobacz [Czym są tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,7 +52,7 @@ Na poniższej ilustracji liczba reprezentuje przepływ żądań w kolejności ch
 
 Zapoznaj się z poniższymi przykładami, które pokazują, jak nawiązać połączenie z jednostką usługi Azure AD:
 
-* [Połącz z usługą REST](media-rest-apis-with-postman.md)  
+* [Połącz z usługą REST](setup-postman-rest-how-to.md)  
 * [Nawiązywanie połączeń przy użyciu języka Java](configure-connect-java-howto.md)
 * [Nawiązywanie połączeń przy użyciu platformy .NET](configure-connect-dotnet-howto.md)
 * [Nawiązywanie połączeń przy użyciu platformy Node.js](configure-connect-nodejs-howto.md)

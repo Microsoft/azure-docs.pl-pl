@@ -5,10 +5,10 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98787624"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure

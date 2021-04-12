@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4e709719d56aacacf61e247a5dbe215f766a891a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 257ba16cf015705b8f6da264d9c25f28cef2ebb1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607955"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443444"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Dodawanie atrybutów użytkownika i dostosowywanie danych wejściowych użytkownika w Azure Active Directory B2C
 
@@ -60,7 +60,7 @@ Oświadczenia aplikacji to wartości, które są zwracane do aplikacji. Zaktuali
 1. Wybierz pozycję **układy strony**.
 1. Wybierz **stronę rejestracji konta lokalnego**.
 1. W obszarze **atrybuty użytkownika** wybierz pozycję **miasto**.
-    1. Z listy rozwijanej **Typ danych wejściowych użytkownika** wybierz pozycję **DropdownSingleSelect**.
+    1. Z listy rozwijanej **Typ danych wejściowych użytkownika** wybierz pozycję **DropdownSingleSelect**. Opcjonalne: Użyj przycisków "Przenieś w górę/w dół", aby rozmieścić kolejność tekstu na stronie rejestracji.
     1. Z listy rozwijanej **opcjonalne** wybierz pozycję **nie**.
 1. Wybierz pozycję **Zapisz**. 
 

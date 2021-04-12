@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: f00a5efb01ea59b04495747ffd93d9f15ad5f76e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed7a95ea83cacc0eaccfa23cd87403fb9be615ee
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935536"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210673"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Samouczek: wprowadzenie do Azure Machine Learning w notesach Jupyter
 
@@ -27,7 +27,13 @@ W tym samouczku zostały wykonane następujące czynności:
 > [!div class="checklist"]
 > * Utwórz [obszar roboczy Azure Machine Learning](concept-workspace.md) , który ma być używany w innych samouczkach Jupyter Notebook.
 > * Sklonuj Notes samouczków do folderu w obszarze roboczym.
-> * Tworzenie wystąpienia obliczeniowego opartego na chmurze z zainstalowanym i wstępnie skonfigurowanym zestawem SDK języka Python Azure Machine Learning.
+> * Tworzenie wystąpienia obliczeniowego opartego na chmurze, które zapewnia środowisko, w którym Azure Machine Learning Python SDK jest już zainstalowany i skonfigurowany.
+
+Ten samouczek przygotowuje Cię do uruchamiania notesów Jupyter w zasobie obliczeniowym w obszarze roboczym.  
+
+Innym doskonałym sposobem na rozpoczęcie pracy z usługą Azure Machine Learning jest przesłanie zadań wsadowych.  Zobacz [Samouczek: wprowadzenie do Azure Machine Learning w środowisku deweloperskim](tutorial-1st-experiment-sdk-setup-local.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 

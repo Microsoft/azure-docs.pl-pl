@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 273a1b5986a72acc1d6725fbb3101c9c1df17e45
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: d021267c38f0043d2361b1a6392fbacd0634a164
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122054"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279701"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji opartej na scenariuszu przesyłania strumieniowego na żywo
 
@@ -37,7 +37,7 @@ Przetestuj nowy sposób dostarczania zdarzeń na żywo z Media Services przed pr
 
 - Utwórz nowe wydarzenie v3 na [żywo](live-event-outputs-concept.md#live-events) na potrzeby kodowania. Można włączyć [Ustawienia zakodowania 1080p i 720](live-event-types-comparison-reference.md#system-presets).
 - Użyj jednostki [wyjściowej na żywo](live-event-outputs-concept.md#live-outputs) zamiast programów
-- Utwórz [lokalizatory przesyłania strumieniowego](streaming-locators-concept.md).
+- Utwórz [lokalizatory przesyłania strumieniowego](stream-streaming-locators-concept.md).
 - Weź pod uwagę potrzebę [HLS i przerywanie](encode-dynamic-packaging-concept.md) transmisji strumieniowej na żywo.
 - W przypadku konieczności szybkiego uruchamiania zdarzeń na żywo Eksploruj nowe funkcje [trybu wstrzymania](live-event-outputs-concept.md#standby-mode) .
 - Jeśli chcesz transkrypcja wydarzenie na żywo w czasie, Poznaj nową funkcję [transkrypcji na żywo](live-event-live-transcription-how-to.md) .
@@ -52,7 +52,7 @@ Zapoznaj się z pojęciami dotyczącymi wydarzeń na żywo, samouczkami i przewo
 
 - [Przesyłanie strumieniowe na żywo z Azure Media Services v3](stream-live-streaming-concept.md)
 - [Zdarzenia na żywo i wyjście na żywo w Media Services](live-event-outputs-concept.md)
-- [Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo](recommended-on-premises-live-encoders.md)
+- [Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo](encode-recommended-on-premises-live-encoders.md)
 - [Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie](live-event-cloud-dvr-time-how-to.md)
 - [Live-Event-Live-transkrypcje-How-to (wersja zapoznawcza)](live-event-live-transcription-how-to.md)
 - [Porównanie typów zdarzeń na żywo](live-event-types-comparison-reference.md)

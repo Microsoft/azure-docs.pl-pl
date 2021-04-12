@@ -4,10 +4,10 @@ description: Monitorowanie kondycji czujnika można przeprowadzić przy użyciu 
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.openlocfilehash: 1ba52236f65c6c5daba68c67677cdc6adfb699b4
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781674"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Konfigurowanie monitorowania SNMP MIB

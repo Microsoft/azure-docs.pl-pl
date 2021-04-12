@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 905224119b9df4e4003b1736443406e9548a49e3
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026424"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012533"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Skalowanie grupy serwerów ze skalą (Citus)
 
@@ -21,6 +21,11 @@ Azure Database for PostgreSQL-Citus) oferuje skalowanie samoobsługowe umożliwi
 ## <a name="add-worker-nodes"></a>Dodaj węzły procesu roboczego
 
 Aby dodać węzły, przejdź do karty **obliczenia + magazyn** w grupie serwerów Citus.  Przeciągnięcie suwaka dla **liczby węzłów roboczych** powoduje zmianę wartości.
+
+> [!NOTE]
+>
+> Grupa serwerów ze skalą (Citus) utworzona za pomocą [warstwy Basic (wersja zapoznawcza)](concepts-hyperscale-tiers.md) nie ma procesów roboczych. Zwiększenie liczby procesów roboczych powoduje automatyczne skalowanie grupy serwerów do warstwy Standardowa.
+> Po ukończeniu skalowania grupy serwerów do warstwy Standardowa nie można jej obniżyć z powrotem do warstwy Podstawowa.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Suwaki zasobów":::
 
@@ -34,7 +39,7 @@ Kliknij przycisk **Zapisz** , aby zmiana wartości zaczęła obowiązywać.
 
 ## <a name="increase-or-decrease-vcores-on-nodes"></a>Zwiększanie lub zmniejszanie liczby rdzeni wirtualnych w węzłach
 
-Oprócz dodawania nowych węzłów można zwiększać możliwości istniejących węzłów. Dostosowanie pojemności obliczeniowej w górę i w dół może być przydatne w przypadku eksperymentów dotyczących wydajności, a także krótko-lub długoterminowych zmian w zakresie ruchu.
+Oprócz dodawania nowych węzłów można zwiększać możliwości istniejących węzłów. Dostosowanie pojemności obliczeniowej w górę i w dół może być przydatne w przypadku eksperymentów dotyczących wydajności oraz krótkoterminowych i długoterminowych zmian w zakresie ruchu.
 
 Aby zmienić rdzeni wirtualnych dla wszystkich węzłów procesu roboczego, Dostosuj suwak **rdzeni wirtualnych** w obszarze **Konfiguracja (na węzeł procesu roboczego)**. Rdzeni wirtualnych węzła koordynatora można dostosowywać niezależnie. Dostosuj suwak **rdzeni wirtualnych** w obszarze  **Konfiguracja (węzeł koordynatora)**.
 

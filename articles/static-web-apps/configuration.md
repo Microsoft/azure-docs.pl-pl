@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: b6779de0203246a60bdfa60ea110a0f0d5f26ff3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106453"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218978"
 ---
 # <a name="configure-azure-static-web-apps"></a>Konfigurowanie Web Apps statycznej platformy Azure
 
@@ -39,6 +39,7 @@ Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby uzysk
 
 Reguły tras umożliwiają zdefiniowanie wzorca adresów URL, które zezwalają na dostęp do aplikacji w sieci Web. Trasy są definiowane jako tablica reguł routingu. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
 
+- Reguły są zdefiniowane w `routes` tablicy, nawet jeśli istnieje tylko jedna trasa.
 - Reguły są wykonywane w kolejności, w jakiej są wyświetlane w `routes` tablicy.
 - Ocena reguły zostaje zatrzymana przy pierwszym dopasowaniu — reguły routingu nie są połączone w łańcuchowo.
 - Masz pełną kontrolę nad nazwami ról niestandardowych.
@@ -50,7 +51,7 @@ Domyślny plik zawartości statycznej to plik *index.html* .
 
 ## <a name="defining-routes"></a>Definiowanie tras
 
-Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Reguły tras są zdefiniowane w `routes` tablicy. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
 
 | Właściwość reguły  | Wymagane | Wartość domyślna | Komentarz                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |

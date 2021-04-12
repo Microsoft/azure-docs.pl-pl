@@ -11,12 +11,12 @@ ms.date: 03/11/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b67f505a71d2af7950422a86ab45ef8aebb3bf4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81729159"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056440"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informacje o cenach usługi Azure IoT Hub
 
@@ -33,9 +33,9 @@ ms.locfileid: "81729159"
 | Komunikaty z chmury do urządzenia | Pomyślnie wysłane komunikaty są rozliczone w fragmentach o rozmiarach 4 KB, a na przykład komunikat 6 KB jest rozliczany 2 komunikaty. |
 | Operacje przekazywania plików | Transfer plików do usługi Azure Storage nie jest naliczany przez IoT Hub. W przypadku komunikatów o inicjacji i zakończeniu transferu plików są naliczane opłaty za wiadomości w przyrostach o rozmiarze 4 KB. Na przykład transfer pliku o rozmiarze 10 MB jest naliczany jako dwa komunikaty oprócz kosztu usługi Azure Storage. |
 | Metody bezpośrednie | Pomyślne żądania metod są rozliczone w fragmentach o rozmiarach 4 KB, a odpowiedzi są rozliczone w przypadku fragmentów o rozmiarach 4 KB jako dodatkowych komunikatów. Żądania dotyczące rozłączonych urządzeń są rozliczone jako komunikaty w fragmentach o rozmiarach 4 KB. Na przykład metoda o treści 4 KB, która skutkuje odpowiedzią bez treści urządzenia, jest naliczana za dwa komunikaty. Metoda z treścią 6 KB, która powoduje, że odpowiedź na 1 KB z urządzenia jest naliczana jako dwa komunikaty dla żądania oraz kolejny komunikat odpowiedzi. |
-| Odczyty sznurka urządzenia i modułu | Dane z urządzenia lub modułu oraz z zaplecza rozwiązania są rozliczone jako komunikaty w przypadku segmentów 512-bajtowych. Na przykład odczytywanie sznurka 6 KB jest obciążane jako 12 komunikatów. |
-| Aktualizacje urządzeń i modułów z przędzą (Tagi i właściwości) | Niezależne aktualizacje z urządzenia lub modułu oraz zaplecze rozwiązania są rozliczone jako komunikaty w przypadku segmentów 512-bajtowych. Na przykład odczytywanie sznurka 6 KB jest obciążane jako 12 komunikatów. |
-| Zapytania o sznurki urządzenia i modułu | Zapytania są rozliczone jako komunikaty, w zależności od rozmiaru wyniku w fragmentach 512 bajtów. |
+| Odczyty sznurka urządzenia i modułu | Dane z urządzenia lub modułu oraz z zaplecza rozwiązania są rozliczone jako komunikaty w fragmentach o rozmiarach 4 KB. Na przykład odczytanie sznurka 8-KB jest obciążane jako 2 komunikaty. |
+| Aktualizacje urządzeń i modułów z przędzą (Tagi i właściwości) | Niezależne aktualizacje z urządzenia lub modułu oraz zaplecze rozwiązania są rozliczone jako komunikaty w przypadku fragmentów o rozmiarach 4 KB. Na przykład czytanie sznurka 12 KB jest obciążane jako 3 wiadomości. |
+| Zapytania o sznurki urządzenia i modułu | Zapytania są rozliczone jako komunikaty w zależności od rozmiaru wyniku w fragmentach o rozmiarze 4 KB. |
 | Operacje zadań <br/> (tworzenie, aktualizowanie, wyświetlanie, usuwanie) | Bez opłat. |
 | Zadania dla poszczególnych urządzeń | Operacje na zadaniach (takie jak aktualizacje przędzy i metody) są rozliczone jako normalne. Na przykład zadanie w wyniku wywołania metody 1000 z 1 KB żądania i puste odpowiedzi są obciążane komunikat 1000. |
 | Komunikaty Keep-Alive | W przypadku korzystania z protokołów AMQP lub MQTT komunikaty wymieniane w celu ustanowienia połączenia i komunikatów wymienianych w ramach negocjacji nie są naliczone. |

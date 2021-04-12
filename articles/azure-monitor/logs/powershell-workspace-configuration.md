@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d876a380bfc2d318cddc0964266cc3f0a870aa16
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1abe79b4ab1caad04a088f659c0afceb2668eac
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050991"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106925"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Tworzenie i Konfigurowanie obszaru roboczego Log Analytics w Azure Monitor przy użyciu programu PowerShell
 W tym artykule przedstawiono dwa przykłady kodu, które pokazują, jak utworzyć i skonfigurować obszar roboczy Log Analytics w Azure Monitor.  
@@ -28,7 +28,7 @@ Poniższy przykładowy skrypt tworzy obszar roboczy bez konfiguracji źródła d
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -63,7 +63,7 @@ Ten skrypt wykonuje następujące funkcje:
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -213,7 +213,7 @@ W powyższym przykładzie regexDelimiter został zdefiniowany jako " \\ n" dla n
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Podczas tworzenia obszaru roboczego, który został usunięty w ciągu ostatnich 14 dni i w [stanie usuwania nietrwałego](../logs/delete-workspace.md#soft-delete-behavior), operacja może mieć różny wynik w zależności od konfiguracji obszaru roboczego:
 1. Jeśli podano tę samą nazwę obszaru roboczego, grupę zasobów, subskrypcję i region, jak w usuniętym obszarze roboczym, obszar roboczy zostanie odzyskany, w tym jego dane, konfiguracja i agenci połączone.
-2. W przypadku użycia tej samej nazwy obszaru roboczego, ale innej grupy zasobów, subskrypcji lub regionu zostanie wyświetlony błąd *Nazwa obszaru roboczego "Przestrzeń nazw" nie jest unikatowa* lub powoduje *konflikt*. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego i utworzyć nowy obszar roboczy o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:
+2. Nazwa obszaru roboczego musi być unikatowa dla każdej grupy zasobów. Jeśli używasz już istniejącej nazwy obszaru roboczego, również w przypadku usuwania nietrwałego w grupie zasobów, zostanie wyświetlony komunikat o błędzie *Nazwa obszaru roboczego "Przestrzeń nazw" nie jest unikatowa* lub powoduje *konflikt*. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego i utworzyć nowy obszar roboczy o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:
    * [Odzyskiwanie](../logs/delete-workspace.md#recover-workspace) obszaru roboczego
    * [Trwałe usunięcie](../logs/delete-workspace.md#permanent-workspace-delete) obszaru roboczego
    * Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego
