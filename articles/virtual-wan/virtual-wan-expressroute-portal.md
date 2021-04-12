@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6b9c4bcf760387f6bbe380c9aa079df2f86a1847
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 67df1c822f34f45bb0931848f8015374a346673a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060656"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278443"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Samouczek: Tworzenie skojarzenia ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure
 
@@ -104,7 +104,7 @@ W tej sekcji utworzysz połączenie komunikacji równorzędnej między centrum i
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Łączenie obwodu z bramą centrum
 
-Po utworzeniu bramy można podłączyć do niej [obwód ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) . Obwody usługi ExpressRoute w warstwie Standardowa lub Premium, które znajdują się w lokalizacji obsługiwanej przez usługi ExpressRoute Global Reach, mogą łączyć się z wirtualną bramą ExpressRoute sieci WAN i korzystać ze wszystkich możliwości tranzytu wirtualnego sieci WAN (VPN-to-VPN, VPN i ExpressRoute). Obwody usługi ExpressRoute w warstwach Standardowa i Premium, które znajdują się w lokalizacjach innych niż Global Reach, mogą łączyć się z zasobami platformy Azure, ale nie będą mogły korzystać z możliwości tranzytu wirtualnej sieci WAN. ExpressRoute lokalna jest obsługiwana w przypadku wirtualnych centrów sieci WAN platformy Azure, o ile szprycha sieci wirtualnych połączona z koncentratorem wirtualnej sieci WAN znajduje się w tym samym regionie co wirtualny koncentrator sieci WAN.
+Po utworzeniu bramy można podłączyć do niej [obwód ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) . Obwody usługi ExpressRoute w warstwie Standardowa lub Premium, które znajdują się w lokalizacji obsługiwanej przez usługi ExpressRoute Global Reach, mogą łączyć się z wirtualną bramą ExpressRoute sieci WAN i korzystać ze wszystkich możliwości tranzytu wirtualnego sieci WAN (VPN-to-VPN, VPN i ExpressRoute). Obwody usługi ExpressRoute w warstwach Standardowa i Premium, które znajdują się w lokalizacjach innych niż Global Reach, mogą łączyć się z zasobami platformy Azure, ale nie będą mogły korzystać z możliwości tranzytu wirtualnej sieci WAN. ExpressRoute Local jest również obsługiwany w przypadku centrów wirtualnych sieci WAN platformy Azure.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Aby połączyć obwód z bramą centrum
 

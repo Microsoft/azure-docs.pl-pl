@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 34fd6720b93a1462836b51856d73573a86809367
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 282eaa6e966ff458dfb1dfdd32ef6ec1f2cdc151
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022827"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443750"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Znajdowanie obrazów maszyn wirtualnych w portalu Azure Marketplace i korzystanie z nich Azure PowerShell
 
@@ -66,7 +66,7 @@ Możesz użyć programu PowerShell, aby zawęzić listę obrazów. Zastąp warto
     Możesz również użyć `latest` , jeśli chcesz użyć najnowszego obrazu, a nie konkretnej starszej wersji.
 
 
-Teraz można połączyć wybranego wydawcy, oferty, jednostki SKU i wersji na nazwę URN (wartości rozdzielone:). Przekaż tę nazwę URN z `--image` parametrem podczas tworzenia maszyny wirtualnej za pomocą polecenia cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm) . Możesz również zastąpić numer wersji w nazwie URN przy użyciu, `latest` Aby pobrać najnowszą wersję obrazu.
+Teraz można połączyć wybranego wydawcy, oferty, jednostki SKU i wersji na nazwę URN (wartości rozdzielone:). Przekaż tę nazwę URN z `-Image` parametrem podczas tworzenia maszyny wirtualnej za pomocą polecenia cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm) . Możesz również zastąpić numer wersji w nazwie URN przy użyciu, `latest` Aby pobrać najnowszą wersję obrazu.
 
 W przypadku wdrożenia maszyny wirtualnej z szablonem Menedżer zasobów, parametry obrazu są ustawiane indywidualnie we `imageReference` właściwościach. Zobacz [dokumentację szablonu](/azure/templates/microsoft.compute/virtualmachines).
 

@@ -4,14 +4,14 @@ description: Zawiera opis konfigurowania dodatkowych ustawień pamięci podręcz
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3996df3c75ff31d0825be1d332dbd055305963
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773236"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259765"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
@@ -47,24 +47,26 @@ Dowiedz się więcej o ustawieniach jednostki MTU w sieciach wirtualnych platfor
 
 ## <a name="customize-ntp"></a>Dostosowywanie NTP
 
-Pamięć podręczna domyślnie korzysta z time.microsoft.com serwera czasu opartego na platformie Azure. Jeśli chcesz, aby pamięć podręczna korzystała z innego serwera NTP, określ go w sekcji **Konfiguracja NTP** . Użyj w pełni kwalifikowanej nazwy domeny lub adresu IP.
+Pamięć podręczna domyślnie korzysta z time.windows.com serwera czasu opartego na platformie Azure. Jeśli chcesz, aby pamięć podręczna korzystała z innego serwera NTP, określ go w sekcji **Konfiguracja NTP** . Użyj w pełni kwalifikowanej nazwy domeny lub adresu IP.
 
 ## <a name="set-a-custom-dns-configuration"></a>Ustawianie niestandardowej konfiguracji DNS
 
 > [!CAUTION]
 > Nie należy zmieniać konfiguracji DNS pamięci podręcznej, jeśli nie jest to konieczne. Błędy konfiguracji mogą mieć konsekwencje fatalne. Jeśli konfiguracja nie może rozpoznać nazw usług platformy Azure, wystąpienie pamięci podręcznej HPC stanie się trwale niedostępne.
+>
+> Przed podjęciem próby skonfigurowania niestandardowej konfiguracji DNS skontaktuj się z przedstawicielami platformy Azure.
 
 Pamięć podręczna Azure HPC jest automatycznie konfigurowana do korzystania z bezpiecznego i wygodnego systemu Azure DNS. Jednak niektóre nietypowe konfiguracje wymagają, aby pamięć podręczna korzystała z oddzielnego lokalnego systemu DNS zamiast systemu Azure. Sekcja **konfiguracji DNS** strony **Sieć** służy do określenia tego rodzaju systemu.
 
 Skontaktuj się z przedstawicielami platformy Azure lub skontaktuj się z działem pomocy technicznej firmy Microsoft, aby określić, czy chcesz użyć niestandardowej konfiguracji DNS pamięci podręcznej.
 
-W przypadku skonfigurowania lokalnego systemu DNS do korzystania z pamięci podręcznej platformy Azure HPC należy upewnić się, że konfiguracja może rozpoznać nazwy punktów końcowych platformy Azure dla usług platformy Azure. W razie potrzeby należy skonfigurować niestandardowe środowisko DNS do przesyłania dalej określonych żądań rozpoznawania nazw do Azure DNS lub do innego serwera.
+W przypadku skonfigurowania lokalnego systemu DNS na potrzeby używania pamięci podręcznej platformy Azure HPC należy upewnić się, że lokalny serwer DNS jest w stanie bezpośrednio rozpoznać nazwy punktów końcowych usługi platformy Azure. Pamięć podręczna HPC nie będzie działać, jeśli serwer DNS nie jest ograniczony do publicznego rozpoznawania nazw.
 
 Sprawdź, czy konfiguracja DNS może pomyślnie rozwiązać te elementy przed użyciem jej w przypadku pamięci podręcznej platformy Azure HPC:
 
 * ``*.core.windows.net``
 * Pobieranie listy odwołania certyfikatów (CRL) i usługi weryfikacji protokołu stanu certyfikatów online (OCSP). Częściowa lista znajduje się w [elemencie reguły zapory](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) na końcu tego [artykułu protokołu TLS platformy Azure](../security/fundamentals/tls-certificate-changes.md), ale należy skontaktować się z przedstawicielem technicznym firmy Microsoft, aby poznać wszystkie wymagania.
-* W pełni kwalifikowana nazwa domeny serwera NTP (time.microsoft.com lub niestandardowy serwer)
+* W pełni kwalifikowana nazwa domeny serwera NTP (time.windows.com lub niestandardowy serwer)
 
 Jeśli musisz ustawić niestandardowy serwer DNS dla pamięci podręcznej, użyj podanych pól:
 

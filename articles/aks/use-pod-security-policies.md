@@ -4,17 +4,17 @@ description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą P
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e72bd28910f471656feb27d10c123930305494e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611773"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031226"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), zacznie wycofać się z Kubernetes w wersji 1,21 wraz z usunięciem w wersji 1,25.** Podobnie jak w przypadku Kubernetesch, Kubernetes społeczność będzie pracować nad dokumentami alternatywnymi. Powiadomienie o powyższym zaniechaniu zostało dokonane w chwili, gdy nie było to możliwe dla klientów. Teraz, gdy społeczność Kubernetes pracuje na alternatywie, nie jest już konieczne naciśnięcie przycisku w celu wycofania się z Kubernetes.
+> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), zacznie wycofać [się z Kubernetes](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) w wersji 1,21 wraz z usunięciem w wersji 1,25.** Podobnie jak w przypadku Kubernetesch, Kubernetes społeczność będzie pracować nad dokumentami alternatywnymi. Powiadomienie o powyższym zaniechaniu zostało dokonane w chwili, gdy nie było to możliwe dla klientów. Teraz, gdy społeczność Kubernetes pracuje na alternatywie, nie jest już konieczne naciśnięcie przycisku w celu wycofania się z Kubernetes. 
 >
 > Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
 

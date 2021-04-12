@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 33664c49c501071c44ac0f5b2486e687c822940d
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 9ae7e8c4544d2e8bd9dc4ff846aabb0c7f7f9358
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027605"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284344"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Przewodnik migracji: Oracle do Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) schematy programu oracle do Azure SQL Database przy użyciu SQL Server asystenta [migracji](https://azure.microsoft.com/migration/migration-journey) dla programu Oracle (Asystencie migracji for Oracle).
+W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) schematy programu oracle do Azure SQL Database przy użyciu SQL Server asystenta [migracji](https://azure.microsoft.com/en-us/migration/sql-server/) dla programu Oracle (Asystencie migracji for Oracle).
 
 Aby poznać inne przewodniki dotyczące migracji, zobacz [przewodniki dotyczące migracji bazy danych Azure](https://docs.microsoft.com/data-migration).
 

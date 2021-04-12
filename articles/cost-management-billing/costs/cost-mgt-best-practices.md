@@ -3,18 +3,18 @@ title: Optymalizowanie inwestycji w chmurę za pomocą usługi Azure Cost Manage
 description: Ten artykuł pomaga zmaksymalizować korzyści z inwestycji w chmurę, ograniczyć koszty i ocenić, na co wydawane są pieniądze.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: a1f66feedf33faf107bb4fca1879077379dfa815
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e333b4aadce33e5303820951051ce83c7e65eaf9
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066351"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222388"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Jak zoptymalizować inwestycję w chmurę za pomocą usługi Azure Cost Management
 
@@ -91,7 +91,7 @@ Aby dowiedzieć się więcej o różnych opcjach, odwiedź stronę [Kupowanie pl
 #### <a name="free"></a>[Bezpłatna](https://azure.microsoft.com/free/)
 
 - 12 miesięcy popularnych bezpłatnych usług
-- 200 USD w walucie rozliczeniowej w celu eksplorowania usług przez 30 dni
+- BEZPŁATNYMI środkami środki w Twojej walucie rozliczeniowej, aby eksplorować usługi przez 30 dni
 - Ponad 25 usług, które są zawsze bezpłatne
 
 #### <a name="pay-as-you-go"></a>[Płatność zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p)

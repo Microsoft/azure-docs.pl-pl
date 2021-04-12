@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c830f9c7edb252508824b3a92bd31b6fad31395d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a43e734c0a5bfa7c3698dcde5cb5b17f15575d90
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170069"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222932"
 ---
 # <a name="how-to-customize-your-verifiable-credentials-preview"></a>Jak dostosować zweryfikowane poświadczenia (wersja zapoznawcza)
 
@@ -165,7 +165,7 @@ Aby zapewnić współdziałanie poświadczeń, zalecamy ścisłe współdziałan
 | `vc.type` | Tablica ciągów wskazujących schematy, które są spełniane przez zweryfikowane poświadczenia. |
 
 
-## <a name="input-type-self-attested-claims"></a>Typ danych wejściowych: Self-Attested oświadczeń
+## <a name="input-type-self-attested-claims"></a>Typ danych wejściowych: oświadczenia zaświadczone przez siebie
 
 W trakcie przepływu wystawiania użytkownik może zostać poproszony o wprowadzenie niektórych informacji z zaświadczeniem własnym. Obecnie jedynym typem danych wejściowych jest "String". 
 ```json
@@ -263,7 +263,7 @@ Plik wyświetlany ma poniższą strukturę.
 | `claims.{attribute}.type` | Wskazuje typ atrybutu. Obecnie obsługujemy tylko ciąg "String". |
 | `claims.{attribute}.label` | Wartość, która powinna być używana jako etykieta dla atrybutu, który będzie wyświetlany w uwierzytelnianiu. Może się to różnić od etykiety, która została użyta w pliku reguł. Zalecana maksymalna długość wynosząca 40 znaków. |
 
->[!note]
+>[!NOTE]
   >Jeśli w pliku reguł zostanie uwzględniona wartość, a następnie pominięta w pliku wyświetlanym, istnieją dwa różne typy środowisk. W systemie iOS nie będzie ono wyświetlane w sekcji szczegółów pokazanej na powyższym obrazie, a w systemie Android zostanie wyświetlone zgłoszenie.  
 
 ## <a name="next-steps"></a>Następne kroki

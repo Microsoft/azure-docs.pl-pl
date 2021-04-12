@@ -4,18 +4,22 @@ description: Dowiedz się więcej o zabezpieczeniach w usłudze Azure Kubernetes
 services: container-service
 author: mlearned
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fafbe3f4b1c53f929682f4ca160fb19a5e91918
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122378"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105310"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
-Aby chronić dane klienta podczas uruchamiania obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS), zabezpieczenia klastra są kluczem. Kubernetes obejmuje składniki zabezpieczeń, takie jak *zasady sieciowe* i wpisy *tajne*. Następnie platforma Azure dodaje do składników, takich jak sieciowe grupy zabezpieczeń i uaktualnienia do zorganizowanych klastrów. Te składniki zabezpieczeń są łączone w celu zapewnienia, że klaster AKS z najnowszymi aktualizacjami zabezpieczeń systemu operacyjnego i wersjami Kubernetes oraz bezpiecznym ruchem pod kątem i dostępem do poufnych poświadczeń.
+Zabezpieczenia klastra chronią dane klientów podczas uruchamiania obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS). 
+
+Kubernetes obejmuje składniki zabezpieczeń, takie jak *zasady sieciowe* i wpisy *tajne*. Tymczasem platforma Azure obejmuje składniki, takie jak sieciowe grupy zabezpieczeń i uaktualnienia do zorganizowanych klastrów. AKS łączy następujące składniki zabezpieczeń:
+* Przechowuj klaster AKS z najnowszymi aktualizacjami zabezpieczeń systemu operacyjnego i wersjami Kubernetes.
+* Zapewnij bezpieczny ruch pod kątem i dostęp do poufnych poświadczeń.
 
 W tym artykule przedstawiono podstawowe koncepcje zabezpieczania aplikacji w programie AKS:
 
@@ -32,7 +36,7 @@ W tym artykule przedstawiono podstawowe koncepcje zabezpieczania aplikacji w pro
 
 ## <a name="master-security"></a>Zabezpieczenia główne
 
-W programie AKS główne składniki programu Kubernetes są częścią usługi zarządzanej zapewnianej przez firmę Microsoft. Każdy klaster AKS ma własny, dedykowany główny Kubernetes, który zapewnia serwer interfejsu API, harmonogram itd. Ten główny serwer jest zarządzany i konserwowany przez firmę Microsoft.
+W AKS składniki główne Kubernetes są częścią usługi zarządzanej, zarządzanej i utrzymywanej przez firmę Microsoft. Każdy klaster AKS ma własny, dedykowany główny Kubernetes, który zapewnia serwer interfejsu API, harmonogram itd.
 
 Domyślnie serwer interfejsu API Kubernetes używa publicznego adresu IP i w pełni kwalifikowanej nazwy domeny (FQDN). Dostęp do punktu końcowego serwera interfejsu API można ograniczyć za pomocą [autoryzowanych zakresów adresów IP][authorized-ip-ranges]. Można również utworzyć w pełni [prywatny klaster][private-clusters] , aby ograniczyć dostęp serwera API do sieci wirtualnej.
 
@@ -40,62 +44,95 @@ Dostęp do serwera interfejsu API można kontrolować za pomocą Kubernetes kont
 
 ## <a name="node-security"></a>Zabezpieczenia węzła
 
-AKS węzły są maszynami wirtualnymi platformy Azure, którymi zarządzasz. Węzły systemu Linux uruchamiają zoptymalizowaną dystrybucję Ubuntu przy użyciu `containerd` środowiska uruchomieniowego kontenera lub Moby. W węzłach systemu Windows Server działa zoptymalizowane wydanie systemu Windows Server 2019, a także używany jest program `containerd` lub środowisko uruchomieniowe kontenera Moby. Po utworzeniu lub skalowaniu klastra AKS węzły są automatycznie wdrażane z najnowszymi aktualizacjami i konfiguracjami zabezpieczeń systemu operacyjnego.
+AKS węzły są maszynami wirtualnymi platformy Azure, którymi zarządzasz. 
+* Węzły systemu Linux uruchamiają zoptymalizowaną dystrybucję Ubuntu przy użyciu `containerd` środowiska uruchomieniowego kontenera lub Moby. 
+* W węzłach systemu Windows Server jest uruchomiona zoptymalizowana wersja systemu Windows Server 2019 przy użyciu `containerd` środowiska uruchomieniowego kontenera lub Moby. 
+
+Po utworzeniu lub skalowaniu klastra AKS węzły są automatycznie wdrażane z najnowszymi aktualizacjami i konfiguracjami zabezpieczeń systemu operacyjnego.
 
 > [!NOTE]
-> Klastry AKS korzystające z pul węzłów Kubernetes w wersji 1,19 i większe użycie `containerd` jako środowiska uruchomieniowego kontenera. Klastry AKS korzystające z funkcji Kubernetes starszych niż v 1.19 dla pul węzłów używają [Moby](https://mobyproject.org/) (nadrzędnego Docker) jako środowiska uruchomieniowego kontenera.
+> Klastry AKS korzystające z:
+> * Pule węzłów Kubernetes w wersji 1,19 i większe użycie `containerd` jako środowisko uruchomieniowe kontenera. 
+> * Kubernetes wcześniejsze niż v 1.19 pule węzłów używają [Moby](https://mobyproject.org/) (Docker) jako środowiska uruchomieniowego kontenera.
 
-Platforma Azure automatycznie stosuje poprawki zabezpieczeń systemu operacyjnego w węzłach z systemem Linux w porze nocnej. Jeśli aktualizacja zabezpieczeń systemu operacyjnego Linux wymaga ponownego uruchomienia hosta, ponowne uruchomienie nie jest wykonywane automatycznie. Można ręcznie ponownie uruchomić węzły systemu Linux lub często używanym podejściem jest użycie [Kured][kured], demona ponownego uruchomienia typu open source dla Kubernetes. Kured działa jako [elementu daemonset][aks-daemonsets] i monitoruje każdy węzeł pod kątem obecności pliku wskazujący, że wymagany jest ponowny rozruch. Ponowne uruchomienia są zarządzane przez klaster przy użyciu tego samego [procesu Cordon i opróżniania](#cordon-and-drain) co uaktualnienie klastra.
+### <a name="node-security-patches"></a>Poprawki zabezpieczeń węzła
 
-W przypadku węzłów systemu Windows Server Windows Update nie jest automatycznie uruchamiane i stosowane są najnowsze aktualizacje. Zgodnie z regularnym harmonogramem Windows Update cyklu wydania i procesu weryfikacji należy przeprowadzić uaktualnienie w puli węzłów systemu Windows Server w klastrze AKS. Ten proces uaktualniania tworzy węzły z zainstalowanym najnowszym obrazem systemu Windows Server i poprawkami, a następnie usuwa starsze węzły. Aby uzyskać więcej informacji na temat tego procesu, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
+#### <a name="linux-nodes"></a>Węzły systemu Linux
+Platforma Azure automatycznie stosuje poprawki zabezpieczeń systemu operacyjnego w węzłach z systemem Linux w porze nocnej. Jeśli aktualizacja zabezpieczeń systemu operacyjnego Linux wymaga ponownego uruchomienia hosta, nie zostanie automatycznie uruchomiony ponownie. Można:
+* Ręcznie uruchom ponownie węzły systemu Linux.
+* Użyj [Kured][kured], demona ponownego uruchomienia Open Source dla Kubernetes. Kured działa jako [elementu daemonset][aks-daemonsets] i monitoruje każdy węzeł pliku wskazujący, że wymagany jest ponowny rozruch. 
 
-Węzły są wdrażane w prywatnej podsieci sieci wirtualnej, bez przypisanych publicznych adresów IP. W celu rozwiązywania problemów i zarządzania protokół SSH jest domyślnie włączony. Ten dostęp SSH jest dostępny tylko przy użyciu wewnętrznego adresu IP.
+Ponowne uruchomienia są zarządzane przez klaster przy użyciu tego samego [procesu Cordon i opróżniania](#cordon-and-drain) co uaktualnienie klastra.
 
-Aby zapewnić magazyn, węzły używają usługi Azure Managed Disks. W przypadku większości rozmiarów węzłów maszyny wirtualnej są to dyski w warstwie Premium obsługiwane przez dysków SSD o wysokiej wydajności. Dane przechowywane na dyskach zarządzanych są automatycznie szyfrowane w ramach platformy Azure. Aby zwiększyć nadmiarowość, te dyski również są bezpiecznie replikowane w centrum danych platformy Azure.
+#### <a name="windows-server-nodes"></a>Węzły systemu Windows Server
 
-Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń*, lub bardziej precyzyjne Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) dla węzłów, utrudniają luki w zabezpieczeniach. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
+W przypadku węzłów systemu Windows Server Windows Update nie jest automatycznie uruchamiane i stosowane są najnowsze aktualizacje. Zaplanuj uaktualnienia puli węzłów systemu Windows Server w klastrze AKS, aby obejść regularne cykle wydania Windows Update i proces weryfikacji. Ten proces uaktualniania tworzy węzły z zainstalowanym najnowszym obrazem systemu Windows Server i poprawkami, a następnie usuwa starsze węzły. Aby uzyskać więcej informacji na temat tego procesu, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
+
+### <a name="node-deployment"></a>Wdrażanie węzłów
+Węzły są wdrażane w prywatnej podsieci sieci wirtualnej, bez przypisanych publicznych adresów IP. W celu rozwiązywania problemów i zarządzania protokół SSH jest domyślnie włączony i dostępny tylko przy użyciu wewnętrznego adresu IP.
+
+### <a name="node-storage"></a>Magazyn węzłów
+Aby zapewnić magazyn, węzły używają usługi Azure Managed Disks. W przypadku większości rozmiarów węzłów maszyny wirtualnej platforma Azure Managed Disks to dyski Premium obsługiwane przez dysków SSD o wysokiej wydajności. Dane przechowywane na dyskach zarządzanych są automatycznie szyfrowane w ramach platformy Azure. Aby zwiększyć nadmiarowość, Managed Disks platformy Azure są bezpiecznie replikowane w centrum danych platformy Azure.
+
+### <a name="hostile-multi-tenant-workloads"></a>Nieszkodliwy dla wielu dzierżawców
+
+Obecnie środowiska Kubernetes nie są bezpieczne dla niebezpiecznym użyciem wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń* , lub Kubernetes RBAC dla węzłów, efektywnie uniemożliwiają luki w zabezpieczeniach. W celu zapewnienia prawdziwych zabezpieczeń w przypadku nieprzechodnich obciążeń z wieloma dzierżawcami należy jedynie zaufać funkcji hypervisor. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. 
+
+W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Izolacja obliczeniowa
 
- Niektóre obciążenia mogą wymagać wysokiego stopnia odizolowania od innych obciążeń klientów ze względu na zgodność lub wymagania prawne. W przypadku tych obciążeń platforma Azure udostępnia [izolowane maszyny wirtualne](../virtual-machines/isolation.md), które mogą być używane jako węzły agentów w klastrze AKS. Te izolowane maszyny wirtualne są izolowane do określonego typu sprzętu i przeznaczone dla jednego klienta. 
+Ze względu na wymagania dotyczące zgodności lub z przepisami, pewne obciążenia mogą wymagać wysokiego stopnia odizolowania od innych obciążeń klientów. Na potrzeby tych obciążeń platforma Azure udostępnia [izolowane maszyny wirtualne](../virtual-machines/isolation.md) do użycia jako węzły agentów w klastrze AKS. Te maszyny wirtualne są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. 
 
- Aby użyć tych odizolowanych maszyn wirtualnych z klastrem AKS, wybierz jedną z odizolowanych maszyn wirtualnych, które są wymienione w [tym miejscu](../virtual-machines/isolation.md) jako **rozmiar węzła** podczas tworzenia klastra AKS lub dodania puli węzłów.
-
+Podczas tworzenia klastra AKS lub dodawania puli węzłów wybierz [jeden z izolowanych rozmiarów maszyn wirtualnych](../virtual-machines/isolation.md) jako **rozmiar węzła** .
 
 ## <a name="cluster-upgrades"></a>Uaktualnienia klastra
 
-W celu zapewnienia bezpieczeństwa i zgodności lub korzystania z najnowszych funkcji platforma Azure oferuje narzędzia do organizowania uaktualnienia klastra AKS i składników programu. Ta aranżacja uaktualniania obejmuje zarówno składnik główny Kubernetes, jak i składniki agentów. Można wyświetlić [listę dostępnych wersji Kubernetes](supported-kubernetes-versions.md) dla klastra AKS. Aby rozpocząć proces uaktualniania, należy określić jedną z tych dostępnych wersji. Następnie platforma Azure bezpiecznie cordons i opróżnia każdy węzeł AKS i przeprowadza uaktualnienie.
+Platforma Azure udostępnia narzędzia aranżacji uaktualnienia umożliwiające uaktualnienie klastra AKS i składników, zachowanie bezpieczeństwa i zgodności oraz dostęp do najnowszych funkcji. Ta aranżacja uaktualniania obejmuje zarówno składnik główny Kubernetes, jak i składniki agentów. 
+
+Aby rozpocząć proces uaktualniania, Określ jedną z [wymienionych wersji Kubernetes](supported-kubernetes-versions.md). Następnie platforma Azure bezpiecznie cordons i opróżnia każdy węzeł AKS i uaktualnienia.
 
 ### <a name="cordon-and-drain"></a>Cordon i opróżnianie
 
-W trakcie procesu uaktualniania węzły AKS są indywidualnie odizolowywane z klastra, więc nie zaplanowano nowych zasobników. Węzły są następnie opróżniane i uaktualniane w następujący sposób:
+W trakcie procesu uaktualniania węzły AKS są indywidualnie odizolowywane z klastra, aby uniemożliwić ich zaplanowanie. Węzły są następnie opróżniane i uaktualniane w następujący sposób:
 
-- Nowy węzeł jest wdrażany w puli węzłów. Ten węzeł uruchamia najnowszą wersję obrazu systemu operacyjnego i poprawki.
-- Jeden z istniejących węzłów jest identyfikowany do uaktualnienia. W tym węźle są bezpiecznie kończone i zaplanowani w innych węzłach w puli węzłów.
-- Ten istniejący węzeł zostanie usunięty z klastra AKS.
-- Następny węzeł w klastrze jest odizolowywane i opróżniany przy użyciu tego samego procesu, dopóki wszystkie węzły zostaną pomyślnie zastąpione w ramach procesu uaktualniania.
+1.  Nowy węzeł jest wdrażany w puli węzłów. 
+    * Ten węzeł uruchamia najnowszą wersję obrazu systemu operacyjnego i poprawki.
+1. Jeden z istniejących węzłów jest identyfikowany do uaktualnienia. 
+1. W określonym węźle są bezpiecznie kończone i planowane planowanie w innych węzłach w puli węzłów.
+1. Opróżniony węzeł zostanie usunięty z klastra AKS.
+1. Kroki 1-4 są powtarzane, dopóki wszystkie węzły zostaną pomyślnie zastąpione w ramach procesu uaktualniania.
 
 Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastra AKS][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-W przypadku połączeń i zabezpieczeń z sieciami lokalnymi można wdrożyć klaster AKS w istniejących podsieciach sieci wirtualnej platformy Azure. Te sieci wirtualne mogą mieć połączenie sieci VPN typu lokacja-lokacja lub usługi Express Route z siecią lokalną. Kontrolery transferu danych przychodzących Kubernetes można definiować za pomocą prywatnych, wewnętrznych adresów IP, dzięki czemu usługi są dostępne tylko za pośrednictwem tego wewnętrznego połączenia sieciowego.
+W przypadku połączeń i zabezpieczeń z sieciami lokalnymi można wdrożyć klaster AKS w istniejących podsieciach sieci wirtualnej platformy Azure. Te sieci wirtualne łączą się z siecią lokalną przy użyciu sieci VPN typu lokacja-lokacja lub usługi Express Route. Zdefiniuj kontrolery transferu danych przychodzących Kubernetes z prywatnymi wewnętrznymi adresami IP, aby ograniczyć dostęp usług do wewnętrznego połączenia sieciowego.
 
 ### <a name="azure-network-security-groups"></a>Sieciowe grupy zabezpieczeń platformy Azure
 
-Aby odfiltrować przepływ ruchu w sieciach wirtualnych, na platformie Azure są stosowane reguły sieciowej grupy zabezpieczeń. Te reguły definiują źródłowe i docelowe zakresy adresów IP, porty i protokoły, które są dozwolone lub odrzucane przez dostęp do zasobów. Tworzone są reguły domyślne, które zezwalają na ruch TLS do serwera interfejsu API Kubernetes. Podczas tworzenia usług przy użyciu modułów równoważenia obciążenia, mapowania portów lub tras transferu danych przychodzących program AKS automatycznie modyfikuje sieciowe grupy zabezpieczeń, aby ruch był odpowiednio przepływ.
+Do filtrowania przepływu ruchu w sieci wirtualnej na platformie Azure są stosowane reguły sieciowej grupy zabezpieczeń. Te reguły definiują źródłowe i docelowe zakresy adresów IP, porty i protokoły dozwolone lub odrzucające dostęp do zasobów. Tworzone są reguły domyślne, które zezwalają na ruch TLS do serwera interfejsu API Kubernetes. Tworzysz usługi przy użyciu modułów równoważenia obciążenia, mapowania portów lub tras przychodzących. AKS automatycznie modyfikuje sieciową grupę zabezpieczeń dla przepływu ruchu.
 
-W przypadkach, gdy udostępniasz własną podsieć dla klastra AKS i chcesz zmodyfikować przepływ ruchu, nie należy modyfikować sieciowej grupy zabezpieczeń na poziomie podsieci zarządzanej przez AKS. Można utworzyć dodatkowe sieciowe grupy zabezpieczeń na poziomie podsieci w celu zmodyfikowania przepływu ruchu, o ile nie zakłócają one ruchu potrzebnego do zarządzania klastrem, takich jak dostęp do usługi równoważenia obciążenia, komunikacja z płaszczyzną kontroli i ruch wychodzący [.][aks-limit-egress-traffic]
+Jeśli podasz własną podsieć dla klastra AKS **, nie należy modyfikować sieciowej** grupy zabezpieczeń na poziomie podsieci zarządzanej przez AKS. Zamiast tego należy utworzyć więcej sieciowych grup zabezpieczeń na poziomie podsieci w celu zmodyfikowania przepływu ruchu. Upewnij się, że nie zakłócają one niezbędnego ruchu zarządzania klastrem, takich jak dostęp do modułu równoważenia obciążenia, komunikacja z płaszczyzną [][aks-limit-egress-traffic]kontroli i ruch wychodzący.
 
 ### <a name="kubernetes-network-policy"></a>Zasady sieci Kubernetes
 
-Aby ograniczyć ruch sieciowy między zasobnikami w klastrze, AKS oferuje obsługę [zasad sieciowych Kubernetes][network-policy]. Przy użyciu zasad sieciowych można wybrać opcję zezwalania lub odrzucania określonych ścieżek sieciowych w klastrze na podstawie obszarów nazw i selektorów etykiet.
+Aby ograniczyć ruch sieciowy między zasobnikami w klastrze, AKS oferuje obsługę [zasad sieciowych Kubernetes][network-policy]. Przy użyciu zasad sieciowych można zezwalać na określone ścieżki sieciowe w ramach klastra lub odrzucać je na podstawie obszarów nazw i selektorów etykiet.
 
 ## <a name="kubernetes-secrets"></a>Wpisy tajne usługi Kubernetes
 
-*Wpis tajny* Kubernetes jest używany do dodawania poufnych danych do zasobników, takich jak poświadczenia dostępu lub klucze. Najpierw utwórz wpis tajny przy użyciu interfejsu API Kubernetes. Podczas definiowania użytkownika lub wdrożenia można żądać określonego klucza tajnego. Wpisy tajne są dostarczane tylko do węzłów, które mają zaplanowaną w tym, że wymagają, a wpis tajny jest przechowywany w *tmpfs*, a nie zapisywany na dysku. Po usunięciu ostatniego elementu na węźle, który wymaga wpisu tajnego, wpis tajny jest usuwany z tmpfs węzła. Wpisy tajne są przechowywane w danym obszarze nazw i można do nich uzyskiwać dostęp tylko w obrębie tego samego obszaru nazw.
+*Wpis tajny* Kubernetes umożliwia wprowadzanie poufnych danych do zasobników, takich jak poświadczenia dostępu lub klucze. 
+1. Utwórz wpis tajny przy użyciu interfejsu API Kubernetes. 
+1. Zdefiniuj element lub wdrożenie i Żądaj określonego klucza tajnego. 
+    * Wpisy tajne są dostarczane tylko do węzłów z zaplanowanym terminem, które ich wymagają.
+    * Wpis tajny jest przechowywany w *tmpfs*, nie jest zapisywany na dysku. 
+1. Po usunięciu ostatniego elementu znajdującego się w węźle wymagającym wpisu tajnego, wpis tajny jest usuwany z tmpfs węzła. 
+   * Wpisy tajne są przechowywane w danym obszarze nazw i można do nich uzyskiwać dostęp tylko w obrębie tego samego obszaru nazw.
 
-Użycie wpisów tajnych zmniejsza poufne informacje, które są zdefiniowane w manifeście "YAML" lub "Service". Zamiast tego należy zażądać wpisu tajnego przechowywanego na serwerze interfejsu API Kubernetes jako część manifestu YAML. Takie podejście zapewnia tylko szczególny dostęp do klucza tajnego. Uwaga: pliki manifestu RAW Secret zawierają dane tajne w formacie base64 (szczegółowe informacje znajdują się w [oficjalnej dokumentacji][secret-risks] ). W związku z tym ten plik powinien być traktowany jako informacje poufne i nigdy nie został przekazany do kontroli źródła.
+Używanie wpisów tajnych zmniejsza poufne informacje zdefiniowane w manifeście "YAML" lub "Service". Zamiast tego należy zażądać wpisu tajnego przechowywanego na serwerze interfejsu API Kubernetes jako część manifestu YAML. Takie podejście zapewnia tylko szczególny dostęp do klucza tajnego. 
+
+> [!NOTE]
+> Pliki manifestu RAW Secret zawierają dane tajne w formacie base64 (szczegółowe informacje znajdują się w [oficjalnej dokumentacji][secret-risks] ). Traktuj te pliki jako informacje poufne i nigdy nie zatwierdzaj ich do kontroli źródła.
 
 Wpisy tajne Kubernetes są przechowywane w etcd, rozproszonym magazynie klucza i wartości. Magazyn Etcd jest w pełni zarządzany przez AKS, a [dane są szyfrowane w ramach platformy Azure][encryption-atrest]. 
 
@@ -105,7 +142,7 @@ Aby rozpocząć Zabezpieczanie klastrów AKS, zobacz [Uaktualnianie klastra AKS]
 
 W przypadku skojarzonych najlepszych rozwiązań należy zapoznać się [z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń i uaktualnień klastra w AKS][operator-best-practices-cluster-security] i [najlepszych rozwiązaniach dotyczących zabezpieczeń pod kątem bezpieczeństwa w AKS][developer-best-practices-pod-security].
 
-Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz:
 
 - [Kubernetes/AKS klastrów i obciążeń][aks-concepts-clusters-workloads]
 - [Kubernetes/AKS tożsamość][aks-concepts-identity]

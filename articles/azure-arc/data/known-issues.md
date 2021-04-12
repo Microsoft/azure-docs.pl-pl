@@ -9,20 +9,51 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee652047a33d73ece2d7648905fa590d90b1fb2f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122004"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029509"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Znane problemy — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>Marzec 2021
+
+### <a name="data-controller"></a>Kontroler danych
+
+- W trybie bezpośredniego łączenia można utworzyć kontroler danych z Azure Portal. Wdrażanie z innymi narzędziami usług danych z funkcją Azure Arc nie są obsługiwane. W tej wersji nie można wdrożyć kontrolera danych w trybie bezpośredniego łączenia z żadnym z następujących narzędzi.
+   - Azure Data Studio
+   - Interfejs wiersza polecenia platformy Azure ( `azdata` )
+   - Narzędzia natywne Kubernetes
+
+   [Wdrażanie usługi Azure Arc Data Controller | Tryb łączenia bezpośredniego](deploy-data-controller-direct-mode.md) wyjaśnia, jak utworzyć kontroler danych w portalu. 
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Usługa Azure ARC z włączonym skalowaniem PostgreSQL
+
+- Wdrożenie grupy serwerów Postgres w systemie Arc w kontrolerze danych z włączonym trybem bezpośredniego połączenia nie jest obsługiwane.
+- Przekazywanie nieprawidłowej wartości do `--extensions` parametru podczas edytowania konfiguracji grupy serwerów w celu włączenia dodatkowych rozszerzeń powoduje nieprawidłowe Resetowanie listy włączonych rozszerzeń do tego, co było w czasie tworzenia grupy serwerów i uniemożliwia użytkownikowi tworzenie dodatkowych rozszerzeń. Jedyne obejście dostępne tylko wtedy, gdy to nastąpi, usunięcie grupy serwerów i jej ponowne wdrożenie.
+
 ## <a name="february-2021"></a>Luty 2021 r.
 
-- Tryb podłączonego klastra jest wyłączony
+### <a name="data-controller"></a>Kontroler danych
+
+- Tryb klastra bezpośredniego łączenia jest wyłączony
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Usługa Azure ARC z włączonym skalowaniem PostgreSQL
+
+- Przywracanie do punktu w czasie nie jest obsługiwane przez teraz w magazynie NFS.
+- Nie można jednocześnie włączyć i skonfigurować rozszerzenia pg_cron. W tym celu należy użyć dwóch poleceń. Jedno polecenie umożliwiające włączenie go i jedno polecenie w celu jego skonfigurowania. 
+
+   Na przykład:
+   ```console
+   § azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+   § azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+   ```
+
+   Pierwsze polecenie wymaga ponownego uruchomienia grupy serwerów. Dlatego przed wykonaniem drugiego polecenia upewnij się, że stan grupy serwerów przeszedł z aktualizacji na gotowe. Jeśli wykonujesz drugie polecenie przed ukończeniem ponownego uruchomienia, zakończy się niepowodzeniem. W takim przypadku po prostu poczekaj chwilę, a następnie ponownie wykonaj drugie polecenie.
 
 ## <a name="introduced-prior-to-february-2021"></a>Wprowadzono przed luty 2021
 
@@ -43,12 +74,6 @@ ms.locfileid: "102122004"
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Wyczyść pola wyboru dla każdej strefy, aby określić brak.":::
 
-### <a name="postgresql"></a>PostgreSQL
-
-- Usługa Azure ARC z włączonym PostgreSQLem nie zwraca niedokładnego komunikatu o błędzie, gdy nie można go przywrócić do punktu względnego w czasie. Jeśli na przykład do przywracania określono punkt w czasie, który jest starszy niż zawiera kopie zapasowe, przywracanie zakończy się niepowodzeniem z komunikatem o błędzie: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`
-W takim przypadku należy ponownie uruchomić polecenie po wskazaniu punktu w czasie, który znajduje się w zakresie dat, dla których istnieją kopie zapasowe. Ten zakres zostanie określony przez wystawienie kopii zapasowych i przejrzenie dat, w których zostały wykonane.
-- Przywracanie do punktu w czasie jest obsługiwane tylko w grupach serwerów. Serwer docelowy operacji przywracania do punktu w czasie nie może być serwerem, z którego została wykonana kopia zapasowa. Musi to być inna grupa serwerów. Jednak pełne przywracanie jest obsługiwane przez tę samą grupę serwerów.
-- Podczas wykonywania pełnego przywracania wymagany jest identyfikator kopii zapasowej. Domyślnie, jeśli nie jest wskazywany identyfikator kopii zapasowej, zostanie użyta najnowsza kopia zapasowa. To nie działa w tej wersji.
 
 ## <a name="next-steps"></a>Następne kroki
 

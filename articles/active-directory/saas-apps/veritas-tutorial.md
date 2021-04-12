@@ -9,101 +9,78 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e777a27e793b1f4ef5489248c170824d69d615c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2796928316197bd48723253dbc97dfcd34ac95e8
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92517688"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Samouczek: integracja Azure Active Directory z usługą Veritas Enterprise Vault.cloud — Logowanie jednokrotne
 
-W tym samouczku dowiesz się, jak zintegrować program VERITAS Enterprise Vault.cloud SSO z usługą Azure Active Directory (Azure AD).
-Integracja programu Veritas Enterprise Vault.cloud SSO z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować program VERITAS Enterprise Vault.cloud SSO z usługą Azure Active Directory (Azure AD). Po zintegrowaniu programu Veritas Enterprise Vault.cloud SSO z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do programu Veritas Enterprise Vault.cloud SSO.
-* Możesz umożliwić użytkownikom automatyczne logowanie do programu Veritas Enterprise Vault.cloud SSO (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontrolka w usłudze Azure AD, która ma dostęp do programu Veritas Enterprise Vault.cloud SSO.
+* Zezwól użytkownikom na automatyczne logowanie do programu Veritas Enterprise Vault.cloud SSO przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację z usługą Azure AD za pomocą programu Veritas Enterprise Vault.cloud SSO, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja obsługująca Logowanie jednokrotne w przedsiębiorstwie w systemie Veritas Enterprise Vault.cloud
+* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja usługi Veritas Enterprise Vault.cloud z logowaniem jednokrotnym.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa Veritas Enterprise Vault.cloud logowanie  jednokrotne obsługuje zainicjowaną przez usługę SSO
+* Usługa Veritas Enterprise Vault.cloud SSO obsługuje usługę **SP** zainicjowaną przez usługę SSO.
 
-## <a name="adding-veritas-enterprise-vaultcloud-sso-from-the-gallery"></a>Dodawanie programu Veritas Enterprise Vault.cloud SSO z galerii
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
+
+## <a name="add-veritas-enterprise-vaultcloud-sso-from-the-gallery"></a>Dodawanie programu Veritas Enterprise Vault.cloud SSO z galerii
 
 Aby skonfigurować integrację programu Veritas Enterprise Vault.cloud SSO z usługą Azure AD, musisz dodać aplikację Veritas Enterprise Vault.cloud SSO z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać program VERITAS Enterprise Vault.cloud SSO z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz w polu wyszukiwania pozycję **Veritas Enterprise Vault.Cloud SSO** .
+1. Wybierz pozycję **Veritas Enterprise Vault.Cloud SSO** from z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-veritas-enterprise-vaultcloud-sso"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla programu Veritas Enterprise Vault.cloud SSO
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą programu Veritas Enterprise Vault.cloud SSO przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie Veritas Enterprise Vault.cloud SSO.
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu Veritas Enterprise Vault.cloud SSO, wykonaj następujące czynności:
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj aplikację Veritas Enterprise Vault.Cloud SSO](#configure-veritas-enterprise-vaultcloud-sso-sso)** Logowanie jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz usługę Veritas enterprise Vault.Cloud SSO test użytkownika](#create-veritas-enterprise-vaultcloud-sso-test-user)** — Aby uzyskać odpowiednik B. Simon w programie Veritas Enterprise Vault.Cloud SSO, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-4. W polu wyszukiwania wpisz **Veritas enterprise Vault.Cloud SSO**, wybierz pozycję **Veritas Enterprise Vault.Cloud SSO** z poziomu panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W Azure Portal na stronie integracja aplikacji w programie **Veritas Enterprise Vault.Cloud Logowanie jednokrotne** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-     ![Usługa Veritas Enterprise Vault.cloud SSO na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą programu Veritas Enterprise Vault.cloud SSO na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w systemie Veritas Enterprise Vault.cloud SSO.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu Veritas Enterprise Vault.cloud SSO, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w **[systemie Veritas Enterprise Vault.Cloud](#configure-veritas-enterprise-vaultcloud-sso-single-sign-on)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz usługę Veritas enterprise Vault.Cloud SSO test użytkownika](#create-veritas-enterprise-vaultcloud-sso-test-user)** — Aby uzyskać odpowiednik Britta Simon w Veritas Enterprise Vault.Cloud SSO, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą programu Veritas Enterprise Vault.cloud SSO, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji w programie **Veritas Enterprise Vault.Cloud logowanie** jednokrotne wybierz pozycję **Logowanie** jednokrotne.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Usługa Veritas Enterprise Vault.cloud rejestracji jednokrotnej domeny i adresów URL logowania jednokrotnego](common/sp-identifier-reply.png)
-
     a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
-    b. W polu **Identyfikator** Użyj adresu URL dla centrum danych:
+    b. W polu **Identyfikator** wpisz jeden z adresów URL zgodnie z centrum danych:
 
     | Centrum danych| Adres URL |
     |----------|----|
@@ -111,7 +88,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą programu
     | Europa | `https://auth.ams.archivecloud.net` |
     | Azja i Pacyfik| `https://auth.syd.archivecloud.net`|
 
-    c. W polu tekstowym **adres URL odpowiedzi** Użyj adresu URL dla centrum danych:
+    c. W polu tekstowym **adres URL odpowiedzi** wpisz jeden z adresów URL zgodnie z centrum danych:
 
     | Centrum danych| Adres URL |
     |----------|----|
@@ -130,80 +107,49 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą programu
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
-
-    b. Identyfikator usługi Azure AD
-
-    c. Adres URL wylogowywania
-
-### <a name="configure-veritas-enterprise-vaultcloud-sso-single-sign-on"></a>Konfigurowanie jednego Sign-On w programie Veritas Enterprise Vault.cloud
-
-Aby skonfigurować Logowanie jednokrotne na serwerze **Veritas enterprise Vault.Cloud Logowanie jednokrotne** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do programu [Veritas Enterprise Vault.Cloud SSO Support Team](https://www.veritas.com/support/.html). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij pozycję **Utwórz**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure, przyznając dostęp do programu Veritas Enterprise Vault.cloud SSO.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do programu Veritas Enterprise Vault.cloud SSO.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Veritas Enterprise Vault.Cloud SSO**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **Veritas Enterprise Vault.Cloud SSO**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+## <a name="configure-veritas-enterprise-vaultcloud-sso-sso"></a>Konfigurowanie oprogramowania Veritas Enterprise Vault.cloud SSO SSO
 
-2. Na liście Aplikacje wybierz pozycję **Veritas Enterprise Vault.Cloud SSO**.
-
-    ![Link do programu Veritas Enterprise Vault.cloud SSO na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+Aby skonfigurować Logowanie jednokrotne na serwerze **Veritas enterprise Vault.Cloud Logowanie jednokrotne** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do programu [Veritas Enterprise Vault.Cloud SSO Support Team](https://www.veritas.com/support/.html). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-veritas-enterprise-vaultcloud-sso-test-user"></a>Tworzenie użytkownika testowego w programie Veritas Enterprise Vault.cloud SSO
 
 W tej sekcji utworzysz użytkownika o nazwie Britta Simon w programie Veritas Enterprise Vault.cloud SSO. Pracuj z [zespołem obsługi rejestracji jednokrotnej w przedsiębiorstwie w systemie Veritas enterprise Vault.Cloud](https://www.veritas.com/support/.html) , aby dodać użytkowników z platformy veritas Enterprise Vault.Cloud SSO. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka Logowanie jednokrotne w przedsiębiorstwie Vault.cloud w panelu dostępu należy automatycznie zalogować się do programu Veritas Enterprise Vault.cloud SSO, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do programu Veritas Enterprise Vault.cloud logowania jednokrotnego, na którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź bezpośrednio do programu Veritas Enterprise Vault.cloud Logowanie jednokrotne w adresie URL i zainicjuj w nim przepływ logowania.
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka Logowanie jednokrotne w usłudze Veritas Enterprise Vault.cloud w obszarze Moje aplikacje zostanie przekierowany na adres URL logowania jednokrotnego w przedsiębiorstwie w wersji Veritas Enterprise Vault.cloud. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu programu Veritas Enterprise Vault.cloud SSO można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

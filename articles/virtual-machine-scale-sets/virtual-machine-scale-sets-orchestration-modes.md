@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 316f97480dfe7ee6481ef88faf265051a92024da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d9d9449e2a971a4247e507e0c022c8c5fb9956c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937264"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075410"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Wersja zapoznawcza: tryby aranżacji dla zestawów skalowania maszyn wirtualnych na platformie Azure 
 
@@ -306,7 +306,7 @@ Do zestawu skalowania w elastycznym trybie aranżacji można dodać maksymalnie 
 
 **Jak dostępność z elastyczną aranżacją jest porównywana z zestawami dostępności lub jednolitą aranżacją?**
 
-|   | Elastyczna aranżacja  | Jednolita aranżacja  | Zestawy dostępności  |
+| Atrybut dostępności  | Elastyczna aranżacja  | Jednolita aranżacja  | Zestawy dostępności  |
 |-|-|-|-|
 | Wdrażanie w strefach dostępności  | Nie  | Tak  | Nie  |
 | Gwarancje dostępności domeny błędów w regionie  | Tak, do 1000 wystąpień można rozłożyć na maksymalnie 3 domeny błędów w regionie. Maksymalna liczba domen błędów jest różna w zależności od regionu  | Tak, do 100 wystąpień  | Tak, do 200 wystąpień  |

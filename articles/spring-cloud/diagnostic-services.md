@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 68b9aee49e4cf7c02c07fc7dd90e9cc6065a443c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218795"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259425"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
 
@@ -110,7 +110,7 @@ Istnieją różne metody wyświetlania dzienników i metryk zgodnie z opisem w p
 > [!NOTE]
 > `==` uwzględnia wielkość liter, ale `=~` nie jest.
 
-Aby dowiedzieć się więcej o języku zapytań używanym w Log Analytics, zobacz [Azure monitor dziennika zapytań](/azure/data-explorer/kusto/query/).
+Aby dowiedzieć się więcej o języku zapytań używanym w Log Analytics, zobacz [Azure monitor dziennika zapytań](/azure/data-explorer/kusto/query/). Aby wykonać zapytanie dotyczące wszystkich dzienników Log Analytics od scentralizowanego klienta, zapoznaj się z [usługą Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ### <a name="use-your-storage-account"></a>Korzystanie z konta magazynu
 

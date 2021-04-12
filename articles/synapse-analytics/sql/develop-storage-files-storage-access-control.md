@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552958"
+ms.locfileid: "107029747"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -23,6 +23,13 @@ Zapytanie puli SQL bezserwerowe odczytuje pliki bezpośrednio z usługi Azure St
 - **Poziom usługi SQL** — użytkownik powinien mieć uprawnienia do odczytu danych przy użyciu [tabeli zewnętrznej](develop-tables-external-tables.md) lub do wykonywania `OPENROWSET` funkcji. Więcej informacji o [wymaganych uprawnieniach znajduje się w tej sekcji](develop-storage-files-overview.md#permissions).
 
 W tym artykule opisano typy poświadczeń, których można użyć oraz sposób przeszukiwania poświadczeń dla użytkowników usług SQL i Azure AD.
+
+## <a name="storage-permissions"></a>Uprawnienia magazynu
+
+Bezserwerowa Pula SQL w obszarze roboczym Synapse Analytics może odczytywać zawartość plików przechowywanych w magazynie Azure Data Lake. Należy skonfigurować uprawnienia do magazynu, aby umożliwić użytkownikowi, który wykonuje zapytanie SQL w celu odczytania plików. Istnieją trzy metody włączania dostępu do plików>
+- **[Kontrola dostępu oparta na rolach (RBAC)](../../role-based-access-control/overview.md)** umożliwia przypisywanie roli do niektórych użytkowników usługi Azure AD w dzierżawie, w której znajduje się magazyn. Role RBAC mogą być przypisane do użytkowników usługi Azure AD. Czytnik musi mieć `Storage Blob Data Reader` rolę, `Storage Blob Data Contributor` , lub `Storage Blob Data Owner` . Użytkownik, który zapisuje dane w usłudze Azure Storage, musi `Storage Blob Data Writer` mieć `Storage Blob Data Owner` rolę lub. Należy pamiętać, że `Storage Owner` rola nie oznacza, że użytkownik jest również `Storage Data Owner` .
+- **Listy Access Control (ACL)** pozwalają definiować szczegółowy model uprawnień dla plików i katalogów w usłudze Azure Storage. Listę ACL można przypisać do użytkowników usługi Azure AD. Jeśli czytelnicy chcą odczytać plik w ścieżce w usłudze Azure Storage, musi mieć listę ACL Execute (X) dla każdego folderu w ścieżce pliku i odczytać (R) listę ACL dla tego pliku. [Dowiedz się więcej na temat ustawiania uprawnień listy ACL w warstwie magazynu](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- **Sygnatura dostępu współdzielonego** umożliwia czytelnikowi dostęp do plików w magazynie Azure Data Lake przy użyciu tokenu ograniczonego czasowo. Czytnik nie musi nawet być uwierzytelniany jako użytkownik usługi Azure AD. Token SYGNATURy dostępu współdzielonego zawiera uprawnienia przyznane czytelnikowi oraz okres ważności tokenu. Token SAS jest dobrym rozwiązaniem dla ograniczonego dostępu do dowolnego użytkownika, który nie musi jeszcze znajdować się w tej samej dzierżawie usługi Azure AD. Token SAS można zdefiniować na koncie magazynu lub w określonych katalogach. Dowiedz się więcej [na temat przyznawania ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
 
 ## <a name="supported-storage-authorization-types"></a>Obsługiwane typy autoryzacji magazynu
 
@@ -103,7 +110,7 @@ Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można u�
 
 #### <a name="user-identity"></a>Tożsamość użytkownika
 
-Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem tożsamości użytkownika, można użyć modułu programu PowerShell AZ. Storage.
+Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem tożsamości użytkownika, można użyć interfejsu użytkownika Azure Portal lub modułu programu PowerShell AZ. Storage.
 #### <a name="configuration-via-azure-portal"></a>Konfiguracja za pośrednictwem Azure Portal
 
 1. Wyszukaj swoje konto magazynu w Azure Portal.

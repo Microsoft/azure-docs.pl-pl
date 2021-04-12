@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82216abd13b6128be68e22a4ce2a0f6de9a6ce2f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: f104b98c870fe6eee1d32fe656c0bba416cf3700
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227550"
+ms.locfileid: "107259748"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -43,7 +43,7 @@ Na poniższym diagramie przedstawiono, jak wersje są tworzone w ramach operacji
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram przedstawiający sposób działania wersji obiektów BLOB":::
 
-Po usunięciu obiektu BLOB z włączoną obsługą wersji bieżąca wersja obiektu BLOB zostanie usunięta. Wszystkie poprzednie wersje obiektu BLOB są utrwalane.
+Po usunięciu obiektu BLOB z włączoną obsługą wersji bieżąca wersja obiektu BLOB zostanie poprzednia i nie będzie już bieżącą wersją. Wszystkie poprzednie wersje obiektu BLOB są utrwalane.
 
 Wersje obiektów BLOB są niezmienne. Nie można zmodyfikować zawartości ani metadanych istniejącej wersji obiektu BLOB.
 
@@ -133,7 +133,7 @@ Na poniższym diagramie przedstawiono sposób modyfikowania obiektu BLOB po wyko
 
 ## <a name="blob-versioning-and-soft-delete"></a>Przechowywanie wersji obiektów blob i usuwanie nietrwałe
 
-Firma Microsoft zaleca włączenie obsługi wersji i usuwania nietrwałego obiektów BLOB dla kont magazynu w celu zapewnienia optymalnej ochrony danych. Usuwanie nietrwałe chroni obiekty blob, wersje i migawki przed przypadkowym usunięciem. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md).
+Firma Microsoft zaleca włączenie obsługi wersji i usuwania nietrwałego obiektów BLOB dla kont magazynu w celu zapewnienia optymalnej ochrony danych. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md).
 
 ### <a name="overwriting-a-blob"></a>Zastępowanie obiektu BLOB
 
@@ -141,7 +141,7 @@ Jeśli dla konta magazynu włączono zarówno obsługę wersji obiektów blob, j
 
 ### <a name="deleting-a-blob-or-version"></a>Usuwanie obiektu BLOB lub wersji
 
-Jeśli na koncie magazynu są włączone zarówno przechowywanie wersji, jak i usuwanie nietrwałe, bieżąca wersja obiektu BLOB będzie w poprzedniej wersji, a bieżąca wersja zostanie usunięta. Nie została utworzona nowa wersja i nie są tworzone żadne migawki usunięte przez program. Okres przechowywania nietrwałego usuwania nie obowiązuje dla usuniętego obiektu BLOB.
+W przypadku włączenia obsługi wersji i usunięcia nietrwałego dla konta magazynu, po usunięciu obiektu BLOB bieżąca wersja obiektu BLOB zostanie poprzednia. Nie została utworzona nowa wersja i nie są tworzone żadne migawki usunięte przez program. Okres przechowywania nietrwałego usuwania nie obowiązuje dla usuniętego obiektu BLOB.
 
 Usuwanie nietrwałe oferuje dodatkową ochronę przed usunięciem wersji obiektów BLOB. Po usunięciu poprzedniej wersji obiektu BLOB ta wersja jest nietrwała. Wersja niestandardowa jest zachowywana do momentu, gdy upłynie okres przechowywania nietrwałego, w którym punkt ten zostanie trwale usunięty.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 225f1d311739bdafbe39971a2b4ac74917e770e9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: cd37175bd85e31ddc18c8267cdf01f7dc6249a0b
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279497"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491920"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
 
@@ -45,7 +45,7 @@ Aby kodować z Media Services v3, należy utworzyć [transformację](/rest/api/m
 
 Przy kodowaniu przy użyciu Media Services należy użyć ustawień wstępnych, aby poinformować koder o sposobie przetwarzania plików multimedialnych. W Media Services v3 używasz kodera standardowego do kodowania plików. Na przykład można określić rozdzielczość wideo i/lub liczbę kanałów audio, które mają być w zakodowanej zawartości.
 
-Możesz szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień domyślnych opartych na najlepszych rozwiązaniach branżowych lub wybrać opcję utworzenia niestandardowego ustawienia wstępnego, które będzie ukierunkowane na konkretne wymagania dotyczące scenariusza lub urządzenia. Aby uzyskać więcej informacji, zobacz [kodowanie przy użyciu transformacji niestandardowej](encode-custom-presets-how-to.md).
+Możesz szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień domyślnych opartych na najlepszych rozwiązaniach branżowych lub wybrać opcję utworzenia niestandardowego ustawienia wstępnego, które będzie ukierunkowane na konkretne wymagania dotyczące scenariusza lub urządzenia. Aby uzyskać więcej informacji, zobacz [kodowanie przy użyciu transformacji niestandardowej](transform-custom-presets-how-to.md).
 
 Począwszy od stycznia 2019, gdy kodowanie przy użyciu standardowego kodera do tworzenia plików MP4, nowy plik MPI jest generowany i dodawany do wyjściowego elementu zawartości. Ten plik MPI jest przeznaczony do poprawiania wydajności dla scenariuszy [dynamicznego tworzenia pakietów](encode-dynamic-packaging-concept.md) i przesyłania strumieniowego.
 
@@ -136,9 +136,9 @@ Media Services w pełni obsługuje Dostosowywanie wszystkich wartości w ustawie
 
 #### <a name="examples"></a>Przykłady
 
-- [Dostosowywanie ustawień wstępnych przy użyciu platformy .NET](encode-custom-presets-how-to.md)
-- [Dostosowywanie ustawień wstępnych przy użyciu interfejsu wiersza polecenia](encode-custom-preset-cli-how-to.md)
-- [Dostosowywanie ustawień wstępnych przy użyciu interfejsu REST](encode-custom-preset-rest-how-to.md)
+- [Dostosowywanie ustawień wstępnych przy użyciu platformy .NET](transform-custom-presets-how-to.md)
+- [Dostosowywanie ustawień wstępnych przy użyciu interfejsu wiersza polecenia](transform-custom-preset-cli-how-to.md)
+- [Dostosowywanie ustawień wstępnych przy użyciu interfejsu REST](transform-custom-preset-rest-how-to.md)
 
 
 ## <a name="preset-schema"></a>Schemat ustawień wstępnych
@@ -165,4 +165,4 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 * [Przekazywanie, kodowanie i przesyłanie strumieniowe przy użyciu Media Services](stream-files-tutorial-with-api.md).
 * [Koduj z adresu URL HTTPS przy użyciu wbudowanych ustawień wstępnych](job-input-from-http-how-to.md).
 * [Koduj plik lokalny przy użyciu wbudowanych ustawień wstępnych](job-input-from-local-file-how-to.md).
-* [Utwórz niestandardowe ustawienie wstępne, aby określić odpowiednie wymagania dotyczące scenariusza lub urządzenia](encode-custom-presets-how-to.md).
+* [Utwórz niestandardowe ustawienie wstępne, aby określić odpowiednie wymagania dotyczące scenariusza lub urządzenia](transform-custom-presets-how-to.md).

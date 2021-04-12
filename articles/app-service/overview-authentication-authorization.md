@@ -3,15 +3,15 @@ title: Uwierzytelnianie i autoryzacja
 description: Dowiedz się więcej o wbudowanej obsłudze uwierzytelniania i autoryzacji w Azure App Service i Azure Functions oraz sposobie zabezpieczania aplikacji przed nieautoryzowanym dostępem.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 35513abdfb61d889abdbd4af7125b1fbb556d7b8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b6e600fcaf32a115af14be2444144fee099d635
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612759"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075342"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -33,8 +33,7 @@ App Service używa [tożsamości federacyjnej](https://en.wikipedia.org/wiki/Fed
 
 | Dostawca | Punkt końcowy logowania | Wskazówki dotyczące How-To |
 | - | - | - |
-| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service logowanie do usługi Azure AD](configure-authentication-provider-aad.md) |
-| [Konto Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` | [App Service logowanie do konta Microsoft](configure-authentication-provider-microsoft.md) |
+| [Platforma tożsamości firmy Microsoft](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service logowanie do platformy tożsamości firmy Microsoft](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service logowanie w usłudze Facebook](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service logowanie Google](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service logowanie do usługi Twitter](configure-authentication-provider-twitter.md) |
@@ -110,21 +109,17 @@ W przypadku przeglądarek klienta App Service może automatycznie kierować wszy
 
 #### <a name="authorization-behavior"></a>Zachowanie autoryzacji
 
-W [Azure Portal](https://portal.azure.com)można skonfigurować autoryzację App Service z liczbą zachowań, gdy żądanie przychodzące nie zostanie uwierzytelnione.
+W [Azure Portal](https://portal.azure.com)można skonfigurować App Service z liczbą zachowań, gdy żądanie przychodzące nie zostanie uwierzytelnione. Poniższe nagłówki opisują opcje.
 
-![Zrzut ekranu przedstawiający listę rozwijaną "Akcja do wykonania, gdy żądanie nie zostało uwierzytelnione"](media/app-service-authentication-overview/authorization-flow.png)
-
-Poniższe nagłówki opisują opcje.
-
-**Zezwalaj na żądania anonimowe (bez akcji)**
+**Zezwalaj na nieuwierzytelnione żądania**
 
 Ta opcja umożliwia rozliczanie autoryzacji nieuwierzytelnionego ruchu do kodu aplikacji. W przypadku żądań uwierzytelnionych App Service również przekazuje informacje o uwierzytelnianiu w nagłówkach HTTP.
 
 Ta opcja zapewnia większą elastyczność obsługi żądań anonimowych. Na przykład umożliwia [prezentowanie użytkownikom wielu dostawców logowania](app-service-authentication-how-to.md#use-multiple-sign-in-providers) . Jednak należy napisać kod.
 
-**Zezwalaj tylko na uwierzytelnione żądania**
+**Wymagaj uwierzytelniania**
 
-Opcja jest **Logowanie za pomocą programu \<provider>**. App Service przekierowuje wszystkie anonimowe żądania do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` .
+Ta opcja spowoduje odrzucenie nieuwierzytelnionego ruchu do aplikacji. To odrzucenie może być akcją przekierowania dla jednego ze skonfigurowanych dostawców tożsamości. W takich przypadkach klient przeglądarki jest przekierowywany do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` . Można również skonfigurować odrzucanie jako `HTTP 401 Unauthorized` lub `HTTP 403 Forbidden` dla wszystkich żądań.
 
 W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardziej precyzyjne uwierzytelnianie, takie jak autoryzacja specyficzna dla ról, może być obsługiwane przez sprawdzenie oświadczeń użytkownika (zobacz [dostęp do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims)).
 

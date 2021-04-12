@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: c1b30a1eafe9af92c1ef3f81773d213ccf96555c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 098c6ace2b673654d07bfa29147fda3cbbc59b76
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462035"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107554"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Samouczek: Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)
 
@@ -446,7 +446,7 @@ Po upewnieniu się, że konfiguracje są poprawne na każdym urządzeniu, możes
 
 ## <a name="deploy-modules-to-the-top-layer-device"></a>Wdrażanie modułów na urządzeniu warstwy najwyższej
 
-Moduły umożliwiają ukończenie wdrożenia i środowisko uruchomieniowe IoT Edge na urządzeniach oraz dokładniejsze zdefiniowanie struktury hierarchii. Moduł proxy usługi IoT Edge API bezpiecznie routs ruch HTTP przez jeden port z urządzeń warstwy niższej. Moduł Docker Registry umożliwia korzystanie z repozytorium obrazów platformy Docker, do których urządzenia warstwy niższej mogą uzyskać dostęp za pomocą ściągania obrazu do warstwy najwyższego poziomu.
+Moduły umożliwiają ukończenie wdrożenia i środowisko uruchomieniowe IoT Edge na urządzeniach oraz dokładniejsze zdefiniowanie struktury hierarchii. Moduł serwera proxy interfejsu API IoT Edge prawidłowo kieruje ruch HTTP na pojedynczy port z urządzeń warstwy niższej. Moduł Docker Registry umożliwia korzystanie z repozytorium obrazów platformy Docker, do których urządzenia warstwy niższej mogą uzyskać dostęp za pomocą ściągania obrazu do warstwy najwyższego poziomu.
 
 Aby wdrożyć moduły na urządzeniu warstwy najwyższej, możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
@@ -623,7 +623,7 @@ W [Azure Portal](https://ms.portal.azure.com/):
 
 ---
 
-Jeśli powyższe kroki zostały wykonane prawidłowo, **urządzenie warstwy najwyższego poziomu** powinno zgłosić cztery moduły: moduł proxy interfejsu API IoT Edge, moduł docker Container Registry i moduły systemowe, jak **określono we wdrożeniu**. Odebranie nowego wdrożenia przez urządzenie i uruchomienie modułów może potrwać kilka minut. Odśwież stronę do momentu wyświetlenia modułu czujnika temperatury wymienionego na liście **zgłoszone przez urządzenie**. Po zgłoszeniu modułów przez urządzenie możesz kontynuować pracę.
+Jeśli powyższe kroki zostały wykonane prawidłowo, **urządzenie warstwy najwyższego poziomu** powinno zgłosić cztery moduły: moduł proxy interfejsu API IoT Edge, moduł docker Container Registry i moduły systemowe, jak **określono we wdrożeniu**. Odebranie nowego wdrożenia przez urządzenie i uruchomienie modułów może potrwać kilka minut. Odśwież stronę, dopóki nie zobaczysz IoTEdgeAPIProxy i modułów rejestru wymienionych jako **zgłoszone przez urządzenie**. Po zgłoszeniu modułów przez urządzenie możesz kontynuować pracę.
 
 ## <a name="deploy-modules-to-the-lower-layer-device"></a>Wdrażanie modułów na urządzeniu warstwy niższej
 

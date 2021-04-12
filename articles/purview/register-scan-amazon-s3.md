@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 542b6580994a2054526f0ddbb3ad93dc27c28fcc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773457"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107656"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Łącznik usługi Azure kontrolą dla systemu Amazon S3
 
@@ -38,6 +38,7 @@ Aby uzyskać więcej informacji, zobacz udokumentowane limity kontrolą w:
 
 - [Zarządzanie przydziałami i zwiększanie przydziałów zasobów za pomocą usługi Azure kontrolą](how-to-manage-quotas.md)
 - [Obsługiwane źródła danych i typy plików w usłudze Azure kontrolą](sources-and-scans.md)
+- [Używanie prywatnych punktów końcowych dla konta usługi kontrolą](catalog-private-link.md)
 ### <a name="storage-and-scanning-regions"></a>Obszary magazynu i skanowania
 
 W poniższej tabeli zawarto mapy regionów, w których dane są przechowywane w regionie, w którym byłyby skanowane przez usługę Azure kontrolą.
@@ -77,9 +78,13 @@ W poniższej tabeli zawarto mapy regionów, w których dane są przechowywane w 
 
 Upewnij się, że zostały wykonane następujące wymagania wstępne przed dodaniem zasobników usługi Amazon S3 jako kontrolą źródła danych i skanowania danych S3.
 
-- Musisz być administratorem źródła danych usługi Azure kontrolą.
-
-- W przypadku dodawania zasobników jako zasobów kontrolą potrzebne są wartości [AWS ARN](#retrieve-your-new-role-arn), [datazasobnika](#retrieve-your-amazon-s3-bucket-name)i czasami [Identyfikator konta AWS](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * Musisz być administratorem źródła danych usługi Azure kontrolą.
+> * [Utwórz konto kontrolą](#create-a-purview-account) , jeśli jeszcze go nie masz
+> * [Utwórz poświadczenie kontrolą dla skanowania przedziału AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Utwórz nową rolę AWS do użycia z usługą kontrolą](#create-a-new-aws-role-for-purview)
+> * [Konfigurowanie skanowania dla zaszyfrowanych zasobników usługi Amazon S3](#configure-scanning-for-encrypted-amazon-s3-buckets)(jeśli dotyczy)
+> * W przypadku dodawania zasobników jako zasobów kontrolą potrzebne są wartości [AWS ARN](#retrieve-your-new-role-arn), [datazasobnika](#retrieve-your-amazon-s3-bucket-name)i czasami [Identyfikator konta AWS](#locate-your-aws-account-id).
 
 ### <a name="create-a-purview-account"></a>Utwórz konto kontrolą
 
@@ -92,7 +97,7 @@ Upewnij się, że zostały wykonane następujące wymagania wstępne przed dodan
 W tej procedurze opisano sposób tworzenia nowego poświadczenia kontrolą do użycia podczas skanowania przedziałów AWS.
 
 > [!TIP]
-> Podczas [konfigurowania skanowania](#create-a-scan-for-your-amazon-s3-bucket)można także utworzyć nowe poświadczenie w trakcie procesu. W takim przypadku w polu **Credential (poświadczenia** ) wybierz pozycję **New (nowy**).
+> Podczas [konfigurowania skanowania](#create-a-scan-for-one-or-more-amazon-s3-buckets)można także utworzyć nowe poświadczenie w trakcie procesu. W takim przypadku w polu **Credential (poświadczenia** ) wybierz pozycję **New (nowy**).
 >
 
 1. W programie kontrolą przejdź do **centrum zarządzania** i w obszarze **zabezpieczenia i dostęp** wybierz pozycję **poświadczenia**.
@@ -138,6 +143,13 @@ Aby uzyskać więcej informacji o poświadczeniach kontrolą, zobacz [dokumentac
 1. W obszarze **Utwórz rolę > Dołącz zasady uprawnień** , odfiltruj uprawnienia wyświetlane do poziomu **S3**. Wybierz pozycję **AmazonS3ReadOnlyAccess**, a następnie wybierz pozycję **Next (dalej): Tagi**.
 
     ![Wybierz zasady ReadOnlyAccess dla nowej roli skanowania usługi Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+
+    > [!IMPORTANT]
+    > Zasady **AmazonS3ReadOnlyAccess** zapewniają minimalne uprawnienia wymagane do skanowania pakietów S3 i mogą zawierać również inne uprawnienia.
+    >
+    >Aby zastosować tylko minimalne uprawnienia wymagane do skanowania przedziałów, Utwórz nowe zasady z uprawnieniami wymienionymi w [minimalnych uprawnieniach dla zasad AWSymi](#minimum-permissions-for-your-aws-policy), w zależności od tego, czy chcesz skanować pojedynczy zasobnik czy wszystkie zasobniki na koncie. 
+    >
+    >Zastosuj nowe zasady do roli zamiast **AmazonS3ReadOnlyAccess.**
 
 1. W obszarze **Dodaj Tagi (opcjonalnie)** można opcjonalnie utworzyć tag zrozumiały dla nowej roli. Przydatne Tagi umożliwiają organizowanie, śledzenie i kontrolowanie dostępu dla każdej roli, którą utworzysz.
 
@@ -219,7 +231,7 @@ Zasobniki AWS obsługują wiele typów szyfrowania. W przypadku zasobników korz
 
 ### <a name="retrieve-your-new-role-arn"></a>Pobierz nową rolę ARN
 
-Musisz zarejestrować rolę AWS ARN i skopiować ją do kontrolą podczas [tworzenia skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Musisz zarejestrować rolę AWS ARN i skopiować ją do kontrolą podczas [tworzenia skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 **Aby pobrać rolę ARN:**
 
@@ -229,11 +241,11 @@ Musisz zarejestrować rolę AWS ARN i skopiować ją do kontrolą podczas [tworz
 
     ![Skopiuj wartość ARN roli do Schowka.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Wklej tę wartość w bezpiecznej lokalizacji, która jest gotowa do użycia podczas [tworzenia skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+1. Wklej tę wartość w bezpiecznej lokalizacji, która jest gotowa do użycia podczas [tworzenia skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Pobieranie nazwy zasobnika usługi Amazon S3
 
-Musisz mieć nazwę pakietu Amazon S3, aby skopiować go do kontrolą podczas [tworzenia skanowania dla zasobnika Amazon S3](#create-a-scan-for-your-amazon-s3-bucket)
+Musisz mieć nazwę pakietu Amazon S3, aby skopiować go do kontrolą podczas [tworzenia skanowania dla zasobnika Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 **Aby pobrać nazwę zasobnika:**
 
@@ -270,6 +282,8 @@ Na przykład:
 
 Użyj tej procedury, jeśli masz tylko pojedynczy zasobnik S3, który chcesz zarejestrować, aby kontrolą jako źródło danych, lub jeśli masz wiele zasobników na koncie AWS, ale nie chcesz rejestrować wszystkich z nich w usłudze kontrolą.
 
+**Aby dodać zasobnik**: 
+
 1. Uruchom Portal kontrolą przy użyciu dedykowanego łącznika kontrolą dla adresu URL usługi Amazon S3. Ten adres URL został dostarczony przez zespół zarządzający produktem usługi Amazon S3 kontrolą Connector.
 
     ![Uruchom Portal kontrolą.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -293,12 +307,15 @@ Użyj tej procedury, jeśli masz tylko pojedynczy zasobnik S3, który chcesz zar
 
     Gdy skończysz, wybierz pozycję **Zakończ** , aby zakończyć rejestrację.
 
-Kontynuuj [Tworzenie skanowania dla zasobnika usługi Amazon S3.](#create-a-scan-for-your-amazon-s3-bucket).
+Kontynuuj [Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="add-all-of-your-amazon-s3-buckets-as-purview-resources"></a>Dodaj wszystkie zasobniki usługi Amazon S3 jako zasoby kontrolą
+## <a name="add-an-amazon-account-as-a-purview-resource"></a>Dodaj konto Amazon jako zasób kontrolą
 
-Użyj tej procedury, jeśli masz wiele zasobników S3 na koncie Amazon i chcesz zarejestrować wszystkie jako kontrolą źródła danych.
+Użyj tej procedury, jeśli masz wiele zasobników S3 na koncie Amazon i chcesz zarejestrować wszystkie te elementy jako kontrolą źródła danych.
 
+Podczas [konfigurowania skanowania](#create-a-scan-for-one-or-more-amazon-s3-buckets)można wybrać konkretne przedziały, które mają zostać przeskanowane, jeśli nie chcesz skanować ich wszystkie jednocześnie.
+
+**Aby dodać konto Amazon**:
 1. Uruchom Portal kontrolą przy użyciu dedykowanego łącznika kontrolą dla adresu URL usługi Amazon S3. Ten adres URL został dostarczony przez zespół zarządzający produktem usługi Amazon S3 kontrolą Connector.
 
     ![Uruchom łącznik dla dedykowanego portalu usługi Amazon S3 kontrolą](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -322,9 +339,9 @@ Użyj tej procedury, jeśli masz wiele zasobników S3 na koncie Amazon i chcesz 
 
     Gdy skończysz, wybierz pozycję **Zakończ** , aby zakończyć rejestrację.
 
-Kontynuuj [Tworzenie skanowania dla zasobnika usługi Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Kontynuuj [Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="create-a-scan-for-your-amazon-s3-bucket"></a>Tworzenie skanowania dla zasobnika usługi Amazon S3
+## <a name="create-a-scan-for-one-or-more-amazon-s3-buckets"></a>Tworzenie skanowania dla co najmniej jednego zasobnika usługi Amazon S3
 
 Po dodaniu zasobników jako kontrolą źródła danych można skonfigurować skanowanie do uruchamiania w zaplanowanych odstępach czasu lub natychmiast.
 
@@ -340,9 +357,10 @@ Po dodaniu zasobników jako kontrolą źródła danych można skonfigurować ska
     |**Nazwa**     |  Wprowadź zrozumiałą nazwę skanowania lub użyj wartości domyślnej.       |
     |**Typ** |Wyświetlane tylko wtedy, gdy dodano konto AWS, z uwzględnieniem wszystkich zasobników. <br><br>Bieżące opcje obejmują tylko **wszystkie** usługi  >  **Amazon S3**. Bądź na bieżąco, aby dowiedzieć się więcej o opcjach umożliwiających wybranie macierzy pomocy technicznej kontrolą. |
     |**Poświadczenie**     |  Wybierz poświadczenie kontrolą z rolą ARN. <br><br>**Porada**: Jeśli chcesz teraz utworzyć nowe poświadczenie, wybierz pozycję **Nowy**. Aby uzyskać więcej informacji, zobacz [Tworzenie poświadczeń kontrolą dla skanowania](#create-a-purview-credential-for-your-aws-bucket-scan)przedziału AWS.     |
-    |     |         |
+    | **Amazon S3**    |   Wyświetlane tylko wtedy, gdy dodano konto AWS, z uwzględnieniem wszystkich zasobników. <br><br>Wybierz co najmniej jeden zasobnik do skanowania lub **Wybierz pozycję Wszystkie** , aby skanować wszystkie zasobniki na koncie.      |
+    | | |
 
-    Kontrolą automatycznie sprawdza, czy rola ARN jest prawidłowa i czy zasobnik i obiekt w zasobniku są dostępne, a następnie kontynuuje, jeśli połączenie zakończy się pomyślnie.
+    Kontrolą automatycznie sprawdza, czy rola ARN jest prawidłowa i czy przedziały i obiekty w zasobnikach są dostępne, a następnie kontynuuje się w przypadku pomyślnego nawiązania połączenia.
 
     > [!TIP]
     > Aby wprowadzić różne wartości i przetestować połączenie przed kontynuowaniem, wybierz pozycję **Test connection** w prawym dolnym rogu przed wybraniem pozycji **Kontynuuj**.
@@ -396,6 +414,90 @@ Skorzystaj z innych obszarów kontrolą, aby uzyskać szczegółowe informacje o
     Wszystkie raporty kontrolą Insights obejmują wyniki skanowania usługi Amazon S3, a także pozostałe wyniki ze źródeł danych platformy Azure. W razie potrzeby do opcji filtrowania raportu Dodano dodatkowy typ zasobu **Amazon S3** .
 
     Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure kontrolą](concept-insights.md).
+
+## <a name="minimum-permissions-for-your-aws-policy"></a>Minimalne uprawnienia dla zasad AWSymi
+
+Domyślna procedura [tworzenia roli AWS](#create-a-new-aws-role-for-purview) do użycia podczas skanowania pakietów S3 przy użyciu zasad **AmazonS3ReadOnlyAccess** .
+
+Zasady **AmazonS3ReadOnlyAccess** zapewniają minimalne uprawnienia wymagane do skanowania pakietów S3 i mogą zawierać również inne uprawnienia.
+
+Aby zastosować tylko minimalne uprawnienia wymagane do skanowania przedziałów, Utwórz nowe zasady z uprawnieniami wymienionymi w poniższych sekcjach, w zależności od tego, czy chcesz skanować pojedynczy zasobnik czy wszystkie zasobniki na Twoim koncie.
+
+Zastosuj nowe zasady do roli zamiast **AmazonS3ReadOnlyAccess.**
+
+### <a name="individual-buckets"></a>Poszczególne zasobniki
+
+Podczas skanowania pojedynczych zasobników S3 minimalne uprawnienia AWS obejmują:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Upewnij się, że zdefiniujesz zasób z określoną nazwą zasobnika. Na przykład:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### <a name="all-buckets-in-your-account"></a>Wszystkie zasobniki na Twoim koncie
+
+Podczas skanowania wszystkich zasobników na koncie AWS minimalne uprawnienia AWS obejmują:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Upewnij się, że zasób został zdefiniowany za pomocą symbolu wieloznacznego. Na przykład:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

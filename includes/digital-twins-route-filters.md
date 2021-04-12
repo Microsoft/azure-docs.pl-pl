@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 811e59e8fd2fea1d8ee90014d4a5ea11229eec63
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98859538"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257312"
 ---
 | Nazwa filtru | Opis | Filtruj schemat tekstu | Obsługiwane wartości | 
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "98859538"
 | Schemat danych | Identyfikator modelu DTDL | `dataschema = '<model-dtmi-ID>'` | **W przypadku telemetrii**: schemat danych jest identyfikatorem modelu dwuosiowego lub składnikiem, który emituje dane telemetryczne. Na przykład `dtmi:example:com:floor4;2` <br>W **przypadku powiadomień (Tworzenie/usuwanie)**: schemat danych jest dostępny w treści powiadomienia pod adresem `$body.$metadata.$model` . <br>**Powiadomienia (aktualizacja)**: dostęp do schematu danych można uzyskać w treści powiadomienia w `$body.modelId`|
 | Typ zawartości | Typ zawartości wartości danych | `datacontenttype = '<contentType>'` | Typ zawartości to `application/json` |
 | Wersja specyfikacji | Wersja schematu zdarzeń, którego używasz | `specversion = '<version>'` | Wersja musi być `1.0` . Oznacza to, że schemat CloudEvents w wersji 1,0 |
-| Treść powiadomienia | Odwoływanie się do dowolnej właściwości w `data` polu powiadomienia | `$body.<property>` | Zapoznaj się z tematem [*How to: zrozumieć dane zdarzenia*](../articles/digital-twins/how-to-interpret-event-data.md) dotyczące przykładów powiadomień. Do każdej właściwości w `data` polu można odwoływać się za pomocą `$body`
+| Treść powiadomienia | Odwoływanie się do dowolnej właściwości w `data` polu powiadomienia | `$body.<property>` | Zobacz [*pojęcia: powiadomienia o zdarzeniach*](../articles/digital-twins/concepts-event-notifications.md) dotyczące przykładów powiadomień. Do każdej właściwości w `data` polu można odwoływać się za pomocą `$body`
 
 Następujące typy danych są obsługiwane jako wartości zwracane przez odwołania do danych powyżej:
 

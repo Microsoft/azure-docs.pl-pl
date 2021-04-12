@@ -3,16 +3,16 @@ title: Uwierzytelnianie przy użyciu tożsamości zarządzanej
 description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera przy użyciu przypisanej do użytkownika lub zarządzanej tożsamości platformy Azure przypisanej do systemu.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2ab27e8548882b5bd296dc45e4bb74d3d6ba357b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041471"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285488"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Uwierzytelnianie w usłudze Azure Container Registry za pomocą tożsamości zarządzanej platformy Azure 
 
-Za pomocą [zarządzanej tożsamości zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) można uwierzytelniać się w usłudze Azure Container Registry z innego zasobu platformy Azure bez konieczności udostępniania poświadczeń rejestru ani zarządzania nimi. Można na przykład skonfigurować tożsamość zarządzaną przez użytkownika lub przypisanej do systemu na maszynie wirtualnej z systemem Linux, aby uzyskać dostęp do obrazów kontenerów z rejestru kontenerów, podobnie jak w przypadku korzystania z rejestru publicznego.
+Za pomocą [zarządzanej tożsamości zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) można uwierzytelniać się w usłudze Azure Container Registry z innego zasobu platformy Azure bez konieczności udostępniania poświadczeń rejestru ani zarządzania nimi. Można na przykład skonfigurować tożsamość zarządzaną przez użytkownika lub przypisanej do systemu na maszynie wirtualnej z systemem Linux, aby uzyskać dostęp do obrazów kontenerów z rejestru kontenerów, podobnie jak w przypadku korzystania z rejestru publicznego. Lub skonfiguruj klaster usługi Azure Kubernetes, aby używać jego [tożsamości zarządzanej](../aks/use-managed-identity.md) do ściągania obrazów kontenerów z Azure Container Registry na potrzeby wdrożeń pod.
 
 W tym artykule dowiesz się więcej na temat tożsamości zarządzanych i instrukcje:
 
@@ -27,23 +27,14 @@ Aby skonfigurować rejestr kontenerów i wypchnąć do niego obraz kontenera, na
 
 ## <a name="why-use-a-managed-identity"></a>Dlaczego warto używać tożsamości zarządzanej?
 
-Zarządzana tożsamość zasobów platformy Azure zapewnia usługi platformy Azure z automatycznie zarządzaną tożsamością w Azure Active Directory (Azure AD). Istnieje możliwość skonfigurowania [niektórych zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), w tym maszyn wirtualnych, z zarządzaną tożsamością. Następnie użyj tożsamości, aby uzyskać dostęp do innych zasobów platformy Azure, bez przekazywania poświadczeń w kodzie lub w skryptach.
+Jeśli nie znasz funkcji tożsamości zarządzanych dla zasobów platformy Azure, zobacz to [omówienie](../active-directory/managed-identities-azure-resources/overview.md).
 
-Zarządzane tożsamości są dwa typy:
+Po skonfigurowaniu wybranych zasobów platformy Azure przy użyciu tożsamości zarządzanej nadaj tożsamości dostęp do innego zasobu, podobnie jak w przypadku każdego podmiotu zabezpieczeń. Na przykład Przypisz zarządzaną tożsamość rolę z ściąganiem, wypychaniem i ściąganiem lub innymi uprawnieniami do rejestru prywatnego na platformie Azure. Aby uzyskać pełną listę ról rejestru, zobacz [Azure Container Registry role i uprawnienia](container-registry-roles.md).) Możesz nadać tożsamości dostęp do jednego lub większej liczby zasobów.
 
-* *Tożsamości przypisane przez użytkownika*, które można przypisać do wielu zasobów i zachowują się tak długo, jak chcesz. Tożsamości przypisane przez użytkownika są obecnie w wersji zapoznawczej.
+Następnie użyj tożsamości do uwierzytelniania w dowolnej [usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), bez żadnych poświadczeń w kodzie. Wybierz sposób uwierzytelniania przy użyciu tożsamości zarządzanej, w zależności od danego scenariusza. Aby użyć tożsamości w celu uzyskania dostępu do usługi Azure Container Registry z maszyny wirtualnej, należy uwierzytelnić się za pomocą Azure Resource Manager. 
 
-* *Tożsamość zarządzana przez system*, która jest unikatowa dla określonego zasobu, takiego jak Pojedyncza maszyna wirtualna i trwa okres istnienia tego zasobu.
-
-Po skonfigurowaniu zasobu platformy Azure przy użyciu tożsamości zarządzanej nadaj tożsamości dostęp do innego zasobu, podobnie jak w przypadku każdego podmiotu zabezpieczeń. Na przykład Przypisz zarządzaną tożsamość rolę z ściąganiem, wypychaniem i ściąganiem lub innymi uprawnieniami do rejestru prywatnego na platformie Azure. Aby uzyskać pełną listę ról rejestru, zobacz [Azure Container Registry role i uprawnienia](container-registry-roles.md).) Możesz nadać tożsamości dostęp do jednego lub większej liczby zasobów.
-
-Następnie użyj tożsamości do uwierzytelniania w dowolnej [usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), bez żadnych poświadczeń w kodzie. Aby użyć tożsamości w celu uzyskania dostępu do usługi Azure Container Registry z maszyny wirtualnej, należy uwierzytelnić się za pomocą Azure Resource Manager. Wybierz sposób uwierzytelniania przy użyciu tożsamości zarządzanej, w zależności od scenariusza:
-
-* [Uzyskiwanie tokenu dostępu usługi Azure AD](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programowo przy użyciu wywołań http lub REST
-
-* Korzystanie z [zestawów SDK platformy Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)
-
-* [Zaloguj się do interfejsu wiersza polecenia platformy Azure lub programu PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) przy użyciu tożsamości. 
+> [!NOTE]
+> Obecnie usługi, takie jak Azure Web App for Containers lub Azure Container Instances, nie mogą używać tożsamości zarządzanej do uwierzytelniania za pomocą Azure Container Registry podczas ściągania obrazu kontenera w celu wdrożenia samego zasobu kontenera. Tożsamość jest dostępna tylko po uruchomieniu kontenera. Aby wdrożyć te zasoby przy użyciu obrazów z Azure Container Registry, zalecana jest inna metoda uwierzytelniania, taka jak nazwa [główna usługi](container-registry-auth-service-principal.md) .
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
@@ -230,8 +221,6 @@ Powinien pojawić się `Login succeeded` komunikat. Następnie można uruchamia�
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
-> [!NOTE]
-> Tożsamości usługi zarządzanej przypisane do systemu mogą być używane do współpracy z rekordami ACR, a App Service mogą korzystać z tożsamości usługi zarządzanej przypisanej do systemu. Nie można jednak łączyć tych, ponieważ App Service nie można użyć pliku MSI do komunikowania się z ACR. Jedynym sposobem jest włączenie administratora w ACR i użycie nazwy użytkownika/hasła administratora.
 
 ## <a name="next-steps"></a>Następne kroki
 

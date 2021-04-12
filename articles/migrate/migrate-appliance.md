@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: dadca1fadef9d2967f20cae13e40d01de73d39e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778342"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075699"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -500,16 +500,15 @@ Szczegóły dysku | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPe
 
 Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządzenie zbiera i wysyła do platformy Azure.
 
-**Dane** | **Polecenia**
---- | ---
-Użycie procesora | /proc/stat/Cat| /proc/stat procesora grep
-Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}"
-Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1
-Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes
-Dane przesyłane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/tx_bytes
-Liczba dysków | Dysk fdisk-l \| egrep '. * b ' \| AWK ' {Print $2} ' \| Wytnij-F1-d ': '
-Szczegóły dysku | /proc/diskstats Cat
-
+| **Dane** | **Polecenia** |
+| --- | --- |
+| Użycie procesora | /proc/stat/ \| /proc/stat grep "procesora" |
+| Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}" |
+| Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1 |
+| Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes |
+| Dane przesyłane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/tx_bytes |
+| Liczba dysków | \|dysk egrep '. \* bajty " \| AWK" {print $2} " \| Wytnij-F1-d": " |
+| Szczegóły dysku | /proc/diskstats Cat |
 
 ## <a name="appliance-upgrades"></a>Uaktualnienia urządzeń
 

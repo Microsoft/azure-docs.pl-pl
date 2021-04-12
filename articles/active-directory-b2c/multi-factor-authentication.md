@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eff33a8670ee8eb9ee32655956ee0e913ddaa4c1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033524"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258137"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure Active Directory B2C
 
@@ -56,6 +56,6 @@ Konto klienta jest tworzone w dzierżawie przed wykonaniem kroku usługi uwierzy
 
 ::: zone pivot="b2c-custom-policy"
 
-Aby włączyć Multi-Factor Authentication Pobierz pakiety początkowe zasad z usługi GitHub, zaktualizuj pliki XML w pakiecie **SocialAndLocalAccountsWithMFA** Starter przy użyciu nazwy dzierżawy Azure AD B2C. **SocialAndLocalAccountsWithMFA** umożliwia dostęp do opcji uwierzytelniania społecznościowego, lokalnego i wieloskładnikowego. Aby uzyskać więcej informacji, zobacz Wprowadzenie [do zasad niestandardowych w Active Directory B2C](custom-policy-get-started.md). 
+Aby włączyć Multi-Factor Authentication Pobierz pakiety początkowe zasad z usługi GitHub, zaktualizuj pliki XML w pakiecie **SocialAndLocalAccountsWithMFA** Starter przy użyciu nazwy dzierżawy Azure AD B2C. **SocialAndLocalAccountsWithMFA** umożliwia dostęp do opcji uwierzytelniania społecznościowego, lokalnego i wieloskładnikowego. Aby uzyskać więcej informacji, zobacz Wprowadzenie [do zasad niestandardowych w Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
 
 ::: zone-end

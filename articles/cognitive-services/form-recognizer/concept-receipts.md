@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8248b3ed21561340e963c848dee4430c48829ab1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467361"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285301"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Model odbioru prekompilowanego aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z modelami uczenia głębokiego, aby wyodrębnić najważniejsze informacje z przyjęć pisanych w języku angielskim.
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z przyjęć sprzedaży przy użyciu wbudowanego modelu paragonów. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/overview-ocr.md) z modelami uczenia głębokiego, aby wyodrębnić najważniejsze informacje z przyjęć pisanych w języku angielskim.
 
 ## <a name="understanding-receipts"></a>Informacje o potwierdzeniach
 

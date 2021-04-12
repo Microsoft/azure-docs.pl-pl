@@ -114,7 +114,7 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Pojęcia
       items:
-        - name: Terminologia
+        - name: Kluczowe terminy
           href: custom-translator/terminology.md
         - name: Dostosowywanie i poprawianie tłumaczenia tekstu
           href: customization.md
