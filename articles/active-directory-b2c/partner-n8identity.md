@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fee7965e7834f0e05dba91f8652a0e155087b14
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96170926"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257878"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania narzędzia administracyjnego TheAccessHub z Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Aby rozpocząć, musisz:
 
 - Obowiązkowe Informacje dotyczące połączenia i poświadczeń dla wszystkich baz danych lub protokołów LDAP (Lightweight Directory Access Protocol), z których mają być migrowane dane klientów.
 
-- Obowiązkowe Skonfigurowane środowisko Azure AD B2C do używania [zasad niestandardowych](./custom-policy-get-started.md), jeśli chcesz zintegrować narzędzie administracyjne TheAccessHub z przepływem zasad rejestrowania.
+- Obowiązkowe Skonfigurowane środowisko Azure AD B2C do używania [zasad niestandardowych](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), jeśli chcesz zintegrować narzędzie administracyjne TheAccessHub z przepływem zasad rejestrowania.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -358,7 +358,7 @@ Aby synchronizować dane z Azure AD B2C do narzędzia administracyjnego TheAcces
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Konfigurowanie zasad Azure AD B2C
 
-Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ograniczone w celu zachowania aktualności stanu w Azure AD B2C. Firma Microsoft może korzystać z interfejsu API i zasad Azure AD B2C narzędzia administracyjnego TheAccessHub, aby informować narzędzie administracyjne TheAccessHub o zmianach w miarę ich występowania. To rozwiązanie wymaga wiedzy technicznej dotyczącej [Azure AD B2C zasad niestandardowych](./custom-policy-get-started.md). W następnej sekcji przedstawimy przykładowe kroki zasad i bezpieczny certyfikat do powiadamiania narzędzia administracyjnego TheAccessHub o nowych kontach w zasadach niestandardowych Sign-Up.
+Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ograniczone w celu zachowania aktualności stanu w Azure AD B2C. Firma Microsoft może korzystać z interfejsu API i zasad Azure AD B2C narzędzia administracyjnego TheAccessHub, aby informować narzędzie administracyjne TheAccessHub o zmianach w miarę ich występowania. To rozwiązanie wymaga wiedzy technicznej dotyczącej [Azure AD B2C zasad niestandardowych](./user-flow-overview.md). W następnej sekcji przedstawimy przykładowe kroki zasad i bezpieczny certyfikat do powiadamiania narzędzia administracyjnego TheAccessHub o nowych kontach w zasadach niestandardowych Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Utwórz bezpieczne poświadczenie, aby wywołać interfejs API narzędzia administracyjnego TheAccessHub
 
@@ -386,7 +386,7 @@ Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ogranic
 
 5. Wybierz pozycję **Pobierz** , aby pobrać plik zip z podstawowymi zasadami, które umożliwiają dodawanie klientów do narzędzia administracyjnego TheAccessHub podczas rejestrowania klientów.
 
-6. Postępuj zgodnie z tym [samouczkiem](./custom-policy-get-started.md) , aby rozpocząć projektowanie zasad niestandardowych w Azure AD B2C.
+6. Postępuj zgodnie z tym [samouczkiem](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) , aby rozpocząć projektowanie zasad niestandardowych w Azure AD B2C.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -394,4 +394,4 @@ Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
 - [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

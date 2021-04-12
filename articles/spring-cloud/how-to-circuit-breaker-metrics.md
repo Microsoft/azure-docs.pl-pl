@@ -1,22 +1,22 @@
 ---
-title: Zbieraj metryki wyłącznika Resilience4J chmury wiosennej
-description: Jak zbierać metryki wyłącznika usługi Cloud Resilience4J z chmurą.
+title: Zbieraj metryki wyłącznika Resilience4J chmury z chmurą Micrometer
+description: Jak zbierać metryki wyłącznika usługi Cloud Resilience4J z chmurą Micrometer w chmurze wiosennej platformy Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b24e8e07b4038d6def9945b7c347bb81ae5378b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878365"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258184"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Zbieraj metryki dla wyłącznika Resilience4J chmury wiosennej (wersja zapoznawcza)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Zbieraj metryki wyłącznika Resilience4J chmury z chmurą z Micrometer (wersja zapoznawcza)
 
-W tym dokumencie wyjaśniono, jak zbierać metryki wyłącznika usługi Cloud Resilience4j Application Insights z chmurą w języku Java.  Za pomocą tej funkcji można monitorować metryki wyłącznika resilience4j z Application Insights.
+W tym dokumencie wyjaśniono, jak zbierać metryki wyłącznika usługi Cloud Resilience4j Application Insights z chmurą w języku Java. Za pomocą tej funkcji można monitorować metryki wyłącznika usługi resilience4j z Application Insights z Micrometer.
 
 Aby zobaczyć, jak działa, korzystamy z [demonstracji obwodowej z chmurą](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) .
 

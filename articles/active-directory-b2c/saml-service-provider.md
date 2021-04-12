@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 97718fef0aecd07dd364677ce1b72eb5bba78475
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 652bc9a236a4e4b9d3f99dab640919f2be985984
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384276"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257725"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -47,7 +47,7 @@ Organizacje używające Azure AD B2C jako rozwiązania do zarządzania tożsamo�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure AD B2C](custom-policy-get-started.md). Zasady niestandardowe *SocialAndLocalAccounts* są potrzebne w ramach pakietu zasad niestandardowych, który został omówiony w artykule.
+* Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Zasady niestandardowe *SocialAndLocalAccounts* są potrzebne w ramach pakietu zasad niestandardowych, który został omówiony w artykule.
 * Podstawowa znajomość protokołu SAML i znajomość implementacji języka SAML aplikacji.
 * Aplikacja sieci Web skonfigurowana jako aplikacja SAML. Na potrzeby tego samouczka możesz użyć [aplikacji testowej SAML][samltest] , którą udostępniamy.
 

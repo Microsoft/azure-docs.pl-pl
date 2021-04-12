@@ -9,38 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: cc3ce56ecd17d627001f4925355c055afdc09d22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6bc2508220a8c0193efb55eb6cd11f7e151c80be
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729640"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284595"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-statuspage"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą StatusPage
 
-W tym samouczku dowiesz się, jak zintegrować usługę StatusPage z usługą Azure Active Directory (Azure AD).
-Integracja StatusPage z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę StatusPage z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi StatusPage z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi StatusPage.
-* Możesz pozwolić użytkownikom na automatyczne logowanie do StatusPage (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do StatusPage.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi StatusPage przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z usługą StatusPage, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w StatusPage
+* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym w StatusPage.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa StatusPage obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
+* Usługa StatusPage obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne.
 
-## <a name="adding-statuspage-from-the-gallery"></a>Dodawanie StatusPage z galerii
+## <a name="add-statuspage-from-the-gallery"></a>Dodaj StatusPage z galerii
 
 Aby skonfigurować integrację programu StatusPage z usługą Azure AD, musisz dodać StatusPage z galerii do listy zarządzanych aplikacji SaaS.
 
@@ -65,13 +64,13 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
     1. **[Utwórz użytkownika testowego StatusPage](#create-statuspage-test-user)** , aby uzyskać odpowiednik Britta Simon w StatusPage, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
 1. W Azure Portal na stronie integracja aplikacji **AskYourTeam** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -85,7 +84,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | `https://<subdomain>.statuspage.io/` |
     |
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
+    b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL przy użyciu jednego z następujących wzorców:
 
      | Adres URL odpowiedzi |
     |--------------|
@@ -152,17 +151,17 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 1. Na głównym pasku narzędzi kliknij pozycję **Zarządzaj kontem**.
 
-    ![Zrzut ekranu przedstawia konto zarządzania wybrane z witryny firmy StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Zrzut ekranu przedstawia konto zarządzania wybrane z witryny firmy StatusPage.](./media/statuspage-tutorial/account.png)
 
 1. Kliknij kartę **Logowanie** jednokrotne.
 
-    ![Zrzut ekranu przedstawia kartę Logowanie jednokrotne.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Zrzut ekranu przedstawia kartę Logowanie jednokrotne.](./media/statuspage-tutorial/tab.png)
 
 1. Na stronie Konfiguracja logowania jednokrotnego wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawia stronę instalatora S-O, na której można wprowadzić podane wartości.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Zrzut ekranu przedstawia stronę instalatora S-O, na której można wprowadzić podane wartości.](./media/statuspage-tutorial/setup.png)
 
-    ![Zrzut ekranu przedstawia przycisk Zapisz konfigurację.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Zrzut ekranu przedstawia przycisk Zapisz konfigurację.](./media/statuspage-tutorial/configuration.png)
 
     a. W polu tekstowym **adres URL elementu docelowego logowania jednokrotnego** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
 
@@ -182,25 +181,25 @@ StatusPage obsługuje Inicjowanie obsługi just-in-Time. Włączono już ją w o
 
 1. W menu u góry kliknij pozycję **Zarządzaj kontem**.
 
-    ![Zrzut ekranu przedstawia konto zarządzania wybrane z witryny firmy StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Zrzut ekranu przedstawia konto zarządzania wybrane z witryny firmy StatusPage.](./media/statuspage-tutorial/account.png)
 
 1. Kliknij kartę **członkowie zespołu** .
   
-    ![Zrzut ekranu przedstawia kartę Członkowie zespołu.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![Zrzut ekranu przedstawia kartę Członkowie zespołu.](./media/statuspage-tutorial/sandbox.png) 
 
 1. Kliknij pozycję **Dodaj członka zespołu**.
   
-    ![Zrzut ekranu przedstawia przycisk Dodaj członka zespołu.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![Zrzut ekranu przedstawia przycisk Dodaj członka zespołu.](./media/statuspage-tutorial/team.png) 
 
 1. Wpisz **adres e-mail**, **imię** i **nazwisko** poprawnego użytkownika, który chcesz udostępnić do powiązanych pól tekstowych. 
 
-    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie użytkownika, w którym można wprowadzić podane wartości.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie użytkownika, w którym można wprowadzić podane wartości.](./media/statuspage-tutorial/user.png) 
 
 1. Jako **rolę** wybierz pozycję **administrator klienta**.
 
 1. Kliknij pozycję **Utwórz konto**.
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 

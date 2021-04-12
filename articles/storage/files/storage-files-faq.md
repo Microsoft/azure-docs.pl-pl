@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470897"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064311"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -183,6 +183,10 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     Jeśli włączono Azure Backup w udziałach plików zarządzanych przez funkcję synchronizacji plików, listy ACL plików można nadal przywracać w ramach przepływu pracy przywracania kopii zapasowych. Działa to zarówno w przypadku całego udziału, jak i poszczególnych plików lub katalogów.
 
     W przypadku korzystania z migawek w ramach rozwiązania do samodzielnego zarządzania kopiami zapasowymi dla udziałów plików zarządzanych przez funkcję synchronizacji plików listy ACL mogą nie zostać przywrócone prawidłowo do list ACL systemu plików NTFS, jeśli migawki zostały wykonane przed 24 lutego, 2020. W takim przypadku warto skontaktować się z pomocą techniczną platformy Azure.
+
+* <a id="afs-lastwritetime"></a>
+  **Czy Azure File Sync synchronizować LastWriteTime dla katalogów?**  
+    Nie, Azure File Sync nie synchronizuje LastWriteTime dla katalogów. Jest to celowe.
     
 ## <a name="security-authentication-and-access-control"></a>Zabezpieczenia, uwierzytelnianie i kontrola dostępu
 * <a id="ad-support"></a>

@@ -1,17 +1,17 @@
 ---
 title: Format Delta w Azure Data Factory
 description: Przekształcanie i przenoszenie danych z programu Delta Lake przy użyciu formatu Delta
-author: djpmsft
+author: dcstwh
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.author: daperlov
-ms.openlocfilehash: 74df809f2206a105b405ba184949ef887096ebc2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: weetok
+ms.openlocfilehash: 6d9d2b0d185750cf8ed8192661f28a2b82d88b78
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932509"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222542"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta w Azure Data Factory
 
@@ -76,7 +76,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia ró�
 | Vacuum | Określ próg przechowywania w godzinach dla starszych wersji tabeli. Wartość 0 lub mniej wartością domyślną jest 30 dni | tak | Liczba całkowita | ciśnienie |
 | Update — Metoda | Określ, które operacje aktualizacji są dozwolone w ramach delty Lake. W przypadku metod, które nie są wstawiane, do oznaczania wierszy wymagane jest przekształcenie poprzedzające zmianę wiersza. | tak | `true` lub `false` | usuwaln <br> wstawialny <br> aktualizowalne <br> Scalanie |
 | Zoptymalizowany zapis | Osiągnięcie większej przepływności dla operacji zapisu poprzez optymalizację wewnętrznego rozłożonego w modułach wykonujących testy. W związku z tym może być zauważalna mniejsza liczba partycji i plików o większym rozmiarze | nie | `true` lub `false` | optimizedWrite: true |
-| Autokompaktowanie | Po zakończeniu dowolnej operacji zapisu platforma Spark automatycznie wykona ```OPTIMIZE``` polecenie, aby ponownie zorganizować dane, co w razie potrzeby umożliwi zwiększenie wydajności w przyszłości. | nie | `true` lub `false` |   autokompaktowanie: prawda |
+| Autokompaktowanie | Po zakończeniu dowolnej operacji zapisu platforma Spark automatycznie wykona ```OPTIMIZE``` polecenie, aby ponownie zorganizować dane, co w razie potrzeby umożliwi zwiększenie wydajności w przyszłości. | nie | `true` lub `false` |    autokompaktowanie: prawda |
 
 ### <a name="delta-sink-script-example"></a>Przykład skryptu ujścia różnicowego
 

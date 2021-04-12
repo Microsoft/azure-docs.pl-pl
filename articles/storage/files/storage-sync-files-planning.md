@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d3cc8f36f05def18c16db0875cb712cdf5d165f9
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b106c82e3755fbd0e02f12a769d80ce4761cf026
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121357"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285862"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -358,6 +358,15 @@ Jeśli wolisz używać lokalnego rozwiązania do tworzenia kopii zapasowych, kop
 
 > [!Note]  
 > W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+
+## <a name="data-classification"></a>Data Classification
+Jeśli masz zainstalowane oprogramowanie klasyfikacji danych, włączenie obsługi warstw w chmurze może spowodować zwiększenie kosztów z dwóch powodów:
+
+1. W przypadku włączenia obsługi warstw w chmurze pliki okienko są buforowane lokalnie, a najchłodne pliki są warstwami do udziału plików platformy Azure w chmurze. Jeśli Klasyfikacja danych regularnie skanuje wszystkie pliki w udziale plików, pliki warstwowe w chmurze muszą być ponownie wywoływane przy każdym skanowaniu. 
+
+2. Jeśli oprogramowanie klasyfikacji danych używa metadanych w strumieniu danych pliku, należy całkowicie ponownie wywołać plik, aby oprogramowanie widziało klasyfikację. 
+
+Zwiększają one zarówno liczbę oddzwonień, jak i ilość danych, które są wywoływane, mogą zwiększyć koszty.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

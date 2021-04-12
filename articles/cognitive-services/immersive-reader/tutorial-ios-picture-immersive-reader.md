@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368206"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284638"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Samouczek: Tworzenie aplikacji dla systemu iOS, która uruchamia czytnik immersyjny z zawartością ze zdjęcia (SWIFT)
 
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
-[Interfejs API odczytu przetwarzanie obrazów Cognitive Services](../computer-vision/concept-recognizing-text.md) wykrywa zawartość tekstową na obrazie przy użyciu najnowszych modeli rozpoznawania firmy Microsoft i konwertuje zidentyfikowany tekst na strumień znaków do odczytu maszynowego.
+[Interfejs API odczytu przetwarzanie obrazów Cognitive Services](../computer-vision/overview-ocr.md) wykrywa zawartość tekstową na obrazie przy użyciu najnowszych modeli rozpoznawania firmy Microsoft i konwertuje zidentyfikowany tekst na strumień znaków do odczytu maszynowego.
 
 W tym samouczku utworzysz aplikację dla systemu iOS od podstaw i zintegrujesz interfejs API odczytu oraz czytnik immersyjny przy użyciu zestawu SDK czytnika immersyjny. Pełny przykład pracy w tym samouczku jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 

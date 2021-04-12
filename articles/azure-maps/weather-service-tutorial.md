@@ -9,20 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 276dd5b7eba33081c5131eba722df91d8685adff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ab3458003366416e10588d3f2edb29b51619ecf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678166"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257640"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python)
 
-> [!IMPORTANT]
-> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Energia wiatru jest jednym Alternatywnym źródłem energii dla paliw kopalnych, aby zwalczać zmiany klimatyczne. Ze względu na to, że wiatr nie jest spójny z natury, operatory siły wiatru muszą kompilować modele uczenia maszynowego (ML), aby przewidzieć moc wiatru. To prognozowanie jest niezbędne do spełnienia wymagań dotyczących energii elektrycznej i zapewnienia stabilności siatki. W tym samouczku opisano sposób, w jaki Azure Maps dane prognozy pogody są łączone z danymi demonstracyjnymi dla odczytów pogodowych. Dane prognozy pogody są żądane przez wywołanie Azure Maps usług pogodowych (wersja zapoznawcza).
+Energia wiatru jest jednym Alternatywnym źródłem energii dla paliw kopalnych, aby zwalczać zmiany klimatyczne. Ze względu na to, że wiatr nie jest spójny z natury, operatory siły wiatru muszą kompilować modele uczenia maszynowego (ML), aby przewidzieć moc wiatru. To prognozowanie jest niezbędne do spełnienia wymagań dotyczących energii elektrycznej i zapewnienia stabilności siatki. W tym samouczku opisano sposób, w jaki Azure Maps dane prognozy pogody są łączone z danymi demonstracyjnymi dla odczytów pogodowych. Dane prognozy pogody są żądane przez wywołanie Azure Maps usług pogodowych.
 
 W tym samouczku wykonasz następujące czynności:
 
@@ -31,7 +27,7 @@ W tym samouczku wykonasz następujące czynności:
 > * Załaduj dane demonstracyjne z pliku.
 > * Wywołaj interfejsy API REST Azure Maps w języku Python.
 > * Renderuj dane lokalizacji na mapie.
-> * Wzbogacaj dane demonstracyjne za pomocą Azure Maps [codziennych](/rest/api/maps/weather/getdailyforecastpreview) danych o pogodzie.
+> * Wzbogacaj dane demonstracyjne za pomocą Azure Maps [codziennych](/rest/api/maps/weather/getdailyforecast) danych o pogodzie.
 > * Kreśl dane prognozy na wykresach.
 
 
@@ -72,8 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Żądaj codziennych danych prognoz
 
-W naszym scenariuszu chcemy zażądać codziennej prognozy dla każdej lokalizacji czujnika. Poniższy skrypt wywołuje [dzienny interfejs API prognozowania](/rest/api/maps/weather/getdailyforecastpreview) Azure Maps usług pogodowych (wersja zapoznawcza). Ten interfejs API zwraca prognozę pogody dla każdego turbiny wiatru w ciągu następnych 15 dni od bieżącej daty.
-
+W naszym scenariuszu chcemy zażądać codziennej prognozy dla każdej lokalizacji czujnika. Poniższy skrypt wywołuje [dzienny interfejs API prognozowania](/rest/api/maps/weather/getdailyforecast) Azure Maps usług pogodowych. Ten interfejs API zwraca prognozę pogody dla każdego turbiny wiatru w ciągu następnych 15 dni od bieżącej daty.
 
 ```python
 subscription_key = "Your Azure Maps key"
@@ -86,7 +81,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps Weather services (Preview) to get daily forecast data for 15 days from current date
+# Call azure maps Weather services to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):
@@ -192,7 +187,7 @@ Aby dowiedzieć się więcej o sposobie wywoływania Azure Maps interfejsów API
 
 Aby poznać Azure Maps interfejsów API, które są używane w tym samouczku, zobacz:
 
-* [Prognoza dzienna](/rest/api/maps/weather/getdailyforecastpreview)
+* [Prognoza dzienna](/rest/api/maps/weather/getdailyforecast)
 * [Renderowanie — Pobieranie obrazu mapy](/rest/api/maps/render/getmapimage)
 
 Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz [Azure Maps interfejsów API REST](./consumption-model.md).

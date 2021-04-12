@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 397d59c60ed90e0e25df671baa3d46660eff1d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181581"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z pakietem RSA Archer
 
@@ -37,13 +37,13 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Pakiet RSA Archer Suite obsługuje logowanie jednokrotne w usłudze **SP**
-* Pakiet RSA Archer obsługuje Inicjowanie obsługi użytkowników **just in Time**
+* Pakiet RSA Archer Suite obsługuje usługę **SP** zainicjowaną przez usługę SSO.
+* Pakiet RSA Archer obsługuje Inicjowanie obsługi użytkowników **just in Time** .
 
 > [!NOTE]
 > Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
-## <a name="adding-rsa-archer-suite-from-the-gallery"></a>Dodawanie pakietu RSA Archer z galerii
+## <a name="add-rsa-archer-suite-from-the-gallery"></a>Dodaj pakiet RSA Archer z galerii
 
 Aby skonfigurować integrację pakietu RSA Archer z usługą Azure AD, musisz dodać pakiet RSA Archer z galerii do listy zarządzanych aplikacji SaaS.
 
@@ -53,7 +53,6 @@ Aby skonfigurować integrację pakietu RSA Archer z usługą Azure AD, musisz do
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **RSA Archer Suite** w polu wyszukiwania.
 1. Wybierz pozycję **RSA Archer Suite** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-rsa-archer-suite"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla pakietu RSA Archer
 
@@ -74,7 +73,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **RSA Archer Suite** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -141,7 +140,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wykonaj następujące czynności na poniższej stronie.
 
-    ![Konfigurowanie logowania jednokrotnego RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
+    ![Konfigurowanie logowania jednokrotnego RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. Przejdź do karty **Logowanie** jednokrotne i wybierz pozycję **SAML** jako **tryb jednego Sign-On** z listy rozwijanej.
 

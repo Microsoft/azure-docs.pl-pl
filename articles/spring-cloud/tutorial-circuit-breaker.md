@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9fbd137f8fa36a7b0526b25d664fceac795ecd81
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09acdc0c4ea2dbe90c0b7b037b6aec501cc1dd55
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879208"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223034"
 ---
 # <a name="tutorial-use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Samouczek: korzystanie z pulpitu nawigacyjnego wyłącznika z chmurą Azure wiosennej
 
@@ -20,7 +20,7 @@ ms.locfileid: "104879208"
 
 [Turbina Netflix Cloud w chmurze](https://github.com/Netflix/Turbine) jest szeroko używana do agregowania wielu strumieni metryk [Hystrix](https://github.com/Netflix/Hystrix) , dzięki czemu strumienie mogą być monitorowane w jednym widoku przy użyciu pulpitu nawigacyjnego Hystrix. W tym samouczku pokazano, jak używać ich w chmurze Azure wiosennej.
 > [!NOTE]
-> Netflix Hystrix jest szeroko używany w wielu istniejących aplikacjach w chmurze, ale nie jest już aktywnym programowaniem. W przypadku tworzenia nowego projektu należy użyć zamiast nich aplikacji wyłącznika, takich jak [resilience4j](https://github.com/resilience4j/resilience4j). Inaczej niż w przypadku platformy turbin pokazanej w tym samouczku, Nowa struktura wyłącznika chmurowego sprężyny łączy wszystkie implementacje potoku danych metryk w Micrometer. Nadal pracujemy nad obsługą micrometer w chmurze Azure wiosennej, dlatego nie będzie ona objęta tym samouczkiem.
+> Netflix Hystrix jest szeroko używany w wielu istniejących aplikacjach w chmurze, ale nie jest już aktywnym programowaniem. W przypadku tworzenia nowego projektu należy użyć zamiast nich aplikacji wyłącznika, takich jak [resilience4j](https://github.com/resilience4j/resilience4j). Inaczej niż w przypadku turbin przedstawionych w tym samouczku, Nowa struktura wyłącznika chmurowego sprężyny łączy wszystkie implementacje potoku danych metryk w Micrometer, które są również obsługiwane przez chmurę z platformą Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/spring-cloud/how-to-circuit-breaker-metrics).
 
 ## <a name="prepare-your-sample-applications"></a>Przygotowywanie przykładowych aplikacji
 Przykład jest rozwidleniem z tego [repozytorium](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine).

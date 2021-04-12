@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 357fe1844fabf6ec241d509651b4f0cbcffa3df3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa7bc6b979869a06ba7441ae33a47f82aea0704c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009134"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063971"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Korzystanie z funkcji pakowania multimediów platformy Azure w celu wykonywania statycznych zadań tworzenia pakietów  
 
@@ -715,7 +715,7 @@ W przykładzie zdefiniowano metodę UpdatePlayReadyConfigurationXMLFile, która 
 ```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą algorytmu AES-128
-Jeśli chcesz zaszyfrować HLS za pomocą algorytmu AES-128, masz możliwość korzystania z szyfrowania dynamicznego (opcja zalecana) lub szyfrowania statycznego (jak pokazano w tej sekcji). Jeśli zdecydujesz się na korzystanie z szyfrowania dynamicznego, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
+Jeśli chcesz zaszyfrować HLS za pomocą algorytmu AES-128, masz możliwość korzystania z szyfrowania dynamicznego (opcja zalecana) lub szyfrowania statycznego (jak pokazano w tej sekcji). Jeśli zdecydujesz się na korzystanie z szyfrowania dynamicznego, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-playready-license-template-overview.md).
 
 > [!NOTE]
 > Aby przekonwertować zawartość na HLS, należy najpierw skonwertować/zakodować zawartość do Smooth Streaming.

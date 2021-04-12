@@ -6,18 +6,18 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 751e9337d74210d238be079e8fcd1bb973937846
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6464ad632251053ac481fbd1f6a3e1197aa470df
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936856"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121306"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Samouczek dotyczący aktualizacji urządzenia dla platformy Azure IoT Hub przy użyciu agenta pakietu na serwerze Ubuntu 18,04 x64
 
 Aktualizacja urządzenia dla IoT Hub obsługuje dwie formy aktualizacji — oparte na obrazach i pakietach.
 
-Aktualizacje oparte na pakiecie są przeznaczonymi do aktualizacji, które zmieniają tylko określony składnik lub aplikację na urządzeniu. Prowadzi to do obniżenia zużycia przepustowości i skrócenia czasu pobierania i instalowania aktualizacji. Aktualizacje pakietu zwykle umożliwiają zmniejszenie przestojów urządzeń podczas stosowania aktualizacji i unikania nakładów tworzenia obrazów.
+Aktualizacje oparte na pakiecie są przeznaczonymi do aktualizacji, które zmieniają tylko określony składnik lub aplikację na urządzeniu. Aktualizacje oparte na pakiecie powodują obniżenie zużycia przepustowości i skracają czas pobierania i instalowania aktualizacji. Aktualizacje pakietu zwykle umożliwiają zmniejszenie przestojów urządzeń podczas stosowania aktualizacji i unikania nakładów tworzenia obrazów.
 
 Ten kompleksowy samouczek przeprowadzi Cię przez proces aktualizacji Azure IoT Edge na serwerze Ubuntu 18,04 x64 przy użyciu agenta pakietu aktualizacji urządzenia. Mimo że w samouczku przedstawiono aktualizowanie IoT Edge, przy użyciu podobnych kroków można zaktualizować inne pakiety, takie jak aparat kontenerów, którego używa.
 
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="prepare-a-device"></a>Przygotowywanie urządzenia
 ### <a name="using-the-automated-deploy-to-azure-button"></a>Korzystanie z przycisku Automatyczne wdrażanie na platformie Azure
 
-Dla wygody w tym samouczku zostanie użyty [szablon Azure Resource Manager](../azure-resource-manager/templates/overview.md) oparty na usłudze [Cloud-init](../virtual-machines/linux/using-cloud-init.md), który pomoże szybko skonfigurować maszynę wirtualną z systemem Ubuntu 18,04 LTS. Instaluje zarówno środowisko uruchomieniowe Azure IoT Edge, jak i agenta pakietu aktualizacji urządzeń, a następnie automatycznie konfiguruje urządzenie z informacjami o aprowizacji przy użyciu parametrów połączenia urządzenia IoT Edge dla podanego wymagania wstępnego. Pozwala to uniknąć konieczności uruchomienia sesji SSH w celu ukończenia instalacji.
+Dla wygody w tym samouczku zostanie użyty [szablon Azure Resource Manager](../azure-resource-manager/templates/overview.md) oparty na usłudze [Cloud-init](../virtual-machines/linux/using-cloud-init.md), który pomoże szybko skonfigurować maszynę wirtualną z systemem Ubuntu 18,04 LTS. Instaluje zarówno środowisko uruchomieniowe Azure IoT Edge, jak i agenta pakietu aktualizacji urządzeń, a następnie automatycznie konfiguruje urządzenie z informacjami o aprowizacji przy użyciu parametrów połączenia urządzenia IoT Edge dla podanego wymagania wstępnego. Szablon Azure Resource Manager również pozwala uniknąć konieczności uruchomienia sesji SSH w celu ukończenia instalacji.
 
 1. Aby rozpocząć, kliknij poniższy przycisk:
 
@@ -75,7 +75,7 @@ Dla wygody w tym samouczku zostanie użyty [szablon Azure Resource Manager](../a
 
 1. Sprawdź, czy wdrożenie zakończyło się pomyślnie. Poczekaj kilka minut po zakończeniu wdrożenia w celu zakończenia instalacji i konfiguracji, aby zakończyć instalowanie IoT Edge i agenta aktualizacji pakietu urządzeń.
 
-   Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Zanotuj również powiązaną **nazwę DNS**, która powinna być w formacie `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+   Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę komputera, który powinien być w formacie `vm-0000000000000` . Zanotuj również powiązaną **nazwę DNS**, która powinna być w formacie `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     **Nazwa DNS** znajduje się w sekcji **Przegląd** nowo wdrożonej maszyny wirtualnej w witrynie Azure Portal.
 
@@ -86,7 +86,7 @@ Dla wygody w tym samouczku zostanie użyty [szablon Azure Resource Manager](../a
    > Aby SSH do tej maszyny wirtualnej po zakończeniu instalacji, należy użyć skojarzonej **nazwy DNS** z poleceniem: `ssh <adminUsername>@<DNS_Name>`
 
 ### <a name="optional-manually-prepare-a-device"></a>Obowiązkowe Ręczne przygotowanie urządzenia
-Poniższe kroki ręcznego instalacji i konfiguracji urządzenia są równoważne z tymi, które były zautomatyzowane przez ten skrypt w [chmurze](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). Mogą służyć do przygotowania urządzenia fizycznego.
+Podobnie jak w przypadku kroków zautomatyzowanych za pomocą [skryptu Cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), poniżej przedstawiono kroki ręcznego instalacji i konfiguracji urządzenia. Te kroki mogą służyć do przygotowania urządzenia fizycznego.
 
 1. Postępuj zgodnie z instrukcjami, aby [zainstalować środowisko uruchomieniowe Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
@@ -110,9 +110,9 @@ Przeczytaj postanowienia licencyjne przed użyciem pakietu. Instalacja i użycie
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do IoT Hub.
 
-2. W obszarze "IoT Edge" w okienku nawigacji po lewej stronie Znajdź urządzenie IoT Edge i przejdź do sznurka urządzenia.
+2. Z poziomu elementu "IoT Edge" w okienku nawigacji po lewej stronie Znajdź urządzenie IoT Edge i przejdź do sznurka lub sieci z modułem.
 
-3. W obszarze urządzenia Usuń wszystkie istniejące wartości tagu aktualizacji urządzenia, ustawiając je na wartość null.
+3. W obszarze sznurek modułu agenta aktualizacji urządzenia Usuń wszystkie istniejące wartości tagu aktualizacji urządzenia, ustawiając je na wartość null. Jeśli używasz tożsamości urządzenia z agentem aktualizacji urządzeń, wprowadź te zmiany na sznurze urządzeń.
 
 4. Dodaj nową wartość znacznika aktualizacji urządzenia, jak pokazano poniżej.
 
@@ -149,7 +149,7 @@ Ta aktualizacja zaktualizuje `aziot-identity-service` `aziot-edge` pakiet i paki
 
 8. Wybierz pozycję "Prześlij", aby rozpocząć proces importowania.
 
-9. Rozpocznie się proces importowania, a ekran zostanie zmieniony na sekcję "Historia importowania". Wybierz pozycję "Odśwież", aby wyświetlić postęp do momentu zakończenia procesu importowania. W zależności od rozmiaru aktualizacji może to zakończyć się w ciągu kilku minut, ale może to potrwać dłużej.
+9. Rozpocznie się proces importowania, a ekran zostanie zmieniony na sekcję "Historia importowania". Wybierz pozycję "Odśwież", aby wyświetlić postęp do momentu zakończenia procesu importowania. W zależności od rozmiaru aktualizacji proces importowania może zakończyć się w ciągu kilku minut, ale może trwać dłużej.
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Zrzut ekranu przedstawiający aktualizację sekwencji importu." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
@@ -212,7 +212,7 @@ Ukończono pomyślnie kompleksową aktualizację pakietu przy użyciu aktualizac
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy maszyna wirtualna została utworzona za pomocą przycisku Wdróż na platformie Azure nie jest już potrzebne, Wyczyść konto aktualizacji urządzenia, jego wystąpienie IoT Hub i IoT Edge. Możesz to zrobić, przechodząc do poszczególnych zasobów i wybierając pozycję "Usuń". Należy pamiętać, że przed oczyszczeniem konta aktualizacji urządzenia należy oczyścić wystąpienie aktualizacji urządzenia.
+Gdy maszyna wirtualna została utworzona za pomocą przycisku Wdróż na platformie Azure nie jest już potrzebne, Wyczyść konto aktualizacji urządzenia, jego wystąpienie, IoT Hub i IoT Edge. Możesz to zrobić, przechodząc do poszczególnych zasobów i wybierając pozycję "Usuń". Przed oczyszczeniem konta aktualizacji urządzenia należy oczyścić wystąpienie aktualizacji urządzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

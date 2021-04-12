@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e6f76bcae55ed905e11c46df66478908529970
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928702"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258031"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Experian z Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ W podanych [zasadach niestandardowych](https://github.com/azure-ad-b2c/partner-i
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Część 6 — Konfigurowanie zasad Azure AD B2C
 
-Zapoznaj się z tym [dokumentem](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) , aby uzyskać instrukcje dotyczące sposobu konfigurowania dzierżawy usługi Azure AD B2C i konfigurowania zasad.
+Zapoznaj się z tym [dokumentem](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) , aby uzyskać instrukcje dotyczące sposobu konfigurowania dzierżawy usługi Azure AD B2C i konfigurowania zasad.
 
 >[!NOTE]
 >Te przykładowe zasady bazują na [lokalnych kontach z pakietem startowym](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -169,4 +169,4 @@ Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
 - [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

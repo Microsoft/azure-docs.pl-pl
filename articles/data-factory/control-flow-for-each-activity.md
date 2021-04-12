@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d0fd9ab8286496b9801d6c10682761f1264e040a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786213"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120915"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działanie ForEach w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Działania | Działania do wykonania. | Lista działań | Tak
 Jeśli parametr **Issekwencyjny** ma wartość false, działanie iteruje równolegle z maksymalnie 20 współbieżnych iteracji. Tego ustawienia należy używać ostrożnie. Jeśli współbieżne iteracje są zapisywane w tym samym folderze, ale do różnych plików, to podejście jest bardziej precyzyjne. Jeśli współbieżne iteracje są zapisywane jednocześnie do dokładnie tego samego pliku, to podejście najprawdopodobniej powoduje wystąpienie błędu. 
 
 ## <a name="iteration-expression-language"></a>Język wyrażeń iteracji
-W działaniu ForEach Podaj tablicę do iteracji dla **elementów** właściwości. Służy `@item()` do iterowania pojedynczego wyliczenia w działaniu foreach. Na przykład jeśli **element** jest tablicą: [1, 2, 3], `@item()` zwraca 1 w pierwszej iteracji, 2 w drugiej iteracji i 3 w trzeciej iteracji.
+W działaniu ForEach Podaj tablicę do iteracji dla **elementów** właściwości. Służy `@item()` do iterowania pojedynczego wyliczenia w działaniu foreach. Na przykład jeśli **element** jest tablicą: [1, 2, 3], `@item()` zwraca 1 w pierwszej iteracji, 2 w drugiej iteracji i 3 w trzeciej iteracji. Można również użyć `@range(0,10)` wyrażenia like do iteracji dziesięciu razy, zaczynając od 0 kończące się na 9.
 
 ## <a name="iterating-over-a-single-activity"></a>Iteracja w ramach pojedynczego działania
 **Scenariusz:** Skopiuj z tego samego pliku źródłowego w obiekcie blob platformy Azure do wielu plików docelowych w obiekcie blob platformy Azure.

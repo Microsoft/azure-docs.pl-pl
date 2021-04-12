@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e60b80a4ebeaef7d31d4c0c1d9d4bfc41ec3a56
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010171"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256212"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrowanie użytkowników do usługi Azure AD B2C
 
@@ -43,7 +43,7 @@ Użyj bezproblemowego przepływu migracji, jeśli hasła zwykłego tekstu w star
 - Hasło jest przechowywane w jednokierunkowym formacie szyfrowanym, na przykład za pomocą funkcji skrótu.
 - Hasło jest przechowywane przez starszego dostawcę tożsamości w taki sposób, aby nie można było uzyskać do niego dostępu. Na przykład gdy dostawca tożsamości sprawdza poprawność poświadczeń, wywołując usługę sieci Web.
 
-Bezproblemowy przepływ migracji nadal wymaga wstępnej migracji kont użytkowników, ale używa [zasad niestandardowych](custom-policy-get-started.md) do wysyłania zapytań do [interfejsu API REST](custom-policy-rest-api-intro.md) (tworzonego przez użytkownika) w celu ustawienia hasła każdego użytkownika podczas pierwszego logowania.
+Bezproblemowy przepływ migracji nadal wymaga wstępnej migracji kont użytkowników, ale używa [zasad niestandardowych](user-flow-overview.md) do wysyłania zapytań do [interfejsu API REST](custom-policy-rest-api-intro.md) (tworzonego przez użytkownika) w celu ustawienia hasła każdego użytkownika podczas pierwszego logowania.
 
 Bezproblemowy przepływ migracji ma dwie fazy: *wstępne Migrowanie* i *Ustawianie poświadczeń*.
 

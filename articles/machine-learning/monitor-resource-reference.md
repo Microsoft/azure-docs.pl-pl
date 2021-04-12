@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/02/2020
-ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521343"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031073"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorowanie odwołań do danych usługi Azure Machine Learning
 
@@ -28,49 +28,62 @@ W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebra
 **Model**
 
 | Metric | Jednostka | Opis |
-| ----- | ----- | ----- |
-| Nie można wdrożyć modelu | Liczba | Liczba wdrożeń modelu zakończonych niepowodzeniem. |
-| Rozpoczęto Wdrażanie modelu | Liczba | Liczba uruchomionych wdrożeń modelu. |
-| Wdrażanie modelu powiodło się | Liczba | Liczba wdrożeń modelu, które zakończyły się powodzeniem. |
-| Nie można zarejestrować modelu | Liczba | Liczba rejestracji modelu zakończonych niepowodzeniem. |
-| Rejestrowanie modelu powiodło się | Liczba | Liczba rejestracji modelu zakończonych powodzeniem. |
+|--|--|--|
+| Rejestrowanie modelu powiodło się | Liczba | Liczba rejestracji modelu zakończonych powodzeniem w tym obszarze roboczym |
+| Nie można zarejestrować modelu | Liczba | Liczba rejestracji modelu zakończonych niepowodzeniem w tym obszarze roboczym |
+| Uruchomiono Wdrażanie modelu | Liczba | Liczba rozpoczętych wdrożeń modelu w tym obszarze roboczym |
+| Wdrażanie modelu powiodło się | Liczba | Liczba wdrożeń modelu, które zakończyły się pomyślnie w tym obszarze roboczym |
+| Wdrażanie modelu nie powiodło się | Liczba | Liczba wdrożeń modelu, które zakończyły się niepowodzeniem w tym obszarze roboczym |
 
 **limit przydziału**
 
 Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learning obliczeń.
 
 | Metric | Jednostka | Opis |
-| ----- | ----- | ----- |
-| Aktywne rdzenie | Liczba | Liczba aktywnych rdzeni obliczeniowych. |
-| Aktywne węzły | Liczba | Liczba aktywnych węzłów. |
-| Rdzenie bezczynne | Liczba | Liczba rdzeni obliczeniowych w bezczynnym stanie. |
-| Węzły bezczynne | Liczba | Liczba bezczynnych węzłów obliczeniowych. |
-| Opuszczanie rdzeni | Liczba | Liczba rdzeni opuszczających. |
-| Opuszczanie węzłów | Liczba | Liczba pozostałych węzłów. |
-| Występujące rdzenie | Liczba | Liczba przeniesiona rdzeni. |
-| Zastępujące węzły | Liczba | Liczba przeniesiona węzłów. |
-| Procent wykorzystania przydziałów | Procent | Procent użytego przydziału. |
-| Całkowita liczba rdzeni | Liczba | Łączna liczba rdzeni. |
-| Łączna liczba węzłów | Liczba | Łączna liczba węzłów. |
-| Rdzenie, których nie można używać | Liczba | Liczba rdzeni, których nie można używać. |
-| Węzły niezdatne do użytku | Liczba | Liczba węzłów, które nie są używane. |
+|--|--|--|
+| Łączna liczba węzłów | Liczba | Łączna liczba węzłów. Ta suma obejmuje niektóre aktywne węzły, bezczynne węzły, węzły niezdatne do użytku, węzły zastępujące, pozostawiając węzły |
+| Aktywne węzły | Liczba | Liczba aktywnych węzłów. Węzły, w których aktywnie uruchomiono zadanie. |
+| Węzły bezczynne | Liczba | Liczba bezczynnych węzłów. Węzły bezczynne są węzłami, w których nie są uruchomione żadne zadania, ale mogą akceptować nowe zadanie, jeśli jest dostępne. |
+| Węzły niezdatne do użytku | Liczba | Liczba nieużywanych węzłów. Węzły, które nie są użyteczne, nie działają z powodu problemu z nierozpoznawalne. Platforma Azure przeprowadzi odtwarzanie tych węzłów. |
+| Zastępujące węzły | Liczba | Liczba przeniesiona węzłów. Te węzły są węzłami o niskim priorytecie, które znajdują się poza dostępną pulą węzłów. |
+| Opuszczanie węzłów | Liczba | Liczba pozostałych węzłów. Opuszczenie węzłów to węzły, które po prostu zakończyły przetwarzanie zadania i przechodzą w stan bezczynności. |
+| Łączna liczba rdzeni | Liczba | Łączna liczba rdzeni |
+| Aktywne rdzenie | Liczba | Liczba aktywnych rdzeni |
+| Rdzenie bezczynne | Liczba | Liczba rdzeni bezczynnych |
+| Rdzenie, których nie można używać | Liczba | Liczba rdzeni, których nie można używać |
+| Występujące rdzenie | Liczba | Liczba przeniesiona rdzeni |
+| Opuszczanie rdzeni | Liczba | Liczba rdzeni wychodzących |
+| Procent wykorzystania przydziałów | Liczba | Procent wykorzystania przydziałów |
 
 **Zasób**
 
-| Metric | Jednostka | Opis |
-| ----- | ----- | ----- |
-| CpuUtilization | Procent | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
-| GpuUtilization | Procent | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
+| Metric| Jednostka | Opis |
+|--|--|--|
+| CpuUtilization | Liczba | Procent użycia w węźle procesora CPU. Wykorzystanie jest raportowane w odstępach czasu jednej minuty. |
+| GpuUtilization | Liczba | Procent użycia w węźle procesora GPU. Wykorzystanie jest raportowane w odstępach czasu jednej minuty. |
+| GpuMemoryUtilization | Liczba | Procent użycia pamięci w węźle procesora GPU. Wykorzystanie jest raportowane w odstępach czasu jednej minuty. |
+| GpuEnergyJoules | Liczba | Energia interwału w Joules w węźle procesora GPU. Energia jest raportowana w odstępach czasu jednej minuty. |
 
 **Uruchom**
 
-Informacje o przebiegach szkoleniowych.
+Informacje na temat szkoleń dla obszaru roboczego.
 
 | Metric | Jednostka | Opis |
-| ----- | ----- | ----- |
-| Ukończone uruchomienia | Liczba | Liczba ukończonych uruchomień. |
-| Nieudane uruchomienia | Liczba | Liczba nieudanych uruchomień. |
-| Uruchomione uruchomienia | Liczba | Liczba rozpoczętych uruchomień. |
+|--|--|--|
+| Anulowane przebiegi | Liczba | Liczba anulowanych przebiegów dla tego obszaru roboczego. Licznik jest aktualizowany w przypadku pomyślnego anulowania przebiegu. |
+| Anulowanie żądanych przebiegów | Liczba | Liczba uruchomień, dla których zażądano anulowania dla tego obszaru roboczego. Licznik jest aktualizowany po odebraniu żądania anulowania dla uruchomienia. |
+| Ukończone uruchomienia | Liczba | Liczba przebiegów pomyślnie ukończonych dla tego obszaru roboczego. Licznik jest aktualizowany po zakończeniu przebiegu i zebraniu danych wyjściowych. |
+| Nieudane uruchomienia | Liczba | Liczba uruchomień dla tego obszaru roboczego nie powiodła się. Licznik jest aktualizowany w przypadku niepowodzenia przebiegu. |
+| Finalizowanie przebiegów | Liczba | Liczba przebiegów w trakcie finalizowania stanu dla tego obszaru roboczego. Licznik jest aktualizowany, gdy przebieg został ukończony, ale kolekcja wyjściowa jest nadal w toku. | 
+| Przebiegi nie odpowiadają | Liczba | Liczba przebiegów, które nie odpowiadają w tym obszarze roboczym. Licznik jest aktualizowany, gdy przebieg nie odpowiada. |
+| Uruchomienia nieuruchomione | Liczba | Liczba przebiegów w stanie nieuruchomionym dla tego obszaru roboczego. Licznik jest aktualizowany, gdy zostanie odebrane żądanie utworzenia przebiegu, ale informacje o uruchomieniu nie zostały jeszcze wypełnione. |
+| Przygotowywanie przebiegów | Liczba | Liczba przebiegów przygotowywania dla tego obszaru roboczego. Licznik jest aktualizowany, gdy przebieg przechodzi do stanu przygotowywania podczas przygotowywania środowiska uruchomieniowego. |
+| Uruchomienia aprowizacji | Liczba | Liczba uruchomień, które są inicjowane dla tego obszaru roboczego. Licznik jest aktualizowany, gdy przebieg oczekuje na utworzenie obiektu docelowego obliczeń lub inicjowanie obsługi. |
+| Uruchomienia w kolejce | Liczba | Liczba uruchomień umieszczonych w kolejce dla tego obszaru roboczego. Licznik jest aktualizowany, gdy przebieg zostanie umieszczony w kolejce w celu obliczenia. Może wystąpić podczas oczekiwania na gotowość wymaganych węzłów obliczeniowych. |
+| Uruchomione uruchomienia | Liczba | Liczba przebiegów uruchomionych dla tego obszaru roboczego. Licznik jest aktualizowany po rozpoczęciu uruchamiania w wymaganych zasobach. |
+| Uruchamianie przebiegów | Liczba | Liczba rozpoczętych uruchomień dla tego obszaru roboczego. Licznik jest aktualizowany po zapisaniu żądania utworzenia i uruchomienia informacji, takich jak identyfikator przebiegu |
+| błędy | Liczba | Liczba błędów uruchomienia w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy wystąpi błąd. |
+| Ostrzeżenia | Liczba | Liczba ostrzeżeń uruchamiania w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy uruchomienie napotka ostrzeżenie. |
 
 ## <a name="metric-dimensions"></a>Wymiary metryk
 

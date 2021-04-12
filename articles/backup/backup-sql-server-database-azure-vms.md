@@ -2,13 +2,13 @@
 title: Tworzenie kopii zapasowej wielu maszyn wirtualnych programu SQL Server z magazynu
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Server baz danych w usłudze Azure Virtual Machines z Azure Backup z magazynu Recovery Services
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2021
+ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "105567218"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258473"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych SQL Server z magazynu Recovery Services
 
@@ -23,10 +23,6 @@ Ten artykuł obejmuje następujące zagadnienia:
 > * Tworzenie i konfigurowanie magazynu.
 > * Odkryj bazy danych i skonfiguruj kopie zapasowe.
 > * Konfigurowanie ochrony automatycznej dla baz danych.
-
->[!NOTE]
->**Nietrwałe usuwanie programu SQL Server na maszynie wirtualnej platformy Azure oraz usuwanie nietrwałe dla SAP HANA w obciążeniach maszyn wirtualnych platformy Azure** jest teraz dostępne w wersji zapoznawczej.<br>
->Aby utworzyć konto w wersji zapoznawczej, Zapisz się do nas na AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

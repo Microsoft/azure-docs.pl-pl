@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: 2ef5a3b162d62fa79ed01a156345070ee12b4862
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5ee7e8de85a1a53359f651a74e2f9f5e51edb70
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110682"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030784"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>Autoryzuj dostęp z zarządzaną tożsamością do zasobu komunikacji w środowisku programistycznym
 
@@ -78,6 +78,8 @@ Zestaw SDK tożsamości platformy Azure odczytuje wartości z trzech zmiennych �
 
 > [!IMPORTANT]
 > Po ustawieniu zmiennych środowiskowych Zamknij i ponownie otwórz okno konsoli. Jeśli używasz programu Visual Studio lub innego środowiska programistycznego, może być konieczne jego ponowne uruchomienie w celu zarejestrowania nowych zmiennych środowiskowych.
+
+Po ustawieniu tych zmiennych powinno być możliwe użycie obiektu DefaultAzureCredential w kodzie do uwierzytelniania w wybranym kliencie usługi.
 
 
 ## <a name="next-steps"></a>Następne kroki

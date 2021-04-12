@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Maps — pokrycie usług pogodowych (wersja zapoznawcza)
-description: Dowiedz się więcej o usługach Microsoft Azure Maps (wersja zapoznawcza)
+title: Microsoft Azure mapowanie pokrycia usług pogodowych
+description: Dowiedz się więcej o Microsoft Azure Maps pokrycie usług pogodowych
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,19 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ac209dc898c2d30f8d50a8989b188ef5a9f5046
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905489"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257674"
 ---
-# <a name="azure-maps-weather-services-preview-coverage"></a>Pokrycie Azure Maps usług pogodowych (wersja zapoznawcza)
-
-> [!IMPORTANT]
-> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+# <a name="azure-maps-weather-services-coverage"></a>Pokrycie Azure Maps usług pogodowych
 
 Ten artykuł zawiera informacje o pokryciu dotyczące Azure Maps [usług pogodowych](/rest/api/maps/weather). Azure Maps usługi danych pogody zwracają szczegóły, takie jak kafelki radarowe, bieżące warunki pogodowe, prognozy pogodowe i Pogoda wzdłuż trasy.
 

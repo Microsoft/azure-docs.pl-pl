@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b421877b2a41074bf901817c7ad8922083c3e77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611899"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285677"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Konfigurowanie kontenerów platformy Docker OCR
 
@@ -34,8 +34,8 @@ Kontener ma również następujące ustawienia konfiguracji specyficzne dla kont
 |Wymagane|Ustawienie|Przeznaczenie|
 |--|--|--|
 |Nie|ReadEngineConfig:ResultExpirationPeriod| tylko kontenery w wersji 2.0. Okres ważności wyniku w godzinach. Wartość domyślna to 48 godzin. Ustawienie określa, kiedy system powinien czyścić wyniki rozpoznawania. Na przykład, jeśli `resultExpirationPeriod=1` system wyczyści wynik rozpoznawania 1 godzina po zakończeniu procesu. Jeśli `resultExpirationPeriod=0` system czyści wynik rozpoznawania po pobraniu wyniku.|
-|Nie|Pamięć podręczna: Redis| tylko kontenery w wersji 2.0. Włącza magazyn Redis do przechowywania wyników. Pamięć podręczna jest *wymagana* , jeśli wiele kontenerów odczytu jest umieszczonych za modułem równoważenia obciążenia.|
-|Nie|Kolejka: RabbitMQ|tylko kontenery w wersji 2.0. Umożliwia RabbitMQ do wysyłania zadań. Ustawienie jest przydatne, gdy wiele kontenerów odczytu jest umieszczonych za modułem równoważenia obciążenia.|
+|Nie|Pamięć podręczna: Redis| tylko kontenery w wersji 2.0. Włącza magazyn Redis do przechowywania wyników. Pamięć podręczna jest *wymagana* , jeśli wiele kontenerów OCR do odczytu jest umieszczonych za modułem równoważenia obciążenia.|
+|Nie|Kolejka: RabbitMQ|tylko kontenery w wersji 2.0. Umożliwia RabbitMQ do wysyłania zadań. Ustawienie jest przydatne, gdy wiele kontenerów OCR do odczytu jest umieszczonych za modułem równoważenia obciążenia.|
 |Nie|Kolejka: Azure: QueueVisibilityTimeoutInMilliseconds | tylko kontenery v3. x. Godzina, o której komunikat ma być niewidoczny w przypadku przetwarzania przez inny proces roboczy. |
 |Nie|Magazyn::D ocumentStore:: MongoDB|tylko kontenery w wersji 2.0. Włącza MongoDB na potrzeby trwałego magazynu wyników. |
 |Nie|Storage: ObjectStore: AzureBlob: ConnectionString| tylko kontenery v3. x. Parametry połączenia usługi Azure Blob Storage. |
@@ -119,7 +119,7 @@ Zastąp ciąg {_argument_name_} własnymi wartościami:
 
 ## <a name="container-docker-examples"></a>Przykłady kontenera Docker
 
-Poniższe przykłady platformy Docker dotyczą kontenera odczyt.
+Poniższe przykłady platformy Docker dotyczą kontenera OCR do odczytu.
 
 
 # <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)

@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cea15114e125951a8fbec73f965b272a4f8053d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181435"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284162"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Zarejestruj SQL Server maszynę wirtualną przy użyciu rozszerzenia programu SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Zarejestrowanie przy użyciu [rozszerzenia Agent SQL Server IaaS](sql-server-iaa
 
 Wdrożenie SQL Server maszyny wirtualnej w portalu Azure Marketplace za pomocą Azure Portal automatycznie rejestruje maszynę wirtualną SQL Server z rozszerzeniem. Jeśli jednak zdecydujesz się na samoinstalowanie SQL Server na maszynie wirtualnej platformy Azure lub zainicjowanie obsługi administracyjnej maszyny wirtualnej platformy Azure na podstawie niestandardowego wirtualnego dysku twardego, należy zarejestrować maszynę wirtualną SQL Server przy użyciu rozszerzenia programu SQL IaaS Agent w celu odblokowania pełnych korzyści z funkcji i możliwości zarządzania. 
 
-Aby można było korzystać z rozszerzenia programu SQL IaaS Agent, należy najpierw [zarejestrować swoją subskrypcję u dostawcy **Microsoft. SqlVirtualMachine**](#register-subscription-with-rp), co zapewnia rozszerzeniu SQL IaaS możliwość tworzenia zasobów w ramach tej konkretnej subskrypcji.
+Aby można było korzystać z rozszerzenia programu SQL IaaS Agent, należy najpierw [zarejestrować swoją subskrypcję u dostawcy **Microsoft. SqlVirtualMachine**](#register-subscription-with-resource-provider), co zapewnia rozszerzeniu SQL IaaS możliwość tworzenia zasobów w ramach tej konkretnej subskrypcji.
 
 > [!IMPORTANT]
 > Rozszerzenie SQL IaaS Agent zbiera dane w celu udzielenia klientom opcjonalnych korzyści w przypadku korzystania z SQL Server w ramach Virtual Machines platformy Azure. Firma Microsoft nie będzie używać tych danych do inspekcji licencjonowania bez wcześniejszej zgody klienta. Aby uzyskać więcej informacji, zobacz [dodatek SQL Server privacy](/sql/sql-server/sql-server-privacy#non-personal-data) .
@@ -50,9 +50,9 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia, bę
 - Najnowsza wersja [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell (minimum 5,0)](/powershell/azure/install-az-ps). 
 
 
-## <a name="register-subscription-with-rp"></a>Zarejestruj subskrypcję za pomocą RP
+## <a name="register-subscription-with-resource-provider"></a>Zarejestruj subskrypcję za pomocą dostawcy zasobów
 
-Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia agenta SQL IaaS, musisz najpierw zarejestrować subskrypcję w dostawcy **Microsoft. SqlVirtualMachine** . Dzięki temu rozszerzenie agenta SQL IaaS umożliwia tworzenie zasobów w ramach subskrypcji.  Można to zrobić za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia agenta SQL IaaS, musisz najpierw zarejestrować subskrypcję u dostawcy zasobów **Microsoft. SqlVirtualMachine** . Dzięki temu rozszerzenie agenta SQL IaaS umożliwia tworzenie zasobów w ramach subskrypcji.  Można to zrobić za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -127,7 +127,7 @@ Zarejestruj maszynę wirtualną SQL Server w trybie uproszczonym z użyciem Azur
 
 ### <a name="full-management-mode"></a>Tryb pełnego zarządzania
 
-Zarejestrowanie maszyny wirtualnej SQL Server w trybie pełnym spowoduje ponowne uruchomienie usługi SQL Server. Należy zachować ostrożność. 
+Zarejestrowanie maszyny wirtualnej SQL Server w trybie pełnym spowoduje ponowne uruchomienie usługi SQL Server. Należy zachować ostrożność podczas wykonywania dalszych czynności. 
 
 Aby zarejestrować SQL Server maszynę wirtualną bezpośrednio w trybie pełnym (a także ponownie uruchomić usługę SQL Server), użyj następującego polecenia Azure PowerShell: 
 

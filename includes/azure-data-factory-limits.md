@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102109198"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125874"
 ---
 Azure Data Factory to wielodostępna usługa, która ma następujące domyślne limity, aby upewnić się, że subskrypcje klientów są chronione przed innymi obciążeniami. Aby podnieść limity do wartości maksymalnej dla subskrypcji, skontaktuj się z pomocą techniczną.
 
@@ -49,6 +49,7 @@ Azure Data Factory to wielodostępna usługa, która ma następujące domyślne 
 | Współbieżna liczba przepływów danych na środowisko Integration Runtime | 50 | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Współbieżna liczba sesji debugowania przepływu danych na użytkownika na fabrykę | 3 | 3 |
 | Limit czasu wygaśnięcia Azure IR przepływu danych | 4 godziny |  4 godziny |
+| Limit rozmiaru jednostki metadanych w fabryce | 2 GB | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> jednostka integracji danych (DIU) jest używana w operacji kopiowania z chmury do chmury, Dowiedz się więcej z [jednostek integracji danych (wersja 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Aby uzyskać informacje dotyczące rozliczeń, zobacz [Cennik usługi Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 

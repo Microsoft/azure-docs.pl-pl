@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
-ms.openlocfilehash: 2873486b95f0bb4a9a27e2e050cc6f6d5473a44e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f01b4216af8d924354ae9e9a204a8eaefb8213
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98898176"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120847"
 ---
 # <a name="streaming-policies"></a>Zasady przesyłania strumieniowego
 
@@ -34,7 +34,7 @@ Poniższe "drzewo decyzyjne" ułatwia wybranie wstępnie zdefiniowanych zasad pr
 
 > [!IMPORTANT]
 > * Właściwości **zasad przesyłania strumieniowego** , które są typu DateTime, są zawsze w formacie UTC.
-> * Należy zapoznać się z ograniczonym zestawem zasad dla konta usługi multimediów i użyć ich ponownie dla lokalizatorów przesyłania strumieniowego, gdy są potrzebne te same opcje. Aby uzyskać więcej informacji, zobacz limity [przydziału i limity](limits-quotas-constraints.md).
+> * Należy zapoznać się z ograniczonym zestawem zasad dla konta usługi multimediów i użyć ich ponownie dla lokalizatorów przesyłania strumieniowego, gdy są potrzebne te same opcje. Aby uzyskać więcej informacji, zobacz limity [przydziału i limity](limits-quotas-constraints-reference.md).
 
 ## <a name="decision-tree"></a>Drzewo decyzyjne
 
@@ -42,7 +42,7 @@ Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.
 
 [![Diagram przedstawiający drzewo decyzyjne mające na celu ułatwienie wyboru wstępnie zdefiniowanych zasad przesyłania strumieniowego dla Twojego scenariusza.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
-W przypadku szyfrowania zawartości należy utworzyć [zasady dotyczące kluczy zawartości](content-key-policy-concept.md). **Zasady kluczy zawartości** nie są wymagane do wyczyszczenia przesyłania strumieniowego ani pobierania. 
+W przypadku szyfrowania zawartości należy utworzyć [zasady dotyczące kluczy zawartości](drm-content-key-policy-concept.md). **Zasady kluczy zawartości** nie są wymagane do wyczyszczenia przesyłania strumieniowego ani pobierania. 
 
 Jeśli masz specjalne wymagania (na przykład jeśli chcesz określić różne protokoły, musisz użyć niestandardowej usługi dostarczania kluczy lub użyć jasnej ścieżki audio), możesz [utworzyć](/rest/api/media/streamingpolicies/create) niestandardowe zasady przesyłania strumieniowego. 
 
@@ -81,10 +81,10 @@ Odpowiedź:
 
 ## <a name="filtering-ordering-paging"></a>Filtrowanie, porządkowanie, stronicowanie
 
-Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Media Services](entities-overview.md).
+Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Media Services](filter-order-page-entitites-how-to.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Strumieniowe przesyłanie pliku](stream-files-dotnet-quickstart.md)
-* [Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy](protect-with-aes128.md)
-* [Używanie usługi dostarczania licencji i szyfrowania dynamicznego w technologii DRM](protect-with-drm.md)
+* [Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy](drm-playready-license-template-concept.md)
+* [Używanie usługi dostarczania licencji i szyfrowania dynamicznego w technologii DRM](drm-protect-with-drm-tutorial.md)

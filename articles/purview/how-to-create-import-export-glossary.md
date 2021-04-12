@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/02/2021
+ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952409"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284099"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Tworzenie, importowanie i eksportowanie terminów słownika
 
@@ -34,7 +34,7 @@ Aby utworzyć nowy termin słownika, wykonaj następujące czynności:
 
 5. Ustaw **stan** terminu. Nowe warunki domyślne do stanu **wersji roboczej** .
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Zrzut ekranu przedstawiający Opcje stanu." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Zrzut ekranu przedstawiający Opcje stanu.":::
 
    Te znaczniki stanu są metadanymi skojarzonymi z terminem. Obecnie można ustawić następujący stan dla każdego warunku:
 
@@ -92,9 +92,10 @@ Należy mieć możliwość eksportowania terminów z słownika tak długo, jak w
 
 2. Wybierz pozycję **Eksportuj** , aby pobrać wybrane warunki.
 
- > [!Important]
-   > Jeśli warunki w hierarchii należą do różnych szablonów terminów, należy podzielić je na inne. Pliki CSV do zaimportowania. Ponadto aktualizowanie elementu nadrzędnego terminu nie jest obecnie obsługiwane w procesie importowania.
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Zrzut ekranu przedstawiający stronę warunki słownika wybierz pozycję plik do wyeksportowania.":::
 
+   > [!Important]
+   > Jeśli warunki w hierarchii należą do różnych szablonów terminów, należy podzielić je na inne. Pliki CSV do zaimportowania. Ponadto aktualizowanie elementu nadrzędnego terminu nie jest obecnie obsługiwane w procesie importowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

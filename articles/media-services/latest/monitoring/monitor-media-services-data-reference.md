@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609092"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121170"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Informacje o monitorowaniu Media Services danych
 
@@ -44,7 +44,7 @@ Można monitorować następujące metryki konta.
 |StreamingPolicyQuota|Limit przydziału zasad przesyłania strumieniowego|Przekroczono limit przydziału zasad przesyłania strumieniowego na Twoim koncie.|
 |StreamingPolicyQuotaUsedPercentage|Procent użycia limitu przydziału zasad przesyłania strumieniowego|Wartość procentowa przydziału zasad przesyłania strumieniowego już używana.|
 
-Należy również sprawdzić [przydziały i limity kont](../limits-quotas-constraints.md).
+Należy również sprawdzić [przydziały i limity kont](../limits-quotas-constraints-reference.md).
 
 ### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego
 

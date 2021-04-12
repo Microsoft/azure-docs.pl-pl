@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf49b1a2b7178800966342a3d52ed49450f3d97c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226688"
+ms.locfileid: "107258388"
 ---
 # <a name="resilient-end-user-experience"></a>Odporne środowisko użytkownika końcowego
 
@@ -40,7 +40,7 @@ Aby ułatwić konfigurowanie typowych zadań związanych z tożsamościami, Azur
 
 Wybierz wbudowane przepływy użytkownika, jeśli Twoje wymagania biznesowe mogą zostać przez nie spełnione. Ze względu na to, że jest to szeroko przetestowane przez firmę Microsoft, można zminimalizować testowanie, które jest potrzebne do sprawdzania funkcjonalności, wydajności lub skali tych przepływów na poziomie zasad. Nadal konieczne jest przetestowanie aplikacji w celu zapewnienia funkcjonalności, wydajności i skalowania.
 
-W przypadku [wybrania zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) ze względu na wymagania biznesowe upewnij się, że przeprowadzasz testowanie na poziomie zasad dotyczące funkcjonalności, wydajności lub skalowania oprócz testowania na poziomie aplikacji.
+W przypadku [wybrania zasad niestandardowych](../../active-directory-b2c/user-flow-overview.md) ze względu na wymagania biznesowe upewnij się, że przeprowadzasz testowanie na poziomie zasad dotyczące funkcjonalności, wydajności lub skalowania oprócz testowania na poziomie aplikacji.
 
 Zapoznaj się z artykułem, który [porównuje przepływy użytkowników i zasady niestandardowe](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) , aby ułatwić podjęcie decyzji.
 

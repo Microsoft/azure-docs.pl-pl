@@ -1,16 +1,16 @@
 ---
-title: Jak wyzwolić złożone akcje z alertami Azure Monitor
+title: Wyzwalaj złożone akcje z alertami Azure Monitor
 description: Dowiedz się, jak utworzyć akcję aplikacji logiki w celu przetworzenia alertów Azure Monitor.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f1e81dca6926ae9f57e428eb1cef761c588a78b6
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045721"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029849"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Jak wyzwolić złożone akcje z alertami Azure Monitor
 
@@ -34,66 +34,66 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Tworzenie alertu dziennika aktywności: administracyjne
 
-1. [Tworzenie aplikacji logiki](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
+1. [Utwórz aplikację logiki](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2.  Wybierz wyzwalacz: **po odebraniu żądania HTTP**.
+1.  Wybierz wyzwalacz: **po odebraniu żądania HTTP**.
 
 1. W oknie dialogowym dla **momentu odebrania żądania HTTP** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-    ![Zrzut ekranu, na którym jest wyświetlane okno dialogowe żądanie H T t P, a w polu Użyj przykładowego ładunku do wygenerowania wybranego schematu opion. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Zrzut ekranu, który pokazuje okno dialogowe, gdy jest zaznaczona opcja Użyj przykładowego ładunku do wygenerowania schematu. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-3.  Skopiuj i wklej następujący przykładowy ładunek do okna dialogowego:
+1.  Skopiuj i wklej następujący przykładowy ładunek do okna dialogowego:
 
     ```json
         {
-            "schemaId": "Microsoft.Insights/activityLogs",
-            "data": {
-                "status": "Activated",
-                "context": {
-                "activityLog": {
-                    "authorization": {
-                    "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+            "schemaId&quot;: &quot;Microsoft.Insights/activityLogs&quot;,
+            &quot;data&quot;: {
+                &quot;status&quot;: &quot;Activated&quot;,
+                &quot;context&quot;: {
+                &quot;activityLog&quot;: {
+                    &quot;authorization&quot;: {
+                    &quot;action&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;scope&quot;: &quot;/subscriptions/…&quot;
                     },
-                    "channels": "Operation",
-                    "claims": "…",
-                    "caller": "logicappdemo@contoso.com",
-                    "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
-                    "description": "",
-                    "eventSource": "Administrative",
-                    "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
-                    "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
-                    "level": "Informational",
-                    "operationName": "microsoft.insights/activityLogAlerts/write",
-                    "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
-                    "resourceGroupName": "LOGICAPP-DEMO",
-                    "resourceProviderName": "microsoft.insights",
-                    "status": "Succeeded",
-                    "subStatus": "",
-                    "subscriptionId": "…",
-                    "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
-                    "resourceType": "microsoft.insights/activityLogAlerts"
+                    &quot;channels&quot;: &quot;Operation&quot;,
+                    &quot;claims&quot;: &quot;…&quot;,
+                    &quot;caller&quot;: &quot;logicappdemo@contoso.com&quot;,
+                    &quot;correlationId&quot;: &quot;91ad2bac-1afa-4932-a2ce-2f8efd6765a3&quot;,
+                    &quot;description&quot;: &quot;&quot;,
+                    &quot;eventSource&quot;: &quot;Administrative&quot;,
+                    &quot;eventTimestamp&quot;: &quot;2018-04-03T22:33:11.762469+00:00&quot;,
+                    &quot;eventDataId&quot;: &quot;ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0&quot;,
+                    &quot;level&quot;: &quot;Informational&quot;,
+                    &quot;operationName&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;operationId&quot;: &quot;61f59fc8-1442-4c74-9f5f-937392a9723c&quot;,
+                    &quot;resourceId&quot;: &quot;/subscriptions/…&quot;,
+                    &quot;resourceGroupName&quot;: &quot;LOGICAPP-DEMO&quot;,
+                    &quot;resourceProviderName&quot;: &quot;microsoft.insights&quot;,
+                    &quot;status&quot;: &quot;Succeeded&quot;,
+                    &quot;subStatus&quot;: &quot;&quot;,
+                    &quot;subscriptionId&quot;: &quot;…&quot;,
+                    &quot;submissionTimestamp&quot;: &quot;2018-04-03T22:33:36.1068742+00:00&quot;,
+                    &quot;resourceType&quot;: &quot;microsoft.insights/activityLogAlerts&quot;
                 }
                 },
-                "properties": {}
+                &quot;properties&quot;: {}
             }
         }
     ```
 
-9. **Projektant aplikacji logiki** wyświetli okno podręczne, które przypomina o tym, że żądanie wysyłane do aplikacji logiki musi ustawić nagłówek **Content-Type** do **Application/JSON**. Zamknij okno podręczne. Alert Azure Monitor ustawia nagłówek.
+1. W **projektancie Logic Apps** zostanie wyświetlone okno podręczne, które przypomina o tym, że żądanie wysyłane do aplikacji logiki musi ustawić nagłówek **Content-Type** do **Application/JSON**. Zamknij okno podręczne. Alert Azure Monitor ustawia nagłówek.
 
-    ![Ustawianie nagłówka Content-Type](media/action-groups-logic-app/content-type-header.png "Ustawianie nagłówka Content-Type")
+    ![Ustawianie nagłówka Content-Type](media/action-groups-logic-app/content-type-header.png &quot;Ustawianie nagłówka Content-Type")
 
-10. Wybierz pozycję **+** **nowy krok** , a następnie wybierz pozycję **Dodaj akcję**.
+1. Wybierz pozycję **+** **nowy krok** , a następnie wybierz pozycję **Dodaj akcję**.
 
     ![Dodawanie akcji](media/action-groups-logic-app/add-action.png "Dodawanie akcji")
 
-11. Wyszukaj i wybierz łącznik usługi Microsoft Teams. Wybierz akcję **Microsoft Teams-post Message** .
+1. Wyszukaj i wybierz łącznik usługi Microsoft Teams. Wybierz akcję **Microsoft Teams-post Message** .
 
     ![Akcje programu Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Akcje programu Microsoft Teams")
 
-12. Skonfiguruj akcję Microsoft Teams. **Projektant Logic Apps** prosi o uwierzytelnienie na koncie służbowym. Wybierz **Identyfikator zespołu** i **Identyfikator kanału** , do którego ma zostać wysłana wiadomość.
+1. Skonfiguruj akcję Microsoft Teams. **Projektant Logic Apps** prosi o uwierzytelnienie na koncie służbowym. Wybierz **Identyfikator zespołu** i **Identyfikator kanału** , do którego ma zostać wysłana wiadomość.
 
 13. Skonfiguruj komunikat przy użyciu kombinacji tekstu statycznego i odwołań do \<fields\> zawartości dynamicznej. Skopiuj i wklej następujący tekst do pola **Message** :
 
@@ -111,9 +111,9 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
     ![Akcja Microsoft Teams: Publikowanie wiadomości](media/action-groups-logic-app/teams-action-post-message.png "Akcja Microsoft Teams: Publikowanie wiadomości")
 
-14. W górnej części **projektanta Logic Apps** wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
+1. W górnej części **projektanta Logic Apps** wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
 
-15. Otwórz istniejącą grupę akcji i Dodaj akcję odwołującą się do aplikacji logiki. Jeśli nie masz istniejącej grupy akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal,](./action-groups.md) aby je utworzyć. Nie zapomnij zapisać zmian.
+1. Otwórz istniejącą grupę akcji i Dodaj akcję odwołującą się do aplikacji logiki. Jeśli nie masz istniejącej grupy akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal,](./action-groups.md) aby je utworzyć. Nie zapomnij zapisać zmian.
 
     ![Aktualizowanie grupy akcji](media/action-groups-logic-app/update-action-group.png "Aktualizowanie grupy akcji")
 

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599328"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106097929"
 ---
 > [!NOTE]
 > Aby wykryć chronione informacje o kondycji (Fi), użyj `domain=phi` parametru i wersji modelu `2020-04-01` lub nowszej.
@@ -53,7 +53,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Nazwy osób. 
+        Nazwy osób. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `Person` do `pii-categories` parametru. `Person` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -140,7 +140,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki.
+        Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `Organization` do `pii-categories` parametru. `Organization` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -241,7 +241,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Pełny adres wysyłkowy.
+        Pełny adres wysyłkowy. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `Address` do `pii-categories` parametru. `Address` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -270,7 +270,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Adresy e-mail.
+        Adresy e-mail. Zwracany także przez `domain=phi` .
       
         Aby uzyskać tę kategorię jednostki, Dodaj `Email` do `pii-categories` parametru. `Email` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
 
@@ -298,7 +298,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        Adresy URL do witryn sieci Web. 
+        Adresy URL do witryn sieci Web. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `URL` do `pii-categories` parametru. `URL` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -327,7 +327,7 @@ Ta kategoria zawiera następującą jednostkę:
     :::column span="2":::
         **Szczegóły**
 
-        adresy IP sieci. 
+        Adresy IP sieci. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `IP` do `pii-categories` parametru. `IP` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -382,7 +382,7 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
     :::column span="2":::
         **Szczegóły**
 
-        Daty kalendarzowe.
+        Daty kalendarzowe. Zwracany także przez `domain=phi` .
 
         Aby uzyskać tę kategorię jednostki, Dodaj `Date` do `pii-categories` parametru. `Date` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       
@@ -436,7 +436,7 @@ Jednostka w tej kategorii może mieć następujące podkategorie.
     :::column span="2":::
         **Szczegóły**
 
-        Ważności.
+        Ważności. 
 
         Aby uzyskać tę kategorię jednostki, Dodaj `Age` do `pii-categories` parametru. `Age` w razie wykrycia zostanie zwrócony w odpowiedzi interfejsu API.
       

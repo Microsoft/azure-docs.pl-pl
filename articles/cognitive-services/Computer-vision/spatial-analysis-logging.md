@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077622"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286032"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
 
-Analiza przestrzenna obejmuje zestaw funkcji służących do monitorowania kondycji systemu i pomocy w rozwiązywaniu problemów.
+Analiza przestrzenna obejmuje zestaw funkcji służących do monitorowania kondycji systemu i rozwiązywania problemów.
 
 ## <a name="enable-visualizations"></a>Włącz wizualizacje
 

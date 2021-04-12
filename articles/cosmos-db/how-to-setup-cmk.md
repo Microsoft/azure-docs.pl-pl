@@ -4,20 +4,17 @@ description: Dowiedz się, jak skonfigurować klucze zarządzane przez klienta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 04/01/2021
 ms.author: thweiss
-ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101656520"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222626"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!NOTE]
-> Używanie kluczy zarządzanych przez klienta z [magazynem analitycznym](analytical-store-introduction.md) Azure Cosmos DB obecnie wymaga dodatkowej konfiguracji na Twoim koncie. Skontaktuj się z nami, [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) Aby uzyskać szczegółowe informacje.
 
 Dane przechowywane na koncie usługi Azure Cosmos są automatycznie i bezproblemowo szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (**klucze zarządzane przez usługę**). Opcjonalnie można dodać drugą warstwę szyfrowania z kluczami, którymi zarządzasz (**klucze zarządzane przez klienta**).
 
@@ -51,7 +48,7 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 - [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../key-vault/general/key-vault-recovery.md)
 - [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia platformy Azure](../key-vault/general/key-vault-recovery.md)
 
-## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Dodawanie zasad dostępu do wystąpienia Azure Key Vault
+## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a><a id="add-access-policy"></a> Dodawanie zasad dostępu do wystąpienia Azure Key Vault
 
 1. W Azure Portal przejdź do wystąpienia Azure Key Vault, które ma być używane do hostowania kluczy szyfrowania. Wybierz pozycję **zasady dostępu** w menu po lewej stronie:
 
@@ -63,7 +60,14 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Wybieranie odpowiednich uprawnień":::
 
-1. W obszarze **Wybierz podmiot zabezpieczeń** wybierz pozycję **nie wybrano**. Następnie wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń `a232010e-820c-4083-83bb-3ace5fc29d0b` ) w dowolnym regionie świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` . Na koniec wybierz **pozycję Wybierz** u dołu. Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie **Microsoft.Doc** dostawcy zasobów umentDB zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
+1. W obszarze **Wybierz podmiot zabezpieczeń** wybierz pozycję **nie wybrano**.
+
+1. Wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń: `a232010e-820c-4083-83bb-3ace5fc29d0b` dla dowolnego regionu świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` ). Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie **Microsoft.Doc** dostawcy zasobów umentDB zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
+
+   > [!NOTE]
+   > Spowoduje to zarejestrowanie Azure Cosmos DB tożsamości pierwszej firmy w zasadach dostępu Azure Key Vault. Aby zastąpić tę tożsamość pierwszej firmy przy użyciu tożsamości zarządzanej przez konto Azure Cosmos DB, zobacz [Używanie tożsamości zarządzanej w zasadach dostępu Azure Key Vault](#using-managed-identity).
+
+1. Wybierz **pozycję Wybierz** u dołu. 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Wybierz Azure Cosmos DB podmiotu zabezpieczeń":::
 
@@ -226,6 +230,34 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="using-a-managed-identity-in-the-azure-key-vault-access-policy"></a><a id="using-managed-identity"></a> Używanie tożsamości zarządzanej w zasadach dostępu Azure Key Vault
+
+Te zasady dostępu gwarantują, że Twoje klucze szyfrowania są dostępne na koncie Azure Cosmos DB. Jest to realizowane przez przyznanie dostępu do określonej tożsamości Azure Active Directory (AD). Obsługiwane są dwa typy tożsamości:
+
+- Tożsamość pierwszej jednostki Azure Cosmos DB może służyć do udzielania dostępu do usługi Azure Cosmos DB.
+- [Tożsamość zarządzana](how-to-setup-managed-identity.md) konta Azure Cosmos DB może służyć do udzielania dostępu do konta.
+
+Ze względu na to, że tożsamość zarządzana przypisana przez system może zostać pobrana tylko po utworzeniu konta, nadal musisz najpierw utworzyć konto przy użyciu tożsamości pierwszej firmy, jak opisano [powyżej](#add-access-policy). Następnie:
+
+1. Jeśli nie zostało to zrobione podczas tworzenia konta, Włącz na koncie [zarządzaną tożsamość przypisaną przez system](how-to-setup-managed-identity.md) i skopiuj `principalId` przypisane.
+
+1. Dodaj nowe zasady dostępu do konta Azure Key Vault, tak jak opisano [powyżej](#add-access-policy), ale używając `principalId` skopiowanego w poprzednim kroku, a nie od tożsamości pierwszej jednostki Azure Cosmos DB.
+
+1. Zaktualizuj konto Azure Cosmos DB, aby określić, że podczas uzyskiwania dostępu do kluczy szyfrowania w programie Azure Key Vault ma być używana tożsamość zarządzana przypisana przez system. Można to zrobić przez określenie tej właściwości w szablonie Azure Resource Manager Twojego konta:
+
+   ```json
+   {
+       "type": " Microsoft.DocumentDB/databaseAccounts",
+       "properties": {
+           "defaultIdentity": "SystemAssignedIdentity",
+           // ...
+       },
+       // ...
+   }
+   ```
+
+1. Opcjonalnie można usunąć Azure Cosmos DB tożsamość pierwszego podmiotu z zasad dostępu Azure Key Vault.
+
 ## <a name="key-rotation"></a>Wymiana kluczy
 
 Rotacja klucza zarządzanego przez klienta używanego przez konto usługi Azure Cosmos można wykonać na dwa sposoby.
@@ -297,7 +329,7 @@ Ta funkcja jest obecnie dostępna tylko dla nowych kont.
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>Czy można używać kluczy zarządzanych przez klienta w połączeniu z Azure Cosmos DBm [magazynem analitycznym](analytical-store-introduction.md)?
 
-Tak, ale obecnie wymaga dodatkowej konfiguracji na swoim koncie. Skontaktuj się z nami, [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) Aby uzyskać szczegółowe informacje.
+Tak, ale przed włączeniem magazynu analitycznego musisz [użyć zarządzanej tożsamości konta Azure Cosmos DB](#using-managed-identity) w zasadach dostępu Azure Key Vault.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Czy istnieje plan obsługi bardziej szczegółowego stopnia szczegółowości niż klucze poziomu konta?
 

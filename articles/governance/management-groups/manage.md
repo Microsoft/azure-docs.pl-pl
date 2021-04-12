@@ -3,12 +3,12 @@ title: Jak korzystać z grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwać hierarchię grup zarządzania.
 ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 05e78d66c29e500842d14a6eeb563c4569ecf0bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09d11450ff63046ab458f930f64534d10863f451
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596485"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258354"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
 
@@ -388,5 +388,5 @@ Aby dowiedzieć się więcej na temat grup zarządzania, zobacz:
 - [Tworzenie grup zarządzania w celu organizowania zasobów platformy Azure](./create-management-group-portal.md)
 - [Jak zmienić lub usunąć grupy zarządzania oraz zarządzać nimi](./manage.md)
 - [Grupy zarządzania w module zasobów programu Azure PowerShell](/powershell/module/az.resources#resources)
-- [Grupy zarządzania w interfejsie API REST](/rest/api/resources/managementgroups)
+- [Grupy zarządzania w interfejsie API REST](/rest/api/managementgroups/managementgroups)
 - [Grupy zarządzania w interfejsie wiersza polecenia platformy Azure](/cli/azure/account/management-group)
