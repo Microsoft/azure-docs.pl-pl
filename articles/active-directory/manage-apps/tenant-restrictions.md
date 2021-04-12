@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2021
+ms.date: 4/6/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb4e876b3fc679dd275f38168b99b9a3a718be58
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589331"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552680"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -97,6 +97,8 @@ Ta sekcja zawiera opis środowiska zarówno dla użytkowników końcowych, jak i
 
 Przykładowy użytkownik znajduje się w sieci contoso, ale próbuje uzyskać dostęp do wystąpienia Fabrikam udostępnionej aplikacji SaaS, takiej jak Outlook online. Jeśli firma Fabrikam jest niedozwolonym dzierżawcą dla wystąpienia contoso, użytkownik zobaczy komunikat odmowy dostępu, który informuje, że próbujesz uzyskać dostęp do zasobu, który należy do organizacji niezatwierdzonej przez dział IT.
 
+![Komunikat o błędzie ograniczeń dzierżawy, od 2021 kwietnia](./media/tenant-restrictions/error-message.png)
+
 ### <a name="admin-experience"></a>Środowisko administratora
 
 Podczas konfigurowania ograniczeń dzierżawy w firmowej infrastrukturze serwerów proxy Administratorzy mogą uzyskać bezpośredni dostęp do raportów ograniczeń dzierżawy w Azure Portal. Aby wyświetlić raporty:
@@ -113,14 +115,14 @@ Raport może zawierać ograniczone informacje, takie jak identyfikator katalogu 
 
 Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów, aby określić zakres raportu. Można filtrować według określonego przedziału czasu, użytkownika, aplikacji, klienta lub stanu. Jeśli wybierzesz przycisk **kolumny** , możesz wybrać wyświetlanie danych z dowolną kombinacją następujących pól:
 
-- **Użytkownik** — to pole może usuwać informacje umożliwiające identyfikację użytkownika, gdzie zostanie ustawione na `00000000-0000-0000-0000-000000000000` . 
+- **Użytkownik** — to pole może usunąć dane osobowe, w którym zostanie ono ustawione na `00000000-0000-0000-0000-000000000000` . 
 - **Aplikacja**
 - **Stan**
 - **Data**
 - **Data (UTC)** — gdzie UTC jest uniwersalnym czasem koordynowanym
 - **Adres IP**
 - **Klient**
-- **Nazwa użytkownika** — to pole może usunąć informacje umożliwiające identyfikację użytkownika, w którym zostanie ono ustawione na `{PII Removed}@domain.com`
+- **Nazwa użytkownika** — to pole może zostać usunięte, a jego wartość zostanie ustawiona na `{PII Removed}@domain.com`
 - **Lokalizacja**
 - **Identyfikator dzierżawy docelowej**
 
@@ -207,7 +209,7 @@ Niektóre organizacje próbują rozwiązać ten problem przez zablokowanie `logi
 
 ### <a name="configuration-for-consumer-apps"></a>Konfiguracja aplikacji dla klientów
 
-Gdy `Restrict-Access-To-Tenants` nagłówek działa jako lista dozwolonych, blok konto Microsoft (MSA) działa jako sygnał odmowy, co informuje platformę konto Microsoft, aby nie zezwalać użytkownikom na logowanie się do aplikacji konsumenckich. Aby wysłać ten sygnał, `sec-Restrict-Tenant-Access-Policy` nagłówek jest wstrzykiwany do ruchu odwiedzanego `login.live.com` przy użyciu tego samego firmowego serwera proxy lub zapory jak [powyżej](#proxy-configuration-and-requirements). Wartością nagłówka musi być `restrict-msa` . Gdy nagłówek jest obecny i aplikacja odbiorcy próbuje bezpośrednio zalogować użytkownika, to logowanie zostanie zablokowane.
+Podczas gdy `Restrict-Access-To-Tenants` nagłówek działa jako dozwolonych, blok konto Microsoft (MSA) działa jako sygnał odmowy, co informuje platformę konto Microsoft, aby nie zezwalała użytkownikom na logowanie się do aplikacji konsumenckich. Aby wysłać ten sygnał, `sec-Restrict-Tenant-Access-Policy` nagłówek jest wstrzykiwany do ruchu odwiedzanego `login.live.com` przy użyciu tego samego firmowego serwera proxy lub zapory jak [powyżej](#proxy-configuration-and-requirements). Wartością nagłówka musi być `restrict-msa` . Gdy nagłówek jest obecny i aplikacja odbiorcy próbuje bezpośrednio zalogować użytkownika, to logowanie zostanie zablokowane.
 
 W tej chwili uwierzytelnianie w aplikacjach konsumenckich nie pojawia się w [dziennikach administratora](#admin-experience), ponieważ login.Live.com jest hostowany niezależnie od usługi Azure AD.
 

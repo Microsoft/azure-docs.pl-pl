@@ -3,12 +3,12 @@ title: Konfigurowanie zasad przechowywania w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak skonfigurować zasady przechowywania, wyczyścić fabrykę i wycofać stare obrazy z DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e642d7dc0733e55caa4ed62e3382ef4422030f9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550029"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727539"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Konfigurowanie zasad przechowywania w Azure DevTest Labs
 W tym artykule opisano konfigurowanie zasad przechowywania, czyszczenie fabryki oraz wycofywanie starych obrazów ze wszystkich innych laboratoriów DevTest w organizacji. 
@@ -66,5 +66,5 @@ Dodawanie nowego obrazu do fabryki jest również proste. Jeśli chcesz dołącz
 ## <a name="next-steps"></a>Następne kroki
 1. [Zaplanuj kompilację/wydanie](/azure/devops/pipelines/build/triggers?tabs=designer) , aby okresowo uruchamiać fabrykę obrazu. W regularnych odstępach czasu odświeżane są obrazy generowane przez fabrykę.
 2. Utwórz więcej złota obrazów dla fabryki. Możesz również rozważyć [utworzenie artefaktów](devtest-lab-artifact-author.md) , aby dodać do skryptu dodatkowe fragmenty zadań konfiguracyjnych maszyny wirtualnej i uwzględnić artefakty w obrazach fabryki.
-4. Utwórz [oddzielną kompilację/wydanie](/azure/devops/pipelines/overview?view=azure-devops-2019) , aby osobno uruchomić skrypt **DistributeImages** . Ten skrypt można uruchomić po wprowadzeniu zmian do Labs.jsi pobrania obrazów skopiowanych do laboratoriów docelowych bez konieczności ponownego tworzenia wszystkich obrazów.
+4. Utwórz [oddzielną kompilację/wydanie](/azure/devops/pipelines/overview) , aby osobno uruchomić skrypt **DistributeImages** . Ten skrypt można uruchomić po wprowadzeniu zmian do Labs.jsi pobrania obrazów skopiowanych do laboratoriów docelowych bez konieczności ponownego tworzenia wszystkich obrazów.
 

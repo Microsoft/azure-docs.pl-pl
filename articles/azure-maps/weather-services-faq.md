@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Maps usługi Pogoda (wersja zapoznawcza) — często zadawane pytania
-description: Znajdź odpowiedzi na często zadawane pytania dotyczące danych i funkcji usług pogody Azure Maps (wersja zapoznawcza).
+title: Microsoft Azure Maps często zadawanych pytań dotyczących usług pogodowych
+description: Znajdź odpowiedzi na często zadawane pytania dotyczące danych i funkcji usług Pogoda Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f21e4aa9bd46ed5524cf83d083a70b9b04f03056
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 440ff94f4d5f3514d97d3e76299b60e462cebff3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011142"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257555"
 ---
-# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Azure Maps usługi pogodowe (wersja zapoznawcza) — często zadawane pytania
-
-> [!IMPORTANT]
-> Usługi Azure Maps Pogoda są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Azure Maps usługi pogodowe — często zadawane pytania
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące danych i funkcji [usług pogoda](/rest/api/maps/weather) Azure Maps. Omówiono następujące tematy:
 
@@ -55,7 +51,7 @@ Te zestawy danych są przeglądane w czasie rzeczywistym w celu uzyskania dokła
 
 Wiele systemów wskazówek dotyczących prognoz pogodowych jest wykorzystywanych do formułowania prognoz globalnych. Ponad 150 liczbowych modeli prognoz jest używanych każdego dnia, zarówno zewnętrznych, jak i wewnętrznych zestawów danych. Dotyczy to również modeli instytucji rządowych, takich jak Europejski centrum ECMWF oraz globalny system prognozowania (GFS). Ponadto AccuWeather obejmuje własnościowe modele o wysokiej rozdzielczości, które skalować prognoz do określonych lokalizacji i strategicznych domen regionalnych, aby przewidzieć Pogoda z dokładnością. AccuWeather unikatowe algorytmy mieszania i ważenia w ciągu ostatnich kilku dekad. Algorytmy te optymalnie wykorzystują wiele danych wejściowych prognoz, aby zapewnić wysoce dokładne prognozy.
 
-## <a name="weather-services-preview-coverage-and-availability"></a>Pokrycie i dostępność usług pogody (wersja zapoznawcza)
+## <a name="weather-services-coverage-and-availability"></a>Pokrycie i dostępność usług pogodowych
 
 **Jakiego rodzaju pokrycie może oczekiwać w różnych krajach/regionach?**
 
@@ -77,11 +73,11 @@ Interfejsy API prognozowania Azure Maps są buforowane przez maksymalnie 30 minu
 
 ## <a name="developing-with-azure-maps-sdks"></a>Programowanie przy użyciu zestawów SDK Azure Maps
 
-**Czy Azure Maps zestaw SDK sieci Web natywnie obsługuje integrację usług pogody (wersja zapoznawcza)?**
+**Czy Azure Maps zestaw SDK sieci Web natywnie obsługuje integrację usług pogody?**
 
 Zestaw SDK sieci Web Azure Maps zawiera moduł usług. Moduł usług jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps usług REST w aplikacjach sieci Web lub Node.js. za pomocą języka JavaScript lub TypeScript. Aby rozpocząć, zapoznaj się z naszą [dokumentacją](./how-to-use-services-module.md).
 
-**Czy Azure Maps Android SDK natywnie obsługiwać integrację usług pogodowych (wersja zapoznawcza)?**
+**Czy Azure Maps Android SDK natywnie obsługiwać integrację usług pogody?**
 
 Azure Maps zestaw SDK systemu Android obsługuje warstwy kafelków Merkatora, które mogą mieć notację x/y/Powiększ, przełożonej notację klucza lub notację pola EPSG 3857.
 
@@ -114,15 +110,15 @@ Jeśli te często zadawane pytania nie odpowiedzą na Twoje pytanie, możesz sko
 * pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w [Azure Portal](https://portal.azure.com/)na karcie Pomoc wybierz przycisk **Pomoc i** obsługa techniczna, a następnie wybierz pozycję **nowe żądanie obsługi**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) , aby przesłać żądania funkcji.
 
-Dowiedz się, jak żądać danych pogodowych w czasie rzeczywistym i prognozowanych przy użyciu Azure Maps usług pogodowych (wersja zapoznawcza):
+Dowiedz się, jak żądać danych pogodowych w czasie rzeczywistym i prognozowanych przy użyciu Azure Maps usług pogodowych:
 > [!div class="nextstepaction"]
 > [Żądaj danych pogodowych w czasie rzeczywistym ](how-to-request-weather-data.md)
 
-Artykuł pojęcia dotyczące Azure Maps usług pogodowych (wersja zapoznawcza):
+Azure Maps pojęcia dotyczące usług pogodowych:
 > [!div class="nextstepaction"]
 > [Pojęcia dotyczące usług pogodowych](weather-coverage.md)
 
-Poznaj dokumentację interfejsu API usługi Azure Maps Pogoda (wersja zapoznawcza):
+Zapoznaj się z dokumentacją interfejsu API usługi Azure Maps Pogoda:
 
 > [!div class="nextstepaction"]
 > [Usługi pogodowe w usłudze Azure Maps](/rest/api/maps/weather)

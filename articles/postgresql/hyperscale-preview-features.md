@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 04/07/2021
-ms.openlocfilehash: 775785e1b5130499d69b269e72f5c774e9e5f3f9
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 5f0552e09464a6b571a665cfe3895f48c3aa8c41
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107024072"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258456"
 ---
 # <a name="preview-features-for-postgresql---hyperscale-citus"></a>Funkcje w wersji zapoznawczej dla PostgreSQL-i skalowania (Citus)
 
@@ -23,16 +23,18 @@ Azure Database for PostgreSQL-Citus) oferuje wersje zapoznawcze dla niezwolniony
 
 Poniżej przedstawiono funkcje dostępne obecnie w wersji zapoznawczej:
 
-* **[Magazyn kolumnowy](concepts-hyperscale-columnar.md)**.
-  Zapisz kolumny wybranych tabel (zamiast wierszy) w sposób ciągły na dysku. Obsługuje kompresję na dysku. Dobre dla obciążeń analitycznych i magazynów danych.
+* **[Warstwa podstawowa](concepts-hyperscale-tiers.md)**. Uruchom grupę serwerów, używając tylko węzła koordynatora i bez węzłów procesu roboczego. Ekonomiczny sposób na wstępne testowanie i programowanie oraz obsługę małych obciążeń produkcyjnych.
 * **[PostgreSQL 12 i 13](concepts-hyperscale-versions.md)**.
   Użyj najnowszej wersji bazy danych w grupie serwerów.
-* **[Warstwa podstawowa](concepts-hyperscale-tiers.md)**. Uruchom grupę serwerów, używając tylko węzła koordynatora i bez węzłów procesu roboczego. Ekonomiczny sposób na wstępne testowanie i programowanie oraz obsługę małych obciążeń produkcyjnych.
+* **[Citus 10](concepts-hyperscale-versions.md#citus-and-other-extension-versions)**.
+  Instalowane automatycznie w grupach serwerów z systemem PostgreSQL 13.
+* **[Magazyn kolumnowy](concepts-hyperscale-columnar.md)**.
+  Zapisz kolumny wybranych tabel (zamiast wierszy) w sposób ciągły na dysku. Obsługuje kompresję na dysku. Dobre dla obciążeń analitycznych i magazynów danych.
 * **[Odczytuj repliki](howto-hyperscale-read-replicas-portal.md)** (tylko w tym samym regionie). Wszelkie zmiany, które nastąpiły do podstawowej grupy serwerów, zostaną odzwierciedlone w swojej replice, a zapytania względem repliki nie powodują dodatkowego obciążenia oryginalnego.
   Repliki są przydatnym narzędziem do poprawiania wydajności dla obciążeń tylko do odczytu.
 * **[Zarządzane PgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)**.
   Pulę połączenia, który umożliwia wielu klientom jednoczesne łączenie się z grupą serwerów, ograniczając jednocześnie liczbę aktywnych połączeń. Jest to zgodne z żądaniami połączeń, zachowując bezproblemowy węzeł koordynatora.
-* **[PgAudit](concepts-hyperscale-audit.md)**. Udostępnia szczegółowe informacje o rejestrowaniu sesji i obiektu za pośrednictwem standardowej funkcji rejestrowania PostgreSQL. Tworzy dzienniki inspekcji wymagane do przekazania pewnych audytów urzędu skarbowego, finansowego lub ISO.
+* **[pgAudit](concepts-hyperscale-audit.md)**. Udostępnia szczegółowe informacje o rejestrowaniu sesji i obiektu za pośrednictwem standardowej funkcji rejestrowania PostgreSQL. Tworzy dzienniki inspekcji wymagane do przekazania pewnych audytów urzędu skarbowego, finansowego lub ISO.
 
 ### <a name="available-regions-for-preview-features"></a>Dostępne regiony dla funkcji wersji zapoznawczej
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2ab7a007a92bd2306a7a97781af5653f932d0b7
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539550"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580605"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Jak oszacować koszty usługi Wyszukiwanie poznawcze platformy Azure i zarządzać nimi
 
@@ -64,7 +64,7 @@ Opłata minimalna to pierwsza jednostka wyszukiwania (jedna replika x jedna part
 
 Poza minimalnym można dodawać repliki i partycje niezależnie od siebie. Przyrostowe zwiększenie wydajności za pośrednictwem replik i partycji spowoduje zwiększenie rachunku na podstawie następującej formuły: **(repliki x partycje x)**, w którym opłata jest naliczana od wybranej warstwy cenowej.
 
-W przypadku szacowania kosztów rozwiązania wyszukiwania należy pamiętać, że ceny i pojemność nie są liniowe (Podwojenie wydajności przekracza koszt). Aby zapoznać się z przykładem sposobu działania formuły, zobacz [Jak przydzielić repliki i partycje](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+W przypadku szacowania kosztów rozwiązania wyszukiwania należy pamiętać, że ceny i pojemność nie są liniowe (podwojenie pojemności przekracza koszt tej samej warstwy). Ponadto w pewnym momencie przełączenie do wyższej warstwy może zapewnić lepszą i szybszą wydajność w niedalekiej cenie. Aby uzyskać więcej informacji i zapoznać się z przykładem, zobacz [uaktualnianie do warstwy Standardowa S2](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### <a name="bandwidth-charges"></a>Opłaty za przepustowość
 

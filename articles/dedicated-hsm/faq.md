@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: f6705b5f72aaa8f990aaf3b1daa33697b690d1f1
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 8768acc8d4720a750c4c7f7e0f40340aeeff279d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608888"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449056"
 ---
 # <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -309,7 +309,7 @@ Dedykowane postanowienia modułu HSM firmy Thales Luna 7 sprzętowych modułów 
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>P: ile kluczy może być obsługiwanych w dedykowanym module HSM?
 
-Maksymalna liczba kluczy jest funkcją dostępnej pamięci. A790 używany model SafeNet Luna 7 ma 32MB pamięci. Poniższe liczby są również stosowane do par kluczy, jeśli są używane klucze asymetryczne.
+Maksymalna liczba kluczy jest funkcją dostępnej pamięci. A790 używany model firmy Thales Luna 7 ma 32MB pamięci. Poniższe liczby są również stosowane do par kluczy, jeśli są używane klucze asymetryczne.
 
 * RSA-2048-19 000
 * ECC-P256-91 000
