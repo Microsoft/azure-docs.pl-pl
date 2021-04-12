@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 04/09/2021
 ms.author: alkohli
-ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632037"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285206"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Bezpieczeństwo i ochrona danych dla Azure Stack EDGE Pro R i Azure Stack Edge mini R
 
@@ -100,17 +100,23 @@ Dane na dyskach są chronione przez dwie warstwy szyfrowania:
 > [!NOTE]
 > Dysk systemu operacyjnego ma jedną warstwę szyfrowanie oprogramowania funkcji BitLocker XTS-AES-256.
 
-Po aktywowaniu urządzenia zostanie wyświetlony monit o zapisanie pliku klucza zawierającego klucze odzyskiwania, które ułatwiają odzyskiwanie danych z urządzenia, jeśli urządzenie nie zostanie uruchomione. Plik zawiera dwa klucze:
+Przed aktywowaniem urządzenia wymagane jest skonfigurowanie szyfrowania na urządzeniu. To ustawienie jest wymagane, a do momentu jego pomyślnego skonfigurowania nie można aktywować urządzenia. 
 
-- Jeden klucz odzyskuje konfigurację urządzenia na woluminach systemu operacyjnego.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- Drugi klucz odblokowuje szyfrowanie sprzętu na dyskach danych.
+Po umieszczeniu obrazu na urządzeniach w fabryce włączone jest szyfrowanie za pomocą funkcji BitLocker na poziomie woluminu. Po otrzymaniu urządzenia należy skonfigurować szyfrowanie w usłudze Rest. Pula magazynów i woluminy są ponownie tworzone i można udostępnić klucze funkcji BitLocker, aby włączyć szyfrowanie w spoczynku i utworzyć kolejną warstwę szyfrowania dla danych w spoczynku. 
+
+Klucz szyfrowania-at-REST to 32-znakowy, zakodowany klucz podstawowy-64, który jest określany przez użytkownika i ten klucz jest używany do ochrony rzeczywistego klucza szyfrowania. Firma Microsoft nie ma dostępu do tego klucza szyfrowania, który umożliwia ochronę danych. Klucz jest zapisywany w pliku klucza na stronie **szczegółów chmury** po aktywowaniu urządzenia.
+
+Po aktywowaniu urządzenia zostanie wyświetlony monit o zapisanie pliku klucza zawierającego klucze odzyskiwania, które ułatwiają odzyskiwanie danych z urządzenia, jeśli urządzenie nie zostanie uruchomione. W niektórych scenariuszach odzyskiwania zostanie wyświetlony monit o zapisanie pliku klucza, który został zapisany. Plik klucza ma następujące klucze odzyskiwania:
+
+- Klucz, który odblokowuje pierwszą warstwę szyfrowania.
+- Klucz, który odblokowuje szyfrowanie sprzętu na dyskach danych.
+- Klucz, który ułatwia odzyskanie konfiguracji urządzenia na woluminach systemu operacyjnego.
+- Klucz chroniący dane przesyłane za pomocą usługi platformy Azure.
 
 > [!IMPORTANT]
 > Zapisz plik klucza w bezpiecznej lokalizacji poza urządzeniem. Jeśli urządzenie nie zostanie uruchomione i nie masz klucza, może to spowodować utratę danych.
 
-- W niektórych scenariuszach odzyskiwania zostanie wyświetlony monit o zapisanie pliku klucza, który został zapisany. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### <a name="restricted-access-to-data"></a>Ograniczony dostęp do danych
 
@@ -132,7 +138,6 @@ Gdy urządzenie przejdzie do twardej resetowania, na urządzeniu jest wykonywane
 ### <a name="protect-data-in-storage-accounts"></a>Ochrona danych na kontach magazynu
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Regularnie Obróć i [Synchronizuj klucze konta magazynu](azure-stack-edge-gpu-manage-storage-accounts.md) , aby chronić konto magazynu przed nieautoryzowanymi użytkownikami.
 
 ## <a name="manage-personal-information"></a>Zarządzanie informacjami osobistymi

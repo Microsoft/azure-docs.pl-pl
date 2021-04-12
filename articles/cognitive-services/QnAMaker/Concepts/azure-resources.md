@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102214171"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
@@ -94,7 +94,7 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 | -------------------------- |------------ | -------------------------------- |
 | **Eksperymentowanie**        |Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
 | **Środowisko deweloperskie/testowe**   |Podstawowa        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
-| **Środowisko produkcyjne** |Standardowa     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
+| **Środowisko produkcyjne** |Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ---
 

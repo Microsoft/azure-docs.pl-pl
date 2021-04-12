@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c1d19b5b37a60914c1d7f2a2e42cd387bd030583
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 1c4aab27eb72afa473f95f1c0956b5e3d66c3940
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125932"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073414"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -54,7 +54,9 @@ import java.util.*;
 
 Poniższe przykłady używają [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych.
 
-`AZURE_CLIENT_SECRET``AZURE_CLIENT_ID`i `AZURE_TENANT_ID` zmienne środowiskowe są konieczne do utworzenia `DefaultAzureCredential` obiektu. Aby utworzyć zarejestrowaną aplikację w środowisku deweloperskim i skonfigurować zmienne środowiskowe, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md).
+Aby łatwo przejść do korzystania z uwierzytelniania tożsamości zarządzanej, zobacz [Autoryzuj dostęp z tożsamością zarządzaną](../managed-identity-from-cli.md)
+
+Aby uzyskać bardziej szczegółowe informacje na temat sposobu działania obiektu DefaultAzureCredential oraz sposobu używania go w sposób nieokreślony w tym przewodniku Szybki Start, zobacz [Biblioteka klienta tożsamości platformy Azure dla języka Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
 ### <a name="create-an-identity-and-issue-a-token-with-managed-identity"></a>Tworzenie tożsamości i wystawianie tokenu z tożsamością zarządzaną
 

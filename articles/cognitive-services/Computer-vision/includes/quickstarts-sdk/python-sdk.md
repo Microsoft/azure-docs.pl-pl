@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: d0b2a854391097cc7d95c4286ba581f3660d397e
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 230934ea3d4a8a970ca1fca46160b96e3f2234e8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284829"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073363"
 ---
 <a name="HOLTop"></a>
 
@@ -140,10 +140,10 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start pokazano, jak używać biblioteki OCR dla języka Python do wykonywania zadań bazowych. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
+W tym przewodniku szybki start przedstawiono sposób instalowania biblioteki klienta OCR i używania interfejsu API odczytu. Następnie Dowiedz się więcej o funkcjach odczytu interfejsu API.
 
 > [!div class="nextstepaction"]
->[Informacje o interfejsie API OCR (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+>[Wywoływanie interfejsu API odczytu](../../Vision-API-How-to-Topics/call-read-api.md)
 
 * [Omówienie OCR](../../overview-ocr.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

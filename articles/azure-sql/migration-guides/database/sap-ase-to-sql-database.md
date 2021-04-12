@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: f4648c216a0b6d06309c0166aba501d4f3f02a10
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c60d6ba1f4d3628f57b8149779318c3e049a9e24
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027520"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284242"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Przewodnik migracji: oprogramowanie SAP ASE do Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) bazy danych SAP adapter Server Enterprise (ASE) do bazy danych Azure SQL Database przy użyciu Asystenta [migracji SQL Server](https://azure.microsoft.com/migration/migration-journey) dla oprogramowania SAP adapter Server Enterprise.
+W tym przewodniku dowiesz się, [jak migrować](https://azure.microsoft.com/migration/migration-journey) bazy danych SAP adapter Server Enterprise (ASE) do bazy danych Azure SQL Database przy użyciu Asystenta [migracji SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) dla oprogramowania SAP adapter Server Enterprise.
 
 Aby poznać inne przewodniki dotyczące migracji, zobacz [Przewodnik migracji usługi Azure Database](https://docs.microsoft.com/data-migration). 
 

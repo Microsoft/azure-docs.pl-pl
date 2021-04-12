@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98937609"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Interfejs API punktu końcowego synchronizacji programu Azure AD Connect 2 
@@ -113,11 +113,11 @@ Aby zwiększyć limit członkostwa, można użyć następujących kroków:
 
 7. W oknie podręcznym na stronie **Opis** Ustaw dla pierwszeństwa wartość dostępną od 1 do 99 ![ zrzutu ekranu, który pokazuje okno "Edytowanie reguły synchronizacji danych wychodzących" z wyróżnioną opcją "pierwszeństwo".](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
-8. Na stronie **przekształcenia** zaktualizuj wartość **źródłową** przekształcenia **elementu członkowskiego** , zastępując wartość "50000" wartością z zakresu od 50001 do 250000. To zastąpienie spowoduje zwiększenie maksymalnego rozmiaru członkostwa grup, które będą synchronizowane z usługą Azure AD. Zalecamy rozpoczęcie od kilku 100 000ów, aby zrozumieć wpływ synchronizacji dużych grup na wydajność synchronizowania. 
+8. Na stronie **przekształcenia** zaktualizuj wartość **źródłową** przekształcenia **elementu członkowskiego** , zastępując wartość "50000&quot; wartością z zakresu od 50001 do 250000. To zastąpienie spowoduje zwiększenie maksymalnego rozmiaru członkostwa grup, które będą synchronizowane z usługą Azure AD. Zalecamy rozpoczęcie od kilku 100 000ów, aby zrozumieć wpływ synchronizacji dużych grup na wydajność synchronizowania. 
  
  **Przykład** 
  
- `IIF((ValueCount("member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
+ `IIF((ValueCount(&quot;member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
  
  ![Edytuj regułę synchronizacji](media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
 

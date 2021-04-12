@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
 ms.openlocfilehash: a7868d702ff3f1190d7f51e4ad7316508d453015
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92454528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Druva
@@ -136,13 +136,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-druva-sso"></a>Konfigurowanie logowania jednokrotnego Druva
+## <a name="configure-druva-sso&quot;></a>Konfigurowanie logowania jednokrotnego Druva
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny Druva jako administrator.
 
 1. Kliknij logo Druva w lewym górnym rogu, a następnie kliknij pozycję **Druva ustawienia chmury**.
 
-    ![Ustawienia](./media/druva-tutorial/ic795091.png "Ustawienia")
+    ![Ustawienia](./media/druva-tutorial/ic795091.png &quot;Ustawienia")
 
 1. Na karcie **Logowanie** jednokrotne kliknij pozycję **Edytuj**.
 

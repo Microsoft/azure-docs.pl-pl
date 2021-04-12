@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: ef81494b6c93f2941cc41b367e566332d6bc7cc9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99831346"
 ---
 # <a name="azure-stack-edge-pro-r-system-requirements"></a>Azure Stack Edge wymagania systemowe R
@@ -42,7 +42,7 @@ W przypadku zarządzania z Azure Stack następujące konta magazynu warstwowego 
 
 |Typ  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|
-|Standardowa     |GPv1: blokowy obiekt BLOB         |         |
+|Standardowa (Standard)     |GPv1: blokowy obiekt BLOB         |         |
 |    |  BLOB Storage: blokowy obiekt BLOB       | Obsługiwane tylko dla NAS     |
 
 * Stronicowe obiekty blob i Azure Files nie są obecnie obsługiwane w programie Azure Stack.
