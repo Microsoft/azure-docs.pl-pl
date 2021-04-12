@@ -5,6 +5,10 @@
   items:
     - name: Co to jest rozpoznawanie formularzy?
       href: overview.md
+    - name: Obsługa języków
+      href: language-support.md
+    - name: Ceny i limity
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Co nowego
       href: whats-new.md
 - name: Przewodniki Szybki start
@@ -91,15 +95,13 @@
   items:
     - name: Opcje pomocy technicznej
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: Ceny i limity
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Dostępność regionalna
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Obsługa języków
-      href: language-support.md
     - name: Zgodność
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Szyfrowanie
       href: encrypt-data-at-rest.md
+    - name: Ochrona prywatności i pliki cookie
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

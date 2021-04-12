@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 8922e6e0d5137a3a900e0f57f685d449c08b3f47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4514717274cfb66fbfc0eee25b09aa9e1234ffad
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596952"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280330"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Dzienniki i metryki usługi Azure Firewall
 
@@ -181,6 +181,8 @@ Następujące metryki są dostępne dla zapory platformy Azure:
     Jednostka: procent
 
    Gdy dodasz więcej publicznych adresów IP do zapory, więcej portów SNAT będzie dostępnych i zmniejszy się ich wykorzystanie. Ponadto, gdy zapora jest z różnych powodów skalowana w poziomie (na przykład ze względu na procesor CPU lub przepływność), zwalniane są dodatkowe porty SNAT. W związku z tym, procent wykorzystania portów przydziałów adresów sieciowych może zostać wyłączony bez dodawania jakichkolwiek publicznych adresów IP, po prostu ze względu na skalowanie usługi. Możesz bezpośrednio kontrolować liczbę dostępnych publicznych adresów IP w celu zwiększenia liczby portów dostępnych w zaporze. Nie można jednak bezpośrednio kontrolować skalowania zapory.
+
+   Jeśli Zapora jest uruchomiona w ramach wyczerpania portów, należy dodać co najmniej pięć publicznych adresów IP. Zwiększa to liczbę dostępnych portów. Aby uzyskać więcej informacji, zobacz [funkcje zapory platformy Azure](features.md#multiple-public-ip-addresses).
 
 
 ## <a name="next-steps"></a>Następne kroki

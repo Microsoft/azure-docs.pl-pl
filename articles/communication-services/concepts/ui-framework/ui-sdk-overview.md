@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 47a32815ded5809edfde856a38c69ec7c6fd6fdf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4ab1a157cdf3ef5017b227cd090379dcab91997e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493360"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105931560"
 ---
 # <a name="azure-communication-services-ui-framework"></a>Struktura interfejsu użytkownika usług Azure Communication Services
 
@@ -25,11 +25,11 @@ Struktura interfejsu użytkownika usług Azure Communication Services ułatwia t
 - **Składniki złożone** — te składniki to między innymi kluczowe rozwiązania, które implementują typowe scenariusze komunikacji. Możesz szybko dodać do swoich aplikacji środowisko wywołujące lub czat wideo. Elementy złożone to składniki Open Source utworzone przy użyciu składników podstawowych.
 - **Składniki podstawowe** — te składniki są blokami konstrukcyjnymi typu open source, które umożliwiają tworzenie niestandardowych funkcji komunikacji. Składniki są oferowane do możliwości wywoływania i rozmowy, które mogą być połączone ze środowiskami kompilacji. 
 
-Te biblioteki klienta interfejsu użytkownika wykorzystują zarówno [język projektowania Fluent firmy Microsoft](https://developer.microsoft.com/fluentui/) , jak i zasoby. Interfejs użytkownika Fluent zawiera podstawę dla struktury interfejsu użytkownika, która została sprawdzonej przetestowana przez produkty firmy Microsoft.
+W tych zestawach SDK interfejsu użytkownika wszyscy wykorzystują język i zasoby [firmy Microsoft Fluent](https://developer.microsoft.com/fluentui/) . Interfejs użytkownika Fluent zawiera podstawę dla struktury interfejsu użytkownika, która została sprawdzonej przetestowana przez produkty firmy Microsoft.
 
 ## <a name="differentiating-components-and-composites"></a>**Rozróżnianie składników i elementów złożonych**
 
-Podstawowe **składniki** są oparte na podstawowych bibliotekach klienckich usług Azure Communication Services i implementują podstawowe akcje, takie jak inicjowanie podstawowych bibliotek klienckich, renderowanie filmów wideo i udostępnianie kontrolek użytkownika w celu wyciszenia, wideo włączania/wyłączania, itp. Te **składniki podstawowe** umożliwiają tworzenie własnych niestandardowych środowisk do układania przy użyciu wstępnie utworzonych, produkcyjnych składników komunikacji gotowej do produkcji.
+Podstawowe **składniki** są oparte na podstawowych zestawach SDK usług Azure Communication Services i implementują podstawowe akcje, takie jak inicjowanie podstawowych zestawów SDK, renderowanie wideo i udostępnianie kontrolek użytkownika w celu wyciszenia, wideo włączania i wyłączania, itp. Te **składniki podstawowe** umożliwiają tworzenie własnych niestandardowych środowisk do układania przy użyciu wstępnie utworzonych, produkcyjnych składników komunikacji gotowej do produkcji.
 
 :::image type="content" source="../media/ui-framework/component-overview.png" alt-text="Omówienie składnika dla struktury interfejsu użytkownika":::
 
@@ -39,19 +39,19 @@ Podstawowe **składniki** są oparte na podstawowych bibliotekach klienckich us�
 
 ## <a name="what-ui-framework-is-best-for-my-project"></a>Jaka Struktura interfejsu użytkownika jest Najlepsza dla mojego projektu?
 
-Zrozumienie tych wymagań ułatwi wybranie odpowiedniej biblioteki klienta:
+Zrozumienie tych wymagań ułatwi wybranie odpowiedniego zestawu SDK:
 
-- **Ile potrzebujesz dostosowania?** Podstawowe biblioteki klienckie usługi Azure Communication nie mają środowiska użytkownika i zostały zaprojektowane w taki sposób, aby można było tworzyć dowolne środowiska. Składniki struktury interfejsu użytkownika zapewniają zasoby interfejsu użytkownika kosztem ograniczonego dostosowywania.
-- **Czy są wymagane funkcje spotkania?** System spotkań ma kilka unikatowych możliwości, które nie są obecnie dostępne w podstawowych bibliotekach klienckich usług Azure Communication Services, takich jak rozmyte tło i podniesione.
+- **Ile potrzebujesz dostosowania?** Podstawowe zestawy SDK usługi Azure Communication nie mają środowiska użytkownika i zostały zaprojektowane w taki sposób, aby można było tworzyć dowolne środowiska. Składniki struktury interfejsu użytkownika zapewniają zasoby interfejsu użytkownika kosztem ograniczonego dostosowywania.
+- **Czy są wymagane funkcje spotkania?** System spotkań ma kilka unikatowych możliwości, które nie są obecnie dostępne w podstawowych zestawach SDK usług Azure Communication Services, takich jak zamazane tło i zgłoszone.
 - **Jakie platformy są ukierunkowane?** Różne platformy mają różne możliwości.
 
 Szczegółowe informacje o dostępności funkcji w różnych zestawach [SDK interfejsu użytkownika są dostępne w tym miejscu](ui-sdk-features.md), ale poniżej przedstawiono podsumowanie najważniejszych zalet.
 
-|Biblioteka/zestaw SDK klienta|Złożoność implementacji|    Możliwość dostosowywania|  Rozmów| Czat| [Współdziałanie zespołów](./../teams-interop.md)
+|ZESTAW SDK/ZESTAW SDK|Złożoność implementacji|   Możliwość dostosowywania|  Rozmów| Czat| [Współdziałanie zespołów](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Składniki złożone|Niski|Niski|✔|✔|✕
 |Składniki podstawowe|Średnia|Średnia|✔|✔|✕
-|Podstawowe biblioteki klienckie|Wys.|Wys.|✔|✔ |✔
+|Podstawowe zestawy SDK|Wys.|Wys.|✔|✔ |✔
 
 ## <a name="cost"></a>Koszt
 
@@ -78,7 +78,7 @@ Tożsamość usługi komunikacyjnej platformy Azure jest wymagana do zainicjowan
 
 Składniki złożone i podstawowe są inicjowane przy użyciu tokenu dostępu do usług Azure Communication Services. Tokeny dostępu należy kupować z usług Azure Communication Services za pośrednictwem zaufanej usługi, którą zarządzasz. Aby uzyskać więcej informacji, zobacz [Przewodnik Szybki Start: tworzenie tokenów dostępu](../../quickstarts/access-tokens.md) i [zaufanych usług](../../tutorials/trusted-service-tutorial.md) .
 
-Te biblioteki klienckie wymagają również kontekstu wywołania lub rozmowy, do których zostaną dołączeni. Podobnie jak tokeny dostępu użytkowników, ten kontekst powinien być rozpowszechniany na klientach za pośrednictwem zaufanej usługi. Poniższa lista zawiera podsumowanie funkcji inicjalizacji i zarządzania zasobami, które należy operacjonalizować.
+Te zestawy SDK wymagają również kontekstu wywołania lub rozmowy, do których zostaną dołączeni. Podobnie jak tokeny dostępu użytkowników, ten kontekst powinien być rozpowszechniany na klientach za pośrednictwem zaufanej usługi. Poniższa lista zawiera podsumowanie funkcji inicjalizacji i zarządzania zasobami, które należy operacjonalizować.
 
 | Zobowiązania contoso                                 | Obowiązki struktury interfejsu użytkownika                         |
 |----------------------------------------------------------|-----------------------------------------------------------------|
