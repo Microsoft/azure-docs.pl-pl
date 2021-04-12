@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: kgremban
-ms.openlocfilehash: a98eed61904b580988fe34302999f3ec6a24ac9e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b4c2cb946017fd9871e2d99dbed8f841f025008
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640913"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030529"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instalowanie lub odinstalowywanie Azure IoT Edge dla systemu Linux
 
@@ -125,10 +125,10 @@ Jeśli chcesz zainstalować najnowszą wersję demona zabezpieczeń, użyj nast�
    sudo apt-get install iotedge
    ```
 
-Lub, jeśli chcesz zainstalować określoną wersję demona zabezpieczeń, określ wersję z listy apt danych wyjściowych. Należy również określić tę samą wersję dla pakietu **libiothsm-STD** , który w przeciwnym razie zainstaluje jego najnowszą wersję. Na przykład następujące polecenie instaluje najnowszą wersję wersji 1.0.10:
+Lub, jeśli chcesz zainstalować określoną wersję demona zabezpieczeń, określ wersję z listy apt danych wyjściowych. Należy również określić tę samą wersję dla pakietu **libiothsm-STD** , który w przeciwnym razie zainstaluje jego najnowszą wersję. Na przykład następujące polecenie instaluje najnowszą wersję wersji 1,1:
 
    ```bash
-   sudo apt-get install iotedge=1.0.10* libiothsm-std=1.0.10*
+   sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
    ```
 
 Jeśli wersja, którą chcesz zainstalować, nie znajduje się na liście, postępuj zgodnie z krokami [instalacji w trybie offline lub określonym wersją](#offline-or-specific-version-installation-optional) w dalszej części tego artykułu. W tej sekcji pokazano, jak określić docelową poprzednią wersję demona IoT Edge Security lub wersja Release Candidate.
@@ -462,7 +462,7 @@ Korzystając z poleceń zwinięcie, można kierować pliki składników bezpośr
    2. Użyj skopiowanego linku w poniższym poleceniu, aby zainstalować tę wersję hsmlib:
 
       ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. Znajdź plik **iotedge** , który jest zgodny z architekturą urządzenia IoT Edge. Kliknij prawym przyciskiem myszy link do pliku i skopiuj adres łącza.
@@ -470,7 +470,7 @@ Korzystając z poleceń zwinięcie, można kierować pliki składników bezpośr
    4. Aby zainstalować tę wersję demona zabezpieczeń IoT Edge, użyj skopiowanego linku w poniższym poleceniu.
 
       ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+      curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
       ```
 
 <!-- end 1.1 -->

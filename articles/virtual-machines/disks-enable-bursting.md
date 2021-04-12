@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596403"
 ---
 # <a name="enable-on-demand-bursting"></a>Włącz nadużyenie na żądanie
@@ -28,7 +28,7 @@ Przed włączeniem serii na żądanie należy zrozumieć następujące kwestie:
 
 [!INCLUDE [managed-disk-bursting-regions-limitations](../../includes/managed-disk-bursting-regions-limitations.md)]
 
-### <a name="regional-availability"></a>Dostępność regionalna
+### <a name="regional-availability"></a>Dostępność w regionach
 
 [!INCLUDE [managed-disk-bursting-availability](../../includes/managed-disk-bursting-availability.md)]
 

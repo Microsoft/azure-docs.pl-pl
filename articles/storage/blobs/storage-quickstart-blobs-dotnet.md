@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Azure Blob Storage Library V12 — .NET'
 description: W tym przewodniku szybki start dowiesz się, jak używać biblioteki klienckiej usługi Azure Blob Storage w wersji 12 dla platformy .NET do tworzenia kontenera i obiektu BLOB w magazynie obiektów BLOB (Object). Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać listę wszystkich obiektów blob w kontenerze.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/03/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 82dcfa0942f21f01424c4744aa0b23f4672a135f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ab7c52f6fe392cfebd056a86f0566705fb2b8e6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106721"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280670"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Szybki Start: V12 biblioteki klienta Blob Storage platformy Azure dla platformy .NET
 

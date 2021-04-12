@@ -5,32 +5,40 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 7033ea6a1ba6d85f9aa15e14bb9577b2439c59a8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5e01a4fc84f852b43e5a76114bebe145da10793
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050567"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443593"
 ---
 # <a name="azure-expressroute-insights-using-network-insights"></a>Azure ExpressRoute Insights za pomocą usługi Network Insights
 
 W tym artykule wyjaśniono, jak usługi Network Insights mogą pomóc w przeglądaniu metryk ExpressRoute i konfiguracji w jednym miejscu. Za poorednictwem usługi Network Insights można wyświetlać mapy topologiczny i pulpity nawigacyjne kondycji zawierające ważne informacje ExpressRoute bez konieczności wykonywania dodatkowych czynności konfiguracyjnych.
 
-:::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową monitora ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową monitora sieci." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
 
 ## <a name="visualize-functional-dependencies"></a>Wizualizowanie zależności funkcjonalnych
 
-Aby wyświetlić to rozwiązanie, przejdź do strony *Azure monitor* , wybierz pozycję *sieci*, a następnie wybierz kartę *obwody usługi ExpressRoute* . Następnie wybierz przycisk topologia dla obwodu, który chcesz wyświetlić.
+1. Przejdź do strony *Azure monitor* , a następnie wybierz pozycję *sieci*.
 
-Widok zależności funkcjonalnych zawiera jasne zdjęcie Instalatora ExpressRoute, które tworzy relację między różnymi składnikami ExpressRoute (komunikacji równorzędnej, połączeń, bram).
+    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową monitora.":::
 
-:::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Zrzut ekranu przedstawiający widok topologii dla usługi Network Insights." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+1. Wybierz kartę *obwody usługi ExpressRoute* . 
 
-Umieść kursor na dowolnym składniku mapy topologii, aby wyświetlić informacje o konfiguracji. Na przykład Umieść wskaźnik myszy na składniku komunikacji równorzędnej ExpressRoute, aby wyświetlić szczegóły, takie jak przepustowość obwodu i włączanie Global Reach.
+1. Następnie wybierz przycisk topologia dla obwodu, który chcesz wyświetlić.
 
-:::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Zrzut ekranu przedstawiający aktywowanie zasobów widoku topologii." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
+   :::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową monitora ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png"::: 
+
+1. Widok zależności funkcjonalnych zawiera jasne zdjęcie Instalatora ExpressRoute, które tworzy relację między różnymi składnikami ExpressRoute (komunikacji równorzędnej, połączeń, bram).
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Zrzut ekranu przedstawiający widok topologii dla usługi Network Insights." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+
+1. Umieść kursor na dowolnym składniku mapy topologii, aby wyświetlić informacje o konfiguracji. Na przykład Umieść wskaźnik myszy na składniku komunikacji równorzędnej ExpressRoute, aby wyświetlić szczegóły, takie jak przepustowość obwodu i włączanie Global Reach.
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Zrzut ekranu przedstawiający aktywowanie zasobów widoku topologii." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
 
 ## <a name="view-a-detailed-and-pre-loaded-metrics-dashboard"></a>Wyświetlanie szczegółowych i wstępnie załadowanych pulpitów nawigacyjnych metryk
 

@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 466cc236c1482b2ae6a31b40b6f3461a2c2fbfc1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961561"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280296"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -38,7 +38,7 @@ Zobacz [Tworzenie roli niestandardowego Azure Resource Manager](create-custom-az
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Konfigurowanie punktu końcowego przesyłania strumieniowego Premium
 
-Jeśli zamierzasz korzystać z usługi Live Video Analytics do ciągłego rejestrowania wideo w chmurze, a następnie używać [interfejsów API zapytań](playback-recordings-how-to.md#query-api) przed ich odtworzeniem, Zalecamy zaktualizowanie usług multimedialnych do korzystania z [punktu końcowego przesyłania strumieniowego Premium](../latest/streaming-endpoint-concept.md#types).  
+Jeśli zamierzasz korzystać z usługi Live Video Analytics do ciągłego rejestrowania wideo w chmurze, a następnie używać [interfejsów API zapytań](playback-recordings-how-to.md#query-api) przed ich odtworzeniem, Zalecamy zaktualizowanie usług multimedialnych do korzystania z [punktu końcowego przesyłania strumieniowego Premium](../latest/stream-streaming-endpoint-concept.md#types).  
 
 Ten krok jest opcjonalny. Aby to zrobić, możesz użyć tego polecenia platformy Azure:
 

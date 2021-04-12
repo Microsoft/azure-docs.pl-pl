@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 7729bc1120fc0e2f4361739a8e05f3a82ccb4268
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 41f2862541d7cb0e3276b5fd24f39668d20fc0a3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107316"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106959"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup"></a>Często zadawane pytania dotyczące usługi Kopia zapasowa Azure Disk
 
@@ -73,10 +73,6 @@ Tak, możesz przywrócić dysk do innej subskrypcji niż dysk zarządzany przez 
 ### <a name="can-i-back-up-multiple-disks-together"></a>Czy mogę utworzyć kopię zapasową wielu dysków?
 
 Nie jest obsługiwane tworzenie migawek z kilku dysków dołączonych do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup) i Dowiedz się więcej o ograniczeniach, zapoznaj się z [matrycą pomocy technicznej](disk-backup-support-matrix.md).
-
-### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>Jakie mam opcje tworzenia kopii zapasowych dysków w wielu subskrypcjach?
-
-Obecnie używanie Azure Portal do konfigurowania kopii zapasowych dysków jest ograniczone do maksymalnie 20 dysków z tej samej subskrypcji.
 
 ### <a name="what-is-a-target-resource-group"></a>Co to jest docelowa Grupa zasobów?
 

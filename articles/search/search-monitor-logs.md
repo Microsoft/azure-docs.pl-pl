@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709943"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581613"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Wyszukiwanie poznawcze
 
-Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie firma Microsoft zachowuje informacje o systemie w zasobie przez krótki czas (około 30 dni), co jest wystarczające do badania i analizy w przypadku utworzenia biletu pomocy technicznej. Jeśli jednak chcesz mieć własność przez dane operacyjne, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
+Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania kondycji i procesów usługi. Wewnętrznie firma Microsoft zachowuje informacje o systemie w zasobie przez krótki czas (około 30 dni), co jest wystarczające do badania i analizy w przypadku utworzenia biletu pomocy technicznej. Jeśli jednak chcesz mieć własność przez dane operacyjne, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
 
 Rejestrowanie diagnostyczne jest włączane w ramach integracji z [Azure monitor](../azure-monitor/index.yml). 
 

@@ -8,10 +8,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/11/2021
 ms.openlocfilehash: 5d872dd7c94a0b3ab23623bb246ff7ae81609779
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047171"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central-python"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do usługi Azure IoT Central (Python)

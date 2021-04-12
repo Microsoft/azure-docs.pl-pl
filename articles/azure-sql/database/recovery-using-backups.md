@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
 ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98795335"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
@@ -47,11 +47,11 @@ Czas odzyskiwania do przywrócenia bazy danych przy użyciu zautomatyzowanych ko
 - Przepustowość sieci, jeśli przywracanie jest w innym regionie.
 - Liczba współbieżnych żądań przywracania w regionie docelowym.
 
-W przypadku dużej lub bardzo aktywnej bazy danych Przywracanie może potrwać kilka godzin. Jeśli w regionie występuje długotrwała awaria, możliwe jest zainicjowanie dużej liczby żądań przywracania geograficznego na potrzeby odzyskiwania po awarii. Jeśli istnieje wiele żądań, można zwiększyć czas odzyskiwania poszczególnych baz danych. Większość przywracania bazy danych kończy się w czasie krótszym niż 12 godzin.
+W przypadku dużej lub bardzo aktywnej bazy danych Przywracanie może potrwać kilka godzin. Jeśli w regionie występuje długotrwała awaria, możliwe jest, że duża liczby żądań przywracania geograficznego zostanie zainicjowana na potrzeby odzyskiwania po awarii. Jeśli istnieje wiele żądań, czas odzyskiwania poszczególnych baz danych może się wydłużyć. Większość przywracania bazy danych kończy się w czasie krótszym niż 12 godzin.
 
-W przypadku pojedynczej subskrypcji istnieją ograniczenia liczby współbieżnych żądań przywracania. Te ograniczenia mają zastosowanie do dowolnej kombinacji przywracania do punktu w czasie, przywracania geograficznego i przywracania z kopii zapasowej długoterminowego przechowywania.
+W przypadku pojedynczej subskrypcji istnieją ograniczenia liczby współbieżnych żądań przywracania. Te ograniczenia mają zastosowanie do dowolnej kombinacji przywracania do punktu w czasie, przywracania geograficznego i przywracania z kopii zapasowej przechowywanej długoterminowo.
 
-| **Opcja wdrażania** | **Maksymalna liczba przetwarzanych żądań współbieżnych** | **Maksymalna liczba przesyłanych żądań współbieżnych** |
+| **Opcja wdrożenia** | **Maksymalna liczba przetwarzanych żądań współbieżnych** | **Maksymalna liczba przesyłanych żądań współbieżnych** |
 | :--- | --: | --: |
 |**Pojedyncza baza danych (na subskrypcję)**|30|100|
 |**Pula elastyczna (na pulę)**|4|2000|

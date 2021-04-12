@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05ef67e3caafe2c10d02ee4ca2e3248b7ab6c188
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98894987"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120900"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (źródło)
 
@@ -143,24 +143,24 @@ Format ładunku Wysłany przez klienta ma nieobsługiwany format.
 
 Aby zapoznać się z artykułami i przykładami dotyczącymi szyfrowania, zobacz:
 
-- [Koncepcja: Ochrona zawartości](content-protection-overview.md)
-- [Koncepcja: zasady dotyczące kluczy zawartości](content-key-policy-concept.md)
+- [Koncepcja: Ochrona zawartości](drm-content-protection-concept.md)
+- [Koncepcja: zasady dotyczące kluczy zawartości](drm-content-key-policy-concept.md)
 - [Koncepcja: zasady przesyłania strumieniowego](streaming-policy-concept.md)
-- [Przykład: Ochrona przy użyciu szyfrowania AES](protect-with-aes128.md)
-- [Przykład: Ochrona przy użyciu technologii DRM](protect-with-drm.md)
+- [Przykład: Ochrona przy użyciu szyfrowania AES](drm-playready-license-template-concept.md)
+- [Przykład: Ochrona przy użyciu technologii DRM](drm-protect-with-drm-tutorial.md)
 
 Aby uzyskać wskazówki dotyczące filtru, zobacz:
 
-- [Koncepcja: manifesty dynamiczne](filters-dynamic-manifest-overview.md)
+- [Koncepcja: manifesty dynamiczne](filters-dynamic-manifest-concept.md)
 - [Koncepcja: filtry](filters-concept.md)
 - [Przykład: Tworzenie filtrów za pomocą interfejsów API REST](filters-dynamic-manifest-rest-howto.md)
-- [Przykład: Tworzenie filtrów za pomocą platformy .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Przykład: Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-howto.md)
+- [Przykład: Tworzenie filtrów za pomocą platformy .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Przykład: Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-how-to.md)
 
 Aby zapoznać się z artykułami i przykładami na żywo, zobacz:
 
-- [Koncepcja: Omówienie przesyłania strumieniowego na żywo](live-streaming-overview.md)
-- [Koncepcja: wydarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md)
+- [Koncepcja: Omówienie przesyłania strumieniowego na żywo](stream-live-streaming-concept.md)
+- [Koncepcja: wydarzenia na żywo i wyjście na żywo](live-event-outputs-concept.md)
 - [Przykład: samouczek dotyczący przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)
 
 ## <a name="416-range-not-satisfiable"></a>416 Niewłaściwy zakres
@@ -202,7 +202,7 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 
 - [Kody błędów kodowania](/rest/api/media/jobs/get#joberrorcode)
 - [Koncepcje Azure Media Services](concepts-overview.md)
-- [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
+- [Limity przydziału i ograniczenia](limits-quotas-constraints-reference.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
